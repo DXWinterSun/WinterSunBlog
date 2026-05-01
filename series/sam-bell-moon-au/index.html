@@ -1,0 +1,89 @@
+---
+layout: home
+title: "Sam Bell · Moon AU"
+permalink: /series/sam-bell-moon-au/
+---
+
+<section class="c-hero">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+
+  <div class="c-hero__eyebrow">AU Story · Series</div>
+  <h1 class="c-hero__title">Sam Bell · <em>Moon AU</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">an AU of Moon (2009) · ongoing</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    那里有一整屋的他，等你们去唤醒。
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
+</section>
+
+<article class="c-sam-intro">
+  <h2 class="c-sam-intro__heading">关于这个系列</h2>
+
+  <p>
+    《月球》（<em>Moon</em>, 2009）是 Sam Rockwell 一个人撑起整部电影的孤独之作。地下沉睡舱里那一整列被工业化生产、被预设三年寿命、被做成"用完就处理掉的工具"的 Sam Bell——他们一直在我心里没消失。
+  </p>
+
+  <p>这是关于他们的另一种结局。</p>
+
+  <p>
+    原片之后——Sam 6 撞掉了 Sarang 基地的干扰天线、藏进一罐氦-3 的运输舱、回到了那个从未真正属于他的地球，曝光了 Lunar Industries 的整个运转方式。然后是这个 AU 的世界：氦-3 反噬让地球文明开始慢性死亡，"你"——一个 26 岁的合成生物学家，研发出能修复克隆体衰老程序的合成药剂、却被伦理委员会冻结的那个——决定前往 Sarang 基地，把那一百多位还沉睡的 Sam 一个一个唤醒。
+  </p>
+
+  <p>
+    Sam 6 没让你一个人去。他在登舱口拦住你，怀里抱着旅行袋，眨眨眼说：「你没说过那个不是 Sam Bell 的人不能带一个 Sam Bell 一起去。」
+  </p>
+
+  <p>
+    这个系列写的是你们三个——你、Sam 6、刚被唤醒的 Sam 7——以及之后慢慢被唤醒的更多 Sam——重新把这家公司当年没给他们的「我们」，一个一个找回来的故事。
+  </p>
+
+  <p class="c-sam-intro__closing">
+    Sarang，韩语里是「爱」的意思。<br>
+    会一章一章慢慢长。
+  </p>
+</article>
+
+{% assign chapters = site.posts | where: "series", "Sam Bell · Moon AU" | sort: "series_order" %}
+
+<section class="c-sam-collection">
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">Chapters</h3>
+    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · ongoing</span>
+  </div>
+
+  <div class="c-post-grid">
+    {% for chapter in chapters %}
+    <a class="c-post" href="{{ chapter.url | prepend: site.baseurl }}">
+      <div class="c-post__image-wrap">
+        {% if chapter.image %}
+        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: chapter.image }}')"></div>
+        {% else %}
+        <div class="c-post__placeholder">Chapter {{ chapter.series_order | default: forloop.index }}</div>
+        {% endif %}
+      </div>
+      <div class="c-post__body">
+        <div class="c-post__eyebrow">Chapter {{ chapter.series_order | default: forloop.index }}</div>
+        <h3 class="c-post__title">{{ chapter.title | remove: " — Sam Bell · Moon AU" }}</h3>
+        {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
+        <div class="c-post__meta">
+          <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
+          {% capture words %}{{ chapter.content | number_of_words }}{% endcapture %}
+          {% unless words contains "-" %}
+          <span>{{ words | plus: 250 | divided_by: 250 | append: " min read" }}</span>
+          {% endunless %}
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>

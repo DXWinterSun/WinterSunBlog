@@ -168,9 +168,37 @@ layout: home
   </div>
 
   <div class="c-post-grid">
+    {% comment %}
+      Series cards — one per unique series. Hidden on the "all" view (which shows
+      individual chapters); shown when their parent category is the active filter,
+      replacing the per-chapter cards for that series.
+    {% endcomment %}
+    {% assign all_series = site.posts | map: "series" | uniq | compact %}
+    {% for series_name in all_series %}
+      {% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
+      {% assign series_first = series_posts | first %}
+      {% assign series_cat = series_first.categories | first %}
+      {% assign series_count = series_posts | size %}
+      {% assign series_slug = series_name | slugify %}
+    <a class="c-post c-post--series is-hidden" href="{{ site.baseurl }}/series/{{ series_slug }}/" data-category="{{ series_cat }}" data-card-type="series" target="_blank" rel="noopener">
+      <div class="c-post__image-wrap">
+        {% if series_first.image %}
+        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: series_first.image }}')"></div>
+        {% else %}
+        <div class="c-post__placeholder">{{ series_cat | default: "Series" }}</div>
+        {% endif %}
+      </div>
+      <div class="c-post__body">
+        <div class="c-post__eyebrow">{{ series_cat }} · Series</div>
+        <h3 class="c-post__title">{{ series_name }}</h3>
+        <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · ongoing</p>
+      </div>
+    </a>
+    {% endfor %}
+
     {% for post in site.posts %}
     {% assign post_cat = post.categories | first %}
-    <a class="c-post" href="{{ post.url | prepend: site.baseurl }}" data-category="{{ post_cat }}"{% if post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
+    <a class="c-post" href="{{ post.url | prepend: site.baseurl }}" data-category="{{ post_cat }}" data-card-type="chapter"{% if post.series %} data-series="{{ post.series }}"{% endif %}{% if post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
       <div class="c-post__image-wrap">
         {% if post.image %}
         <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: post.image }}')"></div>
