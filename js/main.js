@@ -45,11 +45,18 @@ $(document).ready(function () {
         $(this).addClass('is-hidden');
       }
     });
-    $('[data-empty]').toggle(visible === 0 && filter !== 'all');
+    var isEmpty = visible === 0 && filter !== 'all';
+    $('[data-empty]').toggle(isEmpty);
+    // Hide the "More Stories" header when filtered set is empty or only featured remains
+    var gridVisible = $('.c-post-grid .c-post:not(.is-hidden)').length;
+    $('.c-section-heading').toggle(gridVisible > 0);
   }
 
-  $('.c-nav__list > .c-nav__item').on('click', function () {
+  $('.c-nav__list > .c-nav__item').on('click', function (e) {
     var $this = $(this);
+    // Real-link items navigate natively
+    if ($this.hasClass('c-nav__item--link')) return;
+
     $('.c-nav__list > .c-nav__item').removeClass('is-active');
     $this.addClass('is-active');
 
@@ -65,6 +72,11 @@ $(document).ready(function () {
     } else if ($this.hasClass('c-item_images')) {
       $('.c-show-images').show().addClass('o-opacity');
       $('.c-posts, .c-categories, .c-blog-tags').hide().removeClass('o-opacity');
+    }
+
+    // Scroll up so user sees the change
+    if ($('main.c-content').length && window.scrollY > 200) {
+      $('html, body').animate({ scrollTop: $('main.c-content').offset().top - 80 }, 250);
     }
   });
 

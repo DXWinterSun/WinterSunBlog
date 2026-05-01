@@ -79,7 +79,10 @@ layout: home
     {% endfor %}
   </div>
 
-  <div class="c-empty-state" data-empty hidden>Nothing here yet under this category.</div>
+  <div class="c-empty-state" data-empty hidden>
+    <p class="c-empty-state__title">Nothing filed here yet.</p>
+    <p class="c-empty-state__hint">This category is waiting for its first story.</p>
+  </div>
 
   {% else %}
   <div class="c-empty-state">Stories are on their way.</div>

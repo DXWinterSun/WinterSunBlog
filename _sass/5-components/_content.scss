@@ -9,12 +9,24 @@
 }
 
 .c-empty-state {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
   color: $muted;
-  font-family: $heading-font-family;
-  font-style: italic;
-  font-size: 15px;
+  .c-empty-state__title {
+    font-family: $heading-font-family;
+    font-style: italic;
+    font-size: 22px;
+    color: $ink;
+    margin: 0 0 8px;
+  }
+  .c-empty-state__hint {
+    font-family: $heading-font-family;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: $muted;
+    margin: 0;
+  }
 }
 
 /* ===== Footer ===== */

@@ -62,7 +62,6 @@
 
 .c-nav__item {
   position: relative;
-  padding: 8px 14px;
   font-family: $heading-font-family;
   font-size: 13px;
   letter-spacing: 0.06em;
@@ -72,6 +71,7 @@
   border-radius: 999px;
   transition: $global-transition;
   user-select: none;
+  padding: 8px 14px;
   &:hover {
     color: $accent;
     background-color: rgba(184, 92, 92, 0.06);
@@ -79,6 +79,25 @@
   &.is-active {
     color: $paper;
     background-color: $ink;
+  }
+  &.c-nav__item--link {
+    padding: 0;
+    background: transparent;
+    > a {
+      display: block;
+      padding: 8px 14px;
+      color: inherit;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: $global-transition;
+    }
+    &:hover {
+      background: transparent;
+      > a {
+        color: $accent;
+        background-color: rgba(184, 92, 92, 0.06);
+      }
+    }
   }
 }
 
