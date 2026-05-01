@@ -1,0 +1,166 @@
+/* ===============
+	SAM LANDING PAGE
+=============== */
+
+/* ----- Intro prose ----- */
+.c-sam-intro {
+  max-width: 680px;
+  margin: 8px auto 64px;
+  padding: 0 8px;
+  font-size: 16.5px;
+  line-height: 1.9;
+  color: $ink-soft;
+
+  p { margin: 0 0 22px; }
+}
+
+.c-sam-intro__heading {
+  font-family: $heading-font-family;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: $accent;
+  margin: 56px 0 26px;
+  text-align: center;
+  position: relative;
+  &::before, &::after {
+    content: "";
+    display: inline-block;
+    width: 26px;
+    height: 1px;
+    background-color: $accent-soft;
+    vertical-align: middle;
+    margin: 0 14px;
+    transform: translateY(-2px);
+  }
+  &:first-of-type { margin-top: 24px; }
+}
+
+.c-sam-intro__list {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  li {
+    position: relative;
+    padding: 8px 0 8px 28px;
+    border-bottom: 1px solid $line;
+    &::before {
+      content: "✦";
+      position: absolute;
+      left: 4px;
+      top: 8px;
+      color: $accent;
+      font-size: 12px;
+    }
+    &:last-child { border-bottom: 0; }
+  }
+}
+
+.c-sam-intro__closing {
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.7;
+  color: $ink;
+  text-align: center;
+  margin: 36px 0 8px;
+}
+
+/* ----- Collection grid ----- */
+.c-sam-collection {
+  max-width: 880px;
+  margin: 0 auto 80px;
+  padding: 0 8px;
+}
+
+.c-sam-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 8px;
+}
+
+.c-sam-card {
+  display: block;
+  padding: 28px 30px;
+  background-color: $paper;
+  border: 1px solid $line;
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  transition: $global-transition;
+  position: relative;
+  &:hover {
+    transform: translateY(-3px);
+    border-color: $accent-soft;
+    box-shadow: 0 22px 44px -22px rgba(31, 29, 26, 0.22);
+    .c-sam-card__title { color: $accent; }
+    .c-sam-card__cta { color: $accent; }
+    .c-sam-card__tab { transform: translate(2px, -2px); }
+  }
+}
+
+.c-sam-card__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 14px;
+}
+
+.c-sam-card__tab {
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 0;
+  color: $muted;
+  transition: $global-transition;
+}
+
+.c-sam-card__title {
+  font-family: $heading-font-family;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: $ink;
+  margin: 0 0 12px;
+  letter-spacing: -0.005em;
+  transition: color $global-transition;
+}
+
+.c-sam-card__desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: $ink-soft;
+  margin: 0 0 18px;
+}
+
+.c-sam-card__cta {
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $ink-soft;
+  transition: color $global-transition;
+}
+
+@media only screen and (max-width: 720px) {
+  .c-sam-intro {
+    font-size: 15.5px;
+    line-height: 1.85;
+  }
+  .c-sam-intro__heading {
+    font-size: 12px;
+    margin: 44px 0 22px;
+    &::before, &::after { width: 18px; margin: 0 10px; }
+  }
+  .c-sam-intro__closing { font-size: 17px; }
+  .c-sam-card {
+    padding: 22px 22px;
+  }
+  .c-sam-card__title { font-size: 22px; }
+}
