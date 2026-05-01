@@ -6,6 +6,12 @@
     {% elsif page.url == '/' or page.url == '/index.html' or page.url == '/about/' %}{% assign nav_active = 'about' %}
     {% endif %}
 
+    <button class="c-scroll-top" type="button" id="js-scroll-top" aria-label="Scroll to top — click again to go home" title="Top of page (click again to go home)">
+      {% if site.author-image %}
+      <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="">
+      {% endif %}
+    </button>
+
     <nav class="c-nav" aria-label="Primary">
       <ul class="c-nav__list u-lists-reset">
         <li class="c-nav__item c-nav__item--link{% if nav_active == 'about' %} is-active{% endif %}">
