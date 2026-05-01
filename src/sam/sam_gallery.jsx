@@ -904,7 +904,7 @@ export default function SamGallery() {
             marginBottom: "48px",
             opacity: 0.85,
           }}>
-            从1997到2022<br />
+            从{Math.min.apply(null, characters.map(function(c) { return parseInt(c.year, 10); }))}到{Math.max.apply(null, characters.map(function(c) { return parseInt(c.year, 10); }))}<br />
             他演过那么多人<br />
             而每一个，都让你心动过
           </p>
