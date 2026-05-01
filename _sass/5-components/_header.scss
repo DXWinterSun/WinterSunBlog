@@ -81,11 +81,18 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: $ink-soft;
-  cursor: pointer;
   border-radius: 999px;
   transition: $global-transition;
   user-select: none;
-  padding: 8px 14px;
+  padding: 0;
+  > a {
+    display: block;
+    padding: 8px 14px;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: $global-transition;
+  }
   &:hover {
     color: $accent;
     background-color: rgba(184, 92, 92, 0.06);
@@ -93,25 +100,7 @@
   &.is-active {
     color: $paper;
     background-color: $ink;
-  }
-  &.c-nav__item--link {
-    padding: 0;
-    background: transparent;
-    > a {
-      display: block;
-      padding: 8px 14px;
-      color: inherit;
-      text-decoration: none;
-      border-radius: 999px;
-      transition: $global-transition;
-    }
-    &:hover {
-      background: transparent;
-      > a {
-        color: $accent;
-        background-color: rgba(184, 92, 92, 0.06);
-      }
-    }
+    > a { color: inherit; }
   }
 }
 

@@ -4,18 +4,40 @@
       <span class="c-brand__mark">W</span><span class="c-brand__rest">inter</span><span class="c-brand__dot"></span>
     </a>
 
+    {% comment %} Determine active tab from page URL {% endcomment %}
+    {% assign nav_active = '' %}
+    {% if page.url contains '/sam' %}{% assign nav_active = 'sam' %}
+    {% elsif page.url == '/about/' %}{% assign nav_active = 'about' %}
+    {% elsif page.url == '/' or page.url == '/index.html' %}{% assign nav_active = 'all' %}
+    {% endif %}
+
     <nav class="c-nav" aria-label="Primary">
       <ul class="c-nav__list u-lists-reset">
-        <li class="c-nav__item c-item_post is-active" data-filter="all">All</li>
-        <li class="c-nav__item c-item_post" data-filter="Daily">Daily</li>
-        <li class="c-nav__item c-item_post" data-filter="Novel">Novel</li>
-        <li class="c-nav__item c-item_post" data-filter="AU Story">AU Story</li>
-        <li class="c-nav__item c-item_post" data-filter="Lyrics">Lyrics</li>
-        <li class="c-nav__item c-item_images">Gallery</li>
-        <li class="c-nav__item c-nav__item--link">
+        <li class="c-nav__item c-item_post{% if nav_active == 'all' %} is-active{% endif %}" data-filter="all">
+          <a href="{{site.baseurl}}/">All</a>
+        </li>
+        <li class="c-nav__item c-item_post" data-filter="Daily">
+          <a href="{{site.baseurl}}/?cat=Daily">Daily</a>
+        </li>
+        <li class="c-nav__item c-item_post" data-filter="Novel">
+          <a href="{{site.baseurl}}/?cat=Novel">Novel</a>
+        </li>
+        <li class="c-nav__item c-item_post" data-filter="AU Story">
+          <a href="{{site.baseurl}}/?cat=AU+Story">AU Story</a>
+        </li>
+        <li class="c-nav__item c-item_post" data-filter="Lyrics">
+          <a href="{{site.baseurl}}/?cat=Lyrics">Lyrics</a>
+        </li>
+        <li class="c-nav__item c-item_images">
+          <a href="{{site.baseurl}}/?view=gallery">Gallery</a>
+        </li>
+        <li class="c-nav__item c-item_tags">
+          <a href="{{site.baseurl}}/?view=tags">Tags</a>
+        </li>
+        <li class="c-nav__item c-nav__item--link{% if nav_active == 'sam' %} is-active{% endif %}">
           <a href="{{site.baseurl}}/sam/">Sam</a>
         </li>
-        <li class="c-nav__item c-nav__item--link">
+        <li class="c-nav__item c-nav__item--link{% if nav_active == 'about' %} is-active{% endif %}">
           <a href="{{site.baseurl}}/about/">About</a>
         </li>
       </ul>
