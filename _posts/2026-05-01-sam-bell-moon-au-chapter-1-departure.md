@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Sam Bell · Moon AU · 〈一〉出发"
+title: "Chapter 1 · Departure — Sam Bell · Moon AU"
 date: 2026-05-01
 tags: [Sam, AU, Moon, 中文]
 categories: AU Story
