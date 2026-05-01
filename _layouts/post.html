@@ -28,18 +28,6 @@ layout: home
       </header>
       {{page.content | markdownify}}
 
-      <div id="valine-comments">
-        <script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
-        <script type="text/javascript">
-            console.log("this is valine comments")
-            new Valine({
-                el: '#valine-comments',
-                appId: '1289CUYr7bmBOIe8rqJnDKfv-gzGzoHsz',
-                appKey: 'EgK4tADjLrGwMOfObtf3Lx4Z'
-            })
-        </script>
-    </div>
-      
       <div class="c-recent-post">
         {% if site.related_posts %}
         <h4 class="c-recent__title">YOU MIGHT ALSO ENJOY</h4>
