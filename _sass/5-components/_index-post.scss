@@ -17,7 +17,7 @@
   color: inherit;
   &:hover .c-featured__image-wrap {
     transform: translateY(-3px);
-    box-shadow: 0 30px 60px -20px rgba(31, 29, 26, 0.25);
+    box-shadow: 0 30px 60px -20px rgba(var(--rgb-shadow), 0.25);
   }
   &:hover .c-featured__title {
     color: $accent;
@@ -30,13 +30,13 @@
   overflow: hidden;
   aspect-ratio: 4 / 3;
   background-color: $line;
-  box-shadow: 0 18px 40px -18px rgba(31, 29, 26, 0.25);
+  box-shadow: 0 18px 40px -18px rgba(var(--rgb-shadow), 0.25);
   transition: $global-transition;
   &::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(31, 29, 26, 0.10));
+    background: linear-gradient(180deg, transparent 60%, rgba(var(--rgb-shadow), 0.10));
     pointer-events: none;
   }
 }
@@ -125,7 +125,7 @@
   transition: $global-transition;
   &:hover .c-post__image-wrap {
     transform: translateY(-3px);
-    box-shadow: 0 24px 50px -20px rgba(31, 29, 26, 0.22);
+    box-shadow: 0 24px 50px -20px rgba(var(--rgb-shadow), 0.22);
   }
   &:hover .c-post__title {
     color: $accent;
@@ -138,7 +138,7 @@
   overflow: hidden;
   aspect-ratio: 16 / 10;
   background-color: $line;
-  box-shadow: 0 12px 28px -16px rgba(31, 29, 26, 0.20);
+  box-shadow: 0 12px 28px -16px rgba(var(--rgb-shadow), 0.20);
   transition: $global-transition;
   margin-bottom: 22px;
 }
@@ -225,8 +225,8 @@
   padding: 28px 30px;
   margin-bottom: 32px;
   background:
-    radial-gradient(circle at 88% 28%, rgba(184, 92, 92, 0.10), transparent 40%),
-    radial-gradient(circle at 12% 78%, rgba(212, 196, 176, 0.18), transparent 38%),
+    radial-gradient(circle at 88% 28%, rgba(var(--rgb-accent), 0.10), transparent 40%),
+    radial-gradient(circle at 12% 78%, rgba(var(--rgb-line-warm), 0.18), transparent 38%),
     $paper;
   border: 1px solid $line;
   border-radius: 4px;
@@ -246,7 +246,7 @@
   &:hover {
     transform: translateY(-3px);
     border-color: $accent-soft;
-    box-shadow: 0 22px 44px -22px rgba(31, 29, 26, 0.22);
+    box-shadow: 0 22px 44px -22px rgba(var(--rgb-shadow), 0.22);
     .c-feature-card__title { color: $accent; }
     .c-feature-card__cta { color: $accent; }
     .c-feature-card__tab { transform: translate(2px, -2px); }
@@ -324,11 +324,11 @@
   overflow: hidden;
   border-radius: 4px;
   background-color: $line;
-  box-shadow: 0 8px 22px -14px rgba(31, 29, 26, 0.25);
+  box-shadow: 0 8px 22px -14px rgba(var(--rgb-shadow), 0.25);
   transition: $global-transition;
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 18px 36px -16px rgba(31, 29, 26, 0.35);
+    box-shadow: 0 18px 36px -16px rgba(var(--rgb-shadow), 0.35);
   }
   img {
     width: 100%;

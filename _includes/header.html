@@ -1,21 +1,15 @@
 <header class="c-topbar">
   <div class="o-container c-topbar__inner">
-    <a class="c-brand" href="{{site.baseurl}}/" aria-label="Home">
-      <span class="c-brand__emoji" aria-hidden="true">❄️☀️</span>
-      <span class="c-brand__text u-screen-reader-text">Winter Sun</span>
-    </a>
-
-    {% comment %} Determine active tab from page URL {% endcomment %}
+    {% comment %} About is now the home page; HOME tab removed. {% endcomment %}
     {% assign nav_active = '' %}
     {% if page.url contains '/sam' %}{% assign nav_active = 'sam' %}
-    {% elsif page.url == '/about/' %}{% assign nav_active = 'about' %}
-    {% elsif page.url == '/' or page.url == '/index.html' %}{% assign nav_active = 'all' %}
+    {% elsif page.url == '/' or page.url == '/index.html' or page.url == '/about/' %}{% assign nav_active = 'about' %}
     {% endif %}
 
     <nav class="c-nav" aria-label="Primary">
       <ul class="c-nav__list u-lists-reset">
-        <li class="c-nav__item c-item_post{% if nav_active == 'all' %} is-active{% endif %}" data-filter="all">
-          <a href="{{site.baseurl}}/">Home</a>
+        <li class="c-nav__item c-nav__item--link{% if nav_active == 'about' %} is-active{% endif %}">
+          <a href="{{site.baseurl}}/">About</a>
         </li>
         <li class="c-nav__item c-item_post" data-filter="Daily">
           <a href="{{site.baseurl}}/?cat=Daily">Daily</a>
@@ -38,9 +32,6 @@
         <li class="c-nav__item c-nav__item--link{% if nav_active == 'sam' %} is-active{% endif %}">
           <a href="{{site.baseurl}}/sam/">Sam</a>
         </li>
-        <li class="c-nav__item c-nav__item--link{% if nav_active == 'about' %} is-active{% endif %}">
-          <a href="{{site.baseurl}}/about/">About</a>
-        </li>
       </ul>
     </nav>
 
@@ -52,5 +43,10 @@
       </div>
       <ul id="js-results-container" class="c-search-results-list"></ul>
     </div>
+
+    <button class="c-theme-toggle" type="button" id="js-theme-toggle" aria-label="Toggle dark mode">
+      <span class="c-theme-toggle__icon c-theme-toggle__icon--light" aria-hidden="true">🌕</span>
+      <span class="c-theme-toggle__icon c-theme-toggle__icon--dark" aria-hidden="true">🌑</span>
+    </button>
   </div>
 </header>

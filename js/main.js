@@ -184,6 +184,24 @@ $(document).ready(function () {
   });
 
   /* =======================
+  // Theme toggle (light / dark)
+  ======================= */
+
+  var themeToggle = document.getElementById('js-theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next;
+      if (current === 'dark') next = 'light';
+      else if (current === 'light') next = 'dark';
+      else next = systemDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('wiw-theme', next); } catch (e) { /* ignore */ }
+    });
+  }
+
+  /* =======================
   // Scroll to top
   ======================= */
 

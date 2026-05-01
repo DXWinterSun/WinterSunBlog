@@ -22,11 +22,11 @@ layout: home
   </a>
   {% endif %}
 
-  <div class="c-hero__eyebrow">A Personal Blog</div>
-  <h1 class="c-hero__title">Winter in <em>Wonderland</em></h1>
+  <div class="c-hero__eyebrow">About</div>
+  <h1 class="c-hero__title">Hi, I'm <em>Winter Sun</em></h1>
   <div class="c-hero__byline">
     <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">by 冬璇 · Winter Sun</span>
+    <span class="c-hero__byline-text">冬璇 · {{ site.author-job }}</span>
     <span class="c-hero__byline-rule"></span>
   </div>
 
@@ -36,10 +36,32 @@ layout: home
     <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
   </p>
 
-  <div class="c-hero__role">{{ site.author-job }}</div>
+  <div class="c-hero__socials">
+    {% if site.author-email %}<a href="{{site.baseurl}}/contact/">Contact</a>{% endif %}
+    {% if site.author-weibo %}<a href="{{site.author-weibo}}" target="_blank" rel="noopener">Weibo</a>{% endif %}
+    {% if site.author-bilibili %}<a href="{{site.author-bilibili}}" target="_blank" rel="noopener">Bilibili</a>{% endif %}
+    {% if site.author-redbook %}<a href="{{site.author-redbook}}" target="_blank" rel="noopener">Red Book</a>{% endif %}
+  </div>
 </section>
 
+<article class="c-about" data-hero-id="all">
+  <p class="c-about__lede">
+    This is a quiet corner of the internet where I keep what matters to me —
+    daily notes, novels and AU stories I've written, lyric translations,
+    and pictures I've drawn or fallen in love with.
+  </p>
+  <p>
+    I write mostly in Chinese, sometimes in English, occasionally side by side.
+    I make things slowly. Thanks for stopping by.
+  </p>
+</article>
+
 <section class="c-hero c-hero--filter" data-hero-id="Daily">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">Daily</div>
   <h1 class="c-hero__title">Slow <em>Days</em></h1>
   <div class="c-hero__byline">
@@ -50,6 +72,11 @@ layout: home
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="Novel">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">Novel</div>
   <h1 class="c-hero__title">These <em>Stories</em></h1>
   <div class="c-hero__byline">
@@ -60,6 +87,11 @@ layout: home
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="AU Story">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">AU Story</div>
   <h1 class="c-hero__title">If, <em>Otherwise</em></h1>
   <div class="c-hero__byline">
@@ -70,6 +102,11 @@ layout: home
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="Lyrics">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">Lyrics</div>
   <h1 class="c-hero__title">Borrowed <em>Songs</em></h1>
   <div class="c-hero__byline">
@@ -80,6 +117,11 @@ layout: home
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="gallery">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">Gallery</div>
   <h1 class="c-hero__title">Pictures <em>Kept</em></h1>
   <div class="c-hero__byline">
@@ -90,6 +132,11 @@ layout: home
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="tags">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">Tags</div>
   <h1 class="c-hero__title">By <em>Mood</em></h1>
   <div class="c-hero__byline">
@@ -102,37 +149,13 @@ layout: home
 <div class="c-posts o-opacity">
   {% if site.posts.size > 0 %}
 
-  {% assign featured = site.posts | first %}
-  {% assign featured_cat = featured.categories | first %}
-  <a class="c-featured" href="{{ featured.url | prepend: site.baseurl }}" data-category="{{ featured_cat }}"{% if featured_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
-    <div class="c-featured__image-wrap">
-      {% if featured.image %}
-      <div class="c-featured__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: featured.image }}')"></div>
-      {% else %}
-      <div class="c-post__placeholder">{{ featured.categories | first | default: "Story" }}</div>
-      {% endif %}
-    </div>
-    <div class="c-featured__body">
-      <div class="c-featured__eyebrow">Latest · {{ featured.categories | first | default: "Post" }}</div>
-      <h2 class="c-featured__title">{{ featured.title }}</h2>
-      <p class="c-featured__summary">{{ featured.summary }}</p>
-      <div class="c-featured__meta">
-        <span>{{ featured.date | date: '%Y, %b %d' }}</span>
-        {% capture words %}{{ featured.content | number_of_words }}{% endcapture %}
-        {% unless words contains "-" %}
-        <span>{{ words | plus: 250 | divided_by: 250 | append: " min read" }}</span>
-        {% endunless %}
-      </div>
-    </div>
-  </a>
-
   <div class="c-section-heading">
-    <h3 class="c-section-heading__title">More Stories</h3>
+    <h3 class="c-section-heading__title">All Stories</h3>
     <span class="c-section-heading__meta">{{ site.posts.size }} posts</span>
   </div>
 
   <div class="c-post-grid">
-    {% for post in site.posts offset:1 %}
+    {% for post in site.posts %}
     {% assign post_cat = post.categories | first %}
     <a class="c-post" href="{{ post.url | prepend: site.baseurl }}" data-category="{{ post_cat }}"{% if post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
       <div class="c-post__image-wrap">
