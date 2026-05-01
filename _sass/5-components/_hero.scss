@@ -18,22 +18,27 @@
 :root[data-hero-active="gallery"] [data-hero-id="gallery"] { display: block; }
 :root[data-hero-active="tags"] [data-hero-id="tags"] { display: block; }
 
-/* Compact filter hero — eyebrow + title + byline only */
+/* Compact filter hero — eyebrow + title + byline only.
+   Same typographic style as Sam/About, just no portrait/quote. */
 .c-hero--filter {
-  padding: 64px 0 48px;
+  padding: 72px 0 56px;
   .c-hero__title {
-    font-size: 56px;
-    margin-bottom: 22px;
+    font-size: 68px;
+    margin-bottom: 30px;
   }
   .c-hero__byline {
     margin-bottom: 0;
+  }
+  .c-hero__byline-text {
+    font-size: 16px;
   }
 }
 
 @media only screen and (max-width: 720px) {
   .c-hero--filter {
-    padding: 44px 0 32px;
-    .c-hero__title { font-size: 36px; }
+    padding: 48px 0 36px;
+    .c-hero__title { font-size: 40px; margin-bottom: 22px; }
+    .c-hero__byline-text { font-size: 13px; }
   }
 }
 
