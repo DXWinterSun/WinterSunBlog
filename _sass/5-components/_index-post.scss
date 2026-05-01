@@ -218,6 +218,99 @@
 .c-post.is-hidden,
 .c-featured.is-hidden { display: none; }
 
+/* ----- Feature card (e.g. New Year fireworks above the image grid) ----- */
+.c-feature-card {
+  display: block;
+  position: relative;
+  padding: 28px 30px;
+  margin-bottom: 32px;
+  background:
+    radial-gradient(circle at 88% 28%, rgba(184, 92, 92, 0.10), transparent 40%),
+    radial-gradient(circle at 12% 78%, rgba(212, 196, 176, 0.18), transparent 38%),
+    $paper;
+  border: 1px solid $line;
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: $global-transition;
+  &::before {
+    content: "✦";
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    color: $accent-soft;
+    font-size: 14px;
+    opacity: 0.6;
+  }
+  &:hover {
+    transform: translateY(-3px);
+    border-color: $accent-soft;
+    box-shadow: 0 22px 44px -22px rgba(31, 29, 26, 0.22);
+    .c-feature-card__title { color: $accent; }
+    .c-feature-card__cta { color: $accent; }
+    .c-feature-card__tab { transform: translate(2px, -2px); }
+  }
+}
+
+.c-feature-card__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 12px;
+  padding-right: 18px;
+}
+
+.c-feature-card__tab {
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 0;
+  color: $muted;
+  transition: $global-transition;
+}
+
+.c-feature-card__title {
+  font-family: $heading-font-family;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: $ink;
+  margin: 0 0 10px;
+  letter-spacing: -0.005em;
+  transition: color $global-transition;
+  em {
+    font-style: italic;
+    color: $accent;
+    font-weight: 400;
+  }
+}
+
+.c-feature-card__desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: $ink-soft;
+  margin: 0 0 14px;
+}
+
+.c-feature-card__cta {
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $ink-soft;
+  transition: color $global-transition;
+}
+
+@media only screen and (max-width: 720px) {
+  .c-feature-card { padding: 22px; }
+  .c-feature-card__title { font-size: 21px; }
+}
+
 /* ----- Gallery (image grid) ----- */
 .c-gallery {
   display: grid;
