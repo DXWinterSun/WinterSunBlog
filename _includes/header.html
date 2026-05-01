@@ -1,7 +1,8 @@
 <header class="c-topbar">
   <div class="o-container c-topbar__inner">
-    <a class="c-brand" href="{{site.baseurl}}/">
-      <span class="c-brand__mark">W</span><span class="c-brand__rest">inter</span><span class="c-brand__dot"></span>
+    <a class="c-brand" href="{{site.baseurl}}/" aria-label="Home">
+      <span class="c-brand__emoji" aria-hidden="true">❄️☀️</span>
+      <span class="c-brand__text u-screen-reader-text">Winter Sun</span>
     </a>
 
     {% comment %} Determine active tab from page URL {% endcomment %}
@@ -14,7 +15,7 @@
     <nav class="c-nav" aria-label="Primary">
       <ul class="c-nav__list u-lists-reset">
         <li class="c-nav__item c-item_post{% if nav_active == 'all' %} is-active{% endif %}" data-filter="all">
-          <a href="{{site.baseurl}}/">All</a>
+          <a href="{{site.baseurl}}/">Home</a>
         </li>
         <li class="c-nav__item c-item_post" data-filter="Daily">
           <a href="{{site.baseurl}}/?cat=Daily">Daily</a>
