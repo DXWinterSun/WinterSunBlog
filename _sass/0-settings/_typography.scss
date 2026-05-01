@@ -2,14 +2,15 @@
 	TYPOGRAPHY
 =============== */
 
-// Body font
-$base-font-size: 16px;
+// Body font — literary serif paired with Chinese serif, matching the
+// Many Faces of Sam page treatment.
+$base-font-size: 18px;
 $base-font-style: normal;
 $base-font-variant: normal;
-$base-font-weight: 400;
-$base-font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+$base-font-weight: 500;
+$base-font-family: 'Cormorant Garamond', 'Noto Serif SC', 'Songti SC', Georgia, 'Times New Roman', serif;
 $base-line-height: 1.7;
 
-// Headings & display
+// Headings & display — keep Volkhov for the magazine-cover headlines
 $heading-font-weight: 400;
 $heading-font-family: 'Volkhov', 'Noto Serif SC', 'Songti SC', 'Times New Roman', Times, serif;
