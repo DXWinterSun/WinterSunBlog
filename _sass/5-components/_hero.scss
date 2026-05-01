@@ -104,7 +104,7 @@
 /* ----- Lede (the tagline / quote) ----- */
 .c-hero__lede {
   position: relative;
-  max-width: 640px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 16px;
   font-family: $heading-font-family;
@@ -112,6 +112,7 @@
   font-size: 22px;
   line-height: 1.55;
   color: $ink-soft;
+  text-wrap: pretty;
 }
 
 .c-hero__quote {
