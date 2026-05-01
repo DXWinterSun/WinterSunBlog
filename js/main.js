@@ -77,8 +77,30 @@ $(document).ready(function () {
     $item.addClass('is-active');
   }
 
+  // Cache the site title (last segment of the page title, or the
+  // whole thing if there's no " · " separator).
+  var SITE_TITLE_BASE = (function () {
+    var t = document.title || '';
+    var i = t.indexOf(' · ');
+    return i > 0 ? t.slice(i + 3) : t;
+  }());
+
+  var HERO_LABELS = {
+    'Daily': 'Daily',
+    'Novel': 'Novel',
+    'AU Story': 'AU Story',
+    'Lyrics': 'Lyrics',
+    'gallery': 'Gallery',
+    'tags': 'Tags'
+  };
+
   function setActiveHero(name) {
     document.documentElement.setAttribute('data-hero-active', name);
+    if (HERO_LABELS[name]) {
+      document.title = HERO_LABELS[name] + ' · ' + SITE_TITLE_BASE;
+    } else {
+      document.title = SITE_TITLE_BASE;
+    }
   }
 
   // On homepage: intercept filter / view clicks
