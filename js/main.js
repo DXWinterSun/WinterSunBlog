@@ -6,13 +6,15 @@ $(document).ready(function () {
   // Simple Search Settings
   ======================= */
 
-  SimpleJekyllSearch({
-    searchInput: document.getElementById('js-search-input'),
-    resultsContainer: document.getElementById('js-results-container'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-    noResultsText: '<li>No results found</li>'
-  })
+  if (document.getElementById('js-search-input')) {
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('js-search-input'),
+      resultsContainer: document.getElementById('js-results-container'),
+      json: '/search.json',
+      searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+      noResultsText: '<li><a>No results</a></li>'
+    });
+  }
 
   /* =======================
   // Responsive videos
@@ -23,36 +25,46 @@ $(document).ready(function () {
   });
 
   /* =======================================
-  // Switching between posts and categories
+  // Top nav: switch view + filter by category
   ======================================= */
 
-  $('.c-nav__list > .c-nav__item').click(function() {
+  function showPostsView() {
+    $('.c-posts').show().addClass('o-opacity');
+    $('.c-categories, .c-blog-tags, .c-show-images').hide().removeClass('o-opacity');
+  }
+
+  function applyCategoryFilter(filter) {
+    var $items = $('.c-posts').find('[data-category]');
+    var visible = 0;
+    $items.each(function () {
+      var cat = $(this).attr('data-category') || '';
+      if (filter === 'all' || cat === filter) {
+        $(this).removeClass('is-hidden');
+        visible++;
+      } else {
+        $(this).addClass('is-hidden');
+      }
+    });
+    $('[data-empty]').toggle(visible === 0 && filter !== 'all');
+  }
+
+  $('.c-nav__list > .c-nav__item').on('click', function () {
+    var $this = $(this);
     $('.c-nav__list > .c-nav__item').removeClass('is-active');
-    $(this).addClass('is-active');
-    if ($('.c-item_post').hasClass('is-active')) {
-      console.log("c-item_post display...")
-      $('.c-posts').css('display', '').addClass('o-opacity');
-      $('.c-categories').css('display', 'none').removeClass('o-opacity');
-      $('.c-blog-tags').css('display', 'none').removeClass('o-opacity');
-      $('.c-show-images').css('display', 'none').removeClass('o-opacity');
-    } else if ($('.c-item_category').hasClass('is-active')) {
-      console.log("c-item_category display...")
-      $('.c-categories').css('display', '').addClass('o-opacity');
-      $('.c-posts').css('display', 'none').removeClass('o-opacity');
-      $('.c-blog-tags').css('display', 'none').removeClass('o-opacity');
-      $('.c-show-images').css('display', 'none').removeClass('o-opacity');
-    } else if ($('.c-item_tags').hasClass('is-active')) {
-      console.log("c-blog-tags display...")
-      $('.c-categories').css('display', 'none').addClass('o-opacity');
-      $('.c-posts').css('display', 'none').removeClass('o-opacity');
-      $('.c-blog-tags').css('display', '').removeClass('o-opacity');
-      $('.c-show-images').css('display', 'none').removeClass('o-opacity');
-    } else {
-      console.log("c-show-images display...")
-      $('.c-categories').css('display', 'none').addClass('o-opacity');
-      $('.c-posts').css('display', 'none').removeClass('o-opacity');
-      $('.c-blog-tags').css('display', 'none').removeClass('o-opacity');
-      $('.c-show-images').css('display', '').removeClass('o-opacity');
+    $this.addClass('is-active');
+
+    if ($this.hasClass('c-item_post')) {
+      showPostsView();
+      applyCategoryFilter($this.attr('data-filter') || 'all');
+    } else if ($this.hasClass('c-item_category')) {
+      $('.c-categories').show().addClass('o-opacity');
+      $('.c-posts, .c-blog-tags, .c-show-images').hide().removeClass('o-opacity');
+    } else if ($this.hasClass('c-item_tags')) {
+      $('.c-blog-tags').show().addClass('o-opacity');
+      $('.c-posts, .c-categories, .c-show-images').hide().removeClass('o-opacity');
+    } else if ($this.hasClass('c-item_images')) {
+      $('.c-show-images').show().addClass('o-opacity');
+      $('.c-posts, .c-categories, .c-blog-tags').hide().removeClass('o-opacity');
     }
   });
 

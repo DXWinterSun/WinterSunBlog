@@ -1,24 +1,41 @@
 ---
 layout: home
 ---
-{% include header.html %}
+
+<section class="c-hero">
+  <div class="c-hero__eyebrow">Category</div>
+  <h1 class="c-hero__title">{{ page.title }}</h1>
+  <p class="c-hero__lede">{{ site.categories[page.title] | size }} stories filed under <em>{{ page.title }}</em>.</p>
+</section>
+
 <div class="c-posts o-opacity">
-  {% for post in site.categories[page.title] %}
-  <article class="c-post">
-    {% if post.image %}
-    <a class="c-post-thumbnail" style="background-image: url({{"/images/" | prepend: site.baseurl | append : post.image}})"
-      href="{{post.url | prepend: site.baseurl}}"></a>
-    {% else %} {% endif %}
-    <div class="c-post-content">
-      <h2 class="c-post-title">
-        <a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a>
-      </h2>
-      <p>{{ post.summary }}</p>
-      <span class="c-post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-      <span class="c-post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus:
-        250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
-    </div>
-  </article>
-  {% endfor %}
+  <div class="c-post-grid">
+    {% for post in site.categories[page.title] %}
+    <a class="c-post" href="{{ post.url | prepend: site.baseurl }}" data-category="{{ post.categories | first }}">
+      <div class="c-post__image-wrap">
+        {% if post.image %}
+        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: post.image }}')"></div>
+        {% else %}
+        <div class="c-post__placeholder">{{ post.categories | first | default: "Story" }}</div>
+        {% endif %}
+      </div>
+      <div class="c-post__body">
+        {% if post.categories.size > 0 %}
+        <div class="c-post__eyebrow">{{ post.categories | first }}</div>
+        {% endif %}
+        <h3 class="c-post__title">{{ post.title }}</h3>
+        {% if post.summary %}<p class="c-post__summary">{{ post.summary }}</p>{% endif %}
+        <div class="c-post__meta">
+          <span>{{ post.date | date: '%Y, %b %d' }}</span>
+          {% capture words %}{{ post.content | number_of_words }}{% endcapture %}
+          {% unless words contains "-" %}
+          <span>{{ words | plus: 250 | divided_by: 250 | append: " min read" }}</span>
+          {% endunless %}
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
 </div>
+
 {% include categories.html %}

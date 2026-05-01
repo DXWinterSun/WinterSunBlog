@@ -2,46 +2,56 @@
 	COLORS
 =============== */
 
-$primary-color: #33aaff;
-$secondary-color: #cfcfdd;
-$alternate-color: #404040;
-$red-color: #ee6c6c;
-$green-color: #55bf55;
-$white-color: #ffffff;
+// Brand & accents
+$accent:           #b85c5c; // dusty rose accent
+$accent-soft:      #d3938b;
+$accent-dark:      darken($accent, 8%);
 
+// Ink
+$ink:              #1f1d1a;
+$ink-soft:         #3d3833;
+$muted:            #8a8074;
+$muted-soft:       #b6ac9d;
 
-$dark: #222222;
-$dark-gray: #333333;
-$darkest: #444444;
+// Surfaces
+$cream:            #f7f3ec; // page background
+$paper:            #ffffff; // card surface
+$paper-warm:       #fbf8f1;
+$line:             #e6dfd2;
+$line-strong:      #cfc6b4;
 
-$gray: #a0a0a0;
-$gray-dark: #757575;
-$gray-light: #dddddd;
-$gray-lighten: #edeeee;
-$gray-lighter: #cccccc;
+// Status
+$red-color:        #c0594a;
+$green-color:      #6b8a5b;
+$white-color:      #ffffff;
 
-$blue: #33aaff;
-$blue-light: #cfcfdd;
-$blue-lighter: #dce4ea;
-$blue-dark: #263959;
+// Legacy names — kept so other partials keep compiling
+$primary-color:    $accent;
+$secondary-color:  $muted-soft;
+$alternate-color:  $ink-soft;
 
-// Background Colors
-$background: #fbfbfb;
-$alternate-background: #fafafa;
+$dark:             $ink;
+$dark-gray:        $ink-soft;
+$darkest:          $ink;
 
+$gray:             $muted;
+$gray-dark:        $ink-soft;
+$gray-light:       $line;
+$gray-lighten:     $line;
+$gray-lighter:     $line-strong;
 
-// Body Color
-$text-color: #404040;
+$blue:             $accent;
+$blue-light:       $accent-soft;
+$blue-lighter:     $line;
+$blue-dark:        $ink;
 
+$background:           $cream;
+$alternate-background: $paper-warm;
 
-// Headings
-$heading-font-color: #404040;
+$text-color:           $ink-soft;
+$heading-font-color:   $ink;
 
+$link-color:        $accent;
+$link-color-hover:  $accent-dark;
 
-// Links
-$link-color: $primary-color;
-$link-color-hover: darken($link-color, 15%);
-
-
-// Border
-$border-color: #f0f0f0;
+$border-color:      $line;
