@@ -156,7 +156,8 @@ layout: home
 
   <div class="c-post-grid">
     {% for post in site.posts %}
-    <a class="c-post" href="{{ post.url | prepend: site.baseurl }}" data-category="{{ post.categories | first }}">
+    {% assign post_cat = post.categories | first %}
+    <a class="c-post" href="{{ post.url | prepend: site.baseurl }}" data-category="{{ post_cat }}"{% if post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
       <div class="c-post__image-wrap">
         {% if post.image %}
         <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: post.image }}')"></div>
