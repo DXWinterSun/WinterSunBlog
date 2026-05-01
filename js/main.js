@@ -77,6 +77,10 @@ $(document).ready(function () {
     $item.addClass('is-active');
   }
 
+  function setActiveHero(name) {
+    document.documentElement.setAttribute('data-hero-active', name);
+  }
+
   // On homepage: intercept filter / view clicks
   $('.c-nav__list > .c-nav__item').on('click', function (e) {
     if (!isHomepage()) return; // let the link navigate
@@ -90,17 +94,20 @@ $(document).ready(function () {
       var filter = $this.attr('data-filter') || 'all';
       showPostsView();
       applyCategoryFilter(filter);
+      setActiveHero(filter);
       var nextUrl = filter === 'all' ? (BASEURL + '/') : (BASEURL + '/?cat=' + encodeURIComponent(filter));
       if (window.history && window.history.replaceState) {
         window.history.replaceState(null, '', nextUrl);
       }
     } else if ($this.hasClass('c-item_images')) {
       showGallery();
+      setActiveHero('gallery');
       if (window.history && window.history.replaceState) {
         window.history.replaceState(null, '', BASEURL + '/?view=gallery');
       }
     } else if ($this.hasClass('c-item_tags')) {
       showTags();
+      setActiveHero('tags');
       if (window.history && window.history.replaceState) {
         window.history.replaceState(null, '', BASEURL + '/?view=tags');
       }
