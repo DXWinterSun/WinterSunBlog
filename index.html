@@ -2,7 +2,20 @@
 layout: home
 ---
 
-<section class="c-hero">
+<script>
+(function () {
+  try {
+    var p = new URLSearchParams(window.location.search);
+    var active = 'all';
+    if (p.get('cat')) active = p.get('cat');
+    else if (p.get('view') === 'gallery') active = 'gallery';
+    else if (p.get('view') === 'tags') active = 'tags';
+    document.documentElement.setAttribute('data-hero-active', active);
+  } catch (e) { /* fall back to default */ }
+})();
+</script>
+
+<section class="c-hero" data-hero-id="all">
   {% if site.author-image %}
   <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
     <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
@@ -24,6 +37,66 @@ layout: home
   </p>
 
   <div class="c-hero__role">{{ site.author-job }}</div>
+</section>
+
+<section class="c-hero c-hero--filter" data-hero-id="Daily">
+  <div class="c-hero__eyebrow">Daily</div>
+  <h1 class="c-hero__title">日常 <em>Daily</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">平凡日子里的感想、心情，和那些值得停留的片刻</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-hero c-hero--filter" data-hero-id="Novel">
+  <div class="c-hero__eyebrow">Novel</div>
+  <h1 class="c-hero__title">小说 <em>Stories</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">我写过的故事——关于爱、错过、和重逢</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-hero c-hero--filter" data-hero-id="AU Story">
+  <div class="c-hero__eyebrow">AU Story</div>
+  <h1 class="c-hero__title">幻想 <em>Alternate Universe</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">在另一个时空里，他们也曾相遇</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-hero c-hero--filter" data-hero-id="Lyrics">
+  <div class="c-hero__eyebrow">Lyrics</div>
+  <h1 class="c-hero__title">歌词 <em>Lyrics</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">译过的词，每一句都是来不及说出口的话</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-hero c-hero--filter" data-hero-id="gallery">
+  <div class="c-hero__eyebrow">Gallery</div>
+  <h1 class="c-hero__title">图集 <em>Pictures</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">画过的，看见过的，让人停留的画面</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-hero c-hero--filter" data-hero-id="tags">
+  <div class="c-hero__eyebrow">Tags</div>
+  <h1 class="c-hero__title">标签 <em>Tags</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">按主题与情绪，重新走一遍这里的每一篇</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
 </section>
 
 <div class="c-posts o-opacity">

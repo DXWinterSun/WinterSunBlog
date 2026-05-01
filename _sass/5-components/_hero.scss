@@ -7,6 +7,36 @@
   text-align: center;
 }
 
+/* Only show the hero matching the active filter / view */
+[data-hero-id] { display: none; }
+:root:not([data-hero-active]) [data-hero-id="all"] { display: block; }
+:root[data-hero-active="all"] [data-hero-id="all"] { display: block; }
+:root[data-hero-active="Daily"] [data-hero-id="Daily"] { display: block; }
+:root[data-hero-active="Novel"] [data-hero-id="Novel"] { display: block; }
+:root[data-hero-active="AU Story"] [data-hero-id="AU Story"] { display: block; }
+:root[data-hero-active="Lyrics"] [data-hero-id="Lyrics"] { display: block; }
+:root[data-hero-active="gallery"] [data-hero-id="gallery"] { display: block; }
+:root[data-hero-active="tags"] [data-hero-id="tags"] { display: block; }
+
+/* Compact filter hero — eyebrow + title + byline only */
+.c-hero--filter {
+  padding: 64px 0 48px;
+  .c-hero__title {
+    font-size: 56px;
+    margin-bottom: 22px;
+  }
+  .c-hero__byline {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .c-hero--filter {
+    padding: 44px 0 32px;
+    .c-hero__title { font-size: 36px; }
+  }
+}
+
 /* ----- Round portrait at top ----- */
 .c-hero__portrait {
   display: block;
