@@ -211,9 +211,18 @@ $(document).ready(function () {
 
   $('.c-top').click(smoothScrollToTop);
 
+  // Top-left portrait: first click scrolls to top, click again to go home
   var scrollTopBtn = document.getElementById('js-scroll-top');
   if (scrollTopBtn) {
-    scrollTopBtn.addEventListener('click', smoothScrollToTop);
+    scrollTopBtn.addEventListener('click', function () {
+      var atTop = window.scrollY <= 4;
+      if (!atTop) {
+        smoothScrollToTop();
+      } else if (!isHomepage()) {
+        window.location.href = BASEURL + '/';
+      }
+      // else: already home + at top, nothing useful to do
+    });
   }
   $(window).scroll(function () {
     if ($(this).scrollTop() > $(window).height()) {
