@@ -22,38 +22,18 @@
 }
 
 .c-brand {
-  font-family: $heading-font-family;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: $ink;
-  text-decoration: none;
-  white-space: nowrap;
   display: inline-flex;
-  align-items: baseline;
-  gap: 0;
+  align-items: center;
+  text-decoration: none;
   transition: $global-transition;
   &:hover {
-    color: $accent;
-    .c-brand__mark { color: $accent; }
+    transform: translateY(-1px);
   }
-  .c-brand__mark {
-    font-style: italic;
-    font-weight: 700;
-    color: $accent;
-    transition: $global-transition;
-  }
-  .c-brand__rest {
-    font-weight: 400;
-  }
-  .c-brand__dot {
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: $accent;
-    margin-left: 4px;
-    transform: translateY(-2px);
+  .c-brand__emoji {
+    font-size: 26px;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    user-select: none;
   }
 }
 
