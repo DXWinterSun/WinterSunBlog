@@ -18,10 +18,11 @@
 :root[data-hero-active="gallery"] [data-hero-id="gallery"] { display: block; }
 :root[data-hero-active="tags"] [data-hero-id="tags"] { display: block; }
 
-/* Compact filter hero — eyebrow + title + byline only.
-   Same typographic style as Sam/About, just no portrait/quote. */
+/* Compact filter hero — same portrait + eyebrow + title + byline.
+   Top padding matches .c-hero so portraits align across all tabs;
+   only the title size and bottom padding differ. */
 .c-hero--filter {
-  padding: 72px 0 56px;
+  padding: 80px 0 56px;
   .c-hero__title {
     font-size: 68px;
     margin-bottom: 30px;
