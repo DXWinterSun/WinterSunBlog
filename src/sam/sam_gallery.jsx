@@ -563,6 +563,7 @@ function CharacterCard({ c, idx }) {
           <MiniRadar profile={c.profile} accent={c.accent} muted={c.muted} text={c.text} />
         </div>
 
+        {/* COLOR PALETTE 色彩注脚 */}
         <div style={{ marginTop: "48px", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <p style={{
             fontFamily: "'Special Elite', monospace",
@@ -582,6 +583,7 @@ function CharacterCard({ c, idx }) {
             width: "100%",
             maxWidth: "320px",
           }}>
+            {/* 主色 accent */}
             <div style={{ flex: 1, textAlign: "center" }}>
               <div style={{
                 width: "32px",
@@ -613,6 +615,7 @@ function CharacterCard({ c, idx }) {
                 {c.accentNameCn}
               </p>
             </div>
+            {/* 分隔线 */}
             <div style={{
               width: "1px",
               minHeight: "60px",
@@ -621,6 +624,7 @@ function CharacterCard({ c, idx }) {
               alignSelf: "stretch",
               marginTop: "8px",
             }} />
+            {/* 背景色 bg */}
             <div style={{ flex: 1, textAlign: "center" }}>
               <div style={{
                 width: "32px",
@@ -686,6 +690,7 @@ export default function SamGallery() {
 
   return (
     <div style={{ width: "100%", fontFamily: "'Noto Serif SC', serif" }}>
+      {/* COVER */}
       <section style={{
         minHeight: "100vh",
         width: "100%",
@@ -776,6 +781,7 @@ export default function SamGallery() {
             and stops in front of you."
           </p>
 
+          {/* TOC */}
           <div style={{
             marginTop: "48px",
             paddingTop: "32px",
@@ -855,10 +861,12 @@ export default function SamGallery() {
         </div>
       </section>
 
+      {/* CHARACTER CARDS */}
       {characters.map(function(c, i) {
         return <CharacterCard key={c.id} c={c} idx={i} />;
       })}
 
+      {/* CLOSING */}
       <section style={{
         minHeight: "70vh",
         width: "100%",
