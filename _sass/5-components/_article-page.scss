@@ -9,7 +9,7 @@
 
 .c-wrap-content {
   padding: 20px;
-  background-color: $white-color;
+  background-color: $paper;
 }
 
 .c-article__image {
@@ -69,10 +69,10 @@
       font-size: 10px;
       line-height: 10px;
       text-transform: uppercase;
-      background-color: rgba(115, 138, 160, 0.60);
-      color: $white-color;
+      background-color: $muted;
+      color: $paper;
       &:hover {
-        background-color: darken(rgba(115, 138, 160, 0.60), 15%);
+        background-color: $ink-soft;
       }
       &:last-child {
         margin-right: 0;
@@ -101,8 +101,8 @@
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
-    background-color: $white-color;
-    box-shadow: 0 1px 1px 0 rgba(31,35,46,0.15);
+    background-color: $paper;
+    box-shadow: 0 1px 1px 0 rgba(var(--rgb-shadow), 0.15);
     transition: $global-transition;
     h4 {
       margin-bottom: 5px;

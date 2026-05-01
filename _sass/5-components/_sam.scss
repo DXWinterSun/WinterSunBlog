@@ -94,7 +94,7 @@
   &:hover {
     transform: translateY(-3px);
     border-color: $accent-soft;
-    box-shadow: 0 22px 44px -22px rgba(31, 29, 26, 0.22);
+    box-shadow: 0 22px 44px -22px rgba(var(--rgb-shadow), 0.22);
     .c-sam-card__title { color: $accent; }
     .c-sam-card__cta { color: $accent; }
     .c-sam-card__tab { transform: translate(2px, -2px); }

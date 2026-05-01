@@ -56,7 +56,7 @@
     0 0 0 1px $line-strong,
     0 0 0 6px $paper,
     0 0 0 7px $line,
-    0 18px 40px -16px rgba(31, 29, 26, 0.20);
+    0 18px 40px -16px rgba(var(--rgb-shadow), 0.20);
   transition: $global-transition;
   &:hover {
     transform: translateY(-2px);
@@ -64,7 +64,7 @@
       0 0 0 1px $accent-soft,
       0 0 0 6px $paper,
       0 0 0 7px $line,
-      0 22px 44px -14px rgba(31, 29, 26, 0.26);
+      0 22px 44px -14px rgba(var(--rgb-shadow), 0.26);
   }
   img {
     width: 100%;
