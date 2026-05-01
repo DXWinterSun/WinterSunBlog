@@ -203,28 +203,29 @@
   background: transparent;
   border: 1px solid $line;
   border-radius: 999px;
-  color: $ink-soft;
   cursor: pointer;
   font-size: 16px;
   line-height: 1;
   transition: $global-transition;
   &:hover {
-    color: $accent;
     border-color: $accent-soft;
     background-color: rgba(var(--rgb-accent), 0.06);
+    transform: rotate(20deg);
   }
   .c-theme-toggle__icon {
     display: none;
   }
 }
 
-:root:not([data-theme="dark"]) .c-theme-toggle__icon--moon { display: inline; }
-:root[data-theme="dark"] .c-theme-toggle__icon--sun { display: inline; }
+/* Icon shows the CURRENT theme: full moon = light, new moon = dark.
+   Click flips both the icon and the theme. */
+:root:not([data-theme="dark"]) .c-theme-toggle__icon--light { display: inline; }
+:root[data-theme="dark"] .c-theme-toggle__icon--dark { display: inline; }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]):not([data-theme="dark"]) {
-    .c-theme-toggle__icon--moon { display: none; }
-    .c-theme-toggle__icon--sun { display: inline; }
+    .c-theme-toggle__icon--light { display: none; }
+    .c-theme-toggle__icon--dark { display: inline; }
   }
 }
 
