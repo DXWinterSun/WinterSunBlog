@@ -103,7 +103,8 @@ layout: home
   {% if site.posts.size > 0 %}
 
   {% assign featured = site.posts | first %}
-  <a class="c-featured" href="{{ featured.url | prepend: site.baseurl }}" data-category="{{ featured.categories | first }}">
+  {% assign featured_cat = featured.categories | first %}
+  <a class="c-featured" href="{{ featured.url | prepend: site.baseurl }}" data-category="{{ featured_cat }}"{% if featured_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
     <div class="c-featured__image-wrap">
       {% if featured.image %}
       <div class="c-featured__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: featured.image }}')"></div>
@@ -132,7 +133,8 @@ layout: home
 
   <div class="c-post-grid">
     {% for post in site.posts offset:1 %}
-    <a class="c-post" href="{{ post.url | prepend: site.baseurl }}" data-category="{{ post.categories | first }}">
+    {% assign post_cat = post.categories | first %}
+    <a class="c-post" href="{{ post.url | prepend: site.baseurl }}" data-category="{{ post_cat }}"{% if post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
       <div class="c-post__image-wrap">
         {% if post.image %}
         <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: post.image }}')"></div>
