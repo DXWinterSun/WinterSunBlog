@@ -1,0 +1,42 @@
+---
+layout: home
+title: About
+permalink: /about/
+---
+
+<section class="c-hero">
+  <div class="c-hero__eyebrow">About</div>
+  <h1 class="c-hero__title">Hi, I'm <em>{{ site.author-name }}</em></h1>
+  <p class="c-hero__lede">{{ site.about-author | strip_html }}</p>
+
+  <div class="c-hero__meta">
+    {% if site.author-image %}
+    <span class="c-hero__avatar">
+      <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+    </span>
+    {% endif %}
+    <div class="c-hero__meta-text">
+      <div class="c-hero__meta-name">{{ site.author-name }}</div>
+      <div class="c-hero__meta-role">{{ site.author-job }}</div>
+    </div>
+  </div>
+
+  <div class="c-hero__socials">
+    {% if site.author-email %}<a href="/contact">Contact</a>{% endif %}
+    {% if site.author-weibo %}<a href="{{site.author-weibo}}" target="_blank" rel="noopener">Weibo</a>{% endif %}
+    {% if site.author-bilibili %}<a href="{{site.author-bilibili}}" target="_blank" rel="noopener">Bilibili</a>{% endif %}
+  </div>
+</section>
+
+<article class="c-about">
+  <p class="c-about__lede">
+    This is a quiet corner of the internet where I keep what matters to me —
+    daily notes, novels and AU stories I've written, lyric translations,
+    and pictures I've drawn or fallen in love with.
+  </p>
+
+  <p>
+    I write mostly in Chinese, sometimes in English, occasionally side by side.
+    I make things slowly. Thanks for stopping by.
+  </p>
+</article>

@@ -1,91 +1,33 @@
 <div class="c-show-images" style="display: none;">
-  <div id="container">
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">Gallery</h3>
+    <span class="c-section-heading__meta">{{ site.gallery_images.size }} pieces</span>
+  </div>
+
+  <div id="container" class="c-gallery">
     {% for image_paths in site.gallery_images %}
-    <div class="box">
-      <div class="box-img">
-        <img src="./images/{{ image_paths }}" alt="">
-      </div>
-    </div>
+    <a class="c-gallery__item" href="{{site.baseurl}}/images/{{ image_paths }}">
+      <img src="{{site.baseurl}}/images/{{ image_paths }}" alt="" loading="lazy">
+    </a>
     {% endfor %}
   </div>
-</div> <!-- ./c-blog-tags -->
+</div>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.2/viewer.min.css">
-<style>
-  {
-    padding: 0;
-    margin: 0;
-  }
-
-  #container {
-    position: relative;
-  }
-
-  .box {
-    float: left;
-    padding: 15px;
-  }
-
-  .box-img {
-    width: 300px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 5px #ccc;
-    border-radius: 5px;
-  }
-
-  .box-img img {
-    width: 100%;
-    height: auto;
-  }
-</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.2/viewer.min.js"></script>
-
 <script>
-  var viewer = new Viewer(document.getElementById('container'));
-  window.onload = function () {
-    imgLocation('container', 'box')
-  }
-  // 获取到当前有多少张图片要摆放
-  function imgLocation(parent, content) {//令parent='container'，content='box'
-    // 将parent下所有的内容全部取出
-    var cparent = document.getElementById(parent)
-    var ccontent = getChildElemnt(cparent, content)
-    var imgWidth = ccontent[0].offsetWidth
-    var num = Math.floor(document.documentElement.clientWidth / imgWidth)
-    cparent.style.cssText = `width: ${imgWidth * num} px`
-
-    var BoxHeightArr = []
-    for (var i = 0; i < ccontent.length; i++) {
-      if (i < num) {
-        BoxHeightArr[i] = ccontent[i].offsetHeight
-      } else {
-        var minHeight = Math.min.apply(null, BoxHeightArr)
-        var minIndex = getMinHeightLocation(BoxHeightArr, minHeight)
-        ccontent[i].style.position = 'absolute'
-        ccontent[i].style.top = minHeight + 'px'
-        ccontent[i].style.left = ccontent[minIndex].offsetLeft + 'px'
-        BoxHeightArr[minIndex] = BoxHeightArr[minIndex] + ccontent[i].offsetHeight
-      }
+  (function () {
+    var initGallery = function () {
+      try {
+        if (typeof Viewer === 'function') {
+          new Viewer(document.getElementById('container'), { toolbar: false, navbar: true, title: false });
+        }
+      } catch (e) { /* swallow */ }
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initGallery);
+    } else {
+      initGallery();
     }
-  }
-
-
-  function getChildElemnt(parent, content) {
-    const contentArr = []
-    const allContent = parent.getElementsByTagName('*')
-    for (var i = 0; i < allContent.length; i++) {
-      if (allContent[i].className == content) {
-        contentArr.push(allContent[i])
-      }
-    }
-    return contentArr
-  }
-
-  function getMinHeightLocation(BoxHeightArr, minHeight) {
-    for (var i in BoxHeightArr) {
-      if (BoxHeightArr[i] === minHeight) {
-        return i
-      }
-    }
-  }
+  })();
 </script>
