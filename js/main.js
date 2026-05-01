@@ -205,9 +205,16 @@ $(document).ready(function () {
   // Scroll to top
   ======================= */
 
-  $('.c-top').click(function () {
+  function smoothScrollToTop() {
     $('html, body').stop().animate({ scrollTop: 0 }, 'slow', 'swing');
-  });
+  }
+
+  $('.c-top').click(smoothScrollToTop);
+
+  var scrollTopBtn = document.getElementById('js-scroll-top');
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', smoothScrollToTop);
+  }
   $(window).scroll(function () {
     if ($(this).scrollTop() > $(window).height()) {
       $('.c-top').addClass("c-top--active");

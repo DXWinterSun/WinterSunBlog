@@ -190,6 +190,39 @@
   }
 }
 
+/* ===== Scroll-to-top portrait button (top-left, symmetric with theme toggle) ===== */
+.c-scroll-top {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid $line;
+  border-radius: 999px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: $global-transition;
+  &:hover {
+    border-color: $accent-soft;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px -8px rgba(var(--rgb-shadow), 0.30);
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .c-scroll-top { width: 32px; height: 32px; margin-right: 8px; }
+}
+
 /* ===== Theme toggle ===== */
 .c-theme-toggle {
   flex-shrink: 0;
