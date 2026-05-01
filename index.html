@@ -3,21 +3,27 @@ layout: home
 ---
 
 <section class="c-hero">
-  <div class="c-hero__eyebrow">Personal Journal</div>
-  <h1 class="c-hero__title">{{ site.title | replace: "'s Zone", "" }}<em>'s Zone</em></h1>
-  <p class="c-hero__lede">{{ site.about-author | strip_html }}</p>
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
 
-  <div class="c-hero__meta">
-    {% if site.author-image %}
-    <a class="c-hero__avatar" href="{{site.baseurl}}/">
-      <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-    </a>
-    {% endif %}
-    <div class="c-hero__meta-text">
-      <div class="c-hero__meta-name">{{ site.author-name }}</div>
-      <div class="c-hero__meta-role">{{ site.author-job }}</div>
-    </div>
+  <div class="c-hero__eyebrow">Notes from Wonderland</div>
+  <h1 class="c-hero__title">Winter in <em>Wonderland</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">by 冬璇 · Winter Sun</span>
+    <span class="c-hero__byline-rule"></span>
   </div>
+
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    {{ site.about-author | strip_html }}
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
+
+  <div class="c-hero__role">{{ site.author-job }}</div>
 </section>
 
 <div class="c-posts o-opacity">
