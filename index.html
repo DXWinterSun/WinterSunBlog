@@ -11,6 +11,19 @@ layout: home
     else if (p.get('view') === 'gallery') active = 'gallery';
     else if (p.get('view') === 'tags') active = 'tags';
     document.documentElement.setAttribute('data-hero-active', active);
+
+    // Reflect the active filter in the browser tab title
+    var labels = {
+      'Daily': 'Daily',
+      'Novel': 'Novel',
+      'AU Story': 'AU Story',
+      'Lyrics': 'Lyrics',
+      'gallery': 'Gallery',
+      'tags': 'Tags'
+    };
+    if (labels[active]) {
+      document.title = labels[active] + ' · {{ site.title | escape }}';
+    }
   } catch (e) { /* fall back to default */ }
 })();
 </script>
