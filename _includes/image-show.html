@@ -1,6 +1,21 @@
 <div class="c-show-images" style="display: none;">
+
+  {% if site.social-newyear %}
+  <a class="c-feature-card" href="{{site.baseurl}}/{{site.social-newyear}}/" target="_blank" rel="noopener">
+    <div class="c-feature-card__eyebrow">
+      <span>Special · Interactive</span>
+      <span class="c-feature-card__tab">↗</span>
+    </div>
+    <h3 class="c-feature-card__title">跨年烟花 <em>New Year Fireworks</em></h3>
+    <p class="c-feature-card__desc">
+      一个小小的跨年网页——点开屏幕，烟花就会从这里开始绽放。
+    </p>
+    <span class="c-feature-card__cta">Open in new tab →</span>
+  </a>
+  {% endif %}
+
   <div class="c-section-heading">
-    <h3 class="c-section-heading__title">Gallery</h3>
+    <h3 class="c-section-heading__title">Illustrations</h3>
     <span class="c-section-heading__meta">{{ site.gallery_images.size }} pieces</span>
   </div>
 
