@@ -1,11 +1,24 @@
 /* ===============
-	WPAPPER
+	WRAPPER
 =============== */
 
-$base-wrapper-width: 1440px;
+$base-wrapper-width: 1180px;
 $wrapper-offset: $base-spacing-unit;
 
 .o-wrapper {
-  max-width: $base-wrapper-width;
+  max-width: 100%;
   position: relative;
+  margin: 0 auto;
+}
+
+.o-container {
+  max-width: $base-wrapper-width;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media only screen and (max-width: 640px) {
+  .o-container {
+    padding: 0 20px;
+  }
 }

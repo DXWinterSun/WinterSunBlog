@@ -3,14 +3,13 @@
 =============== */
 
 // Body font
-$base-font-size: 15px;
+$base-font-size: 16px;
 $base-font-style: normal;
 $base-font-variant: normal;
-$base-font-weight: normal;
-$base-font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
-$base-line-height: 28px;
+$base-font-weight: 400;
+$base-font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+$base-line-height: 1.7;
 
-
-// Headings
+// Headings & display
 $heading-font-weight: 400;
-$heading-font-family: 'Volkhov', 'Times New Roman', Times, serif;
+$heading-font-family: 'Volkhov', 'Noto Serif SC', 'Songti SC', 'Times New Roman', Times, serif;

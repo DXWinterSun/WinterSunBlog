@@ -1,0 +1,150 @@
+/* ===============
+	HERO / SITE INTRO
+=============== */
+
+.c-hero {
+  padding: 96px 0 72px;
+  text-align: center;
+}
+
+.c-hero__eyebrow {
+  display: inline-block;
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 18px;
+  &::before, &::after {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background-color: $accent;
+    vertical-align: middle;
+    margin: 0 14px;
+    transform: translateY(-2px);
+  }
+}
+
+.c-hero__title {
+  font-family: $heading-font-family;
+  font-size: 64px;
+  line-height: 1.05;
+  font-weight: 700;
+  color: $ink;
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+  em {
+    font-style: italic;
+    color: $accent;
+    font-weight: 400;
+  }
+}
+
+.c-hero__lede {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: $ink-soft;
+}
+
+.c-hero__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: $heading-font-family;
+  font-size: 13px;
+  color: $muted;
+  letter-spacing: 0.04em;
+  .c-hero__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: $line;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+  .c-hero__meta-text {
+    text-align: left;
+    line-height: 1.3;
+  }
+  .c-hero__meta-name {
+    color: $ink;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .c-hero__meta-role {
+    font-size: 12px;
+    color: $muted;
+  }
+}
+
+.c-hero__socials {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  a {
+    display: inline-block;
+    padding: 6px 14px;
+    font-family: $heading-font-family;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $ink-soft;
+    text-decoration: none;
+    border: 1px solid $line-strong;
+    border-radius: 999px;
+    transition: $global-transition;
+    &:hover {
+      color: $paper;
+      background-color: $ink;
+      border-color: $ink;
+    }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .c-hero {
+    padding: 56px 0 40px;
+  }
+  .c-hero__title {
+    font-size: 40px;
+  }
+  .c-hero__lede {
+    font-size: 15px;
+  }
+}
+
+/* ===== Section heading used above lists ===== */
+.c-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 16px 0 24px;
+  border-bottom: 1px solid $line;
+  padding-bottom: 12px;
+  .c-section-heading__title {
+    font-family: $heading-font-family;
+    font-size: 18px;
+    font-weight: 700;
+    color: $ink;
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+  .c-section-heading__meta {
+    font-family: $heading-font-family;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: $muted;
+  }
+}
