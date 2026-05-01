@@ -57,6 +57,11 @@ layout: home
 </article>
 
 <section class="c-hero c-hero--filter" data-hero-id="Daily">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">Daily</div>
   <h1 class="c-hero__title">Slow <em>Days</em></h1>
   <div class="c-hero__byline">
@@ -67,6 +72,11 @@ layout: home
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="Novel">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">Novel</div>
   <h1 class="c-hero__title">These <em>Stories</em></h1>
   <div class="c-hero__byline">
@@ -77,6 +87,11 @@ layout: home
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="AU Story">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">AU Story</div>
   <h1 class="c-hero__title">If, <em>Otherwise</em></h1>
   <div class="c-hero__byline">
@@ -87,6 +102,11 @@ layout: home
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="Lyrics">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">Lyrics</div>
   <h1 class="c-hero__title">Borrowed <em>Songs</em></h1>
   <div class="c-hero__byline">
@@ -97,6 +117,11 @@ layout: home
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="gallery">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">Gallery</div>
   <h1 class="c-hero__title">Pictures <em>Kept</em></h1>
   <div class="c-hero__byline">
@@ -107,6 +132,11 @@ layout: home
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="tags">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
   <div class="c-hero__eyebrow">Tags</div>
   <h1 class="c-hero__title">By <em>Mood</em></h1>
   <div class="c-hero__byline">
