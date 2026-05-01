@@ -26,7 +26,18 @@ $(document).ready(function () {
 
   /* =======================================
   // Top nav: switch view + filter by category
+  // - Each chip is a real link with a URL param
+  // - On the homepage, intercept clicks and filter in place
+  // - On other pages, let the link navigate to the homepage
   ======================================= */
+
+  var BASEURL = window.SITE_BASEURL || '';
+  // The homepage is at "{baseurl}/" or "{baseurl}/index.html"
+  function isHomepage() {
+    var p = window.location.pathname.replace(/\/index\.html$/, '/');
+    var home = (BASEURL + '/').replace(/\/+$/, '/');
+    return p === home || p === home.replace(/\/$/, '');
+  }
 
   function showPostsView() {
     $('.c-posts').show().addClass('o-opacity');
@@ -47,38 +58,79 @@ $(document).ready(function () {
     });
     var isEmpty = visible === 0 && filter !== 'all';
     $('[data-empty]').toggle(isEmpty);
-    // Hide the "More Stories" header when filtered set is empty or only featured remains
     var gridVisible = $('.c-post-grid .c-post:not(.is-hidden)').length;
     $('.c-section-heading').toggle(gridVisible > 0);
   }
 
-  $('.c-nav__list > .c-nav__item').on('click', function (e) {
-    var $this = $(this);
-    // Real-link items navigate natively
-    if ($this.hasClass('c-nav__item--link')) return;
+  function showGallery() {
+    $('.c-show-images').show().addClass('o-opacity');
+    $('.c-posts, .c-categories, .c-blog-tags').hide().removeClass('o-opacity');
+  }
 
+  function showTags() {
+    $('.c-blog-tags').show().addClass('o-opacity');
+    $('.c-posts, .c-categories, .c-show-images').hide().removeClass('o-opacity');
+  }
+
+  function setActiveNav($item) {
     $('.c-nav__list > .c-nav__item').removeClass('is-active');
-    $this.addClass('is-active');
+    $item.addClass('is-active');
+  }
+
+  // On homepage: intercept filter / view clicks
+  $('.c-nav__list > .c-nav__item').on('click', function (e) {
+    if (!isHomepage()) return; // let the link navigate
+    if ($(this).hasClass('c-nav__item--link')) return; // Sam / About always navigate
+
+    e.preventDefault();
+    var $this = $(this);
+    setActiveNav($this);
 
     if ($this.hasClass('c-item_post')) {
+      var filter = $this.attr('data-filter') || 'all';
       showPostsView();
-      applyCategoryFilter($this.attr('data-filter') || 'all');
-    } else if ($this.hasClass('c-item_category')) {
-      $('.c-categories').show().addClass('o-opacity');
-      $('.c-posts, .c-blog-tags, .c-show-images').hide().removeClass('o-opacity');
-    } else if ($this.hasClass('c-item_tags')) {
-      $('.c-blog-tags').show().addClass('o-opacity');
-      $('.c-posts, .c-categories, .c-show-images').hide().removeClass('o-opacity');
+      applyCategoryFilter(filter);
+      var nextUrl = filter === 'all' ? (BASEURL + '/') : (BASEURL + '/?cat=' + encodeURIComponent(filter));
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', nextUrl);
+      }
     } else if ($this.hasClass('c-item_images')) {
-      $('.c-show-images').show().addClass('o-opacity');
-      $('.c-posts, .c-categories, .c-blog-tags').hide().removeClass('o-opacity');
+      showGallery();
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', BASEURL + '/?view=gallery');
+      }
+    } else if ($this.hasClass('c-item_tags')) {
+      showTags();
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', BASEURL + '/?view=tags');
+      }
     }
 
-    // Scroll up so user sees the change
     if ($('main.c-content').length && window.scrollY > 200) {
       $('html, body').animate({ scrollTop: $('main.c-content').offset().top - 80 }, 250);
     }
   });
+
+  // On homepage load: read URL params and apply filter / view
+  if (isHomepage()) {
+    var params = new URLSearchParams(window.location.search);
+    var cat = params.get('cat');
+    var view = params.get('view');
+    if (cat) {
+      var $catItem = $('.c-nav__list > .c-item_post[data-filter="' + cat.replace(/"/g, '\\"') + '"]');
+      if ($catItem.length) {
+        setActiveNav($catItem);
+        showPostsView();
+        applyCategoryFilter(cat);
+      }
+    } else if (view === 'gallery') {
+      setActiveNav($('.c-nav__list > .c-item_images'));
+      showGallery();
+    } else if (view === 'tags') {
+      setActiveNav($('.c-nav__list > .c-item_tags'));
+      showTags();
+    }
+  }
 
   /* =======================
   // Adding ajax pagination
