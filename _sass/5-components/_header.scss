@@ -31,15 +31,29 @@
   white-space: nowrap;
   display: inline-flex;
   align-items: baseline;
-  gap: 8px;
-  &:hover { color: $accent; }
+  gap: 0;
+  transition: $global-transition;
+  &:hover {
+    color: $accent;
+    .c-brand__mark { color: $accent; }
+  }
+  .c-brand__mark {
+    font-style: italic;
+    font-weight: 700;
+    color: $accent;
+    transition: $global-transition;
+  }
+  .c-brand__rest {
+    font-weight: 400;
+  }
   .c-brand__dot {
     display: inline-block;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background-color: $accent;
-    transform: translateY(-3px);
+    margin-left: 4px;
+    transform: translateY(-2px);
   }
 }
 

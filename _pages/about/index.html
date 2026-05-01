@@ -5,21 +5,25 @@ permalink: /about/
 ---
 
 <section class="c-hero">
-  <div class="c-hero__eyebrow">About</div>
-  <h1 class="c-hero__title">Hi, I'm <em>{{ site.author-name }}</em></h1>
-  <p class="c-hero__lede">{{ site.about-author | strip_html }}</p>
+  {% if site.author-image %}
+  <span class="c-hero__portrait">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </span>
+  {% endif %}
 
-  <div class="c-hero__meta">
-    {% if site.author-image %}
-    <span class="c-hero__avatar">
-      <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-    </span>
-    {% endif %}
-    <div class="c-hero__meta-text">
-      <div class="c-hero__meta-name">{{ site.author-name }}</div>
-      <div class="c-hero__meta-role">{{ site.author-job }}</div>
-    </div>
+  <div class="c-hero__eyebrow">About</div>
+  <h1 class="c-hero__title">Hi, I'm <em>Winter Sun</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">冬璇 · {{ site.author-job }}</span>
+    <span class="c-hero__byline-rule"></span>
   </div>
+
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    {{ site.about-author | strip_html }}
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
 
   <div class="c-hero__socials">
     {% if site.author-email %}<a href="{{site.baseurl}}/contact/">Contact</a>{% endif %}
