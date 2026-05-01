@@ -1,7 +1,7 @@
 title: Winter Sun's Zone
 description: Winter Sun's Zone
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "wintersun.zone" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/WinterSunBlog" # the subpath of your site, e.g. /blog
+url: "https://dxwintersun.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Author
 author-name:    Winter Sun
