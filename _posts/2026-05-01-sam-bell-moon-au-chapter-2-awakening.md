@@ -5,6 +5,8 @@ date: 2026-05-01 12:00:00
 image: sam-bell-moon-au.jpg
 tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
+series: "Sam Bell · Moon AU"
+series_order: 2
 summary: "四天的航行后，你和 Sam 6 在 Sarang 着陆。GERTY 用合成嗓音说了一句 Welcome home。医务室里，刚刚完整苏醒不久的 Sam 7 坐在冷冻舱沿，回头看你——他张口的第一句话不是「你是谁」。这一晚之后，三个人决定一起去把还留在事故矿车里的 Sam 5 接回家。"
 ---
 
