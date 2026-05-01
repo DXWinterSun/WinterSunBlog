@@ -8,7 +8,7 @@
   width: calc(100% - 40px);
   min-height: 100vh;
   padding: 0 20px;
-  background-color: $white-color;
+  background-color: $paper;
   z-index: 1;
 }
 
@@ -61,7 +61,7 @@
     outline: none;
     transition: $global-transition;
     &:focus {
-      box-shadow: 0 4px 25px rgba(132, 135, 138, 0.1);
+      box-shadow: 0 4px 25px rgba(var(--rgb-shadow), 0.10);
     }
   }
   button {

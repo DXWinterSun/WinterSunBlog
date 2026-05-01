@@ -2,28 +2,96 @@
 	COLORS
 =============== */
 
-// Brand & accents
-$accent:           #b85c5c; // dusty rose accent
-$accent-soft:      #d3938b;
-$accent-dark:      darken($accent, 8%);
+:root {
+  /* ===== Light theme (default) ===== */
+  --c-bg:            #f7f3ec;       // page background (warm cream)
+  --c-bg-soft:       #fbf8f1;       // alt surface
+  --c-paper:         #ffffff;       // card surface
+  --c-ink:           #1f1d1a;       // primary text
+  --c-ink-soft:      #3d3833;       // body text
+  --c-muted:         #8a8074;       // muted text
+  --c-muted-soft:    #b6ac9d;       // very muted
+  --c-line:          #e6dfd2;       // hairline
+  --c-line-strong:   #cfc6b4;       // stronger line
+  --c-accent:        #b85c5c;       // dusty rose
+  --c-accent-soft:   #d3938b;
+  --c-accent-dark:   #9c4848;       // hover
+  --c-status-red:    #c0594a;
+  --c-status-green:  #6b8a5b;
+  --c-paper-fixed:   #ffffff;       // stays white in both themes
+  /* RGB triples for runtime opacity */
+  --rgb-shadow:      31, 29, 26;
+  --rgb-accent:      184, 92, 92;
+  --rgb-line-warm:   212, 196, 176;
+  --rgb-paper:       255, 255, 255;
+  --rgb-bg:          247, 243, 236;
+}
 
-// Ink
-$ink:              #1f1d1a;
-$ink-soft:         #3d3833;
-$muted:            #8a8074;
-$muted-soft:       #b6ac9d;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --c-bg:            #1a1815;
+    --c-bg-soft:       #211f1a;
+    --c-paper:         #24211d;
+    --c-ink:           #efe8da;
+    --c-ink-soft:      #c8c0b1;
+    --c-muted:         #948a7c;
+    --c-muted-soft:    #6e665b;
+    --c-line:          #322e28;
+    --c-line-strong:   #4a443c;
+    --c-accent:        #d97978;
+    --c-accent-soft:   #b06564;
+    --c-accent-dark:   #f08e8d;
+    --c-status-red:    #d97978;
+    --c-status-green:  #84a06f;
+    /* paper-fixed stays light */
+    --rgb-shadow:      0, 0, 0;
+    --rgb-accent:      217, 121, 120;
+    --rgb-line-warm:   60, 56, 50;
+    --rgb-paper:       36, 33, 29;
+    --rgb-bg:          26, 24, 21;
+  }
+}
 
-// Surfaces
-$cream:            #f7f3ec; // page background
-$paper:            #ffffff; // card surface
-$paper-warm:       #fbf8f1;
-$line:             #e6dfd2;
-$line-strong:      #cfc6b4;
+:root[data-theme="dark"] {
+  --c-bg:            #1a1815;
+  --c-bg-soft:       #211f1a;
+  --c-paper:         #24211d;
+  --c-ink:           #efe8da;
+  --c-ink-soft:      #c8c0b1;
+  --c-muted:         #948a7c;
+  --c-muted-soft:    #6e665b;
+  --c-line:          #322e28;
+  --c-line-strong:   #4a443c;
+  --c-accent:        #d97978;
+  --c-accent-soft:   #b06564;
+  --c-accent-dark:   #f08e8d;
+  --c-status-red:    #d97978;
+  --c-status-green:  #84a06f;
+  --rgb-shadow:      0, 0, 0;
+  --rgb-accent:      217, 121, 120;
+  --rgb-line-warm:   60, 56, 50;
+  --rgb-paper:       36, 33, 29;
+}
 
-// Status
-$red-color:        #c0594a;
-$green-color:      #6b8a5b;
-$white-color:      #ffffff;
+/* ===== SCSS variables that wrap the CSS custom properties ===== */
+$accent:           var(--c-accent);
+$accent-soft:      var(--c-accent-soft);
+$accent-dark:      var(--c-accent-dark);
+
+$ink:              var(--c-ink);
+$ink-soft:         var(--c-ink-soft);
+$muted:            var(--c-muted);
+$muted-soft:       var(--c-muted-soft);
+
+$cream:            var(--c-bg);
+$paper:            var(--c-paper);
+$paper-warm:       var(--c-bg-soft);
+$line:             var(--c-line);
+$line-strong:      var(--c-line-strong);
+
+$red-color:        var(--c-status-red);
+$green-color:      var(--c-status-green);
+$white-color:      var(--c-paper-fixed);
 
 // Legacy names — kept so other partials keep compiling
 $primary-color:    $accent;

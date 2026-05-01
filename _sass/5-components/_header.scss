@@ -7,7 +7,7 @@
   top: 0;
   z-index: 50;
   width: 100%;
-  background-color: rgba(247, 243, 236, 0.92);
+  background-color: rgba(var(--rgb-bg), 0.92);
   backdrop-filter: saturate(140%) blur(8px);
   -webkit-backdrop-filter: saturate(140%) blur(8px);
   border-bottom: 1px solid $line;
@@ -75,7 +75,7 @@
   }
   &:hover {
     color: $accent;
-    background-color: rgba(184, 92, 92, 0.06);
+    background-color: rgba(var(--rgb-accent), 0.06);
   }
   &.is-active {
     color: $paper;
@@ -115,7 +115,7 @@
     &:focus {
       border-color: $accent-soft;
       background-color: $paper;
-      box-shadow: 0 0 0 3px rgba(184, 92, 92, 0.12);
+      box-shadow: 0 0 0 3px rgba(var(--rgb-accent), 0.12);
     }
   }
   .c-search-results-list {
@@ -131,7 +131,7 @@
     background-color: $paper;
     border: 1px solid $line;
     border-radius: 12px;
-    box-shadow: 0 12px 40px -12px rgba(31, 29, 26, 0.18);
+    box-shadow: 0 12px 40px -12px rgba(var(--rgb-shadow), 0.18);
     z-index: 60;
     &:empty { display: none; }
     li {
@@ -188,6 +188,48 @@
   .c-brand {
     font-size: 17px;
   }
+}
+
+/* ===== Theme toggle ===== */
+.c-theme-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 8px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid $line;
+  border-radius: 999px;
+  color: $ink-soft;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  transition: $global-transition;
+  &:hover {
+    color: $accent;
+    border-color: $accent-soft;
+    background-color: rgba(var(--rgb-accent), 0.06);
+  }
+  .c-theme-toggle__icon {
+    display: none;
+  }
+}
+
+:root:not([data-theme="dark"]) .c-theme-toggle__icon--moon { display: inline; }
+:root[data-theme="dark"] .c-theme-toggle__icon--sun { display: inline; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    .c-theme-toggle__icon--moon { display: none; }
+    .c-theme-toggle__icon--sun { display: inline; }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .c-theme-toggle { width: 32px; height: 32px; font-size: 14px; }
 }
 
 /* ===== legacy .c-header retained for post page (hidden via u-hide) ===== */
