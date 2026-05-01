@@ -1,7 +1,8 @@
 <script>window.SITE_BASEURL = "{{site.baseurl}}";</script>
+{% assign cache_bust = site.time | date: '%Y%m%d%H%M' %}
 <script src="{{site.baseurl}}/js/jquery-3.3.1.min.js"></script>
 <script src="{{site.baseurl}}/js/evil-icons.min.js"></script>
 <script src="{{site.baseurl}}/js/jquery.fitvids.js"></script>
 <script src="{{site.baseurl}}/js/simple-jekyll-search.min.js"></script>
-<script src="{{site.baseurl}}/js/main.js"></script>
+<script src="{{site.baseurl}}/js/main.js?v={{ cache_bust }}"></script>
 <!-- /javascripts -->
