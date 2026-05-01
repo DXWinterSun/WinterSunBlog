@@ -9,7 +9,7 @@
 
 /* ----- Round portrait at top ----- */
 .c-hero__portrait {
-  display: inline-block;
+  display: block;
   width: 96px;
   height: 96px;
   margin: 0 auto 28px;
@@ -106,7 +106,7 @@
   position: relative;
   max-width: 640px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 16px;
   font-family: $heading-font-family;
   font-style: italic;
   font-size: 22px;
@@ -115,20 +115,15 @@
 }
 
 .c-hero__quote {
+  display: inline;
   font-family: 'Volkhov', Georgia, serif;
   font-style: italic;
   font-weight: 700;
-  font-size: 56px;
-  line-height: 0;
+  font-size: 1.7em;
   color: $accent-soft;
-  vertical-align: -0.32em;
-  margin-right: 6px;
+  vertical-align: -0.18em;
   user-select: none;
-  &--end {
-    margin-right: 0;
-    margin-left: 6px;
-    vertical-align: -0.55em;
-  }
+  margin: 0 0.12em;
 }
 
 /* ----- Author role pill (homepage hero) ----- */
