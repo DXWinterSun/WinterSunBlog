@@ -2,6 +2,7 @@
 layout: post
 title: "Chapter 1 · Departure — Sam Bell · Moon AU"
 date: 2026-05-01
+image: sam-bell-moon-au.jpg
 tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 summary: "氦-3反噬之后，地球开始慢性死亡。你二十六岁，带着研发了五年的合成药剂启程——它能修复所有Sam Bell体内被工业化写入的衰老程序。一同上船的，还有Sam 6——他执意要陪你回到那个曾经把他当作工具的月球基地。Sarang，韩语里是「爱」。"
