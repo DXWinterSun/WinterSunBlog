@@ -50,37 +50,7 @@ layout: home
   </p>
 
   <div class="c-hero__role">{{ site.author-job }}</div>
-
-  <div class="c-hero__socials">
-    {% if site.author-email %}<a href="{{site.baseurl}}/contact/">Contact</a>{% endif %}
-    {% if site.author-weibo %}<a href="{{site.author-weibo}}" target="_blank" rel="noopener">Weibo</a>{% endif %}
-    {% if site.author-bilibili %}<a href="{{site.author-bilibili}}" target="_blank" rel="noopener">Bilibili</a>{% endif %}
-    {% if site.author-redbook %}<a href="{{site.author-redbook}}" target="_blank" rel="noopener">Red Book</a>{% endif %}
-  </div>
 </section>
-
-<article class="c-about" data-hero-id="all">
-  <p class="c-about__lede">
-    This is a quiet corner of the internet where I keep what matters to me —
-    daily notes, novels and AU stories I've written, lyric translations,
-    and pictures I've drawn or fallen in love with.
-  </p>
-
-  <ul class="c-about__facts">
-    <li>
-      <span class="c-about__facts-label">Language</span>
-      <span class="c-about__facts-text">Chinese, sometimes English — occasionally side by side.</span>
-    </li>
-    <li>
-      <span class="c-about__facts-label">Pace</span>
-      <span class="c-about__facts-text">Made slowly, with care.</span>
-    </li>
-    <li>
-      <span class="c-about__facts-label">Note</span>
-      <span class="c-about__facts-text">Thanks for stopping by.</span>
-    </li>
-  </ul>
-</article>
 
 <section class="c-hero c-hero--filter" data-hero-id="Daily">
   {% if site.author-image %}
