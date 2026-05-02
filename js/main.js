@@ -41,7 +41,7 @@ $(document).ready(function () {
 
   function showPostsView() {
     $('.c-posts').show().addClass('o-opacity');
-    $('.c-categories, .c-blog-tags, .c-show-images').hide().removeClass('o-opacity');
+    $('.c-categories, .c-show-images').hide().removeClass('o-opacity');
   }
 
   function applyCategoryFilter(filter) {
@@ -84,12 +84,7 @@ $(document).ready(function () {
 
   function showGallery() {
     $('.c-show-images').show().addClass('o-opacity');
-    $('.c-posts, .c-categories, .c-blog-tags').hide().removeClass('o-opacity');
-  }
-
-  function showTags() {
-    $('.c-blog-tags').show().addClass('o-opacity');
-    $('.c-posts, .c-categories, .c-show-images').hide().removeClass('o-opacity');
+    $('.c-posts, .c-categories').hide().removeClass('o-opacity');
   }
 
   function setActiveNav($item) {
@@ -131,8 +126,7 @@ $(document).ready(function () {
     'Novel': 'Novel',
     'AU Story': 'AU Story',
     'Lyrics': 'Lyrics',
-    'gallery': 'Gallery',
-    'tags': 'Tags'
+    'gallery': 'Gallery'
   };
 
   function setActiveHero(name) {
@@ -168,12 +162,6 @@ $(document).ready(function () {
       if (window.history && window.history.replaceState) {
         window.history.replaceState(null, '', BASEURL + '/?view=gallery');
       }
-    } else if ($this.hasClass('c-item_tags')) {
-      showTags();
-      setActiveHero('tags');
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState(null, '', BASEURL + '/?view=tags');
-      }
     }
 
     if ($('main.c-content').length && window.scrollY > 200) {
@@ -196,9 +184,6 @@ $(document).ready(function () {
     } else if (view === 'gallery') {
       setActiveNav($('.c-nav__list > .c-item_images'));
       showGallery();
-    } else if (view === 'tags') {
-      setActiveNav($('.c-nav__list > .c-item_tags'));
-      showTags();
     }
   }
 
@@ -247,7 +232,7 @@ $(document).ready(function () {
   });
 
   /* =======================
-  // Sticky TOC for long chapter posts
+  // In-article TOC for long chapter posts
   ======================= */
 
   (function buildArticleTOC() {
@@ -259,7 +244,7 @@ $(document).ready(function () {
     var toc = document.createElement('nav');
     toc.className = 'c-toc';
     toc.setAttribute('aria-label', '本章目录');
-    toc.innerHTML = '<div class="c-toc__title">本章</div><ol class="c-toc__list"></ol>';
+    toc.innerHTML = '<div class="c-toc__title">本章目录</div><ol class="c-toc__list"></ol>';
     var list = toc.querySelector('.c-toc__list');
 
     headings.forEach(function (h, i) {
@@ -273,7 +258,13 @@ $(document).ready(function () {
       list.appendChild(li);
     });
 
-    document.body.appendChild(toc);
+    // Insert at the top of the article body — right after the header.
+    var header = article.querySelector('.c-article__header');
+    if (header && header.nextSibling) {
+      article.insertBefore(toc, header.nextSibling);
+    } else {
+      article.insertBefore(toc, article.firstChild);
+    }
 
     // Highlight current section as it scrolls past the top
     if ('IntersectionObserver' in window) {

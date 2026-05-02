@@ -9,7 +9,6 @@ layout: home
     var active = 'all';
     if (p.get('cat')) active = p.get('cat');
     else if (p.get('view') === 'gallery') active = 'gallery';
-    else if (p.get('view') === 'tags') active = 'tags';
     document.documentElement.setAttribute('data-hero-active', active);
 
     // Reflect the active filter in the browser tab title
@@ -18,8 +17,7 @@ layout: home
       'Novel': 'Novel',
       'AU Story': 'AU Story',
       'Lyrics': 'Lyrics',
-      'gallery': 'Gallery',
-      'tags': 'Tags'
+      'gallery': 'Gallery'
     };
     if (labels[active]) {
       document.title = labels[active] + ' · {{ site.title | escape }}';
@@ -127,21 +125,6 @@ layout: home
   </div>
 </section>
 
-<section class="c-hero c-hero--filter" data-hero-id="tags">
-  {% if site.author-image %}
-  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
-    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-  </a>
-  {% endif %}
-  <div class="c-hero__eyebrow">Tags</div>
-  <h1 class="c-hero__title">By <em>Mood</em></h1>
-  <div class="c-hero__byline">
-    <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">按主题与情绪，重新走一遍这里的每一篇</span>
-    <span class="c-hero__byline-rule"></span>
-  </div>
-</section>
-
 <div class="c-posts o-opacity">
   {% if site.posts.size > 0 %}
 
@@ -207,6 +190,10 @@ layout: home
     {% endfor %}
   </div>
 
+  <p class="c-archive-cta">
+    <a href="{{site.baseurl}}/archive/">Browse the full archive ↓</a>
+  </p>
+
   <div class="c-empty-state" data-empty hidden>
     <p class="c-empty-state__title">Nothing filed here yet.</p>
     <p class="c-empty-state__hint">This category is waiting for its first story.</p>
@@ -218,5 +205,4 @@ layout: home
 </div>
 
 {% include categories.html %}
-{% include blog-tags.html %}
 {% include image-show.html %}

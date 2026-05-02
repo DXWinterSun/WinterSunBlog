@@ -40,8 +40,8 @@
         <li class="c-nav__item c-item_images">
           <a href="{{site.baseurl}}/?view=gallery">Gallery</a>
         </li>
-        <li class="c-nav__item c-item_tags">
-          <a href="{{site.baseurl}}/?view=tags">Tags</a>
+        <li class="c-nav__item c-nav__item--link{% if nav_active == 'archive' %} is-active{% endif %}">
+          <a href="{{site.baseurl}}/archive/">Archive</a>
         </li>
         <li class="c-nav__item c-nav__item--link{% if nav_active == 'sam' %} is-active{% endif %}">
           <a href="{{site.baseurl}}/sam/">Sam</a>
