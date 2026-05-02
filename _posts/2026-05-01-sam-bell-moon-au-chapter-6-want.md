@@ -1,24 +1,39 @@
 ---
 layout: post
-title: "Chapter 7 · Want — Sam Bell · Moon AU"
-date: 2026-05-01 22:00:00
+title: "Chapter 6 · Want — Sam Bell · Moon AU"
+date: 2026-05-01 20:00:00
 image: sam-bell-moon-au.jpg
 tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_order: 7
-summary: "Sarang 第二十七天的晚上。Sam 6 在过道里把你按在墙上吻你——然后他叫 Seven 过来。三种渴望，三种不同的吻；同一具被设计成无差别替换的身体，今晚在你身上证明了他们是三个完全不同的人。意识流，也是激情的——一张床、四个人、三种『想要』收拢成同一个夜晚。"
+series_order: 6
+summary: "大通铺第二十几个早晨已经成了某种新的『日常』——Sam 6 的 0.4 度、Sam 7 的呼吸、Sam 8 的脚。可是有些事是要等到晚上才会发生的。第二十七天的夜里，Sam 6 把你按在过道墙上吻你——然后他叫 Seven 过来。三种渴望，三种不同的吻；同一具被设计成无差别替换的身体，今晚证明了他们是三个完全不同的人。意识流，也是激情的。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列第七章。前情见
+> 《月球》（_Moon_, 2009）AU 系列第六章。前情见
 > [〈一〉Departure]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-1-departure %})、
 > [〈二〉Awakening]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-2-awakening %})、
 > [〈三〉Bringing Him Home]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-3-bringing-him-home %})、
 > [〈四〉Eight is awake]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-4-eight-is-awake %})、
-> [〈五〉One Bed]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-5-one-bed %})、
-> [〈六〉Morning]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-6-morning %})。
+> [〈五〉One Bed]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-5-one-bed %})。
 
 ---
+
+后来的那些早晨——你都说不清是哪一天哪一天了。
+
+你只记得每天醒来的时候，左边是 Sam 6 那 0.4 度的温度，右边是 Sam 7 在你脖颈那一寸的呼吸，脚边是 Sam 8 翻过身又翻回来的不规则起伏。GERTY 的灯每天准时——四点暗、六点开始亮、八点最暖。
+
+你们渐渐发现：每天早晨，三只手会慢慢叠在你的手腕上。Sam 6 的，Sam 7 的，等 Sam 8 醒来加上他的。三个温度共享同一个脉搏。这就是那张床的"早安"。
+
+Sam 7 在第三天的早上、半睡半醒里轻声哭过一次——你没说什么，他自己也没醒；你只是把手腕往他那边送了半寸。从那以后他不再藏。
+
+——
+
+那是你们的早晨。
+
+可是有些事，是要等到晚上才会发生的。
+
+——
 
 第二十七天的晚上，回到主舱的过道里——
 
