@@ -10,7 +10,7 @@ series_order: 3
 summary: "出舱、1/6 G、矿车残骸、5 号留在驾驶位上的那个最后的姿势——以及 Sam 6 第一次在月球的尘里跪下来。葬礼之后回到主舱，三个人决定他们不是来这里苟活的：这地方现在是他们的。然后 Sam 6 提议——我们叫醒 Eight。"
 ---
 
-> 这是 _Moon_ (2009) AU 系列的第三章。前情见 [〈一〉Departure]({% post_url 2026-05-01-sam-bell-moon-au-chapter-1-departure %}) 和 [〈二〉Awakening]({% post_url 2026-05-01-sam-bell-moon-au-chapter-2-awakening %})。
+> 这是 _Moon_ (2009) AU 系列的第三章。前情见 [〈一〉Departure]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-1-departure %}) 和 [〈二〉Awakening]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-2-awakening %})。
 
 ## 一 · 早上六点
 
