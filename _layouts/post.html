@@ -27,29 +27,34 @@ layout: home
         </div>
       </header>
       {{page.content | markdownify}}
+    </div> <!-- /.c-wrap-content -->
 
-      <div class="c-recent-post">
-        {% if site.related_posts %}
-        <h4 class="c-recent__title">YOU MIGHT ALSO ENJOY</h4>
-        <div class="c-recent__box">
-        {% for post in site.related_posts limit:4 %}
-        {% if post.image %}
-          <div class="c-recent__item">
-            <a class="c-recent__image" href="{{ post.url | prepend: site.baseurl }}" style="background-image: url( {{"/images/" | prepend: site.baseurl | append: post.image}})"></a>
-            <div class="c-recent__footer">
-              <h4><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
-              <div class="c-recent__date">
-                <time datetime="{{ post.date | date_to_xmlschema }}">{{post.date | date: "%B %-d, %Y"}}</time>
-              </div>
+    {% if site.related_posts %}
+    {% assign related_with_image = site.related_posts | where_exp: "p", "p.image" | slice: 0, 4 %}
+    {% if related_with_image.size > 0 %}
+    <section class="c-related">
+      <div class="c-section-heading">
+        <h3 class="c-section-heading__title">You Might Also Enjoy</h3>
+        <span class="c-section-heading__meta">picked from the archive</span>
+      </div>
+      <div class="c-post-grid c-post-grid--quad">
+        {% for post in related_with_image %}
+        <a class="c-post" href="{{ post.url | prepend: site.baseurl }}">
+          <div class="c-post__image-wrap">
+            <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: post.image }}')"></div>
+          </div>
+          <div class="c-post__body">
+            {% if post.categories.size > 0 %}<div class="c-post__eyebrow">{{ post.categories | first }}</div>{% endif %}
+            <h3 class="c-post__title">{{ post.title }}</h3>
+            <div class="c-post__meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y, %b %d' }}</time>
             </div>
           </div>
-        {% else %}
-        {% endif %}
+        </a>
         {% endfor %}
-        {% endif %}
-        </div>
-       
-      </div> <!-- /.c-recent-post -->
-    </div> <!-- /.c-wrap-content -->
+      </div>
+    </section>
+    {% endif %}
+    {% endif %}
   </div> <!-- /.c-article__content -->
 </article> <!-- /.c-article-page -->

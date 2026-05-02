@@ -218,6 +218,27 @@
 .c-post.is-hidden,
 .c-featured.is-hidden { display: none; }
 
+/* ----- Related posts at bottom of article (4 columns on desktop) ----- */
+.c-related {
+  margin-top: 56px;
+}
+
+.c-post-grid--quad {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 24px;
+  .c-post__image-wrap { aspect-ratio: 4 / 3; margin-bottom: 16px; }
+  .c-post__title { font-size: 18px; line-height: 1.25; margin-bottom: 8px; }
+  .c-post__eyebrow { font-size: 9px; letter-spacing: 0.22em; margin-bottom: 8px; }
+  .c-post__meta { font-size: 10px; letter-spacing: 0.12em; }
+}
+
+@media only screen and (max-width: 1100px) {
+  .c-post-grid--quad { grid-template-columns: repeat(2, 1fr); }
+}
+@media only screen and (max-width: 560px) {
+  .c-post-grid--quad { grid-template-columns: 1fr; }
+}
+
 /* ----- Feature card (e.g. New Year fireworks above the image grid) ----- */
 .c-feature-card {
   display: block;
