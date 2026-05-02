@@ -1,0 +1,42 @@
+---
+layout: home
+title: Archive
+permalink: /archive/
+nav_active: archive
+---
+
+<section class="c-hero c-hero--filter">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+  <div class="c-hero__eyebrow">Archive</div>
+  <h1 class="c-hero__title">Down the <em>Years</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">每一篇都还在 · {{ site.posts.size }} stories so far</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-archive">
+  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year_group in posts_by_year %}
+  <div class="c-archive__year">
+    <div class="c-archive__heading">
+      <span class="c-archive__year-num">{{ year_group.name }}</span>
+      <span class="c-archive__year-meta">{{ year_group.items.size }} {% if year_group.items.size == 1 %}story{% else %}stories{% endif %}</span>
+    </div>
+    <ul class="c-archive__list">
+      {% for post in year_group.items %}
+      <li class="c-archive__item">
+        <span class="c-archive__date">{{ post.date | date: '%b %d' }}</span>
+        <a class="c-archive__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        {% if post.categories.size > 0 %}<span class="c-archive__cat">{{ post.categories | first }}</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</section>
