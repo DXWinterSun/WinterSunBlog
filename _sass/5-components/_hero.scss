@@ -236,7 +236,7 @@
 
 /* ===== About page prose ===== */
 .c-about {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto 80px;
   padding: 0 8px;
   font-size: 16px;
@@ -245,12 +245,55 @@
   p { margin: 0 0 20px; }
   .c-about__lede {
     font-family: $heading-font-family;
-    font-size: 19px;
+    font-size: 21px;
     font-style: italic;
     color: $ink;
     line-height: 1.6;
-    margin-bottom: 28px;
+    margin-bottom: 36px;
+    text-align: center;
   }
+}
+
+/* ----- Three small fact blocks under the about lede ----- */
+.c-about__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 32px 0 0;
+  border-top: 1px solid $line;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .c-about__facts-label {
+    font-family: $heading-font-family;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: $accent;
+  }
+  .c-about__facts-text {
+    font-family: $heading-font-family;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.55;
+    color: $ink-soft;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .c-about__facts {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding-top: 26px;
+    li { text-align: left; }
+  }
+  .c-about .c-about__lede { font-size: 18px; }
 }
 
 /* ===== Section heading used above lists ===== */

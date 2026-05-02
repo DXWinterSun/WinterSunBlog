@@ -35,11 +35,11 @@ layout: home
   </a>
   {% endif %}
 
-  <div class="c-hero__eyebrow">About</div>
-  <h1 class="c-hero__title">Hi, I'm <em>Winter Sun</em></h1>
+  <div class="c-hero__eyebrow">A Personal Blog</div>
+  <h1 class="c-hero__title">Winter in <em>Wonderland</em></h1>
   <div class="c-hero__byline">
     <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">冬璇 · {{ site.author-job }}</span>
+    <span class="c-hero__byline-text">by 冬璇 · Winter Sun</span>
     <span class="c-hero__byline-rule"></span>
   </div>
 
@@ -48,6 +48,8 @@ layout: home
     {{ site.about-author | strip_html }}
     <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
   </p>
+
+  <div class="c-hero__role">{{ site.author-job }}</div>
 
   <div class="c-hero__socials">
     {% if site.author-email %}<a href="{{site.baseurl}}/contact/">Contact</a>{% endif %}
@@ -63,10 +65,21 @@ layout: home
     daily notes, novels and AU stories I've written, lyric translations,
     and pictures I've drawn or fallen in love with.
   </p>
-  <p>
-    I write mostly in Chinese, sometimes in English, occasionally side by side.
-    I make things slowly. Thanks for stopping by.
-  </p>
+
+  <ul class="c-about__facts">
+    <li>
+      <span class="c-about__facts-label">Language</span>
+      <span class="c-about__facts-text">Chinese, sometimes English — occasionally side by side.</span>
+    </li>
+    <li>
+      <span class="c-about__facts-label">Pace</span>
+      <span class="c-about__facts-text">Made slowly, with care.</span>
+    </li>
+    <li>
+      <span class="c-about__facts-label">Note</span>
+      <span class="c-about__facts-text">Thanks for stopping by.</span>
+    </li>
+  </ul>
 </article>
 
 <section class="c-hero c-hero--filter" data-hero-id="Daily">
