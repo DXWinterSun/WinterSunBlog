@@ -10,6 +10,18 @@
 .c-wrap-content {
   padding: 20px;
   background-color: $paper;
+
+  // Chinese-style paragraph indentation: 段首空两格.
+  // Scoped to direct child paragraphs so blockquotes, lists, and code
+  // blocks aren't affected. Image-only paragraphs are reset so the
+  // image doesn't shift right.
+  > p {
+    text-indent: 2em;
+  }
+  > p:has(> img:only-child),
+  > p:has(> a > img:only-child) {
+    text-indent: 0;
+  }
 }
 
 .c-article__image {
