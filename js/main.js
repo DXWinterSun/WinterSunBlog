@@ -95,7 +95,28 @@ $(document).ready(function () {
   function setActiveNav($item) {
     $('.c-nav__list > .c-nav__item').removeClass('is-active');
     $item.addClass('is-active');
+    scrollActiveNavIntoView();
   }
+
+  // On mobile the nav scrolls horizontally; bring the active tab into
+  // view so users don't see the list snap back to "About" after every
+  // navigation.
+  function scrollActiveNavIntoView() {
+    var nav = document.querySelector('.c-nav');
+    var active = document.querySelector('.c-nav__list > .c-nav__item.is-active');
+    if (!nav || !active) return;
+    if (nav.scrollWidth <= nav.clientWidth) return; // not scrollable
+    var target = Math.max(0, active.offsetLeft - 16);
+    if (typeof nav.scrollTo === 'function') {
+      nav.scrollTo({ left: target, behavior: 'smooth' });
+    } else {
+      nav.scrollLeft = target;
+    }
+  }
+
+  // Position on first load (e.g. landing on /sam/ should show Sam in
+  // view, not the leftmost About).
+  scrollActiveNavIntoView();
 
   // Cache the site title (last segment of the page title, or the
   // whole thing if there's no " · " separator).
