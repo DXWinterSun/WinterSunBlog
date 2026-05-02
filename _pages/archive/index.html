@@ -21,59 +21,68 @@ nav_active: archive
 </section>
 
 <section class="c-archive">
-  <div class="c-section-heading">
-    <h3 class="c-section-heading__title">By Year</h3>
-    <span class="c-section-heading__meta">a timeline</span>
+
+  <div class="c-archive-tabs" role="tablist">
+    <button class="c-archive-tab is-active" type="button" role="tab" data-archive-view="year" aria-selected="true">By Year</button>
+    <button class="c-archive-tab" type="button" role="tab" data-archive-view="mood" aria-selected="false">By Mood</button>
   </div>
 
-  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-  {% for year_group in posts_by_year %}
-  <div class="c-archive__year">
-    <div class="c-archive__heading">
-      <span class="c-archive__year-num">{{ year_group.name }}</span>
-      <span class="c-archive__year-meta">{{ year_group.items.size }} {% if year_group.items.size == 1 %}story{% else %}stories{% endif %}</span>
+  {% comment %} ===== BY YEAR ===== {% endcomment %}
+  <div class="c-archive-panel" data-archive-panel="year">
+    {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for year_group in posts_by_year %}
+    <div class="c-archive__year">
+      <div class="c-archive__heading">
+        <span class="c-archive__year-num">{{ year_group.name }}</span>
+        <span class="c-archive__year-meta">{{ year_group.items.size }} {% if year_group.items.size == 1 %}story{% else %}stories{% endif %}</span>
+      </div>
+      <ul class="c-archive__list">
+        {% for post in year_group.items %}
+        <li class="c-archive__item">
+          <span class="c-archive__date">{{ post.date | date: '%b %d' }}</span>
+          <a class="c-archive__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          {% if post.categories.size > 0 %}<span class="c-archive__cat">{{ post.categories | first }}</span>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
     </div>
-    <ul class="c-archive__list">
-      {% for post in year_group.items %}
-      <li class="c-archive__item">
-        <span class="c-archive__date">{{ post.date | date: '%b %d' }}</span>
-        <a class="c-archive__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        {% if post.categories.size > 0 %}<span class="c-archive__cat">{{ post.categories | first }}</span>{% endif %}
-      </li>
-      {% endfor %}
-    </ul>
+    {% endfor %}
   </div>
-  {% endfor %}
 
+  {% comment %} ===== BY MOOD ===== {% endcomment %}
   {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
   {% assign tag_words = site_tags | split:',' | sort %}
 
-  <div class="c-section-heading c-section-heading--spacer">
-    <h3 class="c-section-heading__title">By Mood — Tags</h3>
-    <span class="c-section-heading__meta">{{ tag_words.size }} threads</span>
-  </div>
-
-  <ul class="c-archive-tags">
-    {% for w in tag_words %}
-    <li><a href="#tag-{{ w | cgi_escape }}">{{ w }} <span>{{ site.tags[w].size }}</span></a></li>
-    {% endfor %}
-  </ul>
-
-  {% for w in tag_words %}
-  <div class="c-archive__year c-archive__tag-group" id="tag-{{ w | cgi_escape }}">
-    <div class="c-archive__heading">
-      <span class="c-archive__year-num">{{ w }}</span>
-      <span class="c-archive__year-meta">{{ site.tags[w].size }} {% if site.tags[w].size == 1 %}story{% else %}stories{% endif %}</span>
-    </div>
-    <ul class="c-archive__list">
-      {% for post in site.tags[w] %}{% if post.title %}
-      <li class="c-archive__item">
-        <span class="c-archive__date">{{ post.date | date: '%Y, %b %d' }}</span>
-        <a class="c-archive__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        {% if post.categories.size > 0 %}<span class="c-archive__cat">{{ post.categories | first }}</span>{% endif %}
+  <div class="c-archive-panel" data-archive-panel="mood" hidden>
+    <ul class="c-archive-tags" role="tablist">
+      {% for w in tag_words %}
+      <li>
+        <button type="button" class="c-archive-tag-pill{% if forloop.first %} is-active{% endif %}" data-archive-tag="{{ w | cgi_escape }}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+          {{ w }} <span>{{ site.tags[w].size }}</span>
+        </button>
       </li>
-      {% endif %}{% endfor %}
+      {% endfor %}
     </ul>
+
+    {% for w in tag_words %}
+    <div class="c-archive-tag-content"
+         data-archive-tag-content="{{ w | cgi_escape }}"
+         {% unless forloop.first %}hidden{% endunless %}>
+      <div class="c-archive__heading">
+        <span class="c-archive__year-num">{{ w }}</span>
+        <span class="c-archive__year-meta">{{ site.tags[w].size }} {% if site.tags[w].size == 1 %}story{% else %}stories{% endif %}</span>
+      </div>
+      <ul class="c-archive__list">
+        {% for post in site.tags[w] %}{% if post.title %}
+        <li class="c-archive__item">
+          <span class="c-archive__date">{{ post.date | date: '%Y, %b %d' }}</span>
+          <a class="c-archive__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          {% if post.categories.size > 0 %}<span class="c-archive__cat">{{ post.categories | first }}</span>{% endif %}
+        </li>
+        {% endif %}{% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
+
 </section>

@@ -232,6 +232,50 @@ $(document).ready(function () {
   });
 
   /* =======================
+  // Archive page: Year / Mood sub-tabs + per-tag panels
+  ======================= */
+
+  (function setupArchiveTabs() {
+    var tabs = document.querySelectorAll('.c-archive-tab');
+    var panels = document.querySelectorAll('.c-archive-panel');
+    if (!tabs.length || !panels.length) return;
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var view = tab.getAttribute('data-archive-view');
+        tabs.forEach(function (t) {
+          var match = t.getAttribute('data-archive-view') === view;
+          t.classList.toggle('is-active', match);
+          t.setAttribute('aria-selected', match ? 'true' : 'false');
+        });
+        panels.forEach(function (p) {
+          var match = p.getAttribute('data-archive-panel') === view;
+          if (match) p.removeAttribute('hidden');
+          else p.setAttribute('hidden', '');
+        });
+      });
+    });
+
+    var tagPills = document.querySelectorAll('.c-archive-tag-pill');
+    var tagContents = document.querySelectorAll('.c-archive-tag-content');
+    tagPills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        var tag = pill.getAttribute('data-archive-tag');
+        tagPills.forEach(function (p) {
+          var match = p.getAttribute('data-archive-tag') === tag;
+          p.classList.toggle('is-active', match);
+          p.setAttribute('aria-selected', match ? 'true' : 'false');
+        });
+        tagContents.forEach(function (c) {
+          var match = c.getAttribute('data-archive-tag-content') === tag;
+          if (match) c.removeAttribute('hidden');
+          else c.setAttribute('hidden', '');
+        });
+      });
+    });
+  })();
+
+  /* =======================
   // In-article TOC for long chapter posts
   ======================= */
 

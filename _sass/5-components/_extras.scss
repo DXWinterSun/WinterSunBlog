@@ -165,45 +165,81 @@
   .c-archive__year-num { font-size: 26px; }
 }
 
-.c-section-heading--spacer {
-  margin-top: 80px;
+/* Sub-tabs at the top of /archive/ */
+.c-archive-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin: 0 0 32px;
+  background: $paper-warm;
+  border: 1px solid $line;
+  border-radius: 999px;
 }
 
-/* Tag pill cloud — sits between the year list and the tag-grouped lists */
+.c-archive-tab {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 8px 18px;
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $muted;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: $global-transition;
+  &:hover { color: $accent; }
+  &.is-active {
+    color: $paper;
+    background: $ink;
+  }
+}
+
+/* Tag pill cloud — sits at the top of the Mood panel */
 .c-archive-tags {
   list-style: none;
-  margin: 0 0 56px;
+  margin: 0 0 32px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   li { margin: 0; }
-  a {
-    display: inline-block;
-    padding: 6px 14px;
-    font-family: $heading-font-family;
-    font-size: 13px;
-    color: $ink-soft;
-    background: $paper-warm;
-    border: 1px solid $line;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: $global-transition;
-    span {
-      color: $accent;
-      font-style: italic;
-      font-size: 11px;
-      margin-left: 6px;
-    }
-    &:hover {
-      color: $accent;
-      border-color: $accent-soft;
-      transform: translateY(-1px);
-    }
+}
+
+.c-archive-tag-pill {
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 6px 14px;
+  font-family: $heading-font-family;
+  font-size: 13px;
+  color: $ink-soft;
+  background: $paper-warm;
+  border: 1px solid $line;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: $global-transition;
+  span {
+    color: $accent;
+    font-style: italic;
+    font-size: 11px;
+    margin-left: 6px;
+  }
+  &:hover {
+    color: $accent;
+    border-color: $accent-soft;
+    transform: translateY(-1px);
+  }
+  &.is-active {
+    color: $paper;
+    background: $ink;
+    border-color: $ink;
+    span { color: $accent-soft; }
   }
 }
 
-.c-archive__tag-group { scroll-margin-top: 80px; }
+.c-archive-tag-content { scroll-margin-top: 80px; }
 
 
 /* ===============
