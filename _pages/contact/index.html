@@ -1,44 +1,99 @@
 ---
 layout: home
-title: Contact
+title: Say Hello
 permalink: /contact/
 ---
-<header class="c-header u-hide u-no-margin-bottom">
-  <div class="c-header__box">
-    <div class="c-search u-full-width">
-      <div class="c-search__box">
-        <label for="js-search-input" class="u-screen-reader-text">Search for Blog</label>
-        <input type="text" id="js-search-input" class="c-search__text" autocomplete="off" placeholder="Type to search...">
-        <div data-icon='ei-search' data-size='s'></div>
-      </div>
-      <ul id="js-results-container" class="c-search-results-list"></ul>
-    </div>
+
+<section class="c-hero">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+
+  <div class="c-hero__eyebrow">Say Hello</div>
+  <h1 class="c-hero__title">Drop a <em>Note</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">letters always welcome — long or short</span>
+    <span class="c-hero__byline-rule"></span>
   </div>
-</header>
-<div class="c-form-box o-opacity">
-  <form class="c-form" action="{% if site.author-email %}https://formspree.io/{{site.author-email}}{% else %}#{% endif %}"
-    method="POST">
-    <a href="{{site.baseurl}}/"><div class="c-form-bnt__close" data-icon='ei-close' data-size='s'></div></a>
-    <div class="c-form__title">You can contact me!</div>
-    <div class="c-form__group">
-      <label for="form-name">Your Name (Required)</label>
-      <input class="c-form__input" id="form-name" type="text" name="name" required>
+
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    随时来这里坐坐，留几个字也好。
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
+</section>
+
+<section class="c-hello">
+  <ul class="c-hello__channels">
+    {% if site.author-email %}
+    <li class="c-hello__channel">
+      <a href="#hello-form" class="c-hello__card">
+        <span class="c-hello__card-eyebrow">Email</span>
+        <span class="c-hello__card-title">写一封信</span>
+        <span class="c-hello__card-cta">Use the form below ↓</span>
+      </a>
+    </li>
+    {% endif %}
+    {% if site.author-redbook %}
+    <li class="c-hello__channel">
+      <a href="{{site.author-redbook}}" target="_blank" rel="noopener" class="c-hello__card">
+        <span class="c-hello__card-eyebrow">Red Book</span>
+        <span class="c-hello__card-title">小红书</span>
+        <span class="c-hello__card-cta">Open in new tab ↗</span>
+      </a>
+    </li>
+    {% endif %}
+    {% if site.author-weibo %}
+    <li class="c-hello__channel">
+      <a href="{{site.author-weibo}}" target="_blank" rel="noopener" class="c-hello__card">
+        <span class="c-hello__card-eyebrow">Weibo</span>
+        <span class="c-hello__card-title">微博</span>
+        <span class="c-hello__card-cta">Open in new tab ↗</span>
+      </a>
+    </li>
+    {% endif %}
+    {% if site.author-bilibili %}
+    <li class="c-hello__channel">
+      <a href="{{site.author-bilibili}}" target="_blank" rel="noopener" class="c-hello__card">
+        <span class="c-hello__card-eyebrow">Bilibili</span>
+        <span class="c-hello__card-title">B 站</span>
+        <span class="c-hello__card-cta">Open in new tab ↗</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+
+  {% if site.author-email %}
+  <form id="hello-form" class="c-hello__form" action="https://formspree.io/{{site.author-email}}" method="POST">
+    <div class="c-section-heading">
+      <h3 class="c-section-heading__title">A Letter</h3>
+      <span class="c-section-heading__meta">straight to my inbox</span>
     </div>
-    <div class="c-form__group">
-      <label for="form-email">Your Email (Required)</label>
-      <input class="c-form__input" id="form-email" type="email" name="_replyto" required>
+
+    <div class="c-hello__row">
+      <label class="c-hello__field">
+        <span class="c-hello__label">Your name</span>
+        <input class="c-hello__input" type="text" name="name" required>
+      </label>
+      <label class="c-hello__field">
+        <span class="c-hello__label">Your email</span>
+        <input class="c-hello__input" type="email" name="_replyto" required>
+      </label>
     </div>
-    <div class="c-form__group">
-      <label for="form-subject">Subject</label>
-      <input class="c-form__input" id="form-subject" type="text" name="_subject">
-    </div>
-    <div class="c-form__group">
-      <label for="form-text">Your Message (Required)</label>
-      <textarea class="c-form__input" id="form-text" name="text" rows="10" required></textarea>
-    </div>
-    <div class="c-form__group">
-      <button class="c-btn c-btn--secondary c-btn--big c-btn--shadow" type="submit">Send</button>
-    </div>
-    <input type="hidden" name="_next" value="{{ site.baseurl }}/contact/thanks/" />
+    <label class="c-hello__field">
+      <span class="c-hello__label">Subject</span>
+      <input class="c-hello__input" type="text" name="_subject">
+    </label>
+    <label class="c-hello__field">
+      <span class="c-hello__label">Your letter</span>
+      <textarea class="c-hello__input c-hello__input--area" name="text" rows="8" required></textarea>
+    </label>
+
+    <button class="c-hello__submit" type="submit">Send the letter</button>
+    <input type="hidden" name="_next" value="{{ site.baseurl }}/contact/thanks/">
   </form>
-</div> <!-- /.c-form-box -->
+  {% endif %}
+</section>
