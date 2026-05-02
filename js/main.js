@@ -49,7 +49,27 @@ $(document).ready(function () {
     var visible = 0;
     $items.each(function () {
       var cat = $(this).attr('data-category') || '';
-      if (filter === 'all' || cat === filter) {
+      var cardType = $(this).attr('data-card-type') || 'chapter';
+      var partOfSeries = !!$(this).attr('data-series');
+
+      // Rules:
+      //   - 'all' view: show chapter cards (each post once); hide series
+      //     cards so series don't duplicate the chapters they group.
+      //   - Specific category: show series cards in that category; show
+      //     chapter cards in that category only if the chapter is NOT
+      //     part of a series (its series card represents it instead).
+      var shouldShow;
+      if (filter === 'all') {
+        shouldShow = cardType !== 'series';
+      } else if (cat !== filter) {
+        shouldShow = false;
+      } else if (cardType === 'series') {
+        shouldShow = true;
+      } else {
+        shouldShow = !partOfSeries;
+      }
+
+      if (shouldShow) {
         $(this).removeClass('is-hidden');
         visible++;
       } else {

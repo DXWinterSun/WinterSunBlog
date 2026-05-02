@@ -1,8 +1,15 @@
 <header class="c-topbar">
   <div class="o-container c-topbar__inner">
-    {% comment %} About is now the home page; HOME tab removed. {% endcomment %}
+    {% comment %}
+      About is now the home page; HOME tab removed.
+      Pages can override the active tab by setting `nav_active` in their
+      front matter — e.g. a series landing page declares its category so
+      the corresponding filter tab lights up instead of Sam getting a
+      false-positive substring match on "/sam-bell-..." URLs.
+    {% endcomment %}
     {% assign nav_active = '' %}
-    {% if page.url contains '/sam' %}{% assign nav_active = 'sam' %}
+    {% if page.nav_active %}{% assign nav_active = page.nav_active %}
+    {% elsif page.url contains '/sam/' %}{% assign nav_active = 'sam' %}
     {% elsif page.url contains '/contact' %}{% assign nav_active = 'hello' %}
     {% elsif page.url == '/' or page.url == '/index.html' or page.url == '/about/' %}{% assign nav_active = 'about' %}
     {% endif %}
@@ -18,16 +25,16 @@
         <li class="c-nav__item c-nav__item--link{% if nav_active == 'about' %} is-active{% endif %}">
           <a href="{{site.baseurl}}/">About</a>
         </li>
-        <li class="c-nav__item c-item_post" data-filter="Daily">
+        <li class="c-nav__item c-item_post{% if nav_active == 'Daily' %} is-active{% endif %}" data-filter="Daily">
           <a href="{{site.baseurl}}/?cat=Daily">Daily</a>
         </li>
-        <li class="c-nav__item c-item_post" data-filter="Novel">
+        <li class="c-nav__item c-item_post{% if nav_active == 'Novel' %} is-active{% endif %}" data-filter="Novel">
           <a href="{{site.baseurl}}/?cat=Novel">Novel</a>
         </li>
-        <li class="c-nav__item c-item_post" data-filter="AU Story">
+        <li class="c-nav__item c-item_post{% if nav_active == 'AU Story' %} is-active{% endif %}" data-filter="AU Story">
           <a href="{{site.baseurl}}/?cat=AU+Story">AU Story</a>
         </li>
-        <li class="c-nav__item c-item_post" data-filter="Lyrics">
+        <li class="c-nav__item c-item_post{% if nav_active == 'Lyrics' %} is-active{% endif %}" data-filter="Lyrics">
           <a href="{{site.baseurl}}/?cat=Lyrics">Lyrics</a>
         </li>
         <li class="c-nav__item c-item_images">
