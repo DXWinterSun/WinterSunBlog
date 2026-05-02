@@ -236,6 +236,10 @@ const characters = [
     bgNameEn: "Lunar Blue", bgNameCn: "月球蓝",
     accentNameEn: "Warm White", accentNameCn: "暖白",
     profile: { burn: 4, drift: 1, silence: 5, romance: 9, edge: 1 },
+    auLink: {
+      href: "/WinterSunBlog/series/sam-bell-moon-au/",
+      label: "他还有一段 AU · 推开月球的门",
+    },
   },
   {
     id: "robert",
@@ -682,6 +686,49 @@ function CharacterCard({ c, idx }) {
             </p>
           );
         })}
+
+        {c.auLink && (
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "40px" }}>
+            <a
+              href={c.auLink.href}
+              target="_blank"
+              rel="noopener"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "12px",
+                padding: "12px 24px",
+                fontFamily: "'Noto Serif SC', serif",
+                fontStyle: "italic",
+                fontSize: "0.95rem",
+                color: c.accent,
+                textDecoration: "none",
+                border: "1px dashed " + c.accent,
+                borderRadius: "999px",
+                opacity: 0.78,
+                transition: "all 0.35s ease",
+                background: "transparent",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.opacity = 1;
+                e.currentTarget.style.background = c.accent;
+                e.currentTarget.style.color = c.bg;
+                e.currentTarget.style.borderStyle = "solid";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.opacity = 0.78;
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = c.accent;
+                e.currentTarget.style.borderStyle = "dashed";
+              }}
+            >
+              <span style={{ fontFamily: "'Special Elite', monospace", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>PSST</span>
+              <span style={{ opacity: 0.6 }}>·</span>
+              <span>{c.auLink.label}</span>
+              <span style={{ opacity: 0.7 }}>↗</span>
+            </a>
+          </div>
+        )}
 
         <div style={{ marginTop: "32px", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <p style={{
