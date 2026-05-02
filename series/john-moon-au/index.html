@@ -1,0 +1,94 @@
+---
+layout: home
+title: "John Moon · A Single Shot AU"
+permalink: /series/john-moon-au/
+nav_active: "AU Story"
+---
+
+<section class="c-hero">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+
+  <div class="c-hero__eyebrow">AU Story · Series</div>
+  <h1 class="c-hero__title">John Moon · <em>A Single Shot AU</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">an AU of A Single Shot (2013) · ongoing</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    他闭上眼睛的时候，不知道你已经听见了。
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
+</section>
+
+<article class="c-sam-intro">
+  <h2 class="c-sam-intro__heading">关于这个系列</h2>
+
+  <p>
+    《A Single Shot》（2013，中文译名《致命一击》）改编自 Matthew F. Jones 1996 年的同名小说，是一部关于阿巴拉契亚山区一个普通男人在一次猎鹿事故之后被命运逐渐压垮的悲剧。Sam Rockwell 在这部片子里把 John Moon 演得太沉默、太疲惫、太让人心碎——一个被妻子离弃、被自己的良心追逼、被山外那群更黑的人猎捕的男人，一步一步走向他自己挖的那个坑。
+  </p>
+
+  <p>
+    电影是开放式结局。最后一幕，John 失去了食指、失血过多、独自在那片山林里挖完了一个最后的坑——里面是那笔诅咒过的钱，是那个被他误杀的女孩的遗体，然后他躺进去，合上眼睛。镜头渐渐黑下去。没有人知道他有没有等到天亮。
+  </p>
+
+  <p>这是关于他等到了天亮的另一种结局。</p>
+
+  <p>
+    这个 AU 的世界："你"——Winter——是一位野生植物学者，正在阳里吗其州山区做阿巴拉契亚特有药用植物的野外考察。第十一天，你迷路了。GPS 失灵、云压得很低、十月底的山林一片寂静。
+  </p>
+
+  <p>就是在那一刻，你听见了那个坑里的呼吸声。</p>
+
+  <p>
+    你看见的第一眼吓得后退了一步。可你认出了那张脸——夏天你在镇上加油站见过他一两次，没说过话，但你记得他眼睛低垂着不太看人的样子。你也看见了坑里的另一具——用脏睡袋裹着的——东西。你比谁都更应该转身走开。
+  </p>
+
+  <p>可你没有。</p>
+
+  <p class="c-sam-intro__closing">
+    这个系列写的是你和 John Moon——以及那只你救下的、不肯松开的、<br>
+    明知道会被烫伤却还是握住的手——之后的故事。
+  </p>
+</article>
+
+{% assign chapters = site.posts | where: "series", "John Moon AU" | sort: "series_order" %}
+
+<section class="c-sam-collection">
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">Chapters</h3>
+    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · ongoing</span>
+  </div>
+
+  <div class="c-post-grid">
+    {% for chapter in chapters %}
+    <a class="c-post" href="{{ chapter.url | prepend: site.baseurl }}">
+      <div class="c-post__image-wrap">
+        {% if chapter.image %}
+        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: chapter.image }}')"></div>
+        {% else %}
+        <div class="c-post__placeholder">Chapter {{ chapter.series_order | default: forloop.index }}</div>
+        {% endif %}
+      </div>
+      <div class="c-post__body">
+        <div class="c-post__eyebrow">Chapter {{ chapter.series_order | default: forloop.index }}</div>
+        <h3 class="c-post__title">{{ chapter.title | remove: " — John Moon · A Single Shot AU" | remove: " — John Moon AU" }}</h3>
+        {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
+        <div class="c-post__meta">
+          <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
+          {% capture words %}{{ chapter.content | number_of_words }}{% endcapture %}
+          {% unless words contains "-" %}
+          <span>{{ words | plus: 250 | divided_by: 250 | append: " min read" }}</span>
+          {% endunless %}
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
