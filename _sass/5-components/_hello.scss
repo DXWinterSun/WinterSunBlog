@@ -1,0 +1,147 @@
+/* ===============
+	SAY HELLO PAGE
+=============== */
+
+.c-hello {
+  max-width: 880px;
+  margin: 8px auto 80px;
+  padding: 0 8px;
+}
+
+/* ----- Channel cards ----- */
+.c-hello__channels {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  list-style: none;
+  margin: 0 0 56px;
+  padding: 0;
+}
+
+.c-hello__channel { margin: 0; }
+
+.c-hello__card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px 24px;
+  background-color: $paper;
+  border: 1px solid $line;
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  transition: $global-transition;
+  &:hover {
+    transform: translateY(-3px);
+    border-color: $accent-soft;
+    box-shadow: 0 18px 40px -22px rgba(var(--rgb-shadow), 0.20);
+    .c-hello__card-title { color: $accent; }
+    .c-hello__card-cta { color: $accent; }
+  }
+}
+
+.c-hello__card-eyebrow {
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $accent;
+}
+
+.c-hello__card-title {
+  font-family: $heading-font-family;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $ink;
+  transition: color $global-transition;
+}
+
+.c-hello__card-cta {
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $ink-soft;
+  transition: color $global-transition;
+}
+
+/* ----- Letter form ----- */
+.c-hello__form {
+  scroll-margin-top: 96px;
+}
+
+.c-hello__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.c-hello__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.c-hello__label {
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.c-hello__input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: $base-font-family;
+  font-size: 16px;
+  color: $ink;
+  background-color: $paper;
+  border: 1px solid $line;
+  border-radius: 4px;
+  outline: none;
+  transition: $global-transition;
+  &::placeholder { color: $muted-soft; }
+  &:focus {
+    border-color: $accent-soft;
+    box-shadow: 0 0 0 3px rgba(var(--rgb-accent), 0.12);
+  }
+}
+
+.c-hello__input--area {
+  resize: vertical;
+  min-height: 160px;
+  font-family: $base-font-family;
+  line-height: 1.6;
+}
+
+.c-hello__submit {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 12px 28px;
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $paper;
+  background-color: $ink;
+  border: 1px solid $ink;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: $global-transition;
+  &:hover {
+    background-color: $accent;
+    border-color: $accent;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .c-hello__channels {
+    grid-template-columns: 1fr;
+  }
+  .c-hello__row {
+    grid-template-columns: 1fr;
+  }
+}

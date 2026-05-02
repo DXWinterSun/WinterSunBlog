@@ -10,6 +10,7 @@
     {% assign nav_active = '' %}
     {% if page.nav_active %}{% assign nav_active = page.nav_active %}
     {% elsif page.url contains '/sam/' %}{% assign nav_active = 'sam' %}
+    {% elsif page.url contains '/contact' %}{% assign nav_active = 'hello' %}
     {% elsif page.url == '/' or page.url == '/index.html' or page.url == '/about/' %}{% assign nav_active = 'about' %}
     {% endif %}
 
@@ -44,6 +45,9 @@
         </li>
         <li class="c-nav__item c-nav__item--link{% if nav_active == 'sam' %} is-active{% endif %}">
           <a href="{{site.baseurl}}/sam/">Sam</a>
+        </li>
+        <li class="c-nav__item c-nav__item--link{% if nav_active == 'hello' %} is-active{% endif %}">
+          <a href="{{site.baseurl}}/contact/">Say Hello</a>
         </li>
       </ul>
     </nav>
