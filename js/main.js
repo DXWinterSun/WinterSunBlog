@@ -247,6 +247,50 @@ $(document).ready(function () {
   });
 
   /* =======================
+  // Sticky TOC for long chapter posts
+  ======================= */
+
+  (function buildArticleTOC() {
+    var article = document.querySelector('.c-wrap-content');
+    if (!article) return;
+    var headings = article.querySelectorAll('h2, h3');
+    if (headings.length < 3) return; // not worth a TOC
+
+    var toc = document.createElement('nav');
+    toc.className = 'c-toc';
+    toc.setAttribute('aria-label', '本章目录');
+    toc.innerHTML = '<div class="c-toc__title">本章</div><ol class="c-toc__list"></ol>';
+    var list = toc.querySelector('.c-toc__list');
+
+    headings.forEach(function (h, i) {
+      if (!h.id) h.id = 'toc-h-' + i;
+      var li = document.createElement('li');
+      li.className = 'c-toc__item c-toc__item--' + h.tagName.toLowerCase();
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+
+    document.body.appendChild(toc);
+
+    // Highlight current section as it scrolls past the top
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            list.querySelectorAll('a').forEach(function (a) { a.classList.remove('is-active'); });
+            var link = list.querySelector('a[href="#' + e.target.id + '"]');
+            if (link) link.classList.add('is-active');
+          }
+        });
+      }, { rootMargin: '-15% 0% -75% 0%', threshold: 0 });
+      headings.forEach(function (h) { observer.observe(h); });
+    }
+  })();
+
+  /* =======================
   // Theme toggle (light / dark)
   ======================= */
 

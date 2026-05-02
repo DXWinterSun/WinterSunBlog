@@ -29,6 +29,42 @@ layout: home
       {{page.content | markdownify}}
     </div> <!-- /.c-wrap-content -->
 
+    {% if page.series %}
+    {% assign series_posts = site.posts | where: "series", page.series | sort: "series_order" %}
+    {% assign cur_idx = -1 %}
+    {% for sp in series_posts %}{% if sp.url == page.url %}{% assign cur_idx = forloop.index0 %}{% endif %}{% endfor %}
+    {% if cur_idx >= 0 %}
+    {% assign last_idx = series_posts.size | minus: 1 %}
+    {% assign prev_idx = cur_idx | minus: 1 %}
+    {% assign next_idx = cur_idx | plus: 1 %}
+    {% assign prev_post = series_posts[prev_idx] %}
+    {% assign next_post = series_posts[next_idx] %}
+    <nav class="c-chapter-nav" aria-label="Chapter navigation">
+      <div class="c-chapter-nav__series">
+        Part of <a href="{{ site.baseurl }}/series/{{ page.series | slugify }}/">{{ page.series }}</a> · Chapter {{ page.series_order }} of {{ series_posts.size }}
+      </div>
+      <div class="c-chapter-nav__pair">
+        {% if cur_idx > 0 %}
+          <a class="c-chapter-nav__link c-chapter-nav__link--prev" href="{{ prev_post.url | prepend: site.baseurl }}">
+            <span class="c-chapter-nav__eyebrow">← Previous</span>
+            <span class="c-chapter-nav__title">{{ prev_post.title | split: " — " | first }}</span>
+          </a>
+        {% else %}
+          <span class="c-chapter-nav__placeholder"></span>
+        {% endif %}
+        {% if cur_idx < last_idx %}
+          <a class="c-chapter-nav__link c-chapter-nav__link--next" href="{{ next_post.url | prepend: site.baseurl }}">
+            <span class="c-chapter-nav__eyebrow">Next →</span>
+            <span class="c-chapter-nav__title">{{ next_post.title | split: " — " | first }}</span>
+          </a>
+        {% else %}
+          <span class="c-chapter-nav__placeholder"></span>
+        {% endif %}
+      </div>
+    </nav>
+    {% endif %}
+    {% endif %}
+
     {% if site.related_posts %}
     {% assign related_with_image = site.related_posts | where_exp: "p", "p.image" | slice: 0, 4 %}
     {% if related_with_image.size > 0 %}
