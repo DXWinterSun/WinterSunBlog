@@ -1,7 +1,7 @@
 ---
 layout: home
-title: "John Moon · A Single Shot AU"
-permalink: /series/john-moon-au/
+title: "A Single Shot AU"
+permalink: /series/a-single-shot-au/
 nav_active: "AU Story"
 ---
 
@@ -13,7 +13,7 @@ nav_active: "AU Story"
   {% endif %}
 
   <div class="c-hero__eyebrow">AU Story · Series</div>
-  <h1 class="c-hero__title">John Moon · <em>A Single Shot AU</em></h1>
+  <h1 class="c-hero__title">A Single Shot · <em>AU</em></h1>
   <div class="c-hero__byline">
     <span class="c-hero__byline-rule"></span>
     <span class="c-hero__byline-text">an AU of A Single Shot (2013) · ongoing</span>
@@ -41,7 +41,7 @@ nav_active: "AU Story"
   <p>这是关于他等到了天亮的另一种结局。</p>
 
   <p>
-    这个 AU 的世界："你"——Winter——是一位野生植物学者，正在阳里吗其州山区做阿巴拉契亚特有药用植物的野外考察。第十一天，你迷路了。GPS 失灵、云压得很低、十月底的山林一片寂静。
+    这个 AU 的世界："你"——Winter——是一位野生植物学者，正在西弗吉尼亚州山区做阿巴拉契亚特有药用植物的野外考察。第十一天，你迷路了。GPS 失灵、云压得很低、十月底的山林一片寂静。
   </p>
 
   <p>就是在那一刻，你听见了那个坑里的呼吸声。</p>
@@ -58,7 +58,7 @@ nav_active: "AU Story"
   </p>
 </article>
 
-{% assign chapters = site.posts | where: "series", "John Moon AU" | sort: "series_order" %}
+{% assign chapters = site.posts | where: "series", "A Single Shot AU" | sort: "series_order" %}
 
 <section class="c-sam-collection">
   <div class="c-section-heading">
@@ -78,7 +78,7 @@ nav_active: "AU Story"
       </div>
       <div class="c-post__body">
         <div class="c-post__eyebrow">Chapter {{ chapter.series_order | default: forloop.index }}</div>
-        <h3 class="c-post__title">{{ chapter.title | remove: " — John Moon · A Single Shot AU" | remove: " — John Moon AU" }}</h3>
+        <h3 class="c-post__title">{{ chapter.title | remove: " — A Single Shot AU" }}</h3>
         {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
         <div class="c-post__meta">
           <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
