@@ -146,7 +146,7 @@
   font-family: $heading-font-family;
   font-style: italic;
   font-size: 22px;
-  line-height: 1.55;
+  line-height: 1.4;
   color: $ink-soft;
   text-wrap: pretty;
 }
@@ -157,6 +157,7 @@
   font-style: italic;
   font-weight: 700;
   font-size: 1.7em;
+  line-height: 1; /* don't let the giant glyph blow up its line height */
   color: $accent-soft;
   vertical-align: -0.18em;
   user-select: none;
@@ -223,10 +224,11 @@
   .c-hero__byline-text { font-size: 13px; }
   .c-hero__lede {
     font-size: 17px;
+    line-height: 1.45;
     padding: 0 8px;
   }
   .c-hero__quote {
-    font-size: 40px;
+    font-size: 1.5em;
   }
   .c-hero__eyebrow {
     font-size: 11px;
