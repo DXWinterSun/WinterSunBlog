@@ -7,7 +7,7 @@ tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_order: 2
-summary: "四天的航行后，你和 Sam 6 在 Sarang 着陆。GERTY 用合成嗓音说了一句 Welcome home。医务室里，独自醒着活了五个多月的 Sam 7 坐在他被解冻的那只低温舱沿——他张口的第一句话不是「你是谁」。这一晚之后，三个人决定一起去把还留在事故矿车里的 Sam 5 接回家。"
+summary: "Sarang 着陆，GERTY 说 Welcome home。独自醒着五个月的 Sam 7，开口的第一句话不是「你是谁」。"
 ---
 
 > 这是 _Moon_ (2009) AU 系列的第二章。前情见 [〈一〉Departure]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-1-departure %})。

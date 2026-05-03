@@ -7,7 +7,7 @@ tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_order: 5
-summary: "Eight 第二天就提出了那个最显而易见的问题——我们为什么不直接做一张所有人都能睡在上面的床。三个 Sam 花了一下午把 5 号原本那间宿舍改成了一座大通铺。十天之后，他们在这张床上看了第一场电影——挑的是《七个神经病》，Sam Rockwell 演 Billy 的那一部。Six 全程嫌弃自己。"
+summary: "Eight 第二天就提议——我们为什么不直接睡一张大床？十天之后，他们在那张床上看了《七个神经病》。"
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列第五章。前情见

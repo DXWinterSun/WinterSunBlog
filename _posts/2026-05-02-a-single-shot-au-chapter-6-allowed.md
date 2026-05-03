@@ -7,7 +7,7 @@ tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
 series_order: 6
-summary: "警长 Simpson 上山来。他给那个睡袋里的女孩带来了一个名字——Sarah Reed，二十岁，从隔壁县失踪了两个月。然后他看见了你。\"——这位是?\"——John 不知道怎么回答。你握住他胳膊。\"——我是他的女朋友。\"然后用只有他能听见的声音说：\"如果你允许的话。\""
+summary: "警长上山。他看见了你。「——这位是？」你握住他胳膊：「——我是他的女朋友。如果你允许的话。」"
 ---
 
 > 这是 _A Single Shot_ (2013) AU 系列的第六章。前情见 [〈一〉The Pit]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-1-the-pit %})、[〈二〉The Trailer]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-2-the-trailer %})、[〈三〉Stay]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-3-stay %})、[〈四〉The Birches]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-4-the-birches %})、[〈五〉Closer]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-5-closer %})。

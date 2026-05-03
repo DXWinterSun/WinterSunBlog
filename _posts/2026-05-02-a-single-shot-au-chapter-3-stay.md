@@ -7,7 +7,7 @@ tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
 series_order: 3
-summary: "你想留下。只要他允许。这个被生活揍了太久的男人不知道怎么被照顾——他每一次失败都说对不起，每一次接受都觉得欠你。直到有一晚，他终于愿意把他自己的故事，断断续续讲给你听。"
+summary: "你想留下，只要他允许。直到那一晚，他终于把自己的故事，断断续续讲给你听。"
 ---
 
 > 这是 _A Single Shot_ (2013) AU 系列的第三章。前情见 [〈一〉The Pit]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-1-the-pit %}) 与 [〈二〉The Trailer]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-2-the-trailer %})。

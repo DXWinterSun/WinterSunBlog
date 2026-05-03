@@ -7,7 +7,7 @@ tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
 series_order: 2
-summary: "你看见他手里那层纱布已经被血浸透,像一朵慢慢张开的、不肯闭合的花。那一刻你心里咯噔一下——你不知道这个男人之前经历了什么,可你忽然非常清楚地知道一件事:从此刻开始,你要把他放在所有事情的前面。"
+summary: "他手里那层纱布已经被血浸透。从这一刻起，你决定把他放在所有事情的前面。"
 ---
 
 > 这是 _A Single Shot_ (2013) AU 系列的第二章。前情见 [〈一〉The Pit]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-1-the-pit %})。

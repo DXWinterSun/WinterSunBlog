@@ -7,7 +7,7 @@ tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
 series_order: 5
-summary: "他醒得比你早。他低头一看——自己整夜把你抱住了。是他做的。他这一辈子睡觉都只占一半床——他不记得他什么时候会做出这种动作。可他现在就在这个动作里。他立刻僵住，开始想办法把自己挪走。然后你睁开了眼睛。"
+summary: "他醒得比你早，发现自己整夜把你抱住了——他这辈子睡觉只占一半床，他不记得他做过这种事。"
 ---
 
 > 这是 _A Single Shot_ (2013) AU 系列的第五章。前情见 [〈一〉The Pit]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-1-the-pit %})、[〈二〉The Trailer]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-2-the-trailer %})、[〈三〉Stay]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-3-stay %})、[〈四〉The Birches]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-4-the-birches %})。

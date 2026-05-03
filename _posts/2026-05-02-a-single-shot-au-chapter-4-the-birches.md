@@ -7,7 +7,7 @@ tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
 series_order: 4
-summary: "你来到这间屋子已经第六天了。柜台上那袋狗粮快见底——你忽然意识到，那只狗，从你来到现在，一次都没出现过。这一次你决定问。"
+summary: "第六天，那袋狗粮快见底了——可你忽然意识到，那只狗，一次都没出现过。"
 ---
 
 > 这是 _A Single Shot_ (2013) AU 系列的第四章。前情见 [〈一〉The Pit]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-1-the-pit %})、[〈二〉The Trailer]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-2-the-trailer %})、[〈三〉Stay]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-3-stay %})。
