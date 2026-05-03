@@ -7,7 +7,7 @@ tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_order: 6
-summary: "第二十七夜，Six 把你按在过道墙上吻你——然后他叫 Seven 过来。三种渴望，三种不同的吻。"
+summary: "第二十七夜，Six 把你按在墙上吻你——然后他叫 Seven 过来。三种渴望，三种不同的吻。"
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列第六章。前情见

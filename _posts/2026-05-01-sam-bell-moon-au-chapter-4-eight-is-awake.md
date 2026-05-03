@@ -7,7 +7,7 @@ tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_order: 4
-summary: "Eight 是第一个，从睁眼那刻起就被告知「你会好好活着」的 Sam。十一天后，四个人围桌打了第一场扑克。"
+summary: "Eight 是第一个，醒来就被告知「你会好好活着」的 Sam。十一天后，四个人围桌打了第一场扑克。"
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列第四章。前情见

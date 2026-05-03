@@ -7,7 +7,7 @@ tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_order: 2
-summary: "Sarang 着陆，GERTY 说 Welcome home。独自醒着五个月的 Sam 7，开口的第一句话不是「你是谁」。"
+summary: "Sarang 着陆。独自醒着五个月的 Sam 7，开口的第一句话不是「你是谁」。"
 ---
 
 > 这是 _Moon_ (2009) AU 系列的第二章。前情见 [〈一〉Departure]({{ site.baseurl }}{% post_url 2026-05-01-sam-bell-moon-au-chapter-1-departure %})。

@@ -7,7 +7,7 @@ tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_order: 1
-summary: "带着五年研发的药剂启程——和他一起，回他曾被囚禁过的月球。Sarang，韩语里是「爱」。"
+summary: "和他一起，回他曾被囚禁过的月球。Sarang，韩语里是「爱」。"
 ---
 
 > 这是一个 AU 系列。来源是 Sam Rockwell 主演的《月球》（_Moon_, 2009）——克隆体、Sarang 基地、氦-3、GERTY，原片设定都尽量保留。改写的是：6 号曝光公司之后的那个时间节点之后，是你走进了这个故事。
