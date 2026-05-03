@@ -7,7 +7,7 @@ tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_order: 1
-summary: "氦-3反噬之后，地球开始慢性死亡。你二十六岁，带着研发了五年的合成药剂启程——它能修复所有Sam Bell体内被工业化写入的衰老程序。一同上船的，还有Sam 6——他执意要陪你回到那个曾经把他当作工具的月球基地。Sarang，韩语里是「爱」。"
+summary: "带着五年研发的药剂启程——和他一起，回他曾被囚禁过的月球。Sarang，韩语里是「爱」。"
 ---
 
 > 这是一个 AU 系列。来源是 Sam Rockwell 主演的《月球》（_Moon_, 2009）——克隆体、Sarang 基地、氦-3、GERTY，原片设定都尽量保留。改写的是：6 号曝光公司之后的那个时间节点之后，是你走进了这个故事。

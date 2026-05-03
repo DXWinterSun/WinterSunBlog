@@ -7,7 +7,7 @@ tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_order: 4
-summary: "唤醒下一个 Sam 的早上六点，Eight 睁开眼睛——医务室站着三个人，每一个都笑着。他没经历过 Six 和 Seven 那段地狱期，他从第一天起就是被告知『你会好好活着』的那个 Sam。十一天之后，四个人围着主舱的小桌打第一场扑克——而 Sam 之间互称 Sam 的混乱，从这一夜起，第一次成了笑点。"
+summary: "Eight 是第一个，从睁眼那刻起就被告知「你会好好活着」的 Sam。十一天后，四个人围桌打了第一场扑克。"
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列第四章。前情见
