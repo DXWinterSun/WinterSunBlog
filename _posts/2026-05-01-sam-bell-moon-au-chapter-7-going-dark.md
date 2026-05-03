@@ -7,7 +7,7 @@ tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_order: 7
-summary: "第五十一天，地球最后一次对外广播。还有八小时——然后地球不会死，它只是从今天起不再对外说话。"
+summary: "第五十一天，地球最后一次对外广播。还有八小时——然后它从今天起不再对外说话。"
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列第七章。前情见

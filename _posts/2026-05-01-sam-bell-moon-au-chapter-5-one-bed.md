@@ -7,7 +7,7 @@ tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_order: 5
-summary: "Eight 第二天就提议——我们为什么不直接睡一张大床？十天之后，他们在那张床上看了《七个神经病》。"
+summary: "Eight 提议——为什么不直接睡一张大床？十天后他们一起看了《七个神经病》。"
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列第五章。前情见

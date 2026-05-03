@@ -7,7 +7,7 @@ tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
 series_order: 7
-summary: "你给一个你从没见过的女人写了一封信，没寄。半夜他下床找水，看见了那张折着的纸。"
+summary: "你给一个你从没见过的女人写了一封信，没寄。半夜他看见了那张折着的纸。"
 ---
 
 > 这是 _A Single Shot_ (2013) AU 系列的第七章。前情见 [〈一〉The Pit]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-1-the-pit %})、[〈二〉The Trailer]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-2-the-trailer %})、[〈三〉Stay]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-3-stay %})、[〈四〉The Birches]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-4-the-birches %})、[〈五〉Closer]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-5-closer %})、[〈六〉Allowed]({{ site.baseurl }}{% post_url 2026-05-02-a-single-shot-au-chapter-6-allowed %})。
