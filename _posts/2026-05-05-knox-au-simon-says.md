@@ -7,6 +7,8 @@ tags: [Sam, AU, "Charlie's Angels", 中文]
 categories: ["AU Story"]
 series: "Knox AU"
 series_order: 1
+series_status: complete
+series_type: Oneshot
 summary: "那首歌你第一次听见，是在他宣布他是谁的那个下午。"
 ---
 
