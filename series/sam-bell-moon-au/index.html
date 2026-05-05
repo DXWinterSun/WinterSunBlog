@@ -103,10 +103,10 @@ nav_active: "AU Story"
         {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
         <div class="c-post__meta">
           <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
-          {% capture words %}{{ chapter.content | number_of_words }}{% endcapture %}
-          {% unless words contains "-" %}
-          <span>{{ words | plus: 250 | divided_by: 250 | append: " min read" }}</span>
-          {% endunless %}
+          {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
+          {% assign mins = chars | divided_by: 500 %}
+          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
+          <span>{{ mins }} min read</span>
         </div>
       </div>
     </a>
