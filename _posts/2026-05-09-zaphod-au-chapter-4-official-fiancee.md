@@ -2,6 +2,7 @@
 layout: post
 title: "Chapter 4 · The Official Fiancée — Zaphod AU"
 date: 2026-05-09
+image: zaphod-au.jpg
 tags: [Sam, AU, "Hitchhiker's Guide", 中文]
 categories: ["AU Story"]
 series: "Zaphod AU"
