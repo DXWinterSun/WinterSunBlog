@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 
 const DIMS = [
-  { key: "burn", cn: "燃烧", en: "BURN" },
-  { key: "drift", cn: "漂泊", en: "DRIFT" },
-  { key: "silence", cn: "隐忍", en: "SILENCE" },
+  { key: "burn",    cn: "燃烧", en: "BURN" },
+  { key: "forbear", cn: "隐忍", en: "FORBEAR" },
+  { key: "chaos",   cn: "疯狂", en: "CHAOS" },
+  { key: "raw",     cn: "璞真", en: "RAW" },
   { key: "romance", cn: "浪漫", en: "ROMANCE" },
-  { key: "edge", cn: "危险", en: "EDGE" },
+  { key: "grace",   cn: "优雅", en: "GRACE" },
 ];
 
 const characters = [
@@ -20,7 +21,7 @@ const characters = [
     bg: "#1c1814", accent: "#c89868", text: "#ede2d0", muted: "#8a7558",
     bgNameEn: "Dusk Bronze", bgNameCn: "黄昏铜",
     accentNameEn: "Warm Camel", accentNameCn: "暖驼",
-    profile: { burn: 4, drift: 2, silence: 5, romance: 6, edge: 1 },
+    profile: { burn:4, forbear:6, romance:6, chaos:1, raw:6, grace:6 },
   },
   {
     id: "buck",
@@ -33,7 +34,7 @@ const characters = [
     bg: "#1a2418", accent: "#b8c878", text: "#e8eed8", muted: "#7a8868",
     bgNameEn: "Moonlight Silver", bgNameCn: "月光银",
     accentNameEn: "Forest Moss", accentNameCn: "林间苔绿",
-    profile: { burn: 7, drift: 9, silence: 2, romance: 6, edge: 3 },
+    profile: { burn:7, forbear:1, romance:7, chaos:4, raw:10, grace:1 },
   },
   {
     id: "trent",
@@ -46,7 +47,7 @@ const characters = [
     bg: "#1c2418", accent: "#c8a052", text: "#e8e0c8", muted: "#7a7654",
     bgNameEn: "Forest Moss", bgNameCn: "森林苔绿",
     accentNameEn: "Honey Gold", accentNameCn: "蜂蜜金",
-    profile: { burn: 4, drift: 9, silence: 8, romance: 7, edge: 3 },
+    profile: { burn:4, forbear:8, romance:7, chaos:3, raw:5, grace:2 },
   },
   {
     id: "samuel",
@@ -59,7 +60,7 @@ const characters = [
     bg: "#2a201a", accent: "#e8b89a", text: "#f0e2d4", muted: "#a08770",
     bgNameEn: "Vintage Cream", bgNameCn: "复古奶油",
     accentNameEn: "Blush Pink", accentNameCn: "腮红粉",
-    profile: { burn: 3, drift: 3, silence: 2, romance: 6, edge: 1 },
+    profile: { burn:5, forbear:2, romance:6, chaos:3, raw:8, grace:2 },
   },
   {
     id: "jerry",
@@ -72,7 +73,7 @@ const characters = [
     bg: "#2a1410", accent: "#e07050", text: "#f0e0d0", muted: "#a07060",
     bgNameEn: "Chocolate Brown", bgNameCn: "巧克力棕",
     accentNameEn: "Blood Orange", accentNameCn: "血橙红",
-    profile: { burn: 7, drift: 8, silence: 2, romance: 6, edge: 9 },
+    profile: { burn:7, forbear:1, romance:6, chaos:10, raw:8, grace:3 },
   },
   {
     id: "eric",
@@ -85,7 +86,7 @@ const characters = [
     bg: "#14151c", accent: "#d94040", text: "#ede0e0", muted: "#8a6060",
     bgNameEn: "Noir Black", bgNameCn: "暗夜黑",
     accentNameEn: "Crimson Lens", accentNameCn: "红镜红",
-    profile: { burn: 8, drift: 3, silence: 9, romance: 6, edge: 9 },
+    profile: { burn:10, forbear:9, romance:6, chaos:8, raw:1, grace:9 },
   },
   {
     id: "chuck",
@@ -98,7 +99,7 @@ const characters = [
     bg: "#15182a", accent: "#e8c848", text: "#ede4d0", muted: "#8088a0",
     bgNameEn: "Midnight Spy", bgNameCn: "午夜情报蓝",
     accentNameEn: "Cadmium Yellow", accentNameCn: "镉黄",
-    profile: { burn: 8, drift: 8, silence: 4, romance: 7, edge: 9 },
+    profile: { burn:8, forbear:4, romance:7, chaos:8, raw:4, grace:5 },
   },
   {
     id: "frank",
@@ -111,7 +112,7 @@ const characters = [
     bg: "#1f1822", accent: "#d680a5", text: "#ede0e6", muted: "#9a7088",
     bgNameEn: "Smoky Lilac", bgNameCn: "烟雾紫",
     accentNameEn: "Neon Pink", accentNameCn: "霓虹粉",
-    profile: { burn: 5, drift: 6, silence: 3, romance: 7, edge: 8 },
+    profile: { burn:5, forbear:3, romance:7, chaos:3, raw:1, grace:7 },
   },
   {
     id: "jim",
@@ -124,7 +125,20 @@ const characters = [
     bg: "#2a1d24", accent: "#d4a4a8", text: "#f0e3dc", muted: "#95757e",
     bgNameEn: "Rose Caramel", bgNameCn: "玫瑰焦糖",
     accentNameEn: "Champagne Gold", accentNameCn: "香槟金",
-    profile: { burn: 6, drift: 5, silence: 4, romance: 8, edge: 3 },
+    profile: { burn:6, forbear:3, romance:10, chaos:8, raw:7, grace:9 },
+  },
+  {
+    id: "zaphod",
+    name: "Zaphod Beeblebrox",
+    film: "The Hitchhiker's Guide to the Galaxy",
+    filmCN: "《银河系漫游指南》",
+    year: "2005",
+    tagline: "他叫你baby doll，整个银河系都知道这件事，除了他自己。",
+    desc: "他是那种走进任何房间都会让所有人停下来看的男人——金色卷发，三只手，两个脑袋，靠着某种说不清楚的人格魅力和一张好脸赢得了全银河的选票。他是冠军级别的自我推销者，对谁都放电，对谁都叫宝贝，能在毁灭一整颗星球的同意书上写爱的语录然后签名——因为他以为那是粉丝索要的亲笔签名。他就是这样，魅力漫天飞，笨得可爱，把整个银河系搅得鸡犬不宁，然后用一句\"why so edgy, baby doll\"化解所有人的愤怒——偏偏还真的管用。\n\n他有两个脑袋，这件事比你以为的更微妙。第一个脑袋负责总统应该有的那些东西——耀眼、自信、随时准备好被人看见；第二个脑袋装着那些\"不够总统气质\"的部分，被他压在领子里。可当那个第二脑袋被拿走的时候，他变得更混乱更迷失——这才说明他藏起来的那些，其实是他最真实的自己。他对谁都好，对谁都有魅力，可他感知到的远比他表现出来的多，只是那些感知都被压在了某个他自己也找不到入口的地方。\n\n他叫你baby doll——和他叫所有人的方式一样，漫不经心，致命，像是呼吸一样自然。你会打翻醋坛子，因为他真的对谁都这样；你又没办法走，因为他真的对谁都这样还偏偏让你觉得你是唯一一个。在那些他彻底忘记表演的瞬间，在他用三只手中的某一只漫不经心地拉住你、却没有再放开的瞬间——那两个脑袋，同时看着你。你们的爱不会是他设计好的剧本，可他那两个脑袋，最爱的都是你。",
+    bg: "#0d1220", accent: "#d4a82a", text: "#e8e4d0", muted: "#8a7a48",
+    bgNameEn: "Deep Space", bgNameCn: "深空蓝",
+    accentNameEn: "Stardust Gold", accentNameCn: "星际金",
+    profile: { burn:9, forbear:1, romance:8, chaos:10, raw:6, grace:7 },
   },
   {
     id: "brad",
@@ -137,7 +151,7 @@ const characters = [
     bg: "#1c2230", accent: "#d4a878", text: "#e8e3d8", muted: "#7a8590",
     bgNameEn: "Manhattan Slate", bgNameCn: "曼哈顿冬夜",
     accentNameEn: "Lamp Amber", accentNameCn: "暖灯黄",
-    profile: { burn: 3, drift: 2, silence: 8, romance: 6, edge: 2 },
+    profile: { burn:3, forbear:9, romance:6, chaos:2, raw:5, grace:6 },
   },
   {
     id: "glenn",
@@ -150,7 +164,7 @@ const characters = [
     bg: "#1c2030", accent: "#e8c878", text: "#ebe4d8", muted: "#7a8090",
     bgNameEn: "Winter Steel", bgNameCn: "寒冬冷蓝灰",
     accentNameEn: "Lamp Amber", accentNameCn: "暖灯黄",
-    profile: { burn: 8, drift: 5, silence: 3, romance: 6, edge: 7 },
+    profile: { burn:8, forbear:3, romance:5, chaos:8, raw:7, grace:2 },
   },
   {
     id: "victor",
@@ -163,7 +177,7 @@ const characters = [
     bg: "#2a1820", accent: "#d49060", text: "#f0e0d4", muted: "#9a7868",
     bgNameEn: "Velvet Wine", bgNameCn: "旧绒布酒红",
     accentNameEn: "Candle Ember", accentNameCn: "烛光暖橘",
-    profile: { burn: 7, drift: 6, silence: 3, romance: 6, edge: 8 },
+    profile: { burn:7, forbear:8, romance:6, chaos:4, raw:6, grace:3 },
   },
   {
     id: "sam",
@@ -177,7 +191,7 @@ const characters = [
     bg: "#162038", accent: "#7eb0d5", text: "#e8eef5", muted: "#6a85a3",
     bgNameEn: "Lunar Blue", bgNameCn: "月球蓝",
     accentNameEn: "Warm White", accentNameCn: "暖白",
-    profile: { burn: 4, drift: 1, silence: 5, romance: 9, edge: 1 },
+    profile: { burn:4, forbear:8, romance:9, chaos:2, raw:7, grace:4 },
   },
   {
     id: "robert",
@@ -190,7 +204,7 @@ const characters = [
     bg: "#241c14", accent: "#c8a060", text: "#ede4d4", muted: "#9a7e58",
     bgNameEn: "Coffee Warm", bgNameCn: "暖咖啡棕",
     accentNameEn: "Antique Brass", accentNameCn: "旧黄铜",
-    profile: { burn: 4, drift: 5, silence: 7, romance: 5, edge: 2 },
+    profile: { burn:4, forbear:7, romance:5, chaos:2, raw:6, grace:7 },
   },
   {
     id: "kenny",
@@ -203,7 +217,7 @@ const characters = [
     bg: "#2a1614", accent: "#c75a3e", text: "#f0e0d4", muted: "#9a6858",
     bgNameEn: "Old Brick", bgNameCn: "旧砖红",
     accentNameEn: "Dusk Tangerine", accentNameCn: "暮色橘",
-    profile: { burn: 8, drift: 4, silence: 3, romance: 6, edge: 6 },
+    profile: { burn:8, forbear:3, romance:7, chaos:7, raw:9, grace:2 },
   },
   {
     id: "billy",
@@ -216,7 +230,7 @@ const characters = [
     bg: "#321a0a", accent: "#e8a04c", text: "#f5e6d0", muted: "#b07840",
     bgNameEn: "Sundown Caramel", bgNameCn: "日落焦糖",
     accentNameEn: "Sunset Flame", accentNameCn: "烈焰橘",
-    profile: { burn: 9, drift: 6, silence: 1, romance: 9, edge: 9 },
+    profile: { burn:9, forbear:1, romance:9, chaos:10, raw:8, grace:2 },
   },
   {
     id: "owen",
@@ -229,7 +243,7 @@ const characters = [
     bg: "#1c2e36", accent: "#e8a880", text: "#ede4d4", muted: "#75899a",
     bgNameEn: "Twilight Lake", bgNameCn: "黄昏湖蓝",
     accentNameEn: "Coral Glow", accentNameCn: "珊瑚橙",
-    profile: { burn: 5, drift: 4, silence: 3, romance: 4, edge: 2 },
+    profile: { burn:4, forbear:3, romance:6, chaos:4, raw:7, grace:3 },
   },
   {
     id: "john",
@@ -242,7 +256,7 @@ const characters = [
     bg: "#1f2520", accent: "#9aa085", text: "#e8e3d6", muted: "#7d8270",
     bgNameEn: "Forest Cold", bgNameCn: "山林冷绿",
     accentNameEn: "Mist Grey", accentNameCn: "雾灰",
-    profile: { burn: 3, drift: 5, silence: 9, romance: 4, edge: 6 },
+    profile: { burn:3, forbear:10, romance:5, chaos:2, raw:8, grace:2 },
   },
   {
     id: "doug",
@@ -255,7 +269,20 @@ const characters = [
     bg: "#1f1428", accent: "#e07840", text: "#ede0e6", muted: "#9870a0",
     bgNameEn: "Pill Bottle Orange", bgNameCn: "药瓶橘红",
     accentNameEn: "Smoky Lilac", accentNameCn: "烟雾紫",
-    profile: { burn: 7, drift: 3, silence: 7, romance: 6, edge: 5 },
+    profile: { burn:7, forbear:7, romance:6, chaos:6, raw:5, grace:4 },
+  },
+  {
+    id: "wayne",
+    name: "Wayne",
+    film: "Loitering with Intent",
+    filmCN: "《十日编剧手册》",
+    year: "2014",
+    tagline: "他一直叫你小姑娘，结果这个小姑娘成了他的未婚妻。",
+    desc: "他是那种会在最不合时宜的时刻随机开口的男人——周围的气氛越沉，他越可能冒出一句让人啼笑皆非的怪话，嘴角勾着那个无奈的弧度，像是他自己也不确定为什么说了这句话。可说完之后他就沉默了，把笑声留给别人，把剩下的什么都重新压回去。他是退伍回来的，身体里装着一些他说不清楚的东西，他用尽全力不让那些东西溢出来——把所有能量都用来绷着自己，绷得很紧，绷了很久。\n\n他叫你小姑娘。不是因为不在意，是因为他不敢往那个方向去想——你和他弟弟年龄相仿，他们之间横着一道他自己划的线，他在心里自嘲过，然后把那点什么压下去，像他压住过的所有东西一样。可他不动声色地记住了你笑起来的样子，在篝火快灭的夜里和你说过一些平时说不出口的话，以为这些都可以就这样过去。\n\n后来他开玩笑地说了一句：\"小姑娘，嫁给我吧。\"他以为那不过是你善良的怜悯——以为你会笑着接一句然后算了。可你没有。你看着他，眼神认真得让他愣了一整秒，说了\"我愿意\"。他试图严肃地告诉你这不是儿戏，你直接抱了回去——蜜月目的地都想好了。他沉默了很久，然后把你抱得更紧。你们的爱从那个他没打算当真的玩笑开始，可落地之后，比他这辈子任何一次认真都更真实。",
+    bg: "#1e2418", accent: "#c8a050", text: "#e8e4d0", muted: "#8a7a48",
+    bgNameEn: "Old Olive", bgNameCn: "退伍橄榄",
+    accentNameEn: "Late Summer Amber", accentNameCn: "夏末琥珀",
+    profile: { burn:6, forbear:9, romance:7, chaos:3, raw:7, grace:3 },
   },
   {
     id: "craig",
@@ -268,7 +295,7 @@ const characters = [
     bg: "#241a14", accent: "#c89060", text: "#ede0d0", muted: "#a07858",
     bgNameEn: "Aged Leather", bgNameCn: "陈年皮革",
     accentNameEn: "Whisky Gold", accentNameCn: "威士忌金",
-    profile: { burn: 5, drift: 2, silence: 5, romance: 6, edge: 1 },
+    profile: { burn:5, forbear:7, romance:8, chaos:2, raw:5, grace:6 },
   },
   {
     id: "francis",
@@ -281,7 +308,7 @@ const characters = [
     bg: "#241432", accent: "#c9a0dc", text: "#ede4f2", muted: "#8b6ea0",
     bgNameEn: "Amethyst Night", bgNameCn: "紫晶夜",
     accentNameEn: "Silver White", accentNameCn: "银白",
-    profile: { burn: 5, drift: 6, silence: 6, romance: 9, edge: 9 },
+    profile: { burn:6, forbear:6, romance:9, chaos:6, raw:8, grace:10 },
   },
   {
     id: "dixon",
@@ -294,7 +321,7 @@ const characters = [
     bg: "#2a1410", accent: "#d97742", text: "#f5e6d3", muted: "#a87858",
     bgNameEn: "Caramel Earth", bgNameCn: "焦糖红土",
     accentNameEn: "Sunset Tangerine", accentNameCn: "落日橙",
-    profile: { burn: 9, drift: 3, silence: 3, romance: 2, edge: 7 },
+    profile: { burn:9, forbear:3, romance:1, chaos:5, raw:9, grace:2 },
   },
   {
     id: "eddie",
@@ -307,7 +334,7 @@ const characters = [
     bg: "#1a1f24", accent: "#d49058", text: "#ebe2d4", muted: "#7a8088",
     bgNameEn: "Tavern Smoke", bgNameCn: "地下酒馆烟灰蓝",
     accentNameEn: "Rust Gold", accentNameCn: "锈金",
-    profile: { burn: 5, drift: 7, silence: 4, romance: 7, edge: 5 },
+    profile: { burn:5, forbear:4, romance:7, chaos:5, raw:7, grace:4 },
   },
   {
     id: "hendrix",
@@ -320,7 +347,20 @@ const characters = [
     bg: "#1c2820", accent: "#c4a94a", text: "#ede8d8", muted: "#8b7d4d",
     bgNameEn: "Old Olive", bgNameCn: "旧军装橄榄",
     accentNameEn: "Brass Gold", accentNameCn: "黄铜金",
-    profile: { burn: 4, drift: 4, silence: 8, romance: 4, edge: 5 },
+    profile: { burn:4, forbear:9, romance:4, chaos:3, raw:7, grace:7 },
+  },
+  {
+    id: "watson",
+    name: "Watson Bryant",
+    film: "Richard Jewell",
+    filmCN: "《理查德·朱维尔的哀歌》",
+    year: "2019",
+    tagline: "他不修边幅，很少正经，可当所有人都走了，他还在。",
+    desc: "他是那种你第一眼不会多看的男人——短裤凉鞋，腿搭在桌上，脑袋上架一副眼镜，鼻子上又搭一副，办公室乱得像一场尚未定案的审判。他说话带着一种不紧不慢的调侃，永远像是没把什么事放在心上，让人不知道他到底有几分认真。可他会被一个年轻人真诚的善意打动，也愿意在不公席卷而来的时候挺身而出——他只是不爱大张旗鼓地告诉你这件事。\n\n他认真起来的时候，整个人的分量就不一样了。不是愤怒，不是慷慨激昂——是一种把所有锋芒收进去之后剩下的笃定，带着一点调侃的弧度。他有一种别人没有的判断力：他看人，他相信自己看见的，然后用这份相信扛住所有的压力。他不是英雄主义，他是义气——是那种\"我认识你，我知道你是什么人，所以我不走\"的义气。\n\n和他在一起，你不会拥有一段精致的爱情。你会拥有一个把两副眼镜同时戴在身上的男人——你一个眼神就能读懂他，他一个手势你就知道他需要什么；在所有人都盖下定论的时候，他还在翻证据。你们的爱是那种磨合出来的、不需要说明书的默契——是他打了一个手势，你已经把他需要的东西递到手上；是他从容自持地做了某件了不起的事，还不忘回过头来对你说一句不正经的话；是你在重大场合开场前，微微颤抖着手为他竖起衬衫领、替他打领带，他突然低头吻了你——浪漫到骨子里。你们的爱情不精致，但足够迷人。",
+    bg: "#1c1410", accent: "#c8783c", text: "#ede0d0", muted: "#8a6848",
+    bgNameEn: "Archive Oak", bgNameCn: "档案橡木",
+    accentNameEn: "Georgia Clay", accentNameCn: "红土暖橘",
+    profile: { burn:8, forbear:1, romance:7, chaos:2, raw:7, grace:3 },
   },
   {
     id: "wolf",
@@ -333,7 +373,7 @@ const characters = [
     bg: "#161a26", accent: "#d4ad5c", text: "#ede6d8", muted: "#7a7d8a",
     bgNameEn: "Midnight Blue", bgNameCn: "午夜蓝",
     accentNameEn: "Champagne Gold", accentNameCn: "香槟金",
-    profile: { burn: 6, drift: 7, silence: 4, romance: 8, edge: 7 },
+    profile: { burn:6, forbear:4, romance:8, chaos:5, raw:3, grace:8 },
   },
   {
     id: "stoppard",
@@ -346,7 +386,7 @@ const characters = [
     bg: "#1a1f2c", accent: "#d4a548", text: "#ebe2d4", muted: "#7c8090",
     bgNameEn: "London Midnight", bgNameCn: "伦敦午夜蓝",
     accentNameEn: "Amber", accentNameCn: "琥珀色",
-    profile: { burn: 3, drift: 6, silence: 9, romance: 5, edge: 2 },
+    profile: { burn:3, forbear:9, romance:6, chaos:3, raw:2, grace:6 },
   },
   {
     id: "aidan",
@@ -359,7 +399,7 @@ const characters = [
     bg: "#15192a", accent: "#d4a058", text: "#ebe2d0", muted: "#7a7e90",
     bgNameEn: "Gunmetal Blue", bgNameCn: "午夜枪管蓝",
     accentNameEn: "Whisky Amber", accentNameCn: "威士忌琥珀",
-    profile: { burn: 7, drift: 8, silence: 5, romance: 9, edge: 7 },
+    profile: { burn:7, forbear:5, romance:9, chaos:6, raw:5, grace:6 },
   },
   {
     id: "manfromfuture",
@@ -372,7 +412,7 @@ const characters = [
     bg: "#1a0e2a", accent: "#d460a0", text: "#ede0ec", muted: "#8868a0",
     bgNameEn: "Neon Violet", bgNameCn: "荧光紫",
     accentNameEn: "Glitch Magenta", accentNameCn: "故障玫红",
-    profile: { burn: 8, drift: 9, silence: 3, romance: 4, edge: 6 },
+    profile: { burn:8, forbear:6, romance:4, chaos:7, raw:6, grace:1 },
   },
 ];
 
@@ -381,7 +421,7 @@ function MiniRadar({ profile, accent, muted, text }) {
   const center = size / 2;
   const maxR = 95;
   const labelR = 120;
-  const numDims = 5;
+  const numDims = 6;
 
   function getPoint(value, idx) {
     const angle = (Math.PI * 2 * idx) / numDims - Math.PI / 2;
@@ -683,6 +723,25 @@ function CharacterCard({ c, idx }) {
         }}>
           ❦
         </div>
+
+        <div style={{ textAlign: "center", marginTop: "20px" }}>
+          <button
+            onClick={function() { window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            style={{
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              fontFamily: "'Special Elite', monospace",
+              fontSize: "0.62rem",
+              color: c.muted,
+              letterSpacing: "0.28em",
+              opacity: 0.65,
+              padding: "4px 0",
+            }}
+          >
+            ↑ CONTENTS
+          </button>
+        </div>
       </div>
     </section>
   );
@@ -839,19 +898,29 @@ export default function SamGallery() {
                     }}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span style={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontStyle: "italic",
-                      fontSize: "1rem",
-                      color: "#2a1410",
-                      flex: 1,
-                    }}>
-                      {c.name}
+                    <span style={{ flex: 1, display: "flex", flexDirection: "column", gap: "2px" }}>
+                      <span style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontStyle: "italic",
+                        fontSize: "1rem",
+                        color: "#2a1410",
+                      }}>
+                        {c.name}
+                      </span>
+                      <span style={{
+                        fontFamily: "'Special Elite', monospace",
+                        fontSize: "0.62rem",
+                        color: "#7a3a26",
+                        letterSpacing: "0.05em",
+                      }}>
+                        {c.film}
+                      </span>
                     </span>
                     <span style={{
                       fontFamily: "'Special Elite', monospace",
                       fontSize: "0.7rem",
                       color: "#7a3a26",
+                      alignSelf: "center",
                     }}>
                       {c.year}
                     </span>

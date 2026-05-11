@@ -1,0 +1,126 @@
+---
+layout: home
+title: "Don't Panic, Baby Doll · Zaphod AU"
+permalink: /series/zaphod-au/
+nav_active: "AU Story"
+---
+
+<section class="c-hero">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+
+  <div class="c-hero__eyebrow">AU Story · Series</div>
+  <h1 class="c-hero__title">Don't Panic, <em>Baby Doll</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">a Hitchhiker's Guide to the Galaxy AU · ongoing</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    他低头吻她发顶，叫她baby doll，她幸福地看着他。他不知道。
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
+</section>
+
+<article class="c-sam-intro">
+  <h2 class="c-sam-intro__heading">关于这个系列</h2>
+
+  <p>
+    银河系的历史书上，关于Zaphod Beeblebrox总统任期的记载，用了整整一章描述他的混乱，半页描述他的政绩，一行小字提及"任期内异常稳定的行政运转"。
+  </p>
+
+  <p>没有人知道那行小字是怎么来的。</p>
+
+  <p>
+    他是那颗烟花——点燃了，升空了，把整个夜空炸得金光四散，让所有人仰着头屏住呼吸。他的混乱是真实的，他的魅力是不加修饰的，他蠢得坦荡，帅得理直气壮，把整个银河系搅得鸡犬不宁，然后在所有人还没反应过来的时候用一句"why so edgy, baby doll"化解所有愤怒——偏偏还真的管用。
+  </p>
+
+  <p>可没有人知道，每一次烟花升空之前，有一双手在悄悄校准角度。</p>
+
+  <p>
+    这个故事里的你——Winter，是银河系行政秘书处的首席协调员。没有人知道这个头衔意味着什么，也没有人在意去查。你跟在他身边，看起来只是那个一直在附近的人——递东西，接电话，偶尔微笑，绝大多数时候沉默。所有人都以为你只是跟着他到处跑的某个不重要的人。
+  </p>
+
+  <p>可你爱他。所以宠着他，捧着他。</p>
+
+  <p>
+    他不知道他的绽放都是因为你，他的混乱总是靠你化险为夷。没关系——你就喜欢陪他闹翻整个宇宙，并且打心底里不想改变他的一丝一毫，因为他的混乱就是造就他的一部分，而你爱他的每一个部分。
+  </p>
+
+  <p>他浑然不知。他觉得自己魅力十足，能力无限，整个银河系尽在掌握。</p>
+
+  <p>
+    他不知道，尽在他掌握中的，是他怀抱里那只可爱的小白兔——因为他拥有她的整颗心，所以就拥有了她掌握的无上权力。
+  </p>
+
+  <p class="c-sam-intro__closing">
+    他低头吻她发顶，叫她baby doll，她幸福地看着他。<br>
+    他不知道。
+  </p>
+</article>
+
+<article class="c-sam-intro">
+  <h2 class="c-sam-intro__heading">关系注脚</h2>
+
+  <p>
+    她叫他：总统先生。<br>
+    一本正经，每次都是，无论场合。<br>
+    只有她自己知道这个称呼里藏着多少宠溺和暗笑——<br>
+    毕竟这个总统是她亲手推上去的。
+  </p>
+
+  <p>
+    他叫她：baby doll。<br>
+    从第一天开始，从不叫错。<br>
+    她的名字他叫过Windy、Wimble、Winter-something，<br>
+    各种版本，从没稳定过。<br>
+    可baby doll，他从来没叫错过一次。
+  </p>
+
+  <p class="c-sam-intro__closing">
+    她叫他总统先生，他叫她baby doll。<br>
+    一个无比正式，一个无比随意。<br>
+    两个人就这样不对等地叫来叫去——<br>
+    偏偏每次都让彼此心里有点什么。
+  </p>
+</article>
+
+{% assign chapters = site.posts | where: "series", "Zaphod AU" | sort: "series_order" %}
+
+<section class="c-sam-collection">
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">Chapters</h3>
+    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · ongoing</span>
+  </div>
+
+  <div class="c-post-grid">
+    {% for chapter in chapters %}
+    <a class="c-post" href="{{ chapter.url | prepend: site.baseurl }}">
+      <div class="c-post__image-wrap">
+        {% if chapter.image %}
+        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: chapter.image }}')"></div>
+        {% else %}
+        <div class="c-post__placeholder">{{ chapter.chapter_type | default: "Chapter" }}</div>
+        {% endif %}
+      </div>
+      <div class="c-post__body">
+        <div class="c-post__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}</div>
+        <h3 class="c-post__title">{{ chapter.title | remove: " — Zaphod AU" }}</h3>
+        {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
+        <div class="c-post__meta">
+          <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
+          {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
+          {% assign mins = chars | divided_by: 500 %}
+          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
+          <span>{{ mins }} min read</span>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>

@@ -155,9 +155,9 @@ layout: home
         {% endif %}
       </div>
       <div class="c-post__body">
-        <div class="c-post__eyebrow">{{ series_cat }} · Series</div>
+        <div class="c-post__eyebrow">{{ series_cat }} · {{ series_first.series_type | default: "Series" }}</div>
         <h3 class="c-post__title">{{ series_name }}</h3>
-        <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · ongoing</p>
+        <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · {{ series_first.series_status | default: "ongoing" }}</p>
       </div>
     </a>
     {% endfor %}
@@ -180,10 +180,10 @@ layout: home
         {% if post.summary %}<p class="c-post__summary">{{ post.summary }}</p>{% endif %}
         <div class="c-post__meta">
           <span>{{ post.date | date: '%Y, %b %d' }}</span>
-          {% capture words %}{{ post.content | number_of_words }}{% endcapture %}
-          {% unless words contains "-" %}
-          <span>{{ words | plus: 250 | divided_by: 250 | append: " min read" }}</span>
-          {% endunless %}
+          {% capture chars %}{{ post.content | strip_html | strip | size }}{% endcapture %}
+          {% assign mins = chars | divided_by: 500 %}
+          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
+          <span>{{ mins }} min read</span>
         </div>
       </div>
     </a>

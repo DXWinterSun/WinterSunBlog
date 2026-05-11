@@ -5,7 +5,8 @@
 
   <title>{% if page.title and page.url != '/' %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name='description' content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <link rel='shotcut icon' href="{{site.baseurl}}/images/{% if site.author-image %}{{site.author-image}}{% endif %}">
+  <link rel="icon" type="image/jpeg" href="{{site.baseurl}}/images/heading-normal.jpg">
+  <link rel="apple-touch-icon" href="{{site.baseurl}}/images/heading-normal.jpg">
   <link rel='canonical' href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel='alternate' type='application/rss+xml' title='{{ site.title }}' href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
   <!-- Set theme before paint to avoid flash -->
