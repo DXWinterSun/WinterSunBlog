@@ -83,3 +83,43 @@
   letter-spacing: 0.08em;
   color: var(--c-muted-soft);
 }
+
+/* ===============
+   ARTICLE META
+   文章元数据块——来源、作者、背景等信息的两列对齐排版
+   用法：<div class="c-article-meta"><dl>...</dl></div>
+=============== */
+
+.c-article-meta {
+  margin: 24px 0 36px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--c-accent);
+  background: var(--c-bg-soft);
+  border-radius: 0 4px 4px 0;
+
+  dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 5px 16px;
+  }
+
+  dt {
+    font-family: $heading-font-family;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-muted);
+    padding-top: 3px;
+    white-space: nowrap;
+  }
+
+  dd {
+    margin: 0;
+    font-family: $base-font-family;
+    font-size: 14px;
+    color: var(--c-ink-soft);
+    line-height: 1.55;
+  }
+}
