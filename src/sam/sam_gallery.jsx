@@ -86,7 +86,7 @@ const characters = [
     bg: "#14151c", accent: "#d94040", text: "#ede0e0", muted: "#8a6060",
     bgNameEn: "Noir Black", bgNameCn: "暗夜黑",
     accentNameEn: "Crimson Lens", accentNameCn: "红镜红",
-    profile: { burn: 8, drift: 3, silence: 9, romance: 6, edge: 9 },
+    profile: { burn:10, forbear:9, romance:6, chaos:8, raw:1, grace:9 },
   },
   {
     id: "chuck",
@@ -125,7 +125,7 @@ const characters = [
     bg: "#2a1d24", accent: "#d4a4a8", text: "#f0e3dc", muted: "#95757e",
     bgNameEn: "Rose Caramel", bgNameCn: "玫瑰焦糖",
     accentNameEn: "Champagne Gold", accentNameCn: "香槟金",
-    profile: { burn:6, forbear:3, romance:10, chaos:8, raw:4, grace:9 },
+    profile: { burn:6, forbear:3, romance:10, chaos:8, raw:7, grace:9 },
   },
   {
     id: "zaphod",
@@ -913,8 +913,16 @@ export default function SamGallery() {
                         color: "#7a3a26",
                         letterSpacing: "0.05em",
                       }}>
-                        {c.film} · {c.year}
+                        {c.film}
                       </span>
+                    </span>
+                    <span style={{
+                      fontFamily: "'Special Elite', monospace",
+                      fontSize: "0.7rem",
+                      color: "#7a3a26",
+                      alignSelf: "center",
+                    }}>
+                      {c.year}
                     </span>
                   </button>
                 );
