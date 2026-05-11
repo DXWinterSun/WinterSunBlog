@@ -3,9 +3,9 @@ import { useEffect } from "react";
 const DIMS = [
   { key: "burn",    cn: "燃烧", en: "BURN" },
   { key: "forbear", cn: "隐忍", en: "FORBEAR" },
-  { key: "romance", cn: "浪漫", en: "ROMANCE" },
   { key: "chaos",   cn: "疯狂", en: "CHAOS" },
   { key: "raw",     cn: "璞真", en: "RAW" },
+  { key: "romance", cn: "浪漫", en: "ROMANCE" },
   { key: "grace",   cn: "优雅", en: "GRACE" },
 ];
 
