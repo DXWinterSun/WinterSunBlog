@@ -23,10 +23,14 @@ summary: "BuzzFeed 问了他 56 件事，每一条都像他本人的一张切片
   domain="buzzfeed.com"
 %}
 
-> **来源：** BuzzFeed, 2014 年 12 月 22 日
-> **作者：** Matt Stopera, Whitney Jefferson, Arielle Calderon
-> **背景：** *Loitering with Intent*（《无所事事》）宣传期采访
-> **整理：** 冬璇 WinterSun · 译注与文化背景说明
+<div class="c-article-meta">
+  <dl>
+    <dt>来源</dt><dd>BuzzFeed, 2014 年 12 月 22 日</dd>
+    <dt>作者</dt><dd>Matt Stopera, Whitney Jefferson, Arielle Calderon</dd>
+    <dt>背景</dt><dd><em>Loitering with Intent</em>（《无所事事》）宣传期采访</dd>
+    <dt>整理</dt><dd>冬璇 WinterSun · 译注与文化背景说明</dd>
+  </dl>
+</div>
 
 ---
 
