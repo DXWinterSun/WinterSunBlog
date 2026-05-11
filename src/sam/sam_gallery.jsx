@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 
 const DIMS = [
-  { key: "burn", cn: "燃烧", en: "BURN" },
-  { key: "drift", cn: "漂泊", en: "DRIFT" },
-  { key: "silence", cn: "隐忍", en: "SILENCE" },
+  { key: "burn",    cn: "燃烧", en: "BURN" },
+  { key: "forbear", cn: "隐忍", en: "FORBEAR" },
   { key: "romance", cn: "浪漫", en: "ROMANCE" },
-  { key: "edge", cn: "危险", en: "EDGE" },
+  { key: "chaos",   cn: "疯狂", en: "CHAOS" },
+  { key: "raw",     cn: "璞真", en: "RAW" },
+  { key: "grace",   cn: "优雅", en: "GRACE" },
 ];
 
 const characters = [
@@ -407,7 +408,7 @@ function MiniRadar({ profile, accent, muted, text }) {
   const center = size / 2;
   const maxR = 95;
   const labelR = 120;
-  const numDims = 5;
+  const numDims = 6;
 
   function getPoint(value, idx) {
     const angle = (Math.PI * 2 * idx) / numDims - Math.PI / 2;
