@@ -20,7 +20,7 @@ const characters = [
     bg: "#1c1814", accent: "#c89868", text: "#ede2d0", muted: "#8a7558",
     bgNameEn: "Dusk Bronze", bgNameCn: "黄昏铜",
     accentNameEn: "Warm Camel", accentNameCn: "暖驼",
-    profile: { burn: 4, drift: 2, silence: 5, romance: 6, edge: 1 },
+    profile: { burn:4, forbear:6, romance:6, chaos:1, raw:6, grace:6 },
   },
   {
     id: "buck",
@@ -33,7 +33,7 @@ const characters = [
     bg: "#1a2418", accent: "#b8c878", text: "#e8eed8", muted: "#7a8868",
     bgNameEn: "Moonlight Silver", bgNameCn: "月光银",
     accentNameEn: "Forest Moss", accentNameCn: "林间苔绿",
-    profile: { burn: 7, drift: 9, silence: 2, romance: 6, edge: 3 },
+    profile: { burn:7, forbear:1, romance:7, chaos:4, raw:10, grace:1 },
   },
   {
     id: "trent",
@@ -46,7 +46,7 @@ const characters = [
     bg: "#1c2418", accent: "#c8a052", text: "#e8e0c8", muted: "#7a7654",
     bgNameEn: "Forest Moss", bgNameCn: "森林苔绿",
     accentNameEn: "Honey Gold", accentNameCn: "蜂蜜金",
-    profile: { burn: 4, drift: 9, silence: 8, romance: 7, edge: 3 },
+    profile: { burn:4, forbear:8, romance:7, chaos:3, raw:5, grace:2 },
   },
   {
     id: "samuel",
@@ -59,7 +59,7 @@ const characters = [
     bg: "#2a201a", accent: "#e8b89a", text: "#f0e2d4", muted: "#a08770",
     bgNameEn: "Vintage Cream", bgNameCn: "复古奶油",
     accentNameEn: "Blush Pink", accentNameCn: "腮红粉",
-    profile: { burn: 3, drift: 3, silence: 2, romance: 6, edge: 1 },
+    profile: { burn:5, forbear:2, romance:6, chaos:3, raw:8, grace:2 },
   },
   {
     id: "jerry",
@@ -72,7 +72,7 @@ const characters = [
     bg: "#2a1410", accent: "#e07050", text: "#f0e0d0", muted: "#a07060",
     bgNameEn: "Chocolate Brown", bgNameCn: "巧克力棕",
     accentNameEn: "Blood Orange", accentNameCn: "血橙红",
-    profile: { burn: 7, drift: 8, silence: 2, romance: 6, edge: 9 },
+    profile: { burn:7, forbear:1, romance:6, chaos:10, raw:8, grace:3 },
   },
   {
     id: "chuck",
@@ -85,7 +85,7 @@ const characters = [
     bg: "#15182a", accent: "#e8c848", text: "#ede4d0", muted: "#8088a0",
     bgNameEn: "Midnight Spy", bgNameCn: "午夜情报蓝",
     accentNameEn: "Cadmium Yellow", accentNameCn: "镉黄",
-    profile: { burn: 8, drift: 8, silence: 4, romance: 7, edge: 9 },
+    profile: { burn:8, forbear:4, romance:7, chaos:8, raw:4, grace:5 },
   },
   {
     id: "frank",
@@ -98,7 +98,7 @@ const characters = [
     bg: "#1f1822", accent: "#d680a5", text: "#ede0e6", muted: "#9a7088",
     bgNameEn: "Smoky Lilac", bgNameCn: "烟雾紫",
     accentNameEn: "Neon Pink", accentNameCn: "霓虹粉",
-    profile: { burn: 5, drift: 6, silence: 3, romance: 7, edge: 8 },
+    profile: { burn:5, forbear:3, romance:7, chaos:3, raw:1, grace:7 },
   },
   {
     id: "jim",
@@ -111,7 +111,7 @@ const characters = [
     bg: "#2a1d24", accent: "#d4a4a8", text: "#f0e3dc", muted: "#95757e",
     bgNameEn: "Rose Caramel", bgNameCn: "玫瑰焦糖",
     accentNameEn: "Champagne Gold", accentNameCn: "香槟金",
-    profile: { burn: 6, drift: 5, silence: 4, romance: 8, edge: 3 },
+    profile: { burn:6, forbear:3, romance:10, chaos:8, raw:4, grace:9 },
   },
   {
     id: "zaphod",
@@ -124,7 +124,7 @@ const characters = [
     bg: "#0d1220", accent: "#d4a82a", text: "#e8e4d0", muted: "#8a7a48",
     bgNameEn: "Deep Space", bgNameCn: "深空蓝",
     accentNameEn: "Stardust Gold", accentNameCn: "星际金",
-    profile: { burn: 8, drift: 9, silence: 1, romance: 8, edge: 7 },
+    profile: { burn:9, forbear:1, romance:8, chaos:10, raw:6, grace:7 },
   },
   {
     id: "brad",
@@ -137,7 +137,7 @@ const characters = [
     bg: "#1c2230", accent: "#d4a878", text: "#e8e3d8", muted: "#7a8590",
     bgNameEn: "Manhattan Slate", bgNameCn: "曼哈顿冬夜",
     accentNameEn: "Lamp Amber", accentNameCn: "暖灯黄",
-    profile: { burn: 3, drift: 2, silence: 8, romance: 6, edge: 2 },
+    profile: { burn:3, forbear:9, romance:6, chaos:2, raw:5, grace:6 },
   },
   {
     id: "glenn",
@@ -150,7 +150,7 @@ const characters = [
     bg: "#1c2030", accent: "#e8c878", text: "#ebe4d8", muted: "#7a8090",
     bgNameEn: "Winter Steel", bgNameCn: "寒冬冷蓝灰",
     accentNameEn: "Lamp Amber", accentNameCn: "暖灯黄",
-    profile: { burn: 8, drift: 5, silence: 3, romance: 6, edge: 7 },
+    profile: { burn:8, forbear:3, romance:5, chaos:8, raw:7, grace:2 },
   },
   {
     id: "victor",
@@ -163,7 +163,7 @@ const characters = [
     bg: "#2a1820", accent: "#d49060", text: "#f0e0d4", muted: "#9a7868",
     bgNameEn: "Velvet Wine", bgNameCn: "旧绒布酒红",
     accentNameEn: "Candle Ember", accentNameCn: "烛光暖橘",
-    profile: { burn: 7, drift: 6, silence: 3, romance: 6, edge: 8 },
+    profile: { burn:7, forbear:8, romance:6, chaos:4, raw:6, grace:3 },
   },
   {
     id: "sam",
@@ -177,7 +177,7 @@ const characters = [
     bg: "#162038", accent: "#7eb0d5", text: "#e8eef5", muted: "#6a85a3",
     bgNameEn: "Lunar Blue", bgNameCn: "月球蓝",
     accentNameEn: "Warm White", accentNameCn: "暖白",
-    profile: { burn: 4, drift: 1, silence: 5, romance: 9, edge: 1 },
+    profile: { burn:4, forbear:8, romance:9, chaos:2, raw:7, grace:4 },
   },
   {
     id: "robert",
@@ -190,7 +190,7 @@ const characters = [
     bg: "#241c14", accent: "#c8a060", text: "#ede4d4", muted: "#9a7e58",
     bgNameEn: "Coffee Warm", bgNameCn: "暖咖啡棕",
     accentNameEn: "Antique Brass", accentNameCn: "旧黄铜",
-    profile: { burn: 4, drift: 5, silence: 7, romance: 5, edge: 2 },
+    profile: { burn:4, forbear:7, romance:5, chaos:2, raw:6, grace:7 },
   },
   {
     id: "kenny",
@@ -203,7 +203,7 @@ const characters = [
     bg: "#2a1614", accent: "#c75a3e", text: "#f0e0d4", muted: "#9a6858",
     bgNameEn: "Old Brick", bgNameCn: "旧砖红",
     accentNameEn: "Dusk Tangerine", accentNameCn: "暮色橘",
-    profile: { burn: 8, drift: 4, silence: 3, romance: 6, edge: 6 },
+    profile: { burn:8, forbear:3, romance:7, chaos:7, raw:9, grace:2 },
   },
   {
     id: "billy",
@@ -216,7 +216,7 @@ const characters = [
     bg: "#321a0a", accent: "#e8a04c", text: "#f5e6d0", muted: "#b07840",
     bgNameEn: "Sundown Caramel", bgNameCn: "日落焦糖",
     accentNameEn: "Sunset Flame", accentNameCn: "烈焰橘",
-    profile: { burn: 9, drift: 6, silence: 1, romance: 9, edge: 9 },
+    profile: { burn:9, forbear:1, romance:9, chaos:10, raw:8, grace:2 },
   },
   {
     id: "owen",
@@ -229,7 +229,7 @@ const characters = [
     bg: "#1c2e36", accent: "#e8a880", text: "#ede4d4", muted: "#75899a",
     bgNameEn: "Twilight Lake", bgNameCn: "黄昏湖蓝",
     accentNameEn: "Coral Glow", accentNameCn: "珊瑚橙",
-    profile: { burn: 5, drift: 4, silence: 3, romance: 4, edge: 2 },
+    profile: { burn:4, forbear:3, romance:6, chaos:4, raw:7, grace:3 },
   },
   {
     id: "john",
@@ -242,7 +242,7 @@ const characters = [
     bg: "#1f2520", accent: "#9aa085", text: "#e8e3d6", muted: "#7d8270",
     bgNameEn: "Forest Cold", bgNameCn: "山林冷绿",
     accentNameEn: "Mist Grey", accentNameCn: "雾灰",
-    profile: { burn: 3, drift: 5, silence: 9, romance: 4, edge: 6 },
+    profile: { burn:3, forbear:10, romance:5, chaos:2, raw:8, grace:2 },
   },
   {
     id: "doug",
@@ -255,7 +255,7 @@ const characters = [
     bg: "#1f1428", accent: "#e07840", text: "#ede0e6", muted: "#9870a0",
     bgNameEn: "Pill Bottle Orange", bgNameCn: "药瓶橘红",
     accentNameEn: "Smoky Lilac", accentNameCn: "烟雾紫",
-    profile: { burn: 7, drift: 3, silence: 7, romance: 6, edge: 5 },
+    profile: { burn:7, forbear:7, romance:6, chaos:6, raw:5, grace:4 },
   },
   {
     id: "wayne",
@@ -268,7 +268,7 @@ const characters = [
     bg: "#1e2418", accent: "#c8a050", text: "#e8e4d0", muted: "#8a7a48",
     bgNameEn: "Old Olive", bgNameCn: "退伍橄榄",
     accentNameEn: "Late Summer Amber", accentNameCn: "夏末琥珀",
-    profile: { burn: 6, drift: 4, silence: 9, romance: 5, edge: 6 },
+    profile: { burn:6, forbear:9, romance:7, chaos:3, raw:7, grace:3 },
   },
   {
     id: "craig",
@@ -281,7 +281,7 @@ const characters = [
     bg: "#241a14", accent: "#c89060", text: "#ede0d0", muted: "#a07858",
     bgNameEn: "Aged Leather", bgNameCn: "陈年皮革",
     accentNameEn: "Whisky Gold", accentNameCn: "威士忌金",
-    profile: { burn: 5, drift: 2, silence: 5, romance: 6, edge: 1 },
+    profile: { burn:5, forbear:7, romance:8, chaos:2, raw:5, grace:6 },
   },
   {
     id: "francis",
@@ -294,7 +294,7 @@ const characters = [
     bg: "#241432", accent: "#c9a0dc", text: "#ede4f2", muted: "#8b6ea0",
     bgNameEn: "Amethyst Night", bgNameCn: "紫晶夜",
     accentNameEn: "Silver White", accentNameCn: "银白",
-    profile: { burn: 5, drift: 6, silence: 6, romance: 9, edge: 9 },
+    profile: { burn:6, forbear:6, romance:9, chaos:6, raw:8, grace:10 },
   },
   {
     id: "dixon",
@@ -307,7 +307,7 @@ const characters = [
     bg: "#2a1410", accent: "#d97742", text: "#f5e6d3", muted: "#a87858",
     bgNameEn: "Caramel Earth", bgNameCn: "焦糖红土",
     accentNameEn: "Sunset Tangerine", accentNameCn: "落日橙",
-    profile: { burn: 9, drift: 3, silence: 3, romance: 2, edge: 7 },
+    profile: { burn:9, forbear:3, romance:1, chaos:5, raw:9, grace:2 },
   },
   {
     id: "eddie",
@@ -320,7 +320,7 @@ const characters = [
     bg: "#1a1f24", accent: "#d49058", text: "#ebe2d4", muted: "#7a8088",
     bgNameEn: "Tavern Smoke", bgNameCn: "地下酒馆烟灰蓝",
     accentNameEn: "Rust Gold", accentNameCn: "锈金",
-    profile: { burn: 5, drift: 7, silence: 4, romance: 7, edge: 5 },
+    profile: { burn:5, forbear:4, romance:7, chaos:5, raw:7, grace:4 },
   },
   {
     id: "hendrix",
@@ -333,7 +333,7 @@ const characters = [
     bg: "#1c2820", accent: "#c4a94a", text: "#ede8d8", muted: "#8b7d4d",
     bgNameEn: "Old Olive", bgNameCn: "旧军装橄榄",
     accentNameEn: "Brass Gold", accentNameCn: "黄铜金",
-    profile: { burn: 4, drift: 4, silence: 8, romance: 4, edge: 5 },
+    profile: { burn:4, forbear:9, romance:4, chaos:3, raw:7, grace:7 },
   },
   {
     id: "watson",
@@ -346,7 +346,7 @@ const characters = [
     bg: "#1c1410", accent: "#c8783c", text: "#ede0d0", muted: "#8a6848",
     bgNameEn: "Archive Oak", bgNameCn: "档案橡木",
     accentNameEn: "Georgia Clay", accentNameCn: "红土暖橘",
-    profile: { burn: 8, drift: 1, silence: 1, romance: 7, edge: 3 },
+    profile: { burn:8, forbear:1, romance:7, chaos:2, raw:7, grace:3 },
   },
   {
     id: "wolf",
@@ -359,7 +359,7 @@ const characters = [
     bg: "#161a26", accent: "#d4ad5c", text: "#ede6d8", muted: "#7a7d8a",
     bgNameEn: "Midnight Blue", bgNameCn: "午夜蓝",
     accentNameEn: "Champagne Gold", accentNameCn: "香槟金",
-    profile: { burn: 6, drift: 7, silence: 4, romance: 8, edge: 7 },
+    profile: { burn:6, forbear:4, romance:8, chaos:5, raw:3, grace:8 },
   },
   {
     id: "stoppard",
@@ -372,7 +372,7 @@ const characters = [
     bg: "#1a1f2c", accent: "#d4a548", text: "#ebe2d4", muted: "#7c8090",
     bgNameEn: "London Midnight", bgNameCn: "伦敦午夜蓝",
     accentNameEn: "Amber", accentNameCn: "琥珀色",
-    profile: { burn: 3, drift: 6, silence: 9, romance: 5, edge: 2 },
+    profile: { burn:3, forbear:9, romance:6, chaos:3, raw:2, grace:6 },
   },
   {
     id: "aidan",
@@ -385,7 +385,7 @@ const characters = [
     bg: "#15192a", accent: "#d4a058", text: "#ebe2d0", muted: "#7a7e90",
     bgNameEn: "Gunmetal Blue", bgNameCn: "午夜枪管蓝",
     accentNameEn: "Whisky Amber", accentNameCn: "威士忌琥珀",
-    profile: { burn: 7, drift: 8, silence: 5, romance: 9, edge: 7 },
+    profile: { burn:7, forbear:5, romance:9, chaos:6, raw:5, grace:6 },
   },
   {
     id: "manfromfuture",
@@ -398,7 +398,7 @@ const characters = [
     bg: "#1a0e2a", accent: "#d460a0", text: "#ede0ec", muted: "#8868a0",
     bgNameEn: "Neon Violet", bgNameCn: "荧光紫",
     accentNameEn: "Glitch Magenta", accentNameCn: "故障玫红",
-    profile: { burn: 8, drift: 9, silence: 3, romance: 4, edge: 6 },
+    profile: { burn:8, forbear:6, romance:4, chaos:7, raw:6, grace:1 },
   },
 ];
 
