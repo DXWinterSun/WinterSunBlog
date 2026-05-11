@@ -710,6 +710,25 @@ function CharacterCard({ c, idx }) {
         }}>
           ❦
         </div>
+
+        <div style={{ textAlign: "center", marginTop: "20px" }}>
+          <button
+            onClick={function() { window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            style={{
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              fontFamily: "'Special Elite', monospace",
+              fontSize: "0.62rem",
+              color: c.muted,
+              letterSpacing: "0.28em",
+              opacity: 0.65,
+              padding: "4px 0",
+            }}
+          >
+            ↑ CONTENTS
+          </button>
+        </div>
       </div>
     </section>
   );
@@ -866,21 +885,23 @@ export default function SamGallery() {
                     }}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span style={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontStyle: "italic",
-                      fontSize: "1rem",
-                      color: "#2a1410",
-                      flex: 1,
-                    }}>
-                      {c.name}
-                    </span>
-                    <span style={{
-                      fontFamily: "'Special Elite', monospace",
-                      fontSize: "0.7rem",
-                      color: "#7a3a26",
-                    }}>
-                      {c.year}
+                    <span style={{ flex: 1, display: "flex", flexDirection: "column", gap: "2px" }}>
+                      <span style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontStyle: "italic",
+                        fontSize: "1rem",
+                        color: "#2a1410",
+                      }}>
+                        {c.name}
+                      </span>
+                      <span style={{
+                        fontFamily: "'Special Elite', monospace",
+                        fontSize: "0.62rem",
+                        color: "#7a3a26",
+                        letterSpacing: "0.05em",
+                      }}>
+                        {c.film} · {c.year}
+                      </span>
                     </span>
                   </button>
                 );
