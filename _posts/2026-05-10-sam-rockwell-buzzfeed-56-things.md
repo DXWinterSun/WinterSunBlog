@@ -11,17 +11,17 @@ summary: "BuzzFeed 问了他 56 件事，每一条都像他本人的一张切片
 # Sam Rockwell 对 56 件随机事物的看法
 ## ——2014 年 BuzzFeed 经典采访逐题中英对照与注释
 
-<a href="https://www.buzzfeed.com/mjs538/sam-rockwells-opinion-on-random-things" target="_blank" rel="noopener" style="display:flex;max-width:640px;margin:24px 0;border:1px solid #e1e4e8;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',sans-serif;">
-  <div style="flex-shrink:0;width:140px;background:#FFE600;display:flex;align-items:center;justify-content:center;padding:20px 12px;">
-    <span style="color:#ee3322;font-weight:900;font-size:24px;letter-spacing:-1px;line-height:1;text-align:center;">BuzzFeed</span>
-  </div>
-  <div style="padding:16px 20px;flex:1;min-width:0;">
-    <div style="font-size:11px;color:#6a737d;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:8px;">Celebrity · Dec 22, 2014</div>
-    <div style="font-size:16px;font-weight:600;line-height:1.35;margin-bottom:6px;color:#24292e;">Sam Rockwell's Opinion On 56 Completely Random Things</div>
-    <div style="font-size:13px;color:#586069;line-height:1.45;margin-bottom:10px;font-style:italic;">"He would rather poop a softball."</div>
-    <div style="font-size:11px;color:#959da5;">buzzfeed.com →</div>
-  </div>
-</a>
+{% include source-card.html
+  url="https://www.buzzfeed.com/mjs538/sam-rockwells-opinion-on-random-things"
+  brand="BuzzFeed"
+  brand_bg="#FFE600"
+  brand_fg="#ee3322"
+  category="Celebrity"
+  date="Dec 22, 2014"
+  title="Sam Rockwell's Opinion On 56 Completely Random Things"
+  quote="He would rather poop a softball."
+  domain="buzzfeed.com"
+%}
 
 > **来源：** BuzzFeed, 2014 年 12 月 22 日
 > **作者：** Matt Stopera, Whitney Jefferson, Arielle Calderon
