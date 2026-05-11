@@ -913,8 +913,16 @@ export default function SamGallery() {
                         color: "#7a3a26",
                         letterSpacing: "0.05em",
                       }}>
-                        {c.film} · {c.year}
+                        {c.film}
                       </span>
+                    </span>
+                    <span style={{
+                      fontFamily: "'Special Elite', monospace",
+                      fontSize: "0.7rem",
+                      color: "#7a3a26",
+                      alignSelf: "center",
+                    }}>
+                      {c.year}
                     </span>
                   </button>
                 );
