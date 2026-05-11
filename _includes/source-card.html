@@ -1,0 +1,20 @@
+<div class="c-source-card">
+  <a class="c-source-card__link" href="{{ include.url }}" target="_blank" rel="noopener" aria-label="{{ include.title }}"></a>
+  <div class="c-source-card__brand" style="background:{{ include.brand_bg | default: '#1f1d1a' }};color:{{ include.brand_fg | default: '#ffffff' }};">
+    {{ include.brand }}
+  </div>
+  <div class="c-source-card__body">
+    {% if include.category or include.date %}
+    <div class="c-source-card__meta">
+      {% if include.category %}{{ include.category }}{% endif %}
+      {% if include.category and include.date %} · {% endif %}
+      {% if include.date %}{{ include.date }}{% endif %}
+    </div>
+    {% endif %}
+    <p class="c-source-card__title">{{ include.title }}</p>
+    {% if include.quote %}
+    <p class="c-source-card__quote">&ldquo;{{ include.quote }}&rdquo;</p>
+    {% endif %}
+    <span class="c-source-card__cta">{{ include.domain | default: include.url }} →</span>
+  </div>
+</div>
