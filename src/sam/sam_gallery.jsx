@@ -87,6 +87,11 @@ const characters = [
     bgNameEn: "Noir Black", bgNameCn: "暗夜黑",
     accentNameEn: "Crimson Lens", accentNameCn: "红镜红",
     profile: { burn:10, forbear:9, romance:6, chaos:8, raw:1, grace:9 },
+    auLink: {
+      href: "/WinterSunBlog/series/knox-au/",
+      title: "Simon Says · Knox AU",
+      label: "他计划了一切，却没有计划上你。",
+    },
   },
   {
     id: "chuck",
@@ -139,6 +144,11 @@ const characters = [
     bgNameEn: "Deep Space", bgNameCn: "深空蓝",
     accentNameEn: "Stardust Gold", accentNameCn: "星际金",
     profile: { burn:9, forbear:1, romance:8, chaos:10, raw:6, grace:7 },
+    auLink: {
+      href: "/WinterSunBlog/series/zaphod-au/",
+      title: "Don't Panic, Baby Doll",
+      label: "他叫你baby doll，整个银河系都知道，除了他自己。",
+    },
   },
   {
     id: "brad",
@@ -192,6 +202,11 @@ const characters = [
     bgNameEn: "Lunar Blue", bgNameCn: "月球蓝",
     accentNameEn: "Warm White", accentNameCn: "暖白",
     profile: { burn:4, forbear:8, romance:9, chaos:2, raw:7, grace:4 },
+    auLink: {
+      href: "/WinterSunBlog/series/sam-bell-moon-au/",
+      title: "Sam Bell · Moon AU",
+      label: "他还有一段 AU · 推开月球的门",
+    },
   },
   {
     id: "robert",
@@ -257,6 +272,11 @@ const characters = [
     bgNameEn: "Forest Cold", bgNameCn: "山林冷绿",
     accentNameEn: "Mist Grey", accentNameCn: "雾灰",
     profile: { burn:3, forbear:10, romance:5, chaos:2, raw:8, grace:2 },
+    auLink: {
+      href: "/WinterSunBlog/series/a-single-shot-au/",
+      title: "A Single Shot AU",
+      label: "那个深坑里，他没有死。有人听见了他的呼吸声。",
+    },
   },
   {
     id: "doug",
@@ -602,6 +622,78 @@ function CharacterCard({ c, idx }) {
             </p>
           );
         })}
+
+        {c.auLink && (
+          <div style={{ marginBottom: "40px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
+              <div style={{ flex: 1, height: "1px", background: c.accent, opacity: 0.3 }} />
+              <span style={{
+                fontFamily: "'Special Elite', monospace",
+                fontSize: "0.58rem",
+                letterSpacing: "0.42em",
+                color: c.accent,
+                opacity: 0.75,
+                textTransform: "uppercase",
+                whiteSpace: "nowrap",
+              }}>AU · STORY</span>
+              <div style={{ flex: 1, height: "1px", background: c.accent, opacity: 0.3 }} />
+            </div>
+            <a
+              href={c.auLink.href}
+              style={{
+                display: "block",
+                textDecoration: "none",
+                padding: "20px 20px 20px 18px",
+                borderLeft: "2px solid " + c.accent,
+                background: c.accent + "0d",
+                borderRadius: "0 3px 3px 0",
+                transition: "background 0.3s ease, padding-left 0.25s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = c.accent + "1f";
+                e.currentTarget.style.paddingLeft = "22px";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = c.accent + "0d";
+                e.currentTarget.style.paddingLeft = "18px";
+              }}
+            >
+              <p style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontStyle: "italic",
+                fontWeight: 600,
+                fontSize: "1.15rem",
+                color: c.accent,
+                margin: "0 0 10px 0",
+                lineHeight: 1.25,
+                letterSpacing: "0.02em",
+              }}>
+                {c.auLink.title}
+              </p>
+              <p style={{
+                fontFamily: "'Noto Serif SC', serif",
+                fontSize: "0.875rem",
+                color: c.text,
+                opacity: 0.72,
+                margin: "0 0 16px 0",
+                lineHeight: 1.7,
+              }}>
+                {c.auLink.label}
+              </p>
+              <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: "6px" }}>
+                <span style={{
+                  fontFamily: "'Special Elite', monospace",
+                  fontSize: "0.62rem",
+                  letterSpacing: "0.25em",
+                  color: c.accent,
+                  opacity: 0.85,
+                  textTransform: "uppercase",
+                }}>进入系列</span>
+                <span style={{ color: c.accent, opacity: 0.85, fontSize: "0.85rem" }}>↗</span>
+              </div>
+            </a>
+          </div>
+        )}
 
         <div style={{ marginTop: "32px", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <p style={{
