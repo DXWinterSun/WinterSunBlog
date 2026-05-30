@@ -6,6 +6,7 @@ image: a-single-shot-au.jpg
 tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
+series_title: "Into the Mountain · John Moon AU"
 series_order: 7
 summary: "你给一个你从没见过的女人写了一封信，没寄。半夜他看见了那张折着的纸。"
 ---

@@ -6,6 +6,7 @@ image: sam-bell-moon-au.jpg
 tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
+series_title: "Far Side · Sam Bell AU"
 series_order: 7
 summary: "第五十一天，地球最后一次对外广播。八小时之后，静默。"
 ---

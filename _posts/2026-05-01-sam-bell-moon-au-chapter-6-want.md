@@ -6,6 +6,7 @@ image: sam-bell-moon-au.jpg
 tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
+series_title: "Far Side · Sam Bell AU"
 series_order: 6
 summary: "Sam 6 把你按在墙上吻你——然后叫 Sam 7 过来。三种渴望。"
 ---

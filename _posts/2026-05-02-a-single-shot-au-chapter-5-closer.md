@@ -6,6 +6,7 @@ image: a-single-shot-au.jpg
 tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
+series_title: "Into the Mountain · John Moon AU"
 series_order: 5
 summary: "他醒得比你早，发现自己整夜把你抱住了——他这辈子从没做过这种事。"
 ---

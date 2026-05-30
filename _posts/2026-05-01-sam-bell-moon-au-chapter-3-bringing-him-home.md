@@ -6,6 +6,7 @@ image: sam-bell-moon-au.jpg
 tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
+series_title: "Far Side · Sam Bell AU"
 series_order: 3
 summary: "月球尘里跪下来送 Sam 5 回家。葬礼之后他说——叫醒 Sam 8。"
 ---
