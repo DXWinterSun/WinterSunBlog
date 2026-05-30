@@ -6,6 +6,7 @@ image: sam-bell-moon-au.jpg
 tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
+series_title: "Far Side · Sam Bell AU"
 series_order: 4
 summary: "Sam 8 是第一个一醒就被允许活的 Sam。十一夜后，第一桌扑克。"
 ---

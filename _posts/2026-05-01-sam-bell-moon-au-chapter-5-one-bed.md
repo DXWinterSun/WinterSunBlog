@@ -6,6 +6,7 @@ image: sam-bell-moon-au.jpg
 tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
+series_title: "Far Side · Sam Bell AU"
 series_order: 5
 summary: "Sam 8 提议——一张大床。十天后他们看了《七个神经病》。"
 ---

@@ -6,6 +6,7 @@ image: a-single-shot-au.jpg
 tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
+series_title: "Into the Mountain · John Moon AU"
 series_order: 3
 summary: "你想留下，只要他允许。直到那一晚，他终于把自己的故事，断断续续讲给你听。"
 ---

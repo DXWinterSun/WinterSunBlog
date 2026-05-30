@@ -6,6 +6,7 @@ image: a-single-shot-au.jpg
 tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
+series_title: "Into the Mountain · John Moon AU"
 series_order: 2
 summary: "他手里那层纱布已经被血浸透。从这一刻起，你决定把他放在所有事情的前面。"
 ---

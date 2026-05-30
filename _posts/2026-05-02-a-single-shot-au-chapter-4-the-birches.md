@@ -6,6 +6,7 @@ image: a-single-shot-au.jpg
 tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
+series_title: "Into the Mountain · John Moon AU"
 series_order: 4
 summary: "第六天，那袋狗粮快见底了——可你忽然意识到，那只狗，一次都没出现过。"
 ---

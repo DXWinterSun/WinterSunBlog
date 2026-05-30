@@ -5,7 +5,7 @@ date: 2026-05-30
 tags: [Sam, AU, 中文]
 categories: ["AU Story"]
 series: "Good Enough"
-series_title: "Good Enough"
+series_title: "Good Enough · Justin Hammer AU"
 series_order: 7
 series_status: ongoing
 series_type: Series

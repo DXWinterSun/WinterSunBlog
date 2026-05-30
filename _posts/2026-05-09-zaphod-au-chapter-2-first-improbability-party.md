@@ -6,7 +6,7 @@ image: zaphod-au.jpg
 tags: [Sam, AU, "Hitchhiker's Guide", 中文]
 categories: ["AU Story"]
 series: "Zaphod AU"
-series_title: "Don't Panic, Baby Doll"
+series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 3
 series_status: ongoing
 series_type: Series

@@ -6,7 +6,7 @@ image: knox-au.jpg
 tags: [Sam, AU, "Charlie's Angels", 中文]
 categories: ["AU Story"]
 series: "Knox AU"
-series_title: "Simon Says"
+series_title: "Simon Says · Eric Knox AU"
 series_order: 1
 series_status: complete
 series_type: Oneshot

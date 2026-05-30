@@ -6,6 +6,7 @@ image: a-single-shot-au.jpg
 tags: [Sam, AU, "A Single Shot", 中文]
 categories: ["AU Story"]
 series: "A Single Shot AU"
+series_title: "Into the Mountain · John Moon AU"
 series_order: 1
 summary: "你听见的第一声不是枪声。是更轻的、更绝望的、不像是人能发出来的喘息。"
 ---
