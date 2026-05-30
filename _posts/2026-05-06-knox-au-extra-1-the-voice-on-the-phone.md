@@ -5,7 +5,8 @@ date: 2026-05-06
 image: knox-au.jpg
 tags: [Sam, AU, "Charlie's Angels", 中文]
 categories: ["AU Story"]
-series: "Simon Says"
+series: "Knox AU"
+series_title: "Simon Says · Eric Knox AU"
 series_order: 2
 chapter_type: 番外
 summary: "你本来是打算辞职的。"
