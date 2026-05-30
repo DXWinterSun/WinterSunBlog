@@ -156,7 +156,7 @@ layout: home
       </div>
       <div class="c-post__body">
         <div class="c-post__eyebrow">{{ series_cat }} · {{ series_first.series_type | default: "Series" }}</div>
-        <h3 class="c-post__title">{{ series_name }}</h3>
+        <h3 class="c-post__title">{{ series_first.series_title | default: series_name }}</h3>
         <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · {{ series_first.series_status | default: "ongoing" }}</p>
       </div>
     </a>
