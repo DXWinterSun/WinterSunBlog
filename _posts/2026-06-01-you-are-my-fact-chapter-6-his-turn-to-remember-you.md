@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 4 · 换他记得你 — You Are My Fact"
-date: 2026-05-30
+title: "Chapter 6 · 换他记得你 — You Are My Fact"
+date: 2026-06-01
 tags: [Guy Pearce, Memento, Leonard Shelby, AU, 中文]
 categories: ["AU Story"]
 series: "You Are My Fact"
 series_title: "You Are My Fact · Leonard Shelby AU"
-series_order: 4
+series_order: 6
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 4
+chapter_type: Chapter 6
 summary: "他偷偷溜出门，只为给你买一本，能装下他全部爱意的相册。"
 ---
 

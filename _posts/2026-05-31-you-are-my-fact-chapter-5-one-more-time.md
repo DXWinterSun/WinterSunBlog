@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 6 · 多一次 — You Are My Fact"
-date: 2026-06-01
+title: "Chapter 5 · 多一次 — You Are My Fact"
+date: 2026-05-31
 tags: [Guy Pearce, Memento, Leonard Shelby, AU, 中文]
 categories: ["AU Story"]
 series: "You Are My Fact"
 series_title: "You Are My Fact · Leonard Shelby AU"
-series_order: 6
+series_order: 5
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 6
+chapter_type: Chapter 5
 summary: "他忘记你多少次，你就会比那个数字，再多出现一次。"
 ---
 

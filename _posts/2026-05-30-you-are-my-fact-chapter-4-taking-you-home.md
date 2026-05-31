@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 2 · 带你回家 — You Are My Fact"
-date: 2026-05-28
+title: "Chapter 4 · 带你回家 — You Are My Fact"
+date: 2026-05-30
 tags: [Guy Pearce, Memento, Leonard Shelby, AU, 中文]
 categories: ["AU Story"]
 series: "You Are My Fact"
 series_title: "You Are My Fact · Leonard Shelby AU"
-series_order: 2
+series_order: 4
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 2
+chapter_type: Chapter 4
 summary: "你把他捡回家，像一只走投无路、好看又破碎的大狗。"
 ---
 
