@@ -1,0 +1,84 @@
+---
+layout: home
+title: "You Are My Fact · Leonard Shelby AU"
+permalink: /series/you-are-my-fact/
+nav_active: "AU Story"
+---
+
+<section class="c-hero">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+
+  <div class="c-hero__eyebrow">AU Story · Series</div>
+  <h1 class="c-hero__title">You Are My Fact</h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">Leonard Shelby · Memento (2000) · ongoing</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    他记不住你，于是你把自己，一笔一笔写进他相信的事实里。
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
+</section>
+
+<article class="c-sam-intro">
+  <h2 class="c-sam-intro__heading">关于这个系列</h2>
+
+  <p>
+    《记忆碎片》（<em>Memento</em>, 2000）里的 Leonard Shelby 患有顺行性遗忘——从妻子遇害那一刻起，他再也无法形成新的记忆。每隔十几分钟，世界就对他重新归零。他靠拍立得、纹身和笔记活着，只相信那些他亲手记下来的东西。Guy Pearce 把这个男人演得极克制，极清醒，极孤独——一个用"事实"来代替记忆、用系统来代替信任的人，却偏偏在那双蓝眼睛里藏着某种很脆的东西。
+  </p>
+
+  <p>
+    这个 AU 里的"你"——Winter——是这世上少数几个可以"什么都不要"的人。家底厚实，时间充裕，习惯收留走投无路的小东西。当你在那家通宵餐馆第一次看见他——被一群想啃食他的人围在中间——你心里冒出来的念头简单得近乎任性：把他带回家。
+  </p>
+
+  <p>
+    你很快明白，你没办法让他记住你。这不是放弃，这是起点。你不能指望他的脑子，于是你去争取他唯一会相信的东西——那些他亲手写下、攥在手里的"事实"。你一次次出现，什么都不图，什么都不要；他的系统冷静而精准地把这一切记录下来，一行一行，改写对你的判断。
+  </p>
+
+  <p class="c-sam-intro__closing">
+    <em>facts, not memories.</em><br>
+    他记不住你。可他写下来的每一行，都是你。
+  </p>
+</article>
+
+{% assign chapters = site.posts | where: "series", "You Are My Fact" | sort: "series_order" %}
+
+<section class="c-sam-collection">
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">Chapters</h3>
+    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · ongoing</span>
+  </div>
+
+  <div class="c-post-grid">
+    {% for chapter in chapters %}
+    <a class="c-post" href="{{ chapter.url | prepend: site.baseurl }}">
+      <div class="c-post__image-wrap">
+        {% if chapter.image %}
+        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: chapter.image }}')"></div>
+        {% else %}
+        <div class="c-post__placeholder">{{ chapter.chapter_type | default: "Chapter" }}</div>
+        {% endif %}
+      </div>
+      <div class="c-post__body">
+        <div class="c-post__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}</div>
+        <h3 class="c-post__title">{{ chapter.title | remove: " — You Are My Fact" }}</h3>
+        {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
+        <div class="c-post__meta">
+          <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
+          {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
+          {% assign mins = chars | divided_by: 500 %}
+          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
+          <span>{{ mins }} min read</span>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
