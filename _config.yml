@@ -29,6 +29,8 @@ google-analytics: # Add your identifier. For example UA-99631805-1
 disqus-identifier: mr-brown # Add your shortname for Disqus Comment. For example mr-brown
 
 # Build settings
+future: true
+timezone: Asia/Shanghai
 kramdown:
   auto_id_prefix: 'heading-'
   smart_quotes: ["apos", "apos", "quot", "quot"]
