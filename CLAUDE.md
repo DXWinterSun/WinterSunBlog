@@ -38,3 +38,22 @@ grep -E '^summary:' _posts/<file>.md | sed 's/^summary: *"//; s/"$//' | awk '{pr
   默认 URL 下会 404。
 - 修改 `js/main.js` 后记得 cache-bust 已经在 `_includes/javascripts.html`
   里通过 `?v={{ site.time | date: '%Y%m%d%H%M' }}` 自动处理，不用手动改。
+
+## 图片工作流（封面图）
+
+- **默认前提**：用户上传的图片文件统一传到 `main` 分支（通过 GitHub
+  网页上传）。当用户说「我上传了图片 / 在 image 文件夹上传了」，先
+  `git fetch origin main`，再去 `origin/main` 的 `images/` 目录里找；
+  当前工作分支上没有是正常的，用
+  `git checkout origin/main -- images/<文件名>` 取到工作分支即可。
+- 用户会在对话里直接给出「图片 → 文章 / 系列」的对应要求。据此把
+  `image: <文件名>` 写进对应文章的 front matter（放在 `date:` 行之后；
+  系列文章按惯例**每一章都加**同一张封面）。
+- 文章配图通过模板渲染成 `background-image`，格式无关；`.webp`、
+  `.jpg`、`.png` 都能正常显示。**文件名大小写 / 扩展名必须与实际文件
+  完全一致**（GitHub Pages 区分大小写）。
+- 系列与角色 AU 的对应：「You Are My Fact」= Leonard Shelby AU
+  (`leonard-shelby-au.jpg`)；「Good Enough」= Justin Hammer AU
+  (`justin-hammer-au.webp`)。其余对应见各文 `series_title` 字段。
+- 站点从 `main` 部署：front matter 改动必须并入 `main` 才会在线上生效，
+  仅在工作分支上不够。
