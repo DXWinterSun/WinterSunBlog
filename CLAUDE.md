@@ -30,6 +30,36 @@ grep -E '^summary:' _posts/<file>.md | sed 's/^summary: *"//; s/"$//' | awk '{pr
 应该是 ~105。要精确按字符数可以用 Python：
 `python3 -c "import sys; print(len(sys.argv[1]))" "<summary 内容>"`）
 
+## Sam tab 的 The Collection（AU 系列卡片）
+
+`/sam/`（`sam/index.html`）里「The Collection」区块的 AU 系列卡片是
+**动态生成**的：模板遍历 `site.pages`，挑出 front matter 里写了
+`sam_collection: true` 的 `series/*/index.html`，按 `collection_order`
+升序排列。所以**新增一个 Sam 的 AU 系列时不用动 `sam/index.html`**，
+只要在该系列的 `index.html` front matter 里加上这几个字段即可：
+
+```yaml
+sam_collection: true            # 出现在 Sam tab 的开关
+collection_order: 6             # 排序，数字越小越靠前
+collection_eyebrow: "AU Story · Series"   # 卡片小标签（oneshot 用 "AU Story · Oneshot"）
+collection_title: "标题 · 角色 AU"         # 卡片标题
+collection_desc: "一两句简介，钩子即可。"   # 卡片描述
+```
+
+**关键规则：`sam_collection` 只给 Sam Rockwell 本人演过的角色。**
+这是一个**显式 opt-in 开关**——不加就不会出现，所以不可能把别人的
+角色误收进来。判断标准是「这个角色是不是 Sam 本人演的」，而不是
+「这篇 AU 在不在 `series/` 目录里」。例如：
+
+- ✅ Sam Bell（Moon）、John Moon（A Single Shot）、Eric Knox
+  (Charlie's Angels)、Zaphod（银河系漫游指南）、Justin Hammer
+  (Iron Man 2) —— 都是 Sam 的角色，已加 flag。
+- ❌ Leonard Shelby（《记忆碎片》）是 **Guy Pearce** 的角色，不是
+  Sam。所以 `series/you-are-my-fact/` **故意不加** `sam_collection`，
+  不进 Sam tab。（该文 front matter 里已留注释说明。）
+
+不确定某个角色是不是 Sam 演的，就先问用户，别擅自加 flag。
+
 ## 其他
 
 - 工作分支：`claude/redesign-blog-homepage-RSiJO`（首页改版相关）。
