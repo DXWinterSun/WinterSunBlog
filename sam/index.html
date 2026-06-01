@@ -87,41 +87,23 @@ title: Sam
       <span class="c-sam-card__cta">Open in new tab →</span>
     </a>
 
-    <a class="c-sam-card" href="{{site.baseurl}}/series/sam-bell-moon-au/" target="_blank" rel="noopener">
-      <div class="c-sam-card__eyebrow">AU Story · Series <span class="c-sam-card__tab">↗</span></div>
-      <h4 class="c-sam-card__title">Sam Bell · Moon AU</h4>
-      <p class="c-sam-card__desc">
-        与一整屋的 Sam Bell 同居月球基地。原片之外的另一种结局——Sarang 不再是流水线工厂，而成了我们一起的家。会一章一章慢慢长。
-      </p>
+    {%- comment -%}
+      AU 系列卡片：动态从 series/*/index.html 收集。
+      只有在某个系列的 front matter 里显式写了 `sam_collection: true`
+      （即「这是 Sam Rockwell 本人演过的角色」）才会出现在这里。
+      非 Sam 角色的 AU（如 Leonard Shelby / Memento 是 Guy Pearce）
+      不要加这个 flag，自然就不会混进 Sam 的 tab。
+      排序按 `collection_order`（数字越小越靠前）。
+    {%- endcomment -%}
+    {% assign sam_series = site.pages | where_exp: "p", "p.sam_collection" | sort: "collection_order" %}
+    {% for s in sam_series %}
+    <a class="c-sam-card" href="{{ s.url | prepend: site.baseurl }}" target="_blank" rel="noopener">
+      <div class="c-sam-card__eyebrow">{{ s.collection_eyebrow | default: "AU Story · Series" }} <span class="c-sam-card__tab">↗</span></div>
+      <h4 class="c-sam-card__title">{{ s.collection_title | default: s.title }}</h4>
+      {% if s.collection_desc %}<p class="c-sam-card__desc">{{ s.collection_desc }}</p>{% endif %}
       <span class="c-sam-card__cta">Open in new tab →</span>
     </a>
-
-    <a class="c-sam-card" href="{{site.baseurl}}/series/a-single-shot-au/" target="_blank" rel="noopener">
-      <div class="c-sam-card__eyebrow">AU Story · Series <span class="c-sam-card__tab">↗</span></div>
-      <h4 class="c-sam-card__title">A Single Shot AU</h4>
-      <p class="c-sam-card__desc">
-        西弗吉尼亚十月底的阿巴拉契亚山林里，那个他自己挖的坑——电影最后一幕镜头黑下去之后，是你听见了那个呼吸声。关于他等到了天亮的另一种结局。会一章一章慢慢长。
-      </p>
-      <span class="c-sam-card__cta">Open in new tab →</span>
-    </a>
-
-    <a class="c-sam-card" href="{{site.baseurl}}/series/knox-au/" target="_blank" rel="noopener">
-      <div class="c-sam-card__eyebrow">AU Story · Oneshot <span class="c-sam-card__tab">↗</span></div>
-      <h4 class="c-sam-card__title">Simon Says · Knox AU</h4>
-      <p class="c-sam-card__desc">
-        《Charlie's Angels》里的 Eric Knox——蓬头 tech boy 与红镜片掠食者，两个版本都让人欲罢不能。他计划了一切，却没有计划上你。
-      </p>
-      <span class="c-sam-card__cta">Open in new tab →</span>
-    </a>
-
-    <a class="c-sam-card" href="{{site.baseurl}}/series/zaphod-au/" target="_blank" rel="noopener">
-      <div class="c-sam-card__eyebrow">AU Story · Series <span class="c-sam-card__tab">↗</span></div>
-      <h4 class="c-sam-card__title">Don't Panic, Baby Doll · Zaphod AU</h4>
-      <p class="c-sam-card__desc">
-        银河系最混乱的总统，和那个在他背后悄悄校准角度的人。他叫她baby doll，整个银河系都知道这件事，除了他自己。
-      </p>
-      <span class="c-sam-card__cta">Open in new tab →</span>
-    </a>
+    {% endfor %}
 
     {% assign sam_posts = site.posts | where_exp: "post", "post.tags contains 'Sam'" %}
     {% for post in sam_posts %}{% unless post.series %}
