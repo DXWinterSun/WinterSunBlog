@@ -123,6 +123,24 @@ title: Sam
       <span class="c-sam-card__cta">Open in new tab →</span>
     </a>
 
+    <a class="c-sam-card" href="{{site.baseurl}}/series/you-are-my-fact/" target="_blank" rel="noopener">
+      <div class="c-sam-card__eyebrow">AU Story · Series <span class="c-sam-card__tab">↗</span></div>
+      <h4 class="c-sam-card__title">You Are My Fact · Leonard Shelby AU</h4>
+      <p class="c-sam-card__desc">
+        《记忆碎片》里那个永远记不住你的 Leonard Shelby。你什么都不向他要，只把自己一笔一笔写进他唯一愿意相信的"事实"里。他忘记你多少次，你就比那个数字再多出现一次。会一章一章慢慢长。
+      </p>
+      <span class="c-sam-card__cta">Open in new tab →</span>
+    </a>
+
+    <a class="c-sam-card" href="{{site.baseurl}}/series/good-enough/" target="_blank" rel="noopener">
+      <div class="c-sam-card__eyebrow">AU Story · Series <span class="c-sam-card__tab">↗</span></div>
+      <h4 class="c-sam-card__title">Good Enough · Justin Hammer AU</h4>
+      <p class="c-sam-card__desc">
+        《钢铁侠 2》里被全世界当成笑话的 Justin Hammer。你是无人机项目组里唯一看见他眼镜后面那个真实的人——把他从斯塔克的影子、从一场注定的灾难、也从他自己的孤独里一点点接住。会一章一章慢慢长。
+      </p>
+      <span class="c-sam-card__cta">Open in new tab →</span>
+    </a>
+
     {% assign sam_posts = site.posts | where_exp: "post", "post.tags contains 'Sam'" %}
     {% for post in sam_posts %}{% unless post.series %}
     <a class="c-sam-card" href="{{ post.url | prepend: site.baseurl }}" target="_blank" rel="noopener">
