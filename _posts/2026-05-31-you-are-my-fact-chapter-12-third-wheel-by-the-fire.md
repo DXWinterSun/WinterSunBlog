@@ -2,6 +2,7 @@
 layout: post
 title: "Chapter 12 · 篝火边的单身狗 — You Are My Fact"
 date: 2026-05-31
+image: leonard-shelby-au.jpg
 tags: [Guy Pearce, Memento, Leonard Shelby, AU, 中文]
 categories: ["AU Story"]
 series: "You Are My Fact"

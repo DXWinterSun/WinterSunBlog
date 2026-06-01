@@ -2,6 +2,7 @@
 layout: post
 title: "Chapter 3 · 听得懂的人 — Good Enough"
 date: 2026-05-30
+image: justin-hammer-au.webp
 tags: [Sam, AU, 中文]
 categories: ["AU Story"]
 series: "Good Enough"
