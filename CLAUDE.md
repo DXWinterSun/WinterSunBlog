@@ -60,6 +60,39 @@ collection_desc: "一两句简介，钩子即可。"   # 卡片描述
 
 不确定某个角色是不是 Sam 演的，就先问用户，别擅自加 flag。
 
+## AU 系列的「目录 + 章节导航」（模板自动渲染，别手写）
+
+为了让长系列好读，章节列表和上下文导航全部由模板统一生成，**新系列、
+新章节会自动继承，不需要每篇手动加**。三个部分：
+
+1. **系列首页的「目录 + 配图卡片」** —— 由 `_layouts/series.html` 渲染。
+   每个 `series/*/index.html` 只负责写 hero + 简介，**章节区块不要手写**。
+   只要 front matter 里有这两行就会自动出现（含顶部纯文字「目录 ·
+   Contents」快速跳转 + 下方配图卡片，按 `series_order` 排序）：
+
+   ```yaml
+   layout: series
+   series_name: "Good Enough"   # 必须跟各章 front matter 的 series 字段【完全一致】
+   # series_status: ongoing      # 可选，默认 ongoing，显示在 Chapters 计数旁
+   ```
+
+   ⚠️ `series_name` 写错（跟 `series:` 对不上）→ 目录会是空的。之前
+   Zaphod / Knox 就因为 index 里写的字符串和章节的 `series` 不一致，
+   首页章节列表一直是空的；现已统一用 `series_name` 修好。
+
+2. **章节顶部 / 底部的「返回系列目录」** —— 由 `_layouts/post.html` 渲染。
+   任何带 `series` 字段的文章，顶部会出现一个返回链接（显示完整
+   `series_title`），底部章节导航里也有一个圆角「返回《系列名》目录」
+   按钮，都跳到 `…/series/<slug>/#chapters`。所以**章节 front matter 里
+   `series` / `series_title` / `series_order` 必须齐全**（现有 49 章都齐）。
+
+3. 这套东西的样式在 `_sass/5-components/_extras.scss`
+   （`c-series-toc` / `c-chapter-return` / `c-chapter-nav__back`）。
+
+一句话：**开新系列 = 复制一个 `series/*/index.html`，改 hero/简介，设好
+`layout: series` 和 `series_name` 即可；章节照常写齐 `series*` 字段。
+目录和返回按钮都会自己长出来。**
+
 ## 其他
 
 - 工作分支：`claude/redesign-blog-homepage-RSiJO`（首页改版相关）。

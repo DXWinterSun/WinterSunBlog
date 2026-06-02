@@ -1,8 +1,9 @@
 ---
-layout: home
+layout: series
 title: "You Are My Fact · Leonard Shelby AU"
 permalink: /series/you-are-my-fact/
 nav_active: "AU Story"
+series_name: "You Are My Fact"
 # 注意：Leonard Shelby（《记忆碎片》）是 Guy Pearce 的角色，不是 Sam Rockwell。
 # 因此【故意】不加 sam_collection，不要把它收进 /sam/ 的 The Collection。
 ---
@@ -44,38 +45,3 @@ nav_active: "AU Story"
   <p><strong>那一年的时间线</strong>　四月，把他接回家、陪他放下执念；八月，求婚、领证、蜜月；九月二十三，婚后第一个生日（他的）；十一月六，你的生日。</p>
   <p class="c-sam-intro__closing">他只信"事实"，你成为他永不抹去的那条事实；你是他的记忆，他用预支的爱反过来记住你——这是彼此的双向救赎。</p>
 </article>
-
-{% assign chapters = site.posts | where: "series", "You Are My Fact" | sort: "series_order" %}
-
-<section class="c-sam-collection">
-  <div class="c-section-heading">
-    <h3 class="c-section-heading__title">Chapters</h3>
-    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · ongoing</span>
-  </div>
-
-  <div class="c-post-grid">
-    {% for chapter in chapters %}
-    <a class="c-post" href="{{ chapter.url | prepend: site.baseurl }}">
-      <div class="c-post__image-wrap">
-        {% if chapter.image %}
-        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: chapter.image }}')"></div>
-        {% else %}
-        <div class="c-post__placeholder">{{ chapter.chapter_type | default: "Chapter" }}</div>
-        {% endif %}
-      </div>
-      <div class="c-post__body">
-        <div class="c-post__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}</div>
-        <h3 class="c-post__title">{{ chapter.title | remove: " — You Are My Fact" }}</h3>
-        {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
-        <div class="c-post__meta">
-          <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
-          {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
-          {% assign mins = chars | divided_by: 500 %}
-          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
-          <span>{{ mins }} min read</span>
-        </div>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</section>

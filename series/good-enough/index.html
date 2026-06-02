@@ -1,8 +1,9 @@
 ---
-layout: home
+layout: series
 title: "Good Enough · Justin Hammer AU"
 permalink: /series/good-enough/
 nav_active: "AU Story"
+series_name: "Good Enough"
 # Sam Rockwell 本人演过的角色 → 显示在 /sam/ 的 The Collection 里
 sam_collection: true
 collection_order: 5
@@ -38,37 +39,3 @@ collection_desc: "《钢铁侠 2》里被全世界当成笑话的 Justin Hammer�
   <p>你是哈默工业无人机项目组的多语种系统专员，秘密懂俄语，天赋是「看见」：看见万科藏在沉默下的杀机，也看见哈默藏在浮夸下的真实。这是一个把他从斯塔克的影子里、从一场注定的灾难里、也从他自己的孤独里，一点点接住的故事。</p>
   <p>没有乐队，没有香槟，没有几千个观众——只有第四分钟。而这一次，它撑过去了。</p>
 </article>
-
-{% assign chapters = site.posts | where: "series", "Good Enough" | sort: "series_order" %}
-
-<section class="c-sam-collection">
-  <div class="c-section-heading">
-    <h3 class="c-section-heading__title">Chapters</h3>
-    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · ongoing</span>
-  </div>
-  <div class="c-post-grid">
-    {% for chapter in chapters %}
-    <a class="c-post" href="{{ chapter.url | prepend: site.baseurl }}">
-      <div class="c-post__image-wrap">
-        {% if chapter.image %}
-        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: chapter.image }}')"></div>
-        {% else %}
-        <div class="c-post__placeholder">{{ chapter.chapter_type | default: "Chapter" }}</div>
-        {% endif %}
-      </div>
-      <div class="c-post__body">
-        <div class="c-post__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}</div>
-        <h3 class="c-post__title">{{ chapter.title | remove: " — Good Enough" }}</h3>
-        {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
-        <div class="c-post__meta">
-          <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
-          {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
-          {% assign mins = chars | divided_by: 500 %}
-          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
-          <span>{{ mins }} min read</span>
-        </div>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</section>

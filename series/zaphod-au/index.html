@@ -1,8 +1,9 @@
 ---
-layout: home
+layout: series
 title: "Don't Panic, Baby Doll · Zaphod AU"
 permalink: /series/zaphod-au/
 nav_active: "AU Story"
+series_name: "Zaphod AU"
 # Sam Rockwell 本人演过的角色 → 显示在 /sam/ 的 The Collection 里
 sam_collection: true
 collection_order: 4
@@ -95,38 +96,3 @@ collection_desc: "银河系最混乱的总统，和那个在他背后悄悄校�
     偏偏每次都让彼此心里有点什么。
   </p>
 </article>
-
-{% assign chapters = site.posts | where: "series", "Don't Panic, Baby Doll" | sort: "series_order" %}
-
-<section class="c-sam-collection">
-  <div class="c-section-heading">
-    <h3 class="c-section-heading__title">Chapters</h3>
-    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · ongoing</span>
-  </div>
-
-  <div class="c-post-grid">
-    {% for chapter in chapters %}
-    <a class="c-post" href="{{ chapter.url | prepend: site.baseurl }}">
-      <div class="c-post__image-wrap">
-        {% if chapter.image %}
-        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: chapter.image }}')"></div>
-        {% else %}
-        <div class="c-post__placeholder">{{ chapter.chapter_type | default: "Chapter" }}</div>
-        {% endif %}
-      </div>
-      <div class="c-post__body">
-        <div class="c-post__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}</div>
-        <h3 class="c-post__title">{{ chapter.title | remove: " — Zaphod AU" }}</h3>
-        {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
-        <div class="c-post__meta">
-          <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
-          {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
-          {% assign mins = chars | divided_by: 500 %}
-          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
-          <span>{{ mins }} min read</span>
-        </div>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</section>
