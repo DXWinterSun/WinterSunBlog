@@ -20,6 +20,15 @@ layout: home
     {% else %}
     {% endif %}
     <div class="c-wrap-content">
+      {% if page.series %}
+      <a class="c-chapter-return" href="{{ site.baseurl }}/series/{{ page.series | slugify }}/#chapters">
+        <span class="c-chapter-return__arrow">←</span>
+        <span class="c-chapter-return__body">
+          <span class="c-chapter-return__eyebrow">返回系列目录</span>
+          <span class="c-chapter-return__title">{{ page.series_title | default: page.series }}</span>
+        </span>
+      </a>
+      {% endif %}
       <header class="c-article__header">
         <h1 class="c-article__title">{{page.title}}</h1>
         <div class="c-article__date">
@@ -61,6 +70,9 @@ layout: home
           <span class="c-chapter-nav__placeholder"></span>
         {% endif %}
       </div>
+      <a class="c-chapter-nav__back" href="{{ site.baseurl }}/series/{{ page.series | slugify }}/#chapters">
+        ↩ 返回《{{ page.series_title | default: page.series | split: " · " | first }}》目录
+      </a>
     </nav>
     {% endif %}
     {% endif %}

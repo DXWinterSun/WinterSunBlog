@@ -1,0 +1,61 @@
+---
+layout: home
+---
+{{ content }}
+
+{% comment %}
+  系列章节区块（目录 + 配图卡片）由本 layout 自动渲染，不要在各 series
+  的 index.html 里手写。新系列只要在 front matter 写 `layout: series` 和
+  `series_name: "<与各章 front matter 里的 series 字段完全一致>"` 即可，
+  目录和卡片会自动出现、自动排序，将来加章节也无需再改这里。
+{% endcomment %}
+{% if page.series_name %}
+{% assign chapters = site.posts | where: "series", page.series_name | sort: "series_order" %}
+<section class="c-sam-collection" id="chapters">
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">Chapters</h3>
+    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · {{ page.series_status | default: "ongoing" }}</span>
+  </div>
+
+  {% if chapters.size > 0 %}
+  <nav class="c-series-toc" aria-label="目录">
+    <div class="c-series-toc__title">目录 · Contents</div>
+    <ul class="c-series-toc__list">
+      {% for chapter in chapters %}
+      <li class="c-series-toc__item">
+        <a href="{{ chapter.url | prepend: site.baseurl }}">
+          <span class="c-series-toc__label">{{ chapter.title | split: " — " | first }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+
+  <div class="c-post-grid">
+    {% for chapter in chapters %}
+    <a class="c-post" href="{{ chapter.url | prepend: site.baseurl }}">
+      <div class="c-post__image-wrap">
+        {% if chapter.image %}
+        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: chapter.image }}')"></div>
+        {% else %}
+        <div class="c-post__placeholder">{{ chapter.chapter_type | default: "Chapter" }}</div>
+        {% endif %}
+      </div>
+      <div class="c-post__body">
+        <div class="c-post__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}</div>
+        <h3 class="c-post__title">{{ chapter.title | split: " — " | first }}</h3>
+        {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
+        <div class="c-post__meta">
+          <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
+          {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
+          {% assign mins = chars | divided_by: 500 %}
+          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
+          <span>{{ mins }} min read</span>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

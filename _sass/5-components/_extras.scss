@@ -70,6 +70,144 @@
   .c-chapter-nav__link--next { text-align: left; }
 }
 
+/* Return-to-series link at the TOP of a chapter */
+.c-chapter-return {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding: 10px 16px;
+  border: 1px solid $line;
+  border-radius: 4px;
+  background-color: $paper-warm;
+  text-decoration: none;
+  color: inherit;
+  transition: $global-transition;
+  &:hover {
+    border-color: $accent-soft;
+    .c-chapter-return__title { color: $accent; }
+    .c-chapter-return__arrow { transform: translateX(-3px); }
+  }
+}
+
+.c-chapter-return__arrow {
+  font-size: 18px;
+  color: $accent;
+  line-height: 1;
+  transition: transform $global-transition;
+}
+
+.c-chapter-return__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.c-chapter-return__eyebrow {
+  font-family: $heading-font-family;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.c-chapter-return__title {
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 700;
+  color: $ink;
+  line-height: 1.3;
+  transition: color $global-transition;
+}
+
+/* Return-to-contents button at the BOTTOM of a chapter (inside c-chapter-nav) */
+.c-chapter-nav__back {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 11px 24px;
+  border: 1px solid $accent-soft;
+  border-radius: 999px;
+  background-color: $paper;
+  font-family: $heading-font-family;
+  font-size: 14px;
+  font-weight: 600;
+  color: $accent;
+  text-decoration: none;
+  transition: $global-transition;
+  &:hover {
+    background-color: $accent;
+    color: $paper;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -14px rgba(var(--rgb-shadow), 0.25);
+  }
+}
+
+/* Series page: compact text Table of Contents above the picture grid */
+.c-series-toc {
+  margin: 0 0 36px;
+  padding: 20px 24px;
+  background: $paper-warm;
+  border: 1px solid $line;
+  border-radius: 4px;
+}
+
+.c-series-toc__title {
+  font-family: $heading-font-family;
+  font-style: italic;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $accent;
+  font-size: 11px;
+  margin-bottom: 14px;
+}
+
+.c-series-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 4px 24px;
+  counter-reset: toc;
+}
+
+.c-series-toc__item {
+  margin: 0;
+  counter-increment: toc;
+}
+
+.c-series-toc__item a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 0;
+  font-family: $heading-font-family;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $ink-soft;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color $global-transition;
+  &:hover { color: $accent; }
+  &::before {
+    content: counter(toc);
+    flex: 0 0 auto;
+    min-width: 1.6em;
+    font-size: 11px;
+    font-weight: 700;
+    color: $muted;
+    text-align: right;
+  }
+  &:hover::before { color: $accent; }
+}
+
+.c-series-toc__label { flex: 1 1 auto; }
+
+@media only screen and (max-width: 600px) {
+  .c-series-toc__list { grid-template-columns: 1fr; }
+}
+
 
 /* ===============
 	ARCHIVE PAGE

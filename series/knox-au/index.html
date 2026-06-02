@@ -1,8 +1,9 @@
 ---
-layout: home
+layout: series
 title: "Simon Says · Knox AU"
 permalink: /series/knox-au/
 nav_active: "AU Story"
+series_name: "Knox AU"
 # Sam Rockwell 本人演过的角色 → 显示在 /sam/ 的 The Collection 里
 sam_collection: true
 collection_order: 3
@@ -54,38 +55,3 @@ collection_desc: "《Charlie's Angels》里的 Eric Knox——蓬头 tech boy �
     这是关于一个计划了一切的男人，遇见了他唯一没有算进去的变量的故事。
   </p>
 </article>
-
-{% assign chapters = site.posts | where: "series", "Simon Says" | sort: "series_order" %}
-
-<section class="c-sam-collection">
-  <div class="c-section-heading">
-    <h3 class="c-section-heading__title">Oneshot</h3>
-    <span class="c-section-heading__meta">{{ chapters | size }} story{% if chapters.size != 1 %}s{% endif %} · complete</span>
-  </div>
-
-  <div class="c-post-grid">
-    {% for chapter in chapters %}
-    <a class="c-post" href="{{ chapter.url | prepend: site.baseurl }}">
-      <div class="c-post__image-wrap">
-        {% if chapter.image %}
-        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: chapter.image }}')"></div>
-        {% else %}
-        <div class="c-post__placeholder">{{ chapter.title | remove: " — Knox AU" }}</div>
-        {% endif %}
-      </div>
-      <div class="c-post__body">
-        <div class="c-post__eyebrow">{{ chapter.chapter_type | default: "Oneshot" }}</div>
-        <h3 class="c-post__title">{{ chapter.title | remove: " — Knox AU" }}</h3>
-        {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
-        <div class="c-post__meta">
-          <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
-          {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
-          {% assign mins = chars | divided_by: 500 %}
-          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
-          <span>{{ mins }} min read</span>
-        </div>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</section>
