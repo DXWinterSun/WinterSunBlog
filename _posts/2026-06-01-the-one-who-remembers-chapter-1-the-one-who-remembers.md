@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Chapter 1 · 你记得，他不记得 — The One Who Remembers"
-date: 2026-05-31
+date: 2026-06-01
 image: leonard-shelby-au.jpg
 tags: [Guy Pearce, Memento, Leonard Shelby, AU, 中文]
 categories: ["AU Story"]
