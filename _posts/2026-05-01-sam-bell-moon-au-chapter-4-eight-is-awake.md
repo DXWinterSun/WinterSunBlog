@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 4 · Eight is awake — Sam Bell · Moon AU"
 date: 2026-05-01 16:00:00
-image: sam-bell-moon-au.jpg
+image: sam-bell-au.jpg
 tags: [Sam, AU, Moon, 中文]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
