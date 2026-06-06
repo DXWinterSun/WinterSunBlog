@@ -60,6 +60,23 @@ collection_desc: "一两句简介，钩子即可。"   # 卡片描述
 
 不确定某个角色是不是 Sam 演的，就先问用户，别擅自加 flag。
 
+## ⚠️ `series:` 字段必须用英文（ASCII）
+
+**绝对不能用中文做 `series:` 的值。**
+
+`index.html` 用 `series_name | slugify` 生成系列卡片的链接，Jekyll 的
+`slugify` 会把所有 CJK 字符丢掉，导致链接变成 `/series//`，卡片在
+首页完全不出现。
+
+规则：
+- 章节 front matter 的 `series:` → 必须是英文，例如 `"Tuning the Devil"`
+- 系列首页的 `series_name:` → 必须跟上面完全一致（也是英文）
+- 系列目录 slug（`series/tuning-the-devil/`）→ 就是英文 `series:` 值的
+  slugify 结果，三者要能对上
+
+中文只能出现在 `title:`、`series_title:`、`collection_title:`、hero HTML
+等**纯展示**字段里，不参与 Jekyll 路径生成的地方随便用。
+
 ## AU 系列的「目录 + 章节导航」（模板自动渲染，别手写）
 
 为了让长系列好读，章节列表和上下文导航全部由模板统一生成，**新系列、
