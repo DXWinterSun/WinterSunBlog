@@ -3,7 +3,7 @@ layout: post
 title: "为他调音｜设定总览"
 categories: ["AU Story"]
 date: 2026-06-06
-series: "为他调音"
+series: "Tuning the Devil"
 series_title: 'Tuning the Devil · William "Wild Bill" Wharton AU'
 series_type: "Series"
 series_order: 0
