@@ -77,6 +77,30 @@ collection_desc: "一两句简介，钩子即可。"   # 卡片描述
 中文只能出现在 `title:`、`series_title:`、`collection_title:`、hero HTML
 等**纯展示**字段里，不参与 Jekyll 路径生成的地方随便用。
 
+## ⚠️ 系列首页 hero 标题必须用英文
+
+`series/*/index.html` 里 `<h1 class="c-hero__title">` 必须写英文标题
+（和 `series_name` / 系列目录 slug 保持一致），中文只能出现在副标题、
+byline、lede 引语等展示位置。例如：
+
+```html
+<h1 class="c-hero__title">Tuning the Devil</h1>  <!-- ✅ 英文 -->
+<h1 class="c-hero__title">为他调音</h1>           <!-- ❌ 中文 -->
+```
+
+## ⚠️ 设定总览不能做成系列章节
+
+设定总览（世界观、人物、基调）的内容应放在系列首页 `series/*/index.html`
+的 `c-sam-intro` 区块里，**不要**单独建一篇带 `series:` 字段的 post。
+
+原因：`_layouts/series.html` 会把所有带 `series:` 的 post 全部列进章节
+目录（包括配图卡片），把设定总览混进去会破坏章节列表的语义，显示也不对。
+
+正确做法：
+- `c-sam-intro` 里写世界观 / 人物 / 基调简介（2-4 段）
+- 如果设定很复杂需要单独成页，建一篇**不带** `series:` 字段的普通 post，
+  不会出现在章节列表里，可以在系列首页用 HTML 链接手动引用
+
 ## AU 系列的「目录 + 章节导航」（模板自动渲染，别手写）
 
 为了让长系列好读，章节列表和上下文导航全部由模板统一生成，**新系列、

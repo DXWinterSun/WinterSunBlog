@@ -3,11 +3,6 @@ layout: post
 title: "为他调音｜设定总览"
 categories: ["AU Story"]
 date: 2026-06-06
-series: "Tuning the Devil"
-series_title: 'Tuning the Devil · William "Wild Bill" Wharton AU'
-series_type: "Series"
-series_order: 0
-chapter_type: "设定总览"
 summary: "本系列世界观、人物与基调一览"
 tags: [山姆罗克韦尔, AU, 同人, 天使恶魔, 设定]
 ---
