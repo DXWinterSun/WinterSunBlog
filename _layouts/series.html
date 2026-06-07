@@ -10,7 +10,8 @@ layout: home
   目录和卡片会自动出现、自动排序，将来加章节也无需再改这里。
 {% endcomment %}
 {% if page.series_name %}
-{% assign chapters = site.posts | where: "series", page.series_name | sort: "series_order" %}
+{% assign all_series_posts = site.posts | where: "series", page.series_name | sort: "series_order" %}
+{% assign chapters = all_series_posts | where_exp: "item", "item.is_overview != true" %}
 <section class="c-sam-collection" id="chapters">
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">Chapters</h3>
