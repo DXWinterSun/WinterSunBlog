@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 30 · 旧账 — You Are My Fact"
 date: 2026-05-31
-image: leonard-shelby-au.jpg
+image: you-are-my-fact.jpg
 tags: [Guy Pearce, Memento, Leonard Shelby, AU, 中文]
 categories: ["AU Story"]
 series: "You Are My Fact"
