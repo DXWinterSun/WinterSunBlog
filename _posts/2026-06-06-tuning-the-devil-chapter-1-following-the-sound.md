@@ -10,7 +10,7 @@ series_order: 1
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 1
-summary: "天使司琴与潦草木匠恶魔的乡村初遇"
+summary: "他循声而来，把你当成猎物；他不知道，全镇最甜的姑娘才是他最大的麻烦。"
 image: william-wharton-au.jpeg
 ---
 
