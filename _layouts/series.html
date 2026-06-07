@@ -12,6 +12,13 @@ layout: home
 {% if page.series_name %}
 {% assign all_series_posts = site.posts | where: "series", page.series_name | sort: "series_order" %}
 {% assign chapters = all_series_posts | where_exp: "item", "item.is_overview != true" %}
+
+{% assign overview_post = all_series_posts | where_exp: "item", "item.is_overview == true" | first %}
+{% if overview_post %}
+<article class="c-series-overview">
+  {{ overview_post.content }}
+</article>
+{% endif %}
 <section class="c-sam-collection" id="chapters">
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">Chapters</h3>
