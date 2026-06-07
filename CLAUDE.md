@@ -104,6 +104,70 @@ byline、lede 引语等展示位置。例如：
 - 如果确实需要一篇可访问的设定文档，建普通 post 但**不加** `series:` 字段，
   用 `is_overview: true` 标记，不会出现在章节列表
 
+## 新 AU 系列开坑 checklist
+
+### 1. 创建系列首页 `series/<英文slug>/index.html`
+
+复制任意一个现有系列的 index.html，改以下内容：
+
+**Front matter 必填：**
+```yaml
+layout: series
+title: "English Title · Character AU"      # 英文
+permalink: /series/english-slug/           # 英文，与目录名一致
+nav_active: "AU Story"
+series_name: "English Title"              # 必须与章节的 series: 字段完全一致
+```
+
+**若角色是 Sam Rockwell 本人演的，加：**
+```yaml
+sam_collection: true
+collection_order: N           # 查现有最大值 +1
+collection_eyebrow: "AU Story · Series"
+collection_title: "English Title · Character AU"
+collection_desc: "一两句钩子简介。"
+```
+
+**Hero 区块：**
+- `<h1 class="c-hero__title">` → 必须是**英文**
+- byline / lede 引语可以用中文
+
+**内容区块（`c-sam-intro`）：**
+- 第一个 article：`关于这个系列`，2-4 段，概述世界观与核心冲突
+- 第二个 article（可选）：`设定档案`，人物 / 信物 / 关系动力学
+- 全部写 HTML，**不是 Markdown**，不要用单独的 post
+
+### 2. 章节 post front matter 完整模板
+
+文件名格式：`_posts/YYYY-MM-DD-series-slug-chapter-N-title.md`
+
+```yaml
+---
+layout: post
+title: "Chapter N · 章节中文标题 — Series English Name"
+categories: ["AU Story"]
+date: YYYY-MM-DD
+image: cover-image.jpg          # 可选，封面图文件名（大小写必须与实际文件一致）
+series: "English Title"         # 必须与系列首页 series_name 完全一致，必须是英文
+series_title: "English Title · Character AU"   # 用于顶部返回链接显示
+series_order: N                 # 整数，章节排序（1 开始）
+series_type: "Series"           # 固定值
+chapter_type: "Chapter N"       # 显示在卡片眉头，如 "Chapter 1" / "Extra"
+summary: "≤35字的钩子引言。"    # 必须 ≤35 汉字含标点
+tags: [标签1, 标签2]
+---
+```
+
+### 3. 三处必须完全一致的字符串
+
+| 位置 | 字段 | 示例值 |
+|---|---|---|
+| 章节 post | `series:` | `"Tuning the Devil"` |
+| 系列首页 | `series_name:` | `"Tuning the Devil"` |
+| 系列目录名 | `series/<slug>/` | `series/tuning-the-devil/` |
+
+任意一处对不上 → 章节列表为空或卡片不出现。
+
 ## AU 系列的「目录 + 章节导航」（模板自动渲染，别手写）
 
 为了让长系列好读，章节列表和上下文导航全部由模板统一生成，**新系列、
