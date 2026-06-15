@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="root"></div>
-<meta name="cache-bust" content="2026-05-24-v1">
+<meta name="cache-bust" content="2026-06-15-krzysztof">
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
@@ -49,6 +49,26 @@ const characters = [
     bgNameEn: "Dusk Bronze", bgNameCn: "黄昏铜",
     accentNameEn: "Warm Camel", accentNameCn: "暖驼",
     profile: { burn:4, forbear:6, romance:6, chaos:1, raw:6, grace:6 },
+  },
+  {
+    id: "krzysztof",
+    name: `Krzysztof "Kris" Wilk`,
+    namePostfix: "Polish Guy",
+    roleNote: "Polish Guy",
+    film: "Somebody to Love",
+    filmCN: "《去爱那个人》",
+    year: "1994",
+    tagline: "他让所有人都叫他 Kris——只有你，在学着喊出他的全名。",
+    desc: `1994 年的洛杉矶，老好莱坞一家叫 The Cardinal 的陪舞厅里，红灯整夜不灭，他就站在吧台后面——瘦削、头发没怎么梳、一双榛色的眼睛在红光下化得很暖。他话不多，调酒的手很稳，只有左手缠着纱布——食指和中指压坏了，他不藏，也不喜欢被你盯着看。整间舞厅里最不像在揽客的人就是他，可你一坐下，他就认出你是被丢下的那一个。他对孤独的、迷路的、被人撇下的灵魂格外有耐心，因为他认得那种神情。
+
+他是个波兰人，来美国快五年了，从没说过想回去，却依然每天哼着家乡的老歌，依然在抽屉里收着一张华沙旧城广场的明信片，依然在喝醉的时候忘记把语言切回英语。他不会大段地表白，话常常只说一半；他爱你的方式，都藏在很小、很具体的地方——把咖啡留在炉子上、提醒你别走那条刚下过雨的街、半夜里那几声口琴、一句不为什么的 "I missed you today."。脖子上那枚妈妈给的小银十字架他从不摘，骂人的时候蹦出波兰语，叫你的时候，是软下来的一声 "Kotku"。
+
+他对谁都只说 "Just call me Kris"，可你偏偏一个字母一个字母地，学着喊出那个连你自己都念不太准的全名——Krzysztof。你还分不清他母语里那七个绕死人的变格，可对一个几乎要忘记自己从哪里来的男人来说，有人正笨拙地、认真地朝他的母语走过来，朝他完整的样子走过来——这件事，重得超过他愿意承认。他只会笑，纠正你，偶尔用一句更难的波兰语逗你；只有在你睡熟以后，才肯用那门你还听不懂的语言，对着黑暗轻轻说出一句话。你们的爱是 1994 年那盏整夜不灭的红灯——一个再也回不去家的异乡人，终于等到了一个愿意一个字、一个字，学着喊他名字的人。`,
+    inscription: { label: "PO POLSKU", line: "Ja też cię chcę.", gloss: "我也想要你。" },
+    bg: "#1f120e", accent: "#bc4d3a", text: "#ece0d2", muted: "#8a6f5e",
+    bgNameEn: "Oxblood Midnight", bgNameCn: "牛血子夜",
+    accentNameEn: "Ember Cardinal", accentNameCn: "余烬绯红",
+    profile: { burn:6, forbear:8, romance:8, chaos:2, raw:6, grace:4 },
   },
   {
     id: "matty",
@@ -840,6 +860,42 @@ function CharacterCard({ c, idx }) {
           );
         })}
 
+        {c.inscription && (
+          <div style={{ marginTop: "8px", marginBottom: "44px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <p style={{
+              fontFamily: "'Special Elite', monospace",
+              color: c.muted,
+              fontSize: "0.6rem",
+              letterSpacing: "0.4em",
+              marginBottom: "14px",
+              opacity: 0.85,
+            }}>
+              ── {c.inscription.label} ──
+            </p>
+            <p style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontStyle: "italic",
+              fontWeight: 500,
+              fontSize: "1.55rem",
+              color: c.accent,
+              letterSpacing: "0.04em",
+              margin: "0 0 8px 0",
+            }}>
+              {c.inscription.line}
+            </p>
+            <p style={{
+              fontFamily: "'Noto Serif SC', serif",
+              fontSize: "0.8rem",
+              color: c.text,
+              opacity: 0.6,
+              letterSpacing: "0.12em",
+              margin: 0,
+            }}>
+              {c.inscription.gloss}
+            </p>
+          </div>
+        )}
+
         {c.auLink && (
           <div style={{ marginBottom: "40px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
@@ -1219,7 +1275,7 @@ function SamGallery() {
                         color: "#7a3a26",
                         letterSpacing: "0.05em",
                       }}>
-                        {c.film}
+                        {c.film}{c.roleNote ? " · " + c.roleNote : ""}
                       </span>
                     </span>
                     <span style={{
