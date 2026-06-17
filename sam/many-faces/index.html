@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="root"></div>
-<meta name="cache-bust" content="2026-06-17-names">
+<meta name="cache-bust" content="2026-06-17-glow">
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
@@ -1071,6 +1071,10 @@ function CharacterCard({ c, idx }) {
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.2,
         background: "radial-gradient(ellipse at center, transparent 30%, " + c.bg + " 100%)",
+      }} />
+      <div style={{
+        position: "absolute", inset: 0, pointerEvents: "none",
+        background: "radial-gradient(ellipse 75% 55% at 50% 42%, " + c.accent + "24 0%, transparent 60%)",
       }} />
 
       <div style={{ maxWidth: "28rem", margin: "0 auto", position: "relative", zIndex: 10 }}>
