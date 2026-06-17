@@ -9,158 +9,98 @@
     return parseInt(hex.slice(1,3),16)+', '+parseInt(hex.slice(3,5),16)+', '+parseInt(hex.slice(5,7),16);
   }
 
-  function hslToHex(h, s, l) {
-    s /= 100; l /= 100;
-    var a = s * Math.min(l, 1 - l);
-    function f(n) {
-      var k = (n + h / 30) % 12;
-      var c = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-      return Math.round(255 * c).toString(16).padStart(2, '0');
-    }
-    return '#' + f(0) + f(8) + f(4);
+  // Mirrors CSS color-mix(in srgb, hex1 pct%, hex2)
+  function colorMix(hex1, pct, hex2) {
+    var p=pct/100, q=1-p;
+    var r1=parseInt(hex1.slice(1,3),16), g1=parseInt(hex1.slice(3,5),16), b1=parseInt(hex1.slice(5,7),16);
+    var r2=parseInt(hex2.slice(1,3),16), g2=parseInt(hex2.slice(3,5),16), b2=parseInt(hex2.slice(5,7),16);
+    function m(a,b){return Math.round(a*p+b*q).toString(16).padStart(2,'0');}
+    return '#'+m(r1,r2)+m(g1,g2)+m(b1,b2);
   }
 
-  // ── Theme definitions ────────────────────────────────────────────────────
-  // Each theme has light + dark variants covering all CSS custom properties.
+  function hslToHex(h, s, l) {
+    s/=100; l/=100;
+    var a=s*Math.min(l,1-l);
+    function f(n){var k=(n+h/30)%12,c=l-a*Math.max(Math.min(k-3,9-k,1),-1);return Math.round(255*c).toString(16).padStart(2,'0');}
+    return '#'+f(0)+f(8)+f(4);
+  }
+
+  // ── Theme definitions — Many Faces of Sam ────────────────────────────────
+  // accent/bg/text/muted pulled directly from the gallery's palette data.
 
   var THEMES = [
-    {
-      id: 'rose', name: '冬日玫瑰', mood: '暖 · 默认',
-      light: {
-        bg:'#f7f3ec', bgSoft:'#fbf8f1', paper:'#ffffff',
-        ink:'#1f1d1a', inkSoft:'#3d3833', muted:'#8a8074', mutedSoft:'#b6ac9d',
-        line:'#e6dfd2', lineStrong:'#cfc6b4',
-        accent:'#b85c5c', accentSoft:'#d3938b', accentDark:'#9c4848',
-        statusRed:'#c0594a', statusGreen:'#6b8a5b'
-      },
-      dark: {
-        bg:'#1a1815', bgSoft:'#211f1a', paper:'#24211d',
-        ink:'#efe8da', inkSoft:'#c8c0b1', muted:'#948a7c', mutedSoft:'#6e665b',
-        line:'#322e28', lineStrong:'#4a443c',
-        accent:'#d97978', accentSoft:'#b06564', accentDark:'#f08e8d',
-        statusRed:'#d97978', statusGreen:'#84a06f'
-      }
-    },
-    {
-      id: 'rain', name: '烟雨青瓦', mood: '凉 · 沉静',
-      light: {
-        bg:'#edf1f6', bgSoft:'#f2f5f9', paper:'#ffffff',
-        ink:'#1a2028', inkSoft:'#2c3848', muted:'#6a7888', mutedSoft:'#9aa8b8',
-        line:'#ccd4e0', lineStrong:'#b4c0d0',
-        accent:'#4e7296', accentSoft:'#7a98b8', accentDark:'#365678',
-        statusRed:'#b05050', statusGreen:'#5a8450'
-      },
-      dark: {
-        bg:'#141820', bgSoft:'#1a2028', paper:'#1e242e',
-        ink:'#dce8f4', inkSoft:'#a8b8cc', muted:'#6878a0', mutedSoft:'#4a5878',
-        line:'#242c3c', lineStrong:'#344460',
-        accent:'#7898c0', accentSoft:'#5878a0', accentDark:'#96b4d8',
-        statusRed:'#c06868', statusGreen:'#6a9460'
-      }
-    },
-    {
-      id: 'amber', name: '暮色琥珀', mood: '暖 · 活泼',
-      light: {
-        bg:'#fdf5e8', bgSoft:'#fef9f0', paper:'#ffffff',
-        ink:'#241a10', inkSoft:'#483420', muted:'#988060', mutedSoft:'#c4aa88',
-        line:'#eaddc4', lineStrong:'#d8c8a8',
-        accent:'#c07828', accentSoft:'#d89a58', accentDark:'#985a18',
-        statusRed:'#c04a3a', statusGreen:'#6a8848'
-      },
-      dark: {
-        bg:'#1e1710', bgSoft:'#261e14', paper:'#2a2018',
-        ink:'#f0e4cc', inkSoft:'#d0b898', muted:'#a08858', mutedSoft:'#706040',
-        line:'#382c1c', lineStrong:'#504030',
-        accent:'#d89050', accentSoft:'#a87038', accentDark:'#f0a870',
-        statusRed:'#d06050', statusGreen:'#80a060'
-      }
-    },
-    {
-      id: 'moss', name: '竹影苔痕', mood: '自然 · 宁静',
-      light: {
-        bg:'#eff4ec', bgSoft:'#f4f8f2', paper:'#ffffff',
-        ink:'#1a2018', inkSoft:'#2e3c2c', muted:'#6a8060', mutedSoft:'#a0b498',
-        line:'#d0e0c8', lineStrong:'#b8ccac',
-        accent:'#5a7c48', accentSoft:'#88a870', accentDark:'#446038',
-        statusRed:'#b05044', statusGreen:'#4a7a44'
-      },
-      dark: {
-        bg:'#151a12', bgSoft:'#1c2218', paper:'#202818',
-        ink:'#e0edd8', inkSoft:'#b0c8a8', muted:'#789068', mutedSoft:'#506848',
-        line:'#283020', lineStrong:'#384830',
-        accent:'#88a868', accentSoft:'#688050', accentDark:'#a8c880',
-        statusRed:'#c06858', statusGreen:'#70a060'
-      }
-    },
-    {
-      id: 'moonlit', name: '月光书房', mood: '冷 · 专注',
-      light: {
-        bg:'#f0f2f8', bgSoft:'#f5f6fa', paper:'#ffffff',
-        ink:'#181c2c', inkSoft:'#2c3448', muted:'#6870a0', mutedSoft:'#9aa4c8',
-        line:'#ccd0e4', lineStrong:'#b4bcdc',
-        accent:'#4a608c', accentSoft:'#7a90b8', accentDark:'#344870',
-        statusRed:'#a85060', statusGreen:'#5a806a'
-      },
-      dark: {
-        bg:'#14161e', bgSoft:'#1a1c28', paper:'#1e2230',
-        ink:'#dce0f4', inkSoft:'#a8b0cc', muted:'#6070a8', mutedSoft:'#404c78',
-        line:'#222840', lineStrong:'#303c58',
-        accent:'#8090c8', accentSoft:'#5a6aa8', accentDark:'#a0b0e4',
-        statusRed:'#c06878', statusGreen:'#6a8c7a'
-      }
-    },
-    {
-      id: 'lilac', name: '丁香晚霞', mood: '温柔 · 浪漫',
-      light: {
-        bg:'#f4f0f8', bgSoft:'#f8f5fc', paper:'#ffffff',
-        ink:'#1e1828', inkSoft:'#382c48', muted:'#8070a0', mutedSoft:'#b4a4cc',
-        line:'#e0d4f0', lineStrong:'#ccc0e0',
-        accent:'#8860ac', accentSoft:'#b090d4', accentDark:'#6c4890',
-        statusRed:'#b05878', statusGreen:'#6a8864'
-      },
-      dark: {
-        bg:'#1a1620', bgSoft:'#211c28', paper:'#262030',
-        ink:'#eee8f8', inkSoft:'#c8b8e0', muted:'#9880c0', mutedSoft:'#685888',
-        line:'#2c2438', lineStrong:'#403450',
-        accent:'#aa88d8', accentSoft:'#8868b8', accentDark:'#c4a4f0',
-        statusRed:'#d07888', statusGreen:'#80a078'
-      }
-    },
-    {
-      id: 'vermilion', name: '朱砂流丹', mood: '热烈 · 张扬',
-      light: {
-        bg:'#fef2ef', bgSoft:'#fff5f3', paper:'#ffffff',
-        ink:'#241410', inkSoft:'#4a2820', muted:'#a06858', mutedSoft:'#c8a090',
-        line:'#f0d8d0', lineStrong:'#e0c0b4',
-        accent:'#c44030', accentSoft:'#e07860', accentDark:'#a82818',
-        statusRed:'#c44030', statusGreen:'#5a8050'
-      },
-      dark: {
-        bg:'#201410', bgSoft:'#281a14', paper:'#2c1e18',
-        ink:'#f4e4dc', inkSoft:'#d0b0a0', muted:'#b07860', mutedSoft:'#784c3c',
-        line:'#3c2018', lineStrong:'#542c20',
-        accent:'#e06050', accentSoft:'#b84030', accentDark:'#f87868',
-        statusRed:'#e06050', statusGreen:'#789060'
-      }
-    },
-    {
-      id: 'mono', name: '墨分五彩', mood: '极简 · 克制',
-      light: {
-        bg:'#f8f8f6', bgSoft:'#fafaf8', paper:'#ffffff',
-        ink:'#1a1a18', inkSoft:'#363632', muted:'#888880', mutedSoft:'#b8b8b0',
-        line:'#e4e4e0', lineStrong:'#d0d0c8',
-        accent:'#484840', accentSoft:'#7a7a70', accentDark:'#282820',
-        statusRed:'#a85048', statusGreen:'#5a7850'
-      },
-      dark: {
-        bg:'#1a1a18', bgSoft:'#222220', paper:'#282826',
-        ink:'#ecece8', inkSoft:'#c0c0b8', muted:'#909088', mutedSoft:'#606058',
-        line:'#2e2e2c', lineStrong:'#404040',
-        accent:'#a8a8a0', accentSoft:'#808078', accentDark:'#d0d0c8',
-        statusRed:'#c06858', statusGreen:'#70906a'
-      }
-    }
+    { id:'gary',     name:'Gary',      accent:'#cba14c', bg:'#14110d', text:'#ede2d0', muted:'#8a7558' },
+    { id:'kris',     name:'Kris',      accent:'#bc4d3a', bg:'#11161c', text:'#ece0d2', muted:'#62768d' },
+    { id:'matty',    name:'Matty',     accent:'#d49850', bg:'#171d24', text:'#ebe0cc', muted:'#7d7264' },
+    { id:'buck',     name:'Buck',      accent:'#b8c878', bg:'#1a2418', text:'#e8eed8', muted:'#7a8868' },
+    { id:'trent',    name:'Trent',     accent:'#79a7bd', bg:'#141c12', text:'#dce5ea', muted:'#7a7654' },
+    { id:'samuel',   name:'Samuel',    accent:'#c5402f', bg:'#211a0f', text:'#f0e2d4', muted:'#a08770' },
+    { id:'jerry',    name:'Jerry',     accent:'#d7a83c', bg:'#20120c', text:'#f0e0d0', muted:'#a07060' },
+    { id:'wildbill', name:'Wild Bill', accent:'#b0803e', bg:'#1b1510', text:'#ece0d0', muted:'#93826a' },
+    { id:'guy',      name:'Guy',       accent:'#43b3bf', bg:'#0f161a', text:'#dfe7ea', muted:'#738088' },
+    { id:'knox',     name:'Knox',      accent:'#d94040', bg:'#1b1310', text:'#ede0e0', muted:'#8d6e62' },
+    { id:'pero',     name:'Pero',      accent:'#d49858', bg:'#1a1612', text:'#ede0cc', muted:'#8a7458' },
+    { id:'chuck',    name:'Chuck',     accent:'#de6e8e', bg:'#15182a', text:'#ede4d0', muted:'#8088a0' },
+    { id:'mercer',   name:'Mercer',    accent:'#e08a2e', bg:'#1a1410', text:'#ede0e6', muted:'#8d7462' },
+    { id:'crocker',  name:'Crocker',   accent:'#d8b25a', bg:'#161214', text:'#f0e3dc', muted:'#8d6278' },
+    { id:'zaphod',   name:'Zaphod',    accent:'#d4a82a', bg:'#0b0a12', text:'#e8e4d0', muted:'#8a7a48' },
+    { id:'brad',     name:'Brad',      accent:'#c9d84e', bg:'#1c2230', text:'#e8eadc', muted:'#7a8590' },
+    { id:'glenn',    name:'Glenn',     accent:'#b8d0e0', bg:'#1c2030', text:'#dce4ea', muted:'#7a8090' },
+    { id:'reston',   name:'Reston',    accent:'#d89858', bg:'#1f1814', text:'#ebe0cc', muted:'#8a7458' },
+    { id:'victor',   name:'Victor',    accent:'#d2a24a', bg:'#2a1820', text:'#f0e0d4', muted:'#9a7868' },
+    { id:'sambell',  name:'Sam Bell',  accent:'#7eb0d5', bg:'#162038', text:'#e8eef5', muted:'#6a85a3' },
+    { id:'goode',    name:'Goode',     accent:'#cc4436', bg:'#211910', text:'#ede4d4', muted:'#9a7e58' },
+    { id:'hammer',   name:'Hammer',    accent:'#4a87ee', bg:'#13151c', text:'#e7eaf2', muted:'#7c8aa6' },
+    { id:'kenny',    name:'Kenny',     accent:'#d08a45', bg:'#1c1e1f', text:'#f0e0d4', muted:'#627f8d' },
+    { id:'billy',    name:'Billy',     accent:'#d63a33', bg:'#281208', text:'#f5e6d0', muted:'#b07840' },
   ];
+
+  // ── Color derivation — mirrors au-palette-style.html exactly ─────────────
+  // Light: accent-tinted warm cream base (via colorMix)
+  // Dark:  character's own deep bg + full-saturation accent
+
+  var LB   = '#f6f2ea';   // light base bg
+  var LBS  = '#faf6ef';   // light base bg-soft
+  var LP   = '#fdfbf6';   // light paper
+  var DTINT = '#1a1614';  // dark tint for lightening accent on light bg
+
+  function lightVars(p) {
+    var bg     = colorMix(p.accent, 18, LB);
+    var bgSoft = colorMix(p.accent, 12, LBS);
+    var paper  = colorMix(p.accent,  7, LP);
+    var accent = colorMix(p.accent, 70, DTINT);  // color-mix(accent, #1a1614 30%)
+    var acSoft = colorMix(p.accent, 78, DTINT);  // color-mix(accent, #1a1614 22%)
+    var acDark = colorMix(p.accent, 58, '#000000'); // color-mix(accent, #000 42%)
+    return {
+      '--c-bg': bg, '--c-bg-soft': bgSoft, '--c-paper': paper,
+      '--c-ink': '#2b2620', '--c-ink-soft': '#4a443c',
+      '--c-muted': '#847a6d', '--c-muted-soft': '#a59a8a',
+      '--c-line': 'rgba(0,0,0,.10)', '--c-line-strong': 'rgba(0,0,0,.16)',
+      '--c-accent': accent, '--c-accent-soft': acSoft, '--c-accent-dark': acDark,
+      '--c-status-red': '#c0594a', '--c-status-green': '#6b8a5b',
+      '--rgb-accent': hexToRgb(accent),
+      '--rgb-bg': hexToRgb(bg),
+      '--rgb-paper': hexToRgb(paper),
+      '--rgb-shadow': '43, 38, 32',
+      '--rgb-line-warm': hexToRgb(colorMix(p.accent, 14, '#d4c4b0'))
+    };
+  }
+
+  function darkVars(p) {
+    return {
+      '--c-bg': p.bg, '--c-bg-soft': p.bg, '--c-paper': p.bg,
+      '--c-ink': p.text, '--c-ink-soft': p.text,
+      '--c-muted': p.muted, '--c-muted-soft': p.muted,
+      '--c-line': 'rgba(255,255,255,.10)', '--c-line-strong': 'rgba(255,255,255,.20)',
+      '--c-accent': p.accent, '--c-accent-soft': p.accent, '--c-accent-dark': p.accent,
+      '--c-status-red': '#c06868', '--c-status-green': '#6a9460',
+      '--rgb-accent': hexToRgb(p.accent),
+      '--rgb-bg': hexToRgb(p.bg),
+      '--rgb-paper': hexToRgb(p.bg),
+      '--rgb-shadow': '0, 0, 0',
+      '--rgb-line-warm': hexToRgb(p.bg)
+    };
+  }
 
   var ALL_VARS = [
     '--c-bg','--c-bg-soft','--c-paper',
@@ -172,22 +112,6 @@
   ];
 
   // ── Apply helpers ─────────────────────────────────────────────────────────
-
-  function buildVars(p, dark) {
-    return {
-      '--c-bg': p.bg, '--c-bg-soft': p.bgSoft, '--c-paper': p.paper,
-      '--c-ink': p.ink, '--c-ink-soft': p.inkSoft,
-      '--c-muted': p.muted, '--c-muted-soft': p.mutedSoft,
-      '--c-line': p.line, '--c-line-strong': p.lineStrong,
-      '--c-accent': p.accent, '--c-accent-soft': p.accentSoft, '--c-accent-dark': p.accentDark,
-      '--c-status-red': p.statusRed, '--c-status-green': p.statusGreen,
-      '--rgb-accent': hexToRgb(p.accent),
-      '--rgb-bg': hexToRgb(p.bg),
-      '--rgb-paper': hexToRgb(p.paper),
-      '--rgb-shadow': dark ? '0, 0, 0' : hexToRgb(p.ink),
-      '--rgb-line-warm': hexToRgb(p.line)
-    };
-  }
 
   function applyVars(vars) {
     var root = document.documentElement;
@@ -206,6 +130,10 @@
     return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   }
 
+  function buildVars(p) {
+    return isDark() ? darkVars(p) : lightVars(p);
+  }
+
   // ── State ─────────────────────────────────────────────────────────────────
 
   var currentState = null;
@@ -217,65 +145,49 @@
 
   function applyState(state) {
     if (!state) { clearVars(); return; }
-    var dark = isDark();
     if (state.type === 'preset') {
       var t = THEMES.filter(function (x) { return x.id === state.id; })[0];
       if (!t) { clearVars(); return; }
-      applyVars(buildVars(dark ? t.dark : t.light, dark));
+      applyVars(buildVars(t));
     } else if (state.type === 'custom') {
       applyCustomHue(state.hue, false);
     }
   }
 
   function applyCustomHue(hue, save) {
-    var dark = isDark();
-    var s = dark ? 58 : 52;
-    var l = dark ? 65 : 46;
-    var accent    = hslToHex(hue, s, l);
-    var accentSoft = dark
-      ? hslToHex(hue, Math.max(0, s - 12), Math.max(5, l - 14))
-      : hslToHex(hue, Math.max(0, s - 10), Math.min(95, l + 13));
-    var accentDark = dark
-      ? hslToHex(hue, Math.min(100, s + 5), Math.min(95, l + 15))
-      : hslToHex(hue, Math.min(100, s + 5), Math.max(5, l - 10));
-
+    var s = isDark() ? 62 : 58;
+    var l = isDark() ? 65 : 47;
+    // Neutral dark bg for custom hue in dark mode (the default dark)
+    var fakeTheme = {
+      accent: hslToHex(hue, s, l),
+      bg: '#1a1815', text: '#efe8da', muted: '#948a7c'
+    };
     clearVars();
-    var root = document.documentElement;
-    root.style.setProperty('--c-accent', accent);
-    root.style.setProperty('--c-accent-soft', accentSoft);
-    root.style.setProperty('--c-accent-dark', accentDark);
-    root.style.setProperty('--rgb-accent', hexToRgb(accent));
-    root.style.setProperty('--c-status-red', accent);
-
+    applyVars(buildVars(fakeTheme));
     if (save !== false) saveState({ type: 'custom', hue: hue });
   }
 
   // ── Dark mode observation ─────────────────────────────────────────────────
 
-  // Re-apply theme when light/dark mode switches
-  var observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (m) {
-      if (m.attributeName === 'data-theme') {
-        applyState(currentState);
-        if (hueSliderEl) updateHuePreview(parseInt(hueSliderEl.value, 10));
-      }
-    });
-  });
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  var hueSliderEl = null;
+
+  function onModeChange() {
+    applyState(currentState);
+    if (hueSliderEl) updateHuePreview(parseInt(hueSliderEl.value, 10));
+  }
+
+  new MutationObserver(function (ms) {
+    ms.forEach(function (m) { if (m.attributeName === 'data-theme') onModeChange(); });
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
-      if (!document.documentElement.getAttribute('data-theme')) {
-        applyState(currentState);
-        if (hueSliderEl) updateHuePreview(parseInt(hueSliderEl.value, 10));
-      }
+      if (!document.documentElement.getAttribute('data-theme')) onModeChange();
     });
   }
 
-  var hueSliderEl = null; // set after UI build
-
   // ── UI ────────────────────────────────────────────────────────────────────
-  // The trigger button lives in header.html; we only build the panel here.
+  // Trigger lives in header.html; we only build the panel here.
 
   function buildUI() {
     var trigger = document.getElementById('js-palette-trigger');
@@ -287,10 +199,11 @@
     panel.setAttribute('aria-label', '配色主题');
     panel.setAttribute('aria-hidden', 'true');
 
+    // Swatch grid — dark bg + accent chip so it reads like the gallery
     var grid = '';
     THEMES.forEach(function (t) {
-      grid += '<button class="c-palette-swatch" data-theme-id="' + t.id + '" title="' + t.mood + '" aria-label="' + t.name + '">' +
-        '<span class="c-palette-swatch__chip" style="--sw-bg:' + t.light.bg + ';--sw-ac:' + t.light.accent + '"></span>' +
+      grid += '<button class="c-palette-swatch" data-theme-id="' + t.id + '" aria-label="' + t.name + '">' +
+        '<span class="c-palette-swatch__chip" style="--sw-bg:' + t.bg + ';--sw-ac:' + t.accent + '"></span>' +
         '<span class="c-palette-swatch__name">' + t.name + '</span>' +
         '</button>';
     });
@@ -302,7 +215,7 @@
           '<button class="c-palette-panel__close" id="js-palette-close" aria-label="关闭">✕</button>' +
         '</div>' +
         '<section class="c-palette-section">' +
-          '<p class="c-palette-section__label">心情主题</p>' +
+          '<p class="c-palette-section__label">Many Faces · 角色配色</p>' +
           '<div class="c-palette-grid" id="js-palette-grid">' + grid + '</div>' +
         '</section>' +
         '<section class="c-palette-section">' +
@@ -323,8 +236,8 @@
   function updateHuePreview(hue) {
     var el = document.getElementById('js-palette-preview');
     if (!el) return;
-    var dark = isDark();
-    el.style.backgroundColor = 'hsl(' + hue + ',' + (dark ? 58 : 52) + '%,' + (dark ? 65 : 46) + '%)';
+    var s = isDark() ? 62 : 58, l = isDark() ? 65 : 47;
+    el.style.backgroundColor = 'hsl(' + hue + ',' + s + '%,' + l + '%)';
   }
 
   function updateSwatchStates() {
@@ -337,7 +250,7 @@
   function initEvents(trigger, panel) {
     var open = false;
 
-    function openPanel() {
+    function openPanel()  {
       open = true;
       panel.classList.add('is-open');
       panel.setAttribute('aria-hidden', 'false');
@@ -351,20 +264,12 @@
       trigger.setAttribute('aria-expanded', 'false');
     }
 
-    trigger.addEventListener('click', function (e) {
-      e.stopPropagation();
-      open ? closePanel() : openPanel();
-    });
-
+    trigger.addEventListener('click', function (e) { e.stopPropagation(); open ? closePanel() : openPanel(); });
     document.getElementById('js-palette-close').addEventListener('click', closePanel);
-
     document.addEventListener('click', function (e) {
       if (open && !panel.contains(e.target) && e.target !== trigger) closePanel();
     });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && open) closePanel();
-    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) closePanel(); });
 
     document.getElementById('js-palette-grid').addEventListener('click', function (e) {
       var btn = e.target.closest('[data-theme-id]');
@@ -373,16 +278,14 @@
       applyState(state);
       saveState(state);
       updateSwatchStates();
-      var slider = document.getElementById('js-palette-hue');
-      if (slider) { slider.value = 0; updateHuePreview(0); }
+      var sl = document.getElementById('js-palette-hue');
+      if (sl) { sl.value = 0; updateHuePreview(0); }
     });
 
     var hueSlider = document.getElementById('js-palette-hue');
     hueSliderEl = hueSlider;
 
-    if (currentState && currentState.type === 'custom') {
-      hueSlider.value = currentState.hue;
-    }
+    if (currentState && currentState.type === 'custom') hueSlider.value = currentState.hue;
     updateHuePreview(parseInt(hueSlider.value, 10));
 
     hueSlider.addEventListener('input', function () {
