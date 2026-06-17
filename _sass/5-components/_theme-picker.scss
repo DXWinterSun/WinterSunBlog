@@ -143,12 +143,12 @@
 
 .c-palette-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  max-height: 13.5rem;  // ~3 rows visible; scroll for the rest
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.4rem;
+  max-height: 13rem;  // ~4 rows visible; scroll for the rest
   overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 0.125rem; // prevent clipping on scroll
+  padding-right: 0.125rem;
   scrollbar-width: thin;
   scrollbar-color: var(--c-line-strong) transparent;
 
