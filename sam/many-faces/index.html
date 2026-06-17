@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="root"></div>
-<meta name="cache-bust" content="2026-06-17-palette">
+<meta name="cache-bust" content="2026-06-17-detailpass">
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
@@ -1033,19 +1033,20 @@ function MiniRadar({ profile, accent, muted, text }) {
   );
 }
 
-function RunningName({ c }) {
+function RunningName({ c, variant }) {
+  const quiet = variant === "quiet";
   return (
     <p style={{
       fontFamily: "'Playfair Display', serif",
       fontStyle: "italic",
-      fontWeight: 700,
-      fontSize: "1.1rem",
+      fontWeight: quiet ? 400 : 700,
+      fontSize: quiet ? "0.9rem" : "1.1rem",
       lineHeight: 1.2,
-      color: c.accent,
+      color: quiet ? c.muted : c.accent,
       opacity: 0.85,
-      letterSpacing: "0.01em",
+      letterSpacing: quiet ? "0.06em" : "0.01em",
       textAlign: "center",
-      margin: "0 0 10px 0",
+      margin: quiet ? "0 0 6px 0" : "0 0 10px 0",
     }}>
       {c.name}
     </p>
@@ -1143,7 +1144,7 @@ function CharacterCard({ c, idx }) {
           marginBottom: "32px",
           padding: "0 12px",
         }}>
-          "{c.tagline}"
+          “{c.tagline}”
         </p>
 
         <div style={{ display: "flex", alignItems: "center", margin: "24px 0" }}>
@@ -1167,7 +1168,7 @@ function CharacterCard({ c, idx }) {
 
         {c.inscription && (
           <div style={{ marginTop: "8px", marginBottom: "44px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-            <RunningName c={c} />
+            <RunningName c={c} variant="quiet" />
             <p style={{
               fontFamily: "'Special Elite', monospace",
               color: c.muted,
@@ -1518,8 +1519,8 @@ function SamGallery() {
             marginTop: "48px",
             marginBottom: "48px",
           }}>
-            "He walks across the screen,<br />
-            and stops in front of you."
+            “He walks across the screen,<br />
+            and stops in front of you.”
           </p>
 
           {/* TOC */}
@@ -1533,9 +1534,19 @@ function SamGallery() {
               fontSize: "0.7rem",
               color: "#7a3a26",
               letterSpacing: "0.3em",
-              marginBottom: "20px",
+              marginBottom: "8px",
             }}>
               ── CONTENTS ──
+            </p>
+            <p style={{
+              fontFamily: "'Special Elite', monospace",
+              fontSize: "0.62rem",
+              color: "#7a3a26",
+              letterSpacing: "0.26em",
+              opacity: 0.8,
+              marginBottom: "22px",
+            }}>
+              {characters.length} FACES · {Math.min.apply(null, characters.map(function(c) { return parseInt(c.year, 10); }))}–{Math.max.apply(null, characters.map(function(c) { return parseInt(c.year, 10); }))}
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px", textAlign: "left" }}>
               {characters.map(function(c, i) {
@@ -1586,12 +1597,30 @@ function SamGallery() {
                       </span>
                     </span>
                     <span style={{
-                      fontFamily: "'Special Elite', monospace",
-                      fontSize: "0.7rem",
-                      color: "#7a3a26",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-end",
                       alignSelf: "center",
+                      gap: "2px",
                     }}>
-                      {c.year}
+                      <span style={{
+                        fontFamily: "'Special Elite', monospace",
+                        fontSize: "0.7rem",
+                        color: "#7a3a26",
+                      }}>
+                        {c.year}
+                      </span>
+                      {c.auLink && (
+                        <span style={{
+                          fontFamily: "'Special Elite', monospace",
+                          fontSize: "0.58rem",
+                          letterSpacing: "0.12em",
+                          color: "#5c2618",
+                          opacity: 0.85,
+                        }}>
+                          AU ↗
+                        </span>
+                      )}
                     </span>
                   </button>
                 );
@@ -1643,9 +1672,9 @@ function SamGallery() {
             lineHeight: 1.5,
             marginBottom: "24px",
           }}>
-            "He's never just one person.<br />
-            He's many—and you<br />
-            love them all."
+            “He’s never just one person.<br />
+            He’s many—and you<br />
+            love them all.”
           </p>
 
           <p style={{
