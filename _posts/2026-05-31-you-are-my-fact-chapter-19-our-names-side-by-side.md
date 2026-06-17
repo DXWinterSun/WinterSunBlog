@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 19 · 并排的名字 — You Are My Fact"
 date: 2026-05-31
-image: leonard-shelby-au.jpg
+image: you-are-my-fact.jpg
 tags: [Guy Pearce, Memento, Leonard Shelby, AU, 中文]
 categories: ["AU Story"]
 series: "You Are My Fact"
