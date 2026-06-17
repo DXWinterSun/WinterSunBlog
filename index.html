@@ -4,6 +4,7 @@ layout: home
 
 <script>
 (function () {
+  window.TOTAL_POSTS = {{ site.posts.size }};
   try {
     var p = new URLSearchParams(window.location.search);
     var active = 'all';
@@ -129,8 +130,8 @@ layout: home
   {% if site.posts.size > 0 %}
 
   <div class="c-section-heading">
-    <h3 class="c-section-heading__title">All Stories</h3>
-    <span class="c-section-heading__meta">{{ site.posts.size }} posts</span>
+    <h3 class="c-section-heading__title" id="js-section-title">All Stories</h3>
+    <span class="c-section-heading__meta" id="js-post-count">总计 {{ site.posts.size }} 篇</span>
   </div>
 
   <div class="c-post-grid">

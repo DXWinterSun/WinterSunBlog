@@ -80,6 +80,20 @@ $(document).ready(function () {
     $('[data-empty]').toggle(isEmpty);
     var gridVisible = $('.c-post-grid .c-post:not(.is-hidden)').length;
     $('.c-section-heading').toggle(gridVisible > 0);
+
+    var total = window.TOTAL_POSTS || 0;
+    var titleEl = document.getElementById('js-section-title');
+    var countEl = document.getElementById('js-post-count');
+    if (titleEl) {
+      titleEl.textContent = filter === 'all' ? 'All Stories' : filter;
+    }
+    if (countEl) {
+      if (filter === 'all') {
+        countEl.textContent = '总计 ' + total + ' 篇';
+      } else {
+        countEl.textContent = '当前 ' + visible + ' · 总计 ' + total;
+      }
+    }
   }
 
   function showGallery() {
