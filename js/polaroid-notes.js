@@ -212,8 +212,8 @@
     boxEl.innerHTML =
       '<div class="pol-box-head"><span>📦 收纳盒</span><button class="pol-box-x" type="button" aria-label="关闭">×</button></div>' +
       '<p class="pol-box-count"></p>' +
-      '<button class="pol-box-btn" type="button" data-act="export">收进盒子 · 导出备份</button>' +
-      '<button class="pol-box-btn" type="button" data-act="import">从盒子取出 · 导入</button>' +
+      '<button class="pol-box-btn" type="button" data-act="export"><b>导出备份</b><small>打包下载成一个文件，带去手机 / 新设备</small></button>' +
+      '<button class="pol-box-btn" type="button" data-act="import"><b>导入备份</b><small>选一个之前导出的文件，恢复批注</small></button>' +
       '<input class="pol-box-file" type="file" accept="application/json,.json" hidden>' +
       '<p class="pol-box-msg"></p>';
     document.body.appendChild(boxEl);
@@ -222,8 +222,8 @@
     boxFile = boxEl.querySelector(".pol-box-file");
     boxEl.querySelector(".pol-box-x").addEventListener("click", function () { boxEl.classList.remove("open"); });
     boxEl.querySelector('[data-act="export"]').addEventListener("click", function () {
-      if (noteCount() === 0) { setMsg("盒子是空的，还没有相片可收。"); return; }
-      exportNotes(); setMsg("已收进盒子 ✓ 文件已下载，带去新设备导入即可。");
+      if (noteCount() === 0) { setMsg("这台设备上还没有批注，没什么可导出的。"); return; }
+      exportNotes(); setMsg("已导出 ✓ 文件已下载；到新设备点「导入备份」选它即可。");
     });
     boxEl.querySelector('[data-act="import"]').addEventListener("click", function () { boxFile.click(); });
     boxFile.addEventListener("change", function () {
@@ -232,12 +232,12 @@
         boxFile.value = "";
         if (err) { setMsg("导入失败：" + (err.message || "文件读不出来")); return; }
         markDogears(); refreshBox();
-        setMsg("取出完成 ✓ 新增 " + r.added + " 张，更新 " + r.updated + " 张。");
+        setMsg("导入完成 ✓ 新增 " + r.added + " 张，更新 " + r.updated + " 张。");
       });
     });
   }
   function setMsg(t) { if (boxMsg) { boxMsg.textContent = t; boxMsg.classList.add("show"); } }
-  function refreshBox() { if (boxCount) boxCount.textContent = "盒子里有 " + noteCount() + " 张相片（本机）"; }
+  function refreshBox() { if (boxCount) boxCount.textContent = "这台设备上有 " + noteCount() + " 张批注相片"; }
   function toggleBox() {
     if (!boxEl) buildBox();
     var open = boxEl.classList.toggle("open");
