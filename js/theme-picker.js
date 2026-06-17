@@ -81,9 +81,9 @@
   var DTINT = '#1a1614';
 
   function lightVars(p) {
-    var bg     = colorMix(p.accent, 18, LB);
-    var bgSoft = colorMix(p.accent, 12, LBS);
-    var paper  = colorMix(p.accent,  7, LP);
+    var bg     = colorMix(p.accent, 30, LB);
+    var bgSoft = colorMix(p.accent, 20, LBS);
+    var paper  = colorMix(p.accent, 13, LP);
     var accent = colorMix(p.accent, 70, DTINT);
     var acSoft = colorMix(p.accent, 78, DTINT);
     var acDark = colorMix(p.accent, 58, '#000000');
