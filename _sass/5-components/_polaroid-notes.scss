@@ -1,0 +1,79 @@
+/* ===============
+   POLAROID NOTES  背面批注：折角记号 + 浮层编辑器 + 浮动锁
+   纯 CSS；相纸与字色固定（明暗两主题一致）。在 polaroid 之后导入。
+=============== */
+
+/* —— 折角记号：本机存有批注的卡片，右上角小折角（随当页强调色着色）—— */
+.c-post { position: relative; }
+.pol-dogear {
+  position: absolute; top: 0; right: 0;
+  width: 0; height: 0;
+  border-style: solid; border-width: 0 18px 18px 0;
+  border-color: transparent var(--c-accent) transparent transparent;
+  border-top-right-radius: 3px;
+  opacity: 0.62;
+  filter: drop-shadow(-1px 1px 1px rgba(0, 0, 0, 0.18));
+  pointer-events: none; z-index: 2;
+}
+
+/* —— 浮层背景 —— */
+.pol-backdrop {
+  position: fixed; inset: 0; z-index: 1200;
+  display: none; align-items: center; justify-content: center;
+  padding: 20px;
+  background: rgba(12, 10, 8, 0.55);
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+}
+.pol-backdrop.open { display: flex; }
+@media (max-width: 680px) {
+  .pol-backdrop { align-items: flex-start; padding-top: 48px; }
+}
+
+/* —— 照片背面编辑器（翻入动画）—— */
+.pol-editor {
+  width: min(390px, 92vw);
+  background: #f3ece0; border-radius: 6px;
+  padding: 14px 16px 16px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  transform: rotateY(90deg) scale(0.92); opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0.15, 0.2, 1), opacity 0.35s ease;
+}
+.pol-backdrop.open .pol-editor { transform: rotateY(0) scale(1); opacity: 1; }
+
+.pol-ed-head {
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px dashed #cbbfa9; padding-bottom: 8px; margin-bottom: 10px;
+}
+.pol-ed-title { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: #8a7c5f; }
+.pol-ed-x {
+  border: none; background: transparent; cursor: pointer;
+  color: #8a7c5f; font-size: 18px; line-height: 1; padding: 2px 6px; border-radius: 6px;
+}
+.pol-ed-x:hover { color: #5c4f37; background: rgba(0, 0, 0, 0.05); }
+
+.pol-note {
+  display: block; width: 100%; min-height: 180px;
+  border: none; resize: vertical; outline: none; background: transparent;
+  color: #33302a; font-size: 24px; line-height: 34px;
+  background-image: repeating-linear-gradient(transparent, transparent 33px, rgba(0, 0, 0, 0.07) 33px, rgba(0, 0, 0, 0.07) 34px);
+}
+.pol-note::placeholder { color: #b3a890; font-style: italic; font-family: 'EB Garamond', serif; font-size: 16px; }
+
+.pol-ed-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+.pol-ts { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; color: #a89a80; }
+.pol-saved { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; color: #6f9a6f; opacity: 0; transition: opacity 0.3s ease; }
+.pol-saved.show { opacity: 1; }
+
+/* —— 浮动锁（左下角，避开右下角的回到顶部按钮）—— */
+.pol-lock {
+  position: fixed; left: 18px; bottom: 18px; z-index: 1100;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(30, 28, 24, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 999px;
+  padding: 9px 15px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+.pol-lock-state { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: #b9b0a0; }
+.pol-lk-btn { font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; border: none; border-radius: 999px; padding: 5px 12px; cursor: pointer; background: transparent; color: #cfc6b4; }
+.pol-lk-btn:hover { color: #fff; }
+.pol-pw { font-family: 'EB Garamond', serif; font-size: 14px; padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(0, 0, 0, 0.25); color: #fff; width: 130px; }
+.pol-go { font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; border: none; border-radius: 999px; padding: 6px 13px; cursor: pointer; background: var(--c-accent); color: #fff; }
