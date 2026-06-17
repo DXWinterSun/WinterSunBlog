@@ -170,9 +170,9 @@
       '<span class="pol-lock-tag"><b>' + LOCK_LABEL + '</b><i>' + LOCK_LABEL_EN + '</i></span></span>' +
       '<span class="pol-lock-sep"></span>';
     if (unlocked) {
-      lockEl.innerHTML = brand + '<span class="pol-lock-state">🔓 已解锁</span><button class="pol-lk-btn" type="button" data-act="box">📦 收纳盒</button><button class="pol-lk-btn" type="button" data-act="lock">锁定</button>';
+      lockEl.innerHTML = brand + '<span class="pol-lock-state">笔迹已验</span><button class="pol-lk-btn" type="button" data-act="box">底片匣</button><button class="pol-lk-btn pol-lk-seal" type="button" data-act="lock">封存</button>';
     } else {
-      lockEl.innerHTML = brand + '<button class="pol-lk-btn pol-lk-open" type="button">🔒 ' + (hasPass() ? "解锁" : "设密码") + "</button>";
+      lockEl.innerHTML = brand + '<button class="pol-lk-btn pol-lk-open" type="button">' + (hasPass() ? "Leo 的笔迹" : "留下笔迹") + "</button>";
     }
     var openBtn = lockEl.querySelector(".pol-lk-open");
     if (openBtn) openBtn.addEventListener("click", showPwInput);
@@ -183,7 +183,7 @@
   }
   function showPwInput() {
     var setting = !hasPass();
-    lockEl.innerHTML = '<input class="pol-pw" type="password" placeholder="' + (setting ? "设一个密码" : "输入密码") + '"><button class="pol-go" type="button">' + (setting ? "设定" : "解锁") + "</button>";
+    lockEl.innerHTML = '<input class="pol-pw" type="password" placeholder="' + (setting ? "写下一个密码……" : "写下你的密码……") + '"><button class="pol-go" type="button">' + (setting ? "印记" : "验明") + "</button>";
     var pw = lockEl.querySelector(".pol-pw"); pw.focus();
     function submit() {
       var v = pw.value.trim(); if (!v) return;
@@ -192,7 +192,7 @@
         localStorage.setItem(LS_UNLOCK, "1"); unlocked = true; renderLock();
       } else {
         if (hash(v) === passHash()) { localStorage.setItem(LS_UNLOCK, "1"); unlocked = true; renderLock(); }
-        else { pw.value = ""; pw.placeholder = "密码不对"; }
+        else { pw.value = ""; pw.placeholder = "笔迹有误，再试……"; }
       }
     }
     lockEl.querySelector(".pol-go").addEventListener("click", submit);
@@ -245,10 +245,10 @@
     boxEl = document.createElement("div");
     boxEl.className = "pol-box";
     boxEl.innerHTML =
-      '<div class="pol-box-head"><span>📦 收纳盒</span><button class="pol-box-x" type="button" aria-label="关闭">×</button></div>' +
+      '<div class="pol-box-head"><span>底片匣</span><button class="pol-box-x" type="button" aria-label="关闭">×</button></div>' +
       '<p class="pol-box-count"></p>' +
-      '<button class="pol-box-btn" type="button" data-act="export"><b>导出备份</b><small>打包下载成一个文件，带去手机 / 新设备</small></button>' +
-      '<button class="pol-box-btn" type="button" data-act="import"><b>导入备份</b><small>选一个之前导出的文件，恢复批注</small></button>' +
+      '<button class="pol-box-btn" type="button" data-act="export"><b>取出底片</b><small>打包下载，带去手机 / 新设备冲印</small></button>' +
+      '<button class="pol-box-btn" type="button" data-act="import"><b>装入底片</b><small>选一个之前取出的文件，恢复相片</small></button>' +
       '<input class="pol-box-file" type="file" accept="application/json,.json" hidden>' +
       '<p class="pol-box-msg"></p>';
     document.body.appendChild(boxEl);
@@ -257,22 +257,22 @@
     boxFile = boxEl.querySelector(".pol-box-file");
     boxEl.querySelector(".pol-box-x").addEventListener("click", function () { boxEl.classList.remove("open"); });
     boxEl.querySelector('[data-act="export"]').addEventListener("click", function () {
-      if (noteCount() === 0) { setMsg("这台设备上还没有批注，没什么可导出的。"); return; }
-      exportNotes(); setMsg("已导出 ✓ 文件已下载；到新设备点「导入备份」选它即可。");
+      if (noteCount() === 0) { setMsg("底片匣是空的，还没有相片可取出。"); return; }
+      exportNotes(); setMsg("底片已取出 ✓ 文件已下载，带去新设备装入即可。");
     });
     boxEl.querySelector('[data-act="import"]').addEventListener("click", function () { boxFile.click(); });
     boxFile.addEventListener("change", function () {
       var f = boxFile.files && boxFile.files[0]; if (!f) return;
       importNotes(f, function (err, r) {
         boxFile.value = "";
-        if (err) { setMsg("导入失败：" + (err.message || "文件读不出来")); return; }
+        if (err) { setMsg("装入失败：" + (err.message || "底片读不出来")); return; }
         markDogears(); refreshBox();
-        setMsg("导入完成 ✓ 新增 " + r.added + " 张，更新 " + r.updated + " 张。");
+        setMsg("装入完成 ✓ 新增 " + r.added + " 张，更新 " + r.updated + " 张。");
       });
     });
   }
   function setMsg(t) { if (boxMsg) { boxMsg.textContent = t; boxMsg.classList.add("show"); } }
-  function refreshBox() { if (boxCount) boxCount.textContent = "这台设备上有 " + noteCount() + " 张批注相片"; }
+  function refreshBox() { if (boxCount) boxCount.textContent = "这台设备上存有 " + noteCount() + " 张相片"; }
   function toggleBox() {
     if (!boxEl) buildBox();
     var open = boxEl.classList.toggle("open");
