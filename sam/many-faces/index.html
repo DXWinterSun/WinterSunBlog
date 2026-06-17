@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="root"></div>
-<meta name="cache-bust" content="2026-06-17-detailpass">
+<meta name="cache-bust" content="2026-06-17-names">
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
@@ -75,8 +75,8 @@ const characters = [
       accent: "#bc4d3a",
       text: "#ece0d2",
       muted: "#62768d",
-      bgNameEn: "Vistula Indigo",
-      bgNameCn: "维斯瓦河墨蓝",
+      bgNameEn: "Warsaw Indigo",
+      bgNameCn: "华沙墨蓝",
       accentNameEn: "Ember Cardinal",
       accentNameCn: "余烬绯红",
       profile: { guile:4, forbear:8, chaos:2, raw:5, romance:8, grace:5 },
@@ -99,7 +99,7 @@ const characters = [
       text: "#ebe0cc",
       muted: "#7d7264",
       bgNameEn: "Pre-Dawn Subway",
-      bgNameCn: "凌晨地铁",
+      bgNameCn: "凌晨地铁月台",
       accentNameEn: "Old Phonebooth Amber",
       accentNameCn: "旧电话亭琥珀",
       profile: { guile:3, forbear:1, chaos:7, raw:8, romance:7, grace:2 },
@@ -122,7 +122,7 @@ const characters = [
       text: "#e8eed8",
       muted: "#7a8868",
       bgNameEn: "Moonlight Silver",
-      bgNameCn: "月光银",
+      bgNameCn: "月光银白",
       accentNameEn: "Forest Moss",
       accentNameCn: "林间苔绿",
       profile: { guile:1, forbear:1, chaos:6, raw:10, romance:8, grace:1 },
@@ -145,7 +145,7 @@ const characters = [
       text: "#dce5ea",
       muted: "#7a7654",
       bgNameEn: "Mown Lawn",
-      bgNameCn: "刈草青",
+      bgNameCn: "新刈草青",
       accentNameEn: "Pickup Sky",
       accentNameCn: "天蓝卡车",
       profile: { guile:5, forbear:8, chaos:3, raw:5, romance:7, grace:2 },
@@ -195,7 +195,7 @@ const characters = [
       bgNameEn: "Late-Night Diner",
       bgNameCn: "深夜快餐棕",
       accentNameEn: "Blond Mane",
-      accentNameCn: "乱金长发",
+      accentNameCn: "蓬乱金长发",
       profile: { guile:7, forbear:1, chaos:10, raw:8, romance:7, grace:4 },
     },
 {
@@ -264,7 +264,7 @@ const characters = [
       text: "#ede0e0",
       muted: "#8d6e62",
       bgNameEn: "Cola Noir",
-      bgNameCn: "可乐黑棕",
+      bgNameCn: "可乐棕",
       accentNameEn: "Crimson Lens",
       accentNameCn: "红镜红",
       profile: { guile:10, forbear:6, chaos:8, raw:1, romance:7, grace:9 },
@@ -289,7 +289,7 @@ const characters = [
       bgNameEn: "Collinwood Dusk",
       bgNameCn: "科林伍德暮色",
       accentNameEn: "Ring Lamp Amber",
-      accentNameCn: "拳台灯橘",
+      accentNameCn: "拳击台暖灯橘",
       profile: { guile:4, forbear:2, chaos:7, raw:8, romance:7, grace:4 },
     },
 {
@@ -333,7 +333,7 @@ const characters = [
       text: "#ede0e6",
       muted: "#8d7462",
       bgNameEn: "Burnt Matchstick",
-      bgNameCn: "焦黑火柴梗",
+      bgNameCn: "焦黑火柴",
       accentNameEn: "Strike Flare",
       accentNameCn: "擦燃焰橘",
       profile: { guile:9, forbear:3, chaos:6, raw:2, romance:7, grace:7 },
@@ -432,7 +432,7 @@ const characters = [
       bgNameEn: "Winter Steel",
       bgNameCn: "寒冬冷蓝灰",
       accentNameEn: "First Snow",
-      accentNameCn: "初雪白",
+      accentNameCn: "初雪微光白",
       profile: { guile:4, forbear:3, chaos:8, raw:7, romance:5, grace:3 },
     },
 {
@@ -455,7 +455,7 @@ const characters = [
       bgNameEn: "Manuscript Brown",
       bgNameCn: "深夜手稿棕",
       accentNameEn: "Tungsten Glow",
-      accentNameCn: "钨丝灯金",
+      accentNameCn: "钨丝暖灯金",
       profile: { guile:8, forbear:3, chaos:2, raw:8, romance:5, grace:6 },
     },
 {
@@ -480,7 +480,7 @@ const characters = [
       bgNameEn: "Velvet Wine",
       bgNameCn: "旧绒布酒红",
       accentNameEn: "Colonial Gilt",
-      accentNameCn: "殖民地铜扣金",
+      accentNameCn: "殖民地铜金",
       profile: { guile:7, forbear:7, chaos:5, raw:6, romance:6, grace:3 },
     },
 {
@@ -505,9 +505,9 @@ const characters = [
       text: "#e8eef5",
       muted: "#6a85a3",
       bgNameEn: "Lunar Blue",
-      bgNameCn: "月球蓝",
+      bgNameCn: "月球蔚蓝",
       accentNameEn: "Sarang Glow",
-      accentNameCn: "Sarang 基地光",
+      accentNameCn: "基地微光",
       profile: { guile:5, forbear:8, chaos:3, raw:6, romance:8, grace:5 },
     },
 {
@@ -651,7 +651,7 @@ const characters = [
       bgNameEn: "Appalachian Dusk",
       bgNameCn: "西弗州山夜",
       accentNameEn: "Lone Mist",
-      accentNameCn: "孤枪雾蓝",
+      accentNameCn: "孤枪冷雾蓝",
       profile: { guile:2, forbear:10, chaos:1, raw:7, romance:4, grace:1 },
     },
 {
@@ -745,7 +745,7 @@ const characters = [
       bgNameEn: "Gummy Bear Green",
       bgNameCn: "小熊软糖绿",
       accentNameEn: "Clown Nose",
-      accentNameCn: "丑角鼻红",
+      accentNameCn: "丑角红鼻头",
       profile: { guile:5, forbear:2, chaos:8, raw:9, romance:9, grace:10 },
     },
 {
@@ -791,7 +791,7 @@ const characters = [
       text: "#dce5ea",
       muted: "#7a8088",
       bgNameEn: "Tavern Smoke",
-      bgNameCn: "地下酒馆烟灰",
+      bgNameCn: "酒馆烟灰",
       accentNameEn: "Iguana Jewel",
       accentNameCn: "蓝蜥宝石",
       profile: { guile:4, forbear:4, chaos:5, raw:7, romance:7, grace:4 },
@@ -931,7 +931,7 @@ const characters = [
       bgNameEn: "Gunmetal Blue",
       bgNameCn: "午夜枪管蓝",
       accentNameEn: "Casing Gold",
-      accentNameCn: "弹壳暖金",
+      accentNameCn: "弹壳余温金",
       profile: { guile:7, forbear:5, chaos:7, raw:5, romance:9, grace:5 },
     },
 {
@@ -952,7 +952,7 @@ const characters = [
       text: "#ede0ec",
       muted: "#8868a0",
       bgNameEn: "Neon Violet",
-      bgNameCn: "荧光紫",
+      bgNameCn: "荧光夜紫",
       accentNameEn: "Glitch Magenta",
       accentNameCn: "故障玫红",
       profile: { guile:6, forbear:6, chaos:8, raw:6, romance:4, grace:1 },
