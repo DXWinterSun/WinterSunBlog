@@ -100,14 +100,42 @@
 .pol-lock-tag b { font-family: 'EB Garamond', serif; font-weight: 600; font-size: 13px; letter-spacing: 0.3px; color: #e7dcc6; }
 .pol-lock-tag i { font-family: 'EB Garamond', serif; font-style: italic; font-size: 9.5px; letter-spacing: 0.6px; color: rgba(231, 220, 198, 0.5); margin-top: 1px; }
 .pol-lock-sep { width: 1px; height: 22px; background: rgba(255, 255, 255, 0.15); }
-.pol-lock-state { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: #b9b0a0; }
-@media (max-width: 480px) {
-  .pol-lock-tag i { display: none; }
+/* 「笔迹已验」状态：不抢眼，像一枚印鉴 */
+.pol-lock-state {
+  font-family: 'EB Garamond', serif; font-style: italic; font-size: 11.5px;
+  letter-spacing: 0.4px; color: rgba(231, 220, 198, 0.55);
 }
-.pol-lk-btn { font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; border: none; border-radius: 999px; padding: 5px 12px; cursor: pointer; background: transparent; color: #cfc6b4; }
-.pol-lk-btn:hover { color: #fff; }
-.pol-pw { font-family: 'EB Garamond', serif; font-size: 14px; padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(0, 0, 0, 0.25); color: #fff; width: 130px; }
-.pol-go { font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; border: none; border-radius: 999px; padding: 6px 13px; cursor: pointer; background: var(--c-accent); color: #fff; }
+@media (max-width: 480px) { .pol-lock-tag i { display: none; } }
+
+/* 右侧按钮：「底片匣」「封存」「Leo 的笔迹」—— 全部衬线斜体，和左边一个世界 */
+.pol-lk-btn {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 13.5px; letter-spacing: 0.2px;
+  border: none; border-radius: 999px;
+  padding: 4px 11px; cursor: pointer;
+  background: transparent; color: #c8bfa8;
+  transition: color 0.18s ease;
+}
+.pol-lk-btn:hover { color: #f0e8d4; }
+/* 「封存」用稍淡的色，区别于「底片匣」的主操作 */
+.pol-lk-seal { color: rgba(200, 191, 168, 0.6); }
+.pol-lk-seal:hover { color: rgba(240, 232, 212, 0.75); }
+
+/* 密码输入框（出现时替换整个右侧区域）*/
+.pol-pw {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 13.5px; letter-spacing: 0.2px;
+  padding: 5px 10px; border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.28); color: #efe6d2; width: 148px;
+}
+.pol-pw::placeholder { color: rgba(200, 191, 168, 0.55); font-style: italic; }
+.pol-go {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 13.5px; letter-spacing: 0.2px;
+  border: none; border-radius: 999px; padding: 5px 13px;
+  cursor: pointer; background: var(--c-accent); color: #fff;
+}
 
 /* —— 收纳盒（导出 / 导入面板，浮动锁正上方弹出）—— */
 .pol-box {
