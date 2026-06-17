@@ -29,45 +29,45 @@
   // accent/bg/text/muted pulled directly from the gallery's palette data.
 
   var THEMES = [
-    { id:'gary',     name:'Gary',       accent:'#cba14c', bg:'#14110d', text:'#ede2d0', muted:'#8a7558' },
-    { id:'kris',     name:'Kris',       accent:'#bc4d3a', bg:'#11161c', text:'#ece0d2', muted:'#62768d' },
-    { id:'matty',    name:'Matty',      accent:'#d49850', bg:'#171d24', text:'#ebe0cc', muted:'#7d7264' },
-    { id:'buck',     name:'Buck',       accent:'#b8c878', bg:'#1a2418', text:'#e8eed8', muted:'#7a8868' },
-    { id:'trent',    name:'Trent',      accent:'#79a7bd', bg:'#141c12', text:'#dce5ea', muted:'#7a7654' },
-    { id:'samuel',   name:'Samuel',     accent:'#c5402f', bg:'#211a0f', text:'#f0e2d4', muted:'#a08770' },
-    { id:'jerry',    name:'Jerry',      accent:'#d7a83c', bg:'#20120c', text:'#f0e0d0', muted:'#a07060' },
-    { id:'wildbill', name:'Wild Bill',  accent:'#b0803e', bg:'#1b1510', text:'#ece0d0', muted:'#93826a' },
-    { id:'guy',      name:'Guy',        accent:'#43b3bf', bg:'#0f161a', text:'#dfe7ea', muted:'#738088' },
-    { id:'knox',     name:'Knox',       accent:'#d94040', bg:'#1b1310', text:'#ede0e0', muted:'#8d6e62' },
-    { id:'pero',     name:'Pero',       accent:'#d49858', bg:'#1a1612', text:'#ede0cc', muted:'#8a7458' },
-    { id:'chuck',    name:'Chuck',      accent:'#de6e8e', bg:'#15182a', text:'#ede4d0', muted:'#8088a0' },
-    { id:'mercer',   name:'Mercer',     accent:'#e08a2e', bg:'#1a1410', text:'#ede0e6', muted:'#8d7462' },
-    { id:'crocker',  name:'Crocker',    accent:'#d8b25a', bg:'#161214', text:'#f0e3dc', muted:'#8d6278' },
-    { id:'zaphod',   name:'Zaphod',     accent:'#d4a82a', bg:'#0b0a12', text:'#e8e4d0', muted:'#8a7a48' },
-    { id:'brad',     name:'Brad',       accent:'#c9d84e', bg:'#1c2230', text:'#e8eadc', muted:'#7a8590' },
-    { id:'glenn',    name:'Glenn',      accent:'#b8d0e0', bg:'#1c2030', text:'#dce4ea', muted:'#7a8090' },
-    { id:'reston',   name:'Reston',     accent:'#d89858', bg:'#1f1814', text:'#ebe0cc', muted:'#8a7458' },
-    { id:'victor',   name:'Victor',     accent:'#d2a24a', bg:'#2a1820', text:'#f0e0d4', muted:'#9a7868' },
-    { id:'sambell',  name:'Sam Bell',   accent:'#7eb0d5', bg:'#162038', text:'#e8eef5', muted:'#6a85a3' },
-    { id:'goode',    name:'Goode',      accent:'#cc4436', bg:'#211910', text:'#ede4d4', muted:'#9a7e58' },
-    { id:'hammer',   name:'Hammer',     accent:'#4a87ee', bg:'#13151c', text:'#e7eaf2', muted:'#7c8aa6' },
-    { id:'kenny',    name:'Kenny',      accent:'#d08a45', bg:'#1c1e1f', text:'#f0e0d4', muted:'#627f8d' },
-    { id:'billy',    name:'Billy',      accent:'#d63a33', bg:'#281208', text:'#f5e6d0', muted:'#b07840' },
-    { id:'owen',     name:'Owen',       accent:'#35bfc9', bg:'#15282e', text:'#dce9ea', muted:'#75899a' },
-    { id:'johnmoon', name:'J. Moon',    accent:'#8fa0b0', bg:'#14181f', text:'#dce3ea', muted:'#62728d' },
-    { id:'varney',   name:'Varney',     accent:'#e6ecea', bg:'#1e1408', text:'#dceae5', muted:'#8d7a62' },
-    { id:'wayne',    name:'Wayne',      accent:'#c8a050', bg:'#1e2418', text:'#e8e4d0', muted:'#8a7a48' },
-    { id:'craig',    name:'Craig',      accent:'#c89060', bg:'#241a14', text:'#ede0d0', muted:'#a07858' },
-    { id:'munch',    name:'Munch',      accent:'#e23b2e', bg:'#14241a', text:'#eed9d8', muted:'#628d72' },
-    { id:'dixon',    name:'Dixon',      accent:'#e2622a', bg:'#241015', text:'#f5e6d3', muted:'#8d626d' },
-    { id:'eddie',    name:'Eddie',      accent:'#2e9fd4', bg:'#1a1f24', text:'#dce5ea', muted:'#7a8088' },
-    { id:'bush',     name:'G.W. Bush',  accent:'#c98a3e', bg:'#16181e', text:'#f1e3cb', muted:'#626d8d' },
-    { id:'klenz',    name:'Klenz.',     accent:'#d34338', bg:'#14241c', text:'#ede8d8', muted:'#8b7d4d' },
-    { id:'bryant',   name:'Bryant',     accent:'#c8783c', bg:'#1c1410', text:'#ede0d0', muted:'#8a6848' },
-    { id:'mrwolf',   name:'Mr. Wolf',   accent:'#dfb23c', bg:'#14161d', text:'#ede6d8', muted:'#7a7d8a' },
-    { id:'stoppard', name:'Stoppard',   accent:'#c7995a', bg:'#1a1f2c', text:'#ebe2d4', muted:'#7c8090' },
-    { id:'wilde',    name:'Wilde',      accent:'#cda24f', bg:'#15192a', text:'#ebe2d0', muted:'#7a7e90' },
-    { id:'future',   name:'Future',     accent:'#d460a0', bg:'#1a0e2a', text:'#ede0ec', muted:'#8868a0' },
+    { id:'gary',     name:'Gary',            cn:'天际铜金',     en:'Skyline Brass',       accent:'#cba14c', bg:'#14110d', text:'#ede2d0', muted:'#8a7558' },
+    { id:'kris',     name:'Kris',            cn:'余烬绯红',     en:'Ember Cardinal',      accent:'#bc4d3a', bg:'#11161c', text:'#ece0d2', muted:'#62768d' },
+    { id:'matty',    name:'Matty',           cn:'旧电话亭琥珀', en:'Old Phonebooth Amber',accent:'#d49850', bg:'#171d24', text:'#ebe0cc', muted:'#7d7264' },
+    { id:'buck',     name:'Buck',            cn:'林间苔绿',     en:'Forest Moss',         accent:'#b8c878', bg:'#1a2418', text:'#e8eed8', muted:'#7a8868' },
+    { id:'trent',    name:'Trent',           cn:'天蓝卡车',     en:'Pickup Sky',          accent:'#79a7bd', bg:'#141c12', text:'#dce5ea', muted:'#7a7654' },
+    { id:'samuel',   name:'Samuel',          cn:'舞台背心红',   en:'Stage Vest',          accent:'#c5402f', bg:'#211a0f', text:'#f0e2d4', muted:'#a08770' },
+    { id:'jerry',    name:'Jerry',           cn:'蓬乱金长发',   en:'Blond Mane',          accent:'#d7a83c', bg:'#20120c', text:'#f0e0d0', muted:'#a07060' },
+    { id:'wildbill', name:'Wild Bill',       cn:'锯末粗木',     en:'Sawdust Timber',      accent:'#b0803e', bg:'#1b1510', text:'#ece0d0', muted:'#93826a' },
+    { id:'guy',      name:'Guy',             cn:'控制台青',     en:'Console Teal',        accent:'#43b3bf', bg:'#0f161a', text:'#dfe7ea', muted:'#738088' },
+    { id:'knox',     name:'Knox',            cn:'红镜红',       en:'Crimson Lens',        accent:'#d94040', bg:'#1b1310', text:'#ede0e0', muted:'#8d6e62' },
+    { id:'pero',     name:'Pero',            cn:'拳击台暖灯橘', en:'Ring Lamp Amber',     accent:'#d49858', bg:'#1a1612', text:'#ede0cc', muted:'#8a7458' },
+    { id:'chuck',    name:'Chuck',           cn:'镁光节目粉',   en:'Limelight Pink',      accent:'#de6e8e', bg:'#15182a', text:'#ede4d0', muted:'#8088a0' },
+    { id:'mercer',   name:'Mercer',          cn:'擦燃焰橘',     en:'Strike Flare',        accent:'#e08a2e', bg:'#1a1410', text:'#ede0e6', muted:'#8d7462' },
+    { id:'crocker',  name:'Crocker',         cn:'夜会香槟金',   en:'Club Champagne',      accent:'#d8b25a', bg:'#161214', text:'#f0e3dc', muted:'#8d6278' },
+    { id:'zaphod',   name:'Zaphod',          cn:'总统鬃金',     en:"President's Mane",    accent:'#d4a82a', bg:'#0b0a12', text:'#e8e4d0', muted:'#8a7a48' },
+    { id:'brad',     name:'Brad',            cn:'网球荧光黄',   en:'Tennis Ball',         accent:'#c9d84e', bg:'#1c2230', text:'#e8eadc', muted:'#7a8590' },
+    { id:'glenn',    name:'Glenn',           cn:'初雪微光白',   en:'First Snow',          accent:'#b8d0e0', bg:'#1c2030', text:'#dce4ea', muted:'#7a8090' },
+    { id:'reston',   name:'Reston',          cn:'钨丝暖灯金',   en:'Tungsten Glow',       accent:'#d89858', bg:'#1f1814', text:'#ebe0cc', muted:'#8a7458' },
+    { id:'victor',   name:'Victor',          cn:'殖民地铜金',   en:'Colonial Gilt',       accent:'#d2a24a', bg:'#2a1820', text:'#f0e0d4', muted:'#9a7868' },
+    { id:'sambell',  name:'Sam Bell',        cn:'基地微光',     en:'Sarang Glow',         accent:'#7eb0d5', bg:'#162038', text:'#e8eef5', muted:'#6a85a3' },
+    { id:'goode',    name:'Goode',           cn:'圣诞帽红',     en:'Santa Hat',           accent:'#cc4436', bg:'#211910', text:'#ede4d4', muted:'#9a7e58' },
+    { id:'hammer',   name:'Hammer',          cn:'电光钴蓝',     en:'Spotlight Sapphire',  accent:'#4a87ee', bg:'#13151c', text:'#e7eaf2', muted:'#7c8aa6' },
+    { id:'kenny',    name:'Kenny',           cn:'铁窗微光',     en:'Barred Light',        accent:'#d08a45', bg:'#1c1e1f', text:'#f0e0d4', muted:'#627f8d' },
+    { id:'billy',    name:'Billy',           cn:'方块J红',      en:'Diamond Jack',        accent:'#d63a33', bg:'#281208', text:'#f5e6d0', muted:'#b07840' },
+    { id:'owen',     name:'Owen',            cn:'滑梯翠蓝',     en:'Waterslide Aqua',     accent:'#35bfc9', bg:'#15282e', text:'#dce9ea', muted:'#75899a' },
+    { id:'johnmoon', name:'John Moon',       cn:'孤枪冷雾蓝',   en:'Lone Mist',           accent:'#8fa0b0', bg:'#14181f', text:'#dce3ea', muted:'#62728d' },
+    { id:'varney',   name:'Varney',          cn:'处方白大褂',   en:'Lab Coat',            accent:'#e6ecea', bg:'#1e1408', text:'#dceae5', muted:'#8d7a62' },
+    { id:'wayne',    name:'Wayne',           cn:'夏末琥珀',     en:'Late Summer Amber',   accent:'#c8a050', bg:'#1e2418', text:'#e8e4d0', muted:'#8a7a48' },
+    { id:'craig',    name:'Craig',           cn:'威士忌金',     en:'Whisky Gold',         accent:'#c89060', bg:'#241a14', text:'#ede0d0', muted:'#a07858' },
+    { id:'munch',    name:'Munch',           cn:'丑角红鼻头',   en:'Clown Nose',          accent:'#e23b2e', bg:'#14241a', text:'#eed9d8', muted:'#628d72' },
+    { id:'dixon',    name:'Dixon',           cn:'重生焰橘',     en:'Reborn Flame',        accent:'#e2622a', bg:'#241015', text:'#f5e6d3', muted:'#8d626d' },
+    { id:'eddie',    name:'Eddie',           cn:'蓝蜥宝石',     en:'Iguana Jewel',        accent:'#2e9fd4', bg:'#1a1f24', text:'#dce5ea', muted:'#7a8088' },
+    { id:'bush',     name:'G.W. Bush',       cn:'德州牛仔金',   en:'Texan Tan',           accent:'#c98a3e', bg:'#16181e', text:'#f1e3cb', muted:'#626d8d' },
+    { id:'klenz',    name:'Klenzendorf',     cn:'夸张军装红',   en:'Glam Tunic',          accent:'#d34338', bg:'#14241c', text:'#ede8d8', muted:'#8b7d4d' },
+    { id:'bryant',   name:'Bryant',          cn:'红土暖橘',     en:'Georgia Clay',        accent:'#c8783c', bg:'#1c1410', text:'#ede0d0', muted:'#8a6848' },
+    { id:'mrwolf',   name:'Mr. Wolf',        cn:'磁石黄金',     en:'Magnet Gold',         accent:'#dfb23c', bg:'#14161d', text:'#ede6d8', muted:'#7a7d8a' },
+    { id:'stoppard', name:'Stoppard',        cn:'旧照片暖褐',   en:'Old Photograph',      accent:'#c7995a', bg:'#1a1f2c', text:'#ebe2d4', muted:'#7c8090' },
+    { id:'wilde',    name:'Wilde',           cn:'弹壳余温金',   en:'Casing Gold',         accent:'#cda24f', bg:'#15192a', text:'#ebe2d0', muted:'#7a7e90' },
+    { id:'future',   name:'The Future',      cn:'故障玫红',     en:'Glitch Magenta',      accent:'#d460a0', bg:'#1a0e2a', text:'#ede0ec', muted:'#8868a0' },
   ];
 
   // ── Color derivation — mirrors au-palette-style.html exactly ─────────────
@@ -218,12 +218,14 @@
     var cards = '';
     THEMES.forEach(function (t) {
       cards +=
-        '<button class="c-palette-card" data-theme-id="' + t.id + '" aria-label="' + t.name + '"' +
+        '<button class="c-palette-card" data-theme-id="' + t.id + '" aria-label="' + t.cn + ' · ' + t.name + '"' +
           ' style="--card-bg:' + t.bg + ';--card-ac:' + t.accent + '">' +
           '<span class="c-palette-card__perfs">' + PERFS + '</span>' +
           '<span class="c-palette-card__body">' +
             '<span class="c-palette-card__dot"></span>' +
-            '<span class="c-palette-card__name">' + t.name + '</span>' +
+            '<span class="c-palette-card__cn">' + t.cn + '</span>' +
+            '<span class="c-palette-card__en">' + t.en + '</span>' +
+            '<span class="c-palette-card__char">' + t.name + '</span>' +
           '</span>' +
           '<span class="c-palette-card__perfs">' + PERFS + '</span>' +
         '</button>';
