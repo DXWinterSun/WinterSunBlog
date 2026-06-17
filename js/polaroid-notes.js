@@ -24,6 +24,19 @@
     '<line x1="12" y1="8.4" x2="12" y2="19.6" stroke="#1e1c18" stroke-width="1.3" stroke-linecap="round"/>' +
     '<circle cx="12" cy="7.4" r="1" fill="#1e1c18"/>' +
     '</svg>';
+  // 拍立得小相机（经典彩虹条 + 镜头），和笔并排，是 Leo 的另一半安全感：
+  var CAM_SVG = '<svg class="pol-lock-cam" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">' +
+    '<rect x="2.5" y="6.5" width="19" height="13" rx="2.2" fill="#efe8d8"/>' +
+    '<rect x="7" y="3.6" width="9" height="3.5" rx="1" fill="#e0d6c1"/>' +
+    '<rect x="4" y="9" width="1.4" height="8" fill="#e2574c"/>' +
+    '<rect x="5.4" y="9" width="1.4" height="8" fill="#f0a13b"/>' +
+    '<rect x="6.8" y="9" width="1.4" height="8" fill="#f2c94c"/>' +
+    '<rect x="8.2" y="9" width="1.4" height="8" fill="#6fbf73"/>' +
+    '<rect x="9.6" y="9" width="1.4" height="8" fill="#4a90d9"/>' +
+    '<circle cx="15" cy="13" r="3.6" fill="#2c2b29"/>' +
+    '<circle cx="15" cy="13" r="1.8" fill="#5b6a72"/>' +
+    '<circle cx="14.2" cy="12.2" r="0.6" fill="#cdd6da"/>' +
+    '</svg>';
 
   /* ========== 存储键 ========== */
   var LS_NOTES = "wiw-pol-notes";
@@ -152,7 +165,8 @@
   var lockEl;
   function buildLock() { lockEl = document.createElement("div"); lockEl.className = "pol-lock"; document.body.appendChild(lockEl); renderLock(); }
   function renderLock() {
-    var brand = '<span class="pol-lock-brand">' + PEN_SVG +
+    var brand = '<span class="pol-lock-brand">' +
+      '<span class="pol-lock-icons">' + PEN_SVG + CAM_SVG + '</span>' +
       '<span class="pol-lock-tag"><b>' + LOCK_LABEL + '</b><i>' + LOCK_LABEL_EN + '</i></span></span>' +
       '<span class="pol-lock-sep"></span>';
     if (unlocked) {
