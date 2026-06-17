@@ -90,6 +90,13 @@
   }
 }
 
+/* 章节页：返回卡片下方的胶片色卡单独成行并居中 */
+.c-chapter-palette {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 28px;
+}
+
 .c-chapter-return__arrow {
   font-size: 18px;
   color: $accent;

@@ -10,4 +10,9 @@ pre {
   word-wrap: break-word;
   word-break: break-all;
   font-family: Courier, monospace;
+  // 跟随明暗主题
+  color: var(--c-ink-soft);
+  background-color: var(--c-line);
+  border: 1px solid var(--c-line-strong);
+  border-radius: 6px;
 }
