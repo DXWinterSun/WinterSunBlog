@@ -239,6 +239,20 @@
     });
   }
 
+  // ── Heartbeat animation on the trigger button ────────────────────────────
+
+  function heartbeat() {
+    var trigger = document.getElementById('js-palette-trigger');
+    if (!trigger) return;
+    trigger.classList.remove('is-beating');
+    void trigger.offsetWidth; // force reflow so animation restarts
+    trigger.classList.add('is-beating');
+    trigger.addEventListener('animationend', function onEnd() {
+      trigger.classList.remove('is-beating');
+      trigger.removeEventListener('animationend', onEnd);
+    });
+  }
+
   // ── UI ────────────────────────────────────────────────────────────────────
 
   var PERFS = '<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>';
@@ -348,6 +362,7 @@
       updateSwatchStates();
       var sl = document.getElementById('js-palette-hue');
       if (sl) { sl.value = 0; updateHuePreview(0); }
+      heartbeat();
     });
 
     var hueSlider = document.getElementById('js-palette-hue');

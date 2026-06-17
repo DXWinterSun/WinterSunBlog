@@ -4,6 +4,15 @@
 
 // ── Trigger button ────────────────────────────────────────────────────────────
 
+@keyframes c-heartbeat {
+  0%   { transform: scale(1); }
+  20%  { transform: scale(1.55); }
+  45%  { transform: scale(1.2); }
+  65%  { transform: scale(1.42); }
+  85%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
 .c-palette-trigger {
   flex-shrink: 0;
   display: inline-flex;
@@ -16,7 +25,6 @@
   border: 1px solid $line;
   border-radius: 999px;
   cursor: pointer;
-  font-size: 16px;
   line-height: 1;
   transition: $global-transition;
   user-select: none;
@@ -25,14 +33,30 @@
   &[aria-expanded="true"] {
     border-color: $accent-soft;
     background-color: rgba(var(--rgb-accent), 0.06);
-    transform: rotate(20deg) scale(1.05);
+    transform: rotate(15deg) scale(1.05);
   }
 
   @media only screen and (max-width: 480px) {
     width: 32px;
     height: 32px;
-    font-size: 14px;
   }
+}
+
+.c-palette-trigger__heart {
+  width: 17px;
+  height: 17px;
+  fill: var(--c-accent);
+  transition: fill 0.3s ease;
+  flex-shrink: 0;
+
+  @media only screen and (max-width: 480px) {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.c-palette-trigger.is-beating .c-palette-trigger__heart {
+  animation: c-heartbeat 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
 }
 
 // ── Full-screen overlay ────────────────────────────────────────────────────────
