@@ -69,12 +69,15 @@
 
   /* —— 胶片色卡（系列首页标题下 / 章节页返回链接下，同款）—— */
   .au-strip{
-    display: inline-flex; flex-direction: column; gap: 7px;
-    padding: 8px 10px; margin: 6px 0;
+    display: flex; flex-direction: column; gap: 7px;
+    width: fit-content; margin: 0 auto;
+    padding: 8px 10px;
     border-radius: 8px;
     background: var(--au-fsurf);
     box-shadow: 0 8px 20px rgba(var(--rgb-shadow), .28), inset 0 0 0 1px var(--au-fedge);
   }
+  /* 系列首页 hero 里的色卡：与标题、byline 都留出呼吸空间 */
+  .c-hero .au-strip{ margin: 4px auto 30px; }
   .au-strip__perf{ display: flex; justify-content: space-between; align-items: center; }
   .au-strip__perf i{ width: 5px; height: 3px; border-radius: 1px; background: var(--au-fperf); flex: 0 0 auto; }
   .au-strip__frames{ display: inline-flex; align-items: stretch; }
