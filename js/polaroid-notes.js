@@ -18,8 +18,11 @@
   // 左下角浮标上的导语（钢笔旁的小字）：
   var LOCK_LABEL = "记忆碎片";
   var LOCK_LABEL_EN = "Memento";
-  // 幸运三事小拍立得的标题（手写体印在相纸下沿，想换就改这里）：
-  var LUCKY_TITLE = "Small Fortunes";
+  // 幸运三事小拍立得的标题 —— The Fray《Happiness》:"happiness throws a shower of sparks"
+  // 分两行排版：第一行做引子（轻），第二行做主角（手写放大），下面缀歌曲署名。
+  var LUCKY_Q1 = "Happiness throws";
+  var LUCKY_Q2 = "a shower of sparks";
+  var LUCKY_CREDIT = "The Fray · Happiness";
   // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
   var PEN_SVG = '<svg class="pol-lock-pen" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">' +
     '<path d="M12 2 C15.2 8 16.6 13.6 12 22 C7.4 13.6 8.8 8 12 2 Z" fill="#d8c6a2"/>' +
@@ -324,8 +327,15 @@
     luckyPin.type = "button"; luckyPin.className = "pol-lucky";
     luckyPin.innerHTML =
       '<span class="pol-lucky-photo"><span class="pol-lucky-star">✦</span></span>' +
-      '<span class="pol-lucky-cap"><b></b><i></i></span>';
-    luckyPin.querySelector(".pol-lucky-cap b").textContent = LUCKY_TITLE;
+      '<span class="pol-lucky-cap">' +
+        '<span class="pol-lucky-q1"></span>' +
+        '<span class="pol-lucky-q2"></span>' +
+        '<span class="pol-lucky-credit"></span>' +
+        '<i></i>' +
+      '</span>';
+    luckyPin.querySelector(".pol-lucky-q1").textContent = LUCKY_Q1;
+    luckyPin.querySelector(".pol-lucky-q2").textContent = LUCKY_Q2;
+    luckyPin.querySelector(".pol-lucky-credit").textContent = LUCKY_CREDIT;
     document.body.appendChild(luckyPin);
     luckyPin.addEventListener("click", function () { openLucky(todayKey()); });
   }
