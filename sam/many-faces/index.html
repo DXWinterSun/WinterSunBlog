@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Many Faces of Sam · Winter Sun</title>
+<meta name="description" content="一个粉丝写给 Sam Rockwell 银幕角色们的情书集。他走过银幕，停在你面前。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Many Faces of Sam · Winter Sun">
+<meta property="og:description" content="一个粉丝写给 Sam Rockwell 银幕角色们的情书集。他走过银幕，停在你面前。">
+<meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/many-faces/">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,12 +22,12 @@
 </head>
 <body>
 <div id="root"></div>
-<meta name="cache-bust" content="2026-06-17-colophon">
+<meta name="cache-bust" content="2026-06-17-linkshare">
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
 <script type="text/babel" data-presets="react">
-const { useEffect } = React;
+const { useEffect, useState } = React;
 
 const DIMS = [
   { key: "guile",   cn: "狡黠", en: "GUILE" },
@@ -1054,6 +1060,24 @@ function RunningName({ c, variant }) {
 }
 
 function CharacterCard({ c, idx }) {
+  const [copied, setCopied] = useState(false);
+  const prev = idx > 0 ? characters[idx - 1] : null;
+  const next = idx < characters.length - 1 ? characters[idx + 1] : null;
+
+  function goTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }
+  function copyLink() {
+    const url = window.location.origin + window.location.pathname + "#" + c.id;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function() {
+        setCopied(true);
+        setTimeout(function() { setCopied(false); }, 1600);
+      });
+    }
+  }
+
   return (
     <section
       id={c.id}
@@ -1401,22 +1425,84 @@ function CharacterCard({ c, idx }) {
           ❦
         </div>
 
-        <div style={{ textAlign: "center", marginTop: "20px" }}>
+        <div style={{ marginTop: "20px", display: "flex", alignItems: "center" }}>
+          <div style={{ flex: 1, textAlign: "left" }}>
+            {prev && (
+              <button
+                onClick={function() { goTo(prev.id); }}
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                  fontFamily: "'Special Elite', monospace",
+                  fontSize: "0.62rem",
+                  color: c.muted,
+                  letterSpacing: "0.22em",
+                  opacity: 0.65,
+                  padding: "4px 0",
+                }}
+              >
+                ← 上一帧
+              </button>
+            )}
+          </div>
+          <div style={{ flex: 1, textAlign: "center" }}>
+            <button
+              onClick={function() { window.scrollTo({ top: 0, behavior: "smooth" }); }}
+              style={{
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "'Special Elite', monospace",
+                fontSize: "0.62rem",
+                color: c.muted,
+                letterSpacing: "0.28em",
+                opacity: 0.65,
+                padding: "4px 0",
+              }}
+            >
+              ↑ CONTENTS
+            </button>
+          </div>
+          <div style={{ flex: 1, textAlign: "right" }}>
+            {next && (
+              <button
+                onClick={function() { goTo(next.id); }}
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                  fontFamily: "'Special Elite', monospace",
+                  fontSize: "0.62rem",
+                  color: c.muted,
+                  letterSpacing: "0.22em",
+                  opacity: 0.65,
+                  padding: "4px 0",
+                }}
+              >
+                下一帧 →
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div style={{ textAlign: "center", marginTop: "12px" }}>
           <button
-            onClick={function() { window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            onClick={copyLink}
             style={{
               background: "transparent",
               border: "none",
               cursor: "pointer",
               fontFamily: "'Special Elite', monospace",
-              fontSize: "0.62rem",
+              fontSize: "0.58rem",
               color: c.muted,
-              letterSpacing: "0.28em",
-              opacity: 0.65,
-              padding: "4px 0",
+              letterSpacing: "0.2em",
+              opacity: copied ? 0.85 : 0.45,
+              padding: "2px 0",
+              transition: "opacity 0.2s ease",
             }}
           >
-            ↑ CONTENTS
+            {copied ? "链接已复制 ✓" : "复制此帧链接"}
           </button>
         </div>
       </div>
@@ -1426,7 +1512,18 @@ function CharacterCard({ c, idx }) {
 
 function SamGallery() {
   useEffect(function() {
-    // fonts are loaded via <link> in <head>; effect kept as a no-op to preserve original lifecycle
+    // 打开即落位：URL 带 #角色id 时，等字体就绪后直接定位到那一帧
+    if (!window.location.hash) return;
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    function jump() {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "auto" });
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function() { setTimeout(jump, 60); });
+    } else {
+      setTimeout(jump, 250);
+    }
   }, []);
 
   function jumpTo(id) {
