@@ -18,6 +18,8 @@
   // 左下角浮标上的导语（钢笔旁的小字）：
   var LOCK_LABEL = "记忆碎片";
   var LOCK_LABEL_EN = "Memento";
+  // 幸运三事小拍立得的标题（手写体印在相纸下沿，想换就改这里）：
+  var LUCKY_TITLE = "Small Fortunes";
   // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
   var PEN_SVG = '<svg class="pol-lock-pen" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">' +
     '<path d="M12 2 C15.2 8 16.6 13.6 12 22 C7.4 13.6 8.8 8 12 2 Z" fill="#d8c6a2"/>' +
@@ -307,13 +309,14 @@
 
   /* ========== 幸运三事：左下角一张独立小拍立得（仅解锁后可见）========== */
   var LUCKY_MARKS = ["一", "二", "三"];
-  var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+  var EN_WK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var EN_MON = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   function todayKey() { var d = new Date(); return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
   function dayLabel(key) {
     var p = key.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]);
-    return (+p[0]) + "年" + (+p[1]) + "月" + (+p[2]) + "日 · " + WEEKDAYS[d.getDay()];
+    return EN_WK[d.getDay()] + " · " + (+p[2]) + " " + EN_MON[+p[1] - 1] + " " + p[0];
   }
-  function pinDate() { var d = new Date(); return (d.getMonth() + 1) + "月" + d.getDate() + "日"; }
+  function pinDate() { var d = new Date(); return d.getDate() + " " + EN_MON[d.getMonth()]; }
 
   var luckyPin;
   function buildLuckyPin() {
@@ -321,7 +324,8 @@
     luckyPin.type = "button"; luckyPin.className = "pol-lucky";
     luckyPin.innerHTML =
       '<span class="pol-lucky-photo"><span class="pol-lucky-star">✦</span></span>' +
-      '<span class="pol-lucky-cap"><b>幸运三事</b><i></i></span>';
+      '<span class="pol-lucky-cap"><b></b><i></i></span>';
+    luckyPin.querySelector(".pol-lucky-cap b").textContent = LUCKY_TITLE;
     document.body.appendChild(luckyPin);
     luckyPin.addEventListener("click", function () { openLucky(todayKey()); });
   }
