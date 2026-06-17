@@ -36,15 +36,9 @@
 .c-post__meta    { color: #9a9082; }
 .c-post__meta span + span::before { color: #c8bca6; }
 
-/* 随手摆放的轻微歪斜（很克制） */
-.c-post-grid > .c-post:nth-child(4n+1) { transform: rotate(-0.8deg); }
-.c-post-grid > .c-post:nth-child(4n+2) { transform: rotate(0.5deg); }
-.c-post-grid > .c-post:nth-child(4n+3) { transform: rotate(-0.3deg); }
-.c-post-grid > .c-post:nth-child(4n+4) { transform: rotate(0.7deg); }
-
-/* 悬停：摆正并整体抬起（照片本身不再单独位移） */
+/* 悬停：整体轻轻抬起（照片本身不再单独位移） */
 .c-post-grid > .c-post:hover {
-  transform: translateY(-5px) rotate(0deg);
+  transform: translateY(-5px);
   box-shadow:
     0 26px 52px -12px rgba(var(--rgb-shadow), 0.46),
     0 3px 10px rgba(var(--rgb-shadow), 0.22);

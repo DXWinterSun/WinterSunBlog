@@ -1,13 +1,31 @@
 {%- comment -%}
   AU 系列专属配色样式。调用：{% include au-palette-style.html pal=pal %}
-  整页主题变量整体替换成该系列调色板（以 bg 为底、text 为字、accent 发光），
-  明暗两种模式都强制套用——给这一页一个「专属深色主题」，沉浸感与画册内页一致。
-  并定义胶片色卡 .au-strip（系列首页标题下）与章节小标签 .au-tag。
-  仅 AU 页面（pal 存在时）由布局加载，不影响其它页面与非 AU 系列。
+  浅色模式 = 该系列颜色调出的淡色纸 + 深字 + 深一档强调色（由 accent 经 color-mix 派生）；
+  深色模式 = 该系列深底 + 浅字 + 原强调色。两种模式用同一对颜色，沿用站点明暗机制。
+  胶片色卡 .au-strip 的表面/齿孔/描边用 --au-* 令牌，随明暗自动翻。
 {%- endcomment -%}
 {%- assign p = include.pal -%}
 <style>
-  :root,
+  /* —— 浅色模式（默认）：淡色纸 —— */
+  :root{
+    --c-bg:          color-mix(in srgb, {{ p.accent }} 18%, #f6f2ea);
+    --c-bg-soft:     color-mix(in srgb, {{ p.accent }} 12%, #faf6ef);
+    --c-paper:       color-mix(in srgb, {{ p.accent }} 7%,  #fdfbf6);
+    --c-ink:         #2b2620;
+    --c-ink-soft:    #4a443c;
+    --c-muted:       #847a6d;
+    --c-muted-soft:  #a59a8a;
+    --c-line:        rgba(0,0,0,.10);
+    --c-line-strong: rgba(0,0,0,.16);
+    --c-accent:      color-mix(in srgb, {{ p.accent }}, #1a1614 30%);
+    --c-accent-soft: color-mix(in srgb, {{ p.accent }}, #1a1614 22%);
+    --c-accent-dark: color-mix(in srgb, {{ p.accent }}, #000000 42%);
+    --au-fsurf: rgba(0,0,0,.045);
+    --au-fedge: rgba(0,0,0,.12);
+    --au-fperf: rgba(0,0,0,.30);
+    --au-fdot:  rgba(0,0,0,.20);
+  }
+  /* —— 深色模式：该系列深底 —— */
   :root[data-theme="dark"]{
     --c-bg:          {{ p.bg }};
     --c-bg-soft:     {{ p.bg }};
@@ -22,62 +40,48 @@
     --c-accent-soft: {{ p.accent }};
     --c-accent-dark: {{ p.accent }};
     --rgb-shadow:    0, 0, 0;
+    --au-fsurf: rgba(255,255,255,.05);
+    --au-fedge: rgba(255,255,255,.10);
+    --au-fperf: rgba(255,255,255,.40);
+    --au-fdot:  rgba(255,255,255,.16);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --c-bg:          {{ p.bg }};
-      --c-bg-soft:     {{ p.bg }};
-      --c-paper:       {{ p.bg }};
-      --c-ink:         {{ p.text }};
-      --c-ink-soft:    {{ p.text }};
-      --c-muted:       {{ p.muted }};
-      --c-muted-soft:  {{ p.muted }};
-      --c-line:        rgba(255,255,255,.10);
-      --c-line-strong: rgba(255,255,255,.20);
-      --c-accent:      {{ p.accent }};
-      --c-accent-soft: {{ p.accent }};
-      --c-accent-dark: {{ p.accent }};
-      --rgb-shadow:    0, 0, 0;
+      --c-bg: {{ p.bg }}; --c-bg-soft: {{ p.bg }}; --c-paper: {{ p.bg }};
+      --c-ink: {{ p.text }}; --c-ink-soft: {{ p.text }};
+      --c-muted: {{ p.muted }}; --c-muted-soft: {{ p.muted }};
+      --c-line: rgba(255,255,255,.10); --c-line-strong: rgba(255,255,255,.20);
+      --c-accent: {{ p.accent }}; --c-accent-soft: {{ p.accent }}; --c-accent-dark: {{ p.accent }};
+      --rgb-shadow: 0, 0, 0;
+      --au-fsurf: rgba(255,255,255,.05); --au-fedge: rgba(255,255,255,.10);
+      --au-fperf: rgba(255,255,255,.40); --au-fdot: rgba(255,255,255,.16);
     }
   }
 
-  /* 整页柔和强调色背光（画册同款，随页面固定不滚动） */
+  /* 整页柔和强调色背光（底色用 var(--c-bg)，明暗自动跟随） */
   body{
     background:
-      radial-gradient(ellipse 90% 55% at 50% 20%, {{ p.accent }}1f 0%, transparent 58%),
-      {{ p.bg }};
+      radial-gradient(ellipse 90% 55% at 50% 20%, {{ p.accent }}1a 0%, transparent 58%),
+      var(--c-bg);
     background-attachment: fixed;
   }
-  /* 大标题染上强调色 */
   .c-hero__title{ color: var(--c-accent); }
 
-  /* —— 胶片色卡（系列首页标题下方）—— */
+  /* —— 胶片色卡（系列首页标题下 / 章节页返回链接下，同款）—— */
   .au-strip{
     display: inline-flex; flex-direction: column; gap: 7px;
-    padding: 8px 10px; margin: 6px 0 6px;
+    padding: 8px 10px; margin: 6px 0;
     border-radius: 8px;
-    background: rgba(255,255,255,.05);
-    box-shadow: 0 10px 24px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.10);
+    background: var(--au-fsurf);
+    box-shadow: 0 8px 20px rgba(var(--rgb-shadow), .28), inset 0 0 0 1px var(--au-fedge);
   }
   .au-strip__perf{ display: flex; justify-content: space-between; align-items: center; }
-  .au-strip__perf i{ width: 5px; height: 3px; border-radius: 1px; background: rgba(255,255,255,.40); flex: 0 0 auto; }
+  .au-strip__perf i{ width: 5px; height: 3px; border-radius: 1px; background: var(--au-fperf); flex: 0 0 auto; }
   .au-strip__frames{ display: inline-flex; align-items: stretch; }
   .au-strip__frame{ display: flex; align-items: center; gap: 10px; padding: 4px 16px; }
-  .au-strip__div{ width: 1px; align-self: stretch; background: rgba(255,255,255,.14); margin: 6px 0; }
-  .au-strip__dot{ width: 24px; height: 24px; border-radius: 50%; flex: 0 0 auto; box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
+  .au-strip__div{ width: 1px; align-self: stretch; background: var(--au-fedge); margin: 6px 0; }
+  .au-strip__dot{ width: 24px; height: 24px; border-radius: 50%; flex: 0 0 auto; box-shadow: inset 0 0 0 1px var(--au-fdot); }
   .au-strip__name{ display: flex; flex-direction: column; text-align: left; line-height: 1.18; }
   .au-strip__cn{ font-family: 'Noto Serif SC', serif; font-size: 15px; color: var(--c-ink); }
   .au-strip__en{ font-family: 'EB Garamond', serif; font-style: italic; font-size: 12.5px; color: var(--c-muted); }
-
-  /* —— 章节页小标签（同款胶片质感）—— */
-  .au-tag{
-    display: inline-flex; align-items: center; gap: 10px;
-    margin: 2px 0 18px; padding: 6px 12px;
-    border-radius: 7px;
-    background: rgba(255,255,255,.05);
-    box-shadow: 0 6px 16px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.09);
-  }
-  .au-tag__chips{ display: inline-flex; gap: 5px; }
-  .au-tag__chip{ width: 15px; height: 15px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(255,255,255,.18); }
-  .au-tag__names{ font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; letter-spacing: .06em; color: var(--c-muted); }
 </style>

@@ -31,12 +31,7 @@ layout: home
         </span>
       </a>
       {% endif %}
-      {% if pal %}
-      <div class="au-tag" aria-label="系列配色">
-        <span class="au-tag__chips"><span class="au-tag__chip" style="background: {{ pal.accent }}"></span><span class="au-tag__chip" style="background: {{ pal.bg }}"></span></span>
-        <span class="au-tag__names">{{ pal.accent_cn }} · {{ pal.bg_cn }}</span>
-      </div>
-      {% endif %}
+      {% include au-palette-strip.html %}
       <header class="c-article__header">
         <h1 class="c-article__title">{{page.title}}</h1>
         <div class="c-article__date">

@@ -1,9 +1,9 @@
 {%- comment -%}
-  AU 系列胶片色卡：插在系列首页 hero 标题正下方。
-  调用：{% include au-palette-strip.html %}（自动按 page.series_name 查表，
-  不在表里的系列不渲染）。样式 .au-strip 在 au-palette-style.html 里定义。
+  AU 胶片色卡。系列首页（page.series_name）与章节页（page.series）都可调用：
+  {% include au-palette-strip.html %}。不在配色表里的系列不渲染。
 {%- endcomment -%}
-{%- assign p = site.data.au_palettes[page.series_name] -%}
+{%- assign key = page.series_name | default: page.series -%}
+{%- assign p = site.data.au_palettes[key] -%}
 {%- if p -%}
 <div class="au-strip" aria-label="系列配色 · Palette">
   <span class="au-strip__perf"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
