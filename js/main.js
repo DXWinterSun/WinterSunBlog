@@ -89,9 +89,9 @@ $(document).ready(function () {
     }
     if (countEl) {
       if (filter === 'all') {
-        countEl.textContent = '总计 ' + total + ' 篇';
+        countEl.textContent = total + ' posts';
       } else {
-        countEl.textContent = '当前 ' + visible + ' · 总计 ' + total;
+        countEl.textContent = visible + ' showing · ' + total + ' total';
       }
     }
   }
