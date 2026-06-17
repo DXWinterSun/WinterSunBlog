@@ -14,6 +14,7 @@
   var LONGPRESS_MS = 480;
   // 拍立得背面黑条上印着的一句话（仪式感所在，想换就改这里）：
   var NOTE_TAGLINE = "趁我还记得，把它写在背面。";
+  var NOTE_TAGLINE_EN = "While I still remember, I write it on the back.";
 
   /* ========== 存储键 ========== */
   var LS_NOTES = "wiw-pol-notes";
@@ -56,7 +57,7 @@
       '<div class="pol-editor" role="dialog" aria-label="照片背面">' +
         '<div class="pol-ed-top">' +
           '<button class="pol-ed-x" type="button" title="翻回" aria-label="翻回">↩</button>' +
-          '<p class="pol-ed-line"></p>' +
+          '<div class="pol-ed-lines"><p class="pol-ed-line"></p><p class="pol-ed-line-en"></p></div>' +
         '</div>' +
         '<div class="pol-ed-write">' +
           '<textarea class="pol-note" spellcheck="false"></textarea>' +
@@ -69,6 +70,7 @@
     savedEl = backdrop.querySelector(".pol-saved");
     note.style.fontFamily = NOTE_FONT;
     backdrop.querySelector(".pol-ed-line").textContent = NOTE_TAGLINE;
+    backdrop.querySelector(".pol-ed-line-en").textContent = NOTE_TAGLINE_EN;
     backdrop.querySelector(".pol-ed-x").addEventListener("click", closeEditor);
     backdrop.addEventListener("click", function (e) { if (e.target === backdrop) closeEditor(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeEditor(); });
