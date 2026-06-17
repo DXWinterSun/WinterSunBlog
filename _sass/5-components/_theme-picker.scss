@@ -205,17 +205,38 @@
   flex-shrink: 0;
 }
 
-.c-palette-card__name {
+.c-palette-card__cn {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--card-ac);
+  text-align: center;
+  line-height: 1.3;
+  word-break: break-all;
+}
+
+.c-palette-card__en {
   display: block;
   font-family: 'EB Garamond', serif;
   font-style: italic;
-  font-size: 0.72rem;
+  font-size: 0.62rem;
   color: var(--card-ac);
+  opacity: 0.62;
   text-align: center;
-  line-height: 1.25;
+  line-height: 1.2;
   word-break: break-word;
   hyphens: auto;
   padding: 0 0.125rem;
+}
+
+.c-palette-card__char {
+  display: block;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 0.1rem;
+  letter-spacing: 0.01em;
 }
 
 // ── Footer bar (custom hue + reset) ───────────────────────────────────────────
