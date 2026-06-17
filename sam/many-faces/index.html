@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="root"></div>
-<meta name="cache-bust" content="2026-06-16-guile">
+<meta name="cache-bust" content="2026-06-17-runningname">
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
@@ -1033,6 +1033,25 @@ function MiniRadar({ profile, accent, muted, text }) {
   );
 }
 
+function RunningName({ c }) {
+  return (
+    <p style={{
+      fontFamily: "'Playfair Display', serif",
+      fontStyle: "italic",
+      fontWeight: 700,
+      fontSize: "1.1rem",
+      lineHeight: 1.2,
+      color: c.accent,
+      opacity: 0.85,
+      letterSpacing: "0.01em",
+      textAlign: "center",
+      margin: "0 0 10px 0",
+    }}>
+      {c.name}
+    </p>
+  );
+}
+
 function CharacterCard({ c, idx }) {
   return (
     <section
@@ -1147,7 +1166,8 @@ function CharacterCard({ c, idx }) {
         })}
 
         {c.inscription && (
-          <div style={{ marginTop: "8px", marginBottom: "44px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div style={{ marginTop: "8px", marginBottom: "44px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+            <RunningName c={c} />
             <p style={{
               fontFamily: "'Special Elite', monospace",
               color: c.muted,
@@ -1255,6 +1275,7 @@ function CharacterCard({ c, idx }) {
         )}
 
         <div style={{ marginTop: "32px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <RunningName c={c} />
           <p style={{
             fontFamily: "'Special Elite', monospace",
             color: c.muted,
