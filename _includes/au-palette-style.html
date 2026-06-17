@@ -1,53 +1,83 @@
 {%- comment -%}
   AU 系列专属配色样式。调用：{% include au-palette-style.html pal=pal %}
-  把主题强调色变量换成该系列颜色（浅色用 accent_ink、深色用 accent），沿用站点
-  自身明暗机制；并定义画册同款小色卡 .au-card 与章节小标签 .au-tag。
-  仅在 AU 页面（pal 存在时）由布局加载，字体全部用博客已加载的，不新增依赖。
+  整页主题变量整体替换成该系列调色板（以 bg 为底、text 为字、accent 发光），
+  明暗两种模式都强制套用——给这一页一个「专属深色主题」，沉浸感与画册内页一致。
+  并定义胶片色卡 .au-strip（系列首页标题下）与章节小标签 .au-tag。
+  仅 AU 页面（pal 存在时）由布局加载，不影响其它页面与非 AU 系列。
 {%- endcomment -%}
 {%- assign p = include.pal -%}
 <style>
-  :root{
-    --c-accent:      {{ p.accent_ink | default: p.accent }};
-    --c-accent-soft: {{ p.accent_ink | default: p.accent }};
-    --c-accent-dark: {{ p.accent_ink | default: p.accent }};
-  }
+  :root,
   :root[data-theme="dark"]{
+    --c-bg:          {{ p.bg }};
+    --c-bg-soft:     {{ p.bg }};
+    --c-paper:       {{ p.bg }};
+    --c-ink:         {{ p.text }};
+    --c-ink-soft:    {{ p.text }};
+    --c-muted:       {{ p.muted }};
+    --c-muted-soft:  {{ p.muted }};
+    --c-line:        rgba(255,255,255,.10);
+    --c-line-strong: rgba(255,255,255,.20);
     --c-accent:      {{ p.accent }};
     --c-accent-soft: {{ p.accent }};
     --c-accent-dark: {{ p.accent }};
+    --rgb-shadow:    0, 0, 0;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
+      --c-bg:          {{ p.bg }};
+      --c-bg-soft:     {{ p.bg }};
+      --c-paper:       {{ p.bg }};
+      --c-ink:         {{ p.text }};
+      --c-ink-soft:    {{ p.text }};
+      --c-muted:       {{ p.muted }};
+      --c-muted-soft:  {{ p.muted }};
+      --c-line:        rgba(255,255,255,.10);
+      --c-line-strong: rgba(255,255,255,.20);
       --c-accent:      {{ p.accent }};
       --c-accent-soft: {{ p.accent }};
       --c-accent-dark: {{ p.accent }};
+      --rgb-shadow:    0, 0, 0;
     }
   }
-  /* 让大标题也染上这系列的颜色 */
+
+  /* 整页柔和强调色背光（画册同款，随页面固定不滚动） */
+  body{
+    background:
+      radial-gradient(ellipse 90% 55% at 50% 20%, {{ p.accent }}1f 0%, transparent 58%),
+      {{ p.bg }};
+    background-attachment: fixed;
+  }
+  /* 大标题染上强调色 */
   .c-hero__title{ color: var(--c-accent); }
 
-  /* —— 画册同款小色卡（系列首页） —— */
-  .au-card{
-    max-width: 360px; margin: 30px auto 4px; padding: 16px 18px;
-    background: #15130f; border-radius: 12px;
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,.5);
-    display: flex; flex-direction: column; gap: 13px;
+  /* —— 胶片色卡（系列首页标题下方）—— */
+  .au-strip{
+    display: inline-flex; flex-direction: column; gap: 7px;
+    padding: 8px 10px; margin: 6px 0 6px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.05);
+    box-shadow: 0 10px 24px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.10);
   }
-  .au-card__eyebrow{
-    font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px;
-    letter-spacing: .24em; text-transform: uppercase; color: #8f867a;
-  }
-  .au-card__row{ display: flex; align-items: center; gap: 12px; }
-  .au-card__chip{
-    width: 34px; height: 34px; border-radius: 7px; flex: 0 0 auto;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.07);
-  }
-  .au-card__cn{ font-family: 'Noto Serif SC', serif; font-size: 15px; color: #ece4d6; line-height: 1.25; }
-  .au-card__en{ font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; line-height: 1.2; }
+  .au-strip__perf{ display: flex; justify-content: space-between; align-items: center; }
+  .au-strip__perf i{ width: 5px; height: 3px; border-radius: 1px; background: rgba(255,255,255,.40); flex: 0 0 auto; }
+  .au-strip__frames{ display: inline-flex; align-items: stretch; }
+  .au-strip__frame{ display: flex; align-items: center; gap: 10px; padding: 4px 16px; }
+  .au-strip__div{ width: 1px; align-self: stretch; background: rgba(255,255,255,.14); margin: 6px 0; }
+  .au-strip__dot{ width: 24px; height: 24px; border-radius: 50%; flex: 0 0 auto; box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
+  .au-strip__name{ display: flex; flex-direction: column; text-align: left; line-height: 1.18; }
+  .au-strip__cn{ font-family: 'Noto Serif SC', serif; font-size: 15px; color: var(--c-ink); }
+  .au-strip__en{ font-family: 'EB Garamond', serif; font-style: italic; font-size: 12.5px; color: var(--c-muted); }
 
-  /* —— 章节页小标签 —— */
-  .au-tag{ display: inline-flex; align-items: center; gap: 9px; margin: 2px 0 16px; }
-  .au-tag__chips{ display: inline-flex; gap: 4px; }
-  .au-tag__chip{ width: 14px; height: 14px; border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(127,127,127,.3); }
-  .au-tag__names{ font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; letter-spacing: .08em; color: var(--c-muted); }
+  /* —— 章节页小标签（同款胶片质感）—— */
+  .au-tag{
+    display: inline-flex; align-items: center; gap: 10px;
+    margin: 2px 0 18px; padding: 6px 12px;
+    border-radius: 7px;
+    background: rgba(255,255,255,.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.09);
+  }
+  .au-tag__chips{ display: inline-flex; gap: 5px; }
+  .au-tag__chip{ width: 15px; height: 15px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(255,255,255,.18); }
+  .au-tag__names{ font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; letter-spacing: .06em; color: var(--c-muted); }
 </style>
