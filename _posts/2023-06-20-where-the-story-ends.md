@@ -3,7 +3,7 @@ layout: post
 title: "故事终结之处"
 date: 2023-06-20
 image: where-the-story-ends.jpg
-tags: [daily, 中文, English]
+tags: [安放, 怅惘]
 categories: Daily
 summary: "故事终结之处，新的开始也在徐徐展开。我所爱的，从未离开。"
 ---    

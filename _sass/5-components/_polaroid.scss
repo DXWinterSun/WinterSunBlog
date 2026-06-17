@@ -1,0 +1,56 @@
+/* ===============
+   POLAROID CARDS
+   把网格文章卡片 .c-post 覆盖成宝丽来照片，全站通用。
+   在 index-post 之后导入，故这些声明生效。
+   背景与字色全部走 CSS 变量，随主题切换自适应。
+   阴影随 --rgb-shadow 自适应。
+=============== */
+
+.c-post {
+  background: var(--c-paper);
+  border-radius: 3px;
+  padding: 9px 9px 0;
+  box-shadow:
+    0 14px 30px -10px rgba(var(--rgb-shadow), 0.34),
+    0 2px 7px rgba(var(--rgb-shadow), 0.18);
+  transition: transform 0.32s ease, box-shadow 0.32s ease;
+}
+
+/* 照片贴顶，下方留出可"书写"的相纸边 */
+.c-post__image-wrap {
+  aspect-ratio: 4 / 3;
+  border-radius: 1px;
+  margin-bottom: 0;
+  box-shadow: inset 0 0 0 1px rgba(var(--rgb-shadow), 0.10);
+}
+
+.c-post__placeholder {
+  background: linear-gradient(135deg, $paper-warm, $line);
+  color: $muted;
+}
+
+.c-post__body { padding: 13px 7px 17px; }
+
+.c-post__eyebrow { color: $accent; }
+.c-post__title   { color: $ink; }
+.c-post__summary { color: $ink-soft; }
+.c-post__meta    { color: $muted; }
+.c-post__meta span + span::before { color: $line-strong; }
+
+/* 悬停：整体轻轻抬起（照片本身不再单独位移） */
+.c-post-grid > .c-post:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 26px 52px -12px rgba(var(--rgb-shadow), 0.46),
+    0 3px 10px rgba(var(--rgb-shadow), 0.22);
+}
+.c-post:hover .c-post__image-wrap {
+  transform: none;
+  box-shadow: inset 0 0 0 1px rgba(var(--rgb-shadow), 0.10);
+}
+.c-post:hover .c-post__image { transform: none; }
+.c-post:hover .c-post__title { color: $accent; }
+
+/* 相关推荐（4 列）相纸略收紧 */
+.c-post-grid--quad > .c-post { padding: 7px 7px 0; }
+.c-post-grid--quad .c-post__body { padding: 10px 5px 13px; }

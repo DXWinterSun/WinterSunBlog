@@ -3,7 +3,7 @@ layout: post
 title: "非教科书式满分"
 date: 2023-05-29
 image: textbook.jpg
-tags: [GC, daily, 中文]
+tags: [缱绻, 絮语]
 categories: Daily
 summary: "他做的事情从不按教科书，可他依然是我满分的爱人。"
 ---

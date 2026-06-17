@@ -3,7 +3,7 @@ layout: post
 title: "Sam Rockwell 对 56 件事的看法 · BuzzFeed 2014 采访全注"
 date: 2026-05-10 00:00:00
 image: sam-bell-moon-au.jpg
-tags: [Sam, 中文, interview]
+tags: [絮语]
 categories: Daily
 summary: "BuzzFeed 问了他 56 件事，每一条都像他本人的一张切片。"
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "宿命"
 date: 2016-11-02
 image: colosseum.jpg
-tags: [novel, 中文, love]
+tags: [缱绻, 思念]
 categories: Novel
 summary: "因为宝贝，我们本可以不再孤独。"
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "老友"
 date: 2016-08-09
 image: alley.jpg
-tags: [novel, 中文, love]
+tags: [怀旧, 思念]
 categories: Novel
 summary: "那位金发的少年还在等吗？"
 ---

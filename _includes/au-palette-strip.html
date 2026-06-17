@@ -1,0 +1,23 @@
+{%- comment -%}
+  AU 胶片色卡。系列首页（page.series_name）与章节页（page.series）都可调用：
+  {% include au-palette-strip.html %}。不在配色表里的系列不渲染。
+{%- endcomment -%}
+{%- assign key = page.series_name | default: page.series -%}
+{%- assign p = site.data.au_palettes[key] -%}
+{%- if p -%}
+<div class="au-strip" aria-label="系列配色 · Palette">
+  <span class="au-strip__perf"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  <span class="au-strip__frames">
+    <span class="au-strip__frame">
+      <span class="au-strip__dot" style="background: {{ p.accent }}"></span>
+      <span class="au-strip__name"><span class="au-strip__cn">{{ p.accent_cn }}</span><span class="au-strip__en">{{ p.accent_en }}</span></span>
+    </span>
+    <span class="au-strip__div"></span>
+    <span class="au-strip__frame">
+      <span class="au-strip__dot" style="background: {{ p.bg }}"></span>
+      <span class="au-strip__name"><span class="au-strip__cn">{{ p.bg_cn }}</span><span class="au-strip__en">{{ p.bg_en }}</span></span>
+    </span>
+  </span>
+  <span class="au-strip__perf"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+</div>
+{%- endif -%}

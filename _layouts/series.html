@@ -1,6 +1,8 @@
 ---
 layout: home
 ---
+{%- assign pal = site.data.au_palettes[page.series_name] -%}
+{%- if pal %}{% include au-palette-style.html pal=pal %}{% endif -%}
 {{ content }}
 
 {% comment %}

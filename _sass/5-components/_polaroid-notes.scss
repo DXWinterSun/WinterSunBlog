@@ -1,0 +1,167 @@
+/* ===============
+   POLAROID NOTES  背面批注：折角记号 + 浮层编辑器 + 浮动锁
+   纯 CSS；相纸与字色固定（明暗两主题一致）。在 polaroid 之后导入。
+=============== */
+
+/* —— 折角记号：本机存有批注的卡片，右上角小折角（随当页强调色着色）—— */
+.c-post { position: relative; }
+.pol-dogear {
+  position: absolute; top: 0; right: 0;
+  width: 0; height: 0;
+  border-style: solid; border-width: 0 18px 18px 0;
+  border-color: transparent var(--c-accent) transparent transparent;
+  border-top-right-radius: 3px;
+  opacity: 0.62;
+  filter: drop-shadow(-1px 1px 1px rgba(0, 0, 0, 0.18));
+  pointer-events: none; z-index: 2;
+}
+
+/* —— 浮层背景 —— */
+.pol-backdrop {
+  position: fixed; inset: 0; z-index: 1200;
+  display: none; align-items: center; justify-content: center;
+  padding: 20px;
+  background: rgba(12, 10, 8, 0.55);
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+}
+.pol-backdrop.open { display: flex; }
+@media (max-width: 680px) {
+  .pol-backdrop { align-items: flex-start; padding-top: 48px; }
+}
+
+/* —— 照片背面编辑器（拍立得背面：上半黑条 + 下方书写区，翻入动画）—— */
+.pol-editor {
+  width: min(380px, 92vw);
+  background: #f6f1e7;            /* 相纸 */
+  border-radius: 4px;
+  padding: 9px;                  /* 相纸白边 */
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  transform: rotateY(90deg) scale(0.92); opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0.15, 0.2, 1), opacity 0.35s ease;
+}
+.pol-backdrop.open .pol-editor { transform: rotateY(0) scale(1); opacity: 1; }
+
+/* 上半部分黑条：印着那句话 */
+.pol-ed-top {
+  position: relative;
+  background: #14110d; border-radius: 2px;
+  min-height: 96px;
+  padding: 20px 22px;
+  display: flex; align-items: center;
+}
+.pol-ed-lines { padding-right: 18px; }
+.pol-ed-line {
+  margin: 0; color: #e7dcc6;
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 17px; line-height: 1.5; letter-spacing: 0.2px;
+}
+.pol-ed-line-en {
+  margin: 5px 0 0; color: rgba(231, 220, 198, 0.58);
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 12.5px; line-height: 1.4; letter-spacing: 0.3px;
+}
+.pol-ed-x {
+  position: absolute; top: 7px; right: 9px;
+  border: none; background: transparent; cursor: pointer;
+  color: rgba(255, 255, 255, 0.5); font-size: 18px; line-height: 1; padding: 2px 6px; border-radius: 6px;
+}
+.pol-ed-x:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+/* 下方空白书写区 */
+.pol-ed-write { padding: 12px 13px 4px; }
+
+.pol-note {
+  display: block; width: 100%; min-height: 150px;
+  border: none; resize: vertical; outline: none; background: transparent;
+  color: #2c2a24; font-size: 24px; line-height: 34px;
+  background-image: repeating-linear-gradient(transparent, transparent 33px, rgba(0, 0, 0, 0.07) 33px, rgba(0, 0, 0, 0.07) 34px);
+}
+.pol-note::placeholder { color: #b3a890; font-style: italic; font-family: 'EB Garamond', serif; font-size: 16px; }
+
+.pol-ed-foot { display: flex; align-items: center; justify-content: space-between; margin: 8px 13px 4px; }
+.pol-ts { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; color: #a89a80; }
+.pol-saved { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; color: #6f9a6f; opacity: 0; transition: opacity 0.3s ease; }
+.pol-saved.show { opacity: 1; }
+
+/* —— 浮动锁（左下角，避开右下角的回到顶部按钮）—— */
+.pol-lock {
+  position: fixed; left: 18px; bottom: 18px; z-index: 1100;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(30, 28, 24, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 999px;
+  padding: 8px 14px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+/* 导语 + 钢笔笔尖 + 拍立得相机（Leo 的两件随身物） */
+.pol-lock-brand { display: inline-flex; align-items: center; gap: 7px; }
+.pol-lock-icons { display: inline-flex; align-items: center; gap: 5px; }
+.pol-lock-pen { display: block; transform: rotate(-16deg); filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4)); }
+.pol-lock-cam { display: block; filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.45)); }
+.pol-lock-tag { display: flex; flex-direction: column; line-height: 1.05; }
+.pol-lock-tag b { font-family: 'EB Garamond', serif; font-weight: 600; font-size: 13px; letter-spacing: 0.3px; color: #e7dcc6; }
+.pol-lock-tag i { font-family: 'EB Garamond', serif; font-style: italic; font-size: 9.5px; letter-spacing: 0.6px; color: rgba(231, 220, 198, 0.5); margin-top: 1px; }
+.pol-lock-sep { width: 1px; height: 22px; background: rgba(255, 255, 255, 0.15); }
+/* 「笔迹已验」状态：不抢眼，像一枚印鉴 */
+.pol-lock-state {
+  font-family: 'EB Garamond', serif; font-style: italic; font-size: 11.5px;
+  letter-spacing: 0.4px; color: rgba(231, 220, 198, 0.55);
+}
+@media (max-width: 480px) { .pol-lock-tag i { display: none; } }
+
+/* 右侧按钮：「底片匣」「封存」「Leo 的笔迹」—— 全部衬线斜体，和左边一个世界 */
+.pol-lk-btn {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 13.5px; letter-spacing: 0.2px;
+  border: none; border-radius: 999px;
+  padding: 4px 11px; cursor: pointer;
+  background: transparent; color: #c8bfa8;
+  transition: color 0.18s ease;
+}
+.pol-lk-btn:hover { color: #f0e8d4; }
+/* 「封存」用稍淡的色，区别于「底片匣」的主操作 */
+.pol-lk-seal { color: rgba(200, 191, 168, 0.6); }
+.pol-lk-seal:hover { color: rgba(240, 232, 212, 0.75); }
+
+/* 密码输入框（出现时替换整个右侧区域）*/
+.pol-pw {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 13.5px; letter-spacing: 0.2px;
+  padding: 5px 10px; border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.28); color: #efe6d2; width: 148px;
+}
+.pol-pw::placeholder { color: rgba(200, 191, 168, 0.55); font-style: italic; }
+.pol-go {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 13.5px; letter-spacing: 0.2px;
+  border: none; border-radius: 999px; padding: 5px 13px;
+  cursor: pointer; background: var(--c-accent); color: #fff;
+}
+
+/* —— 收纳盒（导出 / 导入面板，浮动锁正上方弹出）—— */
+.pol-box {
+  position: fixed; left: 18px; bottom: 70px; z-index: 1101;
+  width: 244px; display: none;
+  background: rgba(30, 28, 24, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 14px;
+  padding: 13px 14px 14px; box-shadow: 0 14px 38px rgba(0, 0, 0, 0.55);
+}
+.pol-box.open { display: block; animation: pol-box-in 0.25s ease; }
+@keyframes pol-box-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.pol-box-head { display: flex; align-items: center; justify-content: space-between; font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; color: #e7ded0; margin-bottom: 4px; }
+.pol-box-x { border: none; background: transparent; cursor: pointer; color: #b9b0a0; font-size: 18px; line-height: 1; padding: 0 4px; }
+.pol-box-x:hover { color: #fff; }
+.pol-box-count { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: #a89a80; margin: 0 0 10px; }
+
+.pol-box-btn {
+  display: block; width: 100%; text-align: left;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 9px;
+  padding: 9px 12px; margin-bottom: 8px; cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.pol-box-btn:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.24); }
+.pol-box-btn b { display: block; font-family: 'EB Garamond', serif; font-weight: 600; font-size: 15px; color: #efe8da; }
+.pol-box-btn small { display: block; margin-top: 2px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 11.5px; line-height: 1.35; color: #9a8f7c; }
+.pol-box-msg { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; line-height: 1.45; color: #8fae8f; margin: 4px 0 0; min-height: 1em; opacity: 0; transition: opacity 0.3s ease; }
+.pol-box-msg.show { opacity: 1; }

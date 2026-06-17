@@ -3,7 +3,7 @@ layout: post
 title: "我们最后的日子"
 date: 2017-02-01
 image: our-last-days.jpg
-tags: [novel, 中文, love]
+tags: [缱绻, 怅惘]
 categories: Novel
 summary: "唯有爱永恒，直到我们最后的日子。"
 ---

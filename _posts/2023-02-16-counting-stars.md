@@ -3,7 +3,7 @@ layout: post
 title: "Counting Stars"
 date: 2023-02-16
 image: counting-stars-through-window.jpg
-tags: [lyrics, translation, English, 中文]
+tags: [思念]
 categories: Lyrics
 summary: "我会整夜不睡，数着星星，等你回家。"
 ---

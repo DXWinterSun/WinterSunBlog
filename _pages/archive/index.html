@@ -49,31 +49,53 @@ nav_active: archive
     {% endfor %}
   </div>
 
-  {% comment %} ===== BY MOOD ===== {% endcomment %}
-  {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-  {% assign tag_words = site_tags | split:',' | sort %}
-
+  {% comment %}
+    ===== BY MOOD =====
+    情绪是一条独立于「体裁 / 系列 / Sam」的轴：色板与顺序在 _data/moods.yml 里维护，
+    各篇 front matter 的 tags 只写情绪中文名（如「炽恋」）。这里按色板顺序渲染，
+    没有任何文章的情绪自动跳过，pill 与小标题用各自的配色。
+  {% endcomment %}
   <div class="c-archive-panel" data-archive-panel="mood" hidden>
     <ul class="c-archive-tags" role="tablist">
-      {% for w in tag_words %}
+      {% assign shown = 0 %}
+      {% for mood in site.data.moods %}
+      {% assign n = site.tags[mood.cn].size %}
+      {% if n > 0 %}
+      {% assign shown = shown | plus: 1 %}
       <li>
-        <button type="button" class="c-archive-tag-pill{% if forloop.first %} is-active{% endif %}" data-archive-tag="{{ w | cgi_escape }}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
-          {{ w }} <span>{{ site.tags[w].size }}</span>
+        <button type="button"
+                class="c-archive-tag-pill{% if shown == 1 %} is-active{% endif %}"
+                style="--mood: {{ mood.hex }};"
+                data-archive-tag="{{ mood.cn | cgi_escape }}"
+                role="tab" aria-selected="{% if shown == 1 %}true{% else %}false{% endif %}"
+                title="{{ mood.color_cn }} · {{ mood.color_en }} {{ mood.hex }}">
+          <span class="c-archive-tag-pill__cn">{{ mood.cn }}</span>
+          <span class="c-archive-tag-pill__en">{{ mood.en }}</span>
+          <span class="c-archive-tag-pill__count">{{ n }}</span>
         </button>
       </li>
+      {% endif %}
       {% endfor %}
     </ul>
 
-    {% for w in tag_words %}
+    {% assign shown = 0 %}
+    {% for mood in site.data.moods %}
+    {% assign n = site.tags[mood.cn].size %}
+    {% if n > 0 %}
+    {% assign shown = shown | plus: 1 %}
     <div class="c-archive-tag-content"
-         data-archive-tag-content="{{ w | cgi_escape }}"
-         {% unless forloop.first %}hidden{% endunless %}>
+         style="--mood: {{ mood.hex }};"
+         data-archive-tag-content="{{ mood.cn | cgi_escape }}"
+         {% unless shown == 1 %}hidden{% endunless %}>
       <div class="c-archive__heading">
-        <span class="c-archive__year-num">{{ w }}</span>
-        <span class="c-archive__year-meta">{{ site.tags[w].size }} {% if site.tags[w].size == 1 %}story{% else %}stories{% endif %}</span>
+        <span class="c-archive__year-num">{{ mood.cn }} <em class="c-archive__mood-en">{{ mood.en }}</em></span>
+        <span class="c-archive__year-meta">
+          <span class="c-archive__swatch" aria-hidden="true"></span>{{ mood.color_cn }} · {{ mood.color_en }}
+          &nbsp;·&nbsp;{{ n }} {% if n == 1 %}story{% else %}stories{% endif %}
+        </span>
       </div>
       <ul class="c-archive__list">
-        {% for post in site.tags[w] %}{% if post.title %}
+        {% for post in site.tags[mood.cn] %}{% if post.title %}
         <li class="c-archive__item">
           <span class="c-archive__date">{{ post.date | date: '%Y, %b %d' }}</span>
           <a class="c-archive__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -82,6 +104,7 @@ nav_active: archive
         {% endif %}{% endfor %}
       </ul>
     </div>
+    {% endif %}
     {% endfor %}
   </div>
 

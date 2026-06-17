@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · First Day on the Heart of Gold — Zaphod AU"
 date: 2026-05-09
 image: zaphod-au.jpg
-tags: [Sam, AU, "Hitchhiker's Guide", 中文]
+tags: [悸动, 炽恋]
 categories: ["AU Story"]
 series: "Zaphod AU"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"

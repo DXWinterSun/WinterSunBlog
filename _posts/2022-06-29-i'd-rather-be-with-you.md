@@ -3,7 +3,7 @@ layout: post
 title: "I’d Rather Be with You"
 date: 2022-06-29
 image: waterside.png
-tags: [lyrics, translation, English, 中文, love]
+tags: [缱绻]
 categories: Lyrics
 summary: "这首歌如此温柔、诚挚，就像我对他的爱一般。"
 ---
