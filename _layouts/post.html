@@ -1,6 +1,8 @@
 ---
 layout: home
 ---
+{%- assign pal = site.data.au_palettes[page.series] -%}
+{%- if pal %}{% include au-palette-style.html pal=pal %}{% endif -%}
 <article class="c-article">
   <div class="c-article__content">
     <header class="c-header u-hide u-no-margin-top">
@@ -28,6 +30,12 @@ layout: home
           <span class="c-chapter-return__title">{{ page.series_title | default: page.series }}</span>
         </span>
       </a>
+      {% endif %}
+      {% if pal %}
+      <div class="au-tag" aria-label="系列配色">
+        <span class="au-tag__chips"><span class="au-tag__chip" style="background: {{ pal.accent }}"></span><span class="au-tag__chip" style="background: {{ pal.bg }}"></span></span>
+        <span class="au-tag__names">{{ pal.accent_cn }} · {{ pal.bg_cn }}</span>
+      </div>
       {% endif %}
       <header class="c-article__header">
         <h1 class="c-article__title">{{page.title}}</h1>

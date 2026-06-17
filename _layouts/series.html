@@ -1,6 +1,8 @@
 ---
 layout: home
 ---
+{%- assign pal = site.data.au_palettes[page.series_name] -%}
+{%- if pal %}{% include au-palette-style.html pal=pal %}{% endif -%}
 {{ content }}
 
 {% comment %}
@@ -12,6 +14,25 @@ layout: home
 {% if page.series_name %}
 {% assign all_series_posts = site.posts | where: "series", page.series_name | sort: "series_order" %}
 {% assign chapters = all_series_posts | where_exp: "item", "item.is_overview != true" %}
+{% if pal %}
+<aside class="au-card" aria-label="系列配色 · Palette">
+  <div class="au-card__eyebrow">— Palette —</div>
+  <div class="au-card__row">
+    <span class="au-card__chip" style="background: {{ pal.accent }}"></span>
+    <div>
+      <div class="au-card__cn">{{ pal.accent_cn }}</div>
+      <div class="au-card__en" style="color: {{ pal.accent }}">{{ pal.accent_en }}</div>
+    </div>
+  </div>
+  <div class="au-card__row">
+    <span class="au-card__chip" style="background: {{ pal.bg }}"></span>
+    <div>
+      <div class="au-card__cn">{{ pal.bg_cn }}</div>
+      <div class="au-card__en" style="color: #b6ac9d">{{ pal.bg_en }}</div>
+    </div>
+  </div>
+</aside>
+{% endif %}
 <section class="c-sam-collection" id="chapters">
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">Chapters</h3>
