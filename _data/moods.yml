@@ -41,11 +41,11 @@
   hex: "#8a474b"
 - cn: 怀旧
   en: Nostalgia
-  color_cn: 琥珀
-  color_en: Amber
-  hex: "#b1875a"
-- cn: 絮语
-  en: Reverie
   color_cn: 旧影
   color_en: Faded Reel
   hex: "#c8b07e"
+- cn: 絮语
+  en: Reverie
+  color_cn: 琥珀
+  color_en: Amber
+  hex: "#b1875a"
