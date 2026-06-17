@@ -183,7 +183,7 @@
   }
   function showPwInput() {
     var setting = !hasPass();
-    lockEl.innerHTML = '<input class="pol-pw" type="password" placeholder="' + (setting ? "写下一个密码……" : "写下你的密码……") + '"><button class="pol-go" type="button">' + (setting ? "印记" : "验明") + "</button>";
+    lockEl.innerHTML = '<input class="pol-pw" type="password" placeholder="' + (setting ? "落下你的笔迹……" : "写下你的笔迹……") + '"><button class="pol-go" type="button">' + (setting ? "印记" : "验明") + "</button>";
     var pw = lockEl.querySelector(".pol-pw"); pw.focus();
     function submit() {
       var v = pw.value.trim(); if (!v) return;
