@@ -3,7 +3,7 @@ layout: post
 title: "Hello, Deer"
 date: 2022-11-30
 image: marguerite.jpg
-tags: [daily, 中文]
+tags: [缱绻]
 categories: Daily
 summary: "Hello, Deer. Hello, dear."
 ---

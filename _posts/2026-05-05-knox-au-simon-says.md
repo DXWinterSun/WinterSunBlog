@@ -3,7 +3,7 @@ layout: post
 title: "Simon Says — Knox AU"
 date: 2026-05-05
 image: knox-au.jpg
-tags: [Sam, AU, "Charlie's Angels", 中文]
+tags: [暗涌, 悸动]
 categories: ["AU Story"]
 series: "Knox AU"
 series_title: "Simon Says · Eric Knox AU"

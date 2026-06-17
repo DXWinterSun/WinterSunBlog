@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 9 · Build a Home — Sam Bell · Moon AU"
 date: 2026-05-02 00:00:00
 image: sam-bell-au.jpg
-tags: [Sam, AU, Moon, 中文]
+tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
 series_title: "Far Side · Sam Bell AU"

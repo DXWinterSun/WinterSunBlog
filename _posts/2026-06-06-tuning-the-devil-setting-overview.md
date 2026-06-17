@@ -9,7 +9,7 @@ series_title: 'Tuning the Devil · William "Wild Bill" Wharton AU'
 series_order: 0
 is_overview: true
 summary: "本系列世界观、人物与基调一览"
-tags: [山姆罗克韦尔, AU, 同人, 天使恶魔, 设定]
+tags: [暗涌, 悸动]
 ---
 
 ## 一句话设定

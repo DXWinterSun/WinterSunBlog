@@ -1,0 +1,51 @@
+# Archive › By Mood 的情绪色板（顺序即展示顺序，从烫到静）
+# cn        = 情绪名，也是各篇 front matter `tags:` 里写的值（唯一的 key）
+# en        = 情绪英文名
+# color_cn  = 配色的中文名（有巧思）
+# color_en  = 配色的英文名
+# hex       = 色值，pill 选中态填充 / 小标题强调都用它
+- cn: 炽恋
+  en: Ardent
+  color_cn: 丹心
+  color_en: Crimson Heart
+  hex: "#c2483a"
+- cn: 悸动
+  en: Flutter
+  color_cn: 桃灼
+  color_en: Peach Blossom
+  hex: "#d98b76"
+- cn: 缱绻
+  en: Entwined
+  color_cn: 绕指
+  color_en: Around a Finger
+  hex: "#c2788a"
+- cn: 思念
+  en: Longing
+  color_cn: 隔水
+  color_en: Across the Water
+  hex: "#7e95ab"
+- cn: 安放
+  en: Solace
+  color_cn: 停泊
+  color_en: Safe Harbour
+  hex: "#7f9676"
+- cn: 怅惘
+  en: Wistful
+  color_cn: 散场
+  color_en: After the Credits
+  hex: "#948da0"
+- cn: 暗涌
+  en: Undertow
+  color_cn: 暗潮
+  color_en: Riptide
+  hex: "#8a474b"
+- cn: 怀旧
+  en: Nostalgia
+  color_cn: 琥珀
+  color_en: Amber
+  hex: "#b1875a"
+- cn: 絮语
+  en: Reverie
+  color_cn: 旧影
+  color_en: Faded Reel
+  hex: "#c8b07e"

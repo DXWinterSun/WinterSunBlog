@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · The Pit — A Single Shot AU"
 date: 2026-05-02
 image: a-single-shot-au.jpg
-tags: [Sam, AU, "A Single Shot", 中文]
+tags: [暗涌, 缱绻]
 categories: ["AU Story"]
 series: "A Single Shot AU"
 series_title: "Into the Mountain · John Moon AU"

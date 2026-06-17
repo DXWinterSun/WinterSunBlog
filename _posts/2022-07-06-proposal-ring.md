@@ -3,7 +3,7 @@ layout: post
 title: "求婚戒指"
 date: 2022-07-06
 image: hug-on-couch.jpg
-tags: [novel, 中文, love]
+tags: [炽恋, 缱绻]
 categories: Novel
 summary: "依偎在他怀里，戴着戒指的手彼此紧握，她唯独希望，能留在此刻。"
 ---

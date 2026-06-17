@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 1 · 循声而来 — Tuning the Devil"
 date: 2026-06-06
-tags: [Sam Rockwell, The Green Mile, Wild Bill Wharton, AU, 中文]
+tags: [暗涌, 悸动]
 categories: ["AU Story"]
 series: "Tuning the Devil"
 series_title: 'Tuning the Devil · William "Wild Bill" Wharton AU'

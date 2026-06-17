@@ -3,7 +3,7 @@ layout: post
 title: "坐在楼梯上的女孩"
 date: 2017-03-18
 image: girl-on-stair.jpg
-tags: [novel, 中文]
+tags: [怀旧, 怅惘]
 categories: Novel
 summary: "她好像曾经来过，但回忆不记得。"
 ---

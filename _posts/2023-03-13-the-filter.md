@@ -3,7 +3,7 @@ layout: post
 title: "滤镜"
 date: 2023-03-13
 image: bedroom.jpg
-tags: [GC, daily, 中文]
+tags: [缱绻, 絮语]
 categories: Daily
 summary: "我喜欢滤镜，但我更喜欢的是和他一起，没有滤镜却也无比美好的现世生活。"
 ---
