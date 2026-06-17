@@ -12,6 +12,8 @@
   var NOTE_FONT = "'Caveat','Ma Shan Zheng',cursive";
   var FONT_LINK = "https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Ma+Shan+Zheng&display=swap";
   var LONGPRESS_MS = 480;
+  // 拍立得背面黑条上印着的一句话（仪式感所在，想换就改这里）：
+  var NOTE_TAGLINE = "趁我还记得，把它写在背面。";
 
   /* ========== 存储键 ========== */
   var LS_NOTES = "wiw-pol-notes";
@@ -51,17 +53,22 @@
     backdrop = document.createElement("div");
     backdrop.className = "pol-backdrop";
     backdrop.innerHTML =
-      '<div class="pol-editor" role="dialog" aria-label="背面批注">' +
-        '<div class="pol-ed-head"><span class="pol-ed-title">背面 · 批注</span>' +
-        '<button class="pol-ed-x" type="button" title="翻回" aria-label="翻回">↩</button></div>' +
-        '<textarea class="pol-note" spellcheck="false"></textarea>' +
-        '<div class="pol-ed-foot"><span class="pol-ts"></span><span class="pol-saved">已保存 ✓</span></div>' +
+      '<div class="pol-editor" role="dialog" aria-label="照片背面">' +
+        '<div class="pol-ed-top">' +
+          '<button class="pol-ed-x" type="button" title="翻回" aria-label="翻回">↩</button>' +
+          '<p class="pol-ed-line"></p>' +
+        '</div>' +
+        '<div class="pol-ed-write">' +
+          '<textarea class="pol-note" spellcheck="false"></textarea>' +
+          '<div class="pol-ed-foot"><span class="pol-ts"></span><span class="pol-saved">已保存 ✓</span></div>' +
+        '</div>' +
       '</div>';
     document.body.appendChild(backdrop);
     note = backdrop.querySelector(".pol-note");
     tsEl = backdrop.querySelector(".pol-ts");
     savedEl = backdrop.querySelector(".pol-saved");
     note.style.fontFamily = NOTE_FONT;
+    backdrop.querySelector(".pol-ed-line").textContent = NOTE_TAGLINE;
     backdrop.querySelector(".pol-ed-x").addEventListener("click", closeEditor);
     backdrop.addEventListener("click", function (e) { if (e.target === backdrop) closeEditor(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeEditor(); });
@@ -84,7 +91,7 @@
     var n = Store.get(id);
     note.value = n.text;
     note.readOnly = !unlocked;
-    note.placeholder = unlocked ? "在这里写点什么…" : "🔒 解锁后可编辑";
+    note.placeholder = unlocked ? "写下你不想忘记的……" : "🔒 解锁后可编辑";
     tsEl.textContent = n.ts ? "上次编辑 " + fmt(n.ts) : "";
     backdrop.classList.add("open");
     if (unlocked) setTimeout(function () { note.focus(); }, 420);
