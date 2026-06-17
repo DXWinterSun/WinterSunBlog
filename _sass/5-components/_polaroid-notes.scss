@@ -29,37 +29,50 @@
   .pol-backdrop { align-items: flex-start; padding-top: 48px; }
 }
 
-/* —— 照片背面编辑器（翻入动画）—— */
+/* —— 照片背面编辑器（拍立得背面：上半黑条 + 下方书写区，翻入动画）—— */
 .pol-editor {
-  width: min(390px, 92vw);
-  background: #f3ece0; border-radius: 6px;
-  padding: 14px 16px 16px;
+  width: min(380px, 92vw);
+  background: #f6f1e7;            /* 相纸 */
+  border-radius: 4px;
+  padding: 9px;                  /* 相纸白边 */
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
   transform: rotateY(90deg) scale(0.92); opacity: 0;
   transition: transform 0.5s cubic-bezier(0.4, 0.15, 0.2, 1), opacity 0.35s ease;
 }
 .pol-backdrop.open .pol-editor { transform: rotateY(0) scale(1); opacity: 1; }
 
-.pol-ed-head {
-  display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px dashed #cbbfa9; padding-bottom: 8px; margin-bottom: 10px;
+/* 上半部分黑条：印着那句话 */
+.pol-ed-top {
+  position: relative;
+  background: #14110d; border-radius: 2px;
+  min-height: 96px;
+  padding: 20px 22px;
+  display: flex; align-items: center;
 }
-.pol-ed-title { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: #8a7c5f; }
+.pol-ed-line {
+  margin: 0; color: #e7dcc6;
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 17px; line-height: 1.55; letter-spacing: 0.2px;
+}
 .pol-ed-x {
+  position: absolute; top: 7px; right: 9px;
   border: none; background: transparent; cursor: pointer;
-  color: #8a7c5f; font-size: 18px; line-height: 1; padding: 2px 6px; border-radius: 6px;
+  color: rgba(255, 255, 255, 0.5); font-size: 18px; line-height: 1; padding: 2px 6px; border-radius: 6px;
 }
-.pol-ed-x:hover { color: #5c4f37; background: rgba(0, 0, 0, 0.05); }
+.pol-ed-x:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+/* 下方空白书写区 */
+.pol-ed-write { padding: 12px 13px 4px; }
 
 .pol-note {
-  display: block; width: 100%; min-height: 180px;
+  display: block; width: 100%; min-height: 150px;
   border: none; resize: vertical; outline: none; background: transparent;
-  color: #33302a; font-size: 24px; line-height: 34px;
+  color: #2c2a24; font-size: 24px; line-height: 34px;
   background-image: repeating-linear-gradient(transparent, transparent 33px, rgba(0, 0, 0, 0.07) 33px, rgba(0, 0, 0, 0.07) 34px);
 }
 .pol-note::placeholder { color: #b3a890; font-style: italic; font-family: 'EB Garamond', serif; font-size: 16px; }
 
-.pol-ed-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+.pol-ed-foot { display: flex; align-items: center; justify-content: space-between; margin: 8px 13px 4px; }
 .pol-ts { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; color: #a89a80; }
 .pol-saved { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; color: #6f9a6f; opacity: 0; transition: opacity 0.3s ease; }
 .pol-saved.show { opacity: 1; }
