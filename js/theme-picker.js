@@ -127,7 +127,7 @@
       }
     },
     {
-      id: 'vermilion', name: '朱砂', mood: '热烈 · 张扬',
+      id: 'vermilion', name: '朱砂流丹', mood: '热烈 · 张扬',
       light: {
         bg:'#fef2ef', bgSoft:'#fff5f3', paper:'#ffffff',
         ink:'#241410', inkSoft:'#4a2820', muted:'#a06858', mutedSoft:'#c8a090',
@@ -144,7 +144,7 @@
       }
     },
     {
-      id: 'mono', name: '墨白', mood: '极简 · 克制',
+      id: 'mono', name: '墨分五彩', mood: '极简 · 克制',
       light: {
         bg:'#f8f8f6', bgSoft:'#fafaf8', paper:'#ffffff',
         ink:'#1a1a18', inkSoft:'#363632', muted:'#888880', mutedSoft:'#b8b8b0',
@@ -275,16 +275,10 @@
   var hueSliderEl = null; // set after UI build
 
   // ── UI ────────────────────────────────────────────────────────────────────
-
-  var ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.12A1.64 1.64 0 0 1 14.43 16h1.99c3.05 0 5.58-2.51 5.58-5.56C22 6.01 17.46 2 12 2z"/><circle cx="8" cy="9" r="1.5" fill="currentColor" stroke="none"/><circle cx="13" cy="7" r="1.5" fill="currentColor" stroke="none"/><circle cx="16.5" cy="11" r="1.5" fill="currentColor" stroke="none"/><circle cx="11" cy="14" r="1.5" fill="currentColor" stroke="none"/></svg>';
+  // The trigger button lives in header.html; we only build the panel here.
 
   function buildUI() {
-    var trigger = document.createElement('button');
-    trigger.className = 'c-palette-trigger';
-    trigger.id = 'js-palette-trigger';
-    trigger.setAttribute('aria-label', '换个心情 · 配色主题');
-    trigger.setAttribute('title', '换个心情');
-    trigger.innerHTML = ICON;
+    var trigger = document.getElementById('js-palette-trigger');
 
     var panel = document.createElement('div');
     panel.className = 'c-palette-panel';
@@ -322,7 +316,6 @@
         '<button class="c-palette-panel__reset" id="js-palette-reset">还原默认配色</button>' +
       '</div>';
 
-    document.body.appendChild(trigger);
     document.body.appendChild(panel);
     return { trigger: trigger, panel: panel };
   }

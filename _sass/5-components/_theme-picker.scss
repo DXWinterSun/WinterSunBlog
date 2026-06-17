@@ -2,34 +2,36 @@
    THEME PICKER
 ============================ */
 
-// ── Floating trigger button ──────────────────────────────────────────────────
+// ── Trigger button (lives in the header, next to the dark mode toggle) ──────
 
 .c-palette-trigger {
-  position: fixed;
-  bottom: 4.5rem;    // sits above the scroll-to-top button
-  right: 1rem;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
-  background: var(--c-paper);
-  border: 1px solid var(--c-line-strong);
-  box-shadow: 0 2px 10px rgba(var(--rgb-shadow), 0.14);
-  cursor: pointer;
-  display: flex;
+  flex-shrink: 0;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--c-muted);
-  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.18s;
-  z-index: 60;
-
-  svg { display: block; }
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid $line;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  transition: $global-transition;
+  user-select: none;
 
   &:hover,
   &[aria-expanded="true"] {
-    background: var(--c-accent);
-    border-color: var(--c-accent);
-    color: #fff;
-    transform: scale(1.1) rotate(12deg);
+    border-color: $accent-soft;
+    background-color: rgba(var(--rgb-accent), 0.06);
+    transform: rotate(20deg) scale(1.05);
+  }
+
+  @media only screen and (max-width: 480px) {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
   }
 }
 
