@@ -202,50 +202,52 @@
   }
 
   // ── UI ────────────────────────────────────────────────────────────────────
-  // Trigger lives in header.html; we only build the panel here.
+  // Trigger lives in header.html; we only build the overlay here.
+
+  var PERFS = '<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>';
 
   function buildUI() {
     var trigger = document.getElementById('js-palette-trigger');
 
-    var panel = document.createElement('div');
-    panel.className = 'c-palette-panel';
-    panel.id = 'js-palette-panel';
-    panel.setAttribute('role', 'dialog');
-    panel.setAttribute('aria-label', '配色主题');
-    panel.setAttribute('aria-hidden', 'true');
+    var overlay = document.createElement('div');
+    overlay.className = 'c-palette-overlay';
+    overlay.id = 'js-palette-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
 
-    // Swatch grid — dark bg + accent chip so it reads like the gallery
-    var grid = '';
+    // Film strip cards — one per character theme
+    var cards = '';
     THEMES.forEach(function (t) {
-      grid += '<button class="c-palette-swatch" data-theme-id="' + t.id + '" aria-label="' + t.name + '">' +
-        '<span class="c-palette-swatch__chip" style="--sw-bg:' + t.bg + ';--sw-ac:' + t.accent + '"></span>' +
-        '<span class="c-palette-swatch__name">' + t.name + '</span>' +
+      cards +=
+        '<button class="c-palette-card" data-theme-id="' + t.id + '" aria-label="' + t.name + '"' +
+          ' style="--card-bg:' + t.bg + ';--card-ac:' + t.accent + '">' +
+          '<span class="c-palette-card__perfs">' + PERFS + '</span>' +
+          '<span class="c-palette-card__body">' +
+            '<span class="c-palette-card__dot"></span>' +
+            '<span class="c-palette-card__name">' + t.name + '</span>' +
+          '</span>' +
+          '<span class="c-palette-card__perfs">' + PERFS + '</span>' +
         '</button>';
     });
 
-    panel.innerHTML =
-      '<div class="c-palette-panel__inner">' +
-        '<div class="c-palette-panel__header">' +
-          '<span class="c-palette-panel__title">换个心情</span>' +
-          '<button class="c-palette-panel__close" id="js-palette-close" aria-label="关闭">✕</button>' +
+    overlay.innerHTML =
+      '<div class="c-palette-modal" role="dialog" aria-label="配色主题 · 换个心情">' +
+        '<div class="c-palette-modal__header">' +
+          '<span class="c-palette-modal__title">换个心情 · Many Faces</span>' +
+          '<button class="c-palette-modal__close" id="js-palette-close" aria-label="关闭">✕</button>' +
         '</div>' +
-        '<section class="c-palette-section">' +
-          '<p class="c-palette-section__label">Many Faces · 角色配色</p>' +
-          '<div class="c-palette-grid" id="js-palette-grid">' + grid + '</div>' +
-        '</section>' +
-        '<section class="c-palette-section">' +
-          '<p class="c-palette-section__label">自定义强调色</p>' +
-          '<div class="c-palette-custom">' +
-            '<input type="range" class="c-palette-hue" id="js-palette-hue" min="0" max="359" value="0" aria-label="色相">' +
-            '<div class="c-palette-custom__preview" id="js-palette-preview"></div>' +
-          '</div>' +
-          '<p class="c-palette-section__hint">仅调整强调色，背景保持中性</p>' +
-        '</section>' +
-        '<button class="c-palette-panel__reset" id="js-palette-reset">还原默认配色</button>' +
+        '<div class="c-palette-modal__body">' +
+          '<div class="c-palette-cards" id="js-palette-grid">' + cards + '</div>' +
+        '</div>' +
+        '<div class="c-palette-modal__footer">' +
+          '<span class="c-palette-footer__label">自定义色</span>' +
+          '<input type="range" class="c-palette-hue" id="js-palette-hue" min="0" max="359" value="0" aria-label="自定义色相">' +
+          '<div class="c-palette-custom__preview" id="js-palette-preview"></div>' +
+          '<button class="c-palette-panel__reset" id="js-palette-reset">还原默认</button>' +
+        '</div>' +
       '</div>';
 
-    document.body.appendChild(panel);
-    return { trigger: trigger, panel: panel };
+    document.body.appendChild(overlay);
+    return { trigger: trigger, overlay: overlay };
   }
 
   function updateHuePreview(hue) {
@@ -262,29 +264,29 @@
     });
   }
 
-  function initEvents(trigger, panel) {
+  function initEvents(trigger, overlay) {
     var open = false;
 
-    function openPanel()  {
+    function openOverlay() {
       open = true;
-      panel.classList.add('is-open');
-      panel.setAttribute('aria-hidden', 'false');
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
       trigger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
       updateSwatchStates();
     }
-    function closePanel() {
+    function closeOverlay() {
       open = false;
-      panel.classList.remove('is-open');
-      panel.setAttribute('aria-hidden', 'true');
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
       trigger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
 
-    trigger.addEventListener('click', function (e) { e.stopPropagation(); open ? closePanel() : openPanel(); });
-    document.getElementById('js-palette-close').addEventListener('click', closePanel);
-    document.addEventListener('click', function (e) {
-      if (open && !panel.contains(e.target) && e.target !== trigger) closePanel();
-    });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) closePanel(); });
+    trigger.addEventListener('click', function (e) { e.stopPropagation(); open ? closeOverlay() : openOverlay(); });
+    document.getElementById('js-palette-close').addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closeOverlay(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) closeOverlay(); });
 
     document.getElementById('js-palette-grid').addEventListener('click', function (e) {
       var btn = e.target.closest('[data-theme-id]');
@@ -328,7 +330,7 @@
     } catch (e) {}
 
     var ui = buildUI();
-    initEvents(ui.trigger, ui.panel);
+    initEvents(ui.trigger, ui.overlay);
   }
 
   if (document.readyState === 'loading') {
