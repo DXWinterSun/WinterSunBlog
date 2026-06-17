@@ -91,9 +91,11 @@
   border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 999px;
   padding: 8px 14px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
-/* 导语 + 钢笔笔尖 */
+/* 导语 + 钢笔笔尖 + 拍立得相机（Leo 的两件随身物） */
 .pol-lock-brand { display: inline-flex; align-items: center; gap: 7px; }
+.pol-lock-icons { display: inline-flex; align-items: center; gap: 5px; }
 .pol-lock-pen { display: block; transform: rotate(-16deg); filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4)); }
+.pol-lock-cam { display: block; filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.45)); }
 .pol-lock-tag { display: flex; flex-direction: column; line-height: 1.05; }
 .pol-lock-tag b { font-family: 'EB Garamond', serif; font-weight: 600; font-size: 13px; letter-spacing: 0.3px; color: #e7dcc6; }
 .pol-lock-tag i { font-family: 'EB Garamond', serif; font-style: italic; font-size: 9.5px; letter-spacing: 0.6px; color: rgba(231, 220, 198, 0.5); margin-top: 1px; }
