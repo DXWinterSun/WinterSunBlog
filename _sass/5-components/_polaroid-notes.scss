@@ -165,3 +165,60 @@
 .pol-box-btn small { display: block; margin-top: 2px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 11.5px; line-height: 1.35; color: #9a8f7c; }
 .pol-box-msg { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; line-height: 1.45; color: #8fae8f; margin: 4px 0 0; min-height: 1em; opacity: 0; transition: opacity 0.3s ease; }
 .pol-box-msg.show { opacity: 1; }
+
+/* ===============
+   幸运三事：左下角一张独立小拍立得（仅解锁可见）+ 翻开的三行编辑卡
+=============== */
+.pol-lucky {
+  position: fixed; left: 20px; bottom: 80px; z-index: 1099;
+  display: none;                 /* 解锁后由 JS 置为 flex */
+  flex-direction: column; align-items: stretch;
+  width: 138px; padding: 8px 8px 0;
+  background: #fbf9f3; border: none; border-radius: 3px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+  transform: rotate(-4deg); cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pol-lucky:hover { transform: rotate(-2deg) translateY(-3px); box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5); }
+.pol-lucky-photo {
+  display: flex; align-items: center; justify-content: center;
+  height: 82px; border-radius: 2px;
+  background: linear-gradient(145deg, #c9a16b 0%, #6b5e7a 55%, #3f4a63 100%);
+}
+.pol-lucky-star { font-size: 23px; color: rgba(255, 255, 255, 0.8); text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); }
+.pol-lucky-cap { display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 7px 2px 9px; }
+.pol-lucky-cap b { font-family: 'Ma Shan Zheng', cursive; font-size: 17px; color: #3a352c; line-height: 1; }
+.pol-lucky-cap i { font-family: 'EB Garamond', serif; font-style: italic; font-size: 10px; color: #9a8f7c; }
+@media (max-width: 480px) { .pol-lucky { width: 120px; bottom: 76px; } .pol-lucky-photo { height: 70px; } }
+
+/* 翻开的编辑卡（沿用相纸 + 黑条的语言）*/
+.pol-lucky-card {
+  width: min(380px, 92vw);
+  background: #f6f1e7; border-radius: 5px; padding: 9px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  transform: translateY(14px) scale(0.96); opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease;
+}
+.pol-backdrop.open .pol-lucky-card { transform: none; opacity: 1; }
+.pol-lucky-top {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #14110d; border-radius: 3px; padding: 9px 10px;
+}
+.pol-lucky-date { font-family: 'EB Garamond', serif; font-style: italic; font-size: 15px; letter-spacing: 0.3px; color: #e7dcc6; }
+.pol-lucky-nav { border: none; background: transparent; color: rgba(231, 220, 198, 0.55); font-size: 21px; line-height: 1; cursor: pointer; padding: 0 8px; }
+.pol-lucky-nav:hover { color: #fff; }
+.pol-lucky-body { padding: 14px 14px 2px; }
+.pol-lucky-row { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 11px; cursor: text; }
+.pol-lucky-no { flex: none; width: 22px; text-align: center; font-family: 'Ma Shan Zheng', cursive; font-size: 21px; color: #b08968; line-height: 1.35; }
+.pol-lucky-in {
+  flex: 1; border: none; outline: none; resize: none; background: transparent;
+  color: #33302a; font-size: 21px; line-height: 1.4; min-height: 30px; overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09); padding: 0 0 3px;
+}
+.pol-lucky-in::placeholder { color: #c4bba4; }
+.pol-lucky-foot { display: flex; align-items: center; justify-content: space-between; padding: 4px 14px 8px; }
+.pol-lucky-hint { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; color: #a89a80; }
+.pol-lucky-foot-r { display: inline-flex; align-items: center; gap: 12px; }
+.pol-lucky-saved { color: #6f9a6f; }
+.pol-lucky-x { border: none; background: transparent; cursor: pointer; font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: #8a7c5f; }
+.pol-lucky-x:hover { color: #5c4f37; }
