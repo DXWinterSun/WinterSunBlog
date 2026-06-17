@@ -14,7 +14,7 @@
   var LONGPRESS_MS = 480;
   // 拍立得背面黑条上印着的一句话（仪式感所在，想换就改这里）：
   var NOTE_TAGLINE = "趁我还记得，把它写在背面。";
-  var NOTE_TAGLINE_EN = "While I still remember, I write it on the back.";
+  var NOTE_TAGLINE_EN = "While it's still mine to remember.";
 
   /* ========== 存储键 ========== */
   var LS_NOTES = "wiw-pol-notes";
