@@ -15,6 +15,15 @@
   // 拍立得背面黑条上印着的一句话（仪式感所在，想换就改这里）：
   var NOTE_TAGLINE = "趁我还记得，把它写在背面。";
   var NOTE_TAGLINE_EN = "While it's still mine to remember.";
+  // 左下角浮标上的导语（钢笔旁的小字）：
+  var LOCK_LABEL = "记忆碎片";
+  var LOCK_LABEL_EN = "Memento";
+  // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
+  var PEN_SVG = '<svg class="pol-lock-pen" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">' +
+    '<path d="M12 2 C15.2 8 16.6 13.6 12 22 C7.4 13.6 8.8 8 12 2 Z" fill="#d8c6a2"/>' +
+    '<line x1="12" y1="8.4" x2="12" y2="19.6" stroke="#1e1c18" stroke-width="1.3" stroke-linecap="round"/>' +
+    '<circle cx="12" cy="7.4" r="1" fill="#1e1c18"/>' +
+    '</svg>';
 
   /* ========== 存储键 ========== */
   var LS_NOTES = "wiw-pol-notes";
@@ -143,10 +152,13 @@
   var lockEl;
   function buildLock() { lockEl = document.createElement("div"); lockEl.className = "pol-lock"; document.body.appendChild(lockEl); renderLock(); }
   function renderLock() {
+    var brand = '<span class="pol-lock-brand">' + PEN_SVG +
+      '<span class="pol-lock-tag"><b>' + LOCK_LABEL + '</b><i>' + LOCK_LABEL_EN + '</i></span></span>' +
+      '<span class="pol-lock-sep"></span>';
     if (unlocked) {
-      lockEl.innerHTML = '<span class="pol-lock-state">🔓 已解锁</span><button class="pol-lk-btn" type="button" data-act="box">📦 收纳盒</button><button class="pol-lk-btn" type="button" data-act="lock">锁定</button>';
+      lockEl.innerHTML = brand + '<span class="pol-lock-state">🔓 已解锁</span><button class="pol-lk-btn" type="button" data-act="box">📦 收纳盒</button><button class="pol-lk-btn" type="button" data-act="lock">锁定</button>';
     } else {
-      lockEl.innerHTML = '<button class="pol-lk-btn pol-lk-open" type="button">🔒 ' + (hasPass() ? "解锁" : "设密码") + "</button>";
+      lockEl.innerHTML = brand + '<button class="pol-lk-btn pol-lk-open" type="button">🔒 ' + (hasPass() ? "解锁" : "设密码") + "</button>";
     }
     var openBtn = lockEl.querySelector(".pol-lk-open");
     if (openBtn) openBtn.addEventListener("click", showPwInput);
