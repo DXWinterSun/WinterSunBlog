@@ -8,7 +8,7 @@
 
   /* ========== 你的配置 ========== */
   // ↓↓↓ 用文末小工具把你的密码转成哈希，替换下面这行的占位符：
-  var PASS_HASH = "PUT_YOUR_HASH_HERE";
+  var PASS_HASH = "2432187070";
   var NOTE_FONT = "'Caveat','Ma Shan Zheng',cursive";
   var FONT_LINK = "https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Ma+Shan+Zheng&display=swap";
   var LONGPRESS_MS = 480;
