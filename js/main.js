@@ -240,39 +240,82 @@ $(document).ready(function () {
     var panels = document.querySelectorAll('.c-archive-panel');
     if (!tabs.length || !panels.length) return;
 
+    var tagPills = document.querySelectorAll('.c-archive-tag-pill');
+    var tagContents = document.querySelectorAll('.c-archive-tag-content');
+
+    function activateView(view) {
+      var matched = false;
+      tabs.forEach(function (t) {
+        var match = t.getAttribute('data-archive-view') === view;
+        if (match) matched = true;
+        t.classList.toggle('is-active', match);
+        t.setAttribute('aria-selected', match ? 'true' : 'false');
+      });
+      if (!matched) return false;
+      panels.forEach(function (p) {
+        var match = p.getAttribute('data-archive-panel') === view;
+        if (match) p.removeAttribute('hidden');
+        else p.setAttribute('hidden', '');
+      });
+      return true;
+    }
+
+    function activateTag(tag) {
+      var matched = false;
+      tagPills.forEach(function (p) {
+        var match = p.getAttribute('data-archive-tag') === tag;
+        if (match) matched = true;
+        p.classList.toggle('is-active', match);
+        p.setAttribute('aria-selected', match ? 'true' : 'false');
+      });
+      if (!matched) return false;
+      tagContents.forEach(function (c) {
+        var match = c.getAttribute('data-archive-tag-content') === tag;
+        if (match) c.removeAttribute('hidden');
+        else c.setAttribute('hidden', '');
+      });
+      return true;
+    }
+
+    // Persist the current tab (and selected mood) in the URL so a refresh
+    // stays put. Mirrors the homepage's ?cat= / ?view= approach.
+    function syncUrl() {
+      if (!(window.history && window.history.replaceState)) return;
+      var activeTab = document.querySelector('.c-archive-tab.is-active');
+      var view = activeTab ? activeTab.getAttribute('data-archive-view') : 'year';
+      var params = new URLSearchParams(window.location.search);
+      if (view === 'year') { params.delete('view'); } else { params.set('view', view); }
+      var activePill = document.querySelector('.c-archive-tag-pill.is-active');
+      if (view === 'mood' && activePill) {
+        params.set('tag', activePill.getAttribute('data-archive-tag'));
+      } else {
+        params.delete('tag');
+      }
+      var qs = params.toString();
+      window.history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
+    }
+
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
-        var view = tab.getAttribute('data-archive-view');
-        tabs.forEach(function (t) {
-          var match = t.getAttribute('data-archive-view') === view;
-          t.classList.toggle('is-active', match);
-          t.setAttribute('aria-selected', match ? 'true' : 'false');
-        });
-        panels.forEach(function (p) {
-          var match = p.getAttribute('data-archive-panel') === view;
-          if (match) p.removeAttribute('hidden');
-          else p.setAttribute('hidden', '');
-        });
+        activateView(tab.getAttribute('data-archive-view'));
+        syncUrl();
       });
     });
 
-    var tagPills = document.querySelectorAll('.c-archive-tag-pill');
-    var tagContents = document.querySelectorAll('.c-archive-tag-content');
     tagPills.forEach(function (pill) {
       pill.addEventListener('click', function () {
-        var tag = pill.getAttribute('data-archive-tag');
-        tagPills.forEach(function (p) {
-          var match = p.getAttribute('data-archive-tag') === tag;
-          p.classList.toggle('is-active', match);
-          p.setAttribute('aria-selected', match ? 'true' : 'false');
-        });
-        tagContents.forEach(function (c) {
-          var match = c.getAttribute('data-archive-tag-content') === tag;
-          if (match) c.removeAttribute('hidden');
-          else c.setAttribute('hidden', '');
-        });
+        activateTag(pill.getAttribute('data-archive-tag'));
+        syncUrl();
       });
     });
+
+    // Restore the chosen view / mood from the URL on load.
+    var initParams = new URLSearchParams(window.location.search);
+    if (initParams.get('view') === 'mood') {
+      activateView('mood');
+      var initTag = initParams.get('tag');
+      if (initTag) activateTag(initTag);
+    }
   })();
 
   /* =======================
