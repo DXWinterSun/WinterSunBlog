@@ -135,14 +135,16 @@
   function buildLock() { lockEl = document.createElement("div"); lockEl.className = "pol-lock"; document.body.appendChild(lockEl); renderLock(); }
   function renderLock() {
     if (unlocked) {
-      lockEl.innerHTML = '<span class="pol-lock-state">🔓 已解锁</span><button class="pol-lk-btn" type="button" data-act="lock">锁定</button>';
+      lockEl.innerHTML = '<span class="pol-lock-state">🔓 已解锁</span><button class="pol-lk-btn" type="button" data-act="box">📦 收纳盒</button><button class="pol-lk-btn" type="button" data-act="lock">锁定</button>';
     } else {
       lockEl.innerHTML = '<button class="pol-lk-btn pol-lk-open" type="button">🔒 ' + (hasPass() ? "解锁" : "设密码") + "</button>";
     }
     var openBtn = lockEl.querySelector(".pol-lk-open");
     if (openBtn) openBtn.addEventListener("click", showPwInput);
     var lockBtn = lockEl.querySelector('[data-act="lock"]');
-    if (lockBtn) lockBtn.addEventListener("click", function () { localStorage.removeItem(LS_UNLOCK); unlocked = false; renderLock(); });
+    if (lockBtn) lockBtn.addEventListener("click", function () { localStorage.removeItem(LS_UNLOCK); unlocked = false; if (boxEl) boxEl.classList.remove("open"); renderLock(); });
+    var boxBtn = lockEl.querySelector('[data-act="box"]');
+    if (boxBtn) boxBtn.addEventListener("click", toggleBox);
   }
   function showPwInput() {
     var setting = !hasPass();
@@ -160,6 +162,86 @@
     }
     lockEl.querySelector(".pol-go").addEventListener("click", submit);
     pw.addEventListener("keydown", function (e) { if (e.key === "Enter") submit(); });
+  }
+
+  /* ========== 收纳盒：导出 / 导入（设备间搬家）========== */
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function noteCount() {
+    var a = Store.all(), c = 0;
+    for (var k in a) if (a.hasOwnProperty(k) && a[k].text && a[k].text.trim()) c++;
+    return c;
+  }
+  function exportNotes() {
+    var data = { app: "wiw-polaroid-notes", v: 1, exported: Date.now(), notes: Store.all() };
+    var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var d = new Date();
+    var name = "polaroid-notes-" + d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + ".json";
+    var a = document.createElement("a"); a.href = url; a.download = name;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  }
+  function importNotes(file, done) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        var data = JSON.parse(reader.result);
+        var incoming = (data && data.notes) ? data.notes : data; // 兼容直接传相片表
+        if (!incoming || typeof incoming !== "object") { done(new Error("文件格式不对")); return; }
+        var cur = Store.all(), added = 0, updated = 0;
+        for (var id in incoming) {
+          if (!incoming.hasOwnProperty(id)) continue;
+          var inc = incoming[id];
+          if (!inc || typeof inc.text !== "string") continue;
+          var ex = cur[id];
+          if (!ex) { cur[id] = inc; added++; }
+          else if ((inc.ts || 0) > (ex.ts || 0) && inc.text !== ex.text) { cur[id] = inc; updated++; }
+        }
+        localStorage.setItem(LS_NOTES, JSON.stringify(cur));
+        done(null, { added: added, updated: updated });
+      } catch (e) { done(e); }
+    };
+    reader.onerror = function () { done(reader.error || new Error("读取失败")); };
+    reader.readAsText(file);
+  }
+
+  var boxEl, boxCount, boxMsg, boxFile;
+  function buildBox() {
+    boxEl = document.createElement("div");
+    boxEl.className = "pol-box";
+    boxEl.innerHTML =
+      '<div class="pol-box-head"><span>📦 收纳盒</span><button class="pol-box-x" type="button" aria-label="关闭">×</button></div>' +
+      '<p class="pol-box-count"></p>' +
+      '<button class="pol-box-btn" type="button" data-act="export">收进盒子 · 导出备份</button>' +
+      '<button class="pol-box-btn" type="button" data-act="import">从盒子取出 · 导入</button>' +
+      '<input class="pol-box-file" type="file" accept="application/json,.json" hidden>' +
+      '<p class="pol-box-msg"></p>';
+    document.body.appendChild(boxEl);
+    boxCount = boxEl.querySelector(".pol-box-count");
+    boxMsg = boxEl.querySelector(".pol-box-msg");
+    boxFile = boxEl.querySelector(".pol-box-file");
+    boxEl.querySelector(".pol-box-x").addEventListener("click", function () { boxEl.classList.remove("open"); });
+    boxEl.querySelector('[data-act="export"]').addEventListener("click", function () {
+      if (noteCount() === 0) { setMsg("盒子是空的，还没有相片可收。"); return; }
+      exportNotes(); setMsg("已收进盒子 ✓ 文件已下载，带去新设备导入即可。");
+    });
+    boxEl.querySelector('[data-act="import"]').addEventListener("click", function () { boxFile.click(); });
+    boxFile.addEventListener("change", function () {
+      var f = boxFile.files && boxFile.files[0]; if (!f) return;
+      importNotes(f, function (err, r) {
+        boxFile.value = "";
+        if (err) { setMsg("导入失败：" + (err.message || "文件读不出来")); return; }
+        markDogears(); refreshBox();
+        setMsg("取出完成 ✓ 新增 " + r.added + " 张，更新 " + r.updated + " 张。");
+      });
+    });
+  }
+  function setMsg(t) { if (boxMsg) { boxMsg.textContent = t; boxMsg.classList.add("show"); } }
+  function refreshBox() { if (boxCount) boxCount.textContent = "盒子里有 " + noteCount() + " 张相片（本机）"; }
+  function toggleBox() {
+    if (!boxEl) buildBox();
+    var open = boxEl.classList.toggle("open");
+    if (open) { refreshBox(); if (boxMsg) boxMsg.classList.remove("show"); }
   }
 
   /* ========== 启动 ========== */

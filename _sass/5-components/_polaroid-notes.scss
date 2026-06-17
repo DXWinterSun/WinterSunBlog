@@ -77,3 +77,31 @@
 .pol-lk-btn:hover { color: #fff; }
 .pol-pw { font-family: 'EB Garamond', serif; font-size: 14px; padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(0, 0, 0, 0.25); color: #fff; width: 130px; }
 .pol-go { font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; border: none; border-radius: 999px; padding: 6px 13px; cursor: pointer; background: var(--c-accent); color: #fff; }
+
+/* —— 收纳盒（导出 / 导入面板，浮动锁正上方弹出）—— */
+.pol-box {
+  position: fixed; left: 18px; bottom: 70px; z-index: 1101;
+  width: 244px; display: none;
+  background: rgba(30, 28, 24, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 14px;
+  padding: 13px 14px 14px; box-shadow: 0 14px 38px rgba(0, 0, 0, 0.55);
+}
+.pol-box.open { display: block; animation: pol-box-in 0.25s ease; }
+@keyframes pol-box-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.pol-box-head { display: flex; align-items: center; justify-content: space-between; font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; color: #e7ded0; margin-bottom: 4px; }
+.pol-box-x { border: none; background: transparent; cursor: pointer; color: #b9b0a0; font-size: 18px; line-height: 1; padding: 0 4px; }
+.pol-box-x:hover { color: #fff; }
+.pol-box-count { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: #a89a80; margin: 0 0 10px; }
+
+.pol-box-btn {
+  display: block; width: 100%; text-align: left;
+  font-family: 'EB Garamond', serif; font-size: 14px; color: #efe8da;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 9px;
+  padding: 9px 12px; margin-bottom: 8px; cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.pol-box-btn:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.24); }
+.pol-box-msg { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; line-height: 1.45; color: #8fae8f; margin: 4px 0 0; min-height: 1em; opacity: 0; transition: opacity 0.3s ease; }
+.pol-box-msg.show { opacity: 1; }
