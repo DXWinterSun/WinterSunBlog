@@ -49,10 +49,16 @@
   padding: 20px 22px;
   display: flex; align-items: center;
 }
+.pol-ed-lines { padding-right: 18px; }
 .pol-ed-line {
   margin: 0; color: #e7dcc6;
   font-family: 'EB Garamond', serif; font-style: italic;
-  font-size: 17px; line-height: 1.55; letter-spacing: 0.2px;
+  font-size: 17px; line-height: 1.5; letter-spacing: 0.2px;
+}
+.pol-ed-line-en {
+  margin: 5px 0 0; color: rgba(231, 220, 198, 0.58);
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 12.5px; line-height: 1.4; letter-spacing: 0.3px;
 }
 .pol-ed-x {
   position: absolute; top: 7px; right: 9px;
