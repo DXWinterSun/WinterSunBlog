@@ -18,6 +18,11 @@
   // 左下角浮标上的导语（钢笔旁的小字）：
   var LOCK_LABEL = "记忆碎片";
   var LOCK_LABEL_EN = "Memento";
+  // 幸运三事小拍立得的标题 —— The Fray《Happiness》:"happiness throws a shower of sparks"
+  // 分两行排版：第一行做引子（轻），第二行做主角（手写放大），下面缀歌曲署名。
+  var LUCKY_Q1 = "Happiness throws";
+  var LUCKY_Q2 = "a shower of sparks";
+  var LUCKY_CREDIT = "The Fray · Happiness";
   // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
   var PEN_SVG = '<svg class="pol-lock-pen" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">' +
     '<path d="M12 2 C15.2 8 16.6 13.6 12 22 C7.4 13.6 8.8 8 12 2 Z" fill="#d8c6a2"/>' +
@@ -42,6 +47,7 @@
   var LS_NOTES = "wiw-pol-notes";
   var LS_UNLOCK = "wiw-pol-unlock";
   var LS_PASS_DEV = "wiw-pol-pass-dev"; // 仅在尚未填 PASS_HASH 时作兜底
+  var LS_LUCKY = "wiw-lucky";           // 幸运三事，按日期存
 
   function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return "" + h; }
 
@@ -53,6 +59,19 @@
       var a = this.all(); a[id] = { text: text, ts: Date.now() };
       try { localStorage.setItem(LS_NOTES, JSON.stringify(a)); } catch (e) {}
       return a[id];
+    }
+  };
+
+  /* 幸运三事的存储层（按 YYYY-MM-DD 存，每天三件）*/
+  var Lucky = {
+    all: function () { try { return JSON.parse(localStorage.getItem(LS_LUCKY)) || {}; } catch (e) { return {}; } },
+    get: function (day) { var d = this.all()[day]; return (d && d.items) ? d : { items: ["", "", ""], ts: 0 }; },
+    set: function (day, items) {
+      var a = this.all();
+      if (items.join("").trim()) { a[day] = { items: items, ts: Date.now() }; }
+      else { delete a[day]; }   // 三行都空了就不留这天，免得攒一堆空壳
+      try { localStorage.setItem(LS_LUCKY, JSON.stringify(a)); } catch (e) {}
+      return a[day];
     }
   };
 
@@ -180,6 +199,7 @@
     if (lockBtn) lockBtn.addEventListener("click", function () { localStorage.removeItem(LS_UNLOCK); unlocked = false; if (boxEl) boxEl.classList.remove("open"); renderLock(); });
     var boxBtn = lockEl.querySelector('[data-act="box"]');
     if (boxBtn) boxBtn.addEventListener("click", toggleBox);
+    syncLuckyVisible();
   }
   function showPwInput() {
     var setting = !hasPass();
@@ -207,7 +227,7 @@
     return c;
   }
   function exportNotes() {
-    var data = { app: "wiw-polaroid-notes", v: 1, exported: Date.now(), notes: Store.all() };
+    var data = { app: "wiw-polaroid-notes", v: 1, exported: Date.now(), notes: Store.all(), lucky: Lucky.all() };
     var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     var url = URL.createObjectURL(blob);
     var d = new Date();
@@ -233,6 +253,17 @@
           else if ((inc.ts || 0) > (ex.ts || 0) && inc.text !== ex.text) { cur[id] = inc; updated++; }
         }
         localStorage.setItem(LS_NOTES, JSON.stringify(cur));
+        // 幸运三事也一并合并（按日期，谁更新留谁）
+        if (data && data.lucky && typeof data.lucky === "object") {
+          var lc = Lucky.all();
+          for (var day in data.lucky) {
+            if (!data.lucky.hasOwnProperty(day)) continue;
+            var li = data.lucky[day];
+            if (!li || !li.items) continue;
+            if (!lc[day] || (li.ts || 0) > (lc[day].ts || 0)) { lc[day] = li; }
+          }
+          localStorage.setItem(LS_LUCKY, JSON.stringify(lc));
+        }
         done(null, { added: added, updated: updated });
       } catch (e) { done(e); }
     };
@@ -279,8 +310,116 @@
     if (open) { refreshBox(); if (boxMsg) boxMsg.classList.remove("show"); }
   }
 
+  /* ========== 幸运三事：左下角一张独立小拍立得（仅解锁后可见）========== */
+  var LUCKY_MARKS = ["一", "二", "三"];
+  var EN_WK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var EN_MON = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  function todayKey() { var d = new Date(); return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+  function dayLabel(key) {
+    var p = key.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]);
+    return EN_WK[d.getDay()] + " · " + (+p[2]) + " " + EN_MON[+p[1] - 1] + " " + p[0];
+  }
+  function pinDate() { var d = new Date(); return d.getDate() + " " + EN_MON[d.getMonth()]; }
+
+  var luckyPin;
+  function buildLuckyPin() {
+    luckyPin = document.createElement("button");
+    luckyPin.type = "button"; luckyPin.className = "pol-lucky";
+    luckyPin.innerHTML =
+      '<span class="pol-lucky-photo"><span class="pol-lucky-star">✦</span></span>' +
+      '<span class="pol-lucky-cap">' +
+        '<span class="pol-lucky-q1"></span>' +
+        '<span class="pol-lucky-q2"></span>' +
+        '<span class="pol-lucky-credit"></span>' +
+        '<i></i>' +
+      '</span>';
+    luckyPin.querySelector(".pol-lucky-q1").textContent = LUCKY_Q1;
+    luckyPin.querySelector(".pol-lucky-q2").textContent = LUCKY_Q2;
+    luckyPin.querySelector(".pol-lucky-credit").textContent = LUCKY_CREDIT;
+    document.body.appendChild(luckyPin);
+    luckyPin.addEventListener("click", function () { openLucky(todayKey()); });
+  }
+  function refreshLuckyPin() { if (luckyPin) { var i = luckyPin.querySelector(".pol-lucky-cap i"); if (i) i.textContent = pinDate(); } }
+  function syncLuckyVisible() {
+    if (!luckyPin) return;
+    if (unlocked) { loadFonts(); luckyPin.style.display = "flex"; refreshLuckyPin(); }
+    else { luckyPin.style.display = "none"; if (luckyBack) luckyBack.classList.remove("open"); }
+  }
+
+  var luckyBack, luckyDateEl, luckySavedEl, luckyInputs = [], luckyDay = null, luckySaveTimer = null;
+  function autoGrow(t) { t.style.height = "auto"; t.style.height = Math.max(30, t.scrollHeight) + "px"; }
+  function buildLuckyEditor() {
+    luckyBack = document.createElement("div");
+    luckyBack.className = "pol-backdrop pol-lucky-backdrop";
+    luckyBack.innerHTML =
+      '<div class="pol-lucky-card" role="dialog" aria-label="幸运三事">' +
+        '<div class="pol-lucky-top">' +
+          '<button class="pol-lucky-nav" type="button" data-d="-1" aria-label="前一天">‹</button>' +
+          '<span class="pol-lucky-date"></span>' +
+          '<button class="pol-lucky-nav" type="button" data-d="1" aria-label="后一天">›</button>' +
+        '</div>' +
+        '<div class="pol-lucky-body"></div>' +
+        '<div class="pol-lucky-foot"><span class="pol-lucky-hint">记下这一天的三件幸运小事。</span>' +
+          '<span class="pol-lucky-foot-r"><span class="pol-saved pol-lucky-saved">已收好 ✓</span>' +
+          '<button class="pol-lucky-x" type="button">收起</button></span></div>' +
+      '</div>';
+    document.body.appendChild(luckyBack);
+    luckyDateEl = luckyBack.querySelector(".pol-lucky-date");
+    luckySavedEl = luckyBack.querySelector(".pol-lucky-saved");
+    var body = luckyBack.querySelector(".pol-lucky-body");
+    luckyInputs = [];
+    for (var i = 0; i < 3; i++) {
+      var row = document.createElement("label"); row.className = "pol-lucky-row";
+      row.innerHTML = '<span class="pol-lucky-no">' + LUCKY_MARKS[i] + '</span><textarea class="pol-lucky-in" rows="1" spellcheck="false" placeholder="……"></textarea>';
+      body.appendChild(row);
+      var ta = row.querySelector(".pol-lucky-in"); ta.style.fontFamily = NOTE_FONT;
+      (function (t) {
+        t.addEventListener("input", function () { autoGrow(t); scheduleLuckySave(); });
+      })(ta);
+      luckyInputs.push(ta);
+    }
+    var navs = luckyBack.querySelectorAll(".pol-lucky-nav");
+    for (i = 0; i < navs.length; i++) { (function (b) { b.addEventListener("click", function () { shiftDay(+b.getAttribute("data-d")); }); })(navs[i]); }
+    luckyBack.querySelector(".pol-lucky-x").addEventListener("click", closeLucky);
+    luckyBack.addEventListener("click", function (e) { if (e.target === luckyBack) closeLucky(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && luckyBack.classList.contains("open")) closeLucky(); });
+  }
+  function loadLuckyDay(day) {
+    luckyDay = day;
+    var rec = Lucky.get(day);
+    for (var i = 0; i < luckyInputs.length; i++) { luckyInputs[i].value = rec.items[i] || ""; autoGrow(luckyInputs[i]); }
+    luckyDateEl.textContent = dayLabel(day);
+  }
+  function openLucky(day) {
+    if (!unlocked) return;
+    loadFonts();
+    if (!luckyBack) buildLuckyEditor();
+    luckyBack.classList.add("open");
+    loadLuckyDay(day);
+    setTimeout(function () { luckyInputs[0].focus(); }, 420);
+  }
+  function scheduleLuckySave() {
+    clearTimeout(luckySaveTimer);
+    luckySaveTimer = setTimeout(saveLucky, 450);
+  }
+  function saveLucky() {
+    if (!luckyDay) return;
+    var items = []; for (var i = 0; i < luckyInputs.length; i++) items.push(luckyInputs[i].value);
+    Lucky.set(luckyDay, items);
+    if (luckySavedEl) { luckySavedEl.classList.add("show"); setTimeout(function () { luckySavedEl.classList.remove("show"); }, 1200); }
+  }
+  function shiftDay(delta) {
+    if (!luckyDay) return;
+    saveLucky();
+    var p = luckyDay.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]); d.setDate(d.getDate() + delta);
+    var key = d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+    if (delta > 0 && key > todayKey()) return; // 不翻到未来
+    loadLuckyDay(key);
+  }
+  function closeLucky() { if (luckyBack) { saveLucky(); luckyBack.classList.remove("open"); } }
+
   /* ========== 启动 ========== */
-  function init() { buildLock(); markDogears(); attachCards(); }
+  function init() { buildLock(); buildLuckyPin(); markDogears(); attachCards(); syncLuckyVisible(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();

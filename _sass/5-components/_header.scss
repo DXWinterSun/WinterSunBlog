@@ -47,7 +47,7 @@
 
 .c-nav__list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -60,6 +60,7 @@
   font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: $ink-soft;
   border-radius: 999px;
   transition: $global-transition;
