@@ -143,8 +143,18 @@
 
 .c-palette-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.4rem;
+  max-height: 13rem;  // ~4 rows visible; scroll for the rest
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.125rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-line-strong) transparent;
+
+  &::-webkit-scrollbar       { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: var(--c-line-strong); border-radius: 99px; }
 }
 
 .c-palette-swatch {
@@ -185,13 +195,14 @@
 
 .c-palette-swatch__name {
   display: block;
-  font-size: 0.58rem;
+  font-size: 0.57rem;
   color: var(--c-muted);
   margin-top: 0.2rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: 'Noto Serif SC', serif;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
   line-height: 1.2;
 }
 
