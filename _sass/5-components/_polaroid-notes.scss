@@ -213,7 +213,28 @@
 @media (max-width: 480px) {
   .pol-deck { --cardw: 150px; --step: 120px; height: 150px; bottom: 76px; }
   .pol-card-photo { height: 84px; }
+  .pol-guest { width: 150px; bottom: 88px; }
 }
+
+/* —— 访客彩蛋拍立得：未解锁时角落出现，一张钉歪的相片，邀请去读「You Are My Fact」—— */
+.pol-guest {
+  position: fixed; left: 20px; bottom: 84px; z-index: 1098;
+  display: none; flex-direction: column; align-items: stretch; width: 172px;
+  padding: 8px 8px 0; background: #fbf9f3; border-radius: 3px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.42);
+  text-decoration: none; cursor: pointer;
+  transform: rotate(-2.5deg); transform-origin: bottom center;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+}
+@media (hover: hover) {
+  .pol-guest:hover { transform: rotate(0deg) translateY(-5px) scale(1.03); box-shadow: 0 20px 42px rgba(0, 0, 0, 0.52); }
+}
+.pol-guest-star { font-size: 23px; color: rgba(255, 255, 255, 0.85); text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); }
+.pol-guest-cap { padding-bottom: 11px; }
+.pol-guest-hello { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; letter-spacing: 0.2px; color: #7a6a4f; margin-bottom: 5px; }
+.pol-guest-cap .pol-card-q2 { font-size: 14.5px; line-height: 1.25; }
+.pol-guest-sign { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; letter-spacing: 0.4px; color: #9a8f7c; margin-top: 7px; }
+.pol-guest-sign::before { content: "— "; }
 
 /* 翻开的编辑卡（沿用相纸 + 黑条的语言）*/
 .pol-lucky-card {
