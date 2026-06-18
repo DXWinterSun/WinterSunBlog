@@ -242,3 +242,27 @@
 .pol-lucky-saved { color: #6f9a6f; }
 .pol-lucky-x { border: none; background: transparent; cursor: pointer; font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: #8a7c5f; }
 .pol-lucky-x:hover { color: #5c4f37; }
+
+/* —— 信卡（写给自己）：标题 / 待重读日 字段 + 封缄寄出按钮 —— */
+.pol-letter-field { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.pol-letter-lab { flex: none; width: 42px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: #8a7c5f; }
+.pol-letter-in {
+  flex: 1; min-width: 0; border: none; outline: none; background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); padding: 3px 0;
+  font-family: 'EB Garamond', serif; font-size: 15px; color: #33302a;
+}
+.pol-letter-in::placeholder { color: #c4bba4; font-style: italic; }
+.pol-letter-date { color: #5c5444; }
+.pol-lucky-send {
+  display: none;
+  font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px;
+  border: none; border-radius: 999px; padding: 5px 14px; cursor: pointer;
+  background: var(--c-accent, #b08968); color: #fff;
+}
+.pol-lucky-send:hover { filter: brightness(1.06); }
+.pol-lucky-sendmsg { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; color: #6f9a6f; opacity: 0; transition: opacity 0.3s ease; }
+.pol-lucky-sendmsg.show { opacity: 1; }
+/* 信卡模式下：显示寄出按钮、藏起翻日箭头 */
+.pol-lucky-backdrop[data-kind="letter"] .pol-lucky-send { display: inline-block; }
+.pol-lucky-backdrop[data-kind="letter"] .pol-lucky-nav { display: none; }
+.pol-lucky-backdrop[data-kind="letter"] .pol-lucky-date { font-style: italic; }

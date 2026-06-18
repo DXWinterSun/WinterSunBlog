@@ -9,6 +9,7 @@
   /* ========== 你的配置 ========== */
   // ↓↓↓ 用文末小工具把你的密码转成哈希，替换下面这行的占位符：
   var PASS_HASH = "2432187070";
+  var HELLO_ENDPOINT = (typeof window !== "undefined" && window.HELLO_ENDPOINT) || ""; // 寄信给自己用的 Formspree 地址
   var NOTE_FONT = "'Caveat','Ma Shan Zheng',cursive";
   var FONT_LINK = "https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Ma+Shan+Zheng&display=swap";
   var LONGPRESS_MS = 480;
@@ -34,6 +35,13 @@
       grad: "linear-gradient(145deg, #5a6b78 0%, #46505f 50%, #2c333f 100%)",
       q1: "It seems to you I'm failing,", q2: "but it seems to me I'm trying.", credit: "Guy Pearce · Dirty Windows",
       hint: "今天想吐槽 / 想记下的，都丢这儿。"
+    },
+    {
+      id: "toself", kind: "letter", ls: "wiw-toself",
+      grad: "linear-gradient(145deg, #8a7459 0%, #5b4a52 52%, #34303a 100%)",
+      q1: "Dear me —", q2: "a letter to myself", credit: "to be read on a later day",
+      hint: "存着慢慢写；封缄后，它会寄进你的邮箱。",
+      subjectDefault: "「致自己」"
     }
   ];
   // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
@@ -379,8 +387,10 @@
   }
 
   /* —— 共用的翻开编辑卡（按当前 journal 的 kind 重建内页）—— */
-  var jBack, jDateEl, jSavedEl, jHintEl, jBodyEl, curJournal = null, curDay = null, jInputs = [], jSaveTimer = null;
+  var jBack, jDateEl, jSavedEl, jHintEl, jBodyEl, jSendMsgEl, curJournal = null, curDay = null, jInputs = [], jSaveTimer = null;
+  var letterSubj, letterRead, letterBody; // 信卡专用：标题 / 待重读日 / 正文
   function autoGrow(t) { t.style.height = "auto"; t.style.height = Math.max(30, t.scrollHeight) + "px"; }
+  function flashSaved() { if (jSavedEl) { jSavedEl.classList.add("show"); setTimeout(function () { jSavedEl.classList.remove("show"); }, 1200); } }
   function buildJournalEditor() {
     jBack = document.createElement("div");
     jBack.className = "pol-backdrop pol-lucky-backdrop";
@@ -393,7 +403,8 @@
         '</div>' +
         '<div class="pol-lucky-body"></div>' +
         '<div class="pol-lucky-foot"><span class="pol-lucky-hint"></span>' +
-          '<span class="pol-lucky-foot-r"><span class="pol-saved pol-lucky-saved">已收好 ✓</span>' +
+          '<span class="pol-lucky-foot-r"><span class="pol-lucky-sendmsg"></span><span class="pol-saved pol-lucky-saved">已收好 ✓</span>' +
+          '<button class="pol-lucky-send" type="button">封缄寄出</button>' +
           '<button class="pol-lucky-x" type="button">收起</button></span></div>' +
       '</div>';
     document.body.appendChild(jBack);
@@ -401,21 +412,24 @@
     jSavedEl = jBack.querySelector(".pol-lucky-saved");
     jHintEl = jBack.querySelector(".pol-lucky-hint");
     jBodyEl = jBack.querySelector(".pol-lucky-body");
+    jSendMsgEl = jBack.querySelector(".pol-lucky-sendmsg");
     var navs = jBack.querySelectorAll(".pol-lucky-nav");
     for (var i = 0; i < navs.length; i++) { (function (b) { b.addEventListener("click", function () { shiftDay(+b.getAttribute("data-d")); }); })(navs[i]); }
+    jBack.querySelector(".pol-lucky-send").addEventListener("click", sendLetter);
     jBack.querySelector(".pol-lucky-x").addEventListener("click", closeJournal);
     jBack.addEventListener("click", function (e) { if (e.target === jBack) closeJournal(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && jBack.classList.contains("open")) closeJournal(); });
   }
-  function makeInput() {
+  function makeTextarea(onInput) {
     var ta = document.createElement("textarea");
     ta.className = "pol-lucky-in"; ta.rows = 1; ta.spellcheck = false; ta.placeholder = "……";
     ta.style.fontFamily = NOTE_FONT;
-    ta.addEventListener("input", function () { autoGrow(ta); scheduleJournalSave(); });
+    ta.addEventListener("input", function () { autoGrow(ta); onInput(); });
     return ta;
   }
+  function makeInput() { return makeTextarea(scheduleJournalSave); }
   function buildBodyFor(j) {
-    jBodyEl.innerHTML = ""; jInputs = [];
+    jBodyEl.innerHTML = ""; jInputs = []; letterSubj = letterRead = letterBody = null;
     if (j.kind === "three") {
       for (var i = 0; i < 3; i++) {
         var row = document.createElement("label"); row.className = "pol-lucky-row";
@@ -423,6 +437,19 @@
         var ta = makeInput();
         row.appendChild(no); row.appendChild(ta); jBodyEl.appendChild(row); jInputs.push(ta);
       }
+    } else if (j.kind === "letter") {
+      var f1 = document.createElement("label"); f1.className = "pol-letter-field";
+      var l1 = document.createElement("span"); l1.className = "pol-letter-lab"; l1.textContent = "标题";
+      letterSubj = document.createElement("input"); letterSubj.type = "text"; letterSubj.className = "pol-letter-in"; letterSubj.placeholder = "给这封信起个标题…";
+      letterSubj.addEventListener("input", scheduleLetterSave);
+      f1.appendChild(l1); f1.appendChild(letterSubj);
+      var f2 = document.createElement("label"); f2.className = "pol-letter-field";
+      var l2 = document.createElement("span"); l2.className = "pol-letter-lab"; l2.textContent = "待重读";
+      letterRead = document.createElement("input"); letterRead.type = "date"; letterRead.className = "pol-letter-in pol-letter-date";
+      letterRead.addEventListener("input", scheduleLetterSave);
+      f2.appendChild(l2); f2.appendChild(letterRead);
+      letterBody = makeTextarea(scheduleLetterSave); letterBody.classList.add("pol-lucky-free");
+      jBodyEl.appendChild(f1); jBodyEl.appendChild(f2); jBodyEl.appendChild(letterBody);
     } else {
       var free = makeInput(); free.classList.add("pol-lucky-free");
       jBodyEl.appendChild(free); jInputs.push(free);
@@ -443,13 +470,22 @@
     if (!unlocked) return;
     loadFonts();
     if (!jBack) buildJournalEditor();
-    curJournal = j;
+    curJournal = j; curDay = null;
     jBack.setAttribute("data-kind", j.kind);
     jHintEl.textContent = j.hint || "";
     buildBodyFor(j);
     jBack.classList.add("open");
-    loadDay(day);
-    setTimeout(function () { if (jInputs[0]) jInputs[0].focus(); }, 420);
+    if (jSendMsgEl) jSendMsgEl.classList.remove("show");
+    if (j.kind === "letter") {
+      jSavedEl.textContent = "已存草稿 ✓";
+      jDateEl.textContent = "A letter to myself";
+      loadLetter();
+      setTimeout(function () { if (letterSubj) letterSubj.focus(); }, 420);
+    } else {
+      jSavedEl.textContent = "已收好 ✓";
+      loadDay(day);
+      setTimeout(function () { if (jInputs[0]) jInputs[0].focus(); }, 420);
+    }
   }
   function scheduleJournalSave() { clearTimeout(jSaveTimer); jSaveTimer = setTimeout(saveJournal, 450); }
   function saveJournal() {
@@ -472,7 +508,58 @@
     if (delta > 0 && key > todayKey()) return; // 不翻到未来
     loadDay(key);
   }
-  function closeJournal() { if (jBack) { saveJournal(); jBack.classList.remove("open"); } }
+  function closeJournal() {
+    if (!jBack) return;
+    if (curJournal && curJournal.kind === "letter") saveLetterDraft(); else saveJournal();
+    jBack.classList.remove("open");
+  }
+
+  /* —— 信卡：本地草稿 + 一键寄进自己的邮箱 —— */
+  function niceDate(key) { var p = key.split("-"); return (+p[2]) + " " + EN_MON[+p[1] - 1] + " " + p[0]; }
+  function letterRecord() { try { return JSON.parse(localStorage.getItem(curJournal.ls)) || {}; } catch (e) { return {}; } }
+  function loadLetter() {
+    var r = letterRecord();
+    letterSubj.value = r.subject != null ? r.subject : (curJournal.subjectDefault || "");
+    letterRead.value = r.readOn || "";
+    letterBody.value = r.body || ""; autoGrow(letterBody);
+  }
+  function scheduleLetterSave() { clearTimeout(jSaveTimer); jSaveTimer = setTimeout(saveLetterDraft, 450); }
+  function saveLetterDraft() {
+    if (!curJournal || !letterBody) return;
+    var r = { subject: letterSubj.value, readOn: letterRead.value, body: letterBody.value, ts: Date.now() };
+    try {
+      if (!r.subject.trim() && !r.body.trim() && !r.readOn) localStorage.removeItem(curJournal.ls);
+      else localStorage.setItem(curJournal.ls, JSON.stringify(r));
+    } catch (e) {}
+    flashSaved();
+  }
+  function composeSubject() {
+    var base = (letterSubj.value || curJournal.subjectDefault || "致自己").trim();
+    var parts = [base, "写于 " + niceDate(todayKey())];
+    if (letterRead.value) parts.push("待 " + niceDate(letterRead.value) + " 再读");
+    return parts.join(" · ");
+  }
+  function setSendMsg(t) { if (jSendMsgEl) { jSendMsgEl.textContent = t; jSendMsgEl.classList.add("show"); } }
+  function sendLetter() {
+    if (!curJournal || curJournal.kind !== "letter") return;
+    var body = (letterBody.value || "").trim();
+    if (!body) { setSendMsg("信还是空的呢…"); return; }
+    if (!HELLO_ENDPOINT) { setSendMsg("没找到寄信地址 :("); return; }
+    setSendMsg("封缄寄送中…");
+    var fd = new FormData();
+    fd.append("name", "To Myself");
+    fd.append("_subject", composeSubject());
+    fd.append("text", body + (letterRead.value ? "\n\n— 待 " + niceDate(letterRead.value) + " 再读 —" : ""));
+    fetch(HELLO_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: fd })
+      .then(function (res) {
+        if (res.ok) {
+          setSendMsg("已寄出 ✓ 去你的邮箱等它");
+          try { localStorage.removeItem(curJournal.ls); } catch (e) {}
+          letterSubj.value = curJournal.subjectDefault || ""; letterRead.value = ""; letterBody.value = ""; autoGrow(letterBody);
+        } else { setSendMsg("没寄出去，待会儿再试…"); }
+      })
+      .catch(function () { setSendMsg("网络不太顺，待会儿再试…"); });
+  }
 
   /* ========== 启动 ========== */
   function init() { buildLock(); buildDeck(); markDogears(); attachCards(); syncDeckVisible(); }
