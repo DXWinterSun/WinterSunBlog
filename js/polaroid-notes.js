@@ -61,13 +61,39 @@
   // 落款是「我和他」。grad 用 Leonard 的冰蓝（与该系列同色）；歌词是《记忆碎片》片尾曲。
   var GUEST = {
     href: "/series/you-are-my-fact/",
-    grad: "linear-gradient(145deg, #7fb0d8 0%, #4a6680 55%, #1e1a16 100%)",
+    grad: "linear-gradient(160deg, #8fc0e2 0%, #5b7d9c 42%, #2b3550 78%, #171a26 100%)",
     hello: "来看看我们的故事 ↗",
     q1: "Something in my eyes —",
     q2: "I've danced with you too long",
     credit: "David Bowie · Something in the Air",
     sign: "Leo & Winter"
   };
+  // 访客拍立得里的「照片」：一帧褪色夜空 —— 月、星、漏光、暗角，比纯渐变更像真相片
+  var GUEST_SCENE =
+    '<svg class="pol-guest-scene" viewBox="0 0 160 96" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+      '<defs>' +
+        '<radialGradient id="pgMoon" cx="50%" cy="50%" r="50%">' +
+          '<stop offset="0%" stop-color="#fff6e2"/><stop offset="62%" stop-color="#efe1c2"/>' +
+          '<stop offset="100%" stop-color="#efe1c2" stop-opacity="0"/></radialGradient>' +
+        '<linearGradient id="pgLeak" x1="0" y1="0" x2="1" y2="1">' +
+          '<stop offset="0%" stop-color="#ffe7bd" stop-opacity="0.5"/>' +
+          '<stop offset="42%" stop-color="#ffd79a" stop-opacity="0.07"/>' +
+          '<stop offset="100%" stop-color="#ffd79a" stop-opacity="0"/></linearGradient>' +
+        '<radialGradient id="pgVig" cx="48%" cy="40%" r="78%">' +
+          '<stop offset="55%" stop-color="#0a0c14" stop-opacity="0"/>' +
+          '<stop offset="100%" stop-color="#0a0c14" stop-opacity="0.4"/></radialGradient>' +
+      '</defs>' +
+      '<rect x="84" y="-14" width="96" height="128" transform="rotate(20 132 40)" fill="url(#pgLeak)"/>' +
+      '<circle cx="126" cy="25" r="15" fill="url(#pgMoon)"/>' +
+      '<g fill="#fdf6e6">' +
+        '<circle cx="20" cy="18" r="1.3" opacity="0.9"/><circle cx="38" cy="36" r="0.9" opacity="0.6"/>' +
+        '<circle cx="58" cy="14" r="1.1" opacity="0.75"/><circle cx="80" cy="44" r="0.8" opacity="0.5"/>' +
+        '<circle cx="98" cy="20" r="1" opacity="0.7"/><circle cx="30" cy="56" r="1" opacity="0.6"/>' +
+        '<circle cx="14" cy="38" r="0.8" opacity="0.5"/><circle cx="110" cy="50" r="0.9" opacity="0.55"/>' +
+      '</g>' +
+      '<path d="M50 60 l1.7 4.6 4.6 1.7 -4.6 1.7 -1.7 4.6 -1.7 -4.6 -4.6 -1.7 4.6 -1.7 z" fill="#fff" opacity="0.92"/>' +
+      '<rect x="0" y="0" width="160" height="96" fill="url(#pgVig)"/>' +
+    '</svg>';
   // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
   var PEN_SVG = '<svg class="pol-lock-pen" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">' +
     '<path d="M12 2 C15.2 8 16.6 13.6 12 22 C7.4 13.6 8.8 8 12 2 Z" fill="#d8c6a2"/>' +
@@ -272,7 +298,7 @@
   }
   function showPwInput() {
     var setting = !hasPass();
-    lockEl.innerHTML = '<input class="pol-pw" type="password" placeholder="' + (setting ? "落下你的笔迹……" : "写下你的笔迹……") + '"><button class="pol-go" type="button">' + (setting ? "印记" : "验明") + "</button>";
+    lockEl.innerHTML = '<input class="pol-pw" type="password" placeholder="' + (setting ? "sign it — Leo &amp; Winter…" : "prove you're Leo — or Winter…") + '"><button class="pol-go" type="button">' + (setting ? "印记" : "验明") + "</button>";
     var pw = lockEl.querySelector(".pol-pw"); pw.focus();
     function submit() {
       var v = pw.value.trim(); if (!v) return;
@@ -281,7 +307,7 @@
         localStorage.setItem(LS_UNLOCK, "1"); unlocked = true; renderLock();
       } else {
         if (hash(v) === passHash()) { localStorage.setItem(LS_UNLOCK, "1"); unlocked = true; renderLock(); }
-        else { pw.value = ""; pw.placeholder = "笔迹有误，再试……"; }
+        else { pw.value = ""; pw.placeholder = "not their hand… try again"; }
       }
     }
     lockEl.querySelector(".pol-go").addEventListener("click", submit);
@@ -353,10 +379,10 @@
     boxEl = document.createElement("div");
     boxEl.className = "pol-box";
     boxEl.innerHTML =
-      '<div class="pol-box-head"><span>底片匣</span><button class="pol-box-x" type="button" aria-label="关闭">×</button></div>' +
+      '<div class="pol-box-head"><span class="pol-box-title"><b>底片匣</b><i>Negatives</i></span><button class="pol-box-x" type="button" aria-label="关闭">×</button></div>' +
       '<p class="pol-box-count"></p>' +
-      '<button class="pol-box-btn" type="button" data-act="export"><b>取出底片</b><small>打包下载，带去手机 / 新设备冲印</small></button>' +
-      '<button class="pol-box-btn" type="button" data-act="import"><b>装入底片</b><small>选一个之前取出的文件，恢复相片</small></button>' +
+      '<button class="pol-box-btn" type="button" data-act="export"><b>取出底片<i>Take the negatives</i></b><small>打包下载，带去手机 / 新设备冲印</small></button>' +
+      '<button class="pol-box-btn" type="button" data-act="import"><b>装入底片<i>Load them back</i></b><small>选一个之前取出的文件，恢复相片</small></button>' +
       '<input class="pol-box-file" type="file" accept="application/json,.json" hidden>' +
       '<p class="pol-box-msg"></p>';
     document.body.appendChild(boxEl);
@@ -433,13 +459,13 @@
     guestEl.href = base + GUEST.href;
     guestEl.setAttribute("aria-label", "来看看我们的故事 · You Are My Fact");
     guestEl.innerHTML =
-      '<span class="pol-card-photo"><span class="pol-guest-star">✦</span></span>' +
+      '<span class="pol-card-photo">' + GUEST_SCENE + '</span>' +
       '<span class="pol-card-cap pol-guest-cap">' +
-        '<span class="pol-guest-hello"></span>' +
         '<span class="pol-card-q1"></span>' +
         '<span class="pol-card-q2"></span>' +
         '<span class="pol-card-credit"></span>' +
         '<span class="pol-guest-sign"></span>' +
+        '<span class="pol-guest-hello"></span>' +
       '</span>';
     guestEl.querySelector(".pol-card-photo").style.background = GUEST.grad;
     guestEl.querySelector(".pol-guest-hello").textContent = GUEST.hello;
