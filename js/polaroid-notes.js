@@ -62,11 +62,19 @@
   var GUEST = {
     href: "/series/you-are-my-fact/",
     grad: "linear-gradient(160deg, #8fc0e2 0%, #5b7d9c 42%, #2b3550 78%, #171a26 100%)",
-    hello: "来看看我们的故事 ↗",
     q1: "Something in my eyes —",
     q2: "I've danced with you too long",
     credit: "David Bowie · Something in the Air",
-    sign: "Leo & Winter"
+    sign: "Leo & Winter",
+    // —— 翻到背面看到的：黑条上印的小字 + 手写短笺 + 故事链接 ——
+    backLine: "Something in the Air —",
+    note: [
+      "嘿，翻到背面的你：",
+      "这是我和他的故事，",
+      "关于遗忘，和不肯遗忘的爱。",
+      "要不要进来，认识一下我们？"
+    ],
+    linkLabel: "翻开《You Are My Fact》 →"
   };
   // 访客拍立得里的「照片」：一帧褪色夜空 —— 月、星、漏光、暗角，比纯渐变更像真相片
   var GUEST_SCENE =
@@ -450,14 +458,13 @@
   }
   function refreshDeck() { for (var i = 0; i < pins.length; i++) { var el = pins[i].querySelector(".pol-card-cap i"); if (el) el.textContent = pinDate(); } }
 
-  /* —— 访客彩蛋拍立得（未解锁时出现，点开跳到 You Are My Fact）—— */
-  var guestEl;
+  /* —— 访客彩蛋拍立得（未解锁时藏在浮标后，划过弹起；点开翻到背面）—— */
+  var guestEl, guestBack;
   function buildGuest() {
-    var base = (typeof window !== "undefined" && window.SITE_BASEURL) || "";
-    guestEl = document.createElement("a");
+    guestEl = document.createElement("button");
+    guestEl.type = "button";
     guestEl.className = "pol-guest";
-    guestEl.href = base + GUEST.href;
-    guestEl.setAttribute("aria-label", "来看看我们的故事 · You Are My Fact");
+    guestEl.setAttribute("aria-label", "翻看这张照片的背面");
     guestEl.innerHTML =
       '<span class="pol-card-photo">' + GUEST_SCENE + '</span>' +
       '<span class="pol-card-cap pol-guest-cap">' +
@@ -465,18 +472,44 @@
         '<span class="pol-card-q2"></span>' +
         '<span class="pol-card-credit"></span>' +
         '<span class="pol-guest-sign"></span>' +
-        '<span class="pol-guest-hello"></span>' +
       '</span>';
     guestEl.querySelector(".pol-card-photo").style.background = GUEST.grad;
-    guestEl.querySelector(".pol-guest-hello").textContent = GUEST.hello;
     guestEl.querySelector(".pol-card-q1").textContent = GUEST.q1;
     guestEl.querySelector(".pol-card-q2").textContent = GUEST.q2;
     guestEl.querySelector(".pol-card-credit").textContent = GUEST.credit;
     guestEl.querySelector(".pol-guest-sign").textContent = GUEST.sign;
+    guestEl.addEventListener("click", openGuestBack);
     document.body.appendChild(guestEl);
   }
+  /* 照片背面：黑条印一句 + 手写短笺 + 故事链接 */
+  function buildGuestBack() {
+    var base = (typeof window !== "undefined" && window.SITE_BASEURL) || "";
+    guestBack = document.createElement("div");
+    guestBack.className = "pol-backdrop pol-guest-backdrop";
+    var notes = "";
+    for (var i = 0; i < GUEST.note.length; i++) notes += "<p>" + GUEST.note[i] + "</p>";
+    guestBack.innerHTML =
+      '<div class="pol-guest-flip" role="dialog" aria-label="照片背面">' +
+        '<button class="pol-ed-x pol-gb-x" type="button" title="翻回" aria-label="翻回">↩</button>' +
+        '<div class="pol-gb-strip"><span>' + GUEST.backLine + '</span></div>' +
+        '<div class="pol-gb-note">' + notes + '</div>' +
+        '<a class="pol-gb-link" href="' + base + GUEST.href + '">' + GUEST.linkLabel + '</a>' +
+      '</div>';
+    document.body.appendChild(guestBack);
+    guestBack.querySelector(".pol-gb-x").addEventListener("click", closeGuestBack);
+    guestBack.addEventListener("click", function (e) { if (e.target === guestBack) closeGuestBack(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && guestBack.classList.contains("open")) closeGuestBack(); });
+  }
+  function openGuestBack() {
+    loadFonts();
+    if (!guestBack) buildGuestBack();
+    guestBack.querySelector(".pol-gb-note").style.fontFamily = NOTE_FONT;
+    guestBack.classList.add("open");
+  }
+  function closeGuestBack() { if (guestBack) guestBack.classList.remove("open"); }
   function syncDeckVisible() {
     if (guestEl) guestEl.style.display = unlocked ? "none" : "flex";
+    if (unlocked && guestBack) guestBack.classList.remove("open");
     if (!deckEl) return;
     if (unlocked) { loadFonts(); deckEl.style.display = "block"; refreshDeck(); }
     else { deckEl.style.display = "none"; if (jBack) jBack.classList.remove("open"); }

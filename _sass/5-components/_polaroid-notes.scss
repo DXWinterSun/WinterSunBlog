@@ -217,21 +217,24 @@
 @media (max-width: 480px) {
   .pol-deck { --cardw: 150px; --step: 120px; height: 150px; bottom: 76px; }
   .pol-card-photo { height: 84px; }
-  .pol-guest { width: 150px; bottom: 88px; }
+  .pol-guest { width: 150px; bottom: 72px; }
 }
 
-/* —— 访客彩蛋拍立得：未解锁时角落出现，一张钉歪的相片，邀请去读「You Are My Fact」—— */
+/* —— 访客彩蛋拍立得：未解锁时藏在浮标后只露一角，划过浮标 / 卡片才弹起；点开翻到背面 —— */
 .pol-guest {
-  position: fixed; left: 20px; bottom: 84px; z-index: 1098;
+  position: fixed; left: 20px; bottom: 72px; z-index: 1098;  /* 低于浮标，藏在它后面 */
+  --peek: 30px;
   display: none; flex-direction: column; align-items: stretch; width: 172px;
-  padding: 8px 8px 0; background: #fbf9f3; border-radius: 3px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.42);
-  text-decoration: none; cursor: pointer;
-  transform: rotate(-2.5deg); transform-origin: bottom center;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+  padding: 8px 8px 0; background: #fbf9f3; border: none; border-radius: 3px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.42); cursor: pointer; text-align: left;
+  transform-origin: bottom center;
+  transform: rotate(-2.5deg);                /* 触屏（无 hover）：直接立着，看得到 */
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
 }
 @media (hover: hover) {
-  .pol-guest:hover { transform: rotate(0deg) translateY(-5px) scale(1.03); box-shadow: 0 20px 42px rgba(0, 0, 0, 0.52); }
+  .pol-guest { transform: translateY(calc(100% - var(--peek))) rotate(-2.5deg); }  /* 平时缩在浮标后只露一条 */
+  .pol-guest:hover,
+  .pol-lock:hover ~ .pol-guest { transform: translateY(0) rotate(-2deg); box-shadow: 0 20px 42px rgba(0, 0, 0, 0.52); }
 }
 /* 「照片」里那帧褪色夜空铺满相纸框 */
 .pol-guest .pol-card-photo { position: relative; overflow: hidden; }
@@ -240,14 +243,27 @@
 .pol-guest-cap .pol-card-q2 { font-size: 14.5px; line-height: 1.25; }
 .pol-guest-sign { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; letter-spacing: 0.4px; color: #9a8f7c; margin-top: 7px; }
 .pol-guest-sign::before { content: "— "; }
-/* 引导链接落在署名下方，像贺卡末尾的一行小邀请 */
-.pol-guest-hello {
-  margin-top: 9px; padding-top: 7px; border-top: 1px solid rgba(0, 0, 0, 0.08);
-  align-self: stretch; text-align: center;
-  font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; letter-spacing: 0.2px;
-  color: #7a6a4f; transition: color 0.18s ease;
+
+/* —— 照片背面（点开翻面）：黑条印一句 + 手写短笺 + 故事链接 —— */
+.pol-guest-flip {
+  position: relative; width: min(360px, 90vw);
+  background: #f6f1e7; border-radius: 5px; padding: 9px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  transform: rotateY(90deg) scale(0.94); opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0.15, 0.2, 1), opacity 0.35s ease;
 }
-.pol-guest:hover .pol-guest-hello { color: var(--c-accent, #5f96c2); }
+.pol-guest-backdrop.open .pol-guest-flip { transform: rotateY(0) scale(1); opacity: 1; }
+.pol-gb-strip { background: #14110d; border-radius: 3px; padding: 13px 16px; }
+.pol-gb-strip span { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 0.4px; color: rgba(231, 220, 198, 0.72); }
+.pol-gb-note { padding: 15px 17px 4px; }
+.pol-gb-note p { margin: 0 0 6px; color: #34302a; font-size: 19px; line-height: 1.75; }
+.pol-gb-link {
+  display: inline-block; margin: 8px 17px 14px;
+  font-family: 'EB Garamond', serif; font-style: italic; font-size: 14.5px; letter-spacing: 0.2px;
+  color: var(--c-accent, #5f96c2); text-decoration: none;
+  border-bottom: 1px solid currentColor; padding-bottom: 1px;
+}
+.pol-gb-link:hover { filter: brightness(1.12); }
 
 /* 翻开的编辑卡（沿用相纸 + 黑条的语言）*/
 .pol-lucky-card {
