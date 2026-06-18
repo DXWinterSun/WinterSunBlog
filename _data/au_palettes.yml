@@ -95,6 +95,7 @@
   bg_en: "Appalachian Dusk"
 
 "Only I Know":              # Jason Dixon · 色卡同源 sam_themes.yml id: dixon
+  theme_id: dixon
   accent: "#e2622a"
   accent_ink: "#b04818"
   bg: "#241015"
