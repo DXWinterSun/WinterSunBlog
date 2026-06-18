@@ -202,6 +202,11 @@
   .pol-lock:hover ~ .pol-deck .pol-card { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(-3deg); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5); }
   .pol-deck:hover .pol-card:hover,
   .pol-lock:hover ~ .pol-deck .pol-card:hover { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.03); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.55); }
+  /* 打开编辑卡时：整叠常驻铺开、浮到蒙版之上，可直接点切换本子（不再因鼠标移开而收起）*/
+  .pol-deck.is-switcher { z-index: 1210; }
+  .pol-deck.is-switcher .pol-card { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(-3deg); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5); }
+  .pol-deck.is-switcher .pol-card:hover { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.03); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.55); }
+  .pol-deck.is-switcher .pol-card.is-current { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.04); box-shadow: 0 22px 46px rgba(0, 0, 0, 0.55), 0 0 0 2px var(--c-accent, #c9a16b); }
 }
 .pol-card-photo {
   position: relative; overflow: hidden;
