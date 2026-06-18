@@ -17,9 +17,15 @@
     --c-muted-soft:  #a59a8a;
     --c-line:        rgba(0,0,0,.10);
     --c-line-strong: rgba(0,0,0,.16);
+    {% if p.accent_ink %}
+    --c-accent:      {{ p.accent_ink }};
+    --c-accent-soft: color-mix(in srgb, {{ p.accent_ink }}, {{ p.accent }} 25%);
+    --c-accent-dark: color-mix(in srgb, {{ p.accent_ink }}, #000000 35%);
+    {% else %}
     --c-accent:      color-mix(in srgb, {{ p.accent }}, #1a1614 30%);
     --c-accent-soft: color-mix(in srgb, {{ p.accent }}, #1a1614 22%);
     --c-accent-dark: color-mix(in srgb, {{ p.accent }}, #000000 42%);
+    {% endif %}
     --au-fsurf: rgba(0,0,0,.045);
     --au-fedge: rgba(0,0,0,.12);
     --au-fperf: rgba(0,0,0,.30);

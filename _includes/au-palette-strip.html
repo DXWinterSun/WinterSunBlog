@@ -21,6 +21,8 @@
   <span class="au-strip__perf"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
   <button class="au-strip__switch" type="button"
     {% if p.theme_id %}data-au-theme="{{ p.theme_id }}"{% endif %}
-    data-au-accent="{{ p.accent }}" data-au-bg="{{ p.bg }}" data-au-text="{{ p.text }}" data-au-muted="{{ p.muted }}">穿上他的颜色</button>
+    data-au-accent="{{ p.accent }}"
+    {% if p.accent_ink %}data-au-accent-ink="{{ p.accent_ink }}"{% endif %}
+    data-au-bg="{{ p.bg }}" data-au-text="{{ p.text }}" data-au-muted="{{ p.muted }}">穿上他的颜色</button>
 </div>
 {%- endif -%}

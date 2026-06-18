@@ -40,9 +40,9 @@
     var bg     = colorMix(p.accent, 30, LB);
     var bgSoft = colorMix(p.accent, 20, LBS);
     var paper  = colorMix(p.accent, 13, LP);
-    var accent = colorMix(p.accent, 70, DTINT);
-    var acSoft = colorMix(p.accent, 78, DTINT);
-    var acDark = colorMix(p.accent, 58, '#000000');
+    var accent = p.accent_ink || colorMix(p.accent, 70, DTINT);
+    var acSoft = p.accent_ink ? colorMix(p.accent_ink, 75, p.accent) : colorMix(p.accent, 78, DTINT);
+    var acDark = colorMix(accent, 58, '#000000');
     return {
       '--c-bg': bg, '--c-bg-soft': bgSoft, '--c-paper': paper,
       '--c-ink': '#2b2620', '--c-ink-soft': '#4a443c',
@@ -363,11 +363,12 @@
         state = { type: 'preset', id: id };
       } else {
         state = {
-          type: 'au-direct',
-          accent: btn.getAttribute('data-au-accent'),
-          bg:     btn.getAttribute('data-au-bg'),
-          text:   btn.getAttribute('data-au-text'),
-          muted:  btn.getAttribute('data-au-muted')
+          type:       'au-direct',
+          accent:     btn.getAttribute('data-au-accent'),
+          accent_ink: btn.getAttribute('data-au-accent-ink') || null,
+          bg:         btn.getAttribute('data-au-bg'),
+          text:       btn.getAttribute('data-au-text'),
+          muted:      btn.getAttribute('data-au-muted')
         };
       }
       applyState(state);
