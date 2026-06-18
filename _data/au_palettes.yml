@@ -23,6 +23,7 @@
   bg_en: "Faded Polaroid"
 
 "Tuning the Devil":         # Wild Bill Wharton
+  theme_id: wildbill
   accent: "#b0803e"
   accent_ink: "#8a5f28"
   bg: "#1b1510"
@@ -34,6 +35,7 @@
   bg_en: "Forge Soot"
 
 "Good Enough":              # Justin Hammer
+  theme_id: hammer
   accent: "#4a87ee"
   accent_ink: "#2f63c0"
   bg: "#13151c"
@@ -45,6 +47,7 @@
   bg_en: "After-Curtain Onyx"
 
 "Zaphod AU":                # Zaphod Beeblebrox
+  theme_id: zaphod
   accent: "#d4a82a"
   accent_ink: "#927012"
   bg: "#0b0a12"
@@ -56,6 +59,7 @@
   bg_en: "Lacquer Black"
 
 "Knox AU":                  # Eric Knox
+  theme_id: knox
   accent: "#d94040"
   accent_ink: "#b13030"
   bg: "#1b1310"
@@ -67,6 +71,7 @@
   bg_en: "Cola Noir"
 
 "Sam Bell · Moon AU":       # Sam Bell
+  theme_id: sambell
   accent: "#7eb0d5"
   accent_ink: "#3f7397"
   bg: "#162038"
@@ -78,6 +83,7 @@
   bg_en: "Lunar Blue"
 
 "A Single Shot AU":         # John Moon
+  theme_id: johnmoon
   accent: "#8fa0b0"
   accent_ink: "#54616e"
   bg: "#14181f"

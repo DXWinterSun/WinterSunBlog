@@ -351,6 +351,17 @@
       hueSlider.value = 0;
       updateHuePreview(0);
     });
+
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-au-theme]');
+      if (!btn) return;
+      var id = btn.getAttribute('data-au-theme');
+      var state = { type: 'preset', id: id };
+      applyState(state);
+      saveState(state);
+      updateSwatchStates();
+      heartbeat();
+    });
   }
 
   // ── Init ──────────────────────────────────────────────────────────────────

@@ -19,5 +19,8 @@
     </span>
   </span>
   <span class="au-strip__perf"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  {%- if p.theme_id -%}
+  <button class="au-strip__switch" type="button" data-au-theme="{{ p.theme_id }}">穿上他的颜色</button>
+  {%- endif -%}
 </div>
 {%- endif -%}

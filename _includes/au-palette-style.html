@@ -87,4 +87,13 @@
   .au-strip__name{ display: flex; flex-direction: column; text-align: left; line-height: 1.18; }
   .au-strip__cn{ font-family: 'Noto Serif SC', serif; font-size: 15px; color: var(--c-ink); }
   .au-strip__en{ font-family: 'EB Garamond', serif; font-style: italic; font-size: 12.5px; color: var(--c-muted); }
+  .au-strip__switch{
+    display: block; width: 100%;
+    background: none; border: none; border-top: 1px solid var(--au-fedge);
+    padding: 7px 8px 4px;
+    font-family: 'EB Garamond', serif; font-style: italic; font-size: 12.5px;
+    color: var(--c-muted); cursor: pointer; text-align: center;
+    letter-spacing: 0.03em; transition: color 0.15s;
+  }
+  .au-strip__switch:hover{ color: {{ p.accent }}; }
 </style>
