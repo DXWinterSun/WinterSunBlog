@@ -522,6 +522,8 @@
     document.body.appendChild(deckEl);
   }
   function refreshDeck() { for (var i = 0; i < pins.length; i++) { var el = pins[i].querySelector(".pol-card-cap i"); if (el) el.textContent = pinDate(); } }
+  // 打开编辑卡时，把整叠铺到左侧当切换器，并高亮当前这本
+  function markDeckCurrent(j) { for (var i = 0; i < pins.length; i++) pins[i].classList.toggle("is-current", JOURNALS[i] === j); }
 
   /* —— 访客彩蛋拍立得（未解锁时藏在浮标后，划过弹起；点开翻到背面）—— */
   var guestEl, guestBack;
@@ -731,6 +733,8 @@
     renderThemeBar(j);
     applyTheme(j);
     jBack.classList.add("open");
+    if (deckEl) deckEl.classList.add("is-switcher");
+    markDeckCurrent(j);
     if (jSendMsgEl) jSendMsgEl.classList.remove("show");
     if (j.kind === "letter") {
       jSavedEl.textContent = "已存草稿 ✓";
@@ -768,6 +772,8 @@
     if (!jBack) return;
     if (curJournal && curJournal.kind === "letter") saveLetterDraft(); else saveJournal();
     jBack.classList.remove("open");
+    if (deckEl) deckEl.classList.remove("is-switcher");
+    markDeckCurrent(null);
   }
 
   /* —— 信卡：本地草稿 + 一键寄进自己的邮箱 —— */
