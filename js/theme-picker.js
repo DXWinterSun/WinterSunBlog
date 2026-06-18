@@ -123,6 +123,8 @@
       applyVars(buildVars(t));
     } else if (state.type === 'custom') {
       applyCustomHue(state.hue, false);
+    } else if (state.type === 'au-direct') {
+      applyVars(buildVars(state));
     }
   }
 
@@ -353,10 +355,21 @@
     });
 
     document.addEventListener('click', function (e) {
-      var btn = e.target.closest('[data-au-theme]');
+      var btn = e.target.closest('.au-strip__switch');
       if (!btn) return;
       var id = btn.getAttribute('data-au-theme');
-      var state = { type: 'preset', id: id };
+      var state;
+      if (id) {
+        state = { type: 'preset', id: id };
+      } else {
+        state = {
+          type: 'au-direct',
+          accent: btn.getAttribute('data-au-accent'),
+          bg:     btn.getAttribute('data-au-bg'),
+          text:   btn.getAttribute('data-au-text'),
+          muted:  btn.getAttribute('data-au-muted')
+        };
+      }
       applyState(state);
       saveState(state);
       updateSwatchStates();
