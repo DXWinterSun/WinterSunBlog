@@ -1,4 +1,4 @@
-<script>window.SITE_BASEURL = "{{site.baseurl}}";{% if site.author-email %} window.HELLO_ENDPOINT = "https://formspree.io/{{site.author-email}}";{% endif %}</script>
+<script>window.SITE_BASEURL = "{{site.baseurl}}";{% if site.web3forms-key and site.web3forms-key != "" %} window.HELLO_ENDPOINT = "https://api.web3forms.com/submit"; window.WEB3FORMS_KEY = "{{site.web3forms-key}}";{% endif %}</script>
 {% assign cache_bust = site.time | date: '%Y%m%d%H%M' %}
 <script src="{{site.baseurl}}/js/jquery-3.3.1.min.js"></script>
 <script src="{{site.baseurl}}/js/evil-icons.min.js"></script>

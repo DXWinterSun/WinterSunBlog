@@ -66,8 +66,9 @@ permalink: /contact/
     {% endif %}
   </ul>
 
-  {% if site.author-email %}
-  <form id="hello-form" class="c-hello__form" action="https://formspree.io/{{site.author-email}}" method="POST">
+  {% if site.web3forms-key and site.web3forms-key != "" %}
+  <form id="hello-form" class="c-hello__form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="{{site.web3forms-key}}">
     <div class="c-section-heading">
       <h3 class="c-section-heading__title">A Letter</h3>
       <span class="c-section-heading__meta">straight to my inbox</span>
@@ -80,20 +81,20 @@ permalink: /contact/
       </label>
       <label class="c-hello__field">
         <span class="c-hello__label">Your email</span>
-        <input class="c-hello__input" type="email" name="_replyto" required>
+        <input class="c-hello__input" type="email" name="email" required>
       </label>
     </div>
     <label class="c-hello__field">
       <span class="c-hello__label">Subject</span>
-      <input class="c-hello__input" type="text" name="_subject">
+      <input class="c-hello__input" type="text" name="subject">
     </label>
     <label class="c-hello__field">
       <span class="c-hello__label">Your letter</span>
-      <textarea class="c-hello__input c-hello__input--area" name="text" rows="8" required></textarea>
+      <textarea class="c-hello__input c-hello__input--area" name="message" rows="8" required></textarea>
     </label>
 
     <button class="c-hello__submit" type="submit">Send the letter</button>
-    <input type="hidden" name="_next" value="{{ site.baseurl }}/contact/thanks/">
+    <input type="hidden" name="redirect" value="{{ site.url }}{{ site.baseurl }}/contact/thanks/">
   </form>
   {% endif %}
 </section>
