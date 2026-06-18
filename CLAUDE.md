@@ -160,7 +160,24 @@ tags: [标签1, 标签2]
 ---
 ```
 
-### 3. 三处必须完全一致的字符串
+### 3. 新系列配色——先查画册
+
+新建系列首页前，先查 `_data/sam_themes.yml`，看这个角色是否已有色卡。
+
+```bash
+grep -A 10 "id: <角色关键词>" _data/sam_themes.yml
+```
+
+**如果找到了**：直接用他的 `accent`、`bg`、`accent_cn`、`accent_en`、
+`bg_cn`、`bg_en` 六个字段，复制到 `_data/au_palettes.yml` 的新条目里。
+`accent_ink` 取 `accent` 值的 ~80%（手动暗一档），`text` 和 `muted`
+照抄 sam_themes 里同一条目的值。键名用 `series_name`（英文，与 front
+matter 完全一致）。条目末尾注明来源，例：
+`# Jason Dixon · 色卡同源 sam_themes.yml id: dixon`
+
+**如果没有**：告知用户，等他提供配色或手动新建条目，不要自己编颜色。
+
+### 4. 三处必须完全一致的字符串
 
 | 位置 | 字段 | 示例值 |
 |---|---|---|

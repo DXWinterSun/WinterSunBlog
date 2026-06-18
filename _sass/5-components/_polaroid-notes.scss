@@ -31,7 +31,7 @@
 
 /* —— 照片背面编辑器（拍立得背面：上半黑条 + 下方书写区，翻入动画）—— */
 .pol-editor {
-  width: min(380px, 92vw);
+  width: min(440px, 92vw);
   background: #f6f1e7;            /* 相纸 */
   border-radius: 4px;
   padding: 9px;                  /* 相纸白边 */
@@ -105,6 +105,10 @@
   font-family: 'EB Garamond', serif; font-style: italic; font-size: 11.5px;
   letter-spacing: 0.4px; color: rgba(231, 220, 198, 0.55);
 }
+/* 两行标签：大字（中/英）+ 英文小字，和左边 Memento 同一套排版 */
+.pol-lk-stack { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 1px; line-height: 1.05; text-align: left; }
+.pol-lk-stack b { font-family: 'EB Garamond', serif; font-weight: 600; font-style: normal; font-size: 13px; letter-spacing: 0.3px; }
+.pol-lk-stack i { font-family: 'EB Garamond', serif; font-style: italic; font-size: 9px; letter-spacing: 0.5px; opacity: 0.6; }
 @media (max-width: 480px) { .pol-lock-tag i { display: none; } }
 
 /* 右侧按钮：「底片匣」「封存」「Leo 的笔迹」—— 全部衬线斜体，和左边一个世界 */
@@ -127,7 +131,7 @@
   font-size: 13.5px; letter-spacing: 0.2px;
   padding: 5px 10px; border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(0, 0, 0, 0.28); color: #efe6d2; width: 148px;
+  background: rgba(0, 0, 0, 0.28); color: #efe6d2; width: 212px; max-width: 56vw;
 }
 .pol-pw::placeholder { color: rgba(200, 191, 168, 0.55); font-style: italic; }
 .pol-go {
@@ -148,7 +152,10 @@
 .pol-box.open { display: block; animation: pol-box-in 0.25s ease; }
 @keyframes pol-box-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-.pol-box-head { display: flex; align-items: center; justify-content: space-between; font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; color: #e7ded0; margin-bottom: 4px; }
+.pol-box-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.pol-box-title { display: inline-flex; align-items: baseline; gap: 7px; }
+.pol-box-title b { font-family: 'EB Garamond', serif; font-weight: 600; font-size: 15px; letter-spacing: 0.3px; color: #e7ded0; }
+.pol-box-title i { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; letter-spacing: 0.4px; color: rgba(231, 222, 208, 0.5); }
 .pol-box-x { border: none; background: transparent; cursor: pointer; color: #b9b0a0; font-size: 18px; line-height: 1; padding: 0 4px; }
 .pol-box-x:hover { color: #fff; }
 .pol-box-count { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: #a89a80; margin: 0 0 10px; }
@@ -162,6 +169,7 @@
 }
 .pol-box-btn:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.24); }
 .pol-box-btn b { display: block; font-family: 'EB Garamond', serif; font-weight: 600; font-size: 15px; color: #efe8da; }
+.pol-box-btn b i { font-weight: 400; font-style: italic; font-size: 11px; letter-spacing: 0.3px; color: #9a8f7c; margin-left: 7px; }
 .pol-box-btn small { display: block; margin-top: 2px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 11.5px; line-height: 1.35; color: #9a8f7c; }
 .pol-box-msg { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; line-height: 1.45; color: #8fae8f; margin: 4px 0 0; min-height: 1em; opacity: 0; transition: opacity 0.3s ease; }
 .pol-box-msg.show { opacity: 1; }
@@ -172,31 +180,43 @@
 .pol-deck {
   position: fixed; left: 20px; bottom: 72px; z-index: 1098;  /* 低于浮标，藏在它后面 */
   display: none;                 /* 解锁后由 JS 置为 block */
-  width: 152px; height: 150px;
+  --cardw: 172px;                /* 缩略卡宽度 */
+  --step: 126px;                 /* 展开时每张的竖向错落步长（≈卡高） */
+  --peek: 24px;                  /* 收起时整叠露出的高度 */
+  width: var(--cardw); height: 168px;
 }
 .pol-card {
-  position: absolute; left: 0; bottom: 0; width: 152px;
+  position: absolute; left: 0; bottom: 0; width: var(--cardw);
   display: flex; flex-direction: column; align-items: stretch;
   padding: 8px 8px 0; background: #fbf9f3; border: none; border-radius: 3px;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4); cursor: pointer;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.22), 0 12px 28px rgba(0, 0, 0, 0.42); cursor: pointer;
   transform-origin: bottom center;
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
 }
 /* 触屏（无 hover）：直接错落展开成一叠，每张都点得到 */
-.pol-card { transform: translateY(calc(var(--i) * -112px)) rotate(-3deg); }
+.pol-card { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(-3deg); }
 /* 有鼠标：平时整叠缩在浮标后只露一条；悬停浮标或卡组时，像抽屉一样展开 */
 @media (hover: hover) {
-  .pol-card { transform: translateY(calc(100% - 22px - var(--i) * 7px)) rotate(calc(var(--i) * 3deg - 2deg)); }
+  .pol-card { transform: translateY(calc(100% - var(--peek) - var(--i) * 7px)) rotate(calc(var(--i) * 3deg - 2deg)); }
   .pol-deck:hover .pol-card,
-  .pol-lock:hover ~ .pol-deck .pol-card { transform: translateY(calc(var(--i) * -112px)) rotate(-3deg); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5); }
+  .pol-lock:hover ~ .pol-deck .pol-card { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(-3deg); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5); }
   .pol-deck:hover .pol-card:hover,
-  .pol-lock:hover ~ .pol-deck .pol-card:hover { transform: translateY(calc(var(--i) * -112px)) rotate(0deg) scale(1.03); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.55); }
+  .pol-lock:hover ~ .pol-deck .pol-card:hover { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.03); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.55); }
+  /* 打开编辑卡时：整叠常驻铺开、浮到蒙版之上，可直接点切换本子（不再因鼠标移开而收起）*/
+  .pol-deck.is-switcher { z-index: 1210; }
+  .pol-deck.is-switcher .pol-card { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(-3deg); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5); }
+  .pol-deck.is-switcher .pol-card:hover { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.03); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.55); }
+  .pol-deck.is-switcher .pol-card.is-current { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.04); box-shadow: 0 22px 46px rgba(0, 0, 0, 0.55), 0 0 0 2px var(--c-accent, #c9a16b); }
 }
 .pol-card-photo {
+  position: relative; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
-  height: 82px; border-radius: 2px;
+  height: 96px; border-radius: 2px;
+  /* 内陷一圈 + 顶部高光：让这块「照片」看着是嵌进相纸里的，有厚度 */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
-.pol-card-star { font-size: 23px; color: rgba(255, 255, 255, 0.82); text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); }
+/* 每张「照片」里的小场景，铺满整框 */
+.pol-scene { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 /* 歌词分层排版：引子(轻) → 主角(衬线斜体放大) → 署名(极小) → 日期 */
 .pol-card-cap { display: flex; flex-direction: column; align-items: center; gap: 0; padding: 7px 4px 9px; text-align: center; }
 .pol-card-q1 { font-family: 'EB Garamond', serif; font-style: italic; font-size: 10.5px; letter-spacing: 0.3px; color: #9a8f7c; line-height: 1.2; }
@@ -204,34 +224,117 @@
 .pol-card-credit { font-family: 'EB Garamond', serif; font-style: italic; font-size: 8.5px; letter-spacing: 0.7px; color: #c0b29a; margin-top: 4px; }
 .pol-card-cap i { font-family: 'EB Garamond', serif; font-style: italic; font-size: 10px; color: #9a8f7c; margin-top: 2px; }
 @media (max-width: 480px) {
-  .pol-deck { width: 138px; bottom: 76px; }
-  .pol-card { width: 138px; }
-  .pol-card-photo { height: 74px; }
+  .pol-deck { --cardw: 150px; --step: 120px; height: 150px; bottom: 76px; }
+  .pol-card-photo { height: 84px; }
+  .pol-guest { width: 150px; bottom: 72px; }
 }
+
+/* —— 访客彩蛋拍立得：未解锁时藏在浮标后只露一角，划过浮标 / 卡片才弹起；点开翻到背面 —— */
+.pol-guest {
+  position: fixed; left: 20px; bottom: 72px; z-index: 1098;  /* 低于浮标，藏在它后面 */
+  --peek: 30px;
+  display: none; flex-direction: column; align-items: stretch; width: 172px;
+  padding: 8px 8px 0; background: #fbf9f3; border: none; border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.22), 0 12px 28px rgba(0, 0, 0, 0.42); cursor: pointer; text-align: left;
+  transform-origin: bottom center;
+  transform: rotate(-2.5deg);                /* 触屏（无 hover）：直接立着，看得到 */
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+}
+@media (hover: hover) {
+  .pol-guest { transform: translateY(calc(100% - var(--peek))) rotate(-2.5deg); }  /* 平时缩在浮标后只露一条 */
+  .pol-guest:hover,
+  .pol-lock:hover ~ .pol-guest { transform: translateY(0) rotate(-2deg); box-shadow: 0 20px 42px rgba(0, 0, 0, 0.52); }
+}
+.pol-guest-cap { padding-bottom: 11px; }
+.pol-guest-cap .pol-card-q2 { font-size: 14.5px; line-height: 1.25; }
+.pol-guest-sign { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; letter-spacing: 0.4px; color: #9a8f7c; margin-top: 7px; }
+.pol-guest-sign::before { content: "— "; }
+
+/* —— 照片背面（点开翻面）：黑条印一句 + 手写短笺 + 故事链接 —— */
+.pol-guest-flip {
+  position: relative; width: min(360px, 90vw);
+  background: #f6f1e7; border-radius: 5px; padding: 9px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  transform: rotateY(90deg) scale(0.94); opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0.15, 0.2, 1), opacity 0.35s ease;
+}
+.pol-guest-backdrop.open .pol-guest-flip { transform: rotateY(0) scale(1); opacity: 1; }
+.pol-gb-strip { background: #14110d; border-radius: 3px; padding: 13px 16px; }
+.pol-gb-strip span { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 0.4px; color: rgba(231, 220, 198, 0.72); }
+.pol-gb-note { padding: 15px 17px 6px; }
+.pol-gb-pair { margin-bottom: 11px; }
+.pol-gb-zh { margin: 0; color: #34302a; font-size: 18.5px; line-height: 1.5; }
+.pol-gb-en { margin: 2px 0 0; font-family: 'EB Garamond', serif; font-style: italic; font-size: 12.5px; letter-spacing: 0.2px; line-height: 1.35; color: #a0937e; }
+.pol-gb-link {
+  display: inline-block; margin: 8px 17px 14px;
+  font-family: 'EB Garamond', serif; font-style: italic; font-size: 14.5px; letter-spacing: 0.2px;
+  color: var(--c-accent, #5f96c2); text-decoration: none;
+  border-bottom: 1px solid currentColor; padding-bottom: 1px;
+}
+.pol-gb-link:hover { filter: brightness(1.12); }
 
 /* 翻开的编辑卡（沿用相纸 + 黑条的语言）*/
 .pol-lucky-card {
-  width: min(380px, 92vw);
-  background: #f6f1e7; border-radius: 5px; padding: 9px;
+  width: min(440px, 92vw);
+  background: var(--c-bg, #f6f1e7); border-radius: 5px; padding: 9px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
   transform: translateY(14px) scale(0.96); opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease, background 0.25s ease;
 }
 .pol-backdrop.open .pol-lucky-card { transform: none; opacity: 1; }
+/* —— 选了角色：整张卡套上该角色的色卡。明暗跟随整站 data-theme（JS 计算 --c-* 变量）—— */
+.pol-lucky-card.is-themed .pol-lucky-date { color: var(--c-strip-ink, #e7dcc6); }
+.pol-lucky-card.is-themed .pol-lucky-nav { color: var(--c-strip-ink, rgba(231, 220, 198, 0.55)); opacity: 0.55; }
+.pol-lucky-card.is-themed .pol-lucky-nav:hover { opacity: 1; }
+.pol-lucky-card.is-themed .pol-lucky-in,
+.pol-lucky-card.is-themed .pol-letter-in,
+.pol-lucky-card.is-themed .pol-letter-date { color: var(--c-text, #33302a); border-bottom-color: var(--c-line, rgba(0, 0, 0, 0.12)); }
+.pol-lucky-card.is-themed .pol-lucky-in::placeholder,
+.pol-lucky-card.is-themed .pol-letter-in::placeholder { color: var(--c-muted, #c4bba4); }
+.pol-lucky-card.is-themed .pol-lucky-hint,
+.pol-lucky-card.is-themed .pol-lucky-x,
+.pol-lucky-card.is-themed .pol-letter-lab { color: var(--c-muted, #a89a80); }
+.pol-lucky-card.is-themed .pol-lucky-x:hover { color: var(--c-text, #5c4f37); }
+.pol-lucky-card.is-themed .pol-when-chip { color: var(--c-text, #6f6048); background: var(--c-line, rgba(0, 0, 0, 0.06)); border-color: var(--c-line, rgba(0, 0, 0, 0.12)); }
+/* 顶栏：选了角色后跟随该角色（深/浅由整站决定），底部一道强调色线；没选则默认近黑 */
 .pol-lucky-top {
   display: flex; align-items: center; justify-content: space-between;
-  background: #14110d; border-radius: 3px; padding: 9px 10px;
+  background: var(--c-strip, #14110d); border-radius: 3px; padding: 9px 10px;
+  box-shadow: inset 0 -2px 0 var(--c-accent, transparent);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 .pol-lucky-date { font-family: 'EB Garamond', serif; font-style: italic; font-size: 15px; letter-spacing: 0.3px; color: #e7dcc6; }
 .pol-lucky-nav { border: none; background: transparent; color: rgba(231, 220, 198, 0.55); font-size: 21px; line-height: 1; cursor: pointer; padding: 0 8px; }
-.pol-lucky-nav:hover { color: #fff; }
+.pol-lucky-nav:hover { color: var(--c-accent, #fff); }
+/* 主题色色卡：直接同步画册全量角色（扁平色点，可换行；选中的描一圈，悬停浮出角色名） */
+.pol-theme { position: relative; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; padding: 10px 14px 3px; }
+.pol-sw {
+  width: 15px; height: 15px; border-radius: 50%; padding: 0; cursor: pointer; flex: none;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+.pol-sw:hover { transform: scale(1.25); }
+.pol-sw.on { box-shadow: 0 0 0 2px var(--c-bg, #f6f1e7), 0 0 0 3.4px var(--c-accent, #b08968); }
+/* 「原色」重置：米纸底 + 一道斜杠，表示不套任何角色色 */
+.pol-sw-og { background: linear-gradient(135deg, #efe7d6 44%, #b9aa8c 44%, #b9aa8c 56%, #efe7d6 56%); }
+/* 悬停提示：浮在所悬停色点的正上方，显示「角色名 · 色名」 */
+.pol-sw-tip {
+  position: absolute; left: 0; top: 0; transform: translate(-50%, calc(-100% - 6px));
+  background: #14110d; color: #f0e7d4;
+  font-family: 'EB Garamond', serif; font-style: italic; font-size: 11.5px; letter-spacing: 0.2px;
+  white-space: nowrap; padding: 3px 9px; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  pointer-events: none; opacity: 0; transition: opacity 0.15s ease; z-index: 3;
+}
+.pol-sw-tip.show { opacity: 1; }
 .pol-lucky-body { padding: 14px 14px 2px; }
 .pol-lucky-row { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 11px; cursor: text; }
-.pol-lucky-no { flex: none; width: 22px; text-align: center; font-family: 'Ma Shan Zheng', cursive; font-size: 21px; color: #b08968; line-height: 1.35; }
+.pol-lucky-no { flex: none; width: 22px; text-align: center; font-family: 'Ma Shan Zheng', cursive; font-size: 21px; color: var(--c-accent, #b08968); line-height: 1.35; }
 .pol-lucky-in {
   flex: 1; border: none; outline: none; resize: none; background: transparent;
   color: #33302a; font-size: 21px; line-height: 1.4; min-height: 30px; overflow: hidden;
   border-bottom: 1px solid rgba(0, 0, 0, 0.09); padding: 0 0 3px;
+  caret-color: var(--c-accent, #b08968);
 }
 .pol-lucky-in::placeholder { color: #c4bba4; }
 /* 自由记录（吐槽/日常）：一整块，更高，去掉单行底线 */
@@ -242,3 +345,44 @@
 .pol-lucky-saved { color: #6f9a6f; }
 .pol-lucky-x { border: none; background: transparent; cursor: pointer; font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: #8a7c5f; }
 .pol-lucky-x:hover { color: #5c4f37; }
+
+/* —— 信卡（写给自己）：标题 / 待重读日 字段 + 封缄寄出按钮 —— */
+.pol-letter-field { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.pol-letter-lab { flex: none; width: 42px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: #8a7c5f; }
+.pol-letter-in {
+  flex: 1; min-width: 0; border: none; outline: none; background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); padding: 3px 0;
+  font-family: 'EB Garamond', serif; font-size: 15px; color: #33302a;
+  caret-color: var(--c-accent, #b08968);
+}
+.pol-letter-in::placeholder { color: #c4bba4; font-style: italic; }
+/* 「写给」行：预设快捷 chips + 自定义日期，可换行 */
+.pol-letter-when-field { align-items: flex-start; }
+.pol-letter-when-field .pol-letter-lab { padding-top: 5px; }
+.pol-when { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.pol-when-chip {
+  font-family: 'EB Garamond', serif; font-style: italic; font-size: 12.5px; letter-spacing: 0.2px;
+  color: #6f6048; background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.12); border-radius: 999px;
+  padding: 3px 11px; cursor: pointer; transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.pol-when-chip:hover { background: rgba(0, 0, 0, 0.09); color: #4a3f2c; }
+.pol-when-chip.on { background: var(--c-accent, #b08968); border-color: var(--c-accent, #b08968); color: #fff; }
+.pol-letter-date {
+  color: #5c5444; border: none; outline: none; background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); padding: 2px 0;
+  font-family: 'EB Garamond', serif; font-size: 13px;
+}
+.pol-lucky-send {
+  display: none;
+  font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px;
+  border: none; border-radius: 999px; padding: 5px 14px; cursor: pointer;
+  background: var(--c-accent, #b08968); color: #fff;
+}
+.pol-lucky-send:hover { filter: brightness(1.06); }
+.pol-lucky-sendmsg { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; color: #6f9a6f; opacity: 0; transition: opacity 0.3s ease; }
+.pol-lucky-sendmsg.show { opacity: 1; }
+/* 信卡模式下：显示寄出按钮、藏起翻日箭头 */
+.pol-lucky-backdrop[data-kind="letter"] .pol-lucky-send { display: inline-block; }
+.pol-lucky-backdrop[data-kind="letter"] .pol-lucky-nav { display: none; }
+.pol-lucky-backdrop[data-kind="letter"] .pol-lucky-date { font-style: italic; }
