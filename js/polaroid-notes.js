@@ -76,32 +76,85 @@
     ],
     linkLabel: "翻开《You Are My Fact》 →"
   };
-  // 访客拍立得里的「照片」：一帧褪色夜空 —— 月、星、漏光、暗角，比纯渐变更像真相片
-  var GUEST_SCENE =
-    '<svg class="pol-guest-scene" viewBox="0 0 160 96" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
-      '<defs>' +
-        '<radialGradient id="pgMoon" cx="50%" cy="50%" r="50%">' +
-          '<stop offset="0%" stop-color="#fff6e2"/><stop offset="62%" stop-color="#efe1c2"/>' +
-          '<stop offset="100%" stop-color="#efe1c2" stop-opacity="0"/></radialGradient>' +
-        '<linearGradient id="pgLeak" x1="0" y1="0" x2="1" y2="1">' +
-          '<stop offset="0%" stop-color="#ffe7bd" stop-opacity="0.5"/>' +
-          '<stop offset="42%" stop-color="#ffd79a" stop-opacity="0.07"/>' +
-          '<stop offset="100%" stop-color="#ffd79a" stop-opacity="0"/></linearGradient>' +
-        '<radialGradient id="pgVig" cx="48%" cy="40%" r="78%">' +
-          '<stop offset="55%" stop-color="#0a0c14" stop-opacity="0"/>' +
-          '<stop offset="100%" stop-color="#0a0c14" stop-opacity="0.4"/></radialGradient>' +
-      '</defs>' +
-      '<rect x="84" y="-14" width="96" height="128" transform="rotate(20 132 40)" fill="url(#pgLeak)"/>' +
-      '<circle cx="126" cy="25" r="15" fill="url(#pgMoon)"/>' +
-      '<g fill="#fdf6e6">' +
-        '<circle cx="20" cy="18" r="1.3" opacity="0.9"/><circle cx="38" cy="36" r="0.9" opacity="0.6"/>' +
-        '<circle cx="58" cy="14" r="1.1" opacity="0.75"/><circle cx="80" cy="44" r="0.8" opacity="0.5"/>' +
-        '<circle cx="98" cy="20" r="1" opacity="0.7"/><circle cx="30" cy="56" r="1" opacity="0.6"/>' +
-        '<circle cx="14" cy="38" r="0.8" opacity="0.5"/><circle cx="110" cy="50" r="0.9" opacity="0.55"/>' +
-      '</g>' +
-      '<path d="M50 60 l1.7 4.6 4.6 1.7 -4.6 1.7 -1.7 4.6 -1.7 -4.6 -4.6 -1.7 4.6 -1.7 z" fill="#fff" opacity="0.92"/>' +
-      '<rect x="0" y="0" width="160" height="96" fill="url(#pgVig)"/>' +
-    '</svg>';
+  // 每张拍立得里的「照片」：一帧贴合这张情绪的小场景（纯 SVG，铺满相纸框）。
+  // 比纯渐变更像真相片，月/星/漏光/暗角营造厚度。键 = journal id（+ guest）。
+  var SCENES = {
+    // fortunes · The Fray「Happiness throws a shower of sparks」—— 暖金火花雨，幸运、雀跃
+    fortunes:
+      '<svg class="pol-scene" viewBox="0 0 160 96" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+        '<defs>' +
+          '<radialGradient id="scFg" cx="50%" cy="16%" r="62%"><stop offset="0%" stop-color="#ffe9b0" stop-opacity="0.55"/><stop offset="100%" stop-color="#ffe9b0" stop-opacity="0"/></radialGradient>' +
+          '<radialGradient id="scFv" cx="50%" cy="42%" r="80%"><stop offset="55%" stop-color="#1a1024" stop-opacity="0"/><stop offset="100%" stop-color="#1a1024" stop-opacity="0.4"/></radialGradient>' +
+        '</defs>' +
+        '<rect x="0" y="0" width="160" height="96" fill="url(#scFg)"/>' +
+        '<g stroke="#ffd373" stroke-width="1.4" stroke-linecap="round">' +
+          '<line x1="40" y1="8" x2="36" y2="20" opacity="0.85"/><line x1="66" y1="4" x2="61" y2="18" opacity="0.7"/>' +
+          '<line x1="92" y1="10" x2="88" y2="24" opacity="0.8"/><line x1="116" y1="6" x2="112" y2="19" opacity="0.6"/>' +
+          '<line x1="78" y1="22" x2="75" y2="33" opacity="0.5"/><line x1="52" y1="26" x2="49" y2="36" opacity="0.45"/>' +
+        '</g>' +
+        '<g fill="#ffe7a8">' +
+          '<circle cx="36" cy="22" r="1.3" opacity="0.9"/><circle cx="61" cy="20" r="1.1" opacity="0.8"/>' +
+          '<circle cx="88" cy="26" r="1.4" opacity="0.9"/><circle cx="112" cy="21" r="1" opacity="0.7"/>' +
+          '<circle cx="75" cy="35" r="1" opacity="0.6"/><circle cx="128" cy="34" r="1.2" opacity="0.7"/>' +
+        '</g>' +
+        '<path d="M104 50 l1.8 5 5 1.8 -5 1.8 -1.8 5 -1.8 -5 -5 -1.8 5 -1.8 z" fill="#fff3d0" opacity="0.95"/>' +
+        '<rect x="0" y="0" width="160" height="96" fill="url(#scFv)"/>' +
+      '</svg>',
+    // windows · Guy Pearce「Dirty Windows」—— 雨水顺着窗格往下淌，灰蓝、低落、隐忍
+    windows:
+      '<svg class="pol-scene" viewBox="0 0 160 96" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+        '<defs>' +
+          '<linearGradient id="scWs" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cdd6dc" stop-opacity="0"/><stop offset="100%" stop-color="#cdd6dc" stop-opacity="0.4"/></linearGradient>' +
+          '<radialGradient id="scWv" cx="50%" cy="45%" r="80%"><stop offset="50%" stop-color="#0e141a" stop-opacity="0"/><stop offset="100%" stop-color="#0e141a" stop-opacity="0.42"/></radialGradient>' +
+        '</defs>' +
+        '<g stroke="#11161c" stroke-width="3" opacity="0.18"><line x1="80" y1="0" x2="80" y2="96"/><line x1="0" y1="50" x2="160" y2="50"/></g>' +
+        '<g stroke="url(#scWs)" stroke-width="1.6" stroke-linecap="round">' +
+          '<line x1="24" y1="6" x2="24" y2="40"/><line x1="44" y1="20" x2="44" y2="62"/><line x1="100" y1="2" x2="100" y2="34"/>' +
+          '<line x1="120" y1="26" x2="120" y2="70"/><line x1="138" y1="10" x2="138" y2="48"/><line x1="62" y1="40" x2="62" y2="82"/>' +
+        '</g>' +
+        '<g fill="#dfe7ec" opacity="0.6">' +
+          '<circle cx="24" cy="42" r="2"/><circle cx="44" cy="64" r="2.4"/><circle cx="120" cy="72" r="2.2"/>' +
+          '<circle cx="138" cy="50" r="1.8"/><circle cx="62" cy="84" r="2"/>' +
+        '</g>' +
+        '<rect x="0" y="0" width="160" height="96" fill="url(#scWv)"/>' +
+      '</svg>',
+    // toself · Augustana「Meet You There」—— 一条小路通向地平线上的光点，盼望、奔赴
+    toself:
+      '<svg class="pol-scene" viewBox="0 0 160 96" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+        '<defs>' +
+          '<radialGradient id="scTg" cx="50%" cy="62%" r="34%"><stop offset="0%" stop-color="#ffe6c0" stop-opacity="0.85"/><stop offset="100%" stop-color="#ffe6c0" stop-opacity="0"/></radialGradient>' +
+          '<radialGradient id="scTv" cx="50%" cy="45%" r="80%"><stop offset="55%" stop-color="#140f12" stop-opacity="0"/><stop offset="100%" stop-color="#140f12" stop-opacity="0.4"/></radialGradient>' +
+        '</defs>' +
+        '<rect x="0" y="0" width="160" height="96" fill="url(#scTg)"/>' +
+        '<path d="M64 96 L78 60 L82 60 L96 96 Z" fill="#d8c4a6" opacity="0.22"/>' +
+        '<line x1="0" y1="60" x2="160" y2="60" stroke="#e9d6b8" stroke-width="1" opacity="0.35"/>' +
+        '<circle cx="80" cy="60" r="5" fill="#fff1d6" opacity="0.35"/><circle cx="80" cy="60" r="2.4" fill="#fff1d6"/>' +
+        '<g fill="#f3e6cf">' +
+          '<circle cx="30" cy="22" r="1.1" opacity="0.8"/><circle cx="120" cy="18" r="1" opacity="0.7"/>' +
+          '<circle cx="100" cy="34" r="0.8" opacity="0.55"/><circle cx="46" cy="40" r="0.8" opacity="0.5"/>' +
+        '</g>' +
+        '<rect x="0" y="0" width="160" height="96" fill="url(#scTv)"/>' +
+      '</svg>',
+    // guest · David Bowie「Something in the Air」—— 褪色夜空，月、星、漏光、暗角
+    guest:
+      '<svg class="pol-scene" viewBox="0 0 160 96" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+        '<defs>' +
+          '<radialGradient id="pgMoon" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff6e2"/><stop offset="62%" stop-color="#efe1c2"/><stop offset="100%" stop-color="#efe1c2" stop-opacity="0"/></radialGradient>' +
+          '<linearGradient id="pgLeak" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ffe7bd" stop-opacity="0.5"/><stop offset="42%" stop-color="#ffd79a" stop-opacity="0.07"/><stop offset="100%" stop-color="#ffd79a" stop-opacity="0"/></linearGradient>' +
+          '<radialGradient id="pgVig" cx="48%" cy="40%" r="78%"><stop offset="55%" stop-color="#0a0c14" stop-opacity="0"/><stop offset="100%" stop-color="#0a0c14" stop-opacity="0.4"/></radialGradient>' +
+        '</defs>' +
+        '<rect x="84" y="-14" width="96" height="128" transform="rotate(20 132 40)" fill="url(#pgLeak)"/>' +
+        '<circle cx="126" cy="25" r="15" fill="url(#pgMoon)"/>' +
+        '<g fill="#fdf6e6">' +
+          '<circle cx="20" cy="18" r="1.3" opacity="0.9"/><circle cx="38" cy="36" r="0.9" opacity="0.6"/>' +
+          '<circle cx="58" cy="14" r="1.1" opacity="0.75"/><circle cx="80" cy="44" r="0.8" opacity="0.5"/>' +
+          '<circle cx="98" cy="20" r="1" opacity="0.7"/><circle cx="30" cy="56" r="1" opacity="0.6"/>' +
+          '<circle cx="14" cy="38" r="0.8" opacity="0.5"/><circle cx="110" cy="50" r="0.9" opacity="0.55"/>' +
+        '</g>' +
+        '<path d="M50 60 l1.7 4.6 4.6 1.7 -4.6 1.7 -1.7 4.6 -1.7 -4.6 -4.6 -1.7 4.6 -1.7 z" fill="#fff" opacity="0.92"/>' +
+        '<rect x="0" y="0" width="160" height="96" fill="url(#pgVig)"/>' +
+      '</svg>'
+  };
   // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
   var PEN_SVG = '<svg class="pol-lock-pen" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">' +
     '<path d="M12 2 C15.2 8 16.6 13.6 12 22 C7.4 13.6 8.8 8 12 2 Z" fill="#d8c6a2"/>' +
@@ -443,7 +496,7 @@
         pin.type = "button"; pin.className = "pol-card";
         pin.style.setProperty("--i", idx); pin.style.zIndex = idx + 1;
         pin.innerHTML =
-          '<span class="pol-card-photo"><span class="pol-card-star">✦</span></span>' +
+          '<span class="pol-card-photo">' + (SCENES[j.id] || "") + '</span>' +
           '<span class="pol-card-cap"><span class="pol-card-q1"></span><span class="pol-card-q2"></span><span class="pol-card-credit"></span><i></i></span>';
         var photo = pin.querySelector(".pol-card-photo");
         photo.style.background = gradOf(j); deckPhotos[j.id] = photo;
@@ -466,7 +519,7 @@
     guestEl.className = "pol-guest";
     guestEl.setAttribute("aria-label", "翻看这张照片的背面");
     guestEl.innerHTML =
-      '<span class="pol-card-photo">' + GUEST_SCENE + '</span>' +
+      '<span class="pol-card-photo">' + SCENES.guest + '</span>' +
       '<span class="pol-card-cap pol-guest-cap">' +
         '<span class="pol-card-q1"></span>' +
         '<span class="pol-card-q2"></span>' +
