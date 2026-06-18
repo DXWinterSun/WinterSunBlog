@@ -42,20 +42,20 @@
       grad: "linear-gradient(145deg, #8a7459 0%, #5b4a52 52%, #34303a 100%)",
       q1: "And I'll", q2: "meet you there someday", credit: "Augustana · Meet You There",
       hint: "存着慢慢写；封缄后，它会寄进你的邮箱。",
-      subjectDefault: "「致自己」"
+      subjectDefault: ""
     }
   ];
   // 主题色：与「Many Faces of Sam」画册 / _data/au_palettes.yml 同源的强调色。
   // 写卡片时可点选，换这张卡的强调色 + 角落缩略卡的相纸渐变；选择记在本地。
   // key 空字符串 = 该卡自带的「原色」，由 JOURNALS[i].grad 决定。
   var THEMES = [
-    { key: "ice",     cn: "冰蓝眼眸",   en: "Ice-Blue Eyes",   accent: "#5f96c2", grad: "linear-gradient(145deg, #7fb0d8 0%, #4a6680 55%, #1e1a16 100%)" },
-    { key: "sapphire",cn: "电光钴蓝",   en: "Spotlight Sapphire", accent: "#4a87ee", grad: "linear-gradient(145deg, #5a93f0 0%, #34527e 52%, #13151c 100%)" },
-    { key: "sawdust", cn: "锯末粗木",   en: "Sawdust Timber",  accent: "#b0803e", grad: "linear-gradient(145deg, #c79456 0%, #6f5436 55%, #1b1510 100%)" },
-    { key: "mane",    cn: "总统鬃金",   en: "President's Mane", accent: "#d4a82a", grad: "linear-gradient(145deg, #e0bd4a 0%, #7d6320 52%, #0b0a12 100%)" },
-    { key: "crimson", cn: "红镜红",     en: "Crimson Lens",    accent: "#d94040", grad: "linear-gradient(145deg, #e25a5a 0%, #7d3530 55%, #1b1310 100%)" },
-    { key: "lunar",   cn: "月球蔚蓝",   en: "Lunar Blue",      accent: "#7eb0d5", grad: "linear-gradient(145deg, #8fbce0 0%, #44607e 52%, #162038 100%)" },
-    { key: "mist",    cn: "孤枪冷雾蓝", en: "Lone Mist",       accent: "#8fa0b0", grad: "linear-gradient(145deg, #a3b3c2 0%, #54616e 52%, #14181f 100%)" }
+    { key: "ice",     role: "Leonard Shelby",    cn: "冰蓝眼眸",   en: "Ice-Blue Eyes",   accent: "#5f96c2", grad: "linear-gradient(145deg, #7fb0d8 0%, #4a6680 55%, #1e1a16 100%)" },
+    { key: "sapphire",role: "Justin Hammer",     cn: "电光钴蓝",   en: "Spotlight Sapphire", accent: "#4a87ee", grad: "linear-gradient(145deg, #5a93f0 0%, #34527e 52%, #13151c 100%)" },
+    { key: "sawdust", role: "Wild Bill Wharton", cn: "锯末粗木",   en: "Sawdust Timber",  accent: "#b0803e", grad: "linear-gradient(145deg, #c79456 0%, #6f5436 55%, #1b1510 100%)" },
+    { key: "mane",    role: "Zaphod Beeblebrox", cn: "总统鬃金",   en: "President's Mane", accent: "#d4a82a", grad: "linear-gradient(145deg, #e0bd4a 0%, #7d6320 52%, #0b0a12 100%)" },
+    { key: "crimson", role: "Eric Knox",         cn: "红镜红",     en: "Crimson Lens",    accent: "#d94040", grad: "linear-gradient(145deg, #e25a5a 0%, #7d3530 55%, #1b1310 100%)" },
+    { key: "lunar",   role: "Sam Bell",          cn: "月球蔚蓝",   en: "Lunar Blue",      accent: "#7eb0d5", grad: "linear-gradient(145deg, #8fbce0 0%, #44607e 52%, #162038 100%)" },
+    { key: "mist",    role: "John Moon",         cn: "孤枪冷雾蓝", en: "Lone Mist",       accent: "#8fa0b0", grad: "linear-gradient(145deg, #a3b3c2 0%, #54616e 52%, #14181f 100%)" }
   ];
   // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
   var PEN_SVG = '<svg class="pol-lock-pen" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">' +
@@ -415,7 +415,7 @@
 
   /* —— 共用的翻开编辑卡（按当前 journal 的 kind 重建内页）—— */
   var jBack, jCardEl, jThemeEl, jDateEl, jSavedEl, jHintEl, jBodyEl, jSendMsgEl, curJournal = null, curDay = null, jInputs = [], jSaveTimer = null;
-  var letterSubj, letterRead, letterBody; // 信卡专用：标题 / 待重读日 / 正文
+  var letterSubj, letterRead, letterBody, whenChips = []; // 信卡专用：标题 / 写给何时 / 正文 / 时间预设按钮
   function autoGrow(t) { t.style.height = "auto"; t.style.height = Math.max(30, t.scrollHeight) + "px"; }
   function flashSaved() { if (jSavedEl) { jSavedEl.classList.add("show"); setTimeout(function () { jSavedEl.classList.remove("show"); }, 1200); } }
   function buildJournalEditor() {
@@ -470,14 +470,27 @@
     } else if (j.kind === "letter") {
       var f1 = document.createElement("label"); f1.className = "pol-letter-field";
       var l1 = document.createElement("span"); l1.className = "pol-letter-lab"; l1.textContent = "标题";
-      letterSubj = document.createElement("input"); letterSubj.type = "text"; letterSubj.className = "pol-letter-in"; letterSubj.placeholder = "给这封信起个标题…";
+      letterSubj = document.createElement("input"); letterSubj.type = "text"; letterSubj.className = "pol-letter-in"; letterSubj.placeholder = "给这封信起个标题（可留空）…";
       letterSubj.addEventListener("input", scheduleLetterSave);
       f1.appendChild(l1); f1.appendChild(letterSubj);
-      var f2 = document.createElement("label"); f2.className = "pol-letter-field";
-      var l2 = document.createElement("span"); l2.className = "pol-letter-lab"; l2.textContent = "待重读";
-      letterRead = document.createElement("input"); letterRead.type = "date"; letterRead.className = "pol-letter-in pol-letter-date";
-      letterRead.addEventListener("input", scheduleLetterSave);
-      f2.appendChild(l2); f2.appendChild(letterRead);
+      // 写给何时的自己：一排预设快捷 + 自定义日期
+      var f2 = document.createElement("div"); f2.className = "pol-letter-field pol-letter-when-field";
+      var l2 = document.createElement("span"); l2.className = "pol-letter-lab"; l2.textContent = "写给";
+      var when = document.createElement("div"); when.className = "pol-when";
+      whenChips = [];
+      for (var w = 0; w < WHEN_PRESETS.length; w++) {
+        (function (p) {
+          var c = document.createElement("button"); c.type = "button"; c.className = "pol-when-chip";
+          c.textContent = p.label; c.setAttribute("data-key", computePreset(p));
+          c.addEventListener("click", function () { letterRead.value = c.getAttribute("data-key"); syncWhenChips(); scheduleLetterSave(); });
+          when.appendChild(c); whenChips.push(c);
+        })(WHEN_PRESETS[w]);
+      }
+      letterRead = document.createElement("input"); letterRead.type = "date"; letterRead.className = "pol-letter-date pol-when-date";
+      letterRead.title = "或自选一个日期";
+      letterRead.addEventListener("input", function () { syncWhenChips(); scheduleLetterSave(); });
+      when.appendChild(letterRead);
+      f2.appendChild(l2); f2.appendChild(when);
       letterBody = makeTextarea(scheduleLetterSave); letterBody.classList.add("pol-lucky-free");
       jBodyEl.appendChild(f1); jBodyEl.appendChild(f2); jBodyEl.appendChild(letterBody);
     } else {
@@ -493,14 +506,20 @@
   function renderThemeBar(j) {
     if (!jThemeEl) return;
     jThemeEl.innerHTML = "";
+    var tip = document.createElement("span"); tip.className = "pol-sw-tip"; jThemeEl.appendChild(tip);
     var cur = themeKeyOf(j.id);
     var opts = [{ key: "", grad: j.grad, cn: "原色", en: "Original" }].concat(THEMES);
     for (var i = 0; i < opts.length; i++) {
       (function (o) {
+        var label = o.role ? (o.role + " · " + o.cn) : (o.en ? (o.cn + " · " + o.en) : o.cn);
         var b = document.createElement("button");
         b.type = "button"; b.className = "pol-sw" + (o.key === cur ? " on" : "");
-        b.style.background = o.grad; b.title = o.cn + " · " + o.en;
+        b.style.background = o.grad; b.setAttribute("aria-label", label);
         b.addEventListener("click", function () { setThemeKey(j.id, o.key); applyTheme(j); renderThemeBar(j); });
+        function show() { tip.textContent = label; tip.style.left = (b.offsetLeft + b.offsetWidth / 2) + "px"; tip.classList.add("show"); }
+        function hide() { tip.classList.remove("show"); }
+        b.addEventListener("mouseenter", show); b.addEventListener("mouseleave", hide);
+        b.addEventListener("focus", show); b.addEventListener("blur", hide);
         jThemeEl.appendChild(b);
       })(opts[i]);
     }
@@ -567,13 +586,24 @@
   }
 
   /* —— 信卡：本地草稿 + 一键寄进自己的邮箱 —— */
-  function niceDate(key) { var p = key.split("-"); return (+p[2]) + " " + EN_MON[+p[1] - 1] + " " + p[0]; }
+  function cnDate(key) { var p = key.split("-"); return (+p[0]) + "年" + (+p[1]) + "月" + (+p[2]) + "日"; }
+  // 「写给何时的自己」预设：点一下按今天往后推算出一个日期
+  var WHEN_PRESETS = [
+    { label: "一个月后", add: function (d) { d.setMonth(d.getMonth() + 1); } },
+    { label: "半年后",   add: function (d) { d.setMonth(d.getMonth() + 6); } },
+    { label: "一年后",   add: function (d) { d.setFullYear(d.getFullYear() + 1); } },
+    { label: "三年后",   add: function (d) { d.setFullYear(d.getFullYear() + 3); } },
+    { label: "十年后",   add: function (d) { d.setFullYear(d.getFullYear() + 10); } }
+  ];
+  function computePreset(p) { var d = new Date(); p.add(d); return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+  function syncWhenChips() { for (var i = 0; i < whenChips.length; i++) whenChips[i].classList.toggle("on", !!letterRead && whenChips[i].getAttribute("data-key") === letterRead.value); }
   function letterRecord() { try { return JSON.parse(localStorage.getItem(curJournal.ls)) || {}; } catch (e) { return {}; } }
   function loadLetter() {
     var r = letterRecord();
     letterSubj.value = r.subject != null ? r.subject : (curJournal.subjectDefault || "");
     letterRead.value = r.readOn || "";
     letterBody.value = r.body || ""; autoGrow(letterBody);
+    syncWhenChips();
   }
   function scheduleLetterSave() { clearTimeout(jSaveTimer); jSaveTimer = setTimeout(saveLetterDraft, 450); }
   function saveLetterDraft() {
@@ -585,11 +615,17 @@
     } catch (e) {}
     flashSaved();
   }
+  function whoLine() { return letterRead.value ? "致 " + cnDate(letterRead.value) + " 的你" : "致未来的你"; }
   function composeSubject() {
-    var base = (letterSubj.value || curJournal.subjectDefault || "致自己").trim();
-    var parts = [base, "写于 " + niceDate(todayKey())];
-    if (letterRead.value) parts.push("待 " + niceDate(letterRead.value) + " 再读");
+    var title = (letterSubj.value || "").trim();
+    var parts = [whoLine()];
+    if (title) parts.push(title);
+    parts.push("写于 " + cnDate(todayKey()));
     return parts.join(" · ");
+  }
+  function composeBody(body) {
+    var tail = "—— 写于 " + cnDate(todayKey()) + (letterRead.value ? "，待 " + cnDate(letterRead.value) + " 再读 ——" : " ——");
+    return whoLine() + "：\n\n" + body + "\n\n" + tail;
   }
   function setSendMsg(t) { if (jSendMsgEl) { jSendMsgEl.textContent = t; jSendMsgEl.classList.add("show"); } }
   function sendLetter() {
@@ -602,14 +638,14 @@
     fd.append("access_key", WEB3FORMS_KEY);
     fd.append("from_name", "To Myself");
     fd.append("subject", composeSubject());
-    fd.append("message", body + (letterRead.value ? "\n\n— 待 " + niceDate(letterRead.value) + " 再读 —" : ""));
+    fd.append("message", composeBody(body));
     fetch(HELLO_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: fd })
       .then(function (res) { return res.json().catch(function () { return { success: res.ok }; }); })
       .then(function (data) {
         if (data && data.success) {
           setSendMsg("已寄出 ✓ 去你的邮箱等它");
           try { localStorage.removeItem(curJournal.ls); } catch (e) {}
-          letterSubj.value = curJournal.subjectDefault || ""; letterRead.value = ""; letterBody.value = ""; autoGrow(letterBody);
+          letterSubj.value = curJournal.subjectDefault || ""; letterRead.value = ""; letterBody.value = ""; autoGrow(letterBody); syncWhenChips();
         } else { setSendMsg("没寄出去，待会儿再试…"); }
       })
       .catch(function () { setSendMsg("网络不太顺，待会儿再试…"); });
