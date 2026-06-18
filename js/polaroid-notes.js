@@ -242,9 +242,14 @@
       '<span class="pol-lock-tag"><b>' + LOCK_LABEL + '</b><i>' + LOCK_LABEL_EN + '</i></span></span>' +
       '<span class="pol-lock-sep"></span>';
     if (unlocked) {
-      lockEl.innerHTML = brand + '<span class="pol-lock-state">笔迹已验</span><button class="pol-lk-btn" type="button" data-act="box">底片匣</button><button class="pol-lk-btn pol-lk-seal" type="button" data-act="lock">封存</button>';
+      lockEl.innerHTML = brand +
+        '<span class="pol-lock-state pol-lk-stack"><b>笔迹已验</b><i>Verified</i></span>' +
+        '<button class="pol-lk-btn pol-lk-stack" type="button" data-act="box"><b>底片匣</b><i>Negatives</i></button>' +
+        '<button class="pol-lk-btn pol-lk-stack pol-lk-seal" type="button" data-act="lock"><b>封存</b><i>Seal</i></button>';
     } else {
-      lockEl.innerHTML = brand + '<button class="pol-lk-btn pol-lk-open" type="button">' + (hasPass() ? "Leo 的笔迹" : "留下笔迹") + "</button>";
+      var openBig = hasPass() ? "Leo's Handwriting" : "Leave a Mark";
+      var openSmall = hasPass() ? "&amp; Winter's, too" : "Leo's &amp; Winter's";
+      lockEl.innerHTML = brand + '<button class="pol-lk-btn pol-lk-stack pol-lk-open" type="button"><b>' + openBig + '</b><i>' + openSmall + '</i></button>';
     }
     var openBtn = lockEl.querySelector(".pol-lk-open");
     if (openBtn) openBtn.addEventListener("click", showPwInput);
