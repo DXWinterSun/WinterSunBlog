@@ -6,7 +6,7 @@ image: 3-billboards-au.JPG
 tags: [怅惘, 暗涌]
 categories: ["AU Story"]
 series: "Only I Know"
-series_title: "Only I Know · Dixon AU"
+series_title: "Only I Know · Jason Dixon AU"
 series_order: 3
 series_status: ongoing
 series_type: Series
