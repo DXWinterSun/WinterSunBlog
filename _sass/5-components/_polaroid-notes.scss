@@ -271,12 +271,26 @@
 /* 翻开的编辑卡（沿用相纸 + 黑条的语言）*/
 .pol-lucky-card {
   width: min(440px, 92vw);
-  background: #f6f1e7; border-radius: 5px; padding: 9px;
+  background: var(--c-bg, #f6f1e7); border-radius: 5px; padding: 9px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
   transform: translateY(14px) scale(0.96); opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease, background 0.25s ease;
 }
 .pol-backdrop.open .pol-lucky-card { transform: none; opacity: 1; }
+/* —— 选了角色：整张卡翻成该角色的深色主题（bg 底 + text 字 + accent 点缀），尽量贴合色卡 —— */
+.pol-lucky-card.is-themed .pol-lucky-top { background-image: linear-gradient(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)); }
+.pol-lucky-card.is-themed .pol-lucky-date { color: var(--c-text, #e7dcc6); }
+.pol-lucky-card.is-themed .pol-lucky-in,
+.pol-lucky-card.is-themed .pol-letter-in,
+.pol-lucky-card.is-themed .pol-letter-date { color: var(--c-text, #33302a); border-bottom-color: rgba(255, 255, 255, 0.16); }
+.pol-lucky-card.is-themed .pol-lucky-in::placeholder,
+.pol-lucky-card.is-themed .pol-letter-in::placeholder { color: var(--c-muted, #c4bba4); }
+.pol-lucky-card.is-themed .pol-lucky-hint,
+.pol-lucky-card.is-themed .pol-lucky-x,
+.pol-lucky-card.is-themed .pol-letter-lab { color: var(--c-muted, #a89a80); }
+.pol-lucky-card.is-themed .pol-lucky-x:hover { color: var(--c-text, #5c4f37); }
+.pol-lucky-card.is-themed .pol-when-chip { color: var(--c-text, #6f6048); background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.18); }
+.pol-lucky-card.is-themed .pol-when-chip:hover { background: rgba(255, 255, 255, 0.14); }
 /* 顶栏：跟随所选角色的深色背景，底部一道强调色线（没选则默认近黑、无线） */
 .pol-lucky-top {
   display: flex; align-items: center; justify-content: space-between;
@@ -295,7 +309,7 @@
   transition: transform 0.14s ease, box-shadow 0.14s ease;
 }
 .pol-sw:hover { transform: scale(1.25); }
-.pol-sw.on { box-shadow: 0 0 0 2px #f6f1e7, 0 0 0 3.4px var(--c-accent, #b08968); }
+.pol-sw.on { box-shadow: 0 0 0 2px var(--c-bg, #f6f1e7), 0 0 0 3.4px var(--c-accent, #b08968); }
 /* 「原色」重置：米纸底 + 一道斜杠，表示不套任何角色色 */
 .pol-sw-og { background: linear-gradient(135deg, #efe7d6 44%, #b9aa8c 44%, #b9aa8c 56%, #efe7d6 56%); }
 /* 悬停提示：浮在所悬停色点的正上方，显示「角色名 · 色名」 */
