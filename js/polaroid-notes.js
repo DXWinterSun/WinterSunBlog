@@ -66,13 +66,13 @@
     q2: "I've danced with you too long",
     credit: "David Bowie · Something in the Air",
     sign: "Leo & Winter",
-    // —— 翻到背面看到的：黑条上印的小字 + 手写短笺 + 故事链接 ——
+    // —— 翻到背面看到的：黑条上印的小字 + 手写短笺（中英对照）+ 故事链接 ——
     backLine: "Something in the Air —",
     note: [
-      "嘿，翻到背面的你：",
-      "这是我和他的故事，",
-      "关于遗忘，和不肯遗忘的爱。",
-      "要不要进来，认识一下我们？"
+      { zh: "嘿，翻到背面的你：", en: "Hey, you who turned me over —" },
+      { zh: "这是我和他的故事，", en: "this is our story, his and mine:" },
+      { zh: "关于遗忘，和不肯遗忘的爱。", en: "of forgetting, and a love that won't." },
+      { zh: "要不要进来，认识一下我们？", en: "Won't you come in and meet us?" }
     ],
     linkLabel: "翻开《You Are My Fact》 →"
   };
@@ -487,7 +487,7 @@
     guestBack = document.createElement("div");
     guestBack.className = "pol-backdrop pol-guest-backdrop";
     var notes = "";
-    for (var i = 0; i < GUEST.note.length; i++) notes += "<p>" + GUEST.note[i] + "</p>";
+    for (var i = 0; i < GUEST.note.length; i++) notes += '<div class="pol-gb-pair"><p class="pol-gb-zh">' + GUEST.note[i].zh + '</p><p class="pol-gb-en">' + GUEST.note[i].en + "</p></div>";
     guestBack.innerHTML =
       '<div class="pol-guest-flip" role="dialog" aria-label="照片背面">' +
         '<button class="pol-ed-x pol-gb-x" type="button" title="翻回" aria-label="翻回">↩</button>' +

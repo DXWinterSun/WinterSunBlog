@@ -255,8 +255,10 @@
 .pol-guest-backdrop.open .pol-guest-flip { transform: rotateY(0) scale(1); opacity: 1; }
 .pol-gb-strip { background: #14110d; border-radius: 3px; padding: 13px 16px; }
 .pol-gb-strip span { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 0.4px; color: rgba(231, 220, 198, 0.72); }
-.pol-gb-note { padding: 15px 17px 4px; }
-.pol-gb-note p { margin: 0 0 6px; color: #34302a; font-size: 19px; line-height: 1.75; }
+.pol-gb-note { padding: 15px 17px 6px; }
+.pol-gb-pair { margin-bottom: 11px; }
+.pol-gb-zh { margin: 0; color: #34302a; font-size: 18.5px; line-height: 1.5; }
+.pol-gb-en { margin: 2px 0 0; font-family: 'EB Garamond', serif; font-style: italic; font-size: 12.5px; letter-spacing: 0.2px; line-height: 1.35; color: #a0937e; }
 .pol-gb-link {
   display: inline-block; margin: 8px 17px 14px;
   font-family: 'EB Garamond', serif; font-style: italic; font-size: 14.5px; letter-spacing: 0.2px;
