@@ -215,6 +215,29 @@
   }
   function samThemes() { return (typeof window !== "undefined" && window.__SAM_THEMES) || []; }
   function themeById(id) { if (!id) return null; var a = samThemes(); for (var i = 0; i < a.length; i++) if (a[i].id === id) return a[i]; return null; }
+  // 颜色混合（与画册 theme-picker 同款）：pct% 的 hex1 + (100-pct)% 的 hex2
+  function mixHex(hex1, pct, hex2) {
+    var p = pct / 100, q = 1 - p;
+    function ch(h, i) { return parseInt(h.slice(i, i + 2), 16); }
+    function m(a, b) { var v = Math.round(a * p + b * q).toString(16); return v.length < 2 ? "0" + v : v; }
+    return "#" + m(ch(hex1, 1), ch(hex2, 1)) + m(ch(hex1, 3), ch(hex2, 3)) + m(ch(hex1, 5), ch(hex2, 5));
+  }
+  // 整站当前是否深色（读 <html data-theme>，未设则跟随系统）—— 与 theme-picker 一致
+  function isDarkSite() {
+    var dt = document.documentElement.getAttribute("data-theme");
+    if (dt === "dark") return true;
+    if (dt === "light") return false;
+    return !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }
+  // 由角色色卡 p 推出这张写作卡的颜色：色源始终是该角色，明暗跟随整站
+  function cardVars(p, dark) {
+    if (dark) {
+      return { bg: p.bg, strip: mixHex(p.bg, 72, "#000000"), stripInk: p.text,
+        text: p.text, muted: p.muted, accent: p.accent, line: "rgba(255,255,255,0.12)" };
+    }
+    return { bg: mixHex(p.accent, 13, "#fdfbf6"), strip: mixHex(p.accent, 30, "#f3ede2"), stripInk: "#2b2620",
+      text: "#2b2620", muted: "#847a6d", accent: mixHex(p.accent, 70, "#1a1614"), line: "rgba(0,0,0,0.12)" };
+  }
 
   var devMode = (PASS_HASH === "PUT_YOUR_HASH_HERE");
   function passHash() { return devMode ? localStorage.getItem(LS_PASS_DEV) : PASS_HASH; }
@@ -642,22 +665,23 @@
       jBodyEl.appendChild(free); jInputs.push(free);
     }
   }
+  var THEME_VARS = ["--c-bg", "--c-strip", "--c-strip-ink", "--c-text", "--c-muted", "--c-accent", "--c-line"];
   function applyTheme(j) {
     if (!jCardEl) return;
     var t = themeById(themeKeyOf(j.id));
-    if (t) {
-      jCardEl.style.setProperty("--c-accent", t.accent || "");
-      jCardEl.style.setProperty("--c-bg", t.bg || "");
-      jCardEl.style.setProperty("--c-text", t.text || "");
-      jCardEl.style.setProperty("--c-muted", t.muted || "");
-      jCardEl.classList.add("is-themed");
-    } else {
-      jCardEl.style.removeProperty("--c-accent");
-      jCardEl.style.removeProperty("--c-bg");
-      jCardEl.style.removeProperty("--c-text");
-      jCardEl.style.removeProperty("--c-muted");
-      jCardEl.classList.remove("is-themed");
+    if (!t) {
+      for (var k = 0; k < THEME_VARS.length; k++) jCardEl.style.removeProperty(THEME_VARS[k]);
+      jCardEl.classList.remove("is-themed"); return;
     }
+    var v = cardVars(t, isDarkSite());
+    jCardEl.style.setProperty("--c-bg", v.bg);
+    jCardEl.style.setProperty("--c-strip", v.strip);
+    jCardEl.style.setProperty("--c-strip-ink", v.stripInk);
+    jCardEl.style.setProperty("--c-text", v.text);
+    jCardEl.style.setProperty("--c-muted", v.muted);
+    jCardEl.style.setProperty("--c-accent", v.accent);
+    jCardEl.style.setProperty("--c-line", v.line);
+    jCardEl.classList.add("is-themed");
   }
   function renderThemeBar(j) {
     if (!jThemeEl) return;
@@ -813,7 +837,15 @@
   }
 
   /* ========== 启动 ========== */
-  function init() { buildLock(); buildDeck(); buildGuest(); markDogears(); attachCards(); syncDeckVisible(); }
+  function init() {
+    buildLock(); buildDeck(); buildGuest(); markDogears(); attachCards(); syncDeckVisible();
+    // 整站明暗切换时，若正开着写作卡，实时重算颜色（深↔浅翻转，色源仍是所选角色）
+    if (window.MutationObserver) {
+      new MutationObserver(function () {
+        if (curJournal && jBack && jBack.classList.contains("open")) applyTheme(curJournal);
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    }
+  }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();

@@ -277,24 +277,24 @@
   transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease, background 0.25s ease;
 }
 .pol-backdrop.open .pol-lucky-card { transform: none; opacity: 1; }
-/* —— 选了角色：整张卡翻成该角色的深色主题（bg 底 + text 字 + accent 点缀），尽量贴合色卡 —— */
-.pol-lucky-card.is-themed .pol-lucky-top { background-image: linear-gradient(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)); }
-.pol-lucky-card.is-themed .pol-lucky-date { color: var(--c-text, #e7dcc6); }
+/* —— 选了角色：整张卡套上该角色的色卡。明暗跟随整站 data-theme（JS 计算 --c-* 变量）—— */
+.pol-lucky-card.is-themed .pol-lucky-date { color: var(--c-strip-ink, #e7dcc6); }
+.pol-lucky-card.is-themed .pol-lucky-nav { color: var(--c-strip-ink, rgba(231, 220, 198, 0.55)); opacity: 0.55; }
+.pol-lucky-card.is-themed .pol-lucky-nav:hover { opacity: 1; }
 .pol-lucky-card.is-themed .pol-lucky-in,
 .pol-lucky-card.is-themed .pol-letter-in,
-.pol-lucky-card.is-themed .pol-letter-date { color: var(--c-text, #33302a); border-bottom-color: rgba(255, 255, 255, 0.16); }
+.pol-lucky-card.is-themed .pol-letter-date { color: var(--c-text, #33302a); border-bottom-color: var(--c-line, rgba(0, 0, 0, 0.12)); }
 .pol-lucky-card.is-themed .pol-lucky-in::placeholder,
 .pol-lucky-card.is-themed .pol-letter-in::placeholder { color: var(--c-muted, #c4bba4); }
 .pol-lucky-card.is-themed .pol-lucky-hint,
 .pol-lucky-card.is-themed .pol-lucky-x,
 .pol-lucky-card.is-themed .pol-letter-lab { color: var(--c-muted, #a89a80); }
 .pol-lucky-card.is-themed .pol-lucky-x:hover { color: var(--c-text, #5c4f37); }
-.pol-lucky-card.is-themed .pol-when-chip { color: var(--c-text, #6f6048); background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.18); }
-.pol-lucky-card.is-themed .pol-when-chip:hover { background: rgba(255, 255, 255, 0.14); }
-/* 顶栏：跟随所选角色的深色背景，底部一道强调色线（没选则默认近黑、无线） */
+.pol-lucky-card.is-themed .pol-when-chip { color: var(--c-text, #6f6048); background: var(--c-line, rgba(0, 0, 0, 0.06)); border-color: var(--c-line, rgba(0, 0, 0, 0.12)); }
+/* 顶栏：选了角色后跟随该角色（深/浅由整站决定），底部一道强调色线；没选则默认近黑 */
 .pol-lucky-top {
   display: flex; align-items: center; justify-content: space-between;
-  background: var(--c-bg, #14110d); border-radius: 3px; padding: 9px 10px;
+  background: var(--c-strip, #14110d); border-radius: 3px; padding: 9px 10px;
   box-shadow: inset 0 -2px 0 var(--c-accent, transparent);
   transition: background 0.25s ease, box-shadow 0.25s ease;
 }
