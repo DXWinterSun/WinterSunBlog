@@ -45,18 +45,10 @@
       subjectDefault: ""
     }
   ];
-  // 主题色：与「Many Faces of Sam」画册 / _data/au_palettes.yml 同源的强调色。
-  // 写卡片时可点选，换这张卡的强调色 + 角落缩略卡的相纸渐变；选择记在本地。
-  // key 空字符串 = 该卡自带的「原色」，由 JOURNALS[i].grad 决定。
-  var THEMES = [
-    { key: "ice",     role: "Leonard Shelby",    cn: "冰蓝眼眸",   en: "Ice-Blue Eyes",   accent: "#5f96c2", grad: "linear-gradient(145deg, #7fb0d8 0%, #4a6680 55%, #1e1a16 100%)" },
-    { key: "sapphire",role: "Justin Hammer",     cn: "电光钴蓝",   en: "Spotlight Sapphire", accent: "#4a87ee", grad: "linear-gradient(145deg, #5a93f0 0%, #34527e 52%, #13151c 100%)" },
-    { key: "sawdust", role: "Wild Bill Wharton", cn: "锯末粗木",   en: "Sawdust Timber",  accent: "#b0803e", grad: "linear-gradient(145deg, #c79456 0%, #6f5436 55%, #1b1510 100%)" },
-    { key: "mane",    role: "Zaphod Beeblebrox", cn: "总统鬃金",   en: "President's Mane", accent: "#d4a82a", grad: "linear-gradient(145deg, #e0bd4a 0%, #7d6320 52%, #0b0a12 100%)" },
-    { key: "crimson", role: "Eric Knox",         cn: "红镜红",     en: "Crimson Lens",    accent: "#d94040", grad: "linear-gradient(145deg, #e25a5a 0%, #7d3530 55%, #1b1310 100%)" },
-    { key: "lunar",   role: "Sam Bell",          cn: "月球蔚蓝",   en: "Lunar Blue",      accent: "#7eb0d5", grad: "linear-gradient(145deg, #8fbce0 0%, #44607e 52%, #162038 100%)" },
-    { key: "mist",    role: "John Moon",         cn: "孤枪冷雾蓝", en: "Lone Mist",       accent: "#8fa0b0", grad: "linear-gradient(145deg, #a3b3c2 0%, #54616e 52%, #14181f 100%)" }
-  ];
+  // 主题色：直接读「Many Faces of Sam」画册的全量角色色卡（_data/sam_themes.yml，
+  // 经 sam-themes-data.js 注入到 window.__SAM_THEMES）。画册新增角色 → 这里自动同步。
+  // 选某个角色：把这张卡的顶栏换成该角色的深色背景 + 强调色；选「原色」则恢复默认。
+  // 注：旧的手写 7 色子集已废弃，改走画册数据源。
   // 访客彩蛋：没有笔迹的访客，角落会出现这张拍立得（点开 → You Are My Fact），
   // 落款是「我和他」。grad 用 Leonard 的冰蓝（与该系列同色）；歌词是《记忆碎片》片尾曲。
   var GUEST = {
@@ -221,10 +213,10 @@
     var m = themeMap(); if (key) m[jid] = key; else delete m[jid];
     try { localStorage.setItem(LS_THEME, JSON.stringify(m)); } catch (e) {}
   }
-  function themeByKey(key) { for (var i = 0; i < THEMES.length; i++) if (THEMES[i].key === key) return THEMES[i]; return null; }
-  function gradOf(j) { var t = themeByKey(themeKeyOf(j.id)); return t ? t.grad : j.grad; }
-  function accentOf(j) { var t = themeByKey(themeKeyOf(j.id)); return t ? t.accent : (j.accent || ""); }
-  var deckPhotos = {};   // jid → 角落缩略卡里那块「照片」元素，供换主题时即时改色
+  function samThemes() { return (typeof window !== "undefined" && window.__SAM_THEMES) || []; }
+  function themeById(id) { if (!id) return null; var a = samThemes(); for (var i = 0; i < a.length; i++) if (a[i].id === id) return a[i]; return null; }
+  function accentOf(j) { var t = themeById(themeKeyOf(j.id)); return t ? t.accent : ""; }
+  function bgOf(j) { var t = themeById(themeKeyOf(j.id)); return t ? t.bg : ""; }
 
   var devMode = (PASS_HASH === "PUT_YOUR_HASH_HERE");
   function passHash() { return devMode ? localStorage.getItem(LS_PASS_DEV) : PASS_HASH; }
@@ -498,8 +490,7 @@
         pin.innerHTML =
           '<span class="pol-card-photo">' + (SCENES[j.id] || "") + '</span>' +
           '<span class="pol-card-cap"><span class="pol-card-q1"></span><span class="pol-card-q2"></span><span class="pol-card-credit"></span><i></i></span>';
-        var photo = pin.querySelector(".pol-card-photo");
-        photo.style.background = gradOf(j); deckPhotos[j.id] = photo;
+        pin.querySelector(".pol-card-photo").style.background = j.grad;
         pin.querySelector(".pol-card-q1").textContent = j.q1;
         pin.querySelector(".pol-card-q2").textContent = j.q2;
         pin.querySelector(".pol-card-credit").textContent = j.credit;
@@ -654,24 +645,30 @@
     }
   }
   function applyTheme(j) {
-    var ac = accentOf(j);
-    if (jCardEl) { if (ac) jCardEl.style.setProperty("--c-accent", ac); else jCardEl.style.removeProperty("--c-accent"); }
-    var ph = deckPhotos[j.id]; if (ph) ph.style.background = gradOf(j);
+    if (!jCardEl) return;
+    var ac = accentOf(j), bg = bgOf(j);
+    if (ac) jCardEl.style.setProperty("--c-accent", ac); else jCardEl.style.removeProperty("--c-accent");
+    if (bg) jCardEl.style.setProperty("--c-bg", bg); else jCardEl.style.removeProperty("--c-bg");
   }
   function renderThemeBar(j) {
     if (!jThemeEl) return;
     jThemeEl.innerHTML = "";
     var tip = document.createElement("span"); tip.className = "pol-sw-tip"; jThemeEl.appendChild(tip);
     var cur = themeKeyOf(j.id);
-    var opts = [{ key: "", grad: j.grad, cn: "原色", en: "Original" }].concat(THEMES);
+    var opts = [{ id: "", original: true, label: "原色 · Original" }];
+    var list = samThemes();
+    for (var k = 0; k < list.length; k++) {
+      var t = list[k];
+      opts.push({ id: t.id, accent: t.accent, label: (t.name || "") + (t.cn ? " · " + t.cn : "") });
+    }
     for (var i = 0; i < opts.length; i++) {
       (function (o) {
-        var label = o.role ? (o.role + " · " + o.cn) : (o.en ? (o.cn + " · " + o.en) : o.cn);
         var b = document.createElement("button");
-        b.type = "button"; b.className = "pol-sw" + (o.key === cur ? " on" : "");
-        b.style.background = o.grad; b.setAttribute("aria-label", label);
-        b.addEventListener("click", function () { setThemeKey(j.id, o.key); applyTheme(j); renderThemeBar(j); });
-        function show() { tip.textContent = label; tip.style.left = (b.offsetLeft + b.offsetWidth / 2) + "px"; tip.classList.add("show"); }
+        b.type = "button"; b.className = "pol-sw" + (o.original ? " pol-sw-og" : "") + (o.id === cur ? " on" : "");
+        if (!o.original) b.style.background = o.accent;
+        b.setAttribute("aria-label", o.label);
+        b.addEventListener("click", function () { setThemeKey(j.id, o.id); applyTheme(j); renderThemeBar(j); });
+        function show() { tip.textContent = o.label; tip.style.left = (b.offsetLeft + b.offsetWidth / 2) + "px"; tip.style.top = b.offsetTop + "px"; tip.classList.add("show"); }
         function hide() { tip.classList.remove("show"); }
         b.addEventListener("mouseenter", show); b.addEventListener("mouseleave", hide);
         b.addEventListener("focus", show); b.addEventListener("blur", hide);

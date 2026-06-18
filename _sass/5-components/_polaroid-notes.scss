@@ -277,26 +277,30 @@
   transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease;
 }
 .pol-backdrop.open .pol-lucky-card { transform: none; opacity: 1; }
+/* 顶栏：跟随所选角色的深色背景，底部一道强调色线（没选则默认近黑、无线） */
 .pol-lucky-top {
   display: flex; align-items: center; justify-content: space-between;
-  background: #14110d; border-radius: 3px; padding: 9px 10px;
+  background: var(--c-bg, #14110d); border-radius: 3px; padding: 9px 10px;
+  box-shadow: inset 0 -2px 0 var(--c-accent, transparent);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 .pol-lucky-date { font-family: 'EB Garamond', serif; font-style: italic; font-size: 15px; letter-spacing: 0.3px; color: #e7dcc6; }
 .pol-lucky-nav { border: none; background: transparent; color: rgba(231, 220, 198, 0.55); font-size: 21px; line-height: 1; cursor: pointer; padding: 0 8px; }
-.pol-lucky-nav:hover { color: #fff; }
-/* 主题色色卡（与画册同源）：一排小圆点，选中的描一圈，悬停浮出角色名 */
-.pol-theme { position: relative; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 11px 14px 1px; }
+.pol-lucky-nav:hover { color: var(--c-accent, #fff); }
+/* 主题色色卡：直接同步画册全量角色（扁平色点，可换行；选中的描一圈，悬停浮出角色名） */
+.pol-theme { position: relative; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; padding: 10px 14px 3px; }
 .pol-sw {
-  width: 18px; height: 18px; border-radius: 50%; padding: 0; cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.18);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  width: 15px; height: 15px; border-radius: 50%; padding: 0; cursor: pointer; flex: none;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
 }
-.pol-sw:hover { transform: scale(1.16); }
-.pol-sw.on { box-shadow: 0 0 0 2px #f6f1e7, 0 0 0 3.5px var(--c-accent, #b08968); }
-/* 悬停提示：浮在色卡正上方，显示「角色名 · 色名」 */
+.pol-sw:hover { transform: scale(1.25); }
+.pol-sw.on { box-shadow: 0 0 0 2px #f6f1e7, 0 0 0 3.4px var(--c-accent, #b08968); }
+/* 「原色」重置：米纸底 + 一道斜杠，表示不套任何角色色 */
+.pol-sw-og { background: linear-gradient(135deg, #efe7d6 44%, #b9aa8c 44%, #b9aa8c 56%, #efe7d6 56%); }
+/* 悬停提示：浮在所悬停色点的正上方，显示「角色名 · 色名」 */
 .pol-sw-tip {
-  position: absolute; bottom: 100%; left: 0; transform: translate(-50%, -7px);
+  position: absolute; left: 0; top: 0; transform: translate(-50%, calc(-100% - 6px));
   background: #14110d; color: #f0e7d4;
   font-family: 'EB Garamond', serif; font-style: italic; font-size: 11.5px; letter-spacing: 0.2px;
   white-space: nowrap; padding: 3px 9px; border-radius: 6px;
@@ -306,11 +310,12 @@
 .pol-sw-tip.show { opacity: 1; }
 .pol-lucky-body { padding: 14px 14px 2px; }
 .pol-lucky-row { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 11px; cursor: text; }
-.pol-lucky-no { flex: none; width: 22px; text-align: center; font-family: 'Ma Shan Zheng', cursive; font-size: 21px; color: #b08968; line-height: 1.35; }
+.pol-lucky-no { flex: none; width: 22px; text-align: center; font-family: 'Ma Shan Zheng', cursive; font-size: 21px; color: var(--c-accent, #b08968); line-height: 1.35; }
 .pol-lucky-in {
   flex: 1; border: none; outline: none; resize: none; background: transparent;
   color: #33302a; font-size: 21px; line-height: 1.4; min-height: 30px; overflow: hidden;
   border-bottom: 1px solid rgba(0, 0, 0, 0.09); padding: 0 0 3px;
+  caret-color: var(--c-accent, #b08968);
 }
 .pol-lucky-in::placeholder { color: #c4bba4; }
 /* 自由记录（吐槽/日常）：一整块，更高，去掉单行底线 */
@@ -329,6 +334,7 @@
   flex: 1; min-width: 0; border: none; outline: none; background: transparent;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12); padding: 3px 0;
   font-family: 'EB Garamond', serif; font-size: 15px; color: #33302a;
+  caret-color: var(--c-accent, #b08968);
 }
 .pol-letter-in::placeholder { color: #c4bba4; font-style: italic; }
 /* 「写给」行：预设快捷 chips + 自定义日期，可换行 */
