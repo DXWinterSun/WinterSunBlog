@@ -57,6 +57,17 @@
     { key: "lunar",   role: "Sam Bell",          cn: "月球蔚蓝",   en: "Lunar Blue",      accent: "#7eb0d5", grad: "linear-gradient(145deg, #8fbce0 0%, #44607e 52%, #162038 100%)" },
     { key: "mist",    role: "John Moon",         cn: "孤枪冷雾蓝", en: "Lone Mist",       accent: "#8fa0b0", grad: "linear-gradient(145deg, #a3b3c2 0%, #54616e 52%, #14181f 100%)" }
   ];
+  // 访客彩蛋：没有笔迹的访客，角落会出现这张拍立得（点开 → You Are My Fact），
+  // 落款是「我和他」。grad 用 Leonard 的冰蓝（与该系列同色）；歌词是《记忆碎片》片尾曲。
+  var GUEST = {
+    href: "/series/you-are-my-fact/",
+    grad: "linear-gradient(145deg, #7fb0d8 0%, #4a6680 55%, #1e1a16 100%)",
+    hello: "来看看我们的故事 ↗",
+    q1: "Something in my eyes —",
+    q2: "I've danced with you too long",
+    credit: "David Bowie · Something in the Air",
+    sign: "Leo & Winter"
+  };
   // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
   var PEN_SVG = '<svg class="pol-lock-pen" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">' +
     '<path d="M12 2 C15.2 8 16.6 13.6 12 22 C7.4 13.6 8.8 8 12 2 Z" fill="#d8c6a2"/>' +
@@ -412,7 +423,34 @@
     document.body.appendChild(deckEl);
   }
   function refreshDeck() { for (var i = 0; i < pins.length; i++) { var el = pins[i].querySelector(".pol-card-cap i"); if (el) el.textContent = pinDate(); } }
+
+  /* —— 访客彩蛋拍立得（未解锁时出现，点开跳到 You Are My Fact）—— */
+  var guestEl;
+  function buildGuest() {
+    var base = (typeof window !== "undefined" && window.SITE_BASEURL) || "";
+    guestEl = document.createElement("a");
+    guestEl.className = "pol-guest";
+    guestEl.href = base + GUEST.href;
+    guestEl.setAttribute("aria-label", "来看看我们的故事 · You Are My Fact");
+    guestEl.innerHTML =
+      '<span class="pol-card-photo"><span class="pol-guest-star">✦</span></span>' +
+      '<span class="pol-card-cap pol-guest-cap">' +
+        '<span class="pol-guest-hello"></span>' +
+        '<span class="pol-card-q1"></span>' +
+        '<span class="pol-card-q2"></span>' +
+        '<span class="pol-card-credit"></span>' +
+        '<span class="pol-guest-sign"></span>' +
+      '</span>';
+    guestEl.querySelector(".pol-card-photo").style.background = GUEST.grad;
+    guestEl.querySelector(".pol-guest-hello").textContent = GUEST.hello;
+    guestEl.querySelector(".pol-card-q1").textContent = GUEST.q1;
+    guestEl.querySelector(".pol-card-q2").textContent = GUEST.q2;
+    guestEl.querySelector(".pol-card-credit").textContent = GUEST.credit;
+    guestEl.querySelector(".pol-guest-sign").textContent = GUEST.sign;
+    document.body.appendChild(guestEl);
+  }
   function syncDeckVisible() {
+    if (guestEl) guestEl.style.display = unlocked ? "none" : "flex";
     if (!deckEl) return;
     if (unlocked) { loadFonts(); deckEl.style.display = "block"; refreshDeck(); }
     else { deckEl.style.display = "none"; if (jBack) jBack.classList.remove("open"); }
@@ -657,7 +695,7 @@
   }
 
   /* ========== 启动 ========== */
-  function init() { buildLock(); buildDeck(); markDogears(); attachCards(); syncDeckVisible(); }
+  function init() { buildLock(); buildDeck(); buildGuest(); markDogears(); attachCards(); syncDeckVisible(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
