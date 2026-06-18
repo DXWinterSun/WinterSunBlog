@@ -2,6 +2,7 @@
 layout: post
 title: "Chapter 1 · 红底黑字 — Only I Know"
 date: 2026-06-18
+image: 3-billboards-au.JPG
 tags: [悸动, 暗涌]
 categories: ["AU Story"]
 series: "Only I Know"
