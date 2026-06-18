@@ -255,6 +255,14 @@
 
   // ── UI ────────────────────────────────────────────────────────────────────
 
+  // Theme picker id → gallery anchor hash (only entries that differ)
+  var GALLERY_ANCHORS = {
+    kris:'krzysztof', knox:'eric', mercer:'frank', crocker:'jim',
+    sambell:'sam', goode:'robert', johnmoon:'john', varney:'doug',
+    munch:'francis', klenz:'hendrix', bryant:'watson', mrwolf:'wolf',
+    wilde:'aidan', future:'manfromfuture'
+  };
+
   var PERFS = '<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>';
 
   function buildUI() {
@@ -269,6 +277,8 @@
 
     var cards = '';
     THEMES.forEach(function (t) {
+      var anchor = GALLERY_ANCHORS[t.id] || t.id;
+      var charHref = baseurl + '/sam/many-faces/#' + anchor;
       cards +=
         '<button class="c-palette-card" data-theme-id="' + t.id + '" aria-label="' + t.cn + ' · ' + t.name + '"' +
           ' style="--card-bg:' + t.bg + ';--card-ac:' + t.accent + '">' +
@@ -280,7 +290,7 @@
             '<span class="c-palette-card__sep"></span>' +
             '<span class="c-palette-card__bg-cn">' + t.bg_cn + '</span>' +
             '<span class="c-palette-card__bg-en">' + t.bg_en + '</span>' +
-            '<span class="c-palette-card__char">' + t.name + '</span>' +
+            '<a class="c-palette-card__char" href="' + charHref + '" target="_blank" rel="noopener" tabindex="-1">' + t.name + '</a>' +
           '</span>' +
           '<span class="c-palette-card__perfs">' + PERFS + '</span>' +
         '</button>';
@@ -290,8 +300,8 @@
       '<div class="c-palette-modal" role="dialog" aria-label="配色主题 · 换个心情">' +
         '<div class="c-palette-modal__header">' +
           '<span class="c-palette-modal__title">' +
-            '换个心情 · ' +
-            '<a class="c-palette-modal__gallery-link" href="' + galleryHref + '" target="_blank" rel="noopener">Many Faces ↗</a>' +
+            '换个心情' +
+            '<span class="c-palette-modal__subtitle">他走过银幕，停在你面前 · <a class="c-palette-modal__gallery-link" href="' + galleryHref + '" target="_blank" rel="noopener">Many Faces ↗</a></span>' +
           '</span>' +
           '<button class="c-palette-modal__close" id="js-palette-close" aria-label="关闭">✕</button>' +
         '</div>' +

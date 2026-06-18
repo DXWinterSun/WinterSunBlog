@@ -122,6 +122,16 @@
   letter-spacing: 0.02em;
 }
 
+.c-palette-modal__subtitle {
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--c-muted);
+  margin-top: 0.15rem;
+  letter-spacing: 0.02em;
+}
+
 .c-palette-modal__gallery-link {
   color: var(--c-accent);
   text-decoration: none;
@@ -306,15 +316,26 @@
   padding: 0 0.125rem;
 }
 
-// Character name
+// Character name — clickable link to the gallery portrait
 .c-palette-card__char {
   display: block;
-  font-size: 0.52rem;
-  color: rgba(255, 255, 255, 0.28);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
   text-align: center;
   line-height: 1.2;
-  margin-top: 0.15rem;
-  letter-spacing: 0.01em;
+  margin-top: 0.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.05rem;
+  transition: color 0.15s, border-color 0.15s;
+
+  &:hover {
+    color: var(--card-ac);
+    border-bottom-color: var(--card-ac);
+  }
 }
 
 // ── Footer bar (custom hue + favorites + reset) ───────────────────────────────
