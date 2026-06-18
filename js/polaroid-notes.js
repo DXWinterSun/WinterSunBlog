@@ -39,10 +39,22 @@
     {
       id: "toself", kind: "letter", ls: "wiw-toself",
       grad: "linear-gradient(145deg, #8a7459 0%, #5b4a52 52%, #34303a 100%)",
-      q1: "Dear me —", q2: "a letter to myself", credit: "to be read on a later day",
+      q1: "And I'll", q2: "meet you there someday", credit: "Augustana · Meet You There",
       hint: "存着慢慢写；封缄后，它会寄进你的邮箱。",
       subjectDefault: "「致自己」"
     }
+  ];
+  // 主题色：与「Many Faces of Sam」画册 / _data/au_palettes.yml 同源的强调色。
+  // 写卡片时可点选，换这张卡的强调色 + 角落缩略卡的相纸渐变；选择记在本地。
+  // key 空字符串 = 该卡自带的「原色」，由 JOURNALS[i].grad 决定。
+  var THEMES = [
+    { key: "ice",     cn: "冰蓝眼眸",   en: "Ice-Blue Eyes",   accent: "#5f96c2", grad: "linear-gradient(145deg, #7fb0d8 0%, #4a6680 55%, #1e1a16 100%)" },
+    { key: "sapphire",cn: "电光钴蓝",   en: "Spotlight Sapphire", accent: "#4a87ee", grad: "linear-gradient(145deg, #5a93f0 0%, #34527e 52%, #13151c 100%)" },
+    { key: "sawdust", cn: "锯末粗木",   en: "Sawdust Timber",  accent: "#b0803e", grad: "linear-gradient(145deg, #c79456 0%, #6f5436 55%, #1b1510 100%)" },
+    { key: "mane",    cn: "总统鬃金",   en: "President's Mane", accent: "#d4a82a", grad: "linear-gradient(145deg, #e0bd4a 0%, #7d6320 52%, #0b0a12 100%)" },
+    { key: "crimson", cn: "红镜红",     en: "Crimson Lens",    accent: "#d94040", grad: "linear-gradient(145deg, #e25a5a 0%, #7d3530 55%, #1b1310 100%)" },
+    { key: "lunar",   cn: "月球蔚蓝",   en: "Lunar Blue",      accent: "#7eb0d5", grad: "linear-gradient(145deg, #8fbce0 0%, #44607e 52%, #162038 100%)" },
+    { key: "mist",    cn: "孤枪冷雾蓝", en: "Lone Mist",       accent: "#8fa0b0", grad: "linear-gradient(145deg, #a3b3c2 0%, #54616e 52%, #14181f 100%)" }
   ];
   // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
   var PEN_SVG = '<svg class="pol-lock-pen" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">' +
@@ -101,6 +113,19 @@
     stores[j.id] = s; return s;
   }
   function journalById(id) { for (var i = 0; i < JOURNALS.length; i++) if (JOURNALS[i].id === id) return JOURNALS[i]; return null; }
+
+  /* ========== 主题色：每张卡选一个，记在本地 ========== */
+  var LS_THEME = "wiw-pol-themes";
+  function themeMap() { try { return JSON.parse(localStorage.getItem(LS_THEME)) || {}; } catch (e) { return {}; } }
+  function themeKeyOf(jid) { return themeMap()[jid] || ""; }
+  function setThemeKey(jid, key) {
+    var m = themeMap(); if (key) m[jid] = key; else delete m[jid];
+    try { localStorage.setItem(LS_THEME, JSON.stringify(m)); } catch (e) {}
+  }
+  function themeByKey(key) { for (var i = 0; i < THEMES.length; i++) if (THEMES[i].key === key) return THEMES[i]; return null; }
+  function gradOf(j) { var t = themeByKey(themeKeyOf(j.id)); return t ? t.grad : j.grad; }
+  function accentOf(j) { var t = themeByKey(themeKeyOf(j.id)); return t ? t.accent : (j.accent || ""); }
+  var deckPhotos = {};   // jid → 角落缩略卡里那块「照片」元素，供换主题时即时改色
 
   var devMode = (PASS_HASH === "PUT_YOUR_HASH_HERE");
   function passHash() { return devMode ? localStorage.getItem(LS_PASS_DEV) : PASS_HASH; }
@@ -369,7 +394,8 @@
         pin.innerHTML =
           '<span class="pol-card-photo"><span class="pol-card-star">✦</span></span>' +
           '<span class="pol-card-cap"><span class="pol-card-q1"></span><span class="pol-card-q2"></span><span class="pol-card-credit"></span><i></i></span>';
-        pin.querySelector(".pol-card-photo").style.background = j.grad;
+        var photo = pin.querySelector(".pol-card-photo");
+        photo.style.background = gradOf(j); deckPhotos[j.id] = photo;
         pin.querySelector(".pol-card-q1").textContent = j.q1;
         pin.querySelector(".pol-card-q2").textContent = j.q2;
         pin.querySelector(".pol-card-credit").textContent = j.credit;
@@ -387,7 +413,7 @@
   }
 
   /* —— 共用的翻开编辑卡（按当前 journal 的 kind 重建内页）—— */
-  var jBack, jDateEl, jSavedEl, jHintEl, jBodyEl, jSendMsgEl, curJournal = null, curDay = null, jInputs = [], jSaveTimer = null;
+  var jBack, jCardEl, jThemeEl, jDateEl, jSavedEl, jHintEl, jBodyEl, jSendMsgEl, curJournal = null, curDay = null, jInputs = [], jSaveTimer = null;
   var letterSubj, letterRead, letterBody; // 信卡专用：标题 / 待重读日 / 正文
   function autoGrow(t) { t.style.height = "auto"; t.style.height = Math.max(30, t.scrollHeight) + "px"; }
   function flashSaved() { if (jSavedEl) { jSavedEl.classList.add("show"); setTimeout(function () { jSavedEl.classList.remove("show"); }, 1200); } }
@@ -401,6 +427,7 @@
           '<span class="pol-lucky-date"></span>' +
           '<button class="pol-lucky-nav" type="button" data-d="1" aria-label="后一天">›</button>' +
         '</div>' +
+        '<div class="pol-theme" aria-label="主题色"></div>' +
         '<div class="pol-lucky-body"></div>' +
         '<div class="pol-lucky-foot"><span class="pol-lucky-hint"></span>' +
           '<span class="pol-lucky-foot-r"><span class="pol-lucky-sendmsg"></span><span class="pol-saved pol-lucky-saved">已收好 ✓</span>' +
@@ -408,6 +435,8 @@
           '<button class="pol-lucky-x" type="button">收起</button></span></div>' +
       '</div>';
     document.body.appendChild(jBack);
+    jCardEl = jBack.querySelector(".pol-lucky-card");
+    jThemeEl = jBack.querySelector(".pol-theme");
     jDateEl = jBack.querySelector(".pol-lucky-date");
     jSavedEl = jBack.querySelector(".pol-lucky-saved");
     jHintEl = jBack.querySelector(".pol-lucky-hint");
@@ -455,6 +484,26 @@
       jBodyEl.appendChild(free); jInputs.push(free);
     }
   }
+  function applyTheme(j) {
+    var ac = accentOf(j);
+    if (jCardEl) { if (ac) jCardEl.style.setProperty("--c-accent", ac); else jCardEl.style.removeProperty("--c-accent"); }
+    var ph = deckPhotos[j.id]; if (ph) ph.style.background = gradOf(j);
+  }
+  function renderThemeBar(j) {
+    if (!jThemeEl) return;
+    jThemeEl.innerHTML = "";
+    var cur = themeKeyOf(j.id);
+    var opts = [{ key: "", grad: j.grad, cn: "原色", en: "Original" }].concat(THEMES);
+    for (var i = 0; i < opts.length; i++) {
+      (function (o) {
+        var b = document.createElement("button");
+        b.type = "button"; b.className = "pol-sw" + (o.key === cur ? " on" : "");
+        b.style.background = o.grad; b.title = o.cn + " · " + o.en;
+        b.addEventListener("click", function () { setThemeKey(j.id, o.key); applyTheme(j); renderThemeBar(j); });
+        jThemeEl.appendChild(b);
+      })(opts[i]);
+    }
+  }
   function loadDay(day) {
     curDay = day;
     var rec = storeOf(curJournal).get(day) || {};
@@ -474,6 +523,8 @@
     jBack.setAttribute("data-kind", j.kind);
     jHintEl.textContent = j.hint || "";
     buildBodyFor(j);
+    renderThemeBar(j);
+    applyTheme(j);
     jBack.classList.add("open");
     if (jSendMsgEl) jSendMsgEl.classList.remove("show");
     if (j.kind === "letter") {
