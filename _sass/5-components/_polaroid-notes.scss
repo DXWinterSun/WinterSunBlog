@@ -189,7 +189,7 @@
   position: absolute; left: 0; bottom: 0; width: var(--cardw);
   display: flex; flex-direction: column; align-items: stretch;
   padding: 8px 8px 0; background: #fbf9f3; border: none; border-radius: 3px;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4); cursor: pointer;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.22), 0 12px 28px rgba(0, 0, 0, 0.42); cursor: pointer;
   transform-origin: bottom center;
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
 }
@@ -204,10 +204,14 @@
   .pol-lock:hover ~ .pol-deck .pol-card:hover { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.03); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.55); }
 }
 .pol-card-photo {
+  position: relative; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
   height: 96px; border-radius: 2px;
+  /* 内陷一圈 + 顶部高光：让这块「照片」看着是嵌进相纸里的，有厚度 */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
-.pol-card-star { font-size: 23px; color: rgba(255, 255, 255, 0.82); text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); }
+/* 每张「照片」里的小场景，铺满整框 */
+.pol-scene { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 /* 歌词分层排版：引子(轻) → 主角(衬线斜体放大) → 署名(极小) → 日期 */
 .pol-card-cap { display: flex; flex-direction: column; align-items: center; gap: 0; padding: 7px 4px 9px; text-align: center; }
 .pol-card-q1 { font-family: 'EB Garamond', serif; font-style: italic; font-size: 10.5px; letter-spacing: 0.3px; color: #9a8f7c; line-height: 1.2; }
@@ -226,7 +230,7 @@
   --peek: 30px;
   display: none; flex-direction: column; align-items: stretch; width: 172px;
   padding: 8px 8px 0; background: #fbf9f3; border: none; border-radius: 3px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.42); cursor: pointer; text-align: left;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.22), 0 12px 28px rgba(0, 0, 0, 0.42); cursor: pointer; text-align: left;
   transform-origin: bottom center;
   transform: rotate(-2.5deg);                /* 触屏（无 hover）：直接立着，看得到 */
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
@@ -236,9 +240,6 @@
   .pol-guest:hover,
   .pol-lock:hover ~ .pol-guest { transform: translateY(0) rotate(-2deg); box-shadow: 0 20px 42px rgba(0, 0, 0, 0.52); }
 }
-/* 「照片」里那帧褪色夜空铺满相纸框 */
-.pol-guest .pol-card-photo { position: relative; overflow: hidden; }
-.pol-guest-scene { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 .pol-guest-cap { padding-bottom: 11px; }
 .pol-guest-cap .pol-card-q2 { font-size: 14.5px; line-height: 1.25; }
 .pol-guest-sign { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; letter-spacing: 0.4px; color: #9a8f7c; margin-top: 7px; }
