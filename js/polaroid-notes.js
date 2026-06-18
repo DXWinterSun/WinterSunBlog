@@ -215,8 +215,6 @@
   }
   function samThemes() { return (typeof window !== "undefined" && window.__SAM_THEMES) || []; }
   function themeById(id) { if (!id) return null; var a = samThemes(); for (var i = 0; i < a.length; i++) if (a[i].id === id) return a[i]; return null; }
-  function accentOf(j) { var t = themeById(themeKeyOf(j.id)); return t ? t.accent : ""; }
-  function bgOf(j) { var t = themeById(themeKeyOf(j.id)); return t ? t.bg : ""; }
 
   var devMode = (PASS_HASH === "PUT_YOUR_HASH_HERE");
   function passHash() { return devMode ? localStorage.getItem(LS_PASS_DEV) : PASS_HASH; }
@@ -646,9 +644,20 @@
   }
   function applyTheme(j) {
     if (!jCardEl) return;
-    var ac = accentOf(j), bg = bgOf(j);
-    if (ac) jCardEl.style.setProperty("--c-accent", ac); else jCardEl.style.removeProperty("--c-accent");
-    if (bg) jCardEl.style.setProperty("--c-bg", bg); else jCardEl.style.removeProperty("--c-bg");
+    var t = themeById(themeKeyOf(j.id));
+    if (t) {
+      jCardEl.style.setProperty("--c-accent", t.accent || "");
+      jCardEl.style.setProperty("--c-bg", t.bg || "");
+      jCardEl.style.setProperty("--c-text", t.text || "");
+      jCardEl.style.setProperty("--c-muted", t.muted || "");
+      jCardEl.classList.add("is-themed");
+    } else {
+      jCardEl.style.removeProperty("--c-accent");
+      jCardEl.style.removeProperty("--c-bg");
+      jCardEl.style.removeProperty("--c-text");
+      jCardEl.style.removeProperty("--c-muted");
+      jCardEl.classList.remove("is-themed");
+    }
   }
   function renderThemeBar(j) {
     if (!jThemeEl) return;
