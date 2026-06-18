@@ -319,17 +319,18 @@
 // Character name — clickable link to the gallery portrait
 .c-palette-card__char {
   display: block;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.80);
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.25;
   margin-top: 0.3rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 0.05rem;
+  word-break: break-word;
+  hyphens: auto;
+  padding: 0 0.125rem 0.15rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   transition: color 0.15s, border-color 0.15s;
 
   &:hover {

@@ -1,0 +1,467 @@
+- id: gary
+  name: "Gary"
+  anchor: gary
+  cn: 天际铜金
+  en: Skyline Brass
+  bg_cn: 顶楼黑檀
+  bg_en: Penthouse Ebony
+  accent: "#cba14c"
+  bg: "#14110d"
+  text: "#ede2d0"
+  muted: "#8a7558"
+
+- id: kris
+  name: 'Krzysztof "Kris" Wilk'
+  anchor: krzysztof
+  cn: 余烬绯红
+  en: Ember Cardinal
+  bg_cn: 华沙墨蓝
+  bg_en: Warsaw Indigo
+  accent: "#bc4d3a"
+  bg: "#11161c"
+  text: "#ece0d2"
+  muted: "#62768d"
+
+- id: matty
+  name: "Matty"
+  anchor: matty
+  cn: 旧电话亭琥珀
+  en: Old Phonebooth Amber
+  bg_cn: 凌晨地铁月台
+  bg_en: Pre-Dawn Subway
+  accent: "#d49850"
+  bg: "#171d24"
+  text: "#ebe0cc"
+  muted: "#7d7264"
+
+- id: buck
+  name: 'Buck "The Kid"'
+  anchor: buck
+  cn: 林间苔绿
+  en: Forest Moss
+  bg_cn: 月光银白
+  bg_en: Moonlight Silver
+  accent: "#b8c878"
+  bg: "#1a2418"
+  text: "#e8eed8"
+  muted: "#7a8868"
+
+- id: trent
+  name: "Trent"
+  anchor: trent
+  cn: 天蓝卡车
+  en: Pickup Sky
+  bg_cn: 新刈草青
+  bg_en: Mown Lawn
+  accent: "#79a7bd"
+  bg: "#141c12"
+  text: "#dce5ea"
+  muted: "#7a7654"
+
+- id: samuel
+  name: "Samuel"
+  anchor: samuel
+  cn: 舞台背心红
+  en: Stage Vest
+  bg_cn: 格纹芥末棕
+  bg_en: Plaid Mustard
+  accent: "#c5402f"
+  bg: "#211a0f"
+  text: "#f0e2d4"
+  muted: "#a08770"
+
+- id: jerry
+  name: "Jerry"
+  anchor: jerry
+  cn: 蓬乱金长发
+  en: Blond Mane
+  bg_cn: 深夜快餐棕
+  bg_en: Late-Night Diner
+  accent: "#d7a83c"
+  bg: "#20120c"
+  text: "#f0e0d0"
+  muted: "#a07060"
+
+- id: wildbill
+  name: 'William "Wild Bill" Wharton'
+  anchor: wildbill
+  cn: 锯末粗木
+  en: Sawdust Timber
+  bg_cn: 炉膛夜黑
+  bg_en: Forge Soot
+  accent: "#b0803e"
+  bg: "#1b1510"
+  text: "#ece0d0"
+  muted: "#93826a"
+
+- id: guy
+  name: "Guy Fleegman"
+  anchor: guy
+  cn: 控制台青
+  en: Console Teal
+  bg_cn: 深空黛黑
+  bg_en: Deep-Space Black
+  accent: "#43b3bf"
+  bg: "#0f161a"
+  text: "#dfe7ea"
+  muted: "#738088"
+
+- id: knox
+  name: "Eric Knox"
+  anchor: eric
+  cn: 红镜红
+  en: Crimson Lens
+  bg_cn: 可乐棕
+  bg_en: Cola Noir
+  accent: "#d94040"
+  bg: "#1b1310"
+  text: "#ede0e0"
+  muted: "#8d6e62"
+
+- id: pero
+  name: 'Pero "Pepe" Mahalovic'
+  anchor: pero
+  cn: 拳击台暖灯橘
+  en: Ring Lamp Amber
+  bg_cn: 科林伍德暮色
+  bg_en: Collinwood Dusk
+  accent: "#d49858"
+  bg: "#1a1612"
+  text: "#ede0cc"
+  muted: "#8a7458"
+
+- id: chuck
+  name: "Chuck Barris"
+  anchor: chuck
+  cn: 镁光节目粉
+  en: Limelight Pink
+  bg_cn: 午夜情报蓝
+  bg_en: Midnight Spy
+  accent: "#de6e8e"
+  bg: "#15182a"
+  text: "#ede4d0"
+  muted: "#8088a0"
+
+- id: mercer
+  name: "Frank Mercer"
+  anchor: frank
+  cn: 擦燃焰橘
+  en: Strike Flare
+  bg_cn: 焦黑火柴
+  bg_en: Burnt Matchstick
+  accent: "#e08a2e"
+  bg: "#1a1410"
+  text: "#ede0e6"
+  muted: "#8d7462"
+
+- id: crocker
+  name: "Jim Crocker"
+  anchor: jim
+  cn: 夜会香槟金
+  en: Club Champagne
+  bg_cn: 黑貂皮大氅
+  bg_en: Mink Black
+  accent: "#d8b25a"
+  bg: "#161214"
+  text: "#f0e3dc"
+  muted: "#8d6278"
+
+- id: zaphod
+  name: "Zaphod Beeblebrox"
+  anchor: zaphod
+  cn: 总统鬃金
+  en: President's Mane
+  bg_cn: 黑甲漆夜
+  bg_en: Lacquer Black
+  accent: "#d4a82a"
+  bg: "#0b0a12"
+  text: "#e8e4d0"
+  muted: "#8a7a48"
+
+- id: brad
+  name: "Brad Cairn"
+  anchor: brad
+  cn: 网球荧光黄
+  en: Tennis Ball
+  bg_cn: 曼哈顿冬夜
+  bg_en: Manhattan Slate
+  accent: "#c9d84e"
+  bg: "#1c2230"
+  text: "#e8eadc"
+  muted: "#7a8590"
+
+- id: glenn
+  name: "Glenn Marchand"
+  anchor: glenn
+  cn: 初雪微光白
+  en: First Snow
+  bg_cn: 寒冬冷蓝灰
+  bg_en: Winter Steel
+  accent: "#b8d0e0"
+  bg: "#1c2030"
+  text: "#dce4ea"
+  muted: "#7a8090"
+
+- id: reston
+  name: "Jim Reston"
+  anchor: reston
+  cn: 钨丝暖灯金
+  en: Tungsten Glow
+  bg_cn: 深夜手稿棕
+  bg_en: Manuscript Brown
+  accent: "#d89858"
+  bg: "#1f1814"
+  text: "#ebe0cc"
+  muted: "#8a7458"
+
+- id: victor
+  name: "Victor Mancini"
+  anchor: victor
+  cn: 殖民地铜金
+  en: Colonial Gilt
+  bg_cn: 旧绒布酒红
+  bg_en: Velvet Wine
+  accent: "#d2a24a"
+  bg: "#2a1820"
+  text: "#f0e0d4"
+  muted: "#9a7868"
+
+- id: sambell
+  name: "Sam Bell"
+  anchor: sam
+  cn: 基地微光
+  en: Sarang Glow
+  bg_cn: 月球蔚蓝
+  bg_en: Lunar Blue
+  accent: "#7eb0d5"
+  bg: "#162038"
+  text: "#e8eef5"
+  muted: "#6a85a3"
+
+- id: goode
+  name: "Robert Goode"
+  anchor: robert
+  cn: 圣诞帽红
+  en: Santa Hat
+  bg_cn: 鼓皮深棕
+  bg_en: Drumskin Brown
+  accent: "#cc4436"
+  bg: "#211910"
+  text: "#ede4d4"
+  muted: "#9a7e58"
+
+- id: hammer
+  name: "Justin Hammer"
+  anchor: hammer
+  cn: 电光钴蓝
+  en: Spotlight Sapphire
+  bg_cn: 落幕玄黑
+  bg_en: After-Curtain Onyx
+  accent: "#4a87ee"
+  bg: "#13151c"
+  text: "#e7eaf2"
+  muted: "#7c8aa6"
+
+- id: kenny
+  name: "Kenny Waters"
+  anchor: kenny
+  cn: 铁窗微光
+  en: Barred Light
+  bg_cn: 囚室灰墙
+  bg_en: Cell Concrete
+  accent: "#d08a45"
+  bg: "#1c1e1f"
+  text: "#f0e0d4"
+  muted: "#627f8d"
+
+- id: billy
+  name: "Billy Bickle"
+  anchor: billy
+  cn: 方块J红
+  en: Diamond Jack
+  bg_cn: 沙漠焦土
+  bg_en: Scorched Desert
+  accent: "#d63a33"
+  bg: "#281208"
+  text: "#f5e6d0"
+  muted: "#b07840"
+
+- id: owen
+  name: "Owen"
+  anchor: owen
+  cn: 滑梯翠蓝
+  en: Waterslide Aqua
+  bg_cn: 氯味深池
+  bg_en: Chlorine Deep
+  accent: "#35bfc9"
+  bg: "#15282e"
+  text: "#dce9ea"
+  muted: "#75899a"
+
+- id: johnmoon
+  name: "John Moon"
+  anchor: john
+  cn: 孤枪冷雾蓝
+  en: Lone Mist
+  bg_cn: 西弗州山夜
+  bg_en: Appalachian Dusk
+  accent: "#8fa0b0"
+  bg: "#14181f"
+  text: "#dce3ea"
+  muted: "#62728d"
+
+- id: varney
+  name: "Doug Varney"
+  anchor: doug
+  cn: 处方白大褂
+  en: Lab Coat
+  bg_cn: 药瓶琥珀棕
+  bg_en: Pill-Bottle Brown
+  accent: "#e6ecea"
+  bg: "#1e1408"
+  text: "#dceae5"
+  muted: "#8d7a62"
+
+- id: wayne
+  name: "Wayne"
+  anchor: wayne
+  cn: 夏末琥珀
+  en: Late Summer Amber
+  bg_cn: 退伍橄榄
+  bg_en: Old Olive
+  accent: "#c8a050"
+  bg: "#1e2418"
+  text: "#e8e4d0"
+  muted: "#8a7a48"
+
+- id: craig
+  name: "Craig"
+  anchor: craig
+  cn: 威士忌金
+  en: Whisky Gold
+  bg_cn: 陈年皮革
+  bg_en: Aged Leather
+  accent: "#c89060"
+  bg: "#241a14"
+  text: "#ede0d0"
+  muted: "#a07858"
+
+- id: munch
+  name: "Francis Munch"
+  anchor: francis
+  cn: 丑角红鼻头
+  en: Clown Nose
+  bg_cn: 小熊软糖绿
+  bg_en: Gummy Bear Green
+  accent: "#e23b2e"
+  bg: "#14241a"
+  text: "#eed9d8"
+  muted: "#628d72"
+
+- id: dixon
+  name: "Dixon"
+  anchor: dixon
+  cn: 重生焰橘
+  en: Reborn Flame
+  bg_cn: 焦烬玫瑰
+  bg_en: Charred Rose
+  accent: "#e2622a"
+  bg: "#241015"
+  text: "#f5e6d3"
+  muted: "#8d626d"
+
+- id: eddie
+  name: "Eddie"
+  anchor: eddie
+  cn: 蓝蜥宝石
+  en: Iguana Jewel
+  bg_cn: 酒馆烟灰
+  bg_en: Tavern Smoke
+  accent: "#2e9fd4"
+  bg: "#1a1f24"
+  text: "#dce5ea"
+  muted: "#7a8088"
+
+- id: bush
+  name: "George W. Bush"
+  anchor: bush
+  cn: 德州牛仔金
+  en: Texan Tan
+  bg_cn: 总统西装夜
+  bg_en: Suit Navy
+  accent: "#c98a3e"
+  bg: "#16181e"
+  text: "#f1e3cb"
+  muted: "#626d8d"
+
+- id: klenz
+  name: "Captain Klenzendorf"
+  anchor: hendrix
+  cn: 夸张军装红
+  en: Glam Tunic
+  bg_cn: 登台华服绿
+  bg_en: Costume Green
+  accent: "#d34338"
+  bg: "#14241c"
+  text: "#ede8d8"
+  muted: "#8b7d4d"
+
+- id: bryant
+  name: "Watson Bryant"
+  anchor: watson
+  cn: 红土暖橘
+  en: Georgia Clay
+  bg_cn: 档案橡木
+  bg_en: Archive Oak
+  accent: "#c8783c"
+  bg: "#1c1410"
+  text: "#ede0d0"
+  muted: "#8a6848"
+
+- id: mrwolf
+  name: "Mr. Wolf"
+  anchor: wolf
+  cn: 磁石黄金
+  en: Magnet Gold
+  bg_cn: 狼影灰蓝
+  bg_en: Wolf Shadow
+  accent: "#dfb23c"
+  bg: "#14161d"
+  text: "#ede6d8"
+  muted: "#7a7d8a"
+
+- id: stoppard
+  name: "Inspector Stoppard"
+  anchor: stoppard
+  cn: 旧照片暖褐
+  en: Old Photograph
+  bg_cn: 伦敦午夜蓝
+  bg_en: London Midnight
+  accent: "#c7995a"
+  bg: "#1a1f2c"
+  text: "#ebe2d4"
+  muted: "#7c8090"
+
+- id: wilde
+  name: "Aidan Wilde"
+  anchor: aidan
+  cn: 弹壳余温金
+  en: Casing Gold
+  bg_cn: 午夜枪管蓝
+  bg_en: Gunmetal Blue
+  accent: "#cda24f"
+  bg: "#15192a"
+  text: "#ebe2d0"
+  muted: "#7a7e90"
+
+- id: future
+  name: "The Man from the Future"
+  anchor: manfromfuture
+  cn: 故障玫红
+  en: Glitch Magenta
+  bg_cn: 荧光夜紫
+  bg_en: Neon Violet
+  accent: "#d460a0"
+  bg: "#1a0e2a"
+  text: "#ede0ec"
+  muted: "#8868a0"
