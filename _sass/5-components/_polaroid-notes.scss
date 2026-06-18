@@ -105,6 +105,10 @@
   font-family: 'EB Garamond', serif; font-style: italic; font-size: 11.5px;
   letter-spacing: 0.4px; color: rgba(231, 220, 198, 0.55);
 }
+/* 两行标签：大字（中/英）+ 英文小字，和左边 Memento 同一套排版 */
+.pol-lk-stack { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 1px; line-height: 1.05; text-align: left; }
+.pol-lk-stack b { font-family: 'EB Garamond', serif; font-weight: 600; font-style: normal; font-size: 13px; letter-spacing: 0.3px; }
+.pol-lk-stack i { font-family: 'EB Garamond', serif; font-style: italic; font-size: 9px; letter-spacing: 0.5px; opacity: 0.6; }
 @media (max-width: 480px) { .pol-lock-tag i { display: none; } }
 
 /* 右侧按钮：「底片匣」「封存」「Leo 的笔迹」—— 全部衬线斜体，和左边一个世界 */
