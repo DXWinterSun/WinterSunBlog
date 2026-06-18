@@ -18,11 +18,24 @@
   // 左下角浮标上的导语（钢笔旁的小字）：
   var LOCK_LABEL = "记忆碎片";
   var LOCK_LABEL_EN = "Memento";
-  // 幸运三事小拍立得的标题 —— The Fray《Happiness》:"happiness throws a shower of sparks"
-  // 分两行排版：第一行做引子（轻），第二行做主角（手写放大），下面缀歌曲署名。
-  var LUCKY_Q1 = "Happiness throws";
-  var LUCKY_Q2 = "a shower of sparks";
-  var LUCKY_CREDIT = "The Fray · Happiness";
+  // 角落里那叠小拍立得 —— 每张一个用途，平时叠着，悬停展开，点开记录。
+  // kind: "three" = 每天三件（固定三行）；"free" = 每天自由写（一段，可长）。
+  // ls:   各自的 localStorage 键，互不干扰；grad: 相纸里那块"照片"的渐变色。
+  // q1/q2/credit: 相纸下沿的分层歌词（引子 / 主角 / 署名）。
+  var JOURNALS = [
+    {
+      id: "fortunes", kind: "three", ls: "wiw-lucky",
+      grad: "linear-gradient(145deg, #c9a16b 0%, #6b5e7a 55%, #3f4a63 100%)",
+      q1: "Happiness throws", q2: "a shower of sparks", credit: "The Fray · Happiness",
+      hint: "记下这一天的三件幸运小事。"
+    },
+    {
+      id: "windows", kind: "free", ls: "wiw-windows",
+      grad: "linear-gradient(145deg, #5a6b78 0%, #46505f 50%, #2c333f 100%)",
+      q1: "It seems to you I'm failing,", q2: "but it seems to me I'm trying.", credit: "Guy Pearce · Dirty Windows",
+      hint: "今天想吐槽 / 想记下的，都丢这儿。"
+    }
+  ];
   // 钢笔笔尖（SVG，缺口与气孔留成镂空，像真的笔尖）：
   var PEN_SVG = '<svg class="pol-lock-pen" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">' +
     '<path d="M12 2 C15.2 8 16.6 13.6 12 22 C7.4 13.6 8.8 8 12 2 Z" fill="#d8c6a2"/>' +
@@ -47,7 +60,7 @@
   var LS_NOTES = "wiw-pol-notes";
   var LS_UNLOCK = "wiw-pol-unlock";
   var LS_PASS_DEV = "wiw-pol-pass-dev"; // 仅在尚未填 PASS_HASH 时作兜底
-  var LS_LUCKY = "wiw-lucky";           // 幸运三事，按日期存
+  // 各 journal 的存储键写在 JOURNALS 配置里（如 wiw-lucky / wiw-windows）。
 
   function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return "" + h; }
 
@@ -62,18 +75,24 @@
     }
   };
 
-  /* 幸运三事的存储层（按 YYYY-MM-DD 存，每天三件）*/
-  var Lucky = {
-    all: function () { try { return JSON.parse(localStorage.getItem(LS_LUCKY)) || {}; } catch (e) { return {}; } },
-    get: function (day) { var d = this.all()[day]; return (d && d.items) ? d : { items: ["", "", ""], ts: 0 }; },
-    set: function (day, items) {
-      var a = this.all();
-      if (items.join("").trim()) { a[day] = { items: items, ts: Date.now() }; }
-      else { delete a[day]; }   // 三行都空了就不留这天，免得攒一堆空壳
-      try { localStorage.setItem(LS_LUCKY, JSON.stringify(a)); } catch (e) {}
-      return a[day];
-    }
-  };
+  /* 每个 journal 一个按日期存的存储层（互不干扰；升级云端时也只改这里）*/
+  var stores = {};
+  function storeOf(j) {
+    if (stores[j.id]) return stores[j.id];
+    var lsKey = j.ls;
+    var s = {
+      all: function () { try { return JSON.parse(localStorage.getItem(lsKey)) || {}; } catch (e) { return {}; } },
+      get: function (day) { return this.all()[day] || null; },
+      save: function (day, rec, empty) {
+        var a = this.all();
+        if (empty) { delete a[day]; }            // 写空了就不留这天，免得攒空壳
+        else { rec.ts = Date.now(); a[day] = rec; }
+        try { localStorage.setItem(lsKey, JSON.stringify(a)); } catch (e) {}
+      }
+    };
+    stores[j.id] = s; return s;
+  }
+  function journalById(id) { for (var i = 0; i < JOURNALS.length; i++) if (JOURNALS[i].id === id) return JOURNALS[i]; return null; }
 
   var devMode = (PASS_HASH === "PUT_YOUR_HASH_HERE");
   function passHash() { return devMode ? localStorage.getItem(LS_PASS_DEV) : PASS_HASH; }
@@ -199,7 +218,7 @@
     if (lockBtn) lockBtn.addEventListener("click", function () { localStorage.removeItem(LS_UNLOCK); unlocked = false; if (boxEl) boxEl.classList.remove("open"); renderLock(); });
     var boxBtn = lockEl.querySelector('[data-act="box"]');
     if (boxBtn) boxBtn.addEventListener("click", toggleBox);
-    syncLuckyVisible();
+    syncDeckVisible();
   }
   function showPwInput() {
     var setting = !hasPass();
@@ -227,7 +246,9 @@
     return c;
   }
   function exportNotes() {
-    var data = { app: "wiw-polaroid-notes", v: 1, exported: Date.now(), notes: Store.all(), lucky: Lucky.all() };
+    var journals = {};
+    for (var i = 0; i < JOURNALS.length; i++) journals[JOURNALS[i].id] = storeOf(JOURNALS[i]).all();
+    var data = { app: "wiw-polaroid-notes", v: 2, exported: Date.now(), notes: Store.all(), journals: journals };
     var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     var url = URL.createObjectURL(blob);
     var d = new Date();
@@ -253,16 +274,22 @@
           else if ((inc.ts || 0) > (ex.ts || 0) && inc.text !== ex.text) { cur[id] = inc; updated++; }
         }
         localStorage.setItem(LS_NOTES, JSON.stringify(cur));
-        // 幸运三事也一并合并（按日期，谁更新留谁）
-        if (data && data.lucky && typeof data.lucky === "object") {
-          var lc = Lucky.all();
-          for (var day in data.lucky) {
-            if (!data.lucky.hasOwnProperty(day)) continue;
-            var li = data.lucky[day];
-            if (!li || !li.items) continue;
-            if (!lc[day] || (li.ts || 0) > (lc[day].ts || 0)) { lc[day] = li; }
+        // 各 journal 也一并合并（按日期，谁更新留谁）
+        var incJournals = (data && data.journals) ? data.journals
+          : (data && data.lucky) ? { fortunes: data.lucky } : null;   // 兼容旧 v1 的 lucky 字段
+        if (incJournals) {
+          for (var jid in incJournals) {
+            if (!incJournals.hasOwnProperty(jid)) continue;
+            var j = journalById(jid); if (!j) continue;
+            var st = storeOf(j), curMap = st.all(), inMap = incJournals[jid];
+            if (!inMap || typeof inMap !== "object") continue;
+            for (var day in inMap) {
+              if (!inMap.hasOwnProperty(day)) continue;
+              var rec = inMap[day]; if (!rec) continue;
+              if (!curMap[day] || (rec.ts || 0) > (curMap[day].ts || 0)) curMap[day] = rec;
+            }
+            try { localStorage.setItem(j.ls, JSON.stringify(curMap)); } catch (e) {}
           }
-          localStorage.setItem(LS_LUCKY, JSON.stringify(lc));
         }
         done(null, { added: added, updated: updated });
       } catch (e) { done(e); }
@@ -310,7 +337,7 @@
     if (open) { refreshBox(); if (boxMsg) boxMsg.classList.remove("show"); }
   }
 
-  /* ========== 幸运三事：左下角一张独立小拍立得（仅解锁后可见）========== */
+  /* ========== 角落卡组：一叠拍立得，每张一个用途（仅解锁后可见）========== */
   var LUCKY_MARKS = ["一", "二", "三"];
   var EN_WK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var EN_MON = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -321,105 +348,134 @@
   }
   function pinDate() { var d = new Date(); return d.getDate() + " " + EN_MON[d.getMonth()]; }
 
-  var luckyPin;
-  function buildLuckyPin() {
-    luckyPin = document.createElement("button");
-    luckyPin.type = "button"; luckyPin.className = "pol-lucky";
-    luckyPin.innerHTML =
-      '<span class="pol-lucky-photo"><span class="pol-lucky-star">✦</span></span>' +
-      '<span class="pol-lucky-cap">' +
-        '<span class="pol-lucky-q1"></span>' +
-        '<span class="pol-lucky-q2"></span>' +
-        '<span class="pol-lucky-credit"></span>' +
-        '<i></i>' +
-      '</span>';
-    luckyPin.querySelector(".pol-lucky-q1").textContent = LUCKY_Q1;
-    luckyPin.querySelector(".pol-lucky-q2").textContent = LUCKY_Q2;
-    luckyPin.querySelector(".pol-lucky-credit").textContent = LUCKY_CREDIT;
-    document.body.appendChild(luckyPin);
-    luckyPin.addEventListener("click", function () { openLucky(todayKey()); });
+  var deckEl, pins = [];
+  function buildDeck() {
+    deckEl = document.createElement("div");
+    deckEl.className = "pol-deck";
+    deckEl.style.setProperty("--n", JOURNALS.length);
+    for (var i = 0; i < JOURNALS.length; i++) {
+      (function (j, idx) {
+        var pin = document.createElement("button");
+        pin.type = "button"; pin.className = "pol-card";
+        pin.style.setProperty("--i", idx); pin.style.zIndex = idx + 1;
+        pin.innerHTML =
+          '<span class="pol-card-photo"><span class="pol-card-star">✦</span></span>' +
+          '<span class="pol-card-cap"><span class="pol-card-q1"></span><span class="pol-card-q2"></span><span class="pol-card-credit"></span><i></i></span>';
+        pin.querySelector(".pol-card-photo").style.background = j.grad;
+        pin.querySelector(".pol-card-q1").textContent = j.q1;
+        pin.querySelector(".pol-card-q2").textContent = j.q2;
+        pin.querySelector(".pol-card-credit").textContent = j.credit;
+        pin.addEventListener("click", function () { openJournal(j, todayKey()); });
+        deckEl.appendChild(pin); pins.push(pin);
+      })(JOURNALS[i], i);
+    }
+    document.body.appendChild(deckEl);
   }
-  function refreshLuckyPin() { if (luckyPin) { var i = luckyPin.querySelector(".pol-lucky-cap i"); if (i) i.textContent = pinDate(); } }
-  function syncLuckyVisible() {
-    if (!luckyPin) return;
-    if (unlocked) { loadFonts(); luckyPin.style.display = "flex"; refreshLuckyPin(); }
-    else { luckyPin.style.display = "none"; if (luckyBack) luckyBack.classList.remove("open"); }
+  function refreshDeck() { for (var i = 0; i < pins.length; i++) { var el = pins[i].querySelector(".pol-card-cap i"); if (el) el.textContent = pinDate(); } }
+  function syncDeckVisible() {
+    if (!deckEl) return;
+    if (unlocked) { loadFonts(); deckEl.style.display = "block"; refreshDeck(); }
+    else { deckEl.style.display = "none"; if (jBack) jBack.classList.remove("open"); }
   }
 
-  var luckyBack, luckyDateEl, luckySavedEl, luckyInputs = [], luckyDay = null, luckySaveTimer = null;
+  /* —— 共用的翻开编辑卡（按当前 journal 的 kind 重建内页）—— */
+  var jBack, jDateEl, jSavedEl, jHintEl, jBodyEl, curJournal = null, curDay = null, jInputs = [], jSaveTimer = null;
   function autoGrow(t) { t.style.height = "auto"; t.style.height = Math.max(30, t.scrollHeight) + "px"; }
-  function buildLuckyEditor() {
-    luckyBack = document.createElement("div");
-    luckyBack.className = "pol-backdrop pol-lucky-backdrop";
-    luckyBack.innerHTML =
-      '<div class="pol-lucky-card" role="dialog" aria-label="幸运三事">' +
+  function buildJournalEditor() {
+    jBack = document.createElement("div");
+    jBack.className = "pol-backdrop pol-lucky-backdrop";
+    jBack.innerHTML =
+      '<div class="pol-lucky-card" role="dialog">' +
         '<div class="pol-lucky-top">' +
           '<button class="pol-lucky-nav" type="button" data-d="-1" aria-label="前一天">‹</button>' +
           '<span class="pol-lucky-date"></span>' +
           '<button class="pol-lucky-nav" type="button" data-d="1" aria-label="后一天">›</button>' +
         '</div>' +
         '<div class="pol-lucky-body"></div>' +
-        '<div class="pol-lucky-foot"><span class="pol-lucky-hint">记下这一天的三件幸运小事。</span>' +
+        '<div class="pol-lucky-foot"><span class="pol-lucky-hint"></span>' +
           '<span class="pol-lucky-foot-r"><span class="pol-saved pol-lucky-saved">已收好 ✓</span>' +
           '<button class="pol-lucky-x" type="button">收起</button></span></div>' +
       '</div>';
-    document.body.appendChild(luckyBack);
-    luckyDateEl = luckyBack.querySelector(".pol-lucky-date");
-    luckySavedEl = luckyBack.querySelector(".pol-lucky-saved");
-    var body = luckyBack.querySelector(".pol-lucky-body");
-    luckyInputs = [];
-    for (var i = 0; i < 3; i++) {
-      var row = document.createElement("label"); row.className = "pol-lucky-row";
-      row.innerHTML = '<span class="pol-lucky-no">' + LUCKY_MARKS[i] + '</span><textarea class="pol-lucky-in" rows="1" spellcheck="false" placeholder="……"></textarea>';
-      body.appendChild(row);
-      var ta = row.querySelector(".pol-lucky-in"); ta.style.fontFamily = NOTE_FONT;
-      (function (t) {
-        t.addEventListener("input", function () { autoGrow(t); scheduleLuckySave(); });
-      })(ta);
-      luckyInputs.push(ta);
+    document.body.appendChild(jBack);
+    jDateEl = jBack.querySelector(".pol-lucky-date");
+    jSavedEl = jBack.querySelector(".pol-lucky-saved");
+    jHintEl = jBack.querySelector(".pol-lucky-hint");
+    jBodyEl = jBack.querySelector(".pol-lucky-body");
+    var navs = jBack.querySelectorAll(".pol-lucky-nav");
+    for (var i = 0; i < navs.length; i++) { (function (b) { b.addEventListener("click", function () { shiftDay(+b.getAttribute("data-d")); }); })(navs[i]); }
+    jBack.querySelector(".pol-lucky-x").addEventListener("click", closeJournal);
+    jBack.addEventListener("click", function (e) { if (e.target === jBack) closeJournal(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && jBack.classList.contains("open")) closeJournal(); });
+  }
+  function makeInput() {
+    var ta = document.createElement("textarea");
+    ta.className = "pol-lucky-in"; ta.rows = 1; ta.spellcheck = false; ta.placeholder = "……";
+    ta.style.fontFamily = NOTE_FONT;
+    ta.addEventListener("input", function () { autoGrow(ta); scheduleJournalSave(); });
+    return ta;
+  }
+  function buildBodyFor(j) {
+    jBodyEl.innerHTML = ""; jInputs = [];
+    if (j.kind === "three") {
+      for (var i = 0; i < 3; i++) {
+        var row = document.createElement("label"); row.className = "pol-lucky-row";
+        var no = document.createElement("span"); no.className = "pol-lucky-no"; no.textContent = LUCKY_MARKS[i];
+        var ta = makeInput();
+        row.appendChild(no); row.appendChild(ta); jBodyEl.appendChild(row); jInputs.push(ta);
+      }
+    } else {
+      var free = makeInput(); free.classList.add("pol-lucky-free");
+      jBodyEl.appendChild(free); jInputs.push(free);
     }
-    var navs = luckyBack.querySelectorAll(".pol-lucky-nav");
-    for (i = 0; i < navs.length; i++) { (function (b) { b.addEventListener("click", function () { shiftDay(+b.getAttribute("data-d")); }); })(navs[i]); }
-    luckyBack.querySelector(".pol-lucky-x").addEventListener("click", closeLucky);
-    luckyBack.addEventListener("click", function (e) { if (e.target === luckyBack) closeLucky(); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && luckyBack.classList.contains("open")) closeLucky(); });
   }
-  function loadLuckyDay(day) {
-    luckyDay = day;
-    var rec = Lucky.get(day);
-    for (var i = 0; i < luckyInputs.length; i++) { luckyInputs[i].value = rec.items[i] || ""; autoGrow(luckyInputs[i]); }
-    luckyDateEl.textContent = dayLabel(day);
+  function loadDay(day) {
+    curDay = day;
+    var rec = storeOf(curJournal).get(day) || {};
+    if (curJournal.kind === "three") {
+      var items = rec.items || [];
+      for (var i = 0; i < jInputs.length; i++) { jInputs[i].value = items[i] || ""; autoGrow(jInputs[i]); }
+    } else {
+      jInputs[0].value = rec.text || ""; autoGrow(jInputs[0]);
+    }
+    jDateEl.textContent = dayLabel(day);
   }
-  function openLucky(day) {
+  function openJournal(j, day) {
     if (!unlocked) return;
     loadFonts();
-    if (!luckyBack) buildLuckyEditor();
-    luckyBack.classList.add("open");
-    loadLuckyDay(day);
-    setTimeout(function () { luckyInputs[0].focus(); }, 420);
+    if (!jBack) buildJournalEditor();
+    curJournal = j;
+    jBack.setAttribute("data-kind", j.kind);
+    jHintEl.textContent = j.hint || "";
+    buildBodyFor(j);
+    jBack.classList.add("open");
+    loadDay(day);
+    setTimeout(function () { if (jInputs[0]) jInputs[0].focus(); }, 420);
   }
-  function scheduleLuckySave() {
-    clearTimeout(luckySaveTimer);
-    luckySaveTimer = setTimeout(saveLucky, 450);
-  }
-  function saveLucky() {
-    if (!luckyDay) return;
-    var items = []; for (var i = 0; i < luckyInputs.length; i++) items.push(luckyInputs[i].value);
-    Lucky.set(luckyDay, items);
-    if (luckySavedEl) { luckySavedEl.classList.add("show"); setTimeout(function () { luckySavedEl.classList.remove("show"); }, 1200); }
+  function scheduleJournalSave() { clearTimeout(jSaveTimer); jSaveTimer = setTimeout(saveJournal, 450); }
+  function saveJournal() {
+    if (!curJournal || !curDay) return;
+    var rec, empty;
+    if (curJournal.kind === "three") {
+      var items = []; for (var i = 0; i < jInputs.length; i++) items.push(jInputs[i].value);
+      empty = !items.join("").trim(); rec = { items: items };
+    } else {
+      var text = jInputs[0].value; empty = !text.trim(); rec = { text: text };
+    }
+    storeOf(curJournal).save(curDay, rec, empty);
+    if (jSavedEl) { jSavedEl.classList.add("show"); setTimeout(function () { jSavedEl.classList.remove("show"); }, 1200); }
   }
   function shiftDay(delta) {
-    if (!luckyDay) return;
-    saveLucky();
-    var p = luckyDay.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]); d.setDate(d.getDate() + delta);
+    if (!curDay) return;
+    saveJournal();
+    var p = curDay.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]); d.setDate(d.getDate() + delta);
     var key = d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
     if (delta > 0 && key > todayKey()) return; // 不翻到未来
-    loadLuckyDay(key);
+    loadDay(key);
   }
-  function closeLucky() { if (luckyBack) { saveLucky(); luckyBack.classList.remove("open"); } }
+  function closeJournal() { if (jBack) { saveJournal(); jBack.classList.remove("open"); } }
 
   /* ========== 启动 ========== */
-  function init() { buildLock(); buildLuckyPin(); markDogears(); attachCards(); syncLuckyVisible(); }
+  function init() { buildLock(); buildDeck(); markDogears(); attachCards(); syncDeckVisible(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
