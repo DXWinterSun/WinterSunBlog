@@ -8,6 +8,9 @@ author-name:    Winter Sun
 author-image:   heading-normal.jpg
 author-job:     Translator / Romantic / Dreamer
 author-email:   winterzhangyixuan@qq.com # Add your email for contant form.
+# 寄信用的 Web3Forms access key —— 去 https://web3forms.com 输入上面的邮箱免费领取，
+# 把领到的那串 key 填进下面这双引号里即可（联系页表单 + 信卡寄信都读它）。留空则寄信功能停用。
+web3forms-key:  ""
 author-weibo:   https://weibo.com/wintersunzhang
 author-bilibili:   https://space.bilibili.com/185894171
 author-redbook: https://www.xiaohongshu.com/user/profile/5cb52bc3000000001200caab?xsec_token=YBDAjPaqx6wqyz2-Im0YSlwFtPkWgBp8nkMX0rfyntfEo=&xsec_source=app_share&xhsshare=CopyLink&shareRedId=N0lENTVHRzw2NzUyOTgwNjc1OTdHRkdL&apptime=1777654818&share_id=fcdbd7106d0a46cba87e52375304c1d5

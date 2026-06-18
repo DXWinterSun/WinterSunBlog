@@ -9,7 +9,8 @@
   /* ========== 你的配置 ========== */
   // ↓↓↓ 用文末小工具把你的密码转成哈希，替换下面这行的占位符：
   var PASS_HASH = "2432187070";
-  var HELLO_ENDPOINT = (typeof window !== "undefined" && window.HELLO_ENDPOINT) || ""; // 寄信给自己用的 Formspree 地址
+  var HELLO_ENDPOINT = (typeof window !== "undefined" && window.HELLO_ENDPOINT) || ""; // 寄信端点（Web3Forms）
+  var WEB3FORMS_KEY = (typeof window !== "undefined" && window.WEB3FORMS_KEY) || "";   // Web3Forms 免费 access key
   var NOTE_FONT = "'Caveat','Ma Shan Zheng',cursive";
   var FONT_LINK = "https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Ma+Shan+Zheng&display=swap";
   var LONGPRESS_MS = 480;
@@ -595,15 +596,17 @@
     if (!curJournal || curJournal.kind !== "letter") return;
     var body = (letterBody.value || "").trim();
     if (!body) { setSendMsg("信还是空的呢…"); return; }
-    if (!HELLO_ENDPOINT) { setSendMsg("没找到寄信地址 :("); return; }
+    if (!HELLO_ENDPOINT || !WEB3FORMS_KEY) { setSendMsg("还没配好寄信钥匙 :("); return; }
     setSendMsg("封缄寄送中…");
     var fd = new FormData();
-    fd.append("name", "To Myself");
-    fd.append("_subject", composeSubject());
-    fd.append("text", body + (letterRead.value ? "\n\n— 待 " + niceDate(letterRead.value) + " 再读 —" : ""));
+    fd.append("access_key", WEB3FORMS_KEY);
+    fd.append("from_name", "To Myself");
+    fd.append("subject", composeSubject());
+    fd.append("message", body + (letterRead.value ? "\n\n— 待 " + niceDate(letterRead.value) + " 再读 —" : ""));
     fetch(HELLO_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: fd })
-      .then(function (res) {
-        if (res.ok) {
+      .then(function (res) { return res.json().catch(function () { return { success: res.ok }; }); })
+      .then(function (data) {
+        if (data && data.success) {
           setSendMsg("已寄出 ✓ 去你的邮箱等它");
           try { localStorage.removeItem(curJournal.ls); } catch (e) {}
           letterSubj.value = curJournal.subjectDefault || ""; letterRead.value = ""; letterBody.value = ""; autoGrow(letterBody);
