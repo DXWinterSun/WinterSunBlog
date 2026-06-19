@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 8 · The Boots — A Single Shot AU"
 date: 2026-06-19
-image: john-moon-au.jpg
+image: a-single-shot-au.jpg
 tags: [安放, 暗涌]
 categories: ["AU Story"]
 series: "A Single Shot AU"
