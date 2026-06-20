@@ -193,18 +193,17 @@
   transform-origin: bottom center;
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
 }
-/* 触屏（无 hover）：直接错落展开成一叠，每张都点得到 */
-.pol-card { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(-3deg); }
-/* 有鼠标：平时整叠缩在浮标后只露一条；悬停浮标或卡组时，像抽屉一样展开 */
+/* 默认折叠收在浮标后面，仅露一条，点击浮标才弹出 */
+.pol-card { transform: translateY(calc(100% - var(--peek) - var(--i) * 7px)) rotate(calc(var(--i) * 3deg - 2deg)); }
+/* 点击浮标（is-open）：像抽屉一样展开 */
+.pol-lock.is-open ~ .pol-deck .pol-card { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(-3deg); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5); }
 @media (hover: hover) {
-  .pol-card { transform: translateY(calc(100% - var(--peek) - var(--i) * 7px)) rotate(calc(var(--i) * 3deg - 2deg)); }
-  .pol-deck:hover .pol-card,
-  .pol-lock:hover ~ .pol-deck .pol-card { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(-3deg); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5); }
-  .pol-deck:hover .pol-card:hover,
-  .pol-lock:hover ~ .pol-deck .pol-card:hover { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.03); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.55); }
-  /* 打开编辑卡时：整叠常驻铺开、浮到蒙版之上，可直接点切换本子（不再因鼠标移开而收起）*/
-  .pol-deck.is-switcher { z-index: 1210; }
-  .pol-deck.is-switcher .pol-card { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(-3deg); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5); }
+  .pol-lock.is-open ~ .pol-deck .pol-card:hover { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.03); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.55); }
+}
+/* 打开编辑卡时：整叠常驻铺开、浮到蒙版之上，可直接点切换本子 */
+.pol-deck.is-switcher { z-index: 1210; }
+.pol-deck.is-switcher .pol-card { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(-3deg); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5); }
+@media (hover: hover) {
   .pol-deck.is-switcher .pol-card:hover { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.03); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.55); }
   .pol-deck.is-switcher .pol-card.is-current { transform: translateY(calc(var(--i) * var(--step) * -1)) rotate(0deg) scale(1.04); box-shadow: 0 22px 46px rgba(0, 0, 0, 0.55), 0 0 0 2px var(--c-accent, #c9a16b); }
 }
@@ -229,7 +228,7 @@
   .pol-guest { width: 150px; bottom: 72px; }
 }
 
-/* —— 访客彩蛋拍立得：未解锁时藏在浮标后只露一角，划过浮标 / 卡片才弹起；点开翻到背面 —— */
+/* —— 访客彩蛋拍立得：未解锁时藏在浮标后只露一角，点击浮标才弹起；点开翻到背面 —— */
 .pol-guest {
   position: fixed; left: 20px; bottom: 72px; z-index: 1098;  /* 低于浮标，藏在它后面 */
   --peek: 30px;
@@ -237,14 +236,11 @@
   padding: 8px 8px 0; background: #fbf9f3; border: none; border-radius: 3px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.22), 0 12px 28px rgba(0, 0, 0, 0.42); cursor: pointer; text-align: left;
   transform-origin: bottom center;
-  transform: rotate(-2.5deg);                /* 触屏（无 hover）：直接立着，看得到 */
+  transform: translateY(calc(100% - var(--peek))) rotate(-2.5deg);  /* 默认折叠，只露一条 */
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
 }
-@media (hover: hover) {
-  .pol-guest { transform: translateY(calc(100% - var(--peek))) rotate(-2.5deg); }  /* 平时缩在浮标后只露一条 */
-  .pol-guest:hover,
-  .pol-lock:hover ~ .pol-guest { transform: translateY(0) rotate(-2deg); box-shadow: 0 20px 42px rgba(0, 0, 0, 0.52); }
-}
+/* 点击浮标（is-open）：拍立得弹出 */
+.pol-lock.is-open ~ .pol-guest { transform: translateY(0) rotate(-2deg); box-shadow: 0 20px 42px rgba(0, 0, 0, 0.52); }
 .pol-guest-cap { padding-bottom: 11px; }
 .pol-guest-cap .pol-card-q2 { font-size: 14.5px; line-height: 1.25; }
 .pol-guest-sign { font-family: 'EB Garamond', serif; font-style: italic; font-size: 11px; letter-spacing: 0.4px; color: #9a8f7c; margin-top: 7px; }
