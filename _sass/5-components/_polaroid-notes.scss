@@ -223,9 +223,20 @@
 .pol-card-credit { font-family: 'EB Garamond', serif; font-style: italic; font-size: 8.5px; letter-spacing: 0.7px; color: #c0b29a; margin-top: 4px; }
 .pol-card-cap i { font-family: 'EB Garamond', serif; font-style: italic; font-size: 10px; color: #9a8f7c; margin-top: 2px; }
 @media (max-width: 480px) {
-  .pol-deck { --cardw: 150px; --step: 120px; height: 150px; bottom: 76px; }
-  .pol-card-photo { height: 84px; }
-  .pol-guest { width: 150px; bottom: 72px; }
+  /* 手机端：卡组改为横向平铺，三张从左往右展开，不遮挡正文 */
+  .pol-deck { --cardw: 112px; --step: 120px; --stepx: 118px; --peek: 24px; height: 144px; bottom: 76px; }
+  .pol-card-photo { height: 64px; }
+  .pol-card-q1 { font-size: 9px; }
+  .pol-card-q2 { font-size: 13.5px; }
+  .pol-card-credit { font-size: 7.5px; }
+  .pol-card-cap i { font-size: 9px; }
+  /* 收起：所有卡叠在浮标后，只露一条 */
+  .pol-card { transform: translateY(calc(100% - var(--peek))) rotate(calc(var(--i) * 3deg - 2deg)); }
+  /* 展开：横向铺开（→），不再往上叠 */
+  .pol-lock.is-open ~ .pol-deck .pol-card { transform: translateX(calc(var(--i) * var(--stepx))) rotate(-3deg); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); }
+  .pol-deck.is-switcher .pol-card { transform: translateX(calc(var(--i) * var(--stepx))) rotate(-3deg); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); }
+  .pol-deck.is-switcher .pol-card.is-current { transform: translateX(calc(var(--i) * var(--stepx))) rotate(0deg) scale(1.04); box-shadow: 0 14px 28px rgba(0, 0, 0, 0.55), 0 0 0 2px var(--c-accent, #c9a16b); }
+  .pol-guest { width: 112px; bottom: 72px; }
 }
 
 /* —— 访客彩蛋拍立得：未解锁时藏在浮标后只露一角，点击浮标才弹起；点开翻到背面 —— */
