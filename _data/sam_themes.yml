@@ -145,11 +145,11 @@
 - id: mercer
   name: "Frank Mercer"
   anchor: frank
-  cn: 擦燃焰橘
-  en: Strike Flare
+  cn: 猫眼琥珀
+  en: Hazel Fox
   bg_cn: 焦黑火柴
   bg_en: Burnt Matchstick
-  accent: "#e08a2e"
+  accent: "#c47830"
   bg: "#1a1410"
   text: "#ede0e6"
   muted: "#8d7462"
