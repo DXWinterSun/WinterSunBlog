@@ -3,7 +3,7 @@ layout: post
 title: "在满地鸡毛里翩翩起舞"
 date: 2021-02-25
 image: chaos.jpg
-tags: [daily, 中文, love]
+tags: [缱绻, 安放]
 categories: Daily
 summary: "纵然在满地鸡毛里，我们也会翩翩起舞。"
 ---

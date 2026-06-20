@@ -3,7 +3,7 @@ layout: post
 title: "我会爱你，直到你再也见不到我"
 date: 2022-03-21
 image: love-till-end.jpg
-tags: [GC, daily, 中文, love]
+tags: [炽恋, 缱绻]
 categories: Daily
 summary: "这世间没有比你的笑容更美好的事物，对此我无比确信。"
 ---

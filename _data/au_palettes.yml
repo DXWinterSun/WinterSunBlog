@@ -1,0 +1,107 @@
+# ───────────────────────────────────────────────────────────────
+# AU 系列专属配色 —— 与「Many Faces of Sam」画册同源
+# 键 = 系列的 series_name，必须与 series/<slug>/index.html 的 series_name
+#      以及各章节 front matter 的 series 字段【完全一致】，否则查不到。
+# accent     : 强调色（深色主题 + 色卡用）
+# accent_ink : 浅色主题下用于文字/链接的更深一档（保证对比度）
+# bg         : 背景深色（整页底色 / 色卡用）
+# text       : 该系列专属主题下的正文字色（落在 bg 上要清晰）
+# muted      : 该系列专属主题下的次级字色（日期 / 副标题等）
+# *_cn / *_en: 中英色名（与画册一致）
+# 注：The One Who Remembers 不在此表 —— 故意跳过，页面保持默认主题。
+# ───────────────────────────────────────────────────────────────
+
+"You Are My Fact":          # Leonard Shelby · 蓝眼睛 + 宝丽来（新配）
+  accent: "#5f96c2"
+  accent_ink: "#3f6a92"
+  bg: "#1e1a16"
+  text: "#e8e0d4"
+  muted: "#9a8f7e"
+  accent_cn: "冰蓝眼眸"
+  accent_en: "Ice-Blue Eyes"
+  bg_cn: "旧宝丽来"
+  bg_en: "Faded Polaroid"
+
+"Tuning the Devil":         # Wild Bill Wharton
+  theme_id: wildbill
+  accent: "#b0803e"
+  accent_ink: "#8a5f28"
+  bg: "#1b1510"
+  text: "#ece1cf"
+  muted: "#9d8f78"
+  accent_cn: "锯末粗木"
+  accent_en: "Sawdust Timber"
+  bg_cn: "炉膛夜黑"
+  bg_en: "Forge Soot"
+
+"Good Enough":              # Justin Hammer
+  theme_id: hammer
+  accent: "#4a87ee"
+  accent_ink: "#2f63c0"
+  bg: "#13151c"
+  text: "#dbe2ee"
+  muted: "#8b94a6"
+  accent_cn: "电光钴蓝"
+  accent_en: "Spotlight Sapphire"
+  bg_cn: "落幕玄黑"
+  bg_en: "After-Curtain Onyx"
+
+"Zaphod AU":                # Zaphod Beeblebrox
+  theme_id: zaphod
+  accent: "#d4a82a"
+  accent_ink: "#927012"
+  bg: "#0b0a12"
+  text: "#ece2cf"
+  muted: "#9b9078"
+  accent_cn: "总统鬃金"
+  accent_en: "President's Mane"
+  bg_cn: "黑甲漆夜"
+  bg_en: "Lacquer Black"
+
+"Knox AU":                  # Eric Knox
+  theme_id: knox
+  accent: "#d94040"
+  accent_ink: "#b13030"
+  bg: "#1b1310"
+  text: "#ece0d6"
+  muted: "#a08d80"
+  accent_cn: "红镜红"
+  accent_en: "Crimson Lens"
+  bg_cn: "可乐棕"
+  bg_en: "Cola Noir"
+
+"Sam Bell · Moon AU":       # Sam Bell
+  theme_id: sambell
+  accent: "#7eb0d5"
+  accent_ink: "#3f7397"
+  bg: "#162038"
+  text: "#dfe7f2"
+  muted: "#8ea0b8"
+  accent_cn: "基地微光"
+  accent_en: "Sarang Glow"
+  bg_cn: "月球蔚蓝"
+  bg_en: "Lunar Blue"
+
+"A Single Shot AU":         # John Moon
+  theme_id: johnmoon
+  accent: "#8fa0b0"
+  accent_ink: "#54616e"
+  bg: "#14181f"
+  text: "#e0e4ea"
+  muted: "#8e96a2"
+  accent_cn: "孤枪冷雾蓝"
+  accent_en: "Lone Mist"
+  bg_cn: "西弗州山夜"
+  bg_en: "Appalachian Dusk"
+
+"Only I Know":              # Jason Dixon · 色卡同源 sam_themes.yml id: dixon
+  theme_id: dixon
+  accent: "#e2622a"
+  accent_ink: "#b04818"
+  bg: "#241015"
+  text: "#f5e6d3"
+  muted: "#8d626d"
+  accent_cn: "重生焰橘"
+  accent_en: "Reborn Flame"
+  bg_cn: "焦烬玫瑰"
+  bg_en: "Charred Rose"

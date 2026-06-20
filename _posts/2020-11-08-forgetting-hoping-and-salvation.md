@@ -3,7 +3,7 @@ layout: post
 title: "忘记、希望和拯救"
 date: 2020-11-08
 image: summer.jpg
-tags: [daily, 中文]
+tags: [安放, 絮语]
 categories: Daily
 summary: "只有我，才是我的救赎。"
 ---

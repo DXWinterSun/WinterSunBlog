@@ -9,10 +9,19 @@ code {
   word-break: break-all;
   font-family: Courier, monospace;
   font-size: 14px;
-  background-color: #f7f7f7;
+  // 跟随明暗主题：底色用会随明暗翻转的 line 令牌，文字用 ink，始终高对比
+  color: var(--c-ink);
+  background-color: var(--c-line-strong);
+  border-radius: 3px;
 }
 
 p code,
 li code {
   padding: 3px 5px;
+}
+
+// pre 块内部的 code 不再叠一层底，避免双重背景
+pre code {
+  padding: 0;
+  background-color: transparent;
 }

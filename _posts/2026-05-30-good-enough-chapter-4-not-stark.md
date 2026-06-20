@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 4 · 不是斯塔克 — Good Enough"
 date: 2026-05-30
 image: justin-hammer-au.webp
-tags: [Sam, AU, 中文]
+tags: [安放, 悸动]
 categories: ["AU Story"]
 series: "Good Enough"
 series_title: "Good Enough · Justin Hammer AU"

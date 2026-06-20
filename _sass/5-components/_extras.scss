@@ -90,6 +90,13 @@
   }
 }
 
+/* 章节页：返回卡片下方的胶片色卡单独成行并居中 */
+.c-chapter-palette {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 28px;
+}
+
 .c-chapter-return__arrow {
   font-size: 18px;
   color: $accent;
@@ -346,9 +353,12 @@
 }
 
 .c-archive-tag-pill {
+  // --mood is injected inline per pill from _data/moods.yml
   appearance: none;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
   padding: 6px 14px;
   font-family: $heading-font-family;
   font-size: 13px;
@@ -358,26 +368,66 @@
   border-radius: 999px;
   text-decoration: none;
   transition: $global-transition;
-  span {
-    color: $accent;
+
+  // a small dot of the mood colour before the name
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--mood, #{$accent});
+    align-self: center;
+    flex: 0 0 auto;
+  }
+
+  &__cn { font-weight: 600; }
+  &__en {
     font-style: italic;
     font-size: 11px;
-    margin-left: 6px;
+    color: $muted;
   }
+  &__count {
+    font-style: italic;
+    font-size: 11px;
+    color: var(--mood, #{$accent});
+  }
+
   &:hover {
-    color: $accent;
-    border-color: $accent-soft;
+    border-color: var(--mood, #{$accent-soft});
     transform: translateY(-1px);
   }
   &.is-active {
-    color: $paper;
-    background: $ink;
-    border-color: $ink;
-    span { color: $accent-soft; }
+    color: #fff;
+    background: var(--mood, #{$ink});
+    border-color: var(--mood, #{$ink});
+    &::before { background: rgba(255, 255, 255, 0.85); }
+    .c-archive-tag-pill__en,
+    .c-archive-tag-pill__count { color: rgba(255, 255, 255, 0.85); }
   }
 }
 
-.c-archive-tag-content { scroll-margin-top: 80px; }
+.c-archive-tag-content {
+  scroll-margin-top: 80px;
+
+  // tint the mood section's heading with its own colour
+  .c-archive__year-num { color: var(--mood, #{$ink}); }
+  .c-archive__mood-en {
+    font-size: 0.55em;
+    font-style: italic;
+    letter-spacing: 0.04em;
+    color: $muted;
+    margin-left: 8px;
+  }
+  .c-archive__swatch {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--mood, #{$accent});
+    margin-right: 7px;
+    vertical-align: middle;
+  }
+}
 
 
 /* ===============

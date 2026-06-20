@@ -20,6 +20,8 @@
 4. 章节正文里的引言段落（通常在文首 `>` 引语或本章的开场）不受这
    个限制——只有 front matter 的 `summary:` 字段需要 ≤35 字。
 
+**summary 超字数时**：不要问用户，直接自行缩写到 35 字以内，保留核心钩子和节奏感。
+
 写完后用以下命令快速核查长度：
 
 ```bash
@@ -88,18 +90,102 @@ byline、lede 引语等展示位置。例如：
 <h1 class="c-hero__title">为他调音</h1>           <!-- ❌ 中文 -->
 ```
 
-## ⚠️ 设定总览不能做成系列章节
+## ⚠️ 设定总览的内容直接写进系列首页，不要单独建章节 post
 
-设定总览（世界观、人物、基调）的内容应放在系列首页 `series/*/index.html`
-的 `c-sam-intro` 区块里，**不要**单独建一篇带 `series:` 字段的 post。
+设定总览（世界观、人物、信物、基调）的内容全部写在
+`series/*/index.html` 的 `<article class="c-sam-intro">` 区块里，
+**不要**单独建一篇带 `series:` 字段的 post 来当"Chapter 0"。
 
 原因：`_layouts/series.html` 会把所有带 `series:` 的 post 全部列进章节
-目录（包括配图卡片），把设定总览混进去会破坏章节列表的语义，显示也不对。
+目录和配图卡片，把设定总览混进去显示和语义都不对。
 
-正确做法：
-- `c-sam-intro` 里写世界观 / 人物 / 基调简介（2-4 段）
-- 如果设定很复杂需要单独成页，建一篇**不带** `series:` 字段的普通 post，
-  不会出现在章节列表里，可以在系列首页用 HTML 链接手动引用
+正确做法（参考 `you-are-my-fact` / `sam-bell-moon-au`）：
+- 第一个 `c-sam-intro`：「关于这个系列」，2-4 段概述世界观与核心冲突
+- 第二个 `c-sam-intro`（可选）：「设定档案」，人物简介 + 信物 + 关系动力学
+- 内容直接写 HTML，不用 Markdown，不用单独的 post
+- 如果确实需要一篇可访问的设定文档，建普通 post 但**不加** `series:` 字段，
+  用 `is_overview: true` 标记，不会出现在章节列表
+
+## 新 AU 系列开坑 checklist
+
+### 1. 创建系列首页 `series/<英文slug>/index.html`
+
+复制任意一个现有系列的 index.html，改以下内容：
+
+**Front matter 必填：**
+```yaml
+layout: series
+title: "English Title · Character AU"      # 英文
+permalink: /series/english-slug/           # 英文，与目录名一致
+nav_active: "AU Story"
+series_name: "English Title"              # 必须与章节的 series: 字段完全一致
+```
+
+**若角色是 Sam Rockwell 本人演的，加：**
+```yaml
+sam_collection: true
+collection_order: N           # 查现有最大值 +1
+collection_eyebrow: "AU Story · Series"
+collection_title: "English Title · Character AU"
+collection_desc: "一两句钩子简介。"
+```
+
+**Hero 区块：**
+- `<h1 class="c-hero__title">` → 必须是**英文**
+- byline / lede 引语可以用中文
+
+**内容区块（`c-sam-intro`）：**
+- 第一个 article：`关于这个系列`，2-4 段，概述世界观与核心冲突
+- 第二个 article（可选）：`设定档案`，人物 / 信物 / 关系动力学
+- 全部写 HTML，**不是 Markdown**，不要用单独的 post
+
+### 2. 章节 post front matter 完整模板
+
+文件名格式：`_posts/YYYY-MM-DD-series-slug-chapter-N-title.md`
+
+```yaml
+---
+layout: post
+title: "Chapter N · 章节中文标题 — Series English Name"
+categories: ["AU Story"]
+date: YYYY-MM-DD
+image: cover-image.jpg          # 可选，封面图文件名（大小写必须与实际文件一致）
+series: "English Title"         # 必须与系列首页 series_name 完全一致，必须是英文
+series_title: "English Title · Character AU"   # 用于顶部返回链接显示
+series_order: N                 # 整数，章节排序（1 开始）
+series_type: "Series"           # 固定值
+chapter_type: "Chapter N"       # 显示在卡片眉头，如 "Chapter 1" / "Extra"
+summary: "≤35字的钩子引言。"    # 必须 ≤35 汉字含标点
+tags: [标签1, 标签2]
+---
+```
+
+### 3. 新系列配色——先查画册
+
+新建系列首页前，先查 `_data/sam_themes.yml`，看这个角色是否已有色卡。
+
+```bash
+grep -A 10 "id: <角色关键词>" _data/sam_themes.yml
+```
+
+**如果找到了**：直接用他的 `accent`、`bg`、`accent_cn`、`accent_en`、
+`bg_cn`、`bg_en` 六个字段，复制到 `_data/au_palettes.yml` 的新条目里。
+`accent_ink` 取 `accent` 值的 ~80%（手动暗一档），`text` 和 `muted`
+照抄 sam_themes 里同一条目的值。键名用 `series_name`（英文，与 front
+matter 完全一致）。条目末尾注明来源，例：
+`# Jason Dixon · 色卡同源 sam_themes.yml id: dixon`
+
+**如果没有**：告知用户，等他提供配色或手动新建条目，不要自己编颜色。
+
+### 4. 三处必须完全一致的字符串
+
+| 位置 | 字段 | 示例值 |
+|---|---|---|
+| 章节 post | `series:` | `"Tuning the Devil"` |
+| 系列首页 | `series_name:` | `"Tuning the Devil"` |
+| 系列目录名 | `series/<slug>/` | `series/tuning-the-devil/` |
+
+任意一处对不上 → 章节列表为空或卡片不出现。
 
 ## AU 系列的「目录 + 章节导航」（模板自动渲染，别手写）
 

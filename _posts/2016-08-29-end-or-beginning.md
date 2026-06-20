@@ -3,7 +3,7 @@ layout: post
 title: "结局，抑或开端？"
 date: 2016-08-28
 image: door.jpg
-tags: [daily, 中文]
+tags: [絮语]
 categories: Daily
 summary: "究竟，是结局，还是开端？假如我遗失了记忆，会不会就此忘记向何处去？"
 ---

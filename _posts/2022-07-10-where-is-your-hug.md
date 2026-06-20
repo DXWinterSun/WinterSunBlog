@@ -3,7 +3,7 @@ layout: post
 title: "哪里是你的拥抱"
 date: 2022-07-10
 image: camp-stars.png
-tags: [novel, 中文, love]
+tags: [思念]
 categories: Novel
 summary: "亲爱的，你是那最亮的星吗？"
 ---

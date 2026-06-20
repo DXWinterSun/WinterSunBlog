@@ -3,7 +3,7 @@ layout: post
 title: "掠影浮光"
 date: 2016-08-28
 image: daydream.jpg
-tags: [daily, 中文]
+tags: [絮语, 怅惘]
 categories: Daily
 summary: "掠影浮光中，我迷失了方向，不知归途何方。"
 ---
