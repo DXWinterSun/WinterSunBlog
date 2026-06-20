@@ -117,3 +117,14 @@
   accent_en: "Reborn Flame"
   bg_cn: "焦烬玫瑰"
   bg_en: "Charred Rose"
+
+"The Real Thing":           # Frank Mercer · 猫眼石 + 拍卖行
+  accent: "#c47830"
+  accent_ink: "#9c6020"
+  bg: "#181210"
+  text: "#ede8e2"
+  muted: "#8a6e50"
+  accent_cn: "猫眼琥珀"
+  accent_en: "Hazel Fox"
+  bg_cn: "夜拍底色"
+  bg_en: "Night Lot"
