@@ -346,7 +346,18 @@
 
   /* ========== 浮动锁 ========== */
   var lockEl;
-  function buildLock() { lockEl = document.createElement("div"); lockEl.className = "pol-lock"; document.body.appendChild(lockEl); renderLock(); }
+  function buildLock() {
+    lockEl = document.createElement("div"); lockEl.className = "pol-lock";
+    document.body.appendChild(lockEl); renderLock();
+    lockEl.addEventListener("click", function(e) {
+      var t = e.target;
+      while (t && t !== lockEl) {
+        if (t.tagName === "BUTTON" || t.tagName === "INPUT") return;
+        t = t.parentNode;
+      }
+      lockEl.classList.toggle("is-open");
+    });
+  }
   function renderLock() {
     var brand = '<span class="pol-lock-brand">' +
       '<span class="pol-lock-icons">' + PEN_SVG + CAM_SVG + '</span>' +

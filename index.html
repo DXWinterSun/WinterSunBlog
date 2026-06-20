@@ -147,7 +147,7 @@ layout: home
       {% assign series_cat = series_first.categories | first %}
       {% assign series_count = series_posts | size %}
       {% assign series_slug = series_name | slugify %}
-    <a class="c-post c-post--series is-hidden" href="{{ site.baseurl }}/series/{{ series_slug }}/" data-category="{{ series_cat }}" data-card-type="series" target="_blank" rel="noopener">
+    <a class="c-post c-post--series" href="{{ site.baseurl }}/series/{{ series_slug }}/" data-category="{{ series_cat }}" data-card-type="series" target="_blank" rel="noopener">
       <div class="c-post__image-wrap">
         {% if series_first.image %}
         <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: series_first.image }}')"></div>
@@ -165,7 +165,7 @@ layout: home
 
     {% for post in site.posts %}
     {% assign post_cat = post.categories | first %}
-    <a class="c-post" href="{% if post.external_url %}{{ post.external_url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}" data-category="{{ post_cat }}" data-card-type="chapter"{% if post.series %} data-series="{{ post.series }}"{% endif %}{% if post.external_url or post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
+    <a class="c-post{% if post.series %} is-hidden{% endif %}" href="{% if post.external_url %}{{ post.external_url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}" data-category="{{ post_cat }}" data-card-type="chapter"{% if post.series %} data-series="{{ post.series }}"{% endif %}{% if post.external_url or post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
       <div class="c-post__image-wrap">
         {% if post.image %}
         <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: post.image }}')"></div>

@@ -53,14 +53,19 @@ $(document).ready(function () {
       var partOfSeries = !!$(this).attr('data-series');
 
       // Rules:
-      //   - 'all' view: show chapter cards (each post once); hide series
-      //     cards so series don't duplicate the chapters they group.
+      //   - 'all' view: show series cards + standalone chapter cards;
+      //     hide per-chapter cards that belong to a series (the series
+      //     card represents them all).
       //   - Specific category: show series cards in that category; show
       //     chapter cards in that category only if the chapter is NOT
       //     part of a series (its series card represents it instead).
       var shouldShow;
       if (filter === 'all') {
-        shouldShow = cardType !== 'series';
+        if (cardType === 'series') {
+          shouldShow = true;
+        } else {
+          shouldShow = !partOfSeries;
+        }
       } else if (cat !== filter) {
         shouldShow = false;
       } else if (cardType === 'series') {
@@ -89,7 +94,7 @@ $(document).ready(function () {
     }
     if (countEl) {
       if (filter === 'all') {
-        countEl.textContent = total + ' posts';
+        countEl.textContent = visible + ' showing · ' + total + ' total';
       } else {
         countEl.textContent = visible + ' showing · ' + total + ' total';
       }
@@ -198,6 +203,8 @@ $(document).ready(function () {
     } else if (view === 'gallery') {
       setActiveNav($('.c-nav__list > .c-item_images'));
       showGallery();
+    } else {
+      applyCategoryFilter('all');
     }
   }
 
