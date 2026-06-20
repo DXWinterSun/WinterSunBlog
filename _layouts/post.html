@@ -40,6 +40,27 @@ layout: home
         <div class="c-article__date">
           <span>{{page.date | date: '%Y, %b %d'}}</span>
         </div>
+        {% if page.tags and page.tags.size > 0 %}
+        <div class="c-mood-tags">
+          {% for tag_cn in page.tags %}
+            {% assign mood = site.data.moods | where: "cn", tag_cn | first %}
+            {% if mood %}
+            <span class="c-mood-tag" style="--mood-color: {{ mood.hex }};">
+              <span class="c-mood-tag__emotion">
+                <span class="c-mood-tag__cn">{{ mood.cn }}</span>
+                <span class="c-mood-tag__dot">·</span>
+                <span class="c-mood-tag__en">{{ mood.en }}</span>
+              </span>
+              <span class="c-mood-tag__palette">
+                <span class="c-mood-tag__color-cn">{{ mood.color_cn }}</span>
+                <span class="c-mood-tag__palette-dot"> · </span>
+                <span class="c-mood-tag__color-en">{{ mood.color_en }}</span>
+              </span>
+            </span>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
       </header>
       {{page.content | markdownify}}
     </div> <!-- /.c-wrap-content -->
