@@ -94,6 +94,18 @@
   bg_cn: "西弗州山夜"
   bg_en: "Appalachian Dusk"
 
+"The Cardinal":             # Krzysztof "Kris" Wilk · 色卡同源 sam_themes.yml id: kris
+  theme_id: kris
+  accent: "#bc4d3a"
+  accent_ink: "#963e2e"
+  bg: "#11161c"
+  text: "#ece0d2"
+  muted: "#62768d"
+  accent_cn: "余烬绯红"
+  accent_en: "Ember Cardinal"
+  bg_cn: "华沙墨蓝"
+  bg_en: "Warsaw Indigo"
+
 "Only I Know":              # Jason Dixon · 色卡同源 sam_themes.yml id: dixon
   theme_id: dixon
   accent: "#e2622a"
