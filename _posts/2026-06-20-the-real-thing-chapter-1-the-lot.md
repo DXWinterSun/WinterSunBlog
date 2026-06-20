@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
 series_order: 1
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 1"
 summary: "一记落槌，他把那只小狐狸，别在了你心口。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
 series_order: 6
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 6"
 summary: "他练了一辈子的巧舌，在你面前，头一回哑了。"

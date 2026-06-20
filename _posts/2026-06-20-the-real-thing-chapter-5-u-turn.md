@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
 series_order: 5
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 5"
 summary: "他带着一切潇洒离去，却在岔路口，一个掉头。"

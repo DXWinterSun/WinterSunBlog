@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
 series_order: 7
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 7"
 summary: "他求你再替他戴上那枚戒指，做你一个人的狐狸。"

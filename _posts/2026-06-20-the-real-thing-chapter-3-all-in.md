@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
 series_order: 3
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 3"
 summary: "他们越是劝你三思，你越是想嫁给他。"
