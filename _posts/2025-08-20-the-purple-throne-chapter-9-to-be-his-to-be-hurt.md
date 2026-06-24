@@ -10,7 +10,7 @@ series_order: 9
 series_type: "Series"
 chapter_type: "Chapter IX"
 summary: "属于他，意味着最深处的伤也由他而来。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 怅惘, 炽恋]
 ---
 
 🕯️**Chapter IX｜To Be His, To Be Hurt**

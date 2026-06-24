@@ -10,7 +10,7 @@ series_order: 5
 series_type: "Series"
 chapter_type: "Chapter 5"
 summary: "他唤你的名字，你的心脏几乎停跳。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 思念, 暗涌]
 ---
 
 🕯️ **《The Invisible Light》· 第五章（Rewritten）｜连名字都来不及说出口**

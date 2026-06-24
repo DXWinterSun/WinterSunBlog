@@ -90,6 +90,43 @@ byline、lede 引语等展示位置。例如：
 <h1 class="c-hero__title">为他调音</h1>           <!-- ❌ 中文 -->
 ```
 
+## ⚠️ `series_title` 格式：必须用角色名，不能用剧名或背景设定
+
+`series_title:` 的格式固定为：`"Series English Name · Character Name AU"`
+
+✅ 正确示例：
+```yaml
+series_title: "The Invisible Light · Charles II AU"
+series_title: "Good Enough · Justin Hammer AU"
+series_title: "Before the World Broke for Us · Hector Escaton AU"
+series_title: "The One Who Fell from the Sky · Charles AU"
+```
+
+❌ 错误示例（用剧名 / 背景设定代替角色名）：
+```yaml
+series_title: "Before the World Broke for Us · Westworld AU"   # ❌ 用了剧名
+series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背景
+```
+
+`series_title` 只用于前端展示（章节顶部返回链接），不参与路径生成，
+但保持格式统一可以避免出现「系列说明里找不到角色名」的情况。
+
+## ⚠️ 系列首页 byline 和设定档案里必须注明扮演者
+
+`c-hero__byline-text` 里要有演员名，格式参考：
+
+```html
+<!-- BayBay 的角色 -->
+<span class="c-hero__byline-text">Charles II · 1660 Restoration · BayBay · ongoing</span>
+
+<!-- 其他演员的角色 -->
+<span class="c-hero__byline-text">Hector Escaton · Westworld · Rodrigo Santoro · ongoing</span>
+```
+
+`设定档案` 里角色名后面也加演员名：`<strong>Hector Escaton（Rodrigo Santoro）</strong>`
+
+新建系列时，如果不确定演员是谁，先问用户再写。
+
 ## ⚠️ 设定总览的内容直接写进系列首页，不要单独建章节 post
 
 设定总览（世界观、人物、信物、基调）的内容全部写在
@@ -105,6 +142,38 @@ byline、lede 引语等展示位置。例如：
 - 内容直接写 HTML，不用 Markdown，不用单独的 post
 - 如果确实需要一篇可访问的设定文档，建普通 post 但**不加** `series:` 字段，
   用 `is_overview: true` 标记，不会出现在章节列表
+
+## 章节 `tags` 字段：mood 标签必须加
+
+每篇章节 post 的 `tags:` 里必须包含 **1–2 个 mood 标签**，反映该章的情绪基调。
+Mood 标签写在人物 / 系列标签之后，例如：
+
+```yaml
+tags: [Charles II, BayBay, AU, The Invisible Light, 暗涌, 悸动]
+```
+
+**可用的 mood 标签（共 9 个）：**
+
+| 标签 | 情绪 | 适用场景 |
+|------|------|----------|
+| 缱绻 | 缠绵温柔，难舍难分 | 亲密日常、深情守候、温存时刻 |
+| 思念 | 想念、惦记、距离感 | 分离、缺席、无法抵达 |
+| 安放 | 安心落定，有所归处 | 关系确立、和解、平静结局 |
+| 悸动 | 心跳加速，初见之感 | 初遇、第一次、被看见 |
+| 暗涌 | 压抑的暗流，危险张力 | 禁忌、权力差、沉默的占有 |
+| 炽恋 | 炽烈的爱欲与占有 | 激烈、失控、亲吻、占有欲爆发 |
+| 絮语 | 轻声细语，日常絮叨 | 轻快番外、日常互动、温馨小片段 |
+| 怅惘 | 怅然若失，带一点悲 | 遗憾、错过、未说出口 |
+| 怀旧 | 回忆与留恋 | 回忆杀、过去时光 |
+
+**选 mood 标签的原则：**
+- 选 1-2 个最贴近该章「主要情绪」的标签
+- 长系列里情绪会随剧情演变，每章单独判断，不要全系列用同一对
+- Oneshot / Extra / 轻松番外一般选 `缱绻` + `絮语` 或 `悸动` + `缱绻`
+
+**不要忘加！** 每次写新章节或 oneshot，生成 front matter 的同时就把 mood 标签加好。
+
+---
 
 ## 新 AU 系列开坑 checklist
 

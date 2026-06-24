@@ -10,7 +10,7 @@ series_order: 6
 series_type: "Series"
 chapter_type: "Chapter 6"
 summary: "他拿走你的画，你装作什么都没发生。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 思念, 怅惘]
 ---
 
 **🕯️ 《The Invisible Light》· 第六章｜不被记得，也要好好活着**

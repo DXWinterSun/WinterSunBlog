@@ -10,7 +10,7 @@ series_order: 2
 series_type: "Series"
 chapter_type: "Chapter II"
 summary: "夜召你入殿，他握住你手腕：坐。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 暗涌, 炽恋]
 ---
 
 🕯️**Chapter II｜The Emperor’s First Night**

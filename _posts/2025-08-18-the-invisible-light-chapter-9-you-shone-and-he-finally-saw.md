@@ -10,7 +10,7 @@ series_order: 9
 series_type: "Series"
 chapter_type: "Chapter 9"
 summary: "人群中你像一盏灯，他终于移不开眼。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 悸动, 缱绻]
 ---
 
 **🕯️ 《The Invisible Light》· 第九章｜你在人群中发光，而他终于移不开眼**

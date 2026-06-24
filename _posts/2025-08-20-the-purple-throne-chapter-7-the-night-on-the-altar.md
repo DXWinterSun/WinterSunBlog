@@ -10,7 +10,7 @@ series_order: 7
 series_type: "Series"
 chapter_type: "Chapter VII"
 summary: "他跪在神像前，却将手覆上你的心口。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 炽恋, 暗涌]
 ---
 
 🕯️**Chapter VII｜The Night on the Altar**

@@ -10,7 +10,7 @@ series_order: 12
 series_type: "Series"
 chapter_type: "Chapter XII"
 summary: "他只说了一个字：留下。你留了。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 缱绻, 怅惘]
 ---
 
 🕯️**Chapter XII｜Stay**

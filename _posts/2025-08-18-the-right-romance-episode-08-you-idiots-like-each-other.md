@@ -10,7 +10,7 @@ series_order: 8
 series_type: "Series"
 chapter_type: "Episode 08"
 summary: "所有人都看出来了，只有你们两个装矎。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU]
+tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 悸动, 缱绻]
 ---
 
 **🤝 Episode 08｜You Idiots Like Each Other**

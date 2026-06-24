@@ -10,7 +10,7 @@ series_order: 22
 series_type: "Series"
 chapter_type: "Chapter 22"
 summary: "你说喜欢他的全部，他低笑一声，把你的手覆上他的胸口。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 安放]
 ---
 
 🕯️ **第二十二章｜"来，自己揭晓。"**

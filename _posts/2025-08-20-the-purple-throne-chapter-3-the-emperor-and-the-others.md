@@ -10,7 +10,7 @@ series_order: 3
 series_type: "Series"
 chapter_type: "Chapter III"
 summary: "他任谁折腾，目光却总最终落向你。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 暗涌, 炽恋]
 ---
 
 🕯️**Chapter III｜The Emperor and the Others**

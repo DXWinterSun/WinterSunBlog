@@ -10,7 +10,7 @@ series_order: 6
 series_type: "Series"
 chapter_type: "Episode 06"
 summary: "Phil说：你们俩要么是朋友，要么不是。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU]
+tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 悸动, 暗涌]
 ---
 
 **☕ Episode 06｜The Friendship Bomb**

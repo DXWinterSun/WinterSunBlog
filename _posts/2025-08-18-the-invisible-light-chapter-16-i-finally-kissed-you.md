@@ -10,7 +10,7 @@ series_order: 16
 series_type: "Series"
 chapter_type: "Chapter 16"
 summary: "他终于俯身，亲了你。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 炽恋, 缱绻]
 ---
 
 🕯️ **《The Invisible Light》· 第十六章｜“我终于亲吻了你。”**

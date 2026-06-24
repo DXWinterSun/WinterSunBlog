@@ -10,7 +10,7 @@ series_order: 4
 series_type: "Series"
 chapter_type: "Chapter 4"
 summary: "你开口那一刻，他终于回过头来看你。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 怅惘, 暗涌]
 ---
 
 **🕯️ 《The Invisible Light》· 第四章｜夜深时，你终于开口说爱**

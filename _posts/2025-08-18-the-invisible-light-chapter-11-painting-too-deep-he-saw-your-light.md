@@ -10,7 +10,7 @@ series_order: 11
 series_type: "Series"
 chapter_type: "Chapter 11"
 summary: "你画得太专注，他看见了你心里的光。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 悸动]
 ---
 
 **🕯️ 《The Invisible Light》· 第十一章｜你画得太专注，他看见了你心里所有光**

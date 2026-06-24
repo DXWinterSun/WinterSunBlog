@@ -10,7 +10,7 @@ series_order: 7
 series_type: "Series"
 chapter_type: "Chapter 7"
 summary: "他第一次看见那张画，眼神里有什么改变了。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 悸动, 暗涌]
 ---
 
 **🕯️ 《The Invisible Light》· 第七章｜他第一次看到你为他画的那张画**

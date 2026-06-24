@@ -10,7 +10,7 @@ series_order: 6
 series_type: "Series"
 chapter_type: "Chapter VI"
 summary: "被使用，是他用来说我选你的方式。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 怅惘, 暗涌]
 ---
 
 🕯️**Chapter VI｜To Be Used Is To Be Chosen**

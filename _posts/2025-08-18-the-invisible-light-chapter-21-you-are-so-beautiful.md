@@ -10,7 +10,7 @@ series_order: 21
 series_type: "Series"
 chapter_type: "Chapter 21"
 summary: "你轻声说：你真的好英俊。他笑了。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 安放]
 ---
 
 **🕯️ 《The Invisible Light》· 第二十一章｜“你真的好……好英俊。”**

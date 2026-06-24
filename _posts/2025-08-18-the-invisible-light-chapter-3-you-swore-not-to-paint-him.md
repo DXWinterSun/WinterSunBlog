@@ -10,7 +10,7 @@ series_order: 3
 series_type: "Series"
 chapter_type: "Chapter 3"
 summary: "你发誓不再画他，笔却在黑暗里自己动了。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 暗涌, 缱绻]
 ---
 
 **🕯️ 《The Invisible Light》· 第三章｜你曾说过不再画他**

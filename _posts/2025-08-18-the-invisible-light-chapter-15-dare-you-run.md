@@ -10,7 +10,7 @@ series_order: 15
 series_type: "Series"
 chapter_type: "Chapter 15"
 summary: "他低声问你：你舍得逃吗？"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 炽恋, 暗涌]
 ---
 
 **🕯️ 《The Invisible Light》· 第十五章｜“你舍得逃吗？”**

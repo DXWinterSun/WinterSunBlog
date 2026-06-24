@@ -5,12 +5,12 @@ categories: ["AU Story"]
 date: 2025-09-05
 image: the-one-who-fell-from-the-sky.svg
 series: "The One Who Fell from the Sky"
-series_title: "The One Who Fell from the Sky · RAF 1940 AU"
+series_title: "The One Who Fell from the Sky · Charles AU"
 series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "你从天而降，他冷声问：你是间谍还是游客？"
-tags: [BayBay, RAF, 1940, AU, Time Travel]
+tags: [BayBay, RAF, 1940, AU, Time Travel, 悸动, 暗涌]
 ---
 
 🛩 《The One Who Fell from the Sky》

@@ -5,12 +5,12 @@ categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg
 series: "Before the World Broke for Us"
-series_title: "Before the World Broke for Us · Westworld AU"
+series_title: "Before the World Broke for Us · Hector Escaton AU"
 series_order: 2
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "你问他：你舍得吗？他沉默两秒，用沙哑的声音说：不舍得。"
-tags: [Hector Escaton, Westworld, AU]
+tags: [Hector Escaton, Westworld, AU, 炽恋, 暗涌]
 ---
 
 ✨🌒 《Sweetwater 的第一夜》

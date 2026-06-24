@@ -10,7 +10,7 @@ series_order: 10
 series_type: "Series"
 chapter_type: "Chapter X"
 summary: "他说：你知道我的嘴，该停在哪里吗？"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 炽恋, 暗涌]
 ---
 
 🕯️**Chapter X｜Where My Mouth Belongs**

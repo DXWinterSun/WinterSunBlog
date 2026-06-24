@@ -10,7 +10,7 @@ series_order: 10
 series_type: "Series"
 chapter_type: "Chapter 10"
 summary: "你没藏好眼神，他竟然向你走近了。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 悸动, 暗涌]
 ---
 
 **🕯️ 《The Invisible Light》· 第十章｜你没能藏好眼神，他却走近了你**

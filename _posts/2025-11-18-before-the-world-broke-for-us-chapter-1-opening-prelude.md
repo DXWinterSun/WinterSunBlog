@@ -5,12 +5,12 @@ categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg
 series: "Before the World Broke for Us"
-series_title: "Before the World Broke for Us · Westworld AU"
+series_title: "Before the World Broke for Us · Hector Escaton AU"
 series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "他捏住你的下巴逼你抬头："小姑娘，你早该逃的。"但你一动不动。"
-tags: [Hector Escaton, Westworld, AU]
+tags: [Hector Escaton, Westworld, AU, 暗涌, 悸动]
 ---
 
 🌘🤠 《Before the World Broke for Us》

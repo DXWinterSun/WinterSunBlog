@@ -10,7 +10,7 @@ series_order: 11
 series_type: "Series"
 chapter_type: "Episode 11"
 summary: "广播意外开着，所有人都听见他说喜欢你。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU]
+tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 悸动, 暗涌]
 ---
 
 **📨 Episode 11｜Accidental Broadcast**

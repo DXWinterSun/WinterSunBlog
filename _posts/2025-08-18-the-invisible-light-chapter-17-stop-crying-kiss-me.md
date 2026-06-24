@@ -10,7 +10,7 @@ series_order: 17
 series_type: "Series"
 chapter_type: "Chapter 17"
 summary: "他说：别哭了，来亲我。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 炽恋]
 ---
 
 **🕯️ 《The Invisible Light》· 第十七章｜“别哭了，来亲我。”**

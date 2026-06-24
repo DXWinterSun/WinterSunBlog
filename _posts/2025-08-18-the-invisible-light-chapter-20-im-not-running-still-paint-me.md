@@ -10,7 +10,7 @@ series_order: 20
 series_type: "Series"
 chapter_type: "Chapter 20"
 summary: "他又坐回来：我又不跑，你还画我？"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 安放]
 ---
 
 **🕯️ 《The Invisible Light》· 第二十章｜“我又不跑，你还画我？”**

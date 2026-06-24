@@ -10,7 +10,7 @@ series_order: 4
 series_type: "Series"
 chapter_type: "Episode 04"
 summary: "你请假一天，他把那天过得一团糟。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU]
+tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 思念, 缱绻]
 ---
 
 **❄️ Episode 04｜Missed**

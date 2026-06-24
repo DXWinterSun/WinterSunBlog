@@ -10,7 +10,7 @@ series_order: 2
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "他脚步停在你画室门口，却再次走开了。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 暗涌, 悸动]
 ---
 
 **🕯️ 《The Invisible Light》· 第二章｜你是否看见了我**

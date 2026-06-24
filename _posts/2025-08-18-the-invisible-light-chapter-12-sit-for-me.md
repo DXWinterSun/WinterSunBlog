@@ -10,7 +10,7 @@ series_order: 12
 series_type: "Series"
 chapter_type: "Chapter 12"
 summary: "他坐到你面前，低声说：给我画像。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 炽恋, 悸动]
 ---
 
 **🕯️ 《The Invisible Light》· 第十二章｜他终于坐在你面前，说：“给我画像。**”

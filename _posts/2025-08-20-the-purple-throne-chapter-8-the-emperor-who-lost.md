@@ -10,7 +10,7 @@ series_order: 8
 series_type: "Series"
 chapter_type: "Chapter VIII"
 summary: "他第一次输了，而你是那场输局的原因。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 怅惘, 暗涌]
 ---
 
 🕯️**Chapter VIII｜The Emperor Who Lost**

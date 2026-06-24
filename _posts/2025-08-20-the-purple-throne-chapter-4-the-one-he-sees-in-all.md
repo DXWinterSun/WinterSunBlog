@@ -10,7 +10,7 @@ series_order: 4
 series_type: "Series"
 chapter_type: "Chapter IV"
 summary: "他说他在所有人脸上，都只看见你。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 暗涌, 缱绻]
 ---
 
 🕯️**Chapter IV｜The One He Sees in All**

@@ -10,7 +10,7 @@ series_order: 12
 series_type: "Series"
 chapter_type: "Episode 12"
 summary: "第一次正式约会，他提前三天准备好了台词。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU]
+tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 缱绻, 安放]
 ---
 
 **💫 Episode 12｜Our First Proper Date**

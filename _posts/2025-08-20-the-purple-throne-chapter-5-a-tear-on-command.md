@@ -10,7 +10,7 @@ series_order: 5
 series_type: "Series"
 chapter_type: "Chapter V"
 summary: "他命上你哭，泪落时他却先哑了声音。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 怅惘, 暗涌]
 ---
 
 🕯️**Chapter V｜A Tear on Command**

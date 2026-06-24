@@ -10,7 +10,7 @@ series_order: 100
 series_type: "Series"
 chapter_type: "Extra"
 summary: "他穿宫廷礼服坐在后排，当场纠正讲师。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 絮语]
 ---
 
 ## 🏛️ King on Campus

@@ -10,7 +10,7 @@ series_order: 7
 series_type: "Series"
 chapter_type: "Episode 07"
 summary: "他来敲你办公室的门，门没了，他还是来了。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU]
+tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 缱绻, 悸动]
 ---
 
 **🧨 Episode 07｜You Took My Door**

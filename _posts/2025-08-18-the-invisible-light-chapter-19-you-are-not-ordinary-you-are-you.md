@@ -10,7 +10,7 @@ series_order: 19
 series_type: "Series"
 chapter_type: "Chapter 19"
 summary: "他说：你不是普通人——你就是你。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 安放]
 ---
 
 **🕯️ 《The Invisible Light》· 第十九章｜“你不是普通人——你是你。”**

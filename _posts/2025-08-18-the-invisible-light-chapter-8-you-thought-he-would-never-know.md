@@ -10,7 +10,7 @@ series_order: 8
 series_type: "Series"
 chapter_type: "Chapter 8"
 summary: "你藏了太久，以为他永远不会知道。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 暗涌, 悸动]
 ---
 
 **🕯️ 《The Invisible Light》· 第八章｜你以为他永远不会知道**

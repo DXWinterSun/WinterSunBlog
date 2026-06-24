@@ -10,7 +10,7 @@ series_order: 23
 series_type: "Series"
 chapter_type: "Chapter 23"
 summary: "他将你抑紧，耳边说：是我……终于配上你了。"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 安放]
 ---
 
 🕯️ **第二十三章｜"你不是被赏赐的，是我……求来的。"**

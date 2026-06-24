@@ -5,12 +5,12 @@ categories: ["AU Story"]
 date: 2025-09-05
 image: the-one-who-fell-from-the-sky.svg
 series: "The One Who Fell from the Sky"
-series_title: "The One Who Fell from the Sky · RAF 1940 AU"
+series_title: "The One Who Fell from the Sky · Charles AU"
 series_order: 2
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "他将飞行夹克罩上你肩头：别因为夹克就爱上我。"
-tags: [BayBay, RAF, 1940, AU, Time Travel]
+tags: [BayBay, RAF, 1940, AU, Time Travel, 缱绻, 悸动]
 ---
 
 ## 🧥 Chapter 2｜"Try Not to Fall for Me"

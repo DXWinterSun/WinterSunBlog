@@ -10,7 +10,7 @@ series_order: 14
 series_type: "Series"
 chapter_type: "Chapter 14"
 summary: "他说：若早知你这样看我……"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 怅惘, 缱绻]
 ---
 
 **🕯️ 《The Invisible Light》· 第十四章｜“如果我早知道你看我的眼神是这样……”**

@@ -10,7 +10,7 @@ series_order: 18
 series_type: "Series"
 chapter_type: "Chapter 18"
 summary: "他问你：你是不是也有一点喜欢我？"
-tags: [Charles II, BayBay, AU, The Invisible Light]
+tags: [Charles II, BayBay, AU, The Invisible Light, 悸动, 缱绻]
 ---
 
 **🕯️ 《The Invisible Light》· 第十八章｜“你是不是……也有一点喜欢我？”**

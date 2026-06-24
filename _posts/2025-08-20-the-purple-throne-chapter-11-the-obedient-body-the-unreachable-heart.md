@@ -10,7 +10,7 @@ series_order: 11
 series_type: "Series"
 chapter_type: "Chapter XI"
 summary: "身体早已顺从，但心还在那扇门外。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 怅惘, 暗涌]
 ---
 
 🕯️**Chapter XI｜The Obedient Body, the Unreachable Heart**
