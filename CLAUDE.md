@@ -22,6 +22,44 @@
 
 **summary 超字数时**：不要问用户，直接自行缩写到 35 字以内，保留核心钩子和节奏感。
 
+**⚠️ summary 里严禁出现 ASCII 双引号 `"`（U+0022）**
+
+`summary:` 的值用 `"..."` 包裹（YAML 双引字符串），如果内容里也有 `"` 就会
+提前截断字符串，导致 Jekyll YAML 解析失败，整篇 post **从系列目录和首页彻底消失**，
+不会有任何报错提示，极难排查。
+
+常见危险写法（对白引用）：
+
+```yaml
+# ❌ 内层 ASCII 双引号，YAML 直接崩
+summary: "他举杯说："Champagne？""
+summary: "他低声说："小姑娘，你早该逃的。"但你一动不动。"
+```
+
+安全替代方案（任选一种）：
+
+```yaml
+# ✅ 用破折号代替引号
+summary: "他举杯——Champagne？"
+summary: "他低声说小姑娘你早该逃的，但你一动不动。"
+
+# ✅ 用中文弯引号（U+201C / U+201D），YAML 不识别为分隔符
+summary: "他举杯说："Champagne？""
+
+# ✅ 改用 YAML 单引号包裹整个值（内层单引号用两个 '' 转义）
+summary: '他说：''Champagne？'''
+```
+
+写完后用 Python 快速验证：
+```bash
+python3 -c "
+import yaml, sys
+fm = open(sys.argv[1]).read().split('---')[1]
+yaml.safe_load(fm)
+print('OK')
+" _posts/<file>.md
+```
+
 写完后用以下命令快速核查长度：
 
 ```bash
