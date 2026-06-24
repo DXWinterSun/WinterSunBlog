@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 6 · The Night of the Vow — Menelaus AU"
 categories: ["AU Story"]
 date: 2025-08-14
-image: menelaus-au.webp
+image: menelaus-au.svg
 series: "Menelaus AU"
 series_title: "Menelaus AU · Greek Mythology"
 series_order: 6

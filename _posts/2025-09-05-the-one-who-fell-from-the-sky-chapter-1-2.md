@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1+2 · Who Are You, Spy Girl? — The One Who Fell from the Sky"
 categories: ["AU Story"]
 date: 2025-09-05
-image: the-one-who-fell-from-the-sky.webp
+image: the-one-who-fell-from-the-sky.svg
 series: "The One Who Fell from the Sky"
 series_title: "The One Who Fell from the Sky · RAF 1940 AU"
 series_order: 1

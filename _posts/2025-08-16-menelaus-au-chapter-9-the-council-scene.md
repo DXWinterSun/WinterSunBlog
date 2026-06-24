@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 9 · The Council Scene — Menelaus AU"
 categories: ["AU Story"]
 date: 2025-08-16
-image: menelaus-au.webp
+image: menelaus-au.svg
 series: "Menelaus AU"
 series_title: "Menelaus AU · Greek Mythology"
 series_order: 9

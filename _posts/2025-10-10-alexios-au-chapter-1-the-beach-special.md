@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · The Beach Special — Alexios AU"
 categories: ["AU Story"]
 date: 2025-10-10
-image: alexios-au.webp
+image: alexios-au.svg
 series: "Alexios AU"
 series_title: "Alexios AU · Mediterranean"
 series_order: 1

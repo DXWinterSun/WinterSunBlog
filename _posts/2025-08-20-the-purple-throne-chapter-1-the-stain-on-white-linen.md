@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · The Stain on White Linen — The Purple Throne"
 categories: ["AU Story"]
 date: 2025-08-20
-image: the-purple-throne.webp
+image: the-purple-throne.svg
 series: "The Purple Throne"
 series_title: "The Purple Throne · Elagabalus AU"
 series_order: 1
