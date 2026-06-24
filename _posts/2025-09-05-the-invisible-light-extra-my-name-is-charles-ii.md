@@ -9,7 +9,7 @@ series_title: "The Invisible Light · Charles II AU"
 series_order: 99
 series_type: "Series"
 chapter_type: "Extra"
-summary: "深夜敲门声，门口站着穿宫廷衬衣的他，举杯："Champagne？""
+summary: "深夜叩门，他穿宫廷衬衣站在门口，举杯：Champagne？"
 tags: [Charles II, BayBay, AU, The Invisible Light]
 ---
 
