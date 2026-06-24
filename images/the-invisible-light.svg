@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop offset="0%" stop-color="#2a1808"/>
+      <stop offset="50%" stop-color="#1e1008"/>
+      <stop offset="100%" stop-color="#17120e"/>
+    </linearGradient>
+    <radialGradient id="candleglow" cx="50%" cy="42%" r="35%">
+      <stop offset="0%" stop-color="#c8813a" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#8a3010" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#17120e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="540" fill="url(#bg)"/>
+  <rect width="900" height="540" fill="url(#candleglow)"/>
+  <!-- Floating light particles -->
+  <g fill="#c8813a">
+    <circle cx="380" cy="160" r="2.5" opacity="0.55"/>
+    <circle cx="420" cy="120" r="1.8" opacity="0.5"/>
+    <circle cx="460" cy="185" r="3" opacity="0.45"/>
+    <circle cx="345" cy="205" r="2" opacity="0.5"/>
+    <circle cx="495" cy="138" r="1.5" opacity="0.45"/>
+    <circle cx="530" cy="200" r="2.2" opacity="0.4"/>
+    <circle cx="308" cy="145" r="1.8" opacity="0.4"/>
+    <circle cx="565" cy="158" r="2" opacity="0.45"/>
+    <circle cx="605" cy="225" r="1.5" opacity="0.35"/>
+    <circle cx="278" cy="265" r="1.8" opacity="0.35"/>
+    <circle cx="642" cy="182" r="2.2" opacity="0.4"/>
+    <circle cx="200" cy="188" r="1.2" opacity="0.25"/>
+    <circle cx="705" cy="228" r="1.2" opacity="0.25"/>
+    <circle cx="158" cy="285" r="0.9" opacity="0.22"/>
+    <circle cx="755" cy="285" r="1.2" opacity="0.22"/>
+  </g>
+  <!-- Candle -->
+  <g transform="translate(445, 285)">
+    <rect x="-10" y="0" width="20" height="80" fill="#ede0cc" rx="2"/>
+    <path d="M-10,12 Q-13,22 -11,38" stroke="#d0b888" stroke-width="2.5" fill="none"/>
+    <line x1="0" y1="0" x2="2" y2="-12" stroke="#4a3010" stroke-width="1.5"/>
+    <ellipse cx="1" cy="-25" rx="16" ry="22" fill="#c8813a" opacity="0.25"/>
+    <path d="M1,-12 Q8,-28 5,-44 Q2,-56 1,-66 Q0,-56 -3,-44 Q-6,-28 1,-12Z" fill="#f0a040" opacity="0.9"/>
+    <path d="M1,-14 Q5,-26 4,-39 Q2,-49 1,-56 Q0,-49 -2,-39 Q-3,-26 1,-14Z" fill="#fff0a0" opacity="0.85"/>
+    <rect x="-14" y="78" width="28" height="8" fill="#9a7020" rx="2"/>
+    <rect x="-18" y="84" width="36" height="5" fill="#7a5010" rx="1"/>
+  </g>
+  <!-- Quill pen -->
+  <g transform="translate(238, 295) rotate(-40)" opacity="0.5">
+    <path d="M0,0 Q-20,-30 -15,-80 Q-10,-120 0,-150" stroke="#c8813a" stroke-width="1" fill="none"/>
+    <path d="M0,0 Q20,-30 15,-80 Q10,-120 0,-150" stroke="#c8813a" stroke-width="1" fill="none"/>
+    <path d="M-2,-22 Q-18,-30 -22,-40" stroke="#c8813a" stroke-width="0.8" fill="none"/>
+    <path d="M-3,-38 Q-20,-48 -24,-60" stroke="#c8813a" stroke-width="0.8" fill="none"/>
+    <path d="M-4,-54 Q-18,-66 -20,-78" stroke="#c8813a" stroke-width="0.8" fill="none"/>
+    <path d="M-3,-68 Q-15,-80 -15,-92" stroke="#c8813a" stroke-width="0.8" fill="none"/>
+    <path d="M-2,-82 Q-10,-94 -10,-104" stroke="#c8813a" stroke-width="0.8" fill="none"/>
+    <path d="M2,-22 Q18,-30 22,-40" stroke="#c8813a" stroke-width="0.8" fill="none"/>
+    <path d="M3,-38 Q20,-48 24,-60" stroke="#c8813a" stroke-width="0.8" fill="none"/>
+    <path d="M4,-54 Q18,-66 20,-78" stroke="#c8813a" stroke-width="0.8" fill="none"/>
+    <path d="M3,-68 Q15,-80 15,-92" stroke="#c8813a" stroke-width="0.8" fill="none"/>
+    <path d="M2,-82 Q10,-94 10,-104" stroke="#c8813a" stroke-width="0.8" fill="none"/>
+    <path d="M0,0 L-3,18 L0,32 L3,18 Z" fill="#9a6020"/>
+  </g>
+  <!-- British Crown (upper right) -->
+  <g transform="translate(680, 148)" opacity="0.48" fill="none" stroke="#c8813a" stroke-width="1.5">
+    <rect x="-52" y="28" width="104" height="22" rx="3"/>
+    <path d="M-52,28 L-52,-6 Q-52,-26 -36,-30 Q-20,-34 -20,-14 L-20,28"/>
+    <path d="M-20,28 L-20,-10 Q-20,-36 0,-40 Q20,-36 20,-10 L20,28"/>
+    <path d="M20,28 L20,-14 Q20,-34 36,-30 Q52,-26 52,-6 L52,28"/>
+    <circle cx="-52" cy="-7" r="4.5" fill="#c8813a" stroke="none" opacity="0.75"/>
+    <circle cx="0" cy="-41" r="5.5" fill="#c8813a" stroke="none" opacity="0.75"/>
+    <circle cx="52" cy="-7" r="4.5" fill="#c8813a" stroke="none" opacity="0.75"/>
+    <line x1="0" y1="-46" x2="0" y2="-60" stroke="#c8813a" stroke-width="2.5"/>
+    <line x1="-9" y1="-54" x2="9" y2="-54" stroke="#c8813a" stroke-width="2.5"/>
+    <circle cx="-30" cy="39" r="4.5" fill="#9a3e18" stroke="#c8813a" stroke-width="1"/>
+    <circle cx="0" cy="39" r="4.5" fill="#9a3e18" stroke="#c8813a" stroke-width="1"/>
+    <circle cx="30" cy="39" r="4.5" fill="#9a3e18" stroke="#c8813a" stroke-width="1"/>
+    <rect x="-52" y="48" width="104" height="7" rx="1" fill="#ede0cc" stroke="none" opacity="0.15"/>
+  </g>
+  <line x1="150" y1="472" x2="750" y2="472" stroke="#c8813a" stroke-width="0.6" stroke-opacity="0.3"/>
+  <rect x="0" y="500" width="900" height="40" fill="#0a0806" opacity="0.55"/>
+</svg>

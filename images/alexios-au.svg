@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540">
+  <defs>
+    <linearGradient id="bg" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#1a3a40"/>
+      <stop offset="40%" stop-color="#0e2a34"/>
+      <stop offset="100%" stop-color="#0e1e22"/>
+    </linearGradient>
+    <radialGradient id="seaglow" cx="50%" cy="60%" r="60%">
+      <stop offset="0%" stop-color="#3a9aaa" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0e1e22" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="540" fill="url(#bg)"/>
+  <rect width="900" height="540" fill="url(#seaglow)"/>
+  <!-- Greek key border top -->
+  <g stroke="#3a9aaa" stroke-width="1.2" fill="none" opacity="0.38">
+    <line x1="15" y1="36" x2="885" y2="36"/>
+    <line x1="15" y1="14" x2="15" y2="36"/>
+    <line x1="885" y1="14" x2="885" y2="36"/>
+    <polyline points="20,26 20,14 32,14 32,36 52,36 52,14 64,14 64,26"/>
+    <polyline points="64,26 76,26 76,14 88,14 88,36 108,36 108,14 120,14 120,26"/>
+    <polyline points="120,26 132,26 132,14 144,14 144,36 164,36 164,14 176,14 176,26"/>
+    <polyline points="176,26 188,26 188,14 200,14 200,36 220,36 220,14 232,14 232,26"/>
+    <polyline points="232,26 244,26 244,14 256,14 256,36 276,36 276,14 288,14 288,26"/>
+    <polyline points="288,26 300,26 300,14 312,14 312,36 332,36 332,14 344,14 344,26"/>
+    <polyline points="344,26 356,26 356,14 368,14 368,36 388,36 388,14 400,14 400,26"/>
+    <polyline points="400,26 412,26 412,14 424,14 424,36 444,36 444,14 456,14 456,26"/>
+    <polyline points="456,26 468,26 468,14 480,14 480,36 500,36 500,14 512,14 512,26"/>
+    <polyline points="512,26 524,26 524,14 536,14 536,36 556,36 556,14 568,14 568,26"/>
+    <polyline points="568,26 580,26 580,14 592,14 592,36 612,36 612,14 624,14 624,26"/>
+    <polyline points="624,26 636,26 636,14 648,14 648,36 668,36 668,14 680,14 680,26"/>
+    <polyline points="680,26 692,26 692,14 704,14 704,36 724,36 724,14 736,14 736,26"/>
+    <polyline points="736,26 748,26 748,14 760,14 760,36 780,36 780,14 792,14 792,26"/>
+    <polyline points="792,26 804,26 804,14 816,14 816,36 836,36 836,14 848,14 848,26"/>
+    <polyline points="848,26 860,26 860,14 872,14 872,26"/>
+  </g>
+  <!-- Greek key border bottom (mirror) -->
+  <g stroke="#3a9aaa" stroke-width="1.2" fill="none" opacity="0.38" transform="translate(0,540) scale(1,-1)">
+    <line x1="15" y1="36" x2="885" y2="36"/>
+    <line x1="15" y1="14" x2="15" y2="36"/>
+    <line x1="885" y1="14" x2="885" y2="36"/>
+    <polyline points="20,26 20,14 32,14 32,36 52,36 52,14 64,14 64,26"/>
+    <polyline points="64,26 76,26 76,14 88,14 88,36 108,36 108,14 120,14 120,26"/>
+    <polyline points="120,26 132,26 132,14 144,14 144,36 164,36 164,14 176,14 176,26"/>
+    <polyline points="176,26 188,26 188,14 200,14 200,36 220,36 220,14 232,14 232,26"/>
+    <polyline points="232,26 244,26 244,14 256,14 256,36 276,36 276,14 288,14 288,26"/>
+    <polyline points="288,26 300,26 300,14 312,14 312,36 332,36 332,14 344,14 344,26"/>
+    <polyline points="344,26 356,26 356,14 368,14 368,36 388,36 388,14 400,14 400,26"/>
+    <polyline points="400,26 412,26 412,14 424,14 424,36 444,36 444,14 456,14 456,26"/>
+    <polyline points="456,26 468,26 468,14 480,14 480,36 500,36 500,14 512,14 512,26"/>
+    <polyline points="512,26 524,26 524,14 536,14 536,36 556,36 556,14 568,14 568,26"/>
+    <polyline points="568,26 580,26 580,14 592,14 592,36 612,36 612,14 624,14 624,26"/>
+    <polyline points="624,26 636,26 636,14 648,14 648,36 668,36 668,14 680,14 680,26"/>
+    <polyline points="680,26 692,26 692,14 704,14 704,36 724,36 724,14 736,14 736,26"/>
+    <polyline points="736,26 748,26 748,14 760,14 760,36 780,36 780,14 792,14 792,26"/>
+    <polyline points="792,26 804,26 804,14 816,14 816,36 836,36 836,14 848,14 848,26"/>
+    <polyline points="848,26 860,26 860,14 872,14 872,26"/>
+  </g>
+  <!-- Wave curves -->
+  <g fill="none" stroke="#3a9aaa" opacity="0.22">
+    <path d="M0,378 Q100,358 200,378 Q300,398 400,378 Q500,358 600,378 Q700,398 800,378 Q852,368 900,378" stroke-width="2"/>
+    <path d="M0,408 Q80,388 180,408 Q280,428 380,408 Q480,388 580,408 Q680,428 780,408 Q842,396 900,408" stroke-width="1.5"/>
+    <path d="M0,438 Q120,418 220,438 Q320,458 420,438 Q520,418 620,438 Q720,458 820,438 Q862,428 900,438" stroke-width="1.2"/>
+    <path d="M0,338 Q150,318 250,338 Q350,358 450,338 Q550,318 650,338 Q750,358 900,338" stroke-width="1" opacity="0.5"/>
+  </g>
+  <!-- Bubbles -->
+  <g fill="none" stroke="#3a9aaa" opacity="0.28">
+    <circle cx="118" cy="298" r="6.5"/><circle cx="198" cy="348" r="4.5"/>
+    <circle cx="348" cy="318" r="8.5"/><circle cx="478" cy="288" r="5.5"/>
+    <circle cx="638" cy="338" r="7.5"/><circle cx="758" cy="308" r="5.5"/>
+    <circle cx="818" cy="358" r="4.5"/><circle cx="78" cy="418" r="3.5"/>
+    <circle cx="278" cy="428" r="5.5"/><circle cx="698" cy="398" r="6.5"/>
+    <circle cx="158" cy="248" r="3.5"/><circle cx="548" cy="258" r="4.5"/>
+    <circle cx="238" cy="278" r="2.5"/><circle cx="418" cy="258" r="3"/>
+    <circle cx="858" cy="278" r="3.5"/>
+  </g>
+  <!-- Spartan shield -->
+  <g transform="translate(278, 272)" opacity="0.62">
+    <circle cx="0" cy="0" r="72" fill="#0e2a34" stroke="#3a9aaa" stroke-width="2.8"/>
+    <circle cx="0" cy="0" r="64" fill="none" stroke="#207080" stroke-width="1"/>
+    <circle cx="0" cy="0" r="76" fill="none" stroke="#207080" stroke-width="1" stroke-dasharray="5,4"/>
+    <text x="0" y="22" font-family="Georgia,serif" font-size="78" text-anchor="middle" fill="#3a9aaa" stroke="none" opacity="0.88">&#923;</text>
+  </g>
+  <!-- Ikaros Eagle -->
+  <g transform="translate(658, 128)" fill="#c8e8ec" opacity="0.58">
+    <ellipse cx="0" cy="0" rx="30" ry="11"/>
+    <ellipse cx="27" cy="-6" rx="11" ry="8.5"/>
+    <path d="M37,-8 L50,-10 L37,-4 Z"/>
+    <circle cx="34" cy="-8" r="2.5" fill="#0e1e22"/>
+    <circle cx="34" cy="-8" r="1.2" fill="#3a9aaa"/>
+    <path d="M-30,0 L-50,-5 L-30,5 Z"/>
+    <path d="M0,-8 Q-42,-52 -92,-62 Q-122,-67 -132,-57 Q-112,-42 -82,-32 Q-52,-16 0,-8Z" fill="#a8d4da"/>
+    <path d="M0,-8 Q42,-52 92,-62 Q122,-67 132,-57 Q112,-42 82,-32 Q52,-16 0,-8Z" fill="#a8d4da"/>
+    <path d="M-52,-40 Q-62,-32 -82,-32" stroke="#0e1e22" stroke-width="1" fill="none" opacity="0.38"/>
+    <path d="M-72,-50 Q-82,-40 -102,-38" stroke="#0e1e22" stroke-width="1" fill="none" opacity="0.38"/>
+    <path d="M52,-40 Q62,-32 82,-32" stroke="#0e1e22" stroke-width="1" fill="none" opacity="0.38"/>
+    <path d="M72,-50 Q82,-40 102,-38" stroke="#0e1e22" stroke-width="1" fill="none" opacity="0.38"/>
+    <path d="M8,7 L4,20 L12,20"/>
+    <path d="M-8,7 L-12,20 L-4,20"/>
+  </g>
+  <rect x="0" y="472" width="900" height="68" fill="#060e12" opacity="0.55"/>
+</svg>
