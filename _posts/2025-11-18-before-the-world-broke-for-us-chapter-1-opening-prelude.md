@@ -3,6 +3,7 @@ layout: post
 title: "Chapter 1 · Opening Prelude — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
+image: before-the-world-broke-for-us.webp
 series: "Before the World Broke for Us"
 series_title: "Before the World Broke for Us · Westworld AU"
 series_order: 1

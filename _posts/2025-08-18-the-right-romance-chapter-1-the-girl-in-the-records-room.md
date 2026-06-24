@@ -3,6 +3,7 @@ layout: post
 title: "Chapter 1 · The Girl in the Records Room — The Right Romance"
 categories: ["AU Story"]
 date: 2025-08-18
+image: the-right-romance.webp
 series: "The Right Romance"
 series_title: "The Right Romance · Sam Pinkett AU"
 series_order: 1

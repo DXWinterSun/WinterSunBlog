@@ -3,6 +3,7 @@ layout: post
 title: "You're My Golden Ticket · BayBay Red Carpet AU"
 categories: ["AU Story"]
 date: 2025-08-27
+image: the-invisible-light.webp
 summary: "伦敦细雨里他绕过红毯走到你面前：你就是我的金奖门票。"
 tags: [BayBay, Red Carpet, AU]
 ---

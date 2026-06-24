@@ -3,6 +3,7 @@ layout: post
 title: "Chapter 5 · The Boy Who Prayed for You — Menelaus AU"
 categories: ["AU Story"]
 date: 2025-08-14
+image: menelaus-au.webp
 series: "Menelaus AU"
 series_title: "Menelaus AU · Greek Mythology"
 series_order: 5
