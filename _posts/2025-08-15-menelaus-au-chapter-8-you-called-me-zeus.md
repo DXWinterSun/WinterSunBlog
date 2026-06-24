@@ -3,6 +3,7 @@ layout: post
 title: "Chapter 8 · You Called Me Zeus — Menelaus AU"
 categories: ["AU Story"]
 date: 2025-08-15
+image: menelaus-au.webp
 series: "Menelaus AU"
 series_title: "Menelaus AU · Greek Mythology"
 series_order: 8

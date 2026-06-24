@@ -3,6 +3,7 @@ layout: post
 title: "Chapter 2 · He Came Back — Menelaus AU"
 categories: ["AU Story"]
 date: 2025-08-14
+image: menelaus-au.webp
 series: "Menelaus AU"
 series_title: "Menelaus AU · Greek Mythology"
 series_order: 2

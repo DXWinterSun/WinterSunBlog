@@ -3,6 +3,7 @@ layout: post
 title: "Prologue · 序章 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
+image: the-invisible-light.webp
 series: "The Invisible Light"
 series_title: "The Invisible Light · Charles II AU"
 series_order: 0

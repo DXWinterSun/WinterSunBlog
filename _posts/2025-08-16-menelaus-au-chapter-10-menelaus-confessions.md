@@ -3,6 +3,7 @@ layout: post
 title: "Chapter 10 · Menelaus Confessions — Menelaus AU"
 categories: ["AU Story"]
 date: 2025-08-16
+image: menelaus-au.webp
 series: "Menelaus AU"
 series_title: "Menelaus AU · Greek Mythology"
 series_order: 10
