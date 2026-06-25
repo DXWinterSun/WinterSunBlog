@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>最适合你的 Sam 角色 · Winter Sun</title>
-<meta name="description" content="十二道题，测出最适合你的 Sam Rockwell 角色。">
+<meta name="description" content="三十道题，测出最适合你的 Sam Rockwell 角色。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="最适合你的 Sam 角色 · Winter Sun">
-<meta property="og:description" content="十二道题，测出最适合你的 Sam Rockwell 角色。">
+<meta property="og:description" content="三十道题，测出最适合你的 Sam Rockwell 角色。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/quiz/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
@@ -32,7 +32,6 @@
 const { useState, useEffect, useRef } = React;
 
 /* ── Character data ─────────────────────────────────────────── */
-
 const CHARS = [
   { id:"gary", name:"Gary", film:"Strictly Business", filmCN:"《登龙妙招》", year:"1991",
     tagline:"他穿西装还带着收发室新人的青涩——可真正帅的，是他知错就改的那一下。",
@@ -43,7 +42,8 @@ const CHARS = [
     tagline:"拗口的辅音让他早早认了命——直到你，一个字母一个字母，学着把它叫回来。",
     line:"Ja też cię chcę.", lineCN:"我也想要你。",
     bg:"#11161c", accent:"#bc4d3a", text:"#ece0d2", muted:"#62768d",
-    profile:{guile:4,forbear:8,chaos:2,raw:5,romance:8,grace:5} },
+    profile:{guile:4,forbear:8,chaos:2,raw:5,romance:8,grace:5},
+    auLink:"/WinterSunBlog/series/the-cardinal/" },
   { id:"matty", name:"Matty", film:"Mercy", filmCN:"《宽恕》", year:"1995",
     tagline:"他曾以为他们是 Bonnie and Clyde——但她只看上了他的车，你看上的是他。",
     line:"I always thought the next one'd be better — I never thought she'd stay.", lineCN:"我一直以为「下一个」会更好——没想到她真的留了下来。",
@@ -73,7 +73,8 @@ const CHARS = [
     tagline:"他对全世界都没有刹车——除了你伸手的那一下。",
     line:"I ain't listenin' to you.", lineCN:"我才没听你的。",
     bg:"#1b1510", accent:"#b0803e", text:"#ece0d0", muted:"#93826a",
-    profile:{guile:5,forbear:0,chaos:10,raw:9,romance:7,grace:1} },
+    profile:{guile:5,forbear:0,chaos:10,raw:9,romance:7,grace:1},
+    auLink:"/WinterSunBlog/series/tuning-the-devil/" },
   { id:"guy", name:"Guy Fleegman", film:"Galaxy Quest", filmCN:"《惊爆银河系》", year:"1999",
     tagline:"他认定自己是注定领盒饭的那个——可你偏不准他死。",
     line:"Hale. So I make it to the end after all.", lineCN:"Hale——原来我能活到结局。",
@@ -83,7 +84,8 @@ const CHARS = [
     tagline:"他计划了一切，却没有计划上你。",
     line:"I planned every move on the board. I never planned on you.", lineCN:"棋盘上每一步我都算到了——唯独没算到你。",
     bg:"#1b1310", accent:"#d94040", text:"#ede0e0", muted:"#8d6e62",
-    profile:{guile:10,forbear:6,chaos:8,raw:1,romance:7,grace:9} },
+    profile:{guile:10,forbear:6,chaos:8,raw:1,romance:7,grace:9},
+    auLink:"/WinterSunBlog/series/knox-au/" },
   { id:"pero", name:"Pero \"Pepe\" Mahalovic", film:"Welcome to Collinwood", filmCN:"《欢迎来到科林伍德》", year:"2002",
     tagline:"他在拳台上喊着「我太好看了」，看你的时候他不喊了——他只是看着。",
     line:"Up on the canvas I yell \"I'm too good-lookin'\". You're the only one who actually agrees.", lineCN:"拳台上我喊「我太好看了」——也只有你，会真的点头，还夸我一句好看。",
@@ -98,7 +100,8 @@ const CHARS = [
     tagline:"他把那只狐狸别在你心口，没提他自己也是。",
     line:"I've played every part there is. Yours is the one I couldn't keep up.", lineCN:"什么角色我都演过——唯独你那一场，我演不下去了。",
     bg:"#1a1410", accent:"#c47830", text:"#ede0e6", muted:"#8d7462",
-    profile:{guile:9,forbear:2,chaos:6,raw:3,romance:7,grace:7} },
+    profile:{guile:9,forbear:2,chaos:6,raw:3,romance:7,grace:7},
+    auLink:"/WinterSunBlog/series/the-real-thing/" },
   { id:"jim", name:"Jim Crocker", film:"Piccadilly Jim", filmCN:"《花花公子吉米》", year:"2004",
     tagline:"他用最绅士的方式把你逗笑。",
     line:"I'll be anyone you like — but the fool in love? That one's actually me.", lineCN:"你要谁我就演谁——可那个爱上你的傻瓜，才是真的我。",
@@ -108,7 +111,8 @@ const CHARS = [
     tagline:"他叫你 baby doll，整个银河系都知道这件事，除了他自己。",
     line:"My two heads agree on exactly one thing, baby doll. You.", lineCN:"我那两个脑袋只在一件事上意见一致，baby doll——就是你。",
     bg:"#0b0a12", accent:"#d4a82a", text:"#e8e4d0", muted:"#8a7a48",
-    profile:{guile:2,forbear:1,chaos:10,raw:10,romance:8,grace:6} },
+    profile:{guile:2,forbear:1,chaos:10,raw:10,romance:8,grace:6},
+    auLink:"/WinterSunBlog/series/zaphod-au/" },
   { id:"brad", name:"Brad Cairn", film:"Joshua", filmCN:"《约书亚》", year:"2007",
     tagline:"他独自看清，独自承担。",
     line:"You were the first to ask if I was okay. I'd forgotten that was a question.", lineCN:"你是第一个问我「还好吗」的人——我都快忘了，这也能是个问题。",
@@ -133,7 +137,8 @@ const CHARS = [
     tagline:"他在月球上，还想着给你做早餐。",
     line:"Every one of us was built to die a tool. You woke us up as a family.", lineCN:"我们本该作为工具一个个死去——是你，把我们当成一家人唤醒。",
     bg:"#162038", accent:"#7eb0d5", text:"#e8eef5", muted:"#6a85a3",
-    profile:{guile:5,forbear:8,chaos:3,raw:6,romance:8,grace:5} },
+    profile:{guile:5,forbear:8,chaos:3,raw:6,romance:8,grace:5},
+    auLink:"/WinterSunBlog/series/sam-bell-moon-au/" },
   { id:"robert", name:"Robert Goode", film:"Everybody's Fine", filmCN:"《天伦之旅》", year:"2009",
     tagline:"他对自己很苛刻，对你不会。",
     line:"I'm keeping the silly hat on. You're the one who put it there.", lineCN:"这顶歪歪的傻帽子我不摘——是你给我戴上的。",
@@ -143,7 +148,8 @@ const CHARS = [
     tagline:"全世界都把他当成一个笑话——只有你，看清了那副眼镜后面的人。",
     line:"I don't have to be him — not when you look at me like that.", lineCN:"我不必活成他——只要你这样看着我。",
     bg:"#13151c", accent:"#4a87ee", text:"#e7eaf2", muted:"#7c8aa6",
-    profile:{guile:6,forbear:2,chaos:7,raw:4,romance:8,grace:8} },
+    profile:{guile:6,forbear:2,chaos:7,raw:4,romance:8,grace:8},
+    auLink:"/WinterSunBlog/series/good-enough/" },
   { id:"kenny", name:"Kenny Waters", film:"Conviction", filmCN:"《定罪》", year:"2010",
     tagline:"他生猛、暴躁，笑起来却像个孩子；全世界都说他有罪，只有你一个人，不肯松手。",
     line:"I'll lie to a judge, a jury, the whole damn town — never to you.", lineCN:"法官、陪审团、整个镇子我都能骗——唯独不骗你。",
@@ -163,7 +169,8 @@ const CHARS = [
     tagline:"他不说，但他每件事都为你做了。",
     line:"I'd already climbed into the grave. You're the one who heard me breathing.", lineCN:"我已经躺进了那个坑里——是你，听见了我还在呼吸。",
     bg:"#14181f", accent:"#8fa0b0", text:"#dce3ea", muted:"#62728d",
-    profile:{guile:2,forbear:10,chaos:1,raw:7,romance:4,grace:1} },
+    profile:{guile:2,forbear:10,chaos:1,raw:7,romance:4,grace:1},
+    auLink:"/WinterSunBlog/series/a-single-shot-au/" },
   { id:"doug", name:"Doug Varney", film:"Better Living Through Chemistry", filmCN:"《毒醉心迷》", year:"2014",
     tagline:"他规矩了一辈子，直到他遇见你才决定不规矩了。",
     line:"Spent my whole life behind that counter. You made me feel alive.", lineCN:"我这辈子都困在柜台后面——是你，让我觉得自己还活着。",
@@ -231,157 +238,439 @@ const CHARS = [
     profile:{guile:6,forbear:6,chaos:8,raw:6,romance:4,grace:1} },
 ];
 
-/* ── Questions ──────────────────────────────────────────────── */
-
+/* ── Questions ──────────────────────────────────────────────────
+   每道题每个选项有两个字段：
+   chars: { characterId: points }  — 直接角色亲缘分
+   dims:  { dimension: points }    — 维度分（用于雷达图）
+─────────────────────────────────────────────────────────────── */
 const QUESTIONS = [
+  /* ── Block 1: 行为 / 场景 ── */
   {
-    q: "周五傍晚，整个夜晚突然自由了。你最可能——",
+    block: 1, q: "周五傍晚，整个夜晚突然自由了。你最可能——",
     opts: [
-      { text: "想好几件可以做的事，最终只做了一半", score: {guile:2} },
-      { text: "待着，或者和一个人说很久的话",         score: {forbear:1, romance:1} },
-      { text: "冲动出门，不知道要去哪儿，但就是要动",  score: {chaos:2} },
-      { text: "做一顿饭，好好待着",                    score: {raw:2} },
+      { text:"想好几件可以做的事，然后挑最有意思的那个",
+        chars:{eric:2,frank:2,wolf:2,jim:1,chuck:1}, dims:{guile:2} },
+      { text:"一个人待着，或者只和一个人说很久的话",
+        chars:{krzysztof:2,sambell:2,stoppard:1,johnmoon:1}, dims:{forbear:1,romance:1} },
+      { text:"冲动出门，不知道去哪，但就是要动",
+        chars:{zaphod:2,matty:2,billy:2,pero:1}, dims:{chaos:2} },
+      { text:"做顿饭，好好待一晚上",
+        chars:{buck:2,samuel:2,trent:1,robert:1,gary:1}, dims:{raw:2} },
     ]
   },
   {
-    q: "你最难以忍受的是——",
+    block: 1, q: "约好的人没来，也没有解释。你——",
     opts: [
-      { text: "被人小瞧，明明你早就看清楚了",           score: {guile:2} },
-      { text: "有话说不出口，只能一直藏着",             score: {forbear:2} },
-      { text: "无聊，什么都没发生，静止的日子",         score: {chaos:2} },
-      { text: "被人误解，却无从辩解",                   score: {raw:2} },
-      { text: "粗糙、廉价的东西出现在你生命里",         score: {grace:2} },
+      { text:"先记下来，不表态，看他下次怎么做",
+        chars:{eric:2,frank:2,reston:1,chuck:1}, dims:{guile:2} },
+      { text:"等着，觉得他大概有原因",
+        chars:{krzysztof:2,sambell:2,johnmoon:1,stoppard:1}, dims:{forbear:2} },
+      { text:"当场发消息或者打电话，直接问",
+        chars:{wildbill:2,kenny:2,pero:1,billy:1}, dims:{chaos:1,raw:1} },
+      { text:"开始担心他是不是出了什么事",
+        chars:{guy:2,samuel:2,owen:1,trent:1}, dims:{romance:2} },
     ]
   },
   {
-    q: "对方让你等了很久，没有解释。你——",
+    block: 1, q: "在一个派对上，你——",
     opts: [
-      { text: "悄悄把这件事记下来了",                  score: {guile:2} },
-      { text: "等，因为你大概理解他",                  score: {forbear:2} },
-      { text: "忍不住了，当场说出来",                  score: {chaos:2, raw:1} },
-      { text: "一直在想他是不是出了什么事",             score: {romance:2} },
+      { text:"悄悄摸清了整个房间里谁认识谁",
+        chars:{eric:2,chuck:2,frank:1,wolf:1,jim:1}, dims:{guile:2} },
+      { text:"找一个角落，等一个有意思的人来找你",
+        chars:{stoppard:2,brad:2,reston:1,krzysztof:1}, dims:{forbear:1,grace:1} },
+      { text:"成为让整个场子变得不一样的那个人",
+        chars:{zaphod:2,billy:2,pero:2,hammer:1}, dims:{chaos:2} },
+      { text:"和一个陌生人聊到完全忘了其他人",
+        chars:{buck:2,owen:2,samuel:1,trent:1,matty:1}, dims:{raw:1,romance:1} },
     ]
   },
   {
-    q: "在一个派对上，你更可能——",
+    block: 1, q: "对方做了一件让你失望的事，你——",
     opts: [
-      { text: "悄悄摸清楚了整个房间里的关系网",        score: {guile:2} },
-      { text: "找到一个角落，等待合适的人来找你",       score: {forbear:1, grace:1} },
-      { text: "成为让整个派对不一样的那个人",           score: {chaos:2} },
-      { text: "和一个陌生人聊到完全忘了其他人",         score: {raw:1, romance:1} },
+      { text:"先在心里想清楚，再找时机说",
+        chars:{eric:2,reston:2,watson:1,brad:1}, dims:{guile:1,forbear:1} },
+      { text:"难受，但不说，等他自己明白",
+        chars:{johnmoon:2,klenz:2,stoppard:1,brad:1}, dims:{forbear:2} },
+      { text:"当场说出来，哪怕声音变大了",
+        chars:{kenny:2,pero:2,wildbill:1,billy:1}, dims:{chaos:1,raw:1} },
+      { text:"问他原因，想真的弄清楚发生了什么",
+        chars:{watson:2,trent:2,craig:1,reston:1}, dims:{raw:1,romance:1} },
     ]
   },
   {
-    q: "你更欣赏哪种爱的方式——",
+    block: 1, q: "关于告白，你更接近——",
     opts: [
-      { text: "在对方不知情时已经把他打动了",           score: {guile:1, grace:1} },
-      { text: "一直在，不管需要等多久",                 score: {forbear:2} },
-      { text: "把你从人群里当众拎出来的爱",             score: {chaos:1, romance:1} },
-      { text: "在最普通的早晨看见你的爱",               score: {raw:1, romance:1} },
-      { text: "让你想变成更好的人的爱",                 score: {romance:1, grace:1} },
+      { text:"等时机，确定了感情再说",
+        chars:{krzysztof:2,stoppard:2,trent:1,klenz:1}, dims:{forbear:2} },
+      { text:"把那份感情藏进每一件小事里",
+        chars:{sambell:2,klenz:2,brad:1,johnmoon:1}, dims:{romance:2} },
+      { text:"直接说，管它结果如何",
+        chars:{kenny:2,pero:2,wildbill:1,billy:1}, dims:{chaos:1,raw:1} },
+      { text:"精心设计，要让他一辈子记得这一刻",
+        chars:{eric:2,frank:2,jim:1,wolf:1}, dims:{guile:1,grace:2} },
     ]
   },
   {
-    q: "你的爱人做了一件让你失望的事。你——",
+    block: 1, q: "独处时，你通常——",
     opts: [
-      { text: "先在心里盘算，等合适的时机再说",         score: {guile:1, forbear:1} },
-      { text: "难受，但不说，等他自己发现",             score: {forbear:2} },
-      { text: "当场说出来，哪怕声音变大",               score: {chaos:1, raw:1} },
-      { text: "问他原因，想真的弄明白",                 score: {raw:1, romance:1} },
+      { text:"脑子停不下来，一直在想事情",
+        chars:{eric:2,reston:2,frank:1,chuck:1}, dims:{guile:2} },
+      { text:"沉进一件事里，外界消失了",
+        chars:{johnmoon:2,stoppard:1,reston:1,sambell:1}, dims:{forbear:1,raw:1} },
+      { text:"什么都想试，在一个地方待不住",
+        chars:{zaphod:2,billy:2,matty:1,owen:1}, dims:{chaos:2} },
+      { text:"回想起某个人说过的某一句话",
+        chars:{krzysztof:2,sambell:2,aidan:1,trent:1}, dims:{romance:2} },
     ]
   },
   {
-    q: "关于表白，你更接近——",
+    block: 1, q: "吵架之后，你——",
     opts: [
-      { text: "等对方先开口，时机成熟了自然会来",        score: {forbear:2} },
-      { text: "把那份感情藏进每一件小事里",             score: {romance:2} },
-      { text: "直接说，管它后果如何",                   score: {chaos:1, raw:2} },
-      { text: "精心设计一个让他一辈子记得的时机",        score: {guile:1, grace:2} },
+      { text:"先在心里整理好，再找合适的时机谈",
+        chars:{reston:2,brad:2,watson:1,eric:1}, dims:{guile:1,forbear:1} },
+      { text:"安静下来，需要时间，不主动找他",
+        chars:{johnmoon:2,trent:2,klenz:1,stoppard:1}, dims:{forbear:2} },
+      { text:"说不了两句又想和好，忍不住先开口",
+        chars:{dixon:2,kenny:2,pero:1,matty:1}, dims:{raw:1,romance:1} },
+      { text:"一个人去走走，或者找点别的事做",
+        chars:{wildbill:2,billy:2,pero:1,watson:1}, dims:{chaos:1,raw:1} },
     ]
   },
   {
-    q: "你觉得自己最难被别人看见的部分是——",
+    block: 1, q: "最难以忍受的是——",
     opts: [
-      { text: "你有多细心、多善于观察",                 score: {guile:1, grace:1} },
-      { text: "你有多能忍、有多耐性",                   score: {forbear:2} },
-      { text: "你有多认真爱一个人",                     score: {romance:2} },
-      { text: "其实你就是这样，没什么特别要藏的",        score: {raw:2} },
+      { text:"被人小瞧，明明你早就看清了",
+        chars:{eric:2,hammer:2,reston:1,wolf:1}, dims:{guile:2} },
+      { text:"被误解，却根本没机会解释",
+        chars:{johnmoon:2,klenz:2,stoppard:1,watson:1}, dims:{forbear:2} },
+      { text:"无聊，什么都没发生，日子停住了",
+        chars:{zaphod:2,billy:2,jerry:1,matty:1}, dims:{chaos:2} },
+      { text:"被辜负，对方知道你在乎但还是那么做",
+        chars:{watson:2,kenny:2,dixon:1,krzysztof:1}, dims:{raw:2} },
+      { text:"粗糙、廉价的东西出现在你的生命里",
+        chars:{jim:2,wolf:2,eric:1,frank:1}, dims:{grace:2} },
     ]
   },
   {
-    q: "独处时，你通常——",
+    block: 1, q: "遇到困难，你——",
     opts: [
-      { text: "脑子停不下来，一直在想事情、做计划",     score: {guile:2} },
-      { text: "沉进一件事里，外界消失了",               score: {forbear:1, raw:1} },
-      { text: "什么都想试，一个地方待不住",             score: {chaos:2} },
-      { text: "回想某个人的某一句话",                   score: {romance:2} },
+      { text:"先一个人想清楚方向，再行动",
+        chars:{eric:2,reston:2,watson:1,frank:1}, dims:{guile:2} },
+      { text:"等一等，不急着动，看局势",
+        chars:{johnmoon:2,brad:2,klenz:1,stoppard:1}, dims:{forbear:2} },
+      { text:"找一个谁也没想到的出路",
+        chars:{zaphod:2,aidan:2,billy:1,owen:1}, dims:{chaos:1,guile:1} },
+      { text:"找那个你信任的人说一说",
+        chars:{krzysztof:2,sambell:2,guy:1,trent:1}, dims:{romance:2} },
     ]
   },
   {
-    q: "你想要的关系，最重要的是——",
+    block: 1, q: "怎么知道自己爱上了一个人——",
     opts: [
-      { text: "彼此心知肚明，不需要说透",              score: {guile:1, grace:1} },
-      { text: "稳，经得住风浪",                         score: {forbear:2} },
-      { text: "折腾没关系，只要是在一起",               score: {chaos:1, romance:1} },
-      { text: "简单，不需要表演",                       score: {raw:2} },
+      { text:"开始在计划里悄悄给他留了位置",
+        chars:{eric:2,reston:2,wolf:1,frank:1}, dims:{guile:1,romance:1} },
+      { text:"他一消失就觉得少了什么",
+        chars:{krzysztof:2,sambell:2,klenz:1,aidan:1}, dims:{forbear:1,romance:1} },
+      { text:"整个人乱了，停不下来，什么都想到他",
+        chars:{zaphod:2,matty:2,jerry:1,billy:1}, dims:{chaos:2} },
+      { text:"想把最真实的自己都给他看",
+        chars:{buck:2,kenny:2,watson:1,trent:1}, dims:{raw:1,romance:1} },
+      { text:"开始注意他所有的细节",
+        chars:{jim:2,wolf:2,aidan:1,chuck:1}, dims:{grace:1,romance:1} },
+    ]
+  },
+  /* ── Block 2: 偏好 / 吸引力 ── */
+  {
+    block: 2, q: "最喜欢被哪种方式爱——",
+    opts: [
+      { text:"被精心设计的惊喜，被用尽心思对待",
+        chars:{eric:3,frank:3,wolf:3,jim:2,chuck:1}, dims:{guile:1,grace:2} },
+      { text:"每天都在，不需要大动作",
+        chars:{krzysztof:3,sambell:2,klenz:2,stoppard:2,johnmoon:1}, dims:{forbear:2,romance:1} },
+      { text:"被突然带着去做从没做过的疯事",
+        chars:{zaphod:2,aidan:2,billy:2,owen:2}, dims:{chaos:2} },
+      { text:"被实实在在地帮助，不是空话",
+        chars:{buck:3,samuel:2,robert:2,gary:2,watson:2}, dims:{raw:2} },
     ]
   },
   {
-    q: "你怎么知道自己爱上了一个人——",
+    block: 2, q: "最心动的那种初遇——",
     opts: [
-      { text: "开始在计划里给他留了位置",               score: {guile:1, romance:1} },
-      { text: "他一消失就觉得少了什么",                 score: {forbear:1, romance:1} },
-      { text: "整个人乱了，停不下来",                   score: {chaos:2} },
-      { text: "想把所有真实的自己都给他看",             score: {raw:1, romance:1} },
-      { text: "开始注意他所有的细节",                   score: {grace:1, romance:1} },
+      { text:"在某个很普通的地方，就这么遇见了",
+        chars:{owen:2,robert:2,sambell:2,krzysztof:2,matty:1}, dims:{romance:2} },
+      { text:"在危险或离奇的场合，命运的感觉",
+        chars:{jerry:2,wolf:2,aidan:2,eric:1,guy:1}, dims:{chaos:1,romance:2} },
+      { text:"他主动来认识你，带着某种目的",
+        chars:{frank:2,eric:2,chuck:2,jim:2}, dims:{guile:2} },
+      { text:"两个人在人群里互相认出了对方",
+        chars:{samuel:2,zaphod:2,billy:2,wayne:1,pero:1}, dims:{chaos:1,romance:1} },
     ]
   },
   {
-    q: "你心里最理想的结局——",
+    block: 2, q: "被哪种人拯救——",
     opts: [
-      { text: "赢，以最漂亮的方式",                    score: {guile:1, grace:2} },
-      { text: "稳定，一切都是自己能掌控的",            score: {forbear:2, grace:1} },
-      { text: "只要有那个人在就好，其他都不重要",       score: {chaos:1, romance:2} },
-      { text: "回到最简单的状态，两个人",               score: {raw:2, romance:1} },
+      { text:"在你不知情的情况下，他早就悄悄帮了你",
+        chars:{eric:3,wolf:3,frank:2,chuck:2}, dims:{guile:2,grace:1} },
+      { text:"用某种荒诞的方式把你从困境里带出来",
+        chars:{samuel:2,owen:2,guy:2,zaphod:2}, dims:{chaos:2,raw:1} },
+      { text:"始终如一地出现，直到你真的脱困",
+        chars:{johnmoon:3,klenz:3,trent:2,brad:2}, dims:{forbear:3} },
+      { text:"你不确定他是在救你还是毁你",
+        chars:{victor:2,stoppard:2,matty:2,glenn:2}, dims:{chaos:1,romance:1} },
+    ]
+  },
+  {
+    block: 2, q: "关于秘密——",
+    opts: [
+      { text:"不介意他有秘密，只要他始终是你认识的那个人",
+        chars:{frank:2,eric:2,chuck:2,jim:2,wolf:1}, dims:{guile:2} },
+      { text:"你想成为他唯一愿意告诉一切的人",
+        chars:{samuel:2,kenny:2,buck:2,pero:1,guy:1}, dims:{raw:2,romance:1} },
+      { text:"你们之间没有秘密，这是底线",
+        chars:{johnmoon:2,klenz:2,trent:2,watson:2}, dims:{forbear:2,raw:1} },
+      { text:"他知道你所有秘密，但从不说破",
+        chars:{krzysztof:2,victor:2,stoppard:2,sambell:1,craig:1}, dims:{forbear:1,romance:2} },
+    ]
+  },
+  {
+    block: 2, q: "哪种缺点最难抗拒——",
+    opts: [
+      { text:"太算计，但你知道他算计的其实都是为你",
+        chars:{eric:3,frank:3,wolf:3,jim:2,chuck:2}, dims:{guile:3} },
+      { text:"太野，根本停不下来，不知道刹车",
+        chars:{wildbill:3,jerry:3,matty:2,kenny:2}, dims:{chaos:2,raw:1} },
+      { text:"太以自我为中心，但那种自我有种迷人的逻辑",
+        chars:{zaphod:3,billy:3,glenn:2,manfromfuture:2}, dims:{chaos:3} },
+      { text:"太真太纯，好像不知道这世界有多复杂",
+        chars:{samuel:3,guy:3,eddie:2,pero:2,wayne:1}, dims:{raw:3} },
+    ]
+  },
+  {
+    block: 2, q: "哪种眼神最打动你——",
+    opts: [
+      { text:"专注的，仿佛全世界就只有你",
+        chars:{krzysztof:3,sambell:2,brad:2,reston:2}, dims:{forbear:1,romance:2} },
+      { text:"沉的，藏着很多没说出口的话",
+        chars:{buck:2,trent:2,johnmoon:3,dixon:2}, dims:{forbear:2,raw:1} },
+      { text:"危险的，让你有点怕又有点着迷",
+        chars:{eric:3,frank:2,wolf:2,aidan:2,jerry:1}, dims:{guile:2,chaos:1} },
+      { text:"闪着某种光，让你忍不住想靠近",
+        chars:{pero:2,hammer:2,zaphod:2,owen:2,samuel:1}, dims:{chaos:1,romance:2} },
+    ]
+  },
+  {
+    block: 2, q: "你们的关系更像——",
+    opts: [
+      { text:"盟友，彼此信任，共同面对某件事",
+        chars:{eric:2,wolf:2,chuck:2,frank:2,aidan:2}, dims:{guile:2} },
+      { text:"守护者与被守护者",
+        chars:{klenz:2,trent:2,johnmoon:2,sambell:2,watson:2}, dims:{forbear:2,romance:1} },
+      { text:"你心疼他多一点，他偶尔像个孩子",
+        chars:{samuel:2,guy:2,zaphod:2,billy:2,pero:1}, dims:{chaos:1,romance:2} },
+      { text:"像一面镜子，在他身上你看见了自己",
+        chars:{krzysztof:2,victor:2,stoppard:2,craig:2,reston:1}, dims:{forbear:1,romance:1} },
+    ]
+  },
+  {
+    block: 2, q: "你希望如何被他记住——",
+    opts: [
+      { text:"他那些最重要的决定里，有你的影子",
+        chars:{krzysztof:3,sambell:2,reston:2,brad:2,gary:1}, dims:{forbear:2,romance:1} },
+      { text:"他这辈子最漂亮的那段故事是你们在一起",
+        chars:{zaphod:3,aidan:3,wayne:2,owen:1,jim:1}, dims:{chaos:1,romance:2} },
+      { text:"他最黑暗的时候，他没有独自待着",
+        chars:{billy:3,chuck:2,manfromfuture:2,frank:1,victor:1}, dims:{chaos:1,romance:2} },
+      { text:"他改变了，因为你",
+        chars:{dixon:3,victor:2,gary:2,hammer:2,doug:1}, dims:{raw:1,romance:2} },
+    ]
+  },
+  {
+    block: 2, q: "受不了另一半哪一点——",
+    opts: [
+      { text:"冷漠，安全感慢慢消失",
+        chars:{krzysztof:2,sambell:2,billy:2,aidan:1}, dims:{forbear:1,romance:1} },
+      { text:"算计别人，哪怕不针对你",
+        chars:{buck:2,kenny:2,dixon:2,samuel:1,trent:1}, dims:{raw:2} },
+      { text:"把情绪压着，让你猜",
+        chars:{matty:2,pero:2,jerry:2,kenny:1}, dims:{chaos:1,romance:1} },
+      { text:"太混乱，对自己不负责任",
+        chars:{reston:2,stoppard:2,brad:2,watson:1,craig:1}, dims:{forbear:1,raw:1} },
+    ]
+  },
+  {
+    block: 2, q: "最心动的一种等待——",
+    opts: [
+      { text:"他把你随口说过的话记了很久，你一直不知道",
+        chars:{krzysztof:3,stoppard:2,klenz:2,sambell:1,gary:1}, dims:{forbear:2,romance:1} },
+      { text:"你需要的时候他总能出现，从不缺席",
+        chars:{johnmoon:2,brad:3,reston:2,watson:2}, dims:{forbear:2,raw:1} },
+      { text:"他做了很多，一句话都没说",
+        chars:{trent:2,craig:2,robert:2,doug:2,wayne:1}, dims:{forbear:1,raw:2} },
+      { text:"他等到你准备好了，哪怕等了很久",
+        chars:{victor:3,glenn:2,dixon:2,kenny:2,wildbill:1}, dims:{forbear:1,romance:2} },
+    ]
+  },
+  /* ── Block 3: 美学 / 感觉 ── */
+  {
+    block: 3, q: "你们的故事最可能发生在——",
+    opts: [
+      { text:"城市，灯光与人群，一种持续的流动感",
+        chars:{eric:2,chuck:2,frank:2,hammer:2,wolf:1,jim:1}, dims:{guile:1,grace:1} },
+      { text:"小镇，每个人都互相认识",
+        chars:{trent:2,samuel:2,kenny:2,watson:2,brad:1}, dims:{raw:2} },
+      { text:"某个离现实很远的地方",
+        chars:{zaphod:2,guy:2,billy:2,manfromfuture:2,owen:1}, dims:{chaos:2} },
+      { text:"某个与世隔绝的空间，安静得像另一个世界",
+        chars:{sambell:2,johnmoon:2,krzysztof:2,stoppard:1,aidan:1}, dims:{forbear:1,romance:1} },
+    ]
+  },
+  {
+    block: 3, q: "故事里有一首歌，它应该是——",
+    opts: [
+      { text:"蓝调或爵士，迟暮里有一点热烈",
+        chars:{jim:2,frank:2,krzysztof:2,victor:2,stoppard:1}, dims:{grace:2} },
+      { text:"九十年代摇滚或朋克，快、脏、不在乎",
+        chars:{matty:2,kenny:2,pero:2,jerry:2,billy:1}, dims:{chaos:2} },
+      { text:"轻快的流行或复古disco，有一点荒诞",
+        chars:{samuel:2,zaphod:2,owen:2,wayne:2,guy:1,hammer:1}, dims:{chaos:1,raw:1} },
+      { text:"民谣或乡村，慢，有画面感",
+        chars:{johnmoon:2,trent:2,sambell:2,buck:2,glenn:1}, dims:{forbear:1,raw:1} },
+    ]
+  },
+  {
+    block: 3, q: "哪种颜色的夜晚——",
+    opts: [
+      { text:"铜金暖光，台灯打在旧木地板上",
+        chars:{gary:2,reston:2,frank:2,watson:2,stoppard:1}, dims:{grace:1,raw:1} },
+      { text:"霓虹与雨水，玻璃折射的冷光",
+        chars:{eric:2,hammer:2,wolf:2,chuck:2,aidan:1}, dims:{guile:1,grace:1} },
+      { text:"月光与林间，蓝白调，安静",
+        chars:{buck:2,johnmoon:2,trent:2,glenn:2,billy:1}, dims:{forbear:1,raw:1} },
+      { text:"太空星光，深邃，孤独又辽阔",
+        chars:{sambell:2,manfromfuture:2,guy:2,zaphod:2,aidan:1}, dims:{chaos:1,romance:1} },
+    ]
+  },
+  {
+    block: 3, q: "他生活的空间是——",
+    opts: [
+      { text:"凌乱的，有很多故事",
+        chars:{billy:2,buck:2,manfromfuture:2,pero:2,matty:1}, dims:{chaos:2} },
+      { text:"整洁有品味，能看出他是谁",
+        chars:{eric:2,jim:2,stoppard:2,wolf:2,reston:1}, dims:{guile:1,grace:2} },
+      { text:"朴素功能性的，不多余",
+        chars:{johnmoon:2,dixon:2,kenny:2,watson:2,brad:1}, dims:{forbear:1,raw:2} },
+      { text:"随性的，到处是他的东西",
+        chars:{zaphod:2,jerry:2,eddie:2,samuel:2,pero:1}, dims:{chaos:2} },
+    ]
+  },
+  {
+    block: 3, q: "哪种危险你可以接受——",
+    opts: [
+      { text:"爱上了本不该爱的人",
+        chars:{jerry:2,eric:2,frank:2,wolf:2,chuck:1}, dims:{guile:2} },
+      { text:"爱得太极端，把你们都燃尽",
+        chars:{wildbill:2,glenn:2,billy:2,victor:2,matty:1}, dims:{chaos:2} },
+      { text:"他完全不在乎规矩和后果",
+        chars:{zaphod:2,aidan:2,billy:1,owen:2,doug:2}, dims:{chaos:2} },
+      { text:"莫名被卷入麻烦，但有他在旁边",
+        chars:{eddie:2,pero:2,watson:2,kenny:2,guy:1}, dims:{raw:2} },
+    ]
+  },
+  {
+    block: 3, q: "哪种意外相遇——",
+    opts: [
+      { text:"命运安排，你们理应相遇",
+        chars:{guy:2,zaphod:2,manfromfuture:2,sambell:2,billy:1}, dims:{chaos:1,romance:2} },
+      { text:"谎言开始，真心留下",
+        chars:{frank:2,eric:2,jerry:2,chuck:2,jim:1}, dims:{guile:2} },
+      { text:"在最普通的地方，就那么遇见了",
+        chars:{matty:2,owen:2,wayne:2,samuel:2,gary:1}, dims:{raw:2} },
+      { text:"互相把对方从某个处境里带了出来",
+        chars:{trent:2,johnmoon:2,kenny:2,watson:2,stoppard:1}, dims:{forbear:1,raw:1} },
+    ]
+  },
+  {
+    block: 3, q: "你希望他看见你哪一面——",
+    opts: [
+      { text:"你有多聪明，多能看穿事情",
+        chars:{reston:2,eric:2,chuck:2,frank:2,wolf:1}, dims:{guile:2} },
+      { text:"你有多温柔，多愿意陪着人",
+        chars:{johnmoon:2,stoppard:2,glenn:2,victor:2,dixon:1}, dims:{forbear:1,romance:1} },
+      { text:"你很直接，你就是你，不解释",
+        chars:{kenny:2,buck:2,samuel:2,guy:2,watson:1}, dims:{raw:2} },
+      { text:"你的存在本身，不需要任何解释",
+        chars:{krzysztof:2,sambell:2,trent:2,billy:2,aidan:2}, dims:{forbear:1,romance:2} },
+    ]
+  },
+  {
+    block: 3, q: "故事的主色调是——",
+    opts: [
+      { text:"铜金与深棕，温暖里带着一点沉重",
+        chars:{gary:2,frank:2,reston:2,watson:2,krzysztof:2,stoppard:1}, dims:{grace:1,raw:1} },
+      { text:"红与黑，一点危险，一点炽热",
+        chars:{wildbill:2,jerry:2,dixon:2,eric:2,billy:2,kenny:1}, dims:{chaos:1,raw:2} },
+      { text:"蓝与白，冷静，或者辽阔",
+        chars:{sambell:2,glenn:2,johnmoon:2,trent:2,stoppard:1}, dims:{forbear:2,romance:1} },
+      { text:"金与绿，有点奇异，有点生机",
+        chars:{buck:2,zaphod:2,manfromfuture:2,aidan:2,billy:1}, dims:{chaos:1,romance:1} },
+      { text:"粉与荒诞，热闹，轻盈",
+        chars:{chuck:2,hammer:2,francis:2,owen:2,samuel:1}, dims:{chaos:2} },
+    ]
+  },
+  {
+    block: 3, q: "哪句话最触动你——",
+    opts: [
+      { text:"\"I planned every move on the board. I never planned on you.\"",
+        chars:{eric:3,frank:2,wolf:2,jerry:1,chuck:1}, dims:{guile:2,romance:1} },
+      { text:"\"Every one of us was built to die a tool. You woke us up as a family.\"",
+        chars:{sambell:3,krzysztof:2,klenz:2,brad:1}, dims:{forbear:2,romance:1} },
+      { text:"\"I'm tryin' — every damn day — to be who you saw.\"",
+        chars:{dixon:3,stoppard:2,kenny:2,watson:1}, dims:{forbear:1,raw:2} },
+      { text:"\"Being sad at a water park's a crime. C'mon — I'm breaking you out.\"",
+        chars:{owen:3,samuel:2,guy:2,zaphod:1,wayne:1}, dims:{chaos:2,romance:1} },
+      { text:"\"When it all goes up in flames, kid — you won't have to look for me. I'm already there.\"",
+        chars:{aidan:3,billy:2,manfromfuture:2,eric:1}, dims:{chaos:1,romance:2} },
+    ]
+  },
+  {
+    block: 3, q: "最理想的结局——",
+    opts: [
+      { text:"在混乱里，还是只有我们两个",
+        chars:{billy:2,zaphod:2,jerry:2,aidan:2,manfromfuture:2}, dims:{chaos:2,romance:1} },
+      { text:"平静，被彻底了解，什么都不用解释",
+        chars:{krzysztof:2,sambell:2,trent:2,johnmoon:2,stoppard:2}, dims:{forbear:2,romance:1} },
+      { text:"在他发生转变的时刻，你在场",
+        chars:{dixon:2,victor:2,glenn:2,doug:2,stoppard:1}, dims:{forbear:1,romance:2} },
+      { text:"他把整个世界都给了你，哪怕代价很大",
+        chars:{eric:2,frank:2,klenz:2,wildbill:2,jim:2}, dims:{guile:1,romance:2} },
+      { text:"简单的，不轰烈，就只有两个人",
+        chars:{gary:2,buck:2,trent:2,watson:2,robert:2}, dims:{raw:2,romance:1} },
     ]
   },
 ];
 
-/* ── Max possible scores per dimension ─ */
-const MAX_SCORES = { guile:17, forbear:19, chaos:18, raw:18, romance:17, grace:13 };
+/* ── Compute max possible char score ──────────────────────────── */
+const MAX_CHAR_SCORES = {};
+CHARS.forEach(c => {
+  let total = 0;
+  QUESTIONS.forEach(q => {
+    let best = 0;
+    q.opts.forEach(opt => { best = Math.max(best, opt.chars[c.id] || 0); });
+    total += best;
+  });
+  MAX_CHAR_SCORES[c.id] = total || 1;
+});
 
-/* ── Match algorithm ────────────────────────────────────────── */
-function findMatch(userScores) {
-  const dims = Object.keys(MAX_SCORES);
-  // normalize user scores to 0-10
-  const normalized = {};
-  dims.forEach(d => {
-    normalized[d] = Math.min(10, (userScores[d] / MAX_SCORES[d]) * 10);
-  });
-  let best = null, bestDist = Infinity;
-  CHARS.forEach(c => {
-    const dist = Math.sqrt(
-      dims.reduce((sum, d) => sum + Math.pow((normalized[d] || 0) - c.profile[d], 2), 0)
-    );
-    if (dist < bestDist) { bestDist = dist; best = c; }
-  });
-  return { char: best, dist: bestDist, normalized };
-}
-
-function getTop3(userScores) {
-  const dims = Object.keys(MAX_SCORES);
-  const normalized = {};
-  dims.forEach(d => {
-    normalized[d] = Math.min(10, (userScores[d] / MAX_SCORES[d]) * 10);
-  });
+/* ── Match algorithm ─────────────────────────────────────────── */
+function getMatches(charScores) {
   const ranked = CHARS.map(c => ({
     char: c,
-    dist: Math.sqrt(dims.reduce((sum, d) => sum + Math.pow((normalized[d]||0)-c.profile[d],2), 0))
-  })).sort((a,b) => a.dist - b.dist);
-  return ranked.slice(0,3).map(r => r.char);
+    ratio: (charScores[c.id] || 0) / MAX_CHAR_SCORES[c.id]
+  })).sort((a, b) => b.ratio - a.ratio);
+  return ranked;
 }
 
-/* ── Radar SVG ──────────────────────────────────────────────── */
+/* ── Radar ────────────────────────────────────────────────────── */
 const DIMS = [
   {key:"guile",   cn:"狡黠", en:"GUILE"},
   {key:"forbear", cn:"隐忍", en:"FORBEAR"},
@@ -390,9 +679,19 @@ const DIMS = [
   {key:"romance", cn:"浪漫", en:"ROMANCE"},
   {key:"grace",   cn:"优雅", en:"GRACE"},
 ];
+const DIM_MAX = { guile:0, forbear:0, chaos:0, raw:0, romance:0, grace:0 };
+QUESTIONS.forEach(q => {
+  const best = {};
+  q.opts.forEach(opt => {
+    Object.keys(opt.dims).forEach(k => {
+      best[k] = Math.max(best[k]||0, opt.dims[k]||0);
+    });
+  });
+  Object.keys(best).forEach(k => { DIM_MAX[k] = (DIM_MAX[k]||0) + best[k]; });
+});
 
-function Radar({ profile, accent, muted, text, size = 260 }) {
-  const cx = size / 2, cy = size / 2, maxR = 80, labelR = 108;
+function Radar({ dimScores, accent, muted, text, size=260 }) {
+  const cx = size/2, cy = size/2, maxR = 80, labelR = 108;
   function pt(val, i) {
     const a = (Math.PI*2*i/6) - Math.PI/2;
     return { x: cx + (val/10)*maxR*Math.cos(a), y: cy + (val/10)*maxR*Math.sin(a) };
@@ -401,7 +700,11 @@ function Radar({ profile, accent, muted, text, size = 260 }) {
     const a = (Math.PI*2*i/6) - Math.PI/2;
     return { x: cx + labelR*Math.cos(a), y: cy + labelR*Math.sin(a) };
   }
-  const pts = DIMS.map((d,i) => pt(profile[d.key],i));
+  const normalized = {};
+  DIMS.forEach(d => {
+    normalized[d.key] = Math.min(10, ((dimScores[d.key]||0) / (DIM_MAX[d.key]||1)) * 10);
+  });
+  const pts = DIMS.map((d,i) => pt(normalized[d.key],i));
   const pathD = pts.map((p,i) => (i===0?"M":"L")+p.x.toFixed(1)+" "+p.y.toFixed(1)).join(" ")+" Z";
   const gridLevels = [2.5, 5, 7.5, 10];
   return (
@@ -430,7 +733,7 @@ function Radar({ profile, accent, muted, text, size = 260 }) {
   );
 }
 
-/* ── Intro screen ───────────────────────────────────────────── */
+/* ── Intro ────────────────────────────────────────────────────── */
 function Intro({ onStart }) {
   return (
     <div style={{
@@ -451,9 +754,15 @@ function Intro({ onStart }) {
       <div style={{width:48,height:1,background:"#8a7558",margin:"0 auto 28px"}}/>
       <p style={{
         maxWidth:360, textAlign:"center", lineHeight:1.9,
-        fontSize:"0.95rem", color:"#a89878", margin:"0 0 40px"
+        fontSize:"0.95rem", color:"#a89878", margin:"0 0 16px"
       }}>
-        12 道题，39 个角色，没有陪跑——<br/>每一个答案都会把你带向不同的人。
+        30 道题，39 个角色，没有陪跑。
+      </p>
+      <p style={{
+        maxWidth:360, textAlign:"center", lineHeight:1.8,
+        fontSize:"0.82rem", color:"#6a5c48", margin:"0 0 40px"
+      }}>
+        行为、偏好、颜色、感觉——<br/>每一个答案都在指向那个人。
       </p>
       <button onClick={onStart} style={{
         background:"transparent", border:"1px solid #cba14c",
@@ -475,12 +784,16 @@ function Intro({ onStart }) {
   );
 }
 
-/* ── Question screen ────────────────────────────────────────── */
-function QuestionScreen({ qIdx, answers, onAnswer }) {
+/* ── Block labels ─────────────────────────────────────────────── */
+const BLOCK_LABELS = {1:"行为 · Behavior", 2:"偏好 · Preference", 3:"感觉 · Aesthetic"};
+
+/* ── Question screen ──────────────────────────────────────────── */
+function QuestionScreen({ qIdx, onAnswer }) {
   const [selected, setSelected] = useState(null);
   const [leaving, setLeaving] = useState(false);
   const q = QUESTIONS[qIdx];
   const progress = (qIdx / QUESTIONS.length) * 100;
+  const isNewBlock = qIdx === 0 || QUESTIONS[qIdx-1].block !== q.block;
 
   useEffect(() => { setSelected(null); setLeaving(false); }, [qIdx]);
 
@@ -489,16 +802,15 @@ function QuestionScreen({ qIdx, answers, onAnswer }) {
     setSelected(i);
     setTimeout(() => {
       setLeaving(true);
-      setTimeout(() => onAnswer(q.opts[i].score), 260);
+      setTimeout(() => onAnswer(q.opts[i]), 260);
     }, 380);
   }
 
   return (
     <div style={{
       minHeight:"100vh", display:"flex", flexDirection:"column",
-      background:"#14110d", padding:"0", overflow:"hidden"
+      background:"#14110d", overflow:"hidden"
     }}>
-      {/* Progress bar */}
       <div style={{height:2, background:"#2a2418", width:"100%"}}>
         <div style={{
           height:"100%", background:"#cba14c",
@@ -506,17 +818,15 @@ function QuestionScreen({ qIdx, answers, onAnswer }) {
         }}/>
       </div>
 
-      {/* Counter */}
       <div style={{
         padding:"16px 28px 0", display:"flex", justifyContent:"space-between",
         fontFamily:"'Special Elite',monospace", fontSize:"0.75rem",
         color:"#8a7558", letterSpacing:"0.1em"
       }}>
         <span>Q {qIdx+1} / {QUESTIONS.length}</span>
-        <a href="/WinterSunBlog/sam/" style={{color:"#8a7558",textDecoration:"none",opacity:0.6}}>For Sam</a>
+        <span style={{opacity:0.6}}>{BLOCK_LABELS[q.block]}</span>
       </div>
 
-      {/* Question */}
       <div style={{
         flex:1, display:"flex", flexDirection:"column",
         alignItems:"center", justifyContent:"center",
@@ -524,13 +834,20 @@ function QuestionScreen({ qIdx, answers, onAnswer }) {
         opacity: leaving ? 0 : 1, transform: leaving ? "translateY(-12px)" : "translateY(0)",
         transition:"opacity 0.25s, transform 0.25s"
       }}>
+        {isNewBlock && qIdx > 0 && (
+          <p style={{
+            fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
+            letterSpacing:"0.2em", color:"#6a5c48", margin:"0 0 20px",
+            textTransform:"uppercase"
+          }}>— {BLOCK_LABELS[q.block]} —</p>
+        )}
         <p style={{
           fontFamily:"'Playfair Display',serif", fontStyle:"italic",
-          fontSize:"clamp(1.1rem,4vw,1.5rem)", color:"#ede2d0", lineHeight:1.6,
-          textAlign:"center", margin:"0 0 40px", fontWeight:400
+          fontSize:"clamp(1rem,4vw,1.45rem)", color:"#ede2d0", lineHeight:1.65,
+          textAlign:"center", margin:"0 0 36px", fontWeight:400
         }}>{q.q}</p>
 
-        <div style={{width:"100%", display:"flex", flexDirection:"column", gap:12}}>
+        <div style={{width:"100%", display:"flex", flexDirection:"column", gap:10}}>
           {q.opts.map((opt, i) => {
             const isSel = selected === i;
             return (
@@ -538,19 +855,18 @@ function QuestionScreen({ qIdx, answers, onAnswer }) {
                 background: isSel ? "#cba14c22" : "transparent",
                 border: isSel ? "1px solid #cba14c" : "1px solid #3a3028",
                 color: isSel ? "#cba14c" : "#c8b894",
-                padding:"16px 22px", textAlign:"left",
-                fontFamily:"'Noto Serif SC',serif", fontSize:"0.92rem", lineHeight:1.6,
-                cursor:"pointer", transition:"all 0.2s",
-                borderRadius:2,
+                padding:"15px 20px", textAlign:"left",
+                fontFamily:"'Noto Serif SC',serif", fontSize:"0.9rem", lineHeight:1.65,
+                cursor:"pointer", transition:"all 0.2s", borderRadius:2,
                 opacity: (selected !== null && !isSel) ? 0.4 : 1,
               }}
                 onMouseEnter={e=>{ if(selected===null){ e.currentTarget.style.borderColor="#8a7558"; e.currentTarget.style.color="#e8d8b8"; }}}
                 onMouseLeave={e=>{ if(selected===null){ e.currentTarget.style.borderColor="#3a3028"; e.currentTarget.style.color="#c8b894"; }}}
               >
                 <span style={{
-                  fontFamily:"'Special Elite',monospace", fontSize:"0.65rem",
+                  fontFamily:"'Special Elite',monospace", fontSize:"0.62rem",
                   letterSpacing:"0.15em", color: isSel ? "#cba14c" : "#6a5c48",
-                  marginRight:12
+                  marginRight:10
                 }}>{String.fromCharCode(65+i)}</span>
                 {opt.text}
               </button>
@@ -562,10 +878,10 @@ function QuestionScreen({ qIdx, answers, onAnswer }) {
   );
 }
 
-/* ── Result screen ──────────────────────────────────────────── */
-function ResultScreen({ scores, onRetake }) {
-  const top3 = getTop3(scores);
-  const c = top3[0];
+/* ── Result screen ────────────────────────────────────────────── */
+function ResultScreen({ charScores, dimScores, onRetake }) {
+  const ranked = getMatches(charScores);
+  const c = ranked[0].char;
   const [showAlt, setShowAlt] = useState(false);
   const [phase, setPhase] = useState(0);
 
@@ -576,7 +892,12 @@ function ResultScreen({ scores, onRetake }) {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
-  const { normalized } = findMatch(scores);
+  const normDims = {};
+  DIMS.forEach(d => {
+    normDims[d.key] = Math.min(10, ((dimScores[d.key]||0) / (DIM_MAX[d.key]||1)) * 10);
+  });
+
+  const runners = ranked.slice(1, 4).map(r => r.char);
 
   return (
     <div style={{
@@ -584,7 +905,6 @@ function ResultScreen({ scores, onRetake }) {
       fontFamily:"'Noto Serif SC',serif",
       opacity: phase >= 1 ? 1 : 0, transition:"opacity 0.6s ease"
     }}>
-      {/* Header strip */}
       <div style={{
         padding:"18px 28px 0", display:"flex", justifyContent:"space-between", alignItems:"center"
       }}>
@@ -598,13 +918,11 @@ function ResultScreen({ scores, onRetake }) {
 
       <div style={{maxWidth:720, margin:"0 auto", padding:"28px 24px 64px"}}>
 
-        {/* Year / film */}
         <p style={{
           fontFamily:"'Special Elite',monospace", letterSpacing:"0.2em",
           fontSize:"0.7rem", color:c.muted, margin:"0 0 6px"
         }}>{c.year} · {c.filmCN}</p>
 
-        {/* Name */}
         <h1 style={{
           fontFamily:"'Playfair Display',serif", fontStyle:"italic",
           fontSize:"clamp(2rem,8vw,3.6rem)", fontWeight:900,
@@ -613,7 +931,6 @@ function ResultScreen({ scores, onRetake }) {
           transition:"opacity 0.5s 0.1s, transform 0.5s 0.1s"
         }}>{c.name}</h1>
 
-        {/* Tagline */}
         <p style={{
           fontSize:"clamp(0.9rem,3vw,1.1rem)", lineHeight:1.8, color:c.text,
           fontStyle:"italic", margin:"16px 0 32px", maxWidth:560,
@@ -622,52 +939,36 @@ function ResultScreen({ scores, onRetake }) {
 
         <div style={{width:40,height:1,background:c.accent,opacity:0.5,marginBottom:40}}/>
 
-        {/* Radar + inscription */}
         <div style={{
           display:"grid", gridTemplateColumns:"1fr 1fr", gap:40,
           alignItems:"start",
           opacity: phase>=3?1:0, transition:"opacity 0.5s 0.5s"
-        }}
-          className="result-grid"
-        >
-          <Radar profile={c.profile} accent={c.accent} muted={c.muted} text={c.text}/>
+        }} className="result-grid">
+          <Radar dimScores={dimScores} accent={c.accent} muted={c.muted} text={c.text}/>
           <div style={{display:"flex",flexDirection:"column",gap:20}}>
-            {/* Inscription quote */}
             <div style={{borderLeft:`2px solid ${c.accent}`,paddingLeft:20}}>
               <p style={{
                 fontFamily:"'Playfair Display',serif", fontStyle:"italic",
                 fontSize:"1rem", lineHeight:1.75, color:c.text, margin:"0 0 8px"
-              }}>
-                &ldquo;{c.line}&rdquo;
-              </p>
-              <p style={{
-                fontSize:"0.82rem", lineHeight:1.7, color:c.muted, margin:0,
-                fontStyle:"italic"
-              }}>{c.lineCN}</p>
+              }}>&ldquo;{c.line}&rdquo;</p>
+              <p style={{fontSize:"0.82rem",lineHeight:1.7,color:c.muted,margin:0,fontStyle:"italic"}}>{c.lineCN}</p>
             </div>
 
-            {/* Your dimension profile */}
-            <div style={{marginTop:8}}>
+            <div style={{marginTop:4}}>
               <p style={{
                 fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em",
                 fontSize:"0.65rem", color:c.muted, margin:"0 0 10px"
               }}>YOUR PROFILE</p>
               {DIMS.map(d => {
-                const userVal = normalized[d.key] || 0;
+                const v = normDims[d.key] || 0;
                 return (
                   <div key={d.key} style={{marginBottom:7}}>
                     <div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}>
                       <span style={{fontSize:"0.78rem",color:c.muted,fontFamily:"'Noto Serif SC',serif"}}>{d.cn}</span>
-                      <span style={{fontSize:"0.7rem",color:c.accent,fontFamily:"'Special Elite',monospace"}}>
-                        {userVal.toFixed(1)}
-                      </span>
+                      <span style={{fontSize:"0.7rem",color:c.accent,fontFamily:"'Special Elite',monospace"}}>{v.toFixed(1)}</span>
                     </div>
                     <div style={{height:2,background:c.muted+"44",borderRadius:1}}>
-                      <div style={{
-                        height:"100%", background:c.accent,
-                        width:(userVal/10*100)+"%", borderRadius:1,
-                        transition:"width 1s ease"
-                      }}/>
+                      <div style={{height:"100%",background:c.accent,width:(v/10*100)+"%",borderRadius:1,transition:"width 1s ease"}}/>
                     </div>
                   </div>
                 );
@@ -676,14 +977,9 @@ function ResultScreen({ scores, onRetake }) {
           </div>
         </div>
 
-        {/* Divider */}
-        <div style={{
-          height:1, background:c.accent, opacity:0.15, margin:"40px 0",
-          opacity: phase>=3?0.15:0, transition:"opacity 0.5s 0.7s"
-        }}/>
+        <div style={{height:1,background:c.accent,opacity:phase>=3?0.15:0,margin:"40px 0",transition:"opacity 0.5s 0.7s"}}/>
 
-        {/* Runner-ups */}
-        <div style={{opacity: phase>=3?1:0, transition:"opacity 0.5s 0.8s"}}>
+        <div style={{opacity:phase>=3?1:0,transition:"opacity 0.5s 0.8s"}}>
           <button onClick={() => setShowAlt(!showAlt)} style={{
             background:"transparent", border:"none", padding:"0 0 8px",
             fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em",
@@ -697,50 +993,51 @@ function ResultScreen({ scores, onRetake }) {
             RUNNER-UPS
           </button>
           {showAlt && (
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginTop:4}}>
-              {top3.slice(1).map(rc => (
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginTop:4}} className="runner-grid">
+              {runners.map(rc => (
                 <div key={rc.id} style={{
                   border:`1px solid ${rc.accent}44`,
-                  padding:"14px 18px", borderRadius:2
+                  padding:"12px 16px", borderRadius:2
                 }}>
-                  <p style={{
-                    fontFamily:"'Special Elite',monospace",fontSize:"0.6rem",
-                    letterSpacing:"0.15em",color:rc.muted,margin:"0 0 4px"
-                  }}>{rc.year}</p>
-                  <p style={{
-                    fontFamily:"'Playfair Display',serif",fontStyle:"italic",
-                    fontSize:"1rem",color:rc.accent,margin:"0 0 4px",fontWeight:700
-                  }}>{rc.name}</p>
-                  <p style={{fontSize:"0.78rem",color:c.muted,margin:0,fontStyle:"italic"}}>
-                    {rc.filmCN}
-                  </p>
+                  <p style={{fontFamily:"'Special Elite',monospace",fontSize:"0.58rem",letterSpacing:"0.15em",color:rc.muted,margin:"0 0 3px"}}>{rc.year}</p>
+                  <p style={{fontFamily:"'Playfair Display',serif",fontStyle:"italic",fontSize:"0.92rem",color:rc.accent,margin:"0 0 3px",fontWeight:700}}>{rc.name}</p>
+                  <p style={{fontSize:"0.75rem",color:c.muted,margin:0,fontStyle:"italic"}}>{rc.filmCN}</p>
                 </div>
               ))}
             </div>
           )}
         </div>
 
-        {/* Links */}
         <div style={{
-          display:"flex", gap:16, flexWrap:"wrap", marginTop:44,
-          opacity: phase>=3?1:0, transition:"opacity 0.5s 0.9s"
+          display:"flex", gap:12, flexWrap:"wrap", marginTop:44,
+          opacity:phase>=3?1:0, transition:"opacity 0.5s 0.9s"
         }}>
           <a href={"/WinterSunBlog/sam/many-faces/#"+c.id} style={{
-            border:`1px solid ${c.accent}`,
-            color:c.accent, padding:"12px 28px",
-            fontFamily:"'Special Elite',monospace", fontSize:"0.75rem",
-            letterSpacing:"0.15em", textDecoration:"none",
-            transition:"all 0.2s"
+            border:`1px solid ${c.accent}`, color:c.accent, padding:"12px 24px",
+            fontFamily:"'Special Elite',monospace", fontSize:"0.72rem",
+            letterSpacing:"0.15em", textDecoration:"none", transition:"all 0.2s"
           }}
             onMouseEnter={e=>{ e.currentTarget.style.background=c.accent; e.currentTarget.style.color=c.bg; }}
             onMouseLeave={e=>{ e.currentTarget.style.background="transparent"; e.currentTarget.style.color=c.accent; }}
           >
             READ HIS STORY →
           </a>
+          {c.auLink && (
+            <a href={c.auLink} style={{
+              border:`1px solid ${c.accent}66`, color:c.text, padding:"12px 24px",
+              fontFamily:"'Special Elite',monospace", fontSize:"0.72rem",
+              letterSpacing:"0.15em", textDecoration:"none", transition:"all 0.2s"
+            }}
+              onMouseEnter={e=>{ e.currentTarget.style.borderColor=c.accent; e.currentTarget.style.color=c.accent; }}
+              onMouseLeave={e=>{ e.currentTarget.style.borderColor=c.accent+"66"; e.currentTarget.style.color=c.text; }}
+            >
+              READ HIS STORY (AU) →
+            </a>
+          )}
           <button onClick={onRetake} style={{
             background:"transparent", border:`1px solid ${c.muted}66`,
-            color:c.muted, padding:"12px 28px",
-            fontFamily:"'Special Elite',monospace", fontSize:"0.75rem",
+            color:c.muted, padding:"12px 24px",
+            fontFamily:"'Special Elite',monospace", fontSize:"0.72rem",
             letterSpacing:"0.15em", cursor:"pointer", transition:"all 0.2s"
           }}
             onMouseEnter={e=>{ e.currentTarget.style.borderColor=c.muted; e.currentTarget.style.color=c.text; }}
@@ -752,32 +1049,37 @@ function ResultScreen({ scores, onRetake }) {
 
       </div>
 
-      {/* Responsive grid style */}
       <style>{`
-        @media (max-width: 520px) {
+        @media (max-width: 560px) {
           .result-grid { grid-template-columns: 1fr !important; }
+          .runner-grid { grid-template-columns: 1fr 1fr !important; }
         }
       `}</style>
     </div>
   );
 }
 
-/* ── App ────────────────────────────────────────────────────── */
+/* ── App ──────────────────────────────────────────────────────── */
 function App() {
-  const [stage, setStage] = useState("intro"); // intro | quiz | result
+  const [stage, setStage] = useState("intro");
   const [qIdx, setQIdx]   = useState(0);
-  const [scores, setScores] = useState({guile:0,forbear:0,chaos:0,raw:0,romance:0,grace:0});
+  const [charScores, setCharScores] = useState({});
+  const [dimScores, setDimScores]   = useState({guile:0,forbear:0,chaos:0,raw:0,romance:0,grace:0});
 
   function startQuiz() {
     setQIdx(0);
-    setScores({guile:0,forbear:0,chaos:0,raw:0,romance:0,grace:0});
+    setCharScores({});
+    setDimScores({guile:0,forbear:0,chaos:0,raw:0,romance:0,grace:0});
     setStage("quiz");
   }
 
-  function handleAnswer(score) {
-    const updated = {...scores};
-    Object.keys(score).forEach(k => { updated[k] = (updated[k]||0) + score[k]; });
-    setScores(updated);
+  function handleAnswer(opt) {
+    const nc = {...charScores};
+    Object.keys(opt.chars).forEach(id => { nc[id] = (nc[id]||0) + opt.chars[id]; });
+    const nd = {...dimScores};
+    Object.keys(opt.dims).forEach(k => { nd[k] = (nd[k]||0) + opt.dims[k]; });
+    setCharScores(nc);
+    setDimScores(nd);
     if (qIdx + 1 >= QUESTIONS.length) {
       setStage("result");
     } else {
@@ -786,8 +1088,8 @@ function App() {
   }
 
   if (stage === "intro")  return <Intro onStart={startQuiz}/>;
-  if (stage === "quiz")   return <QuestionScreen qIdx={qIdx} answers={scores} onAnswer={handleAnswer}/>;
-  if (stage === "result") return <ResultScreen scores={scores} onRetake={startQuiz}/>;
+  if (stage === "quiz")   return <QuestionScreen qIdx={qIdx} onAnswer={handleAnswer}/>;
+  if (stage === "result") return <ResultScreen charScores={charScores} dimScores={dimScores} onRetake={startQuiz}/>;
   return null;
 }
 
