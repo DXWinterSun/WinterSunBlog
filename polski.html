@@ -178,7 +178,7 @@
   }
 
   function render(d){
-    LAST=d; SAY={head:d.word};
+    stopReading(); LAST=d; SAY={head:d.word};
     var ctr={n:0};
     var h='<div class="card"><div class="headword"><span class="pl">'+esc(d.word)+'</span>'+moonBtnHTML("head")+'</div>';
     if(d.translation){
@@ -193,7 +193,7 @@
     h+='</div>';
     var tables=d.tables||[];
     if(tables.length){
-      h+='<div class="toolbar"><button id="copyAll" class="ghostbtn">📋 Copy all</button></div>';
+      h+='<div class="toolbar"><button id="readAll" class="ghostbtn">▶ Read all</button><button id="copyAll" class="ghostbtn">📋 Copy all</button></div>';
       tables.forEach(function(t){ h+=tableHTML(t,ctr); });
     }
     out.innerHTML=h;
@@ -201,14 +201,14 @@
 
   function buildCopyText(d){
     if(!d) return "";
-    var L=[d.word+(d.translation?" — "+d.translation:"")];
+    var L=[d.word+(d.translation?" — "+d.translation:"")+"."];
     (d.tables||[]).forEach(function(t){
       L.push("");
       var cols=realCols(t.columns);
-      L.push(t.title+(cols.length?" ("+cols.join(" / ")+")":""));
+      L.push(t.title+(cols.length?" ("+cols.join(" / ")+")":"")+". ");
       (t.rows||[]).forEach(function(r){
         var fs=(r.forms||[]).filter(function(f){ return f&&f!=="—"; });
-        L.push(r.label+": "+(fs.length?fs.join(" / "):"—"));
+        if(fs.length) L.push(r.label+": "+fs.map(function(f){ return f+"."; }).join(" "));
       });
     });
     return L.join("\n");
@@ -231,8 +231,42 @@
     else { legacyCopy(text,ok); }
   }
 
+  var reading=false;
+  function stopReading(){
+    if(!reading) return;
+    reading=false;
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    var btn=document.getElementById("readAll");
+    if(btn) btn.textContent="▶ Read all";
+  }
+  function readAll(){
+    if(!LAST||!("speechSynthesis" in window)) return;
+    if(reading){ stopReading(); return; }
+    var items=[LAST.word];
+    (LAST.tables||[]).forEach(function(t){
+      (t.rows||[]).forEach(function(r){
+        (r.forms||[]).forEach(function(f){ if(f&&f!=="—") items.push(f); });
+      });
+    });
+    if(!items.length) return;
+    if(!voices.length) loadVoices();
+    reading=true;
+    var btn=document.getElementById("readAll");
+    if(btn) btn.textContent="■ Stop";
+    var i=0;
+    function next(){
+      if(!reading||i>=items.length){ stopReading(); return; }
+      var u=new SpeechSynthesisUtterance(items[i++]);
+      u.lang="pl-PL"; var v=polishVoice(); if(v) u.voice=v; u.rate=0.85;
+      u.onend=next; u.onerror=next;
+      window.speechSynthesis.speak(u);
+    }
+    next();
+  }
+
   out.addEventListener("click",function(e){
-    if((e.target.id==="copyAll")||(e.target.closest&&e.target.closest("#copyAll"))){ doCopy(); return; }
+    if(e.target.closest&&e.target.closest("#readAll")){ readAll(); return; }
+    if(e.target.closest&&e.target.closest("#copyAll")){ doCopy(); return; }
     var b=e.target.closest?e.target.closest(".moonbtn"):null;
     if(!b) return;
     var key=b.getAttribute("data-say");
@@ -259,7 +293,7 @@
     loadData().then(function(){
       var d=resolve(word);
       if(!d){
-        out.innerHTML='<div class="error">Not found in offline dictionary ('+esc(word)+').<br><small>Try the base form: nominative singular for nouns, infinitive for verbs. The dictionary covers ~3 000 common lemmas.</small></div>';
+        out.innerHTML='<div class="error">Not found in offline dictionary ('+esc(word)+').<br><small>Try the base form: nominative singular for nouns, infinitive for verbs. The dictionary covers ~6 000 common lemmas.</small></div>';
         return;
       }
       render(d);
