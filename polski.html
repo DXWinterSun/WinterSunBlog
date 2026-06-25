@@ -160,6 +160,8 @@
   function moonBtnHTML(key){ return '<button class="moonbtn" data-say="'+key+'" aria-label="Play pronunciation">🌑</button>'; }
 
   var CASE_ABBR={"Nominative":"Nom.","Genitive":"Gen.","Dative":"Dat.","Accusative":"Acc.","Instrumental":"Instr.","Locative":"Loc.","Vocative":"Voc."};
+  var VERB_EXPAND={"on/ona/ono":["on","ona","ono"],"oni/one":["oni","one"]};
+  var PAST_PRN={"sg":["on","ona","ono"],"pl":["oni","one",null]};
   function tableHTML(t,ctr){
     var cols=t.columns||[], showHead=realCols(cols).length>0;
     var h='<div class="sectlabel">'+esc(t.title)+'</div><div class="tbl-wrap"><table class="tbl">';
@@ -199,18 +201,42 @@
     out.innerHTML=h;
   }
 
+  function verbLines(t, dot){
+    var d=dot?".":"", lines=[];
+    if(t.title==="Past"){
+      (t.rows||[]).forEach(function(r){
+        var ps=PAST_PRN[r.label]||[];
+        (r.forms||[]).forEach(function(f,i){
+          if(f&&f!=="—"&&ps[i]) lines.push(ps[i]+" "+f+d);
+        });
+      });
+    } else {
+      (t.rows||[]).forEach(function(r){
+        var f=(r.forms||[])[0]; if(!f||f==="—") return;
+        var exp=VERB_EXPAND[r.label];
+        if(exp){ exp.forEach(function(p){ lines.push(p+" "+f+d); }); }
+        else { lines.push(r.label+" "+f+d); }
+      });
+    }
+    return lines;
+  }
+  function isVerbTable(t){ return ["Present","Future","Past","Imperative"].indexOf(t.title)>=0; }
+
   function buildCopyText(d){
     if(!d) return "";
-    var L=[d.word+"."];
+    var sections=[[d.word+"."]];
     (d.tables||[]).forEach(function(t){
-      L.push("");
-      (t.rows||[]).forEach(function(r){
-        var fs=(r.forms||[]).filter(function(f){ return f&&f!=="—"; });
-        if(fs.length) L.push(fs.map(function(f){ return f+"."; }).join(" "));
-      });
+      var lines=isVerbTable(t)?verbLines(t,true):(function(){
+        var ls=[];
+        (t.rows||[]).forEach(function(r){
+          var fs=(r.forms||[]).filter(function(f){ return f&&f!=="—"; });
+          if(fs.length) ls.push(fs.map(function(f){ return f+"."; }).join(" "));
+        });
+        return ls;
+      })();
+      if(lines.length) sections.push(lines);
     });
-    while(L.length&&!L[L.length-1]) L.pop();
-    return L.join("\n");
+    return sections.map(function(s){ return s.join("\n"); }).join("\n\n");
   }
 
   function toast(msg){ toastEl.textContent=msg; toastEl.classList.add("show"); if(toastTimer) clearTimeout(toastTimer); toastTimer=setTimeout(function(){ toastEl.classList.remove("show"); },2600); }
@@ -243,9 +269,14 @@
     if(reading){ stopReading(); return; }
     var items=[LAST.word];
     (LAST.tables||[]).forEach(function(t){
-      (t.rows||[]).forEach(function(r){
-        (r.forms||[]).forEach(function(f){ if(f&&f!=="—") items.push(f); });
-      });
+      var lines=isVerbTable(t)?verbLines(t,false):(function(){
+        var ls=[];
+        (t.rows||[]).forEach(function(r){
+          (r.forms||[]).forEach(function(f){ if(f&&f!=="—") ls.push(f); });
+        });
+        return ls;
+      })();
+      lines.forEach(function(l){ items.push(l); });
     });
     if(!items.length) return;
     if(!voices.length) loadVoices();
