@@ -17,10 +17,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  html, body { margin: 0; padding: 0; }
-  body { background: #14110d; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body { background: #14110d; -webkit-font-smoothing: antialiased; }
   *, *::before, *::after { box-sizing: border-box; }
   button { font-family: inherit; cursor: pointer; }
+  #root { height: 100%; }
 </style>
 </head>
 <body>
@@ -238,11 +239,7 @@ const CHARS = [
     profile:{guile:6,forbear:6,chaos:8,raw:6,romance:4,grace:1} },
 ];
 
-/* ── Questions ──────────────────────────────────────────────────
-   每道题每个选项有两个字段：
-   chars: { characterId: points }  — 直接角色亲缘分
-   dims:  { dimension: points }    — 维度分（用于雷达图）
-─────────────────────────────────────────────────────────────── */
+/* ── Questions ──────────────────────────────────────────────────── */
 const QUESTIONS = [
   /* ── Block 1: 行为 / 场景 ── */
   {
@@ -448,26 +445,26 @@ const QUESTIONS = [
   {
     block: 2, q: "哪种眼神最打动你——",
     opts: [
-      { text:"专注的，仿佛全世界就只有你",
+      { text:"专注的，认定你了就只盯着你一个",
         chars:{krzysztof:3,sambell:2,brad:2,reston:2}, dims:{forbear:1,romance:2} },
-      { text:"沉的，藏着很多没说出口的话",
-        chars:{buck:2,trent:2,johnmoon:3,dixon:2}, dims:{forbear:2,raw:1} },
-      { text:"危险的，让你有点怕又有点着迷",
+      { text:"内敛的，不多说，但让你感觉被悄悄记在心里",
+        chars:{buck:2,trent:2,johnmoon:3,stoppard:2}, dims:{forbear:2,raw:1} },
+      { text:"锐利的，有一种让你害怕又想靠近的危险感",
         chars:{eric:3,frank:2,wolf:2,aidan:2,jerry:1}, dims:{guile:2,chaos:1} },
-      { text:"闪着某种光，让你忍不住想靠近",
+      { text:"温亮的，自带某种能量，看见他就想笑",
         chars:{pero:2,hammer:2,zaphod:2,owen:2,samuel:1}, dims:{chaos:1,romance:2} },
     ]
   },
   {
     block: 2, q: "你们的关系更像——",
     opts: [
-      { text:"盟友，彼此信任，共同面对某件事",
+      { text:"盟友——有共同的目标，一起对抗某件事",
         chars:{eric:2,wolf:2,chuck:2,frank:2,aidan:2}, dims:{guile:2} },
-      { text:"守护者与被守护者",
+      { text:"他是你的盾，你是他唯一放不下的软肋",
         chars:{klenz:2,trent:2,johnmoon:2,sambell:2,watson:2}, dims:{forbear:2,romance:1} },
-      { text:"你心疼他多一点，他偶尔像个孩子",
-        chars:{samuel:2,guy:2,zaphod:2,billy:2,pero:1}, dims:{chaos:1,romance:2} },
-      { text:"像一面镜子，在他身上你看见了自己",
+      { text:"你让他想变成更好的人，他让你更勇敢",
+        chars:{dixon:2,victor:2,gary:2,hammer:2,doug:1}, dims:{raw:1,romance:2} },
+      { text:"一面镜子——在他身上，你认出了某个一直在找的东西",
         chars:{krzysztof:2,victor:2,stoppard:2,craig:2,reston:1}, dims:{forbear:1,romance:1} },
     ]
   },
@@ -478,10 +475,10 @@ const QUESTIONS = [
         chars:{krzysztof:3,sambell:2,reston:2,brad:2,gary:1}, dims:{forbear:2,romance:1} },
       { text:"他这辈子最漂亮的那段故事是你们在一起",
         chars:{zaphod:3,aidan:3,wayne:2,owen:1,jim:1}, dims:{chaos:1,romance:2} },
-      { text:"他最黑暗的时候，他没有独自待着",
-        chars:{billy:3,chuck:2,manfromfuture:2,frank:1,victor:1}, dims:{chaos:1,romance:2} },
-      { text:"他改变了，因为你",
-        chars:{dixon:3,victor:2,gary:2,hammer:2,doug:1}, dims:{raw:1,romance:2} },
+      { text:"他软下来的那一面，只有你看见过",
+        chars:{kenny:2,buck:2,pero:2,guy:1,samuel:1}, dims:{raw:2,romance:1} },
+      { text:"他在你面前是最好的版本的自己，不是装的——是你把那面召唤出来了",
+        chars:{jim:2,wolf:2,klenz:2,frank:1,stoppard:1}, dims:{grace:2,romance:1} },
     ]
   },
   {
@@ -538,15 +535,15 @@ const QUESTIONS = [
     ]
   },
   {
-    block: 3, q: "哪种颜色的夜晚——",
+    block: 3, q: "哪种夜晚的感觉最像你们的故事——",
     opts: [
-      { text:"铜金暖光，台灯打在旧木地板上",
+      { text:"暖的，台灯昏黄，时间在那里慢下来",
         chars:{gary:2,reston:2,frank:2,watson:2,stoppard:1}, dims:{grace:1,raw:1} },
-      { text:"霓虹与雨水，玻璃折射的冷光",
+      { text:"冷的，下着雨，玻璃上有光在折射",
         chars:{eric:2,hammer:2,wolf:2,chuck:2,aidan:1}, dims:{guile:1,grace:1} },
-      { text:"月光与林间，蓝白调，安静",
+      { text:"静的，月色很白，只有你们两个",
         chars:{buck:2,johnmoon:2,trent:2,glenn:2,billy:1}, dims:{forbear:1,raw:1} },
-      { text:"太空星光，深邃，孤独又辽阔",
+      { text:"深的，星光很远，孤独但没关系",
         chars:{sambell:2,manfromfuture:2,guy:2,zaphod:2,aidan:1}, dims:{chaos:1,romance:1} },
     ]
   },
@@ -559,8 +556,8 @@ const QUESTIONS = [
         chars:{eric:2,jim:2,stoppard:2,wolf:2,reston:1}, dims:{guile:1,grace:2} },
       { text:"朴素功能性的，不多余",
         chars:{johnmoon:2,dixon:2,kenny:2,watson:2,brad:1}, dims:{forbear:1,raw:2} },
-      { text:"随性的，到处是他的东西",
-        chars:{zaphod:2,jerry:2,eddie:2,samuel:2,pero:1}, dims:{chaos:2} },
+      { text:"某样东西他一直放着，你问他他不解释——但你大概知道为什么",
+        chars:{krzysztof:2,klenz:2,sambell:2,brad:1,johnmoon:1}, dims:{forbear:1,romance:2} },
     ]
   },
   {
@@ -621,14 +618,19 @@ const QUESTIONS = [
     block: 3, q: "哪句话最触动你——",
     opts: [
       { text:"\"I planned every move on the board. I never planned on you.\"",
+        lineCN:"棋盘上每一步我都算到了——唯独没算到你。",
         chars:{eric:3,frank:2,wolf:2,jerry:1,chuck:1}, dims:{guile:2,romance:1} },
       { text:"\"Every one of us was built to die a tool. You woke us up as a family.\"",
+        lineCN:"我们本该作为工具一个个死去——是你，把我们当成一家人唤醒。",
         chars:{sambell:3,krzysztof:2,klenz:2,brad:1}, dims:{forbear:2,romance:1} },
       { text:"\"I'm tryin' — every damn day — to be who you saw.\"",
+        lineCN:"每一天我都在拼命，想成为你看见的那个我。",
         chars:{dixon:3,stoppard:2,kenny:2,watson:1}, dims:{forbear:1,raw:2} },
       { text:"\"Being sad at a water park's a crime. C'mon — I'm breaking you out.\"",
+        lineCN:"在水上乐园还愁眉苦脸，这可是犯罪——走，我带你越狱。",
         chars:{owen:3,samuel:2,guy:2,zaphod:1,wayne:1}, dims:{chaos:2,romance:1} },
       { text:"\"When it all goes up in flames, kid — you won't have to look for me. I'm already there.\"",
+        lineCN:"当一切都烧起来，kid——不必回头找我，我早在了。",
         chars:{aidan:3,billy:2,manfromfuture:2,eric:1}, dims:{chaos:1,romance:2} },
     ]
   },
@@ -663,11 +665,10 @@ CHARS.forEach(c => {
 
 /* ── Match algorithm ─────────────────────────────────────────── */
 function getMatches(charScores) {
-  const ranked = CHARS.map(c => ({
+  return CHARS.map(c => ({
     char: c,
     ratio: (charScores[c.id] || 0) / MAX_CHAR_SCORES[c.id]
   })).sort((a, b) => b.ratio - a.ratio);
-  return ranked;
 }
 
 /* ── Radar ────────────────────────────────────────────────────── */
@@ -683,18 +684,16 @@ const DIM_MAX = { guile:0, forbear:0, chaos:0, raw:0, romance:0, grace:0 };
 QUESTIONS.forEach(q => {
   const best = {};
   q.opts.forEach(opt => {
-    Object.keys(opt.dims).forEach(k => {
-      best[k] = Math.max(best[k]||0, opt.dims[k]||0);
-    });
+    Object.keys(opt.dims).forEach(k => { best[k] = Math.max(best[k]||0, opt.dims[k]||0); });
   });
   Object.keys(best).forEach(k => { DIM_MAX[k] = (DIM_MAX[k]||0) + best[k]; });
 });
 
-function Radar({ dimScores, accent, muted, text, size=260 }) {
-  const cx = size/2, cy = size/2, maxR = 80, labelR = 108;
-  function pt(val, i) {
+function Radar({ dimScores, charProfile, accent, muted, text, size=240 }) {
+  const cx = size/2, cy = size/2, maxR = 76, labelR = 104;
+  function ptAt(val, i, r) {
     const a = (Math.PI*2*i/6) - Math.PI/2;
-    return { x: cx + (val/10)*maxR*Math.cos(a), y: cy + (val/10)*maxR*Math.sin(a) };
+    return { x: cx + (val/10)*r*Math.cos(a), y: cy + (val/10)*r*Math.sin(a) };
   }
   function labelPt(i) {
     const a = (Math.PI*2*i/6) - Math.PI/2;
@@ -704,28 +703,32 @@ function Radar({ dimScores, accent, muted, text, size=260 }) {
   DIMS.forEach(d => {
     normalized[d.key] = Math.min(10, ((dimScores[d.key]||0) / (DIM_MAX[d.key]||1)) * 10);
   });
-  const pts = DIMS.map((d,i) => pt(normalized[d.key],i));
-  const pathD = pts.map((p,i) => (i===0?"M":"L")+p.x.toFixed(1)+" "+p.y.toFixed(1)).join(" ")+" Z";
+  const userPts = DIMS.map((d,i) => ptAt(normalized[d.key],i,maxR));
+  const userPath = userPts.map((p,i)=>(i===0?"M":"L")+p.x.toFixed(1)+" "+p.y.toFixed(1)).join(" ")+" Z";
+
+  let charPts = null, charPath = null;
+  if (charProfile) {
+    charPts = DIMS.map((d,i) => ptAt(charProfile[d.key]||0, i, maxR));
+    charPath = charPts.map((p,i)=>(i===0?"M":"L")+p.x.toFixed(1)+" "+p.y.toFixed(1)).join(" ")+" Z";
+  }
+
   const gridLevels = [2.5, 5, 7.5, 10];
   return (
     <svg viewBox={"0 0 "+size+" "+size} style={{width:"100%",maxWidth:size+"px",display:"block",margin:"0 auto"}}>
       {gridLevels.map((lv,gi) => {
-        const gd = DIMS.map((_,i) => { const p=pt(lv,i); return (i===0?"M":"L")+p.x.toFixed(1)+" "+p.y.toFixed(1); }).join(" ")+" Z";
-        return <path key={gi} d={gd} fill="none" stroke={muted}
-          strokeOpacity={gi===3?0.35:0.12} strokeWidth="0.6"/>;
+        const gd = DIMS.map((_,i)=>{ const p=ptAt(lv,i,maxR); return (i===0?"M":"L")+p.x.toFixed(1)+" "+p.y.toFixed(1); }).join(" ")+" Z";
+        return <path key={gi} d={gd} fill="none" stroke={muted} strokeOpacity={gi===3?0.35:0.12} strokeWidth="0.6"/>;
       })}
-      {DIMS.map((_,i) => { const p=pt(10,i); return <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y}
-        stroke={muted} strokeOpacity={0.18} strokeWidth="0.5"/>; })}
-      <path d={pathD} fill={accent} fillOpacity="0.2" stroke={accent} strokeOpacity="0.75" strokeWidth="1.5"/>
-      {pts.map((p,i) => <circle key={i} cx={p.x} cy={p.y} r="3" fill={accent}/>)}
-      {DIMS.map((d,i) => {
+      {DIMS.map((_,i)=>{ const p=ptAt(10,i,maxR); return <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke={muted} strokeOpacity={0.18} strokeWidth="0.5"/>; })}
+      {charPath && <path d={charPath} fill={accent} fillOpacity="0.08" stroke={accent} strokeOpacity="0.25" strokeWidth="1" strokeDasharray="3 2"/>}
+      <path d={userPath} fill={accent} fillOpacity="0.22" stroke={accent} strokeOpacity="0.8" strokeWidth="1.5"/>
+      {userPts.map((p,i)=><circle key={i} cx={p.x} cy={p.y} r="2.5" fill={accent}/>)}
+      {DIMS.map((d,i)=>{
         const lp = labelPt(i);
         return (
           <g key={i}>
-            <text x={lp.x} y={lp.y-4} textAnchor="middle" fontSize="8"
-              fontFamily="'Special Elite',monospace" fill={muted} letterSpacing="1.5">{d.en}</text>
-            <text x={lp.x} y={lp.y+9} textAnchor="middle" fontSize="11"
-              fontFamily="'Noto Serif SC',serif" fontWeight="500" fill={text}>{d.cn}</text>
+            <text x={lp.x} y={lp.y-4} textAnchor="middle" fontSize="7.5" fontFamily="'Special Elite',monospace" fill={muted} letterSpacing="1.5">{d.en}</text>
+            <text x={lp.x} y={lp.y+9} textAnchor="middle" fontSize="10.5" fontFamily="'Noto Serif SC',serif" fontWeight="500" fill={text}>{d.cn}</text>
           </g>
         );
       })}
@@ -738,48 +741,65 @@ function Intro({ onStart }) {
   return (
     <div style={{
       minHeight:"100vh", display:"flex", flexDirection:"column",
-      alignItems:"center", justifyContent:"center",
-      padding:"40px 24px", background:"#14110d", color:"#ede2d0",
-      fontFamily:"'Noto Serif SC',serif"
+      background:"#14110d", color:"#ede2d0", fontFamily:"'Noto Serif SC',serif"
     }}>
-      <p style={{
-        fontFamily:"'Special Elite',monospace", letterSpacing:"0.25em",
-        fontSize:"0.7rem", color:"#8a7558", textTransform:"uppercase", margin:"0 0 20px"
-      }}>Sam Rockwell · Character Quiz</p>
-      <h1 style={{
-        fontFamily:"'Playfair Display',serif", fontStyle:"italic",
-        fontSize:"clamp(2rem,7vw,3.2rem)", fontWeight:700, color:"#cba14c",
-        textAlign:"center", margin:"0 0 16px", lineHeight:1.15
-      }}>最适合你的<br/>Sam 角色</h1>
-      <div style={{width:48,height:1,background:"#8a7558",margin:"0 auto 28px"}}/>
-      <p style={{
-        maxWidth:360, textAlign:"center", lineHeight:1.9,
-        fontSize:"0.95rem", color:"#a89878", margin:"0 0 16px"
+      <div style={{
+        padding:"14px 24px", display:"flex", alignItems:"center", justifyContent:"space-between",
+        borderBottom:"1px solid #2a2418"
       }}>
-        30 道题，39 个角色，没有陪跑。
-      </p>
-      <p style={{
-        maxWidth:360, textAlign:"center", lineHeight:1.8,
-        fontSize:"0.82rem", color:"#6a5c48", margin:"0 0 40px"
+        <a href="/WinterSunBlog/sam/" style={{
+          color:"#8a7558", textDecoration:"none", fontSize:"0.72rem",
+          fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em", opacity:0.8
+        }}>← For Sam</a>
+        <span style={{
+          fontFamily:"'Special Elite',monospace", fontSize:"0.62rem",
+          letterSpacing:"0.2em", color:"#5a4e3c", textTransform:"uppercase"
+        }}>Sam Rockwell · Character Quiz</span>
+        <span style={{width:60}}/>
+      </div>
+
+      <div style={{
+        flex:1, display:"flex", flexDirection:"column",
+        alignItems:"center", justifyContent:"center",
+        padding:"40px 24px 60px"
       }}>
-        行为、偏好、颜色、感觉——<br/>每一个答案都在指向那个人。
-      </p>
-      <button onClick={onStart} style={{
-        background:"transparent", border:"1px solid #cba14c",
-        color:"#cba14c", padding:"14px 48px", fontSize:"0.9rem",
-        fontFamily:"'Special Elite',monospace", letterSpacing:"0.2em",
-        cursor:"pointer", transition:"all 0.25s"
-      }}
-        onMouseEnter={e=>{ e.target.style.background="#cba14c"; e.target.style.color="#14110d"; }}
-        onMouseLeave={e=>{ e.target.style.background="transparent"; e.target.style.color="#cba14c"; }}
-      >
-        开始测试
-      </button>
-      <a href="/WinterSunBlog/sam/" style={{
-        display:"block", marginTop:32, color:"#8a7558", fontSize:"0.8rem",
-        fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em",
-        textDecoration:"none", opacity:0.7
-      }}>← For Sam</a>
+        <h1 style={{
+          fontFamily:"'Playfair Display',serif", fontStyle:"italic",
+          fontSize:"clamp(2rem,7vw,3.2rem)", fontWeight:700, color:"#cba14c",
+          textAlign:"center", margin:"0 0 16px", lineHeight:1.15
+        }}>最适合你的<br/>Sam 角色</h1>
+        <div style={{width:40,height:1,background:"#8a7558",margin:"0 auto 28px"}}/>
+        <p style={{
+          maxWidth:340, textAlign:"center", lineHeight:1.95,
+          fontSize:"0.93rem", color:"#a89878", margin:"0 0 12px"
+        }}>
+          30 道题，39 个角色，没有陪跑。
+        </p>
+        <p style={{
+          maxWidth:340, textAlign:"center", lineHeight:1.8,
+          fontSize:"0.82rem", color:"#6a5c48", margin:"0 0 44px"
+        }}>
+          行为、偏好、颜色、感觉——<br/>每一个答案都在指向那个人。
+        </p>
+        <button onClick={onStart} style={{
+          background:"transparent", border:"1px solid #cba14c",
+          color:"#cba14c", padding:"14px 52px", fontSize:"0.88rem",
+          fontFamily:"'Special Elite',monospace", letterSpacing:"0.22em",
+          cursor:"pointer", transition:"all 0.25s"
+        }}
+          onMouseEnter={e=>{ e.target.style.background="#cba14c"; e.target.style.color="#14110d"; }}
+          onMouseLeave={e=>{ e.target.style.background="transparent"; e.target.style.color="#cba14c"; }}
+        >
+          开始测试
+        </button>
+        <p style={{
+          marginTop:36, fontSize:"0.75rem", color:"#5a4e3c", textAlign:"center",
+          fontFamily:"'Special Elite',monospace", letterSpacing:"0.1em", lineHeight:1.7
+        }}>
+          3 个模块 · 每题单选<br/>
+          全程约 5 分钟
+        </p>
+      </div>
     </div>
   );
 }
@@ -788,11 +808,11 @@ function Intro({ onStart }) {
 const BLOCK_LABELS = {1:"行为 · Behavior", 2:"偏好 · Preference", 3:"感觉 · Aesthetic"};
 
 /* ── Question screen ──────────────────────────────────────────── */
-function QuestionScreen({ qIdx, onAnswer }) {
+function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack }) {
   const [selected, setSelected] = useState(null);
   const [leaving, setLeaving] = useState(false);
   const q = QUESTIONS[qIdx];
-  const progress = (qIdx / QUESTIONS.length) * 100;
+  const pct = (qIdx / QUESTIONS.length) * 100;
   const isNewBlock = qIdx === 0 || QUESTIONS[qIdx-1].block !== q.block;
 
   useEffect(() => { setSelected(null); setLeaving(false); }, [qIdx]);
@@ -802,73 +822,102 @@ function QuestionScreen({ qIdx, onAnswer }) {
     setSelected(i);
     setTimeout(() => {
       setLeaving(true);
-      setTimeout(() => onAnswer(q.opts[i]), 260);
-    }, 380);
+      setTimeout(() => onAnswer(q.opts[i]), 240);
+    }, 360);
   }
 
   return (
     <div style={{
       minHeight:"100vh", display:"flex", flexDirection:"column",
-      background:"#14110d", overflow:"hidden"
+      background:"#14110d"
     }}>
-      <div style={{height:2, background:"#2a2418", width:"100%"}}>
+      {/* ── Sticky header ── */}
+      <div style={{position:"sticky", top:0, zIndex:20, background:"#14110d"}}>
+        <div style={{height:"2px", background:"#231f18"}}>
+          <div style={{height:"100%", background:"#cba14c", width:pct+"%", transition:"width 0.4s ease"}}/>
+        </div>
         <div style={{
-          height:"100%", background:"#cba14c",
-          width:progress+"%", transition:"width 0.4s ease"
-        }}/>
+          padding:"10px 20px", display:"flex",
+          justifyContent:"space-between", alignItems:"center",
+          borderBottom:"1px solid #1e1b14"
+        }}>
+          <button
+            onClick={onBack}
+            disabled={!canGoBack}
+            style={{
+              background:"none", border:"none", padding:"4px 0",
+              color: canGoBack ? "#8a7558" : "#2e2a22",
+              fontFamily:"'Special Elite',monospace", fontSize:"0.7rem",
+              letterSpacing:"0.12em", cursor: canGoBack ? "pointer" : "default",
+              transition:"color 0.2s", minWidth:60
+            }}
+          >← 上一题</button>
+          <span style={{
+            fontFamily:"'Special Elite',monospace", fontSize:"0.72rem",
+            color:"#7a6c58", letterSpacing:"0.08em"
+          }}>Q {qIdx+1} / {QUESTIONS.length}</span>
+          <span style={{
+            fontFamily:"'Special Elite',monospace", fontSize:"0.65rem",
+            color:"#4e4538", letterSpacing:"0.1em", textAlign:"right", minWidth:60
+          }}>{BLOCK_LABELS[q.block]}</span>
+        </div>
       </div>
 
-      <div style={{
-        padding:"16px 28px 0", display:"flex", justifyContent:"space-between",
-        fontFamily:"'Special Elite',monospace", fontSize:"0.75rem",
-        color:"#8a7558", letterSpacing:"0.1em"
-      }}>
-        <span>Q {qIdx+1} / {QUESTIONS.length}</span>
-        <span style={{opacity:0.6}}>{BLOCK_LABELS[q.block]}</span>
-      </div>
-
+      {/* ── Question content ── */}
       <div style={{
         flex:1, display:"flex", flexDirection:"column",
         alignItems:"center", justifyContent:"center",
-        padding:"32px 24px 48px", maxWidth:680, margin:"0 auto", width:"100%",
-        opacity: leaving ? 0 : 1, transform: leaving ? "translateY(-12px)" : "translateY(0)",
-        transition:"opacity 0.25s, transform 0.25s"
+        padding:"28px 24px 52px", maxWidth:680, margin:"0 auto", width:"100%",
+        opacity: leaving ? 0 : 1,
+        transform: leaving ? "translateY(-10px)" : "translateY(0)",
+        transition:"opacity 0.22s, transform 0.22s"
       }}>
         {isNewBlock && qIdx > 0 && (
           <p style={{
-            fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
-            letterSpacing:"0.2em", color:"#6a5c48", margin:"0 0 20px",
+            fontFamily:"'Special Elite',monospace", fontSize:"0.58rem",
+            letterSpacing:"0.22em", color:"#5a4e3c", margin:"0 0 18px",
             textTransform:"uppercase"
           }}>— {BLOCK_LABELS[q.block]} —</p>
         )}
+
         <p style={{
           fontFamily:"'Playfair Display',serif", fontStyle:"italic",
-          fontSize:"clamp(1rem,4vw,1.45rem)", color:"#ede2d0", lineHeight:1.65,
-          textAlign:"center", margin:"0 0 36px", fontWeight:400
+          fontSize:"clamp(1rem,4vw,1.4rem)", color:"#ede2d0", lineHeight:1.7,
+          textAlign:"center", margin:"0 0 32px", fontWeight:400
         }}>{q.q}</p>
 
-        <div style={{width:"100%", display:"flex", flexDirection:"column", gap:10}}>
+        <div style={{width:"100%", display:"flex", flexDirection:"column", gap:9}}>
           {q.opts.map((opt, i) => {
             const isSel = selected === i;
+            const dimmed = selected !== null && !isSel;
             return (
               <button key={i} onClick={() => choose(i)} style={{
-                background: isSel ? "#cba14c22" : "transparent",
-                border: isSel ? "1px solid #cba14c" : "1px solid #3a3028",
-                color: isSel ? "#cba14c" : "#c8b894",
-                padding:"15px 20px", textAlign:"left",
-                fontFamily:"'Noto Serif SC',serif", fontSize:"0.9rem", lineHeight:1.65,
-                cursor:"pointer", transition:"all 0.2s", borderRadius:2,
-                opacity: (selected !== null && !isSel) ? 0.4 : 1,
+                background: isSel ? "#cba14c18" : "transparent",
+                border: isSel ? "1px solid #cba14c88" : "1px solid #2e2920",
+                color: isSel ? "#cba14c" : "#c0b090",
+                padding:"14px 18px", textAlign:"left",
+                fontFamily:"'Noto Serif SC',serif", fontSize:"0.88rem", lineHeight:1.7,
+                cursor:"pointer", transition:"all 0.18s", borderRadius:2,
+                opacity: dimmed ? 0.35 : 1,
               }}
-                onMouseEnter={e=>{ if(selected===null){ e.currentTarget.style.borderColor="#8a7558"; e.currentTarget.style.color="#e8d8b8"; }}}
-                onMouseLeave={e=>{ if(selected===null){ e.currentTarget.style.borderColor="#3a3028"; e.currentTarget.style.color="#c8b894"; }}}
+                onMouseEnter={e=>{ if(selected===null){ e.currentTarget.style.borderColor="#6a5c48"; e.currentTarget.style.color="#e0d0b0"; }}}
+                onMouseLeave={e=>{ if(selected===null){ e.currentTarget.style.borderColor="#2e2920"; e.currentTarget.style.color="#c0b090"; }}}
               >
                 <span style={{
-                  fontFamily:"'Special Elite',monospace", fontSize:"0.62rem",
-                  letterSpacing:"0.15em", color: isSel ? "#cba14c" : "#6a5c48",
+                  fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
+                  letterSpacing:"0.15em",
+                  color: isSel ? "#cba14c" : "#5a4e3c",
                   marginRight:10
                 }}>{String.fromCharCode(65+i)}</span>
                 {opt.text}
+                {opt.lineCN && (
+                  <span style={{
+                    display:"block", fontSize:"0.8rem",
+                    color: isSel ? "#cba14caa" : "#6a5c48",
+                    marginTop:5, fontStyle:"italic", lineHeight:1.65,
+                    paddingLeft:22
+                  }}>{opt.lineCN}</span>
+                )}
               </button>
             );
           })}
@@ -882,93 +931,154 @@ function QuestionScreen({ qIdx, onAnswer }) {
 function ResultScreen({ charScores, dimScores, onRetake }) {
   const ranked = getMatches(charScores);
   const c = ranked[0].char;
+  const matchPct = Math.round(ranked[0].ratio * 100);
   const [showAlt, setShowAlt] = useState(false);
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 120);
-    const t2 = setTimeout(() => setPhase(2), 600);
-    const t3 = setTimeout(() => setPhase(3), 1000);
+    const t1 = setTimeout(() => setPhase(1), 100);
+    const t2 = setTimeout(() => setPhase(2), 560);
+    const t3 = setTimeout(() => setPhase(3), 960);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
-  const normDims = {};
+  const normUser = {};
   DIMS.forEach(d => {
-    normDims[d.key] = Math.min(10, ((dimScores[d.key]||0) / (DIM_MAX[d.key]||1)) * 10);
+    normUser[d.key] = Math.min(10, ((dimScores[d.key]||0) / (DIM_MAX[d.key]||1)) * 10);
   });
 
-  const runners = ranked.slice(1, 4).map(r => r.char);
+  const runners = ranked.slice(1, 5).map(r => r.char);
 
   return (
     <div style={{
       minHeight:"100vh", background:c.bg, color:c.text,
       fontFamily:"'Noto Serif SC',serif",
-      opacity: phase >= 1 ? 1 : 0, transition:"opacity 0.6s ease"
+      opacity: phase >= 1 ? 1 : 0, transition:"opacity 0.5s ease"
     }}>
+      {/* ── Top nav ── */}
       <div style={{
-        padding:"18px 28px 0", display:"flex", justifyContent:"space-between", alignItems:"center"
+        padding:"12px 24px", display:"flex", alignItems:"center",
+        justifyContent:"space-between", borderBottom:`1px solid ${c.accent}22`
       }}>
-        <p style={{
-          fontFamily:"'Special Elite',monospace", letterSpacing:"0.25em",
-          fontSize:"0.65rem", color:c.muted, margin:0
-        }}>YOUR RESULT</p>
-        <a href="/WinterSunBlog/sam/" style={{color:c.muted,textDecoration:"none",fontSize:"0.75rem",
-          fontFamily:"'Special Elite',monospace",letterSpacing:"0.1em",opacity:0.6}}>For Sam</a>
+        <a href="/WinterSunBlog/sam/" style={{
+          color:c.muted, textDecoration:"none", fontSize:"0.7rem",
+          fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em", opacity:0.7
+        }}>← For Sam</a>
+        <span style={{
+          fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
+          letterSpacing:"0.2em", color:c.muted, opacity:0.5
+        }}>YOUR RESULT</span>
+        <button onClick={onRetake} style={{
+          background:"transparent", border:"none", padding:0,
+          fontFamily:"'Special Elite',monospace", fontSize:"0.65rem",
+          letterSpacing:"0.1em", color:c.muted, cursor:"pointer", opacity:0.6
+        }}>RETAKE</button>
       </div>
 
-      <div style={{maxWidth:720, margin:"0 auto", padding:"28px 24px 64px"}}>
+      <div style={{maxWidth:740, margin:"0 auto", padding:"28px 24px 72px"}}>
 
+        {/* ── Character headline ── */}
         <p style={{
           fontFamily:"'Special Elite',monospace", letterSpacing:"0.2em",
-          fontSize:"0.7rem", color:c.muted, margin:"0 0 6px"
+          fontSize:"0.68rem", color:c.muted, margin:"0 0 5px"
         }}>{c.year} · {c.filmCN}</p>
 
         <h1 style={{
           fontFamily:"'Playfair Display',serif", fontStyle:"italic",
-          fontSize:"clamp(2rem,8vw,3.6rem)", fontWeight:900,
-          color:c.accent, margin:"0 0 6px", lineHeight:1.05,
-          opacity: phase>=2?1:0, transform: phase>=2?"translateY(0)":"translateY(20px)",
-          transition:"opacity 0.5s 0.1s, transform 0.5s 0.1s"
+          fontSize:"clamp(2rem,8vw,3.4rem)", fontWeight:900,
+          color:c.accent, margin:"0 0 14px", lineHeight:1.05,
+          opacity: phase>=2?1:0, transform: phase>=2?"translateY(0)":"translateY(18px)",
+          transition:"opacity 0.45s 0.1s, transform 0.45s 0.1s"
         }}>{c.name}</h1>
 
         <p style={{
-          fontSize:"clamp(0.9rem,3vw,1.1rem)", lineHeight:1.8, color:c.text,
-          fontStyle:"italic", margin:"16px 0 32px", maxWidth:560,
-          opacity: phase>=3?1:0, transition:"opacity 0.5s 0.3s"
+          fontSize:"clamp(0.88rem,3vw,1.05rem)", lineHeight:1.85, color:c.text,
+          fontStyle:"italic", margin:"0 0 20px", maxWidth:540,
+          opacity: phase>=3?1:0, transition:"opacity 0.45s 0.2s"
         }}>{c.tagline}</p>
 
-        <div style={{width:40,height:1,background:c.accent,opacity:0.5,marginBottom:40}}/>
-
+        {/* ── Match explanation ── */}
         <div style={{
-          display:"grid", gridTemplateColumns:"1fr 1fr", gap:40,
+          opacity: phase>=3?1:0, transition:"opacity 0.45s 0.35s",
+          margin:"0 0 36px"
+        }}>
+          <p style={{
+            fontSize:"0.8rem", lineHeight:1.85, color:c.muted,
+            margin:0, fontStyle:"italic", maxWidth:500
+          }}>
+            30 道题里，他从你的答案里反复浮现——不只是性格契合，而是你对某种吸引力的直觉、某种关系动态的偏好、某种美学的感受，与他高度共鸣。这不是「你像他」，而是「他是你会心动的那种人」。
+          </p>
+        </div>
+
+        <div style={{width:36,height:1,background:c.accent,opacity:0.4,marginBottom:36}}/>
+
+        {/* ── Profile grid ── */}
+        <div style={{
+          display:"grid", gridTemplateColumns:"1fr 1fr", gap:36,
           alignItems:"start",
-          opacity: phase>=3?1:0, transition:"opacity 0.5s 0.5s"
+          opacity: phase>=3?1:0, transition:"opacity 0.45s 0.45s"
         }} className="result-grid">
-          <Radar dimScores={dimScores} accent={c.accent} muted={c.muted} text={c.text}/>
-          <div style={{display:"flex",flexDirection:"column",gap:20}}>
-            <div style={{borderLeft:`2px solid ${c.accent}`,paddingLeft:20}}>
+
+          {/* Left: radar */}
+          <div>
+            <p style={{
+              fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em",
+              fontSize:"0.62rem", color:c.muted, margin:"0 0 12px"
+            }}>YOUR PROFILE</p>
+            <Radar dimScores={dimScores} charProfile={c.profile} accent={c.accent} muted={c.muted} text={c.text}/>
+            <p style={{
+              fontSize:"0.68rem", color:c.muted, margin:"8px 0 0",
+              textAlign:"center", fontStyle:"italic", opacity:0.7
+            }}>实线 = 你的倾向 · 虚线 = 他的侧写</p>
+          </div>
+
+          {/* Right: quote + profile comparison */}
+          <div style={{display:"flex",flexDirection:"column",gap:22}}>
+            <div style={{borderLeft:`2px solid ${c.accent}55`,paddingLeft:18}}>
               <p style={{
                 fontFamily:"'Playfair Display',serif", fontStyle:"italic",
-                fontSize:"1rem", lineHeight:1.75, color:c.text, margin:"0 0 8px"
+                fontSize:"0.95rem", lineHeight:1.8, color:c.text, margin:"0 0 7px"
               }}>&ldquo;{c.line}&rdquo;</p>
-              <p style={{fontSize:"0.82rem",lineHeight:1.7,color:c.muted,margin:0,fontStyle:"italic"}}>{c.lineCN}</p>
+              <p style={{fontSize:"0.8rem",lineHeight:1.7,color:c.muted,margin:0,fontStyle:"italic"}}>{c.lineCN}</p>
             </div>
 
-            <div style={{marginTop:4}}>
-              <p style={{
-                fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em",
-                fontSize:"0.65rem", color:c.muted, margin:"0 0 10px"
-              }}>YOUR PROFILE</p>
+            <div>
+              <div style={{
+                display:"flex", justifyContent:"space-between", alignItems:"center",
+                marginBottom:10
+              }}>
+                <p style={{
+                  fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em",
+                  fontSize:"0.62rem", color:c.muted, margin:0
+                }}>DIMENSIONS</p>
+                <span style={{
+                  fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
+                  color:c.accent, letterSpacing:"0.08em"
+                }}>你 · 他</span>
+              </div>
               {DIMS.map(d => {
-                const v = normDims[d.key] || 0;
+                const u = normUser[d.key] || 0;
+                const h = c.profile[d.key] || 0;
                 return (
-                  <div key={d.key} style={{marginBottom:7}}>
-                    <div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}>
-                      <span style={{fontSize:"0.78rem",color:c.muted,fontFamily:"'Noto Serif SC',serif"}}>{d.cn}</span>
-                      <span style={{fontSize:"0.7rem",color:c.accent,fontFamily:"'Special Elite',monospace"}}>{v.toFixed(1)}</span>
+                  <div key={d.key} style={{marginBottom:9}}>
+                    <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}>
+                      <span style={{fontSize:"0.76rem",color:c.text,fontFamily:"'Noto Serif SC',serif"}}>{d.cn}</span>
+                      <span style={{fontSize:"0.68rem",color:c.muted,fontFamily:"'Special Elite',monospace",letterSpacing:"0.05em"}}>
+                        {u.toFixed(1)} · {h.toFixed(0)}
+                      </span>
                     </div>
-                    <div style={{height:2,background:c.muted+"44",borderRadius:1}}>
-                      <div style={{height:"100%",background:c.accent,width:(v/10*100)+"%",borderRadius:1,transition:"width 1s ease"}}/>
+                    <div style={{position:"relative",height:3,background:c.muted+"28",borderRadius:2}}>
+                      <div style={{
+                        position:"absolute",left:0,top:0,height:"100%",
+                        background:c.accent+"88",borderRadius:2,
+                        width:(h/10*100)+"%"
+                      }}/>
+                      <div style={{
+                        position:"absolute",left:0,top:0,height:"100%",
+                        background:c.accent,borderRadius:2,
+                        width:(u/10*100)+"%",
+                        transition:"width 1.1s ease"
+                      }}/>
                     </div>
                   </div>
                 );
@@ -977,82 +1087,108 @@ function ResultScreen({ charScores, dimScores, onRetake }) {
           </div>
         </div>
 
-        <div style={{height:1,background:c.accent,opacity:phase>=3?0.15:0,margin:"40px 0",transition:"opacity 0.5s 0.7s"}}/>
+        {/* ── Divider ── */}
+        <div style={{
+          height:1, background:c.accent, opacity: phase>=3?0.12:0,
+          margin:"40px 0", transition:"opacity 0.45s 0.65s"
+        }}/>
 
-        <div style={{opacity:phase>=3?1:0,transition:"opacity 0.5s 0.8s"}}>
+        {/* ── Runner-ups ── */}
+        <div style={{opacity:phase>=3?1:0,transition:"opacity 0.45s 0.72s"}}>
           <button onClick={() => setShowAlt(!showAlt)} style={{
-            background:"transparent", border:"none", padding:"0 0 8px",
+            background:"transparent", border:"none", padding:"0 0 14px",
             fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em",
-            fontSize:"0.65rem", color:c.muted, cursor:"pointer",
+            fontSize:"0.63rem", color:c.muted, cursor:"pointer",
             display:"flex", alignItems:"center", gap:8
           }}>
             <span style={{
-              display:"inline-block", transform: showAlt?"rotate(90deg)":"rotate(0deg)",
-              transition:"transform 0.2s"
+              display:"inline-block",
+              transform: showAlt?"rotate(90deg)":"rotate(0deg)",
+              transition:"transform 0.2s", fontSize:"0.55rem"
             }}>▶</span>
-            RUNNER-UPS
+            RUNNER-UPS — 接下来的 4 位
           </button>
+
           {showAlt && (
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginTop:4}} className="runner-grid">
-              {runners.map(rc => (
-                <div key={rc.id} style={{
-                  border:`1px solid ${rc.accent}44`,
-                  padding:"12px 16px", borderRadius:2
-                }}>
-                  <p style={{fontFamily:"'Special Elite',monospace",fontSize:"0.58rem",letterSpacing:"0.15em",color:rc.muted,margin:"0 0 3px"}}>{rc.year}</p>
-                  <p style={{fontFamily:"'Playfair Display',serif",fontStyle:"italic",fontSize:"0.92rem",color:rc.accent,margin:"0 0 3px",fontWeight:700}}>{rc.name}</p>
-                  <p style={{fontSize:"0.75rem",color:c.muted,margin:0,fontStyle:"italic"}}>{rc.filmCN}</p>
-                </div>
+            <div style={{display:"flex",flexDirection:"column",gap:8}} className="runner-list">
+              {runners.map((rc, ri) => (
+                <a key={rc.id}
+                  href={"/WinterSunBlog/sam/many-faces/#"+rc.id}
+                  target="_blank" rel="noopener"
+                  style={{
+                    display:"block",
+                    border:`1px solid ${rc.accent}33`,
+                    padding:"14px 18px", borderRadius:2,
+                    textDecoration:"none",
+                    transition:"border-color 0.18s, background 0.18s"
+                  }}
+                  onMouseEnter={e=>{ e.currentTarget.style.borderColor=rc.accent+"66"; e.currentTarget.style.background=rc.accent+"08"; }}
+                  onMouseLeave={e=>{ e.currentTarget.style.borderColor=rc.accent+"33"; e.currentTarget.style.background="transparent"; }}
+                >
+                  <div style={{display:"flex",alignItems:"baseline",gap:10,marginBottom:4}}>
+                    <span style={{
+                      fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
+                      color:rc.accent, letterSpacing:"0.1em", opacity:0.7
+                    }}>#{ri+2}</span>
+                    <span style={{
+                      fontFamily:"'Playfair Display',serif", fontStyle:"italic",
+                      fontSize:"1rem", color:rc.accent, fontWeight:700
+                    }}>{rc.name}</span>
+                    <span style={{
+                      fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
+                      color:c.muted, letterSpacing:"0.08em", opacity:0.6
+                    }}>{rc.year} · {rc.filmCN}</span>
+                  </div>
+                  <p style={{
+                    fontSize:"0.8rem", color:c.muted, margin:0,
+                    fontStyle:"italic", lineHeight:1.65, opacity:0.85
+                  }}>{rc.tagline}</p>
+                </a>
               ))}
             </div>
           )}
         </div>
 
+        {/* ── Action buttons ── */}
         <div style={{
-          display:"flex", gap:12, flexWrap:"wrap", marginTop:44,
-          opacity:phase>=3?1:0, transition:"opacity 0.5s 0.9s"
+          display:"flex", gap:10, flexWrap:"wrap", marginTop:44,
+          opacity:phase>=3?1:0, transition:"opacity 0.45s 0.85s"
         }}>
           <a href={"/WinterSunBlog/sam/many-faces/#"+c.id} style={{
             border:`1px solid ${c.accent}`, color:c.accent, padding:"12px 24px",
-            fontFamily:"'Special Elite',monospace", fontSize:"0.72rem",
+            fontFamily:"'Special Elite',monospace", fontSize:"0.7rem",
             letterSpacing:"0.15em", textDecoration:"none", transition:"all 0.2s"
           }}
             onMouseEnter={e=>{ e.currentTarget.style.background=c.accent; e.currentTarget.style.color=c.bg; }}
             onMouseLeave={e=>{ e.currentTarget.style.background="transparent"; e.currentTarget.style.color=c.accent; }}
-          >
-            READ HIS STORY →
-          </a>
+          >READ HIS STORY →</a>
           {c.auLink && (
             <a href={c.auLink} style={{
-              border:`1px solid ${c.accent}66`, color:c.text, padding:"12px 24px",
-              fontFamily:"'Special Elite',monospace", fontSize:"0.72rem",
+              border:`1px solid ${c.accent}55`, color:c.text, padding:"12px 24px",
+              fontFamily:"'Special Elite',monospace", fontSize:"0.7rem",
               letterSpacing:"0.15em", textDecoration:"none", transition:"all 0.2s"
             }}
               onMouseEnter={e=>{ e.currentTarget.style.borderColor=c.accent; e.currentTarget.style.color=c.accent; }}
-              onMouseLeave={e=>{ e.currentTarget.style.borderColor=c.accent+"66"; e.currentTarget.style.color=c.text; }}
-            >
-              READ HIS STORY (AU) →
-            </a>
+              onMouseLeave={e=>{ e.currentTarget.style.borderColor=c.accent+"55"; e.currentTarget.style.color=c.text; }}
+            >READ HIS STORY (AU) →</a>
           )}
           <button onClick={onRetake} style={{
-            background:"transparent", border:`1px solid ${c.muted}66`,
+            background:"transparent", border:`1px solid ${c.muted}44`,
             color:c.muted, padding:"12px 24px",
-            fontFamily:"'Special Elite',monospace", fontSize:"0.72rem",
+            fontFamily:"'Special Elite',monospace", fontSize:"0.7rem",
             letterSpacing:"0.15em", cursor:"pointer", transition:"all 0.2s"
           }}
             onMouseEnter={e=>{ e.currentTarget.style.borderColor=c.muted; e.currentTarget.style.color=c.text; }}
-            onMouseLeave={e=>{ e.currentTarget.style.borderColor=c.muted+"66"; e.currentTarget.style.color=c.muted; }}
-          >
-            RETAKE
-          </button>
+            onMouseLeave={e=>{ e.currentTarget.style.borderColor=c.muted+"44"; e.currentTarget.style.color=c.muted; }}
+          >RETAKE</button>
         </div>
 
       </div>
 
       <style>{`
-        @media (max-width: 560px) {
+        @media (max-width: 580px) {
           .result-grid { grid-template-columns: 1fr !important; }
-          .runner-grid { grid-template-columns: 1fr 1fr !important; }
+          .runner-list a { padding: 12px 14px !important; }
         }
       `}</style>
     </div>
@@ -1065,21 +1201,31 @@ function App() {
   const [qIdx, setQIdx]   = useState(0);
   const [charScores, setCharScores] = useState({});
   const [dimScores, setDimScores]   = useState({guile:0,forbear:0,chaos:0,raw:0,romance:0,grace:0});
+  const [history, setHistory] = useState([]);
 
   function startQuiz() {
     setQIdx(0);
     setCharScores({});
     setDimScores({guile:0,forbear:0,chaos:0,raw:0,romance:0,grace:0});
+    setHistory([]);
     setStage("quiz");
   }
 
   function handleAnswer(opt) {
+    const charDelta = {};
+    Object.keys(opt.chars).forEach(id => { charDelta[id] = opt.chars[id]; });
+    const dimDelta = {};
+    Object.keys(opt.dims).forEach(k => { dimDelta[k] = opt.dims[k]; });
+
     const nc = {...charScores};
-    Object.keys(opt.chars).forEach(id => { nc[id] = (nc[id]||0) + opt.chars[id]; });
+    Object.keys(charDelta).forEach(id => { nc[id] = (nc[id]||0) + charDelta[id]; });
     const nd = {...dimScores};
-    Object.keys(opt.dims).forEach(k => { nd[k] = (nd[k]||0) + opt.dims[k]; });
+    Object.keys(dimDelta).forEach(k => { nd[k] = (nd[k]||0) + dimDelta[k]; });
+
+    setHistory(prev => [...prev, {charDelta, dimDelta}]);
     setCharScores(nc);
     setDimScores(nd);
+
     if (qIdx + 1 >= QUESTIONS.length) {
       setStage("result");
     } else {
@@ -1087,8 +1233,23 @@ function App() {
     }
   }
 
+  function handleBack() {
+    if (history.length === 0 || qIdx === 0) return;
+    const last = history[history.length - 1];
+
+    const nc = {...charScores};
+    Object.keys(last.charDelta).forEach(id => { nc[id] = Math.max(0, (nc[id]||0) - last.charDelta[id]); });
+    const nd = {...dimScores};
+    Object.keys(last.dimDelta).forEach(k => { nd[k] = Math.max(0, (nd[k]||0) - last.dimDelta[k]); });
+
+    setCharScores(nc);
+    setDimScores(nd);
+    setHistory(prev => prev.slice(0, -1));
+    setQIdx(qIdx - 1);
+  }
+
   if (stage === "intro")  return <Intro onStart={startQuiz}/>;
-  if (stage === "quiz")   return <QuestionScreen qIdx={qIdx} onAnswer={handleAnswer}/>;
+  if (stage === "quiz")   return <QuestionScreen qIdx={qIdx} onAnswer={handleAnswer} onBack={handleBack} canGoBack={qIdx > 0}/>;
   if (stage === "result") return <ResultScreen charScores={charScores} dimScores={dimScores} onRetake={startQuiz}/>;
   return null;
 }
