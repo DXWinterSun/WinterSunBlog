@@ -31,7 +31,8 @@
   .iconbtn:active,.moon-toggle:active{transform:scale(.92)}
 
   /* ---------- lock screen ---------- */
-  .lockscreen{position:fixed;inset:0;background:var(--bg);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
+  .lockscreen{position:fixed;inset:0;background:var(--bg);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
+  .lockscreen.visible{display:flex}
   .lockbox{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 24px;width:100%;max-width:320px;text-align:center}
   .lockbox h2{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:1.3rem;font-weight:600;margin:0 0 6px}
   .lockbox p{color:var(--mute);font-size:.86rem;margin:0 0 18px}
@@ -103,7 +104,7 @@
 <body>
 
 <!-- lock screen (shown when a passcode is set and session is not yet unlocked) -->
-<div class="lockscreen" id="lockscreen" hidden>
+<div class="lockscreen" id="lockscreen">
   <div class="lockbox">
     <h2>Polski · Odmiana</h2>
     <p>Enter passcode to continue</p>
@@ -185,7 +186,7 @@
   function getPasscode(){ return (read(LS.pc)||"").trim(); }
 
   function unlock(){
-    lockscreen.hidden = true;
+    lockscreen.classList.remove("visible");
     mainWrap.style.display = "";
     ssStore(SS.unlocked, "1");
   }
@@ -195,7 +196,7 @@
     if (!pc){ unlock(); return; }
     if (ssRead(SS.unlocked) === "1"){ unlock(); return; }
     mainWrap.style.display = "none";
-    lockscreen.hidden = false;
+    lockscreen.classList.add("visible");
     lockInput.focus();
   }
 
