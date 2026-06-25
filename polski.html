@@ -1,0 +1,349 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Polski · Odmiana</title>
+<style>
+  :root{
+    --space:#1a1838; --space-card:#252247; --space-line:#34315c; --space-ink:#f8f5ed; --space-mute:#9a96c0;
+    --moon:#f8f5ed; --moon-card:#fffdf7; --moon-line:#e6e0cf; --moon-ink:#1a1838; --moon-mute:#6b6880;
+    --gold:#d8b46a; --rose:#d98a8a;
+    --bg:var(--space); --card:var(--space-card); --line:var(--space-line); --ink:var(--space-ink); --mute:var(--space-mute); --field:#1f1d40;
+  }
+  html[data-mode="light"]{ --bg:var(--moon); --card:var(--moon-card); --line:var(--moon-line); --ink:var(--moon-ink); --mute:var(--moon-mute); --field:#fffefb; }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.5; min-height:100vh;
+    padding:max(18px,env(safe-area-inset-top)) 18px calc(28px + env(safe-area-inset-bottom));
+    transition:background .45s ease,color .45s ease;
+  }
+  .wrap{max-width:560px;margin:0 auto}
+  header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px}
+  .brand h1{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:1.5rem;font-weight:600;margin:0;letter-spacing:.2px}
+  .brand p{margin:2px 0 0;font-size:.82rem;color:var(--mute)}
+  .hbtns{display:flex;gap:8px;flex:0 0 auto}
+  .iconbtn,.moon-toggle{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:inherit;font-size:1.2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s ease,border-color .25s ease,transform .2s ease}
+  .iconbtn:active,.moon-toggle:active{transform:scale(.92)}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:18px}
+  .plabel{display:block;font-size:.78rem;letter-spacing:.4px;text-transform:uppercase;color:var(--mute);margin:0 0 6px}
+  .panel input,.panel select{width:100%;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:1rem;font-family:inherit;outline:none;margin-bottom:14px}
+  .panel input:focus-visible,.panel select:focus-visible{border-color:var(--gold)}
+  .prow{display:flex;gap:8px}
+  .pnote{margin:12px 0 0;font-size:.76rem;line-height:1.5;color:var(--mute)}
+
+  .search{display:flex;gap:8px;margin-bottom:20px}
+  .search input{flex:1;min-width:0;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:13px 15px;font-size:1.05rem;font-family:inherit;outline:none;transition:border-color .2s ease}
+  .search input::placeholder{color:var(--mute)}
+  .search input:focus-visible{border-color:var(--gold)}
+  .search button{flex:0 0 auto;border:none;cursor:pointer;background:var(--gold);color:#1a1838;font-weight:600;font-size:1rem;border-radius:14px;padding:0 18px;font-family:inherit;transition:opacity .2s ease,transform .15s ease}
+  .search button:active{transform:scale(.96)}
+  .search button:disabled{opacity:.5;cursor:default}
+
+  .hint{color:var(--mute);font-size:.95rem;text-align:center;padding:34px 10px;border:1px dashed var(--line);border-radius:16px}
+  .loading{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mute);padding:30px}
+  .spinner{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);border-top-color:var(--gold);animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .error{color:var(--rose);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:.95rem}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;margin-bottom:14px}
+  .headword{display:flex;align-items:center;gap:12px}
+  .headword .pl{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:1.7rem;font-weight:600;word-break:break-word}
+  .trans{margin-top:6px;color:var(--mute);font-size:1.02rem}
+  .trans b{color:var(--ink);font-weight:600}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+  .tag{font-size:.74rem;letter-spacing:.4px;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+  .note{margin-top:12px;font-size:.86rem;color:var(--gold);border-top:1px solid var(--line);padding-top:11px}
+
+  .toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}
+  .ghostbtn{cursor:pointer;background:transparent;color:var(--gold);border:1px solid var(--line);border-radius:12px;padding:9px 14px;font-size:.9rem;font-family:inherit;display:inline-flex;align-items:center;gap:7px;transition:border-color .2s ease,transform .15s ease}
+  .ghostbtn:active{transform:scale(.96)}
+  .ghostbtn:focus-visible{border-color:var(--gold)}
+
+  .moonbtn{flex:0 0 auto;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:background .2s ease,transform .15s ease}
+  .moonbtn:active{transform:scale(.9)}
+  .moonbtn.speaking{background:var(--gold);color:var(--bg);animation:glow 1s ease-in-out infinite}
+  @keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(216,180,106,0)}50%{box-shadow:0 0 0 6px rgba(216,180,106,.18)}}
+
+  .sectlabel{font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--mute);margin:18px 4px 9px}
+  .sectlabel:first-of-type{margin-top:0}
+  .tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .tbl th,.tbl td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+  .tbl tr:last-child th,.tbl tr:last-child td{border-bottom:none}
+  .tbl thead th{font-size:.72rem;letter-spacing:.5px;text-transform:uppercase;color:var(--mute);font-weight:600}
+  .casecol{color:var(--mute);font-weight:500;font-size:.9rem;white-space:nowrap}
+  .form{display:flex;align-items:center;gap:9px;justify-content:space-between}
+  .form .w{font-size:1.02rem;word-break:break-word}
+  .form .w.dash{color:var(--mute)}
+
+  .toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--card);color:var(--ink);border:1px solid var(--gold);border-radius:12px;padding:11px 16px;font-size:.86rem;max-width:88vw;text-align:center;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:20}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  footer{margin-top:22px;color:var(--mute);font-size:.78rem;line-height:1.55;text-align:center}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><h1>Polski · Odmiana</h1><p>Type a Polish word, hear every form</p></div>
+    <div class="hbtns">
+      <button class="iconbtn" id="setBtn" aria-label="Settings">⚙️</button>
+      <button class="moon-toggle" id="modeBtn" aria-label="Switch light / dark">🌑</button>
+    </div>
+  </header>
+
+  <div class="panel" id="panel" hidden>
+    <label class="plabel" for="keyIn">Anthropic API key</label>
+    <input id="keyIn" type="password" placeholder="sk-ant-..." autocomplete="off" autocapitalize="off" spellcheck="false" />
+    <label class="plabel" for="modelIn">Model</label>
+    <select id="modelIn">
+      <option value="claude-sonnet-4-6">Sonnet — balanced (default)</option>
+      <option value="claude-haiku-4-5-20251001">Haiku — fastest, cheapest</option>
+      <option value="claude-opus-4-8">Opus — most accurate</option>
+    </select>
+    <div class="prow">
+      <button id="saveSet" class="ghostbtn">Save</button>
+      <button id="clearKey" class="ghostbtn">Clear key</button>
+    </div>
+    <p class="pnote">Stored only in this browser. Sent only to Anthropic when you look up a word — never saved in the site's code. Get a key at console.anthropic.com.</p>
+  </div>
+
+  <div class="search">
+    <input id="q" type="text" inputmode="text" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="np. kot, robić, piękny…" aria-label="Polish word" />
+    <button id="go">Analyze</button>
+  </div>
+
+  <div id="out">
+    <div class="hint">Look up a Polish noun, adjective, or verb.<br>You'll get a short English meaning and every form — tap 🌑 to hear one, or "Copy all" to paste the whole set into Google Translate.</div>
+  </div>
+
+  <footer>
+    Audio uses your phone's built-in Polish voice. Forms are AI-generated — for rare or irregular words, copy them out and double-check before committing them to memory.
+  </footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+  var LS = { key:"polski.key", model:"polski.model", mode:"polski.mode" };
+  var DEFAULT_MODEL = "claude-sonnet-4-6";
+
+  function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  function read(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function del(k){ try{ localStorage.removeItem(k); }catch(e){} }
+
+  /* ---------- theme ---------- */
+  var html = document.documentElement;
+  var modeBtn = document.getElementById("modeBtn");
+  function setMode(m){ html.setAttribute("data-mode", m); modeBtn.textContent = (m==="light") ? "🌕" : "🌑"; store(LS.mode, m); }
+  setMode(read(LS.mode) === "light" ? "light" : "dark");
+  modeBtn.addEventListener("click", function(){ setMode(html.getAttribute("data-mode")==="light" ? "dark" : "light"); });
+
+  /* ---------- settings ---------- */
+  var panel = document.getElementById("panel");
+  var setBtn = document.getElementById("setBtn");
+  var keyIn = document.getElementById("keyIn");
+  var modelIn = document.getElementById("modelIn");
+  function openPanel(open){
+    if (open){ keyIn.value = read(LS.key) || ""; modelIn.value = read(LS.model) || DEFAULT_MODEL; panel.hidden = false; keyIn.focus(); }
+    else { panel.hidden = true; }
+  }
+  setBtn.addEventListener("click", function(){ openPanel(panel.hidden); });
+  document.getElementById("saveSet").addEventListener("click", function(){
+    var k = (keyIn.value||"").trim();
+    if (k) store(LS.key, k);
+    store(LS.model, modelIn.value || DEFAULT_MODEL);
+    openPanel(false); toast("Saved.");
+  });
+  document.getElementById("clearKey").addEventListener("click", function(){
+    del(LS.key); keyIn.value = ""; toast("Key cleared.");
+  });
+  function getKey(){ return (read(LS.key)||"").trim(); }
+  function getModel(){ return read(LS.model) || DEFAULT_MODEL; }
+
+  /* ---------- voices ---------- */
+  var voices = [];
+  function loadVoices(){ try{ voices = window.speechSynthesis.getVoices() || []; }catch(e){ voices = []; } }
+  if ("speechSynthesis" in window){ loadVoices(); window.speechSynthesis.onvoiceschanged = loadVoices; }
+  function polishVoice(){
+    var pl = voices.filter(function(v){ var l=(v.lang||"").toLowerCase(); return l==="pl-pl"||l.indexOf("pl")===0; });
+    if (!pl.length) return null;
+    var def = pl.filter(function(v){ return v.default; }); if (def.length) return def[0];
+    var zos = pl.filter(function(v){ return /zosia/i.test(v.name||""); }); if (zos.length) return zos[0];
+    return pl[0];
+  }
+  var currentBtn = null;
+  function speak(text, btn){
+    if (!("speechSynthesis" in window) || !text) return;
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    if (currentBtn) currentBtn.classList.remove("speaking");
+    if (!voices.length) loadVoices();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "pl-PL"; var v = polishVoice(); if (v) u.voice = v; u.rate = 0.9;
+    if (btn){ currentBtn = btn; btn.classList.add("speaking"); u.onend = u.onerror = function(){ btn.classList.remove("speaking"); }; }
+    window.speechSynthesis.speak(u);
+  }
+
+  /* ---------- helpers ---------- */
+  var out = document.getElementById("out");
+  var q = document.getElementById("q");
+  var go = document.getElementById("go");
+  var toastEl = document.getElementById("toast");
+  var SAY = {}, LAST = null, toastTimer = null;
+
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function realCols(cols){ return (cols||[]).filter(function(c){ return c && String(c).trim() && c!=="—"; }); }
+  function moonBtnHTML(key){ return '<button class="moonbtn" data-say="'+key+'" aria-label="Play pronunciation">🌑</button>'; }
+
+  function tableHTML(t, ctr){
+    var cols = t.columns || [];
+    var showHead = realCols(cols).length > 0;
+    var h = '<div class="sectlabel">'+esc(t.title)+'</div><table class="tbl">';
+    if (showHead){ h += '<thead><tr><th></th>'; cols.forEach(function(c){ h += '<th>'+esc(c)+'</th>'; }); h += '</tr></thead>'; }
+    h += '<tbody>';
+    (t.rows||[]).forEach(function(r){
+      h += '<tr><td class="casecol">'+esc(r.label)+'</td>';
+      (r.forms||[]).forEach(function(f){
+        var dash = (!f || f==="—"); var key = "f"+(ctr.n++);
+        if (!dash) SAY[key] = f;
+        h += '<td><div class="form"><span class="w'+(dash?" dash":"")+'">'+esc(f||"—")+'</span>'+(dash?"":moonBtnHTML(key))+'</div></td>';
+      });
+      h += '</tr>';
+    });
+    h += '</tbody></table>';
+    return h;
+  }
+
+  function render(d){
+    LAST = d; SAY = { head:d.word };
+    var ctr = { n:0 };
+    var h = '<div class="card"><div class="headword"><span class="pl">'+esc(d.word)+'</span>'+moonBtnHTML("head")+'</div>';
+    if (d.translation) h += '<div class="trans">Meaning: <b>'+esc(d.translation)+'</b></div>';
+    var tags=[]; if (d.pos) tags.push(esc(d.pos)); if (d.extra) tags.push(esc(d.extra));
+    if (tags.length){ h += '<div class="tags">'; tags.forEach(function(t){ h += '<span class="tag">'+t+'</span>'; }); h += '</div>'; }
+    if (d.note) h += '<div class="note">'+esc(d.note)+'</div>';
+    h += '</div>';
+    var tables = d.tables || [];
+    if (tables.length){
+      h += '<div class="toolbar"><button id="copyAll" class="ghostbtn">📋 Copy all</button></div>';
+      tables.forEach(function(t){ h += tableHTML(t, ctr); });
+    }
+    out.innerHTML = h;
+  }
+
+  function buildCopyText(d){
+    if (!d) return "";
+    var L = [ d.word + (d.translation ? " — " + d.translation : "") ];
+    (d.tables||[]).forEach(function(t){
+      L.push("");
+      var cols = realCols(t.columns);
+      L.push(t.title + (cols.length ? " (" + cols.join(" / ") + ")" : ""));
+      (t.rows||[]).forEach(function(r){
+        var fs = (r.forms||[]).filter(function(f){ return f && f!=="—"; });
+        L.push(r.label + ": " + (fs.length ? fs.join(" / ") : "—"));
+      });
+    });
+    return L.join("\n");
+  }
+
+  function toast(msg){
+    toastEl.textContent = msg; toastEl.classList.add("show");
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 2600);
+  }
+  function legacyCopy(text, ok){
+    try{
+      var ta=document.createElement("textarea"); ta.value=text; ta.setAttribute("readonly","");
+      ta.style.position="fixed"; ta.style.top="-1000px"; document.body.appendChild(ta);
+      ta.select(); ta.setSelectionRange(0, text.length);
+      var done=document.execCommand("copy"); document.body.removeChild(ta);
+      if (done) ok(); else toast("Couldn't copy automatically — long-press the list to select.");
+    }catch(e){ toast("Couldn't copy automatically — long-press the list to select."); }
+  }
+  function doCopy(){
+    var text = buildCopyText(LAST); if (!text) return;
+    var ok = function(){ toast("Copied — paste into Google Translate to check."); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(ok).catch(function(){ legacyCopy(text, ok); });
+    } else { legacyCopy(text, ok); }
+  }
+
+  out.addEventListener("click", function(e){
+    var copyHit = (e.target.id==="copyAll") || (e.target.closest && e.target.closest("#copyAll"));
+    if (copyHit){ doCopy(); return; }
+    var b = e.target.closest ? e.target.closest(".moonbtn") : null;
+    if (!b) return;
+    var key = b.getAttribute("data-say");
+    speak(key==="head" ? SAY.head : SAY[key], b);
+  });
+
+  function extractJSON(s){
+    if (!s) return null;
+    var a=s.indexOf("{"), z=s.lastIndexOf("}");
+    if (a<0||z<0||z<a) return null;
+    try{ return JSON.parse(s.slice(a, z+1)); }catch(e){ return null; }
+  }
+
+  function analyze(){
+    var word = (q.value||"").trim();
+    if (!word) return;
+    if (!getKey()){ toast("Add your Anthropic API key in ⚙️ settings first."); openPanel(true); return; }
+    go.disabled = true;
+    out.innerHTML = '<div class="loading"><span class="spinner"></span>Analyzing "'+esc(word)+'"…</div>';
+
+    var prompt =
+      'You are a Polish morphology engine. For the Polish word below, return ONLY a minified JSON object — no markdown, no backticks, no prose. Shape:\n'+
+      '{"word":string,"translation":string,"pos":string,"extra":string,"note":string,"tables":[{"title":string,"columns":[string],"rows":[{"label":string,"forms":[string]}]}]}\n'+
+      'Definitions: "translation"=1-2 word English meaning. "pos"=noun|adjective|verb|other. '+
+      '"extra"= for nouns the gender (masculine/feminine/neuter); for verbs the aspect (imperfective/perfective); else "". '+
+      '"note"= max 14 words, or "".\n'+
+      'Use standard contemporary Polish with correct diacritics. Build "tables" by part of speech:\n'+
+      'NOUN or ADJECTIVE: exactly one table {"title":"Declension","columns":["Singular","Plural"]}, rows in THIS order: Nominative, Genitive, Dative, Accusative, Instrumental, Locative, Vocative. Each row.forms=[singular,plural]; use "—" where a form does not exist.\n'+
+      'VERB: include the applicable tables among "Present","Past","Future","Imperative","Conditional".\n'+
+      '  - "Present","Future","Conditional": "columns":[""], rows labeled "ja","ty","on/ona/ono","my","wy","oni/one", each forms=[one form]. Omit "Present" for perfective verbs.\n'+
+      '  - "Past": "columns":["masculine","feminine"], rows "ja","ty","on/ona","my","wy","oni/one"; forms=[masculine, feminine]. For plural rows use the masculine-personal form in the masculine column and the other form in the feminine column.\n'+
+      '  - "Imperative": "columns":[""], rows "ty","my","wy".\n'+
+      'OTHER / indeclinable: "tables":[] and explain briefly in "note".\n'+
+      'Word: "'+word+'"';
+
+    fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{
+        "content-type":"application/json",
+        "x-api-key":getKey(),
+        "anthropic-version":"2023-06-01",
+        "anthropic-dangerous-direct-browser-access":"true"
+      },
+      body:JSON.stringify({ model:getModel(), max_tokens:1000, messages:[{role:"user",content:prompt}] })
+    })
+    .then(function(r){ return r.json().then(function(j){ return { ok:r.ok, status:r.status, j:j }; }); })
+    .then(function(res){
+      if (!res.ok || (res.j && res.j.type==="error")){
+        var msg = (res.status===401) ? "API key looks invalid — check it in ⚙️ settings."
+                : ((res.j && res.j.error && res.j.error.message) ? res.j.error.message : "Request failed. Try again.");
+        out.innerHTML = '<div class="error">'+esc(msg)+'</div>'; return;
+      }
+      var text=(res.j.content||[]).filter(function(i){return i.type==="text";}).map(function(i){return i.text;}).join("\n");
+      var d=extractJSON(text);
+      if (!d){ out.innerHTML='<div class="error">Couldn\'t read that one. Check the spelling, or try a simpler form of the word.</div>'; return; }
+      render(d);
+    })
+    .catch(function(){ out.innerHTML='<div class="error">No connection right now. Try again in a moment.</div>'; })
+    .then(function(){ go.disabled=false; });
+  }
+
+  go.addEventListener("click", analyze);
+  q.addEventListener("keydown", function(e){ if (e.key==="Enter") analyze(); });
+})();
+</script>
+</body>
+</html>
