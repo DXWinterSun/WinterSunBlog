@@ -30,7 +30,7 @@
   .iconbtn,.moon-toggle{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:inherit;font-size:1.2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s ease,border-color .25s ease,transform .2s ease}
   .iconbtn:active,.moon-toggle:active{transform:scale(.92)}
 
-  /* ---------- lock screen ---------- */
+  /* lock screen */
   .lockscreen{position:fixed;inset:0;background:var(--bg);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
   .lockscreen.visible{display:flex}
   .lockbox{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 24px;width:100%;max-width:320px;text-align:center}
@@ -44,11 +44,12 @@
   .lockbox button:active{transform:scale(.97)}
   .lockerr{color:var(--rose);font-size:.82rem;margin-top:8px;min-height:1.2em}
 
+  /* settings panel */
   .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:18px}
   .plabel{display:block;font-size:.78rem;letter-spacing:.4px;text-transform:uppercase;color:var(--mute);margin:0 0 6px}
-  .panel input,.panel select{width:100%;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:1rem;font-family:inherit;outline:none;margin-bottom:14px}
-  .panel input:focus-visible,.panel select:focus-visible{border-color:var(--gold)}
-  .prow{display:flex;gap:8px}
+  .panel input{width:100%;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:1rem;font-family:inherit;outline:none;margin-bottom:14px}
+  .panel input:focus-visible{border-color:var(--gold)}
+  .prow{display:flex;gap:8px;flex-wrap:wrap}
   .pnote{margin:12px 0 0;font-size:.76rem;line-height:1.5;color:var(--mute)}
 
   .search{display:flex;gap:8px;margin-bottom:20px}
@@ -70,6 +71,8 @@
   .headword .pl{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:1.7rem;font-weight:600;word-break:break-word}
   .trans{margin-top:6px;color:var(--mute);font-size:1.02rem}
   .trans b{color:var(--ink);font-weight:600}
+  .trans a{color:var(--gold);text-decoration:none;font-size:.9rem}
+  .trans a:hover{text-decoration:underline}
   .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
   .tag{font-size:.74rem;letter-spacing:.4px;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
   .note{margin-top:12px;font-size:.86rem;color:var(--gold);border-top:1px solid var(--line);padding-top:11px}
@@ -98,12 +101,12 @@
   .toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--card);color:var(--ink);border:1px solid var(--gold);border-radius:12px;padding:11px 16px;font-size:.86rem;max-width:88vw;text-align:center;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:20}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
   footer{margin-top:22px;color:var(--mute);font-size:.78rem;line-height:1.55;text-align:center}
+  footer a{color:var(--mute)}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 
-<!-- lock screen (shown when a passcode is set and session is not yet unlocked) -->
 <div class="lockscreen" id="lockscreen">
   <div class="lockbox">
     <h2>Polski · Odmiana</h2>
@@ -116,7 +119,7 @@
 
 <div class="wrap" id="mainWrap">
   <header>
-    <div class="brand"><h1>Polski · Odmiana</h1><p>Type a Polish word, hear every form</p></div>
+    <div class="brand"><h1>Polski · Odmiana</h1><p>Offline Polish declension &amp; conjugation</p></div>
     <div class="hbtns">
       <button class="iconbtn" id="setBtn" aria-label="Settings">⚙️</button>
       <button class="moon-toggle" id="modeBtn" aria-label="Switch light / dark">🌑</button>
@@ -124,35 +127,27 @@
   </header>
 
   <div class="panel" id="panel" hidden>
-    <label class="plabel" for="keyIn">Anthropic API key</label>
-    <input id="keyIn" type="password" placeholder="sk-ant-..." autocomplete="off" autocapitalize="off" spellcheck="false" />
-    <label class="plabel" for="modelIn">Model</label>
-    <select id="modelIn">
-      <option value="claude-sonnet-4-6">Sonnet — balanced (default)</option>
-      <option value="claude-haiku-4-5-20251001">Haiku — fastest, cheapest</option>
-      <option value="claude-opus-4-8">Opus — most accurate</option>
-    </select>
-    <label class="plabel" for="pcIn" style="margin-top:4px">Site passcode (optional)</label>
+    <label class="plabel" for="pcIn">Site passcode (optional)</label>
     <input id="pcIn" type="password" placeholder="Set a passcode to lock this page…" autocomplete="new-password" autocapitalize="off" spellcheck="false" />
     <div class="prow">
       <button id="saveSet" class="ghostbtn">Save</button>
-      <button id="clearKey" class="ghostbtn">Clear key</button>
       <button id="clearPc" class="ghostbtn">Remove passcode</button>
     </div>
-    <p class="pnote">API key: stored only in this browser, sent only to Anthropic. Get one at console.anthropic.com.<br>Passcode: if set, anyone opening this page must enter it first.</p>
+    <p class="pnote">If set, anyone opening this page must enter the passcode first. Stored only in this browser.</p>
   </div>
 
   <div class="search">
     <input id="q" type="text" inputmode="text" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="np. kot, robić, piękny…" aria-label="Polish word" />
-    <button id="go">Analyze</button>
+    <button id="go">Look up</button>
   </div>
 
   <div id="out">
-    <div class="hint">Look up a Polish noun, adjective, or verb.<br>You'll get a short English meaning and every form — tap 🌑 to hear one, or "Copy all" to paste the whole set into Google Translate.</div>
+    <div class="hint">Type any Polish word — noun, verb, or adjective — and see the full inflection table. Works offline. Tap 🌑 next to a form to hear it.</div>
   </div>
 
   <footer>
-    Audio uses your phone's built-in Polish voice. Forms are AI-generated — for rare or irregular words, copy them out and double-check before committing them to memory.
+    Audio uses your device's built-in Polish voice (Zosia on iOS).<br>
+    Dictionary data: <a href="https://sgjp.pl" target="_blank" rel="noopener">SGJP</a> via <a href="https://morfeusz.sgjp.pl" target="_blank" rel="noopener">Morfeusz2</a> &amp; <a href="https://kaikki.org" target="_blank" rel="noopener">Wiktionary</a> (CC BY-SA).
   </footer>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -160,9 +155,10 @@
 <script>
 (function(){
   "use strict";
-  var LS = { key:"polski.key", model:"polski.model", mode:"polski.mode", pc:"polski.pc" };
+  var LS = { mode:"polski.mode", pc:"polski.pc" };
   var SS = { unlocked:"polski.unlocked" };
-  var DEFAULT_MODEL = "claude-sonnet-4-6";
+  var DATA_URL = "polish-data.json";
+  var DATA = null;
 
   function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   function read(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
@@ -170,261 +166,202 @@
   function ssStore(k,v){ try{ sessionStorage.setItem(k,v); }catch(e){} }
   function ssRead(k){ try{ return sessionStorage.getItem(k); }catch(e){ return null; } }
 
-  /* ---------- theme (runs before lock so bg color is set) ---------- */
-  var html = document.documentElement;
-  var modeBtn = document.getElementById("modeBtn");
-  function setMode(m){ html.setAttribute("data-mode", m); modeBtn.textContent = (m==="light") ? "🌕" : "🌑"; store(LS.mode, m); }
-  setMode(read(LS.mode) === "light" ? "light" : "dark");
-  modeBtn.addEventListener("click", function(){ setMode(html.getAttribute("data-mode")==="light" ? "dark" : "light"); });
+  /* theme */
+  var html=document.documentElement, modeBtn=document.getElementById("modeBtn");
+  function setMode(m){ html.setAttribute("data-mode",m); modeBtn.textContent=(m==="light")?"🌕":"🌑"; store(LS.mode,m); }
+  setMode(read(LS.mode)==="light"?"light":"dark");
+  modeBtn.addEventListener("click",function(){ setMode(html.getAttribute("data-mode")==="light"?"dark":"light"); });
 
-  /* ---------- lock screen ---------- */
-  var lockscreen = document.getElementById("lockscreen");
-  var mainWrap = document.getElementById("mainWrap");
-  var lockInput = document.getElementById("lockInput");
-  var lockErr = document.getElementById("lockErr");
-
+  /* lock screen */
+  var lockscreen=document.getElementById("lockscreen");
+  var mainWrap=document.getElementById("mainWrap");
+  var lockInput=document.getElementById("lockInput");
+  var lockErr=document.getElementById("lockErr");
   function getPasscode(){ return (read(LS.pc)||"").trim(); }
-
-  function unlock(){
-    lockscreen.classList.remove("visible");
-    mainWrap.style.display = "";
-    ssStore(SS.unlocked, "1");
-  }
-
+  function unlock(){ lockscreen.classList.remove("visible"); mainWrap.style.display=""; ssStore(SS.unlocked,"1"); }
   function checkLock(){
-    var pc = getPasscode();
-    if (!pc){ unlock(); return; }
-    if (ssRead(SS.unlocked) === "1"){ unlock(); return; }
-    mainWrap.style.display = "none";
+    var pc=getPasscode();
+    if(!pc){ unlock(); return; }
+    if(ssRead(SS.unlocked)==="1"){ unlock(); return; }
+    mainWrap.style.display="none";
     lockscreen.classList.add("visible");
     lockInput.focus();
   }
-
-  document.getElementById("lockSubmit").addEventListener("click", function(){
-    var entered = (lockInput.value||"").trim();
-    if (entered === getPasscode()){ lockErr.textContent=""; lockInput.value=""; unlock(); }
-    else {
-      lockErr.textContent = "Wrong passcode.";
+  document.getElementById("lockSubmit").addEventListener("click",function(){
+    var entered=(lockInput.value||"").trim();
+    if(entered===getPasscode()){ lockErr.textContent=""; lockInput.value=""; unlock(); }
+    else{
+      lockErr.textContent="Wrong passcode.";
       lockInput.classList.add("shake");
-      lockInput.value = "";
-      lockInput.addEventListener("animationend", function h(){ lockInput.classList.remove("shake"); lockInput.removeEventListener("animationend",h); });
+      lockInput.value="";
+      lockInput.addEventListener("animationend",function h(){ lockInput.classList.remove("shake"); lockInput.removeEventListener("animationend",h); });
       lockInput.focus();
     }
   });
-  lockInput.addEventListener("keydown", function(e){ if(e.key==="Enter") document.getElementById("lockSubmit").click(); });
-
+  lockInput.addEventListener("keydown",function(e){ if(e.key==="Enter") document.getElementById("lockSubmit").click(); });
   checkLock();
 
-  /* ---------- settings ---------- */
-  var panel = document.getElementById("panel");
-  var setBtn = document.getElementById("setBtn");
-  var keyIn = document.getElementById("keyIn");
-  var modelIn = document.getElementById("modelIn");
-  var pcIn = document.getElementById("pcIn");
-
+  /* settings */
+  var panel=document.getElementById("panel");
+  var setBtn=document.getElementById("setBtn");
+  var pcIn=document.getElementById("pcIn");
   function openPanel(open){
-    if (open){
-      keyIn.value = read(LS.key) || "";
-      modelIn.value = read(LS.model) || DEFAULT_MODEL;
-      pcIn.value = "";
-      panel.hidden = false;
-      keyIn.focus();
-    } else { panel.hidden = true; }
+    if(open){ pcIn.value=""; panel.hidden=false; pcIn.focus(); }
+    else { panel.hidden=true; }
   }
-  setBtn.addEventListener("click", function(){ openPanel(panel.hidden); });
-
-  document.getElementById("saveSet").addEventListener("click", function(){
-    var k = (keyIn.value||"").trim();
-    if (k) store(LS.key, k);
-    store(LS.model, modelIn.value || DEFAULT_MODEL);
-    var pc = (pcIn.value||"").trim();
-    if (pc){ store(LS.pc, pc); toast("Saved. Passcode set."); }
+  setBtn.addEventListener("click",function(){ openPanel(panel.hidden); });
+  document.getElementById("saveSet").addEventListener("click",function(){
+    var pc=(pcIn.value||"").trim();
+    if(pc){ store(LS.pc,pc); toast("Passcode set."); }
     else { toast("Saved."); }
     openPanel(false);
   });
-  document.getElementById("clearKey").addEventListener("click", function(){
-    del(LS.key); keyIn.value=""; toast("Key cleared.");
-  });
-  document.getElementById("clearPc").addEventListener("click", function(){
+  document.getElementById("clearPc").addEventListener("click",function(){
     del(LS.pc); pcIn.value=""; toast("Passcode removed.");
   });
 
-  function getKey(){ return (read(LS.key)||"").trim(); }
-  function getModel(){ return read(LS.model) || DEFAULT_MODEL; }
-
-  /* ---------- voices ---------- */
-  var voices = [];
-  function loadVoices(){ try{ voices = window.speechSynthesis.getVoices() || []; }catch(e){ voices = []; } }
-  if ("speechSynthesis" in window){ loadVoices(); window.speechSynthesis.onvoiceschanged = loadVoices; }
+  /* voices */
+  var voices=[];
+  function loadVoices(){ try{ voices=window.speechSynthesis.getVoices()||[]; }catch(e){ voices=[]; } }
+  if("speechSynthesis" in window){ loadVoices(); window.speechSynthesis.onvoiceschanged=loadVoices; }
   function polishVoice(){
-    var pl = voices.filter(function(v){ var l=(v.lang||"").toLowerCase(); return l==="pl-pl"||l.indexOf("pl")===0; });
-    if (!pl.length) return null;
-    var def = pl.filter(function(v){ return v.default; }); if (def.length) return def[0];
-    var zos = pl.filter(function(v){ return /zosia/i.test(v.name||""); }); if (zos.length) return zos[0];
+    var pl=voices.filter(function(v){ var l=(v.lang||"").toLowerCase(); return l==="pl-pl"||l.indexOf("pl")===0; });
+    if(!pl.length) return null;
+    var def=pl.filter(function(v){ return v.default; }); if(def.length) return def[0];
+    var z=pl.filter(function(v){ return /zosia/i.test(v.name||""); }); if(z.length) return z[0];
     return pl[0];
   }
-  var currentBtn = null;
-  function speak(text, btn){
-    if (!("speechSynthesis" in window) || !text) return;
+  var currentBtn=null;
+  function speak(text,btn){
+    if(!("speechSynthesis" in window)||!text) return;
     try{ window.speechSynthesis.cancel(); }catch(e){}
-    if (currentBtn) currentBtn.classList.remove("speaking");
-    if (!voices.length) loadVoices();
-    var u = new SpeechSynthesisUtterance(text);
-    u.lang = "pl-PL"; var v = polishVoice(); if (v) u.voice = v; u.rate = 0.9;
-    if (btn){ currentBtn = btn; btn.classList.add("speaking"); u.onend = u.onerror = function(){ btn.classList.remove("speaking"); }; }
+    if(currentBtn) currentBtn.classList.remove("speaking");
+    if(!voices.length) loadVoices();
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang="pl-PL"; var v=polishVoice(); if(v) u.voice=v; u.rate=0.9;
+    if(btn){ currentBtn=btn; btn.classList.add("speaking"); u.onend=u.onerror=function(){ btn.classList.remove("speaking"); }; }
     window.speechSynthesis.speak(u);
   }
 
-  /* ---------- helpers ---------- */
-  var out = document.getElementById("out");
-  var q = document.getElementById("q");
-  var go = document.getElementById("go");
-  var toastEl = document.getElementById("toast");
-  var SAY = {}, LAST = null, toastTimer = null;
+  /* render helpers */
+  var out=document.getElementById("out"), q=document.getElementById("q");
+  var go=document.getElementById("go"), toastEl=document.getElementById("toast");
+  var SAY={}, LAST=null, toastTimer=null;
 
   function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
-  function realCols(cols){ return (cols||[]).filter(function(c){ return c && String(c).trim() && c!=="—"; }); }
+  function realCols(cols){ return (cols||[]).filter(function(c){ return c&&String(c).trim()&&c!=="—"; }); }
   function moonBtnHTML(key){ return '<button class="moonbtn" data-say="'+key+'" aria-label="Play pronunciation">🌑</button>'; }
 
-  function tableHTML(t, ctr){
-    var cols = t.columns || [];
-    var showHead = realCols(cols).length > 0;
-    var h = '<div class="sectlabel">'+esc(t.title)+'</div><table class="tbl">';
-    if (showHead){ h += '<thead><tr><th></th>'; cols.forEach(function(c){ h += '<th>'+esc(c)+'</th>'; }); h += '</tr></thead>'; }
-    h += '<tbody>';
+  function tableHTML(t,ctr){
+    var cols=t.columns||[], showHead=realCols(cols).length>0;
+    var h='<div class="sectlabel">'+esc(t.title)+'</div><table class="tbl">';
+    if(showHead){ h+='<thead><tr><th></th>'; cols.forEach(function(c){ h+='<th>'+esc(c)+'</th>'; }); h+='</tr></thead>'; }
+    h+='<tbody>';
     (t.rows||[]).forEach(function(r){
-      h += '<tr><td class="casecol">'+esc(r.label)+'</td>';
+      h+='<tr><td class="casecol">'+esc(r.label)+'</td>';
       (r.forms||[]).forEach(function(f){
-        var dash = (!f || f==="—"); var key = "f"+(ctr.n++);
-        if (!dash) SAY[key] = f;
-        h += '<td><div class="form"><span class="w'+(dash?" dash":"")+'">'+esc(f||"—")+'</span>'+(dash?"":moonBtnHTML(key))+'</div></td>';
+        var dash=(!f||f==="—"), key="f"+(ctr.n++);
+        if(!dash) SAY[key]=f;
+        h+='<td><div class="form"><span class="w'+(dash?" dash":"")+'">'+esc(f||"—")+'</span>'+(dash?"":moonBtnHTML(key))+'</div></td>';
       });
-      h += '</tr>';
+      h+='</tr>';
     });
-    h += '</tbody></table>';
-    return h;
+    h+='</tbody></table>'; return h;
   }
 
   function render(d){
-    LAST = d; SAY = { head:d.word };
-    var ctr = { n:0 };
-    var h = '<div class="card"><div class="headword"><span class="pl">'+esc(d.word)+'</span>'+moonBtnHTML("head")+'</div>';
-    if (d.translation) h += '<div class="trans">Meaning: <b>'+esc(d.translation)+'</b></div>';
-    var tags=[]; if (d.pos) tags.push(esc(d.pos)); if (d.extra) tags.push(esc(d.extra));
-    if (tags.length){ h += '<div class="tags">'; tags.forEach(function(t){ h += '<span class="tag">'+t+'</span>'; }); h += '</div>'; }
-    if (d.note) h += '<div class="note">'+esc(d.note)+'</div>';
-    h += '</div>';
-    var tables = d.tables || [];
-    if (tables.length){
-      h += '<div class="toolbar"><button id="copyAll" class="ghostbtn">📋 Copy all</button></div>';
-      tables.forEach(function(t){ h += tableHTML(t, ctr); });
+    LAST=d; SAY={head:d.word};
+    var ctr={n:0};
+    var h='<div class="card"><div class="headword"><span class="pl">'+esc(d.word)+'</span>'+moonBtnHTML("head")+'</div>';
+    if(d.translation){
+      h+='<div class="trans">Meaning: <b>'+esc(d.translation)+'</b></div>';
+    } else {
+      var wk="https://en.wiktionary.org/wiki/"+encodeURIComponent(d.word)+"#Polish";
+      h+='<div class="trans"><a href="'+wk+'" target="_blank" rel="noopener">Look up meaning on Wiktionary →</a></div>';
     }
-    out.innerHTML = h;
+    var tags=[]; if(d.pos) tags.push(esc(d.pos)); if(d.extra) tags.push(esc(d.extra));
+    if(tags.length){ h+='<div class="tags">'; tags.forEach(function(t){ h+='<span class="tag">'+t+'</span>'; }); h+='</div>'; }
+    if(d.note) h+='<div class="note">'+esc(d.note)+'</div>';
+    h+='</div>';
+    var tables=d.tables||[];
+    if(tables.length){
+      h+='<div class="toolbar"><button id="copyAll" class="ghostbtn">📋 Copy all</button></div>';
+      tables.forEach(function(t){ h+=tableHTML(t,ctr); });
+    }
+    out.innerHTML=h;
   }
 
   function buildCopyText(d){
-    if (!d) return "";
-    var L = [ d.word + (d.translation ? " — " + d.translation : "") ];
+    if(!d) return "";
+    var L=[d.word+(d.translation?" — "+d.translation:"")];
     (d.tables||[]).forEach(function(t){
       L.push("");
-      var cols = realCols(t.columns);
-      L.push(t.title + (cols.length ? " (" + cols.join(" / ") + ")" : ""));
+      var cols=realCols(t.columns);
+      L.push(t.title+(cols.length?" ("+cols.join(" / ")+")":""));
       (t.rows||[]).forEach(function(r){
-        var fs = (r.forms||[]).filter(function(f){ return f && f!=="—"; });
-        L.push(r.label + ": " + (fs.length ? fs.join(" / ") : "—"));
+        var fs=(r.forms||[]).filter(function(f){ return f&&f!=="—"; });
+        L.push(r.label+": "+(fs.length?fs.join(" / "):"—"));
       });
     });
     return L.join("\n");
   }
 
-  function toast(msg){
-    toastEl.textContent = msg; toastEl.classList.add("show");
-    if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 2600);
-  }
-  function legacyCopy(text, ok){
+  function toast(msg){ toastEl.textContent=msg; toastEl.classList.add("show"); if(toastTimer) clearTimeout(toastTimer); toastTimer=setTimeout(function(){ toastEl.classList.remove("show"); },2600); }
+  function legacyCopy(text,ok){
     try{
       var ta=document.createElement("textarea"); ta.value=text; ta.setAttribute("readonly","");
       ta.style.position="fixed"; ta.style.top="-1000px"; document.body.appendChild(ta);
-      ta.select(); ta.setSelectionRange(0, text.length);
+      ta.select(); ta.setSelectionRange(0,text.length);
       var done=document.execCommand("copy"); document.body.removeChild(ta);
-      if (done) ok(); else toast("Couldn't copy automatically — long-press the list to select.");
-    }catch(e){ toast("Couldn't copy automatically — long-press the list to select."); }
+      if(done) ok(); else toast("Couldn't copy — long-press to select.");
+    }catch(e){ toast("Couldn't copy — long-press to select."); }
   }
   function doCopy(){
-    var text = buildCopyText(LAST); if (!text) return;
-    var ok = function(){ toast("Copied — paste into Google Translate to check."); };
-    if (navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(ok).catch(function(){ legacyCopy(text, ok); });
-    } else { legacyCopy(text, ok); }
+    var text=buildCopyText(LAST); if(!text) return;
+    var ok=function(){ toast("Copied!"); };
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(ok).catch(function(){ legacyCopy(text,ok); }); }
+    else { legacyCopy(text,ok); }
   }
 
-  out.addEventListener("click", function(e){
-    var copyHit = (e.target.id==="copyAll") || (e.target.closest && e.target.closest("#copyAll"));
-    if (copyHit){ doCopy(); return; }
-    var b = e.target.closest ? e.target.closest(".moonbtn") : null;
-    if (!b) return;
-    var key = b.getAttribute("data-say");
-    speak(key==="head" ? SAY.head : SAY[key], b);
+  out.addEventListener("click",function(e){
+    if((e.target.id==="copyAll")||(e.target.closest&&e.target.closest("#copyAll"))){ doCopy(); return; }
+    var b=e.target.closest?e.target.closest(".moonbtn"):null;
+    if(!b) return;
+    var key=b.getAttribute("data-say");
+    speak(key==="head"?SAY.head:SAY[key],b);
   });
 
-  function extractJSON(s){
-    if (!s) return null;
-    var a=s.indexOf("{"), z=s.lastIndexOf("}");
-    if (a<0||z<0||z<a) return null;
-    try{ return JSON.parse(s.slice(a, z+1)); }catch(e){ return null; }
+  /* dictionary lookup */
+  function loadData(){
+    if(DATA) return Promise.resolve(DATA);
+    return fetch(DATA_URL).then(function(r){ if(!r.ok) throw new Error("fetch failed"); return r.json(); }).then(function(j){ DATA=j; return j; });
+  }
+  function resolve(word){
+    var w=word.toLowerCase(), lemmas=DATA.lemmas||{}, forms=DATA.forms||{};
+    if(lemmas[w]) return lemmas[w];
+    var lm=forms[w]; if(!lm) return null;
+    if(Array.isArray(lm)) lm=lm[0];
+    return lemmas[lm]||null;
   }
 
-  function analyze(){
-    var word = (q.value||"").trim();
-    if (!word) return;
-    if (!getKey()){ toast("Add your Anthropic API key in ⚙️ settings first."); openPanel(true); return; }
-    go.disabled = true;
-    out.innerHTML = '<div class="loading"><span class="spinner"></span>Analyzing "'+esc(word)+'"…</div>';
-
-    var prompt =
-      'You are a Polish morphology engine. For the Polish word below, return ONLY a minified JSON object — no markdown, no backticks, no prose. Shape:\n'+
-      '{"word":string,"translation":string,"pos":string,"extra":string,"note":string,"tables":[{"title":string,"columns":[string],"rows":[{"label":string,"forms":[string]}]}]}\n'+
-      'Definitions: "translation"=1-2 word English meaning. "pos"=noun|adjective|verb|other. '+
-      '"extra"= for nouns the gender (masculine/feminine/neuter); for verbs the aspect (imperfective/perfective); else "". '+
-      '"note"= max 14 words, or "".\n'+
-      'Use standard contemporary Polish with correct diacritics. Build "tables" by part of speech:\n'+
-      'NOUN or ADJECTIVE: exactly one table {"title":"Declension","columns":["Singular","Plural"]}, rows in THIS order: Nominative, Genitive, Dative, Accusative, Instrumental, Locative, Vocative. Each row.forms=[singular,plural]; use "—" where a form does not exist.\n'+
-      'VERB: include the applicable tables among "Present","Past","Future","Imperative","Conditional".\n'+
-      '  - "Present","Future","Conditional": "columns":[""], rows labeled "ja","ty","on/ona/ono","my","wy","oni/one", each forms=[one form]. Omit "Present" for perfective verbs.\n'+
-      '  - "Past": "columns":["masculine","feminine"], rows "ja","ty","on/ona","my","wy","oni/one"; forms=[masculine, feminine]. For plural rows use the masculine-personal form in the masculine column and the other form in the feminine column.\n'+
-      '  - "Imperative": "columns":[""], rows "ty","my","wy".\n'+
-      'OTHER / indeclinable: "tables":[] and explain briefly in "note".\n'+
-      'Word: "'+word+'"';
-
-    fetch("https://api.anthropic.com/v1/messages",{
-      method:"POST",
-      headers:{
-        "content-type":"application/json",
-        "x-api-key":getKey(),
-        "anthropic-version":"2023-06-01",
-        "anthropic-dangerous-direct-browser-access":"true"
-      },
-      body:JSON.stringify({ model:getModel(), max_tokens:1000, messages:[{role:"user",content:prompt}] })
-    })
-    .then(function(r){ return r.json().then(function(j){ return { ok:r.ok, status:r.status, j:j }; }); })
-    .then(function(res){
-      if (!res.ok || (res.j && res.j.type==="error")){
-        var msg = (res.status===401) ? "API key looks invalid — check it in ⚙️ settings."
-                : ((res.j && res.j.error && res.j.error.message) ? res.j.error.message : "Request failed. Try again.");
-        out.innerHTML = '<div class="error">'+esc(msg)+'</div>'; return;
+  function lookup(){
+    var word=(q.value||"").trim(); if(!word) return;
+    go.disabled=true;
+    out.innerHTML='<div class="loading"><span class="spinner"></span>Looking up…</div>';
+    loadData().then(function(){
+      var d=resolve(word);
+      if(!d){
+        out.innerHTML='<div class="error">Not found in offline dictionary ('+esc(word)+').<br><small>Try the base form: nominative singular for nouns, infinitive for verbs. The dictionary covers ~3 000 common lemmas.</small></div>';
+        return;
       }
-      var text=(res.j.content||[]).filter(function(i){return i.type==="text";}).map(function(i){return i.text;}).join("\n");
-      var d=extractJSON(text);
-      if (!d){ out.innerHTML='<div class="error">Couldn\'t read that one. Check the spelling, or try a simpler form of the word.</div>'; return; }
       render(d);
-    })
-    .catch(function(){ out.innerHTML='<div class="error">No connection right now. Try again in a moment.</div>'; })
-    .then(function(){ go.disabled=false; });
+    }).catch(function(){
+      out.innerHTML='<div class="error">Couldn\'t load dictionary file. Make sure polish-data.json is in the same folder as this page.</div>';
+    }).then(function(){ go.disabled=false; });
   }
 
-  go.addEventListener("click", analyze);
-  q.addEventListener("keydown", function(e){ if (e.key==="Enter") analyze(); });
+  go.addEventListener("click",lookup);
+  q.addEventListener("keydown",function(e){ if(e.key==="Enter") lookup(); });
 })();
 </script>
 </body>
