@@ -33,6 +33,19 @@ layout: null
   .iconbtn,.moon-toggle{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:inherit;font-size:1.2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s ease,border-color .25s ease,transform .2s ease}
   .iconbtn:active,.moon-toggle:active{transform:scale(.92)}
 
+  /* ---------- lock screen ---------- */
+  .lockscreen{position:fixed;inset:0;background:var(--bg);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
+  .lockbox{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 24px;width:100%;max-width:320px;text-align:center}
+  .lockbox h2{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:1.3rem;font-weight:600;margin:0 0 6px}
+  .lockbox p{color:var(--mute);font-size:.86rem;margin:0 0 18px}
+  .lockbox input{width:100%;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:13px 14px;font-size:1.1rem;font-family:inherit;outline:none;text-align:center;letter-spacing:.2em;margin-bottom:12px}
+  .lockbox input:focus-visible{border-color:var(--gold)}
+  .lockbox input.shake{animation:shake .35s ease}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+  .lockbox button{width:100%;border:none;cursor:pointer;background:var(--gold);color:#1a1838;font-weight:600;font-size:1rem;border-radius:12px;padding:13px;font-family:inherit;transition:opacity .2s ease,transform .15s ease}
+  .lockbox button:active{transform:scale(.97)}
+  .lockerr{color:var(--rose);font-size:.82rem;margin-top:8px;min-height:1.2em}
+
   .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:18px}
   .plabel{display:block;font-size:.78rem;letter-spacing:.4px;text-transform:uppercase;color:var(--mute);margin:0 0 6px}
   .panel input,.panel select{width:100%;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:1rem;font-family:inherit;outline:none;margin-bottom:14px}
@@ -91,7 +104,19 @@ layout: null
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<!-- lock screen (shown when a passcode is set and session is not yet unlocked) -->
+<div class="lockscreen" id="lockscreen" hidden>
+  <div class="lockbox">
+    <h2>Polski · Odmiana</h2>
+    <p>Enter passcode to continue</p>
+    <input id="lockInput" type="password" inputmode="numeric" placeholder="••••" autocomplete="off" />
+    <button id="lockSubmit">Unlock</button>
+    <div class="lockerr" id="lockErr"></div>
+  </div>
+</div>
+
+<div class="wrap" id="mainWrap">
   <header>
     <div class="brand"><h1>Polski · Odmiana</h1><p>Type a Polish word, hear every form</p></div>
     <div class="hbtns">
@@ -109,11 +134,14 @@ layout: null
       <option value="claude-haiku-4-5-20251001">Haiku — fastest, cheapest</option>
       <option value="claude-opus-4-8">Opus — most accurate</option>
     </select>
+    <label class="plabel" for="pcIn" style="margin-top:4px">Site passcode (optional)</label>
+    <input id="pcIn" type="password" placeholder="Set a passcode to lock this page…" autocomplete="new-password" autocapitalize="off" spellcheck="false" />
     <div class="prow">
       <button id="saveSet" class="ghostbtn">Save</button>
       <button id="clearKey" class="ghostbtn">Clear key</button>
+      <button id="clearPc" class="ghostbtn">Remove passcode</button>
     </div>
-    <p class="pnote">Stored only in this browser. Sent only to Anthropic when you look up a word — never saved in the site's code. Get a key at console.anthropic.com.</p>
+    <p class="pnote">API key: stored only in this browser, sent only to Anthropic. Get one at console.anthropic.com.<br>Passcode: if set, anyone opening this page must enter it first.</p>
   </div>
 
   <div class="search">
@@ -134,39 +162,95 @@ layout: null
 <script>
 (function(){
   "use strict";
-  var LS = { key:"polski.key", model:"polski.model", mode:"polski.mode" };
+  var LS = { key:"polski.key", model:"polski.model", mode:"polski.mode", pc:"polski.pc" };
+  var SS = { unlocked:"polski.unlocked" };
   var DEFAULT_MODEL = "claude-sonnet-4-6";
 
   function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   function read(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
   function del(k){ try{ localStorage.removeItem(k); }catch(e){} }
+  function ssStore(k,v){ try{ sessionStorage.setItem(k,v); }catch(e){} }
+  function ssRead(k){ try{ return sessionStorage.getItem(k); }catch(e){ return null; } }
 
-  /* ---------- theme ---------- */
+  /* ---------- theme (runs before lock so bg color is set) ---------- */
   var html = document.documentElement;
   var modeBtn = document.getElementById("modeBtn");
   function setMode(m){ html.setAttribute("data-mode", m); modeBtn.textContent = (m==="light") ? "🌕" : "🌑"; store(LS.mode, m); }
   setMode(read(LS.mode) === "light" ? "light" : "dark");
   modeBtn.addEventListener("click", function(){ setMode(html.getAttribute("data-mode")==="light" ? "dark" : "light"); });
 
+  /* ---------- lock screen ---------- */
+  var lockscreen = document.getElementById("lockscreen");
+  var mainWrap = document.getElementById("mainWrap");
+  var lockInput = document.getElementById("lockInput");
+  var lockErr = document.getElementById("lockErr");
+
+  function getPasscode(){ return (read(LS.pc)||"").trim(); }
+
+  function unlock(){
+    lockscreen.hidden = true;
+    mainWrap.style.display = "";
+    ssStore(SS.unlocked, "1");
+  }
+
+  function checkLock(){
+    var pc = getPasscode();
+    if (!pc){ unlock(); return; }
+    if (ssRead(SS.unlocked) === "1"){ unlock(); return; }
+    mainWrap.style.display = "none";
+    lockscreen.hidden = false;
+    lockInput.focus();
+  }
+
+  document.getElementById("lockSubmit").addEventListener("click", function(){
+    var entered = (lockInput.value||"").trim();
+    if (entered === getPasscode()){ lockErr.textContent=""; lockInput.value=""; unlock(); }
+    else {
+      lockErr.textContent = "Wrong passcode.";
+      lockInput.classList.add("shake");
+      lockInput.value = "";
+      lockInput.addEventListener("animationend", function h(){ lockInput.classList.remove("shake"); lockInput.removeEventListener("animationend",h); });
+      lockInput.focus();
+    }
+  });
+  lockInput.addEventListener("keydown", function(e){ if(e.key==="Enter") document.getElementById("lockSubmit").click(); });
+
+  checkLock();
+
   /* ---------- settings ---------- */
   var panel = document.getElementById("panel");
   var setBtn = document.getElementById("setBtn");
   var keyIn = document.getElementById("keyIn");
   var modelIn = document.getElementById("modelIn");
+  var pcIn = document.getElementById("pcIn");
+
   function openPanel(open){
-    if (open){ keyIn.value = read(LS.key) || ""; modelIn.value = read(LS.model) || DEFAULT_MODEL; panel.hidden = false; keyIn.focus(); }
-    else { panel.hidden = true; }
+    if (open){
+      keyIn.value = read(LS.key) || "";
+      modelIn.value = read(LS.model) || DEFAULT_MODEL;
+      pcIn.value = "";
+      panel.hidden = false;
+      keyIn.focus();
+    } else { panel.hidden = true; }
   }
   setBtn.addEventListener("click", function(){ openPanel(panel.hidden); });
+
   document.getElementById("saveSet").addEventListener("click", function(){
     var k = (keyIn.value||"").trim();
     if (k) store(LS.key, k);
     store(LS.model, modelIn.value || DEFAULT_MODEL);
-    openPanel(false); toast("Saved.");
+    var pc = (pcIn.value||"").trim();
+    if (pc){ store(LS.pc, pc); toast("Saved. Passcode set."); }
+    else { toast("Saved."); }
+    openPanel(false);
   });
   document.getElementById("clearKey").addEventListener("click", function(){
-    del(LS.key); keyIn.value = ""; toast("Key cleared.");
+    del(LS.key); keyIn.value=""; toast("Key cleared.");
   });
+  document.getElementById("clearPc").addEventListener("click", function(){
+    del(LS.pc); pcIn.value=""; toast("Passcode removed.");
+  });
+
   function getKey(){ return (read(LS.key)||"").trim(); }
   function getModel(){ return read(LS.model) || DEFAULT_MODEL; }
 
