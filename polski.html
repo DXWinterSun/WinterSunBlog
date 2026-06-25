@@ -201,16 +201,15 @@
 
   function buildCopyText(d){
     if(!d) return "";
-    var L=[d.word+(d.translation?" — "+d.translation:"")+"."];
+    var L=[d.word+"."];
     (d.tables||[]).forEach(function(t){
       L.push("");
-      var cols=realCols(t.columns);
-      L.push(t.title+(cols.length?" ("+cols.join(" / ")+")":"")+". ");
       (t.rows||[]).forEach(function(r){
         var fs=(r.forms||[]).filter(function(f){ return f&&f!=="—"; });
-        if(fs.length) L.push(r.label+": "+fs.map(function(f){ return f+"."; }).join(" "));
+        if(fs.length) L.push(fs.map(function(f){ return f+"."; }).join(" "));
       });
     });
+    while(L.length&&!L[L.length-1]) L.pop();
     return L.join("\n");
   }
 
