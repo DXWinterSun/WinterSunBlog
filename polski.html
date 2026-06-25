@@ -60,20 +60,21 @@
   .ghostbtn:active{transform:scale(.96)}
   .ghostbtn:focus-visible{border-color:var(--gold)}
 
-  .moonbtn{flex:0 0 auto;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:background .2s ease,transform .15s ease}
+  .moonbtn{flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:background .2s ease,transform .15s ease}
   .moonbtn:active{transform:scale(.9)}
   .moonbtn.speaking{background:var(--gold);color:var(--bg);animation:glow 1s ease-in-out infinite}
   @keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(216,180,106,0)}50%{box-shadow:0 0 0 6px rgba(216,180,106,.18)}}
 
   .sectlabel{font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--mute);margin:18px 4px 9px}
   .sectlabel:first-of-type{margin-top:0}
-  .tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .tbl th,.tbl td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid var(--line)}
+  .tbl{width:100%;border-collapse:collapse;background:var(--card)}
+  .tbl th,.tbl td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
   .tbl tr:last-child th,.tbl tr:last-child td{border-bottom:none}
   .tbl thead th{font-size:.72rem;letter-spacing:.5px;text-transform:uppercase;color:var(--mute);font-weight:600}
-  .casecol{color:var(--mute);font-weight:500;font-size:.9rem;white-space:nowrap}
-  .form{display:flex;align-items:center;gap:9px;justify-content:space-between}
-  .form .w{font-size:1.02rem;word-break:break-word}
+  .casecol{color:var(--mute);font-weight:500;font-size:.82rem;white-space:nowrap;width:1%}
+  .form{display:flex;align-items:center;gap:6px;justify-content:space-between}
+  .form .w{font-size:1rem;white-space:nowrap}
   .form .w.dash{color:var(--mute)}
 
   .toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--card);color:var(--ink);border:1px solid var(--gold);border-radius:12px;padding:11px 16px;font-size:.86rem;max-width:88vw;text-align:center;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:20}
@@ -158,13 +159,14 @@
   function realCols(cols){ return (cols||[]).filter(function(c){ return c&&String(c).trim()&&c!=="—"; }); }
   function moonBtnHTML(key){ return '<button class="moonbtn" data-say="'+key+'" aria-label="Play pronunciation">🌑</button>'; }
 
+  var CASE_ABBR={"Nominative":"Nom.","Genitive":"Gen.","Dative":"Dat.","Accusative":"Acc.","Instrumental":"Instr.","Locative":"Loc.","Vocative":"Voc."};
   function tableHTML(t,ctr){
     var cols=t.columns||[], showHead=realCols(cols).length>0;
-    var h='<div class="sectlabel">'+esc(t.title)+'</div><table class="tbl">';
+    var h='<div class="sectlabel">'+esc(t.title)+'</div><div class="tbl-wrap"><table class="tbl">';
     if(showHead){ h+='<thead><tr><th></th>'; cols.forEach(function(c){ h+='<th>'+esc(c)+'</th>'; }); h+='</tr></thead>'; }
     h+='<tbody>';
     (t.rows||[]).forEach(function(r){
-      h+='<tr><td class="casecol">'+esc(r.label)+'</td>';
+      h+='<tr><td class="casecol">'+esc(CASE_ABBR[r.label]||r.label)+'</td>';
       (r.forms||[]).forEach(function(f){
         var dash=(!f||f==="—"), key="f"+(ctr.n++);
         if(!dash) SAY[key]=f;
@@ -172,7 +174,7 @@
       });
       h+='</tr>';
     });
-    h+='</tbody></table>'; return h;
+    h+='</tbody></table></div>'; return h;
   }
 
   function render(d){
