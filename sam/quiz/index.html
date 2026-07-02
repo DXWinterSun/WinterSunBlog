@@ -239,6 +239,50 @@ const CHARS = [
     profile:{guile:6,forbear:6,chaos:8,raw:6,romance:4,grace:1} },
 ];
 
+/* ── Palette color-card names (sourced from _data/sam_themes.yml) ── */
+const PALETTE_NAMES = {
+  gary:          { accentCN:"天际铜金",   accentEN:"Skyline Brass",       bgCN:"顶楼黑檀",     bgEN:"Penthouse Ebony" },
+  krzysztof:     { accentCN:"余烬绯红",   accentEN:"Ember Cardinal",      bgCN:"华沙墨蓝",     bgEN:"Warsaw Indigo" },
+  matty:         { accentCN:"旧电话亭琥珀", accentEN:"Old Phonebooth Amber", bgCN:"凌晨地铁月台", bgEN:"Pre-Dawn Subway" },
+  buck:          { accentCN:"林间苔绿",   accentEN:"Forest Moss",         bgCN:"月光银白",     bgEN:"Moonlight Silver" },
+  trent:         { accentCN:"天蓝卡车",   accentEN:"Pickup Sky",          bgCN:"新刈草青",     bgEN:"Mown Lawn" },
+  samuel:        { accentCN:"舞台背心红", accentEN:"Stage Vest",          bgCN:"格纹芥末棕",   bgEN:"Plaid Mustard" },
+  jerry:         { accentCN:"蓬乱金长发", accentEN:"Blond Mane",          bgCN:"深夜快餐棕",   bgEN:"Late-Night Diner" },
+  wildbill:      { accentCN:"锯末粗木",   accentEN:"Sawdust Timber",      bgCN:"炉膛夜黑",     bgEN:"Forge Soot" },
+  guy:           { accentCN:"控制台青",   accentEN:"Console Teal",        bgCN:"深空黛黑",     bgEN:"Deep-Space Black" },
+  eric:          { accentCN:"红镜红",     accentEN:"Crimson Lens",        bgCN:"可乐棕",       bgEN:"Cola Noir" },
+  pero:          { accentCN:"拳击台暖灯橘", accentEN:"Ring Lamp Amber",    bgCN:"科林伍德暮色", bgEN:"Collinwood Dusk" },
+  chuck:         { accentCN:"镁光节目粉", accentEN:"Limelight Pink",      bgCN:"午夜情报蓝",   bgEN:"Midnight Spy" },
+  frank:         { accentCN:"猫眼琥珀",   accentEN:"Hazel Fox",           bgCN:"焦黑火柴",     bgEN:"Burnt Matchstick" },
+  jim:           { accentCN:"夜会香槟金", accentEN:"Club Champagne",      bgCN:"黑貂皮大氅",   bgEN:"Mink Black" },
+  zaphod:        { accentCN:"总统鬃金",   accentEN:"President's Mane",     bgCN:"黑甲漆夜",     bgEN:"Lacquer Black" },
+  brad:          { accentCN:"网球荧光黄", accentEN:"Tennis Ball",         bgCN:"曼哈顿冬夜",   bgEN:"Manhattan Slate" },
+  glenn:         { accentCN:"初雪微光白", accentEN:"First Snow",          bgCN:"寒冬冷蓝灰",   bgEN:"Winter Steel" },
+  reston:        { accentCN:"钨丝暖灯金", accentEN:"Tungsten Glow",       bgCN:"深夜手稿棕",   bgEN:"Manuscript Brown" },
+  victor:        { accentCN:"殖民地铜金", accentEN:"Colonial Gilt",       bgCN:"旧绒布酒红",   bgEN:"Velvet Wine" },
+  sambell:       { accentCN:"基地微光",   accentEN:"Sarang Glow",         bgCN:"月球蔚蓝",     bgEN:"Lunar Blue" },
+  robert:        { accentCN:"圣诞帽红",   accentEN:"Santa Hat",           bgCN:"鼓皮深棕",     bgEN:"Drumskin Brown" },
+  hammer:        { accentCN:"电光钴蓝",   accentEN:"Spotlight Sapphire",  bgCN:"落幕玄黑",     bgEN:"After-Curtain Onyx" },
+  kenny:         { accentCN:"铁窗微光",   accentEN:"Barred Light",        bgCN:"囚室灰墙",     bgEN:"Cell Concrete" },
+  billy:         { accentCN:"方块J红",    accentEN:"Diamond Jack",        bgCN:"沙漠焦土",     bgEN:"Scorched Desert" },
+  owen:          { accentCN:"滑梯翠蓝",   accentEN:"Waterslide Aqua",     bgCN:"氯味深池",     bgEN:"Chlorine Deep" },
+  johnmoon:      { accentCN:"孤枪冷雾蓝", accentEN:"Lone Mist",           bgCN:"西弗州山夜",   bgEN:"Appalachian Dusk" },
+  doug:          { accentCN:"处方白大褂", accentEN:"Lab Coat",            bgCN:"药瓶琥珀棕",   bgEN:"Pill-Bottle Brown" },
+  wayne:         { accentCN:"夏末琥珀",   accentEN:"Late Summer Amber",   bgCN:"退伍橄榄",     bgEN:"Old Olive" },
+  craig:         { accentCN:"威士忌金",   accentEN:"Whisky Gold",         bgCN:"陈年皮革",     bgEN:"Aged Leather" },
+  francis:       { accentCN:"丑角红鼻头", accentEN:"Clown Nose",          bgCN:"小熊软糖绿",   bgEN:"Gummy Bear Green" },
+  dixon:         { accentCN:"重生焰橘",   accentEN:"Reborn Flame",        bgCN:"焦烬玫瑰",     bgEN:"Charred Rose" },
+  eddie:         { accentCN:"蓝蜥宝石",   accentEN:"Iguana Jewel",        bgCN:"酒馆烟灰",     bgEN:"Tavern Smoke" },
+  bush:          { accentCN:"德州牛仔金", accentEN:"Texan Tan",           bgCN:"总统西装夜",   bgEN:"Suit Navy" },
+  klenz:         { accentCN:"夸张军装红", accentEN:"Glam Tunic",          bgCN:"登台华服绿",   bgEN:"Costume Green" },
+  watson:        { accentCN:"红土暖橘",   accentEN:"Georgia Clay",        bgCN:"档案橡木",     bgEN:"Archive Oak" },
+  wolf:          { accentCN:"磁石黄金",   accentEN:"Magnet Gold",         bgCN:"狼影灰蓝",     bgEN:"Wolf Shadow" },
+  stoppard:      { accentCN:"旧照片暖褐", accentEN:"Old Photograph",      bgCN:"伦敦午夜蓝",   bgEN:"London Midnight" },
+  aidan:         { accentCN:"弹壳余温金", accentEN:"Casing Gold",         bgCN:"午夜枪管蓝",   bgEN:"Gunmetal Blue" },
+  manfromfuture: { accentCN:"故障玫红",   accentEN:"Glitch Magenta",      bgCN:"荧光夜紫",     bgEN:"Neon Violet" },
+};
+CHARS.forEach(c => { Object.assign(c, PALETTE_NAMES[c.id] || {}); });
+
 /* ── Questions ──────────────────────────────────────────────────── */
 const QUESTIONS = [
   /* ── Block 1: 行为 / 场景 ── */
@@ -593,9 +637,9 @@ const QUESTIONS = [
         chars:{reston:2,eric:2,chuck:2,frank:2,wolf:1}, dims:{guile:2} },
       { text:"你有多温柔，多愿意陪着人",
         chars:{johnmoon:2,stoppard:2,glenn:2,victor:2,dixon:1}, dims:{forbear:1,romance:1} },
-      { text:"你很直接，你就是你，不解释",
+      { text:"你很直接，喜欢就喜欢，不绕弯子",
         chars:{kenny:2,buck:2,samuel:2,guy:2,watson:1}, dims:{raw:2} },
-      { text:"你的存在本身，不需要任何解释",
+      { text:"你不用变成谁——光是你在，他就觉得够了",
         chars:{krzysztof:2,sambell:2,trent:2,billy:2,aidan:2}, dims:{forbear:1,romance:2} },
     ]
   },
@@ -736,24 +780,100 @@ function Radar({ dimScores, charProfile, accent, muted, text, size=240 }) {
   );
 }
 
+/* ── Random palette helper ────────────────────────────────────── */
+function randomChar() {
+  return CHARS[Math.floor(Math.random() * CHARS.length)];
+}
+
+/* ── Palette chip (compact, click to shuffle) ─────────────────── */
+function PaletteChip({ palette, onShuffle }) {
+  const p = palette;
+  return (
+    <button onClick={onShuffle} title="换一张色卡" style={{
+      display:"inline-flex", alignItems:"center", gap:8,
+      background:"transparent", border:`1px solid ${p.muted}33`,
+      borderRadius:20, padding:"5px 12px 5px 8px", cursor:"pointer",
+      transition:"border-color 0.2s", maxWidth:"100%"
+    }}
+      onMouseEnter={e=>{ e.currentTarget.style.borderColor=p.muted+"88"; }}
+      onMouseLeave={e=>{ e.currentTarget.style.borderColor=p.muted+"33"; }}
+    >
+      <span style={{display:"inline-flex", gap:3, flexShrink:0}}>
+        <span style={{width:11, height:11, borderRadius:"50%", background:p.accent, border:`1px solid ${p.text}22`}}/>
+        <span style={{width:11, height:11, borderRadius:"50%", background:p.bg, border:`1px solid ${p.text}44`}}/>
+      </span>
+      <span style={{
+        fontFamily:"'Noto Serif SC',serif", fontSize:"0.68rem",
+        color:p.text, opacity:0.85, letterSpacing:"0.02em", whiteSpace:"nowrap",
+        overflow:"hidden", textOverflow:"ellipsis"
+      }}>{p.accentCN} · {p.bgCN}</span>
+      <span style={{
+        fontFamily:"'Special Elite',monospace", fontSize:"0.72rem",
+        color:p.muted, flexShrink:0
+      }}>⟳</span>
+    </button>
+  );
+}
+
+/* ── Color card (large, for result) ───────────────────────────── */
+function ColorCard({ char }) {
+  const c = char;
+  const rows = [
+    { hex:c.accent, cn:c.accentCN, en:c.accentEN },
+    { hex:c.bg,     cn:c.bgCN,     en:c.bgEN },
+  ];
+  return (
+    <div style={{border:`1px solid ${c.accent}33`, borderRadius:4, overflow:"hidden"}}>
+      {rows.map((r,i)=>(
+        <div key={i} style={{
+          display:"flex", alignItems:"center", gap:16, padding:"15px 18px",
+          background: i===0 ? c.accent+"0c" : "transparent",
+          borderTop: i>0 ? `1px solid ${c.accent}18` : "none"
+        }}>
+          <span style={{
+            width:42, height:42, borderRadius:4, flexShrink:0,
+            background:r.hex, border:`1px solid ${c.text}22`
+          }}/>
+          <div style={{flex:1, minWidth:0}}>
+            <div style={{
+              fontFamily:"'Noto Serif SC',serif", fontSize:"1.02rem",
+              fontWeight:500, color:c.text, lineHeight:1.3
+            }}>{r.cn}</div>
+            <div style={{
+              fontFamily:"'Special Elite',monospace", fontSize:"0.64rem",
+              color:c.muted, letterSpacing:"0.08em", marginTop:2
+            }}>{r.en}</div>
+          </div>
+          <span style={{
+            fontFamily:"'Special Elite',monospace", fontSize:"0.66rem",
+            color:c.muted, letterSpacing:"0.05em", opacity:0.8, flexShrink:0
+          }}>{r.hex.toUpperCase()}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /* ── Intro ────────────────────────────────────────────────────── */
-function Intro({ onStart }) {
+function Intro({ onStart, palette, onShuffle }) {
+  const p = palette;
   return (
     <div style={{
       minHeight:"100vh", display:"flex", flexDirection:"column",
-      background:"#14110d", color:"#ede2d0", fontFamily:"'Noto Serif SC',serif"
+      background:p.bg, color:p.text, fontFamily:"'Noto Serif SC',serif",
+      transition:"background 0.6s ease, color 0.6s ease"
     }}>
       <div style={{
         padding:"14px 24px", display:"flex", alignItems:"center", justifyContent:"space-between",
-        borderBottom:"1px solid #2a2418"
+        borderBottom:`1px solid ${p.accent}22`
       }}>
         <a href="/WinterSunBlog/sam/" style={{
-          color:"#8a7558", textDecoration:"none", fontSize:"0.72rem",
-          fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em", opacity:0.8
+          color:p.muted, textDecoration:"none", fontSize:"0.72rem",
+          fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em", opacity:0.85
         }}>← For Sam</a>
         <span style={{
           fontFamily:"'Special Elite',monospace", fontSize:"0.62rem",
-          letterSpacing:"0.2em", color:"#5a4e3c", textTransform:"uppercase"
+          letterSpacing:"0.2em", color:p.muted, opacity:0.6, textTransform:"uppercase"
         }}>Sam Rockwell · Character Quiz</span>
         <span style={{width:60}}/>
       </div>
@@ -765,39 +885,48 @@ function Intro({ onStart }) {
       }}>
         <h1 style={{
           fontFamily:"'Playfair Display',serif", fontStyle:"italic",
-          fontSize:"clamp(2rem,7vw,3.2rem)", fontWeight:700, color:"#cba14c",
-          textAlign:"center", margin:"0 0 16px", lineHeight:1.15
+          fontSize:"clamp(2rem,7vw,3.2rem)", fontWeight:700, color:p.accent,
+          textAlign:"center", margin:"0 0 16px", lineHeight:1.15,
+          transition:"color 0.6s ease"
         }}>最适合你的<br/>Sam 角色</h1>
-        <div style={{width:40,height:1,background:"#8a7558",margin:"0 auto 28px"}}/>
+        <div style={{width:40, height:1, background:p.muted, margin:"0 auto 28px"}}/>
         <p style={{
           maxWidth:340, textAlign:"center", lineHeight:1.95,
-          fontSize:"0.93rem", color:"#a89878", margin:"0 0 12px"
+          fontSize:"0.93rem", color:p.text, opacity:0.78, margin:"0 0 12px"
         }}>
           30 道题，39 个角色，没有陪跑。
         </p>
         <p style={{
           maxWidth:340, textAlign:"center", lineHeight:1.8,
-          fontSize:"0.82rem", color:"#6a5c48", margin:"0 0 44px"
+          fontSize:"0.82rem", color:p.muted, margin:"0 0 40px"
         }}>
           行为、偏好、颜色、感觉——<br/>每一个答案都在指向那个人。
         </p>
         <button onClick={onStart} style={{
-          background:"transparent", border:"1px solid #cba14c",
-          color:"#cba14c", padding:"14px 52px", fontSize:"0.88rem",
+          background:"transparent", border:`1px solid ${p.accent}`,
+          color:p.accent, padding:"14px 52px", fontSize:"0.88rem",
           fontFamily:"'Special Elite',monospace", letterSpacing:"0.22em",
           cursor:"pointer", transition:"all 0.25s"
         }}
-          onMouseEnter={e=>{ e.target.style.background="#cba14c"; e.target.style.color="#14110d"; }}
-          onMouseLeave={e=>{ e.target.style.background="transparent"; e.target.style.color="#cba14c"; }}
+          onMouseEnter={e=>{ e.currentTarget.style.background=p.accent; e.currentTarget.style.color=p.bg; }}
+          onMouseLeave={e=>{ e.currentTarget.style.background="transparent"; e.currentTarget.style.color=p.accent; }}
         >
           开始测试
         </button>
+
+        <div style={{marginTop:34, display:"flex", flexDirection:"column", alignItems:"center", gap:9, maxWidth:"90%"}}>
+          <PaletteChip palette={p} onShuffle={onShuffle}/>
+          <p style={{
+            fontSize:"0.66rem", color:p.muted, opacity:0.6, textAlign:"center",
+            fontFamily:"'Special Elite',monospace", letterSpacing:"0.06em", margin:0
+          }}>点色卡换一张 · 测完会定格成你的角色</p>
+        </div>
+
         <p style={{
-          marginTop:36, fontSize:"0.75rem", color:"#5a4e3c", textAlign:"center",
+          marginTop:28, fontSize:"0.72rem", color:p.muted, opacity:0.55, textAlign:"center",
           fontFamily:"'Special Elite',monospace", letterSpacing:"0.1em", lineHeight:1.7
         }}>
-          3 个模块 · 每题单选<br/>
-          全程约 5 分钟
+          3 个模块 · 每题单选 · 约 5 分钟
         </p>
       </div>
     </div>
@@ -808,9 +937,10 @@ function Intro({ onStart }) {
 const BLOCK_LABELS = {1:"行为 · Behavior", 2:"偏好 · Preference", 3:"感觉 · Aesthetic"};
 
 /* ── Question screen ──────────────────────────────────────────── */
-function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack }) {
+function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack, palette, onShuffle }) {
   const [selected, setSelected] = useState(null);
   const [leaving, setLeaving] = useState(false);
+  const p = palette;
   const q = QUESTIONS[qIdx];
   const pct = (qIdx / QUESTIONS.length) * 100;
   const isNewBlock = qIdx === 0 || QUESTIONS[qIdx-1].block !== q.block;
@@ -829,37 +959,44 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack }) {
   return (
     <div style={{
       minHeight:"100vh", display:"flex", flexDirection:"column",
-      background:"#14110d"
+      background:p.bg, transition:"background 0.6s ease"
     }}>
       {/* ── Sticky header ── */}
-      <div style={{position:"sticky", top:0, zIndex:20, background:"#14110d"}}>
-        <div style={{height:"2px", background:"#231f18"}}>
-          <div style={{height:"100%", background:"#cba14c", width:pct+"%", transition:"width 0.4s ease"}}/>
+      <div style={{position:"sticky", top:0, zIndex:20, background:p.bg, transition:"background 0.6s ease"}}>
+        <div style={{height:"2px", background:p.muted+"33"}}>
+          <div style={{height:"100%", background:p.accent, width:pct+"%", transition:"width 0.4s ease, background 0.6s ease"}}/>
         </div>
         <div style={{
           padding:"10px 20px", display:"flex",
           justifyContent:"space-between", alignItems:"center",
-          borderBottom:"1px solid #1e1b14"
+          borderBottom:`1px solid ${p.accent}18`
         }}>
           <button
             onClick={onBack}
             disabled={!canGoBack}
             style={{
               background:"none", border:"none", padding:"4px 0",
-              color: canGoBack ? "#8a7558" : "#2e2a22",
+              color: canGoBack ? p.muted : p.muted+"55",
               fontFamily:"'Special Elite',monospace", fontSize:"0.7rem",
               letterSpacing:"0.12em", cursor: canGoBack ? "pointer" : "default",
-              transition:"color 0.2s", minWidth:60
+              transition:"color 0.2s", minWidth:56
             }}
           >← 上一题</button>
           <span style={{
             fontFamily:"'Special Elite',monospace", fontSize:"0.72rem",
-            color:"#7a6c58", letterSpacing:"0.08em"
+            color:p.text, opacity:0.78, letterSpacing:"0.08em"
           }}>Q {qIdx+1} / {QUESTIONS.length}</span>
           <span style={{
-            fontFamily:"'Special Elite',monospace", fontSize:"0.65rem",
-            color:"#4e4538", letterSpacing:"0.1em", textAlign:"right", minWidth:60
+            fontFamily:"'Special Elite',monospace", fontSize:"0.62rem",
+            color:p.muted, opacity:0.7, letterSpacing:"0.1em", textAlign:"right", minWidth:56
           }}>{BLOCK_LABELS[q.block]}</span>
+        </div>
+        {/* palette strip */}
+        <div style={{
+          display:"flex", justifyContent:"center", padding:"7px 12px 9px",
+          borderBottom:`1px solid ${p.accent}10`
+        }}>
+          <PaletteChip palette={p} onShuffle={onShuffle}/>
         </div>
       </div>
 
@@ -875,14 +1012,14 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack }) {
         {isNewBlock && qIdx > 0 && (
           <p style={{
             fontFamily:"'Special Elite',monospace", fontSize:"0.58rem",
-            letterSpacing:"0.22em", color:"#5a4e3c", margin:"0 0 18px",
+            letterSpacing:"0.22em", color:p.muted, opacity:0.7, margin:"0 0 18px",
             textTransform:"uppercase"
           }}>— {BLOCK_LABELS[q.block]} —</p>
         )}
 
         <p style={{
           fontFamily:"'Playfair Display',serif", fontStyle:"italic",
-          fontSize:"clamp(1rem,4vw,1.4rem)", color:"#ede2d0", lineHeight:1.7,
+          fontSize:"clamp(1rem,4vw,1.4rem)", color:p.text, lineHeight:1.7,
           textAlign:"center", margin:"0 0 32px", fontWeight:400
         }}>{q.q}</p>
 
@@ -892,28 +1029,28 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack }) {
             const dimmed = selected !== null && !isSel;
             return (
               <button key={i} onClick={() => choose(i)} style={{
-                background: isSel ? "#cba14c18" : "transparent",
-                border: isSel ? "1px solid #cba14c88" : "1px solid #2e2920",
-                color: isSel ? "#cba14c" : "#c0b090",
+                background: isSel ? p.accent+"18" : "transparent",
+                border: isSel ? `1px solid ${p.accent}88` : `1px solid ${p.muted}44`,
+                color: isSel ? p.accent : p.text,
                 padding:"14px 18px", textAlign:"left",
                 fontFamily:"'Noto Serif SC',serif", fontSize:"0.88rem", lineHeight:1.7,
                 cursor:"pointer", transition:"all 0.18s", borderRadius:2,
-                opacity: dimmed ? 0.35 : 1,
+                opacity: dimmed ? 0.35 : (isSel ? 1 : 0.9),
               }}
-                onMouseEnter={e=>{ if(selected===null){ e.currentTarget.style.borderColor="#6a5c48"; e.currentTarget.style.color="#e0d0b0"; }}}
-                onMouseLeave={e=>{ if(selected===null){ e.currentTarget.style.borderColor="#2e2920"; e.currentTarget.style.color="#c0b090"; }}}
+                onMouseEnter={e=>{ if(selected===null){ e.currentTarget.style.borderColor=p.muted+"99"; e.currentTarget.style.opacity=1; }}}
+                onMouseLeave={e=>{ if(selected===null){ e.currentTarget.style.borderColor=p.muted+"44"; e.currentTarget.style.opacity=0.9; }}}
               >
                 <span style={{
                   fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
                   letterSpacing:"0.15em",
-                  color: isSel ? "#cba14c" : "#5a4e3c",
+                  color: isSel ? p.accent : p.muted,
                   marginRight:10
                 }}>{String.fromCharCode(65+i)}</span>
                 {opt.text}
                 {opt.lineCN && (
                   <span style={{
                     display:"block", fontSize:"0.8rem",
-                    color: isSel ? "#cba14caa" : "#6a5c48",
+                    color: isSel ? p.accent+"cc" : p.muted,
                     marginTop:5, fontStyle:"italic", lineHeight:1.65,
                     paddingLeft:22
                   }}>{opt.lineCN}</span>
@@ -1087,6 +1224,26 @@ function ResultScreen({ charScores, dimScores, onRetake }) {
           </div>
         </div>
 
+        {/* ── Color card ── */}
+        <div style={{
+          marginTop:40, opacity: phase>=3?1:0, transition:"opacity 0.45s 0.55s"
+        }}>
+          <div style={{
+            display:"flex", justifyContent:"space-between", alignItems:"baseline",
+            marginBottom:12, flexWrap:"wrap", gap:6
+          }}>
+            <p style={{
+              fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em",
+              fontSize:"0.62rem", color:c.muted, margin:0
+            }}>他的色卡 · COLOR CARD</p>
+            <span style={{
+              fontFamily:"'Playfair Display',serif", fontStyle:"italic",
+              fontSize:"0.9rem", color:c.accent
+            }}>{c.accentCN} × {c.bgCN}</span>
+          </div>
+          <ColorCard char={c}/>
+        </div>
+
         {/* ── Divider ── */}
         <div style={{
           height:1, background:c.accent, opacity: phase>=3?0.12:0,
@@ -1202,6 +1359,15 @@ function App() {
   const [charScores, setCharScores] = useState({});
   const [dimScores, setDimScores]   = useState({guile:0,forbear:0,chaos:0,raw:0,romance:0,grace:0});
   const [history, setHistory] = useState([]);
+  const [palette, setPalette] = useState(() => randomChar());
+
+  function shufflePalette() {
+    setPalette(prev => {
+      let next = randomChar();
+      for (let i = 0; i < 6 && next.id === prev.id; i++) next = randomChar();
+      return next;
+    });
+  }
 
   function startQuiz() {
     setQIdx(0);
@@ -1248,9 +1414,14 @@ function App() {
     setQIdx(qIdx - 1);
   }
 
-  if (stage === "intro")  return <Intro onStart={startQuiz}/>;
-  if (stage === "quiz")   return <QuestionScreen qIdx={qIdx} onAnswer={handleAnswer} onBack={handleBack} canGoBack={qIdx > 0}/>;
-  if (stage === "result") return <ResultScreen charScores={charScores} dimScores={dimScores} onRetake={startQuiz}/>;
+  function handleRetake() {
+    shufflePalette();
+    startQuiz();
+  }
+
+  if (stage === "intro")  return <Intro onStart={startQuiz} palette={palette} onShuffle={shufflePalette}/>;
+  if (stage === "quiz")   return <QuestionScreen qIdx={qIdx} onAnswer={handleAnswer} onBack={handleBack} canGoBack={qIdx > 0} palette={palette} onShuffle={shufflePalette}/>;
+  if (stage === "result") return <ResultScreen charScores={charScores} dimScores={dimScores} onRetake={handleRetake}/>;
   return null;
 }
 
