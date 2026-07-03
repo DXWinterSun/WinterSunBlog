@@ -1065,11 +1065,12 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack, palette, onShuffle 
 }
 
 /* ── Result screen ────────────────────────────────────────────── */
-function ResultScreen({ charScores, dimScores, onRetake }) {
+function ResultScreen({ charScores, dimScores, answers, onRetake }) {
   const ranked = getMatches(charScores);
   const c = ranked[0].char;
   const matchPct = Math.round(ranked[0].ratio * 100);
   const [showAlt, setShowAlt] = useState(false);
+  const [showPath, setShowPath] = useState(false);
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
@@ -1306,6 +1307,69 @@ function ResultScreen({ charScores, dimScores, onRetake }) {
           )}
         </div>
 
+        {/* ── Your path (answered questions) ── */}
+        <div style={{marginTop:34, opacity: phase>=3?1:0, transition:"opacity 0.45s 0.78s"}}>
+          <button onClick={() => setShowPath(!showPath)} style={{
+            background:"transparent", border:"none", padding:"0 0 12px",
+            fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em",
+            fontSize:"0.63rem", color:c.muted, cursor:"pointer",
+            display:"flex", alignItems:"center", gap:8
+          }}>
+            <span style={{
+              display:"inline-block",
+              transform: showPath?"rotate(90deg)":"rotate(0deg)",
+              transition:"transform 0.2s", fontSize:"0.55rem"
+            }}>▶</span>
+            你的选择 · 回顾这 {answers.length} 步
+          </button>
+
+          {showPath && (
+            <div style={{display:"flex", flexDirection:"column"}}>
+              {QUESTIONS.map((qq, qi) => {
+                const chosen = answers[qi];
+                if (!chosen) return null;
+                const li = qq.opts.indexOf(chosen);
+                return (
+                  <div key={qi} style={{
+                    padding:"13px 0",
+                    borderTop: qi>0 ? `1px solid ${c.muted}1e` : `1px solid ${c.muted}1e`
+                  }}>
+                    <div style={{display:"flex", alignItems:"baseline", gap:9, marginBottom:6}}>
+                      <span style={{
+                        fontFamily:"'Special Elite',monospace", fontSize:"0.58rem",
+                        color:c.muted, letterSpacing:"0.06em", opacity:0.7,
+                        flexShrink:0, minWidth:26
+                      }}>Q{qi+1}</span>
+                      <span style={{
+                        fontFamily:"'Playfair Display',serif", fontStyle:"italic",
+                        fontSize:"0.85rem", color:c.text, lineHeight:1.55, opacity:0.82
+                      }}>{qq.q}</span>
+                    </div>
+                    <div style={{display:"flex", alignItems:"baseline", gap:9, paddingLeft:35}}>
+                      <span style={{
+                        fontFamily:"'Special Elite',monospace", fontSize:"0.56rem",
+                        color:c.accent, letterSpacing:"0.1em", flexShrink:0
+                      }}>{String.fromCharCode(65 + (li<0?0:li))}</span>
+                      <span style={{
+                        fontFamily:"'Noto Serif SC',serif", fontSize:"0.82rem",
+                        color:c.accent, lineHeight:1.6
+                      }}>
+                        {chosen.text}
+                        {chosen.lineCN && (
+                          <span style={{
+                            display:"block", fontSize:"0.74rem", color:c.muted,
+                            fontStyle:"italic", marginTop:3, lineHeight:1.5
+                          }}>{chosen.lineCN}</span>
+                        )}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
         {/* ── Action buttons ── */}
         <div style={{
           display:"flex", gap:10, flexWrap:"wrap", marginTop:44,
@@ -1359,6 +1423,7 @@ function App() {
   const [charScores, setCharScores] = useState({});
   const [dimScores, setDimScores]   = useState({guile:0,forbear:0,chaos:0,raw:0,romance:0,grace:0});
   const [history, setHistory] = useState([]);
+  const [answers, setAnswers] = useState([]);
   const [palette, setPalette] = useState(() => randomChar());
 
   function shufflePalette() {
@@ -1374,6 +1439,7 @@ function App() {
     setCharScores({});
     setDimScores({guile:0,forbear:0,chaos:0,raw:0,romance:0,grace:0});
     setHistory([]);
+    setAnswers([]);
     setStage("quiz");
   }
 
@@ -1389,6 +1455,7 @@ function App() {
     Object.keys(dimDelta).forEach(k => { nd[k] = (nd[k]||0) + dimDelta[k]; });
 
     setHistory(prev => [...prev, {charDelta, dimDelta}]);
+    setAnswers(prev => [...prev, opt]);
     setCharScores(nc);
     setDimScores(nd);
 
@@ -1411,6 +1478,7 @@ function App() {
     setCharScores(nc);
     setDimScores(nd);
     setHistory(prev => prev.slice(0, -1));
+    setAnswers(prev => prev.slice(0, -1));
     setQIdx(qIdx - 1);
   }
 
@@ -1421,7 +1489,7 @@ function App() {
 
   if (stage === "intro")  return <Intro onStart={startQuiz} palette={palette} onShuffle={shufflePalette}/>;
   if (stage === "quiz")   return <QuestionScreen qIdx={qIdx} onAnswer={handleAnswer} onBack={handleBack} canGoBack={qIdx > 0} palette={palette} onShuffle={shufflePalette}/>;
-  if (stage === "result") return <ResultScreen charScores={charScores} dimScores={dimScores} onRetake={handleRetake}/>;
+  if (stage === "result") return <ResultScreen charScores={charScores} dimScores={dimScores} answers={answers} onRetake={handleRetake}/>;
   return null;
 }
 
