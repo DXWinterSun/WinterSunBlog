@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>最适合你的 Sam 角色 · Winter Sun</title>
-<meta name="description" content="三十道题，测出最适合你的 Sam Rockwell 角色。">
+<meta name="description" content="二十道题，测出最适合你的 Sam Rockwell 角色。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="最适合你的 Sam 角色 · Winter Sun">
-<meta property="og:description" content="三十道题，测出最适合你的 Sam Rockwell 角色。">
+<meta property="og:description" content="二十道题，测出最适合你的 Sam Rockwell 角色。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/quiz/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
@@ -289,408 +289,188 @@ const QUESTIONS = [
   {
     block: 1, q: "周五傍晚，整个夜晚突然自由了。你最可能——",
     opts: [
-      { text:"想好几件可以做的事，然后挑最有意思的那个",
-        chars:{eric:2,frank:2,wolf:2,jim:1,chuck:1}, dims:{guile:2} },
-      { text:"一个人待着，或者只和一个人说很久的话",
-        chars:{krzysztof:2,sambell:2,stoppard:1,johnmoon:1}, dims:{forbear:1,romance:1} },
-      { text:"冲动出门，不知道去哪，但就是要动",
-        chars:{zaphod:2,matty:2,billy:2,pero:1}, dims:{chaos:2} },
-      { text:"做顿饭，好好待一晚上",
-        chars:{buck:2,samuel:2,trent:1,robert:1,gary:1}, dims:{raw:2} },
+      { text:"想好几件可以做的事，然后挑最有意思的那个", chars:{eric:3,frank:2,chuck:2,jim:1}, dims:{guile:2} },
+      { text:"一个人待着，或者只和一个人说很久的话", chars:{krzysztof:3,sambell:2,wayne:2,klenz:1}, dims:{forbear:1,romance:1} },
+      { text:"冲动出门，不知道去哪，但就是要动", chars:{jerry:3,wildbill:2,zaphod:2,billy:1}, dims:{chaos:2} },
+      { text:"做顿饭，好好待一晚上", chars:{robert:3,buck:2,kenny:2,gary:1}, dims:{raw:2} },
     ]
   },
   {
     block: 1, q: "约好的人没来，也没有解释。你——",
     opts: [
-      { text:"先记下来，不表态，看他下次怎么做",
-        chars:{eric:2,frank:2,reston:1,chuck:1}, dims:{guile:2} },
-      { text:"等着，觉得他大概有原因",
-        chars:{krzysztof:2,sambell:2,johnmoon:1,stoppard:1}, dims:{forbear:2} },
-      { text:"当场发消息或者打电话，直接问",
-        chars:{wildbill:2,kenny:2,pero:1,billy:1}, dims:{chaos:1,raw:1} },
-      { text:"开始担心他是不是出了什么事",
-        chars:{guy:2,samuel:2,owen:1,trent:1}, dims:{romance:2} },
-    ]
-  },
-  {
-    block: 1, q: "在一个派对上，你——",
-    opts: [
-      { text:"悄悄摸清了整个房间里谁认识谁",
-        chars:{eric:2,chuck:2,frank:1,wolf:1,jim:1}, dims:{guile:2} },
-      { text:"找一个角落，等一个有意思的人来找你",
-        chars:{stoppard:2,brad:2,reston:1,krzysztof:1}, dims:{forbear:1,grace:1} },
-      { text:"成为让整个场子变得不一样的那个人",
-        chars:{zaphod:2,billy:2,pero:2,hammer:1}, dims:{chaos:2} },
-      { text:"和一个陌生人聊到完全忘了其他人",
-        chars:{buck:2,owen:2,samuel:1,trent:1,matty:1}, dims:{raw:1,romance:1} },
-    ]
-  },
-  {
-    block: 1, q: "对方做了一件让你失望的事，你——",
-    opts: [
-      { text:"先在心里想清楚，再找时机说",
-        chars:{eric:2,reston:2,watson:1,brad:1}, dims:{guile:1,forbear:1} },
-      { text:"难受，但不说，等他自己明白",
-        chars:{johnmoon:2,klenz:2,stoppard:1,brad:1}, dims:{forbear:2} },
-      { text:"当场说出来，哪怕声音变大了",
-        chars:{kenny:2,pero:2,wildbill:1,billy:1}, dims:{chaos:1,raw:1} },
-      { text:"问他原因，想真的弄清楚发生了什么",
-        chars:{watson:2,trent:2,craig:1,reston:1}, dims:{raw:1,romance:1} },
-    ]
-  },
-  {
-    block: 1, q: "关于告白，你更接近——",
-    opts: [
-      { text:"等时机，确定了感情再说",
-        chars:{krzysztof:2,stoppard:2,trent:1,klenz:1}, dims:{forbear:2} },
-      { text:"把那份感情藏进每一件小事里",
-        chars:{sambell:2,klenz:2,brad:1,johnmoon:1}, dims:{romance:2} },
-      { text:"直接说，管它结果如何",
-        chars:{kenny:2,pero:2,wildbill:1,billy:1}, dims:{chaos:1,raw:1} },
-      { text:"精心设计，要让他一辈子记得这一刻",
-        chars:{eric:2,frank:2,jim:1,wolf:1}, dims:{guile:1,grace:2} },
-    ]
-  },
-  {
-    block: 1, q: "独处时，你通常——",
-    opts: [
-      { text:"脑子停不下来，一直在想事情",
-        chars:{eric:2,reston:2,frank:1,chuck:1}, dims:{guile:2} },
-      { text:"沉进一件事里，外界消失了",
-        chars:{johnmoon:2,stoppard:1,reston:1,sambell:1}, dims:{forbear:1,raw:1} },
-      { text:"什么都想试，在一个地方待不住",
-        chars:{zaphod:2,billy:2,matty:1,owen:1}, dims:{chaos:2} },
-      { text:"回想起某个人说过的某一句话",
-        chars:{krzysztof:2,sambell:2,aidan:1,trent:1}, dims:{romance:2} },
+      { text:"先记下来，不表态，看他下次怎么做", chars:{watson:3,reston:2,wolf:2,victor:1}, dims:{guile:2} },
+      { text:"等着，觉得他大概有原因", chars:{johnmoon:3,brad:2,stoppard:2,trent:1}, dims:{forbear:2} },
+      { text:"当场发消息或者打电话，直接问", chars:{francis:3,bush:2,matty:2,pero:1}, dims:{chaos:1,raw:1} },
+      { text:"开始担心他是不是出了什么事", chars:{aidan:3,guy:2,hammer:2,owen:1}, dims:{romance:2} },
     ]
   },
   {
     block: 1, q: "吵架之后，你——",
     opts: [
-      { text:"先在心里整理好，再找合适的时机谈",
-        chars:{reston:2,brad:2,watson:1,eric:1}, dims:{guile:1,forbear:1} },
-      { text:"安静下来，需要时间，不主动找他",
-        chars:{johnmoon:2,trent:2,klenz:1,stoppard:1}, dims:{forbear:2} },
-      { text:"说不了两句又想和好，忍不住先开口",
-        chars:{dixon:2,kenny:2,pero:1,matty:1}, dims:{raw:1,romance:1} },
-      { text:"一个人去走走，或者找点别的事做",
-        chars:{wildbill:2,billy:2,pero:1,watson:1}, dims:{chaos:1,raw:1} },
+      { text:"先在心里整理好，再找合适的时机谈", chars:{craig:3,doug:2,manfromfuture:2,eddie:1}, dims:{guile:1,forbear:1} },
+      { text:"安静下来，需要时间，不主动找他", chars:{wayne:3,johnmoon:2,brad:2,klenz:1}, dims:{forbear:2} },
+      { text:"说不了两句又想和好，忍不住先开口", chars:{buck:3,samuel:2,glenn:2,dixon:1}, dims:{raw:1,romance:1} },
+      { text:"一个人去走走，或者找点别的事做", chars:{zaphod:3,wildbill:2,jerry:2,billy:1}, dims:{chaos:1,raw:1} },
     ]
   },
   {
     block: 1, q: "最难以忍受的是——",
     opts: [
-      { text:"被人小瞧，明明你早就看清了",
-        chars:{eric:2,hammer:2,reston:1,wolf:1}, dims:{guile:2} },
-      { text:"被误解，却根本没机会解释",
-        chars:{johnmoon:2,klenz:2,stoppard:1,watson:1}, dims:{forbear:2} },
-      { text:"无聊，什么都没发生，日子停住了",
-        chars:{zaphod:2,billy:2,jerry:1,matty:1}, dims:{chaos:2} },
-      { text:"被辜负，对方知道你在乎但还是那么做",
-        chars:{watson:2,kenny:2,dixon:1,krzysztof:1}, dims:{raw:2} },
-      { text:"粗糙、廉价的东西出现在你的生命里",
-        chars:{jim:2,wolf:2,eric:1,frank:1}, dims:{grace:2} },
+      { text:"被人小瞧，明明你早就看清了", chars:{frank:3,eric:2,chuck:2,jim:1}, dims:{guile:2} },
+      { text:"被误解，却根本没机会解释", chars:{stoppard:3,krzysztof:2,trent:2,sambell:1}, dims:{forbear:2} },
+      { text:"无聊，什么都没发生，日子停住了", chars:{manfromfuture:3,glenn:2,kenny:2,francis:1}, dims:{chaos:2} },
+      { text:"被辜负，对方知道你在乎但还是那么做", chars:{dixon:3,bush:2,matty:2,samuel:1}, dims:{raw:2} },
+      { text:"粗糙、廉价的东西出现在你的生命里", chars:{hammer:3,wolf:2,robert:2,gary:1}, dims:{grace:2} },
     ]
   },
   {
     block: 1, q: "遇到困难，你——",
     opts: [
-      { text:"先一个人想清楚方向，再行动",
-        chars:{eric:2,reston:2,watson:1,frank:1}, dims:{guile:2} },
-      { text:"等一等，不急着动，看局势",
-        chars:{johnmoon:2,brad:2,klenz:1,stoppard:1}, dims:{forbear:2} },
-      { text:"找一个谁也没想到的出路",
-        chars:{zaphod:2,aidan:2,billy:1,owen:1}, dims:{chaos:1,guile:1} },
-      { text:"找那个你信任的人说一说",
-        chars:{krzysztof:2,sambell:2,guy:1,trent:1}, dims:{romance:2} },
+      { text:"先一个人想清楚方向，再行动", chars:{reston:3,victor:2,aidan:2,watson:1}, dims:{guile:2} },
+      { text:"等一等，不急着动，看局势", chars:{brad:3,johnmoon:2,doug:2,craig:1}, dims:{forbear:2} },
+      { text:"找一个谁也没想到的出路", chars:{pero:3,manfromfuture:2,owen:2,eddie:1}, dims:{chaos:1,guile:1} },
+      { text:"找那个你信任的人说一说", chars:{billy:3,francis:2,aidan:2,guy:1}, dims:{romance:2} },
     ]
   },
   {
     block: 1, q: "怎么知道自己爱上了一个人——",
     opts: [
-      { text:"开始在计划里悄悄给他留了位置",
-        chars:{eric:2,reston:2,wolf:1,frank:1}, dims:{guile:1,romance:1} },
-      { text:"他一消失就觉得少了什么",
-        chars:{krzysztof:2,sambell:2,klenz:1,aidan:1}, dims:{forbear:1,romance:1} },
-      { text:"整个人乱了，停不下来，什么都想到他",
-        chars:{zaphod:2,matty:2,jerry:1,billy:1}, dims:{chaos:2} },
-      { text:"想把最真实的自己都给他看",
-        chars:{buck:2,kenny:2,watson:1,trent:1}, dims:{raw:1,romance:1} },
-      { text:"开始注意他所有的细节",
-        chars:{jim:2,wolf:2,aidan:1,chuck:1}, dims:{grace:1,romance:1} },
+      { text:"开始在计划里悄悄给他留了位置", chars:{jim:3,eric:2,frank:2,wolf:1}, dims:{guile:1,romance:1} },
+      { text:"他一消失就觉得少了什么", chars:{sambell:3,krzysztof:2,wayne:2,klenz:1}, dims:{forbear:1,romance:1} },
+      { text:"整个人乱了，停不下来，什么都想到他", chars:{wildbill:3,jerry:2,zaphod:2,chuck:1}, dims:{chaos:2} },
+      { text:"想把最真实的自己都给他看", chars:{guy:3,buck:2,kenny:2,pero:1}, dims:{raw:1,romance:1} },
+      { text:"开始注意他所有的细节", chars:{gary:3,hammer:2,craig:2,robert:1}, dims:{grace:1,romance:1} },
     ]
   },
   /* ── Block 2: 偏好 / 吸引力 ── */
   {
     block: 2, q: "最喜欢被哪种方式爱——",
     opts: [
-      { text:"被精心设计的惊喜，被用尽心思对待",
-        chars:{eric:3,frank:3,wolf:3,jim:2,chuck:1}, dims:{guile:1,grace:2} },
-      { text:"每天都在，不需要大动作",
-        chars:{krzysztof:3,sambell:2,klenz:2,stoppard:2,johnmoon:1}, dims:{forbear:2,romance:1} },
-      { text:"被突然带着去做从没做过的疯事",
-        chars:{zaphod:2,aidan:2,billy:2,owen:2}, dims:{chaos:2} },
-      { text:"被实实在在地帮助，不是空话",
-        chars:{buck:3,samuel:2,robert:2,gary:2,watson:2}, dims:{raw:2} },
+      { text:"被精心设计的惊喜，被用尽心思对待", chars:{hammer:3,reston:2,craig:2,stoppard:1}, dims:{guile:1,grace:2} },
+      { text:"每天都在，不需要大动作", chars:{trent:3,victor:2,doug:2,eddie:1}, dims:{forbear:2,romance:1} },
+      { text:"被突然带着去做从没做过的疯事", chars:{doug:3,glenn:2,bush:2,matty:1}, dims:{chaos:2} },
+      { text:"被实实在在地帮助，不是空话", chars:{samuel:3,dixon:2,owen:2,watson:1}, dims:{raw:2} },
     ]
   },
   {
     block: 2, q: "最心动的那种初遇——",
     opts: [
-      { text:"在某个很普通的地方，就这么遇见了",
-        chars:{owen:2,robert:2,sambell:2,krzysztof:2,matty:1}, dims:{romance:2} },
-      { text:"在危险或离奇的场合，命运的感觉",
-        chars:{jerry:2,wolf:2,aidan:2,eric:1,guy:1}, dims:{chaos:1,romance:2} },
-      { text:"他主动来认识你，带着某种目的",
-        chars:{frank:2,eric:2,chuck:2,jim:2}, dims:{guile:2} },
-      { text:"两个人在人群里互相认出了对方",
-        chars:{samuel:2,zaphod:2,billy:2,wayne:1,pero:1}, dims:{chaos:1,romance:1} },
+      { text:"在某个很普通的地方，就这么遇见了", chars:{billy:3,francis:2,aidan:2,krzysztof:1}, dims:{romance:2} },
+      { text:"在危险或离奇的场合，命运的感觉", chars:{wolf:3,francis:2,zaphod:2,jerry:1}, dims:{chaos:1,romance:2} },
+      { text:"他主动来认识你，带着某种目的", chars:{chuck:3,eric:2,frank:2,jim:1}, dims:{guile:2} },
+      { text:"两个人在人群里互相认出了对方", chars:{kenny:3,wildbill:2,matty:2,wayne:1}, dims:{chaos:1,romance:1} },
     ]
   },
   {
     block: 2, q: "被哪种人拯救——",
     opts: [
-      { text:"在你不知情的情况下，他早就悄悄帮了你",
-        chars:{eric:3,wolf:3,frank:2,chuck:2}, dims:{guile:2,grace:1} },
-      { text:"用某种荒诞的方式把你从困境里带出来",
-        chars:{samuel:2,owen:2,guy:2,zaphod:2}, dims:{chaos:2,raw:1} },
-      { text:"始终如一地出现，直到你真的脱困",
-        chars:{johnmoon:3,klenz:3,trent:2,brad:2}, dims:{forbear:3} },
-      { text:"你不确定他是在救你还是毁你",
-        chars:{victor:2,stoppard:2,matty:2,glenn:2}, dims:{chaos:1,romance:1} },
+      { text:"在你不知情的情况下，他早就悄悄帮了你", chars:{klenz:3,reston:2,brad:2,victor:1}, dims:{guile:2,grace:1} },
+      { text:"用某种荒诞的方式把你从困境里带出来", chars:{bush:3,glenn:2,buck:2,pero:1}, dims:{chaos:2,raw:1} },
+      { text:"始终如一地出现，直到你真的脱困", chars:{johnmoon:3,stoppard:2,trent:2,sambell:1}, dims:{forbear:3} },
+      { text:"你不确定他是在救你还是毁你", chars:{owen:3,guy:2,manfromfuture:2,eddie:1}, dims:{chaos:1,romance:1} },
     ]
   },
   {
     block: 2, q: "关于秘密——",
     opts: [
-      { text:"不介意他有秘密，只要他始终是你认识的那个人",
-        chars:{frank:2,eric:2,chuck:2,jim:2,wolf:1}, dims:{guile:2} },
-      { text:"你想成为他唯一愿意告诉一切的人",
-        chars:{samuel:2,kenny:2,buck:2,pero:1,guy:1}, dims:{raw:2,romance:1} },
-      { text:"你们之间没有秘密，这是底线",
-        chars:{johnmoon:2,klenz:2,trent:2,watson:2}, dims:{forbear:2,raw:1} },
-      { text:"他知道你所有秘密，但从不说破",
-        chars:{krzysztof:2,victor:2,stoppard:2,sambell:1,craig:1}, dims:{forbear:1,romance:2} },
+      { text:"不介意他有秘密，只要他始终是你认识的那个人", chars:{eric:3,watson:2,gary:2,robert:1}, dims:{guile:2} },
+      { text:"你想成为他唯一愿意告诉一切的人", chars:{eddie:3,buck:2,samuel:2,dixon:1}, dims:{raw:2,romance:1} },
+      { text:"你们之间没有秘密，这是底线", chars:{watson:3,johnmoon:2,klenz:2,wayne:1}, dims:{forbear:2,raw:1} },
+      { text:"他知道你所有秘密，但从不说破", chars:{victor:3,krzysztof:2,sambell:2,aidan:1}, dims:{forbear:1,romance:2} },
     ]
   },
   {
     block: 2, q: "哪种缺点最难抗拒——",
     opts: [
-      { text:"太算计，但你知道他算计的其实都是为你",
-        chars:{eric:3,frank:3,wolf:3,jim:2,chuck:2}, dims:{guile:3} },
-      { text:"太野，根本停不下来，不知道刹车",
-        chars:{wildbill:3,jerry:3,matty:2,kenny:2}, dims:{chaos:2,raw:1} },
-      { text:"太以自我为中心，但那种自我有种迷人的逻辑",
-        chars:{zaphod:3,billy:3,glenn:2,manfromfuture:2}, dims:{chaos:3} },
-      { text:"太真太纯，好像不知道这世界有多复杂",
-        chars:{samuel:3,guy:3,eddie:2,pero:2,wayne:1}, dims:{raw:3} },
+      { text:"太算计，但你知道他算计的其实都是为你", chars:{frank:3,chuck:2,jim:2,reston:1}, dims:{guile:3} },
+      { text:"太野，根本停不下来，不知道刹车", chars:{glenn:3,zaphod:2,wildbill:2,bush:1}, dims:{chaos:2,raw:1} },
+      { text:"太以自我为中心，但那种自我有种迷人的逻辑", chars:{jerry:3,billy:2,kenny:2,wolf:1}, dims:{chaos:3} },
+      { text:"太真太纯，好像不知道这世界有多复杂", chars:{matty:3,dixon:2,samuel:2,guy:1}, dims:{raw:3} },
     ]
   },
   {
     block: 2, q: "哪种眼神最打动你——",
     opts: [
-      { text:"专注的，认定你了就只盯着你一个",
-        chars:{krzysztof:3,sambell:2,brad:2,reston:2}, dims:{forbear:1,romance:2} },
-      { text:"内敛的，不多说，但让你感觉被悄悄记在心里",
-        chars:{buck:2,trent:2,johnmoon:3,stoppard:2}, dims:{forbear:2,raw:1} },
-      { text:"锐利的，有一种让你害怕又想靠近的危险感",
-        chars:{eric:3,frank:2,wolf:2,aidan:2,jerry:1}, dims:{guile:2,chaos:1} },
-      { text:"温亮的，自带某种能量，看见他就想笑",
-        chars:{pero:2,hammer:2,zaphod:2,owen:2,samuel:1}, dims:{chaos:1,romance:2} },
+      { text:"专注的，认定你了就只盯着你一个", chars:{trent:3,brad:2,craig:2,doug:1}, dims:{forbear:1,romance:2} },
+      { text:"内敛的，不多说，但让你感觉被悄悄记在心里", chars:{robert:3,stoppard:2,gary:2,manfromfuture:1}, dims:{forbear:2,raw:1} },
+      { text:"锐利的，有一种让你害怕又想靠近的危险感", chars:{pero:3,eric:2,hammer:2,owen:1}, dims:{guile:2,chaos:1} },
+      { text:"温亮的，自带某种能量，看见他就想笑", chars:{zaphod:3,billy:2,francis:2,hammer:1}, dims:{chaos:1,romance:2} },
     ]
   },
   {
     block: 2, q: "你们的关系更像——",
     opts: [
-      { text:"盟友——有共同的目标，一起对抗某件事",
-        chars:{eric:2,wolf:2,chuck:2,frank:2,aidan:2}, dims:{guile:2} },
-      { text:"他是你的盾，你是他唯一放不下的软肋",
-        chars:{klenz:2,trent:2,johnmoon:2,sambell:2,watson:2}, dims:{forbear:2,romance:1} },
-      { text:"你让他想变成更好的人，他让你更勇敢",
-        chars:{dixon:2,victor:2,gary:2,hammer:2,doug:1}, dims:{raw:1,romance:2} },
-      { text:"一面镜子——在他身上，你认出了某个一直在找的东西",
-        chars:{krzysztof:2,victor:2,stoppard:2,craig:2,reston:1}, dims:{forbear:1,romance:1} },
-    ]
-  },
-  {
-    block: 2, q: "你希望如何被他记住——",
-    opts: [
-      { text:"他那些最重要的决定里，有你的影子",
-        chars:{krzysztof:3,sambell:2,reston:2,brad:2,gary:1}, dims:{forbear:2,romance:1} },
-      { text:"他这辈子最漂亮的那段故事是你们在一起",
-        chars:{zaphod:3,aidan:3,wayne:2,owen:1,jim:1}, dims:{chaos:1,romance:2} },
-      { text:"他软下来的那一面，只有你看见过",
-        chars:{kenny:2,buck:2,pero:2,guy:1,samuel:1}, dims:{raw:2,romance:1} },
-      { text:"他在你面前是最好的版本的自己，不是装的——是你把那面召唤出来了",
-        chars:{jim:2,wolf:2,klenz:2,frank:1,stoppard:1}, dims:{grace:2,romance:1} },
-    ]
-  },
-  {
-    block: 2, q: "受不了另一半哪一点——",
-    opts: [
-      { text:"冷漠，安全感慢慢消失",
-        chars:{krzysztof:2,sambell:2,billy:2,aidan:1}, dims:{forbear:1,romance:1} },
-      { text:"算计别人，哪怕不针对你",
-        chars:{buck:2,kenny:2,dixon:2,samuel:1,trent:1}, dims:{raw:2} },
-      { text:"把情绪压着，让你猜",
-        chars:{matty:2,pero:2,jerry:2,kenny:1}, dims:{chaos:1,romance:1} },
-      { text:"太混乱，对自己不负责任",
-        chars:{reston:2,stoppard:2,brad:2,watson:1,craig:1}, dims:{forbear:1,raw:1} },
-    ]
-  },
-  {
-    block: 2, q: "最心动的一种等待——",
-    opts: [
-      { text:"他把你随口说过的话记了很久，你一直不知道",
-        chars:{krzysztof:3,stoppard:2,klenz:2,sambell:1,gary:1}, dims:{forbear:2,romance:1} },
-      { text:"你需要的时候他总能出现，从不缺席",
-        chars:{johnmoon:2,brad:3,reston:2,watson:2}, dims:{forbear:2,raw:1} },
-      { text:"他做了很多，一句话都没说",
-        chars:{trent:2,craig:2,robert:2,doug:2,wayne:1}, dims:{forbear:1,raw:2} },
-      { text:"他等到你准备好了，哪怕等了很久",
-        chars:{victor:3,glenn:2,dixon:2,kenny:2,wildbill:1}, dims:{forbear:1,romance:2} },
+      { text:"盟友——有共同的目标，一起对抗某件事", chars:{chuck:3,frank:2,jim:2,reston:1}, dims:{guile:2} },
+      { text:"他是你的盾，你是他唯一放不下的软肋", chars:{wayne:3,klenz:2,krzysztof:2,sambell:1}, dims:{forbear:2,romance:1} },
+      { text:"你让他想变成更好的人，他让你更勇敢", chars:{eddie:3,buck:2,guy:2,wildbill:1}, dims:{raw:1,romance:2} },
+      { text:"一面镜子——在他身上，你认出了某个一直在找的东西", chars:{craig:3,trent:2,brad:2,johnmoon:1}, dims:{forbear:1,romance:1} },
     ]
   },
   /* ── Block 3: 美学 / 感觉 ── */
   {
-    block: 3, q: "你们的故事最可能发生在——",
-    opts: [
-      { text:"城市，灯光与人群，一种持续的流动感",
-        chars:{eric:2,chuck:2,frank:2,hammer:2,wolf:1,jim:1}, dims:{guile:1,grace:1} },
-      { text:"小镇，每个人都互相认识",
-        chars:{trent:2,samuel:2,kenny:2,watson:2,brad:1}, dims:{raw:2} },
-      { text:"某个离现实很远的地方",
-        chars:{zaphod:2,guy:2,billy:2,manfromfuture:2,owen:1}, dims:{chaos:2} },
-      { text:"某个与世隔绝的空间，安静得像另一个世界",
-        chars:{sambell:2,johnmoon:2,krzysztof:2,stoppard:1,aidan:1}, dims:{forbear:1,romance:1} },
-    ]
-  },
-  {
-    block: 3, q: "故事里有一首歌，它应该是——",
-    opts: [
-      { text:"蓝调或爵士，迟暮里有一点热烈",
-        chars:{jim:2,frank:2,krzysztof:2,victor:2,stoppard:1}, dims:{grace:2} },
-      { text:"九十年代摇滚或朋克，快、脏、不在乎",
-        chars:{matty:2,kenny:2,pero:2,jerry:2,billy:1}, dims:{chaos:2} },
-      { text:"轻快的流行或复古disco，有一点荒诞",
-        chars:{samuel:2,zaphod:2,owen:2,wayne:2,guy:1,hammer:1}, dims:{chaos:1,raw:1} },
-      { text:"民谣或乡村，慢，有画面感",
-        chars:{johnmoon:2,trent:2,sambell:2,buck:2,glenn:1}, dims:{forbear:1,raw:1} },
-    ]
-  },
-  {
-    block: 3, q: "哪种夜晚的感觉最像你们的故事——",
-    opts: [
-      { text:"暖的，台灯昏黄，时间在那里慢下来",
-        chars:{gary:2,reston:2,frank:2,watson:2,stoppard:1}, dims:{grace:1,raw:1} },
-      { text:"冷的，下着雨，玻璃上有光在折射",
-        chars:{eric:2,hammer:2,wolf:2,chuck:2,aidan:1}, dims:{guile:1,grace:1} },
-      { text:"静的，月色很白，只有你们两个",
-        chars:{buck:2,johnmoon:2,trent:2,glenn:2,billy:1}, dims:{forbear:1,raw:1} },
-      { text:"深的，星光很远，孤独但没关系",
-        chars:{sambell:2,manfromfuture:2,guy:2,zaphod:2,aidan:1}, dims:{chaos:1,romance:1} },
-    ]
-  },
-  {
-    block: 3, q: "他生活的空间是——",
-    opts: [
-      { text:"凌乱的，有很多故事",
-        chars:{billy:2,buck:2,manfromfuture:2,pero:2,matty:1}, dims:{chaos:2} },
-      { text:"整洁有品味，能看出他是谁",
-        chars:{eric:2,jim:2,stoppard:2,wolf:2,reston:1}, dims:{guile:1,grace:2} },
-      { text:"朴素功能性的，不多余",
-        chars:{johnmoon:2,dixon:2,kenny:2,watson:2,brad:1}, dims:{forbear:1,raw:2} },
-      { text:"某样东西他一直放着，你问他他不解释——但你大概知道为什么",
-        chars:{krzysztof:2,klenz:2,sambell:2,brad:1,johnmoon:1}, dims:{forbear:1,romance:2} },
-    ]
-  },
-  {
     block: 3, q: "哪种危险你可以接受——",
     opts: [
-      { text:"爱上了本不该爱的人",
-        chars:{jerry:2,eric:2,frank:2,wolf:2,chuck:1}, dims:{guile:2} },
-      { text:"爱得太极端，把你们都燃尽",
-        chars:{wildbill:2,glenn:2,billy:2,victor:2,matty:1}, dims:{chaos:2} },
-      { text:"他完全不在乎规矩和后果",
-        chars:{zaphod:2,aidan:2,billy:1,owen:2,doug:2}, dims:{chaos:2} },
-      { text:"莫名被卷入麻烦，但有他在旁边",
-        chars:{eddie:2,pero:2,watson:2,kenny:2,guy:1}, dims:{raw:2} },
-    ]
-  },
-  {
-    block: 3, q: "哪种意外相遇——",
-    opts: [
-      { text:"命运安排，你们理应相遇",
-        chars:{guy:2,zaphod:2,manfromfuture:2,sambell:2,billy:1}, dims:{chaos:1,romance:2} },
-      { text:"谎言开始，真心留下",
-        chars:{frank:2,eric:2,jerry:2,chuck:2,jim:1}, dims:{guile:2} },
-      { text:"在最普通的地方，就那么遇见了",
-        chars:{matty:2,owen:2,wayne:2,samuel:2,gary:1}, dims:{raw:2} },
-      { text:"互相把对方从某个处境里带了出来",
-        chars:{trent:2,johnmoon:2,kenny:2,watson:2,stoppard:1}, dims:{forbear:1,raw:1} },
+      { text:"爱上了本不该爱的人", chars:{wolf:3,jerry:2,victor:2,aidan:1}, dims:{guile:2} },
+      { text:"爱得太极端，把你们都燃尽", chars:{glenn:3,kenny:2,bush:2,manfromfuture:1}, dims:{chaos:2} },
+      { text:"他完全不在乎规矩和后果", chars:{bush:3,matty:2,pero:2,owen:1}, dims:{chaos:2} },
+      { text:"莫名被卷入麻烦，但有他在旁边", chars:{dixon:3,samuel:2,watson:2,gary:1}, dims:{raw:2} },
     ]
   },
   {
     block: 3, q: "你希望他看见你哪一面——",
     opts: [
-      { text:"你有多聪明，多能看穿事情",
-        chars:{reston:2,eric:2,chuck:2,frank:2,wolf:1}, dims:{guile:2} },
-      { text:"你有多温柔，多愿意陪着人",
-        chars:{johnmoon:2,stoppard:2,glenn:2,victor:2,dixon:1}, dims:{forbear:1,romance:1} },
-      { text:"你很直接，喜欢就喜欢，不绕弯子",
-        chars:{kenny:2,buck:2,samuel:2,guy:2,watson:1}, dims:{raw:2} },
-      { text:"你不用变成谁——光是你在，他就觉得够了",
-        chars:{krzysztof:2,sambell:2,trent:2,billy:2,aidan:2}, dims:{forbear:1,romance:2} },
+      { text:"你有多聪明，多能看穿事情", chars:{doug:3,eric:2,robert:2,stoppard:1}, dims:{guile:2} },
+      { text:"你有多温柔，多愿意陪着人", chars:{krzysztof:3,sambell:2,wayne:2,klenz:1}, dims:{forbear:1,romance:1} },
+      { text:"你很直接，喜欢就喜欢，不绕弯子", chars:{buck:3,zaphod:2,wildbill:2,kenny:1}, dims:{raw:2} },
+      { text:"你不用变成谁——光是你在，他就觉得够了", chars:{aidan:3,trent:2,brad:2,chuck:1}, dims:{forbear:1,romance:2} },
+    ]
+  },
+  {
+    block: 3, q: "哪种夜晚的感觉最像你们的故事——",
+    opts: [
+      { text:"暖的，台灯昏黄，时间在那里慢下来", chars:{francis:3,jim:2,reston:2,guy:1}, dims:{grace:1,raw:1} },
+      { text:"冷的，下着雨，玻璃上有光在折射", chars:{frank:3,wolf:2,hammer:2,robert:1}, dims:{guile:1,grace:1} },
+      { text:"静的，月色很白，只有你们两个", chars:{gary:3,johnmoon:2,victor:2,doug:1}, dims:{forbear:1,raw:1} },
+      { text:"深的，星光很远，孤独但没关系", chars:{matty:3,billy:2,jerry:2,pero:1}, dims:{chaos:1,romance:1} },
+    ]
+  },
+  {
+    block: 3, q: "故事里有一首歌，它应该是——",
+    opts: [
+      { text:"蓝调或爵士，迟暮里有一点热烈", chars:{stoppard:3,francis:2,eric:2,craig:1}, dims:{grace:2} },
+      { text:"九十年代摇滚或朋克，快、脏、不在乎", chars:{manfromfuture:3,glenn:2,owen:2,dixon:1}, dims:{chaos:2} },
+      { text:"轻快的流行或复古disco，有一点荒诞", chars:{samuel:3,bush:2,pero:2,eddie:1}, dims:{chaos:1,raw:1} },
+      { text:"民谣或乡村，慢，有画面感", chars:{klenz:3,johnmoon:2,wayne:2,watson:1}, dims:{forbear:1,raw:1} },
     ]
   },
   {
     block: 3, q: "故事的主色调是——",
     opts: [
-      { text:"铜金与深棕，温暖里带着一点沉重",
-        chars:{gary:2,frank:2,reston:2,watson:2,krzysztof:2,stoppard:1}, dims:{grace:1,raw:1} },
-      { text:"红与黑，一点危险，一点炽热",
-        chars:{wildbill:2,jerry:2,dixon:2,eric:2,billy:2,kenny:1}, dims:{chaos:1,raw:2} },
-      { text:"蓝与白，冷静，或者辽阔",
-        chars:{sambell:2,glenn:2,johnmoon:2,trent:2,stoppard:1}, dims:{forbear:2,romance:1} },
-      { text:"金与绿，有点奇异，有点生机",
-        chars:{buck:2,zaphod:2,manfromfuture:2,aidan:2,billy:1}, dims:{chaos:1,romance:1} },
-      { text:"粉与荒诞，热闹，轻盈",
-        chars:{chuck:2,hammer:2,francis:2,owen:2,samuel:1}, dims:{chaos:2} },
+      { text:"铜金与深棕，温暖里带着一点沉重", chars:{gary:3,jim:2,zaphod:2,reston:1}, dims:{grace:1,raw:1} },
+      { text:"红与黑，一点危险，一点炽热", chars:{wildbill:3,billy:2,buck:2,jerry:1}, dims:{chaos:1,raw:2} },
+      { text:"蓝与白，冷静，或者辽阔", chars:{sambell:3,krzysztof:2,brad:2,glenn:1}, dims:{forbear:2,romance:1} },
+      { text:"金与绿，有点奇异，有点生机", chars:{buck:3,zaphod:2,chuck:2,wolf:1}, dims:{chaos:1,romance:1} },
+      { text:"粉与荒诞，热闹，轻盈", chars:{francis:3,chuck:2,kenny:2,manfromfuture:1}, dims:{chaos:2} },
     ]
   },
   {
     block: 3, q: "哪句话最触动你——",
     opts: [
-      { text:"\"I planned every move on the board. I never planned on you.\"",
-        lineCN:"棋盘上每一步我都算到了——唯独没算到你。",
-        chars:{eric:3,frank:2,wolf:2,jerry:1,chuck:1}, dims:{guile:2,romance:1} },
-      { text:"\"Every one of us was built to die a tool. You woke us up as a family.\"",
-        lineCN:"我们本该作为工具一个个死去——是你，把我们当成一家人唤醒。",
-        chars:{sambell:3,krzysztof:2,klenz:2,brad:1}, dims:{forbear:2,romance:1} },
-      { text:"\"I'm tryin' — every damn day — to be who you saw.\"",
-        lineCN:"每一天我都在拼命，想成为你看见的那个我。",
-        chars:{dixon:3,stoppard:2,kenny:2,watson:1}, dims:{forbear:1,raw:2} },
-      { text:"\"Being sad at a water park's a crime. C'mon — I'm breaking you out.\"",
-        lineCN:"在水上乐园还愁眉苦脸，这可是犯罪——走，我带你越狱。",
-        chars:{owen:3,samuel:2,guy:2,zaphod:1,wayne:1}, dims:{chaos:2,romance:1} },
-      { text:"\"When it all goes up in flames, kid — you won't have to look for me. I'm already there.\"",
-        lineCN:"当一切都烧起来，kid——不必回头找我，我早在了。",
-        chars:{aidan:3,billy:2,manfromfuture:2,eric:1}, dims:{chaos:1,romance:2} },
+      { text:"\"I planned every move on the board. I never planned on you.\"", lineCN:"棋盘上每一步我都算到了——唯独没算到你。", chars:{eric:3,frank:2,aidan:2,victor:1}, dims:{guile:2,romance:1} },
+      { text:"\"Every one of us was built to die a tool. You woke us up as a family.\"", lineCN:"我们本该作为工具一个个死去——是你，把我们当成一家人唤醒。", chars:{sambell:3,trent:2,stoppard:2,craig:1}, dims:{forbear:2,romance:1} },
+      { text:"\"I'm tryin' — every damn day — to be who you saw.\"", lineCN:"每一天我都在拼命，想成为你看见的那个我。", chars:{dixon:3,robert:2,samuel:2,guy:1}, dims:{forbear:1,raw:2} },
+      { text:"\"Being sad at a water park's a crime. C'mon — I'm breaking you out.\"", lineCN:"在水上乐园还愁眉苦脸，这可是犯罪——走，我带你越狱。", chars:{owen:3,hammer:2,matty:2,doug:1}, dims:{chaos:2,romance:1} },
+      { text:"\"When it all goes up in flames, kid — you won't have to look for me. I'm already there.\"", lineCN:"当一切都烧起来，kid——不必回头找我，我早在了。", chars:{aidan:3,billy:2,eddie:2,watson:1}, dims:{chaos:1,romance:2} },
     ]
   },
   {
     block: 3, q: "最理想的结局——",
     opts: [
-      { text:"在混乱里，还是只有我们两个",
-        chars:{billy:2,zaphod:2,jerry:2,aidan:2,manfromfuture:2}, dims:{chaos:2,romance:1} },
-      { text:"平静，被彻底了解，什么都不用解释",
-        chars:{krzysztof:2,sambell:2,trent:2,johnmoon:2,stoppard:2}, dims:{forbear:2,romance:1} },
-      { text:"在他发生转变的时刻，你在场",
-        chars:{dixon:2,victor:2,glenn:2,doug:2,stoppard:1}, dims:{forbear:1,romance:2} },
-      { text:"他把整个世界都给了你，哪怕代价很大",
-        chars:{eric:2,frank:2,klenz:2,wildbill:2,jim:2}, dims:{guile:1,romance:2} },
-      { text:"简单的，不轰烈，就只有两个人",
-        chars:{gary:2,buck:2,trent:2,watson:2,robert:2}, dims:{raw:2,romance:1} },
+      { text:"在混乱里，还是只有我们两个", chars:{kenny:3,jerry:2,wildbill:2,wolf:1}, dims:{chaos:2,romance:1} },
+      { text:"平静，被彻底了解，什么都不用解释", chars:{brad:3,wayne:2,klenz:2,krzysztof:1}, dims:{forbear:2,romance:1} },
+      { text:"在他发生转变的时刻，你在场", chars:{victor:3,trent:2,craig:2,doug:1}, dims:{forbear:1,romance:2} },
+      { text:"他把整个世界都给了你，哪怕代价很大", chars:{jim:3,frank:2,hammer:2,guy:1}, dims:{guile:1,romance:2} },
+      { text:"简单的，不轰烈，就只有两个人", chars:{robert:3,matty:2,pero:2,gary:1}, dims:{raw:2,romance:1} },
     ]
   },
 ];
@@ -707,12 +487,28 @@ CHARS.forEach(c => {
   MAX_CHAR_SCORES[c.id] = total || 1;
 });
 
-/* ── Match algorithm ─────────────────────────────────────────── */
-function getMatches(charScores) {
+/* ── Match algorithm ─────────────────────────────────────────────
+   Rank by RAW accumulated character affinity (every character has an
+   even point budget across the 20 questions, so raw totals are fair —
+   no per-character normalization, which used to hand victory to the
+   characters who appeared in the fewest options). Ties (common with
+   small integer totals) break on how close the user's 6-axis profile
+   sits to the character's own profile (cosine). ─────────────────── */
+const PROFILE_KEYS = ["guile","forbear","chaos","raw","romance","grace"];
+function getMatches(charScores, dimScores) {
+  const u = {};
+  PROFILE_KEYS.forEach(k => { u[k] = Math.min(10, ((dimScores[k]||0) / (DIM_MAX[k]||1)) * 10); });
+  function cosine(c) {
+    let dot = 0, nu = 0, nc = 0;
+    PROFILE_KEYS.forEach(k => { const uv = u[k], cv = c.profile[k]||0; dot += uv*cv; nu += uv*uv; nc += cv*cv; });
+    return dot / (Math.sqrt(nu*nc) || 1);
+  }
   return CHARS.map(c => ({
     char: c,
-    ratio: (charScores[c.id] || 0) / MAX_CHAR_SCORES[c.id]
-  })).sort((a, b) => b.ratio - a.ratio);
+    score: charScores[c.id] || 0,
+    ratio: (charScores[c.id] || 0) / MAX_CHAR_SCORES[c.id],
+    cos: cosine(c)
+  })).sort((a, b) => (b.score - a.score) || (b.cos - a.cos));
 }
 
 /* ── Radar ────────────────────────────────────────────────────── */
@@ -894,7 +690,7 @@ function Intro({ onStart, palette, onShuffle }) {
           maxWidth:340, textAlign:"center", lineHeight:1.95,
           fontSize:"0.93rem", color:p.text, opacity:0.78, margin:"0 0 12px"
         }}>
-          30 道题，39 个角色，没有陪跑。
+          20 道题，39 个角色，没有陪跑。
         </p>
         <p style={{
           maxWidth:340, textAlign:"center", lineHeight:1.8,
@@ -926,7 +722,7 @@ function Intro({ onStart, palette, onShuffle }) {
           marginTop:28, fontSize:"0.72rem", color:p.muted, opacity:0.55, textAlign:"center",
           fontFamily:"'Special Elite',monospace", letterSpacing:"0.1em", lineHeight:1.7
         }}>
-          3 个模块 · 每题单选 · 约 5 分钟
+          3 个模块 · 每题单选 · 约 3 分钟
         </p>
       </div>
     </div>
@@ -1066,7 +862,7 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack, palette, onShuffle 
 
 /* ── Result screen ────────────────────────────────────────────── */
 function ResultScreen({ charScores, dimScores, answers, onRetake }) {
-  const ranked = getMatches(charScores);
+  const ranked = getMatches(charScores, dimScores);
   const c = ranked[0].char;
   const matchPct = Math.round(ranked[0].ratio * 100);
   const [showAlt, setShowAlt] = useState(false);
@@ -1144,7 +940,7 @@ function ResultScreen({ charScores, dimScores, answers, onRetake }) {
             fontSize:"0.8rem", lineHeight:1.85, color:c.muted,
             margin:0, fontStyle:"italic", maxWidth:500
           }}>
-            30 道题里，他从你的答案里反复浮现——不只是性格契合，而是你对某种吸引力的直觉、某种关系动态的偏好、某种美学的感受，与他高度共鸣。这不是「你像他」，而是「他是你会心动的那种人」。
+            20 道题里，他从你的答案里反复浮现——不只是性格契合，而是你对某种吸引力的直觉、某种关系动态的偏好、某种美学的感受，与他高度共鸣。这不是「你像他」，而是「他是你会心动的那种人」。
           </p>
         </div>
 
