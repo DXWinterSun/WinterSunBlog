@@ -25,7 +25,7 @@
 </head>
 <body>
 <div id="root"></div>
-<meta name="cache-bust" content="20260704-clay">
+<meta name="cache-bust" content="20260704-scrollkeep">
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
@@ -1542,18 +1542,61 @@ function CharacterCard({ c, idx }) {
 
 function SamGallery() {
   useEffect(function() {
-    // 打开即落位：URL 带 #角色id 时，等字体就绪后直接定位到那一帧
-    if (!window.location.hash) return;
-    const id = decodeURIComponent(window.location.hash.slice(1));
-    function jump() {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "auto" });
+    // 由我们自己接管滚动落位，关掉浏览器自带的（React 动态渲染会让它扑空）
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    const KEY = "manyfaces:scroll:" + window.location.pathname;
+    const saved = sessionStorage.getItem(KEY);  // 上次停留位置（本标签页内跨刷新有效）
+
+    // 判断这次是「刷新 / 前进后退」还是「全新导航」
+    let navType = "navigate";
+    try {
+      const nav = performance.getEntriesByType("navigation")[0];
+      if (nav && nav.type) {
+        navType = nav.type;
+      } else if (performance.navigation) {
+        navType = ["navigate", "reload", "back_forward"][performance.navigation.type] || "navigate";
+      }
+    } catch (e) {}
+    const isReloadLike = navType === "reload" || navType === "back_forward";
+
+    // 落位优先级：刷新→回到上次停留处；全新且带 #角色id→定位角色；否则顶部
+    function place() {
+      if (isReloadLike && saved !== null) {
+        window.scrollTo(0, parseInt(saved, 10) || 0);
+        return;
+      }
+      if (window.location.hash) {
+        const el = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+        if (el) el.scrollIntoView({ behavior: "auto" });
+      }
     }
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function() { setTimeout(jump, 60); });
+      document.fonts.ready.then(function() { setTimeout(place, 60); });
     } else {
-      setTimeout(jump, 250);
+      setTimeout(place, 250);
     }
+
+    // 滚动时持续记录当前位置（用 rAF 节流），刷新前再兜底存一次
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        ticking = false;
+        sessionStorage.setItem(KEY, String(Math.round(window.scrollY)));
+      });
+    }
+    function onUnload() {
+      sessionStorage.setItem(KEY, String(Math.round(window.scrollY)));
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("beforeunload", onUnload);
+    return function() {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("beforeunload", onUnload);
+    };
   }, []);
 
   function jumpTo(id) {
