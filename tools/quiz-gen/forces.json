@@ -1,0 +1,158 @@
+{
+ "0": {
+  "D": [
+   "robert",
+   "gary"
+  ],
+  "B": [
+   "clay"
+  ]
+ },
+ "1": {
+  "A": [
+   "watson"
+  ]
+ },
+ "2": {
+  "A": [
+   "craig"
+  ],
+  "B": [
+   "wayne"
+  ]
+ },
+ "3": {
+  "C": [
+   "manfromfuture"
+  ]
+ },
+ "4": {
+  "C": [
+   "manfromfuture"
+  ]
+ },
+ "5": {
+  "D": [
+   "pero"
+  ]
+ },
+ "6": {
+  "A": [
+   "hammer",
+   "craig"
+  ],
+  "C": [
+   "doug"
+  ]
+ },
+ "7": {
+  "B": [
+   "francis"
+  ],
+  "D": [
+   "wayne"
+  ]
+ },
+ "9": {
+  "B": [
+   "eddie"
+  ],
+  "C": [
+   "watson"
+  ],
+  "D": [
+   "victor"
+  ]
+ },
+ "10": {
+  "B": [
+   "bush",
+   "wildbill",
+   "glenn"
+  ]
+ },
+ "11": {
+  "D": [
+   "hammer"
+  ],
+  "A": [
+   "clay"
+  ]
+ },
+ "12": {
+  "C": [
+   "eddie"
+  ],
+  "D": [
+   "craig"
+  ]
+ },
+ "13": {
+  "B": [
+   "glenn"
+  ],
+  "C": [
+   "bush"
+  ]
+ },
+ "15": {
+  "C": [
+   "gary"
+  ]
+ },
+ "16": {
+  "C": [
+   "bush",
+   "pero"
+  ]
+ },
+ "17": {
+  "A": [
+   "gary",
+   "reston"
+  ],
+  "B": [
+   "wildbill",
+   "billy"
+  ],
+  "C": [
+   "sambell",
+   "glenn"
+  ],
+  "D": [
+   "buck",
+   "zaphod"
+  ],
+  "E": [
+   "francis",
+   "chuck"
+  ]
+ },
+ "18": {
+  "A": [
+   "eric"
+  ],
+  "B": [
+   "sambell"
+  ],
+  "C": [
+   "dixon"
+  ],
+  "D": [
+   "owen"
+  ],
+  "E": [
+   "aidan"
+  ]
+ },
+ "19": {
+  "C": [
+   "doug",
+   "victor"
+  ],
+  "E": [
+   "robert",
+   "gary"
+  ]
+ }
+}
