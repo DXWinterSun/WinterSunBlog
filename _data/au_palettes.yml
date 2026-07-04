@@ -205,3 +205,15 @@
   accent_en: "Sweetwater Dusk"
   bg_cn: "荒野暗夜"
   bg_en: "Frontier Dark"
+
+"A Bear and Somewhere Far":  # C.P. "Clay" Ellis · 色卡同源 many-faces id: clay
+  theme_id: clay
+  accent: "#b87a3e"
+  accent_ink: "#936232"
+  bg: "#161510"
+  text: "#ece2ce"
+  muted: "#847a5c"
+  accent_cn: "焦糖小熊棕"
+  accent_en: "Caramel Bear"
+  bg_cn: "蝉鸣仲夏夜"
+  bg_en: "Cicada Nightfall"
