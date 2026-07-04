@@ -308,9 +308,9 @@
   fetch('../lines.json', { cache: 'no-cache' })
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      var lines = data.lines;
-      var idx = todayIndex(lines.length);
-      render(lines[idx]);
+      var pool = data.pool;
+      var idx = todayIndex(pool.length);
+      render(pool[idx]);
     })
     .catch(function () {
       document.getElementById('line').textContent = '今天的一句，暂时没能取到。';

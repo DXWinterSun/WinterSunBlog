@@ -1001,8 +1001,8 @@
 - 中：我用了十六年，才说出那句本该在第一晚就说的话。我很慢，Winter。可我到了。我终于到了。
 
 **40-4** ｜[情话 · 夏夜]｜CICADAS AND SODA
-- EN: "Some cicada-loud summer night, a cold soda sweating in your hand, an orange you'd peel and split with me — a hard old man like me never knew heaven could be that plain."
-- 中：某个蝉鸣震天的夏夜，你手里一瓶冒着凉气的汽水，一个你剥开、分我一半的橘子——我这么个又老又硬的人，从不知道天堂原来可以这么简单。
+- EN: "Some cicada-loud summer night, a cold soda sweating in your hand, an orange you'd peel and split with me — back then, a stubborn young fool like me never knew heaven could be that plain."
+- 中：某个蝉鸣震天的夏夜，你手里一瓶冒着凉气的汽水，一个你剥开、分我一半的橘子——那时候，我这么个又倔又愣的年轻人，从不知道天堂原来可以这么简单。
 
 **40-5** ｜[暗告白 · 小熊]｜THE LITTLE BEAR
 - EN: "I'm no good with soft words, Winter. So I just kept that little bear you won me — all these years, right where I'd see it every single day."

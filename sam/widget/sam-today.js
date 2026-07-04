@@ -151,7 +151,7 @@ function buildLarge(w, c) {
 
 async function buildWidget() {
   const data = await getData();
-  const c = data.lines[todayIndex(data.lines.length)];
+  const c = data.pool[todayIndex(data.pool.length)];
   const w = new ListWidget();
   paint(w, c);
 
