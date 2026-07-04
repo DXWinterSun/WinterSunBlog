@@ -118,13 +118,14 @@ function Hero({ c, onDraw }) {
 function QuoteCard({ c, q, active, onClick }) {
   const [hover, setHover] = useState(false);
   const lift = hover || active;
+  const edge = active ? c.accent + "aa" : lift ? c.accent + "44" : "#2a241b";
   return (
     <button onClick={onClick}
       onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
       style={{
         textAlign: "left", width: "100%", display: "block",
         background: lift ? "linear-gradient(160deg, " + c.bg + " 0%, #100e0a 130%)" : "#181510",
-        border: "1px solid " + (active ? c.accent + "aa" : lift ? c.accent + "44" : "#2a241b"),
+        borderTop: "1px solid " + edge, borderRight: "1px solid " + edge, borderBottom: "1px solid " + edge,
         borderLeft: "3px solid " + c.accent,
         borderRadius: 12, padding: "16px 16px 18px",
         transform: lift ? "translateY(-3px)" : "none",
@@ -147,34 +148,57 @@ function QuoteCard({ c, q, active, onClick }) {
   );
 }
 
-// one character = a small collection of quotes
-function CharacterGroup({ c, activeLine, onPick }) {
+// one character = a collapsible collection of quotes
+function CharacterGroup({ c, activeLine, onPick, isOpen, onToggle }) {
+  const [hover, setHover] = useState(false);
+  const hasActive = c.quotes.some(function (q) { return q.line === activeLine; });
+  const edge = isOpen || hover ? c.accent + "55" : "#2a241b";
   return (
-    <div style={{ marginBottom: "clamp(34px,5vw,48px)" }}>
-      <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
-        <span style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(22px,5vw,30px)", color: c.text }}>
+    <div style={{ marginBottom: 12 }}>
+      <button onClick={onToggle}
+        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
+        style={{
+          width: "100%", textAlign: "left", display: "flex", alignItems: "center", gap: 11,
+          background: isOpen ? "#1c1811" : "#181510",
+          borderTop: "1px solid " + edge, borderRight: "1px solid " + edge, borderBottom: "1px solid " + edge,
+          borderLeft: "3px solid " + c.accent,
+          borderRadius: 12, padding: "15px 18px",
+          transition: "background .2s ease, border-color .2s ease",
+        }}>
+        <span style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(19px,4.4vw,25px)", color: c.text, lineHeight: 1.1 }}>
           {c.name}
         </span>
-        <span style={{ fontFamily: GARA, fontStyle: "italic", fontSize: 16, color: c.muted }}>
+        <span style={{ fontFamily: GARA, fontStyle: "italic", fontSize: 15, color: c.muted, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
           {c.filmCN} <span style={{ opacity: .7 }}>{c.year}</span>
         </span>
-        <span style={{ flex: 1, minWidth: 20, height: 1, background: "linear-gradient(90deg, " + c.accent + "55, transparent)" }}></span>
-        {c.auLink && (
-          <a href={c.auLink} style={{
-            fontFamily: SERIF, fontSize: 12, color: c.accent, textDecoration: "none",
-            borderBottom: "1px solid " + c.accent + "55", paddingBottom: 1, whiteSpace: "nowrap",
-          }}>读他的 AU &rarr;</a>
+        {hasActive && (
+          <span title="今天这句在这里" style={{ flexShrink: 0, width: 6, height: 6, borderRadius: "50%", background: c.accent, boxShadow: "0 0 8px " + c.accent }}></span>
         )}
-      </div>
-      <div style={{
-        display: "grid", gap: 13,
-        gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 258px), 1fr))",
-      }}>
-        {c.quotes.map((q, qi) => (
-          <QuoteCard key={qi} c={c} q={q} active={q.line === activeLine}
-            onClick={() => onPick(mergeQ(c, q))} />
-        ))}
-      </div>
+        <span style={{ flex: 1 }}></span>
+        <span style={{ flexShrink: 0, fontFamily: TYPE, fontSize: 10, letterSpacing: 1, color: c.muted }}>{c.quotes.length} 句</span>
+        <span style={{ flexShrink: 0, fontFamily: GARA, fontSize: 20, color: c.accent, display: "inline-block",
+          transform: isOpen ? "rotate(90deg)" : "none", transition: "transform .25s ease" }}>&rsaquo;</span>
+      </button>
+
+      {isOpen && (
+        <div style={{
+          display: "grid", gap: 13, marginTop: 13, marginBottom: 8,
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 258px), 1fr))",
+        }}>
+          {c.quotes.map((q, qi) => (
+            <QuoteCard key={qi} c={c} q={q} active={q.line === activeLine}
+              onClick={() => onPick(mergeQ(c, q))} />
+          ))}
+          {c.auLink && (
+            <a href={c.auLink} style={{
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontFamily: SERIF, fontSize: 13, color: c.accent, textDecoration: "none",
+              border: "1px dashed " + c.accent + "55", borderRadius: 12, padding: "16px",
+              minHeight: 60,
+            }}>读他的 AU &rarr;</a>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -192,13 +216,15 @@ function App() {
   const [data, setData] = useState(null);
   const [err, setErr] = useState(false);
   const [hero, setHero] = useState(null);
+  const [open, setOpen] = useState({});
 
   useEffect(() => {
     fetch("../lines.json", { cache: "no-cache" })
       .then(function (r) { return r.json(); })
       .then(function (d) {
-        setData(d);
-        setHero(d.pool[todayIndex(d.pool.length)]);
+        var h = d.pool[todayIndex(d.pool.length)];
+        var o = {}; o[h.charId] = true;
+        setData(d); setHero(h); setOpen(o);
       })
       .catch(function () { setErr(true); });
   }, []);
@@ -211,12 +237,20 @@ function App() {
     let n = Math.floor(Math.random() * pool.length);
     let guard = 0;
     while (pool[n].line === hero.line && guard++ < 12) n = Math.floor(Math.random() * pool.length);
-    setHero(pool[n]);
+    var h = pool[n];
+    setHero(h);
+    setOpen(function (o) { var x = Object.assign({}, o); x[h.charId] = true; return x; });
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   }
   function pick(q) {
     setHero(q);
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  function toggle(id) { setOpen(function (o) { var x = Object.assign({}, o); x[id] = !o[id]; return x; }); }
+  function setAll(v) {
+    var o = {};
+    if (v) data.characters.forEach(function (c) { o[c.id] = true; });
+    setOpen(o);
   }
 
   return (
@@ -247,7 +281,7 @@ function App() {
 
       <Hero c={hero} onDraw={draw} />
 
-      <div style={{ display: "flex", alignItems: "center", gap: 16, margin: "clamp(46px,8vw,72px) 0 30px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16, margin: "clamp(46px,8vw,72px) 0 18px" }}>
         <span style={{ flex: 1, height: 1, background: "linear-gradient(90deg, transparent, #3a3226)" }}></span>
         <span style={{ fontFamily: TYPE, fontSize: 11.5, letterSpacing: 3, color: "#8a7558", textTransform: "uppercase", whiteSpace: "nowrap" }}>
           他们的语录集 · The Collections
@@ -255,8 +289,20 @@ function App() {
         <span style={{ flex: 1, height: 1, background: "linear-gradient(90deg, #3a3226, transparent)" }}></span>
       </div>
 
+      <div style={{ display: "flex", justifyContent: "center", gap: 10, marginBottom: 26 }}>
+        <button onClick={() => setAll(true)} style={{
+          fontFamily: SERIF, fontSize: 12.5, color: "#c9b48c", background: "transparent",
+          border: "1px solid #3a3226", borderRadius: 999, padding: "7px 16px",
+        }}>全部展开</button>
+        <button onClick={() => setAll(false)} style={{
+          fontFamily: SERIF, fontSize: 12.5, color: "#8a7558", background: "transparent",
+          border: "1px solid #3a3226", borderRadius: 999, padding: "7px 16px",
+        }}>全部收起</button>
+      </div>
+
       {data.characters.map(function (c) {
-        return <CharacterGroup key={c.id} c={c} activeLine={hero.line} onPick={pick} />;
+        return <CharacterGroup key={c.id} c={c} activeLine={hero.line} onPick={pick}
+          isOpen={!!open[c.id]} onToggle={function () { toggle(c.id); }} />;
       })}
 
       <footer style={{ textAlign: "center", marginTop: 64 }}>
