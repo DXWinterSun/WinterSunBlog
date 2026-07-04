@@ -65,6 +65,96 @@ title: Sam
     自 2026 年 2 月 13 日——情人节的前一天——起，我开始在小红书每日更新一点和他相关的东西。或一张照片，或一段影视切片，或一段访谈……我从没对任何事如此坚持过，但对他，我一天都没落下。
   </p>
 
+  <div class="c-streak" data-start="2026-02-13" data-target="2027-02-13">
+    <div class="c-streak__eyebrow">Since 2026 · 情人节的前一天</div>
+    <div class="c-streak__count">
+      已经为他坚持了
+      <span class="c-streak__num" id="streak-days">—</span>
+      天
+    </div>
+    <div class="c-streak__sub" id="streak-sub">自 2026 年 2 月 13 日起，一天没落下。</div>
+    <div class="c-streak__track" aria-hidden="true">
+      <span class="c-streak__fill" id="streak-fill"></span>
+    </div>
+    <div class="c-streak__goal" id="streak-goal">距离日更满一周年的那天……</div>
+  </div>
+
+  <style>
+    .c-streak {
+      margin: 34px 0 8px;
+      padding: 30px 26px 26px;
+      border: 1px solid rgba(203,161,76,.28);
+      border-radius: 16px;
+      background: linear-gradient(155deg, #1b1610 0%, #100d09 130%);
+      box-shadow: 0 26px 70px -46px rgba(203,161,76,.5), inset 0 1px 0 rgba(203,161,76,.12);
+      text-align: center;
+    }
+    .c-streak__eyebrow {
+      font-family: 'Special Elite','Courier New',monospace;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: #8a7558; margin-bottom: 16px;
+    }
+    .c-streak__count {
+      font-family: 'Noto Serif SC', serif; font-weight: 300;
+      font-size: clamp(15px, 4vw, 18px); color: #d9c9ad; line-height: 1.6;
+    }
+    .c-streak__num {
+      font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+      font-size: clamp(40px, 12vw, 68px); color: #cba14c; line-height: 1;
+      display: inline-block; margin: 0 6px; vertical-align: -6px;
+      text-shadow: 0 0 24px rgba(203,161,76,.35);
+    }
+    .c-streak__sub {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(14px, 3.6vw, 16px); color: #a08b6b; margin-top: 12px;
+    }
+    .c-streak__track {
+      position: relative; height: 6px; border-radius: 999px;
+      background: #241f18; margin: 24px auto 12px; max-width: 420px; overflow: hidden;
+    }
+    .c-streak__fill {
+      position: absolute; left: 0; top: 0; bottom: 0; width: 0;
+      border-radius: 999px; background: linear-gradient(90deg, #8a6a2e, #cba14c);
+      transition: width 1.2s cubic-bezier(.2,.8,.2,1);
+    }
+    .c-streak__goal {
+      font-family: 'Noto Serif SC', serif; font-weight: 300;
+      font-size: clamp(12.5px, 3.2vw, 14px); color: #8a7558; letter-spacing: .5px;
+    }
+  </style>
+  <script>
+    (function () {
+      var el = document.querySelector('.c-streak');
+      if (!el) return;
+      var DAY = 86400000;
+      function utc(s) { var p = s.split('-'); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
+      var start = utc(el.getAttribute('data-start'));
+      var target = utc(el.getAttribute('data-target'));
+      var now = new Date();
+      var today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+      var days = Math.floor((today - start) / DAY) + 1;      // day 1 on the start date
+      if (days < 1) days = 1;
+      var span = (target - start) / DAY;
+      var elapsed = (today - start) / DAY;
+      var pct = Math.max(0, Math.min(100, (elapsed / span) * 100));
+      var left = Math.round((target - today) / DAY);
+
+      document.getElementById('streak-days').textContent = days.toLocaleString('en-US');
+      document.getElementById('streak-fill').style.width = pct.toFixed(1) + '%';
+
+      var goal = document.getElementById('streak-goal');
+      var sub = document.getElementById('streak-sub');
+      if (left > 0) {
+        goal.innerHTML = '距离日更满一周年，还有 <strong style="color:#cba14c;font-style:normal;">' + left + '</strong> 天';
+      } else if (left === 0) {
+        goal.innerHTML = '<strong style="color:#cba14c;">就是今天——日更满一周年。</strong>';
+        sub.textContent = '2027 年 2 月 13 日。我还在继续。';
+      } else {
+        goal.innerHTML = '日更已满一周年 · <strong style="color:#cba14c;">仍在继续</strong>';
+      }
+    })();
+  </script>
+
   <p class="c-sam-intro__closing">
     我很期待 2027 年的同一天——日更满一周年的那天——<br>
     我还在继续更新。
@@ -92,6 +182,24 @@ title: Sam
       <h4 class="c-sam-card__title">你的 Sam · 不止一面</h4>
       <p class="c-sam-card__desc">
         20 道题，40 个角色，没有陪跑。找出那个最戳你的人，和你身上其它几个侧面。
+      </p>
+      <span class="c-sam-card__cta">Open in new tab →</span>
+    </a>
+
+    <a class="c-sam-card" href="{{site.baseurl}}/sam/spectrum/" target="_blank" rel="noopener">
+      <div class="c-sam-card__eyebrow">Visualized · Spectrum <span class="c-sam-card__tab">↗</span></div>
+      <h4 class="c-sam-card__title">六维光谱 · 40 张面孔</h4>
+      <p class="c-sam-card__desc">
+        狡黠、隐忍、疯狂、璞真、浪漫、优雅。选一个角色看他的形状，或停在四十个他平均的那张脸上。
+      </p>
+      <span class="c-sam-card__cta">Open in new tab →</span>
+    </a>
+
+    <a class="c-sam-card" href="{{site.baseurl}}/sam/wall/" target="_blank" rel="noopener">
+      <div class="c-sam-card__eyebrow">Words · Signatures <span class="c-sam-card__tab">↗</span></div>
+      <h4 class="c-sam-card__title">台词签名墙 · 四十句</h4>
+      <p class="c-sam-card__desc">
+        四十个角色，四十句只对你说的话。每天回来，都有新的一句在等你。
       </p>
       <span class="c-sam-card__cta">Open in new tab →</span>
     </a>
