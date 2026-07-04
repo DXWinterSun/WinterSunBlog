@@ -73,6 +73,13 @@ function buildSmall(w, c) {
   sign.font = fSign(10.5);
   sign.textColor = new Color(c.muted);
   sign.lineLimit = 1;
+  w.addSpacer(3);
+  const meta = w.addText(c.filmCN + " · 第 " + dayCount() + " 天");
+  meta.font = fBody(9);
+  meta.textColor = new Color(c.muted);
+  meta.textOpacity = 0.72;
+  meta.lineLimit = 1;
+  meta.minimumScaleFactor = 0.55;
 }
 
 function buildMedium(w, c) {
@@ -95,9 +102,16 @@ function buildMedium(w, c) {
     gloss.minimumScaleFactor = 0.7;
   }
   w.addSpacer();
-  const sign = w.addText("— " + c.name + " · " + c.year);
+  const sign = w.addText("— " + c.name);
   sign.font = fSign(11);
   sign.textColor = new Color(c.muted);
+  w.addSpacer(2);
+  const meta = w.addText(c.filmCN + " · " + c.year + " · 日更第 " + dayCount() + " 天");
+  meta.font = fBody(10);
+  meta.textColor = new Color(c.muted);
+  meta.textOpacity = 0.78;
+  meta.lineLimit = 1;
+  meta.minimumScaleFactor = 0.6;
 }
 
 function buildLarge(w, c) {
