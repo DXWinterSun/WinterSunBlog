@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日的 Sam · 桌面小组件 · Winter Sun</title>
+<meta name="description" content="把台词墙的「今日一句」放进 iPhone 桌面小组件，每天自动更新。">
+<meta property="og:title" content="今日的 Sam · 桌面小组件">
+<meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/widget/">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { background: #14110d; color: #ede2d0; -webkit-font-smoothing: antialiased; font-family: 'Noto Serif SC', serif; }
+  a { color: inherit; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: clamp(28px,6vw,64px) clamp(18px,5vw,36px) 90px; }
+  .back { font-family: 'Noto Serif SC', serif; font-size: 12.5px; color: #8a7558; text-decoration: none; letter-spacing: 2px; }
+  h1 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: clamp(34px,9vw,58px); margin: 26px 0 0; line-height: 1.04; }
+  .sub { font-family: 'Noto Serif SC', serif; font-weight: 500; letter-spacing: 6px; color: #c9b48c; margin-top: 14px; padding-left: 6px; }
+  .lede { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(16px,4.4vw,20px); color: #a08b6b; margin: 26px 0 0; line-height: 1.7; }
+  .steps { list-style: none; counter-reset: s; padding: 0; margin: 40px 0 0; }
+  .steps li { position: relative; padding: 0 0 22px 46px; border-left: 1px solid #2c261d; margin-left: 15px; }
+  .steps li:last-child { border-left-color: transparent; }
+  .steps li::before {
+    counter-increment: s; content: counter(s);
+    position: absolute; left: -15px; top: -2px; width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    background: #cba14c; color: #14110d; border-radius: 50%;
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px;
+  }
+  .steps h3 { font-family: 'Noto Serif SC', serif; font-weight: 600; font-size: 16px; margin: 2px 0 6px; color: #ede2d0; }
+  .steps p { font-family: 'Noto Serif SC', serif; font-weight: 300; font-size: 14px; line-height: 1.8; color: #a8987a; margin: 0; }
+  .steps a { color: #cba14c; }
+  .codewrap { margin-top: 34px; border: 1px solid #2c261d; border-radius: 12px; overflow: hidden; background: #17130e; }
+  .codebar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #2c261d; }
+  .codebar span { font-family: 'Special Elite', monospace; font-size: 11px; letter-spacing: 2px; color: #8a7558; text-transform: uppercase; }
+  .copy { font-family: 'Noto Serif SC', serif; font-size: 12.5px; font-weight: 500; color: #14110d; background: #cba14c; border: none; border-radius: 999px; padding: 8px 18px; cursor: pointer; transition: transform .15s ease; }
+  .copy:active { transform: scale(.95); }
+  pre { margin: 0; padding: 18px 16px; overflow-x: auto; font-family: 'SF Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.6; color: #c8bfa8; -webkit-overflow-scrolling: touch; }
+  .note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: #8a7558; margin-top: 28px; line-height: 1.7; }
+  .foot { text-align: center; margin-top: 70px; font-family: 'Cormorant Garamond', serif; font-style: italic; color: #5f5340; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="/WinterSunBlog/sam/">&larr; 回到 Sam</a>
+    <h1>Daily Widget</h1>
+    <div class="sub">今日的 Sam · 桌面小组件</div>
+    <p class="lede">把台词墙的「今日一句」放进 iPhone 桌面。<br />不用点开，每天自动换成当天那句，和网站完全同步。</p>
+
+    <ol class="steps">
+      <li>
+        <h3>装 Scriptable（免费）</h3>
+        <p>在 App Store 搜索 <a href="https://apps.apple.com/app/scriptable/id1405459188" target="_blank" rel="noopener">Scriptable</a> 下载安装。</p>
+      </li>
+      <li>
+        <h3>新建脚本，粘贴代码</h3>
+        <p>打开 Scriptable → 右上角「+」新建 → 把下面这段代码全部粘进去 → 左上角命名为「今日的 Sam」→ 保存。</p>
+      </li>
+      <li>
+        <h3>桌面添加小组件</h3>
+        <p>回到主屏幕，长按空白处 → 左上「+」→ 搜 Scriptable → 选中等尺寸（Medium）→ 添加。</p>
+      </li>
+      <li>
+        <h3>指定脚本</h3>
+        <p>轻点刚加上的小组件 → Script 选「今日的 Sam」→ When Interacting 选 Run Script（或 Open URL）。完成！</p>
+      </li>
+    </ol>
+
+    <div class="codewrap">
+      <div class="codebar">
+        <span>sam-today.js</span>
+        <button class="copy" id="copy">复制代码</button>
+      </div>
+      <pre id="code">// ============================================================
+//  今日的 Sam · Scriptable 桌面小组件
+//  每天自动显示台词墙「今日一句」，与网站完全同步。
+//  数据源：sam/lines.json（改网站内容，小组件跟着变）
+// ============================================================
+
+const DATA_URL = &quot;https://dxwintersun.github.io/WinterSunBlog/sam/lines.json&quot;;
+const TODAY_URL = &quot;https://dxwintersun.github.io/WinterSunBlog/sam/today/&quot;;
+const START = Date.UTC(2026, 1, 13); // 2026-02-13，与网站同一起点
+
+function todayIndex(n) {
+  const now = new Date();
+  const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const days = Math.round((today - START) / 86400000);
+  return ((days % n) + n) % n;
+}
+
+function shade(hex, amt) { // amt&lt;0 变暗
+  const h = hex.replace(&quot;#&quot;, &quot;&quot;);
+  let r = parseInt(h.substr(0, 2), 16),
+      g = parseInt(h.substr(2, 2), 16),
+      b = parseInt(h.substr(4, 2), 16);
+  const f = 1 + amt;
+  r = Math.max(0, Math.min(255, Math.round(r * f)));
+  g = Math.max(0, Math.min(255, Math.round(g * f)));
+  b = Math.max(0, Math.min(255, Math.round(b * f)));
+  const to = (x) =&gt; (&quot;0&quot; + x.toString(16)).slice(-2);
+  return &quot;#&quot; + to(r) + to(g) + to(b);
+}
+
+async function getData() {
+  const req = new Request(DATA_URL);
+  req.timeoutInterval = 15;
+  return await req.loadJSON();
+}
+
+async function buildWidget() {
+  const data = await getData();
+  const c = data.lines[todayIndex(data.lines.length)];
+
+  const w = new ListWidget();
+  const grad = new LinearGradient();
+  grad.colors = [new Color(c.bg), new Color(shade(c.bg, -0.42))];
+  grad.locations = [0, 1];
+  w.backgroundGradient = grad;
+  w.setPadding(16, 17, 16, 17);
+  w.url = TODAY_URL; // 点一下打开「今日的 Sam」页面
+
+  const label = w.addText(c.label);
+  label.font = Font.mediumSystemFont(9);
+  label.textColor = new Color(c.accent);
+  label.lineLimit = 1;
+
+  w.addSpacer(7);
+
+  const line = w.addText(&quot;“&quot; + c.line + &quot;”&quot;);
+  line.font = Font.italicSystemFont(15);
+  line.textColor = new Color(c.text);
+  line.minimumScaleFactor = 0.6;
+
+  w.addSpacer(5);
+
+  const gloss = w.addText(c.lineCN);
+  gloss.font = Font.systemFont(11);
+  gloss.textColor = new Color(c.text);
+  gloss.textOpacity = 0.72;
+  gloss.minimumScaleFactor = 0.7;
+
+  w.addSpacer();
+
+  const sign = w.addText(&quot;— &quot; + c.name + &quot; · &quot; + c.year);
+  sign.font = Font.italicSystemFont(11);
+  sign.textColor = new Color(c.muted);
+
+  // 每 3 小时刷新一次（跨零点自动换成新的一句）
+  w.refreshAfterDate = new Date(Date.now() + 3 * 3600 * 1000);
+  return w;
+}
+
+const widget = await buildWidget();
+if (config.runsInWidget) {
+  Script.setWidget(widget);
+} else {
+  await widget.presentMedium();
+}
+Script.complete();
+</pre>
+    </div>
+
+    <p class="note">
+      小组件点一下会打开「今日的 Sam」页面。想直接看原文件：<a href="/WinterSunBlog/sam/widget/sam-today.js" style="color:#cba14c" target="_blank" rel="noopener">sam-today.js</a>。<br />
+      安卓也能做：用「Web Widget」类应用把 <a href="/WinterSunBlog/sam/today/" style="color:#cba14c">/sam/today/</a> 加成桌面小组件即可。
+    </p>
+
+    <div class="foot">a quiet shrine, kept by 冬璇</div>
+  </div>
+
+<script>
+  document.getElementById('copy').addEventListener('click', function () {
+    var code = document.getElementById('code').textContent;
+    var btn = this;
+    navigator.clipboard.writeText(code).then(function () {
+      btn.textContent = '已复制 ✓';
+      setTimeout(function () { btn.textContent = '复制代码'; }, 1800);
+    }).catch(function () {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById('code'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = '已选中，长按复制';
+    });
+  });
+</script>
+</body>
+</html>
