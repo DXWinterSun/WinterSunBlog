@@ -880,13 +880,13 @@ function ResultScreen({ charScores, dimScores, answers, onRetake }) {
   });
 
   // ── Facets: your strongest sides, each embodied by a distinct character ──
-  const FACET_BLURB = {
-    guile:  "懂得算，懂得看局",
-    forbear:"能等，能扛，能守",
-    chaos:  "要动，要新鲜，要失控一点",
-    raw:    "要真，要实，要不装",
-    romance:"为一个眼神就会心动",
-    grace:  "在意质感与体面",
+  const FACET_POINT = {
+    guile:  "你欣赏脑子——看局、布势，把复杂的东西玩明白。最戳你的，是那种连你都算进去的聪明。",
+    forbear:"你信的是长度——不吵不闹，但一直在。最戳你的，是那种把话咽下去、把人守下来的稳。",
+    chaos:  "你要的是鲜活——失控一点、说走就走、不被规矩收编。最戳你的，是那种停不下来的野。",
+    raw:    "你要的是真——不装、不绕、掏心掏肺。最戳你的，是那种笨拙却实实在在的诚。",
+    romance:"你为细节动心——一个眼神、一句记了很久的话。最戳你的，是把你放进每件小事的深情。",
+    grace:  "你在意质感——格调、分寸、举手投足。最戳你的，是那种连狼狈都好看的讲究。",
   };
   const usedIds = new Set([c.id]);
   const facets = [...DIMS]
@@ -1094,7 +1094,7 @@ function ResultScreen({ charScores, dimScores, answers, onRetake }) {
                 onMouseEnter={e=>{ e.currentTarget.style.borderColor=fc.accent+"66"; e.currentTarget.style.background=fc.accent+"08"; }}
                 onMouseLeave={e=>{ e.currentTarget.style.borderColor=fc.accent+"33"; e.currentTarget.style.background="transparent"; }}
               >
-                <div style={{display:"flex", alignItems:"baseline", gap:9, marginBottom:6, flexWrap:"wrap"}}>
+                <div style={{display:"flex", alignItems:"baseline", gap:9, marginBottom:7, flexWrap:"wrap"}}>
                   <span style={{
                     fontFamily:"'Noto Serif SC',serif", fontSize:"0.92rem",
                     fontWeight:600, color:fc.accent
@@ -1103,12 +1103,13 @@ function ResultScreen({ charScores, dimScores, answers, onRetake }) {
                     fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
                     color:c.muted, letterSpacing:"0.1em", opacity:0.7
                   }}>{dim.en}</span>
-                  <span style={{
-                    fontSize:"0.76rem", color:c.muted, opacity:0.8, fontStyle:"italic"
-                  }}>· {FACET_BLURB[dim.key]}</span>
                 </div>
+                <p style={{
+                  fontSize:"0.8rem", color:c.text, opacity:0.82,
+                  margin:"0 0 10px", lineHeight:1.7
+                }}>{FACET_POINT[dim.key]}</p>
                 <div style={{display:"flex", alignItems:"baseline", gap:8, flexWrap:"wrap"}}>
-                  <span style={{fontSize:"0.82rem", color:c.text, opacity:0.75}}>最像</span>
+                  <span style={{fontSize:"0.8rem", color:c.muted, opacity:0.75}}>这一面，最像</span>
                   <span style={{
                     fontFamily:"'Playfair Display',serif", fontStyle:"italic",
                     fontSize:"1rem", color:fc.accent, fontWeight:700
@@ -1119,8 +1120,8 @@ function ResultScreen({ charScores, dimScores, answers, onRetake }) {
                   }}>{fc.filmCN}</span>
                 </div>
                 <p style={{
-                  fontSize:"0.8rem", color:c.muted, margin:"6px 0 0",
-                  fontStyle:"italic", lineHeight:1.65, opacity:0.9
+                  fontSize:"0.78rem", color:c.muted, margin:"5px 0 0",
+                  fontStyle:"italic", lineHeight:1.6, opacity:0.85
                 }}>{fc.tagline}</p>
               </a>
             ))}
