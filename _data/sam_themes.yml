@@ -465,3 +465,15 @@
   bg: "#1a0e2a"
   text: "#ede0ec"
   muted: "#8868a0"
+
+- id: clay
+  name: 'C.P. "Clay" Ellis'
+  anchor: clay
+  cn: 焦糖小熊棕
+  en: Caramel Bear
+  bg_cn: 蝉鸣仲夏夜
+  bg_en: Cicada Nightfall
+  accent: "#b87a3e"
+  bg: "#161510"
+  text: "#ece2ce"
+  muted: "#847a5c"
