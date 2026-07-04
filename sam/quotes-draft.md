@@ -39,8 +39,8 @@
 > The Cardinal 陪舞厅里的波兰移民酒保，左手缠着纱布，管你叫 Kotku。
 
 **2-1** ｜[锚]｜PO POLSKU
-- EN: "Ja też cię chcę."
-- 中：我也想要你。
+- EN: "Ja też cię chcę, kotku."
+- 中：我也想要你，小猫。
 
 **2-2** ｜[AU · 暗告白]｜I MISSED YOU TODAY
 - EN: "I missed you today. …I don't know how to say it lighter, so I'll just say it true."
@@ -64,8 +64,8 @@
 > 以为他们是雌雄大盗，她只看上了他的车；你看上的是他。
 
 **3-1** ｜[锚]｜THE NEXT ONE
-- EN: "I always thought the next one'd be better — I never thought she'd stay."
-- 中：我一直以为「下一个」会更好——没想到她真的留了下来。
+- EN: "I always thought the next one'd be better — I never thought you'd stay."
+- 中：我一直以为「下一个」会更好——没想到你真的肯留下来。
 
 **3-2** ｜[暗告白]｜NOT THE CAR
 - EN: "Everybody who ever climbed in wanted the car, the run, the getaway. You just wanted to stay in the passenger seat. With me."
@@ -517,21 +517,21 @@
 - EN: "I'm keeping the silly hat on. You're the one who put it there."
 - 中：这顶歪歪的傻帽子我不摘——是你给我戴上的。
 
-**21-2** ｜[暗告白]｜EASY ON ME
-- EN: "I've been hard on myself my whole life. You're the first person who ever went easy on me — and I didn't know how much I needed it."
-- 中：我这辈子对自己都很狠。你是第一个，对我温柔的人——我从不知道自己有多需要这个。
+**21-2** ｜[暗告白]｜NOT THE BATON
+- EN: "I told my father I was a conductor. Truth is I'm in the back, on the drums. You're the only one I never had to lie to about who I really am."
+- 中：我跟我爸说，我是个指挥。其实我在最后排，打鼓。你是我唯一，不用撒谎、可以坦白自己到底是谁的人。
 
-**21-3** ｜[情话]｜GOOD ENOUGH FOR YOU
-- EN: "I never felt like enough for anybody. Somehow, for you, I stopped needing to be more."
-- 中：我从没觉得自己配得上谁。可到了你这儿，我莫名就不再想要变得更好了。
+**21-3** ｜[暗告白]｜AFRAID TO DISAPPOINT
+- EN: "My whole life I've been terrified of letting them down. You look at me like there's nothing to forgive — and I finally breathe."
+- 中：我这辈子都怕让他们失望。你看着我，像根本没有什么需要原谅的——我这才终于喘上一口气。
 
-**21-4** ｜[暗告白]｜KEEP IT ON
-- EN: "It's a ridiculous little hat. I'll wear it to the grave, because your hands are the ones that put it on."
-- 中：这帽子傻得要命。可我会戴着它进坟墓——因为是你的手，替我戴上的。
+**21-4** ｜[情话]｜KEEPING TIME
+- EN: "A drummer just keeps the time so everyone up front can shine. You're the first to say the one keeping time was the one worth watching."
+- 中：鼓手只是稳稳打着拍子，好让前排的人发光。你是第一个说，那个打拍子的人才最值得看的。
 
-**21-5** ｜[情话]｜PROUD
-- EN: "I don't know how to say I'm proud of us. So I just keep the hat on, and hope you can tell."
-- 中：我不会说「我为我们骄傲」这种话。所以我就一直戴着这帽子，盼你能看懂。
+**21-5** ｜[情话]｜BRIGHTEST IN THE BAND
+- EN: "I never made conductor. But you said even from the back row, even without the baton, I was the one you couldn't take your eyes off. That's the only review I ever needed."
+- 中：我到底没能当上指挥。可你说，哪怕在最后一排、哪怕没有指挥棒，我也是你移不开眼的那一个。这是我这辈子唯一需要的乐评。
 
 ---
 
@@ -555,8 +555,8 @@
 - 中：整个星球都拿我跟斯塔克比。你从来没有，一次都没有。你知不知道，这是有人对我做过最温柔的事？
 
 **22-5** ｜[AU · 情话]｜LIKED, NOT FEARED
-- EN: "I built machines so the world would fear me. Turns out all I ever wanted was for one person to like me. It's you. It was always going to be you."
-- 中：我造机器，是想让世界怕我。到头来我唯一想要的，不过是一个人喜欢我。是你。从头到尾，都注定是你。
+- EN: "I built machines so the world would fear me. Turns out all I ever wanted was for one person to like me — not the suit, not the show, not the money. Just me. It's you. It was always going to be you."
+- 中：我造机器，是想让世界怕我。到头来我唯一想要的，不过是一个人喜欢我——不是那身西装，不是那场秀，不是那些钱。就是我这个人。是你。从头到尾，都注定是你。
 
 ---
 
@@ -580,7 +580,7 @@
 - 中：你搭上了自己好些年，去争我的清白。我会用剩下的每一年，证明这值得。
 
 **23-5** ｜[情话]｜FREE
-- EN: "First taste of free air in forever, and the only thing I wanted to do with it was find you."
+- EN: "First taste of free air in forever, and the only thing I wanted to do with it was to find you."
 - 中：好久没呼吸过自由的空气了——而我唯一想做的事，就是去找你。
 
 ---
@@ -592,21 +592,21 @@
 - EN: "I wanted to go out in a blaze. You rewrote the ending — so I lived. For you and you only."
 - 中：我本想轰轰烈烈地谢幕——是你改了结局，于是我活了下来。只为你。
 
-**24-2** ｜[暗告白]｜THE BEST PART
-- EN: "I wanted a big, beautiful, burning finale. Then I met you and realized — you're the part I never want to reach the end of."
-- 中：我想要一个盛大、漂亮、燃烧的结尾。可遇见你以后我才懂——你是我永远不想读到结局的那一段。
+**24-2** ｜[情话 · 狗]｜EVERY DOG IN THE CITY
+- EN: "I'd swipe every dog in this city just to watch you light up — then hand 'em all back for the reward and blow every cent on you."
+- 中：我愿意把全城的狗都顺来，就为看你眼睛一亮——再把它们全还回去领赏金，然后一分不剩，全花在你身上。
 
-**24-3** ｜[情话]｜NOT A GRAVEYARD
-- EN: "Everybody thought I was crazy — the fireworks, the final stand. You're the only sane thing I ever wanted to live for."
-- 中：所有人都觉得我疯了——那些烟花、那场最后的对峙。你是我唯一，清醒地、想为之活下去的东西。
+**24-3** ｜[暗告白 · 想象]｜THE TRUE ONE
+- EN: "My head's crammed full of wild, made-up stories. You're the only one in there I never had to invent."
+- 中：我脑子里塞满了瞎编的疯故事。你是里头唯一一个，我从来不用编的。
 
-**24-4** ｜[暗告白]｜STORY WITHOUT AN END
-- EN: "I was going to end it beautifully. You told me a story without you in it just… never gets finished. So I stayed."
-- 中：我本打算漂亮地了结一切。你却告诉我，一个没有你的故事……永远写不完。所以我留下了。
+**24-4** ｜[情话 · 忠诚]｜ON YOUR SIDE
+- EN: "You want someone who'll come running, grinning, guns and all, the second the world turns on you? That's me. Loyalty's the one thing I've never once gotten wrong."
+- 中：你想要一个，在全世界扑向你的那一刻、咧着嘴、连枪带人一起赶到的人？那就是我。忠诚是我唯一，一次都没搞砸过的东西。
 
-**24-5** ｜[情话]｜FOR YOU AND YOU ONLY
-- EN: "I'd have died for a good line. I lived for a better one — you."
-- 中：为了一句漂亮台词，我本愿意去死。为了一句更好的，我活了下来——那句就是你。
+**24-5** ｜[暗告白 · 孩子气]｜JUST THE SUN
+- EN: "Everybody calls me dangerous. Around you all I want is to sit in the sun and watch you laugh. Turns out that's my whole story — just you."
+- 中：所有人都说我危险。可在你身边，我只想坐在太阳底下，看你笑。原来我整个故事就这么简单——只有你。
 
 ---
 
@@ -817,21 +817,21 @@
 - EN: "Everybody's watchin' the most powerful man in the world. You're just watchin' some cowboy from Texas."
 - 中：全世界都盯着那个「最有权力的人」——你盯着的，不过是个德州来的牛仔。
 
-**33-2** ｜[暗告白]｜NO AUDIENCE
-- EN: "Whole world's got its eyes on the title. You've got yours on me. Y'know that's the only crowd I ever cared about? Just you."
-- 中：全世界的眼睛都盯着那个头衔。你的眼睛盯着我。知道吗，我这辈子只在乎过一个「观众」——就你一个。
+**33-2** ｜[AU · 助理]｜MY ASSISTANT'S EYES
+- EN: "I've got generals, advisors, a whole cabinet weighin' in. The only verdict I actually wait on is my assistant's — am I still just some boy from Texas in your eyes?"
+- 中：将军、顾问、一整个内阁都在给我出主意。可我真正等的，只有我助理小姐的评判——在你眼里，我是不是还是那个德州来的大男孩？
 
-**33-3** ｜[情话]｜OFF THE PODIUM
-- EN: "Take away the office, the podium, all the fuss — and I'm just a fella who'd rather be sittin' on the porch with you."
-- 中：把那个职位、那个讲台、那些排场都拿走——我不过是个，宁愿跟你一起坐在门廊上的家伙。
+**33-3** ｜[AU · 助理 · 暗告白]｜THE SCHEDULE
+- EN: "You hand me the schedule every mornin' like it runs the world. Truth is, the only thing I read twice is whether you were smilin' when you gave it to me."
+- 中：你每天早上把日程递给我，像它掌管着整个世界。可说实话，我唯一会看两遍的，是你递给我的时候，有没有在笑。
 
-**33-4** ｜[暗告白]｜EASY WITH YOU
-- EN: "Power's a heavy thing to carry. With you I get to set it down for a while and just be. Don't know how you do that."
-- 中：权力是沉甸甸的东西。跟你在一起，我能把它先放下，就那么歇着。真不知道你是怎么做到的。
+**33-4** ｜[情话 · 轻松]｜BEST WINGS IN D.C.
+- EN: "Forget the briefin'. You hungry? C'mon — I know the best wings in D.C., and today I'm buyin'."
+- 中：简报先放一边。你饿不饿？走——我知道全华盛顿最好吃的鸡翅，今天我请。
 
-**33-5** ｜[情话]｜COME HOME TO
-- EN: "Don't much care what history calls me. Only title I ever wanted was the fella you come home to."
-- 中：历史怎么叫我，我不太在乎。我唯一想要的头衔，是那个你会回家找的人。
+**33-5** ｜[情话 · 轻松]｜EXECUTIVE ORDER
+- EN: "They can all wait. Sit down, kick your feet up, split these wings with me. Consider it an executive order."
+- 中：让他们都等着吧。坐下，把脚翘起来，跟我一起把这盘鸡翅分了。就当这是一道总统令。
 
 ---
 
@@ -842,9 +842,9 @@
 - EN: "I'll never say it out loud. I'll just spend everything I have keeping you safe."
 - 中：这话我永远不会说出口——我只会用我所有的一切，换你平安。
 
-**34-2** ｜[暗告白]｜EVERYTHING I HAVE
-- EN: "I won't make a speech of it. Watch what I do instead — every choice I make, I make so that you get to live."
-- 中：我不会把它说成一篇演讲。你看我做的事就好——我做的每一个决定，都是为了让你活下去。
+**34-2** ｜[暗告白 · 反战]｜THEIR UNIFORM, NOT THEIR HATE
+- EN: "I wear their uniform. I never once wore their hate. In all this madness, the only side I truly chose was yours."
+- 中：我穿着他们的制服。却从没有一刻，穿上他们的仇恨。在这满世界的疯狂里，我真正选的那一边，只有你。
 
 **34-3** ｜[情话]｜A COAT IN THE COLD
 - EN: "I'm not good with the words. But you'll always find my coat on your shoulders, and me between you and whatever's coming."
@@ -854,9 +854,9 @@
 - EN: "If it ever comes down to me or you — it's you. There was never a version of this where it wasn't you."
 - 中：如果真的到了「我或你」那一步——是你。从来没有哪个版本里，不是你。
 
-**34-5** ｜[情话]｜SAFE
-- EN: "You'll never hear me say the word. But every day you wake up safe — that was me saying it, as loud as I know how."
-- 中：你永远不会听我说出那个字。可你每一天平安醒来——那就是我在说它，用我所知最大的声音。
+**34-5** ｜[情话 · 反战]｜THE FAR SIDE OF THIS
+- EN: "I'm so tired of a world that runs on fear. All I want is to get you and me to the far side of this war — into some quieter place that finally makes sense."
+- 中：我太累了，累于这个靠恐惧运转的世界。我只想带着你和我，走到这场战争的另一头——去某个更安静、终于讲得通的地方。
 
 ---
 
@@ -892,21 +892,21 @@
 - EN: "I could steal anything in the world. You're the first thing I'd rather earn."
 - 中：这世上没有我偷不到的东西——你却是第一件，我宁愿靠自己挣来的。
 
-**36-2** ｜[暗告白]｜WANT TO BE GOOD
-- EN: "I've been the bad guy my whole life and I was good at it. Then I met you and — for the first time — I wanted to try being the other thing."
-- 中：我当了一辈子坏蛋，而且当得很好。然后我遇见了你，就——第一次——想试试当另一种人。
+**36-2** ｜[暗告白 · 潇洒]｜TAKE MY TIME
+- EN: "Sweetheart, I've cracked every vault worth cracking. You? You're the one score I want to take nice and slow."
+- 中：甜心，值得撬的保险库我都撬遍了。你呢？你是我唯一想慢慢来、细细品的那一票。
 
-**36-3** ｜[情话]｜NO STEALING
-- EN: "I don't want to take you, or trick you, or run off with you. I want to earn you — slow, honest, for real."
-- 中：我不想偷走你、骗到你，或者带着你逃跑。我想挣得你——慢慢地，诚实地，认认真真地。
+**36-3** ｜[情话 · 潇洒]｜BACK INTO YOUR ROOM
+- EN: "I can charm my way out of any room in the world. Only trouble is, I keep charming my way right back into the one with you in it."
+- 中：这世上没有哪个房间是我耍不出去的。唯一的麻烦是——我总一次次，又把自己耍回你在的那一间。
 
-**36-4** ｜[暗告白]｜CAUGHT
-- EN: "Never been caught in my life. You caught me looking, first day, and I've been happily busted ever since."
-- 中：我这辈子从没被抓过。第一天你就逮到我在偷看你——从那以后，我心甘情愿地束手就擒。
+**36-4** ｜[暗告白 · 潇洒]｜DIDN'T EVEN RUN
+- EN: "Never been caught in my life. Then you glanced over on day one and caught me looking — and darlin', I didn't even try to run."
+- 中：我这辈子从没失手被抓过。第一天你回头一瞥，逮到我在看你——而亲爱的，我压根没想逃。
 
-**36-5** ｜[情话]｜THE GOOD ENDING
-- EN: "Bad guys aren't supposed to get the happy ending. I'm going to spend the rest of my life earning the right to one — with you."
-- 中：坏蛋是不该有圆满结局的。我打算用余生去挣一个——和你一起。
+**36-5** ｜[情话 · 潇洒]｜EARN IT, EVERY BIT
+- EN: "Bad guys don't get the happy ending, they say. Watch me. I'll charm it, work for it, earn it — every last bit of it, with you on my arm."
+- 中：他们说坏蛋没有圆满结局。你看着——我会把它哄来、挣来、赢来，一点不剩，挽着你，一起。
 
 ---
 
@@ -917,21 +917,21 @@
 - EN: "Nobody ever stayed for me. You saw all of it — and chose me anyway."
 - 中：从来没人为我留下来。你看清了这一切——还是选了我。
 
-**37-2** ｜[暗告白]｜TIRED, NOT FAKE
-- EN: "I'm worn out and I'm a bit of a wreck. But I've never once given you anything less than the truth. That has to count for something."
-- 中：我疲惫，也有点狼狈。可我从没给过你一句假话。这总该算点什么吧。
+**37-2** ｜[AU · 妻子 · 自卑]｜CAN'T QUITE BELIEVE IT
+- EN: "You married a tired man who cleans up other people's messes for a living. Some mornings I still can't quite believe you chose to wake up next to me."
+- 中：你嫁给了一个，靠替别人收拾烂摊子过日子的疲惫男人。有些早晨，我到现在都不太敢相信，你竟然选了醒来时躺在我身边。
 
-**37-3** ｜[情话]｜SAW IT ALL
-- EN: "You saw the drinking, the mess, the man nobody waits up for — and you stayed at the table. Do you know what that does to a man?"
-- 中：你看见了那些酒、那些狼狈、那个没人会为他等门的男人——你却留在了桌边。你知道这对一个男人意味着什么吗？
+**37-3** ｜[AU · 妻子 · 自卑]｜BETTER THAN ME
+- EN: "I keep bracing for the day you realize you could've done far better than me. You just keep making the tea and staying. I don't understand it — but God, I'm grateful."
+- 中：我一直在等那一天——你终于发现，你本可以找一个远比我好的人。可你只是继续泡着茶，留下来。我不懂——可老天，我感激得要命。
 
-**37-4** ｜[暗告白]｜WORTH SOLVING
-- EN: "I solve everyone else's mysteries for a living. You're the first one I've ever wanted to spend my life inside of, never quite solved."
-- 中：我靠解开别人的谜题为生。你是我第一个，愿意用一生待在其中、永远解不尽的谜。
+**37-4** ｜[AU · 妻子 · 情话]｜SIGNING NEXT TO YOURS
+- EN: "I've stood over a hundred cases and never once shook. The only thing that ever made my hands tremble was signing my name next to yours."
+- 中：我经手过上百桩案子，从没手抖过。唯一让我手抖的，是把我的名字，签在你名字旁边的那一刻。
 
-**37-5** ｜[情话]｜STAY UP FOR YOU
-- EN: "Nobody's ever waited up for me. So let me be the one who waits up for you — every night, no exceptions."
-- 中：从没人为我等过门。那就让我来做那个，为你等门的人——每一夜，无一例外。
+**37-5** ｜[AU · 妻子 · 情话]｜THE LIGHT YOU LEFT ON
+- EN: "Nobody ever waited up for me — until you. Now every night I hurry home just to find the light you left on. It's the one case I never want solved: why you stay."
+- 中：从没人为我等过门——直到你。如今每一夜我都急着回家，只为看见你替我留的那盏灯。有一个谜我永远不想解开：你为什么留下来。
 
 ---
 
@@ -1000,13 +1000,13 @@
 - EN: "It took me sixteen years to say the thing I should've said the first night. I'm slow, Winter. But I got there. I finally got there."
 - 中：我用了十六年，才说出那句本该在第一晚就说的话。我很慢，Winter。可我到了。我终于到了。
 
-**40-4** ｜[暗告白]｜CHANGED FOR YOU
-- EN: "I was a hard man, set in hard ways. You didn't argue me out of it. You just looked at me like I could be better — and God help me, I wanted to be."
-- 中：我是个顽固的人，认死理。你没有跟我争。你只是那样看着我，像我能变好——老天，我竟然就想变好了。
+**40-4** ｜[情话 · 夏夜]｜CICADAS AND SODA
+- EN: "Some cicada-loud summer night, a cold soda sweating in your hand, an orange you'd peel and split with me — a hard old man like me never knew heaven could be that plain."
+- 中：某个蝉鸣震天的夏夜，你手里一瓶冒着凉气的汽水，一个你剥开、分我一半的橘子——我这么个又老又硬的人，从不知道天堂原来可以这么简单。
 
-**40-5** ｜[情话]｜STAY
-- EN: "I've said the wrong thing my whole life. Let me get one right: stay. Stay, and I'll spend what's left of mine making it worth it."
-- 中：我这辈子说错了太多话。让我说对一句：留下。留下，我会用余生，让这值得。
+**40-5** ｜[暗告白 · 小熊]｜THE LITTLE BEAR
+- EN: "I'm no good with soft words, Winter. So I just kept that little bear you won me — all these years, right where I'd see it every single day."
+- 中：我不擅长说软话，Winter。所以我就把你替我赢来的那只小熊，一直留着——这么多年，摆在我天天都看得见的地方。
 
 ---
 
