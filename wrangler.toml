@@ -1,11 +1,14 @@
 # Cloudflare Worker（静态资源托管）配置 —— 只用来发布 Sam 测试。
 #
-# 部署流程（Cloudflare 在后台自动跑）：
-#   1. Build command:  python3 tools/build_public.py   → 生成 public/ 目录
-#   2. Deploy command: npx wrangler deploy              → 读本文件，把 public/ 作为静态资源上传
+# 部署由 GitHub Actions 自动完成（见 .github/workflows/deploy-public.yml）：
+#   1. python3 tools/build_public.py  → 生成 public/（去外链、防泄露）
+#   2. wrangler deploy                → 读本文件，把 public/ 传到下面这个 Worker
 #
-# 这是一个「纯静态资源」Worker（没有 main 脚本），Cloudflare 直接托管 public/ 里的文件。
-name = "winter-sam"
+# name 指向你已经建好、正在用的那个 Worker，所以网址保持不变。
+# account_id 是你的 Cloudflare 账号 ID（不是机密，dashboard 网址里就有），
+# 若以后换账号需要改这里。
+name = "wandering-river-bd34"
+account_id = "8cf56c71ed9797a5e930bea0537727b1"
 compatibility_date = "2025-06-01"
 
 [assets]

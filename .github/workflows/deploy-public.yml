@@ -1,0 +1,54 @@
+# 自动把 Sam 测试的公开版部署到 Cloudflare。
+#
+# 触发时机：push 到 main 且改动了测试页 / 构建脚本 / 配置时（不会因为无关的
+# 博客文章改动就重新部署）。也可以在 Actions 页面手动运行。
+#
+# 流程：生成 public/（自动去掉暴露链接）→ wrangler 部署到现有 Worker（网址不变）。
+# 需要一个一次性密钥 CLOUDFLARE_API_TOKEN，配置方法见 DEPLOY-CLOUDFLARE.md。
+name: Deploy Sam quiz to Cloudflare
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "sam/quiz/index.html"
+      - "tools/build_public.py"
+      - "wrangler.toml"
+      - "images/heading-normal.png"
+      - "images/favicon-180.png"
+      - "favicon.ico"
+      - ".github/workflows/deploy-public.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "deploy-public"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build public site (strip exposing links)
+        run: python3 tools/build_public.py
+
+      # 密钥还没配好时自动跳过上传，工作流保持绿色，不报红。
+      # 配好 CLOUDFLARE_API_TOKEN 后，下次 push 就会真正部署。
+      - name: Deploy to Cloudflare
+        if: env.CF_API_TOKEN != ''
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy
