@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 1 · The Rescue — The Near Side"
 date: 2026-07-05 09:00:00
-image: sam-bell-au.jpg
+image: the-near-side.png
 tags: [悸动, 暗涌]
 categories: ["AU Story"]
 series: "The Near Side"

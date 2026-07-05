@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 3 · Two of Him — The Near Side"
 date: 2026-07-05 15:00:00
-image: sam-bell-au.jpg
+image: the-near-side.png
 tags: [悸动, 安放]
 categories: ["AU Story"]
 series: "The Near Side"
