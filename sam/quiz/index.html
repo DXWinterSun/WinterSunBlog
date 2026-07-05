@@ -743,7 +743,7 @@ function Intro({ onStart, palette, onShuffle }) {
           maxWidth:340, textAlign:"center", lineHeight:1.8,
           fontSize:"0.82rem", color:p.muted, margin:"0 0 40px"
         }}>
-          行为、偏好、颜色、感觉——<br/>找出那个最戳你的人，和你身上其它几个侧面。
+          行为、偏好、颜色、感觉——<br/>找出那个最戳你的人，和你身上其他几个侧面。
         </p>
         <button onClick={onStart} style={{
           background:"transparent", border:`1px solid ${p.accent}`,
@@ -762,7 +762,7 @@ function Intro({ onStart, palette, onShuffle }) {
           <p style={{
             fontSize:"0.66rem", color:p.muted, opacity:0.6, textAlign:"center",
             fontFamily:"'Special Elite',monospace", letterSpacing:"0.06em", margin:0
-          }}>点色卡换一张 · 测完会定格成你的角色</p>
+          }}>点击色卡随机抽一张新的 · 测完会定格成你的角色的专属配色</p>
         </div>
 
         <p style={{
@@ -966,10 +966,10 @@ function ResultScreen({ charScores, dimScores, answers, onRetake }) {
 
   // ── Facets: your strongest sides, each embodied by a distinct character ──
   const FACET_POINT = {
-    guile:  "你欣赏脑子——看局、布势，把复杂的东西玩明白。最戳你的，是那种连你都算进去的聪明。",
-    forbear:"你信的是长度——不吵不闹，但一直在。最戳你的，是那种把话咽下去、把人守下来的稳。",
+    guile:  "你欣赏脑子——纵观全局、运筹帷幄，把复杂的东西玩明白。最戳你的，是那种连你都算进去的聪明。",
+    forbear:"你信的是长久——不吵不闹，但一直在。最戳你的，是那种把话咽下去、把人守下来的稳。",
     chaos:  "你要的是鲜活——失控一点、说走就走、不被规矩收编。最戳你的，是那种停不下来的野。",
-    raw:    "你要的是真——不装、不绕、掏心掏肺。最戳你的，是那种笨拙却实实在在的诚。",
+    raw:    "你要的是真——不装、不绕、掏心掏肺。最戳你的，是那种笨拙却实实在在的至纯本真。",
     romance:"你为细节动心——一个眼神、一句记了很久的话。最戳你的，是把你放进每件小事的深情。",
     grace:  "你在意质感——格调、分寸、举手投足。最戳你的，是那种连狼狈都好看的讲究。",
   };
