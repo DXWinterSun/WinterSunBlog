@@ -67,7 +67,7 @@ def transform(html):
     html = replace_once(
         html,
         '''        <a href="/WinterSunBlog/sam/" style={{
-          color:p.muted, textDecoration:"none", fontSize:"0.72rem",
+          color:p.muted, textDecoration:"none", fontSize:"0.72rem", flexShrink:0,
           fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em", opacity:0.85
         }}>← For Sam</a>''',
         '        <span style={{width:60}}/>',
