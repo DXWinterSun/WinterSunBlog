@@ -1,0 +1,12 @@
+{
+  "name": "winter-sam-public",
+  "private": true,
+  "description": "Standalone public build of the Sam quiz, deployed to Cloudflare as a static-assets Worker.",
+  "scripts": {
+    "build": "python3 tools/build_public.py",
+    "deploy": "python3 tools/build_public.py && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.20.0"
+  }
+}
