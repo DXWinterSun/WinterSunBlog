@@ -82,6 +82,18 @@
   bg_cn: "月球蔚蓝"
   bg_en: "Lunar Blue"
 
+"The Near Side":            # Sam Bell · 救援线 AU（与 Sam Bell · Moon AU 同源色卡 theme_id: sambell）
+  theme_id: sambell
+  accent: "#7eb0d5"
+  accent_ink: "#3f7397"
+  bg: "#162038"
+  text: "#dfe7f2"
+  muted: "#8ea0b8"
+  accent_cn: "地球辉光"
+  accent_en: "Earthlight"
+  bg_cn: "近月夜蓝"
+  bg_en: "Near-Side Blue"
+
 "A Single Shot AU":         # John Moon
   theme_id: johnmoon
   accent: "#8fa0b0"
