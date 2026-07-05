@@ -667,23 +667,23 @@ function Intro({ onStart, palette, onShuffle }) {
     }}>
       <div style={{
         padding:"14px 24px", display:"flex", alignItems:"center", justifyContent:"space-between",
-        borderBottom:`1px solid ${p.accent}22`
+        gap:14, borderBottom:`1px solid ${p.accent}22`
       }}>
         <a href="/WinterSunBlog/sam/" style={{
-          color:p.muted, textDecoration:"none", fontSize:"0.72rem",
+          color:p.muted, textDecoration:"none", fontSize:"0.72rem", flexShrink:0,
           fontFamily:"'Special Elite',monospace", letterSpacing:"0.15em", opacity:0.85
         }}>← For Sam</a>
-        <span style={{
+        <span className="quiz-eyebrow" style={{
           fontFamily:"'Special Elite',monospace", fontSize:"0.62rem",
-          letterSpacing:"0.2em", color:p.muted, opacity:0.6, textTransform:"uppercase"
+          letterSpacing:"0.2em", color:p.muted, opacity:0.6, textTransform:"uppercase",
+          whiteSpace:"nowrap"
         }}>Sam Rockwell · Character Quiz</span>
-        <span style={{width:60}}/>
       </div>
 
       <div style={{
         flex:1, display:"flex", flexDirection:"column",
         alignItems:"center", justifyContent:"center",
-        padding:"40px 24px 60px"
+        padding:"clamp(32px,9vh,84px) 24px 60px"
       }}>
         <h1 style={{
           fontFamily:"'Playfair Display',serif", fontStyle:"italic",
@@ -731,6 +731,9 @@ function Intro({ onStart, palette, onShuffle }) {
           3 个模块 · 每题单选 · 约 3 分钟
         </p>
       </div>
+      <style>{`
+        @media (max-width: 560px) { .quiz-eyebrow { display: none; } }
+      `}</style>
     </div>
   );
 }
@@ -805,8 +808,8 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack, palette, onShuffle 
       {/* ── Question content ── */}
       <div style={{
         flex:1, display:"flex", flexDirection:"column",
-        alignItems:"center", justifyContent:"center",
-        padding:"28px 24px 52px", maxWidth:680, margin:"0 auto", width:"100%",
+        alignItems:"center", justifyContent:"flex-start",
+        padding:"clamp(32px,10vh,110px) 24px 52px", maxWidth:680, margin:"0 auto", width:"100%",
         opacity: leaving ? 0 : 1,
         transform: leaving ? "translateY(-10px)" : "translateY(0)",
         transition:"opacity 0.22s, transform 0.22s"
@@ -1014,31 +1017,40 @@ function ResultScreen({ charScores, dimScores, answers, onRetake }) {
                 }}>DIMENSIONS</p>
                 <span style={{
                   fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
-                  color:c.accent, letterSpacing:"0.08em"
-                }}>你 · 他</span>
+                  letterSpacing:"0.08em", display:"inline-flex", alignItems:"center", gap:9
+                }}>
+                  <span style={{display:"inline-flex",alignItems:"center",gap:4,color:c.accent}}>
+                    <span style={{width:12,height:5,borderRadius:2,background:c.accent}}/>你
+                  </span>
+                  <span style={{display:"inline-flex",alignItems:"center",gap:4,color:c.muted}}>
+                    <span style={{width:2,height:9,background:c.text,opacity:0.85}}/>他
+                  </span>
+                </span>
               </div>
               {DIMS.map(d => {
                 const u = normUser[d.key] || 0;
                 const h = c.profile[d.key] || 0;
                 return (
-                  <div key={d.key} style={{marginBottom:9}}>
-                    <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}>
+                  <div key={d.key} style={{marginBottom:12}}>
+                    <div style={{display:"flex",justifyContent:"space-between",marginBottom:5}}>
                       <span style={{fontSize:"0.76rem",color:c.text,fontFamily:"'Noto Serif SC',serif"}}>{d.cn}</span>
                       <span style={{fontSize:"0.68rem",color:c.muted,fontFamily:"'Special Elite',monospace",letterSpacing:"0.05em"}}>
-                        {u.toFixed(1)} · {h.toFixed(0)}
+                        <span style={{color:c.accent}}>{u.toFixed(1)}</span> · {h.toFixed(0)}
                       </span>
                     </div>
-                    <div style={{position:"relative",height:3,background:c.muted+"28",borderRadius:2}}>
+                    <div style={{position:"relative",height:5,background:c.muted+"28",borderRadius:3}}>
+                      {/* 你 — solid accent fill */}
                       <div style={{
                         position:"absolute",left:0,top:0,height:"100%",
-                        background:c.accent+"88",borderRadius:2,
-                        width:(h/10*100)+"%"
-                      }}/>
-                      <div style={{
-                        position:"absolute",left:0,top:0,height:"100%",
-                        background:c.accent,borderRadius:2,
+                        background:c.accent,borderRadius:3,
                         width:(u/10*100)+"%",
                         transition:"width 1.1s ease"
+                      }}/>
+                      {/* 他 — benchmark tick */}
+                      <div style={{
+                        position:"absolute", top:-2, height:9, width:2,
+                        left:"calc("+(h/10*100)+"% - 1px)",
+                        background:c.text, opacity:0.85, borderRadius:1
                       }}/>
                     </div>
                   </div>
