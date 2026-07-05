@@ -587,6 +587,9 @@ function randomChar() {
   return CHARS[Math.floor(Math.random() * CHARS.length)];
 }
 
+/* ── Spectrum: every character's accent, in film-year order ─────── */
+const SPECTRUM = CHARS.map(c => c.accent);
+
 /* ── Palette chip (compact, click to shuffle) ─────────────────── */
 function PaletteChip({ palette, onShuffle }) {
   const p = palette;
@@ -691,13 +694,51 @@ function Intro({ onStart, palette, onShuffle }) {
           textAlign:"center", margin:"0 0 16px", lineHeight:1.15,
           transition:"color 0.6s ease"
         }}>你的 Sam<br/>不止一面</h1>
-        <div style={{width:40, height:1, background:p.muted, margin:"0 auto 28px"}}/>
-        <p style={{
-          maxWidth:340, textAlign:"center", lineHeight:1.95,
-          fontSize:"0.93rem", color:p.text, opacity:0.78, margin:"0 0 12px"
+        <div style={{width:40, height:1, background:p.muted, margin:"0 auto 26px"}}/>
+
+        {/* spectrum — every character's colour; the current palette's bar glows */}
+        <div style={{
+          display:"flex", gap:2, alignItems:"flex-end", justifyContent:"center",
+          width:"min(340px,86vw)", height:34, margin:"0 auto 10px"
         }}>
-          20 道题，40 个角色，没有陪跑。
-        </p>
+          {SPECTRUM.map((hex,i) => {
+            const on = hex === p.accent;
+            return <span key={i} style={{
+              flex:1, borderRadius:1, background:hex,
+              height: on ? "100%" : "62%",
+              opacity: on ? 1 : 0.5,
+              boxShadow: on ? `0 0 6px ${hex}aa` : "none",
+              transition:"opacity 0.6s ease, height 0.4s ease, box-shadow 0.6s ease"
+            }}/>;
+          })}
+        </div>
+
+        {/* stats — existing numbers given editorial weight */}
+        <div style={{
+          display:"flex", alignItems:"baseline", justifyContent:"center", gap:20,
+          margin:"0 0 6px"
+        }}>
+          {[["40","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
+            <React.Fragment key={i}>
+              {i>0 && <span style={{width:1, height:26, background:p.muted, opacity:0.3}}/>}
+              <span style={{display:"flex", flexDirection:"column", alignItems:"center", gap:2}}>
+                <span style={{
+                  fontFamily:"'Playfair Display',serif", fontStyle:"italic", fontWeight:700,
+                  fontSize:"1.9rem", lineHeight:1, color:p.accent, transition:"color 0.6s ease"
+                }}>{n}</span>
+                <span style={{
+                  fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
+                  letterSpacing:"0.12em", color:p.muted
+                }}>{label}</span>
+              </span>
+            </React.Fragment>
+          ))}
+        </div>
+        <p style={{
+          fontFamily:"'Special Elite',monospace", fontSize:"0.66rem",
+          letterSpacing:"0.14em", color:p.muted, opacity:0.7, textAlign:"center", margin:"0 0 22px"
+        }}>没有陪跑</p>
+
         <p style={{
           maxWidth:340, textAlign:"center", lineHeight:1.8,
           fontSize:"0.82rem", color:p.muted, margin:"0 0 40px"
@@ -741,6 +782,13 @@ function Intro({ onStart, palette, onShuffle }) {
 /* ── Block labels ─────────────────────────────────────────────── */
 const BLOCK_LABELS = {1:"行为 · Behavior", 2:"偏好 · Preference", 3:"感觉 · Aesthetic"};
 
+/* ── Block segmentation (for the module progress bar) ──────────── */
+const BLOCK_IDS = [...new Set(QUESTIONS.map(q => q.block))];
+const BLOCK_RANGES = BLOCK_IDS.map(bn => {
+  const idxs = QUESTIONS.map((q,i)=>({q,i})).filter(x=>x.q.block===bn).map(x=>x.i);
+  return { block: bn, start: idxs[0], count: idxs.length };
+});
+
 /* ── Question screen ──────────────────────────────────────────── */
 function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack, palette, onShuffle }) {
   const [selected, setSelected] = useState(null);
@@ -755,6 +803,7 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack, palette, onShuffle 
   function choose(i) {
     if (selected !== null) return;
     setSelected(i);
+    try { if (navigator.vibrate) navigator.vibrate(12); } catch(e) {}
     setTimeout(() => {
       setLeaving(true);
       setTimeout(() => onAnswer(q.opts[i]), 240);
@@ -768,8 +817,23 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack, palette, onShuffle 
     }}>
       {/* ── Sticky header ── */}
       <div style={{position:"sticky", top:0, zIndex:20, background:p.bg, transition:"background 0.6s ease"}}>
-        <div style={{height:"2px", background:p.muted+"33"}}>
-          <div style={{height:"100%", background:p.accent, width:pct+"%", transition:"width 0.4s ease, background 0.6s ease"}}/>
+        {/* segmented module progress — one segment per block */}
+        <div style={{display:"flex", gap:3, padding:"0"}}>
+          {BLOCK_RANGES.map(br => {
+            const frac = Math.max(0, Math.min(1, (qIdx - br.start) / br.count));
+            return (
+              <div key={br.block} style={{
+                flex:br.count, height:"2px", background:p.muted+"33",
+                position:"relative", overflow:"hidden"
+              }}>
+                <div style={{
+                  position:"absolute", left:0, top:0, height:"100%",
+                  width:(frac*100)+"%", background:p.accent,
+                  transition:"width 0.4s ease, background 0.6s ease"
+                }}/>
+              </div>
+            );
+          })}
         </div>
         <div style={{
           padding:"10px 20px", display:"flex",
@@ -806,7 +870,7 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack, palette, onShuffle 
       </div>
 
       {/* ── Question content ── */}
-      <div style={{
+      <div key={qIdx} style={{
         flex:1, display:"flex", flexDirection:"column",
         alignItems:"center", justifyContent:"flex-start",
         padding:"clamp(32px,10vh,110px) 24px 52px", maxWidth:680, margin:"0 auto", width:"100%",
@@ -815,14 +879,14 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack, palette, onShuffle 
         transition:"opacity 0.22s, transform 0.22s"
       }}>
         {isNewBlock && qIdx > 0 && (
-          <p style={{
+          <p className="q-opt" style={{
             fontFamily:"'Special Elite',monospace", fontSize:"0.58rem",
             letterSpacing:"0.22em", color:p.muted, opacity:0.7, margin:"0 0 18px",
             textTransform:"uppercase"
           }}>— {BLOCK_LABELS[q.block]} —</p>
         )}
 
-        <p style={{
+        <p className="q-opt" style={{
           fontFamily:"'Playfair Display',serif", fontStyle:"italic",
           fontSize:"clamp(1rem,4vw,1.4rem)", color:p.text, lineHeight:1.7,
           textAlign:"center", margin:"0 0 32px", fontWeight:400
@@ -833,38 +897,50 @@ function QuestionScreen({ qIdx, onAnswer, onBack, canGoBack, palette, onShuffle 
             const isSel = selected === i;
             const dimmed = selected !== null && !isSel;
             return (
-              <button key={i} onClick={() => choose(i)} style={{
+              <button key={i} onClick={() => choose(i)} className="q-opt" style={{
+                display:"flex", alignItems:"flex-start", gap:12,
                 background: isSel ? p.accent+"18" : "transparent",
                 border: isSel ? `1px solid ${p.accent}88` : `1px solid ${p.muted}44`,
                 color: isSel ? p.accent : p.text,
-                padding:"14px 18px", textAlign:"left",
+                padding:"14px 16px", textAlign:"left",
                 fontFamily:"'Noto Serif SC',serif", fontSize:"0.88rem", lineHeight:1.7,
                 cursor:"pointer", transition:"all 0.18s", borderRadius:2,
                 opacity: dimmed ? 0.35 : (isSel ? 1 : 0.9),
+                transform: isSel ? "scale(1.012)" : "scale(1)",
+                animationDelay: (0.16 + i*0.055) + "s"
               }}
                 onMouseEnter={e=>{ if(selected===null){ e.currentTarget.style.borderColor=p.muted+"99"; e.currentTarget.style.opacity=1; }}}
                 onMouseLeave={e=>{ if(selected===null){ e.currentTarget.style.borderColor=p.muted+"44"; e.currentTarget.style.opacity=0.9; }}}
               >
                 <span style={{
-                  fontFamily:"'Special Elite',monospace", fontSize:"0.6rem",
-                  letterSpacing:"0.15em",
-                  color: isSel ? p.accent : p.muted,
-                  marginRight:10
-                }}>{String.fromCharCode(65+i)}</span>
-                {opt.text}
-                {opt.lineCN && (
-                  <span style={{
-                    display:"block", fontSize:"0.8rem",
-                    color: isSel ? p.accent+"cc" : p.muted,
-                    marginTop:5, fontStyle:"italic", lineHeight:1.65,
-                    paddingLeft:22
-                  }}>{opt.lineCN}</span>
-                )}
+                  flexShrink:0, marginTop:2,
+                  display:"inline-flex", alignItems:"center", justifyContent:"center",
+                  width:20, height:20, borderRadius:"50%",
+                  border:`1px solid ${isSel ? p.accent : p.muted+"66"}`,
+                  background: isSel ? p.accent : "transparent",
+                  color: isSel ? p.bg : p.muted,
+                  fontFamily:"'Special Elite',monospace", fontSize:"0.58rem",
+                  letterSpacing:0, transition:"all 0.18s"
+                }}>{isSel ? "✓" : String.fromCharCode(65+i)}</span>
+                <span style={{flex:1, minWidth:0}}>
+                  {opt.text}
+                  {opt.lineCN && (
+                    <span style={{
+                      display:"block", fontSize:"0.8rem",
+                      color: isSel ? p.accent+"cc" : p.muted,
+                      marginTop:5, fontStyle:"italic", lineHeight:1.65
+                    }}>{opt.lineCN}</span>
+                  )}
+                </span>
               </button>
             );
           })}
         </div>
       </div>
+      <style>{`
+        @keyframes qEnter { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+        .q-opt { animation: qEnter 0.42s cubic-bezier(.2,.7,.2,1) both; }
+      `}</style>
     </div>
   );
 }
