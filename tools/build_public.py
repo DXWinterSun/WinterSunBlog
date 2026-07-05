@@ -25,8 +25,8 @@ import re
 import shutil
 import sys
 
-# 对外的干净域名。绑定自定义域名后把这里换成你的域名即可。
-SITE_URL = "https://winter-sam.pages.dev"
+# 对外的干净域名（Cloudflare Worker 的实际网址）。以后若绑定自定义域名，把这里换成你的域名即可。
+SITE_URL = "https://wandering-river-bd34.rz6zpmnzj4.workers.dev"
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "sam", "quiz", "index.html")
