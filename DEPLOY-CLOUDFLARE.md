@@ -43,15 +43,18 @@
 | `CLOUDFLARE_API_TOKEN`    | 第 3 步的 API Token        |
 | `CLOUDFLARE_ACCOUNT_ID`   | 第 3 步的 Account ID       |
 
-### 5. 填两个占位符（告诉 Claude 帮你填，或自己改）
-编辑 `.github/workflows/cloudflare-pages.yml`，替换两处：
-- `REPLACE-WITH-YOUR-DOMAIN` → 你的自定义域名，如 `sam.example.com`
-- `REPLACE-WITH-PROJECT-NAME` → 第 2 步起的项目名，如 `winter-sam`
+### 5.（已替你填好，无需操作）
+`.github/workflows/cloudflare-pages.yml` 里的项目名已填为 `winter-sam`，
+对外域名先用免费的 `winter-sam.pages.dev` 占位。等你有了自定义域名，
+告诉 Claude 或自己把该文件里 `winter-sam.pages.dev` 那一行换成真域名即可。
 
-### 6. 合并进 main
-本工作流在**推送到 `main`** 时自动运行。把改动合并进 `main` 后，
-去 GitHub 的 **Actions** 标签页确认 “Deploy to Cloudflare Pages” 跑绿。
-跑完后站点已在 `你的项目名.pages.dev` 上线。
+> 第 2 步在 Cloudflare 建项目时，名字务必也叫 `winter-sam`，两边要一致。
+
+### 6. （已自动生效）
+工作流已在 `main` 上。**在你完成第 2–4 步之前**，它每次运行会自动
+**跳过上传、显示绿色**，不会报红。等你把密钥配好，下一次推送到 `main`
+（或在 Actions 页面手动点 “Run workflow”）就会真正上传，站点随即在
+`winter-sam.pages.dev` 上线。
 
 ### 7. 绑定自定义域名
 - Cloudflare **Workers & Pages** → 打开你的项目 → **Custom domains**
