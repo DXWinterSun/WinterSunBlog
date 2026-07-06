@@ -229,3 +229,15 @@
   accent_en: "Caramel Bear"
   bg_cn: "蝉鸣仲夏夜"
   bg_en: "Cicada Nightfall"
+
+"Summer Never Ends":         # Owen · 色卡同源 sam_themes.yml id: owen
+  theme_id: owen
+  accent: "#35bfc9"
+  accent_ink: "#21767d"
+  bg: "#15282e"
+  text: "#dce9ea"
+  muted: "#75899a"
+  accent_cn: "滑梯翠蓝"
+  accent_en: "Waterslide Aqua"
+  bg_cn: "氯味深池"
+  bg_en: "Chlorine Deep"
