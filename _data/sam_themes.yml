@@ -1,4 +1,5 @@
 - id: gary
+  year: 1991
   name: "Gary"
   anchor: gary
   cn: 天际铜金
@@ -11,6 +12,7 @@
   muted: "#8a7558"
 
 - id: kris
+  year: 1994
   name: 'Krzysztof "Kris" Wilk'
   anchor: krzysztof
   cn: 余烬绯红
@@ -23,6 +25,7 @@
   muted: "#62768d"
 
 - id: matty
+  year: 1995
   name: "Matty"
   anchor: matty
   cn: 旧电话亭琥珀
@@ -35,6 +38,7 @@
   muted: "#7d7264"
 
 - id: buck
+  year: 1996
   name: 'Buck "The Kid"'
   anchor: buck
   cn: 林间苔绿
@@ -47,6 +51,7 @@
   muted: "#7a8868"
 
 - id: trent
+  year: 1997
   name: "Trent"
   anchor: trent
   cn: 天蓝卡车
@@ -59,6 +64,7 @@
   muted: "#7a7654"
 
 - id: samuel
+  year: 1998
   name: "Samuel"
   anchor: samuel
   cn: 舞台背心红
@@ -71,6 +77,7 @@
   muted: "#a08770"
 
 - id: jerry
+  year: 1998
   name: "Jerry"
   anchor: jerry
   cn: 蓬乱金长发
@@ -83,6 +90,7 @@
   muted: "#a07060"
 
 - id: wildbill
+  year: 1999
   name: 'William "Wild Bill" Wharton'
   anchor: wildbill
   cn: 锯末粗木
@@ -95,6 +103,7 @@
   muted: "#93826a"
 
 - id: guy
+  year: 1999
   name: "Guy Fleegman"
   anchor: guy
   cn: 控制台青
@@ -107,6 +116,7 @@
   muted: "#738088"
 
 - id: knox
+  year: 2000
   name: "Eric Knox"
   anchor: eric
   cn: 红镜红
@@ -119,6 +129,7 @@
   muted: "#8d6e62"
 
 - id: pero
+  year: 2002
   name: 'Pero "Pepe" Mahalovic'
   anchor: pero
   cn: 拳击台暖灯橘
@@ -131,6 +142,7 @@
   muted: "#8a7458"
 
 - id: chuck
+  year: 2002
   name: "Chuck Barris"
   anchor: chuck
   cn: 镁光节目粉
@@ -143,6 +155,7 @@
   muted: "#8088a0"
 
 - id: mercer
+  year: 2003
   name: "Frank Mercer"
   anchor: frank
   cn: 猫眼琥珀
@@ -155,6 +168,7 @@
   muted: "#8d7462"
 
 - id: crocker
+  year: 2004
   name: "Jim Crocker"
   anchor: jim
   cn: 夜会香槟金
@@ -167,6 +181,7 @@
   muted: "#8d6278"
 
 - id: zaphod
+  year: 2005
   name: "Zaphod Beeblebrox"
   anchor: zaphod
   cn: 总统鬃金
@@ -179,6 +194,7 @@
   muted: "#8a7a48"
 
 - id: brad
+  year: 2007
   name: "Brad Cairn"
   anchor: brad
   cn: 网球荧光黄
@@ -191,6 +207,7 @@
   muted: "#7a8590"
 
 - id: glenn
+  year: 2007
   name: "Glenn Marchand"
   anchor: glenn
   cn: 初雪微光白
@@ -203,6 +220,7 @@
   muted: "#7a8090"
 
 - id: reston
+  year: 2008
   name: "Jim Reston"
   anchor: reston
   cn: 钨丝暖灯金
@@ -215,6 +233,7 @@
   muted: "#8a7458"
 
 - id: victor
+  year: 2008
   name: "Victor Mancini"
   anchor: victor
   cn: 殖民地铜金
@@ -227,6 +246,7 @@
   muted: "#9a7868"
 
 - id: sambell
+  year: 2009
   name: "Sam Bell"
   anchor: sam
   cn: 基地微光
@@ -239,6 +259,7 @@
   muted: "#6a85a3"
 
 - id: goode
+  year: 2009
   name: "Robert Goode"
   anchor: robert
   cn: 圣诞帽红
@@ -251,6 +272,7 @@
   muted: "#9a7e58"
 
 - id: hammer
+  year: 2010
   name: "Justin Hammer"
   anchor: hammer
   cn: 电光钴蓝
@@ -263,6 +285,7 @@
   muted: "#7c8aa6"
 
 - id: kenny
+  year: 2010
   name: "Kenny Waters"
   anchor: kenny
   cn: 铁窗微光
@@ -275,6 +298,7 @@
   muted: "#627f8d"
 
 - id: billy
+  year: 2012
   name: "Billy Bickle"
   anchor: billy
   cn: 方块J红
@@ -287,6 +311,7 @@
   muted: "#b07840"
 
 - id: owen
+  year: 2013
   name: "Owen"
   anchor: owen
   cn: 滑梯翠蓝
@@ -299,6 +324,7 @@
   muted: "#75899a"
 
 - id: johnmoon
+  year: 2013
   name: "John Moon"
   anchor: john
   cn: 孤枪冷雾蓝
@@ -311,6 +337,7 @@
   muted: "#62728d"
 
 - id: varney
+  year: 2014
   name: "Doug Varney"
   anchor: doug
   cn: 处方白大褂
@@ -323,6 +350,7 @@
   muted: "#8d7a62"
 
 - id: wayne
+  year: 2014
   name: "Wayne"
   anchor: wayne
   cn: 夏末琥珀
@@ -335,6 +363,7 @@
   muted: "#8a7a48"
 
 - id: craig
+  year: 2014
   name: "Craig"
   anchor: craig
   cn: 威士忌金
@@ -347,6 +376,7 @@
   muted: "#a07858"
 
 - id: munch
+  year: 2015
   name: "Francis Munch"
   anchor: francis
   cn: 丑角红鼻头
@@ -359,6 +389,7 @@
   muted: "#628d72"
 
 - id: dixon
+  year: 2017
   name: "Jason Dixon"
   anchor: dixon
   cn: 重生焰橘
@@ -371,6 +402,7 @@
   muted: "#8d626d"
 
 - id: eddie
+  year: 2018
   name: "Eddie"
   anchor: eddie
   cn: 蓝蜥宝石
@@ -383,6 +415,7 @@
   muted: "#7a8088"
 
 - id: bush
+  year: 2018
   name: "George W. Bush"
   anchor: bush
   cn: 德州牛仔金
@@ -395,6 +428,7 @@
   muted: "#626d8d"
 
 - id: klenz
+  year: 2019
   name: "Captain Klenzendorf"
   anchor: hendrix
   cn: 夸张军装红
@@ -407,6 +441,7 @@
   muted: "#8b7d4d"
 
 - id: bryant
+  year: 2019
   name: "Watson Bryant"
   anchor: watson
   cn: 红土暖橘
@@ -418,7 +453,21 @@
   text: "#ede0d0"
   muted: "#8a6848"
 
+- id: clay
+  year: 2019
+  name: 'C.P. "Clay" Ellis'
+  anchor: clay
+  cn: 焦糖小熊棕
+  en: Caramel Bear
+  bg_cn: 蝉鸣仲夏夜
+  bg_en: Cicada Nightfall
+  accent: "#b87a3e"
+  bg: "#161510"
+  text: "#ece2ce"
+  muted: "#847a5c"
+
 - id: mrwolf
+  year: 2022
   name: "Mr. Wolf"
   anchor: wolf
   cn: 磁石黄金
@@ -431,6 +480,7 @@
   muted: "#7a7d8a"
 
 - id: stoppard
+  year: 2022
   name: "Inspector Stoppard"
   anchor: stoppard
   cn: 旧照片暖褐
@@ -443,6 +493,7 @@
   muted: "#7c8090"
 
 - id: wilde
+  year: 2024
   name: "Aidan Wilde"
   anchor: aidan
   cn: 弹壳余温金
@@ -455,6 +506,7 @@
   muted: "#7a7e90"
 
 - id: future
+  year: 2025
   name: "The Man from the Future"
   anchor: manfromfuture
   cn: 故障玫红
@@ -465,15 +517,3 @@
   bg: "#1a0e2a"
   text: "#ede0ec"
   muted: "#8868a0"
-
-- id: clay
-  name: 'C.P. "Clay" Ellis'
-  anchor: clay
-  cn: 焦糖小熊棕
-  en: Caramel Bear
-  bg_cn: 蝉鸣仲夏夜
-  bg_en: Cicada Nightfall
-  accent: "#b87a3e"
-  bg: "#161510"
-  text: "#ece2ce"
-  muted: "#847a5c"
