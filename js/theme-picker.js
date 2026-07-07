@@ -263,8 +263,7 @@
           '<svg class="c-palette-current__heart" id="js-palette-modal-heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">' +
             '<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>' +
           '</svg>' +
-          '<span class="c-palette-current__dot" id="js-palette-current-dot"></span>' +
-          '<span class="c-palette-current__name" id="js-palette-current-name"></span>' +
+          '<span class="c-palette-current__pair" id="js-palette-current-pair"></span>' +
         '</div>' +
         '<div class="c-palette-modal__body">' +
           '<div class="c-palette-cards" id="js-palette-grid">' + cards + '</div>' +
@@ -292,29 +291,36 @@
     el.style.backgroundColor = 'hsl(' + hue + ',' + s + '%,' + l + '%)';
   }
 
-  // Color + label shown in the "当前" indicator — works for every state type,
-  // including custom-hue and AU-direct where no preset card is highlighted.
-  function currentColorAndName() {
+  // Swatches shown in the "当前" indicator. A preset is a PAIR — accent (亮) +
+  // background (暗) — so both are shown, each as dot + name, matching the card.
+  // Custom-hue / AU-direct / default have no named dark half, so show one.
+  function currentSwatches() {
     var s = currentState;
     if (s && s.type === 'preset') {
       var t = THEMES.filter(function (x) { return x.id === s.id; })[0];
-      if (t) return { color: t.accent, name: t.cn + ' · ' + t.en };
+      if (t) return [
+        { color: t.accent, name: t.cn + ' · ' + t.en },
+        { color: t.bg,     name: t.bg_cn + ' · ' + t.bg_en }
+      ];
     } else if (s && s.type === 'custom') {
       var sat = isDark() ? 62 : 58, li = isDark() ? 65 : 47;
-      return { color: hslToHex(s.hue, sat, li), name: '随心染色 · 自定义' };
+      return [{ color: hslToHex(s.hue, sat, li), name: '随心染色 · 自定义' }];
     } else if (s && s.type === 'au-direct') {
-      return { color: s.accent, name: 'AU 专属配色' };
+      return [{ color: s.accent, name: 'AU 专属配色' }];
     }
     var fallback = getComputedStyle(document.documentElement).getPropertyValue('--c-accent').trim();
-    return { color: fallback || '#c0594a', name: '站点默认' };
+    return [{ color: fallback || '#c0594a', name: '站点默认' }];
   }
 
   function updateCurrentIndicator() {
-    var info = currentColorAndName();
-    var dot  = document.getElementById('js-palette-current-dot');
-    var name = document.getElementById('js-palette-current-name');
-    if (dot)  dot.style.backgroundColor = info.color;
-    if (name) name.textContent = info.name;
+    var pair = document.getElementById('js-palette-current-pair');
+    if (!pair) return;
+    pair.innerHTML = currentSwatches().map(function (sw) {
+      return '<span class="c-palette-current__swatch">' +
+               '<span class="c-palette-current__dot" style="background-color:' + sw.color + '"></span>' +
+               '<span class="c-palette-current__name">' + sw.name + '</span>' +
+             '</span>';
+    }).join('');
   }
 
   function updateSwatchStates() {
