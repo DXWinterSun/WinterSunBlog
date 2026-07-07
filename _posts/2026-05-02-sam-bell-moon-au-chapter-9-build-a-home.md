@@ -27,9 +27,12 @@ Sam 10 醒来的第七天的早上，他把一叠 GERTY 替他打印出来的纸
 
 第一页上写着：
 
-> *Sarang 基地物资 / 能源 / 生命支持 / 人力 现状审计*
->
-> *—— Sam Bell, 10. 醒后第七天.*
+<div class="c-decree" role="group" aria-label="现状审计">
+  <div class="c-decree__stamp">Sarang</div>
+  <h3 class="c-decree__title">现状审计</h3>
+  <p class="c-decree__body">Sarang 基地物资 / 能源 / 生命支持 / 人力</p>
+  <div class="c-decree__sign"><span class="c-decree__sign-label">落款</span><span class="c-decree__signature c-decree__signature--cn">—— Sam Bell, 10 · 醒后第七天</span></div>
+</div>
 
 Sam 6 端起咖啡看了一眼："你这一周没干别的吗？"
 
@@ -103,17 +106,16 @@ GERTY 在过道里那只机械臂亮起一颗很小的、新的灯——不是�
 
 Sam 10 翻到最后一页。那一页写着六个项：
 
-> *项一：温室扩建——从 Sam 5 那一片苔藓延伸出整个 B 层东侧。粮食、蔬菜、最终是水果。*
->
-> *项二：水循环——月球极区的冰，公司当年已经勘测过. 我们继续开采就行.*
->
-> *项三：大气和氧气——目前是 GERTY 的闭环系统。需要冗余。需要扩容。*
->
-> *项四：栖息地扩建——更大的居住舱、真正的厨房、一间公共图书馆、给每个 Sam 一间属于他自己的房间。*
->
-> *项五：人力——再唤醒一些我们。慢慢唤醒、慢慢融入。*
->
-> *项六：长期目标——五年到十年，建一片有压气、有人造天空、可以走在里面的、像地球的『公园』。*
+<div class="c-decree" role="group" aria-label="扩建计划">
+  <div class="c-decree__stamp">Sarang</div>
+  <h3 class="c-decree__title">扩建计划</h3>
+  <p class="c-decree__body">项一：温室扩建——从 Sam 5 那一片苔藓延伸出整个 B 层东侧。粮食、蔬菜、最终是水果。</p>
+  <p class="c-decree__body">项二：水循环——月球极区的冰，公司当年已经勘测过. 我们继续开采就行.</p>
+  <p class="c-decree__body">项三：大气和氧气——目前是 GERTY 的闭环系统。需要冗余。需要扩容。</p>
+  <p class="c-decree__body">项四：栖息地扩建——更大的居住舱、真正的厨房、一间公共图书馆、给每个 Sam 一间属于他自己的房间。</p>
+  <p class="c-decree__body">项五：人力——再唤醒一些我们。慢慢唤醒、慢慢融入。</p>
+  <p class="c-decree__body">项六：长期目标——五年到十年，建一片有压气、有人造天空、可以走在里面的、像地球的『公园』。</p>
+</div>
 
 ——
 

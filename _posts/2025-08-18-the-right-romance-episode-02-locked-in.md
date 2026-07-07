@@ -19,7 +19,10 @@ tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 悸动, 缱绻]
 
 市政厅三楼的旧档案区，从来没什么人来。天花板低，灯光昏黄，走廊尽头的门锈迹斑斑，写着：
 
-**Restricted – Authorized Staff Only**
+<div class="c-decree c-decree--flat" role="group" aria-label="门上的告示">
+  <h3 class="c-decree__title">Restricted</h3>
+  <p class="c-decree__body">Authorized Staff Only</p>
+</div>
 
 但今天，你和Sam一起推开了那扇门。
 

@@ -27,7 +27,11 @@ summary: "第一次出舱——头顶没有天花板，只有地球挂着。"
 
 是 Sam 10 提的。
 
-> *项目：月面勘察 + 温室 / 扩建选址。全员出舱，Sam 6、Sam 7 引导。预计时长：3 小时。*
+<div class="c-decree" role="group" aria-label="出舱任务">
+  <div class="c-decree__stamp">Sarang</div>
+  <h3 class="c-decree__title">出舱任务</h3>
+  <p class="c-decree__body">项目：月面勘察 + 温室 / 扩建选址。全员出舱，Sam 6、Sam 7 引导。预计时长：3 小时。</p>
+</div>
 
 GERTY 用了四十分钟做出舱前检查。
 
@@ -247,11 +251,13 @@ Sam 9 用了四十分钟。
 
 Sam 10 在他旁边做记录：
 
-> *位置 A：基地正东 180 米。月壤较厚，利于管道下埋，但地形略不平，需先期夯实。Sam 9 评级：可用，工程量中。*
->
-> *位置 B：基地正北 90 米。岩基层较浅，密封测试建议先做。Sam 9 评级：稳定性最好，首选。*
->
-> *位置 C（Sam 11 提名）：位置 B 旁边约 20 米。无特殊地质优势。备注：有一天种树的地方。*
+<div class="c-decree" role="group" aria-label="选址勘察">
+  <div class="c-decree__stamp">Sarang</div>
+  <h3 class="c-decree__title">选址勘察</h3>
+  <p class="c-decree__body">位置 A：基地正东 180 米。月壤较厚，利于管道下埋，但地形略不平，需先期夯实。Sam 9 评级：可用，工程量中。</p>
+  <p class="c-decree__body">位置 B：基地正北 90 米。岩基层较浅，密封测试建议先做。Sam 9 评级：稳定性最好，首选。</p>
+  <p class="c-decree__body">位置 C（Sam 11 提名）：位置 B 旁边约 20 米。无特殊地质优势。备注：有一天种树的地方。</p>
+</div>
 
 ——
 

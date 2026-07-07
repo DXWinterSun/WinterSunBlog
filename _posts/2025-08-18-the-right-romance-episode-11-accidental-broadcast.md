@@ -33,18 +33,26 @@ tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 悸动, 暗涌]
 我检查五次，确保是她一个人收的。
 然后我就能，安安静静地告诉她——
 
-“Being around you makes me believe in second chances.
-I’d like to take you out properly.
-No filing cabinets. No crash helmets.
-Just you, me, and maybe a quiet tea shop.”
+<div class="c-note" role="group" aria-label="他写的邮件">
+  <span class="c-note__label">Draft · to her</span>
+  <div class="c-note__body">
+    <p>Being around you makes me believe in second chances.</p>
+    <p>I'd like to take you out properly.</p>
+    <p>No filing cabinets. No crash helmets.</p>
+    <p>Just you, me, and maybe a quiet tea shop.</p>
+  </div>
+</div>
 
 他深吸一口气，按下发送键。
 
 然后，他看见了——
 
-**To: All_Staff_City_Council_Group_Mailing_List**
-
-CC: Events_Calendar + HR_Core_Team
+<div class="c-decree c-decree--flat" role="group" aria-label="邮件收件人">
+  <div class="c-decree__stamp">SENT</div>
+  <h3 class="c-decree__title">收件人</h3>
+  <p class="c-decree__body" style="font-family:monospace;letter-spacing:0">To: All_Staff_City_Council_Group_Mailing_List</p>
+  <p class="c-decree__body" style="font-family:monospace;letter-spacing:0">CC: Events_Calendar + HR_Core_Team</p>
+</div>
 
 Sam：“………………”
 

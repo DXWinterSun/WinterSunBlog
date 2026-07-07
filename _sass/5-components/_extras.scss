@@ -770,6 +770,10 @@
   transform: rotate(-0.5deg);
 }
 
+/* flat variant: no tilt — for door signs / placards / email screens */
+.c-decree--flat { transform: none; }
+.c-decree--flat .c-decree__body { text-align: center; }
+
 /* optional subtitle line under the decree title */
 .c-decree__subtitle {
   margin: 2px 0 16px;

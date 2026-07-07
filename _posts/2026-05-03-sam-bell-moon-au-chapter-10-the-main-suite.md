@@ -26,8 +26,12 @@ summary: "主屋落成。Winter 开始画全家福——1 到 5 是远处的星�
 
 Sam 10 把一张草图推到主舱小桌中央。
 
-> *主屋（The Main Suite）：B 层最大的一块。*
-> *—— Sam Bell, 10. 床·扩建审计第三天.*
+<div class="c-decree" role="group" aria-label="主屋 · The Main Suite">
+  <div class="c-decree__stamp">Sarang</div>
+  <h3 class="c-decree__title">主屋 · The Main Suite</h3>
+  <p class="c-decree__body">B 层最大的一块。</p>
+  <div class="c-decree__sign"><span class="c-decree__sign-label">落款</span><span class="c-decree__signature c-decree__signature--cn">—— Sam Bell, 10 · 床·扩建审计第三天</span></div>
+</div>
 
 "我把 Sam 5 那间宿舍 + 旁边那间空仓库 + 中间那段过道——三块连起来。"他说。"按八个人住、十六个人来玩、一个 Winter 主居的尺寸算。"
 
@@ -85,11 +89,13 @@ Sam 6 在桌的另一边小声笑出声——是他典型的、低音的、被�
 
 Sam 10 在他的清单上加了三条：
 
-> *项一·a：主屋舷窗（朝月夜，弧形落地）。Sam 9 选位，Sam 12 真空密封测试。*
->
-> *项一·b：主屋朝 Winter 角落那一面白墙。Sam 7 打磨，Sam 11 备颜料，Sam 12 做小梯子。*
->
-> *项一·c：主屋协议 v1（草拟）。*
+<div class="c-decree" role="group" aria-label="主屋清单 · 增补">
+  <div class="c-decree__stamp">Sarang</div>
+  <h3 class="c-decree__title">主屋清单 · 增补</h3>
+  <p class="c-decree__body">项一·a：主屋舷窗（朝月夜，弧形落地）。Sam 9 选位，Sam 12 真空密封测试。</p>
+  <p class="c-decree__body">项一·b：主屋朝 Winter 角落那一面白墙。Sam 7 打磨，Sam 11 备颜料，Sam 12 做小梯子。</p>
+  <p class="c-decree__body">项一·c：主屋协议 v1（草拟）。</p>
+</div>
 
 "……协议？"Sam 8 凑过去看。
 
@@ -195,8 +201,9 @@ Sam 6 也不躲："看见就看见。Sam 8 你下次想要可以来排队。"
 
 是 Sam 7 的字。
 
-> *主屋以后是你的家了。*
-> *我也是。*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body"><p>主屋以后是你的家了。</p><p>我也是。</p></div>
+</div>
 
 他没在你面前提过。
 
