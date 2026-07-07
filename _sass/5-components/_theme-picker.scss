@@ -189,16 +189,29 @@
 }
 
 .c-palette-current__heart {
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
   fill: var(--c-accent);
   flex-shrink: 0;
   transition: fill 0.3s ease;
   transform-origin: center;
+  // subtle glow so the beating heart reads as the "current theme" mark,
+  // not just another color dot sitting next to the swatches
+  filter: drop-shadow(0 0 3px rgba(var(--rgb-accent), 0.55));
 }
 
 .c-palette-current__heart.is-beating {
   animation: c-heartbeat 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+}
+
+// Vertical rule separating the "当前 ♥" mark from the color swatches, so the
+// heart isn't mistaken for the (same-coloured) accent dot right beside it.
+.c-palette-current__divider {
+  width: 1px;
+  height: 16px;
+  flex-shrink: 0;
+  background: var(--c-line-strong);
+  margin: 0 0.2rem;
 }
 
 // A preset shows two swatches (accent 亮 + background 暗); the row wraps to a
@@ -256,7 +269,7 @@
 
   @media (max-width: 900px) { grid-template-columns: repeat(4, 1fr); }
   @media (max-width: 640px) { grid-template-columns: repeat(3, 1fr); gap: 0.625rem; }
-  @media (max-width: 380px) { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  @media (max-width: 480px) { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
 }
 
 // ── Individual film strip card ─────────────────────────────────────────────────
