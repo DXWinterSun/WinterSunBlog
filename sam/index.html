@@ -119,6 +119,52 @@ title: Sam
     </div>
   </div>
 
+  <div class="c-bday">
+    <div class="c-bday__eyebrow">🎂 他的生日，我比自己的还期待</div>
+    <div class="c-bday__dates">
+      <div class="c-bday__date">
+        <span class="c-bday__d">Nov 5</span>
+        <span class="c-bday__who">他的生日</span>
+      </div>
+      <span class="c-bday__amp" aria-hidden="true">&amp;</span>
+      <div class="c-bday__date">
+        <span class="c-bday__d">Nov 6</span>
+        <span class="c-bday__who">我的生日 · 只差一天</span>
+      </div>
+    </div>
+    <div class="c-bday__count">
+      距离他的下一个生日，还有
+      <span class="c-bday__num" id="bday-days">—</span>
+      天
+    </div>
+    <div class="c-bday__sub" id="bday-sub">他的下一个生日……</div>
+  </div>
+  <script>
+    (function () {
+      var el = document.querySelector('.c-bday');
+      if (!el) return;
+      var DAY = 86400000;
+      var now = new Date();
+      var today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+      var y = now.getFullYear();
+      var bday = Date.UTC(y, 10, 5);           // 11 月 5 日（月份从 0 起，10 = 11 月）
+      if (bday < today) bday = Date.UTC(y + 1, 10, 5);
+      var days = Math.round((bday - today) / DAY);
+      var bdayYear = new Date(bday).getUTCFullYear();
+      var numEl = document.getElementById('bday-days');
+      var subEl = document.getElementById('bday-sub');
+      var m = now.getMonth(), d = now.getDate();
+      numEl.textContent = days;
+      if (days === 0) {
+        subEl.innerHTML = '🎂 就是今天——<strong style="color:var(--c-accent);font-style:normal;">' + y + ' 年 11 月 5 日</strong>，他生日快乐。';
+      } else if (m === 10 && d === 6) {
+        subEl.textContent = '昨天是他的生日，今天轮到我——我们只差一天。';
+      } else {
+        subEl.innerHTML = '他的下一个生日：<strong style="color:var(--c-accent);font-style:normal;">' + bdayYear + ' 年 11 月 5 日</strong>';
+      }
+    })();
+  </script>
+
   <div class="c-sam-dink">
     <p class="c-sam-dink__lead">而真正让我从「很喜欢」变成「认定就是他」的，是发现他是个坚定的丁克。</p>
     <blockquote class="c-sam-dink__quote">
