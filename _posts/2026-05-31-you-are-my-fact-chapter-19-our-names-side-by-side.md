@@ -26,7 +26,9 @@ summary: "你们合译的书出版了，封面并排印着两个名字：你的�
 
 你把样书递到他手里。他低头去看封面，看见书名，又往下，看见译者署名那一行——
 
-**Translated by Winter Shelby & Leonard Shelby**
+<div class="c-decree c-decree--flat" role="group" aria-label="书封">
+  <p class="c-decree__body" style="font-family:'Volkhov',serif;letter-spacing:.04em">Translated by Winter Shelby &amp; Leonard Shelby</p>
+</div>
 
 他怔住了。
 
@@ -70,7 +72,12 @@ summary: "你们合译的书出版了，封面并排印着两个名字：你的�
 
 你提前到场，跟书店和出版社的人低声交代好了 Leo 的情况——大家都很善意，承诺会照顾。你把你们俩的椅子并排摆好，紧紧挨着，中间不留缝。你在他面前的桌上，摆好了那本书、那支笔，还压了一张只有你们看得见的小卡片:
 
-> *你是这本书的译者。今天是你的签售会。你做到了。她就在你身边。—— W*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>你是这本书的译者。今天是你的签售会。你做到了。她就在你身边。</p>
+  </div>
+  <span class="c-note__sign c-note__sign--cn">—— W</span>
+</div>
 
 你甚至和他约好了一个暗号:只要他感到慌，就在桌子底下，用手指碰一碰你的手。你就会立刻、不动声色地，把这个世界重新翻译给他听。
 
@@ -140,7 +147,9 @@ Leo 听见了，耳根一红，却很认真地、骄傲地点头:"是的，"他�
 
 是的。无论他往后清零多少次，无论那扇遗忘的门把他带回多少次空白——这个世界上，永远会有一本书，静静地立在书架上，封面上印着两个并排的名字:
 
-**Winter Shelby & Leonard Shelby**
+<div class="c-decree c-decree--flat" role="group" aria-label="书封">
+  <p class="c-decree__body" style="font-family:'Volkhov',serif;letter-spacing:.04em">Winter Shelby &amp; Leonard Shelby</p>
+</div>
 
 一个替他记得的人，和一个被她爱着、也终于找回了自己价值的人。
 

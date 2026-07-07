@@ -173,7 +173,11 @@ Leo 沉默了一会儿，忽然轻声对你说:"……今天不查了。我有�
 
 不是新的爱。是终点。
 
-> *YOU OWE HER TOO MUCH. THIS IS THE LAST FACT ABOUT HER. DON'T LOOK FOR MORE. WAIT TILL SHE SLEEPS — TAKE THE CASE FILES, LEAVE THE REST. SET HER FREE.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">YOU OWE HER TOO MUCH. THIS IS THE LAST FACT ABOUT HER. DON'T LOOK FOR MORE. WAIT TILL SHE SLEEPS — TAKE THE CASE FILES, LEAVE THE REST. SET HER FREE.</p>
+  </div>
+</div>
 
 他写完，极轻地，把照片塞回了贴身的口袋。
 

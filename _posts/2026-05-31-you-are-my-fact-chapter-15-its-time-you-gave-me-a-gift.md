@@ -66,7 +66,11 @@ summary: "你生日那天他忘了，可他早趁记得时，替你藏好了礼�
 
 上面贴着一张便条，是他的笔迹，写得又急又用力，像怕自己下一秒就忘:
 
-> *FOR WINTER. HER BIRTHDAY IS NOV 6. GIVE IT TO HER. DON'T MISS IT. YOU PROMISED.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">FOR WINTER. HER BIRTHDAY IS NOV 6. GIVE IT TO HER. DON'T MISS IT. YOU PROMISED.</p>
+  </div>
+</div>
 
 你的眼泪一下子就涌上来了。
 
@@ -114,7 +118,11 @@ summary: "你生日那天他忘了，可他早趁记得时，替你藏好了礼�
 
 里面是一条很素净的项链，坠子是一枚小小的、椭圆形的银片——像一张缩小了的拍立得相纸。银片背面，刻着一行很小的字。是他亲手让人刻的，是他写过千百遍、刻进他自己胸口、也刻进你们整个故事的那句话:
 
-> *ALWAYS TRUST HER.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">ALWAYS TRUST HER.</p>
+  </div>
+</div>
 
 你的手抖了。
 
