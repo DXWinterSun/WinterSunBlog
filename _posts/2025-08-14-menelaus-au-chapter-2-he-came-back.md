@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Chapter 2 · He Came Back — Menelaus AU"
+title: "Chapter 2 · He Came Back — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg
 series: "Menelaus AU"
-series_title: "Menelaus AU · Greek Mythology"
+series_title: "If You'll Have Me · Menelaus AU"
 series_order: 2
 series_type: "Series"
 chapter_type: "Chapter 2"

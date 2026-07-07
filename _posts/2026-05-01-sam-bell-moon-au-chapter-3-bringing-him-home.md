@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chapter 3 · Bringing Him Home — Sam Bell · Moon AU"
+title: "Chapter 3 · Bringing Him Home — The Far Side"
 date: 2026-05-01 14:00:00
 image: sam-bell-au.jpg
 tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_title: "Far Side · Sam Bell AU"
+series_title: "The Far Side · Sam Bell AU"
 series_order: 3
 summary: "月球尘里跪下来送 Sam 5 回家。葬礼之后他说——叫醒 Sam 8。"
 ---

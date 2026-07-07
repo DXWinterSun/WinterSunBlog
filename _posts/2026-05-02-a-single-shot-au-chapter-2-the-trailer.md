@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 2 · The Trailer — A Single Shot AU"
+title: "Chapter 2 · The Trailer — Into the Mountain"
 date: 2026-05-02 12:00:00
 image: a-single-shot-au.jpg
 tags: [暗涌, 缱绻]

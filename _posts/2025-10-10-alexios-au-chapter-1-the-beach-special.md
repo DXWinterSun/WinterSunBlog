@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Chapter 1 · The Beach Special — Alexios AU"
+title: "Chapter 1 · The Beach Special — The Only War"
 categories: ["AU Story"]
 date: 2025-10-10
 image: alexios-au.svg
 series: "Alexios AU"
-series_title: "Alexios AU · Mediterranean"
+series_title: "The Only War · Alexios AU"
 series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"

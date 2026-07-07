@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chapter 7 · Going Dark — Sam Bell · Moon AU"
+title: "Chapter 7 · Going Dark — The Far Side"
 date: 2026-05-01 21:00:00
 image: sam-bell-au.jpg
 tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_title: "Far Side · Sam Bell AU"
+series_title: "The Far Side · Sam Bell AU"
 series_order: 7
 summary: "第五十一天，地球最后一次对外广播。八小时之后，静默。"
 ---

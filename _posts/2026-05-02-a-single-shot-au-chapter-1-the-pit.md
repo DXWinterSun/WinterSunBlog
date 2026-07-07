@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 1 · The Pit — A Single Shot AU"
+title: "Chapter 1 · The Pit — Into the Mountain"
 date: 2026-05-02
 image: a-single-shot-au.jpg
 tags: [暗涌, 缱绻]

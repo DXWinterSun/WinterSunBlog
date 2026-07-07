@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Chapter 6 · The Night of the Vow — Menelaus AU"
+title: "Chapter 6 · The Night of the Vow — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg
 series: "Menelaus AU"
-series_title: "Menelaus AU · Greek Mythology"
+series_title: "If You'll Have Me · Menelaus AU"
 series_order: 6
 series_type: "Series"
 chapter_type: "Chapter 6"

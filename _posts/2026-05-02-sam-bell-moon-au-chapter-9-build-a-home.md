@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chapter 9 · Build a Home — Sam Bell · Moon AU"
+title: "Chapter 9 · Build a Home — The Far Side"
 date: 2026-05-02 00:00:00
 image: sam-bell-au.jpg
 tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_title: "Far Side · Sam Bell AU"
+series_title: "The Far Side · Sam Bell AU"
 series_order: 9
 summary: "Sam 10 的审计：二十六年够活，不够家。再唤醒两个，开始建。"
 ---

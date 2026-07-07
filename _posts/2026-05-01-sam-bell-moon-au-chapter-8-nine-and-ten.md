@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chapter 8 · Nine and Ten — Sam Bell · Moon AU"
+title: "Chapter 8 · Nine and Ten — The Far Side"
 date: 2026-05-01 23:00:00
 image: sam-bell-au.jpg
 tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_title: "Far Side · Sam Bell AU"
+series_title: "The Far Side · Sam Bell AU"
 series_order: 8
 summary: "地球静默之后，一次唤醒两个 Sam。这家从此六个人。"
 ---

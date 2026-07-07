@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · Allowed — A Single Shot AU"
+title: "Chapter 6 · Allowed — Into the Mountain"
 date: 2026-05-02 16:00:00
 image: a-single-shot-au.jpg
 tags: [暗涌, 缱绻]

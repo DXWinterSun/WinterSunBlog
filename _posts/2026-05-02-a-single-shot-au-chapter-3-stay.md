@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · Stay — A Single Shot AU"
+title: "Chapter 3 · Stay — Into the Mountain"
 date: 2026-05-02 13:00:00
 image: a-single-shot-au.jpg
 tags: [暗涌, 缱绻]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · The Boots — A Single Shot AU"
+title: "Chapter 8 · The Boots — Into the Mountain"
 date: 2026-06-19
 image: a-single-shot-au.jpg
 tags: [安放, 暗涌]

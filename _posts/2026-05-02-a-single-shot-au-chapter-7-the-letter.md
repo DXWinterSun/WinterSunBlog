@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · The Letter — A Single Shot AU"
+title: "Chapter 7 · The Letter — Into the Mountain"
 date: 2026-05-02 17:00:00
 image: a-single-shot-au.jpg
 tags: [暗涌, 缱绻]

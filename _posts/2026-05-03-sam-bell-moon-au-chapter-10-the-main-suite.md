@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chapter 10 · The Main Suite — Sam Bell · Moon AU"
+title: "Chapter 10 · The Main Suite — The Far Side"
 date: 2026-05-03 02:00:00
 image: sam-bell-au.jpg
 tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_title: "Far Side · Sam Bell AU"
+series_title: "The Far Side · Sam Bell AU"
 series_order: 10
 summary: "主屋落成。Winter 开始画全家福——1 到 5 是远处的星。"
 ---

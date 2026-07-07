@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 5 · Closer — A Single Shot AU"
+title: "Chapter 5 · Closer — Into the Mountain"
 date: 2026-05-02 15:00:00
 image: a-single-shot-au.jpg
 tags: [暗涌, 缱绻]

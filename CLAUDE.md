@@ -149,6 +149,36 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
 `series_title` 只用于前端展示（章节顶部返回链接），不参与路径生成，
 但保持格式统一可以避免出现「系列说明里找不到角色名」的情况。
 
+### 所有「展示」字段都要用「故事名 · 角色名 AU」，永远用角色名不用剧名
+
+这条不只管 `series_title`。**凡是读者能看到的 AU 标识，一律统一成
+`Story English Name · Character Name AU` 这一个格式，用角色名，绝不用剧名。**
+剧名 / 背景设定只能出现在 byline 和「设定档案」里，不能当标题。
+
+为什么用角色名：一部电影可能开好几个 AU（例如《Moon》下就有
+**The Far Side** 和 **The Near Side** 两个 Sam Bell AU），用剧名会直接撞车；
+全站的组织轴心（尤其 `sam_collection`）本来就是角色，不是电影。
+
+需要同步统一的展示字段，以及各自的取值：
+
+| 位置 | 字段 | 取值格式 | 例 |
+|---|---|---|---|
+| 系列首页 front matter | `title:` | `Story · Character AU` | `The Far Side · Sam Bell AU` |
+| 系列首页 hero | `<h1 class="c-hero__title">` | **只写 Story**（不带 `· 角色 AU`） | `The Far Side` |
+| Sam tab 卡片 | `collection_title:` | `Story · Character AU` | `The Far Side · Sam Bell AU` |
+| 章节 front matter | `series_title:` | `Story · Character AU` | `The Far Side · Sam Bell AU` |
+| 章节 front matter | `title:` 后缀 | `Chapter N · 中文名 — Story` | `Chapter 1 · Departure — The Far Side` |
+
+⚠️ **内部管线字段不要动**：`series:`（章节）/ `series_name:`（系列首页）/
+目录 slug 三者必须完全一致，且 `_data/au_palettes.yml` 的配色 key 就是
+`series_name`。这些是不可见的内部键，哪怕值还是旧的（如 `"Sam Bell · Moon AU"`）
+也**保持原样**——改它们会动到 URL、章节分组和配色，得不偿失。统一标题只改
+上表那些展示字段即可。
+
+❌ 反例（同一部电影用剧名，或光秃秃只有角色名 / 剧名）：
+`Sam Bell · Moon AU`（用了剧名 Moon）、`A Single Shot AU`（纯剧名）、
+`Alexios AU`（缺 Story 名）。都应改成 `Story · Character AU`。
+
 ## ⚠️ 系列首页 byline 和设定档案里必须注明扮演者
 
 `c-hero__byline-text` 里要有演员名，格式参考：

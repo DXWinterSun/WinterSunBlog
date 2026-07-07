@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 4 · The Birches — A Single Shot AU"
+title: "Chapter 4 · The Birches — Into the Mountain"
 date: 2026-05-02 14:00:00
 image: a-single-shot-au.jpg
 tags: [暗涌, 缱绻]

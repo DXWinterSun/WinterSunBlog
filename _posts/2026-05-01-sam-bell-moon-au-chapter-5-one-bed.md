@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chapter 5 · One Bed — Sam Bell · Moon AU"
+title: "Chapter 5 · One Bed — The Far Side"
 date: 2026-05-01 18:00:00
 image: sam-bell-au.jpg
 tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_title: "Far Side · Sam Bell AU"
+series_title: "The Far Side · Sam Bell AU"
 series_order: 5
 summary: "Sam 8 提议——一张大床。十天后他们看了《七个神经病》。"
 ---

@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chapter 4 · Eight is awake — Sam Bell · Moon AU"
+title: "Chapter 4 · Eight is awake — The Far Side"
 date: 2026-05-01 16:00:00
 image: sam-bell-au.jpg
 tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_title: "Far Side · Sam Bell AU"
+series_title: "The Far Side · Sam Bell AU"
 series_order: 4
 summary: "Sam 8 是第一个一醒就被允许活的 Sam。十一夜后，第一桌扑克。"
 ---

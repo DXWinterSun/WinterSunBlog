@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chapter 6 · Want — Sam Bell · Moon AU"
+title: "Chapter 6 · Want — The Far Side"
 date: 2026-05-01 20:00:00
 image: sam-bell-au.jpg
 tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_title: "Far Side · Sam Bell AU"
+series_title: "The Far Side · Sam Bell AU"
 series_order: 6
 summary: "Sam 6 把你按在墙上吻你——然后叫 Sam 7 过来。三种渴望。"
 ---

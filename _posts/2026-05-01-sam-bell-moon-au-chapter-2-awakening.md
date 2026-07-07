@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chapter 2 · Awakening — Sam Bell · Moon AU"
+title: "Chapter 2 · Awakening — The Far Side"
 date: 2026-05-01 12:00:00
 image: sam-bell-au.jpg
 tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_title: "Far Side · Sam Bell AU"
+series_title: "The Far Side · Sam Bell AU"
 series_order: 2
 summary: "Sarang 着陆。Sam 7 独自待了五个月，第一句不是「你是谁」。"
 ---

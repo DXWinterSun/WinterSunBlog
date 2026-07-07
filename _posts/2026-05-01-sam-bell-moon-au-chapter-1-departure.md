@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chapter 1 · Departure — Sam Bell · Moon AU"
+title: "Chapter 1 · Departure — The Far Side"
 date: 2026-05-01
 image: sam-bell-au.jpg
 tags: [安放, 缱绻]
 categories: ["AU Story"]
 series: "Sam Bell · Moon AU"
-series_title: "Far Side · Sam Bell AU"
+series_title: "The Far Side · Sam Bell AU"
 series_order: 1
 summary: "和他一起，回他曾被囚禁过的月球。Sarang，韩语里是「爱」。"
 ---

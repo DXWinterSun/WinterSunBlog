@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Chapter 2 · The Mercenary and the Spirit Girl — Alexios AU"
+title: "Chapter 2 · The Mercenary and the Spirit Girl — The Only War"
 categories: ["AU Story"]
 date: 2025-10-10
 image: alexios-au.svg
 series: "Alexios AU"
-series_title: "Alexios AU · Mediterranean"
+series_title: "The Only War · Alexios AU"
 series_order: 2
 series_type: "Series"
 chapter_type: "Chapter 2"

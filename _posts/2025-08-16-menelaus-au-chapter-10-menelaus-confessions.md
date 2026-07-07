@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Chapter 10 · Menelaus Confessions — Menelaus AU"
+title: "Chapter 10 · Menelaus Confessions — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-16
 image: menelaus-au.svg
 series: "Menelaus AU"
-series_title: "Menelaus AU · Greek Mythology"
+series_title: "If You'll Have Me · Menelaus AU"
 series_order: 10
 series_type: "Series"
 chapter_type: "Chapter 10"
