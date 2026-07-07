@@ -147,6 +147,7 @@
   function onModeChange() {
     applyState(currentState);
     if (hueSliderEl) updateHuePreview(parseInt(hueSliderEl.value, 10));
+    updateCurrentIndicator();
   }
 
   new MutationObserver(function (ms) {
@@ -197,18 +198,21 @@
     });
   }
 
-  // ── Heartbeat animation on the trigger button ────────────────────────────
+  // ── Heartbeat animation ───────────────────────────────────────────────────
+  // Pulses BOTH the nav-bar trigger (visible when picker is closed, e.g. an AU
+  // strip switch) and the in-modal heart (visible when the picker is open —
+  // the overlay blurs the trigger, so the modal heart is what the user sees).
+
+  function pulse(el) {
+    if (!el) return;
+    el.classList.remove('is-beating');
+    void el.offsetWidth; // force reflow so animation restarts
+    el.classList.add('is-beating');
+  }
 
   function heartbeat() {
-    var trigger = document.getElementById('js-palette-trigger');
-    if (!trigger) return;
-    trigger.classList.remove('is-beating');
-    void trigger.offsetWidth; // force reflow so animation restarts
-    trigger.classList.add('is-beating');
-    trigger.addEventListener('animationend', function onEnd() {
-      trigger.classList.remove('is-beating');
-      trigger.removeEventListener('animationend', onEnd);
-    });
+    pulse(document.getElementById('js-palette-trigger'));
+    pulse(document.getElementById('js-palette-modal-heart'));
   }
 
   // ── UI ────────────────────────────────────────────────────────────────────
@@ -254,6 +258,14 @@
           '</span>' +
           '<button class="c-palette-modal__close" id="js-palette-close" aria-label="关闭">✕</button>' +
         '</div>' +
+        '<div class="c-palette-current" id="js-palette-current">' +
+          '<span class="c-palette-current__label">当前</span>' +
+          '<svg class="c-palette-current__heart" id="js-palette-modal-heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">' +
+            '<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>' +
+          '</svg>' +
+          '<span class="c-palette-current__divider" aria-hidden="true"></span>' +
+          '<span class="c-palette-current__pair" id="js-palette-current-pair"></span>' +
+        '</div>' +
         '<div class="c-palette-modal__body">' +
           '<div class="c-palette-cards" id="js-palette-grid">' + cards + '</div>' +
         '</div>' +
@@ -280,11 +292,44 @@
     el.style.backgroundColor = 'hsl(' + hue + ',' + s + '%,' + l + '%)';
   }
 
+  // Swatches shown in the "当前" indicator. A preset is a PAIR — accent (亮) +
+  // background (暗) — so both are shown, each as dot + name, matching the card.
+  // Custom-hue / AU-direct / default have no named dark half, so show one.
+  function currentSwatches() {
+    var s = currentState;
+    if (s && s.type === 'preset') {
+      var t = THEMES.filter(function (x) { return x.id === s.id; })[0];
+      if (t) return [
+        { color: t.accent, name: t.cn + ' · ' + t.en },
+        { color: t.bg,     name: t.bg_cn + ' · ' + t.bg_en }
+      ];
+    } else if (s && s.type === 'custom') {
+      var sat = isDark() ? 62 : 58, li = isDark() ? 65 : 47;
+      return [{ color: hslToHex(s.hue, sat, li), name: '随心染色 · 自定义' }];
+    } else if (s && s.type === 'au-direct') {
+      return [{ color: s.accent, name: 'AU 专属配色' }];
+    }
+    var fallback = getComputedStyle(document.documentElement).getPropertyValue('--c-accent').trim();
+    return [{ color: fallback || '#c0594a', name: '站点默认' }];
+  }
+
+  function updateCurrentIndicator() {
+    var pair = document.getElementById('js-palette-current-pair');
+    if (!pair) return;
+    pair.innerHTML = currentSwatches().map(function (sw) {
+      return '<span class="c-palette-current__swatch">' +
+               '<span class="c-palette-current__dot" style="background-color:' + sw.color + '"></span>' +
+               '<span class="c-palette-current__name">' + sw.name + '</span>' +
+             '</span>';
+    }).join('');
+  }
+
   function updateSwatchStates() {
     document.querySelectorAll('[data-theme-id]').forEach(function (sw) {
       var active = !!(currentState && currentState.type === 'preset' && currentState.id === sw.getAttribute('data-theme-id'));
       sw.classList.toggle('is-active', active);
     });
+    updateCurrentIndicator();
   }
 
   function initEvents(trigger, overlay) {
@@ -298,6 +343,12 @@
       document.body.style.overflow = 'hidden';
       updateSwatchStates();
       renderFavs();
+      // Patch ②: bring the currently-active preset card into view so the user
+      // can see at a glance which palette they're on (no-op for custom/AU/default).
+      var activeCard = overlay.querySelector('.c-palette-card.is-active');
+      if (activeCard && activeCard.scrollIntoView) {
+        activeCard.scrollIntoView({ block: 'center' });
+      }
     }
     function closeOverlay() {
       open = false;
