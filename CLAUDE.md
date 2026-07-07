@@ -179,26 +179,41 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
 `Sam Bell · Moon AU`（用了剧名 Moon）、`A Single Shot AU`（纯剧名）、
 `Alexios AU`（缺 Story 名）。都应改成 `Story · Character AU`。
 
-## ⚠️ 系列首页 byline 和设定档案里必须注明扮演者
+## ⚠️ 系列首页 byline 格式统一为「角色 · 作品出处 · 演员 · 状态」
 
-`c-hero__byline-text` 里要有演员名，格式参考：
+`c-hero__byline-text` 的固定格式是四段：
+
+```
+角色名 · 作品出处 · 演员 · 状态
+```
 
 ```html
-<!-- BayBay 的角色 -->
-<span class="c-hero__byline-text">Charles II · 1660 Restoration · BayBay · ongoing</span>
+<!-- Sam Rockwell 的角色 -->
+<span class="c-hero__byline-text">Justin Hammer · Iron Man 2 · Sam Rockwell · ongoing</span>
+
+<!-- BayBay（Mathew Baynton）的角色 -->
+<span class="c-hero__byline-text">Charles II · Horrible Histories · BayBay · ongoing</span>
 
 <!-- 其他演员的角色 -->
 <span class="c-hero__byline-text">Hector Escaton · Westworld · Rodrigo Santoro · ongoing</span>
 ```
 
-`设定档案` 里角色名后面也加演员名：`<strong>Hector Escaton（Rodrigo Santoro）</strong>`
+四段规则：
+- **作品出处**：角色真正的出处作品（电影 / 剧集 / 游戏），**不是**这个 AU 的
+  时代设定。时代 / 世界观（如「1660 复辟」「古希腊」「Rome 219 AD」）交给
+  `logline` 卡片和「设定档案」承载，**不写进 byline**。历史向的 BayBay 角色，
+  出处一律是他演的那部作品（多为 `Horrible Histories`）。
+- **演员**：真人演员名，每个系列都要有。已知的：`Sam Rockwell`、`Guy Pearce`
+  （Leonard Shelby / Memento，不是 Sam）、`Rodrigo Santoro`（Hector）、
+  `BayBay`（即 Mathew Baynton，站内用昵称）。游戏角色（如 Alexios / Assassin's
+  Creed Odyssey）没有真人演员，可省略演员段。不确定演员是谁 → 先问用户再写。
+- **状态**：`ongoing` / `complete` / `oneshot`。
+- `设定档案` 里角色名后面也加演员名：`<strong>Hector Escaton（Rodrigo Santoro）</strong>`。
 
-新建系列时，如果不确定演员是谁，先问用户再写。
+## ⚠️ byline 里的「作品出处」必须是完整、准确的官方全名
 
-## ⚠️ byline 里的片名必须是「完整、准确」的官方全名
-
-`c-hero__byline-text` 里引用的电影 / 剧集名，**必须核对成完整官方全名**，
-不能想当然地用通称或简称。写新系列、或顺手经过旧系列时都核一遍。
+出处作品名**必须核对成完整官方全名**，不能想当然用通称或简称。写新系列、
+或顺手经过旧系列时都核一遍。
 
 常见坑（都是被截短的）：
 
@@ -208,11 +223,11 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
 | Hitchhiker's Guide | The Hitchhiker's Guide to the Galaxy |
 
 规则：
-- 片名拿不准时**先查证再写**，别凭印象填一个短的。
-- 只有当这个 AU 是**原创设定 / 历史 / 神话**（没有具体出处影视作品）时，
-  byline 才用「设定 / 时代」代替片名（如 `Alexios · Mediterranean`、
-  `Menelaus · Greek Mythology`、`Charles II · 1660 Restoration`）——这类不需要核片名。
-- 片名只出现在 byline / 设定档案，**不进标题**（标题用角色名，见上文）。
+- 出处拿不准时**先查证再写**，别凭印象填一个短的，也别用这个 AU 的时代设定顶替。
+- 极少数**纯原创、无任何出处作品**的 AU 才可以在 byline 用「设定 / 时代」占位；
+  但只要角色有出处（哪怕只是客串一两分钟、如 Kris / Somebody to Love (1994)），
+  就写那部作品。
+- 出处只出现在 byline / 设定档案，**不进标题**（标题用角色名，见上文）。
 
 ## 系列「基调」卡片（`logline` 字段）
 

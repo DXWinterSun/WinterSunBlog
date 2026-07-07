@@ -134,7 +134,11 @@
   font-size: 15px;
   color: $ink-soft;
   letter-spacing: 0.04em;
-  white-space: nowrap;
+  /* Allow long bylines (完整片名 + 演员) to wrap on narrow screens instead of
+     overflowing. min-width:0 lets this flex item shrink below its content width;
+     short bylines still sit on one line because they fit. */
+  min-width: 0;
+  text-align: center;
 }
 
 /* ----- Lede (the tagline / quote) ----- */
