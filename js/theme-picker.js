@@ -206,7 +206,11 @@
   function pulse(el) {
     if (!el) return;
     el.classList.remove('is-beating');
-    void el.offsetWidth; // force reflow so animation restarts
+    // Force a reflow to commit the class removal so the animation restarts on
+    // every selection. Read offsetWidth on a guaranteed HTMLElement (<html>):
+    // el itself may be an <svg> (the modal heart), whose offsetWidth is
+    // undefined and would NOT flush layout — that made the heart beat only once.
+    void document.documentElement.offsetWidth;
     el.classList.add('is-beating');
   }
 
