@@ -3,17 +3,32 @@ layout: home
 ---
 {%- assign pal = site.data.au_palettes[page.series_name] -%}
 {%- if pal %}{% include au-palette-style.html pal=pal %}{% endif -%}
+<div class="c-series-page">
 {{ content }}
 
 {% comment %}
-  系列章节区块（目录 + 配图卡片）由本 layout 自动渲染，不要在各 series
-  的 index.html 里手写。新系列只要在 front matter 写 `layout: series` 和
-  `series_name: "<与各章 front matter 里的 series 字段完全一致>"` 即可，
-  目录和卡片会自动出现、自动排序，将来加章节也无需再改这里。
+  系列章节区块（封面 + 目录 + 配图卡片）由本 layout 自动渲染，不要在各
+  series 的 index.html 里手写。新系列只要在 front matter 写 `layout: series`
+  和 `series_name:`（与各章 front matter 里的 series 字段完全一致）即可，
+  封面、目录和卡片会自动出现、自动排序，将来加章节也无需再改这里。
+
+  版式说明：`.c-series-page` 用 flex `order` 把「封面 + 章节」提到长篇系列
+  介绍（`.c-sam-intro`）之前，这样点进系列先看到配图和目录、能马上找到
+  内容，介绍照常呈现、只是挪到下方。DOM 顺序不变（hero → 介绍 → 章节），
+  仅视觉重排，不影响 SEO / 无障碍朗读顺序。
 {% endcomment %}
 {% if page.series_name %}
 {% assign all_series_posts = site.posts | where: "series", page.series_name | sort: "series_order" %}
 {% assign chapters = all_series_posts | where_exp: "item", "item.is_overview != true" %}
+{% assign first_ch = chapters | first %}
+{% assign cover_img = page.cover | default: first_ch.image %}
+
+{% if cover_img %}
+<a class="c-series-cover" href="#chapters" aria-label="跳到章节列表">
+  <div class="c-series-cover__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: cover_img }}')" aria-hidden="true"></div>
+</a>
+{% endif %}
+
 <section class="c-sam-collection" id="chapters">
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">Chapters</h3>
@@ -62,3 +77,4 @@ layout: home
   </div>
 </section>
 {% endif %}
+</div>

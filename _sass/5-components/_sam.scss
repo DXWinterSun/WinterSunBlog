@@ -99,6 +99,57 @@
   padding: 0 8px;
 }
 
+/* ----- Series landing: content-first ordering -----
+   Visually lift the cover image + chapters above the long prose intro so
+   readers land on the images/contents immediately. DOM order is unchanged
+   (hero → intro → chapters); only the paint order is reshuffled via flex. */
+.c-series-page {
+  display: flex;
+  flex-direction: column;
+}
+/* .c-hero (and any unclassed nodes) keep the default order 0 and stay on top. */
+.c-series-page > .c-series-cover  { order: 1; }
+.c-series-page > .c-sam-collection { order: 2; }
+.c-series-page > .c-sam-intro      { order: 3; }
+
+/* A hairline divider before the intro so the demoted prose reads as a
+   deliberate "deep dive" section rather than orphaned tail content. */
+.c-series-page > .c-sam-intro:nth-of-type(1) {
+  border-top: 1px solid $line;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+/* ----- Series cover banner ----- */
+.c-series-cover {
+  display: block;
+  /* width:100% is load-bearing: as a flex item the auto side-margins cancel
+     align-items:stretch, and the image div has no intrinsic width — without a
+     definite width the banner collapses to ~0 and aspect-ratio yields 0 height. */
+  width: 100%;
+  max-width: 880px;
+  margin: 4px auto 44px;
+  padding: 0 8px;
+}
+.c-series-cover__image {
+  aspect-ratio: 16 / 6.5;
+  border-radius: 6px;
+  background-size: cover;
+  background-position: center 30%;
+  border: 1px solid $line;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.10);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.c-series-cover:hover .c-series-cover__image {
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.16);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .c-series-cover { margin: 0 auto 32px; }
+  .c-series-cover__image { aspect-ratio: 3 / 2; }
+}
+
 /* ----- Interactive pieces: compact index tiles ----- */
 .c-sam-toys {
   display: grid;
