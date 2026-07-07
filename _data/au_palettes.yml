@@ -253,3 +253,16 @@
   accent_en: "Waterslide Aqua"
   bg_cn: "氯味深池"
   bg_en: "Chlorine Deep"
+
+"Faith Unseen":             # Don Verdean · 色卡同源 sam_themes.yml id: donverdean
+  mf_id: donverdean                # → Many Faces 画册锚点 /sam/many-faces/#donverdean
+  theme_id: donverdean
+  accent: "#c69a4b"
+  accent_ink: "#9e7b3c"
+  bg: "#1a1410"
+  text: "#ece2cd"
+  muted: "#9d8a66"
+  accent_cn: "圣物流金"
+  accent_en: "Relic Gold"
+  bg_cn: "暮土玄褐"
+  bg_en: "Dusk Umber"

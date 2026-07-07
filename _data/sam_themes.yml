@@ -505,6 +505,19 @@
   text: "#ebe2d0"
   muted: "#7a7e90"
 
+- id: donverdean
+  year: 2015
+  name: "Don Verdean"
+  anchor: donverdean
+  cn: 圣物流金
+  en: Relic Gold
+  bg_cn: 暮土玄褐
+  bg_en: Dusk Umber
+  accent: "#c69a4b"
+  bg: "#1a1410"
+  text: "#ece2cd"
+  muted: "#9d8a66"
+
 - id: future
   year: 2025
   name: "The Man from the Future"
