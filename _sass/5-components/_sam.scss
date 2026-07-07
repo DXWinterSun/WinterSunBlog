@@ -189,22 +189,72 @@
 .c-sam-card {
   display: flex;
   flex-direction: column;
-  padding: 26px 28px;
   background-color: $paper;
   border: 1px solid $line;
-  border-radius: 4px;
+  border-radius: 6px;
+  overflow: hidden;
   text-decoration: none;
   color: inherit;
   transition: $global-transition;
   position: relative;
+
+  /* 每张卡的强调色：默认跟随站点主题；有 AU 色卡时用角色专属色。
+     浅底用更深一档（--au-ink），深底用原色（--au-accent），保证对比度。 */
+  --card-accent: var(--au-ink, #{$accent});
+
   &:hover {
     transform: translateY(-3px);
-    border-color: $accent-soft;
-    box-shadow: 0 22px 44px -22px rgba(var(--rgb-shadow), 0.22);
-    .c-sam-card__title { color: $accent; }
-    .c-sam-card__cta { color: $accent; }
+    border-color: color-mix(in srgb, var(--au-accent, #{$accent}) 55%, transparent);
+    box-shadow: 0 22px 44px -22px rgba(var(--rgb-shadow), 0.28);
+    .c-sam-card__title { color: var(--card-accent); }
+    .c-sam-card__cta { color: var(--card-accent); }
     .c-sam-card__tab { transform: translate(2px, -2px); }
+    .c-sam-card__cover { transform: scale(1.03); }
   }
+}
+:root[data-theme="dark"] .c-sam-card { --card-accent: var(--au-accent, #{$accent}); }
+:root[data-theme="light"] .c-sam-card { --card-accent: var(--au-ink, #{$accent}); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .c-sam-card { --card-accent: var(--au-accent, #{$accent}); }
+}
+
+/* 封面图 */
+.c-sam-card__cover {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  background-size: cover;
+  background-position: center 28%;
+  transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+  /* 底部渐变用角色背景色，既压出可读性，又是配色的一处呼应 */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--au-bg, #16130f) 70%, transparent) 0%,
+      transparent 42%);
+  }
+}
+
+/* 角色专属色圆点，别在封面右上角 */
+.c-sam-card__chip {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--au-accent, #{$accent});
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9), 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.c-sam-card__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px 22px;
 }
 
 .c-sam-card__eyebrow {
@@ -215,8 +265,8 @@
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: $accent;
-  margin-bottom: 14px;
+  color: var(--card-accent);
+  margin-bottom: 12px;
 }
 
 .c-sam-card__tab {
@@ -250,6 +300,14 @@
   overflow: hidden;
 }
 
+.c-sam-card__foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+}
+
 .c-sam-card__cta {
   font-family: $heading-font-family;
   font-size: 12px;
@@ -258,6 +316,29 @@
   color: $ink-soft;
   transition: color $global-transition;
 }
+
+/* 角色专属色的中文色名，卡片右下角轻声一句 */
+.c-sam-card__color {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Noto Serif SC', $heading-font-family, serif;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--card-accent);
+  opacity: 0.9;
+  white-space: nowrap;
+  &::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--au-accent, #{$accent});
+  }
+}
+
+/* 无封面（纯文字回退卡）保持一点上内边距 */
+.c-sam-card--nocover .c-sam-card__body { padding-top: 24px; }
 
 @media only screen and (max-width: 720px) {
   .c-sam-intro {
@@ -277,9 +358,7 @@
   .c-sam-toy__title { font-size: 18px; }
 
   .c-sam-grid { grid-template-columns: 1fr; gap: 16px; }
-  .c-sam-card {
-    padding: 22px 22px;
-  }
+  .c-sam-card__body { padding: 20px 20px; }
   .c-sam-card__title { font-size: 21px; }
   .c-sam-card__desc { -webkit-line-clamp: 5; }
 }

@@ -254,21 +254,40 @@ title: Sam
 
   <div class="c-sam-grid">
     {% for s in sam_series %}
-    <a class="c-sam-card" href="{{ s.url | prepend: site.baseurl }}" target="_blank" rel="noopener">
-      <div class="c-sam-card__eyebrow">{{ s.collection_eyebrow | default: "AU Story · Series" }} <span class="c-sam-card__tab">↗</span></div>
-      <h4 class="c-sam-card__title">{{ s.collection_title | default: s.title }}</h4>
-      {% if s.collection_desc %}<p class="c-sam-card__desc">{{ s.collection_desc }}</p>{% endif %}
-      <span class="c-sam-card__cta">读这个故事 →</span>
+    {%- comment -%} 封面图取自该系列第一章的 image；配色取自 _data/au_palettes.yml（键=series_name），
+        以内联 CSS 变量固定成该角色专属色，不随站点主题色变化。 {%- endcomment -%}
+    {%- assign pal = site.data.au_palettes[s.series_name] -%}
+    {%- assign chs = site.posts | where: "series", s.series_name | sort: "series_order" -%}
+    {%- assign cover = chs.first.image -%}
+    <a class="c-sam-card{% unless cover %} c-sam-card--nocover{% endunless %}"
+       href="{{ s.url | prepend: site.baseurl }}" target="_blank" rel="noopener"
+       {%- if pal %} style="--au-accent: {{ pal.accent }}; --au-ink: {{ pal.accent_ink | default: pal.accent }}; --au-bg: {{ pal.bg }};"{% endif %}>
+      {%- if cover %}
+      <div class="c-sam-card__cover" style="background-image: url('{{ cover | prepend: '/images/' | prepend: site.baseurl }}')">
+        {%- if pal %}<span class="c-sam-card__chip" title="{{ pal.accent_cn }} · {{ pal.accent_en }}"></span>{% endif %}
+      </div>
+      {%- endif %}
+      <div class="c-sam-card__body">
+        <div class="c-sam-card__eyebrow">{{ s.collection_eyebrow | default: "AU Story · Series" }} <span class="c-sam-card__tab">↗</span></div>
+        <h4 class="c-sam-card__title">{{ s.collection_title | default: s.title }}</h4>
+        {% if s.collection_desc %}<p class="c-sam-card__desc">{{ s.collection_desc }}</p>{% endif %}
+        <div class="c-sam-card__foot">
+          <span class="c-sam-card__cta">读这个故事 →</span>
+          {%- if pal %}<span class="c-sam-card__color" aria-hidden="true">{{ pal.accent_cn }}</span>{% endif %}
+        </div>
+      </div>
     </a>
     {% endfor %}
 
     {% assign sam_posts = site.posts | where_exp: "post", "post.tags contains 'Sam'" %}
     {% for post in sam_posts %}{% unless post.series %}
-    <a class="c-sam-card" href="{{ post.url | prepend: site.baseurl }}" target="_blank" rel="noopener">
-      <div class="c-sam-card__eyebrow">{{ post.categories | first }} <span class="c-sam-card__tab">↗</span></div>
-      <h4 class="c-sam-card__title">{{ post.title }}</h4>
-      {% if post.summary %}<p class="c-sam-card__desc">{{ post.summary }}</p>{% endif %}
-      <span class="c-sam-card__cta">读这个故事 →</span>
+    <a class="c-sam-card c-sam-card--nocover" href="{{ post.url | prepend: site.baseurl }}" target="_blank" rel="noopener">
+      <div class="c-sam-card__body">
+        <div class="c-sam-card__eyebrow">{{ post.categories | first }} <span class="c-sam-card__tab">↗</span></div>
+        <h4 class="c-sam-card__title">{{ post.title }}</h4>
+        {% if post.summary %}<p class="c-sam-card__desc">{{ post.summary }}</p>{% endif %}
+        <div class="c-sam-card__foot"><span class="c-sam-card__cta">读这个故事 →</span></div>
+      </div>
     </a>
     {% endunless %}{% endfor %}
   </div>
