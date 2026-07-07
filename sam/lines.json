@@ -1,9 +1,10 @@
 {
  "meta": {
   "start": "2026-02-13",
-  "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。",
+  "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
   "characters_count": 40,
-  "pool_count": 200
+  "pool_count": 200,
+  "mf_alias": { "johnmoon": "john", "sambell": "sam", "klenz": "hendrix" }
  },
  "characters": [
   {

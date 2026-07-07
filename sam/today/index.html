@@ -71,6 +71,12 @@
     font-size: clamp(15px, 4vw, 18px); margin-top: 34px;
   }
   .sign b { font-weight: 600; font-style: normal; }
+  .sign a.mflink {
+    color: inherit; text-decoration: none;
+    border-bottom: 1px solid currentColor; padding-bottom: 1px;
+    transition: opacity .2s;
+  }
+  .sign a.mflink:hover { opacity: .68; }
   .meta {
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: 10.5px; letter-spacing: 2px; margin-top: 12px; opacity: .55;
@@ -121,7 +127,7 @@
     <p class="meta" id="meta"></p>
     <div class="actions">
       <button class="btn btn--primary" id="save">保存为壁纸</button>
-      <a class="btn btn--ghost" id="all" href="/WinterSunBlog/sam/wall/">看全部四十句 →</a>
+      <a class="btn btn--ghost" id="all" href="/WinterSunBlog/sam/wall/">看全部句子 →</a>
     </div>
     <a class="widget-link" id="widget" href="/WinterSunBlog/sam/widget/">把它放上手机桌面 · 做成小组件 →</a>
   </div>
@@ -161,6 +167,7 @@
   }
 
   var current = null;
+  var MF_ALIAS = {}; // charId → 画册锚点 id（仅不一致者，来自 lines.json meta.mf_alias）
 
   function render(c) {
     current = c;
@@ -177,8 +184,12 @@
     document.getElementById('line').textContent = c.line;
     document.getElementById('line').style.color = c.text;
     document.getElementById('gloss').textContent = c.lineCN;
-    document.getElementById('sign').innerHTML = '— <b>' + c.name + '</b> · ' + c.filmCN + ' <span style="opacity:.7">' + c.year + '</span>';
+    var mfAnchor = MF_ALIAS[c.charId] || c.charId;
+    var mfUrl = '/WinterSunBlog/sam/many-faces/#' + mfAnchor;
+    document.getElementById('sign').innerHTML = '— <a class="mflink" href="' + mfUrl + '" title="在画册里看看他"><b>' + c.name + '</b></a> · ' + c.filmCN + ' <span style="opacity:.7">' + c.year + '</span>';
     document.getElementById('sign').style.color = c.muted;
+    var mflink = document.querySelector('.sign .mflink');
+    if (mflink) { mflink.style.color = c.text; mflink.style.borderColor = c.accent + '80'; }
     document.getElementById('meta').textContent = '今日 · ' + todayStr() + ' · 日更第 ' + dayNumber() + ' 天';
     document.getElementById('meta').style.color = c.muted;
 
@@ -309,6 +320,8 @@
     .then(function (r) { return r.json(); })
     .then(function (data) {
       var pool = data.pool;
+      MF_ALIAS = (data.meta && data.meta.mf_alias) || {};
+      document.getElementById('all').textContent = '看全部 ' + pool.length + ' 句 →';
       var idx = todayIndex(pool.length);
       render(pool[idx]);
     })
