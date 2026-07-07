@@ -263,16 +263,20 @@ title: Sam
        href="{{ s.url | prepend: site.baseurl }}" target="_blank" rel="noopener"
        {%- if pal %} style="--au-accent: {{ pal.accent }}; --au-ink: {{ pal.accent_ink | default: pal.accent }}; --au-bg: {{ pal.bg }};"{% endif %}>
       {%- if cover %}
-      <div class="c-sam-card__cover" style="background-image: url('{{ cover | prepend: '/images/' | prepend: site.baseurl }}')">
+      <div class="c-sam-card__cover">
+        <div class="c-sam-card__cover-img" style="background-image: url('{{ cover | prepend: '/images/' | prepend: site.baseurl }}')"></div>
         {%- if pal %}
-        <div class="c-sam-card__palette" aria-label="{{ pal.accent_cn }} · {{ pal.bg_cn }}">
-          <span class="c-sam-card__pcol">
-            <i style="background: {{ pal.accent }}"></i>
-            <span class="c-sam-card__pname"><b>{{ pal.accent_cn }}</b><em>{{ pal.accent_en }}</em></span>
-          </span>
-          <span class="c-sam-card__pcol">
-            <i style="background: {{ pal.bg }}"></i>
-            <span class="c-sam-card__pname"><b>{{ pal.bg_cn }}</b><em>{{ pal.bg_en }}</em></span>
+        <div class="c-sam-card__palette" aria-label="他的专属配色 · {{ pal.accent_cn }} · {{ pal.bg_cn }}">
+          <span class="c-sam-card__pcap">他的专属配色</span>
+          <span class="c-sam-card__pcols">
+            <span class="c-sam-card__pcol">
+              <i style="background: {{ pal.accent }}"></i>
+              <span class="c-sam-card__pname"><b>{{ pal.accent_cn }}</b><em>{{ pal.accent_en }}</em></span>
+            </span>
+            <span class="c-sam-card__pcol">
+              <i style="background: {{ pal.bg }}"></i>
+              <span class="c-sam-card__pname"><b>{{ pal.bg_cn }}</b><em>{{ pal.bg_en }}</em></span>
+            </span>
           </span>
         </div>
         {%- endif %}

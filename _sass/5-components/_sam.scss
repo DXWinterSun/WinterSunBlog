@@ -209,7 +209,11 @@
     .c-sam-card__title { color: var(--card-accent); }
     .c-sam-card__cta { color: var(--card-accent); }
     .c-sam-card__tab { transform: translate(2px, -2px); }
-    .c-sam-card__cover { transform: scale(1.03); }
+    .c-sam-card__cover-img { transform: scale(1.04); }
+    .c-sam-card__palette {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.48), inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+    }
   }
 }
 :root[data-theme="dark"] .c-sam-card { --card-accent: var(--au-accent, #{$accent}); }
@@ -218,40 +222,63 @@
   :root:not([data-theme="light"]) .c-sam-card { --card-accent: var(--au-accent, #{$accent}); }
 }
 
-/* 封面图 */
+/* 封面图：外层裁剪 + 定位，内层单独承担 hover 放大——这样样卡不跟着
+   图片一起缩放，读起来像浮在照片上的独立小卡，而不是被 P 进图里。 */
 .c-sam-card__cover {
   position: relative;
   aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.c-sam-card__cover-img {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center 28%;
-  transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
-  /* 底部渐变用角色背景色，既压出可读性，又是配色的一处呼应 */
+  transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+  /* 底部渐变用角色背景色，压出样卡可读性，也是配色的一处呼应 */
   &::after {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to top,
-      color-mix(in srgb, var(--au-bg, #16130f) 70%, transparent) 0%,
-      transparent 42%);
+      color-mix(in srgb, var(--au-bg, #16130f) 72%, transparent) 0%,
+      transparent 46%);
   }
 }
 
-/* 悬浮在封面左下角的「双色样卡」：accent + bg，各带中英色名。
-   自带深色玻璃底，压在任何剧照上都清晰，像从这张画面里取出的底色。 */
+/* 悬浮在封面左下角的「双色样卡」：顶部一句说明 + accent/bg 两色（中英名）。
+   自带深色玻璃底 + 抬起的投影，明确浮在照片之上，且不随图片缩放。 */
 .c-sam-card__palette {
   position: absolute;
   left: 12px;
   bottom: 12px;
-  z-index: 1;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 9px 12px 10px;
+  border-radius: 10px;
+  background: rgba(16, 13, 10, 0.62);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s;
+}
+
+/* 样卡顶部的小说明：点明这两个颜色是「他的专属配色」 */
+.c-sam-card__pcap {
+  font-family: 'EB Garamond', 'Noto Serif SC', serif;
+  font-style: italic;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: rgba(244, 236, 224, 0.78);
+}
+
+.c-sam-card__pcols {
   display: flex;
   gap: 10px;
-  padding: 8px 11px;
-  border-radius: 9px;
-  background: rgba(18, 14, 10, 0.60);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.38), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 .c-sam-card__pcol {
