@@ -64,14 +64,17 @@
 .c-palette-overlay {
   position: fixed;
   inset: 0;
-  z-index: 300;
+  // Above the fixed polaroid-notes floating bar (z-index 1100/1200), otherwise
+  // that bar sits on top of the modal and covers the footer controls.
+  z-index: 1300;
   background: rgba(0, 0, 0, 0.72);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 3rem 1.5rem 1.5rem;
+  // Bottom padding respects the device safe area (iOS home indicator etc.).
+  padding: 3rem 1.5rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.28s ease, visibility 0.28s ease;
@@ -82,7 +85,7 @@
   }
 
   @media (max-width: 640px) {
-    padding: 1.5rem 0.75rem 1rem;
+    padding: 1.5rem 0.75rem calc(1rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -95,6 +98,9 @@
   width: 100%;
   max-width: 64rem;
   max-height: 82vh;
+  // dvh = dynamic viewport height: excludes the mobile browser's toolbars so
+  // the footer never lands behind them. vh above is the fallback for old UAs.
+  max-height: 85dvh;
   display: flex;
   flex-direction: column;
   transform: translateY(24px) scale(0.97);
@@ -269,7 +275,7 @@
 
   @media (max-width: 900px) { grid-template-columns: repeat(4, 1fr); }
   @media (max-width: 640px) { grid-template-columns: repeat(3, 1fr); gap: 0.625rem; }
-  @media (max-width: 480px) { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  @media (max-width: 360px) { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
 }
 
 // ── Individual film strip card ─────────────────────────────────────────────────
