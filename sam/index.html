@@ -32,7 +32,19 @@ title: Sam
     这一栏，是我专为他留下的位置。
   </p>
 
-  <h2 class="c-sam-intro__heading">Who is Sam</h2>
+  <nav class="c-sam-toc" aria-label="本页导览">
+    <span class="c-sam-toc__label">本页导览 · Contents</span>
+    <ul class="c-sam-toc__list">
+      <li><a href="#who-is-sam"><span class="c-sam-toc__en">Who is Sam</span><span class="c-sam-toc__cn">他是谁</span></a></li>
+      <li><a href="#the-little-things"><span class="c-sam-toc__en">The Little Things</span><span class="c-sam-toc__cn">那些小事</span></a></li>
+      <li><a href="#our-story"><span class="c-sam-toc__en">Our Story</span><span class="c-sam-toc__cn">我们的故事</span></a></li>
+      <li><a href="#every-day-since"><span class="c-sam-toc__en">Every Day Since</span><span class="c-sam-toc__cn">每日一更</span></a></li>
+      <li><a href="#interactive"><span class="c-sam-toc__en">Interactive</span><span class="c-sam-toc__cn">互动彩蛋</span></a></li>
+      <li><a href="#au-stories"><span class="c-sam-toc__en">AU Stories</span><span class="c-sam-toc__cn">平行时空</span></a></li>
+    </ul>
+  </nav>
+
+  <h2 class="c-sam-intro__heading" id="who-is-sam">Who is Sam</h2>
 
   <p>
     Sam Rockwell，1968 年生于美国，演员。多数人记得他是《三块广告牌》里那个粗野又脆弱的小镇警察 <a class="c-sam-link" href="{{ site.baseurl }}/sam/many-faces/#dixon">🚔 Dixon</a>——凭这个角色，他拿下了 2018 年的奥斯卡最佳男配；紧接着的《副总统》里，他又演活了 <a class="c-sam-link" href="{{ site.baseurl }}/sam/many-faces/#bush">🦅 小布什</a>，再度入围奥斯卡。但我更想说的，是他在《月球》里独自撑起整部电影的 <a class="c-sam-link" href="{{ site.baseurl }}/sam/many-faces/#sam">🌙 Sam Bell</a> 那份孤独，是《七个神经病》里 <a class="c-sam-link" href="{{ site.baseurl }}/sam/many-faces/#billy">🎭 Billy</a> 疯癫的温柔，是《银河系漫游指南》里 <a class="c-sam-link" href="{{ site.baseurl }}/sam/many-faces/#zaphod">🚀 Zaphod</a> 漂亮的不正经，是《乔乔的异想世界》里 <a class="c-sam-link" href="{{ site.baseurl }}/sam/many-faces/#hendrix">🎖️ 那位上尉</a> 看似荒诞、却藏着柔肠，是《钢铁侠 2》里用自大掩饰自卑的 <a class="c-sam-link" href="{{ site.baseurl }}/sam/many-faces/#hammer">🤖 Justin Hammer</a>，是《致命一击》里孤独又脆弱的猎人 <a class="c-sam-link" href="{{ site.baseurl }}/sam/many-faces/#john">🌲 John Moon</a>——还有很多很多。我把他们悉数收藏，并相信终有一天，我会 <a class="c-sam-link c-sam-link--all" href="{{ site.baseurl }}/sam/many-faces/">🎞️ 集齐他的全部</a>。
@@ -43,7 +55,7 @@ title: Sam
     每一次，他都把自己拆开，长成那个人。
   </p>
 
-  <h2 class="c-sam-intro__heading">The Little Things</h2>
+  <h2 class="c-sam-intro__heading" id="the-little-things">The Little Things</h2>
 
   <p class="c-sam-details__lead">
     但我喜欢他，远不止因为他演什么像什么——还有下面这些。都是我时不时想起、随手记在本子上的小事，和他这个人身上、越看越动人的地方。
@@ -110,7 +122,7 @@ title: Sam
       <span class="c-sam-detail__emoji" aria-hidden="true">✋</span>
       <div class="c-sam-detail__body">
         <span class="c-sam-detail__title">会下意识藏起来的左手</span>
-        <p class="c-sam-detail__text">大约 1995 年拍《Somebody to Love》那阵，他手上一直裹着纱布，食指、中指像是受过伤；后来的作品里，我留意到他偶尔会不自觉地把这两根手指藏起来。不是自卑，大概只是习惯。</p>
+        <p class="c-sam-detail__text">他左手的食指、中指微微变形——九十年代中期，他在洛杉矶 Sunset 与 La Brea 路口翻了车（一辆 Jeep Cherokee），手指被压碎、做了重建手术，从此定型微弯（2010 年《Esquire》访谈里他亲口讲的）。大约也因为这样，后来的作品里我留意到，他偶尔会不自觉地把这两根手指藏起来。不是自卑，大概只是习惯。</p>
       </div>
     </div>
 
@@ -145,7 +157,7 @@ title: Sam
       </div>
     </div>
     <div class="c-bday__count">
-      距离他的下一个生日，还有
+      距离他的 <span class="c-bday__age" id="bday-age">—</span> 岁生日，还有
       <span class="c-bday__num" id="bday-days">—</span>
       天
     </div>
@@ -163,10 +175,13 @@ title: Sam
       if (bday < today) bday = Date.UTC(y + 1, 10, 5);
       var days = Math.round((bday - today) / DAY);
       var bdayYear = new Date(bday).getUTCFullYear();
+      var age = bdayYear - 1968;                // Sam 生于 1968-11-05
       var numEl = document.getElementById('bday-days');
       var subEl = document.getElementById('bday-sub');
+      var ageEl = document.getElementById('bday-age');
       var m = now.getMonth(), d = now.getDate();
       numEl.textContent = days;
+      if (ageEl) ageEl.textContent = age;
       if (days === 0) {
         subEl.innerHTML = '🎂 就是今天——<strong style="color:var(--c-accent);font-style:normal;">' + y + ' 年 11 月 5 日</strong>，他生日快乐。';
       } else if (m === 10 && d === 6) {
@@ -185,7 +200,7 @@ title: Sam
     <p>他和 Leslie 相守十几年，一起养着德牧——那就是他们的孩子；他说自己是个很称职的叔叔，只是不想真的做爸爸。他在戏里演过那么多有孩子、演得那么有爱的父亲——他分明做得好，却选择不做。决定不要孩子、活得彻底而自洽，这件事本身就有一种动人的力量，也和我的人生观撞得严丝合缝。那天我把这段访谈剪成小切片发了出去，看的人不多，但对我，是喜欢他这条路上的一块里程碑。</p>
   </div>
 
-  <h2 class="c-sam-intro__heading">Our Story</h2>
+  <h2 class="c-sam-intro__heading" id="our-story">Our Story</h2>
 
   <p>
     六年前，我第一次在电影里遇见他。那时还不知道他是谁，只是把他随手放进了心里那个庞大的「帅哥收集池」——我博爱，在豆瓣上看到谁顺眼，就点个关注。可他不一样：之后每次在屏幕上重逢，好感都没褪，反倒一次比一次深。
@@ -214,7 +229,7 @@ title: Sam
   </p>
 
   <div class="c-sam-relics">
-    <span class="c-sam-relics__label">🤍 我的两件藏品</span>
+    <span class="c-sam-relics__label">🤍 我的藏品</span>
     <div class="c-sam-relic">
       <span class="c-sam-relic__icon" aria-hidden="true">🃏</span>
       <div class="c-sam-relic__body">
@@ -229,6 +244,7 @@ title: Sam
         <p class="c-sam-relic__note">第一次海淘、从 Amazon 辗转淘来。他在里面只是个小角色，却已藏不住往后一定会成器的预兆。我攒着一个念想：哪天当面，请他签这一张。</p>
       </div>
     </div>
+    <p class="c-sam-relics__more">此外还收了不少他的蓝光、DVD 影碟。等哪天凑齐、拍一张「全家福」，我会在这儿补上一份完整的清单。<span class="c-sam-relics__soon">清单整理中…</span></p>
   </div>
 
   <p>
@@ -240,7 +256,7 @@ title: Sam
     但我确实是这样想的。
   </p>
 
-  <h2 class="c-sam-intro__heading">Every Day Since</h2>
+  <h2 class="c-sam-intro__heading" id="every-day-since">Every Day Since</h2>
 
   <p>
     自 2026 年 2 月 13 日——情人节的前一天——起，我开始在小红书每日更新一点和他相关的东西。或一张照片，或一段影视切片，或一段访谈……我从没对任何事如此坚持过，但对他，我一天都没落下。
@@ -351,7 +367,7 @@ title: Sam
 <section class="c-sam-collection">
 
   {%- comment -%} ————— 互动彩蛋：小工具 / 小体验，独立成组 ————— {%- endcomment -%}
-  <div class="c-section-heading">
+  <div class="c-section-heading" id="interactive">
     <h3 class="c-section-heading__title">Interactive · 互动彩蛋</h3>
     <span class="c-section-heading__meta">Little ways to stay</span>
   </div>
@@ -417,7 +433,7 @@ title: Sam
     排序按 `collection_order`（数字越小越靠前）。
   {%- endcomment -%}
   {% assign sam_series = site.pages | where_exp: "p", "p.sam_collection" | sort: "collection_order" %}
-  <div class="c-section-heading">
+  <div class="c-section-heading" id="au-stories">
     <h3 class="c-section-heading__title">AU Stories · 平行时空</h3>
     <span class="c-section-heading__meta">{{ sam_series | size }} worlds, still growing</span>
   </div>
