@@ -63,6 +63,31 @@ layout: home
         {% endif %}
       </header>
       {{page.content | markdownify}}
+
+      {% if page.easter_eggs and page.series %}
+      {% assign egg_pool = site.posts | where: "series", page.series %}
+      <aside class="c-easter-egg" aria-label="彩蛋">
+        <div class="c-easter-egg__label">
+          <span class="c-easter-egg__mark" aria-hidden="true">🥚</span>
+          <span class="c-easter-egg__eyebrow">彩蛋 · Hidden Track</span>
+        </div>
+        <ul class="c-easter-egg__list">
+          {% for egg in page.easter_eggs %}
+            {% assign egg_target = nil %}
+            {% for sp in egg_pool %}{% if sp.series_order == egg.series_order %}{% assign egg_target = sp %}{% endif %}{% endfor %}
+            {% if egg_target %}
+            {% assign egg_title = egg_target.title | split: " · " | last | split: " — " | first %}
+            <li class="c-easter-egg__item">
+              <a class="c-easter-egg__link" href="{{ egg_target.url | prepend: site.baseurl }}">
+                <span class="c-easter-egg__note">{{ egg.label }}</span>
+                <span class="c-easter-egg__to">{{ egg_target.chapter_type }} · {{ egg_title }} <span class="c-easter-egg__arrow" aria-hidden="true">→</span></span>
+              </a>
+            </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </aside>
+      {% endif %}
     </div> <!-- /.c-wrap-content -->
 
     {% if page.series %}

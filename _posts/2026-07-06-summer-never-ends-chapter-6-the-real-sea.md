@@ -12,6 +12,9 @@ series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 6"
 summary: "你听见了一句不该听的话——关于海，关于你。"
+easter_eggs:
+  - series_order: 12
+    label: "他说那句话时，心脏干了一件很丢人的事"
 ---
 
 > "She's just a kid who'll forget this the minute summer ends."

@@ -12,6 +12,9 @@ series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 1"
 summary: "他记得你——以全乐园最不想被记住的方式。"
+easter_eggs:
+  - series_order: 12
+    label: "他一眼认出你、台本当场作废——换 Owen 讲这一场面试"
 ---
 
 > "You don't remember me, do you?"
