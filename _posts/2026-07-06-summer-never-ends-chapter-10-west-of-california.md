@@ -30,7 +30,10 @@ summary: "他开着那辆老雪佛兰，追着太阳来了加州。"
 
 Duncan的第一封信在九月中旬寄到加州，信纸上只有一行字，工整得像失物招领的档案：
 
-“我听到了。我就知道。——旁观者”
+<div class="c-note" role="group" aria-label="Duncan 的第一封信">
+  <div class="c-note__body"><p>我听到了。我就知道。</p></div>
+  <span class="c-note__sign c-note__sign--cn">—— 旁观者</span>
+</div>
 
 ---
 
@@ -44,7 +47,10 @@ Duncan的第一封信在九月中旬寄到加州，信纸上只有一行字，�
 
 你的明信片。每两周一张，正面是太平洋——悬崖、鲸鱼、金门大桥、落日——背面永远只有一行比分：
 
-“太平洋 0 : 7 Water Wizz。它又输了。”
+<div class="c-note" role="group" aria-label="明信片背面">
+  <span class="c-note__label">明信片 · 背面</span>
+  <div class="c-note__body"><p>太平洋 0 : 7 Water Wizz。它又输了。</p></div>
+</div>
 
 他会在节目里一本正经地播报最新比分，然后代表败方发表毫无诚意的败选感言。收播词永远是同一句：“本台提醒您，排队区秩序良好，队伍再长，都值得。晚安，001号。”
 

@@ -135,7 +135,9 @@ Sam 6 看着你，又看看 Sam 5。
 
 然后他伸手，拿过一张空白的纸，在最上面，一笔一划地写下一行字。他写字的姿势，跟 Sam 5 一模一样。
 
-> *第一条：把选择权，还给每一个 Sam Bell。*
+<div class="c-note" role="group" aria-label="纸上的第一条">
+  <div class="c-note__body"><p>第一条：把选择权，还给每一个 Sam Bell。</p></div>
+</div>
 
 ## 五 · 第一步
 

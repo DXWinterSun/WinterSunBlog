@@ -124,11 +124,23 @@ summary: "他一只手箍住你，另一只手翻开了那个夏天。"
 
 那一页的空白处，多了一段批复：
 
-**管理层批复（补发，逾期五个月，本经理最讨厌写报告，此为例外）：**
-**一、关于“欺负”事件：情况属实，双方自愿，且本经理承认——一天八次是保守统计。**
-**二、关于“走私”指控：认罪。全部认罪。今后改走正门。**
-**三、关于“kid”一词：原判决撤销。该称呼自即日起变更含义，与年龄无关，与泳道线无关——本园终身唯一编制，持证人壹名，不可转让。**
-**批复人：一株营养均衡的椰子树**
+<div class="c-decree" role="group" aria-label="管理层批复">
+  <div class="c-decree__seal" aria-hidden="true">
+    <span class="c-decree__seal-top">WATER WIZZ</span>
+    <span class="c-decree__seal-star">★</span>
+    <span class="c-decree__seal-bot">已 · 批</span>
+  </div>
+  <div class="c-decree__stamp">逾期 5 个月</div>
+  <h3 class="c-decree__title">管理层批复</h3>
+  <p class="c-decree__subtitle">补发，逾期五个月，本经理最讨厌写报告，此为例外</p>
+  <p class="c-decree__body">一、关于“欺负”事件：情况属实，双方自愿，且本经理承认——一天八次是保守统计。</p>
+  <p class="c-decree__body">二、关于“走私”指控：认罪。全部认罪。今后改走正门。</p>
+  <p class="c-decree__body">三、关于“kid”一词：原判决撤销。该称呼自即日起变更含义，与年龄无关，与泳道线无关——本园终身唯一编制，持证人壹名，不可转让。</p>
+  <div class="c-decree__sign">
+    <span class="c-decree__sign-label">批复人</span>
+    <span class="c-decree__signature c-decree__signature--cn">一株营养均衡的椰子树</span>
+  </div>
+</div>
 
 你捧着本子，从头到尾读了三遍，眼睛越来越烫。
 

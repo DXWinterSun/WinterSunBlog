@@ -769,3 +769,96 @@
   color: $accent-dark;
   transform: rotate(-0.5deg);
 }
+
+/* optional subtitle line under the decree title */
+.c-decree__subtitle {
+  margin: 2px 0 16px;
+  text-align: center;
+  font-family: 'Noto Serif SC', serif;
+  font-style: italic;
+  font-size: 12.5px;
+  color: $muted;
+}
+
+/* Chinese-name signature (cursive Latin font can't render CJK) */
+.c-decree__signature--cn {
+  font-family: 'Noto Serif SC', serif;
+  font-style: normal;
+  font-size: 18px;
+  transform: rotate(-3deg);
+}
+
+/* ===============
+	NOTE (in-story handwritten note / letter / card / postcard)
+	Softer than c-decree: warm paper, no institutional seal.
+=============== */
+
+.c-note {
+  position: relative;
+  max-width: 430px;
+  margin: 30px auto 18px;
+  padding: 24px 28px 20px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, $accent 5%, transparent) 0%, transparent 55%),
+    $paper-warm;
+  border: 1px solid $line;
+  border-radius: 5px;
+  box-shadow:
+    0 10px 26px rgba(var(--rgb-shadow, 0,0,0), .18),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  transform: rotate(-0.5deg);
+}
+
+/* washi-tape strip at the top */
+.c-note::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 82px;
+  height: 18px;
+  transform: translateX(-50%) rotate(-2.5deg);
+  background: color-mix(in srgb, $accent 20%, transparent);
+  border: 1px solid color-mix(in srgb, $accent 26%, transparent);
+  opacity: .7;
+}
+
+.c-note__label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: $muted;
+}
+
+.c-note__body {
+  font-family: 'Noto Serif SC', 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.95;
+  color: $ink;
+}
+
+.c-note__body p { margin: 0 0 8px; }
+.c-note__body p:last-child { margin-bottom: 0; }
+
+.c-note__sign {
+  display: block;
+  margin-top: 14px;
+  text-align: right;
+  font-family: 'Snell Roundhand', 'Segoe Script', 'EB Garamond', cursive;
+  font-style: italic;
+  font-size: 23px;
+  line-height: 1.2;
+  color: $accent;
+  transform: rotate(-3deg);
+}
+
+/* Chinese-name sign-off inside a note */
+.c-note__sign--cn {
+  font-family: 'Noto Serif SC', serif;
+  font-style: normal;
+  font-size: 17px;
+}

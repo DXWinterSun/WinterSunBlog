@@ -354,3 +354,70 @@ matter 完全一致）。条目末尾注明来源，例：
   (`justin-hammer-au.webp`)。其余对应见各文 `series_title` 字段。
 - 站点从 `main` 部署：front matter 改动必须并入 `main` 才会在线上生效，
   仅在工作分支上不够。
+
+## ⚠️ 文中出现「文件 / 卡片 / 字条」→ 一律做成卡片组件
+
+**硬性约定：只要正文里复现了一件「可以拿在手里读」的东西——公文、声明、
+批复、证书、判决、通知、菜单、节目单、契约、录取通知，或是信件、明信片、
+字条、便签、情书、便利贴、餐巾纸上的字、刻下的一行字——就不要用裸的
+`**加粗**` / `> 引用` 呈现，改用下面两个卡片组件之一。** 新文章写到这类内容
+时直接就用；发现旧文章里有，也顺手改过来。
+
+样式在 `_sass/5-components/_extras.scss`，两个组件都用 AU 色卡令牌
+（`$accent`/`$paper`/`$ink`…），**自动跟随该系列配色明暗翻转**，无系列的
+文章则用站点默认色。直接在正文里写裸 HTML（kramdown 支持，参考已有的
+`buzzfeed-56-things` 一文），前后留空行即可。
+
+### 1. `c-decree`——正式 / 官方文件（圆形钢印 + 编号）
+
+适用：公文、声明、批复、判决、通缉、证书、榜文等「盖章」气质的东西。
+
+```html
+<div class="c-decree" role="group" aria-label="官方声明">
+  <div class="c-decree__seal" aria-hidden="true">
+    <span class="c-decree__seal-top">机构英文名</span>
+    <span class="c-decree__seal-star">★</span>
+    <span class="c-decree__seal-bot">已 · 批</span>
+  </div>
+  <div class="c-decree__stamp">No. 001</div>        <!-- 左上角小钢印，可选 -->
+  <h3 class="c-decree__title">官方声明</h3>
+  <p class="c-decree__subtitle">副标题，可选</p>       <!-- 可选 -->
+  <p class="c-decree__body">正文第一段。</p>
+  <p class="c-decree__body">正文第二段。</p>
+  <div class="c-decree__sign">
+    <span class="c-decree__sign-label">落款</span>
+    <span class="c-decree__signature c-decree__signature--cn">签名</span>
+  </div>
+</div>
+```
+
+签名是英文名就去掉 `--cn`（用花体），中文名保留 `--cn`（衬线，不斜）。
+
+### 2. `c-note`——手写便条 / 信件 / 卡片 / 明信片（暖纸 + 和纸胶带）
+
+适用：字条、便签、情书、书信、明信片背面、餐巾纸上的字、任何手写的东西。
+比 `c-decree` 柔和，没有钢印。
+
+```html
+<div class="c-note" role="group" aria-label="便利贴">
+  <span class="c-note__label">明信片 · 背面</span>    <!-- 眉标，可选 -->
+  <div class="c-note__body">
+    <p>第一行。</p>
+    <p>第二行。</p>
+  </div>
+  <span class="c-note__sign">— 署名</span>            <!-- 可选；中文署名加 c-note__sign--cn -->
+</div>
+```
+
+### 判断 formal 还是 note
+
+- 有机构 / 盖章 / 官腔气质 → `c-decree`（哪怕是恶搞的「管理层批复」）。
+- 私人手写、便条、信、明信片、贺卡 → `c-note`。
+- 拿不准就问用户，或选更贴合语气的那个。
+
+### 不要过度套用
+
+只有「被复现出来、当作一件实物去读」的文本才套卡片。**下面这些不套**：
+普通对白、歌词、每篇文首的 `> "..."` 双语题记、文末的回环式题记 / 尾声引语、
+只在叙述里被转述而没有逐字复现的信件、环境里的门牌 / 标语一类背景文字。
+拿不准时，宁可不套。

@@ -74,12 +74,13 @@ _"你知道吗？即使在《Wonka》里我是反派，也只想为你做一次�
 
 回到酒店，你在外套口袋里摸到一张小卡片。展开一看，是一张金色包边的迷你巧克力券，上面是他手写的字：
 
-> _"For the only person who ever made me feel like the hero._
->
-> _Redeemable for: one thousand kisses, infinite cuddles, and a lifetime of soft-spoken poems in rainy cities."_
->
-> _Yours,_
->
-> _BayBay 🍫"_
+<div class="c-note" role="group" aria-label="巧克力券上的手写字">
+  <span class="c-note__label">Golden Chocolate Voucher</span>
+  <div class="c-note__body">
+    <p>"For the only person who ever made me feel like the hero.</p>
+    <p>Redeemable for: one thousand kisses, infinite cuddles, and a lifetime of soft-spoken poems in rainy cities."</p>
+  </div>
+  <span class="c-note__sign">Yours, BayBay 🍫</span>
+</div>
 
 🥹💛 **你是他的金奖门票（Golden Ticket），他是你专属的反派天使。**

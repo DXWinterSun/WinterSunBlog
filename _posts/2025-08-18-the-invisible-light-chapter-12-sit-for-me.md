@@ -43,7 +43,9 @@ tags: [Charles II, BayBay, AU, The Invisible Light, 炽恋, 悸动]
 
 你一遍又一遍确认纸条上的文字——
 
-“由Winter Ashcombe负责为国王陛下绘制春季肖像。明日上午八时，至国王书房。”
+<div class="c-note" role="group" aria-label="纸条上的委任">
+  <div class="c-note__body"><p>由 Winter Ashcombe 负责为国王陛下绘制春季肖像。明日上午八时，至国王书房。</p></div>
+</div>
 
 你几乎无法呼吸。
 
