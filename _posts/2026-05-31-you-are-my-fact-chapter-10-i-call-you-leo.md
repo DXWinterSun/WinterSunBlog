@@ -22,7 +22,12 @@ summary: "海边小屋，你给他起了个名字，也许是他记住的第一�
 
 你带上了他的拍立得，那枚他贴身的戒指，还有一沓你提前写好的新便条。到了海边那座小木屋，你做的第一件事，就是把它们一一贴好——冰箱上，镜子上，床头那盏灯下：
 
-> *You're on your honeymoon. This cabin is safe. She's here. She is your wife. — Winter*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>You're on your honeymoon. This cabin is safe. She's here. She is your wife.</p>
+  </div>
+  <span class="c-note__sign">— Winter</span>
+</div>
 
 你把一座陌生的房子，重新改造成了那个他认得的、安全的小世界的分身。这样无论他在哪一面陌生的墙前醒来，第一眼抓住的，依然是同一个答案：你在。
 

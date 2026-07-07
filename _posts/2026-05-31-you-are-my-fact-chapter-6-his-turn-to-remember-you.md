@@ -28,11 +28,23 @@ summary: "他偷偷溜出门，只为给你买一本，能装下他全部爱意�
 
 那上面写的不再是"别相信"、"小心这个人"。是这样的句子：
 
-> *2:47. She's at the stove, humming. I have never been this happy. Remember it even if you can't.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>2:47. She's at the stove, humming. I have never been this happy. Remember it even if you can't.</p>
+  </div>
+</div>
 
-> *She fell asleep reading again. Don't wake her. You love her. That's the one fact that never changes.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>She fell asleep reading again. Don't wake her. You love her. That's the one fact that never changes.</p>
+  </div>
+</div>
 
-> *I forgot her name for one second and it scared me worse than dying. Her name is Winter. Write it everywhere.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>I forgot her name for one second and it scared me worse than dying. Her name is Winter. Write it everywhere.</p>
+  </div>
+</div>
 
 你忽然就懂了他在做什么。他那套冷冰冰的、用来记住"该恨谁"的求生系统，被他亲手整个掉转了方向——如今每按下一次快门，他都是在拼命地、徒劳又执着地，想留住"此刻我有多爱你"这件事，好提醒那个什么都会忘掉的、未来的自己。
 
@@ -76,10 +88,14 @@ summary: "他偷偷溜出门，只为给你买一本，能装下他全部爱意�
 
 你颤抖着翻开他卷起的袖子。小臂上密密麻麻，全是他临出门前写给自己的字：
 
-> *DON'T PANIC. YOU LEFT ON PURPOSE.*
-> *SHOP ON 5TH ST. BUY A PHOTO ALBUM. FOR HER PICTURES.*
-> *THEN GO HOME. SHE'S WAITING. SHE'S ALWAYS WAITING.*
-> *IF YOU GET LOST — FIND A PHONE. CALL WINTER. SHE WILL COME.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">DON'T PANIC. YOU LEFT ON PURPOSE.</p>
+    <p style="font-style:normal;letter-spacing:.03em">SHOP ON 5TH ST. BUY A PHOTO ALBUM. FOR HER PICTURES.</p>
+    <p style="font-style:normal;letter-spacing:.03em">THEN GO HOME. SHE'S WAITING. SHE'S ALWAYS WAITING.</p>
+    <p style="font-style:normal;letter-spacing:.03em">IF YOU GET LOST — FIND A PHONE. CALL WINTER. SHE WILL COME.</p>
+  </div>
+</div>
 
 你的眼泪一下子就崩了。
 

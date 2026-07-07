@@ -66,7 +66,11 @@ summary: "他只信写下来的事实，而你，要成为他永不抹去的那�
 
 照片背面起初写着他自己的笔迹，潦草，怀疑:
 
-> *她是谁? 别太快相信。*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>她是谁? 别太快相信。</p>
+  </div>
+</div>
 
 那是他对所有人的默认设置——不相信。你不怪他。在一个谁都能改写你现实的世界里，怀疑是他唯一的盔甲。
 
@@ -76,7 +80,11 @@ summary: "他只信写下来的事实，而你，要成为他永不抹去的那�
 
 照片背面，原来那些怀疑的字句被一道道墨线封死，最下面是一行重重的、几乎要划破相纸的新字:
 
-> **NEVER ERASE THIS: ALWAYS TRUST HER.**
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">NEVER ERASE THIS: ALWAYS TRUST HER.</p>
+  </div>
+</div>
 
 写完，他没有把它和其他照片放在一起。他解开西装扣子，把这张拍立得，单独塞进了贴着胸口的内袋。
 
@@ -110,7 +118,11 @@ summary: "他只信写下来的事实，而你，要成为他永不抹去的那�
 
 你从他内袋里取出那张照片，托在掌心，举到他眼前，让那行字稳稳地落进他的视线里:
 
-> **NEVER ERASE THIS: ALWAYS TRUST HER.**
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">NEVER ERASE THIS: ALWAYS TRUST HER.</p>
+  </div>
+</div>
 
 "看着这个。"你说，握住他冰凉的手，"是你自己写的。你正在做一件你想做的事。你很安全。我在这儿。"
 

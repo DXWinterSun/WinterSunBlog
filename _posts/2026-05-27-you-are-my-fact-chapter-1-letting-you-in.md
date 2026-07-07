@@ -42,7 +42,11 @@ summary: "他记不住你，于是你把自己，一笔一笔写进他相信的�
 
 最初那段日子，你在他的照片背面，是一行潦草的、带着戒备的小字:
 
-> **WHO IS SHE? DON'T TRUST TOO FAST.**
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">WHO IS SHE? DON'T TRUST TOO FAST.</p>
+  </div>
+</div>
 
 你不怪他。你见过围在他身边的那些人,见过他们怎样趁他遗忘的空隙改写他的现实。在一个谁都能骗你的世界里,"先怀疑"是他活下来的唯一办法。
 
@@ -92,7 +96,11 @@ summary: "他记不住你，于是你把自己，一笔一笔写进他相信的�
 
 所以那行新字是这样写的:
 
-> **SHE DOESN'T WANT ANYTHING FROM ME.**
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">SHE DOESN'T WANT ANYTHING FROM ME.</p>
+  </div>
+</div>
 
 你盯着那一行看了很久,眼眶发热。在他那个所有人都想从他身上拿走点什么的世界里,"她什么都不要",大概是一个人能得到的、最高的评价。
 

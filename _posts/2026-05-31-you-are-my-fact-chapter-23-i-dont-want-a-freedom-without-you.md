@@ -216,7 +216,11 @@ summary: "你在酒馆找到不再认得你的他：你不用想起我，但请�
 
 然后，在它下面，他用那只还在微微发抖的手，重新写下了一行新的字——属于他自己的、不再是放手的字:
 
-> *DON'T. DON'T SET HER FREE. SHE CAME BACK. SHE CHOSE THIS. SHE CHOSE YOU. LET HER STAY. — TRUST HER. ALWAYS.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">DON'T. DON'T SET HER FREE. SHE CAME BACK. SHE CHOSE THIS. SHE CHOSE YOU. LET HER STAY. — TRUST HER. ALWAYS.</p>
+  </div>
+</div>
 
 写完，他抬起头，看着你，那双蓝眼睛里蓄满了泪，却亮着一种失而复得的、笃定的光。
 

@@ -90,7 +90,9 @@ summary: "他读着读着清零，浑然不觉地夸自己译得真好——你�
 
 书名下面，译者署名那一行——
 
-**Translated by Winter Shelby & Leonard Shelby**
+<div class="c-decree c-decree--flat" role="group" aria-label="书封">
+  <p class="c-decree__body" style="font-family:'Volkhov',serif;letter-spacing:.04em">Translated by Winter Shelby &amp; Leonard Shelby</p>
+</div>
 
 他的目光，撞上了那个名字。
 

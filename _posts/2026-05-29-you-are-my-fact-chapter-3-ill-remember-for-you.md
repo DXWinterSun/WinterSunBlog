@@ -56,8 +56,12 @@ summary: "复仇早已完成，你要给他一个新的、活下去的理由。"
 
 你拿过那支他原本要写新仇人的笔，翻过一张干净的拍立得——上面是你们俩，不知道是哪一个"今天"拍的，你笑着，他没看镜头，在看你。你在背面写下:
 
-> **IT'S FINISHED. YOU DON'T HAVE TO HUNT ANYONE.**
-> **GO HOME. SHE'S YOUR REASON NOW.**
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">IT'S FINISHED. YOU DON'T HAVE TO HUNT ANYONE.</p>
+    <p style="font-style:normal;letter-spacing:.03em">GO HOME. SHE'S YOUR REASON NOW.</p>
+  </div>
+</div>
 
 写完，你把它塞进他贴着胸口的那个内袋——和那张"NEVER ERASE THIS: ALWAYS TRUST HER"放在一起。
 

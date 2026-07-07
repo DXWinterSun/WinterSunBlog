@@ -104,4 +104,8 @@ Teddy 看了你很久，最后什么也没再说，只是极轻地、几乎看�
 
 那天晚上，你在一张新的拍立得背面，替他写下了一行字。明天他醒来，会读到它，会再一次，为同一件最好的事，欢天喜地。
 
-> *YOU MARRIED HER TODAY. SHE SAID "I DO." SO DID YOU. YOU ARE HERS NOW — AND SHE IS YOURS.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">YOU MARRIED HER TODAY. SHE SAID "I DO." SO DID YOU. YOU ARE HERS NOW — AND SHE IS YOURS.</p>
+  </div>
+</div>

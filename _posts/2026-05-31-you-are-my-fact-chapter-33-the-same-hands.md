@@ -122,9 +122,14 @@ Winter——是那个，绝不会伤害你的人。
 
 他松开你的手，撑起身，凑过去看——他看东西的方式，从来都是这样：不靠记忆，靠他自己写下的"事实"。他一张一张看过去，看那些他自己的笔迹，看那些被他郑重记下、却又一遍遍忘掉的东西。
 
-> *Her name is Winter. She's your wife. ALWAYS TRUST HER.*
-> *She remembers you every day.*
-> *You live here now. She's here. You're safe.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>Her name is Winter. She's your wife.</p>
+    <p style="font-style:normal;letter-spacing:.03em">ALWAYS TRUST HER.</p>
+    <p>She remembers you every day.</p>
+    <p>You live here now. She's here. You're safe.</p>
+  </div>
+</div>
 
 一张，又一张。
 
@@ -222,7 +227,11 @@ Winter——是那个，绝不会伤害你的人。
 
 他低下头，用那双刚刚伤了你、此刻却万分郑重的手，一笔一笔，给那个会一遍遍重活那一夜的自己，写下了一条新的规矩：
 
-> *I hurt her last night — with my own hands. If you wake up and you're still back in that night: STOP. Put your hands down. The shape reaching for you in the dark is NOT them. Her name is Winter. She has never once been the danger — she's the one who stays. Find her hand. You're already home.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>I hurt her last night — with my own hands. If you wake up and you're still back in that night: STOP. Put your hands down. The shape reaching for you in the dark is NOT them. Her name is Winter. She has never once been the danger — she's the one who stays. Find her hand. You're already home.</p>
+  </div>
+</div>
 
 昨夜，我用自己的手，伤了她。如果你醒来时还困在那一夜里：停手。把手放下。黑暗里朝你伸来的那个影子，不是他们。她叫 Winter。她从来、一次都不是危险——她是那个留下来的人。去够她的手。你早就到家了。
 

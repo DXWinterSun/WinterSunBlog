@@ -40,7 +40,12 @@ summary: "你把他捡回家，像一只走投无路、好看又破碎的大狗�
 
 而所有这些便条，无论写的是什么，结尾都是同一句话。
 
-> *You live here now. You're safe. She's here. — Winter*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>You live here now. You're safe. She's here.</p>
+  </div>
+  <span class="c-note__sign">— Winter</span>
+</div>
 
 你设计过了：无论他在房子的哪个角落醒来、哪个瞬间清零，他第一眼能抓住的那条"事实"，永远会先把他领回到同一个答案——这是家，你住在这里，而她在。
 

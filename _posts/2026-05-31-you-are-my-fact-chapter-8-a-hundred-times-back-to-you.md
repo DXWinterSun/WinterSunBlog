@@ -44,19 +44,35 @@ summary: "这次你病倒了，换他笨拙地、一遍遍回到你身边。"
 
 冰箱上：
 
-> *SHE'S SICK. FEVER. SHE'S IN THE BEDROOM.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">SHE'S SICK. FEVER. SHE'S IN THE BEDROOM.</p>
+  </div>
+</div>
 
 浴室镜子上：
 
-> *CHECK HER TEMPERATURE. WATER BY THE BED. MEDICINE AGAIN AT 2 AND AT 8.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">CHECK HER TEMPERATURE. WATER BY THE BED. MEDICINE AGAIN AT 2 AND AT 8.</p>
+  </div>
+</div>
 
 门背后、走廊里、他随手能看见的每一处：
 
-> *DON'T LEAVE HER ALONE TOO LONG. IF SHE'S ASLEEP, DON'T WAKE HER — JUST STAY.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">DON'T LEAVE HER ALONE TOO LONG. IF SHE'S ASLEEP, DON'T WAKE HER — JUST STAY.</p>
+  </div>
+</div>
 
 他甚至卷起袖子，在自己手背和小臂上也写了。最大的一行，写在掌心，那是他低头就能看见的地方——
 
-> *SHE REMEMBERS YOU EVERY DAY. TODAY YOU REMEMBER HER.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">SHE REMEMBERS YOU EVERY DAY. TODAY YOU REMEMBER HER.</p>
+  </div>
+</div>
 
 你替他记得这个世界，已经记了那么久。今天，他要把这件事，原原本本地还给你。
 

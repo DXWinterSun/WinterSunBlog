@@ -28,7 +28,11 @@ summary: "他忘记你多少次，你就会比那个数字，再多出现一次�
 
 他的手已经本能地探进了西装内袋。你看着他指尖摸到那张拍立得，抽出来，低头去读背面那行被划改过无数次、最终重重压下的字:
 
-> **NEVER ERASE THIS: ALWAYS TRUST HER.**
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">NEVER ERASE THIS: ALWAYS TRUST HER.</p>
+  </div>
+</div>
 
 是他自己的笔迹。他认得。他抬起眼，重新看你——这一次，眼神里的警惕一点点化开，换上一种迟疑的、想要相信的软。
 

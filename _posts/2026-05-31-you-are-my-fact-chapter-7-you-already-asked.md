@@ -22,7 +22,11 @@ summary: "他向你求过婚了，只是不记得，于是你又温柔地讲给�
 
 他睁开眼，盯着那枚素净的戒指看了很久，又转头看见床头托盘里那张拍立得。你昨晚把它摆在了最显眼的地方。背面是他自己的笔迹：
 
-> *SHE SAID YES. THE RING MEANS SHE SAID YES. YOU GET TO KEEP HER.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p style="font-style:normal;letter-spacing:.03em">SHE SAID YES. THE RING MEANS SHE SAID YES. YOU GET TO KEEP HER.</p>
+  </div>
+</div>
 
 他的呼吸顿住了。
 

@@ -220,7 +220,12 @@ summary: "过去的旧账找上门，他记不住那桩仇——可你一被威�
 
 你凑过去看。他写的是——
 
-> *Someone came today and pushed her. She got hurt. I stopped him — but not fast enough. Whatever I did wrong before, I don't remember it. But protecting her — that I will always do. Don't be gentle with anyone who threatens her. Even if I forget everything else. ALWAYS PROTECT HER.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>Someone came today and pushed her. She got hurt. I stopped him — but not fast enough. Whatever I did wrong before, I don't remember it. But protecting her — that I will always do. Don't be gentle with anyone who threatens her. Even if I forget everything else.</p>
+    <p style="font-style:normal;letter-spacing:.03em">ALWAYS PROTECT HER.</p>
+  </div>
+</div>
 
 你的眼眶热了。
 

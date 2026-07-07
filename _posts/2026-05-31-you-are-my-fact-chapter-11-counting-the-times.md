@@ -26,7 +26,11 @@ summary: "床头那张记号便签，记的是他怕忘掉的、被你爱着这�
 
 你凑近看，那些记号旁边，还有他歪歪扭扭写的小字：
 
-> *Again. Still can't believe she lets me. Don't forget how lucky you are.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>Again. Still can't believe she lets me. Don't forget how lucky you are.</p>
+  </div>
+</div>
 
 你忽然就明白了：他记的从来不是"次数"。他是在给那个什么都会忘掉的、明天的自己留证据——留一份"这件好得不真实的事，真的发生过"的凭据。他怕醒来不敢相信，像你这样的人，会愿意这样靠近他。
 
@@ -92,7 +96,11 @@ summary: "床头那张记号便签，记的是他怕忘掉的、被你爱着这�
 
 你写的是：
 
-> *这些不是次数。是他爱我、也被我爱着的次数。一道，就是一次"我愿意"。*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>这些不是次数。是他爱我、也被我爱着的次数。一道，就是一次"我愿意"。</p>
+  </div>
+</div>
 
 他凑过来看，看不太懂，却莫名地红了眼眶——有些话，他不必读懂，身体也先一步收到了。
 

@@ -204,7 +204,12 @@ Leo 死死盯着他，那双冷眼里，没有半分动摇。他不认得"Teddy"
 
 你不需要把那张便条念出来。你太清楚上面写着什么。那是他在上一桩风波之后，郑重地留给那个会一遍遍忘记的自己的规矩：
 
-> *Don't be gentle with anyone who threatens her. ALWAYS PROTECT HER.*
+<div class="c-note" role="group" aria-label="便条">
+  <div class="c-note__body">
+    <p>Don't be gentle with anyone who threatens her.</p>
+    <p style="font-style:normal;letter-spacing:.03em">ALWAYS PROTECT HER.</p>
+  </div>
+</div>
 
 遇到威胁她的人，别心软。永远护着她。
 
