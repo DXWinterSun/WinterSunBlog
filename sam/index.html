@@ -286,7 +286,8 @@ title: Sam
       <div class="c-sam-card__body">
         <div class="c-sam-card__eyebrow">{{ s.collection_eyebrow | default: "AU Story · Series" }} <span class="c-sam-card__tab">↗</span></div>
         <h4 class="c-sam-card__title">{{ s.collection_title | default: s.title }}</h4>
-        {% if s.collection_desc %}<p class="c-sam-card__desc">{{ s.collection_desc }}</p>{% endif %}
+        {%- assign card_desc = s.logline | default: s.collection_desc -%}
+        {% if card_desc %}<p class="c-sam-card__desc">{{ card_desc }}</p>{% endif %}
         <div class="c-sam-card__foot">
           <span class="c-sam-card__cta">读这个故事 →</span>
         </div>
