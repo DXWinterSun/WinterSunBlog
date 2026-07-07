@@ -409,6 +409,17 @@
   }
 }
 
+/* 样卡底部极淡的手作署名——细看才发现，不喧宾 */
+.c-sam-card__psig {
+  margin-top: 1px;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: rgba(244, 236, 224, 0.48);
+  white-space: nowrap;
+}
+
 .c-sam-card__body {
   flex: 1 1 auto;
   display: flex;
