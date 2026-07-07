@@ -195,6 +195,52 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
 
 新建系列时，如果不确定演员是谁，先问用户再写。
 
+## ⚠️ byline 里的片名必须是「完整、准确」的官方全名
+
+`c-hero__byline-text` 里引用的电影 / 剧集名，**必须核对成完整官方全名**，
+不能想当然地用通称或简称。写新系列、或顺手经过旧系列时都核一遍。
+
+常见坑（都是被截短的）：
+
+| ❌ 简称 / 通称 | ✅ 官方全名 |
+|---|---|
+| Three Billboards | Three Billboards Outside Ebbing, Missouri |
+| Hitchhiker's Guide | The Hitchhiker's Guide to the Galaxy |
+
+规则：
+- 片名拿不准时**先查证再写**，别凭印象填一个短的。
+- 只有当这个 AU 是**原创设定 / 历史 / 神话**（没有具体出处影视作品）时，
+  byline 才用「设定 / 时代」代替片名（如 `Alexios · Mediterranean`、
+  `Menelaus · Greek Mythology`、`Charles II · 1660 Restoration`）——这类不需要核片名。
+- 片名只出现在 byline / 设定档案，**不进标题**（标题用角色名，见上文）。
+
+## 系列「基调」卡片（`logline` 字段）
+
+每个系列首页 front matter 都应有一个 `logline:` 字段——一句偏**客观、官方**的
+「基调 + 讲什么」简介，1–2 句。模板（`_layouts/series.html`）会自动把它渲染成
+封面图下方、章节目录上方的一张「基调 · Tone」卡片，样式随该系列 AU 配色自动明暗翻转，
+**新系列写了就有，无需手动改模板**。
+
+```yaml
+logline: "一篇温暖治愈、慢热向的救赎故事。全镇都认定 Jason Dixon 是个莽撞暴躁的失败警察，只有你陪着他一点点卸下盔甲，找回那个连他自己都快忘了的、干净又柔软的人。"
+```
+
+**它和 hero 里那句 `c-hero__lede` 引言功能不同，别写重、别混淆：**
+
+| | `c-hero__lede`（图上方） | `logline`（图下方卡片） |
+|---|---|---|
+| 功能 | 情绪钩子 | 官方简介 |
+| 语气 | 感性、诗意、第二人称 | 客观、克制、点明基调 |
+| 内容 | 一句戳心的画面 / 悬念 | 先说基调（温馨 / 暗涌 / 救赎…），再一句梗概 |
+| 人称 | 常用「你 / 他」直接呼唤 | 描述性，像内容简介 |
+
+写法要点：
+1. **先点基调**（卡片标签就叫「基调」）：温馨治愈 / 暗涌 / 救赎向 / 科幻群像 / 轻喜…
+2. 再用一句话说清「讲的是谁、什么故事」。
+3. ⚠️ **同 summary，`logline` 值用 `"..."` 包裹，内部严禁 ASCII 双引号 `"`**
+   （会截断 YAML、整篇 post 消失）。要引用就用中文「」或《》。
+4. 不确定基调时可参考该系列的 `collection_desc` 和「关于这个系列」正文。
+
 ## ⚠️ 设定总览的内容直接写进系列首页，不要单独建章节 post
 
 设定总览（世界观、人物、信物、基调）的内容全部写在
@@ -256,7 +302,11 @@ title: "English Title · Character AU"      # 英文
 permalink: /series/english-slug/           # 英文，与目录名一致
 nav_active: "AU Story"
 series_name: "English Title"              # 必须与章节的 series: 字段完全一致
+logline: "先点基调（温馨/暗涌/救赎…），再一句梗概。客观官方，别和 hero 情感引言写重。内部严禁 ASCII 双引号。"
 ```
+
+**Hero 里那句 `c-hero__lede` 情感引言、byline 片名要用官方全名**——详见前文
+「`logline` 字段」「byline 里的片名」两节。
 
 **若角色是 Sam Rockwell 本人演的，加：**
 ```yaml

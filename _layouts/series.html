@@ -29,6 +29,19 @@ layout: home
 </a>
 {% endif %}
 
+{% comment %}
+  一句话速览（logline）：偏客观的「基调 + 讲什么」，1–2 句。功能上区别于
+  hero 里那句感性的标志性引言（c-hero__lede）——那句是情绪钩子，这张卡片
+  是官方简介。在 front matter 里写 `logline:` 即出现，位置固定在封面之下、
+  章节目录之上，样式随该系列 AU 配色自动明暗翻转。
+{% endcomment %}
+{% if page.logline %}
+<div class="c-series-logline">
+  <span class="c-series-logline__label">基调 · Tone</span>
+  <p class="c-series-logline__text">{{ page.logline }}</p>
+</div>
+{% endif %}
+
 <section class="c-sam-collection" id="chapters">
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">Chapters</h3>

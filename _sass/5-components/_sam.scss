@@ -108,9 +108,10 @@
   flex-direction: column;
 }
 /* .c-hero (and any unclassed nodes) keep the default order 0 and stay on top. */
-.c-series-page > .c-series-cover  { order: 1; }
-.c-series-page > .c-sam-collection { order: 2; }
-.c-series-page > .c-sam-intro      { order: 3; }
+.c-series-page > .c-series-cover   { order: 1; }
+.c-series-page > .c-series-logline { order: 2; }
+.c-series-page > .c-sam-collection { order: 3; }
+.c-series-page > .c-sam-intro      { order: 4; }
 
 /* A hairline divider before the intro so the demoted prose reads as a
    deliberate "deep dive" section rather than orphaned tail content. */
@@ -148,6 +149,46 @@
 @media (max-width: 600px) {
   .c-series-cover { margin: 0 auto 32px; }
   .c-series-cover__image { aspect-ratio: 3 / 2; }
+}
+
+/* ----- Series logline (one-line "in brief" premise) -----
+   Deliberately NOT the emotional hero quote: upright (not italic), boxed,
+   sits below the cover. The poetic .c-hero__lede stays up by the title; this
+   is the plain-spoken "what kind of story is this". Themes with the AU palette
+   via the shared --c-* tokens ($paper-warm / $line / $accent / $ink-soft). */
+.c-series-logline {
+  width: 100%;
+  max-width: 660px;
+  margin: -20px auto 48px;
+  padding: 22px 30px;
+  text-align: center;
+  background: $paper-warm;
+  border: 1px solid $line;
+  border-radius: 10px;
+}
+.c-series-logline__label {
+  display: block;
+  font-family: $heading-font-family;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 11px;
+}
+.c-series-logline__text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+  color: $ink-soft;
+}
+
+@media (max-width: 600px) {
+  .c-series-logline {
+    margin: -8px auto 36px;
+    padding: 18px 20px;
+  }
+  .c-series-logline__text { font-size: 15px; }
 }
 
 /* ----- Interactive pieces: compact index tiles ----- */
