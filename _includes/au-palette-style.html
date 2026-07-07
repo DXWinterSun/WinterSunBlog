@@ -102,4 +102,19 @@
     letter-spacing: 0.03em; transition: color 0.15s;
   }
   .au-strip__switch:hover{ color: {{ p.accent }}; }
+
+  /* 跳到 Many Faces 画册里这个角色的具体位置 */
+  .au-strip__mf{
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    width: 100%;
+    border-top: 1px solid var(--au-fedge);
+    padding: 8px 8px 5px;
+    font-family: 'EB Garamond', serif; font-style: italic; font-size: 12.5px;
+    letter-spacing: 0.03em; color: var(--c-muted); text-decoration: none;
+    transition: color 0.15s;
+  }
+  .au-strip__mf-icon{ font-style: normal; font-size: 12px; color: {{ p.accent }}; opacity: .85; }
+  .au-strip__mf-arrow{ transition: transform 0.15s; }
+  .au-strip__mf:hover{ color: {{ p.accent }}; }
+  .au-strip__mf:hover .au-strip__mf-arrow{ transform: translateX(3px); }
 </style>

@@ -23,6 +23,7 @@
   bg_en: "Faded Polaroid"
 
 "Tuning the Devil":         # Wild Bill Wharton
+  mf_id: wildbill                # → Many Faces 画册锚点 /sam/many-faces/#wildbill
   theme_id: wildbill
   accent: "#b0803e"
   accent_ink: "#8a5f28"
@@ -35,6 +36,7 @@
   bg_en: "Forge Soot"
 
 "Good Enough":              # Justin Hammer
+  mf_id: hammer                # → Many Faces 画册锚点 /sam/many-faces/#hammer
   theme_id: hammer
   accent: "#4a87ee"
   accent_ink: "#2f63c0"
@@ -47,6 +49,7 @@
   bg_en: "After-Curtain Onyx"
 
 "Zaphod AU":                # Zaphod Beeblebrox
+  mf_id: zaphod                # → Many Faces 画册锚点 /sam/many-faces/#zaphod
   theme_id: zaphod
   accent: "#d4a82a"
   accent_ink: "#927012"
@@ -59,6 +62,7 @@
   bg_en: "Lacquer Black"
 
 "Knox AU":                  # Eric Knox
+  mf_id: eric                # → Many Faces 画册锚点 /sam/many-faces/#eric
   theme_id: knox
   accent: "#d94040"
   accent_ink: "#b13030"
@@ -71,6 +75,7 @@
   bg_en: "Cola Noir"
 
 "Sam Bell · Moon AU":       # Sam Bell
+  mf_id: sam                # → Many Faces 画册锚点 /sam/many-faces/#sam
   theme_id: sambell
   accent: "#7eb0d5"
   accent_ink: "#3f7397"
@@ -83,6 +88,7 @@
   bg_en: "Lunar Blue"
 
 "The Near Side":            # Sam Bell · 救援线 AU（与 Sam Bell · Moon AU 同源色卡 theme_id: sambell）
+  mf_id: sam                # → Many Faces 画册锚点 /sam/many-faces/#sam
   theme_id: sambell
   accent: "#7eb0d5"
   accent_ink: "#3f7397"
@@ -95,6 +101,7 @@
   bg_en: "Near-Side Blue"
 
 "A Single Shot AU":         # John Moon
+  mf_id: john                # → Many Faces 画册锚点 /sam/many-faces/#john
   theme_id: johnmoon
   accent: "#8fa0b0"
   accent_ink: "#54616e"
@@ -107,6 +114,7 @@
   bg_en: "Appalachian Dusk"
 
 "The Cardinal":             # Krzysztof "Kris" Wilk · 色卡同源 sam_themes.yml id: kris
+  mf_id: krzysztof                # → Many Faces 画册锚点 /sam/many-faces/#krzysztof
   theme_id: kris
   accent: "#bc4d3a"
   accent_ink: "#963e2e"
@@ -119,6 +127,7 @@
   bg_en: "Warsaw Indigo"
 
 "Only I Know":              # Jason Dixon · 色卡同源 sam_themes.yml id: dixon
+  mf_id: dixon                # → Many Faces 画册锚点 /sam/many-faces/#dixon
   theme_id: dixon
   accent: "#e2622a"
   accent_ink: "#b04818"
@@ -131,6 +140,7 @@
   bg_en: "Charred Rose"
 
 "The Real Thing":           # Frank Mercer · 猫眼石 + 拍卖行
+  mf_id: frank                # → Many Faces 画册锚点 /sam/many-faces/#frank
   accent: "#c47830"
   accent_ink: "#9c6020"
   bg: "#1a1410"
@@ -219,6 +229,7 @@
   bg_en: "Frontier Dark"
 
 "A Bear and Somewhere Far":  # C.P. "Clay" Ellis · 色卡同源 many-faces id: clay
+  mf_id: clay                # → Many Faces 画册锚点 /sam/many-faces/#clay
   theme_id: clay
   accent: "#b87a3e"
   accent_ink: "#936232"
@@ -231,6 +242,7 @@
   bg_en: "Cicada Nightfall"
 
 "Summer Never Ends":         # Owen · 色卡同源 sam_themes.yml id: owen
+  mf_id: owen                # → Many Faces 画册锚点 /sam/many-faces/#owen
   theme_id: owen
   accent: "#35bfc9"
   accent_ink: "#21767d"

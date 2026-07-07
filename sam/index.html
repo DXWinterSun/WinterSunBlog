@@ -264,7 +264,18 @@ title: Sam
        {%- if pal %} style="--au-accent: {{ pal.accent }}; --au-ink: {{ pal.accent_ink | default: pal.accent }}; --au-bg: {{ pal.bg }};"{% endif %}>
       {%- if cover %}
       <div class="c-sam-card__cover" style="background-image: url('{{ cover | prepend: '/images/' | prepend: site.baseurl }}')">
-        {%- if pal %}<span class="c-sam-card__chip" title="{{ pal.accent_cn }} · {{ pal.accent_en }}"></span>{% endif %}
+        {%- if pal %}
+        <div class="c-sam-card__palette" aria-label="{{ pal.accent_cn }} · {{ pal.bg_cn }}">
+          <span class="c-sam-card__pcol">
+            <i style="background: {{ pal.accent }}"></i>
+            <span class="c-sam-card__pname"><b>{{ pal.accent_cn }}</b><em>{{ pal.accent_en }}</em></span>
+          </span>
+          <span class="c-sam-card__pcol">
+            <i style="background: {{ pal.bg }}"></i>
+            <span class="c-sam-card__pname"><b>{{ pal.bg_cn }}</b><em>{{ pal.bg_en }}</em></span>
+          </span>
+        </div>
+        {%- endif %}
       </div>
       {%- endif %}
       <div class="c-sam-card__body">
@@ -273,7 +284,6 @@ title: Sam
         {% if s.collection_desc %}<p class="c-sam-card__desc">{{ s.collection_desc }}</p>{% endif %}
         <div class="c-sam-card__foot">
           <span class="c-sam-card__cta">读这个故事 →</span>
-          {%- if pal %}<span class="c-sam-card__color" aria-hidden="true">{{ pal.accent_cn }}</span>{% endif %}
         </div>
       </div>
     </a>
