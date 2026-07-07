@@ -265,7 +265,11 @@ title: Sam
       {%- if cover %}
       <div class="c-sam-card__cover">
         <div class="c-sam-card__cover-img" style="background-image: url('{{ cover | prepend: '/images/' | prepend: site.baseurl }}')"></div>
-        {%- if pal %}
+      </div>
+      {%- endif %}
+      <div class="c-sam-card__body">
+        {%- if pal and cover %}
+        {%- comment -%} 色卡骑在图片/正文接缝上：大部分落在纸面，只顶边搭住照片下沿，避免盖住人物 {%- endcomment -%}
         <div class="c-sam-card__palette" aria-label="他的专属配色 · {{ pal.accent_cn }} · {{ pal.bg_cn }}">
           <span class="c-sam-card__pcap">他的专属配色</span>
           <span class="c-sam-card__pcols">
@@ -281,9 +285,6 @@ title: Sam
           <span class="c-sam-card__psig" aria-hidden="true">♡ Winter Sun · 亲手调制，只为 Sam</span>
         </div>
         {%- endif %}
-      </div>
-      {%- endif %}
-      <div class="c-sam-card__body">
         <div class="c-sam-card__eyebrow">{{ s.collection_eyebrow | default: "AU Story · Series" }} <span class="c-sam-card__tab">↗</span></div>
         <h4 class="c-sam-card__title">{{ s.collection_title | default: s.title }}</h4>
         {%- assign card_desc = s.logline | default: s.collection_desc -%}

@@ -340,22 +340,23 @@
   }
 }
 
-/* 悬浮在封面左下角的「双色样卡」：顶部一句说明 + accent/bg 两色（中英名）。
-   自带深色玻璃底 + 抬起的投影，明确浮在照片之上，且不随图片缩放。 */
+/* 「双色样卡」：顶部一句说明 + accent/bg 两色（中英名）。
+   骑在图片/正文接缝上——负的上外边距把它上提，只用顶边搭住照片下沿，
+   大部分落在纸面区，避免盖住剧照里的人物。自带深色玻璃底，明暗都清晰。 */
 .c-sam-card__palette {
-  position: absolute;
-  left: 12px;
-  bottom: 12px;
+  position: relative;
   z-index: 2;
+  align-self: flex-start;
+  margin: -38px 0 16px;
   display: flex;
   flex-direction: column;
   gap: 7px;
   padding: 9px 12px 10px;
   border-radius: 10px;
-  background: rgba(16, 13, 10, 0.62);
+  background: rgba(16, 13, 10, 0.66);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.40), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
   transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s;
 }
 
