@@ -6,6 +6,7 @@
 {%- assign p = site.data.au_palettes[key] -%}
 {%- if p -%}
 <div class="au-strip" aria-label="系列配色 · Palette">
+  <span class="au-strip__caption">他的专属配色 · 点下方可试用</span>
   <span class="au-strip__perf"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
   <span class="au-strip__frames">
     <span class="au-strip__frame">
@@ -23,11 +24,9 @@
     {% if p.theme_id %}data-au-theme="{{ p.theme_id }}"{% endif %}
     data-au-accent="{{ p.accent }}"
     {% if p.accent_ink %}data-au-accent-ink="{{ p.accent_ink }}"{% endif %}
-    data-au-bg="{{ p.bg }}" data-au-text="{{ p.text }}" data-au-muted="{{ p.muted }}">穿上他的颜色</button>
+    data-au-bg="{{ p.bg }}" data-au-text="{{ p.text }}" data-au-muted="{{ p.muted }}"><span class="au-strip__ico" aria-hidden="true">◑</span>穿上他的颜色</button>
   {%- if p.mf_id %}
-  <a class="au-strip__mf" href="{{ site.baseurl }}/sam/many-faces/#{{ p.mf_id }}">
-    <span class="au-strip__mf-icon" aria-hidden="true">◎</span>在 Many Faces 画册里找他<span class="au-strip__mf-arrow" aria-hidden="true"> →</span>
-  </a>
+  <a class="au-strip__mf" href="{{ site.baseurl }}/sam/many-faces/#{{ p.mf_id }}"><span class="au-strip__ico" aria-hidden="true">◎</span>在 Many Faces 里找他</a>
   {%- endif %}
 </div>
 {%- endif -%}
