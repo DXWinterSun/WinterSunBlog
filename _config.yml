@@ -62,6 +62,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - _archive
 
 gallery_images:
   - counting-stars.png
