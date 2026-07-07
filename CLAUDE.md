@@ -209,6 +209,8 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
   Creed Odyssey）没有真人演员，可省略演员段。不确定演员是谁 → 先问用户再写。
 - **状态**：`ongoing` / `complete` / `oneshot`。
 - `设定档案` 里角色名后面也加演员名：`<strong>Hector Escaton（Rodrigo Santoro）</strong>`。
+  BayBay 的角色在设定档案里写全名，格式 `<strong>Charles II（BayBay · Mathew Baynton）</strong>`——
+  byline 用昵称 BayBay，设定档案里带上全名让读者知道他是谁。
 
 ## ⚠️ byline 里的「作品出处」必须是完整、准确的官方全名
 
