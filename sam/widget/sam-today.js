@@ -5,9 +5,15 @@
 //  支持 小 / 中 / 大 三种尺寸，自动适配。
 // ============================================================
 
-// ── 可自定义（改这两行即可）──────────────────────────────────
+// ── 可自定义（改这三行即可）──────────────────────────────────
 const FONT = "serif";     // "serif"（衬线，接近网站）｜ "system"（系统默认）
 const SHOW_GLOSS = true;  // 中号/大号是否显示中文翻译
+const PIN = "";           // 固定角色/固定某一句，留空 = 跟着全站每天轮换。
+                           // 从台词墙（/sam/wall/）「📌 复制到桌面小组件」按钮
+                           // 复制代码粘到这对引号里：填「krzysztof」锁定这个人
+                           // （仍在他 5 句里按天换）；填「krzysztof:2」锁死这一句。
+                           // 改完这一行，保存脚本即可——不用去 iOS 那边找小组件的
+                           // 「参数」设置。
 // ────────────────────────────────────────────────────────────
 
 const DATA_URL = "https://dxwintersun.github.io/WinterSunBlog/sam/lines.json";
@@ -51,14 +57,15 @@ async function getData() {
 }
 
 // ── 固定角色 / 固定某一句（可选）──────────────────────────────
-// 长按小组件 →「编辑小组件」→「参数」，填入：
-//   角色 id           例如 krzysztof        → 锁定这个角色，仍在他的 5 句里按天轮换
-//   角色 id:第几句     例如 krzysztof:2      → 锁死这一句，永远不变
-// 代码从台词墙页面（/sam/wall/）每张卡片的「📌 复制到桌面小组件」按钮里拿。
-// 留空 = 和以前一样，跟着网站全站两百多句每日轮换。参数写错也不会让小组件
-// 报错——找不到对应角色时自动退回全站轮换。
+// 优先读顶部那行 PIN 常量（改脚本里的一行文字，最简单）；PIN 留空的话，
+// 兼容读一下小组件自带的「参数」（长按小组件→编辑小组件→参数），给已经
+// 会用这个的人用。两处都留空 = 和以前一样，跟着网站全站两百多句每日轮换。
+// 格式：「角色id」锁定这个角色，仍在他 5 句里按天轮换；「角色id:第几句」
+// 锁死这一句永远不变。参数写错/角色不存在也不会让小组件报错——自动退回
+// 全站轮换。
 function pickQuote(data) {
-  const raw = ((typeof args !== "undefined" && args.widgetParameter) || "").trim();
+  const fromParam = (typeof args !== "undefined" && args.widgetParameter) || "";
+  const raw = (PIN || fromParam || "").trim();
   if (!raw) return { c: data.pool[todayIndex(data.pool.length)], pinned: false };
 
   const bits = raw.split(":");

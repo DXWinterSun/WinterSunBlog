@@ -107,6 +107,22 @@ function mfHrefFor(charId, meta) {
   return "/WinterSunBlog/sam/many-faces/#" + (alias[charId] || charId);
 }
 
+// 复制到桌面小组件：不给短代码，给一份改好 PIN、能直接整段替换粘贴的
+// 完整脚本。实时 fetch 小组件源文件（缓存一份，不用每次点都重新拉取），
+// 只有这一处是脚本内容的唯一来源——不在这个页面里另存一份副本，脚本
+// 更新了这里自动跟着新，不用手动同步。
+let __scriptTemplatePromise = null;
+function getWidgetScriptTemplate() {
+  if (!__scriptTemplatePromise) {
+    __scriptTemplatePromise = fetch("/WinterSunBlog/sam/widget/sam-today.js", { cache: "no-cache" })
+      .then(function (r) { return r.text(); });
+  }
+  return __scriptTemplatePromise;
+}
+function buildPinnedScript(template, pin) {
+  return template.replace('const PIN = "";', 'const PIN = "' + pin + '";');
+}
+
 // 角色专属色卡（换个心情 / 十二色卡同一份数据），来自 js/sam-themes-data.js
 // 注入的 window.__SAM_THEMES（由 _data/sam_themes.yml 经 Jekyll 渲染而来）。
 // 用同一套 mf_alias 找到对应条目（sam_themes.yml 的 anchor 字段 = 画册 id）。
@@ -171,13 +187,19 @@ function ColorStrip({ theme }) {
   );
 }
 
-function Hero({ c, onDraw, mfHref, theme, widgetCode }) {
-  const [copied, setCopied] = useState(false);
-  function copyWidgetCode() {
+function Hero({ c, onDraw, mfHref, theme, quotePin, charPin }) {
+  // copyState: null | "quote-busy" | "quote-done" | "char-busy" | "char-done"
+  const [copyState, setCopyState] = useState(null);
+  function copyFullScript(pin, key) {
     if (!(navigator.clipboard && navigator.clipboard.writeText)) return;
-    navigator.clipboard.writeText(widgetCode).then(function () {
-      setCopied(true);
-      setTimeout(function () { setCopied(false); }, 2200);
+    setCopyState(key + "-busy");
+    getWidgetScriptTemplate().then(function (template) {
+      return navigator.clipboard.writeText(buildPinnedScript(template, pin));
+    }).then(function () {
+      setCopyState(key + "-done");
+      setTimeout(function () { setCopyState(null); }, 2600);
+    }).catch(function () {
+      setCopyState(null);
     });
   }
   return (
@@ -231,14 +253,35 @@ function Hero({ c, onDraw, mfHref, theme, widgetCode }) {
             borderBottom: "1px solid " + c.muted + "55", paddingBottom: 2,
           }}>在画册里看看他 &rarr;</a>
         )}
-        {widgetCode && (
-          <button onClick={copyWidgetCode} title="复制这句的代码，粘贴进桌面小组件的「参数」栏" style={{
-            fontFamily: SERIF, fontSize: 12.5, color: copied ? c.accent : c.muted,
-            background: "transparent", border: "1px dashed " + (copied ? c.accent : c.muted) + "70",
-            borderRadius: 999, padding: "8px 15px",
-          }}>{copied ? "已复制 ✓ 粘贴进小组件参数栏" : "📌 复制到桌面小组件"}</button>
-        )}
       </div>
+
+      {(quotePin || charPin) && (
+        <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid " + c.accent + "22" }}>
+          <div style={{ fontFamily: TYPE, fontSize: 9.5, letterSpacing: 1.5, color: c.muted, textTransform: "uppercase", marginBottom: 10 }}>
+            📌 复制到桌面小组件 —— 拿到的是整份可直接替换粘贴的完整脚本
+          </div>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            {quotePin && (
+              <button onClick={function () { copyFullScript(quotePin, "quote"); }} title="复制完整脚本，锁死只显示这一句" style={{
+                fontFamily: SERIF, fontSize: 12.5, color: copyState === "quote-done" ? c.accent : c.muted,
+                background: "transparent", border: "1px dashed " + (copyState === "quote-done" ? c.accent : c.muted) + "70",
+                borderRadius: 999, padding: "8px 15px",
+              }}>
+                {copyState === "quote-busy" ? "生成中…" : copyState === "quote-done" ? "已复制 ✓ 全选替换小组件里的代码" : "复制完整脚本 · 只这一句"}
+              </button>
+            )}
+            {charPin && (
+              <button onClick={function () { copyFullScript(charPin, "char"); }} title="复制完整脚本，锁定这个角色，仍在他的几句里按天轮换" style={{
+                fontFamily: SERIF, fontSize: 12.5, color: copyState === "char-done" ? c.accent : c.muted,
+                background: "transparent", border: "1px dashed " + (copyState === "char-done" ? c.accent : c.muted) + "70",
+                borderRadius: 999, padding: "8px 15px",
+              }}>
+                {copyState === "char-busy" ? "生成中…" : copyState === "char-done" ? "已复制 ✓ 全选替换小组件里的代码" : "复制完整脚本 · 他的全部轮换"}
+              </button>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -362,7 +405,8 @@ function App() {
   const todayCharId = pool[todayIndex(pool.length)].charId;
   const selectedChar = data.characters.find(function (c) { return c.id === selectedId; }) || data.characters[0];
   const activeQuoteIdx = selectedChar.quotes.findIndex(function (q) { return q.line === activeQuote.line; });
-  const widgetCode = selectedChar.id + (activeQuoteIdx >= 0 ? ":" + (activeQuoteIdx + 1) : "");
+  const quotePin = selectedChar.id + (activeQuoteIdx >= 0 ? ":" + (activeQuoteIdx + 1) : "");
+  const charPin = selectedChar.id;
 
   function syncUrl(charId) {
     if (!(window.history && window.history.replaceState)) return;
@@ -447,7 +491,7 @@ function App() {
         </nav>
 
         <div className="wall-detail" ref={detailRef}>
-          <Hero c={activeQuote} onDraw={drawRandom} mfHref={mfHrefFor(selectedChar.id, data.meta)} theme={themeFor(selectedChar.id, data.meta)} widgetCode={widgetCode} />
+          <Hero c={activeQuote} onDraw={drawRandom} mfHref={mfHrefFor(selectedChar.id, data.meta)} theme={themeFor(selectedChar.id, data.meta)} quotePin={quotePin} charPin={charPin} />
           <div style={{
             display: "grid", gap: 13, marginTop: 22,
             gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 258px), 1fr))",
