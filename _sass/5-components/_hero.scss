@@ -7,6 +7,11 @@
   text-align: center;
 }
 
+/* Sam 页专属：引言下方紧跟日更计数器，收紧二者间距（只作用于 /sam/） */
+.c-hero--sam {
+  padding-bottom: 20px;
+}
+
 /* Only show the hero matching the active filter / view */
 [data-hero-id] { display: none; }
 :root:not([data-hero-active]) [data-hero-id="all"] { display: block; }

@@ -3,7 +3,7 @@ layout: home
 title: Sam
 ---
 
-<section class="c-hero">
+<section class="c-hero c-hero--sam">
   {% if site.author-image %}
   <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
     <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
@@ -39,7 +39,7 @@ title: Sam
       <span class="c-streak__fill" id="streak-fill"></span>
     </div>
     <div class="c-streak__goal" id="streak-goal">距离日更满一周年的那天……</div>
-    <p class="c-streak__caption">从六年前的一次偶遇，到此刻的每日一更——这一栏，是我专为他留下的位置。</p>
+    <p class="c-streak__caption">从六年前的一次偶遇，到此刻的每日一更——这一栏，是我专为他留下的位置。<br>自 2026 年情人节的前一天起，我每天更新一点他：一张照片、一段切片、或一句访谈，一天没落下。</p>
   </div>
 
   <p class="c-sam-fold-hint">点标题展开 / 收起 · 一次读一节</p>
@@ -278,22 +278,12 @@ title: Sam
     </div>
   </details>
 
-  <details class="c-sam-fold" name="sam-story" id="every-day-since">
-    <summary class="c-sam-fold__head">
-      <span class="c-sam-fold__titles"><span class="c-sam-fold__en">Every Day Since</span><span class="c-sam-fold__cn">每日一更</span></span>
-      <span class="c-sam-fold__chev" aria-hidden="true">▸</span>
-    </summary>
-    <div class="c-sam-fold__body">
-
-  <p>
-    自 2026 年 2 月 13 日——情人节的前一天——起，我开始在小红书每日更新一点和他相关的东西。或一张照片，或一段影视切片，或一段访谈……我从没对任何事如此坚持过，但对他，我一天都没落下。
-  </p>
-
-  {%- comment -%} 日更计数器 .c-streak 已提到页面顶部（hero 下方，见文首）；下面的 style / script 保留在此、全局生效 {%- endcomment -%}
+  {%- comment -%} 「每日一更」已并入页面顶部的 .c-streak 计数器（hero 下方，见文首），
+       原独立折叠块删除，避免与顶部计数器重复；下面的 style / script 保留在此、全局生效 {%- endcomment -%}
   <style>
     /* 计数器完全用站点主题变量：跟随明暗切换 + 主题色选择器（--c-accent 等） */
     .c-streak {
-      margin: 34px 0 8px;
+      margin: 8px 0;
       padding: 32px 28px 28px;
       border: 1px solid rgba(var(--rgb-accent), .28);
       border-radius: 16px;
@@ -340,10 +330,11 @@ title: Sam
     }
     /* 这句话作为计数器的「设计脚注」：卡内、一条淡分隔线之下的斜体小字 */
     .c-streak__caption {
-      max-width: 440px; margin: 22px auto 2px; padding-top: 16px;
+      max-width: 480px; margin: 22px auto 2px; padding-top: 16px;
       border-top: 1px solid rgba(var(--rgb-accent), .18);
       font-family: 'EB Garamond', 'Noto Serif SC', serif; font-style: italic;
       font-size: clamp(13.5px, 3.4vw, 15px); line-height: 1.72; color: var(--c-muted);
+      text-align: center; text-wrap: balance;
     }
   </style>
   <script>
@@ -378,15 +369,6 @@ title: Sam
       }
     })();
   </script>
-
-  <p class="c-sam-intro__closing">
-    我很期待 2027 年的同一天——日更满一周年的那天——<br>
-    我还在继续更新。
-  </p>
-
-      <button type="button" class="c-sam-fold__collapse">▲ 收起本节</button>
-    </div>
-  </details>
 </article>
 
 <script>
