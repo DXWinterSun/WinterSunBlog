@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Six Dimensions · 六维光谱 · Winter Sun</title>
-<meta name="description" content="狡黠、隐忍、疯狂、璞真、浪漫、优雅——四十个 Sam Rockwell 角色的性格光谱地图。">
+<meta name="description" content="狡黠、隐忍、疯狂、璞真、浪漫、优雅——四十一个 Sam Rockwell 角色的性格光谱地图。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Six Dimensions · 六维光谱 · Winter Sun">
-<meta property="og:description" content="六个维度，四十张面孔。看清他其实演过多少种人。">
+<meta property="og:description" content="六个维度，四十一张面孔。看清他其实演过多少种人。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/spectrum/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
@@ -65,6 +65,7 @@ const CHARS = [
   {id:"wayne",name:"Wayne",film:"Loitering with Intent",filmCN:"《十日编剧手册》",year:"2014",label:"MEANT IT ALL ALONG",line:"I called it a joke so it wouldn't hurt when you said no. You said yes.",lineCN:"我假装是玩笑，这样你拒绝时我才不会疼——可你说了「我愿意」。",tagline:"他一直叫你小姑娘，结果这个小姑娘成了他的未婚妻。",bg:"#1e2418",accent:"#c8a050",text:"#e8e4d0",muted:"#8a7a48",profile:{guile:3,forbear:9,chaos:5,raw:6,romance:7,grace:3},auLink:null},
   {id:"craig",name:"Craig",film:"Laggies",filmCN:"《迟来的告白》",year:"2014",label:"WHY PEOPLE START",line:"I end marriages for a living. With you, I remembered why people start them.",lineCN:"我靠终结婚姻为生——和你在一起，我才想起人们为什么开始。",tagline:"他是个离婚律师，可他从没放弃相信爱情。",bg:"#241a14",accent:"#c89060",text:"#ede0d0",muted:"#a07858",profile:{guile:5,forbear:7,chaos:3,raw:5,romance:7,grace:6},auLink:null},
   {id:"francis",name:"Francis Munch",film:"Mr. Right",filmCN:"《真命天子》",year:"2015",label:"AND HE NEVER LIES",line:"I never lie. So believe this one: I'd kill for you.",lineCN:"我从不说假话——所以这句你要信：我会为你杀人。",tagline:"他危险，但他记得你喜欢哪种花。",bg:"#14241a",accent:"#e23b2e",text:"#eed9d8",muted:"#628d72",profile:{guile:5,forbear:2,chaos:8,raw:9,romance:9,grace:10},auLink:null},
+  {id:"donverdean",name:"Don Verdean",film:"Don Verdean",filmCN:"《唐·维尔登》",year:"2015",label:"SIGNS AND WONDERS",line:"Every relic I dig up is a lie. I'm not.",lineCN:"我挖出的每一件圣物都是假的。我不是。",tagline:"他满口都是假的神迹——你是唯一看穿了、却还愿意留下的信徒。",bg:"#1a1410",accent:"#c69a4b",text:"#ece2cd",muted:"#9d8a66",profile:{guile:7,forbear:5,chaos:4,raw:7,romance:7,grace:6},auLink:"/WinterSunBlog/series/faith-unseen/"},
   {id:"dixon",name:"Jason Dixon",film:"Three Billboards Outside Ebbing, Missouri",filmCN:"《三块广告牌》",year:"2017",label:"TRYIN' EVERY DAY",line:"I'm no good at this. But I'm tryin' — every damn day — to be who you saw.",lineCN:"我不擅长这个。可我每天都在拼命，想成为你看见的那个我。",tagline:"他会为你打架，也会笨拙地为你写道歉信。",bg:"#241015",accent:"#e2622a",text:"#f5e6d3",muted:"#8d626d",profile:{guile:2,forbear:2,chaos:6,raw:9,romance:1,grace:2},auLink:null},
   {id:"eddie",name:"Eddie",film:"Blue Iguana",filmCN:"《蓝蜥蜴》",year:"2018",label:"PLAYING IT OUT",line:"Never been dealt a good hand. But this one I'll play with you till the end.",lineCN:"我这辈子没拿过一手好牌——可这一手，我要和你打到底。",tagline:"他是个倒霉蛋，可倒霉得让你想笑、想心疼、想替他打架。",bg:"#1a1f24",accent:"#2e9fd4",text:"#dce5ea",muted:"#7a8088",profile:{guile:4,forbear:4,chaos:5,raw:7,romance:7,grace:4},auLink:null},
   {id:"bush",name:"George W. Bush",film:"Vice",filmCN:"《副总统》",year:"2018",label:"JUST A COWBOY",line:"Everybody's watchin' the most powerful man in the world. You're just watchin' some cowboy from Texas.",lineCN:"全世界都盯着那个「最有权力的人」——你盯着的，不过是个德州来的牛仔。",tagline:"权力坐在他肩上，他只顾舔指尖；他满不在乎，你满不设防。",bg:"#16181e",accent:"#c98a3e",text:"#f1e3cb",muted:"#626d8d",profile:{guile:3,forbear:2,chaos:8,raw:9,romance:5,grace:5},auLink:null},
@@ -99,8 +100,8 @@ const AVERAGE = (() => {
     p[d.key] = CHARS.reduce((s, c) => s + c.profile[d.key], 0) / CHARS.length;
   });
   return {
-    id: "__avg", name: "四十个他 · 平均的 Sam", film: "The Average of Forty Faces",
-    filmCN: "四十张面孔叠在一起", year: "", label: "THE MEAN OF ALL",
+    id: "__avg", name: "四十一个他 · 平均的 Sam", film: "The Average of Forty-One Faces",
+    filmCN: "四十一张面孔叠在一起", year: "", label: "THE MEAN OF ALL",
     tagline: "把他演过的每一个人叠在一起，露出的那张脸。",
     line: "", lineCN: "", accent: AVG_ACCENT, text: "#ede2d0", muted: "#8a7558",
     bg: "#1a1610", profile: p, auLink: null, isAvg: true,
@@ -256,7 +257,7 @@ function App() {
           fontSize: "clamp(14px,3.8vw,16px)", lineHeight: 2, color: "#a08b6b",
         }}>
           狡黠、隐忍、疯狂、璞真、浪漫、优雅——<br />
-          同一个人，四十种配比。选一个角色，看他的形状；<br />
+          同一个人，四十一种配比。选一个角色，看他的形状；<br />
           或者就停在<span style={{ color: "#cba14c" }}>平均的那张脸</span>上。
         </p>
       </header>
@@ -300,11 +301,11 @@ function App() {
 
         <div>
           <div style={{ fontFamily: TYPE, fontSize: 11, letterSpacing: 2.5, color: "#8a7558", textTransform: "uppercase", marginBottom: 20 }}>
-            在四十人里的位置
+            在四十一人里的位置
           </div>
           {DIMS.map(d => <Strip key={d.key} dim={d} selIdx={selIdx} />)}
           <p style={{ fontFamily: SERIF, fontSize: 11.5, color: "#5f5340", lineHeight: 1.7, marginTop: 4 }}>
-            每个点是一个角色，横轴是该维度 0→10。虚线六边形是四十人的平均。
+            每个点是一个角色，横轴是该维度 0→10。虚线六边形是四十一人的平均。
           </p>
         </div>
       </section>

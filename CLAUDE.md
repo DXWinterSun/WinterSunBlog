@@ -100,6 +100,42 @@ collection_desc: "一两句简介，钩子即可。"   # 卡片描述
 
 不确定某个角色是不是 Sam 演的，就先问用户，别擅自加 flag。
 
+## ⚠️ 新增一个 Sam 角色 = 要同步「四个彩蛋 + 计数总闸」
+
+画册（many-faces）只是 Sam 彩蛋区的**四个页面之一**，它们共用**同一批角色**。
+**新增 / 删除一个 Sam 角色时，四处角色数组都要一起改，漏一个那个彩蛋里就没有他。**
+（Don Verdean 那次就是只加了画册，quiz / 光谱 / 台词墙全漏了，计数还停在 40。）
+
+四个彩蛋 + 各自的角色数据源：
+
+| 彩蛋 | 页面 | 角色数据在哪 | 每个角色要给什么 |
+|---|---|---|---|
+| 面孔图鉴 | `sam/many-faces/index.html` | 内嵌 `const characters` 数组 | 全字段 + `inscription` + 六维 `profile` |
+| 角色测验 | `sam/quiz/index.html` | 内嵌 `const CHARS` 数组 | 六维 `profile`（+ tagline / 锚句 / 色 / auLink） |
+| 六维光谱 | `sam/spectrum/index.html` | 内嵌 `const CHARS` 数组 | 六维 `profile` + 锚句 label/line/lineCN + tagline + 色 |
+| 台词签名墙 / 每日一句 / 桌面小组件 | `sam/wall/`·`sam/today/`·`sam/widget/` | 唯一数据源 **`sam/lines.json`** | **5 句台词**（`characters` 数组 + round-robin 重建 `pool`） |
+
+**`sam/lines.json` 要点：**
+- `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。
+- `pool`：是 `characters` 的 **5 轮 round-robin 展开**（第 r 轮 = 每个角色第 r 句），
+  加人后**从 `characters` 重新生成整个 pool**（脚本：`pool=[entry(chars[i],chars[i].quotes[r]) for r in 0..4 for i in 0..N-1]`），别手插。
+- `meta.characters_count` / `meta.pool_count` 要一起更新（= N / 5N）。
+- `mf_alias`：仅当角色 id ≠ 画册锚点 id 时才加一条；相同则不用。
+
+**计数总闸 `_data/sam.yml`：** `faces`（角色数）、`wall_lines`（台词数 = 5×角色数）。
+首页 `sam/index.html` 三张卡的计数从这里读，**改这一个文件，首页三处一起更新**。
+
+**但仍有几处「四十 / 两百」是硬编码、不吃 sam.yml，加人后要手动搜改：**
+`sam/index.html` 签名墙卡标题（「两百余句」）、`sam/quiz` 结果页 `["41","个角色"]`、
+`sam/spectrum` 的 SEO + `__avg` 平均脸的 name/film/filmCN + 三处「四十一人」文案、
+`sam/today`·`sam/wall`·`sam/spectrum` 的 `<meta>` SEO 描述。
+**加完人统一 `grep -rn "四十\|两百\|40 个\|200 句" sam/`（排除 `四十年/四十岁` 等正文）扫一遍补干净。**
+
+**台词（5 句）与画册 inscription 的关系：** 每个角色 5 句台词里第 1 句 `kind:"锚"`，
+**就是画册 `inscription` 那一句**（label/line/gloss 三处必须对上）。且所有 inscription /
+台词都是**第一人称**（角色对「你」说话），不是旁白第三人称——外部交付时若给成第三人称，
+部署前改成第一人称。
+
 ## ⚠️ `series:` 字段必须用英文（ASCII）
 
 **绝对不能用中文做 `series:` 的值。**
