@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>放映室 · Winter Sun</title>
-<meta name="description" content="一间只为你亮灯的放映厅。他演过的每一个角色，一格一格走过投影光束，按下播放就好。">
+<meta name="description" content="一间只为你亮灯的放映厅。Sam Rockwell 演过的每一个角色，一格一格走过投影光束，按下播放就好。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="放映室 · Winter Sun">
-<meta property="og:description" content="一间只为你亮灯的放映厅。他演过的每一个角色，一格一格走过投影光束。">
+<meta property="og:description" content="一间只为你亮灯的放映厅。Sam Rockwell 演过的每一个角色，一格一格走过投影光束。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/projector/">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0a0908" id="theme-color">
@@ -139,6 +139,17 @@
     font-size: clamp(9px, 2.4vw, 11px); letter-spacing: 3px; text-transform: uppercase;
     color: var(--muted); margin-bottom: clamp(10px, 2.6vh, 22px);
     transition: color 1.4s ease;
+  }
+  .frame__starring {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: clamp(8px, 2.2vw, 10px); letter-spacing: 4px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: clamp(8px, 1.8vh, 14px);
+    transition: color 1.4s ease;
+  }
+  .frame__starring em {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    text-transform: none; letter-spacing: 1px; font-size: 1.2em;
+    color: var(--accent); transition: color 1.4s ease;
   }
   .frame__name {
     font-family: 'Playfair Display', serif; font-weight: 700;
@@ -442,6 +453,7 @@
 
     <div class="frame" id="frame" hidden>
       <div class="frame__eyebrow" id="f-eyebrow"></div>
+      <div class="frame__starring">Sam Rockwell <em>as</em></div>
       <h1 class="frame__name" id="f-name"></h1>
       <div class="frame__film" id="f-film"></div>
       <div class="frame__label" id="f-label"></div>
@@ -715,7 +727,7 @@
     frameEl.hidden = true;
     reelEl.textContent = "REEL " + chars.length + " / " + chars.length + " · FIN";
     var lines = chars.reduce(function (sum, c) { return sum + (c.quotes ? c.quotes.length : 0); }, 0);
-    $("fin-stats").textContent = chars.length + " faces · " + lines + " lines · one room";
+    $("fin-stats").textContent = chars.length + " faces · " + lines + " lines · one Sam";
     // 回到暖色调收尾
     document.documentElement.style.setProperty("--accent", "#cba14c");
     document.documentElement.style.setProperty("--bg", "#14110d");
@@ -838,7 +850,7 @@
         enLines = wrap(ctx, q.line || "", w - 140);
         ctx.font = '300 ' + cnSize + 'px "Noto Serif SC", serif';
         cnLines = wrap(ctx, q.lineCN || "", w - 160);
-        totalH = 22 + 20 + 62 + 16 + 30 + 30 + 20 + 16 +
+        totalH = 22 + 20 + 34 + 62 + 16 + 30 + 30 + 20 + 16 +
                  enLines.length * (qSize * 1.4) + 18 + cnLines.length * (cnSize * 1.7) + 26 + 18;
         if (totalH > h - 70) { qSize -= 2; cnSize -= 1; }
         tries++;
@@ -848,6 +860,10 @@
       ctx.fillStyle = c.muted; ctx.font = '22px "Special Elite", monospace'; sp(ctx, 7);
       ctx.fillText(("REEL " + reelNo + " · " + c.year).toUpperCase(), cx, ty + 16); sp(ctx, 0);
       ty += 22 + 20;
+
+      ctx.fillStyle = c.muted; ctx.font = '19px "Special Elite", monospace'; sp(ctx, 6);
+      ctx.fillText("SAM ROCKWELL AS", cx, ty + 14); sp(ctx, 0);
+      ty += 20 + 14;
 
       var nSize = 60;
       ctx.font = '700 ' + nSize + 'px "Playfair Display", serif';
