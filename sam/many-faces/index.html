@@ -41,6 +41,13 @@ const DIMS = [
   { key: "grace",   cn: "优雅", en: "GRACE" },
 ];
 
+// 画册角色 id → 台词墙(sam/lines.json) charId 的反向映射。
+// 绝大多数角色两边 id 相同；这三个不同（对应 lines.json meta.mf_alias 的反方向）。
+const WALL_ALIAS = { john: "johnmoon", sam: "sambell", hendrix: "klenz" };
+function wallHref(c) {
+  return "/WinterSunBlog/sam/wall/?char=" + (WALL_ALIAS[c.id] || c.id);
+}
+
 const characters = [
 {
       id: "gary",
@@ -79,7 +86,7 @@ const characters = [
 他是个波兰人，来美国快五年了，从没说过想回去，却依然每天哼着家乡的老歌，依然在抽屉里收着一张华沙旧城广场的明信片，依然在喝醉的时候忘记把语言切回英语。他不会大段地表白，话常常只说一半；他爱你的方式，都藏在很小、很具体的地方——把咖啡留在炉子上、提醒你别走那条刚下过雨的街、半夜里那几声口琴、一句不为什么的 "I missed you today."。脖子上那枚妈妈给的小银十字架他从不摘，骂人的时候蹦出波兰语，叫你的时候，是软下来的一声 "Kotku"——小猫。他这样叫你，是因为你总像一只小猫似的赖在他怀里、蹭他、寸步不离地跟着他；他低头看你的那一刻，眼神就软成了那个词的形状。
 
 他对谁都只说 "Just call me Kris"，可你偏偏一个字母一个字母地，学着喊出那个连你自己都念不太准的全名——Krzysztof，那是连他自己都很久没听人喊过、只有妈妈才会一字一句叫全的名字。你还分不清他母语里那七个绕死人的变格，可对一个几乎要忘记自己从哪里来的男人来说，有人正笨拙地、认真地朝他的母语走过来，朝他完整的样子走过来——这件事，重得超过他愿意承认。他只会笑，纠正你，偶尔用一句更难的波兰语逗你；只有在你睡熟以后，才肯用那门你还听不懂的语言，对着黑暗轻轻说出一句话。你们的爱是 1994 年那盏整夜不灭的红灯——一个再也回不去家的异乡人，终于等到了一个愿意一个字、一个字，学着喊他名字的人。`,
-      inscription: { label: "PO POLSKU", line: "Ja też cię chcę.", gloss: "我也想要你。" },
+      inscription: { label: "PO POLSKU", line: "Ja też cię chcę, kotku.", gloss: "我也想要你，小猫。" },
       bg: "#11161c",
       accent: "#bc4d3a",
       text: "#ece0d2",
@@ -103,7 +110,7 @@ const characters = [
 你没走，因为他看你的眼神不像想从你身上拿什么；他更像一只刚被踢了一脚还在朝下一个人摇尾巴的狗——而那个"下一个人"，他不知道，你已经决定是你了。和他在一起以后你才明白：他不擅长记仇——他用尽全力把自己甩干净，去赶上下一次相信的机会。他不会让你等，不会让你猜，不会让你试探。他会在凌晨三点开车横穿曼哈顿来接你下班；他会把你随口说过的话记到下一次见面；他不太会用大词，可他每一次抬眼看你，眼睛里都是那种"你是我这辈子最好的运气"的神情。他被人当过工具，所以他比任何人都清楚——他绝不会让你也尝到那种滋味。
 
 你帮他写填字游戏，你替他读他读不太懂的合同，你陪他在皮革座椅磨损的旧车里听九十年代的电台一直听到天亮。他用他那辆有暖气没空调的旧车、那双不识几个字的眼睛、那颗曾经被踢过一脚还在摇的尾巴——把你护成他这一辈子最郑重的事。最让人心疼的是——他依然相信下一个人会比上一个更好，他只是没想到那个"下一个"真的会一直在。你们的爱是 1995 年纽约凌晨四点的钨丝灯黄，是公用电话亭里那根永远为你留着的硬币，是一只终于不必再朝下一个人摇尾巴的狗狗——因为他认定了，这一站，就是终点。`,
-      inscription: { label: "THE NEXT ONE", line: "I always thought the next one'd be better — I never thought she'd stay.", gloss: "我一直以为\"下一个\"会更好——没想到她真的留了下来。" },
+      inscription: { label: "THE NEXT ONE", line: "I always thought the next one'd be better — I never thought you'd stay.", gloss: "我一直以为「下一个」会更好——没想到你真的肯留下来。" },
       bg: "#171d24",
       accent: "#d49850",
       text: "#ebe0cc",
@@ -1266,27 +1273,54 @@ function CharacterCard({ c, idx }) {
             }}>
               ── {c.inscription.label} ──
             </p>
-            <p style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontStyle: "italic",
-              fontWeight: 500,
-              fontSize: "1.55rem",
-              color: c.accent,
-              letterSpacing: "0.04em",
-              margin: "0 0 8px 0",
-            }}>
-              {c.inscription.line}
-            </p>
-            <p style={{
-              fontFamily: "'Noto Serif SC', serif",
-              fontSize: "0.8rem",
-              color: c.text,
-              opacity: 0.6,
-              letterSpacing: "0.12em",
-              margin: 0,
-            }}>
-              {c.inscription.gloss}
-            </p>
+            <a
+              href={wallHref(c)}
+              title={"看看他在台词墙上的五句台词"}
+              style={{ textDecoration: "none", cursor: "pointer", display: "block" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.querySelector(".mf-inscr-line").style.textDecoration = "underline";
+                e.currentTarget.querySelector(".mf-inscr-cta").style.opacity = 1;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.querySelector(".mf-inscr-line").style.textDecoration = "none";
+                e.currentTarget.querySelector(".mf-inscr-cta").style.opacity = 0.6;
+              }}
+            >
+              <p className="mf-inscr-line" style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontStyle: "italic",
+                fontWeight: 500,
+                fontSize: "1.55rem",
+                color: c.accent,
+                letterSpacing: "0.04em",
+                margin: "0 0 8px 0",
+                textDecorationColor: c.accent + "aa",
+                textUnderlineOffset: "4px",
+              }}>
+                {c.inscription.line}
+              </p>
+              <p style={{
+                fontFamily: "'Noto Serif SC', serif",
+                fontSize: "0.8rem",
+                color: c.text,
+                opacity: 0.6,
+                letterSpacing: "0.12em",
+                margin: "0 0 12px 0",
+              }}>
+                {c.inscription.gloss}
+              </p>
+              <p className="mf-inscr-cta" style={{
+                fontFamily: "'Special Elite', monospace",
+                fontSize: "0.58rem",
+                letterSpacing: "0.2em",
+                color: c.accent,
+                opacity: 0.6,
+                margin: 0,
+                transition: "opacity 0.25s ease",
+              }}>
+                他的五句台词 · SIGNATURES &rarr;
+              </p>
+            </a>
           </div>
         )}
 

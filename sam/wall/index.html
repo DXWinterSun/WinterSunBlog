@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Signatures · 台词签名墙 · Winter Sun</title>
-<meta name="description" content="Sam Rockwell 四十一个角色，两百余句只对你说的话。每天回来，都有新的一句。">
+<meta name="description" content="Sam Rockwell 四十余个角色，两百余句只对你说的话。每天回来，都有新的一句。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Signatures · 台词签名墙 · Winter Sun">
-<meta property="og:description" content="四十一个角色，两百余句只对你说的话。每天回来，都有新的一句。">
+<meta property="og:description" content="四十余个角色，两百余句只对你说的话。每天回来，都有新的一句。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/wall/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
@@ -23,16 +23,59 @@
   button { font-family: inherit; cursor: pointer; }
   a { color: inherit; }
   ::selection { background: rgba(203,161,76,.3); }
+
+  /* ── 两栏版式：左侧角色名录（吸顶、独立滚动），右侧详情区（Hero + 五句话）──
+     解决旧版「点一句台词跳回顶部找 Hero，再滚回长长的单栏手风琴找下一个人」的
+     来回滚动问题：名录和详情始终同屏，桌面各自独立滚动，互不打扰。 */
+  .wall-layout { display: flex; align-items: flex-start; gap: 26px; }
+  .wall-roster {
+    flex: 0 0 272px;
+    position: sticky;
+    top: 18px;
+    max-height: calc(100vh - 36px);
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .wall-roster::-webkit-scrollbar { width: 5px; }
+  .wall-roster::-webkit-scrollbar-thumb { background: #2a241b; border-radius: 3px; }
+  .wall-detail { flex: 1; min-width: 0; scroll-margin-top: 18px; }
+  .wall-roster-meta { display: block; }
+
+  @media (max-width: 880px) {
+    .wall-layout { display: block; }
+    .wall-roster {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      max-height: none;
+      overflow-y: visible;
+      overflow-x: auto;
+      display: flex;
+      gap: 8px;
+      padding: 12px 2px 14px;
+      margin: 0 -4px 22px;
+      background: #14110d;
+      border-bottom: 1px solid #211c14;
+      scrollbar-width: none;
+    }
+    .wall-roster::-webkit-scrollbar { display: none; }
+    .wall-roster-item { flex: 0 0 auto !important; border-radius: 999px !important; }
+    .wall-roster-meta, .wall-roster-count { display: none; }
+    .wall-detail { scroll-margin-top: 68px; }
+    /* 随机按钮不是 .wall-roster-item，在横向 flex 名录条里若不单独限定
+       flex-basis 会被挤压换行（中文逐字竖排），单独锁住宽度不参与收缩 */
+    .wall-roster-random { flex: 0 0 auto !important; width: auto !important; white-space: nowrap; }
+  }
 </style>
 </head>
 <body>
 <div id="root"></div>
-<meta name="cache-bust" content="20260704-wall-2-pool">
+<meta name="cache-bust" content="20260708-wall-3-roster">
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
 <script type="text/babel" data-presets="react">
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
 const SERIF = "'Noto Serif SC', serif";
 const DISPLAY = "'Playfair Display', serif";
@@ -56,6 +99,13 @@ function mergeQ(c, q) {
   };
 }
 
+// 角色 id → 画册(many-faces)锚点 id。绝大多数两边一致；不一致的几个由
+// lines.json 的 meta.mf_alias 记录（新增角色若两边 id 一致，不用改这里）。
+function mfHrefFor(charId, meta) {
+  const alias = (meta && meta.mf_alias) || {};
+  return "/WinterSunBlog/sam/many-faces/#" + (alias[charId] || charId);
+}
+
 function Signed({ c }) {
   return (
     <div style={{ fontFamily: GARA, fontSize: 16, color: c.muted, fontStyle: "italic" }}>
@@ -64,7 +114,7 @@ function Signed({ c }) {
   );
 }
 
-function Hero({ c, onDraw }) {
+function Hero({ c, onDraw, mfHref }) {
   return (
     <div style={{
       position: "relative", borderRadius: 18, overflow: "hidden",
@@ -109,6 +159,12 @@ function Hero({ c, onDraw }) {
             borderBottom: "1px solid " + c.accent + "55", paddingBottom: 2,
           }}>读他的 AU &rarr;</a>
         )}
+        {mfHref && (
+          <a href={mfHref} style={{
+            fontFamily: SERIF, fontSize: 13, color: c.muted, textDecoration: "none",
+            borderBottom: "1px solid " + c.muted + "55", paddingBottom: 2,
+          }}>在画册里看看他 &rarr;</a>
+        )}
       </div>
     </div>
   );
@@ -148,58 +204,40 @@ function QuoteCard({ c, q, active, onClick }) {
   );
 }
 
-// one character = a collapsible collection of quotes
-function CharacterGroup({ c, activeLine, onPick, isOpen, onToggle }) {
-  const [hover, setHover] = useState(false);
-  const hasActive = c.quotes.some(function (q) { return q.line === activeLine; });
-  const edge = isOpen || hover ? c.accent + "55" : "#2a241b";
+// 左侧名录里的一行：desktop 是完整一行（名字+片名+句数），mobile 靠 CSS
+// 折成一颗只剩名字的胶囊（见 <style> 里的 @media 规则）。
+function RosterItem({ c, active, isToday, onClick }) {
   return (
-    <div style={{ marginBottom: 12 }}>
-      <button onClick={onToggle}
-        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
-        style={{
-          width: "100%", textAlign: "left", display: "flex", alignItems: "center", gap: 11,
-          background: isOpen ? "#1c1811" : "#181510",
-          borderTop: "1px solid " + edge, borderRight: "1px solid " + edge, borderBottom: "1px solid " + edge,
-          borderLeft: "3px solid " + c.accent,
-          borderRadius: 12, padding: "15px 18px",
-          transition: "background .2s ease, border-color .2s ease",
-        }}>
-        <span style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(19px,4.4vw,25px)", color: c.text, lineHeight: 1.1 }}>
-          {c.name}
-        </span>
-        <span style={{ fontFamily: GARA, fontStyle: "italic", fontSize: 15, color: c.muted, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-          {c.filmCN} <span style={{ opacity: .7 }}>{c.year}</span>
-        </span>
-        {hasActive && (
-          <span title="今天这句在这里" style={{ flexShrink: 0, width: 6, height: 6, borderRadius: "50%", background: c.accent, boxShadow: "0 0 8px " + c.accent }}></span>
-        )}
-        <span style={{ flex: 1 }}></span>
-        <span style={{ flexShrink: 0, fontFamily: TYPE, fontSize: 10, letterSpacing: 1, color: c.muted }}>{c.quotes.length} 句</span>
-        <span style={{ flexShrink: 0, fontFamily: GARA, fontSize: 20, color: c.accent, display: "inline-block",
-          transform: isOpen ? "rotate(90deg)" : "none", transition: "transform .25s ease" }}>&rsaquo;</span>
-      </button>
-
-      {isOpen && (
-        <div style={{
-          display: "grid", gap: 13, marginTop: 13, marginBottom: 8,
-          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 258px), 1fr))",
-        }}>
-          {c.quotes.map((q, qi) => (
-            <QuoteCard key={qi} c={c} q={q} active={q.line === activeLine}
-              onClick={() => onPick(mergeQ(c, q))} />
-          ))}
-          {c.auLink && (
-            <a href={c.auLink} style={{
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontFamily: SERIF, fontSize: 13, color: c.accent, textDecoration: "none",
-              border: "1px dashed " + c.accent + "55", borderRadius: 12, padding: "16px",
-              minHeight: 60,
-            }}>读他的 AU &rarr;</a>
-          )}
-        </div>
+    <button
+      className="wall-roster-item"
+      data-roster-id={c.id}
+      onClick={onClick}
+      style={{
+        display: "flex", alignItems: "center", gap: 8, width: "100%",
+        textAlign: "left", marginBottom: 6,
+        background: active ? "#231d14" : "transparent",
+        border: "1px solid " + (active ? c.accent + "70" : "#211c14"),
+        borderLeft: "3px solid " + (active ? c.accent : "transparent"),
+        borderRadius: 10, padding: "9px 11px",
+      }}>
+      <span style={{
+        fontFamily: DISPLAY, fontWeight: 700, fontSize: 14.5, whiteSpace: "nowrap",
+        color: active ? c.accent : "#ede2d0",
+      }}>{c.name}</span>
+      <span className="wall-roster-meta" style={{
+        fontFamily: GARA, fontStyle: "italic", fontSize: 11.5, color: "#8a7558",
+        overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1, minWidth: 0,
+      }}>{c.filmCN}</span>
+      {isToday && (
+        <span title="今天的角色" style={{
+          width: 6, height: 6, borderRadius: "50%", flexShrink: 0,
+          background: c.accent, boxShadow: "0 0 6px " + c.accent,
+        }}></span>
       )}
-    </div>
+      <span className="wall-roster-count" style={{
+        fontFamily: TYPE, fontSize: 9.5, color: "#5f5340", flexShrink: 0,
+      }}>{c.quotes.length}</span>
+    </button>
   );
 }
 
@@ -215,46 +253,78 @@ function Centered({ children }) {
 function App() {
   const [data, setData] = useState(null);
   const [err, setErr] = useState(false);
-  const [hero, setHero] = useState(null);
-  const [open, setOpen] = useState({});
+  const [selectedId, setSelectedId] = useState(null);
+  const [activeQuote, setActiveQuote] = useState(null);
+  const detailRef = useRef(null);
 
   useEffect(() => {
     fetch("../lines.json", { cache: "no-cache" })
       .then(function (r) { return r.json(); })
       .then(function (d) {
-        var h = d.pool[todayIndex(d.pool.length)];
-        var o = {}; o[h.charId] = true;
-        setData(d); setHero(h); setOpen(o);
+        var chars = d.characters;
+        var todayQ = d.pool[todayIndex(d.pool.length)];
+        var params = new URLSearchParams(window.location.search);
+        var wantedId = params.get("char");
+        var c = (wantedId && chars.find(function (x) { return x.id === wantedId; })) || null;
+        var q;
+        if (c) {
+          // 从画册 / 每日一句深链而来 → 落地就是那句「锚」台词（与画册核心引句一致）
+          var anchor = c.quotes.find(function (x) { return x.kind === "锚"; }) || c.quotes[0];
+          q = mergeQ(c, anchor);
+        } else {
+          c = chars.find(function (x) { return x.id === todayQ.charId; }) || chars[0];
+          q = todayQ;
+        }
+        setData(d);
+        setSelectedId(c.id);
+        setActiveQuote(q);
       })
       .catch(function () { setErr(true); });
   }, []);
 
   if (err) return <Centered>今天的一句，暂时没能取到。<br />请检查网络后刷新。</Centered>;
-  if (!data || !hero) return <Centered>正在把他的话一句句取回来……</Centered>;
+  if (!data || !activeQuote) return <Centered>正在把他的话一句句取回来……</Centered>;
 
   const pool = data.pool;
-  function draw() {
+  const todayCharId = pool[todayIndex(pool.length)].charId;
+  const selectedChar = data.characters.find(function (c) { return c.id === selectedId; }) || data.characters[0];
+
+  function syncUrl(charId) {
+    if (!(window.history && window.history.replaceState)) return;
+    var params = new URLSearchParams(window.location.search);
+    params.set("char", charId);
+    window.history.replaceState(null, "", window.location.pathname + "?" + params.toString());
+  }
+
+  function selectCharacter(id) {
+    var c = data.characters.find(function (x) { return x.id === id; });
+    if (!c) return;
+    var anchor = c.quotes.find(function (x) { return x.kind === "锚"; }) || c.quotes[0];
+    setSelectedId(id);
+    setActiveQuote(mergeQ(c, anchor));
+    syncUrl(id);
+    if (detailRef.current) detailRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function pickQuote(q) { setActiveQuote(q); }
+
+  function drawRandom() {
     let n = Math.floor(Math.random() * pool.length);
     let guard = 0;
-    while (pool[n].line === hero.line && guard++ < 12) n = Math.floor(Math.random() * pool.length);
-    var h = pool[n];
-    setHero(h);
-    setOpen(function (o) { var x = Object.assign({}, o); x[h.charId] = true; return x; });
-    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-  function pick(q) {
-    setHero(q);
-    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-  function toggle(id) { setOpen(function (o) { var x = Object.assign({}, o); x[id] = !o[id]; return x; }); }
-  function setAll(v) {
-    var o = {};
-    if (v) data.characters.forEach(function (c) { o[c.id] = true; });
-    setOpen(o);
+    while (pool[n].line === activeQuote.line && guard++ < 12) n = Math.floor(Math.random() * pool.length);
+    var q = pool[n];
+    setSelectedId(q.charId);
+    setActiveQuote(q);
+    syncUrl(q.charId);
+    requestAnimationFrame(function () {
+      var el = document.querySelector('[data-roster-id="' + q.charId + '"]');
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      if (detailRef.current) detailRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   }
 
   return (
-    <div style={{ maxWidth: 1120, margin: "0 auto", padding: "clamp(28px,6vw,64px) clamp(18px,5vw,40px) 90px" }}>
+    <div style={{ maxWidth: 1220, margin: "0 auto", padding: "clamp(28px,6vw,64px) clamp(18px,5vw,40px) 90px" }}>
 
       <header style={{ textAlign: "center", marginBottom: "clamp(30px,6vw,52px)" }}>
         <a href="/WinterSunBlog/sam/" style={{
@@ -275,13 +345,11 @@ function App() {
           fontSize: "clamp(14px,3.8vw,16px)", lineHeight: 2, color: "#a08b6b",
         }}>
           {data.characters.length}个角色，{pool.length}句只对你说的话。<br />
-          上面这句，是<span style={{ color: "#cba14c" }}>今天的</span>——每天回来，都会换一个人开口。
+          左边点一个名字，看看他对你说的那五句。
         </p>
       </header>
 
-      <Hero c={hero} onDraw={draw} />
-
-      <div style={{ display: "flex", alignItems: "center", gap: 16, margin: "clamp(46px,8vw,72px) 0 18px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16, margin: "clamp(30px,5vw,44px) 0 20px" }}>
         <span style={{ flex: 1, height: 1, background: "linear-gradient(90deg, transparent, #3a3226)" }}></span>
         <span style={{ fontFamily: TYPE, fontSize: 11.5, letterSpacing: 3, color: "#8a7558", textTransform: "uppercase", whiteSpace: "nowrap" }}>
           他们的语录集 · The Collections
@@ -289,21 +357,33 @@ function App() {
         <span style={{ flex: 1, height: 1, background: "linear-gradient(90deg, #3a3226, transparent)" }}></span>
       </div>
 
-      <div style={{ display: "flex", justifyContent: "center", gap: 10, marginBottom: 26 }}>
-        <button onClick={() => setAll(true)} style={{
-          fontFamily: SERIF, fontSize: 12.5, color: "#c9b48c", background: "transparent",
-          border: "1px solid #3a3226", borderRadius: 999, padding: "7px 16px",
-        }}>全部展开</button>
-        <button onClick={() => setAll(false)} style={{
-          fontFamily: SERIF, fontSize: 12.5, color: "#8a7558", background: "transparent",
-          border: "1px solid #3a3226", borderRadius: 999, padding: "7px 16px",
-        }}>全部收起</button>
-      </div>
+      <div className="wall-layout">
+        <nav className="wall-roster" aria-label="角色名录">
+          <button className="wall-roster-random" onClick={drawRandom} style={{
+            display: "block", width: "100%", textAlign: "center", marginBottom: 10,
+            fontFamily: SERIF, fontSize: 12.5, color: "#c9b48c", background: "transparent",
+            border: "1px solid #3a3226", borderRadius: 999, padding: "8px 14px",
+            whiteSpace: "nowrap",
+          }}>&#127922; 随机一位</button>
+          {data.characters.map(function (c) {
+            return <RosterItem key={c.id} c={c} active={c.id === selectedId} isToday={c.id === todayCharId}
+              onClick={function () { selectCharacter(c.id); }} />;
+          })}
+        </nav>
 
-      {data.characters.map(function (c) {
-        return <CharacterGroup key={c.id} c={c} activeLine={hero.line} onPick={pick}
-          isOpen={!!open[c.id]} onToggle={function () { toggle(c.id); }} />;
-      })}
+        <div className="wall-detail" ref={detailRef}>
+          <Hero c={activeQuote} onDraw={drawRandom} mfHref={mfHrefFor(selectedChar.id, data.meta)} />
+          <div style={{
+            display: "grid", gap: 13, marginTop: 22,
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 258px), 1fr))",
+          }}>
+            {selectedChar.quotes.map(function (q, qi) {
+              return <QuoteCard key={qi} c={selectedChar} q={q} active={q.line === activeQuote.line}
+                onClick={function () { pickQuote(mergeQ(selectedChar, q)); }} />;
+            })}
+          </div>
+        </div>
+      </div>
 
       <footer style={{ textAlign: "center", marginTop: 64 }}>
         <p style={{ fontFamily: GARA, fontStyle: "italic", fontSize: 17, color: "#8a7558", margin: 0 }}>
