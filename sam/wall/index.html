@@ -74,6 +74,7 @@
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<script src="/WinterSunBlog/js/sam-themes-data.js"></script>
 <script type="text/babel" data-presets="react">
 const { useState, useEffect, useRef } = React;
 
@@ -106,6 +107,16 @@ function mfHrefFor(charId, meta) {
   return "/WinterSunBlog/sam/many-faces/#" + (alias[charId] || charId);
 }
 
+// 角色专属色卡（换个心情 / 十二色卡同一份数据），来自 js/sam-themes-data.js
+// 注入的 window.__SAM_THEMES（由 _data/sam_themes.yml 经 Jekyll 渲染而来）。
+// 用同一套 mf_alias 找到对应条目（sam_themes.yml 的 anchor 字段 = 画册 id）。
+function themeFor(charId, meta) {
+  if (typeof window === "undefined" || !Array.isArray(window.__SAM_THEMES)) return null;
+  const alias = (meta && meta.mf_alias) || {};
+  const mfId = alias[charId] || charId;
+  return window.__SAM_THEMES.find(function (t) { return t.anchor === mfId; }) || null;
+}
+
 function Signed({ c }) {
   return (
     <div style={{ fontFamily: GARA, fontSize: 16, color: c.muted, fontStyle: "italic" }}>
@@ -114,7 +125,53 @@ function Signed({ c }) {
   );
 }
 
-function Hero({ c, onDraw, mfHref }) {
+// 他的色卡——两个专属色（强调色 + 底色）+ 中英文名，呼应站内「换个心情」
+// 选色器同一份配色语言（虚线穿孔卡样式）。这里只做展示，不接全站换色开关：
+// 台词墙会快速切换很多角色，若每点一句就把全站主题跟着换会太打扰。
+function ColorStrip({ theme }) {
+  if (!theme) return null;
+  const perf = "rgba(255,255,255,.14)";
+  const edge = "rgba(255,255,255,.16)";
+  const dotRing = "rgba(255,255,255,.30)";
+  const ticks = Array.from({ length: 13 });
+  const Swatch = function (props) {
+    return (
+      <span style={{ display: "flex", alignItems: "center", gap: 9, padding: "3px 15px" }}>
+        <span style={{
+          width: 20, height: 20, borderRadius: "50%", flexShrink: 0,
+          background: props.hex, boxShadow: "inset 0 0 0 1px " + dotRing,
+        }} />
+        <span style={{ display: "flex", flexDirection: "column", textAlign: "left", lineHeight: 1.2 }}>
+          <span style={{ fontFamily: SERIF, fontSize: 12.5, color: "#ede2d0" }}>{props.cn}</span>
+          <span style={{ fontFamily: GARA, fontStyle: "italic", fontSize: 10.5, color: "#8a7558" }}>{props.en}</span>
+        </span>
+      </span>
+    );
+  };
+  return (
+    <div style={{
+      display: "flex", flexDirection: "column", gap: 6,
+      width: "fit-content", margin: "20px 0 0",
+      padding: "7px 8px", borderRadius: 8,
+      background: "rgba(255,255,255,.04)",
+      boxShadow: "0 8px 20px rgba(0,0,0,.30), inset 0 0 0 1px " + edge,
+    }}>
+      <span style={{ display: "flex", justifyContent: "space-between" }}>
+        {ticks.map(function (_, i) { return <i key={"t" + i} style={{ width: 5, height: 3, borderRadius: 1, background: perf, flexShrink: 0 }} />; })}
+      </span>
+      <span style={{ display: "inline-flex", alignItems: "stretch" }}>
+        <Swatch hex={theme.accent} cn={theme.cn} en={theme.en} />
+        <span style={{ width: 1, alignSelf: "stretch", background: edge, margin: "5px 0" }} />
+        <Swatch hex={theme.bg} cn={theme.bg_cn} en={theme.bg_en} />
+      </span>
+      <span style={{ display: "flex", justifyContent: "space-between" }}>
+        {ticks.map(function (_, i) { return <i key={"b" + i} style={{ width: 5, height: 3, borderRadius: 1, background: perf, flexShrink: 0 }} />; })}
+      </span>
+    </div>
+  );
+}
+
+function Hero({ c, onDraw, mfHref, theme }) {
   return (
     <div style={{
       position: "relative", borderRadius: 18, overflow: "hidden",
@@ -146,6 +203,7 @@ function Hero({ c, onDraw, mfHref }) {
       </blockquote>
 
       <Signed c={c} />
+      <ColorStrip theme={theme} />
 
       <div style={{ display: "flex", gap: 14, alignItems: "center", marginTop: 28, flexWrap: "wrap" }}>
         <button onClick={onDraw} style={{
@@ -372,7 +430,7 @@ function App() {
         </nav>
 
         <div className="wall-detail" ref={detailRef}>
-          <Hero c={activeQuote} onDraw={drawRandom} mfHref={mfHrefFor(selectedChar.id, data.meta)} />
+          <Hero c={activeQuote} onDraw={drawRandom} mfHref={mfHrefFor(selectedChar.id, data.meta)} theme={themeFor(selectedChar.id, data.meta)} />
           <div style={{
             display: "grid", gap: 13, marginTop: 22,
             gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 258px), 1fr))",
