@@ -40,8 +40,12 @@ layout: home
         <div class="c-article__date">
           <span>{{page.date | date: '%Y, %b %d'}}</span>
         </div>
-        {% if page.tags and page.tags.size > 0 %}
-        <div class="c-mood-tags">
+        {% assign has_mood = false %}
+        {% for tag_cn in page.tags %}{% assign m = site.data.moods | where: "cn", tag_cn | first %}{% if m %}{% assign has_mood = true %}{% break %}{% endif %}{% endfor %}
+        {% if has_mood %}
+        <div class="c-mood-tags-block">
+          <p class="c-mood-tags__eyebrow">循着这一章的情绪，读同频的故事 <span aria-hidden="true">→</span></p>
+          <div class="c-mood-tags">
           {% for tag_cn in page.tags %}
             {% assign mood = site.data.moods | where: "cn", tag_cn | first %}
             {% if mood %}
@@ -61,6 +65,7 @@ layout: home
             </a>
             {% endif %}
           {% endfor %}
+          </div>
         </div>
         {% endif %}
       </header>

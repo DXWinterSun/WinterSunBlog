@@ -57,12 +57,28 @@
 }
 
 /* Mood tags — displayed below article title */
+/* 情绪标签区块：一句诗意小字点明「这是情绪，点开看归档同款」，下面才是标签 */
+.c-mood-tags-block {
+  margin: 16px 0 4px;
+  text-align: center;
+}
+
+.c-mood-tags__eyebrow {
+  margin: 0 0 11px;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--c-muted);
+  span { color: var(--c-muted-soft); margin-left: 2px; }
+}
+
 .c-mood-tags {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  margin: 14px 0 4px;
+  margin: 0; // 上间距交给 .c-mood-tags-block
 }
 
 .c-mood-tag {
