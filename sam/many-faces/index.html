@@ -47,6 +47,10 @@ const WALL_ALIAS = { john: "johnmoon", sam: "sambell", hendrix: "klenz" };
 function wallHref(c) {
   return "/WinterSunBlog/sam/wall/?char=" + (WALL_ALIAS[c.id] || c.id);
 }
+// 六维光谱（sam/spectrum）与台词墙共用同一套 charId，同一张 WALL_ALIAS 表即可换算。
+function spectrumHref(c) {
+  return "/WinterSunBlog/sam/spectrum/?char=" + (WALL_ALIAS[c.id] || c.id);
+}
 
 const characters = [
 {
@@ -1397,17 +1401,34 @@ function CharacterCard({ c, idx }) {
         )}
 
         <div style={{ marginTop: "32px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <RunningName c={c} />
-          <p style={{
-            fontFamily: "'Special Elite', monospace",
-            color: c.muted,
-            fontSize: "0.65rem",
-            letterSpacing: "0.3em",
-            marginBottom: "16px",
-          }}>
-            ── PROFILE ──
-          </p>
-          <MiniRadar profile={c.profile} accent={c.accent} muted={c.muted} text={c.text} />
+          <a href={spectrumHref(c)} title="去六维光谱看看他的位置"
+            style={{ display: "flex", flexDirection: "column", alignItems: "center", textDecoration: "none", cursor: "pointer" }}
+            onMouseEnter={(e) => { e.currentTarget.querySelector(".mf-radar-cta").style.opacity = 1; }}
+            onMouseLeave={(e) => { e.currentTarget.querySelector(".mf-radar-cta").style.opacity = 0.6; }}
+          >
+            <RunningName c={c} />
+            <p style={{
+              fontFamily: "'Special Elite', monospace",
+              color: c.muted,
+              fontSize: "0.65rem",
+              letterSpacing: "0.3em",
+              marginBottom: "16px",
+            }}>
+              ── PROFILE ──
+            </p>
+            <MiniRadar profile={c.profile} accent={c.accent} muted={c.muted} text={c.text} />
+            <p className="mf-radar-cta" style={{
+              fontFamily: "'Special Elite', monospace",
+              fontSize: "0.58rem",
+              letterSpacing: "0.2em",
+              color: c.accent,
+              opacity: 0.6,
+              marginTop: "12px",
+              transition: "opacity 0.25s ease",
+            }}>
+              去六维光谱看看他的位置 &rarr;
+            </p>
+          </a>
         </div>
 
         {/* COLOR PALETTE 色彩注脚 */}

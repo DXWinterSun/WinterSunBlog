@@ -140,6 +140,16 @@ const DIMS = [
 
 const AVG_ACCENT = "#cba14c";
 
+// 全站联动：光谱 ↔ 台词墙 ↔ 画册。三处角色 id 命名空间基本一致，只有这
+// 三个不同（画册用了另一套短 id）——同一张表台词墙/画册两边都在用。
+const MF_ALIAS = { johnmoon: "john", sambell: "sam", klenz: "hendrix" }; // charId → 画册 id
+function mfHrefFor(charId) {
+  return "/WinterSunBlog/sam/many-faces/#" + (MF_ALIAS[charId] || charId);
+}
+function wallHrefFor(charId) {
+  return "/WinterSunBlog/sam/wall/?char=" + charId; // 台词墙与光谱共用同一套 charId，无需换算
+}
+
 const AVERAGE = (() => {
   const p = {};
   DIMS.forEach(d => {
@@ -279,8 +289,15 @@ const DECADES = (() => {
   return Object.keys(groups).sort().map(d => ({ label: d + "s", items: groups[d] }));
 })();
 
+function initialSelIdx() {
+  if (typeof window === "undefined") return -1;
+  const wanted = new URLSearchParams(window.location.search).get("char");
+  if (!wanted) return -1;
+  return CHARS.findIndex(function (c) { return c.id === wanted; }); // -1（未找到）自动落回「平均的 Sam」
+}
+
 function App() {
-  const [selIdx, setSelIdx] = useState(-1);
+  const [selIdx, setSelIdx] = useState(initialSelIdx);
   const cur = selIdx < 0 ? AVERAGE : CHARS[selIdx];
   const detailRef = useRef(null);
 
@@ -288,8 +305,17 @@ function App() {
     return DIMS.map(d => ({ d, v: cur.profile[d.key] })).sort((a, b) => b.v - a.v)[0];
   }, [selIdx]);
 
+  function syncUrl(i) {
+    if (!(window.history && window.history.replaceState)) return;
+    const params = new URLSearchParams(window.location.search);
+    if (i < 0) params.delete("char"); else params.set("char", CHARS[i].id);
+    const qs = params.toString();
+    window.history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : ""));
+  }
+
   function selectChar(i) {
     setSelIdx(i);
+    syncUrl(i);
     if (detailRef.current) detailRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -364,7 +390,12 @@ function App() {
                 最强的一面 · {top.d.cn} {top.v % 1 === 0 ? top.v : top.v.toFixed(1)}
               </div>
               <h2 style={{ margin: 0, fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(22px,5vw,30px)", color: cur.text, lineHeight: 1.2 }}>
-                {cur.name}
+                {cur.isAvg ? cur.name : (
+                  <a href={mfHrefFor(cur.id)} title="在画册里看看他" style={{
+                    color: "inherit", textDecoration: "none",
+                    borderBottom: "1px dashed " + cur.accent + "70", paddingBottom: 2,
+                  }}>{cur.name}</a>
+                )}
               </h2>
               <div style={{ fontFamily: GARA, fontStyle: "italic", fontSize: 16, color: cur.muted, marginTop: 6 }}>
                 {cur.filmCN}{cur.year ? " · " + cur.year : ""}
@@ -373,9 +404,15 @@ function App() {
                 {cur.tagline}
               </p>
               {cur.line && (
-                <p style={{ margin: "16px auto 0", maxWidth: 420, fontFamily: GARA, fontStyle: "italic", fontSize: 17, lineHeight: 1.5, color: cur.accent }}>
-                  &ldquo;{cur.line}&rdquo;
-                </p>
+                <a href={wallHrefFor(cur.id)} title="看看他的五句台词" style={{ display: "block", textDecoration: "none" }}>
+                  <p style={{ margin: "16px auto 0", maxWidth: 420, fontFamily: GARA, fontStyle: "italic", fontSize: 17, lineHeight: 1.5, color: cur.accent }}>
+                    &ldquo;{cur.line}&rdquo;
+                  </p>
+                  <p style={{
+                    margin: "6px 0 0", fontFamily: TYPE, fontSize: 9.5, letterSpacing: 2,
+                    color: cur.muted, textTransform: "uppercase", opacity: .75,
+                  }}>他的五句台词 · SIGNATURES &rarr;</p>
+                </a>
               )}
               {cur.auLink && (
                 <a href={cur.auLink} style={{
