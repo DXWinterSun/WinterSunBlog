@@ -115,6 +115,11 @@ collection_desc: "一两句简介，钩子即可。"   # 卡片描述
 | 六维光谱 | `sam/spectrum/index.html` | 内嵌 `const CHARS` 数组 | 六维 `profile` + 锚句 label/line/lineCN + tagline + 色 |
 | 台词签名墙 / 每日一句 / 桌面小组件 | `sam/wall/`·`sam/today/`·`sam/widget/` | 唯一数据源 **`sam/lines.json`** | **5 句台词**（`characters` 数组 + round-robin 重建 `pool`） |
 
+另有第五个彩蛋 **放映室 `sam/projector/`**（老电影胶片动画，2026-07 加）：**零内嵌数据**，
+运行时只读 `sam/lines.json` 的 `characters`（按 `year` 升序放映，每轮循环换下一句台词），
+页面上所有计数也是从数据算的。**加新角色时它不需要任何额外改动**——lines.json 加好人，
+放映室自动多一格胶片。它的 SEO `<meta>` 描述也刻意不含数字，不用跟着改。
+
 **`sam/lines.json` 要点：**
 - `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。
 - `pool`：是 `characters` 的 **5 轮 round-robin 展开**（第 r 轮 = 每个角色第 r 句），

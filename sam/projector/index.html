@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>放映室 · Winter Sun</title>
+<meta name="description" content="一间只为你亮灯的放映厅。他演过的每一个角色，一格一格走过投影光束，按下播放就好。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="放映室 · Winter Sun">
+<meta property="og:description" content="一间只为你亮灯的放映厅。他演过的每一个角色，一格一格走过投影光束。">
+<meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/projector/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0a0908" id="theme-color">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ————— 放映室 · Screening Room —————
+     角色数据零内嵌：全部来自 ../lines.json（与今日页/台词墙同源）。
+     新角色照常加进 lines.json，这里会自动多出一格胶片。 */
+  html, body { margin: 0; padding: 0; height: 100%; }
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --accent: #cba14c;
+    --bg: #14110d;
+    --text: #ede2d0;
+    --muted: #8a7558;
+  }
+  body {
+    min-height: 100%; min-height: 100dvh;
+    background: #0a0908;
+    color: var(--text);
+    font-family: 'Noto Serif SC', serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  button { font-family: inherit; cursor: pointer; }
+  a { color: inherit; }
+  ::selection { background: rgba(255,255,255,.18); }
+
+  /* —— 环境光：银幕的反光把房间染成角色的颜色 —— */
+  .room-glow {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 38%, color-mix(in srgb, var(--bg) 72%, transparent), transparent 70%),
+      #0a0908;
+    transition: background 1.4s ease;
+  }
+
+  /* —— 投影光束：从画面底部的机位打向银幕 —— */
+  .beam {
+    position: fixed; z-index: 1; pointer-events: none;
+    left: 50%; bottom: -4vh;
+    width: 130vmin; height: 96vh;
+    transform: translateX(-50%);
+    background: linear-gradient(to top,
+      color-mix(in srgb, var(--accent) 16%, transparent) 0%,
+      color-mix(in srgb, var(--accent) 7%, transparent) 45%,
+      transparent 78%);
+    clip-path: polygon(46.5% 100%, 53.5% 100%, 92% 0%, 8% 0%);
+    filter: blur(2px);
+    opacity: .9;
+    transition: background 1.4s ease;
+    animation: beam-breathe 5.5s ease-in-out infinite;
+  }
+  @keyframes beam-breathe {
+    0%, 100% { opacity: .82; }
+    38% { opacity: .96; }
+    62% { opacity: .88; }
+  }
+  /* 机位那颗小灯 */
+  .lens {
+    position: fixed; z-index: 2; pointer-events: none;
+    left: 50%; bottom: 2.5vh; transform: translateX(-50%);
+    width: 14px; height: 14px; border-radius: 50%;
+    background: radial-gradient(circle, #fff8e8 0%, color-mix(in srgb, var(--accent) 85%, #fff) 35%, transparent 72%);
+    box-shadow: 0 0 26px 10px color-mix(in srgb, var(--accent) 40%, transparent);
+    animation: lens-flicker .18s steps(2) infinite;
+  }
+  @keyframes lens-flicker {
+    0% { opacity: .92; } 100% { opacity: 1; }
+  }
+
+  /* —— 光柱里的浮尘 —— */
+  .dust { position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+  .dust i {
+    position: absolute; display: block; border-radius: 50%;
+    background: #f4ead2;
+    animation: mote linear infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes mote {
+    0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+    12%  { opacity: var(--mo, .5); }
+    88%  { opacity: var(--mo, .5); }
+    100% { transform: translate3d(var(--mx, 20px), -84vh, 0); opacity: 0; }
+  }
+
+  /* —— 银幕 —— */
+  .stage {
+    position: relative; z-index: 3;
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: max(18px, env(safe-area-inset-top)) 16px 8px;
+    min-height: 0;
+  }
+  .screen {
+    position: relative;
+    width: min(920px, 96vw);
+    height: min(72vh, calc(min(920px, 96vw) * .62));
+    background: linear-gradient(180deg,
+      color-mix(in srgb, var(--bg) 88%, #000) 0%,
+      color-mix(in srgb, var(--bg) 96%, #000) 100%);
+    border-radius: 6px;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,.05),
+      0 0 90px color-mix(in srgb, var(--accent) 18%, transparent),
+      0 30px 80px rgba(0,0,0,.55);
+    overflow: hidden;
+    transition: background 1.4s ease, box-shadow 1.4s ease;
+    cursor: pointer;
+  }
+  /* 银幕暗角 */
+  .screen::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 105% 90% at 50% 46%, transparent 58%, rgba(0,0,0,.62) 100%);
+  }
+  /* 帧内容 */
+  .frame {
+    position: absolute; inset: 0; z-index: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 26px clamp(18px, 5vw, 56px);
+  }
+  .frame[hidden] { display: none; }
+  .frame__eyebrow {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: clamp(9px, 2.4vw, 11px); letter-spacing: 3px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: clamp(10px, 2.6vh, 22px);
+    transition: color 1.4s ease;
+  }
+  .frame__name {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: clamp(26px, 6.4vw, 52px); line-height: 1.12; letter-spacing: .5px;
+    margin: 0; color: var(--text);
+  }
+  .frame__film {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: clamp(13px, 3.4vw, 17px); letter-spacing: .4px;
+    margin-top: 8px; color: var(--accent);
+    transition: color 1.4s ease;
+  }
+  .frame__film .cn { font-family: 'Noto Serif SC', serif; font-style: normal; font-weight: 300; opacity: .85; }
+  .frame__label {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: clamp(8px, 2.2vw, 10px); letter-spacing: 3px; text-transform: uppercase;
+    color: var(--muted); margin-top: clamp(14px, 3.4vh, 30px);
+    opacity: 0; transition: opacity .6s ease, color 1.4s ease;
+  }
+  .frame__label.is-on { opacity: .9; }
+  .frame__quote {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500;
+    font-size: clamp(17px, 4.6vw, 27px); line-height: 1.42; letter-spacing: .3px;
+    margin: 10px 0 0; max-width: 24em; min-height: 2.8em;
+  }
+  .frame__quote .caret {
+    display: inline-block; width: 1px; height: .95em;
+    background: var(--accent); margin-left: 2px; vertical-align: -.12em;
+    animation: caret-blink .85s steps(1) infinite;
+  }
+  @keyframes caret-blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+  .frame__gloss {
+    font-family: 'Noto Serif SC', serif; font-weight: 300;
+    font-size: clamp(12.5px, 3.4vw, 15.5px); line-height: 1.9;
+    margin: 12px auto 0; max-width: 24em; color: var(--text); opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .frame__gloss.is-on { opacity: .8; }
+  .frame__au {
+    font-family: 'Noto Serif SC', serif; font-weight: 300;
+    font-size: clamp(11px, 2.8vw, 12.5px); letter-spacing: 1px;
+    margin-top: clamp(12px, 3vh, 24px);
+    color: var(--muted); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--muted) 55%, transparent);
+    padding-bottom: 2px; opacity: 0; transition: opacity .8s ease, color .3s ease;
+  }
+  .frame__au.is-on { opacity: .9; }
+  .frame__au:hover { color: var(--accent); }
+
+  /* —— 片尾 FIN 卡 —— */
+  .fin {
+    position: absolute; inset: 0; z-index: 1;
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 26px clamp(18px, 5vw, 56px);
+  }
+  .fin.is-on { display: flex; }
+  .fin__word {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: clamp(52px, 14vw, 110px); line-height: 1; letter-spacing: 4px;
+    color: var(--text); margin: 0;
+  }
+  .fin__stats {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: clamp(9px, 2.4vw, 11px); letter-spacing: 3px; text-transform: uppercase;
+    color: var(--muted); margin-top: 22px;
+  }
+  .fin__note {
+    font-family: 'Noto Serif SC', serif; font-weight: 300;
+    font-size: clamp(12px, 3.2vw, 14.5px); line-height: 2;
+    color: var(--text); opacity: .72; margin-top: 16px; max-width: 26em;
+  }
+
+  /* —— 倒计时引导片（片头数字） —— */
+  .leader {
+    position: absolute; inset: 0; z-index: 4; display: none;
+    align-items: center; justify-content: center;
+    background: #d8d0c0;
+  }
+  .leader.is-on { display: flex; }
+  .leader::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 29.5%, rgba(20,17,13,.85) 30%, rgba(20,17,13,.85) 30.8%, transparent 31.3%),
+      linear-gradient(rgba(20,17,13,.85), rgba(20,17,13,.85)) 50% 0 / 2px 100% no-repeat,
+      linear-gradient(rgba(20,17,13,.85), rgba(20,17,13,.85)) 0 50% / 100% 2px no-repeat;
+    opacity: .5;
+  }
+  .leader__num {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: clamp(90px, 26vw, 200px); color: #14110d; line-height: 1;
+    position: relative; z-index: 1;
+  }
+  .leader__sweep {
+    position: absolute; inset: 0; z-index: 0;
+    background: conic-gradient(rgba(20,17,13,.28) 0deg, transparent 0deg);
+  }
+
+  /* —— 胶片颗粒 / 闪烁 / 划痕 / 换本烧点 —— */
+  .grain {
+    position: absolute; inset: -60%; z-index: 2; pointer-events: none; opacity: .1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    animation: grain-jump .42s steps(4) infinite;
+  }
+  @keyframes grain-jump {
+    0% { transform: translate(0,0); } 25% { transform: translate(-6%,4%); }
+    50% { transform: translate(4%,-7%); } 75% { transform: translate(-3%,-3%); } 100% { transform: translate(5%,6%); }
+  }
+  .flicker {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: #fff8e8; opacity: 0;
+    animation: film-flicker 3.7s steps(1) infinite;
+  }
+  @keyframes film-flicker {
+    0%, 100% { opacity: 0; }
+    7% { opacity: .015; } 8% { opacity: 0; }
+    31% { opacity: .03; } 32% { opacity: 0; }
+    58% { opacity: .012; } 59% { opacity: 0; }
+    83% { opacity: .04; } 84% { opacity: 0; }
+  }
+  .scratch {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0;
+    background:
+      linear-gradient(rgba(255,248,232,.5), rgba(255,248,232,.5)) 23% 0 / 1px 100% no-repeat,
+      linear-gradient(rgba(255,248,232,.35), rgba(255,248,232,.35)) 71% 0 / 1px 100% no-repeat;
+  }
+  .screen.is-splicing .scratch { animation: scratch-pop .38s steps(3) 1; }
+  @keyframes scratch-pop {
+    0% { opacity: .7; transform: translateX(0); }
+    40% { opacity: .3; transform: translateX(-8px); }
+    70% { opacity: .6; transform: translateX(11px); }
+    100% { opacity: 0; }
+  }
+  .screen.is-splicing .frame { animation: frame-jump .38s steps(3) 1; }
+  @keyframes frame-jump {
+    0% { transform: translateY(-5px); } 45% { transform: translateY(3px); } 100% { transform: translateY(0); }
+  }
+  .cue {
+    position: absolute; top: 14px; right: 16px; z-index: 2; pointer-events: none;
+    width: 15px; height: 15px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(122,74,32,.92) 0 58%, rgba(64,36,12,.8) 70%, transparent 74%);
+    opacity: 0;
+  }
+  .cue.is-on { animation: cue-blink .9s steps(2) 1; }
+  @keyframes cue-blink { 0%, 45% { opacity: .9; } 46%, 100% { opacity: 0; } }
+
+  /* —— 底部胶片条 —— */
+  .strip-wrap {
+    position: relative; z-index: 3;
+    padding: 8px 0 max(10px, env(safe-area-inset-bottom));
+  }
+  .strip {
+    display: flex; gap: 5px; overflow-x: auto; scrollbar-width: none;
+    padding: 9px 50vw; /* 两侧留白让首尾帧也能居中 */
+    background:
+      repeating-linear-gradient(90deg, transparent 0 7px, rgba(232,222,198,.5) 7px 12px, transparent 12px 19px) 0 2px / 19px 5px repeat-x,
+      repeating-linear-gradient(90deg, transparent 0 7px, rgba(232,222,198,.5) 7px 12px, transparent 12px 19px) 0 calc(100% - 7px) / 19px 5px repeat-x,
+      rgba(12,10,8,.9);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .strip::-webkit-scrollbar { display: none; }
+  .strip button {
+    flex: 0 0 auto; width: 52px; height: 36px;
+    border: 1px solid rgba(255,255,255,.1); border-radius: 2px;
+    padding: 0; position: relative;
+    background: linear-gradient(160deg, color-mix(in srgb, var(--f-accent, #888) 42%, var(--f-bg, #111)), var(--f-bg, #111) 70%);
+    color: #f1e8d6;
+    font-family: 'Special Elite', 'Courier New', monospace; font-size: 8px; letter-spacing: 1px;
+    display: flex; align-items: flex-end; justify-content: flex-start;
+    overflow: hidden;
+    opacity: .55; transform: scale(.96);
+    transition: opacity .3s ease, transform .3s ease, box-shadow .3s ease;
+  }
+  .strip button span {
+    padding: 2px 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+    text-shadow: 0 1px 2px rgba(0,0,0,.8);
+  }
+  .strip button.is-active {
+    opacity: 1; transform: scale(1.06);
+    box-shadow: 0 0 0 1px var(--f-accent, #888), 0 0 16px color-mix(in srgb, var(--f-accent, #888) 45%, transparent);
+  }
+  .strip button:hover { opacity: .9; }
+
+  /* —— 顶栏 & 控制 —— */
+  .topbar {
+    position: fixed; top: max(10px, env(safe-area-inset-top)); left: 14px; right: 14px;
+    z-index: 5; display: flex; justify-content: space-between; align-items: center;
+    pointer-events: none;
+  }
+  .back {
+    pointer-events: auto;
+    font-family: 'Noto Serif SC', serif; font-weight: 300; font-size: 12px; letter-spacing: 1px;
+    color: var(--muted); text-decoration: none; opacity: .85; transition: color .3s, opacity .3s;
+  }
+  .back:hover { opacity: 1; color: var(--text); }
+  .reelno {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 10px; letter-spacing: 2px; color: var(--muted); opacity: .85;
+    transition: color 1.4s ease;
+  }
+  .controls {
+    position: relative; z-index: 4;
+    display: flex; justify-content: center; align-items: center; gap: 18px;
+    padding: 4px 0 6px;
+  }
+  .ctl {
+    background: none; border: 1px solid color-mix(in srgb, var(--muted) 45%, transparent);
+    color: var(--text); border-radius: 50%;
+    width: 34px; height: 34px; font-size: 12px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    opacity: .75; transition: opacity .25s, border-color .25s, color .25s;
+  }
+  .ctl:hover { opacity: 1; border-color: var(--accent); color: var(--accent); }
+  .ctl--play { width: 42px; height: 42px; font-size: 14px; }
+
+  .loading {
+    position: absolute; inset: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 11px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase;
+  }
+
+  @media (max-height: 560px) {
+    .frame__quote { min-height: 2em; }
+    .strip button { width: 44px; height: 30px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .grain, .flicker, .lens, .beam { animation: none; }
+    .dust { display: none; }
+    .screen.is-splicing .frame, .screen.is-splicing .scratch { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="room-glow" aria-hidden="true"></div>
+<div class="beam" aria-hidden="true"></div>
+<div class="dust" aria-hidden="true" id="dust"></div>
+<div class="lens" aria-hidden="true"></div>
+
+<div class="topbar">
+  <a class="back" href="../">← 回 Sam 的房间</a>
+  <span class="reelno" id="reelno">REEL — / —</span>
+</div>
+
+<main class="stage">
+  <div class="screen" id="screen" role="region" aria-label="放映银幕" aria-live="polite">
+    <div class="loading" id="loading">Threading the film…</div>
+
+    <div class="frame" id="frame" hidden>
+      <div class="frame__eyebrow" id="f-eyebrow"></div>
+      <h1 class="frame__name" id="f-name"></h1>
+      <div class="frame__film" id="f-film"></div>
+      <div class="frame__label" id="f-label"></div>
+      <p class="frame__quote"><span id="f-quote"></span><span class="caret" id="f-caret" hidden></span></p>
+      <p class="frame__gloss" id="f-gloss"></p>
+      <a class="frame__au" id="f-au" hidden>去他的平行时空 →</a>
+    </div>
+
+    <div class="fin" id="fin">
+      <p class="fin__word">FIN</p>
+      <p class="fin__stats" id="fin-stats"></p>
+      <p class="fin__note">这台放映机由 Fable 在 2026 年夏搭好，留在这里。<br>此后每一格新胶片，都会自己走进光里。</p>
+    </div>
+
+    <div class="leader" id="leader" aria-hidden="true">
+      <div class="leader__sweep" id="leader-sweep"></div>
+      <div class="leader__num" id="leader-num">3</div>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="flicker" aria-hidden="true"></div>
+    <div class="scratch" aria-hidden="true"></div>
+    <div class="cue" id="cue" aria-hidden="true"></div>
+  </div>
+</main>
+
+<div class="controls">
+  <button class="ctl" id="btn-prev" aria-label="上一格">⏮</button>
+  <button class="ctl ctl--play" id="btn-play" aria-label="暂停 / 播放">⏸</button>
+  <button class="ctl" id="btn-next" aria-label="下一格">⏭</button>
+</div>
+
+<div class="strip-wrap">
+  <div class="strip" id="strip" role="tablist" aria-label="胶片条：全部角色"></div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var $ = function (id) { return document.getElementById(id); };
+  var screenEl = $("screen"), frameEl = $("frame"), finEl = $("fin");
+  var leaderEl = $("leader"), leaderNum = $("leader-num"), leaderSweep = $("leader-sweep");
+  var stripEl = $("strip"), reelEl = $("reelno"), cueEl = $("cue");
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var chars = [];         // 按年份升序的角色列表（来自 lines.json，唯一数据源）
+  var idx = 0;            // 当前帧
+  var round = 0;          // 第几轮循环：第 r 轮放每个角色的第 r 句台词
+  var playing = true;
+  var typeTimer = null, holdTimer = null, cueTimer = null;
+  var typingDone = false;
+
+  /* ————— 浮尘 ————— */
+  (function makeDust() {
+    if (reduced) return;
+    var box = $("dust"), n = 26, i, m;
+    for (i = 0; i < n; i++) {
+      m = document.createElement("i");
+      var size = 1 + Math.random() * 2.2;
+      m.style.width = m.style.height = size.toFixed(1) + "px";
+      m.style.left = (32 + Math.random() * 36) + "vw";
+      m.style.bottom = (Math.random() * 30) + "vh";
+      m.style.setProperty("--mx", ((Math.random() - 0.5) * 120).toFixed(0) + "px");
+      m.style.setProperty("--mo", (0.15 + Math.random() * 0.4).toFixed(2));
+      m.style.animationDuration = (9 + Math.random() * 14).toFixed(1) + "s";
+      m.style.animationDelay = (-Math.random() * 20).toFixed(1) + "s";
+      box.appendChild(m);
+    }
+  })();
+
+  /* ————— 数据：唯一来源 ../lines.json ————— */
+  fetch("../lines.json", { cache: "no-cache" })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      chars = (data.characters || []).slice().sort(function (a, b) {
+        return (parseInt(a.year, 10) || 0) - (parseInt(b.year, 10) || 0);
+      });
+      if (!chars.length) throw new Error("empty");
+      $("loading").remove();
+      buildStrip();
+      runLeader(function () { showFrame(0); });
+    })
+    .catch(function () {
+      $("loading").textContent = "胶片卡住了…请刷新重试";
+    });
+
+  /* ————— 胶片条 ————— */
+  function buildStrip() {
+    var fragment = document.createDocumentFragment();
+    chars.forEach(function (c, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("role", "tab");
+      b.setAttribute("aria-label", c.name + " · " + c.year);
+      b.title = c.name + " · " + (c.film || "") + " · " + c.year;
+      b.style.setProperty("--f-accent", c.accent);
+      b.style.setProperty("--f-bg", c.bg);
+      var s = document.createElement("span");
+      s.textContent = c.year;
+      b.appendChild(s);
+      b.addEventListener("click", function () { jumpTo(i); });
+      fragment.appendChild(b);
+    });
+    stripEl.appendChild(fragment);
+  }
+
+  function markStrip() {
+    var kids = stripEl.children, i;
+    for (i = 0; i < kids.length; i++) kids[i].classList.toggle("is-active", i === idx);
+    var active = kids[idx];
+    if (active && active.scrollIntoView) {
+      active.scrollIntoView({ behavior: reduced ? "auto" : "smooth", inline: "center", block: "nearest" });
+    }
+  }
+
+  /* ————— 片头倒计时 ————— */
+  function runLeader(done) {
+    var n = 3;
+    leaderEl.classList.add("is-on");
+    finEl.classList.remove("is-on");
+    frameEl.hidden = true;
+    function tick() {
+      if (n === 0) { leaderEl.classList.remove("is-on"); done(); return; }
+      leaderNum.textContent = n;
+      if (!reduced) {
+        leaderSweep.style.transition = "none";
+        leaderSweep.style.background = "conic-gradient(rgba(20,17,13,.28) 0deg, transparent 0deg)";
+        void leaderSweep.offsetWidth;
+        var deg = 0, start = null;
+        (function sweep(ts) {
+          if (!start) start = ts;
+          deg = Math.min(360, (ts - start) / 800 * 360);
+          leaderSweep.style.background = "conic-gradient(rgba(20,17,13,.28) " + deg + "deg, transparent " + deg + "deg)";
+          if (deg < 360) requestAnimationFrame(sweep);
+        })(performance.now());
+      }
+      n--;
+      setTimeout(tick, reduced ? 350 : 820);
+    }
+    tick();
+  }
+
+  /* ————— 放一帧 ————— */
+  function clearTimers() {
+    if (typeTimer) { clearInterval(typeTimer); typeTimer = null; }
+    if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
+    if (cueTimer) { clearTimeout(cueTimer); cueTimer = null; }
+  }
+
+  function setTheme(c) {
+    var root = document.documentElement;
+    root.style.setProperty("--accent", c.accent);
+    root.style.setProperty("--bg", c.bg);
+    root.style.setProperty("--text", c.text);
+    root.style.setProperty("--muted", c.muted);
+    var tc = document.getElementById("theme-color");
+    if (tc) tc.setAttribute("content", c.bg);
+  }
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+  function showFrame(i) {
+    clearTimers();
+    idx = i;
+    var c = chars[idx];
+    var q = c.quotes[round % c.quotes.length];
+
+    setTheme(c);
+    markStrip();
+    reelEl.textContent = "REEL " + pad(idx + 1) + " / " + chars.length;
+
+    // 接片闪一下
+    screenEl.classList.remove("is-splicing");
+    void screenEl.offsetWidth;
+    screenEl.classList.add("is-splicing");
+
+    finEl.classList.remove("is-on");
+    frameEl.hidden = false;
+    $("f-eyebrow").textContent = "Reel " + pad(idx + 1) + " · " + c.year;
+    $("f-name").textContent = c.name;
+    var filmEl = $("f-film");
+    filmEl.textContent = "";
+    filmEl.appendChild(document.createTextNode(c.film || ""));
+    if (c.filmCN) {
+      var cn = document.createElement("span");
+      cn.className = "cn";
+      cn.textContent = " · " + c.filmCN;
+      filmEl.appendChild(cn);
+    }
+    var labelEl = $("f-label");
+    labelEl.textContent = q.label || "";
+    labelEl.classList.remove("is-on");
+    var glossEl = $("f-gloss");
+    glossEl.textContent = q.lineCN || "";
+    glossEl.classList.remove("is-on");
+    var auEl = $("f-au");
+    if (c.auLink) { auEl.href = c.auLink; auEl.hidden = false; auEl.classList.remove("is-on"); }
+    else { auEl.hidden = true; }
+
+    typeQuote(q.line || "", function () { afterTyped(); });
+  }
+
+  function typeQuote(text, done) {
+    var qEl = $("f-quote"), caret = $("f-caret");
+    qEl.textContent = "";
+    typingDone = false;
+    caret.hidden = false;
+    $("f-label").classList.add("is-on");
+    if (reduced) { qEl.textContent = text; typingDone = true; caret.hidden = true; done(); return; }
+    var i = 0;
+    typeTimer = setInterval(function () {
+      i++;
+      qEl.textContent = text.slice(0, i);
+      if (i >= text.length) {
+        clearInterval(typeTimer); typeTimer = null;
+        typingDone = true;
+        setTimeout(function () { caret.hidden = true; }, 1400);
+        done();
+      }
+    }, 34);
+    // 点按银幕可跳过打字（见下方 click handler）
+    typeQuote.skip = function () {
+      if (typeTimer) { clearInterval(typeTimer); typeTimer = null; }
+      qEl.textContent = text;
+      typingDone = true;
+      caret.hidden = true;
+      done();
+    };
+  }
+
+  function afterTyped() {
+    $("f-gloss").classList.add("is-on");
+    var auEl = $("f-au");
+    if (!auEl.hidden) auEl.classList.add("is-on");
+    scheduleNext(4600);
+  }
+
+  function scheduleNext(delay) {
+    if (!playing) return;
+    if (holdTimer) clearTimeout(holdTimer);
+    // 换本提示：帧结束前一秒，右上角烧点闪两下
+    cueTimer = setTimeout(function () {
+      cueEl.classList.remove("is-on");
+      void cueEl.offsetWidth;
+      cueEl.classList.add("is-on");
+    }, Math.max(0, delay - 1000));
+    holdTimer = setTimeout(next, delay);
+  }
+
+  function next() {
+    if (idx + 1 < chars.length) showFrame(idx + 1);
+    else showFin();
+  }
+
+  function prev() {
+    if (idx > 0) showFrame(idx - 1);
+    else showFrame(chars.length - 1);
+  }
+
+  function jumpTo(i) { showFrame(i); }
+
+  /* ————— 片尾 ————— */
+  function showFin() {
+    clearTimers();
+    frameEl.hidden = true;
+    reelEl.textContent = "REEL " + chars.length + " / " + chars.length + " · FIN";
+    var lines = chars.reduce(function (sum, c) { return sum + (c.quotes ? c.quotes.length : 0); }, 0);
+    $("fin-stats").textContent = chars.length + " faces · " + lines + " lines · one room";
+    // 回到暖色调收尾
+    document.documentElement.style.setProperty("--accent", "#cba14c");
+    document.documentElement.style.setProperty("--bg", "#14110d");
+    document.documentElement.style.setProperty("--text", "#ede2d0");
+    document.documentElement.style.setProperty("--muted", "#8a7558");
+    finEl.classList.add("is-on");
+    if (playing) {
+      holdTimer = setTimeout(function () {
+        round++; // 下一轮换下一句台词
+        runLeader(function () { showFrame(0); });
+      }, 9000);
+    }
+  }
+
+  /* ————— 控制 ————— */
+  var btnPlay = $("btn-play");
+  function setPlaying(p) {
+    playing = p;
+    btnPlay.textContent = playing ? "⏸" : "▶";
+    btnPlay.setAttribute("aria-label", playing ? "暂停" : "播放");
+    if (playing) {
+      if (finEl.classList.contains("is-on")) {
+        holdTimer = setTimeout(function () { round++; runLeader(function () { showFrame(0); }); }, 3000);
+      } else if (typingDone) {
+        scheduleNext(3200);
+      }
+    } else {
+      if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
+      if (cueTimer) { clearTimeout(cueTimer); cueTimer = null; }
+    }
+  }
+  btnPlay.addEventListener("click", function () { setPlaying(!playing); });
+  $("btn-next").addEventListener("click", function () { finEl.classList.contains("is-on") ? (round++, showFrame(0)) : next(); });
+  $("btn-prev").addEventListener("click", prev);
+
+  // 点银幕：打字没完 → 直接放完这句；打完了 → 下一格
+  screenEl.addEventListener("click", function (e) {
+    if (e.target && e.target.id === "f-au") return; // 链接照常跳
+    if (!chars.length || leaderEl.classList.contains("is-on")) return;
+    if (finEl.classList.contains("is-on")) { round++; showFrame(0); return; }
+    if (!typingDone && typeQuote.skip) typeQuote.skip();
+    else next();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (!chars.length) return;
+    if (e.key === "ArrowRight") { e.preventDefault(); finEl.classList.contains("is-on") ? (round++, showFrame(0)) : next(); }
+    else if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
+    else if (e.key === " ") { e.preventDefault(); setPlaying(!playing); }
+  });
+
+  // 页面被切走时暂停计时，回来再续（省电 & 不会瞬间跳很多帧）
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) { if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; } }
+    else if (playing && typingDone && !leaderEl.classList.contains("is-on") && !finEl.classList.contains("is-on")) scheduleNext(2600);
+  });
+})();
+</script>
+
+</body>
+</html>
