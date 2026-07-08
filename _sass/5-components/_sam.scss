@@ -474,6 +474,90 @@
 .c-sam-intro__heading,
 .c-section-heading { scroll-margin-top: 88px; }
 
+/* ===== 折叠板块（手风琴：一次读一节） ===== */
+.c-sam-fold-hint {
+  text-align: center;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: $muted;
+  margin: 10px 0 4px;
+}
+
+.c-sam-fold {
+  border-top: 1px solid $line;
+  scroll-margin-top: 80px;
+  &:last-of-type { border-bottom: 1px solid $line; }
+}
+
+.c-sam-fold__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 19px 4px;
+  cursor: pointer;
+  list-style: none;                 /* Firefox: 去掉默认三角 */
+  &::-webkit-details-marker { display: none; }  /* Safari/Chrome */
+  &:hover .c-sam-fold__en { color: $accent; }
+}
+
+.c-sam-fold__titles {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.c-sam-fold__en {
+  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: $ink;
+  transition: color 0.2s;
+}
+
+.c-sam-fold__cn {
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 13.5px;
+  color: $muted;
+}
+
+.c-sam-fold__chev {
+  flex: 0 0 auto;
+  font-size: 15px;
+  line-height: 1;
+  color: $accent;
+  transition: transform 0.25s ease;
+}
+details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); }
+
+.c-sam-fold__body {
+  padding: 2px 2px 6px;
+  /* 板块内第一个小标题不用再顶那么大间距（已有 summary 当标题） */
+  > .c-sam-intro__heading:first-child { margin-top: 8px; }
+}
+
+.c-sam-fold__collapse {
+  display: block;
+  margin: 22px auto 4px;
+  padding: 7px 22px;
+  background: none;
+  border: 1px solid $line;
+  border-radius: 999px;
+  font-family: $heading-font-family;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: $muted;
+  cursor: pointer;
+  transition: $global-transition;
+  &:hover { color: $accent; border-color: $accent-soft; }
+}
+
 /* ----- Collection grid ----- */
 .c-sam-collection {
   max-width: 880px;
