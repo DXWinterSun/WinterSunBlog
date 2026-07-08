@@ -27,10 +27,20 @@ title: Sam
 
 <article class="c-sam-intro">
 
-  <p class="c-sam-intro__lede">
-    从六年前的一次偶遇，到此刻的每日一更。<br>
-    这一栏，是我专为他留下的位置。
-  </p>
+  <div class="c-streak" data-start="2026-02-13" data-target="2027-02-13">
+    <div class="c-streak__eyebrow">Since 2026 · 情人节的前一天</div>
+    <div class="c-streak__count">
+      已经为他坚持了
+      <span class="c-streak__num" id="streak-days">—</span>
+      天
+    </div>
+    <div class="c-streak__sub" id="streak-sub">自 2026 年 2 月 13 日起，一天没落下。</div>
+    <div class="c-streak__track" aria-hidden="true">
+      <span class="c-streak__fill" id="streak-fill"></span>
+    </div>
+    <div class="c-streak__goal" id="streak-goal">距离日更满一周年的那天……</div>
+    <p class="c-streak__caption">从六年前的一次偶遇，到此刻的每日一更——这一栏，是我专为他留下的位置。</p>
+  </div>
 
   <p class="c-sam-fold-hint">点标题展开 / 收起 · 一次读一节</p>
 
@@ -279,20 +289,7 @@ title: Sam
     自 2026 年 2 月 13 日——情人节的前一天——起，我开始在小红书每日更新一点和他相关的东西。或一张照片，或一段影视切片，或一段访谈……我从没对任何事如此坚持过，但对他，我一天都没落下。
   </p>
 
-  <div class="c-streak" data-start="2026-02-13" data-target="2027-02-13">
-    <div class="c-streak__eyebrow">Since 2026 · 情人节的前一天</div>
-    <div class="c-streak__count">
-      已经为他坚持了
-      <span class="c-streak__num" id="streak-days">—</span>
-      天
-    </div>
-    <div class="c-streak__sub" id="streak-sub">自 2026 年 2 月 13 日起，一天没落下。</div>
-    <div class="c-streak__track" aria-hidden="true">
-      <span class="c-streak__fill" id="streak-fill"></span>
-    </div>
-    <div class="c-streak__goal" id="streak-goal">距离日更满一周年的那天……</div>
-  </div>
-
+  {%- comment -%} 日更计数器 .c-streak 已提到页面顶部（hero 下方，见文首）；下面的 style / script 保留在此、全局生效 {%- endcomment -%}
   <style>
     /* 计数器完全用站点主题变量：跟随明暗切换 + 主题色选择器（--c-accent 等） */
     .c-streak {
@@ -340,6 +337,13 @@ title: Sam
     .c-streak__goal {
       font-family: 'Noto Serif SC', serif; font-weight: 400;
       font-size: clamp(12.5px, 3.2vw, 14px); color: var(--c-muted); letter-spacing: .5px;
+    }
+    /* 这句话作为计数器的「设计脚注」：卡内、一条淡分隔线之下的斜体小字 */
+    .c-streak__caption {
+      max-width: 440px; margin: 22px auto 2px; padding-top: 16px;
+      border-top: 1px solid rgba(var(--rgb-accent), .18);
+      font-family: 'EB Garamond', 'Noto Serif SC', serif; font-style: italic;
+      font-size: clamp(13.5px, 3.4vw, 15px); line-height: 1.72; color: var(--c-muted);
     }
   </style>
   <script>
