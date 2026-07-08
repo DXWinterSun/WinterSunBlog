@@ -23,16 +23,62 @@
   button { font-family: inherit; cursor: pointer; }
   a { color: inherit; }
   ::selection { background: rgba(203,161,76,.3); }
+
+  /* ── 两栏版式：左侧人物名录（吸顶、独立滚动），右侧详情区（雷达图 + 维度条）──
+     解决旧版「显示区在顶部、41 人的选择器在页面最底部」的来回滚动问题：
+     选一个人要滚到底，点完还要滚回顶部看图。改成同屏可见，桌面各自独立
+     滚动，手机名录变吸顶横条，思路与台词墙（sam/wall）一致。 */
+  .spectrum-layout { display: flex; align-items: flex-start; gap: 26px; }
+  .spectrum-picker {
+    flex: 0 0 258px;
+    position: sticky;
+    top: 18px;
+    max-height: calc(100vh - 36px);
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .spectrum-picker::-webkit-scrollbar { width: 5px; }
+  .spectrum-picker::-webkit-scrollbar-thumb { background: #2a241b; border-radius: 3px; }
+  .spectrum-detail { flex: 1; min-width: 0; scroll-margin-top: 18px; }
+  .spectrum-decade-label { display: block; }
+
+  @media (max-width: 900px) {
+    .spectrum-layout { display: block; }
+    .spectrum-picker {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      max-height: none;
+      overflow-y: visible;
+      overflow-x: auto;
+      display: flex;
+      gap: 8px;
+      padding: 12px 2px 14px;
+      margin: 0 -4px 22px;
+      background: #14110d;
+      border-bottom: 1px solid #211c14;
+      scrollbar-width: none;
+    }
+    .spectrum-picker::-webkit-scrollbar { display: none; }
+    /* 手机横向滚动条里放不下按年代分组的标题，展开成一条扁平的人物流 */
+    .spectrum-decade { display: contents; }
+    .spectrum-decade-label { display: none; }
+    .spectrum-picker-item, .spectrum-picker-avg {
+      flex: 0 0 auto !important; width: auto !important;
+      border-radius: 999px !important; white-space: nowrap;
+    }
+    .spectrum-detail { scroll-margin-top: 68px; }
+  }
 </style>
 </head>
 <body>
 <div id="root"></div>
-<meta name="cache-bust" content="20260704-spectrum-1">
+<meta name="cache-bust" content="20260708-spectrum-2-picker">
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
 <script type="text/babel" data-presets="react">
-const { useState, useMemo } = React;
+const { useState, useMemo, useRef } = React;
 
 const CHARS = [
   {id:"gary",name:"Gary",film:"Strictly Business",filmCN:"《登龙妙招》",year:"1991",label:"OFF THE CLOCK",line:"I'd rather lose clean than win dirty.",lineCN:"宁可干干净净地输，也不脏着赢。",tagline:"他穿西装还带着收发室新人的青涩——可真正帅的，是他知错就改的那一下。",bg:"#14110d",accent:"#cba14c",text:"#ede2d0",muted:"#8a7558",profile:{guile:5,forbear:6,chaos:1,raw:6,romance:6,grace:6},auLink:null},
@@ -196,23 +242,29 @@ function Strip({ dim, selIdx }) {
   );
 }
 
-function Chip({ c, active, onClick }) {
+// 左侧名录里的一行——与台词墙（sam/wall）的 RosterItem 同一套视觉语言，
+// 保持这个「Sam 互动小站」系列的一致性。desktop 是完整一行，mobile 靠
+// CSS 折成只剩名字的胶囊（见 <style> 里的 @media 规则）。
+function PickerItem({ c, active, onClick }) {
   return (
-    <button onClick={onClick} style={{
-      display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 3,
-      width: "100%", textAlign: "left",
-      fontFamily: SERIF, color: active ? "#14110d" : c.text,
-      background: active ? c.accent : "#17130e",
-      border: "1px solid " + (active ? c.accent : "#2a241b"),
-      borderLeft: "3px solid " + c.accent,
-      borderRadius: 9, padding: "11px 14px", lineHeight: 1.25,
-      transition: "transform .2s ease, background .2s ease, border-color .2s ease",
-      transform: active ? "translateY(-1px)" : "none",
-      boxShadow: active ? "0 12px 26px -16px " + c.accent + "aa" : "none",
+    <button className="spectrum-picker-item" onClick={onClick} style={{
+      display: "flex", alignItems: "center", gap: 8, width: "100%",
+      textAlign: "left", marginBottom: 6, fontFamily: SERIF,
+      background: active ? "#231d14" : "transparent",
+      border: "1px solid " + (active ? c.accent + "70" : "#211c14"),
+      borderLeft: "3px solid " + (active ? c.accent : "transparent"),
+      borderRadius: 10, padding: "9px 11px",
     }}>
-      <span style={{ fontSize: 13.5, fontWeight: 500 }}>{c.name}</span>
+      <span style={{
+        fontSize: 13.5, fontWeight: 500, whiteSpace: "nowrap",
+        overflow: "hidden", textOverflow: "ellipsis",
+        color: active ? c.accent : "#ede2d0",
+      }}>{c.name}</span>
       {c.year ? (
-        <span style={{ fontSize: 11, opacity: active ? .65 : .5, fontFamily: DISPLAY, fontStyle: "italic" }}>{c.year}</span>
+        <span style={{
+          marginLeft: "auto", flexShrink: 0, fontFamily: DISPLAY, fontStyle: "italic",
+          fontSize: 11, color: "#8a7558", opacity: active ? .85 : .55,
+        }}>{c.year}</span>
       ) : null}
     </button>
   );
@@ -230,13 +282,19 @@ const DECADES = (() => {
 function App() {
   const [selIdx, setSelIdx] = useState(-1);
   const cur = selIdx < 0 ? AVERAGE : CHARS[selIdx];
+  const detailRef = useRef(null);
 
   const top = useMemo(() => {
     return DIMS.map(d => ({ d, v: cur.profile[d.key] })).sort((a, b) => b.v - a.v)[0];
   }, [selIdx]);
 
+  function selectChar(i) {
+    setSelIdx(i);
+    if (detailRef.current) detailRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   return (
-    <div style={{ maxWidth: 1040, margin: "0 auto", padding: "clamp(28px,6vw,64px) clamp(18px,5vw,40px) 90px" }}>
+    <div style={{ maxWidth: 1180, margin: "0 auto", padding: "clamp(28px,6vw,64px) clamp(18px,5vw,40px) 90px" }}>
 
       <header style={{ textAlign: "center", marginBottom: "clamp(26px,5vw,44px)" }}>
         <a href="/WinterSunBlog/sam/" style={{
@@ -257,60 +315,12 @@ function App() {
           fontSize: "clamp(14px,3.8vw,16px)", lineHeight: 2, color: "#a08b6b",
         }}>
           狡黠、隐忍、疯狂、璞真、浪漫、优雅——<br />
-          同一个人，四十一种配比。选一个角色，看他的形状；<br />
+          同一个人，四十一种配比。左边点一个角色，看他的形状；<br />
           或者就停在<span style={{ color: "#cba14c" }}>平均的那张脸</span>上。
         </p>
       </header>
 
-      <section style={{
-        display: "grid", gap: "clamp(20px,4vw,44px)", alignItems: "center",
-        gridTemplateColumns: "minmax(0,1fr)",
-      }} className="spectrum-main">
-        <div style={{
-          background: "linear-gradient(155deg, " + cur.bg + " 0%, #0d0b08 130%)",
-          border: "1px solid " + cur.accent + "33", borderRadius: 18,
-          padding: "30px 22px 26px", boxShadow: "0 30px 80px -46px " + cur.accent + "55",
-        }}>
-          <Radar c={cur} ghost={cur.isAvg ? null : AVERAGE} />
-          <div style={{ textAlign: "center", marginTop: 18 }}>
-            <div style={{ fontFamily: TYPE, fontSize: 10, letterSpacing: 2.5, color: cur.accent, textTransform: "uppercase", marginBottom: 8 }}>
-              最强的一面 · {top.d.cn} {top.v % 1 === 0 ? top.v : top.v.toFixed(1)}
-            </div>
-            <h2 style={{ margin: 0, fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(22px,5vw,30px)", color: cur.text, lineHeight: 1.2 }}>
-              {cur.name}
-            </h2>
-            <div style={{ fontFamily: GARA, fontStyle: "italic", fontSize: 16, color: cur.muted, marginTop: 6 }}>
-              {cur.filmCN}{cur.year ? " · " + cur.year : ""}
-            </div>
-            <p style={{ margin: "16px auto 0", maxWidth: 380, fontFamily: SERIF, fontWeight: 300, fontSize: 14, lineHeight: 1.85, color: cur.text, opacity: .8 }}>
-              {cur.tagline}
-            </p>
-            {cur.line && (
-              <p style={{ margin: "16px auto 0", maxWidth: 380, fontFamily: GARA, fontStyle: "italic", fontSize: 17, lineHeight: 1.5, color: cur.accent }}>
-                &ldquo;{cur.line}&rdquo;
-              </p>
-            )}
-            {cur.auLink && (
-              <a href={cur.auLink} style={{
-                display: "inline-block", marginTop: 18, fontFamily: SERIF, fontSize: 13,
-                color: cur.accent, textDecoration: "none", borderBottom: "1px solid " + cur.accent + "55", paddingBottom: 2,
-              }}>读他的 AU &rarr;</a>
-            )}
-          </div>
-        </div>
-
-        <div>
-          <div style={{ fontFamily: TYPE, fontSize: 11, letterSpacing: 2.5, color: "#8a7558", textTransform: "uppercase", marginBottom: 20 }}>
-            在四十一人里的位置
-          </div>
-          {DIMS.map(d => <Strip key={d.key} dim={d} selIdx={selIdx} />)}
-          <p style={{ fontFamily: SERIF, fontSize: 11.5, color: "#5f5340", lineHeight: 1.7, marginTop: 4 }}>
-            每个点是一个角色，横轴是该维度 0→10。虚线六边形是四十一人的平均。
-          </p>
-        </div>
-      </section>
-
-      <div style={{ display: "flex", alignItems: "center", gap: 16, margin: "clamp(40px,7vw,64px) 0 24px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16, margin: "clamp(30px,5vw,44px) 0 20px" }}>
         <span style={{ flex: 1, height: 1, background: "linear-gradient(90deg, transparent, #3a3226)" }}></span>
         <span style={{ fontFamily: TYPE, fontSize: 11.5, letterSpacing: 3, color: "#8a7558", textTransform: "uppercase", whiteSpace: "nowrap" }}>
           选一个他 · Pick a Face
@@ -318,38 +328,75 @@ function App() {
         <span style={{ flex: 1, height: 1, background: "linear-gradient(90deg, #3a3226, transparent)" }}></span>
       </div>
 
-      <div style={{ textAlign: "center", marginBottom: "clamp(30px,5vw,44px)" }}>
-        <button onClick={() => setSelIdx(-1)} style={{
-          fontFamily: SERIF, fontSize: 13.5, color: selIdx < 0 ? "#14110d" : AVG_ACCENT,
-          background: selIdx < 0 ? AVG_ACCENT : "#17130e",
-          border: "1px solid " + AVG_ACCENT, borderRadius: 999,
-          padding: "10px 22px", fontWeight: 500, letterSpacing: 1,
-          boxShadow: selIdx < 0 ? "0 14px 30px -18px " + AVG_ACCENT + "cc" : "none",
-          transition: "all .2s ease",
-        }}>◆ 平均的 Sam</button>
-      </div>
+      <div className="spectrum-layout">
+        <nav className="spectrum-picker" aria-label="角色名录">
+          <button className="spectrum-picker-avg" onClick={() => selectChar(-1)} style={{
+            display: "block", width: "100%", textAlign: "center", marginBottom: 12,
+            fontFamily: SERIF, fontSize: 13.5, color: selIdx < 0 ? "#14110d" : AVG_ACCENT,
+            background: selIdx < 0 ? AVG_ACCENT : "transparent",
+            border: "1px solid " + AVG_ACCENT, borderRadius: 999,
+            padding: "9px 16px", fontWeight: 500, letterSpacing: 1,
+            whiteSpace: "nowrap",
+          }}>◆ 平均的 Sam</button>
 
-      {DECADES.map(dec => (
-        <div key={dec.label} style={{ marginBottom: "clamp(26px,4vw,38px)" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
-            <span style={{ fontFamily: DISPLAY, fontStyle: "italic", fontWeight: 700, fontSize: 20, color: "#c9b48c", whiteSpace: "nowrap" }}>
-              {dec.label}
-            </span>
-            <span style={{ fontFamily: TYPE, fontSize: 10, letterSpacing: 1.5, color: "#5f5340" }}>
-              {dec.items.length}
-            </span>
-            <span style={{ flex: 1, height: 1, background: "linear-gradient(90deg, #3a3226, transparent)" }}></span>
-          </div>
+          {DECADES.map(dec => (
+            <div key={dec.label} className="spectrum-decade">
+              <div className="spectrum-decade-label" style={{
+                fontFamily: DISPLAY, fontStyle: "italic", fontWeight: 700, fontSize: 15,
+                color: "#8a7558", margin: "16px 4px 8px",
+              }}>{dec.label} <span style={{ fontFamily: TYPE, fontSize: 9.5, fontStyle: "normal", color: "#5f5340" }}>{dec.items.length}</span></div>
+              {dec.items.map(({ c, i }) => (
+                <PickerItem key={c.id} c={c} active={i === selIdx} onClick={() => selectChar(i)} />
+              ))}
+            </div>
+          ))}
+        </nav>
+
+        <div className="spectrum-detail" ref={detailRef}>
           <div style={{
-            display: "grid", gap: 11,
-            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 176px), 1fr))",
+            background: "linear-gradient(155deg, " + cur.bg + " 0%, #0d0b08 130%)",
+            border: "1px solid " + cur.accent + "33", borderRadius: 18,
+            padding: "30px 22px 26px", boxShadow: "0 30px 80px -46px " + cur.accent + "55",
           }}>
-            {dec.items.map(({ c, i }) => (
-              <Chip key={c.id} c={c} active={i === selIdx} onClick={() => setSelIdx(i)} />
-            ))}
+            <Radar c={cur} ghost={cur.isAvg ? null : AVERAGE} />
+            <div style={{ textAlign: "center", marginTop: 18 }}>
+              <div style={{ fontFamily: TYPE, fontSize: 10, letterSpacing: 2.5, color: cur.accent, textTransform: "uppercase", marginBottom: 8 }}>
+                最强的一面 · {top.d.cn} {top.v % 1 === 0 ? top.v : top.v.toFixed(1)}
+              </div>
+              <h2 style={{ margin: 0, fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(22px,5vw,30px)", color: cur.text, lineHeight: 1.2 }}>
+                {cur.name}
+              </h2>
+              <div style={{ fontFamily: GARA, fontStyle: "italic", fontSize: 16, color: cur.muted, marginTop: 6 }}>
+                {cur.filmCN}{cur.year ? " · " + cur.year : ""}
+              </div>
+              <p style={{ margin: "16px auto 0", maxWidth: 420, fontFamily: SERIF, fontWeight: 300, fontSize: 14, lineHeight: 1.85, color: cur.text, opacity: .8 }}>
+                {cur.tagline}
+              </p>
+              {cur.line && (
+                <p style={{ margin: "16px auto 0", maxWidth: 420, fontFamily: GARA, fontStyle: "italic", fontSize: 17, lineHeight: 1.5, color: cur.accent }}>
+                  &ldquo;{cur.line}&rdquo;
+                </p>
+              )}
+              {cur.auLink && (
+                <a href={cur.auLink} style={{
+                  display: "inline-block", marginTop: 18, fontFamily: SERIF, fontSize: 13,
+                  color: cur.accent, textDecoration: "none", borderBottom: "1px solid " + cur.accent + "55", paddingBottom: 2,
+                }}>读他的 AU &rarr;</a>
+              )}
+            </div>
+          </div>
+
+          <div style={{ marginTop: "clamp(20px,4vw,32px)" }}>
+            <div style={{ fontFamily: TYPE, fontSize: 11, letterSpacing: 2.5, color: "#8a7558", textTransform: "uppercase", marginBottom: 20 }}>
+              在四十一人里的位置
+            </div>
+            {DIMS.map(d => <Strip key={d.key} dim={d} selIdx={selIdx} />)}
+            <p style={{ fontFamily: SERIF, fontSize: 11.5, color: "#5f5340", lineHeight: 1.7, marginTop: 4 }}>
+              每个点是一个角色，横轴是该维度 0→10。虚线六边形是四十一人的平均。
+            </p>
           </div>
         </div>
-      ))}
+      </div>
 
       <footer style={{ textAlign: "center", marginTop: 72 }}>
         <p style={{ fontFamily: GARA, fontStyle: "italic", fontSize: 17, color: "#8a7558", margin: 0 }}>
@@ -359,8 +406,6 @@ function App() {
           a quiet shrine, kept by 冬璇
         </p>
       </footer>
-
-      <style>{"@media(min-width:860px){.spectrum-main{grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr) !important;}}"}</style>
     </div>
   );
 }
