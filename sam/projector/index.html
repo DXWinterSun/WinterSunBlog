@@ -210,6 +210,21 @@
     font-size: clamp(12px, 3.2vw, 14.5px); line-height: 2;
     color: var(--text); opacity: .72; margin-top: 16px; max-width: 26em;
   }
+  .fin__sign {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500;
+    font-size: clamp(14px, 3.8vw, 18px); letter-spacing: 1px;
+    color: var(--accent); margin: 18px 0 0;
+  }
+
+  /* —— 每格胶片底部的联合署名 —— */
+  .screen-credit {
+    position: absolute; left: 0; right: 0; bottom: clamp(9px, 2vh, 16px); z-index: 1;
+    text-align: center; pointer-events: none;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: clamp(8px, 2vw, 9.5px); letter-spacing: 4px; text-transform: uppercase;
+    color: var(--muted); opacity: .5;
+    transition: color 1.4s ease;
+  }
 
   /* —— 倒计时引导片（片头数字） —— */
   .leader {
@@ -402,7 +417,10 @@
       <p class="fin__word">FIN</p>
       <p class="fin__stats" id="fin-stats"></p>
       <p class="fin__note">这台放映机由 Fable 在 2026 年夏搭好，留在这里。<br>此后每一格新胶片，都会自己走进光里。</p>
+      <p class="fin__sign">— Winter × Fable</p>
     </div>
+
+    <div class="screen-credit" aria-hidden="true">Winter × Fable</div>
 
     <div class="leader" id="leader" aria-hidden="true">
       <div class="leader__sweep" id="leader-sweep"></div>
