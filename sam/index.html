@@ -328,16 +328,17 @@ title: Sam
       font-family: 'Noto Serif SC', serif; font-weight: 400;
       font-size: clamp(12.5px, 3.2vw, 14px); color: var(--c-muted); letter-spacing: .5px;
     }
-    /* 这句话作为计数器的「设计脚注」：卡内、一条淡分隔线之下的斜体小字 */
-    .c-streak__caption {
-      max-width: 520px; margin: 22px auto 2px; padding-top: 16px;
+    /* 这句话作为计数器的「设计脚注」：卡内、一条淡分隔线之下的斜体小字。
+       选择器加一层（.c-streak .c-streak__caption，优先级 0,2,0）盖过
+       _sam.scss 里的 .c-sam-intro p{margin:0 0 22px}——那条会把 margin
+       左右归零、让 auto 居中失效。这里不靠 auto，直接占满整宽 + 文字居中。 */
+    .c-streak .c-streak__caption {
+      margin: 22px 0 2px; padding-top: 16px;
       border-top: 1px solid rgba(var(--rgb-accent), .18);
       font-family: 'EB Garamond', 'Noto Serif SC', serif; font-style: italic;
       font-size: clamp(13.5px, 3.4vw, 15px); line-height: 1.9; color: var(--c-muted);
       text-align: center;
     }
-    /* 手动断成两行：桌面各占一行；窄屏若再折行也断在标点，不至于碎 */
-    .c-streak__caption br { display: inline; }
   </style>
   <script>
     (function () {
