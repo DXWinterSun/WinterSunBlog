@@ -864,6 +864,23 @@
 .c-note__body p { margin: 0 0 8px; }
 .c-note__body p:last-child { margin-bottom: 0; }
 
+/* optional: marks lines written in haste, after a calmer pre-written opening —
+   upright instead of italic, heavier, a touch of ink-color drift, and a slight
+   uneven tilt so the shift in handwriting reads at a glance */
+.c-note__line--rushed {
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  color: color-mix(in srgb, $ink 82%, $accent 18%);
+  display: block;
+  transform: rotate(-0.9deg);
+  transform-origin: left center;
+}
+
+.c-note__line--rushed + .c-note__line--rushed {
+  transform: rotate(0.7deg);
+}
+
 .c-note__sign {
   display: block;
   margin-top: 14px;
