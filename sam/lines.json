@@ -2,9 +2,13 @@
  "meta": {
   "start": "2026-02-13",
   "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-  "characters_count": 40,
-  "pool_count": 200,
-  "mf_alias": { "johnmoon": "john", "sambell": "sam", "klenz": "hendrix" }
+  "characters_count": 41,
+  "pool_count": 205,
+  "mf_alias": {
+   "johnmoon": "john",
+   "sambell": "sam",
+   "klenz": "hendrix"
+  }
  },
  "characters": [
   {
@@ -1328,6 +1332,50 @@
    ]
   },
   {
+   "id": "donverdean",
+   "name": "Don Verdean",
+   "film": "Don Verdean",
+   "filmCN": "《唐·维尔登》",
+   "year": "2015",
+   "accent": "#c69a4b",
+   "bg": "#1a1410",
+   "text": "#ece2cd",
+   "muted": "#9d8a66",
+   "auLink": "/WinterSunBlog/series/faith-unseen/",
+   "quotes": [
+    {
+     "label": "SIGNS AND WONDERS",
+     "line": "Every relic I dig up is a lie. I'm not.",
+     "lineCN": "我挖出的每一件圣物都是假的。我不是。",
+     "kind": "锚"
+    },
+    {
+     "label": "THE ONE WHO SEES",
+     "line": "A whole church believes every word I say. You believe none of it — and you're the only one I can't lie to.",
+     "lineCN": "整座教堂信我说的每一个字。你一个字都不信——却是我唯一骗不了的人。",
+     "kind": "暗告白"
+    },
+    {
+     "label": "THE WARM KIND",
+     "line": "You said every other man's lies are cold. Give me your whole life — I'll make sure mine stay the warm kind.",
+     "lineCN": "你说别人的谎都是冷的。把你这辈子交给我——我保证，我的谎，永远是暖的那种。",
+     "kind": "情话"
+    },
+    {
+     "label": "THE BURNT OFFERING",
+     "line": "You threw the one ledger that could hang me into the fire. I didn't grab your wrist to save the book — I grabbed it to save you.",
+     "lineCN": "你把那本能绞死我的账，扔进了火里。我抓住你的手腕，不是为了抢那本账——是为了抢你。",
+     "kind": "AU · 助理"
+    },
+    {
+     "label": "IN THE BEGINNING",
+     "line": "I've forged three-thousand-year-old miracles. But my 'in the beginning' is the morning you corrected my Latin and didn't walk out.",
+     "lineCN": "三千年的神迹我都能造假。可我的「起初」，是你第一次纠正我的拉丁文、却没转身走掉的那个早上。",
+     "kind": "情话"
+    }
+   ]
+  },
+  {
    "id": "dixon",
    "name": "Jason Dixon",
    "film": "Three Billboards Outside Ebbing, Missouri",
@@ -2250,6 +2298,22 @@
    "kind": "锚"
   },
   {
+   "charId": "donverdean",
+   "name": "Don Verdean",
+   "film": "Don Verdean",
+   "filmCN": "《唐·维尔登》",
+   "year": "2015",
+   "accent": "#c69a4b",
+   "bg": "#1a1410",
+   "text": "#ece2cd",
+   "muted": "#9d8a66",
+   "auLink": "/WinterSunBlog/series/faith-unseen/",
+   "label": "SIGNS AND WONDERS",
+   "line": "Every relic I dig up is a lie. I'm not.",
+   "lineCN": "我挖出的每一件圣物都是假的。我不是。",
+   "kind": "锚"
+  },
+  {
    "charId": "dixon",
    "name": "Jason Dixon",
    "film": "Three Billboards Outside Ebbing, Missouri",
@@ -2890,6 +2954,22 @@
    "kind": "电影 · 他的准则"
   },
   {
+   "charId": "donverdean",
+   "name": "Don Verdean",
+   "film": "Don Verdean",
+   "filmCN": "《唐·维尔登》",
+   "year": "2015",
+   "accent": "#c69a4b",
+   "bg": "#1a1410",
+   "text": "#ece2cd",
+   "muted": "#9d8a66",
+   "auLink": "/WinterSunBlog/series/faith-unseen/",
+   "label": "THE ONE WHO SEES",
+   "line": "A whole church believes every word I say. You believe none of it — and you're the only one I can't lie to.",
+   "lineCN": "整座教堂信我说的每一个字。你一个字都不信——却是我唯一骗不了的人。",
+   "kind": "暗告白"
+  },
+  {
    "charId": "dixon",
    "name": "Jason Dixon",
    "film": "Three Billboards Outside Ebbing, Missouri",
@@ -3527,6 +3607,22 @@
    "label": "YOU STAYED AND LAUGHED",
    "line": "You were supposed to scream and run. You stayed and laughed. God — that was the moment I was done for.",
    "lineCN": "你本该尖叫着逃走的。你却留下来，笑了。天哪——就在那一刻，我彻底完了。",
+   "kind": "情话"
+  },
+  {
+   "charId": "donverdean",
+   "name": "Don Verdean",
+   "film": "Don Verdean",
+   "filmCN": "《唐·维尔登》",
+   "year": "2015",
+   "accent": "#c69a4b",
+   "bg": "#1a1410",
+   "text": "#ece2cd",
+   "muted": "#9d8a66",
+   "auLink": "/WinterSunBlog/series/faith-unseen/",
+   "label": "THE WARM KIND",
+   "line": "You said every other man's lies are cold. Give me your whole life — I'll make sure mine stay the warm kind.",
+   "lineCN": "你说别人的谎都是冷的。把你这辈子交给我——我保证，我的谎，永远是暖的那种。",
    "kind": "情话"
   },
   {
@@ -4170,6 +4266,22 @@
    "kind": "电影 · 名场面"
   },
   {
+   "charId": "donverdean",
+   "name": "Don Verdean",
+   "film": "Don Verdean",
+   "filmCN": "《唐·维尔登》",
+   "year": "2015",
+   "accent": "#c69a4b",
+   "bg": "#1a1410",
+   "text": "#ece2cd",
+   "muted": "#9d8a66",
+   "auLink": "/WinterSunBlog/series/faith-unseen/",
+   "label": "THE BURNT OFFERING",
+   "line": "You threw the one ledger that could hang me into the fire. I didn't grab your wrist to save the book — I grabbed it to save you.",
+   "lineCN": "你把那本能绞死我的账，扔进了火里。我抓住你的手腕，不是为了抢那本账——是为了抢你。",
+   "kind": "AU · 助理"
+  },
+  {
    "charId": "dixon",
    "name": "Jason Dixon",
    "film": "Three Billboards Outside Ebbing, Missouri",
@@ -4808,6 +4920,22 @@
    "line": "I remember which flower's yours. I'm a dangerous man with a very short list, and you're at the top of all of it.",
    "lineCN": "我记得哪种花是你的。我是个危险的人，名单很短——而你，在每一张名单的最上头。",
    "kind": "暗告白 · 信物"
+  },
+  {
+   "charId": "donverdean",
+   "name": "Don Verdean",
+   "film": "Don Verdean",
+   "filmCN": "《唐·维尔登》",
+   "year": "2015",
+   "accent": "#c69a4b",
+   "bg": "#1a1410",
+   "text": "#ece2cd",
+   "muted": "#9d8a66",
+   "auLink": "/WinterSunBlog/series/faith-unseen/",
+   "label": "IN THE BEGINNING",
+   "line": "I've forged three-thousand-year-old miracles. But my 'in the beginning' is the morning you corrected my Latin and didn't walk out.",
+   "lineCN": "三千年的神迹我都能造假。可我的「起初」，是你第一次纠正我的拉丁文、却没转身走掉的那个早上。",
+   "kind": "情话"
   },
   {
    "charId": "dixon",
