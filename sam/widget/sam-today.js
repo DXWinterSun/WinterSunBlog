@@ -12,6 +12,7 @@ const SHOW_GLOSS = true;  // 中号/大号是否显示中文翻译
 
 const DATA_URL = "https://dxwintersun.github.io/WinterSunBlog/sam/lines.json";
 const TODAY_URL = "https://dxwintersun.github.io/WinterSunBlog/sam/today/";
+const WALL_URL = "https://dxwintersun.github.io/WinterSunBlog/sam/wall/";
 const START = Date.UTC(2026, 1, 13); // 2026-02-13，与网站同一起点
 
 function dayCount() {
@@ -49,12 +50,41 @@ async function getData() {
   return await req.loadJSON();
 }
 
-function paint(w, c) {
+// ── 固定角色 / 固定某一句（可选）──────────────────────────────
+// 长按小组件 →「编辑小组件」→「参数」，填入：
+//   角色 id           例如 krzysztof        → 锁定这个角色，仍在他的 5 句里按天轮换
+//   角色 id:第几句     例如 krzysztof:2      → 锁死这一句，永远不变
+// 代码从台词墙页面（/sam/wall/）每张卡片的「📌 复制到桌面小组件」按钮里拿。
+// 留空 = 和以前一样，跟着网站全站两百多句每日轮换。参数写错也不会让小组件
+// 报错——找不到对应角色时自动退回全站轮换。
+function pickQuote(data) {
+  const raw = ((typeof args !== "undefined" && args.widgetParameter) || "").trim();
+  if (!raw) return { c: data.pool[todayIndex(data.pool.length)], pinned: false };
+
+  const bits = raw.split(":");
+  const character = data.characters.find(function (x) { return x.id === bits[0].trim(); });
+  if (!character) return { c: data.pool[todayIndex(data.pool.length)], pinned: false };
+
+  const n = parseInt(bits[1], 10);
+  const quotes = character.quotes;
+  const q = (n >= 1 && n <= quotes.length) ? quotes[n - 1] : quotes[todayIndex(quotes.length)];
+  return {
+    pinned: true,
+    c: {
+      charId: character.id, name: character.name, film: character.film, filmCN: character.filmCN, year: character.year,
+      accent: character.accent, bg: character.bg, text: character.text, muted: character.muted, auLink: character.auLink,
+      label: q.label, line: q.line, lineCN: q.lineCN, kind: q.kind,
+    },
+  };
+}
+
+function paint(w, c, pinned) {
   const grad = new LinearGradient();
   grad.colors = [new Color(c.bg), new Color(shade(c.bg, -0.42))];
   grad.locations = [0, 1];
   w.backgroundGradient = grad;
-  w.url = TODAY_URL; // 点一下打开「今日的 Sam」页面
+  // 固定角色时点一下直接打开他在台词墙上的位置，没固定就还是打开「今日的 Sam」
+  w.url = pinned ? (WALL_URL + "?char=" + c.charId) : TODAY_URL;
 }
 
 function buildSmall(w, c) {
@@ -151,9 +181,10 @@ function buildLarge(w, c) {
 
 async function buildWidget() {
   const data = await getData();
-  const c = data.pool[todayIndex(data.pool.length)];
+  const picked = pickQuote(data);
+  const c = picked.c;
   const w = new ListWidget();
-  paint(w, c);
+  paint(w, c, picked.pinned);
 
   const family = config.widgetFamily || "medium";
   if (family === "small") buildSmall(w, c);

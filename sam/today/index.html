@@ -316,14 +316,32 @@
   // ── boot ──────────────────────────────────────────────────────
   document.getElementById('save').addEventListener('click', saveWallpaper);
 
+  // ?char=<角色id> 或 ?char=<角色id>:<第几句> —— 与台词墙「复制到桌面小组件」
+  // 按钮、小组件参数同一套代码格式，用来网页预览「固定」效果。找不到就照常
+  // 走当天全站轮换。
+  function pinnedQuote(data) {
+    var raw = new URLSearchParams(window.location.search).get('char');
+    if (!raw) return null;
+    var bits = raw.split(':');
+    var character = data.characters.filter(function (c) { return c.id === bits[0]; })[0];
+    if (!character) return null;
+    var n = parseInt(bits[1], 10);
+    var quotes = character.quotes;
+    var q = (n >= 1 && n <= quotes.length) ? quotes[n - 1] : quotes[todayIndex(quotes.length)];
+    return {
+      charId: character.id, name: character.name, film: character.film, filmCN: character.filmCN, year: character.year,
+      accent: character.accent, bg: character.bg, text: character.text, muted: character.muted, auLink: character.auLink,
+      label: q.label, line: q.line, lineCN: q.lineCN, kind: q.kind,
+    };
+  }
+
   fetch('../lines.json', { cache: 'no-cache' })
     .then(function (r) { return r.json(); })
     .then(function (data) {
       var pool = data.pool;
       MF_ALIAS = (data.meta && data.meta.mf_alias) || {};
       document.getElementById('all').textContent = '看全部 ' + pool.length + ' 句 →';
-      var idx = todayIndex(pool.length);
-      render(pool[idx]);
+      render(pinnedQuote(data) || pool[todayIndex(pool.length)]);
     })
     .catch(function () {
       document.getElementById('line').textContent = '今天的一句，暂时没能取到。';

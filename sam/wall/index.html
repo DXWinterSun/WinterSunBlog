@@ -171,7 +171,15 @@ function ColorStrip({ theme }) {
   );
 }
 
-function Hero({ c, onDraw, mfHref, theme }) {
+function Hero({ c, onDraw, mfHref, theme, widgetCode }) {
+  const [copied, setCopied] = useState(false);
+  function copyWidgetCode() {
+    if (!(navigator.clipboard && navigator.clipboard.writeText)) return;
+    navigator.clipboard.writeText(widgetCode).then(function () {
+      setCopied(true);
+      setTimeout(function () { setCopied(false); }, 2200);
+    });
+  }
   return (
     <div style={{
       position: "relative", borderRadius: 18, overflow: "hidden",
@@ -222,6 +230,13 @@ function Hero({ c, onDraw, mfHref, theme }) {
             fontFamily: SERIF, fontSize: 13, color: c.muted, textDecoration: "none",
             borderBottom: "1px solid " + c.muted + "55", paddingBottom: 2,
           }}>在画册里看看他 &rarr;</a>
+        )}
+        {widgetCode && (
+          <button onClick={copyWidgetCode} title="复制这句的代码，粘贴进桌面小组件的「参数」栏" style={{
+            fontFamily: SERIF, fontSize: 12.5, color: copied ? c.accent : c.muted,
+            background: "transparent", border: "1px dashed " + (copied ? c.accent : c.muted) + "70",
+            borderRadius: 999, padding: "8px 15px",
+          }}>{copied ? "已复制 ✓ 粘贴进小组件参数栏" : "📌 复制到桌面小组件"}</button>
         )}
       </div>
     </div>
@@ -346,6 +361,8 @@ function App() {
   const pool = data.pool;
   const todayCharId = pool[todayIndex(pool.length)].charId;
   const selectedChar = data.characters.find(function (c) { return c.id === selectedId; }) || data.characters[0];
+  const activeQuoteIdx = selectedChar.quotes.findIndex(function (q) { return q.line === activeQuote.line; });
+  const widgetCode = selectedChar.id + (activeQuoteIdx >= 0 ? ":" + (activeQuoteIdx + 1) : "");
 
   function syncUrl(charId) {
     if (!(window.history && window.history.replaceState)) return;
@@ -430,7 +447,7 @@ function App() {
         </nav>
 
         <div className="wall-detail" ref={detailRef}>
-          <Hero c={activeQuote} onDraw={drawRandom} mfHref={mfHrefFor(selectedChar.id, data.meta)} theme={themeFor(selectedChar.id, data.meta)} />
+          <Hero c={activeQuote} onDraw={drawRandom} mfHref={mfHrefFor(selectedChar.id, data.meta)} theme={themeFor(selectedChar.id, data.meta)} widgetCode={widgetCode} />
           <div style={{
             display: "grid", gap: 13, marginTop: 22,
             gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 258px), 1fr))",
