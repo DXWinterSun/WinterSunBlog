@@ -336,6 +336,19 @@ $(document).ready(function () {
       activateView('mood');
       var initTag = initParams.get('tag');
       if (initTag) activateTag(initTag);
+      // Deep-linked from an article's mood tag → bring the by-mood panel into
+      // view so the reader lands on the mood (heading + desc + list), not the
+      // hero. Skip on reload / back-forward so a refresh doesn't yank scroll.
+      var navType = 'navigate';
+      try {
+        var navEntry = performance.getEntriesByType('navigation')[0];
+        if (navEntry && navEntry.type) navType = navEntry.type;
+        else if (performance.navigation) navType = ['navigate', 'reload', 'back_forward'][performance.navigation.type] || 'navigate';
+      } catch (e) {}
+      if (initTag && navType === 'navigate') {
+        var tabsEl = document.querySelector('.c-archive-tabs');
+        if (tabsEl) setTimeout(function () { tabsEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+      }
     }
   })();
 

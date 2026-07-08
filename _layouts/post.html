@@ -45,7 +45,9 @@ layout: home
           {% for tag_cn in page.tags %}
             {% assign mood = site.data.moods | where: "cn", tag_cn | first %}
             {% if mood %}
-            <span class="c-mood-tag" style="--mood-color: {{ mood.hex }};">
+            <a class="c-mood-tag" style="--mood-color: {{ mood.hex }};"
+               href="{{ site.baseurl }}/archive/?view=mood&tag={{ mood.cn | cgi_escape }}"
+               title="看看所有「{{ mood.cn }}」的故事">
               <span class="c-mood-tag__emotion">
                 <span class="c-mood-tag__cn">{{ mood.cn }}</span>
                 <span class="c-mood-tag__dot">·</span>
@@ -56,7 +58,7 @@ layout: home
                 <span class="c-mood-tag__palette-dot"> · </span>
                 <span class="c-mood-tag__color-en">{{ mood.color_en }}</span>
               </span>
-            </span>
+            </a>
             {% endif %}
           {% endfor %}
         </div>

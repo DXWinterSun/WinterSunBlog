@@ -75,6 +75,16 @@
   background-color: var(--c-bg-soft);
   background-color: color-mix(in srgb, var(--mood-color, transparent) 8%, var(--c-bg-soft));
   line-height: 1.35;
+  /* now a link → 点击跳到 Archive › By Mood 的该情绪列表 */
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--mood-color, transparent) 18%, var(--c-bg-soft));
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px -10px rgba(0, 0, 0, 0.38);
+  }
 
   &__emotion {
     display: flex;

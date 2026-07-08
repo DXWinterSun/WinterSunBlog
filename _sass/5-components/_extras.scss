@@ -429,6 +429,20 @@
   }
 }
 
+/* 情绪的诗意解释 —— 只在 Archive › By Mood 选中该情绪时出现在小标题下方，
+   随情绪色卡描一道左边线。文章里的情绪 tag 不显示这段。 */
+.c-archive__mood-desc {
+  max-width: 640px;
+  margin: 0 0 24px;
+  padding-left: 15px;
+  border-left: 2px solid var(--mood, #{$accent-soft});
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.75;
+  color: $ink-soft;
+}
+
 
 /* ===============
 	ARCHIVE CTA AT BOTTOM OF HOME GRID

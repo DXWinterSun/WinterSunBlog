@@ -4,48 +4,59 @@
 # color_cn  = 配色的中文名（有巧思）
 # color_en  = 配色的英文名
 # hex       = 色值，pill 选中态填充 / 小标题强调都用它
+# desc      = 一两句诗意解释，仅在 Archive › By Mood 选中该情绪时显示在小标题下方；
+#             文章里的情绪 tag 不显示 desc，点击则跳到 /archive/?view=mood&tag=<cn>
 - cn: 炽恋
   en: Ardent
   color_cn: 丹心
   color_en: Crimson Heart
   hex: "#c2483a"
+  desc: "烧到失了分寸的爱。亲吻、占有、控制不住的靠近——把一整颗滚烫的心，直直按进对方掌心。"
 - cn: 悸动
   en: Flutter
   color_cn: 桃灼
   color_en: Peach Blossom
   hex: "#d98b76"
+  desc: "初见时那一下失序的心跳。第一次对视、第一次被他真正看见——像桃花猝不及防，灼了一下眼。"
 - cn: 缱绻
   en: Entwined
   color_cn: 绕指
   color_en: Around a Finger
   hex: "#c2788a"
+  desc: "缠绵到难分难舍的温柔。深夜的厮磨，清晨的赖床，两个人像绕在指间的丝，怎么也解不开。"
 - cn: 思念
   en: Longing
   color_cn: 隔水
   color_en: Across the Water
   hex: "#7e95ab"
+  desc: "隔着距离的惦记。他不在身边，你每一个空落的时刻却都朝他那个方向——像隔一整片水，望向对岸的灯。"
 - cn: 安放
   en: Solace
   color_cn: 停泊
   color_en: Safe Harbour
   hex: "#7f9676"
+  desc: "终于有处可依的安心。心事落定、彼此和解，漂了很久的人，第一次把自己稳稳停进一个港湾。"
 - cn: 怅惘
   en: Wistful
   color_cn: 散场
   color_en: After the Credits
   hex: "#948da0"
+  desc: "怅然若失的一点微凉。没说出口的话，错过的那一步——像散场后仍坐着不肯走的人，灯亮了，心还没亮。"
 - cn: 暗涌
   en: Undertow
   color_cn: 暗潮
   color_en: Riptide
   hex: "#8a474b"
+  desc: "表面平静、水面下却危险的张力。禁忌、悬殊、沉默里的占有——什么都没说破，暗潮已漫过脚踝。"
 - cn: 怀旧
   en: Nostalgia
   color_cn: 旧影
   color_en: Faded Reel
   hex: "#c8b07e"
+  desc: "回望旧时光的留恋。那些褪了色的片段一帧帧倒回来，明知回不去，还是想再看一遍。"
 - cn: 絮语
   en: Reverie
   color_cn: 琥珀
   color_en: Amber
   hex: "#b1875a"
+  desc: "轻声细语的日常小暖。没有大事发生，只是你一言我一语絮絮叨叨——把寻常时刻，慢慢凝成一块琥珀。"

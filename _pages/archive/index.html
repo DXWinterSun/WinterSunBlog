@@ -66,7 +66,7 @@ nav_active: archive
         <button type="button"
                 class="c-archive-tag-pill{% if shown == 1 %} is-active{% endif %}"
                 style="--mood: {{ mood.hex }};"
-                data-archive-tag="{{ mood.cn | cgi_escape }}"
+                data-archive-tag="{{ mood.cn }}"
                 role="tab" aria-selected="{% if shown == 1 %}true{% else %}false{% endif %}"
                 title="{{ mood.color_cn }} · {{ mood.color_en }} {{ mood.hex }}">
           <span class="c-archive-tag-pill__cn">{{ mood.cn }}</span>
@@ -85,7 +85,7 @@ nav_active: archive
     {% assign shown = shown | plus: 1 %}
     <div class="c-archive-tag-content"
          style="--mood: {{ mood.hex }};"
-         data-archive-tag-content="{{ mood.cn | cgi_escape }}"
+         data-archive-tag-content="{{ mood.cn }}"
          {% unless shown == 1 %}hidden{% endunless %}>
       <div class="c-archive__heading">
         <span class="c-archive__year-num">{{ mood.cn }} <em class="c-archive__mood-en">{{ mood.en }}</em></span>
@@ -94,6 +94,7 @@ nav_active: archive
           &nbsp;·&nbsp;{{ n }} {% if n == 1 %}story{% else %}stories{% endif %}
         </span>
       </div>
+      {% if mood.desc %}<p class="c-archive__mood-desc">{{ mood.desc }}</p>{% endif %}
       <ul class="c-archive__list">
         {% for post in site.tags[mood.cn] %}{% if post.title %}
         <li class="c-archive__item">
