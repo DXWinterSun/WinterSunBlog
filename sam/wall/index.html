@@ -451,15 +451,12 @@ function App() {
     setActiveQuote(q);
     syncUrl(q.charId);
     requestAnimationFrame(function () {
-      // 桌面端名录是纵向独立滚动，顺手把抽中的人滚进视野体验更好、也没有副作用。
-      // 手机端名录是横向滚动条，若在这里再连着把它滚去很远的位置，会跟同一帧里
-      // 页面本身的纵向滚动同时触发两个 smooth 滚动、互相打架，在触屏上容易卡住
-      // 滑动手势——所以手机端只更新高亮，不强制滚动名录，人不会因此「找不到」。
+      // 桌面端名录是纵向独立滚动，手机端是横向滚动条；用 inline 只管横轴、
+      // block:"nearest" 不去动竖直方向，两端各自滚自己的轴，不会跟下面
+      // 详情区的纵向滚动打架。
       var isMobile = window.matchMedia && window.matchMedia("(max-width: 880px)").matches;
-      if (!isMobile) {
-        var el = document.querySelector('[data-roster-id="' + q.charId + '"]');
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }
+      var el = document.querySelector('[data-roster-id="' + q.charId + '"]');
+      if (el) el.scrollIntoView(isMobile ? { behavior: "smooth", inline: "center", block: "nearest" } : { behavior: "smooth", block: "nearest" });
       if (detailRef.current) detailRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
