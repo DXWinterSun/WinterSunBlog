@@ -382,6 +382,23 @@
   }
   .ctl:hover { opacity: 1; border-color: var(--accent); color: var(--accent); }
   .ctl--play { width: 42px; height: 42px; font-size: 14px; }
+  .ctl--cut { font-size: 14px; }
+  .ctl--cut.is-busy { opacity: .35; pointer-events: none; }
+
+  /* 剪下成功的小气泡 */
+  .toast {
+    position: fixed; left: 50%; bottom: 118px; z-index: 6;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(18,14,10,.88);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    color: var(--text);
+    font-family: 'Noto Serif SC', serif; font-weight: 300;
+    font-size: 12px; letter-spacing: 1px;
+    padding: 8px 16px; border-radius: 999px;
+    opacity: 0; transition: opacity .35s ease, transform .35s ease;
+    pointer-events: none; white-space: nowrap;
+  }
+  .toast.is-on { opacity: 1; transform: translateX(-50%) translateY(0); }
 
   .loading {
     position: absolute; inset: 0; z-index: 1;
@@ -458,7 +475,9 @@
   <button class="ctl" id="btn-prev" aria-label="上一格">⏮</button>
   <button class="ctl ctl--play" id="btn-play" aria-label="暂停 / 播放">⏸</button>
   <button class="ctl" id="btn-next" aria-label="下一格">⏭</button>
+  <button class="ctl ctl--cut" id="btn-cut" aria-label="剪下这一格，存成胶片图片" title="剪下这一格">✂</button>
 </div>
+<div class="toast" id="toast" role="status">已剪下这一格 ✂ 收好</div>
 
 <div class="strip-wrap">
   <div class="strip" id="strip" role="tablist" aria-label="胶片条：全部角色"></div>
@@ -753,6 +772,242 @@
     if (document.hidden) { if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; } }
     else if (playing && typingDone && !leaderEl.classList.contains("is-on") && !finEl.classList.contains("is-on")) scheduleNext(2600);
   });
+
+  /* ————— ✂ 剪下这一格：把当前帧渲染成一段 35mm 胶片 PNG —————
+     像剪辑师从片盘里剪下来的：上下是剪刀毛边，两侧齿孔打穿（透明），
+     边缘有片厂边码印字，还带着上一格 / 下一格的残影。 */
+
+  function hexRgb(hex) {
+    var h = hex.replace("#", "");
+    if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+    return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
+  }
+  function shade(hex, f) {
+    var c = hexRgb(hex);
+    return "rgb(" + Math.round(c[0] * f) + "," + Math.round(c[1] * f) + "," + Math.round(c[2] * f) + ")";
+  }
+  function rr(ctx, x, y, w, h, r) {
+    if (ctx.roundRect) { ctx.roundRect(x, y, w, h, r); return; }
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+  // 中英混排折行：英文按词、中文按字
+  function wrap(ctx, text, maxW) {
+    var units = [], m = text.match(/[⺀-鿿＀-￯　-〿]|\S+|\s/g) || [text];
+    m.forEach(function (u) { units.push(u); });
+    var lines = [], cur = "";
+    units.forEach(function (u) {
+      var test = cur + u;
+      if (cur && ctx.measureText(test.trim()).width > maxW) { lines.push(cur.trim()); cur = u; }
+      else cur = test;
+    });
+    if (cur.trim()) lines.push(cur.trim());
+    return lines;
+  }
+  function sp(ctx, px) { try { ctx.letterSpacing = px + "px"; } catch (e) {} }
+
+  // 一格画面（居中大格 full=true，或上下邻格残影 full=false）
+  function drawPicture(ctx, x, y, w, h, c, q, reelNo, full) {
+    ctx.save();
+    ctx.beginPath(); rr(ctx, x, y, w, h, 8); ctx.clip();
+    var g = ctx.createLinearGradient(0, y, 0, y + h);
+    g.addColorStop(0, shade(c.bg, full ? 1.06 : 0.6));
+    g.addColorStop(1, shade(c.bg, full ? 0.82 : 0.45));
+    ctx.fillStyle = g; ctx.fillRect(x, y, w, h);
+    ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+    var cx = x + w / 2;
+
+    if (!full) {
+      // 邻格残影：只留角色名和年份，压暗
+      ctx.globalAlpha = 0.32;
+      ctx.fillStyle = c.text;
+      ctx.font = '700 52px "Playfair Display", serif';
+      ctx.fillText(c.name, cx, y + h / 2 + 6, w - 90);
+      ctx.font = '20px "Special Elite", monospace'; sp(ctx, 5);
+      ctx.fillStyle = c.accent;
+      ctx.fillText(String(c.year).toUpperCase(), cx, y + h / 2 + 46); sp(ctx, 0);
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = "rgba(0,0,0,.45)"; ctx.fillRect(x, y, w, h);
+    } else {
+      // 正片：竖排内容，超高时自动缩台词字号
+      var qSize = 36, cnSize = 26, tries = 0, enLines, cnLines, totalH;
+      do {
+        ctx.font = 'italic 500 ' + qSize + 'px "Cormorant Garamond", serif';
+        enLines = wrap(ctx, q.line || "", w - 140);
+        ctx.font = '300 ' + cnSize + 'px "Noto Serif SC", serif';
+        cnLines = wrap(ctx, q.lineCN || "", w - 160);
+        totalH = 22 + 20 + 62 + 16 + 30 + 30 + 20 + 16 +
+                 enLines.length * (qSize * 1.4) + 18 + cnLines.length * (cnSize * 1.7) + 26 + 18;
+        if (totalH > h - 70) { qSize -= 2; cnSize -= 1; }
+        tries++;
+      } while (totalH > h - 70 && tries < 8);
+
+      var ty = y + (h - totalH) / 2 + 24;
+      ctx.fillStyle = c.muted; ctx.font = '22px "Special Elite", monospace'; sp(ctx, 7);
+      ctx.fillText(("REEL " + reelNo + " · " + c.year).toUpperCase(), cx, ty + 16); sp(ctx, 0);
+      ty += 22 + 20;
+
+      var nSize = 60;
+      ctx.font = '700 ' + nSize + 'px "Playfair Display", serif';
+      while (ctx.measureText(c.name).width > w - 110 && nSize > 30) {
+        nSize -= 3; ctx.font = '700 ' + nSize + 'px "Playfair Display", serif';
+      }
+      ctx.fillStyle = c.text;
+      ctx.fillText(c.name, cx, ty + nSize * 0.82);
+      ty += 62 + 16;
+
+      ctx.fillStyle = c.accent;
+      var filmEN = c.film || "", filmCN = c.filmCN ? " · " + c.filmCN : "";
+      ctx.font = 'italic 500 28px "Cormorant Garamond", serif';
+      var wEN = ctx.measureText(filmEN).width;
+      ctx.font = '300 24px "Noto Serif SC", serif';
+      var wCN = ctx.measureText(filmCN).width;
+      var fx = cx - (wEN + wCN) / 2;
+      ctx.textAlign = "left";
+      ctx.font = 'italic 500 28px "Cormorant Garamond", serif';
+      ctx.fillText(filmEN, fx, ty + 22);
+      ctx.font = '300 24px "Noto Serif SC", serif';
+      ctx.globalAlpha = 0.85; ctx.fillText(filmCN, fx + wEN, ty + 22); ctx.globalAlpha = 1;
+      ctx.textAlign = "center";
+      ty += 30 + 30;
+
+      ctx.fillStyle = c.muted; ctx.font = '20px "Special Elite", monospace'; sp(ctx, 6);
+      ctx.fillText((q.label || "").toUpperCase(), cx, ty + 14); sp(ctx, 0);
+      ty += 20 + 16;
+
+      ctx.fillStyle = c.text; ctx.font = 'italic 500 ' + qSize + 'px "Cormorant Garamond", serif';
+      enLines.forEach(function (ln) { ty += qSize * 1.4; ctx.fillText(ln, cx, ty); });
+      ty += 18;
+      ctx.globalAlpha = 0.82; ctx.font = '300 ' + cnSize + 'px "Noto Serif SC", serif';
+      cnLines.forEach(function (ln) { ty += cnSize * 1.7; ctx.fillText(ln, cx, ty); });
+      ctx.globalAlpha = 1;
+      ty += 26;
+
+      ctx.fillStyle = c.muted; ctx.globalAlpha = 0.6;
+      ctx.font = '17px "Special Elite", monospace'; sp(ctx, 7);
+      ctx.fillText("WINTER × FABLE", cx, ty + 12); sp(ctx, 0);
+      ctx.globalAlpha = 1;
+    }
+
+    // 画面暗角
+    var v = ctx.createRadialGradient(cx, y + h / 2, Math.min(w, h) * 0.35, cx, y + h / 2, Math.max(w, h) * 0.72);
+    v.addColorStop(0, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(0,0,0," + (full ? 0.42 : 0.55) + ")");
+    ctx.fillStyle = v; ctx.fillRect(x, y, w, h);
+    ctx.restore();
+    ctx.strokeStyle = "rgba(255,255,255,.06)"; ctx.lineWidth = 1;
+    ctx.beginPath(); rr(ctx, x, y, w, h, 8); ctx.stroke();
+  }
+
+  function cutFrame() {
+    if (!chars.length || leaderEl.classList.contains("is-on")) return;
+    var btn = $("btn-cut");
+    btn.classList.add("is-busy");
+    var c = chars[idx];
+    var q = c.quotes[round % c.quotes.length];
+    var prevC = chars[(idx - 1 + chars.length) % chars.length];
+    var nextC = chars[(idx + 1) % chars.length];
+
+    var fontJobs = [
+      document.fonts.load('700 60px "Playfair Display"', c.name + prevC.name + nextC.name),
+      document.fonts.load('italic 500 36px "Cormorant Garamond"', (q.line || "") + (c.film || "")),
+      document.fonts.load('22px "Special Elite"', "REEL WINTER FABLE SAFETY FILM 0123456789"),
+      document.fonts.load('300 26px "Noto Serif SC"', (q.lineCN || "") + (c.filmCN || "") + "已剪下")
+    ];
+    Promise.all(fontJobs).catch(function () {}).then(function () { return document.fonts.ready; }).then(function () {
+      var W = 1320, H = 1600;
+      var canvas = document.createElement("canvas");
+      canvas.width = W; canvas.height = H;
+      var ctx = canvas.getContext("2d");
+
+      var stripX = 160, stripW = 1000;
+      var picX = stripX + 120, picW = stripW - 240, picH = 560, gap = 26;
+      var picY = (H - picH) / 2;
+      var cutTop = 70, cutBot = H - 70;
+
+      ctx.save();
+      // 整段胶片微微斜着——手剪的东西不会横平竖直
+      ctx.translate(W / 2, H / 2); ctx.rotate(-0.016); ctx.translate(-W / 2, -H / 2);
+
+      // 剪刀毛边的胶片轮廓
+      ctx.beginPath();
+      var xx, seg = 62;
+      ctx.moveTo(stripX, cutTop + (Math.random() * 10 - 5));
+      for (xx = stripX + seg; xx < stripX + stripW; xx += seg)
+        ctx.lineTo(xx, cutTop + (Math.random() * 14 - 7) + (xx - stripX) * 0.012);
+      ctx.lineTo(stripX + stripW, cutTop + (Math.random() * 10 - 5) + stripW * 0.012);
+      ctx.lineTo(stripX + stripW, cutBot + (Math.random() * 10 - 5));
+      for (xx = stripX + stripW - seg; xx > stripX; xx -= seg)
+        ctx.lineTo(xx, cutBot + (Math.random() * 14 - 7) - (stripX + stripW - xx) * 0.009);
+      ctx.lineTo(stripX, cutBot + (Math.random() * 10 - 5) - stripW * 0.009);
+      ctx.closePath();
+
+      ctx.save();
+      ctx.clip();
+      // 片基
+      var base = ctx.createLinearGradient(stripX, 0, stripX + stripW, 0);
+      base.addColorStop(0, "#191510"); base.addColorStop(0.5, "#1e1913"); base.addColorStop(1, "#171310");
+      ctx.fillStyle = base;
+      ctx.fillRect(stripX - 10, cutTop - 40, stripW + 20, cutBot - cutTop + 80);
+
+      // 三格画面：上邻格残影 + 正片 + 下邻格残影
+      drawPicture(ctx, picX, picY - gap - picH, picW, picH, prevC, null, "", false);
+      drawPicture(ctx, picX, picY, picW, picH, c, q, pad(idx + 1), true);
+      drawPicture(ctx, picX, picY + picH + gap, picW, picH, nextC, null, "", false);
+
+      // 边码印字（片厂边码是橙黄色的）
+      ctx.save();
+      ctx.fillStyle = "rgba(216,166,74,.5)";
+      ctx.font = '21px "Special Elite", monospace'; sp(ctx, 8);
+      ctx.textAlign = "center";
+      ctx.translate(stripX + 32, H / 2); ctx.rotate(-Math.PI / 2);
+      ctx.fillText("WINTER SUN · SAFETY FILM · 5063", 0, 7);
+      ctx.restore();
+      ctx.save();
+      ctx.fillStyle = "rgba(216,166,74,.5)";
+      ctx.font = '21px "Special Elite", monospace'; sp(ctx, 8);
+      ctx.textAlign = "center";
+      ctx.translate(stripX + stripW - 32, H / 2); ctx.rotate(Math.PI / 2);
+      ctx.fillText(("WINTER × FABLE — REEL " + pad(idx + 1) + " · " + c.name + " · " + c.year).toUpperCase(), 0, 7);
+      ctx.restore();
+      sp(ctx, 0);
+
+      // 颗粒
+      var i, gx, gy;
+      for (i = 0; i < 4200; i++) {
+        gx = stripX + Math.random() * stripW; gy = cutTop - 20 + Math.random() * (cutBot - cutTop + 40);
+        ctx.fillStyle = Math.random() > 0.5 ? "rgba(255,244,220," + (Math.random() * 0.05) + ")" : "rgba(0,0,0," + (Math.random() * 0.07) + ")";
+        ctx.fillRect(gx, gy, Math.random() > 0.8 ? 2 : 1, 1);
+      }
+      ctx.restore(); // 解除胶片轮廓 clip
+
+      // 齿孔打穿（透明）——BH 圆角矩形孔，两列
+      ctx.globalCompositeOperation = "destination-out";
+      var pitch = 132, pw = 48, ph2 = 36, py;
+      [stripX + 58, stripX + stripW - 58].forEach(function (colX) {
+        for (py = cutTop + 40; py < cutBot - 40; py += pitch) {
+          ctx.beginPath(); rr(ctx, colX - pw / 2, py, pw, ph2, 11); ctx.fill();
+        }
+      });
+      ctx.globalCompositeOperation = "source-over";
+      ctx.restore(); // 解除旋转
+
+      canvas.toBlob(function (blob) {
+        btn.classList.remove("is-busy");
+        if (!blob) return;
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "winter-sun-film-reel" + pad(idx + 1) + "-" + c.id + ".png";
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+        var toast = $("toast");
+        toast.classList.add("is-on");
+        setTimeout(function () { toast.classList.remove("is-on"); }, 2600);
+      }, "image/png");
+    });
+  }
+  $("btn-cut").addEventListener("click", cutFrame);
 })();
 </script>
 
