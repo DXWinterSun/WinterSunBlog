@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Libre+Franklin:wght@700&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ————— 放映室 · Screening Room —————
      角色数据零内嵌：全部来自 ../lines.json（与今日页/台词墙同源）。
@@ -226,34 +226,48 @@
     transition: color 1.4s ease;
   }
 
-  /* —— 倒计时引导片（片头数字） —— */
+  /* —— 倒计时引导片（片头数字，仿学院引导片） —— */
   .leader {
     position: absolute; inset: 0; z-index: 4; display: none;
     align-items: center; justify-content: center;
-    background: #d8d0c0;
+    background: radial-gradient(circle at 50% 47%, #ded5c1 0%, #cfc4ad 52%, #b3a68c 100%);
+    animation: leader-jitter .22s steps(2) infinite;
   }
   .leader.is-on { display: flex; }
+  @keyframes leader-jitter {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(.6px, -.9px); }
+  }
+  /* 十字线 + 内外两道圆环 + 四角暗角 */
   .leader::before {
     content: ""; position: absolute; inset: 0;
     background:
-      radial-gradient(circle at 50% 50%, transparent 29.5%, rgba(20,17,13,.85) 30%, rgba(20,17,13,.85) 30.8%, transparent 31.3%),
-      linear-gradient(rgba(20,17,13,.85), rgba(20,17,13,.85)) 50% 0 / 2px 100% no-repeat,
-      linear-gradient(rgba(20,17,13,.85), rgba(20,17,13,.85)) 0 50% / 100% 2px no-repeat;
-    opacity: .5;
+      radial-gradient(circle at 50% 50%, transparent 27.5%, rgba(27,23,18,.8) 28%, rgba(27,23,18,.8) 28.7%, transparent 29.2%),
+      radial-gradient(circle at 50% 50%, transparent 36.5%, rgba(27,23,18,.55) 37%, rgba(27,23,18,.55) 37.5%, transparent 38%),
+      linear-gradient(rgba(27,23,18,.7), rgba(27,23,18,.7)) 50% 0 / 2px 100% no-repeat,
+      linear-gradient(rgba(27,23,18,.7), rgba(27,23,18,.7)) 0 50% / 100% 2px no-repeat;
+    opacity: .55;
+  }
+  .leader::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 100% 90% at 50% 50%, transparent 55%, rgba(46,38,26,.5) 100%);
   }
   .leader__num {
-    font-family: 'Playfair Display', serif; font-weight: 700;
-    font-size: clamp(90px, 26vw, 200px); color: #14110d; line-height: 1;
+    font-family: 'Libre Franklin', 'Arial Black', 'Helvetica Neue', sans-serif; font-weight: 700;
+    font-size: clamp(88px, 24vw, 185px); color: #1b1712; line-height: 1;
     position: relative; z-index: 1;
+    transform: translateY(-2.5%);   /* 光学居中：数字视觉重心略低，抬一点 */
+    text-shadow: 0 0 1px rgba(27,23,18,.6);
   }
   .leader__sweep {
     position: absolute; inset: 0; z-index: 0;
-    background: conic-gradient(rgba(20,17,13,.28) 0deg, transparent 0deg);
+    background: conic-gradient(rgba(27,23,18,.26) 0deg, transparent 0deg);
   }
 
   /* —— 胶片颗粒 / 闪烁 / 划痕 / 换本烧点 —— */
   .grain {
-    position: absolute; inset: -60%; z-index: 2; pointer-events: none; opacity: .1;
+    /* z 高于引导片(4)：倒计时画面也要有颗粒才像老胶片 */
+    position: absolute; inset: -60%; z-index: 5; pointer-events: none; opacity: .1;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
     animation: grain-jump .42s steps(4) infinite;
   }
@@ -262,7 +276,7 @@
     50% { transform: translate(4%,-7%); } 75% { transform: translate(-3%,-3%); } 100% { transform: translate(5%,6%); }
   }
   .flicker {
-    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    position: absolute; inset: 0; z-index: 5; pointer-events: none;
     background: #fff8e8; opacity: 0;
     animation: film-flicker 3.7s steps(1) infinite;
   }
@@ -376,6 +390,12 @@
     font-size: 11px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase;
   }
 
+  /* 窄屏（手机竖屏）：按宽度算的银幕太矮，装不下整帧内容
+     （眉标 / AU 入口会被 overflow:hidden 上下裁掉），改用固定高一档 */
+  @media (max-width: 640px) {
+    .screen { height: min(70vh, 520px); }
+    .frame { padding: 20px 16px 30px; }
+  }
   @media (max-height: 560px) {
     .frame__quote { min-height: 2em; }
     .strip button { width: 44px; height: 30px; }
