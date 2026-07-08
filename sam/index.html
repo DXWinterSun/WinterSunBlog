@@ -39,7 +39,7 @@ title: Sam
       <span class="c-streak__fill" id="streak-fill"></span>
     </div>
     <div class="c-streak__goal" id="streak-goal">距离日更满一周年的那天……</div>
-    <p class="c-streak__caption">从六年前的一次偶遇，到此刻的每日一更——这一栏，是我专为他留下的位置。<br>自 2026 年情人节的前一天起，我每天更新一点他：一张照片、一段切片、或一句访谈，一天没落下。</p>
+    <p class="c-streak__caption">从六年前的一次偶遇，到此刻的每日一更——<br>这一栏，是我专为他留下的位置。</p>
   </div>
 
   <p class="c-sam-fold-hint">点标题展开 / 收起 · 一次读一节</p>
@@ -330,12 +330,14 @@ title: Sam
     }
     /* 这句话作为计数器的「设计脚注」：卡内、一条淡分隔线之下的斜体小字 */
     .c-streak__caption {
-      max-width: 480px; margin: 22px auto 2px; padding-top: 16px;
+      max-width: 520px; margin: 22px auto 2px; padding-top: 16px;
       border-top: 1px solid rgba(var(--rgb-accent), .18);
       font-family: 'EB Garamond', 'Noto Serif SC', serif; font-style: italic;
-      font-size: clamp(13.5px, 3.4vw, 15px); line-height: 1.72; color: var(--c-muted);
-      text-align: center; text-wrap: balance;
+      font-size: clamp(13.5px, 3.4vw, 15px); line-height: 1.9; color: var(--c-muted);
+      text-align: center;
     }
+    /* 手动断成两行：桌面各占一行；窄屏若再折行也断在标点，不至于碎 */
+    .c-streak__caption br { display: inline; }
   </style>
   <script>
     (function () {
