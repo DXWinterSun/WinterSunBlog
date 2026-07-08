@@ -1350,28 +1350,28 @@
      "kind": "锚"
     },
     {
-     "label": "THE ONE WHO SEES",
-     "line": "A whole church believes every word I say. You believe none of it — and you're the only one I can't lie to.",
-     "lineCN": "整座教堂信我说的每一个字。你一个字都不信——却是我唯一骗不了的人。",
+     "label": "THE REAL LEDGER",
+     "line": "I hand you the one true thing I own, and call it a job.",
+     "lineCN": "我把我唯一为真的东西交到你手里，却管它叫一份差事。",
      "kind": "暗告白"
     },
     {
-     "label": "THE WARM KIND",
-     "line": "You said every other man's lies are cold. Give me your whole life — I'll make sure mine stay the warm kind.",
-     "lineCN": "你说别人的谎都是冷的。把你这辈子交给我——我保证，我的谎，永远是暖的那种。",
+     "label": "YOU, KEEPING COUNT",
+     "line": "With you keeping the books, I sleep easy. With you keeping me, I'd sleep easier.",
+     "lineCN": "有你替我记着账，我睡得安稳；有你替我记着我，我能睡得更安稳。",
      "kind": "情话"
     },
     {
-     "label": "THE BURNT OFFERING",
-     "line": "You threw the one ledger that could hang me into the fire. I didn't grab your wrist to save the book — I grabbed it to save you.",
-     "lineCN": "你把那本能绞死我的账，扔进了火里。我抓住你的手腕，不是为了抢那本账——是为了抢你。",
+     "label": "OFF THE RECORD",
+     "line": "Off the record: in this whole operation, you are the only thing that is real.",
+     "lineCN": "不记进账里的一句——这整摊生意里，你是唯一为真的东西。",
      "kind": "AU · 助理"
     },
     {
-     "label": "IN THE BEGINNING",
-     "line": "I've forged three-thousand-year-old miracles. But my 'in the beginning' is the morning you corrected my Latin and didn't walk out.",
-     "lineCN": "三千年的神迹我都能造假。可我的「起初」，是你第一次纠正我的拉丁文、却没转身走掉的那个早上。",
-     "kind": "情话"
+     "label": "LEAVE HER OUT OF IT",
+     "line": "Take me. Leave her out of it. That is the only prayer I ever meant.",
+     "lineCN": "要抓就抓我，放过她——那是我这辈子唯一当真的祷告。",
+     "kind": "AU · 燔祭"
     }
    ]
   },
@@ -2964,9 +2964,9 @@
    "text": "#ece2cd",
    "muted": "#9d8a66",
    "auLink": "/WinterSunBlog/series/faith-unseen/",
-   "label": "THE ONE WHO SEES",
-   "line": "A whole church believes every word I say. You believe none of it — and you're the only one I can't lie to.",
-   "lineCN": "整座教堂信我说的每一个字。你一个字都不信——却是我唯一骗不了的人。",
+   "label": "THE REAL LEDGER",
+   "line": "I hand you the one true thing I own, and call it a job.",
+   "lineCN": "我把我唯一为真的东西交到你手里，却管它叫一份差事。",
    "kind": "暗告白"
   },
   {
@@ -3620,9 +3620,9 @@
    "text": "#ece2cd",
    "muted": "#9d8a66",
    "auLink": "/WinterSunBlog/series/faith-unseen/",
-   "label": "THE WARM KIND",
-   "line": "You said every other man's lies are cold. Give me your whole life — I'll make sure mine stay the warm kind.",
-   "lineCN": "你说别人的谎都是冷的。把你这辈子交给我——我保证，我的谎，永远是暖的那种。",
+   "label": "YOU, KEEPING COUNT",
+   "line": "With you keeping the books, I sleep easy. With you keeping me, I'd sleep easier.",
+   "lineCN": "有你替我记着账，我睡得安稳；有你替我记着我，我能睡得更安稳。",
    "kind": "情话"
   },
   {
@@ -4276,9 +4276,9 @@
    "text": "#ece2cd",
    "muted": "#9d8a66",
    "auLink": "/WinterSunBlog/series/faith-unseen/",
-   "label": "THE BURNT OFFERING",
-   "line": "You threw the one ledger that could hang me into the fire. I didn't grab your wrist to save the book — I grabbed it to save you.",
-   "lineCN": "你把那本能绞死我的账，扔进了火里。我抓住你的手腕，不是为了抢那本账——是为了抢你。",
+   "label": "OFF THE RECORD",
+   "line": "Off the record: in this whole operation, you are the only thing that is real.",
+   "lineCN": "不记进账里的一句——这整摊生意里，你是唯一为真的东西。",
    "kind": "AU · 助理"
   },
   {
@@ -4932,10 +4932,10 @@
    "text": "#ece2cd",
    "muted": "#9d8a66",
    "auLink": "/WinterSunBlog/series/faith-unseen/",
-   "label": "IN THE BEGINNING",
-   "line": "I've forged three-thousand-year-old miracles. But my 'in the beginning' is the morning you corrected my Latin and didn't walk out.",
-   "lineCN": "三千年的神迹我都能造假。可我的「起初」，是你第一次纠正我的拉丁文、却没转身走掉的那个早上。",
-   "kind": "情话"
+   "label": "LEAVE HER OUT OF IT",
+   "line": "Take me. Leave her out of it. That is the only prayer I ever meant.",
+   "lineCN": "要抓就抓我，放过她——那是我这辈子唯一当真的祷告。",
+   "kind": "AU · 燔祭"
   },
   {
    "charId": "dixon",
