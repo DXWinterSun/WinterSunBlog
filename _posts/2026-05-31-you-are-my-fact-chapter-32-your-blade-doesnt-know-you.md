@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 32 · 你的刀，不认得你了 — You Are My Fact"
 date: 2026-05-31
-image: leonard-shelby-au.jpg
+image: you-are-my-fact.jpg
 tags: [思念, 缱绻]
 categories: ["AU Story"]
 series: "You Are My Fact"
