@@ -432,7 +432,9 @@
 /* 情绪的诗意解释 —— 只在 Archive › By Mood 选中该情绪时出现在小标题下方，
    随情绪色卡描一道左边线。文章里的情绪 tag 不显示这段。 */
 .c-archive__mood-desc {
-  max-width: 640px;
+  /* 不再自设更窄的 max-width：父级 .c-archive 已限宽 760px，是合适的阅读
+     宽度；解释就填满这个宽度，右边缘与上方小标题、下方列表对齐，避免出现
+     文字没到最右侧就换行的突兀感。 */
   margin: 0 0 24px;
   padding-left: 15px;
   border-left: 2px solid var(--mood, #{$accent-soft});
