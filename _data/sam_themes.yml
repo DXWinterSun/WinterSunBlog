@@ -245,6 +245,19 @@
   text: "#f0e0d4"
   muted: "#9a7868"
 
+- id: bronco
+  year: 2009
+  name: "Bronco"
+  anchor: bronco
+  cn: 蜂蜜琥珀
+  en: Honey Amber
+  bg_cn: 纸页暮褐
+  bg_en: Paperback Dusk
+  accent: "#d9a441"
+  bg: "#171410"
+  text: "#f0e6d4"
+  muted: "#8b7c62"
+
 - id: sambell
   year: 2009
   name: "Sam Bell"

@@ -134,6 +134,11 @@ const CHARS = [
     line:"Everyone left before I could ask them to stay. You stayed before I dared.", lineCN:"所有人都在我开口挽留之前就走了——你却在我还不敢开口之前，留下了。",
     bg:"#2a1820", accent:"#d2a24a", text:"#f0e0d4", muted:"#9a7868",
     profile:{guile:7,forbear:7,chaos:5,raw:6,romance:6,grace:3} },
+  { id:"bronco", name:"Bronco", film:"Gentlemen Broncos", filmCN:"《绅士布朗科》", year:"2009",
+    tagline:"他是一个男孩写给死去父亲的样子——而你，是第一个把书页翻开就不肯合上的人。",
+    line:"A boy wrote me down so that he would have a father. You are the first one who read me and wanted the man.", lineCN:"一个男孩写下了我，好让自己有个父亲。你是第一个读到我、要的却是这个男人的人。",
+    bg:"#171410", accent:"#d9a441", text:"#f0e6d4", muted:"#8b7c62",
+    profile:{guile:1,forbear:7,chaos:7,raw:9,romance:7,grace:3} },
   { id:"sambell", name:"Sam Bell", film:"Moon", filmCN:"《月球》", year:"2009",
     tagline:"他在月球上，还想着给你做早餐。",
     line:"Every one of us was built to die a tool. You woke us up as a family.", lineCN:"我们本该作为工具一个个死去——是你，把我们当成一家人唤醒。",
@@ -744,7 +749,7 @@ function Intro({ onStart, palette, onShuffle }) {
           display:"flex", alignItems:"baseline", justifyContent:"center", gap:20,
           margin:"0 0 6px"
         }}>
-          {[["42","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
+          {[["43","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
             <React.Fragment key={i}>
               {i>0 && <span style={{width:1, height:26, background:p.muted, opacity:0.3}}/>}
               <span style={{display:"flex", flexDirection:"column", alignItems:"center", gap:2}}>
