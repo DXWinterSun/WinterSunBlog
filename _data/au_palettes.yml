@@ -266,3 +266,16 @@
   accent_en: "Relic Gold"
   bg_cn: "暮土玄褐"
   bg_en: "Dusk Umber"
+
+"This House Is Clean":      # Eric Bowen · 色卡同源 sam_themes.yml id: bowen
+  mf_id: bowen                # → Many Faces 画册锚点 /sam/many-faces/#bowen
+  theme_id: bowen
+  accent: "#d8a24e"
+  accent_ink: "#ad823e"
+  bg: "#1b1917"
+  text: "#ece6dd"
+  muted: "#807a71"
+  accent_cn: "夜灯黄铜"
+  accent_en: "Nightlight Brass"
+  bg_cn: "空房暮灰"
+  bg_en: "Empty-Room Grey"
