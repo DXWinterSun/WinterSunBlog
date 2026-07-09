@@ -6,7 +6,7 @@ image: made-for-no-one-but-you.jpg
 tags: [Sammy, AU, Made for No One but You, 悸动, 炽恋]
 categories: ["AU Story"]
 series: "Made for No One but You"
-series_title: "Made for No One but You · Sammy AU"
+series_title: "Made for No One but You · Westworld AU"
 series_order: 5
 series_status: complete
 series_type: Series
