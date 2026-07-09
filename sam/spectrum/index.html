@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Six Dimensions · 六维光谱 · Winter Sun</title>
-<meta name="description" content="狡黠、隐忍、疯狂、璞真、浪漫、优雅——四十一个 Sam Rockwell 角色的性格光谱地图。">
+<meta name="description" content="狡黠、隐忍、疯狂、璞真、浪漫、优雅——四十二个 Sam Rockwell 角色的性格光谱地图。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Six Dimensions · 六维光谱 · Winter Sun">
-<meta property="og:description" content="六个维度，四十一张面孔。看清他其实演过多少种人。">
+<meta property="og:description" content="六个维度，四十二张面孔。看清他其实演过多少种人。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/spectrum/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
@@ -104,6 +104,7 @@ const CHARS = [
   {id:"robert",name:"Robert Goode",film:"Everybody's Fine",filmCN:"《天伦之旅》",year:"2009",label:"THE PAPER HAT",line:"I'm keeping the silly hat on. You're the one who put it there.",lineCN:"这顶歪歪的傻帽子我不摘——是你给我戴上的。",tagline:"他对自己很苛刻，对你不会。",bg:"#211910",accent:"#cc4436",text:"#ede4d4",muted:"#9a7e58",profile:{guile:5,forbear:7,chaos:2,raw:6,romance:5,grace:7},auLink:null},
   {id:"hammer",name:"Justin Hammer",film:"Iron Man 2",filmCN:"《钢铁侠2》",year:"2010",label:"OFF THE STAGE",line:"I don't have to be him — not when you look at me like that.",lineCN:"我不必活成他——只要你这样看着我。",tagline:"全世界都把他当成一个笑话——只有你，看清了那副眼镜后面的人。",bg:"#13151c",accent:"#4a87ee",text:"#e7eaf2",muted:"#7c8aa6",profile:{guile:6,forbear:2,chaos:7,raw:4,romance:8,grace:8},auLink:"/WinterSunBlog/series/good-enough/"},
   {id:"kenny",name:"Kenny Waters",film:"Conviction",filmCN:"《定罪》",year:"2010",label:"NEVER TO YOU",line:"I'll lie to a judge, a jury, the whole damn town — never to you.",lineCN:"法官、陪审团、整个镇子我都能骗——唯独不骗你。",tagline:"他生猛、暴躁，笑起来却像个孩子；全世界都说他有罪，只有你一个人，不肯松手。",bg:"#1c1e1f",accent:"#d08a45",text:"#f0e0d4",muted:"#627f8d",profile:{guile:2,forbear:3,chaos:8,raw:9,romance:7,grace:2},auLink:null},
+  {id:"karl",name:"Karl Fairhurst",film:"The Sitter",filmCN:"《保姆奇遇记》",year:"2011",label:"NO NUMBER FOR YOU",line:"Everybody gets a number. Not you. I'm not putting you on a list where somebody could be ahead of you.",lineCN:"谁都有个编号。你没有——我不会把你放进一张名单里，让任何人排在你前面。",tagline:"他把朋友从第一排到第十二——唯独不敢给你一个编号。",bg:"#181320",accent:"#e2537f",text:"#f2e4ea",muted:"#8a7d9c",profile:{guile:6,forbear:1,chaos:9,raw:6,romance:8,grace:7},auLink:null},
   {id:"billy",name:"Billy Bickle",film:"Seven Psychopaths",filmCN:"《七个神经病》",year:"2012",label:"REWROTE THE ENDING",line:"I wanted to go out in a blaze. You rewrote the ending — so I lived. For you and you only.",lineCN:"我本想轰轰烈烈地谢幕——是你改了结局，于是我活了下来。只为你。",tagline:"他想为这故事写一个最漂亮的结局——可你告诉他：没有你，它永远写不完。",bg:"#281208",accent:"#d63a33",text:"#f5e6d0",muted:"#b07840",profile:{guile:3,forbear:1,chaos:10,raw:8,romance:9,grace:5},auLink:null},
   {id:"owen",name:"Owen",film:"The Way Way Back",filmCN:"《迷途知返》",year:"2013",label:"A CRIME AT THE WATER PARK",line:"Being sad at a water park's a crime. C'mon — I'm breaking you out.",lineCN:"在水上乐园还愁眉苦脸，这可是犯罪——走，我带你越狱。",tagline:"他能把最糟的暑假变成你这辈子最难忘的。",bg:"#15282e",accent:"#35bfc9",text:"#dce9ea",muted:"#75899a",profile:{guile:4,forbear:3,chaos:6,raw:7,romance:7,grace:3},auLink:null},
   {id:"johnmoon",name:"John Moon",film:"A Single Shot",filmCN:"《致命一击》",year:"2013",label:"STILL BREATHING",line:"I'd already climbed into the grave. You're the one who heard me breathing.",lineCN:"我已经躺进了那个坑里——是你，听见了我还在呼吸。",tagline:"他不说，但他每件事都为你做了。",bg:"#14181f",accent:"#8fa0b0",text:"#dce3ea",muted:"#62728d",profile:{guile:2,forbear:10,chaos:1,raw:7,romance:4,grace:1},auLink:"/WinterSunBlog/series/a-single-shot-au/"},
@@ -156,8 +157,8 @@ const AVERAGE = (() => {
     p[d.key] = CHARS.reduce((s, c) => s + c.profile[d.key], 0) / CHARS.length;
   });
   return {
-    id: "__avg", name: "四十一个他 · 平均的 Sam", film: "The Average of Forty-One Faces",
-    filmCN: "四十一张面孔叠在一起", year: "", label: "THE MEAN OF ALL",
+    id: "__avg", name: "四十二个他 · 平均的 Sam", film: "The Average of Forty-Two Faces",
+    filmCN: "四十二张面孔叠在一起", year: "", label: "THE MEAN OF ALL",
     tagline: "把他演过的每一个人叠在一起，露出的那张脸。",
     line: "", lineCN: "", accent: AVG_ACCENT, text: "#ede2d0", muted: "#8a7558",
     bg: "#1a1610", profile: p, auLink: null, isAvg: true,
@@ -341,7 +342,7 @@ function App() {
           fontSize: "clamp(14px,3.8vw,16px)", lineHeight: 2, color: "#a08b6b",
         }}>
           狡黠、隐忍、疯狂、璞真、浪漫、优雅——<br />
-          同一个人，四十一种配比。左边点一个角色，看他的形状；<br />
+          同一个人，四十二种配比。左边点一个角色，看他的形状；<br />
           或者就停在<span style={{ color: "#cba14c" }}>平均的那张脸</span>上。
         </p>
       </header>
@@ -425,11 +426,11 @@ function App() {
 
           <div style={{ marginTop: "clamp(20px,4vw,32px)" }}>
             <div style={{ fontFamily: TYPE, fontSize: 11, letterSpacing: 2.5, color: "#8a7558", textTransform: "uppercase", marginBottom: 20 }}>
-              在四十一人里的位置
+              在四十二人里的位置
             </div>
             {DIMS.map(d => <Strip key={d.key} dim={d} selIdx={selIdx} />)}
             <p style={{ fontFamily: SERIF, fontSize: 11.5, color: "#5f5340", lineHeight: 1.7, marginTop: 4 }}>
-              每个点是一个角色，横轴是该维度 0→10。虚线六边形是四十一人的平均。
+              每个点是一个角色，横轴是该维度 0→10。虚线六边形是四十二人的平均。
             </p>
           </div>
         </div>

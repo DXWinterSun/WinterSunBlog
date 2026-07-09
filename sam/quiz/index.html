@@ -156,6 +156,11 @@ const CHARS = [
     line:"I'll lie to a judge, a jury, the whole damn town — never to you.", lineCN:"法官、陪审团、整个镇子我都能骗——唯独不骗你。",
     bg:"#1c1e1f", accent:"#d08a45", text:"#f0e0d4", muted:"#627f8d",
     profile:{guile:2,forbear:3,chaos:8,raw:9,romance:7,grace:2} },
+  { id:"karl", name:"Karl Fairhurst", film:"The Sitter", filmCN:"《保姆奇遇记》", year:"2011",
+    tagline:"他把朋友从第一排到第十二——唯独不敢给你一个编号。",
+    line:"Everybody gets a number. Not you. I'm not putting you on a list where somebody could be ahead of you.", lineCN:"谁都有个编号。你没有——我不会把你放进一张名单里，让任何人排在你前面。",
+    bg:"#181320", accent:"#e2537f", text:"#f2e4ea", muted:"#8a7d9c",
+    profile:{guile:6,forbear:1,chaos:9,raw:6,romance:8,grace:7} },
   { id:"billy", name:"Billy Bickle", film:"Seven Psychopaths", filmCN:"《七个神经病》", year:"2012",
     tagline:"他想为这故事写一个最漂亮的结局——可你告诉他：没有你，它永远写不完。",
     line:"I wanted to go out in a blaze. You rewrote the ending — so I lived. For you and you only.", lineCN:"我本想轰轰烈烈地谢幕——是你改了结局，于是我活了下来。只为你。",
@@ -739,7 +744,7 @@ function Intro({ onStart, palette, onShuffle }) {
           display:"flex", alignItems:"baseline", justifyContent:"center", gap:20,
           margin:"0 0 6px"
         }}>
-          {[["41","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
+          {[["42","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
             <React.Fragment key={i}>
               {i>0 && <span style={{width:1, height:26, background:p.muted, opacity:0.3}}/>}
               <span style={{display:"flex", flexDirection:"column", alignItems:"center", gap:2}}>

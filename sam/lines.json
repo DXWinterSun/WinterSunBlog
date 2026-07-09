@@ -2,8 +2,8 @@
  "meta": {
   "start": "2026-02-13",
   "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-  "characters_count": 41,
-  "pool_count": 205,
+  "characters_count": 42,
+  "pool_count": 210,
   "mf_alias": {
    "johnmoon": "john",
    "sambell": "sam",
@@ -1019,6 +1019,50 @@
      "label": "FREE",
      "line": "First taste of free air in forever, and the only thing I wanted to do with it was to find you.",
      "lineCN": "好久没呼吸过自由的空气了——而我唯一想做的事，就是去找你。",
+     "kind": "情话"
+    }
+   ]
+  },
+  {
+   "id": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "quotes": [
+    {
+     "label": "NO NUMBER FOR YOU",
+     "line": "Everybody gets a number. Not you. I'm not putting you on a list where somebody could be ahead of you.",
+     "lineCN": "谁都有个编号。你没有——我不会把你放进一张名单里，让任何人排在你前面。",
+     "kind": "锚"
+    },
+    {
+     "label": "NOT PART OF THE DECOR",
+     "line": "The eyeliner, the velvet, all of it is costume. You are the only real thing in this room.",
+     "lineCN": "眼线、丝绒，全是戏服。你是这屋子里唯一真的东西。",
+     "kind": "暗告白"
+    },
+    {
+     "label": "WHAT'S IN THE EGG",
+     "line": "Everybody thinks the egg is the most valuable thing I own. Everybody has never met you.",
+     "lineCN": "所有人都以为那枚蛋是我最值钱的东西。所有人都没见过你。",
+     "kind": "情话 · 不正经"
+    },
+    {
+     "label": "I KEEP RECEIPTS",
+     "line": "I remember every rotten thing anyone ever did to me. I also remember every single thing you ever said.",
+     "lineCN": "谁对我做过的每一件烂事，我都记着。你说过的每一句话，我也记着。",
+     "kind": "暗告白 · 孩子气"
+    },
+    {
+     "label": "AFTER THE EIGHTH",
+     "line": "The eighth one sold me out, and I cried in a stranger's arms. Next time I would rather it be yours.",
+     "lineCN": "排第八的那个把我卖了，我哭在一个陌生人怀里。下一次，我想哭在你怀里。",
      "kind": "情话"
     }
    ]
@@ -2186,6 +2230,22 @@
    "kind": "锚"
   },
   {
+   "charId": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "label": "NO NUMBER FOR YOU",
+   "line": "Everybody gets a number. Not you. I'm not putting you on a list where somebody could be ahead of you.",
+   "lineCN": "谁都有个编号。你没有——我不会把你放进一张名单里，让任何人排在你前面。",
+   "kind": "锚"
+  },
+  {
    "charId": "billy",
    "name": "Billy Bickle",
    "film": "Seven Psychopaths",
@@ -2839,6 +2899,22 @@
    "label": "YOU DIDN'T LET GO",
    "line": "The whole world signed off on 'guilty' and walked away. You looked at all of it and just… wouldn't let go of my hand.",
    "lineCN": "全世界都在「有罪」上签了字，然后转身走了。你看着这一切，却……就是不肯松开我的手。",
+   "kind": "暗告白"
+  },
+  {
+   "charId": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "label": "NOT PART OF THE DECOR",
+   "line": "The eyeliner, the velvet, all of it is costume. You are the only real thing in this room.",
+   "lineCN": "眼线、丝绒，全是戏服。你是这屋子里唯一真的东西。",
    "kind": "暗告白"
   },
   {
@@ -3498,6 +3574,22 @@
    "kind": "情话"
   },
   {
+   "charId": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "label": "WHAT'S IN THE EGG",
+   "line": "Everybody thinks the egg is the most valuable thing I own. Everybody has never met you.",
+   "lineCN": "所有人都以为那枚蛋是我最值钱的东西。所有人都没见过你。",
+   "kind": "情话 · 不正经"
+  },
+  {
    "charId": "billy",
    "name": "Billy Bickle",
    "film": "Seven Psychopaths",
@@ -4154,6 +4246,22 @@
    "kind": "暗告白"
   },
   {
+   "charId": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "label": "I KEEP RECEIPTS",
+   "line": "I remember every rotten thing anyone ever did to me. I also remember every single thing you ever said.",
+   "lineCN": "谁对我做过的每一件烂事，我都记着。你说过的每一句话，我也记着。",
+   "kind": "暗告白 · 孩子气"
+  },
+  {
    "charId": "billy",
    "name": "Billy Bickle",
    "film": "Seven Psychopaths",
@@ -4807,6 +4915,22 @@
    "label": "FREE",
    "line": "First taste of free air in forever, and the only thing I wanted to do with it was to find you.",
    "lineCN": "好久没呼吸过自由的空气了——而我唯一想做的事，就是去找你。",
+   "kind": "情话"
+  },
+  {
+   "charId": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "label": "AFTER THE EIGHTH",
+   "line": "The eighth one sold me out, and I cried in a stranger's arms. Next time I would rather it be yours.",
+   "lineCN": "排第八的那个把我卖了，我哭在一个陌生人怀里。下一次，我想哭在你怀里。",
    "kind": "情话"
   },
   {
