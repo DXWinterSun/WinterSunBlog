@@ -2,8 +2,8 @@
  "meta": {
   "start": "2026-02-13",
   "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-  "characters_count": 43,
-  "pool_count": 215,
+  "characters_count": 44,
+  "pool_count": 220,
   "mf_alias": {
    "johnmoon": "john",
    "sambell": "sam",
@@ -1376,6 +1376,50 @@
    ]
   },
   {
+   "id": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "quotes": [
+    {
+     "label": "CLEAN IS NOT THE WORD",
+     "line": "The house does not have to be clean. It has to be quiet, and it has to have you in it.",
+     "lineCN": "这房子不必是干净的。它只要是安静的，而且里面有你。",
+     "kind": "锚"
+    },
+    {
+     "label": "LAID OFF ON A TUESDAY",
+     "line": "I lost the job on a Tuesday and told nobody for three days. You knew on Tuesday.",
+     "lineCN": "我是周二丢的工作，瞒了三天没说。你周二就知道了。",
+     "kind": "暗告白"
+    },
+    {
+     "label": "THE BOX OF CLOWNS",
+     "line": "I carried that box of clowns out to the curb at two in the morning. I did not want them in the room where you wake up.",
+     "lineCN": "凌晨两点，我把那箱小丑抱到了路边。我不想让它们待在你醒来的房间里。",
+     "kind": "暗告白 · 孩子气"
+    },
+    {
+     "label": "UP TO THE SHOULDER",
+     "line": "I put my arm into that dark up to the shoulder. If it had been you in there, I would have gone in after you, all of me.",
+     "lineCN": "我把整条胳膊伸进那片黑里，一直到肩膀。如果里面的人是你，我会整个人跟进去。",
+     "kind": "情话"
+    },
+    {
+     "label": "ROOM FOR TWO COATS",
+     "line": "The realtor kept saying this place has wonderful closet space. I told her I only need room for two coats.",
+     "lineCN": "中介一直在说这房子的衣柜多么宽敞。我跟她说，我只需要挂两件外套的地方。",
+     "kind": "情话 · 不正经"
+    }
+   ]
+  },
+  {
    "id": "francis",
    "name": "Francis Munch",
    "film": "Mr. Right",
@@ -2402,6 +2446,22 @@
    "kind": "锚"
   },
   {
+   "charId": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "label": "CLEAN IS NOT THE WORD",
+   "line": "The house does not have to be clean. It has to be quiet, and it has to have you in it.",
+   "lineCN": "这房子不必是干净的。它只要是安静的，而且里面有你。",
+   "kind": "锚"
+  },
+  {
    "charId": "francis",
    "name": "Francis Munch",
    "film": "Mr. Right",
@@ -3087,6 +3147,22 @@
    "label": "SEEN IT ALL FALL APART",
    "line": "I've watched love fall apart for a living. You're the first thing that made me want to bet on it anyway.",
    "lineCN": "我靠看着爱情破碎谋生。你却是第一个，让我还是想赌一把的人。",
+   "kind": "暗告白"
+  },
+  {
+   "charId": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "label": "LAID OFF ON A TUESDAY",
+   "line": "I lost the job on a Tuesday and told nobody for three days. You knew on Tuesday.",
+   "lineCN": "我是周二丢的工作，瞒了三天没说。你周二就知道了。",
    "kind": "暗告白"
   },
   {
@@ -3778,6 +3854,22 @@
    "kind": "情话"
   },
   {
+   "charId": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "label": "THE BOX OF CLOWNS",
+   "line": "I carried that box of clowns out to the curb at two in the morning. I did not want them in the room where you wake up.",
+   "lineCN": "凌晨两点，我把那箱小丑抱到了路边。我不想让它们待在你醒来的房间里。",
+   "kind": "暗告白 · 孩子气"
+  },
+  {
    "charId": "francis",
    "name": "Francis Munch",
    "film": "Mr. Right",
@@ -4466,6 +4558,22 @@
    "kind": "暗告白"
   },
   {
+   "charId": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "label": "UP TO THE SHOULDER",
+   "line": "I put my arm into that dark up to the shoulder. If it had been you in there, I would have gone in after you, all of me.",
+   "lineCN": "我把整条胳膊伸进那片黑里，一直到肩膀。如果里面的人是你，我会整个人跟进去。",
+   "kind": "情话"
+  },
+  {
    "charId": "francis",
    "name": "Francis Munch",
    "film": "Mr. Right",
@@ -5152,6 +5260,22 @@
    "line": "I know exactly how these things can end. I'd still start it, with you, a thousand times over.",
    "lineCN": "这种事怎么收场，我一清二楚。可我还是愿意和你开始——一千次都愿意。",
    "kind": "情话"
+  },
+  {
+   "charId": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "label": "ROOM FOR TWO COATS",
+   "line": "The realtor kept saying this place has wonderful closet space. I told her I only need room for two coats.",
+   "lineCN": "中介一直在说这房子的衣柜多么宽敞。我跟她说，我只需要挂两件外套的地方。",
+   "kind": "情话 · 不正经"
   },
   {
    "charId": "francis",

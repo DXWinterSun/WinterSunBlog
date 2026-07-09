@@ -401,6 +401,19 @@
   text: "#ede0d0"
   muted: "#a07858"
 
+- id: bowen
+  year: 2015
+  name: "Eric Bowen"
+  anchor: bowen
+  cn: 夜灯黄铜
+  en: Nightlight Brass
+  bg_cn: 空房暮灰
+  bg_en: Empty-Room Grey
+  accent: "#d8a24e"
+  bg: "#1b1917"
+  text: "#ece6dd"
+  muted: "#807a71"
+
 - id: munch
   year: 2015
   name: "Francis Munch"
