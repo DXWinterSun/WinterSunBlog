@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 4 · 名字 — Made for No One but You"
 date: 2026-06-27
-image: made-for-no-one-but-you.jpg
+image: made-for-no-one-but-you.svg
 tags: [Sammy, AU, Made for No One but You, 缱绻, 安放]
 categories: ["AU Story"]
 series: "Made for No One but You"

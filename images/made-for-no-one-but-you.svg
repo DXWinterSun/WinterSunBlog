@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540">
+  <defs>
+    <linearGradient id="bg" x1="15%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#16283a"/>
+      <stop offset="45%" stop-color="#0d1826"/>
+      <stop offset="100%" stop-color="#0a121c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="45%" cy="44%" r="42%">
+      <stop offset="0%" stop-color="#3fc4e8" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#0a121c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="crackglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#bdf2ff" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#3fc4e8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3fc4e8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="540" fill="url(#bg)"/>
+  <rect width="900" height="540" fill="url(#glow)"/>
+
+  <!-- Rain streaks -->
+  <g stroke="#3fc4e8" stroke-width="1" opacity="0.16">
+    <line x1="40" y1="-10" x2="6" y2="90"/>
+    <line x1="95" y1="-10" x2="55" y2="110"/>
+    <line x1="150" y1="0" x2="112" y2="130"/>
+    <line x1="205" y1="-10" x2="162" y2="120"/>
+    <line x1="655" y1="-10" x2="618" y2="115"/>
+    <line x1="705" y1="0" x2="665" y2="125"/>
+    <line x1="758" y1="-10" x2="718" y2="110"/>
+    <line x1="812" y1="-10" x2="775" y2="105"/>
+    <line x1="862" y1="0" x2="828" y2="120"/>
+    <line x1="60" y1="380" x2="20" y2="500"/>
+    <line x1="120" y1="400" x2="82" y2="520"/>
+    <line x1="760" y1="390" x2="722" y2="510"/>
+    <line x1="820" y1="400" x2="784" y2="520"/>
+  </g>
+  <g stroke="#3fc4e8" stroke-width="0.8" opacity="0.1">
+    <line x1="260" y1="-10" x2="222" y2="140"/>
+    <line x1="320" y1="0" x2="284" y2="150"/>
+    <line x1="560" y1="-10" x2="524" y2="140"/>
+    <line x1="600" y1="0" x2="566" y2="150"/>
+  </g>
+
+  <!-- floating light dust / mist particles -->
+  <g fill="#3fc4e8">
+    <circle cx="150" cy="230" r="2" opacity="0.35"/>
+    <circle cx="205" cy="300" r="1.4" opacity="0.3"/>
+    <circle cx="120" cy="340" r="1.8" opacity="0.28"/>
+    <circle cx="690" cy="210" r="2.2" opacity="0.32"/>
+    <circle cx="740" cy="270" r="1.5" opacity="0.28"/>
+    <circle cx="640" cy="340" r="1.7" opacity="0.25"/>
+    <circle cx="230" cy="140" r="1.2" opacity="0.22"/>
+    <circle cx="780" cy="150" r="1.4" opacity="0.24"/>
+    <circle cx="90" cy="150" r="1" opacity="0.2"/>
+    <circle cx="820" cy="380" r="1.6" opacity="0.22"/>
+    <circle cx="180" cy="420" r="1.2" opacity="0.2"/>
+    <circle cx="500" cy="120" r="1.3" opacity="0.2"/>
+  </g>
+
+  <!-- ============ Central motif: profile bisected — skin contour vs. exposed chrome seams ============ -->
+  <g transform="translate(430,262)">
+
+    <!-- crack glow at the seam point where the reveal begins -->
+    <circle cx="-15" cy="-130" r="26" fill="url(#crackglow)"/>
+
+    <!-- FRONT — smooth human contour (face, nose, lips, chin, jaw, neck) -->
+    <path d="M-15,-130
+             Q20,-132 40,-108
+             Q55,-90 55,-72
+             Q60,-55 78,-38
+             Q70,-25 58,-18
+             Q62,-8 58,2
+             Q60,12 50,18
+             Q42,30 34,42
+             Q20,55 8,66
+             Q-10,80 -28,86
+             L-34,150"
+          fill="none" stroke="#bdf2ff" stroke-width="1.9" opacity="0.85" stroke-linecap="round"/>
+
+    <!-- BACK — jagged, seamed chrome panels exposed beneath the skin -->
+    <path d="M-15,-130
+             L-55,-138
+             L-50,-108
+             L-78,-96
+             L-70,-68
+             L-92,-54
+             L-82,-28
+             L-98,-10
+             L-86,14
+             L-96,34
+             L-78,52
+             L-82,72
+             L-60,88
+             L-48,150"
+          fill="none" stroke="#3fc4e8" stroke-width="1.3" opacity="0.6" stroke-linejoin="round"/>
+
+    <!-- seam rivets along the panel joints -->
+    <g fill="#3fc4e8" opacity="0.55">
+      <circle cx="-50" cy="-108" r="2"/>
+      <circle cx="-78" cy="-96" r="2"/>
+      <circle cx="-70" cy="-68" r="2"/>
+      <circle cx="-92" cy="-54" r="2"/>
+      <circle cx="-82" cy="-28" r="2"/>
+      <circle cx="-98" cy="-10" r="2"/>
+      <circle cx="-86" cy="14" r="2"/>
+      <circle cx="-96" cy="34" r="2"/>
+      <circle cx="-78" cy="52" r="2"/>
+      <circle cx="-82" cy="72" r="2"/>
+    </g>
+
+    <!-- small exposed joint/hex components drifting off the seam -->
+    <g stroke="#3fc4e8" fill="none" opacity="0.45" stroke-width="1.1">
+      <polygon points="-118,-40 -112,-44 -106,-40 -106,-33 -112,-29 -118,-33"/>
+      <polygon points="-122,20 -116,16 -110,20 -110,27 -116,31 -122,27"/>
+      <circle cx="-128" cy="-8" r="5"/>
+    </g>
+
+    <!-- collarbone / shoulder line, both sides rejoining as "one body" -->
+    <path d="M-34,150 Q-2,168 34,150" fill="none" stroke="#3fc4e8" stroke-width="1.2" opacity="0.4"/>
+  </g>
+
+  <!-- ============ Vitals waveform, bottom third ============ -->
+  <g stroke="#3fc4e8" stroke-width="1.3" fill="none" opacity="0.45">
+    <path d="M50,468 L130,468 L146,440 L162,492 L178,468 L300,468
+             L316,444 L332,486 L348,468 L470,468
+             L486,438 L502,494 L518,468 L640,468
+             L656,446 L672,484 L688,468 L850,468"/>
+  </g>
+  <g fill="none" stroke="#3fc4e8" opacity="0.4" stroke-width="1">
+    <polygon points="220,462 228,458 236,462 236,470 228,474 220,470"/>
+    <polygon points="580,462 588,458 596,462 596,470 588,474 580,470"/>
+  </g>
+  <g fill="#3fc4e8" opacity="0.5">
+    <circle cx="146" cy="440" r="2.2"/>
+    <circle cx="486" cy="438" r="2.2"/>
+  </g>
+
+  <!-- ============ Corner status ring (serial-code / diagnostic gauge) ============ -->
+  <g transform="translate(775,112)" opacity="0.5">
+    <circle r="42" fill="none" stroke="#3fc4e8" stroke-width="1.4"/>
+    <circle r="52" fill="none" stroke="#1f7fa0" stroke-width="1" stroke-dasharray="2,5"/>
+    <circle r="4" fill="#3fc4e8"/>
+    <g stroke="#3fc4e8" stroke-width="1.2">
+      <line x1="0" y1="-42" x2="0" y2="-50"/>
+      <line x1="0" y1="42" x2="0" y2="50"/>
+      <line x1="-42" y1="0" x2="-50" y2="0"/>
+      <line x1="42" y1="0" x2="50" y2="0"/>
+      <line x1="29.7" y1="-29.7" x2="35.4" y2="-35.4"/>
+      <line x1="29.7" y1="29.7" x2="35.4" y2="35.4"/>
+      <line x1="-29.7" y1="-29.7" x2="-35.4" y2="-35.4"/>
+      <line x1="-29.7" y1="29.7" x2="-35.4" y2="35.4"/>
+    </g>
+  </g>
+
+  <rect x="0" y="500" width="900" height="40" fill="#04080d" opacity="0.55"/>
+</svg>

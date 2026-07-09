@@ -2,7 +2,7 @@
 layout: post
 title: "终章 · 她 — Made for No One but You"
 date: 2026-06-27
-image: made-for-no-one-but-you.jpg
+image: made-for-no-one-but-you.svg
 tags: [Sammy, AU, Made for No One but You, 炽恋, 缱绻]
 categories: ["AU Story"]
 series: "Made for No One but You"
