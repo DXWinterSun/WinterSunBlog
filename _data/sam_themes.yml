@@ -297,6 +297,19 @@
   text: "#f0e0d4"
   muted: "#627f8d"
 
+- id: karl
+  year: 2011
+  name: "Karl Fairhurst"
+  anchor: karl
+  cn: 霓虹玫红
+  en: Neon Magenta
+  bg_cn: 地窖丝绒黑
+  bg_en: Basement Velvet
+  accent: "#e2537f"
+  bg: "#181320"
+  text: "#f2e4ea"
+  muted: "#8a7d9c"
+
 - id: billy
   year: 2012
   name: "Billy Bickle"
