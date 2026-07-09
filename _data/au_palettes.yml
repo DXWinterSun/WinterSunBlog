@@ -292,3 +292,14 @@
   accent_en: "Dried Blood"
   bg_cn: "边境暮雪"
   bg_en: "Frontier Dusk"
+
+"Made for No One but You":  # Sammy · 原创角色，无 Sam Rockwell 出处，不进 Sam 画册
+  accent: "#3fc4e8"
+  accent_ink: "#1f7fa0"
+  bg: "#0a121c"
+  text: "#dceaf2"
+  muted: "#7d97a6"
+  accent_cn: "铬骨薄冰"
+  accent_en: "Chrome-Bone Thin Ice"
+  bg_cn: "巷雨墨蓝"
+  bg_en: "Alley Rain Ink"
