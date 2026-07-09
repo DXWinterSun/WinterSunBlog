@@ -279,3 +279,16 @@
   accent_en: "Nightlight Brass"
   bg_cn: "空房暮灰"
   bg_en: "Empty-Room Grey"
+
+"What He Owed":             # Colonel Silas Groves · 色卡同源 sam_themes.yml id: silas
+  mf_id: silas                # → Many Faces 画册锚点 /sam/many-faces/#silas
+  theme_id: silas
+  accent: "#8c3229"
+  accent_ink: "#702821"
+  bg: "#161a1f"
+  text: "#e9e4d8"
+  muted: "#6e6558"
+  accent_cn: "陈血锈红"
+  accent_en: "Dried Blood"
+  bg_cn: "边境暮雪"
+  bg_en: "Frontier Dusk"
