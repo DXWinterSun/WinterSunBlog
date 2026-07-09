@@ -2,8 +2,8 @@
  "meta": {
   "start": "2026-02-13",
   "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-  "characters_count": 44,
-  "pool_count": 220,
+  "characters_count": 45,
+  "pool_count": 225,
   "mf_alias": {
    "johnmoon": "john",
    "sambell": "sam",
@@ -1552,6 +1552,50 @@
    ]
   },
   {
+   "id": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "quotes": [
+    {
+     "label": "A DEBT, HE SAID",
+     "line": "I told myself I owed your brother this much. I don't fully believe that anymore.",
+     "lineCN": "我告诉自己，这是我欠你哥哥的。可这句话，我自己都不再全信了。",
+     "kind": "锚"
+    },
+    {
+     "label": "NOT A BROTHER'S WATCH",
+     "line": "I keep telling myself I watch you the way I'd have watched him. Lately that's a harder lie to hold.",
+     "lineCN": "我一直告诉自己，我这样守着你，只是替他多看一眼。这话，我现在越来越说不出口了。",
+     "kind": "AU · 暗告白"
+    },
+    {
+     "label": "STEADIER THAN MINE",
+     "line": "I've given a hundred orders with these hands. Yours are the only ones I trust to hold anything of mine.",
+     "lineCN": "这双手下过上百道命令。可我这条命，只肯交到你手上。",
+     "kind": "AU · 情话"
+    },
+    {
+     "label": "WHAT THE SNOW KNOWS",
+     "line": "There's blood on my hands the snow hasn't covered yet. I don't ask you to forgive it. I only ask you not to look away.",
+     "lineCN": "我手上的血，这场雪盖不住。我不求你原谅——我只求你，别因此转过身去。",
+     "kind": "AU · 暗告白"
+    },
+    {
+     "label": "THE ONLY ONE I SAVED",
+     "line": "They'll write down how many I warned, how many I let die. They won't write down that the only one I truly meant to save was you.",
+     "lineCN": "他们会记下我警告过谁、放任谁去死。可没人会写——我真正想救的，从头到尾只有你。",
+     "kind": "AU · 情话"
+    }
+   ]
+  },
+  {
    "id": "eddie",
    "name": "Eddie",
    "film": "Blue Iguana",
@@ -2510,6 +2554,22 @@
    "kind": "锚"
   },
   {
+   "charId": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "label": "A DEBT, HE SAID",
+   "line": "I told myself I owed your brother this much. I don't fully believe that anymore.",
+   "lineCN": "我告诉自己，这是我欠你哥哥的。可这句话，我自己都不再全信了。",
+   "kind": "锚"
+  },
+  {
    "charId": "eddie",
    "name": "Eddie",
    "film": "Blue Iguana",
@@ -3212,6 +3272,22 @@
    "line": "Nobody ever looked at me and saw somebody worth becoming. You did. So now I gotta go and actually become him. For you.",
    "lineCN": "从没有人看着我，看见一个值得成为的人。你看见了。所以现在我得真的去成为他。为了你。",
    "kind": "暗告白"
+  },
+  {
+   "charId": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "label": "NOT A BROTHER'S WATCH",
+   "line": "I keep telling myself I watch you the way I'd have watched him. Lately that's a harder lie to hold.",
+   "lineCN": "我一直告诉自己，我这样守着你，只是替他多看一眼。这话，我现在越来越说不出口了。",
+   "kind": "AU · 暗告白"
   },
   {
    "charId": "eddie",
@@ -3918,6 +3994,22 @@
    "kind": "情话 · 笨拙"
   },
   {
+   "charId": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "label": "STEADIER THAN MINE",
+   "line": "I've given a hundred orders with these hands. Yours are the only ones I trust to hold anything of mine.",
+   "lineCN": "这双手下过上百道命令。可我这条命，只肯交到你手上。",
+   "kind": "AU · 情话"
+  },
+  {
    "charId": "eddie",
    "name": "Eddie",
    "film": "Blue Iguana",
@@ -4622,6 +4714,22 @@
    "kind": "暗告白"
   },
   {
+   "charId": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "label": "WHAT THE SNOW KNOWS",
+   "line": "There's blood on my hands the snow hasn't covered yet. I don't ask you to forgive it. I only ask you not to look away.",
+   "lineCN": "我手上的血，这场雪盖不住。我不求你原谅——我只求你，别因此转过身去。",
+   "kind": "AU · 暗告白"
+  },
+  {
    "charId": "eddie",
    "name": "Eddie",
    "film": "Blue Iguana",
@@ -5324,6 +5432,22 @@
    "line": "I ain't gonna be a good man overnight. But give me time — I'm the kind that keeps showing up, even after he's got it wrong.",
    "lineCN": "我没法一夜之间变成好人。可给我点时间——我是那种，就算搞砸了，第二天还是会出现的人。",
    "kind": "情话"
+  },
+  {
+   "charId": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "label": "THE ONLY ONE I SAVED",
+   "line": "They'll write down how many I warned, how many I let die. They won't write down that the only one I truly meant to save was you.",
+   "lineCN": "他们会记下我警告过谁、放任谁去死。可没人会写——我真正想救的，从头到尾只有你。",
+   "kind": "AU · 情话"
   },
   {
    "charId": "eddie",

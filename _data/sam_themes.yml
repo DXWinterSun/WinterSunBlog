@@ -316,7 +316,7 @@
   anchor: karl
   cn: 霓虹玫红
   en: Neon Magenta
-  bg_cn: 地窖丝绒黑
+  bg_cn: 地窖绒黑
   bg_en: Basement Velvet
   accent: "#e2537f"
   bg: "#181320"
@@ -439,6 +439,19 @@
   bg: "#241015"
   text: "#f5e6d3"
   muted: "#8d626d"
+
+- id: silas
+  year: 2017
+  name: "Colonel Silas Groves"
+  anchor: silas
+  cn: 陈血锈红
+  en: Dried Blood
+  bg_cn: 边境暮雪
+  bg_en: Frontier Dusk
+  accent: "#8c3229"
+  bg: "#161a1f"
+  text: "#e9e4d8"
+  muted: "#6e6558"
 
 - id: eddie
   year: 2018
