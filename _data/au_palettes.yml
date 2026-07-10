@@ -303,3 +303,16 @@
   accent_en: "Chrome-Bone Thin Ice"
   bg_cn: "巷雨墨蓝"
   bg_en: "Alley Rain Ink"
+
+"Choke Point":               # Victor Mancini · 色卡同源 sam_themes.yml id: victor
+  mf_id: victor                # → Many Faces 画册锚点 /sam/many-faces/#victor
+  theme_id: victor
+  accent: "#d2a24a"
+  accent_ink: "#a8823b"
+  bg: "#350d1e"
+  text: "#f5e0e8"
+  muted: "#96495f"
+  accent_cn: "殖民地铜金"
+  accent_en: "Colonial Gilt"
+  bg_cn: "海报品红夜"
+  bg_en: "Poster Magenta Night"
