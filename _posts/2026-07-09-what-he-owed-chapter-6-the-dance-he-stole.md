@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 5 · 他抢的那支舞 — What He Owed"
+title: "Chapter 6 · 他抢的那支舞 — What He Owed"
 date: 2026-07-09
 image: silas-groves.jpg
 tags: [Colonel Silas Groves, Sam Rockwell, AU, What He Owed, 炽恋, 悸动]
 categories: ["AU Story"]
 series: "What He Owed"
 series_title: "What He Owed · Silas Groves AU"
-series_order: 5
+series_order: 6
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 5"
+chapter_type: "Chapter 6"
 summary: "他半路抢了那支舞，还一本正经说这是公务。"
 ---
 

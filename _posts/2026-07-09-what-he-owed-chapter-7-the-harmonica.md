@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 6 · 那把口琴 — What He Owed"
+title: "Chapter 7 · 那把口琴 — What He Owed"
 date: 2026-07-09
 image: silas-groves.jpg
 tags: [Colonel Silas Groves, Sam Rockwell, AU, What He Owed, 怅惘, 安放]
 categories: ["AU Story"]
 series: "What He Owed"
 series_title: "What He Owed · Silas Groves AU"
-series_order: 6
+series_order: 7
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 6"
+chapter_type: "Chapter 7"
 summary: "锁了十四年的铁盒里，除了口琴，还有一封没寄出的信。"
 ---
 
