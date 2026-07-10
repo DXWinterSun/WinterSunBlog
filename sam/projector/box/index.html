@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>片盒收藏册 · Winter Sun</title>
+<meta name="description" content="放映室的片盒：你从片盘里剪下过的每一格胶片，都收在这里。集齐整盘，有惊喜。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="片盒收藏册 · Winter Sun">
+<meta property="og:description" content="你剪下过的每一格胶片，都收在这里。">
+<meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/projector/box/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0d0a08">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ————— 片盒收藏册 · The Reel Box —————
+     角色来自 sam/lines.json（零内嵌），收藏进度存本机 localStorage
+     （键 ws-projector-cuts，由放映室的 ✂ 写入）。 */
+  html, body { margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    min-height: 100dvh;
+    background:
+      radial-gradient(ellipse 100% 50% at 50% -5%, rgba(203,161,76,.08), transparent 60%),
+      #0d0a08;
+    color: #ece1d0;
+    font-family: 'Noto Serif SC', serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column; align-items: center;
+    padding: max(16px, env(safe-area-inset-top)) 18px max(30px, env(safe-area-inset-bottom));
+  }
+  a { color: inherit; }
+
+  .topbar {
+    width: 100%; max-width: 860px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 22px;
+  }
+  .back {
+    font-weight: 300; font-size: 12px; letter-spacing: 1px;
+    color: #8a7558; text-decoration: none;
+  }
+  .back:hover { color: #ece1d0; }
+  .progress-num {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 10px; letter-spacing: 2px; color: #8a7558; text-transform: uppercase;
+  }
+
+  .head { text-align: center; margin-bottom: 6px; }
+  .head h1 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: clamp(22px, 5vw, 30px); margin: 0; letter-spacing: 1px; color: #f2e7d2;
+  }
+  .head p {
+    font-weight: 300; font-size: clamp(11.5px, 3vw, 13px); letter-spacing: 2px;
+    color: #8a7558; margin: 8px 0 0; line-height: 1.9;
+  }
+
+  /* 进度条：一条被逐渐填满的胶片 */
+  .bar-wrap { width: min(560px, 92%); margin: 18px auto 26px; }
+  .bar {
+    height: 18px; border-radius: 4px; overflow: hidden;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 6px, rgba(232,222,198,.28) 6px 10px, transparent 10px 16px) 0 2px / 16px 4px repeat-x,
+      repeating-linear-gradient(90deg, transparent 0 6px, rgba(232,222,198,.28) 6px 10px, transparent 10px 16px) 0 calc(100% - 6px) / 16px 4px repeat-x,
+      #16110c;
+    border: 1px solid rgba(255,222,180,.14);
+    position: relative;
+  }
+  .bar__fill {
+    position: absolute; inset: 0; width: 0%;
+    background: linear-gradient(90deg, #7d6026, #cba14c);
+    opacity: .55; transition: width 1s cubic-bezier(.2,.8,.3,1);
+  }
+  .bar-label {
+    text-align: center; margin-top: 8px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 10px; letter-spacing: 3px; color: #8a7558; text-transform: uppercase;
+  }
+
+  /* 满盘贺卡 */
+  .complete {
+    display: none; width: min(560px, 94%); margin: 0 auto 26px;
+    text-align: center; padding: 20px 22px;
+    border: 1px solid rgba(230,190,110,.55); border-radius: 12px;
+    background:
+      radial-gradient(ellipse 90% 120% at 50% -20%, rgba(230,190,110,.14), transparent 60%),
+      #171106;
+    box-shadow: 0 0 40px rgba(203,161,76,.18);
+  }
+  .complete.is-on { display: block; }
+  .complete__title {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: 22px; margin: 0; color: #ecd9a8; letter-spacing: 2px;
+  }
+  .complete__text { font-weight: 300; font-size: 13px; line-height: 2.1; color: #d8c8a4; margin: 10px 0 0; }
+
+  /* ————— 收藏格栅 ————— */
+  .grid {
+    width: 100%; max-width: 860px;
+    display: grid; gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  }
+  .slot {
+    position: relative; display: block; text-decoration: none;
+    aspect-ratio: 4 / 3.4;
+    border-radius: 4px; overflow: hidden;
+    border: 1px solid rgba(255,222,180,.12);
+    background: #14100b;
+    padding: 12px 8px 8px;
+    text-align: center;
+    transition: transform .15s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  /* 上下齿孔 */
+  .slot::before, .slot::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 4px;
+    background: repeating-linear-gradient(90deg, transparent 0 5px, rgba(232,222,198,.32) 5px 9px, transparent 9px 15px);
+  }
+  .slot::before { top: 3px; }
+  .slot::after { bottom: 3px; }
+  .slot:hover { transform: translateY(-2px); }
+
+  .slot--got {
+    background: linear-gradient(160deg, color-mix(in srgb, var(--a, #cba14c) 38%, var(--b, #14100b)), var(--b, #14100b) 72%);
+    border-color: color-mix(in srgb, var(--a, #cba14c) 55%, transparent);
+  }
+  .slot--got:hover { box-shadow: 0 6px 22px color-mix(in srgb, var(--a, #cba14c) 25%, transparent); }
+  .slot--miss { border-style: dashed; }
+  .slot--miss:hover { border-color: rgba(255,222,180,.35); }
+
+  .slot__year {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 9px; letter-spacing: 2px; color: rgba(236,225,208,.75);
+    display: block; margin-top: 6px;
+  }
+  .slot--miss .slot__year { color: #6d5f4c; }
+  .slot__name {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 44%;
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: 13.5px; line-height: 1.25; color: #f4ecdd;
+    text-shadow: 0 1px 3px rgba(0,0,0,.7);
+    padding: 0 2px; word-break: break-word;
+  }
+  .slot--miss .slot__name { color: #4d4335; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 12.5px; }
+  .slot__meta {
+    font-weight: 300; font-size: 10px; letter-spacing: 1px; color: rgba(236,225,208,.72);
+  }
+  .slot--miss .slot__meta { color: #6d5f4c; }
+  .slot__badge {
+    position: absolute; top: 9px; right: 7px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8px; letter-spacing: 1px;
+    color: color-mix(in srgb, var(--a, #cba14c) 80%, #fff);
+  }
+
+  .note {
+    margin-top: 26px; max-width: 560px; text-align: center;
+    font-weight: 300; font-size: 11.5px; line-height: 2.1; color: #8a7558;
+  }
+  .colophon {
+    margin-top: 14px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
+    color: #8a7558; opacity: .5;
+  }
+  .loading {
+    margin: 60px auto; font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 11px; letter-spacing: 3px; color: #8a7558; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="../">← 回放映室</a>
+  <span class="progress-num" id="progress-num"></span>
+</div>
+
+<div class="head">
+  <h1>The Reel Box</h1>
+  <p>片盒收藏册 · 你剪下过的每一格，都收在这里</p>
+</div>
+
+<div class="bar-wrap">
+  <div class="bar"><div class="bar__fill" id="bar-fill"></div></div>
+  <div class="bar-label" id="bar-label">—</div>
+</div>
+
+<div class="complete" id="complete">
+  <p class="complete__title">COMPLETE REEL · 满盘</p>
+  <p class="complete__text" id="complete-text"></p>
+</div>
+
+<div class="loading" id="loading">Opening the box…</div>
+<div class="grid" id="grid"></div>
+
+<p class="note">
+  收藏记录保存在这台设备的浏览器里。空着的格子点进去就是放映室的那一格——去把它剪下来。
+</p>
+<span class="colophon">Winter × Fable</span>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+
+  var cuts = {};
+  try { cuts = JSON.parse(localStorage.getItem("ws-projector-cuts") || "{}"); } catch (e) {}
+
+  fetch("../../lines.json", { cache: "no-cache" })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var chars = (data.characters || []).slice().sort(function (a, b) {
+        return (parseInt(a.year, 10) || 0) - (parseInt(b.year, 10) || 0);
+      });
+      $("loading").remove();
+      render(chars);
+    })
+    .catch(function () {
+      $("loading").textContent = "片盒钥匙不见了…请刷新重试";
+    });
+
+  function render(chars) {
+    var grid = $("grid");
+    var got = 0;
+    chars.forEach(function (c) {
+      var hit = cuts[c.id];
+      if (hit) got++;
+      var a = document.createElement("a");
+      a.className = "slot " + (hit ? "slot--got" : "slot--miss");
+      a.href = "../?reel=" + encodeURIComponent(c.id);
+      a.setAttribute("aria-label", c.name + (hit ? "（已剪下）" : "（还没剪）"));
+      if (hit) { a.style.setProperty("--a", c.accent); a.style.setProperty("--b", c.bg); }
+
+      var year = document.createElement("span");
+      year.className = "slot__year"; year.textContent = c.year;
+      var name = document.createElement("span");
+      name.className = "slot__name";
+      name.textContent = hit ? c.name : "还没剪下";
+      var meta = document.createElement("span");
+      meta.className = "slot__meta";
+      meta.textContent = hit ? (c.filmCN || c.film || "") : "点进去剪 ✂";
+      a.appendChild(year); a.appendChild(name); a.appendChild(meta);
+      if (hit && hit.n > 1) {
+        var badge = document.createElement("span");
+        badge.className = "slot__badge"; badge.textContent = "✂×" + hit.n;
+        a.appendChild(badge);
+      }
+      grid.appendChild(a);
+    });
+
+    var total = chars.length;
+    $("progress-num").textContent = "CUT " + got + " / " + total;
+    $("bar-fill").style.width = (got / total * 100).toFixed(1) + "%";
+    $("bar-label").textContent = got === 0
+      ? "空片盒 · 去放映室剪下第一格"
+      : got + " / " + total + " FRAMES COLLECTED";
+
+    if (got === total && total > 0) {
+      $("complete").classList.add("is-on");
+      $("complete-text").textContent =
+        "整整 " + total + " 格胶片，一格一格都是你亲手剪下来的。" +
+        "这盘片子从此有了唯一的一份拷贝——收藏人：Winter。放映机永远为你留着灯。";
+    }
+  }
+})();
+</script>
+
+</body>
+</html>

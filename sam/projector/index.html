@@ -444,6 +444,7 @@
 
 <div class="topbar">
   <a class="back" href="../">← 回 Sam 的房间</a>
+  <a class="back" href="box/">✂ 片盒收藏册</a>
   <span class="reelno" id="reelno">REEL — / —</span>
 </div>
 
@@ -540,7 +541,11 @@
       if (!chars.length) throw new Error("empty");
       $("loading").remove();
       buildStrip();
-      runLeader(function () { showFrame(0); });
+      // ?reel=<角色id>：从片盒跳回来时直接停到那格
+      var want = new URLSearchParams(location.search).get("reel");
+      var startAt = 0;
+      if (want) chars.forEach(function (c, i) { if (c.id === want) startAt = i; });
+      runLeader(function () { showFrame(startAt); });
     })
     .catch(function () {
       $("loading").textContent = "胶片卡住了…请刷新重试";
@@ -1017,6 +1022,12 @@
         a.download = "winter-sun-film-reel" + pad(idx + 1) + "-" + c.id + ".png";
         document.body.appendChild(a); a.click(); a.remove();
         setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+        // 记进片盒（本机 localStorage，box/ 收藏册读这份账）
+        try {
+          var box = JSON.parse(localStorage.getItem("ws-projector-cuts") || "{}");
+          box[c.id] = { n: (box[c.id] && box[c.id].n || 0) + 1, at: Date.now() };
+          localStorage.setItem("ws-projector-cuts", JSON.stringify(box));
+        } catch (e) {}
         var toast = $("toast");
         toast.classList.add("is-on");
         setTimeout(function () { toast.classList.remove("is-on"); }, 2600);
