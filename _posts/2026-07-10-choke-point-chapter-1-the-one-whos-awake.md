@@ -3,6 +3,7 @@ layout: post
 title: "Chapter 1 · 醒着的人 — Choke Point"
 categories: ["AU Story"]
 date: 2026-07-10
+image: victor-mancini.jpg
 tags: [Victor Mancini, Sam Rockwell, AU, Choke Point, 悸动, 暗涌]
 series: "Choke Point"
 series_title: "Choke Point · Victor Mancini AU"
