@@ -26,18 +26,26 @@
 
   /* ── 两栏版式：左侧角色名录（吸顶、独立滚动），右侧详情区（Hero + 五句话）──
      解决旧版「点一句台词跳回顶部找 Hero，再滚回长长的单栏手风琴找下一个人」的
-     来回滚动问题：名录和详情始终同屏，桌面各自独立滚动，互不打扰。 */
+     来回滚动问题：名录和详情始终同屏，桌面各自独立滚动，互不打扰。
+
+     「随机一位」按钮拎到名录列表外面单独一层、不参与列表自己的滚动：
+     桌面端列表纵向滚动很长时按钮曾被一起滚走；手机端点随机后名录横向
+     滚去很远的位置、按钮也跟着被划出屏幕，还容易和页面纵向滚动同时触发
+     打架、卡住手势——现在按钮固定不动，只有 .wall-roster-list 自己滚。 */
   .wall-layout { display: flex; align-items: flex-start; gap: 26px; }
   .wall-roster {
     flex: 0 0 272px;
     position: sticky;
     top: 18px;
     max-height: calc(100vh - 36px);
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     padding-right: 4px;
   }
-  .wall-roster::-webkit-scrollbar { width: 5px; }
-  .wall-roster::-webkit-scrollbar-thumb { background: #2a241b; border-radius: 3px; }
+  .wall-roster-random { flex: 0 0 auto; margin-bottom: 10px; }
+  .wall-roster-list { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+  .wall-roster-list::-webkit-scrollbar { width: 5px; }
+  .wall-roster-list::-webkit-scrollbar-thumb { background: #2a241b; border-radius: 3px; }
   .wall-detail { flex: 1; min-width: 0; scroll-margin-top: 18px; }
   .wall-roster-meta { display: block; }
 
@@ -48,23 +56,30 @@
       top: 0;
       z-index: 20;
       max-height: none;
-      overflow-y: visible;
-      overflow-x: auto;
-      display: flex;
-      gap: 8px;
+      flex-direction: row;
+      align-items: center;
       padding: 12px 2px 14px;
       margin: 0 -4px 22px;
       background: #14110d;
       border-bottom: 1px solid #211c14;
+    }
+    /* 按钮的内联样式在桌面端故意写了 width:100%（纵向铺满侧栏），但在这里
+       行方向布局下必须覆盖掉，否则它会撑满整条横条，把人名列表挤压成 0
+       宽度、全部推到屏幕外——这正是上一版「手机端选不了人」的病根。 */
+    .wall-roster-random { flex: 0 0 auto !important; width: auto !important; margin-bottom: 0; white-space: nowrap; }
+    .wall-roster-list {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      overflow-y: visible;
       scrollbar-width: none;
     }
-    .wall-roster::-webkit-scrollbar { display: none; }
-    .wall-roster-item { flex: 0 0 auto !important; border-radius: 999px !important; }
+    .wall-roster-list::-webkit-scrollbar { display: none; }
+    .wall-roster-item { flex: 0 0 auto !important; width: auto !important; border-radius: 999px !important; }
     .wall-roster-meta, .wall-roster-count { display: none; }
     .wall-detail { scroll-margin-top: 68px; }
-    /* 随机按钮不是 .wall-roster-item，在横向 flex 名录条里若不单独限定
-       flex-basis 会被挤压换行（中文逐字竖排），单独锁住宽度不参与收缩 */
-    .wall-roster-random { flex: 0 0 auto !important; width: auto !important; white-space: nowrap; }
   }
 </style>
 </head>
@@ -436,8 +451,12 @@ function App() {
     setActiveQuote(q);
     syncUrl(q.charId);
     requestAnimationFrame(function () {
+      // 桌面端名录是纵向独立滚动，手机端是横向滚动条；用 inline 只管横轴、
+      // block:"nearest" 不去动竖直方向，两端各自滚自己的轴，不会跟下面
+      // 详情区的纵向滚动打架。
+      var isMobile = window.matchMedia && window.matchMedia("(max-width: 880px)").matches;
       var el = document.querySelector('[data-roster-id="' + q.charId + '"]');
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      if (el) el.scrollIntoView(isMobile ? { behavior: "smooth", inline: "center", block: "nearest" } : { behavior: "smooth", block: "nearest" });
       if (detailRef.current) detailRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
@@ -484,10 +503,12 @@ function App() {
             border: "1px solid #3a3226", borderRadius: 999, padding: "8px 14px",
             whiteSpace: "nowrap",
           }}>&#127922; 随机一位</button>
-          {data.characters.map(function (c) {
-            return <RosterItem key={c.id} c={c} active={c.id === selectedId} isToday={c.id === todayCharId}
-              onClick={function () { selectCharacter(c.id); }} />;
-          })}
+          <div className="wall-roster-list">
+            {data.characters.map(function (c) {
+              return <RosterItem key={c.id} c={c} active={c.id === selectedId} isToday={c.id === todayCharId}
+                onClick={function () { selectCharacter(c.id); }} />;
+            })}
+          </div>
         </nav>
 
         <div className="wall-detail" ref={detailRef}>

@@ -266,3 +266,53 @@
   accent_en: "Relic Gold"
   bg_cn: "暮土玄褐"
   bg_en: "Dusk Umber"
+
+"This House Is Clean":      # Eric Bowen · 色卡同源 sam_themes.yml id: bowen
+  mf_id: bowen                # → Many Faces 画册锚点 /sam/many-faces/#bowen
+  theme_id: bowen
+  accent: "#d8a24e"
+  accent_ink: "#ad823e"
+  bg: "#1b1917"
+  text: "#ece6dd"
+  muted: "#807a71"
+  accent_cn: "夜灯黄铜"
+  accent_en: "Nightlight Brass"
+  bg_cn: "空房暮灰"
+  bg_en: "Empty-Room Grey"
+
+"What He Owed":             # Colonel Silas Groves · 色卡同源 sam_themes.yml id: silas
+  mf_id: silas                # → Many Faces 画册锚点 /sam/many-faces/#silas
+  theme_id: silas
+  accent: "#8c3229"
+  accent_ink: "#702821"
+  bg: "#161a1f"
+  text: "#e9e4d8"
+  muted: "#6e6558"
+  accent_cn: "陈血锈红"
+  accent_en: "Dried Blood"
+  bg_cn: "边境暮雪"
+  bg_en: "Frontier Dusk"
+
+"Made for No One but You":  # Sammy · 原创角色，无 Sam Rockwell 出处，不进 Sam 画册
+  accent: "#3fc4e8"
+  accent_ink: "#1f7fa0"
+  bg: "#0a121c"
+  text: "#dceaf2"
+  muted: "#7d97a6"
+  accent_cn: "铬骨薄冰"
+  accent_en: "Chrome-Bone Thin Ice"
+  bg_cn: "巷雨墨蓝"
+  bg_en: "Alley Rain Ink"
+
+"Choke Point":               # Victor Mancini · 色卡同源 sam_themes.yml id: victor
+  mf_id: victor                # → Many Faces 画册锚点 /sam/many-faces/#victor
+  theme_id: victor
+  accent: "#d2a24a"
+  accent_ink: "#a8823b"
+  bg: "#350d1e"
+  text: "#f5e0e8"
+  muted: "#96495f"
+  accent_cn: "殖民地铜金"
+  accent_en: "Colonial Gilt"
+  bg_cn: "海报品红夜"
+  bg_en: "Poster Magenta Night"

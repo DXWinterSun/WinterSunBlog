@@ -2,11 +2,11 @@
   year: 1991
   name: "Gary"
   anchor: gary
-  cn: 天际铜金
-  en: Skyline Brass
+  cn: 天际钢蓝
+  en: Skyline Steel
   bg_cn: 顶楼黑檀
   bg_en: Penthouse Ebony
-  accent: "#cba14c"
+  accent: "#5b84b1"
   bg: "#14110d"
   text: "#ede2d0"
   muted: "#8a7558"
@@ -28,11 +28,11 @@
   year: 1995
   name: "Matty"
   anchor: matty
-  cn: 旧电话亭琥珀
-  en: Old Phonebooth Amber
+  cn: 旧电话亭荧光
+  en: Booth Fluorescent
   bg_cn: 凌晨地铁月台
   bg_en: Pre-Dawn Subway
-  accent: "#d49850"
+  accent: "#7ec9a0"
   bg: "#171d24"
   text: "#ebe0cc"
   muted: "#7d7264"
@@ -67,11 +67,11 @@
   year: 1998
   name: "Samuel"
   anchor: samuel
-  cn: 舞台背心红
-  en: Stage Vest
+  cn: 复古戏服红
+  en: Vintage Costume Red
   bg_cn: 格纹芥末棕
   bg_en: Plaid Mustard
-  accent: "#c5402f"
+  accent: "#b23d2c"
   bg: "#211a0f"
   text: "#f0e2d4"
   muted: "#a08770"
@@ -80,11 +80,11 @@
   year: 1998
   name: "Jerry"
   anchor: jerry
-  cn: 蓬乱金长发
-  en: Blond Mane
+  cn: 金毛薯条橙
+  en: Fry Basket Orange
   bg_cn: 深夜快餐棕
   bg_en: Late-Night Diner
-  accent: "#d7a83c"
+  accent: "#e08f2e"
   bg: "#20120c"
   text: "#f0e0d0"
   muted: "#a07060"
@@ -93,11 +93,11 @@
   year: 1999
   name: 'William "Wild Bill" Wharton'
   anchor: wildbill
-  cn: 锯末粗木
-  en: Sawdust Timber
+  cn: 锯木原色
+  en: Raw Timber
   bg_cn: 炉膛夜黑
   bg_en: Forge Soot
-  accent: "#b0803e"
+  accent: "#8a8058"
   bg: "#1b1510"
   text: "#ece0d0"
   muted: "#93826a"
@@ -119,11 +119,11 @@
   year: 2000
   name: "Eric Knox"
   anchor: eric
-  cn: 红镜红
+  cn: 镜绯红
   en: Crimson Lens
   bg_cn: 可乐棕
   bg_en: Cola Noir
-  accent: "#d94040"
+  accent: "#cf3550"
   bg: "#1b1310"
   text: "#ede0e0"
   muted: "#8d6e62"
@@ -132,11 +132,11 @@
   year: 2002
   name: 'Pero "Pepe" Mahalovic'
   anchor: pero
-  cn: 拳击台暖灯橘
-  en: Ring Lamp Amber
+  cn: 拳击场铁锈橘
+  en: Ring Rust
   bg_cn: 科林伍德暮色
   bg_en: Collinwood Dusk
-  accent: "#d49858"
+  accent: "#b8703a"
   bg: "#1a1612"
   text: "#ede0cc"
   muted: "#8a7458"
@@ -158,11 +158,11 @@
   year: 2003
   name: "Frank Mercer"
   anchor: frank
-  cn: 猫眼琥珀
-  en: Hazel Fox
+  cn: 紫雾榛眸
+  en: Hazel Mauve
   bg_cn: 焦黑火柴
   bg_en: Burnt Matchstick
-  accent: "#c47830"
+  accent: "#9a7ba0"
   bg: "#1a1410"
   text: "#ede0e6"
   muted: "#8d7462"
@@ -173,7 +173,7 @@
   anchor: jim
   cn: 夜会香槟金
   en: Club Champagne
-  bg_cn: 黑貂皮大氅
+  bg_cn: 貂皮大氅黑
   bg_en: Mink Black
   accent: "#d8b25a"
   bg: "#161214"
@@ -223,11 +223,11 @@
   year: 2008
   name: "Jim Reston"
   anchor: reston
-  cn: 钨丝暖灯金
-  en: Tungsten Glow
+  cn: 演播室蓝光
+  en: Studio Cathode Blue
   bg_cn: 深夜手稿棕
   bg_en: Manuscript Brown
-  accent: "#d89858"
+  accent: "#3f8f94"
   bg: "#1f1814"
   text: "#ebe0cc"
   muted: "#8a7458"
@@ -238,12 +238,25 @@
   anchor: victor
   cn: 殖民地铜金
   en: Colonial Gilt
-  bg_cn: 旧绒布酒红
-  bg_en: Velvet Wine
+  bg_cn: 海报品红夜
+  bg_en: Poster Magenta Night
   accent: "#d2a24a"
-  bg: "#2a1820"
-  text: "#f0e0d4"
-  muted: "#9a7868"
+  bg: "#350d1e"
+  text: "#f5e0e8"
+  muted: "#96495f"
+
+- id: bronco
+  year: 2009
+  name: "Bronco"
+  anchor: bronco
+  cn: 星际紫晶
+  en: Cosmic Violet
+  bg_cn: 苍穹墨夜
+  bg_en: Stardust Night
+  accent: "#8f6fd4"
+  bg: "#160f24"
+  text: "#e6e0f5"
+  muted: "#7a6a9a"
 
 - id: sambell
   year: 2009
@@ -288,24 +301,37 @@
   year: 2010
   name: "Kenny Waters"
   anchor: kenny
-  cn: 铁窗微光
-  en: Barred Light
+  cn: 铁窗微蓝
+  en: Barred Blue
   bg_cn: 囚室灰墙
   bg_en: Cell Concrete
-  accent: "#d08a45"
+  accent: "#7a8fa3"
   bg: "#1c1e1f"
   text: "#f0e0d4"
   muted: "#627f8d"
+
+- id: karl
+  year: 2011
+  name: "Karl Fairhurst"
+  anchor: karl
+  cn: 烟熏眼影
+  en: Smoky Kohl
+  bg_cn: 地窖绒黑
+  bg_en: Basement Velvet
+  accent: "#d15f82"
+  bg: "#181320"
+  text: "#f2e4ea"
+  muted: "#8a7d9c"
 
 - id: billy
   year: 2012
   name: "Billy Bickle"
   anchor: billy
-  cn: 方块J红
-  en: Diamond Jack
+  cn: 方块J焰
+  en: Jack of Diamonds
   bg_cn: 沙漠焦土
   bg_en: Scorched Desert
-  accent: "#d63a33"
+  accent: "#c94a1e"
   bg: "#281208"
   text: "#f5e6d0"
   muted: "#b07840"
@@ -342,7 +368,7 @@
   anchor: doug
   cn: 处方白大褂
   en: Lab Coat
-  bg_cn: 药瓶琥珀棕
+  bg_cn: 药瓶陈皮棕
   bg_en: Pill-Bottle Brown
   accent: "#e6ecea"
   bg: "#1e1408"
@@ -353,27 +379,40 @@
   year: 2014
   name: "Wayne"
   anchor: wayne
-  cn: 夏末琥珀
-  en: Late Summer Amber
-  bg_cn: 退伍橄榄
-  bg_en: Old Olive
-  accent: "#c8a050"
-  bg: "#1e2418"
-  text: "#e8e4d0"
-  muted: "#8a7a48"
+  cn: 敞篷车绿
+  en: Racing Green
+  bg_cn: 别墅夏夜
+  bg_en: Villa Summer Night
+  accent: "#3f7a52"
+  bg: "#2a1810"
+  text: "#eee6d4"
+  muted: "#8a7050"
 
 - id: craig
   year: 2014
   name: "Craig"
   anchor: craig
-  cn: 威士忌金
-  en: Whisky Gold
-  bg_cn: 陈年皮革
-  bg_en: Aged Leather
-  accent: "#c89060"
-  bg: "#241a14"
-  text: "#ede0d0"
-  muted: "#a07858"
+  cn: 法务灰蓝
+  en: Legal Slate Blue
+  bg_cn: 停车场夜
+  bg_en: Strip-Mall Night
+  accent: "#63788a"
+  bg: "#1c2228"
+  text: "#e2e8ec"
+  muted: "#5f7280"
+
+- id: bowen
+  year: 2015
+  name: "Eric Bowen"
+  anchor: bowen
+  cn: 荧屏冷光
+  en: Static Glow
+  bg_cn: 空房暮灰
+  bg_en: Empty-Room Grey
+  accent: "#9fb8c9"
+  bg: "#1b1917"
+  text: "#ece6dd"
+  muted: "#807a71"
 
 - id: munch
   year: 2015
@@ -388,6 +427,19 @@
   text: "#eed9d8"
   muted: "#628d72"
 
+- id: donverdean
+  year: 2015
+  name: "Don Verdean"
+  anchor: donverdean
+  cn: 圣物青绿
+  en: Relic Turquoise
+  bg_cn: 暮土玄褐
+  bg_en: Dusk Umber
+  accent: "#4fa0a0"
+  bg: "#1a1410"
+  text: "#ece2cd"
+  muted: "#9d8a66"
+
 - id: dixon
   year: 2017
   name: "Jason Dixon"
@@ -400,6 +452,19 @@
   bg: "#241015"
   text: "#f5e6d3"
   muted: "#8d626d"
+
+- id: silas
+  year: 2017
+  name: "Colonel Silas Groves"
+  anchor: silas
+  cn: 陈血锈红
+  en: Dried Blood
+  bg_cn: 边境暮雪
+  bg_en: Frontier Dusk
+  accent: "#8c3229"
+  bg: "#161a1f"
+  text: "#e9e4d8"
+  muted: "#6e6558"
 
 - id: eddie
   year: 2018
@@ -422,7 +487,7 @@
   en: Texan Tan
   bg_cn: 总统西装夜
   bg_en: Suit Navy
-  accent: "#c98a3e"
+  accent: "#c17f34"
   bg: "#16181e"
   text: "#f1e3cb"
   muted: "#626d8d"
@@ -431,11 +496,11 @@
   year: 2019
   name: "Captain Klenzendorf"
   anchor: hendrix
-  cn: 夸张军装红
-  en: Glam Tunic
+  cn: 焦锈军装红
+  en: Scorched Oxblood
   bg_cn: 登台华服绿
   bg_en: Costume Green
-  accent: "#d34338"
+  accent: "#9c3f2a"
   bg: "#14241c"
   text: "#ede8d8"
   muted: "#8b7d4d"
@@ -444,11 +509,11 @@
   year: 2019
   name: "Watson Bryant"
   anchor: watson
-  cn: 红土暖橘
-  en: Georgia Clay
+  cn: 香烟灰绿
+  en: Ashtray Sage
   bg_cn: 档案橡木
   bg_en: Archive Oak
-  accent: "#c8783c"
+  accent: "#7a9468"
   bg: "#1c1410"
   text: "#ede0d0"
   muted: "#8a6848"
@@ -461,7 +526,7 @@
   en: Caramel Bear
   bg_cn: 蝉鸣仲夏夜
   bg_en: Cicada Nightfall
-  accent: "#b87a3e"
+  accent: "#9c6f38"
   bg: "#161510"
   text: "#ece2ce"
   muted: "#847a5c"
@@ -474,7 +539,7 @@
   en: Magnet Gold
   bg_cn: 狼影灰蓝
   bg_en: Wolf Shadow
-  accent: "#dfb23c"
+  accent: "#e0b840"
   bg: "#14161d"
   text: "#ede6d8"
   muted: "#7a7d8a"
@@ -487,7 +552,7 @@
   en: Old Photograph
   bg_cn: 伦敦午夜蓝
   bg_en: London Midnight
-  accent: "#c7995a"
+  accent: "#e2c48f"
   bg: "#1a1f2c"
   text: "#ebe2d4"
   muted: "#7c8090"
@@ -496,27 +561,14 @@
   year: 2024
   name: "Aidan Wilde"
   anchor: aidan
-  cn: 弹壳余温金
-  en: Casing Gold
+  cn: 冷银弹壳光
+  en: Casing Silver
   bg_cn: 午夜枪管蓝
   bg_en: Gunmetal Blue
-  accent: "#cda24f"
+  accent: "#a8adb8"
   bg: "#15192a"
   text: "#ebe2d0"
   muted: "#7a7e90"
-
-- id: donverdean
-  year: 2015
-  name: "Don Verdean"
-  anchor: donverdean
-  cn: 圣物流金
-  en: Relic Gold
-  bg_cn: 暮土玄褐
-  bg_en: Dusk Umber
-  accent: "#c69a4b"
-  bg: "#1a1410"
-  text: "#ece2cd"
-  muted: "#9d8a66"
 
 - id: future
   year: 2025

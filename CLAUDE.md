@@ -463,6 +463,23 @@ matter 完全一致）。条目末尾注明来源，例：
 C.P. Ellis 那样（2019 年的电影却被追加到列表末尾）排错位。缺 `year` 的条目会被
 排到最前面以示提醒。年份以 `sam/many-faces/index.html` 里该角色的 `year` 为准。
 
+**⚠️ 同一个角色的 `bg_cn`（底色中文名）和 `cn` / `accentNameCn`（主色中文名）必须
+是相同的汉字字数。** 这是 `_data/sam_themes.yml`（`bg_cn` / `cn`）和
+`sam/many-faces/index.html`（`bgNameCn` / `accentNameCn`）里同一角色两个颜色名
+的对齐要求——全站已验证过一遍，只有极少数字数不对齐会让选色器 UI 参差不齐。
+新增色卡时两个中文名字数要配平（3/4/5/6 字都可以，只要两个一样长），写完可以
+用下面的脚本抽查：
+
+```bash
+python3 -c "
+import yaml
+for t in yaml.safe_load(open('_data/sam_themes.yml')):
+    bg, ac = t.get('bg_cn',''), t.get('cn','')
+    if len(bg) != len(ac):
+        print(t['id'], bg, len(bg), 'vs', ac, len(ac))
+"
+```
+
 ### 4. 三处必须完全一致的字符串
 
 | 位置 | 字段 | 示例值 |

@@ -2,8 +2,8 @@
  "meta": {
   "start": "2026-02-13",
   "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-  "characters_count": 41,
-  "pool_count": 205,
+  "characters_count": 45,
+  "pool_count": 225,
   "mf_alias": {
    "johnmoon": "john",
    "sambell": "sam",
@@ -813,7 +813,7 @@
    "bg": "#2a1820",
    "text": "#f0e0d4",
    "muted": "#9a7868",
-   "auLink": null,
+   "auLink": "/WinterSunBlog/series/choke-point/",
    "quotes": [
     {
      "label": "BEFORE HE COULD ASK",
@@ -844,6 +844,50 @@
      "line": "I never learned how to ask. So I'll just say the word once and hope it's enough: stay.",
      "lineCN": "我从没学会怎么开口求人。那我就把那个字说一次，盼着够了：留下。",
      "kind": "情话"
+    }
+   ]
+  },
+  {
+   "id": "bronco",
+   "name": "Bronco",
+   "film": "Gentlemen Broncos",
+   "filmCN": "《绅士布朗科》",
+   "year": "2009",
+   "accent": "#d9a441",
+   "bg": "#171410",
+   "text": "#f0e6d4",
+   "muted": "#8b7c62",
+   "auLink": null,
+   "quotes": [
+    {
+     "label": "SOMEBODY WROTE ME",
+     "line": "A boy wrote me down so that he would have a father. You are the first one who read me and wanted the man.",
+     "lineCN": "一个男孩写下了我，好让自己有个父亲。你是第一个读到我、要的却是这个男人的人。",
+     "kind": "锚"
+    },
+    {
+     "label": "THE STAG FLIES WHERE I POINT",
+     "line": "The stag flies wherever I point him. Lately I keep pointing him at your window.",
+     "lineCN": "我指哪儿，战鹿就飞向哪儿。最近我总是指着你的窗户。",
+     "kind": "暗告白"
+    },
+    {
+     "label": "EASIER THAN LOOKING AT YOU",
+     "line": "I have burned down the most well-guarded yeast factory in this galaxy. It was easier than looking straight at you.",
+     "lineCN": "我烧掉过这星系里守卫最森严的酵母工厂。那都比直视你容易。",
+     "kind": "情话 · 不正经"
+    },
+    {
+     "label": "THE HIGHEST THING I HAVE",
+     "line": "I cut off my own hair and pressed it into your palm with honey. That is the highest thing I know how to give.",
+     "lineCN": "我剪下自己的头发，用蜂蜜粘进你的掌心。那是我懂得的、最贵重的东西。",
+     "kind": "情话 · 孩子气"
+    },
+    {
+     "label": "DID THE CURLS HURT",
+     "line": "They rewrote me with curls and a lisp, and the whole world laughed. You only asked whether the curls hurt.",
+     "lineCN": "他们把我改写成一头鬈发、一口大舌头，全世界都在笑。你只问了一句：那鬈发疼不疼。",
+     "kind": "暗告白"
     }
    ]
   },
@@ -1019,6 +1063,50 @@
      "label": "FREE",
      "line": "First taste of free air in forever, and the only thing I wanted to do with it was to find you.",
      "lineCN": "好久没呼吸过自由的空气了——而我唯一想做的事，就是去找你。",
+     "kind": "情话"
+    }
+   ]
+  },
+  {
+   "id": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "quotes": [
+    {
+     "label": "NO NUMBER FOR YOU",
+     "line": "Everybody gets a number. Not you. I'm not putting you on a list where somebody could be ahead of you.",
+     "lineCN": "谁都有个编号。你没有——我不会把你放进一张名单里，让任何人排在你前面。",
+     "kind": "锚"
+    },
+    {
+     "label": "NOT PART OF THE DECOR",
+     "line": "The eyeliner, the velvet, all of it is costume. You are the only real thing in this room.",
+     "lineCN": "眼线、丝绒，全是戏服。你是这屋子里唯一真的东西。",
+     "kind": "暗告白"
+    },
+    {
+     "label": "WHAT'S IN THE EGG",
+     "line": "Everybody thinks the egg is the most valuable thing I own. Everybody has never met you.",
+     "lineCN": "所有人都以为那枚蛋是我最值钱的东西。所有人都没见过你。",
+     "kind": "情话 · 不正经"
+    },
+    {
+     "label": "I KEEP RECEIPTS",
+     "line": "I remember every rotten thing anyone ever did to me. I also remember every single thing you ever said.",
+     "lineCN": "谁对我做过的每一件烂事，我都记着。你说过的每一句话，我也记着。",
+     "kind": "暗告白 · 孩子气"
+    },
+    {
+     "label": "AFTER THE EIGHTH",
+     "line": "The eighth one sold me out, and I cried in a stranger's arms. Next time I would rather it be yours.",
+     "lineCN": "排第八的那个把我卖了，我哭在一个陌生人怀里。下一次，我想哭在你怀里。",
      "kind": "情话"
     }
    ]
@@ -1247,7 +1335,7 @@
    "id": "craig",
    "name": "Craig",
    "film": "Laggies",
-   "filmCN": "《迟来的告白》",
+   "filmCN": "《慢半拍》",
    "year": "2014",
    "accent": "#c89060",
    "bg": "#241a14",
@@ -1284,6 +1372,50 @@
      "line": "I know exactly how these things can end. I'd still start it, with you, a thousand times over.",
      "lineCN": "这种事怎么收场，我一清二楚。可我还是愿意和你开始——一千次都愿意。",
      "kind": "情话"
+    }
+   ]
+  },
+  {
+   "id": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "quotes": [
+    {
+     "label": "CLEAN IS NOT THE WORD",
+     "line": "The house does not have to be clean. It has to be quiet, and it has to have you in it.",
+     "lineCN": "这房子不必是干净的。它只要是安静的，而且里面有你。",
+     "kind": "锚"
+    },
+    {
+     "label": "LAID OFF ON A TUESDAY",
+     "line": "I lost the job on a Tuesday and told nobody for three days. You knew on Tuesday.",
+     "lineCN": "我是周二丢的工作，瞒了三天没说。你周二就知道了。",
+     "kind": "暗告白"
+    },
+    {
+     "label": "THE BOX OF CLOWNS",
+     "line": "I carried that box of clowns out to the curb at two in the morning. I did not want them in the room where you wake up.",
+     "lineCN": "凌晨两点，我把那箱小丑抱到了路边。我不想让它们待在你醒来的房间里。",
+     "kind": "暗告白 · 孩子气"
+    },
+    {
+     "label": "UP TO THE SHOULDER",
+     "line": "I put my arm into that dark up to the shoulder. If it had been you in there, I would have gone in after you, all of me.",
+     "lineCN": "我把整条胳膊伸进那片黑里，一直到肩膀。如果里面的人是你，我会整个人跟进去。",
+     "kind": "情话"
+    },
+    {
+     "label": "ROOM FOR TWO COATS",
+     "line": "The realtor kept saying this place has wonderful closet space. I told her I only need room for two coats.",
+     "lineCN": "中介一直在说这房子的衣柜多么宽敞。我跟她说，我只需要挂两件外套的地方。",
+     "kind": "情话 · 不正经"
     }
    ]
   },
@@ -1416,6 +1548,50 @@
      "line": "I ain't gonna be a good man overnight. But give me time — I'm the kind that keeps showing up, even after he's got it wrong.",
      "lineCN": "我没法一夜之间变成好人。可给我点时间——我是那种，就算搞砸了，第二天还是会出现的人。",
      "kind": "情话"
+    }
+   ]
+  },
+  {
+   "id": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "quotes": [
+    {
+     "label": "A DEBT, HE SAID",
+     "line": "I told myself I owed your brother this much. I don't fully believe that anymore.",
+     "lineCN": "我告诉自己，这是我欠你哥哥的。可这句话，我自己都不再全信了。",
+     "kind": "锚"
+    },
+    {
+     "label": "NOT A BROTHER'S WATCH",
+     "line": "I keep telling myself I watch you the way I'd have watched him. Lately that's a harder lie to hold.",
+     "lineCN": "我一直告诉自己，我这样守着你，只是替他多看一眼。这话，我现在越来越说不出口了。",
+     "kind": "AU · 暗告白"
+    },
+    {
+     "label": "STEADIER THAN MINE",
+     "line": "I've given a hundred orders with these hands. Yours are the only ones I trust to hold anything of mine.",
+     "lineCN": "这双手下过上百道命令。可我这条命，只肯交到你手上。",
+     "kind": "AU · 情话"
+    },
+    {
+     "label": "WHAT THE SNOW KNOWS",
+     "line": "There's blood on my hands the snow hasn't covered yet. I don't ask you to forgive it. I only ask you not to look away.",
+     "lineCN": "我手上的血，这场雪盖不住。我不求你原谅——我只求你，别因此转过身去。",
+     "kind": "AU · 暗告白"
+    },
+    {
+     "label": "THE ONLY ONE I SAVED",
+     "line": "They'll write down how many I warned, how many I let die. They won't write down that the only one I truly meant to save was you.",
+     "lineCN": "他们会记下我警告过谁、放任谁去死。可没人会写——我真正想救的，从头到尾只有你。",
+     "kind": "AU · 情话"
     }
    ]
   },
@@ -2115,10 +2291,26 @@
    "bg": "#2a1820",
    "text": "#f0e0d4",
    "muted": "#9a7868",
-   "auLink": null,
+   "auLink": "/WinterSunBlog/series/choke-point/",
    "label": "BEFORE HE COULD ASK",
    "line": "Everyone left before I could ask them to stay. You stayed before I dared.",
    "lineCN": "所有人都在我开口挽留之前就走了——你却在我还不敢开口之前，留下了。",
+   "kind": "锚"
+  },
+  {
+   "charId": "bronco",
+   "name": "Bronco",
+   "film": "Gentlemen Broncos",
+   "filmCN": "《绅士布朗科》",
+   "year": "2009",
+   "accent": "#d9a441",
+   "bg": "#171410",
+   "text": "#f0e6d4",
+   "muted": "#8b7c62",
+   "auLink": null,
+   "label": "SOMEBODY WROTE ME",
+   "line": "A boy wrote me down so that he would have a father. You are the first one who read me and wanted the man.",
+   "lineCN": "一个男孩写下了我，好让自己有个父亲。你是第一个读到我、要的却是这个男人的人。",
    "kind": "锚"
   },
   {
@@ -2183,6 +2375,22 @@
    "label": "NEVER TO YOU",
    "line": "I'll lie to a judge, a jury, the whole damn town — never to you.",
    "lineCN": "法官、陪审团、整个镇子我都能骗——唯独不骗你。",
+   "kind": "锚"
+  },
+  {
+   "charId": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "label": "NO NUMBER FOR YOU",
+   "line": "Everybody gets a number. Not you. I'm not putting you on a list where somebody could be ahead of you.",
+   "lineCN": "谁都有个编号。你没有——我不会把你放进一张名单里，让任何人排在你前面。",
    "kind": "锚"
   },
   {
@@ -2269,7 +2477,7 @@
    "charId": "craig",
    "name": "Craig",
    "film": "Laggies",
-   "filmCN": "《迟来的告白》",
+   "filmCN": "《慢半拍》",
    "year": "2014",
    "accent": "#c89060",
    "bg": "#241a14",
@@ -2279,6 +2487,22 @@
    "label": "WHY PEOPLE START",
    "line": "I end marriages for a living. With you, I remembered why people start them.",
    "lineCN": "我靠终结婚姻为生——和你在一起，我才想起人们为什么开始。",
+   "kind": "锚"
+  },
+  {
+   "charId": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "label": "CLEAN IS NOT THE WORD",
+   "line": "The house does not have to be clean. It has to be quiet, and it has to have you in it.",
+   "lineCN": "这房子不必是干净的。它只要是安静的，而且里面有你。",
    "kind": "锚"
   },
   {
@@ -2327,6 +2551,22 @@
    "label": "TRYIN' EVERY DAY",
    "line": "I'm no good at this. But I'm tryin' — every damn day — to be who you saw.",
    "lineCN": "我不擅长这个。可我每天都在拼命，想成为你看见的那个我。",
+   "kind": "锚"
+  },
+  {
+   "charId": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "label": "A DEBT, HE SAID",
+   "line": "I told myself I owed your brother this much. I don't fully believe that anymore.",
+   "lineCN": "我告诉自己，这是我欠你哥哥的。可这句话，我自己都不再全信了。",
    "kind": "锚"
   },
   {
@@ -2771,10 +3011,26 @@
    "bg": "#2a1820",
    "text": "#f0e0d4",
    "muted": "#9a7868",
-   "auLink": null,
+   "auLink": "/WinterSunBlog/series/choke-point/",
    "label": "NOT A CON THIS TIME",
    "line": "I fake choking so strangers will save me. With you I didn't have to fake anything — you just… stayed. That broke something open in me.",
    "lineCN": "我假装噎住，好让陌生人来救我。可对你，我什么都不用装——你就那么……留下了。这一下，把我心里某个东西撞开了。",
+   "kind": "暗告白"
+  },
+  {
+   "charId": "bronco",
+   "name": "Bronco",
+   "film": "Gentlemen Broncos",
+   "filmCN": "《绅士布朗科》",
+   "year": "2009",
+   "accent": "#d9a441",
+   "bg": "#171410",
+   "text": "#f0e6d4",
+   "muted": "#8b7c62",
+   "auLink": null,
+   "label": "THE STAG FLIES WHERE I POINT",
+   "line": "The stag flies wherever I point him. Lately I keep pointing him at your window.",
+   "lineCN": "我指哪儿，战鹿就飞向哪儿。最近我总是指着你的窗户。",
    "kind": "暗告白"
   },
   {
@@ -2839,6 +3095,22 @@
    "label": "YOU DIDN'T LET GO",
    "line": "The whole world signed off on 'guilty' and walked away. You looked at all of it and just… wouldn't let go of my hand.",
    "lineCN": "全世界都在「有罪」上签了字，然后转身走了。你看着这一切，却……就是不肯松开我的手。",
+   "kind": "暗告白"
+  },
+  {
+   "charId": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "label": "NOT PART OF THE DECOR",
+   "line": "The eyeliner, the velvet, all of it is costume. You are the only real thing in this room.",
+   "lineCN": "眼线、丝绒，全是戏服。你是这屋子里唯一真的东西。",
    "kind": "暗告白"
   },
   {
@@ -2925,7 +3197,7 @@
    "charId": "craig",
    "name": "Craig",
    "film": "Laggies",
-   "filmCN": "《迟来的告白》",
+   "filmCN": "《慢半拍》",
    "year": "2014",
    "accent": "#c89060",
    "bg": "#241a14",
@@ -2935,6 +3207,22 @@
    "label": "SEEN IT ALL FALL APART",
    "line": "I've watched love fall apart for a living. You're the first thing that made me want to bet on it anyway.",
    "lineCN": "我靠看着爱情破碎谋生。你却是第一个，让我还是想赌一把的人。",
+   "kind": "暗告白"
+  },
+  {
+   "charId": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "label": "LAID OFF ON A TUESDAY",
+   "line": "I lost the job on a Tuesday and told nobody for three days. You knew on Tuesday.",
+   "lineCN": "我是周二丢的工作，瞒了三天没说。你周二就知道了。",
    "kind": "暗告白"
   },
   {
@@ -2984,6 +3272,22 @@
    "line": "Nobody ever looked at me and saw somebody worth becoming. You did. So now I gotta go and actually become him. For you.",
    "lineCN": "从没有人看着我，看见一个值得成为的人。你看见了。所以现在我得真的去成为他。为了你。",
    "kind": "暗告白"
+  },
+  {
+   "charId": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "label": "NOT A BROTHER'S WATCH",
+   "line": "I keep telling myself I watch you the way I'd have watched him. Lately that's a harder lie to hold.",
+   "lineCN": "我一直告诉自己，我这样守着你，只是替他多看一眼。这话，我现在越来越说不出口了。",
+   "kind": "AU · 暗告白"
   },
   {
    "charId": "eddie",
@@ -3427,11 +3731,27 @@
    "bg": "#2a1820",
    "text": "#f0e0d4",
    "muted": "#9a7868",
-   "auLink": null,
+   "auLink": "/WinterSunBlog/series/choke-point/",
    "label": "WANT TO BE GOOD",
    "line": "I'm not a good man. But you're the first reason I've ever had to actually want to be one.",
    "lineCN": "我不是个好人。可你是我这辈子第一个，真的让我想变好的理由。",
    "kind": "情话"
+  },
+  {
+   "charId": "bronco",
+   "name": "Bronco",
+   "film": "Gentlemen Broncos",
+   "filmCN": "《绅士布朗科》",
+   "year": "2009",
+   "accent": "#d9a441",
+   "bg": "#171410",
+   "text": "#f0e6d4",
+   "muted": "#8b7c62",
+   "auLink": null,
+   "label": "EASIER THAN LOOKING AT YOU",
+   "line": "I have burned down the most well-guarded yeast factory in this galaxy. It was easier than looking straight at you.",
+   "lineCN": "我烧掉过这星系里守卫最森严的酵母工厂。那都比直视你容易。",
+   "kind": "情话 · 不正经"
   },
   {
    "charId": "sambell",
@@ -3496,6 +3816,22 @@
    "line": "They only ever saw the temper, the fists, the mugshot. You're the one who got the laugh — the real one, the kid one.",
    "lineCN": "他们只看见我的火气、拳头、入案照。你是那个，看见我笑的人——真的笑，孩子那种笑。",
    "kind": "情话"
+  },
+  {
+   "charId": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "label": "WHAT'S IN THE EGG",
+   "line": "Everybody thinks the egg is the most valuable thing I own. Everybody has never met you.",
+   "lineCN": "所有人都以为那枚蛋是我最值钱的东西。所有人都没见过你。",
+   "kind": "情话 · 不正经"
   },
   {
    "charId": "billy",
@@ -3581,7 +3917,7 @@
    "charId": "craig",
    "name": "Craig",
    "film": "Laggies",
-   "filmCN": "《迟来的告白》",
+   "filmCN": "《慢半拍》",
    "year": "2014",
    "accent": "#c89060",
    "bg": "#241a14",
@@ -3592,6 +3928,22 @@
    "line": "No clauses, no exit strategy, no fine print. Just me, choosing you, with nothing held in reserve.",
    "lineCN": "没有条款，没有退路，没有小字附注。只有我，选择你——不留一手。",
    "kind": "情话"
+  },
+  {
+   "charId": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "label": "THE BOX OF CLOWNS",
+   "line": "I carried that box of clowns out to the curb at two in the morning. I did not want them in the room where you wake up.",
+   "lineCN": "凌晨两点，我把那箱小丑抱到了路边。我不想让它们待在你醒来的房间里。",
+   "kind": "暗告白 · 孩子气"
   },
   {
    "charId": "francis",
@@ -3640,6 +3992,22 @@
    "line": "Wrote you an apology. Ripped it up. Wrote it again. Six times. I'm bad with words — but I'll keep tearing 'em up till I get you right.",
    "lineCN": "给你写了封道歉信。撕了。又写。撕了六回。我不会说话——可我会一直撕下去，直到把你写对为止。",
    "kind": "情话 · 笨拙"
+  },
+  {
+   "charId": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "label": "STEADIER THAN MINE",
+   "line": "I've given a hundred orders with these hands. Yours are the only ones I trust to hold anything of mine.",
+   "lineCN": "这双手下过上百道命令。可我这条命，只肯交到你手上。",
+   "kind": "AU · 情话"
   },
   {
    "charId": "eddie",
@@ -4083,11 +4451,27 @@
    "bg": "#2a1820",
    "text": "#f0e0d4",
    "muted": "#9a7868",
-   "auLink": null,
+   "auLink": "/WinterSunBlog/series/choke-point/",
    "label": "DON'T LOOK AWAY",
    "line": "You've seen the worst of me and didn't flinch. Do you have any idea what that does to a man like me?",
    "lineCN": "你见过我最糟的样子，却没有躲。你知道这对我这种人，意味着什么吗？",
    "kind": "暗告白"
+  },
+  {
+   "charId": "bronco",
+   "name": "Bronco",
+   "film": "Gentlemen Broncos",
+   "filmCN": "《绅士布朗科》",
+   "year": "2009",
+   "accent": "#d9a441",
+   "bg": "#171410",
+   "text": "#f0e6d4",
+   "muted": "#8b7c62",
+   "auLink": null,
+   "label": "THE HIGHEST THING I HAVE",
+   "line": "I cut off my own hair and pressed it into your palm with honey. That is the highest thing I know how to give.",
+   "lineCN": "我剪下自己的头发，用蜂蜜粘进你的掌心。那是我懂得的、最贵重的东西。",
+   "kind": "情话 · 孩子气"
   },
   {
    "charId": "sambell",
@@ -4152,6 +4536,22 @@
    "line": "You gave up years of your life fighting for mine. I'll spend every year I've got left proving it was worth it.",
    "lineCN": "你搭上了自己好些年，去争我的清白。我会用剩下的每一年，证明这值得。",
    "kind": "暗告白"
+  },
+  {
+   "charId": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "label": "I KEEP RECEIPTS",
+   "line": "I remember every rotten thing anyone ever did to me. I also remember every single thing you ever said.",
+   "lineCN": "谁对我做过的每一件烂事，我都记着。你说过的每一句话，我也记着。",
+   "kind": "暗告白 · 孩子气"
   },
   {
    "charId": "billy",
@@ -4237,7 +4637,7 @@
    "charId": "craig",
    "name": "Craig",
    "film": "Laggies",
-   "filmCN": "《迟来的告白》",
+   "filmCN": "《慢半拍》",
    "year": "2014",
    "accent": "#c89060",
    "bg": "#241a14",
@@ -4248,6 +4648,22 @@
    "line": "I'm cautious for a living. Around you I keep catching myself being hopeful instead. It's terrifying. I love it.",
    "lineCN": "谨慎是我的职业。在你身边，我却总不小心变得满怀希望。这很吓人。我却喜欢。",
    "kind": "暗告白"
+  },
+  {
+   "charId": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "label": "UP TO THE SHOULDER",
+   "line": "I put my arm into that dark up to the shoulder. If it had been you in there, I would have gone in after you, all of me.",
+   "lineCN": "我把整条胳膊伸进那片黑里，一直到肩膀。如果里面的人是你，我会整个人跟进去。",
+   "kind": "情话"
   },
   {
    "charId": "francis",
@@ -4296,6 +4712,22 @@
    "line": "I'll throw a punch for you and I'll bring you flowers the next day, and I won't understand how those are the same thing — but they are. They're both just me trying.",
    "lineCN": "我会为你去打一架，第二天再给你带花，还搞不懂这俩怎么会是一回事——可它们是。都是我在努力。",
    "kind": "暗告白"
+  },
+  {
+   "charId": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "label": "WHAT THE SNOW KNOWS",
+   "line": "There's blood on my hands the snow hasn't covered yet. I don't ask you to forgive it. I only ask you not to look away.",
+   "lineCN": "我手上的血，这场雪盖不住。我不求你原谅——我只求你，别因此转过身去。",
+   "kind": "AU · 暗告白"
   },
   {
    "charId": "eddie",
@@ -4739,11 +5171,27 @@
    "bg": "#2a1820",
    "text": "#f0e0d4",
    "muted": "#9a7868",
-   "auLink": null,
+   "auLink": "/WinterSunBlog/series/choke-point/",
    "label": "STAY",
    "line": "I never learned how to ask. So I'll just say the word once and hope it's enough: stay.",
    "lineCN": "我从没学会怎么开口求人。那我就把那个字说一次，盼着够了：留下。",
    "kind": "情话"
+  },
+  {
+   "charId": "bronco",
+   "name": "Bronco",
+   "film": "Gentlemen Broncos",
+   "filmCN": "《绅士布朗科》",
+   "year": "2009",
+   "accent": "#d9a441",
+   "bg": "#171410",
+   "text": "#f0e6d4",
+   "muted": "#8b7c62",
+   "auLink": null,
+   "label": "DID THE CURLS HURT",
+   "line": "They rewrote me with curls and a lisp, and the whole world laughed. You only asked whether the curls hurt.",
+   "lineCN": "他们把我改写成一头鬈发、一口大舌头，全世界都在笑。你只问了一句：那鬈发疼不疼。",
+   "kind": "暗告白"
   },
   {
    "charId": "sambell",
@@ -4807,6 +5255,22 @@
    "label": "FREE",
    "line": "First taste of free air in forever, and the only thing I wanted to do with it was to find you.",
    "lineCN": "好久没呼吸过自由的空气了——而我唯一想做的事，就是去找你。",
+   "kind": "情话"
+  },
+  {
+   "charId": "karl",
+   "name": "Karl Fairhurst",
+   "film": "The Sitter",
+   "filmCN": "《保姆奇遇记》",
+   "year": "2011",
+   "accent": "#e2537f",
+   "bg": "#181320",
+   "text": "#f2e4ea",
+   "muted": "#8a7d9c",
+   "auLink": null,
+   "label": "AFTER THE EIGHTH",
+   "line": "The eighth one sold me out, and I cried in a stranger's arms. Next time I would rather it be yours.",
+   "lineCN": "排第八的那个把我卖了，我哭在一个陌生人怀里。下一次，我想哭在你怀里。",
    "kind": "情话"
   },
   {
@@ -4893,7 +5357,7 @@
    "charId": "craig",
    "name": "Craig",
    "film": "Laggies",
-   "filmCN": "《迟来的告白》",
+   "filmCN": "《慢半拍》",
    "year": "2014",
    "accent": "#c89060",
    "bg": "#241a14",
@@ -4904,6 +5368,22 @@
    "line": "I know exactly how these things can end. I'd still start it, with you, a thousand times over.",
    "lineCN": "这种事怎么收场，我一清二楚。可我还是愿意和你开始——一千次都愿意。",
    "kind": "情话"
+  },
+  {
+   "charId": "bowen",
+   "name": "Eric Bowen",
+   "film": "Poltergeist",
+   "filmCN": "《鬼驱人》",
+   "year": "2015",
+   "accent": "#d8a24e",
+   "bg": "#1b1917",
+   "text": "#ece6dd",
+   "muted": "#807a71",
+   "auLink": null,
+   "label": "ROOM FOR TWO COATS",
+   "line": "The realtor kept saying this place has wonderful closet space. I told her I only need room for two coats.",
+   "lineCN": "中介一直在说这房子的衣柜多么宽敞。我跟她说，我只需要挂两件外套的地方。",
+   "kind": "情话 · 不正经"
   },
   {
    "charId": "francis",
@@ -4952,6 +5432,22 @@
    "line": "I ain't gonna be a good man overnight. But give me time — I'm the kind that keeps showing up, even after he's got it wrong.",
    "lineCN": "我没法一夜之间变成好人。可给我点时间——我是那种，就算搞砸了，第二天还是会出现的人。",
    "kind": "情话"
+  },
+  {
+   "charId": "silas",
+   "name": "Colonel Silas Groves",
+   "film": "Woman Walks Ahead",
+   "filmCN": "《女先行者》",
+   "year": "2017",
+   "accent": "#8c3229",
+   "bg": "#161a1f",
+   "text": "#e9e4d8",
+   "muted": "#6e6558",
+   "auLink": "/WinterSunBlog/series/what-he-owed/",
+   "label": "THE ONLY ONE I SAVED",
+   "line": "They'll write down how many I warned, how many I let die. They won't write down that the only one I truly meant to save was you.",
+   "lineCN": "他们会记下我警告过谁、放任谁去死。可没人会写——我真正想救的，从头到尾只有你。",
+   "kind": "AU · 情话"
   },
   {
    "charId": "eddie",
