@@ -120,7 +120,7 @@
   name: "Eric Knox"
   anchor: eric
   cn: 镜绯红
-  en: Rouge Lens
+  en: Crimson Lens
   bg_cn: 可乐棕
   bg_en: Cola Noir
   accent: "#cf3550"
@@ -158,8 +158,8 @@
   year: 2003
   name: "Frank Mercer"
   anchor: frank
-  cn: 银灰猫眼
-  en: Mauve Fox
+  cn: 紫雾榛眸
+  en: Hazel Mauve
   bg_cn: 焦黑火柴
   bg_en: Burnt Matchstick
   accent: "#9a7ba0"
@@ -173,7 +173,7 @@
   anchor: jim
   cn: 夜会香槟金
   en: Club Champagne
-  bg_cn: 黑貂皮大氅
+  bg_cn: 貂皮大氅黑
   bg_en: Mink Black
   accent: "#d8b25a"
   bg: "#161214"
@@ -236,14 +236,14 @@
   year: 2008
   name: "Victor Mancini"
   anchor: victor
-  cn: 铜锈玫瑰
-  en: Copper Rose
-  bg_cn: 绒夜玫红
-  bg_en: Rose Velvet Night
-  accent: "#c17858"
-  bg: "#341524"
-  text: "#f2e0e6"
-  muted: "#9a6e7c"
+  cn: 殖民地铜金
+  en: Colonial Gilt
+  bg_cn: 海报品红夜
+  bg_en: Poster Magenta Night
+  accent: "#d2a24a"
+  bg: "#350d1e"
+  text: "#f5e0e8"
+  muted: "#96495f"
 
 - id: bronco
   year: 2009
@@ -251,7 +251,7 @@
   anchor: bronco
   cn: 星际紫晶
   en: Cosmic Violet
-  bg_cn: 星尘墨夜
+  bg_cn: 苍穹墨夜
   bg_en: Stardust Night
   accent: "#8f6fd4"
   bg: "#160f24"
@@ -327,8 +327,8 @@
   year: 2012
   name: "Billy Bickle"
   anchor: billy
-  cn: 方块烈焰
-  en: Diamond Blaze
+  cn: 方块J焰
+  en: Jack of Diamonds
   bg_cn: 沙漠焦土
   bg_en: Scorched Desert
   accent: "#c94a1e"
@@ -379,14 +379,14 @@
   year: 2014
   name: "Wayne"
   anchor: wayne
-  cn: 陶土暖橘
-  en: Terracotta Warm
-  bg_cn: 退伍橄榄
-  bg_en: Old Olive
-  accent: "#c98868"
-  bg: "#1e2418"
-  text: "#e8e4d0"
-  muted: "#8a7a48"
+  cn: 敞篷车绿
+  en: Racing Green
+  bg_cn: 别墅夏夜
+  bg_en: Villa Summer Night
+  accent: "#3f7a52"
+  bg: "#2a1810"
+  text: "#eee6d4"
+  muted: "#8a7050"
 
 - id: craig
   year: 2014
@@ -561,8 +561,8 @@
   year: 2024
   name: "Aidan Wilde"
   anchor: aidan
-  cn: 枪管冷银光
-  en: Gunmetal Silver
+  cn: 冷银弹壳光
+  en: Casing Silver
   bg_cn: 午夜枪管蓝
   bg_en: Gunmetal Blue
   accent: "#a8adb8"
