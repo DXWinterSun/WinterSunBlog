@@ -1,0 +1,20 @@
+---
+layout: null
+---
+{
+  "moods": [
+    {% for m in site.data.moods %}{ "cn": {{ m.cn | jsonify }}, "en": {{ m.en | jsonify }}, "hex": {{ m.hex | jsonify }}, "color_cn": {{ m.color_cn | jsonify }}, "desc": {{ m.desc | jsonify }} }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  "posts": [
+    {% for post in site.posts %}
+    {
+      "t": {{ post.title | jsonify }},
+      "u": "{{ site.baseurl }}{{ post.url }}",
+      "s": {{ post.summary | jsonify }},
+      "st": {{ post.series_title | default: post.categories.first | jsonify }},
+      "g": {{ post.tags | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

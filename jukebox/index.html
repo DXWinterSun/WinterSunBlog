@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>情绪点唱机 · Winter Sun</title>
+<meta name="description" content="一台只收录这里的故事的老点唱机。选一种今晚的心情，投一枚币，让机器替你挑一章。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="情绪点唱机 · Winter Sun">
+<meta property="og:description" content="选一种今晚的心情，投一枚币，让机器替你挑一章。">
+<meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/jukebox/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#100c0a">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ————— 情绪点唱机 · Mood Jukebox —————
+     零内嵌数据：moods 色板 + 全部文章来自构建时生成的 data.json，
+     客户端按 mood 标签过滤。新文章打上 mood 标签就自动入库。 */
+  html, body { margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  :root { --mood: #cba14c; }
+  body {
+    min-height: 100dvh;
+    background:
+      radial-gradient(ellipse 100% 55% at 50% -8%, color-mix(in srgb, var(--mood) 13%, transparent), transparent 60%),
+      radial-gradient(ellipse 120% 70% at 50% 110%, rgba(64,40,26,.35), transparent 65%),
+      #100c0a;
+    color: #ece1d0;
+    font-family: 'Noto Serif SC', serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column; align-items: center;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+    transition: background .8s ease;
+  }
+  a { color: inherit; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .topbar {
+    width: 100%; max-width: 720px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .back {
+    font-weight: 300; font-size: 12px; letter-spacing: 1px;
+    color: #9b8a74; text-decoration: none;
+  }
+  .back:hover { color: #ece1d0; }
+  .counts {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 10px; letter-spacing: 2px; color: #9b8a74; text-transform: uppercase;
+  }
+
+  /* ————— 机身 ————— */
+  .juke {
+    width: min(560px, 100%);
+    position: relative;
+    background: linear-gradient(180deg, #241a13 0%, #1a120d 55%, #140e0a 100%);
+    border: 1px solid rgba(255,222,180,.12);
+    border-radius: 150px 150px 18px 18px;
+    padding: 26px 26px 24px;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,.6),
+      0 30px 70px rgba(0,0,0,.55),
+      inset 0 1px 0 rgba(255,230,190,.08);
+  }
+  /* 霓虹拱管 */
+  .juke::before {
+    content: ""; position: absolute; inset: 8px 8px auto 8px; height: 240px;
+    border-radius: 142px 142px 0 0;
+    border: 3px solid transparent;
+    border-bottom: none;
+    background:
+      linear-gradient(#1a120d, #1a120d) padding-box,
+      linear-gradient(100deg,
+        color-mix(in srgb, var(--mood) 85%, #fff) 0%,
+        var(--mood) 35%,
+        color-mix(in srgb, var(--mood) 55%, #331) 70%,
+        color-mix(in srgb, var(--mood) 85%, #fff) 100%) border-box;
+    -webkit-mask: linear-gradient(#000 0 0) border-box; /* 只显示描边区域由 border-color transparent 实现 */
+    opacity: .8; pointer-events: none;
+    filter: drop-shadow(0 0 10px color-mix(in srgb, var(--mood) 55%, transparent));
+    animation: neon 4.2s ease-in-out infinite;
+    transition: filter .8s ease;
+  }
+  @keyframes neon {
+    0%, 100% { opacity: .82; }
+    45% { opacity: .98; }
+    58% { opacity: .74; }
+    61% { opacity: .95; }
+  }
+
+  .marquee {
+    position: relative; text-align: center; margin: 6px auto 4px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 10.5px; letter-spacing: 4px; text-transform: uppercase;
+    color: color-mix(in srgb, var(--mood) 80%, #fff);
+    text-shadow: 0 0 12px color-mix(in srgb, var(--mood) 60%, transparent);
+    min-height: 16px; transition: color .8s ease;
+  }
+  .brand {
+    text-align: center;
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: clamp(19px, 4.6vw, 24px); letter-spacing: 1px;
+    margin: 2px 0 14px; color: #f2e7d2;
+  }
+  .brand small {
+    display: block; font-family: 'Noto Serif SC', serif; font-style: normal; font-weight: 300;
+    font-size: 11px; letter-spacing: 3px; color: #9b8a74; margin-top: 6px;
+  }
+
+  /* ————— 唱片窗 ————— */
+  .window {
+    position: relative; margin: 0 auto 18px;
+    width: min(300px, 76%); height: 150px;
+    background: radial-gradient(ellipse at 50% 120%, #0d0906 30%, #070503 100%);
+    border-radius: 130px 130px 10px 10px;
+    border: 1px solid rgba(255,222,180,.14);
+    overflow: hidden;
+    box-shadow: inset 0 6px 24px rgba(0,0,0,.8);
+  }
+  .vinyl {
+    position: absolute; left: 50%; bottom: -68px; transform: translateX(-50%);
+    width: 190px; height: 190px; border-radius: 50%;
+    background:
+      radial-gradient(circle, transparent 0 25%, rgba(255,255,255,.028) 25.5% 26%, transparent 26.5%),
+      repeating-radial-gradient(circle, #0a0a0c 0 2.6px, #141417 2.6px 3.4px),
+      #0a0a0c;
+    box-shadow: 0 0 26px rgba(0,0,0,.8), inset 0 0 18px rgba(255,255,255,.03);
+    transition: transform .6s ease;
+  }
+  .vinyl.is-spinning { animation: spin 2.2s linear infinite; }
+  @keyframes spin { to { transform: translateX(-50%) rotate(360deg); } }
+  .vinyl__label {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 62px; height: 62px; border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--mood) 88%, #000) 0 62%, color-mix(in srgb, var(--mood) 55%, #000) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8px; letter-spacing: 1px; color: rgba(255,248,235,.92); text-align: center;
+    transition: background .8s ease;
+  }
+  .vinyl__hole { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 7px; height: 7px; border-radius: 50%; background: #070503; }
+  .tonearm {
+    position: absolute; right: 16px; top: 8px; width: 4px; height: 92px;
+    background: linear-gradient(180deg, #c8b394, #8a745a);
+    border-radius: 3px; transform-origin: 50% 6px;
+    transform: rotate(-38deg); transition: transform .9s cubic-bezier(.5,.1,.3,1);
+    box-shadow: 0 0 6px rgba(0,0,0,.6);
+  }
+  .tonearm::after { content: ""; position: absolute; left: -3px; bottom: -6px; width: 10px; height: 16px; border-radius: 3px; background: #d9c6a4; }
+  .tonearm.is-on { transform: rotate(-7deg); }
+  /* 选片时窗里闪过的曲名 */
+  .flicker-title {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    padding: 0 18px; text-align: center;
+    font-weight: 300; font-size: 12px; line-height: 1.6;
+    color: #cbbba0; opacity: 0; transition: opacity .2s;
+  }
+  .flicker-title.is-on { opacity: .9; }
+
+  /* ————— 选键（九宫情绪键） ————— */
+  .keys {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px;
+    margin: 0 auto 16px; max-width: 430px;
+  }
+  .key {
+    position: relative;
+    background: linear-gradient(180deg, #2b1f16, #1c130d);
+    border: 1px solid rgba(255,222,180,.14);
+    border-radius: 9px; padding: 10px 6px 9px;
+    color: #e9dcc6; text-align: center;
+    transition: transform .12s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .key:hover { border-color: color-mix(in srgb, var(--k, #cba14c) 65%, transparent); }
+  .key:active { transform: translateY(1px); }
+  .key.is-lit {
+    border-color: var(--k);
+    box-shadow: 0 0 0 1px var(--k), 0 0 18px color-mix(in srgb, var(--k) 45%, transparent), inset 0 0 12px color-mix(in srgb, var(--k) 22%, transparent);
+  }
+  .key__dot {
+    display: block; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--k); margin: 0 auto 6px;
+    box-shadow: 0 0 8px color-mix(in srgb, var(--k) 70%, transparent);
+  }
+  .key__cn { display: block; font-weight: 500; font-size: 14.5px; letter-spacing: 3px; }
+  .key__en {
+    display: block; margin-top: 3px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #9b8a74;
+  }
+  .key__n { position: absolute; top: 5px; right: 7px; font-family: 'Special Elite', monospace; font-size: 8px; color: #9b8a74; opacity: .8; }
+  .key[disabled] { opacity: .35; cursor: not-allowed; }
+
+  /* ————— 投币口 ————— */
+  .coinrow {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    font-weight: 300; font-size: 11.5px; letter-spacing: 2px; color: #9b8a74;
+  }
+  .slot {
+    width: 30px; height: 9px; border-radius: 5px;
+    background: #070503; border: 1px solid rgba(255,222,180,.2);
+    position: relative; overflow: visible;
+  }
+  .coin {
+    position: absolute; left: 50%; top: -26px; transform: translateX(-50%) scale(0);
+    width: 20px; height: 20px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #f0d9a0, #c9a95c 60%, #96742f);
+    border: 1px solid #7d6026;
+    font-family: 'Special Elite', monospace; font-size: 8px; color: #6d5420;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .coin.is-dropping { animation: coindrop .8s cubic-bezier(.5,0,.8,.4) 1 forwards; }
+  @keyframes coindrop {
+    0% { transform: translateX(-50%) scale(1) translateY(0) rotate(0); opacity: 1; }
+    70% { transform: translateX(-50%) scale(1) translateY(20px) rotate(40deg); opacity: 1; }
+    100% { transform: translateX(-50%) scale(.3, 1) translateY(26px) rotate(80deg); opacity: 0; }
+  }
+
+  /* ————— 出票口：故事卡 ————— */
+  .ticket-slot {
+    width: min(560px, 100%); margin-top: 16px;
+    perspective: 700px;
+  }
+  .ticket {
+    background: rgba(24,18,13,.92);
+    border: 1px solid color-mix(in srgb, var(--mood) 45%, transparent);
+    border-left: 4px solid var(--mood);
+    border-radius: 12px; padding: 18px 20px 16px;
+    box-shadow: 0 16px 44px rgba(0,0,0,.5);
+    opacity: 0; transform: rotateX(-24deg) translateY(-14px);
+    transform-origin: top center;
+    transition: opacity .45s ease, transform .45s cubic-bezier(.2,.8,.3,1.1), border-color .8s ease;
+    pointer-events: none;
+  }
+  .ticket.is-out { opacity: 1; transform: none; pointer-events: auto; }
+  .ticket__eyebrow {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--mood); margin: 0 0 8px; transition: color .8s ease;
+  }
+  .ticket__title { font-weight: 500; font-size: 15.5px; line-height: 1.55; margin: 0; color: #f4ecdd; }
+  .ticket__summary { font-weight: 300; font-size: 13px; line-height: 1.95; color: #cfc2ac; margin: 10px 0 0; }
+  .ticket__foot { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; gap: 10px; }
+  .ticket__moods { display: flex; gap: 6px; flex-wrap: wrap; }
+  .ticket__mood {
+    font-size: 10.5px; font-weight: 300; letter-spacing: 1px;
+    padding: 2px 9px; border-radius: 999px;
+    border: 1px solid var(--m-c, #888); color: var(--m-c, #aaa); opacity: .9;
+  }
+  .ticket__go {
+    font-weight: 300; font-size: 12.5px; letter-spacing: 1px; white-space: nowrap;
+    color: var(--mood); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--mood) 55%, transparent);
+    padding-bottom: 1px; transition: color .8s ease;
+  }
+  .again {
+    display: block; margin: 14px auto 0;
+    background: none; border: 1px solid rgba(255,222,180,.25); border-radius: 999px;
+    color: #cfc2ac; font-weight: 300; font-size: 12px; letter-spacing: 2px;
+    padding: 7px 22px; opacity: 0; pointer-events: none; transition: opacity .4s ease .2s, border-color .25s;
+  }
+  .again.is-on { opacity: 1; pointer-events: auto; }
+  .again:hover { border-color: var(--mood); color: var(--mood); }
+
+  .mood-desc {
+    width: min(560px, 100%);
+    text-align: center; font-weight: 300; font-size: 12px; line-height: 2;
+    color: #9b8a74; margin: 14px auto 0; min-height: 24px;
+    transition: color .8s ease;
+  }
+  .colophon {
+    margin-top: 22px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
+    color: #9b8a74; opacity: .5;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .juke::before { animation: none; }
+    .vinyl.is-spinning { animation-duration: 6s; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="../">← Winter in Wonderland</a>
+  <span class="counts" id="counts"></span>
+</div>
+
+<div class="juke">
+  <p class="marquee" id="marquee">SELECT YOUR MOOD</p>
+  <h1 class="brand">Mood Jukebox<small>今晚想读点什么心情？</small></h1>
+
+  <div class="window">
+    <div class="vinyl" id="vinyl">
+      <span class="vinyl__label" id="vinyl-label">W×F</span>
+      <span class="vinyl__hole"></span>
+    </div>
+    <div class="tonearm" id="tonearm"></div>
+    <div class="flicker-title" id="flicker"></div>
+  </div>
+
+  <div class="keys" id="keys" role="group" aria-label="九种情绪选键"></div>
+
+  <div class="coinrow">
+    <span>投币</span>
+    <span class="slot"><span class="coin" id="coin">W</span></span>
+    <span>让机器替你选一章</span>
+  </div>
+</div>
+
+<div class="ticket-slot">
+  <div class="ticket" id="ticket" role="region" aria-label="点到的故事" aria-live="polite">
+    <p class="ticket__eyebrow" id="tk-eyebrow"></p>
+    <h2 class="ticket__title" id="tk-title"></h2>
+    <p class="ticket__summary" id="tk-summary"></p>
+    <div class="ticket__foot">
+      <div class="ticket__moods" id="tk-moods"></div>
+      <a class="ticket__go" id="tk-go">去读这一章 →</a>
+    </div>
+  </div>
+  <button class="again" id="again" type="button">同样心情 · 再来一首</button>
+</div>
+
+<p class="mood-desc" id="mood-desc">九种心情，都调好了色。</p>
+<span class="colophon">Winter × Fable</span>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var MOODS = [], BYMOOD = {}, current = null, busy = false;
+  var played = {};   // mood → 本次会话已经点过的 url，点完一轮才允许重复
+
+  fetch("data.json", { cache: "no-cache" })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      MOODS = data.moods || [];
+      var total = 0;
+      MOODS.forEach(function (m) { BYMOOD[m.cn] = []; });
+      (data.posts || []).forEach(function (p) {
+        var mine = (p.g || []).filter(function (t) { return BYMOOD[t]; });
+        if (!mine.length) return;
+        total++;
+        mine.forEach(function (t) { BYMOOD[t].push(p); });
+      });
+      $("counts").textContent = total + " STORIES ON THE RACK";
+      buildKeys();
+    })
+    .catch(function () {
+      $("marquee").textContent = "OUT OF ORDER — 请刷新";
+    });
+
+  function buildKeys() {
+    var box = $("keys");
+    MOODS.forEach(function (m, i) {
+      var n = BYMOOD[m.cn].length;
+      var b = document.createElement("button");
+      b.className = "key"; b.type = "button";
+      b.style.setProperty("--k", m.hex);
+      b.innerHTML = '<span class="key__n">' + String(i + 1).padStart(2, "0") + "</span>" +
+        '<span class="key__dot" aria-hidden="true"></span>' +
+        '<span class="key__cn"></span><span class="key__en"></span>';
+      b.querySelector(".key__cn").textContent = m.cn;
+      b.querySelector(".key__en").textContent = m.en + " · " + n;
+      if (!n) b.disabled = true;
+      b.addEventListener("click", function () { pick(m, b); });
+      box.appendChild(b);
+    });
+  }
+
+  function pick(m, keyEl) {
+    if (busy) return;
+    busy = true;
+    current = m;
+    document.documentElement.style.setProperty("--mood", m.hex);
+    document.querySelectorAll(".key").forEach(function (k) { k.classList.remove("is-lit"); });
+    keyEl.classList.add("is-lit");
+    $("mood-desc").textContent = m.color_cn + " · " + (m.desc || "");
+    $("ticket").classList.remove("is-out");
+    $("again").classList.remove("is-on");
+    $("vinyl-label").textContent = m.cn;
+
+    var pool = BYMOOD[m.cn];
+    played[m.cn] = played[m.cn] || [];
+    var fresh = pool.filter(function (p) { return played[m.cn].indexOf(p.u) < 0; });
+    if (!fresh.length) { played[m.cn] = []; fresh = pool; }
+    var choice = fresh[Math.floor(Math.random() * fresh.length)];
+    played[m.cn].push(choice.u);
+
+    if (reduced) { land(choice); return; }
+
+    // 投币 → 选片闪动 → 落针出票
+    var coin = $("coin");
+    coin.classList.remove("is-dropping"); void coin.offsetWidth;
+    coin.style.transform = "translateX(-50%) scale(1)";
+    coin.classList.add("is-dropping");
+    $("marquee").textContent = "COIN ACCEPTED";
+
+    setTimeout(function () {
+      $("marquee").textContent = "SEARCHING THE RACK…";
+      var flicker = $("flicker"), i = 0;
+      flicker.classList.add("is-on");
+      var shuffle = setInterval(function () {
+        var rndP = pool[Math.floor(Math.random() * pool.length)];
+        flicker.textContent = rndP.t;
+        if (++i >= 7) {
+          clearInterval(shuffle);
+          flicker.classList.remove("is-on");
+          land(choice);
+        }
+      }, 130);
+    }, 650);
+  }
+
+  function land(choice) {
+    $("marquee").textContent = "NOW PLAYING";
+    $("vinyl").classList.add("is-spinning");
+    $("tonearm").classList.add("is-on");
+
+    $("tk-eyebrow").textContent = choice.st || "Story";
+    $("tk-title").textContent = choice.t;
+    $("tk-summary").textContent = choice.s || "";
+    $("tk-go").href = choice.u;
+    var box = $("tk-moods");
+    box.textContent = "";
+    (choice.g || []).forEach(function (tag) {
+      MOODS.forEach(function (m) {
+        if (m.cn === tag) {
+          var pill = document.createElement("span");
+          pill.className = "ticket__mood";
+          pill.style.setProperty("--m-c", m.hex);
+          pill.textContent = m.cn;
+          box.appendChild(pill);
+        }
+      });
+    });
+    setTimeout(function () {
+      $("ticket").classList.add("is-out");
+      $("again").classList.add("is-on");
+      busy = false;
+    }, reduced ? 0 : 220);
+  }
+
+  $("again").addEventListener("click", function () {
+    if (!current || busy) return;
+    var keyEl = null, i = 0;
+    document.querySelectorAll(".key").forEach(function (k) {
+      if (MOODS[i] && MOODS[i].cn === current.cn) keyEl = k;
+      i++;
+    });
+    pick(current, keyEl || document.querySelector(".key.is-lit"));
+  });
+})();
+</script>
+
+</body>
+</html>

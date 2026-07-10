@@ -56,6 +56,9 @@ nav_active: archive
     没有任何文章的情绪自动跳过，pill 与小标题用各自的配色。
   {% endcomment %}
   <div class="c-archive-panel" data-archive-panel="mood" hidden>
+    <p class="c-archive__mood-desc" style="margin-bottom: 18px;">
+      选不动？去 <a href="{{ site.baseurl }}/jukebox/" style="border-bottom: 1px solid currentColor; text-decoration: none;">🎵 情绪点唱机</a>——投一枚币，让机器替你选一章。
+    </p>
     <ul class="c-archive-tags" role="tablist">
       {% assign shown = 0 %}
       {% for mood in site.data.moods %}
