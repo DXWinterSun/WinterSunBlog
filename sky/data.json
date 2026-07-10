@@ -1,0 +1,36 @@
+---
+layout: null
+---
+{
+  "moods": [
+    {% for m in site.data.moods %}{ "cn": {{ m.cn | jsonify }}, "en": {{ m.en | jsonify }}, "hex": {{ m.hex | jsonify }} }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  "series": [
+    {% assign sps = site.pages | where: "layout", "series" | sort: "series_name" %}
+    {% for p in sps %}
+    {
+      "name": {{ p.series_name | jsonify }},
+      "title": {{ p.title | jsonify }},
+      "url": "{{ site.baseurl }}{{ p.url }}",
+      "status": {{ p.series_status | default: "ongoing" | jsonify }},
+      {% assign pal = site.data.au_palettes[p.series_name] %}
+      "accent": {{ pal.accent | default: "#cba14c" | jsonify }},
+      "bg": {{ pal.bg | default: "#14110d" | jsonify }},
+      "chapters": [
+        {% assign chs = site.posts | where: "series", p.series_name | sort: "series_order" %}
+        {% for c in chs %}
+        {
+          "t": {{ c.title | jsonify }},
+          "u": "{{ site.baseurl }}{{ c.url }}",
+          "s": {{ c.summary | jsonify }},
+          "o": {{ c.series_order | default: 0 }},
+          "k": {{ c.chapter_type | default: "Chapter" | jsonify }},
+          "g": {{ c.tags | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

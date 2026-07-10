@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AU 星图 · Winter Sun</title>
+<meta name="description" content="写下的每一个平行时空，都是夜空里的一座星座；每写一章，天上就多亮一颗星。拖动漫游，点一颗星，落进那个故事里。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AU 星图 · Winter Sun">
+<meta property="og:description" content="写下的每一个平行时空，都是夜空里的一座星座；每写一章，天上就多亮一颗星。">
+<meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sky/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#070a12">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ————— AU 星图 · The Written Sky —————
+     零内嵌数据：星座 = series，星 = 章节，全部来自构建时生成的 data.json。
+     新写一章，构建完夜空自动多一颗星。 */
+  html, body { margin: 0; padding: 0; height: 100%; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    min-height: 100%; min-height: 100dvh;
+    background:
+      radial-gradient(ellipse 120% 80% at 78% 18%, rgba(64,78,118,.22), transparent 55%),
+      radial-gradient(ellipse 90% 70% at 18% 85%, rgba(96,66,98,.14), transparent 60%),
+      #070a12;
+    color: #dfe6f2;
+    font-family: 'Noto Serif SC', serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+  a { color: inherit; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* 银河带 */
+  .milky {
+    position: fixed; inset: -20%; z-index: 0; pointer-events: none;
+    background: linear-gradient(115deg, transparent 38%, rgba(150,168,210,.05) 46%, rgba(196,206,236,.09) 50%, rgba(150,168,210,.05) 54%, transparent 62%);
+    filter: blur(6px);
+  }
+
+  #sky {
+    position: fixed; inset: 0; z-index: 1;
+    width: 100%; height: 100dvh;
+    cursor: grab; touch-action: none;
+    user-select: none; -webkit-user-select: none;
+  }
+  #sky.is-panning { cursor: grabbing; }
+
+  .tw { animation: tw var(--d, 3.4s) ease-in-out var(--dl, 0s) infinite; }
+  @keyframes tw { 0%, 100% { opacity: var(--o, .9); } 50% { opacity: .18; } }
+  @media (prefers-reduced-motion: reduce) { .tw { animation: none; } }
+
+  .cons-label { cursor: pointer; }
+  .cons-label:hover .cons-label__main { opacity: 1; }
+  .cons-label__main {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600;
+    opacity: .88; transition: opacity .25s;
+  }
+  .cons-label__sub {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    opacity: .55; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .star-core { cursor: pointer; transition: r .2s; }
+
+  /* —— 顶栏 —— */
+  .topbar {
+    position: fixed; top: max(12px, env(safe-area-inset-top)); left: 16px; right: 16px;
+    z-index: 5; display: flex; justify-content: space-between; align-items: baseline;
+    pointer-events: none; gap: 12px;
+  }
+  .back {
+    pointer-events: auto;
+    font-weight: 300; font-size: 12px; letter-spacing: 1px;
+    color: #8d99b5; text-decoration: none; opacity: .9;
+  }
+  .back:hover { color: #dfe6f2; }
+  .counts {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 10px; letter-spacing: 2px; color: #8d99b5; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .headline {
+    position: fixed; top: max(40px, calc(env(safe-area-inset-top) + 28px)); left: 0; right: 0;
+    z-index: 4; text-align: center; pointer-events: none;
+  }
+  .headline h1 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: clamp(20px, 4.6vw, 30px); margin: 0; letter-spacing: 1px;
+    color: #e8edf8; text-shadow: 0 0 24px rgba(140,160,220,.35);
+  }
+  .headline p {
+    font-weight: 300; font-size: clamp(11px, 2.8vw, 12.5px); letter-spacing: 2px;
+    color: #8d99b5; margin: 8px 0 0;
+  }
+
+  /* —— 漫游提示 —— */
+  .hint {
+    position: fixed; left: 50%; bottom: max(22px, env(safe-area-inset-bottom));
+    transform: translateX(-50%); z-index: 4; pointer-events: none;
+    font-weight: 300; font-size: 12px; letter-spacing: 2px; color: #8d99b5;
+    opacity: .9; transition: opacity 1.2s ease;
+  }
+  .hint.is-gone { opacity: 0; }
+
+  /* —— 星卡（点开一颗星） —— */
+  .card {
+    position: fixed; left: 50%; bottom: max(18px, env(safe-area-inset-bottom));
+    transform: translateX(-50%) translateY(16px);
+    z-index: 6; width: min(480px, calc(100vw - 28px));
+    background: rgba(11,14,24,.92);
+    border: 1px solid rgba(140,160,210,.22);
+    border-radius: 14px; padding: 18px 20px 16px;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 18px 50px rgba(0,0,0,.5);
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .card.is-on { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+  .card__series {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--c-accent, #cba14c); margin: 0 0 8px;
+  }
+  .card__title {
+    font-family: 'Noto Serif SC', serif; font-weight: 500;
+    font-size: 15.5px; line-height: 1.5; margin: 0; color: #eef2fb;
+  }
+  .card__summary {
+    font-weight: 300; font-size: 13px; line-height: 1.9;
+    color: #c3cbdd; margin: 10px 0 0;
+  }
+  .card__foot {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 14px; gap: 10px;
+  }
+  .card__moods { display: flex; gap: 6px; flex-wrap: wrap; }
+  .card__mood {
+    font-size: 10.5px; font-weight: 300; letter-spacing: 1px;
+    padding: 2px 9px; border-radius: 999px;
+    border: 1px solid var(--m-c, #888); color: var(--m-c, #aaa);
+    opacity: .9;
+  }
+  .card__go {
+    font-weight: 300; font-size: 12.5px; letter-spacing: 1px; white-space: nowrap;
+    color: var(--c-accent, #cba14c); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--c-accent, #cba14c) 55%, transparent);
+    padding-bottom: 1px;
+  }
+  .card__close {
+    position: absolute; top: 8px; right: 10px;
+    background: none; border: none; color: #8d99b5; font-size: 16px; line-height: 1;
+    padding: 4px;
+  }
+  .card__close:hover { color: #eef2fb; }
+
+  .colophon {
+    position: fixed; right: 14px; bottom: max(12px, env(safe-area-inset-bottom));
+    z-index: 3; pointer-events: none;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
+    color: #8d99b5; opacity: .45;
+  }
+
+  .loading {
+    position: fixed; inset: 0; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 11px; letter-spacing: 3px; color: #8d99b5; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="milky" aria-hidden="true"></div>
+<div class="loading" id="loading">Charting the sky…</div>
+<svg id="sky" aria-label="AU 星图：每个系列是一座星座，每一章是一颗星"></svg>
+
+<div class="topbar">
+  <a class="back" href="../">← Winter in Wonderland</a>
+  <span class="counts" id="counts"></span>
+</div>
+<div class="headline">
+  <h1>The Written Sky</h1>
+  <p>写下的每一个平行时空，都在天上</p>
+</div>
+<div class="hint" id="hint">拖动漫游这片夜空 · 点一颗星，落进那个故事</div>
+
+<div class="card" id="card" role="dialog" aria-label="章节信息">
+  <button class="card__close" id="card-close" aria-label="关闭">✕</button>
+  <p class="card__series" id="card-series"></p>
+  <h2 class="card__title" id="card-title"></h2>
+  <p class="card__summary" id="card-summary"></p>
+  <div class="card__foot">
+    <div class="card__moods" id="card-moods"></div>
+    <a class="card__go" id="card-go">去读这一章 →</a>
+  </div>
+</div>
+
+<span class="colophon">Winter × Fable</span>
+
+<script>
+(function () {
+  "use strict";
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var $ = function (id) { return document.getElementById(id); };
+  var svg = $("sky");
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // 虚拟世界尺寸（星座按网格 + 抖动布进这块天里）
+  var W = 1900, H = 1260;
+  var MOODS = [];
+
+  /* —— 确定性随机：同一个系列名永远长成同一座星座 —— */
+  function hash(str) {
+    var h = 5381, i;
+    for (i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) >>> 0;
+    return h;
+  }
+  function rng(seed) {
+    var a = seed >>> 0;
+    return function () {
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      var t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function el(name, attrs, parent) {
+    var n = document.createElementNS(SVGNS, name), k;
+    for (k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+
+  /* —— viewBox 漫游（拖动 + 滚轮缩放） —— */
+  var vb = { x: 0, y: 0, w: W };
+  function aspect() { return window.innerWidth / Math.max(1, window.innerHeight); }
+  function applyVB() {
+    var h = vb.w / aspect();
+    var pad = 120;
+    vb.w = Math.max(500, Math.min(vb.w, W + pad * 2));
+    vb.x = Math.max(-pad, Math.min(vb.x, W + pad - vb.w));
+    vb.y = Math.max(-pad, Math.min(vb.y, H + pad - h));
+    svg.setAttribute("viewBox", vb.x + " " + vb.y + " " + vb.w + " " + h);
+  }
+  function initView() {
+    var a = aspect();
+    if (a >= W / H) { vb.w = W; }              // 宽屏：整幅宽度
+    else { vb.w = Math.max(720, H * a); }      // 竖屏：放大一点，可左右拖
+    vb.x = (W - vb.w) / 2;
+    vb.y = (H - vb.w / a) / 2;
+    applyVB();
+  }
+  window.addEventListener("resize", applyVB);
+
+  var panning = false, px = 0, py = 0, moved = 0;
+  svg.addEventListener("pointerdown", function (e) {
+    panning = true; moved = 0; px = e.clientX; py = e.clientY;
+    svg.classList.add("is-panning");
+    svg.setPointerCapture(e.pointerId);
+  });
+  svg.addEventListener("pointermove", function (e) {
+    if (!panning) return;
+    var scale = vb.w / window.innerWidth;
+    vb.x -= (e.clientX - px) * scale;
+    vb.y -= (e.clientY - py) * scale;
+    moved += Math.abs(e.clientX - px) + Math.abs(e.clientY - py);
+    px = e.clientX; py = e.clientY;
+    applyVB();
+    if (moved > 8) hideHint();
+  });
+  svg.addEventListener("pointerup", function () { panning = false; svg.classList.remove("is-panning"); });
+  svg.addEventListener("pointercancel", function () { panning = false; svg.classList.remove("is-panning"); });
+  svg.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    var f = e.deltaY > 0 ? 1.08 : 0.925;
+    var mx = vb.x + (e.clientX / window.innerWidth) * vb.w;
+    var my = vb.y + (e.clientY / window.innerHeight) * (vb.w / aspect());
+    vb.w *= f;
+    vb.x = mx - (e.clientX / window.innerWidth) * vb.w;
+    vb.y = my - (e.clientY / window.innerHeight) * (vb.w / aspect());
+    applyVB();
+  }, { passive: false });
+
+  var hintGone = false;
+  function hideHint() {
+    if (hintGone) return; hintGone = true;
+    $("hint").classList.add("is-gone");
+  }
+  setTimeout(hideHint, 7000);
+
+  /* —— 星卡 —— */
+  var card = $("card");
+  function openCard(s, c) {
+    card.style.setProperty("--c-accent", s.accent);
+    $("card-series").textContent = s.title;
+    // 章节 title 通常自带 "Chapter N · " 前缀，避免和 chapter_type 拼重
+    $("card-title").textContent = (c.k && c.t.indexOf(c.k) !== 0 ? c.k + " · " : "") + c.t;
+    $("card-summary").textContent = c.s || "";
+    $("card-go").href = c.u;
+    var box = $("card-moods");
+    box.textContent = "";
+    (c.g || []).forEach(function (tag) {
+      MOODS.forEach(function (m) {
+        if (m.cn === tag) {
+          var pill = document.createElement("span");
+          pill.className = "card__mood";
+          pill.style.setProperty("--m-c", m.hex);
+          pill.textContent = m.cn + " " + m.en;
+          box.appendChild(pill);
+        }
+      });
+    });
+    card.classList.add("is-on");
+  }
+  $("card-close").addEventListener("click", function () { card.classList.remove("is-on"); });
+  svg.addEventListener("click", function (e) {
+    if (moved > 8) return;                       // 拖动结束的抬手不算点击
+    if (e.target === svg) card.classList.remove("is-on");
+  });
+
+  /* —— 数据 → 夜空 —— */
+  fetch("data.json", { cache: "no-cache" })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      MOODS = data.moods || [];
+      var series = (data.series || []).filter(function (s) { return s.chapters && s.chapters.length; });
+      $("loading").remove();
+      build(series);
+    })
+    .catch(function () {
+      $("loading").textContent = "夜空多云…请刷新重试";
+    });
+
+  function build(series) {
+    var totalStars = 0;
+
+    // 背景微星
+    var bg = el("g", {}, svg);
+    var brand = rng(20260710);
+    for (var i = 0; i < 240; i++) {
+      var c = el("circle", {
+        cx: (brand() * W).toFixed(1), cy: (brand() * H).toFixed(1),
+        r: (0.5 + brand() * 0.9).toFixed(2),
+        fill: "#cdd6ea", opacity: (0.14 + brand() * 0.5).toFixed(2)
+      }, bg);
+      if (!reduced && brand() < 0.4) {
+        c.setAttribute("class", "tw");
+        c.style.setProperty("--d", (2.6 + brand() * 3.4).toFixed(1) + "s");
+        c.style.setProperty("--dl", (-brand() * 6).toFixed(1) + "s");
+        c.style.setProperty("--o", c.getAttribute("opacity"));
+      }
+    }
+
+    // 星座网格布局
+    var N = series.length;
+    var cols = Math.max(1, Math.round(Math.sqrt(N * W / H)));
+    var rows = Math.ceil(N / cols);
+    var cw = W / cols, ch = H / rows;
+
+    series.forEach(function (s, si) {
+      var r = rng(hash(s.name));
+      var col = si % cols, row = Math.floor(si / cols);
+      var cx = col * cw + cw / 2 + (r() - 0.5) * cw * 0.3;
+      var cy = row * ch + ch / 2 + (r() - 0.5) * ch * 0.26;
+      var R = Math.min(cw, ch) * 0.42;
+
+      // 随机游走生成星位（第一颗在中心附近，按 series_order 相连）
+      var pts = [], x = cx + (r() - 0.5) * 30, y = cy + (r() - 0.5) * 30;
+      var ang = r() * Math.PI * 2;
+      s.chapters.forEach(function () {
+        pts.push([x, y]);
+        ang += (r() - 0.5) * 2.1;
+        var step = 30 + r() * 36;
+        x += Math.cos(ang) * step; y += Math.sin(ang) * step;
+        var dx = x - cx, dy = y - cy, d = Math.sqrt(dx * dx + dy * dy);
+        if (d > R) { x = cx + dx / d * R * (0.55 + r() * 0.3); y = cy + dy / d * R * (0.55 + r() * 0.3); ang += Math.PI * (0.6 + r() * 0.5); }
+      });
+
+      var g = el("g", {}, svg);
+
+      // 连线
+      if (pts.length > 1) {
+        var dstr = "M" + pts.map(function (p) { return p[0].toFixed(1) + " " + p[1].toFixed(1); }).join(" L");
+        el("path", { d: dstr, fill: "none", stroke: s.accent, "stroke-width": 0.9, opacity: 0.3, "stroke-linejoin": "round" }, g);
+      }
+
+      // 星
+      var maxY = -1e9, labelX = cx;
+      pts.forEach(function (p, ci) {
+        var chap = s.chapters[ci];
+        var main = !/extra|番外|if/i.test(chap.k || "");
+        var rad = main ? 3.4 + r() * 1.1 : 2.3;
+        el("circle", { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: (rad * 3.1).toFixed(1), fill: s.accent, opacity: 0.13 }, g);
+        var core = el("circle", {
+          cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: rad.toFixed(1),
+          fill: "#f4f6ff", stroke: s.accent, "stroke-width": 1.1,
+          "class": "star-core"
+        }, g);
+        if (!reduced && r() < 0.5) {
+          core.classList.add("tw");
+          core.style.setProperty("--d", (3 + r() * 3).toFixed(1) + "s");
+          core.style.setProperty("--dl", (-r() * 5).toFixed(1) + "s");
+          core.style.setProperty("--o", "1");
+        }
+        core.addEventListener("click", function (e) {
+          e.stopPropagation();
+          if (moved > 8) return;
+          openCard(s, chap);
+        });
+        totalStars++;
+        if (p[1] > maxY) { maxY = p[1]; labelX = p[0]; }
+      });
+
+      // 星座名（点击进系列页）
+      var sub = (s.title || "").replace(s.name, "").replace(/^[\s·—-]+/, "");
+      var label = el("g", { "class": "cons-label" }, g);
+      var t1 = el("text", {
+        x: labelX.toFixed(1), y: (maxY + 30).toFixed(1),
+        "text-anchor": "middle", fill: s.accent, "font-size": 17,
+        "class": "cons-label__main"
+      }, label);
+      t1.textContent = s.name;
+      if (sub) {
+        var t2 = el("text", {
+          x: labelX.toFixed(1), y: (maxY + 47).toFixed(1),
+          "text-anchor": "middle", fill: "#8d99b5", "font-size": 8.5,
+          "class": "cons-label__sub"
+        }, label);
+        t2.textContent = sub;
+      }
+      label.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (moved > 8) return;
+        window.location.href = s.url;
+      });
+    });
+
+    $("counts").textContent = series.length + " CONSTELLATIONS · " + totalStars + " STARS";
+    initView();
+  }
+})();
+</script>
+
+</body>
+</html>
