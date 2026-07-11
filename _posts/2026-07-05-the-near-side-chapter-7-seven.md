@@ -1,22 +1,23 @@
 ---
 layout: post
-title: "Chapter 6 · Seven — The Near Side"
+title: "Chapter 7 · Seven — The Near Side"
 date: 2026-07-05 23:00:00
 image: the-near-side.png
-tags: [安放, 缱绻]
+tags: [Sam Bell, Sam Rockwell, AU, The Near Side, 安放, 缱绻]
 categories: ["AU Story"]
 series: "The Near Side"
 series_title: "The Near Side · Sam Bell AU"
-series_order: 6
+series_order: 7
 summary: "第七扇门打开——这一次，没有空基地，有三个人等着他。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《The Near Side》第六章。前情见
+> 《月球》（_Moon_, 2009）AU 系列《The Near Side》第七章。前情见
 > [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-1-the-rescue %})、
 > [〈二〉Coming Down]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-2-coming-down %})、
-> [〈三〉Two of Him]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-3-two-of-him %})、
-> [〈四〉First]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-4-first %})、
-> [〈五〉The Plan]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-5-the-plan %})。
+> [〈三〉The First Night]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-3-the-first-night %})、
+> [〈四〉Two of Him]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-4-two-of-him %})、
+> [〈五〉First]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-5-first %})、
+> [〈六〉The Plan]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-6-the-plan %})。
 
 ## 一 · 回家
 
@@ -264,4 +265,4 @@ Sam 7 看着这两个一模一样、又完全不一样的人拌嘴，忽然又�
 
 ---
 
-下一章：〈七〉暂定。可能是 Seven 在基地里的第一天——第一次不为"执行任务"、只为自己，做点什么。可能是三个人带着"第一个试点成功了"的消息，飞回地球上法庭。也可能是那条一直在打的官司，迎来第一场硬仗。看你想先走哪一步。
+下一章：〈八〉暂定。可能是 Seven 在基地里的第一天——第一次不为"执行任务"、只为自己，做点什么。可能是三个人带着"第一个试点成功了"的消息，飞回地球上法庭。也可能是那条一直在打的官司，迎来第一场硬仗。看你想先走哪一步。

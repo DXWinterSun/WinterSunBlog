@@ -1,20 +1,21 @@
 ---
 layout: post
-title: "Chapter 4 · First — The Near Side"
+title: "Chapter 5 · First — The Near Side"
 date: 2026-07-05 18:00:00
 image: the-near-side.png
-tags: [悸动, 暗涌]
+tags: [Sam Bell, Sam Rockwell, AU, The Near Side, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "The Near Side"
 series_title: "The Near Side · Sam Bell AU"
-series_order: 4
+series_order: 5
 summary: "换他补针，他说我才没怕——醋意却是你先遇见了另一个他。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《The Near Side》第四章。前情见
+> 《月球》（_Moon_, 2009）AU 系列《The Near Side》第五章。前情见
 > [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-1-the-rescue %})、
 > [〈二〉Coming Down]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-2-coming-down %})、
-> [〈三〉Two of Him]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-3-two-of-him %})。
+> [〈三〉The First Night]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-3-the-first-night %})、
+> [〈四〉Two of Him]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-4-two-of-him %})。
 
 ## 一 · 换他
 
@@ -268,4 +269,4 @@ Sam 5 迷迷糊糊地回了俩字，你没听清。
 
 ---
 
-下一章：〈五〉**The Plan** —— 三个人，一张桌子，一沓律师团队送来的文件。把 Lunar Industries 从它自己手里接管过来、把地下一百多个 Sam 一个一个唤醒、再把选择的权利还给他们——这件"不可能"的事，从今天起，有了第一版草图。
+下一章：〈六〉**The Plan** —— 三个人，一张桌子，一沓律师团队送来的文件。把 Lunar Industries 从它自己手里接管过来、把地下一百多个 Sam 一个一个唤醒、再把选择的权利还给他们——这件"不可能"的事，从今天起，有了第一版草图。

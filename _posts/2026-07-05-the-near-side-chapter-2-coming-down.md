@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 2 · Coming Down — The Near Side"
 date: 2026-07-05 12:00:00
 image: the-near-side.png
-tags: [怅惘, 缱绻]
+tags: [Sam Bell, Sam Rockwell, AU, The Near Side, 怅惘, 缱绻]
 categories: ["AU Story"]
 series: "The Near Side"
 series_title: "The Near Side · Sam Bell AU"
@@ -283,4 +283,4 @@ summary: "他知道那家是假的，可三年了，他还是会喊她的名字�
 
 ---
 
-下一章：〈三〉**Two of Him** —— 地球上的安全屋。门开的时候，站在门口的那个人，有一张跟他一模一样的脸——只是更年轻、更愤怒、也更早学会了怎么在这颗陌生的星球上活下去。第五个和第六个，第一次，在地球的屋檐下面对面。
+下一章：〈三〉**The First Night** —— 落地的第一个夜里，小公寓，一张旧床。安全下来的第一件事，不是安睡，是崩塌。那件他三年没对任何人说过的事——他有多怕——终于说出口。而你只做一件事：抱着他。

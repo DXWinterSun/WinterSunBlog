@@ -1,19 +1,20 @@
 ---
 layout: post
-title: "Chapter 3 · Two of Him — The Near Side"
+title: "Chapter 4 · Two of Him — The Near Side"
 date: 2026-07-05 15:00:00
 image: the-near-side.png
-tags: [悸动, 安放]
+tags: [Sam Bell, Sam Rockwell, AU, The Near Side, 悸动, 安放]
 categories: ["AU Story"]
 series: "The Near Side"
 series_title: "The Near Side · Sam Bell AU"
-series_order: 3
+series_order: 4
 summary: "他以为把另一个自己留在了月球等死——门一开，那个他活着。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《The Near Side》第三章。前情见
+> 《月球》（_Moon_, 2009）AU 系列《The Near Side》第四章。前情见
 > [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-1-the-rescue %})、
-> [〈二〉Coming Down]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-2-coming-down %})。
+> [〈二〉Coming Down]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-2-coming-down %})、
+> [〈三〉The First Night]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-3-the-first-night %})。
 
 ## 一 · 新闻里的那张脸
 
@@ -179,4 +180,4 @@ Sam 5 在旁边慢悠悠地补了一句："他就是爱吹。"
 
 ---
 
-下一章：〈四〉暂定。可能是三个人一起坐下来，第一次把"接管这家公司、把每一个 Sam 都唤醒、再把选择权还给他们"的整件事，摊在桌上算一遍。也可能是 Sam 6 补打那一针——他寿命才刚开始，没有五号那种紧迫，是你们俩朝同一个方向使劲的开始。看你想先写哪一段。
+下一章：〈五〉**First** —— 轮到给第六个补那一针。他年轻、健康，这条命才刚开始，没有五号那种"今天不打就没了"的紧迫。可等针打完，他却绕着圈子，为一件小事别扭起来——她先遇见的，是另一个他。

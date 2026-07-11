@@ -1,21 +1,22 @@
 ---
 layout: post
-title: "Chapter 5 · The Plan — The Near Side"
+title: "Chapter 6 · The Plan — The Near Side"
 date: 2026-07-05 21:00:00
 image: the-near-side.png
-tags: [安放, 絮语]
+tags: [Sam Bell, Sam Rockwell, AU, The Near Side, 安放, 絮语]
 categories: ["AU Story"]
 series: "The Near Side"
 series_title: "The Near Side · Sam Bell AU"
-series_order: 5
+series_order: 6
 summary: "不是让这家公司倒，是把它从它自己手里，接管过来。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《The Near Side》第五章。前情见
+> 《月球》（_Moon_, 2009）AU 系列《The Near Side》第六章。前情见
 > [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-1-the-rescue %})、
 > [〈二〉Coming Down]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-2-coming-down %})、
-> [〈三〉Two of Him]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-3-two-of-him %})、
-> [〈四〉First]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-4-first %})。
+> [〈三〉The First Night]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-3-the-first-night %})、
+> [〈四〉Two of Him]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-4-two-of-him %})、
+> [〈五〉First]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-5-first %})。
 
 ## 一 · 一张桌子
 
@@ -193,4 +194,4 @@ Sam 5 想都没想。
 
 ---
 
-下一章：〈六〉**Seven** —— 你们回到 Sarang。地下第七扇冷冻舱门打开。一个跟他们一模一样的人睁开眼睛——这一次，没有孤独的五个月，没有空荡荡的基地。有三个人，一条预热好的毛毯，一管药，和一个从今天起、终于要用上编号的家。
+下一章：〈七〉**Seven** —— 你们回到 Sarang。地下第七扇冷冻舱门打开。一个跟他们一模一样的人睁开眼睛——这一次，没有孤独的五个月，没有空荡荡的基地。有三个人，一条预热好的毛毯，一管药，和一个从今天起、终于要用上编号的家。
