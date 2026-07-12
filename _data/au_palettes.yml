@@ -95,10 +95,10 @@
   bg: "#162038"
   text: "#dfe7f2"
   muted: "#8ea0b8"
-  accent_cn: "地球辉光"
-  accent_en: "Earthlight"
-  bg_cn: "近月夜蓝"
-  bg_en: "Near-Side Blue"
+  accent_cn: "基地微光"
+  accent_en: "Sarang Glow"
+  bg_cn: "月球蔚蓝"
+  bg_en: "Lunar Blue"
 
 "A Single Shot AU":         # John Moon
   mf_id: john                # → Many Faces 画册锚点 /sam/many-faces/#john
