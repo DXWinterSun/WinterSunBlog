@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "Chapter 1 · The Rescue — The Near Side"
+title: "Chapter 1 · The Rescue — Everybody's Home"
 date: 2026-07-05 09:00:00
 image: sam-bell-5.jpeg
-tags: [Sam Bell, Sam Rockwell, AU, The Near Side, 悸动, 暗涌]
+tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 悸动, 暗涌]
 categories: ["AU Story"]
-series: "The Near Side"
-series_title: "The Near Side · Sam Bell AU"
+series: "Everybody's Home"
+series_title: "Everybody's Home · Sam Bell AU"
 series_order: 1
 summary: "整支清理队都当他是遗体，只有你想救他。"
 ---
 
-> 这是一个 AU 系列，独立于《The Far Side》那版悲剧月球 AU。来源是 Sam Rockwell 主演的《月球》（_Moon_, 2009）——克隆体、Sarang 基地、氦-3、GERTY，原片设定尽量保留。改写的岔路点在原片结局的月球现场：Sam 6 唤醒了一个顶替他的新克隆、重置了 GERTY，赶在清理队到达前，藏进氦-3 舱体发射回了地球；而 Sam 5，留在那辆失事矿车里，等死。这一次，来收拾现场的清理队里，有一个人，不是来处理他的。
+> 这是一个改写自 Sam Rockwell 主演的《月球》（_Moon_, 2009）的 AU 系列——克隆体、Sarang 基地、氦-3、GERTY，原片设定尽量保留。改写的岔路点在原片结局的月球现场：Sam 6 唤醒了一个顶替他的新克隆、重置了 GERTY，赶在清理队到达前，藏进氦-3 舱体发射回了地球；而 Sam 5，留在那辆失事矿车里，等死。这一次，来收拾现场的清理队里，有一个人，不是来处理他的。
 
 ## 一 · 清理队
 

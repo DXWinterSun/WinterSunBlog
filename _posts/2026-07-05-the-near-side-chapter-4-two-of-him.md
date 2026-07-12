@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "Chapter 4 · Two of Him — The Near Side"
+title: "Chapter 4 · Two of Him — Everybody's Home"
 date: 2026-07-05 18:00:00
 image: sam-bell-5.jpeg
-tags: [Sam Bell, Sam Rockwell, AU, The Near Side, 悸动, 暗涌]
+tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 悸动, 暗涌]
 categories: ["AU Story"]
-series: "The Near Side"
-series_title: "The Near Side · Sam Bell AU"
+series: "Everybody's Home"
+series_title: "Everybody's Home · Sam Bell AU"
 series_order: 4
 summary: "他以为把自己留在车里害死了——门一开，那个自己活着。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《The Near Side》第四章。前情见
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第四章。前情见
 > [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-1-the-rescue %})、
 > [〈二〉Coming Down]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-2-coming-down %})、
 > [〈三〉Solid Ground]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-3-solid-ground %})。你带他去认领另一个自己——而墙角的那家公司，正盘算着把证据，连人，一把火烧干净。

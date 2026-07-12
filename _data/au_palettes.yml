@@ -87,7 +87,7 @@
   bg_cn: "月球蔚蓝"
   bg_en: "Lunar Blue"
 
-"The Near Side":            # Sam Bell · 救援线 AU（与 Sam Bell · Moon AU 同源色卡 theme_id: sambell）
+"Everybody's Home":         # Sam Bell · Moon AU（唯一正典）· 色卡同源画册 theme_id: sambell
   mf_id: sam                # → Many Faces 画册锚点 /sam/many-faces/#sam
   theme_id: sambell
   accent: "#7eb0d5"

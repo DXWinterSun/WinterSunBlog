@@ -196,8 +196,7 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
 `Story English Name · Character Name AU` 这一个格式，用角色名，绝不用剧名。**
 剧名 / 背景设定只能出现在 byline 和「设定档案」里，不能当标题。
 
-为什么用角色名：一部电影可能开好几个 AU（例如《Moon》下就有
-**The Far Side** 和 **The Near Side** 两个 Sam Bell AU），用剧名会直接撞车；
+为什么用角色名：同一部电影完全可能开出不止一个角色 AU，用剧名会直接撞车；
 全站的组织轴心（尤其 `sam_collection`）本来就是角色，不是电影。
 
 需要同步统一的展示字段，以及各自的取值：
