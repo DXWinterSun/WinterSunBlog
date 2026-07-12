@@ -316,3 +316,16 @@
   accent_en: "Colonial Gilt"
   bg_cn: "海报品红夜"
   bg_en: "Poster Magenta Night"
+
+"The Part Where You Live":   # Billy Bickle · 色卡同源 sam_themes.yml id: billy
+  mf_id: billy                # → Many Faces 画册锚点 /sam/many-faces/#billy
+  theme_id: billy
+  accent: "#c94a1e"
+  accent_ink: "#a13b18"
+  bg: "#281208"
+  text: "#f5e6d0"
+  muted: "#b07840"
+  accent_cn: "方块J焰"
+  accent_en: "Jack of Diamonds"
+  bg_cn: "沙漠焦土"
+  bg_en: "Scorched Desert"
