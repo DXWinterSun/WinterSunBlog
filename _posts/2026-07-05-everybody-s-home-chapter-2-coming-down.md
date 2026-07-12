@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "Chapter 2 · Coming Down — The Near Side"
+title: "Chapter 2 · Coming Down — Everybody's Home"
 date: 2026-07-05 12:00:00
 image: sam-bell-5.jpeg
-tags: [Sam Bell, Sam Rockwell, AU, The Near Side, 怅惘, 缱绻]
+tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 怅惘, 缱绻]
 categories: ["AU Story"]
-series: "The Near Side"
-series_title: "The Near Side · Sam Bell AU"
+series: "Everybody's Home"
+series_title: "Everybody's Home · Sam Bell AU"
 series_order: 2
 summary: "他笑着说，没想到我能活着，看见这一切成真。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《The Near Side》第二章。前情见 [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-1-the-rescue %})。返程四天，他一点一点从那具烧到迟暮的身体里缓过来——也一点一点，把那两天里塌掉的一切，讲给你听。
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第二章。前情见 [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-everybody-s-home-chapter-1-the-rescue %})。返程四天，他一点一点从那具烧到迟暮的身体里缓过来——也一点一点，把那两天里塌掉的一切，讲给你听。
 
 ## 一 · 第一天
 
@@ -28,6 +28,12 @@ summary: "他笑着说，没想到我能活着，看见这一切成真。"
 不多。可它在退。你伸过手，很轻地，探了一下他的额头——不再是矿车里那种真空的凉。是活人的、微弱的温。
 
 你把那只手停在那儿，停了很久。
+
+你说不清这一刻心里翻涌的是什么。有一部分，是这五年做的东西，第一次在一个活人身上成了真——那种近乎眩晕的郑重。可还有一部分，更软，也更没道理：你把一个人从死里抱了回来，你几乎能预感到，他往后会本能地朝你靠，像认路的人认住第一盏灯。
+
+你提醒自己要当心。他不是灯下匆匆的过客——他是个在心里，为另一个人，守了整整三年的男人。你不会去争那个位置，也不打算争。你只是想，在他睁开眼的时候，有个人在。
+
+就够了。
 
 ## 二 · 他睁开眼
 
@@ -85,7 +91,7 @@ summary: "他笑着说，没想到我能活着，看见这一切成真。"
 
 他告诉你 Sarang，氦-3，三年合约。告诉你那具身体被「出厂」时，一起塞进来的一整套人生：一个叫 Tess 的妻子，一个叫 Eve 的女儿，一栋种着树的小房子，一份写着「干满三年就能回家」的合同。
 
-「这些我信了三年。」他说。「我数着日子，攒着咖啡，给 Eve 攒生日礼物。撑着我没疯的，就是那个家。」
+「这些我信了三年。」他说。「我数着日子——用一支马克笔，在洗手间水池边上，一天给自己画一个 GERTY 的笑脸，一个笑脸，就是又熬过了一天。攒着咖啡，给 Eve 攒生日礼物。撑着我没疯的，就是那个家。」
 
 然后他告诉你，这一切是怎么在**两天**里，塌掉的。
 
