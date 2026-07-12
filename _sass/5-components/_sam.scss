@@ -617,6 +617,17 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   .c-series-cover__image { aspect-ratio: 3 / 2; }
 }
 
+/* ----- The Part Where You Live · Billy Bickle AU · 封面从左裁剪 -----
+   封面 7-psychopaths.PNG 里 Billy 的脸在画面左侧；默认的水平居中裁剪
+   （background-position: center）在窄容器里会把他切掉。仅针对这张图
+   （= 这个 AU 的封面）把【水平锚点】改到左边，纵向锚点保持不动，于是所有
+   出现封面的地方——系列封面、章节卡、首页卡、文章头图——都从左往右裁，
+   Billy 的脸完整保留。用 background-position-x 只改水平轴，不影响其它 AU，
+   也保留各表面原有的纵向取景（如系列封面的 center 30%）。 */
+[style*="7-psychopaths"] {
+  background-position-x: left !important;
+}
+
 /* ----- Series logline (one-line "in brief" premise) -----
    Deliberately NOT the emotional hero quote: upright (not italic), boxed,
    sits below the cover. The poetic .c-hero__lede stays up by the title; this
