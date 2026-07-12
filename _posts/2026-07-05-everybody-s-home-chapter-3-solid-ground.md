@@ -12,8 +12,8 @@ summary: "他第一次站上真的土地，才敢信自己真的活下来了。"
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三章。前情见
-> [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-1-the-rescue %})、
-> [〈二〉Coming Down]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-2-coming-down %})。落地了。第一次，脚下是真的土地——而外面的世界，正因为那张脸，翻天覆地。
+> [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-everybody-s-home-chapter-1-the-rescue %})、
+> [〈二〉Coming Down]({{ site.baseurl }}{% post_url 2026-07-05-everybody-s-home-chapter-2-coming-down %})。落地了。第一次，脚下是真的土地——而外面的世界，正因为那张脸，翻天覆地。
 
 ## 一 · 落地
 

@@ -11,7 +11,7 @@ series_order: 2
 summary: "他笑着说，没想到我能活着，看见这一切成真。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第二章。前情见 [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-the-near-side-chapter-1-the-rescue %})。返程四天，他一点一点从那具烧到迟暮的身体里缓过来——也一点一点，把那两天里塌掉的一切，讲给你听。
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第二章。前情见 [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-everybody-s-home-chapter-1-the-rescue %})。返程四天，他一点一点从那具烧到迟暮的身体里缓过来——也一点一点，把那两天里塌掉的一切，讲给你听。
 
 ## 一 · 第一天
 
