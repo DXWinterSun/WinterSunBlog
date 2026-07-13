@@ -100,6 +100,47 @@ collection_desc: "一两句简介，钩子即可。"   # 卡片描述
 
 不确定某个角色是不是 Sam 演的，就先问用户，别擅自加 flag。
 
+## ⚠️ 色卡是全站同源：改一个角色的色，所有对应角色色卡必须一并同步
+
+每个 Sam 角色的配色（`bg` / `accent` / `text` / `muted` + 四个中英色名）在全站有
+**5 份拷贝**，它们必须始终一致。**画册 `sam/many-faces/index.html` 是唯一「真源」**——
+一旦在任何一处改了某个角色的色卡，其余各处都要**同一次提交里一起改**，漏改哪处，
+那个彩蛋 / 系列就会显示旧色。
+
+（2026-07 排查出的真实事故：早先两次「画册 accent 改版」只更新了 many-faces / quiz /
+spectrum / sam_themes，**漏了 `sam/lines.json` 和 `_data/au_palettes.yml`**——台词墙 /
+今日 / 小组件 / 放映室一直显示旧的金橙色，6 个 AU 系列主题色也停在旧版。）
+
+五份色卡拷贝（真源 → 拷贝）：
+
+| 文件 | 角色键 | 需同步的字段 |
+|---|---|---|
+| **真源** `sam/many-faces/index.html` | `id` | `bg`/`accent`/`text`/`muted` + `bgName{En,Cn}`/`accentName{En,Cn}` |
+| `sam/quiz/index.html` | `id`（别名见下） | 四色 |
+| `sam/spectrum/index.html` | `id`（别名见下） | 四色 |
+| `_data/sam_themes.yml` | `anchor` | 四色 + `cn`/`en`/`bg_cn`/`bg_en` |
+| `sam/lines.json` | `id` + `mf_alias` | `characters[]` 四色，**再从 characters 重建 `pool[]`** |
+| `_data/au_palettes.yml` | `mf_id` | **只**同步 `accent`/`bg` + 四色名；`accent_ink` 按新 accent 暗一档重算 |
+
+**id 别名**（画册 id ≠ 其它页 id 的三个）：画册 `sam`→`sambell`、`john`→`johnmoon`、
+`hendrix`→`klenz`。quiz/spectrum 用后者，lines.json 用 `meta.mf_alias` 记这层映射。
+
+**`au_palettes.yml` 的特殊约定**：
+- **`text` / `muted` 不跟画册同步**——它们是各系列为自己的阅读主题单独微调的（历来就与画册不同），不算 desync。
+- `accent_ink` 是 `accent` 手动暗一档（~80%）派生的，改 accent 时一并重算；若画册 accent 偏浅
+  （如 Eric Bowen 的 `#9fb8c9`），ink 要额外加深到浅色主题下 ≥4.5:1 对比度，别机械 ×0.8。
+- 只有 **带 `mf_id`** 的条目才跟画册同源；无 `mf_id` 的（如 Menelaus / Invisible Light 等
+  非 Sam 或原创角色）各自独立，不在同步范围。
+
+**改完色卡后必须跑校验脚本确认全站一致：**
+
+```bash
+python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列出并 exit 1
+```
+
+这个脚本以画册为真源，把上面 5 处拷贝逐个角色比对（含 lines.json 的 `pool`、au_palettes 的
+`mf_id` 条目），是改色卡后的**收尾必跑项**。
+
 ## ⚠️ 新增一个 Sam 角色 = 要同步「四个彩蛋 + 计数总闸」
 
 画册（many-faces）只是 Sam 彩蛋区的**四个页面之一**，它们共用**同一批角色**。

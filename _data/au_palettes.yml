@@ -22,16 +22,16 @@
   bg_cn: "旧宝丽来"
   bg_en: "Faded Polaroid"
 
-"Tuning the Devil":         # Wild Bill Wharton
+"Tuning the Devil":         # Wild Bill Wharton · 色卡同源画册 id: wildbill
   mf_id: wildbill                # → Many Faces 画册锚点 /sam/many-faces/#wildbill
   theme_id: wildbill
-  accent: "#b0803e"
-  accent_ink: "#8a5f28"
+  accent: "#8a8058"
+  accent_ink: "#6e6646"
   bg: "#1b1510"
   text: "#ece1cf"
   muted: "#9d8f78"
-  accent_cn: "锯末粗木"
-  accent_en: "Sawdust Timber"
+  accent_cn: "锯木原色"
+  accent_en: "Raw Timber"
   bg_cn: "炉膛夜黑"
   bg_en: "Forge Soot"
 
@@ -64,12 +64,12 @@
 "Knox AU":                  # Eric Knox
   mf_id: eric                # → Many Faces 画册锚点 /sam/many-faces/#eric
   theme_id: knox
-  accent: "#d94040"
-  accent_ink: "#b13030"
+  accent: "#cf3550"
+  accent_ink: "#a62a40"
   bg: "#1b1310"
   text: "#ece0d6"
   muted: "#a08d80"
-  accent_cn: "红镜红"
+  accent_cn: "镜绯红"
   accent_en: "Crimson Lens"
   bg_cn: "可乐棕"
   bg_en: "Cola Noir"
@@ -139,15 +139,15 @@
   bg_cn: "焦烬玫瑰"
   bg_en: "Charred Rose"
 
-"The Real Thing":           # Frank Mercer · 猫眼石 + 拍卖行
+"The Real Thing":           # Frank Mercer · 色卡同源画册 id: frank
   mf_id: frank                # → Many Faces 画册锚点 /sam/many-faces/#frank
-  accent: "#c47830"
-  accent_ink: "#9c6020"
+  accent: "#9a7ba0"
+  accent_ink: "#7b6280"
   bg: "#1a1410"
   text: "#ede0e6"
   muted: "#8d7462"
-  accent_cn: "猫眼琥珀"
-  accent_en: "Hazel Fox"
+  accent_cn: "紫雾榛眸"
+  accent_en: "Hazel Mauve"
   bg_cn: "焦黑火柴"
   bg_en: "Burnt Matchstick"
 
@@ -231,8 +231,8 @@
 "A Bear and Somewhere Far":  # C.P. "Clay" Ellis · 色卡同源 many-faces id: clay
   mf_id: clay                # → Many Faces 画册锚点 /sam/many-faces/#clay
   theme_id: clay
-  accent: "#b87a3e"
-  accent_ink: "#936232"
+  accent: "#9c6f38"
+  accent_ink: "#7d592d"
   bg: "#161510"
   text: "#ece2ce"
   muted: "#847a5c"
@@ -257,26 +257,26 @@
 "Faith Unseen":             # Don Verdean · 色卡同源 sam_themes.yml id: donverdean
   mf_id: donverdean                # → Many Faces 画册锚点 /sam/many-faces/#donverdean
   theme_id: donverdean
-  accent: "#c69a4b"
-  accent_ink: "#9e7b3c"
+  accent: "#4fa0a0"
+  accent_ink: "#3f8080"
   bg: "#1a1410"
   text: "#ece2cd"
   muted: "#9d8a66"
-  accent_cn: "圣物流金"
-  accent_en: "Relic Gold"
+  accent_cn: "圣物青绿"
+  accent_en: "Relic Turquoise"
   bg_cn: "暮土玄褐"
   bg_en: "Dusk Umber"
 
 "This House Is Clean":      # Eric Bowen · 色卡同源 sam_themes.yml id: bowen
   mf_id: bowen                # → Many Faces 画册锚点 /sam/many-faces/#bowen
   theme_id: bowen
-  accent: "#d8a24e"
-  accent_ink: "#ad823e"
+  accent: "#9fb8c9"
+  accent_ink: "#5e6d78"        # 画册 accent 偏浅，ink 手动加深至 ~4.7:1 保证浅色主题链接对比度
   bg: "#1b1917"
   text: "#ece6dd"
   muted: "#807a71"
-  accent_cn: "夜灯黄铜"
-  accent_en: "Nightlight Brass"
+  accent_cn: "荧屏冷光"
+  accent_en: "Static Glow"
   bg_cn: "空房暮灰"
   bg_en: "Empty-Room Grey"
 
