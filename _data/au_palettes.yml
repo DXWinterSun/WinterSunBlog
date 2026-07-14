@@ -329,3 +329,16 @@
   accent_en: "Jack of Diamonds"
   bg_cn: "沙漠焦土"
   bg_en: "Scorched Desert"
+
+"Don't Let Me Go":          # Glenn Marchand · 色卡同源画册 id: glenn
+  mf_id: glenn                # → Many Faces 画册锚点 /sam/many-faces/#glenn
+  theme_id: glenn
+  accent: "#b8d0e0"
+  accent_ink: "#46617a"        # 画册 accent 偏浅，ink 手动加深至 ~6:1 保证浅色主题链接对比度
+  bg: "#1c2030"
+  text: "#dce4ea"
+  muted: "#7a8090"
+  accent_cn: "初雪微光白"
+  accent_en: "First Snow"
+  bg_cn: "寒冬冷蓝灰"
+  bg_en: "Winter Steel"
