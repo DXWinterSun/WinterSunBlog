@@ -14,7 +14,7 @@ tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 暗涌, 絮语]
 ---
 
 > "You've got the title. You just don't have any psychopaths."
-> 「你有标题啊。你只是……一个神经病都没有。」
+> “你有标题啊。你只是……一个神经病都没有。”
 
 凌晨三点，你的剧本还是只有一个标题。
 
@@ -84,7 +84,7 @@ tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 暗涌, 絮语]
 
 标题是黑体的，粗得刺眼：
 
-**「方块 J」连环杀手再度作案——本月第三名黑帮成员遇害，尸身留有一张扑克牌**
+**“方块 J”连环杀手再度作案——本月第三名黑帮成员遇害，尸身留有一张扑克牌**
 
 底下的字小一些：警方束手无策。死者皆为本市有组织犯罪成员。凶手行凶后，在每一具尸体上留下一张方块 J。没有目击者。没有指纹。没有动机。
 

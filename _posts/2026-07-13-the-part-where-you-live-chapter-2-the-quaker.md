@@ -14,7 +14,7 @@ tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 絮语, 暗涌]
 ---
 
 > "It was a good story. The best one, maybe. You just don't remember whose it was."
-> 「那是个好故事。也许是最好的一个。你只是不记得它原本是谁的了。」
+> “那是个好故事。也许是最好的一个。你只是不记得它原本是谁的了。”
 
 Nathan 是那种一进门就会先把鞋在门垫上蹭干净的人。
 

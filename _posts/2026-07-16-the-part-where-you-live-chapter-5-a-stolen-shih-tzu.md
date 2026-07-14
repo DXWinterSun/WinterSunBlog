@@ -14,7 +14,7 @@ tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 暗涌, 絮语]
 ---
 
 > "A man who'd burn down the world for one little dog — that's not a man you steal from."
-> 「一个肯为一只小狗烧掉整个世界的人——你千万别去偷他的东西。」
+> “一个肯为一只小狗烧掉整个世界的人——你千万别去偷他的东西。”
 
 那只狗叫 Bonny。
 

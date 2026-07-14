@@ -16,7 +16,7 @@ summary: "隔着一整块大陆，他把你的第一个生日算得分秒不差�
 
 > "It's your first birthday since I've known you. And I'm three thousand miles off. Unacceptable."
 >
-> 「这是我认识你以来，你的第一个生日。而我在三千英里之外。不可接受。」
+> “这是我认识你以来，你的第一个生日。而我在三千英里之外。不可接受。”
 
 十一月六日，圣塔芭芭拉。
 
@@ -110,7 +110,7 @@ summary: "隔着一整块大陆，他把你的第一个生日算得分秒不差�
   <p class="c-decree__subtitle">兹授予 001 号持卡人以下终身头衔</p>
   <p class="c-decree__body">魔鬼峰史上停留时间最长纪录保持者（20分钟，至今无人打破，本经理亲测无法超越）</p>
   <p class="c-decree__body">冬眠电台唯一听众暨台花</p>
-  <p class="c-decree__body">本园历史上第一位、也是唯一一位「被经理拎着去许愿的女生」候选人——待补办。</p>
+  <p class="c-decree__body">本园历史上第一位、也是唯一一位“被经理拎着去许愿的女生”候选人——待补办。</p>
 </div>
 
 最后一行，笔迹忽然认真了下来，小小地挤在卡片的最下面：

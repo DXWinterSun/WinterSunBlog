@@ -16,7 +16,7 @@ summary: "闭园夜的串灯下，他把结局的笔递给了你。"
 
 > "Our year starts on opening day and ends on closing night. The other nine months? That's just the line."
 >
-> 「我们的一年，从开园日开始，到闭园夜结束。剩下那九个月？那只是排队。」
+> “我们的一年，从开园日开始，到闭园夜结束。剩下那九个月？那只是排队。”
 
 劳动节前的周日，Water Wizz迎来了本季最后一个营业日。
 

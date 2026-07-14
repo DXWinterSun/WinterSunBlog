@@ -14,7 +14,7 @@ tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 絮语, 悸动]
 ---
 
 > "WANTED: one psychopath, with a story to tell. Discretion assured. Ask for Billy."
-> 「诚征：神经病一名，有故事者优先。绝对保密。找 Billy。」
+> “诚征：神经病一名，有故事者优先。绝对保密。找 Billy。”
 
 搬进 Billy 家的第一个早上，你是被煎培根的味道呛醒的。
 

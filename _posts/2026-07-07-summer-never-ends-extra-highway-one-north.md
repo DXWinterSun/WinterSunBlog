@@ -16,7 +16,7 @@ summary: "同一辆敞篷雪佛兰——上一次是逃亡，这一次是旅行�
 
 > "Last time this car drove this far, it was a getaway. This time, it's a vacation."
 >
-> 「上一次这辆车开这么远，是逃亡。这一次，是度假。」
+> “上一次这辆车开这么远，是逃亡。这一次，是度假。”
 
 你的大学在圣塔芭芭拉。
 
