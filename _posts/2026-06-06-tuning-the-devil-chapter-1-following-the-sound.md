@@ -11,7 +11,7 @@ series_status: ongoing
 series_type: Series
 chapter_type: Chapter 1
 summary: "全镇最坏的木匠平等地厌恶每个人；只有你一眼看穿他，还笑着由他闹。"
-image: william-wharton-au.jpeg
+image: wild-bill.jpg.jpeg
 ---
 
 > “不是针对你，天使小姐——我平等地厌恶每一个人，童叟无欺。”

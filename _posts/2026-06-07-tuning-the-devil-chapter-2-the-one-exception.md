@@ -11,7 +11,7 @@ series_status: ongoing
 series_type: Series
 chapter_type: Chapter 2
 summary: "他平等地厌恶每一个人；直到有人靠近你，他头一回，多恨了一个。"
-image: william-wharton-au.jpeg
+image: wild-bill.jpg.jpeg
 ---
 
 > “他厌恶所有人，童叟无欺。直到有一天，他厌恶其中一个，多了那么一点点。”
