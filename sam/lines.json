@@ -338,10 +338,10 @@
      "kind": "锚"
     },
     {
-     "label": "TUNING FORK",
-     "line": "You keep that little brass fork in your pocket like it's nothing. One note off it, and the devil in me falls right back in key.",
-     "lineCN": "你把那把小铜音叉揣在裙兜里，像什么都不是。可它一响，我这身魔性就乖乖落回正调。",
-     "kind": "AU · 信物"
+     "label": "NOTHING PERSONAL",
+     "line": "Nothing personal, angel — I hate everybody, fair and square. You're just the one face in this whole world I keep wanting to look at twice.",
+     "lineCN": "不是针对你，天使小姐——我平等地厌恶每一个人，童叟无欺。你只是这满世界里，唯一一张我想一看再看的脸。",
+     "kind": "AU · 恶魔逻辑"
     },
     {
      "label": "HAVE MERCY",
@@ -2836,10 +2836,10 @@
    "text": "#ece0d0",
    "muted": "#93826a",
    "auLink": "/WinterSunBlog/series/tuning-the-devil/",
-   "label": "TUNING FORK",
-   "line": "You keep that little brass fork in your pocket like it's nothing. One note off it, and the devil in me falls right back in key.",
-   "lineCN": "你把那把小铜音叉揣在裙兜里，像什么都不是。可它一响，我这身魔性就乖乖落回正调。",
-   "kind": "AU · 信物"
+   "label": "NOTHING PERSONAL",
+   "line": "Nothing personal, angel — I hate everybody, fair and square. You're just the one face in this whole world I keep wanting to look at twice.",
+   "lineCN": "不是针对你，天使小姐——我平等地厌恶每一个人，童叟无欺。你只是这满世界里，唯一一张我想一看再看的脸。",
+   "kind": "AU · 恶魔逻辑"
   },
   {
    "charId": "guy",
