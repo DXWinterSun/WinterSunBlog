@@ -362,6 +362,19 @@
   text: "#dce3ea"
   muted: "#62728d"
 
+- id: aldo
+  year: 2013
+  name: "Aldo Shocklee"
+  anchor: aldo
+  cn: 分红翡翠
+  en: Broker's Emerald
+  bg_cn: 空头支票
+  bg_en: Blank-Cheque Black
+  accent: "#2ea86a"
+  bg: "#0f1613"
+  text: "#e4efe9"
+  muted: "#7d9a8c"
+
 - id: varney
   year: 2014
   name: "Doug Varney"
