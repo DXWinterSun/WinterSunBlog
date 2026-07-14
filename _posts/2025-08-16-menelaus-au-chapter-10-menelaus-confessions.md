@@ -37,7 +37,7 @@ Menelaus Confessions
 
 ⸻
 
-🧡「If you were a thing…」系列｜by Menelaus
+🧡“If you were a thing…”系列｜by Menelaus
 
 （他眨着眼睛，尾巴摇得像个小风车，语气一本正经地说——）
 

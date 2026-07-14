@@ -14,7 +14,7 @@ tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 怅惘, 缱绻]
 ---
 
 > "When you've finally got nowhere left to go, you learn whose door was never locked."
-> 「等你终于走投无路的那天，你才知道，谁家的门，从来没锁过。」
+> “等你终于走投无路的那天，你才知道，谁家的门，从来没锁过。”
 
 你和 Nathan 同居快一年了。
 

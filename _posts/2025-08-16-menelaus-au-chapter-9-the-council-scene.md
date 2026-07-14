@@ -9,7 +9,7 @@ series_title: "If You'll Have Me · Menelaus AU"
 series_order: 9
 series_type: "Series"
 chapter_type: "Chapter 9"
-summary: "战神质疑你的职务，他猛地站起：「只要她觉得她是对的，那她就是对的。」"
+summary: "战神质疑你的职务，他猛地站起：“只要她觉得她是对的，那她就是对的。”"
 tags: [Menelaus, Greek Mythology, AU]
 ---
 

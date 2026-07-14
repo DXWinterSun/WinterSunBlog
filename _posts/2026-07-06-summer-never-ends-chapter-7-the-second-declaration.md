@@ -20,8 +20,8 @@ easter_eggs:
 > "You're afraid of heights."
 > "You said it yourself — the minute summer ends, we forget."
 >
-> 「你恐高。」
-> 「你自己说过的——暑假一结束，什么都会忘。」
+> “你恐高。”
+> “你自己说过的——暑假一结束，什么都会忘。”
 
 完美员工周进行到第八天的时候，全园开始出现反常现象。
 

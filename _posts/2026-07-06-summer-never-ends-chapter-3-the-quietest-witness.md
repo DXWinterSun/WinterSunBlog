@@ -16,7 +16,7 @@ summary: "全园最安静的小孩，第一个看穿了你。"
 
 > "Everyone laughs out loud. You don't. You just listen till the very end."
 >
-> 「别人都会笑出声。你不笑——但你每次都听到最后。」
+> “别人都会笑出声。你不笑——但你每次都听到最后。”
 
 那个男孩是在披萨店被捡回来的。
 

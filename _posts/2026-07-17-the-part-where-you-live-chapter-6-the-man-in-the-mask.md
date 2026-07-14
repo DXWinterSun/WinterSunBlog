@@ -14,7 +14,7 @@ tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 暗涌]
 ---
 
 > "Somebody killed them all, and left a playing card. You never even saw his face."
-> 「有人把他们全杀了，留下一张扑克牌。你甚至没来得及看清他的脸。」
+> “有人把他们全杀了，留下一张扑克牌。你甚至没来得及看清他的脸。”
 
 那天 Billy 又不在。
 

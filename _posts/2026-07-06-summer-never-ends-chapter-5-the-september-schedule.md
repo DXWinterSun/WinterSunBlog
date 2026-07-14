@@ -16,7 +16,7 @@ summary: "他把你的离开说得那么顺，像早就归了档。"
 
 > "Don't schedule the leavers into September."
 >
-> 「别把要走的人，排进九月的班。」
+> “别把要走的人，排进九月的班。”
 
 八月来的时候，是带着账单来的。
 

@@ -19,7 +19,7 @@ easter_eggs:
 
 > "She's just a kid who'll forget this the minute summer ends."
 >
-> 「她就是个暑假一结束就会忘掉这一切的小孩。」
+> “她就是个暑假一结束就会忘掉这一切的小孩。”
 
 八月的第一个周五，是入夏以来最热的一天。
 
