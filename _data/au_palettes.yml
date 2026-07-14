@@ -48,6 +48,19 @@
   bg_cn: "落幕玄黑"
   bg_en: "After-Curtain Onyx"
 
+"The Making of You":        # Aldo Stankas · Trust Me · 色卡同源画册 id: aldo
+  mf_id: aldo                # → Many Faces 画册锚点 /sam/many-faces/#aldo
+  theme_id: aldo
+  accent: "#2ea86a"
+  accent_ink: "#1f7a4c"      # accent 暗一档，浅色主题下 ≥4.5:1（实测 ~5.3:1 vs 白）
+  bg: "#0f1613"
+  text: "#dce8e1"
+  muted: "#849a8e"
+  accent_cn: "分红翡翠"
+  accent_en: "Broker's Emerald"
+  bg_cn: "空头支票"
+  bg_en: "Blank-Cheque Black"
+
 "Zaphod AU":                # Zaphod Beeblebrox
   mf_id: zaphod                # → Many Faces 画册锚点 /sam/many-faces/#zaphod
   theme_id: zaphod
