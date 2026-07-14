@@ -58,11 +58,17 @@ sass:
   style: compressed
 
 # Exclude from processing.
+# 仓库根的说明类 .md（含 {% %} / {{ }} 等 Liquid 示例文本）不能被 Jekyll 当页面渲染，
+# 否则示例里的标签会被当成真标签解析、导致构建报 "tag was never closed" 而整站部署失败。
 exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
   - _archive
+  - CLAUDE.md
+  - DEPLOY-CLOUDFLARE.md
+  - NEW-AU-INTAKE-TEMPLATE.md
+  - README.md
 
 gallery_images:
   - counting-stars.png
