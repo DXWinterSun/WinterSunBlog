@@ -355,3 +355,14 @@
   accent_en: "First Snow"
   bg_cn: "寒冬冷蓝灰"
   bg_en: "Winter Steel"
+
+"No One Walks Off":         # Bill Greaves · The Winning Season · Sam Rockwell（画册待收，暂无 mf_id）
+  accent: "#c1352b"
+  accent_ink: "#a32c22"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#16110d"
+  text: "#ede3d3"
+  muted: "#9e8f79"
+  accent_cn: "球场领带红"
+  accent_en: "Courtside Crimson"
+  bg_cn: "散场夜墨黑"
+  bg_en: "Empty-Gym Black"
