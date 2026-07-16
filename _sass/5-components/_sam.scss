@@ -637,6 +637,14 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   background-position-x: left !important;
 }
 
+/* ----- No One Walks Off · Bill Greaves AU · 封面从左裁剪 -----
+   封面 The Winning Season(5).jpg 里 Bill 在画面左侧；同 Billy 那张，默认
+   水平居中裁剪会把他切掉。仅针对这张图把【水平锚点】改到左边，纵向不动，
+   于是系列封面 / 章节卡 / 首页卡 / 文章头图 都从左往右裁，人物完整保留。 */
+[style*="The Winning Season"] {
+  background-position-x: left !important;
+}
+
 /* ----- Series logline (one-line "in brief" premise) -----
    Deliberately NOT the emotional hero quote: upright (not italic), boxed,
    sits below the cover. The poetic .c-hero__lede stays up by the title; this
