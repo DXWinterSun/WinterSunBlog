@@ -2,6 +2,7 @@
 layout: post
 title: "Chapter 1 · 粉手套 — No One Walks Off"
 date: 2026-07-16
+image: "The Winning Season(5).jpg"
 tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 暗涌, 怅惘]
 categories: ["AU Story"]
 series: "No One Walks Off"
