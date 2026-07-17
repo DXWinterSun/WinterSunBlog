@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 20 · 捧在手心 — No One Walks Off"
-date: 2026-08-03
+title: "Chapter 22 · 捧在手心 — No One Walks Off"
+date: 2026-08-05
 image: "The Winning Season(5).jpg"
 tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 缱绻, 炽恋]
 categories: ["AU Story"]
 series: "No One Walks Off"
 series_title: "No One Walks Off · Bill Greaves AU"
-series_order: 20
+series_order: 22
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 20
+chapter_type: Chapter 22
 summary: "地下蜜月。这个把你养大的男人，如今把你当成掌心里的宝，宠得没了边。"
 ---
 
