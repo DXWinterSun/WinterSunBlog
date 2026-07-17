@@ -284,6 +284,19 @@
   text: "#ede4d4"
   muted: "#9a7e58"
 
+- id: greaves
+  year: 2009
+  name: "Bill Greaves"
+  anchor: greaves
+  cn: 球场领带红
+  en: Courtside Crimson
+  bg_cn: 散场夜墨黑
+  bg_en: Empty-Gym Black
+  accent: "#c1352b"
+  bg: "#16110d"
+  text: "#ede3d3"
+  muted: "#9e8f79"
+
 - id: hammer
   year: 2010
   name: "Justin Hammer"

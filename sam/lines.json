@@ -2,8 +2,8 @@
   "meta": {
     "start": "2026-02-13",
     "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-    "characters_count": 46,
-    "pool_count": 230,
+    "characters_count": 47,
+    "pool_count": 235,
     "mf_alias": {
       "johnmoon": "john",
       "sambell": "sam",
@@ -976,6 +976,50 @@
           "line": "I never made conductor. But you said even from the back row, even without the baton, I was the one you couldn't take your eyes off. That's the only review I ever needed.",
           "lineCN": "我到底没能当上指挥。可你说，哪怕在最后一排、哪怕没有指挥棒，我也是你移不开眼的那一个。这是我这辈子唯一需要的乐评。",
           "kind": "情话"
+        }
+      ]
+    },
+    {
+      "id": "greaves",
+      "name": "Bill Greaves",
+      "film": "The Winning Season",
+      "filmCN": "《荣誉之季》",
+      "year": "2009",
+      "accent": "#c1352b",
+      "bg": "#16110d",
+      "text": "#ede3d3",
+      "muted": "#9e8f79",
+      "auLink": "/WinterSunBlog/series/no-one-walks-off/",
+      "quotes": [
+        {
+          "label": "NO ONE WALKS OFF",
+          "line": "Everybody walks off eventually, kid. I didn't.",
+          "lineCN": "谁到最后都走了，丫头。就我没走。",
+          "kind": "锚"
+        },
+        {
+          "label": "PAST DUE",
+          "line": "Phone's shut off again, forgot the light bill, quit on damn near everything I ever started. Go ahead, add it to the list — you're still the one thing I show up for.",
+          "lineCN": "电话又停了，电费又忘了交，这辈子起的头没一件干完的。行，你尽管往单子上添——可你是唯一一件，我还照样出现的事。",
+          "kind": "AU · 烂账"
+        },
+        {
+          "label": "SUIT UP",
+          "line": "Can't give you a damn thing, kid. But lace 'em up — I'll drill you into the best thing this nothing town ever put on a floor. That part I'm good at.",
+          "lineCN": "别的我一样给不了你。可你把鞋带系上——我能把你练成这破镇子送上球场的、最好的那一个。这个我拿手。",
+          "kind": "AU · 教练腔"
+        },
+        {
+          "label": "DON'T YOU DARE",
+          "line": "I'll drink myself stupid — that's my business. But I catch a cigarette on you again, kid, and I'll raise hell. I get to be the wreck. Not you. Never you.",
+          "lineCN": "我把自己喝成个废物，那是我的事。可再让我逮着你碰烟，丫头，我跟你没完。烂的那个只能是我，不能是你，永远不能是你。",
+          "kind": "AU · 底线"
+        },
+        {
+          "label": "PRETTY WRECK",
+          "line": "Whole town's got a list of what's wrong with me. Only you look at me like I hung the moon — and God help me, kid, some nights I let myself look back a beat too long.",
+          "lineCN": "全镇都能给我列张毛病清单。就你，看我像看个宝——老天爷，丫头，有些夜里，我让自己多看了你那么一眼。",
+          "kind": "AU · 暗涌"
         }
       ]
     },
@@ -2390,6 +2434,22 @@
       "kind": "锚"
     },
     {
+      "charId": "greaves",
+      "name": "Bill Greaves",
+      "film": "The Winning Season",
+      "filmCN": "《荣誉之季》",
+      "year": "2009",
+      "accent": "#c1352b",
+      "bg": "#16110d",
+      "text": "#ede3d3",
+      "muted": "#9e8f79",
+      "auLink": "/WinterSunBlog/series/no-one-walks-off/",
+      "label": "NO ONE WALKS OFF",
+      "line": "Everybody walks off eventually, kid. I didn't.",
+      "lineCN": "谁到最后都走了，丫头。就我没走。",
+      "kind": "锚"
+    },
+    {
       "charId": "hammer",
       "name": "Justin Hammer",
       "film": "Iron Man 2",
@@ -3124,6 +3184,22 @@
       "line": "I told my father I was a conductor. Truth is I'm in the back, on the drums. You're the only one I never had to lie to about who I really am.",
       "lineCN": "我跟我爸说，我是个指挥。其实我在最后排，打鼓。你是我唯一，不用撒谎、可以坦白自己到底是谁的人。",
       "kind": "暗告白"
+    },
+    {
+      "charId": "greaves",
+      "name": "Bill Greaves",
+      "film": "The Winning Season",
+      "filmCN": "《荣誉之季》",
+      "year": "2009",
+      "accent": "#c1352b",
+      "bg": "#16110d",
+      "text": "#ede3d3",
+      "muted": "#9e8f79",
+      "auLink": "/WinterSunBlog/series/no-one-walks-off/",
+      "label": "PAST DUE",
+      "line": "Phone's shut off again, forgot the light bill, quit on damn near everything I ever started. Go ahead, add it to the list — you're still the one thing I show up for.",
+      "lineCN": "电话又停了，电费又忘了交，这辈子起的头没一件干完的。行，你尽管往单子上添——可你是唯一一件，我还照样出现的事。",
+      "kind": "AU · 烂账"
     },
     {
       "charId": "hammer",
@@ -3862,6 +3938,22 @@
       "kind": "暗告白"
     },
     {
+      "charId": "greaves",
+      "name": "Bill Greaves",
+      "film": "The Winning Season",
+      "filmCN": "《荣誉之季》",
+      "year": "2009",
+      "accent": "#c1352b",
+      "bg": "#16110d",
+      "text": "#ede3d3",
+      "muted": "#9e8f79",
+      "auLink": "/WinterSunBlog/series/no-one-walks-off/",
+      "label": "SUIT UP",
+      "line": "Can't give you a damn thing, kid. But lace 'em up — I'll drill you into the best thing this nothing town ever put on a floor. That part I'm good at.",
+      "lineCN": "别的我一样给不了你。可你把鞋带系上——我能把你练成这破镇子送上球场的、最好的那一个。这个我拿手。",
+      "kind": "AU · 教练腔"
+    },
+    {
       "charId": "hammer",
       "name": "Justin Hammer",
       "film": "Iron Man 2",
@@ -4598,6 +4690,22 @@
       "kind": "情话"
     },
     {
+      "charId": "greaves",
+      "name": "Bill Greaves",
+      "film": "The Winning Season",
+      "filmCN": "《荣誉之季》",
+      "year": "2009",
+      "accent": "#c1352b",
+      "bg": "#16110d",
+      "text": "#ede3d3",
+      "muted": "#9e8f79",
+      "auLink": "/WinterSunBlog/series/no-one-walks-off/",
+      "label": "DON'T YOU DARE",
+      "line": "I'll drink myself stupid — that's my business. But I catch a cigarette on you again, kid, and I'll raise hell. I get to be the wreck. Not you. Never you.",
+      "lineCN": "我把自己喝成个废物，那是我的事。可再让我逮着你碰烟，丫头，我跟你没完。烂的那个只能是我，不能是你，永远不能是你。",
+      "kind": "AU · 底线"
+    },
+    {
       "charId": "hammer",
       "name": "Justin Hammer",
       "film": "Iron Man 2",
@@ -5332,6 +5440,22 @@
       "line": "I never made conductor. But you said even from the back row, even without the baton, I was the one you couldn't take your eyes off. That's the only review I ever needed.",
       "lineCN": "我到底没能当上指挥。可你说，哪怕在最后一排、哪怕没有指挥棒，我也是你移不开眼的那一个。这是我这辈子唯一需要的乐评。",
       "kind": "情话"
+    },
+    {
+      "charId": "greaves",
+      "name": "Bill Greaves",
+      "film": "The Winning Season",
+      "filmCN": "《荣誉之季》",
+      "year": "2009",
+      "accent": "#c1352b",
+      "bg": "#16110d",
+      "text": "#ede3d3",
+      "muted": "#9e8f79",
+      "auLink": "/WinterSunBlog/series/no-one-walks-off/",
+      "label": "PRETTY WRECK",
+      "line": "Whole town's got a list of what's wrong with me. Only you look at me like I hung the moon — and God help me, kid, some nights I let myself look back a beat too long.",
+      "lineCN": "全镇都能给我列张毛病清单。就你，看我像看个宝——老天爷，丫头，有些夜里，我让自己多看了你那么一眼。",
+      "kind": "AU · 暗涌"
     },
     {
       "charId": "hammer",

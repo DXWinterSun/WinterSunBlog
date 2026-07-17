@@ -356,7 +356,9 @@
   bg_cn: "寒冬冷蓝灰"
   bg_en: "Winter Steel"
 
-"No One Walks Off":         # Bill Greaves · The Winning Season · Sam Rockwell（画册待收，暂无 mf_id）
+"No One Walks Off":         # Bill Greaves · 色卡同源画册 id: greaves
+  mf_id: greaves                 # → Many Faces 画册锚点 /sam/many-faces/#greaves
+  theme_id: greaves
   accent: "#c1352b"
   accent_ink: "#a32c22"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#16110d"
