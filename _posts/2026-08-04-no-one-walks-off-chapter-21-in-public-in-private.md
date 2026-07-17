@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 19 · 人前人后 — No One Walks Off"
-date: 2026-08-02
+title: "Chapter 21 · 人前人后 — No One Walks Off"
+date: 2026-08-04
 image: "The Winning Season(5).jpg"
 tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 暗涌, 炽恋]
 categories: ["AU Story"]
 series: "No One Walks Off"
 series_title: "No One Walks Off · Bill Greaves AU"
-series_order: 19
+series_order: 21
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 19
+chapter_type: Chapter 21
 summary: "人前你乖乖喊他 Dad、端着父女的架子；关上门，他就成了另一个人。"
 ---
 
