@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "No One Walks Off"
 series_title: "No One Walks Off · Bill Greaves AU"
 series_order: 27
-series_status: complete
+series_status: ongoing
 series_type: Series
 chapter_type: Chapter 27
 summary: "到了芝加哥。阳光底下，你第一次牵起他的手，光明正大地，走了出去。"
