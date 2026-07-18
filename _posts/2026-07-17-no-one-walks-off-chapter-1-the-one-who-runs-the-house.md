@@ -3,6 +3,7 @@ layout: post
 title: "Chapter 1 · 当家的 — No One Walks Off"
 categories: ["AU Story"]
 date: 2026-07-17
+image: "The Winning Season(5).jpg"
 series: "No One Walks Off"
 series_title: "No One Walks Off · Bill Greaves AU"
 series_order: 1
