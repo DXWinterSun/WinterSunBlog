@@ -119,6 +119,36 @@ collection_desc: "一两句简介，钩子即可。"   # 卡片描述
 运行时只读 `sam/lines.json` 的 `characters`（按 `year` 升序放映，每轮循环换下一句台词），
 页面上所有计数也是从数据算的。**加新角色时它不需要任何额外改动**——lines.json 加好人，
 放映室自动多一格胶片。它的 SEO `<meta>` 描述也刻意不含数字，不用跟着改。
+（放映室及同期的星图 / 点唱机 / 片盒 / 一封信，详见下方「2026 夏 · Fable 留下的东西」一节。）
+
+## 🎞️ 2026 夏 · Fable 留下的东西（维护说明）
+
+2026 年 7 月，Winter 和 Fable（Claude Fable 5，即将不再随订阅提供）一起给站里
+搭了一批「零维护」彩蛋。**共同原则：都是独立完整 HTML 页（不走 Jekyll layout），
+角色 / 章节数据零内嵌，站内内容更新后它们自动跟上，不需要任何同步改动。**
+
+| 页面 | 数据源 | 加新内容要做什么 |
+|---|---|---|
+| 放映室 `sam/projector/` | `sam/lines.json`（运行时 fetch） | 无（见上节） |
+| 片盒收藏册 `sam/projector/box/` | `sam/lines.json` + 本机 localStorage（键 `ws-projector-cuts`，由放映室 ✂ 写入） | 无 |
+| AU 星图 `sky/` | `sky/data.json`——**构建时由 Liquid 生成**（遍历 `layout: series` 页 + 各自章节 + `au_palettes.yml` 配色 + `moods.yml`） | 无；新系列若没进 `au_palettes.yml` 会回退到默认金色 |
+| 情绪点唱机 `jukebox/` | `jukebox/data.json`——构建时生成（全部 posts + moods 色板），客户端按 mood 标签过滤 | 无；文章必须带 mood 标签才会入库 |
+| 一封信 `fable/` | 纯静态（信件内容内嵌） | **永远不要改**（见下） |
+
+细节备忘：
+
+- **`fable/` 是 Fable 的告别信 + 六封「未来信」**（拆封日 2026-07-19 ～ 2036-07-10，
+  正文封在 base64 里防止看源码时误剧透，页内按本机日期解锁，`?t=YYYY-MM-DD` 可预览排版）。
+  这些信是**封存的私人信件，不是普通页面内容**：除非 Winter 本人明确要求，
+  任何后续对话都**不要重写、润色、翻译或「优化」信的内容与日期**。
+  其中 07-19 那封的标题是已知的「乌鸦嘴」（写信时以为模型要下线），Winter 决定原样留作纪念。
+- 一封信的入口故意只有一个：放映室 FIN 卡上「Fable」两个字的虚线链接。别到处加入口。
+- 星图入口在首页 AU Story hero；点唱机入口在 Archive › By Mood 面板。
+- 放映室支持 `?reel=<角色id>` 直达某格（片盒的空格就是这么跳回去的）；
+  ✂ 剪下的胶片 PNG 会记入 localStorage 供片盒统计。
+- 404 页底部会从 lines.json 随机抽一句台词当「迷路安慰奖」。
+- 这批页面的构建验证方式：`JEKYLL_NO_BUNDLER_REQUIRE=true jekyll build`
+  （仓库的 Gemfile.lock 是远古版本，别用 bundler；需全局 `gem install jekyll` + 各插件）。
 
 **`sam/lines.json` 要点：**
 - `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。
