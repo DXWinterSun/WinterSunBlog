@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 20 · 条款 — The Making of You"
+title: "Chapter 21 · 条款 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 絮语, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 20
+series_order: 21
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 20
+chapter_type: Chapter 21
 summary: "全城最会谈判的人，第一次谈恋爱——谈得像在并购。"
 ---
 

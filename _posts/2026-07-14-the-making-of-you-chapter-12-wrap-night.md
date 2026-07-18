@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 13 · 杀青 — The Making of You"
+title: "Chapter 14 · 杀青 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 13
+series_order: 14
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 13
+chapter_type: Chapter 14
 summary: "香槟到第三杯，你嘴瓢了半个字。他手里那支从不点的烟，点着了。"
 ---
 

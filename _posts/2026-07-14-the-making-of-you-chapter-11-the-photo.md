@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 12 · 照片 — The Making of You"
+title: "Chapter 13 · 照片 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 暗涌, 怅惘]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 12
+series_order: 13
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 12
+chapter_type: Chapter 13
 summary: "凌晨的车被拍到了。他的回应只有一句：她是我的艺人，仅此而已。"
 ---
 
