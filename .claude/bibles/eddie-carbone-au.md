@@ -10,9 +10,16 @@
 - **年代/地点**：1950s，纽约布鲁克林 Red Hook（红钩区），码头工人社区。**保留原著年代与设定。**
 - **底色**：救赎向（不是悲剧结局）。婚内禁忌 + 压抑。
 - **工作分支**：`claude/eddie-carbone-au-e7trt9`
-- **series_name（英文，暂定）**：*Wholly Known*（取自 Alfieri "he allowed himself to be wholly
-  known" —— 那个一辈子说不出自己是什么的男人，终于被完整地看见/知道）。**待 Winter 拍板**，
-  备选：*The Kid* / *Submarine* / *This Side of the Bridge*。定了再据此建 slug/首页。
+- **series_name（英文，已定）**：`Wholly Known`（取自 Alfieri "he allowed himself to be wholly
+  known"）。**slug = `wholly-known`**，permalink `/series/wholly-known/`。
+- **展示标题**：`Wholly Known · Eddie Carbone AU`；hero h1 只写 `Wholly Known`。
+- **byline**：`Eddie Carbone · A View from the Bridge · Sam Rockwell · ongoing`。
+- **sam_collection: true**，`collection_order: 21`（建时线上最大为 20）。
+- **配色**：`_data/au_palettes.yml` 键 `"Wholly Known"`（**无 mf_id**，独立配色，不进画册同步）——
+  accent `#c0492e`「码头炉火红」/ bg `#101316`「港湾落雪夜」。
+- **封面图**：`image: "wholly-known.jpg"`（4 章都用同一张）。**Winter 待用作图指令在 Gemini 生成后，
+  上传到 main 的 `images/wholly-known.jpg`**；未上传前卡片无底图（不报错）。
+- **Eddie 进不进 Many Faces 画册**：暂未做（另用 winter-many-faces-of-sam，需六维打分等；等 Winter 要）。
 
 ## 人物 & 关系内核
 
@@ -116,8 +123,22 @@
 - Ch1：墙上那部电话 / 移民局的威胁一出场就架着（回收 = 后文他挡在你和它之间）。
 - Ch1：Eddie 眼神扫向 Catherine 的第一处身体泄露，被 Neve 当场看破（回收 = 你点他 / 代餐之痛）。
 
-## 已写章节流水
-- **Ch1 · 下船那夜**（草稿聊定中，v2）：Neve 随 Marco/Rodolpho 到 Carbone 家；含外貌（Neve=瘦白
-  黑发利眼的"雪"，Catherine=栗发酒窝爱笑话多，Eddie=码头工人的手、话密掌控欲强）；Eddie 话多地
-  立"submarine"规矩、也管 Neve 叫 kid、但问过名字后始终不说 "Neve"；Neve 只叫 "Mr. Carbone"、他说 call me Eddie
-  不改口；墙上电话阴影架起；Neve 当场看破 Eddie 眼神扫向 Catherine 的一瞬。
+## 已写章节流水（Ch1-4 已发布到分支 `claude/eddie-carbone-au-e7trt9`）
+- **Ch1 · 下船那夜**（`series_order 1`，mood 暗涌/悸动）：Neve 随 Marco/Rodolpho 到 Carbone 家；外貌
+  齐（Neve=瘦白黑发利眼的"雪"，Catherine=栗发酒窝爱笑话多，Eddie=码头工人的手、话密掌控欲强）；
+  立"submarine"规矩、管 Neve 也叫 kid 但问过名字后始终不说 "Neve"；Neve 只"Mr. Carbone"、他 call me
+  Eddie 被挡；墙上电话阴影架起；Neve 当场看破 Eddie 扫向 Catherine 的一瞬。
+- **Ch2 · 掌心**（`series_order 2`，mood 暗涌/怅惘）：头几天日常；Catherine 教 Rodolpho 英文（考据）；
+  Eddie 立"别上街"规矩、耳根红；深夜厨房 Neve 看破他盯着黑电话——**他的掌控 = 怕失去**（救赎地基）；
+  晚饭他压不住扫 Catherine 的一闪，Neve 双关点他"攥太紧会化掉"；Paper Doll 第一次飘进来。
+- **Ch3 · 两个"不许"**（`series_order 3`，mood 暗涌/悸动）：晚饭桌。Catherine 得速记员工作、Eddie 父权
+  驳回（上学/那种地方）；Neve 宣布接针线活挣口粮、Eddie 卡住只能准她在家做却重申别出门——**两种控制
+  被 Neve 当众看破**（拦 C=怕她长大；拦你=他自己）；收在两人隔锅对视 + "留不住的雪"。
+- **Ch4 · 一双手**（`series_order 4`，mood 悸动/缱绻）：深夜厨房独处（两人都睡不实＋他硬扛的手伤）。
+  Neve 命他"坐"、他真坐下（**权力第一次翻转**）；用做活的白棉线替他缠手（针线→缝人母题）；指尖蹭到
+  掌心他一颤，几乎要喊出名字又咽回、退回"kid"；一声"Bea"把潮水压回（Beatrice 那道墙＋Neve 的愧）。
+
+## 待写 / 下一步
+- **Ch5**（Winter 选定方向①）：**白天，两人默契地装作什么都没发生**——本没做什么过分的事，可两个人
+  都在遮掩，反倒像做贼心虚，生出一种诡异的暧昧。**②叠加**：Catherine 和 Rodolpho 一贯的暧昧甜，
+  Eddie 对此一直不爽——Neve 夹在中间看得最清。（Ch5 起日期顺延到 2026-07-19 之后。）
