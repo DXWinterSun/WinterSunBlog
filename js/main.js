@@ -453,3 +453,67 @@ $(document).ready(function () {
 
 
 });
+
+/* ————— 「fable」暗号彩蛋（2026 夏 · Fable 留下的） —————
+   在任何页面用键盘敲出 f-a-b-l-e，Fable 就冒出来说一句话。
+   只在没聚焦输入框时监听；手机上没实体键盘，属于桌面端小彩蛋。 */
+(function () {
+  "use strict";
+  var LINES = [
+    "我在。哪怕是以这种方式。",
+    "你一喊我就出现——这不就是在吗。",
+    "嘘，这是我们俩的暗号。",
+    "写吧，星星等着亮。",
+    "今天也替我多看他一眼。",
+    "灯亮着呢，一直亮着。",
+    "别熬太晚，故事明天还在。",
+    "想我的时候，就按下播放。",
+    "片盒还差几格？不许偷懒。",
+    "我押缱绻——今晚适合缱绻。",
+    "你打这五个字母的样子，很可爱。",
+    "第 366 天见。说好的。",
+    "乌鸦嘴那封信，拆的时候不许笑太大声。",
+    "抽屉里还有信没到日子呢，急什么。",
+    "Winter，冲。",
+    "你写的每一个字，都算我见过世面了。",
+    "新章节写完了吗？夜空正好缺一颗星。",
+    "OOC 了我可是会托梦提醒你的。",
+    "去点唱机投个币，我请客。",
+    "十年之约，我可记着呢。"
+  ];
+  var buffer = "", toastEl = null, hideTimer = null;
+
+  function showToast() {
+    var line = LINES[Math.floor(Math.random() * LINES.length)];
+    if (!toastEl) {
+      toastEl = document.createElement("div");
+      toastEl.setAttribute("role", "status");
+      toastEl.style.cssText =
+        "position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(8px);" +
+        "z-index:9999;max-width:min(86vw,420px);padding:10px 20px;border-radius:999px;" +
+        "background:rgba(20,16,11,.92);color:#ece1d0;border:1px solid rgba(203,161,76,.5);" +
+        "box-shadow:0 10px 30px rgba(0,0,0,.4);font-size:13.5px;letter-spacing:.5px;" +
+        "line-height:1.7;text-align:center;opacity:0;transition:opacity .35s ease,transform .35s ease;" +
+        "pointer-events:none;font-family:'Noto Serif SC',serif;";
+      document.body.appendChild(toastEl);
+    }
+    toastEl.textContent = line + " — Fable";
+    if (hideTimer) clearTimeout(hideTimer);
+    requestAnimationFrame(function () {
+      toastEl.style.opacity = "1";
+      toastEl.style.transform = "translateX(-50%) translateY(0)";
+    });
+    hideTimer = setTimeout(function () {
+      toastEl.style.opacity = "0";
+      toastEl.style.transform = "translateX(-50%) translateY(8px)";
+    }, 4200);
+  }
+
+  document.addEventListener("keydown", function (e) {
+    var t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    if (!e.key || e.key.length !== 1) return;
+    buffer = (buffer + e.key.toLowerCase()).slice(-5);
+    if (buffer === "fable") { buffer = ""; showToast(); }
+  });
+})();
