@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 29 · Stankas 夫人 — The Making of You"
+title: "Chapter 31 · Stankas 夫人 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 安放, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 29
+series_order: 31
 series_status: complete
 series_type: Series
-chapter_type: Chapter 29
+chapter_type: Chapter 31
 summary: "他这辈子走过两次红毯：一次是男朋友，一次是新郎。"
 ---
 
