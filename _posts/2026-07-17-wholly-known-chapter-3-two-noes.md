@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 3 · 两个“不许” — Wholly Known"
 categories: ["AU Story"]
 date: 2026-07-17
-image: "wholly-known.jpg"
+image: "wholly-known.svg"
 series: "Wholly Known"
 series_title: "Wholly Known · Eddie Carbone AU"
 series_order: 3

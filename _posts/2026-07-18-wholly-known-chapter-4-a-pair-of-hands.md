@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 4 · 一双手 — Wholly Known"
 categories: ["AU Story"]
 date: 2026-07-18
-image: "wholly-known.jpg"
+image: "wholly-known.svg"
 series: "Wholly Known"
 series_title: "Wholly Known · Eddie Carbone AU"
 series_order: 4
