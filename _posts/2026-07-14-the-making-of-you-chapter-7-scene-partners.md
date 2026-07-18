@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 7 · 对戏 — The Making of You"
+title: "Chapter 8 · 对戏 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 7
+series_order: 8
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 7
+chapter_type: Chapter 8
 summary: "他兑现了承诺——一个真正合你的角色。你却不敢高兴，只敢拼命。"
 ---
 

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 21 · 大度 — The Making of You"
+title: "Chapter 22 · 大度 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 絮语, 悸动]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 21
+series_order: 22
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 21
+chapter_type: Chapter 22
 summary: "全网都在磕你和男主角。而这部戏，是他亲自替你谈的。"
 ---
 

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 8 · 失控 — The Making of You"
+title: "Chapter 9 · 失控 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 8
+series_order: 9
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 8
+chapter_type: Chapter 9
 summary: "你成了。那一刻你什么都忘了——冲上去，抱住了他。"
 ---
 

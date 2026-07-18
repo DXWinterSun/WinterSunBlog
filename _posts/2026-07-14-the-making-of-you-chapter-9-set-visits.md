@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 9 · 探班 — The Making of You"
+title: "Chapter 10 · 探班 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 暗涌]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 9
+series_order: 10
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 9
+chapter_type: Chapter 10
 summary: "他从不跟组。可你的片场，他“顺路”来了四次。"
 ---
 
