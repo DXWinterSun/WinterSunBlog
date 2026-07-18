@@ -17,8 +17,8 @@ summary: "接机牌上写的不是你的名字，是他自己的头衔。"
 > "Mission accomplished. I finally met my movie star."
 > "Autograph's extra. Kisses are free."
 >
-> 「追星成功。我终于见到我的电影明星了。」
-> 「签名要收费。亲亲免费。」
+> “追星成功。我终于见到我的电影明星了。”
+> “签名要收费。亲亲免费。”
 
 开园日前一天的傍晚，你的航班落地波士顿。
 

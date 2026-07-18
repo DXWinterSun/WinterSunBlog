@@ -120,7 +120,7 @@ const CHARS = [
     bg:"#1c2230", accent:"#c9d84e", text:"#e8eadc", muted:"#7a8590",
     profile:{guile:5,forbear:9,chaos:3,raw:5,romance:6,grace:7} },
   { id:"glenn", name:"Glenn Marchand", film:"Snow Angels", filmCN:"《雪天使》", year:"2007",
-    tagline:"那一夜的雪地里，是你抓住了他的手。",
+    tagline:"那片灰白的雪地里，是你抓住了他的手。",
     line:"I'm the fire that burns everything down. You're the one who didn't.", lineCN:"我是那团烧尽一切的火——你是唯一，没被烧毁的人。",
     bg:"#1c2030", accent:"#b8d0e0", text:"#dce4ea", muted:"#7a8090",
     profile:{guile:4,forbear:3,chaos:8,raw:7,romance:5,grace:3} },
@@ -145,12 +145,18 @@ const CHARS = [
     line:"Every one of us was built to die a tool. You woke us up as a family.", lineCN:"我们本该作为工具一个个死去——是你，把我们当成一家人唤醒。",
     bg:"#162038", accent:"#7eb0d5", text:"#e8eef5", muted:"#6a85a3",
     profile:{guile:5,forbear:8,chaos:3,raw:6,romance:8,grace:5},
-    auLink:"/WinterSunBlog/series/sam-bell-moon-au/" },
+    auLink:"/WinterSunBlog/series/everybody-s-home/" },
   { id:"robert", name:"Robert Goode", film:"Everybody's Fine", filmCN:"《天伦之旅》", year:"2009",
     tagline:"他对自己很苛刻，对你不会。",
     line:"I'm keeping the silly hat on. You're the one who put it there.", lineCN:"这顶歪歪的傻帽子我不摘——是你给我戴上的。",
     bg:"#211910", accent:"#cc4436", text:"#ede4d4", muted:"#9a7e58",
     profile:{guile:5,forbear:7,chaos:2,raw:6,romance:5,grace:7} },
+  { id:"greaves", name:"Bill Greaves", film:"The Winning Season", filmCN:"《荣誉之季》", year:"2009",
+    tagline:"他这辈子啥都半途而废——唯独你这件事，他犯着浑，也没舍得走。",
+    line:"Everybody walks off eventually, kid. I didn't.", lineCN:"谁到最后都走了，丫头。就我没走。",
+    bg:"#16110d", accent:"#c1352b", text:"#ede3d3", muted:"#9e8f79",
+    profile:{guile:6,forbear:3,chaos:6,raw:8,romance:7,grace:2},
+    auLink:"/WinterSunBlog/series/no-one-walks-off/" },
   { id:"hammer", name:"Justin Hammer", film:"Iron Man 2", filmCN:"《钢铁侠2》", year:"2010",
     tagline:"全世界都把他当成一个笑话——只有你，看清了那副眼镜后面的人。",
     line:"I don't have to be him — not when you look at me like that.", lineCN:"我不必活成他——只要你这样看着我。",
@@ -183,6 +189,12 @@ const CHARS = [
     bg:"#14181f", accent:"#8fa0b0", text:"#dce3ea", muted:"#62728d",
     profile:{guile:2,forbear:10,chaos:1,raw:7,romance:4,grace:1},
     auLink:"/WinterSunBlog/series/a-single-shot-au/" },
+  { id:"aldo", name:"Aldo Stankas", film:"Trust Me", filmCN:"《明星少女养成记》", year:"2013",
+    tagline:"他给这座城里每个人都标好了价钱——只有看着你的时候，他忘了报价。",
+    line:"I put a price on everyone in this town — you're the one deal I don't want to close.", lineCN:"这城里每个人我都标好了价——唯独你，是我唯一不想成交的那一单。",
+    bg:"#0f1613", accent:"#2ea86a", text:"#e4efe9", muted:"#7d9a8c",
+    profile:{guile:9,forbear:7,chaos:2,raw:2,romance:7,grace:9},
+    auLink:"/WinterSunBlog/series/the-making-of-you/" },
   { id:"doug", name:"Doug Varney", film:"Better Living Through Chemistry", filmCN:"《毒醉心迷》", year:"2014",
     tagline:"他规矩了一辈子，直到他遇见你才决定不规矩了。",
     line:"Spent my whole life behind that counter. You made me feel alive.", lineCN:"我这辈子都困在柜台后面——是你，让我觉得自己还活着。",
@@ -296,6 +308,7 @@ const PALETTE_NAMES = {
   bronco:        { accentCN:"星际紫晶",   accentEN:"Cosmic Violet",       bgCN:"苍穹墨夜",     bgEN:"Stardust Night" },
   sambell:       { accentCN:"基地微光",   accentEN:"Sarang Glow",         bgCN:"月球蔚蓝",     bgEN:"Lunar Blue" },
   robert:        { accentCN:"圣诞帽红",   accentEN:"Santa Hat",           bgCN:"鼓皮深棕",     bgEN:"Drumskin Brown" },
+  greaves:       { accentCN:"球场领带红", accentEN:"Courtside Crimson",    bgCN:"散场夜墨黑",   bgEN:"Empty-Gym Black" },
   hammer:        { accentCN:"电光钴蓝",   accentEN:"Spotlight Sapphire",  bgCN:"落幕玄黑",     bgEN:"After-Curtain Onyx" },
   kenny:         { accentCN:"铁窗微蓝",   accentEN:"Barred Blue",         bgCN:"囚室灰墙",     bgEN:"Cell Concrete" },
   karl:          { accentCN:"烟熏眼影",   accentEN:"Smoky Kohl",          bgCN:"地窖绒黑",     bgEN:"Basement Velvet" },
@@ -329,8 +342,8 @@ const QUESTIONS = [
     block: 1, q: "周五傍晚，整个夜晚突然自由了。你最可能——",
     opts: [
       { text:"想好几件能做的事，挑最有意思的那个", chars:{eric:3,frank:2,chuck:2,jim:1}, dims:{guile:2} },
-      { text:"谁也不约，守着自己的节奏过一晚", chars:{clay:3,johnmoon:2,brad:2,wayne:1}, dims:{forbear:2} },
-      { text:"冲动出门，不知道去哪，但就是要动", chars:{jerry:3,wildbill:2,zaphod:2,billy:1}, dims:{chaos:2} },
+      { text:"谁也不约，守着自己的节奏过一晚", chars:{clay:3,johnmoon:2,brad:2,wayne:1,greaves:1}, dims:{forbear:2} },
+      { text:"冲动出门，不知道去哪，但就是要动", chars:{jerry:3,wildbill:2,zaphod:2,billy:1,greaves:2}, dims:{chaos:2} },
       { text:"下厨做顿饭，踏踏实实待一晚", chars:{robert:3,buck:2,kenny:2,gary:1}, dims:{raw:2} },
       { text:"讲究地过，泡壶茶，听完一整张黑胶", chars:{francis:3,hammer:2,wolf:2,klenz:1}, dims:{grace:2} },
     ]
@@ -351,7 +364,7 @@ const QUESTIONS = [
       { text:"先在心里理清楚，再挑合适的时机谈", chars:{craig:3,frank:2,manfromfuture:2,doug:1}, dims:{guile:2} },
       { text:"安静下来，需要时间，不主动找他", chars:{wayne:3,johnmoon:2,brad:2,klenz:1}, dims:{forbear:2} },
       { text:"说不了两句就想和好，忍不住先开口", chars:{buck:3,zaphod:2,glenn:2,eddie:1}, dims:{raw:2} },
-      { text:"摔上门出去走走，或者找点别的事做", chars:{wildbill:3,jerry:2,billy:2,chuck:1}, dims:{chaos:2} },
+      { text:"摔上门出去走走，或者找点别的事做", chars:{wildbill:3,jerry:2,billy:2,chuck:1,greaves:3}, dims:{chaos:2} },
       { text:"再气也不摔门、不说狠话，你受不了自己失态", chars:{wolf:3,robert:2,gary:2,reston:1}, dims:{grace:2} },
     ]
   },
@@ -361,7 +374,7 @@ const QUESTIONS = [
       { text:"被人小瞧，明明你早就看清了", chars:{victor:3,eric:2,aidan:2,watson:1}, dims:{guile:2} },
       { text:"被误解，却根本没机会解释", chars:{krzysztof:3,stoppard:2,clay:2,trent:1}, dims:{forbear:2} },
       { text:"无聊，什么都没发生，日子停住了", chars:{manfromfuture:3,glenn:2,kenny:2,bush:1}, dims:{chaos:2} },
-      { text:"被辜负，对方知道你在乎却还是那么做", chars:{matty:3,dixon:2,samuel:2,guy:1}, dims:{raw:2} },
+      { text:"被辜负，对方知道你在乎却还是那么做", chars:{matty:3,dixon:2,samuel:2,guy:1,greaves:2}, dims:{raw:2} },
       { text:"粗糙、廉价的东西闯进你的生活", chars:{sambell:3,francis:2,jim:2,pero:1}, dims:{grace:2} },
     ]
   },
@@ -381,7 +394,7 @@ const QUESTIONS = [
       { text:"开始在计划里，悄悄给他留了位置", chars:{hammer:3,wolf:2,victor:2,watson:1}, dims:{guile:2} },
       { text:"他一不在，就觉得少了一块", chars:{trent:3,stoppard:2,clay:2,krzysztof:1}, dims:{forbear:2} },
       { text:"整个人乱套，停不下来，满脑子都是他", chars:{glenn:3,matty:2,pero:2,owen:1}, dims:{chaos:2} },
-      { text:"只想把最真实的自己摊开给他看", chars:{pero:3,samuel:2,guy:2,eddie:1}, dims:{raw:2} },
+      { text:"只想把最真实的自己摊开给他看", chars:{pero:3,samuel:2,guy:2,eddie:1,greaves:2}, dims:{raw:2} },
       { text:"开始留意他的每一个细节，连他没说的也记下", chars:{gary:3,francis:2,robert:2,craig:1}, dims:{grace:2} },
     ]
   },
@@ -390,7 +403,7 @@ const QUESTIONS = [
     block: 2, q: "最喜欢被哪种方式爱——",
     opts: [
       { text:"被精心设计的惊喜，被用尽心思对待", chars:{hammer:3,eric:2,craig:2,sambell:1}, dims:{grace:2} },
-      { text:"他每天都在，不需要什么大动作", chars:{brad:3,johnmoon:2,wayne:2,doug:1}, dims:{forbear:2} },
+      { text:"他每天都在，不需要什么大动作", chars:{brad:3,johnmoon:2,wayne:2,doug:1,greaves:3}, dims:{forbear:2} },
       { text:"被他突然带着，去做没做过的疯事", chars:{doug:3,jerry:2,wildbill:2,zaphod:1}, dims:{chaos:2} },
       { text:"被实实在在地帮到，不是空话", chars:{bush:3,buck:2,kenny:2,dixon:1}, dims:{raw:2} },
       { text:"被彻底看懂，连你没说出口的也懂", chars:{aidan:3,billy:2,krzysztof:2,guy:1}, dims:{romance:2} },
@@ -766,7 +779,7 @@ function Intro({ onStart, palette, onShuffle }) {
           display:"flex", alignItems:"baseline", justifyContent:"center", gap:20,
           margin:"0 0 6px"
         }}>
-          {[["45","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
+          {[["47","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
             <React.Fragment key={i}>
               {i>0 && <span style={{width:1, height:26, background:p.muted, opacity:0.3}}/>}
               <span style={{display:"flex", flexDirection:"column", alignItems:"center", gap:2}}>

@@ -284,6 +284,19 @@
   text: "#ede4d4"
   muted: "#9a7e58"
 
+- id: greaves
+  year: 2009
+  name: "Bill Greaves"
+  anchor: greaves
+  cn: 球场领带红
+  en: Courtside Crimson
+  bg_cn: 散场夜墨黑
+  bg_en: Empty-Gym Black
+  accent: "#c1352b"
+  bg: "#16110d"
+  text: "#ede3d3"
+  muted: "#9e8f79"
+
 - id: hammer
   year: 2010
   name: "Justin Hammer"
@@ -361,6 +374,19 @@
   bg: "#14181f"
   text: "#dce3ea"
   muted: "#62728d"
+
+- id: aldo
+  year: 2013
+  name: "Aldo Stankas"
+  anchor: aldo
+  cn: 分红翡翠
+  en: Broker's Emerald
+  bg_cn: 空头支票
+  bg_en: Blank-Cheque Black
+  accent: "#2ea86a"
+  bg: "#0f1613"
+  text: "#e4efe9"
+  muted: "#7d9a8c"
 
 - id: varney
   year: 2014

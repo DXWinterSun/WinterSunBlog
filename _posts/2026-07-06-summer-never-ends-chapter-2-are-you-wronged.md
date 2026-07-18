@@ -17,8 +17,8 @@ summary: "全园都说经理在欺负新人——只有你知道不是。"
 > "Winter. You feeling wronged? Am I picking on you?"
 > "Not at all."
 >
-> 「Winter，你委屈吗？我是在欺负你吗？」
-> 「一点也不。」
+> “Winter，你委屈吗？我是在欺负你吗？”
+> “一点也不。”
 
 入职第七天，你已经掌握了这座乐园真正的运作原理。
 

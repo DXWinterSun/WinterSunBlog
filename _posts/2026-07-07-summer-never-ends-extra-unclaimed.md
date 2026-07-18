@@ -27,7 +27,7 @@ easter_eggs:
 
 > "I'm the guy who makes everybody laugh so nobody looks too close. You looked close. And I didn't mind one bit."
 >
-> 「我是那个逗所有人笑、好让没人看得太仔细的家伙。你却看仔细了。我一点都不介意。」
+> “我是那个逗所有人笑、好让没人看得太仔细的家伙。你却看仔细了。我一点都不介意。”
 
 他爸这辈子送过他一样东西：一张画好的路线图。
 

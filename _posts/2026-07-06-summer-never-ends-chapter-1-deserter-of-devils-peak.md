@@ -20,8 +20,8 @@ easter_eggs:
 > "You don't remember me, do you?"
 > "Kid, the whole park remembers you. We almost named the slide after you."
 >
-> 「你不记得我了吧？」
-> 「小孩，全乐园都记得你。我们差点用你的名字给那条滑梯命名。」
+> “你不记得我了吧？”
+> “小孩，全乐园都记得你。我们差点用你的名字给那条滑梯命名。”
 
 外婆家的纱门还是老样子，开合的时候发出一声漫长的、不情不愿的吱呀，像是在替整个小镇表态：这里的一切都拒绝改变。
 

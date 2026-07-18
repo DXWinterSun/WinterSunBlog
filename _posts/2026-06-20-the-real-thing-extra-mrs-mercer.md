@@ -11,7 +11,7 @@ series_order: 11
 series_status: ongoing
 series_type: Series
 chapter_type: 番外
-summary: "她偏要随了他的姓，一声「丈夫」，就够这狐狸得意半天。"
+summary: "她偏要随了他的姓，一声“丈夫”，就够这狐狸得意半天。"
 ---
 
 ## 番外　名分

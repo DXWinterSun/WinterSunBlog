@@ -22,16 +22,16 @@
   bg_cn: "旧宝丽来"
   bg_en: "Faded Polaroid"
 
-"Tuning the Devil":         # Wild Bill Wharton
+"Tuning the Devil":         # Wild Bill Wharton · 色卡同源画册 id: wildbill
   mf_id: wildbill                # → Many Faces 画册锚点 /sam/many-faces/#wildbill
   theme_id: wildbill
-  accent: "#b0803e"
-  accent_ink: "#8a5f28"
+  accent: "#8a8058"
+  accent_ink: "#6e6646"
   bg: "#1b1510"
   text: "#ece1cf"
   muted: "#9d8f78"
-  accent_cn: "锯末粗木"
-  accent_en: "Sawdust Timber"
+  accent_cn: "锯木原色"
+  accent_en: "Raw Timber"
   bg_cn: "炉膛夜黑"
   bg_en: "Forge Soot"
 
@@ -47,6 +47,19 @@
   accent_en: "Spotlight Sapphire"
   bg_cn: "落幕玄黑"
   bg_en: "After-Curtain Onyx"
+
+"The Making of You":        # Aldo Stankas · Trust Me · 色卡同源画册 id: aldo
+  mf_id: aldo                # → Many Faces 画册锚点 /sam/many-faces/#aldo
+  theme_id: aldo
+  accent: "#2ea86a"
+  accent_ink: "#1f7a4c"      # accent 暗一档，浅色主题下 ≥4.5:1（实测 ~5.3:1 vs 白）
+  bg: "#0f1613"
+  text: "#dce8e1"
+  muted: "#849a8e"
+  accent_cn: "分红翡翠"
+  accent_en: "Broker's Emerald"
+  bg_cn: "空头支票"
+  bg_en: "Blank-Cheque Black"
 
 "Zaphod AU":                # Zaphod Beeblebrox
   mf_id: zaphod                # → Many Faces 画册锚点 /sam/many-faces/#zaphod
@@ -64,12 +77,12 @@
 "Knox AU":                  # Eric Knox
   mf_id: eric                # → Many Faces 画册锚点 /sam/many-faces/#eric
   theme_id: knox
-  accent: "#d94040"
-  accent_ink: "#b13030"
+  accent: "#cf3550"
+  accent_ink: "#a62a40"
   bg: "#1b1310"
   text: "#ece0d6"
   muted: "#a08d80"
-  accent_cn: "红镜红"
+  accent_cn: "镜绯红"
   accent_en: "Crimson Lens"
   bg_cn: "可乐棕"
   bg_en: "Cola Noir"
@@ -87,7 +100,7 @@
   bg_cn: "月球蔚蓝"
   bg_en: "Lunar Blue"
 
-"The Near Side":            # Sam Bell · 救援线 AU（与 Sam Bell · Moon AU 同源色卡 theme_id: sambell）
+"Everybody's Home":         # Sam Bell · Moon AU（唯一正典）· 色卡同源画册 theme_id: sambell
   mf_id: sam                # → Many Faces 画册锚点 /sam/many-faces/#sam
   theme_id: sambell
   accent: "#7eb0d5"
@@ -95,10 +108,10 @@
   bg: "#162038"
   text: "#dfe7f2"
   muted: "#8ea0b8"
-  accent_cn: "地球辉光"
-  accent_en: "Earthlight"
-  bg_cn: "近月夜蓝"
-  bg_en: "Near-Side Blue"
+  accent_cn: "基地微光"
+  accent_en: "Sarang Glow"
+  bg_cn: "月球蔚蓝"
+  bg_en: "Lunar Blue"
 
 "A Single Shot AU":         # John Moon
   mf_id: john                # → Many Faces 画册锚点 /sam/many-faces/#john
@@ -139,15 +152,15 @@
   bg_cn: "焦烬玫瑰"
   bg_en: "Charred Rose"
 
-"The Real Thing":           # Frank Mercer · 猫眼石 + 拍卖行
+"The Real Thing":           # Frank Mercer · 色卡同源画册 id: frank
   mf_id: frank                # → Many Faces 画册锚点 /sam/many-faces/#frank
-  accent: "#c47830"
-  accent_ink: "#9c6020"
+  accent: "#9a7ba0"
+  accent_ink: "#7b6280"
   bg: "#1a1410"
   text: "#ede0e6"
   muted: "#8d7462"
-  accent_cn: "猫眼琥珀"
-  accent_en: "Hazel Fox"
+  accent_cn: "紫雾榛眸"
+  accent_en: "Hazel Mauve"
   bg_cn: "焦黑火柴"
   bg_en: "Burnt Matchstick"
 
@@ -231,8 +244,8 @@
 "A Bear and Somewhere Far":  # C.P. "Clay" Ellis · 色卡同源 many-faces id: clay
   mf_id: clay                # → Many Faces 画册锚点 /sam/many-faces/#clay
   theme_id: clay
-  accent: "#b87a3e"
-  accent_ink: "#936232"
+  accent: "#9c6f38"
+  accent_ink: "#7d592d"
   bg: "#161510"
   text: "#ece2ce"
   muted: "#847a5c"
@@ -257,26 +270,26 @@
 "Faith Unseen":             # Don Verdean · 色卡同源 sam_themes.yml id: donverdean
   mf_id: donverdean                # → Many Faces 画册锚点 /sam/many-faces/#donverdean
   theme_id: donverdean
-  accent: "#c69a4b"
-  accent_ink: "#9e7b3c"
+  accent: "#4fa0a0"
+  accent_ink: "#3f8080"
   bg: "#1a1410"
   text: "#ece2cd"
   muted: "#9d8a66"
-  accent_cn: "圣物流金"
-  accent_en: "Relic Gold"
+  accent_cn: "圣物青绿"
+  accent_en: "Relic Turquoise"
   bg_cn: "暮土玄褐"
   bg_en: "Dusk Umber"
 
 "This House Is Clean":      # Eric Bowen · 色卡同源 sam_themes.yml id: bowen
   mf_id: bowen                # → Many Faces 画册锚点 /sam/many-faces/#bowen
   theme_id: bowen
-  accent: "#d8a24e"
-  accent_ink: "#ad823e"
+  accent: "#9fb8c9"
+  accent_ink: "#5e6d78"        # 画册 accent 偏浅，ink 手动加深至 ~4.7:1 保证浅色主题链接对比度
   bg: "#1b1917"
   text: "#ece6dd"
   muted: "#807a71"
-  accent_cn: "夜灯黄铜"
-  accent_en: "Nightlight Brass"
+  accent_cn: "荧屏冷光"
+  accent_en: "Static Glow"
   bg_cn: "空房暮灰"
   bg_en: "Empty-Room Grey"
 
@@ -316,3 +329,42 @@
   accent_en: "Colonial Gilt"
   bg_cn: "海报品红夜"
   bg_en: "Poster Magenta Night"
+
+"The Part Where You Live":   # Billy Bickle · 色卡同源 sam_themes.yml id: billy
+  mf_id: billy                # → Many Faces 画册锚点 /sam/many-faces/#billy
+  theme_id: billy
+  accent: "#c94a1e"
+  accent_ink: "#a13b18"
+  bg: "#281208"
+  text: "#f5e6d0"
+  muted: "#b07840"
+  accent_cn: "方块J焰"
+  accent_en: "Jack of Diamonds"
+  bg_cn: "沙漠焦土"
+  bg_en: "Scorched Desert"
+
+"Don't Let Me Go":          # Glenn Marchand · 色卡同源画册 id: glenn
+  mf_id: glenn                # → Many Faces 画册锚点 /sam/many-faces/#glenn
+  theme_id: glenn
+  accent: "#b8d0e0"
+  accent_ink: "#46617a"        # 画册 accent 偏浅，ink 手动加深至 ~6:1 保证浅色主题链接对比度
+  bg: "#1c2030"
+  text: "#dce4ea"
+  muted: "#7a8090"
+  accent_cn: "初雪微光白"
+  accent_en: "First Snow"
+  bg_cn: "寒冬冷蓝灰"
+  bg_en: "Winter Steel"
+
+"No One Walks Off":         # Bill Greaves · 色卡同源画册 id: greaves
+  mf_id: greaves                 # → Many Faces 画册锚点 /sam/many-faces/#greaves
+  theme_id: greaves
+  accent: "#c1352b"
+  accent_ink: "#a32c22"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#16110d"
+  text: "#ede3d3"
+  muted: "#9e8f79"
+  accent_cn: "球场领带红"
+  accent_en: "Courtside Crimson"
+  bg_cn: "散场夜墨黑"
+  bg_en: "Empty-Gym Black"

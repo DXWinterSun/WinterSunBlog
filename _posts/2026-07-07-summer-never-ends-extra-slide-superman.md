@@ -16,7 +16,7 @@ summary: "他用一个漏洞百出的荤段子，包了一句正经的情话。"
 
 > "A legend like that, the fame's a burden. A man's gotta reinvent himself somehow."
 >
-> 「那种级别的传奇，名气是种负担。人总得想办法重新做人。」
+> “那种级别的传奇，名气是种负担。人总得想办法重新做人。”
 
 新来的暑期工叫Marcus，十七岁，第一天上工。
 

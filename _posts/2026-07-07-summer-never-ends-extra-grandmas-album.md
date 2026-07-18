@@ -16,7 +16,7 @@ summary: "他把太平洋验收得体无完肤，却在你外婆的相册前彻�
 
 > "I've had the run of a whole water park for years. Never once been this nervous."
 >
-> 「我掌管一整座水上乐园好几年了，从没这么紧张过。」
+> “我掌管一整座水上乐园好几年了，从没这么紧张过。”
 
 那顿晚饭，是外婆亲自下的战书。
 

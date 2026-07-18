@@ -1,7 +1,7 @@
 {
   "name": "今日的 Sam",
   "short_name": "今日 Sam",
-  "description": "每天一句，只对你说的话。四十五个角色，日日轮转。",
+  "description": "每天一句，只对你说的话。四十七个角色，日日轮转。",
   "start_url": "/WinterSunBlog/sam/today/",
   "scope": "/WinterSunBlog/sam/today/",
   "display": "standalone",

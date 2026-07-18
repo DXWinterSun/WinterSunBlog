@@ -19,7 +19,7 @@ easter_eggs:
 
 > "Every last Saturday of August. Green suitcase. Gate two."
 >
-> 「每年八月的最后一个周六。绿色的行李箱。二号检票口。」
+> “每年八月的最后一个周六。绿色的行李箱。二号检票口。”
 
 周一早上八点半，员工通道口，一台对讲机被塞进你手里。
 
