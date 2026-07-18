@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 18 · 高定 — The Making of You"
+title: "Chapter 19 · 高定 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 絮语]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 18
+series_order: 19
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 18
+chapter_type: Chapter 19
 summary: "提名那天他说：这回，穿裙子的事，我亲自管。"
 ---
 

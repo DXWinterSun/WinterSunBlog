@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 27 · 终身合约 — The Making of You"
+title: "Chapter 28 · 终身合约 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 安放, 炽恋]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 27
+series_order: 28
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 27
+chapter_type: Chapter 28
 summary: "他请了全城的媒体开发布会。压轴那单的乙方签名栏，空着。"
 ---
 

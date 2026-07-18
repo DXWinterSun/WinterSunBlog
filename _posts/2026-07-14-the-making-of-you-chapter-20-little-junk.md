@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 22 · 小破烂 — The Making of You"
+title: "Chapter 23 · 小破烂 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 怀旧]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 22
+series_order: 23
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 22
+chapter_type: Chapter 23
 summary: "他打开那个写着杂物的箱子，笑到一半，忽然笑不出来了。"
 ---
 
