@@ -17,13 +17,13 @@ easter_eggs:
     label: "走廊里他报出自己的名字，像报一个价——他不知道，对面那个小孩早就会念了"
   - series_order: 2
     label: "签约那天电话里的半秒——他记住的第一件事，是她看见了"
-  - series_order: 17
+  - series_order: 23
     label: "领奖台上那句“这一座”，他在台下替一个发音起立"
-  - series_order: 24
+  - series_order: 30
     label: "红毯司仪二十年来第一次念对——注音卡的来历，他事后审了出来"
-  - series_order: 26
-    label: "证婚人的聘用理由，只写了一行"
   - series_order: 32
+    label: "证婚人的聘用理由，只写了一行"
+  - series_order: 38
     label: "墓园里那张小纸条，和婚礼前露馅的三个月立陶宛语"
 ---
 

@@ -17,17 +17,17 @@ easter_eggs:
     label: "那天他本来要走了——换他讲走廊里的那半秒"
   - series_order: 2
     label: "签约那天，他先记住的不是你的天赋，是你听见了那半秒"
-  - series_order: 6
+  - series_order: 7
     label: "图个乐子——这四个字的三层谎，他自己拆给你看"
-  - series_order: 8
-    label: "那只停在半空的手，为什么没敢落下去"
   - series_order: 10
+    label: "那只停在半空的手，为什么没敢落下去"
+  - series_order: 13
     label: "红灯后的半条街，和音响里循环的那首歌"
-  - series_order: 12
+  - series_order: 17
     label: "露台上那支烟点着之后，他一个人站了多久"
-  - series_order: 15
+  - series_order: 8
     label: "你说我不走的那晚，他在办公室算了一笔算不出来的账"
-  - series_order: 18
+  - series_order: 24
     label: "从不打草稿的人，把走廊那场话在车里练了三十遍"
 ---
 
