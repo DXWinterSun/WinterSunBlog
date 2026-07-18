@@ -368,3 +368,14 @@
   accent_en: "Courtside Crimson"
   bg_cn: "散场夜墨黑"
   bg_en: "Empty-Gym Black"
+
+"Wholly Known":             # Eddie Carbone · A View from the Bridge · 非画册角色，独立配色
+  accent: "#c0492e"
+  accent_ink: "#9d3a22"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#101316"
+  text: "#e9ddca"
+  muted: "#8c8073"
+  accent_cn: "码头炉火红"
+  accent_en: "Dockside Ember"
+  bg_cn: "港湾落雪夜"
+  bg_en: "Snowfall Harbor"

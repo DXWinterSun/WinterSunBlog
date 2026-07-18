@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540">
+  <defs>
+    <linearGradient id="wk-bg" x1="0%" y1="0%" x2="40%" y2="100%">
+      <stop offset="0%" stop-color="#1a2632"/>
+      <stop offset="52%" stop-color="#121821"/>
+      <stop offset="100%" stop-color="#0a0c10"/>
+    </linearGradient>
+    <radialGradient id="wk-lamp" cx="50%" cy="26%" r="46%">
+      <stop offset="0%" stop-color="#e08a3a" stop-opacity="0.30"/>
+      <stop offset="45%" stop-color="#c0492e" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0a0c10" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wk-bulb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe6a6" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#e8a24a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#c0492e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="540" fill="url(#wk-bg)"/>
+  <rect width="900" height="540" fill="url(#wk-lamp)"/>
+
+  <!-- Harbor water: faint horizontal shimmer -->
+  <g stroke="#3a5162" stroke-opacity="0.22">
+    <line x1="60" y1="470" x2="840" y2="470" stroke-width="1"/>
+    <line x1="120" y1="486" x2="780" y2="486" stroke-width="0.8"/>
+    <line x1="180" y1="500" x2="720" y2="500" stroke-width="0.6"/>
+  </g>
+
+  <!-- Bridge (a view from the bridge) — distant steel silhouette -->
+  <g stroke="#43596a" stroke-opacity="0.42" fill="none">
+    <!-- roadway -->
+    <line x1="70" y1="452" x2="830" y2="452" stroke-width="2"/>
+    <!-- main cables (double, draped) -->
+    <path d="M70,452 Q170,398 250,372 Q450,300 650,372 Q730,398 830,452" stroke-width="1.6"/>
+    <path d="M70,449 Q170,395 250,369 Q450,297 650,369 Q730,395 830,449" stroke-width="1"/>
+    <!-- suspenders (left span) -->
+    <line x1="130" y1="424" x2="130" y2="452" stroke-width="0.6"/>
+    <line x1="170" y1="410" x2="170" y2="452" stroke-width="0.6"/>
+    <line x1="210" y1="392" x2="210" y2="452" stroke-width="0.6"/>
+    <!-- suspenders (main span) -->
+    <line x1="300" y1="360" x2="300" y2="452" stroke-width="0.6"/>
+    <line x1="360" y1="342" x2="360" y2="452" stroke-width="0.6"/>
+    <line x1="420" y1="330" x2="420" y2="452" stroke-width="0.6"/>
+    <line x1="480" y1="330" x2="480" y2="452" stroke-width="0.6"/>
+    <line x1="540" y1="342" x2="540" y2="452" stroke-width="0.6"/>
+    <line x1="600" y1="360" x2="600" y2="452" stroke-width="0.6"/>
+    <!-- suspenders (right span) -->
+    <line x1="690" y1="392" x2="690" y2="452" stroke-width="0.6"/>
+    <line x1="730" y1="410" x2="730" y2="452" stroke-width="0.6"/>
+    <line x1="770" y1="424" x2="770" y2="452" stroke-width="0.6"/>
+  </g>
+  <!-- Bridge towers: Brooklyn-style twin gothic arches -->
+  <g fill="#2b3b47" fill-opacity="0.5" stroke="#43596a" stroke-opacity="0.4" stroke-width="1">
+    <path d="M232,452 L232,360 Q232,352 240,352 L240,352 Q250,338 260,352 Q268,352 268,360 L268,452 Z
+             M240,452 L240,392 Q240,378 250,378 Q260,378 260,392 L260,452 Z"/>
+    <path d="M632,452 L632,360 Q632,352 640,352 Q650,338 660,352 Q668,352 668,360 L668,452 Z
+             M640,452 L640,392 Q640,378 650,378 Q660,378 660,392 L660,452 Z"/>
+  </g>
+
+  <!-- Hanging bare bulb (the kitchen lamp) -->
+  <line x1="450" y1="0" x2="450" y2="120" stroke="#5a4a3a" stroke-width="1.4" stroke-opacity="0.6"/>
+  <ellipse cx="450" cy="150" rx="60" ry="66" fill="url(#wk-bulb)"/>
+  <path d="M444,120 Q444,138 450,146 Q456,138 456,120 Z" fill="#8a6a3a" opacity="0.7"/>
+  <ellipse cx="450" cy="150" rx="10" ry="13" fill="#ffe9b0" opacity="0.95"/>
+
+  <!-- Falling snow (Neve) -->
+  <g fill="#d6dee6">
+    <circle cx="150" cy="120" r="2.4" opacity="0.6"/>
+    <circle cx="210" cy="80" r="1.8" opacity="0.5"/>
+    <circle cx="280" cy="150" r="2.6" opacity="0.5"/>
+    <circle cx="330" cy="100" r="1.6" opacity="0.45"/>
+    <circle cx="600" cy="110" r="2.4" opacity="0.55"/>
+    <circle cx="660" cy="160" r="1.8" opacity="0.45"/>
+    <circle cx="720" cy="96" r="2.2" opacity="0.5"/>
+    <circle cx="760" cy="200" r="1.6" opacity="0.4"/>
+    <circle cx="110" cy="230" r="1.8" opacity="0.4"/>
+    <circle cx="815" cy="150" r="1.4" opacity="0.35"/>
+    <circle cx="380" cy="60" r="1.4" opacity="0.4"/>
+    <circle cx="520" cy="70" r="1.6" opacity="0.42"/>
+    <circle cx="250" cy="250" r="1.4" opacity="0.3"/>
+    <circle cx="700" cy="255" r="1.5" opacity="0.32"/>
+  </g>
+  <!-- Warm embers near the lamp -->
+  <g fill="#e8a24a">
+    <circle cx="470" cy="200" r="1.8" opacity="0.5"/>
+    <circle cx="430" cy="185" r="1.4" opacity="0.45"/>
+    <circle cx="492" cy="168" r="1.2" opacity="0.4"/>
+    <circle cx="412" cy="215" r="1.2" opacity="0.35"/>
+  </g>
+
+  <!-- The black telephone (the danger on the wall) -->
+  <g transform="translate(150,392)" opacity="0.92">
+    <!-- body -->
+    <path d="M-6,64 L96,64 Q104,64 104,54 L100,30 Q98,20 88,20 L2,20 Q-8,20 -10,30 L-14,54 Q-14,64 -6,64 Z"
+          fill="#12171d" stroke="#c0492e" stroke-opacity="0.5" stroke-width="1.2"/>
+    <!-- rotary dial -->
+    <circle cx="45" cy="45" r="15" fill="#0c0f13" stroke="#8c8073" stroke-opacity="0.5" stroke-width="1.2"/>
+    <circle cx="45" cy="45" r="6" fill="#1a2028"/>
+    <!-- cradle + handset -->
+    <rect x="4" y="10" width="82" height="12" rx="6" fill="#0c0f13" stroke="#c0492e" stroke-opacity="0.45" stroke-width="1"/>
+    <path d="M2,4 Q2,-4 12,-4 L18,-4 Q26,-4 24,6 L20,12 L10,12 Q2,12 2,4 Z" fill="#12171d" stroke="#8c8073" stroke-opacity="0.4" stroke-width="1"/>
+    <path d="M88,4 Q88,-4 78,-4 L72,-4 Q64,-4 66,6 L70,12 L80,12 Q88,12 88,4 Z" fill="#12171d" stroke="#8c8073" stroke-opacity="0.4" stroke-width="1"/>
+    <!-- cord -->
+    <path d="M-6,50 Q-40,54 -46,74 Q-52,92 -30,96" stroke="#12171d" stroke-width="2.4" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- Needle + white thread (you, mending) -->
+  <g transform="translate(650,300) rotate(28)">
+    <!-- thread looping from the eye -->
+    <path d="M0,10 Q-70,40 -30,110 Q-6,150 -80,168 Q-140,182 -120,230"
+          stroke="#e9ddca" stroke-width="2" fill="none" opacity="0.85" stroke-linecap="round"/>
+    <!-- needle -->
+    <path d="M0,0 L4,150 Q3,158 0,158 Q-3,158 -4,150 L0,0 Z" fill="#c8c2b4"/>
+    <path d="M0,0 L2,150 L0,152 L-2,150 Z" fill="#f2ede2" opacity="0.7"/>
+    <!-- eye -->
+    <ellipse cx="0" cy="12" rx="2.6" ry="7" fill="none" stroke="#8c8073" stroke-width="1.4"/>
+    <!-- tiny glint -->
+    <circle cx="0" cy="150" r="2.2" fill="#fff4d8" opacity="0.9"/>
+  </g>
+
+  <line x1="150" y1="486" x2="750" y2="486" stroke="#c0492e" stroke-width="0.6" stroke-opacity="0.22"/>
+  <rect x="0" y="502" width="900" height="38" fill="#07090c" opacity="0.55"/>
+</svg>
