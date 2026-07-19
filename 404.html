@@ -34,6 +34,10 @@ permalink: /404.html
       🌕 也许它已经在月球上待了三年
       <a href="{{site.baseurl}}/series/everybody-s-home/">→ Moon AU</a>
     </li>
+    <li>
+      🎞️ 也许它被剪下来，收进片盒了
+      <a href="{{site.baseurl}}/sam/projector/">→ 去放映室看看</a>
+    </li>
   </ul>
 
   <div class="c-hero__socials">
@@ -41,4 +45,29 @@ permalink: /404.html
     <a href="{{site.baseurl}}/archive/">翻翻归档</a>
     <a href="{{site.baseurl}}/contact/">告诉我哪条链接坏了</a>
   </div>
+
+  {%- comment -%} 迷路安慰奖：从片盘里随机抽一句他的台词 {%- endcomment -%}
+  <p id="lost-line" hidden style="margin: 34px auto 0; max-width: 30em; font-weight: 300; font-size: 14px; line-height: 2; opacity: .75;">
+    <span style="display:block; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; opacity: .7; margin-bottom: 8px;">迷路安慰奖 · 片盘随机一格</span>
+    <em id="lost-line-en" style="font-style: italic;"></em><br>
+    <span id="lost-line-cn"></span><br>
+    <span id="lost-line-who" style="font-size: 12px; opacity: .8;"></span>
+  </p>
+  <script>
+    (function () {
+      fetch("{{ site.baseurl }}/sam/lines.json", { cache: "no-cache" })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          var chars = data.characters || [];
+          if (!chars.length) return;
+          var c = chars[Math.floor(Math.random() * chars.length)];
+          var q = c.quotes[Math.floor(Math.random() * c.quotes.length)];
+          document.getElementById("lost-line-en").textContent = q.line;
+          document.getElementById("lost-line-cn").textContent = q.lineCN || "";
+          document.getElementById("lost-line-who").textContent = "— " + c.name + " · " + c.year;
+          document.getElementById("lost-line").hidden = false;
+        })
+        .catch(function () {});
+    })();
+  </script>
 </section>

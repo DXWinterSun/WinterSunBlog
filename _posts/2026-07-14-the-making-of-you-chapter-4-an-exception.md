@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 4 · 破例 — The Making of You"
+title: "Chapter 5 · 破例 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 4
+series_order: 5
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 4
+chapter_type: Chapter 5
 summary: "他第一次帮你争来试镜。你觉得他好像温和了些——也许，只是你想看见。"
 ---
 

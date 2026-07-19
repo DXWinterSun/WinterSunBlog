@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 14 · 搬家 — The Making of You"
+title: "Chapter 20 · 搬家 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 絮语, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 14
+series_order: 20
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 14
+chapter_type: Chapter 20
 summary: "第一笔片酬，换来第一个有阳光的房间。有个纸箱，你死也不让他碰。"
 ---
 

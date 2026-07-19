@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 23 · 更正声明 — The Making of You"
+title: "Chapter 29 · 更正声明 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 安放, 炽恋]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 23
+series_order: 29
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 23
+chapter_type: Chapter 29
 summary: "全城最会发声明的人，亲自给自己写了一份——更正三年前那句。"
 ---
 

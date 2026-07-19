@@ -6,8 +6,10 @@
 
 ## 一份系列圣经长什么样
 
+（存放位置：`.claude/bibles/the-making-of-you.md`——圣经一律入库，别放 scratchpad，见 SKILL.md 第二块）
+
 ```
-# The Making of You · 系列圣经（内部用，非仓库）
+# The Making of You · 系列圣经（内部工作文件，Jekyll 不发布）
 
 series_name: The Making of You ｜ slug series/the-making-of-you/ ｜ collection_order 19
 角色: Aldo Stankas（Sam Rockwell,《明星少女养成记》/ Trust Me 2013）画册 id aldo

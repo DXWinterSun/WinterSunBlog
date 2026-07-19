@@ -7,7 +7,7 @@ tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 悸动]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 39
+series_order: 45
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 13

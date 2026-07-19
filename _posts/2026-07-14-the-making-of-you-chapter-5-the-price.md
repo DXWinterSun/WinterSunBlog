@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 5 · 价码 — The Making of You"
+title: "Chapter 6 · 价码 — The Making of You"
 date: 2026-07-14
 image: aldo-stankas.jpg
 tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 怅惘, 暗涌]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 5
+series_order: 6
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 5
+chapter_type: Chapter 6
 summary: "试镜那天你是最好的那个。可这行里，最好的，从来不等于买得起的。"
 ---
 

@@ -7,25 +7,25 @@ tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 安放]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"
-series_order: 36
+series_order: 42
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 10
 summary: "那本从来不存在的账，他后来真的开了一本。每天，记一笔。"
 easter_eggs:
-  - series_order: 19
-    label: "第一次约会前，他在车里坐了二十分钟——练怎么自然地伸手"
-  - series_order: 20
-    label: "苹果滚出来那一刻，他二十年的账本，当场崩盘重算"
-  - series_order: 22
-    label: "问出那句告诉我那是演的之前，他已经写好了认输的稿子"
   - series_order: 25
-    label: "戒指内圈的四个备选刻字，和他毙掉三稿的理由"
+    label: "第一次约会前，他在车里坐了二十分钟——练怎么自然地伸手"
   - series_order: 26
+    label: "苹果滚出来那一刻，他二十年的账本，当场崩盘重算"
+  - series_order: 28
+    label: "问出那句告诉我那是演的之前，他已经写好了认输的稿子"
+  - series_order: 31
+    label: "戒指内圈的四个备选刻字，和他毙掉三稿的理由"
+  - series_order: 32
     label: "那部《回信》他剪了三个月——终于承认自己也会写情书"
-  - series_order: 34
+  - series_order: 40
     label: "吹蜡烛那晚，愿望其实有下半句"
-  - series_order: 35
+  - series_order: 41
     label: "极光底下，他对他妈妈说的话，完整版"
 ---
 
