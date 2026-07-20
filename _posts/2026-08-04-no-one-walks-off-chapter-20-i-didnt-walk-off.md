@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 我没走 — No One Walks Off"
+title: "Chapter 20 · 我没走 — No One Walks Off"
 categories: ["AU Story"]
 date: 2026-08-04
 image: "The Winning Season(5).jpg"
@@ -8,7 +8,7 @@ series: "No One Walks Off"
 series_title: "No One Walks Off · Bill Greaves AU"
 series_order: 20
 series_type: "Series"
-chapter_type: "Extra · 他视角"
+chapter_type: "Chapter 20"
 summary: "所有人都劝他把你送走。这个一辈子没做对过事的男人，偏偏没听。"
 tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 怅惘, 暗涌]
 ---
