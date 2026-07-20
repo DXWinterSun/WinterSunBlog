@@ -960,7 +960,7 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   color: $ink-soft;
   margin: 0 0 18px;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1009,5 +1009,5 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   .c-sam-grid { grid-template-columns: 1fr; gap: 16px; }
   .c-sam-card__body { padding: 20px 20px; }
   .c-sam-card__title { font-size: 21px; }
-  .c-sam-card__desc { -webkit-line-clamp: 5; }
+  .c-sam-card__desc { -webkit-line-clamp: 3; }
 }

@@ -135,8 +135,23 @@ sam_collection: true            # 出现在 Sam tab 的开关
 collection_order: 6             # 排序，数字越小越靠前
 collection_eyebrow: "AU Story · Series"   # 卡片小标签（oneshot 用 "AU Story · Oneshot"）
 collection_title: "标题 · 角色 AU"         # 卡片标题
-collection_desc: "一两句简介，钩子即可。"   # 卡片描述
+collection_desc: "一句话钩子，≤45字，收在完整一句。"   # 卡片描述（有硬性字数上限，见下）
 ```
+
+### ⚠️ `collection_desc` 有硬性字数上限：≤ 45 字（一句话钩子）
+
+卡片描述文字（`c-sam-card__desc`）用 `-webkit-line-clamp: 3` 只显示 3 行，
+在手机窄屏下 3 行大约只放得下 ~45 个汉字（英文名/片名占位窄，可略放宽）。
+**超了就会被拦腰截断**（曾出现「……和一个…」这种半句截断的难看情况），所以：
+
+1. `collection_desc` **必须 ≤ 45 字**（英文片名/角色名多时可到 ~50），且**收在一个完整的句子**，别指望 clamp 帮你断句。
+2. 内容是**一句话钩子**：点出「哪部片的哪个角色 + 一句最勾人的核心设定」，不是完整简介。
+   - 模板：`《片名》里那个〈一句话人设〉的 角色名——〈你和他之间最勾人的一句〉。`
+   - 例：`《钢铁侠 2》里被全世界当笑话的 Justin Hammer——只有你看见他眼镜后面那个真实的人。`
+3. **Sam 卡只读 `collection_desc`**（模板 `s.collection_desc | default: s.logline`）；
+   `logline` 是给**系列首页那张「基调 · Tone」卡**用的，可以 1–2 句、长一点，两者别混。
+4. 写完扫一眼长度：`grep -E '^collection_desc:' series/<slug>/index.html | sed 's/.*"\(.*\)"/\1/' | python3 -c "import sys;print(len(sys.stdin.read().strip()))"`。
+5. clamp 只是安全网（写超了不会撑破卡片），但**别依赖它**——始终把 desc 写到能完整显示。
 
 **关键规则：`sam_collection` 只给 Sam Rockwell 本人演过的角色。**
 这是一个**显式 opt-in 开关**——不加就不会出现，所以不可能把别人的
