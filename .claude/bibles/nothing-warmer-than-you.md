@@ -205,8 +205,37 @@ Winter 已了解全片剧情。**核心待定：**Winter 只是陪他把悲剧�
   塞进我手心」）→ 火把追兵摸上门（危险）→ 你抄父亲猎枪、带他冲进只有你认得的雪林逃生（你的高光/
   角色反转：头一回你护他）→ 留一行字条＋把小木马留给父亲 → 「从今夜起你没有家了，可你有他」。
   枪母题：枪第一次成「你的」。⚠️ 落盘：字条做成 c-note 卡片。mood 悸动 + 暗涌。
-  - summary：`他来道别，追兵摸上门；你抄起父亲的猎枪，带他冲进风雪。`（26 字）
+  - summary：`他来道别，追兵摸上门；你抄起父亲的猎枪，带他冲进风雪。`（26 字，落盘版已把「追兵」改「追来的人」）
   - tags：`[Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 悸动, 暗涌]`
+- **Ch6 · Earning Her Spurs**（草稿已写、Winter 认可；全文存 `nwty-ch6-draft.md`｜亡命天涯·挣信任）：
+  冷脸相迎（Dick 嘲讽、Bob 阴沉）→ Jesse 拿绳索敲打（A·胆气），你亮明「我跟你们一样回不去了」顶
+  回去 → 你降住那匹没人近得了的烈马（B·手艺）→ 挣来位置。Charley 越有面子越翘尾巴。暗刀收尾。
+  ⚠️已修剧透穿帮（不再预支「丑得惊天动地」，改「连姓都不肯告诉我的家伙」）。mood 暗涌 + 悸动。
+  - summary：`满屋子枪口对着你这外人；你降住那匹烈马，挣来了一个位置。`（28 字）
+  - tags：`[Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 暗涌, 悸动]`
+- **Ch7 · Firelight**（草稿已写、Winter 认可；全文存 `nwty-ch7-draft.md`｜第一个篝火夜·暗刀）：
+  Jesse 拱火「丑得惊天动地要不换一个」→ 你拍脸笑说「可我看他最好看」→ 讨糖大狗狗（越宠越黏）→
+  Jesse 真心的笑 → 暗刀（Wood 还活、Bob 还没动念、Jesse 还没疯，暖是借来的）→ 只你俩余温（他讨你
+  再说一遍，你冲他大衣怀里补一句「全世界你最好看」）。mood 缱绻 + 怅惘。
+  - summary：`篝火最旺的一夜，你拍着他的脸说：全世界你最好看。`（22 字）
+  - tags：`[Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 缱绻, 怅惘]`
+
+## 帮派花名册（写群像用 · Winter 提供群像照 + 演员对照）
+
+后排左→右：**Ed Miller**（Garret Dillahunt·棕大衣；旧部，后被 Jesse 疑而杀）｜**Dick Liddil**
+（Paul Schneider·圆顶礼帽+花呢；自诩情场高手 / 祸头子）｜**Wood Hite**（Jeremy Renner·灰圆顶帽；
+Jesse 表亲，后被 Bob 打死）｜**Charley Ford**（Sam Rockwell·我们的人）｜**Bob Ford**（Casey
+Affleck·深色长大衣；Charley 的弟弟，崇拜 Jesse，日后开枪的人）。
+前排坐：**Jesse James**（Brad Pitt·深西装 + 怀表链；头，忽软忽狠，日后疑神疑鬼）｜**Frank James**
+（Sam Shepard·小胡子 + 猎枪；Jesse 的哥，Blue Cut 后金盆洗手先走）。
+
+## 待写动态（Winter 定）
+
+- **Dick 撩你、铩羽而归**：自诩情场高手，对你出手，被你冷冷噎回；配 Charley 吃醋护食的大狗狗反应。
+- **Bob 的「嫂子线」（重要）**：你一眼看穿他对 Jesse 的偏执崇拜，却不嘲笑他；像个称职的嫂子一样
+  跟他搭话、消减他扭曲的心理。⟶ 直通「改写宿命」：Bob 若被你一点点焐软 / 被真正看见，那颗扳机的
+  引信，也许就能拆。（尽力向；大岔口仍未定，留活扣。）
+- **多刻画群像，尤其 Jesse**（软 / 狠交替的魅力、造型帅——Brad Pitt）。
 
 ## 伏笔账（PINNED=已埋待收 / DEFERRED=压着到点放）
 
