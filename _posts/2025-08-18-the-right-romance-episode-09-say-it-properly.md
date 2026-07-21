@@ -10,7 +10,7 @@ series_order: 9
 series_type: "Series"
 chapter_type: "Episode 09"
 summary: "他鼓起全部的勇气，说出那句话。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 悸动, 安放]
+tags: [Sam Pinkett, BayBay, AU, The Right Romance, 悸动, 安放]
 ---
 
 **💌 Episode 09｜Say It Properly**

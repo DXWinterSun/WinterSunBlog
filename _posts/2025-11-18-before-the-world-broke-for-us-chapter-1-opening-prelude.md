@@ -10,7 +10,7 @@ series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "他捏住你的下巴逼你抬头——小姑娘，你早该逃的。但你一动不动。"
-tags: [Hector Escaton, Westworld, AU, 暗涌, 悸动]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 暗涌, 悸动]
 ---
 
 🌘🤠 《Before the World Broke for Us》

@@ -10,7 +10,7 @@ series_order: 7
 series_type: "Series"
 chapter_type: "Chapter 7"
 summary: "他独自躺在长廊望着星空默默难过，你抱着薄毯走来，俯身替他盖上。"
-tags: [Menelaus, Greek Mythology, AU]
+tags: [Menelaus, BayBay, AU, Menelaus AU, 怅惘, 缱绻]
 ---
 
 🌌 The Night Before the Choice

@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · 魔鬼峰的逃兵 — Summer Never Ends"
 date: 2026-07-06
 image: the-way-way-back.JPG
-tags: [悸动, 怀旧]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 悸动, 怀旧]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"

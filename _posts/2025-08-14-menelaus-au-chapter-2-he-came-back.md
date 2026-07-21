@@ -10,7 +10,7 @@ series_order: 2
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "晨雾中你在人群里找寻他，每一个金发战士走来都让你心跳加速。"
-tags: [Menelaus, Greek Mythology, AU]
+tags: [Menelaus, BayBay, AU, Menelaus AU, 悸动, 思念]
 ---
 
 ⚔️《He Came Back》

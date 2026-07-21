@@ -10,7 +10,7 @@ series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "出征前夜，你跪在神庙祈台前，只求他回来时眼睛还会为你发光。"
-tags: [Menelaus, Greek Mythology, AU]
+tags: [Menelaus, BayBay, AU, Menelaus AU, 思念, 怅惘]
 ---
 
 🕯《My Prayer to the Gods》

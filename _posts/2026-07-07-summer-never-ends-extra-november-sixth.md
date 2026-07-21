@@ -3,7 +3,7 @@ layout: post
 title: "Extra · 十一月六日 — Summer Never Ends"
 date: 2026-07-07
 image: the-way-way-back.JPG
-tags: [思念, 缱绻]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 思念, 缱绻]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"

@@ -10,7 +10,7 @@ series_order: 4
 series_type: "Series"
 chapter_type: "Chapter 4"
 summary: "深夜他睡不着，悄悄用手指描你的轮廓，说你能让一千艘战船转向。"
-tags: [Menelaus, Greek Mythology, AU]
+tags: [Menelaus, BayBay, AU, Menelaus AU, 缱绻, 悸动]
 ---
 
 🌙《You're Prettier than the Goddesses》

@@ -10,7 +10,7 @@ series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "你从天而降，他冷声问：你是间谍还是游客？"
-tags: [BayBay, RAF, 1940, AU, Time Travel, 悸动, 暗涌]
+tags: [Charles, BayBay, AU, The One Who Fell from the Sky, 悸动, 暗涌]
 ---
 
 🛩 《The One Who Fell from the Sky》

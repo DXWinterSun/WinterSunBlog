@@ -10,7 +10,7 @@ series_order: 10
 series_type: "Series"
 chapter_type: "Chapter 10"
 summary: "他把你按进他腿上，低声质问：你为什么不逃？"
-tags: [Hector Escaton, Westworld, AU, 炽恋, 暗涌]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 炽恋, 暗涌]
 ---
 
 🤠🔥🌘

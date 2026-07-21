@@ -10,7 +10,7 @@ series_order: 13
 series_type: "Series"
 chapter_type: "Chapter 13"
 summary: "他摸遍系统允许的每一寸，让你每一秒都想让他吻你。"
-tags: [Hector Escaton, Westworld, AU, 炽恋, 缱绻]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 炽恋, 缱绻]
 ---
 
 🤠🔥💣🌘

@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 12 · 弹舌 — The Cardinal"
 date: 2026-06-20
 image: sam-rockwell-polish-guy.png
-tags: [悸动, 缱绻]
+tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 悸动, 缱绻]
 categories: ["AU Story"]
 series: "The Cardinal"
 series_title: "The Cardinal · Krzysztof AU"

@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 2 · 你委屈吗 — Summer Never Ends"
 date: 2026-07-06
 image: the-way-way-back.JPG
-tags: [悸动, 暗涌]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"

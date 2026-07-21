@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 6 · 真正的海 — Summer Never Ends"
 date: 2026-07-06
 image: the-way-way-back.JPG
-tags: [怅惘]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 怅惘]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"

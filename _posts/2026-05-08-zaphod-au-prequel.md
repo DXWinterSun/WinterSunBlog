@@ -3,7 +3,7 @@ layout: post
 title: "前传 · Before the Heart of Gold — Zaphod AU"
 date: 2026-05-08
 image: zaphod-au.jpg
-tags: [悸动, 炽恋]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 悸动, 炽恋]
 categories: ["AU Story"]
 series: "Zaphod AU"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"

@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 3 · 最安静的目击者 — Summer Never Ends"
 date: 2026-07-06
 image: the-way-way-back.JPG
-tags: [悸动, 絮语]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 悸动, 絮语]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"

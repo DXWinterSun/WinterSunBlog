@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 3 · 那件旧夹克 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
-tags: [缱绻, 悸动]
+tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 缱绻, 悸动]
 categories: ["AU Story"]
 series: "A Bear and Somewhere Far"
 series_title: "A Bear and Somewhere Far · C.P. Ellis AU"

@@ -10,7 +10,7 @@ series_order: 3
 series_type: "Series"
 chapter_type: "Chapter 3"
 summary: "你以为会是浪漫轻松的西部之旅，却完全没准备好迎接他。"
-tags: [Hector Escaton, Westworld, AU, 悸动, 暗涌]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 悸动, 暗涌]
 ---
 
 🤍✨

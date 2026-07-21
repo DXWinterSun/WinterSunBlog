@@ -10,7 +10,7 @@ series_order: 3
 series_type: "Series"
 chapter_type: "Chapter 3"
 summary: "战后当夜，他昏睡，你守在床边，直到他醒来偷偷亲你却打翻了药碗。"
-tags: [Menelaus, Greek Mythology, AU]
+tags: [Menelaus, BayBay, AU, Menelaus AU, 缱绻, 絮语]
 ---
 
 🛏《When the Gods Slept》

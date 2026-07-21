@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 9 · 吃醋 — The Cardinal"
 date: 2026-06-20
 image: sam-rockwell-polish-guy.png
-tags: [暗涌, 炽恋]
+tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 暗涌, 炽恋]
 categories: ["AU Story"]
 series: "The Cardinal"
 series_title: "The Cardinal · Krzysztof AU"

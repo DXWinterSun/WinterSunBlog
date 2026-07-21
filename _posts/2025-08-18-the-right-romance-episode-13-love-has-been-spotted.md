@@ -10,7 +10,7 @@ series_order: 13
 series_type: "Series"
 chapter_type: "Episode 13"
 summary: "有人拍到你们，消息在办公室里炸开了。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 缱绻, 安放]
+tags: [Sam Pinkett, BayBay, AU, The Right Romance, 缱绻, 安放]
 ---
 
 **🚗 Episode 13｜Love Has Been Spotted**

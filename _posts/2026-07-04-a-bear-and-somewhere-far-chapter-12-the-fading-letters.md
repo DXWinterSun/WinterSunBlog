@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 12 · 越来越短的信 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
-tags: [思念, 怅惘]
+tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 思念, 怅惘]
 categories: ["AU Story"]
 series: "A Bear and Somewhere Far"
 series_title: "A Bear and Somewhere Far · C.P. Ellis AU"

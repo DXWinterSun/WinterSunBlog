@@ -10,7 +10,7 @@ series_order: 4
 series_type: "Series"
 chapter_type: "Chapter 4"
 summary: "枪声在耳膜里炸开，所有人都逃了，只有你站在原地。"
-tags: [Hector Escaton, Westworld, AU, 暗涌, 悸动]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 暗涌, 悸动]
 ---
 
 🌩🔥

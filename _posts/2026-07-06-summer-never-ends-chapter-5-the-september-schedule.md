@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 5 · 九月的班表 — Summer Never Ends"
 date: 2026-07-06
 image: the-way-way-back.JPG
-tags: [怅惘, 暗涌]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 怅惘, 暗涌]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"

@@ -10,7 +10,7 @@ series_order: 17
 series_type: "Series"
 chapter_type: "Chapter 17"
 summary: "你轻轻划过那道疤，他的呼吸骤然停住——只有你可以。"
-tags: [Hector Escaton, Westworld, AU, 缱绻, 安放]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 缱绻, 安放]
 ---
 
 🤠🔥🌒
