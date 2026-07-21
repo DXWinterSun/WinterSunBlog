@@ -32,6 +32,32 @@ function todayIndex(n) {
   const days = Math.round((today - START) / 86400000);
   return ((days % n) + n) % n;
 }
+
+// 防重复（2026-07 加）：台词册因新增角色按年份「插页」，days%n 顺序走读
+// 会撞上最近读过的句子。用 Scriptable 的 Keychain 记住读过哪些：撞上已读
+// 就往后翻到未读；同一天内保持同一句。逻辑与网站每日一句 / 台词墙一致。
+function dailyPick(pool) {
+  const n = pool.length;
+  const qkey = (q) => q.charId + "|" + q.line;
+  const now = new Date();
+  const p2 = (x) => (x < 10 ? "0" + x : "" + x);
+  const dstr = now.getFullYear() + "." + p2(now.getMonth() + 1) + "." + p2(now.getDate());
+  const KC = "ws-daily-pick";
+  let store = {};
+  try { if (Keychain.contains(KC)) store = JSON.parse(Keychain.get(KC)); } catch (e) {}
+  if (store.date === dstr && store.key) {
+    for (let i = 0; i < n; i++) if (qkey(pool[i]) === store.key) return pool[i];
+  }
+  let seen = Array.isArray(store.seen) ? store.seen : [];
+  let idx = todayIndex(n), q = pool[idx], hops = 0;
+  while (seen.indexOf(qkey(q)) >= 0 && hops < n) { idx = (idx + 1) % n; q = pool[idx]; hops++; }
+  if (hops >= n) { seen = []; idx = todayIndex(n); q = pool[idx]; }
+  seen.push(qkey(q));
+  const cap = Math.max(60, Math.floor(n * 0.8));
+  if (seen.length > cap) seen = seen.slice(-cap);
+  try { Keychain.set(KC, JSON.stringify({ date: dstr, key: qkey(q), seen: seen })); } catch (e) {}
+  return q;
+}
 function shade(hex, amt) { // amt<0 变暗
   const h = hex.replace("#", "");
   let r = parseInt(h.substr(0, 2), 16), g = parseInt(h.substr(2, 2), 16), b = parseInt(h.substr(4, 2), 16);
@@ -66,11 +92,11 @@ async function getData() {
 function pickQuote(data) {
   const fromParam = (typeof args !== "undefined" && args.widgetParameter) || "";
   const raw = (PIN || fromParam || "").trim();
-  if (!raw) return { c: data.pool[todayIndex(data.pool.length)], pinned: false };
+  if (!raw) return { c: dailyPick(data.pool), pinned: false };
 
   const bits = raw.split(":");
   const character = data.characters.find(function (x) { return x.id === bits[0].trim(); });
-  if (!character) return { c: data.pool[todayIndex(data.pool.length)], pinned: false };
+  if (!character) return { c: dailyPick(data.pool), pinned: false };
 
   const n = parseInt(bits[1], 10);
   const quotes = character.quotes;

@@ -147,6 +147,28 @@
     var days = Math.round((today - START) / DAY);
     return ((days % n) + n) % n;
   }
+  // 防重复：pool 会因新增角色按年份「插页」，导致 days%n 的顺序走读
+  // 撞上最近读过的句子。这里用本机记忆（与台词墙共用 ws-daily-pick）
+  // 记住读过哪些，撞上就往后翻到没读过的；同一天内保持同一句。
+  function dailyPick(pool) {
+    var n = pool.length;
+    var qkey = function (q) { return q.charId + '|' + q.line; };
+    var dstr = todayStr();
+    var store = {};
+    try { store = JSON.parse(localStorage.getItem('ws-daily-pick') || '{}'); } catch (e) {}
+    if (store.date === dstr && store.key) {
+      for (var i = 0; i < n; i++) if (qkey(pool[i]) === store.key) return pool[i];
+    }
+    var seen = Array.isArray(store.seen) ? store.seen : [];
+    var idx = todayIndex(n), q = pool[idx], hops = 0;
+    while (seen.indexOf(qkey(q)) >= 0 && hops < n) { idx = (idx + 1) % n; q = pool[idx]; hops++; }
+    if (hops >= n) { seen = []; idx = todayIndex(n); q = pool[idx]; }
+    seen.push(qkey(q));
+    var cap = Math.max(60, Math.floor(n * 0.8));
+    if (seen.length > cap) seen = seen.slice(-cap);
+    try { localStorage.setItem('ws-daily-pick', JSON.stringify({ date: dstr, key: qkey(q), seen: seen })); } catch (e) {}
+    return q;
+  }
   function dayNumber() {
     var now = new Date();
     var today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
@@ -341,7 +363,7 @@
       var pool = data.pool;
       MF_ALIAS = (data.meta && data.meta.mf_alias) || {};
       document.getElementById('all').textContent = '看全部 ' + pool.length + ' 句 →';
-      render(pinnedQuote(data) || pool[todayIndex(pool.length)]);
+      render(pinnedQuote(data) || dailyPick(pool));
     })
     .catch(function () {
       document.getElementById('line').textContent = '今天的一句，暂时没能取到。';
