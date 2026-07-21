@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · 标的 — The Real Thing"
 date: 2026-06-20
 image: sam-rockwell-matchstick-men.jpg
-tags: [悸动, 暗涌]
+tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"

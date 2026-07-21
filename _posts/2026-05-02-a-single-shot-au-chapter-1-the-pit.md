@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · The Pit — Into the Mountain"
 date: 2026-05-02
 image: a-single-shot-au.jpg
-tags: [暗涌, 缱绻]
+tags: [John Moon, Sam Rockwell, AU, A Single Shot AU, 暗涌, 缱绻]
 categories: ["AU Story"]
 series: "A Single Shot AU"
 series_title: "Into the Mountain · John Moon AU"

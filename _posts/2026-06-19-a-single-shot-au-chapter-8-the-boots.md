@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 8 · The Boots — Into the Mountain"
 date: 2026-06-19
 image: a-single-shot-au.jpg
-tags: [安放, 暗涌]
+tags: [John Moon, Sam Rockwell, AU, A Single Shot AU, 安放, 暗涌]
 categories: ["AU Story"]
 series: "A Single Shot AU"
 series_title: "Into the Mountain · John Moon AU"

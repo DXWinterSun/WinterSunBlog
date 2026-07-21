@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 18 · 家宴之夜 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
-tags: [暗涌, 缱绻]
+tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 暗涌, 缱绻]
 categories: ["AU Story"]
 series: "A Bear and Somewhere Far"
 series_title: "A Bear and Somewhere Far · C.P. Ellis AU"

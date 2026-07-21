@@ -10,7 +10,7 @@ series_order: 2
 series_type: "Series"
 chapter_type: "Episode 02"
 summary: "你说：我不害怕，我不是一个人。他嗓子突然发紧。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 悸动, 缱绻]
+tags: [Sam Pinkett, BayBay, AU, The Right Romance, 悸动, 缱绻]
 ---
 
 🕯️ Episode 02｜Locked In

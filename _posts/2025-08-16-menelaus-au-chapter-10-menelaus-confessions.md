@@ -10,7 +10,7 @@ series_order: 10
 series_type: "Series"
 chapter_type: "Chapter 10"
 summary: "他说不出华丽的话，只说你像蜜饼——甜而黏，是他一生中最像奇迹的那口。"
-tags: [Menelaus, Greek Mythology, AU]
+tags: [Menelaus, BayBay, AU, Menelaus AU, 缱绻, 安放]
 ---
 
 Menelaus Confessions

@@ -10,7 +10,7 @@ series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "白色亚麻衣上留着浅浅印记，你将它掖入衣篓最深处，如同什么都未曾发生。"
-tags: [Elagabalus, Rome, AU, The Purple Throne]
+tags: [Elagabalus, Rome, AU, The Purple Throne, 暗涌, 怅惘]
 ---
 
 The Purple Throne

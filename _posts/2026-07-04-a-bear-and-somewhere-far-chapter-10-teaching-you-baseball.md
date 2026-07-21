@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 10 · 教你打棒球 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
-tags: [缱绻, 怀旧]
+tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 缱绻, 怀旧]
 categories: ["AU Story"]
 series: "A Bear and Somewhere Far"
 series_title: "A Bear and Somewhere Far · C.P. Ellis AU"

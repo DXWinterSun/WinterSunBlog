@@ -10,7 +10,7 @@ series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "他当场僵住，不是因为你漂亮，而是你说话的语气和他太像了。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU]
+tags: [Sam Pinkett, BayBay, AU, The Right Romance, 悸动, 絮语]
 ---
 
 💛 Episode 01｜The Girl in the Records Room

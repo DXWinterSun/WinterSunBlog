@@ -10,7 +10,7 @@ series_order: 6
 series_type: "Series"
 chapter_type: "Chapter 6"
 summary: "婚礼结束当夜，他站在寝宫门外转了十圈，进门就一头撞上了床柱。"
-tags: [Menelaus, Greek Mythology, AU]
+tags: [Menelaus, BayBay, AU, Menelaus AU, 悸动, 絮语]
 ---
 
 💍🌙《The Night of the Vow》

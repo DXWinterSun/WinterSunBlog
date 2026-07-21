@@ -10,7 +10,7 @@ series_order: 7
 series_type: "Series"
 chapter_type: "Chapter 7"
 summary: "他怀疑这不是脚本——系统从没要他抱得这么温柔。"
-tags: [Hector Escaton, Westworld, AU, 炽恋, 怅惘]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 炽恋, 怅惘]
 ---
 
 🤠🔥🌪️

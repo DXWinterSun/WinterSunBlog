@@ -3,7 +3,7 @@ layout: post
 title: "Extra · 滑道超人不为人知的一生 — Summer Never Ends"
 date: 2026-07-07
 image: the-way-way-back.JPG
-tags: [炽恋, 絮语]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 炽恋, 絮语]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"

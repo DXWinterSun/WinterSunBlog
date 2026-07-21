@@ -10,7 +10,7 @@ series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "他说受训是攻破堡垒，不是建堡——然后开始认认真真给沙堡布防。"
-tags: [Alexios, AU, Mediterranean, Beach]
+tags: [Alexios, AU, Alexios AU, 絮语, 悸动]
 ---
 
 💛《Alek与Winter的沙堡奇遇记》🏜️

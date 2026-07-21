@@ -10,7 +10,7 @@ series_order: 5
 series_type: "Series"
 chapter_type: "Chapter 5"
 summary: "他独自跪在神庙祈愿，你从门后偷听，他说想娶你，然后你推门而入。"
-tags: [Menelaus, Greek Mythology, AU]
+tags: [Menelaus, BayBay, AU, Menelaus AU, 悸动, 安放]
 ---
 
 🏛《The Boy Who Prayed for You》

@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · 被看见 — Good Enough"
 date: 2026-05-30
 image: justin-hammer-au.webp
-tags: [安放, 悸动]
+tags: [Justin Hammer, Sam Rockwell, AU, Good Enough, 安放, 悸动]
 categories: ["AU Story"]
 series: "Good Enough"
 series_title: "Good Enough · Justin Hammer AU"

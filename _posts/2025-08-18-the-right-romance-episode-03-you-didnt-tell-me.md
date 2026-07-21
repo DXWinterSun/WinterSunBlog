@@ -10,7 +10,7 @@ series_order: 3
 series_type: "Series"
 chapter_type: "Episode 03"
 summary: "他发现你从不说自己的难处，今天他问了。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 悸动, 暗涌]
+tags: [Sam Pinkett, BayBay, AU, The Right Romance, 悸动, 暗涌]
 ---
 
 **⚠️ Episode 03｜You Didn’t Tell Me**

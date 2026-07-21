@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 10 · 加州以西 — Summer Never Ends"
 date: 2026-07-06
 image: the-way-way-back.JPG
-tags: [炽恋, 安放]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 炽恋, 安放]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"

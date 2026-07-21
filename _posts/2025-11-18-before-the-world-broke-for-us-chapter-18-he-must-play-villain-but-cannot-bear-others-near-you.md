@@ -10,7 +10,7 @@ series_order: 18
 series_type: "Series"
 chapter_type: "Chapter 18"
 summary: "他演着反派，却因为你对别人笑了一下，当场变了脸色。"
-tags: [Hector Escaton, Westworld, AU, 暗涌, 缱绻]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 暗涌, 缱绻]
 ---
 
 支线剧情

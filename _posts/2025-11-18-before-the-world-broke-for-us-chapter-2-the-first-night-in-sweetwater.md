@@ -10,7 +10,7 @@ series_order: 2
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "你问他：你舍得吗？他沉默两秒，用沙哑的声音说：不舍得。"
-tags: [Hector Escaton, Westworld, AU, 炽恋, 暗涌]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 炽恋, 暗涌]
 ---
 
 ✨🌒 《Sweetwater 的第一夜》

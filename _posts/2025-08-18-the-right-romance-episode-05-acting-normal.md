@@ -10,7 +10,7 @@ series_order: 5
 series_type: "Series"
 chapter_type: "Episode 05"
 summary: "两人都在假装什么都没发生，却彼此越陷越深。"
-tags: [Sam Pinkett, The Wrong Mans, BayBay, AU, 悸动, 缱绻]
+tags: [Sam Pinkett, BayBay, AU, The Right Romance, 悸动, 缱绻]
 ---
 
 **🎭 Episode 05｜Acting Normal**

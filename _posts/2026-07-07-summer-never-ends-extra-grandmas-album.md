@@ -3,7 +3,7 @@ layout: post
 title: "Extra · 外婆的相册 — Summer Never Ends"
 date: 2026-07-07
 image: the-way-way-back.JPG
-tags: [缱绻, 安放]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 缱绻, 安放]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"

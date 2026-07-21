@@ -10,7 +10,7 @@ series_order: 2
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "篝火边他说：在你之前，我从未想过自己有一天会停下来。"
-tags: [Alexios, AU, Mediterranean, Spirit Girl]
+tags: [Alexios, AU, Alexios AU, 安放, 缱绻]
 ---
 
 🌌《Alek的低语：在你之前的我》

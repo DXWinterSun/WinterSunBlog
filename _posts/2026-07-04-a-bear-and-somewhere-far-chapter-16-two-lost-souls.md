@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 16 · 各自的失魂 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
-tags: [暗涌, 思念]
+tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 暗涌, 思念]
 categories: ["AU Story"]
 series: "A Bear and Somewhere Far"
 series_title: "A Bear and Somewhere Far · C.P. Ellis AU"

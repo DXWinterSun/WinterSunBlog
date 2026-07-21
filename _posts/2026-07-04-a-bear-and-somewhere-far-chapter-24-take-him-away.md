@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 24 · 带他走 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
-tags: [安放, 炽恋]
+tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 安放, 炽恋]
 categories: ["AU Story"]
 series: "A Bear and Somewhere Far"
 series_title: "A Bear and Somewhere Far · C.P. Ellis AU"

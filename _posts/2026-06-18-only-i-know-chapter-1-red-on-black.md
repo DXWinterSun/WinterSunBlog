@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · 红底黑字 — Only I Know"
 date: 2026-06-18
 image: 3-billboards-au.JPG
-tags: [悸动, 暗涌]
+tags: [Jason Dixon, Sam Rockwell, AU, Only I Know, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"

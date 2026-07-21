@@ -10,7 +10,7 @@ series_order: 8
 series_type: "Series"
 chapter_type: "Chapter 8"
 summary: "他凑近到呼吸擦过你的上唇，却被世界卡住，无法再进一步。"
-tags: [Hector Escaton, Westworld, AU, 炽恋, 怅惘]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 炽恋, 怅惘]
 ---
 
 🤠🔥🌒

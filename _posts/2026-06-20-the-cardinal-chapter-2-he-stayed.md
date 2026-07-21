@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 2 · 他没有走 — The Cardinal"
 date: 2026-06-20
 image: sam-rockwell-polish-guy.png
-tags: [缱绻, 暗涌]
+tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻, 暗涌]
 categories: ["AU Story"]
 series: "The Cardinal"
 series_title: "The Cardinal · Krzysztof AU"

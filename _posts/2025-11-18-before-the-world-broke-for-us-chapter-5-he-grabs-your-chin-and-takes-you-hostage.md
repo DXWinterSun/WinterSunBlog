@@ -10,7 +10,7 @@ series_order: 5
 series_type: "Series"
 chapter_type: "Chapter 5"
 summary: "他两根手指夹住你的下巴，那一瞬间你像被火点了。"
-tags: [Hector Escaton, Westworld, AU, 暗涌, 炽恋]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 暗涌, 炽恋]
 ---
 
 🤠🔥🌪️

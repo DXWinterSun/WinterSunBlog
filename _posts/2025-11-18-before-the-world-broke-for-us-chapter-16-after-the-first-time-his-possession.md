@@ -10,7 +10,7 @@ series_order: 16
 series_type: "Series"
 chapter_type: "Chapter 16"
 summary: "她们是经过的，你是留下的——这句话重重烙进你心口。"
-tags: [Hector Escaton, Westworld, AU, 缱绻, 炽恋]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 缱绻, 炽恋]
 ---
 
 🤠🔥🌘

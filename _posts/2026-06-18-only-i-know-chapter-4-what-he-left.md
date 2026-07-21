@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 4 · 他留下的话 — Only I Know"
 date: 2026-06-18
 image: 3-billboards-au.JPG
-tags: [暗涌, 缱绻]
+tags: [Jason Dixon, Sam Rockwell, AU, Only I Know, 暗涌, 缱绻]
 categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
