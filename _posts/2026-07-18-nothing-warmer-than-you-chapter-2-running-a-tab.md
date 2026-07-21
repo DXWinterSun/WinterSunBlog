@@ -1,16 +1,17 @@
-# Nothing Warmer Than You · Chapter 2 草稿（待 Winter 认可）
-
-标题：Chapter 2 · Running a Tab
-mood：悸动 · 暗涌
-summary：他骑着借走的那匹马，回来还马——人却赖着不肯下来。（25 字）
-tags：[Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 悸动, 暗涌]
-
-要点：还马 theater（骑着借走的马来「还」，从没下马，又骑走）＝马债 running joke 立住
-（改日/下回 回环 Ch1「有朝一日必还」）；虚张声势 vs 青涩（吹老江湖被你一句直话噎红耳根）；
-身份谜＋你起疑（不报名、腰侧冷光、瞟来路、不下马不留宿）；舍不得 vs 危险（「我不该总来」却没走）；
-结尾你已猜到他是通缉犯却替他瞒下、还盼「下回」（心软/共谋显形）；Much Obliged 回环（多谢款待 sugar）。
-落盘前：check_post.py / 弯引号 / 身份标签齐 / 内链 baseurl。
-
+---
+layout: post
+title: "Chapter 2 · Running a Tab — Nothing Warmer Than You"
+date: 2026-07-18
+image: charley-ford-au.jpg
+tags: [Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 悸动, 暗涌]
+categories: ["AU Story"]
+series: "Nothing Warmer Than You"
+series_title: "Nothing Warmer Than You · Charley Ford AU"
+series_order: 2
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 2"
+summary: "他骑着借走的那匹马，回来还马——人却赖着不肯下来。"
 ---
 
 > “马呢？”你问。他稳稳坐在马背上，拍了拍马脖子：“还你啊。你瞧，一根毛没少。”
