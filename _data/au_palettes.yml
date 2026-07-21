@@ -393,7 +393,9 @@
   bg_cn: "港湾落雪夜"
   bg_en: "Snowfall Harbor"
 
-"Nothing Warmer Than You":  # Charley Ford · 雪原枪蓝（深色卡系统版）· 画册 id: charley（画册上线后补 mf_id）
+"Nothing Warmer Than You":  # Charley Ford · 雪原枪蓝 · 色卡同源画册 id: charley
+  mf_id: charley                # → Many Faces 画册锚点 /sam/many-faces/#charley
+  theme_id: charley
   accent: "#6d94b0"
   accent_ink: "#3f6480"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#161d29"

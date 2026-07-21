@@ -608,3 +608,15 @@
   bg: "#1a0e2a"
   text: "#ede0ec"
   muted: "#8868a0"
+- id: charley
+  year: 2007
+  name: "Charley Ford"
+  anchor: charley
+  cn: 枪管钢蓝
+  en: Gunmetal Blue
+  bg_cn: 雪原夜蓝
+  bg_en: Snowfield Night
+  accent: "#6d94b0"
+  bg: "#161d29"
+  text: "#dde5ee"
+  muted: "#7e8ea2"
