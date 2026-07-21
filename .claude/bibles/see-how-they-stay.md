@@ -1,10 +1,11 @@
-# The Light You Left On · 系列圣经（内部工作文件，Jekyll 不发布）
+# See How They Stay · 系列圣经（内部工作文件，Jekyll 不发布）
 
-> 状态：2026-07-21 开坑。内核来自 Winter 早先定的画册条目（`sam/many-faces` id `stoppard`）
-> + 本次开坑对话的四项设定确认。章节尚未落盘，先在聊天里出草稿。
+> 状态：2026-07-21 开坑，第一章「留灯」已落盘（工作分支）。内核来自 Winter 早先定的画册条目
+> （`sam/many-faces` id `stoppard`）+ 本次开坑对话的设定确认。系列名早期暂用 The Light You
+> Left On，已定名 **See How They Stay**（反用原片名 See How They Run：别人都逃、你偏留）。
 
-series_name: **The Light You Left On** ｜ slug `series/the-light-you-left-on/`
-展示标题: `The Light You Left On · Inspector Stoppard AU`
+series_name: **See How They Stay** ｜ slug `series/see-how-they-stay/`
+展示标题: `See How They Stay · Inspector Stoppard AU`
 角色: **Inspector George Stoppard**（Sam Rockwell,《看他们如何逃之夭夭》See How They Run 2022）画册 id `stoppard`
 配色（源同 sam_themes id `stoppard`）: 旧照片暖褐 accent `#e2c48f` / 伦敦午夜蓝 bg `#1a1f2c` / text `#ebe2d4` / muted `#7c8090`
 byline: `Inspector Stoppard · See How They Run · Sam Rockwell · ongoing`
@@ -80,7 +81,10 @@ byline: `Inspector Stoppard · See How They Run · Sam Rockwell · ongoing`
 
 ## 章节流水
 
-- 尚未落盘。Ch1「留灯」草稿已在聊天里给 Winter，待她点头。
+- **Ch1「留灯」**（series_order 1，mood 悸动+暗涌）：档案室初遇。时间线＝原片破案后，
+  他带伤逮凶、刚获国王警察勋章，全楼替他庆功，他躲进井底档案室来还那桩案子的卷宗。
+  你递茶、留灯；他手抖被你看见、退半步、用厌世冷话（「这鬼地方倒还有人肯烧壶热水」）挡回去。
+  **已埋**：那盏灯 / 退半步 / 茶 / 结尾「为回到这盏灯下连命都不要」。George 未出现。
 
 ## 番外菜单（她「收着」的备选，写前再确认）
 
