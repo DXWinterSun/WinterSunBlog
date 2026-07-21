@@ -6,7 +6,8 @@
 
 series_name: **See How They Stay** ｜ slug `series/see-how-they-stay/`
 展示标题: `See How They Stay · Inspector Stoppard AU`
-角色: **Inspector George Stoppard**（Sam Rockwell,《看他们如何逃之夭夭》See How They Run 2022）画册 id `stoppard`
+角色: **Inspector John A. Stoppard**（Sam Rockwell,《看他们如何逃之夭夭》See How They Run 2022）画册 id `stoppard`
+  教名 John 依原片证件道具（卡上 “…s. A. Stoppard”＋J 开头签名；中间名缩写 A.）；Winter 定名 John。
 配色（源同 sam_themes id `stoppard`）: 旧照片暖褐 accent `#e2c48f` / 伦敦午夜蓝 bg `#1a1f2c` / text `#ebe2d4` / muted `#7c8090`
 byline: `Inspector Stoppard · See How They Run · Sam Rockwell · ongoing`
 进度: 开坑，主线从「相遇」写起，一路到「婚后」。
@@ -56,7 +57,7 @@ byline: `Inspector Stoppard · See How They Run · Sam Rockwell · ongoing`
 ## 铁律（防手滑）
 
 - **称呼**：你自始至终只叫他 **「探长 / Inspector」**——查案、吵架、婚后、床上都不改口。
-- **George**：他的教名是我们的私产（原片没给）。**全系列压着，只在情绪最重的一刻你第一次
+- **John**：他的教名（源自原片证件道具，卡上中间名缩写 A. → 全名 John A. Stoppard，婚礼签名册 payoff 时用）。**全系列压着，只在情绪最重的一刻你第一次
   极轻地叫出口一次**（见 DEFERRED）。除那一刻外任何地方都不出现在「你」的口中。
 - **红线**：他的自卑绝不写成自怜的长篇独白（raw 2 / forbear 9）——痛用玩笑、公事腔、
   身体细节泄漏，绝不抒情式告白。他动情靠动作，不靠嘴说。
@@ -72,7 +73,7 @@ byline: `Inspector Stoppard · See How They Run · Sam Rockwell · ongoing`
 - **画册五句「婚后 · 妻子」台词 + inscription**（"chose me anyway" / "the light you left on" /
   "signing next to yours" / "can't quite believe it" / "better than me"）→ 全是系列**后半程/婚后**
   的落点，前期绝不放，放早了 payoff 就废了。
-- **「George」第一次被你叫出口** → 留到情绪最重那一刻（大概率：他终于信你不会走的那章，
+- **「John」第一次被你叫出口** → 留到情绪最重那一刻（大概率：他终于信你不会走的那章，
   或某次谷底你把他从酒里/从自我放弃里捞回来那章）。叫出口的前一秒他整个人要僵住。
 
 ## PINNED（已埋，待回收）
@@ -87,7 +88,7 @@ byline: `Inspector Stoppard · See How They Run · Sam Rockwell · ongoing`
 - **Ch1「留灯」**（series_order 1，mood 悸动+暗涌）：档案室初遇。时间线＝原片破案后，
   他带伤逮凶、刚获国王警察勋章，全楼替他庆功，他躲进井底档案室来还那桩案子的卷宗。
   你递茶、留灯；他手抖被你看见、退半步、用厌世冷话（「这鬼地方倒还有人肯烧壶热水」）挡回去。
-  **已埋**：那盏灯 / 退半步 / 茶 / 结尾「为回到这盏灯下连命都不要」。George 未出现。
+  **已埋**：那盏灯 / 退半步 / 茶 / 结尾「为回到这盏灯下连命都不要」。John 未出现。
 
 ## 番外菜单（她「收着」的备选，写前再确认）
 
