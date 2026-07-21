@@ -164,7 +164,7 @@ Winter 已了解全片剧情。**核心待定：**Winter 只是陪他把悲剧�
 
 ## 章节流水
 
-- **Ch1 · 借马的人**（✅ Winter 已看全文并认可；全文存 `nwty-ch1-draft.md`）：
+- **Ch1 · Much Obliged**（原《借马的人》｜✅ Winter 已看全文并认可；全文存 `nwty-ch1-draft.md`）：
   1881 冬，深夜他摸进 Merritt 家**马厩偷马**，反射性拔枪指着来查看的你；可他嘴上不停、
   还啃着你喂马的苹果、趁机撩你，说「这不叫偷，叫借，有朝一日必还」。你不靠枪、靠「不怕他
   + 比他懂马」镇住他，末了却心软朝好马呶下巴、指点他该牵哪匹。他记下了这点心软；临走叫你
@@ -172,6 +172,14 @@ Winter 已了解全片剧情。**核心待定：**Winter 只是陪他把悲剧�
   - summary：`他持枪来偷马，却偏说这叫借，有朝一日必还。`（20 字）
   - tags：`[Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 悸动, 暗涌]`
   - **落盘前**：走 check_post.py / 弯引号 / 身份标签齐 / 内链 baseurl；并搭系列首页。
+- **Ch2 · Running a Tab**（草稿已写，待 Winter 认可；全文存 `nwty-ch2-draft.md`）：
+  他骑着「借」走的青灰马大摇大摆回来「还马」，却从没下过马、末了又骑走——「马债」running
+  joke 立住（改日/下回 回环 Ch1「有朝一日必还」）。铺身份谜：不报名、腰侧冷光、瞟来路、
+  不下马不留宿；你一句直话把他吹的老江湖噎到耳根红（虚张声势 vs 青涩）。他撂下「我其实不该
+  总来，对你没好处」却没走（舍不得 vs 危险）。结尾你已猜到他是通缉犯却替他瞒下、还盼「下回」
+  （心软/共谋第一次显形）。Much Obliged 回环（多谢款待 sugar）。mood 悸动 + 暗涌。
+  - summary：`他骑着借走的那匹马，回来还马——人却赖着不肯下来。`（25 字）
+  - tags：`[Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 悸动, 暗涌]`
 
 ## 伏笔账（PINNED=已埋待收 / DEFERRED=压着到点放）
 

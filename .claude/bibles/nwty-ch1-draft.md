@@ -1,6 +1,6 @@
 # Nothing Warmer Than You · Chapter 1 草稿（Winter 已认可，待正式落盘）
 
-标题：Chapter 1 · 借马的人
+标题：Chapter 1 · Much Obliged（原《借马的人》）
 mood：悸动 · 暗涌
 summary：他持枪来偷马，却偏说这叫借，有朝一日必还。（20 字）
 tags：[Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 悸动, 暗涌]
