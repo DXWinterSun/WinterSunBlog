@@ -227,7 +227,7 @@ Winter 已了解全片剧情。**核心待定：**Winter 只是陪他把悲剧�
   Dick 贬 Charley、自抬身价撩你 → 你「别人用剩下的我不捡」当众噎回、他社死 → Charley 回来用傻笑
   自嘲挡住被戳中的自卑（笑得太快=破绽）→ 你接住他、捧脸「谁都比不上你」→ 大狗狗又摇尾。Jesse
   旁观意味不明地笑。mood 絮语 + 缱绻。
-  - summary：`情场高手 Dick 来撩你，反被你噎走；倒是 Charley 自己蔫了。`（22 字）
+  - summary：`情场高手来撩你，反被你噎走；倒是他自己先蔫了。`（24 字）
   - tags：`[Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 絮语, 缱绻]`
 
 ## 帮派花名册（写群像用 · Winter 提供群像照 + 演员对照）

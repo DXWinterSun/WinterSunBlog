@@ -11,7 +11,7 @@ series_order: 8
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 8"
-summary: "情场高手 Dick 来撩你，反被你噎走；倒是 Charley 自己蔫了。"
+summary: "情场高手来撩你，反被你噎走；倒是他自己先蔫了。"
 ---
 
 > “你走错帐篷了，”你头也没抬，“我要找的那位，早就在了。”

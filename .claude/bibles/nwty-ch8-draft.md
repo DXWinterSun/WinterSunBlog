@@ -2,7 +2,7 @@
 
 标题：Chapter 8 · No Sale
 mood：絮语 · 缱绻
-summary：情场高手 Dick 来撩你，反被你噎走；倒是 Charley 自己蔫了。（22 字）
+summary：情场高手来撩你，反被你噎走；倒是他自己先蔫了。（24 字）
 tags：[Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 絮语, 缱绻]
 
 要点：Dick（情场高手）贬 Charley、自抬身价撩你 → 你「别人用剩下的我不捡」当众噎回、他社死 →
