@@ -2,8 +2,8 @@
   "meta": {
     "start": "2026-02-13",
     "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-    "characters_count": 47,
-    "pool_count": 235,
+    "characters_count": 48,
+    "pool_count": 240,
     "mf_alias": {
       "johnmoon": "john",
       "sambell": "sam",
@@ -2078,6 +2078,50 @@
           "kind": "暗告白 · 小熊"
         }
       ]
+    },
+    {
+      "id": "charley",
+      "name": "Charley Ford",
+      "film": "The Assassination of Jesse James by the Coward Robert Ford",
+      "filmCN": "《神枪手之死》",
+      "year": "2007",
+      "accent": "#6d94b0",
+      "bg": "#161d29",
+      "text": "#dde5ee",
+      "muted": "#7e8ea2",
+      "auLink": "/WinterSunBlog/series/nothing-warmer-than-you/",
+      "quotes": [
+        {
+          "label": "STILL SOMETHING LEFT",
+          "line": "There's always something else I want to do — turns out it's you.",
+          "lineCN": "我总还有别的想做的事——原来，那件事是你。",
+          "kind": "锚"
+        },
+        {
+          "label": "ON CREDIT",
+          "line": "It's not stealing, sugar. It's borrowing. I'll pay it all back — someday.",
+          "lineCN": "这不叫偷，sugar。这叫借。总有一天，连本带利，都还你。",
+          "kind": "痞话"
+        },
+        {
+          "label": "IT DON'T BITE",
+          "line": "Easy now, sugar. It doesn't bite good girls.",
+          "lineCN": "别怕，sugar。它不咬乖孩子。",
+          "kind": "护"
+        },
+        {
+          "label": "UGLY AS SIN",
+          "line": "Ugly as sin, they all say. You're the only one who ever looked twice — and God help me, I believe you.",
+          "lineCN": "他们都说我丑得没救。只有你多看了我两眼——要命的是，我竟信了你。",
+          "kind": "暗告白"
+        },
+        {
+          "label": "ENOUGH ROPE",
+          "line": "Charley. That's all I've got to give you — and it's enough rope to hang me.",
+          "lineCN": "Charley。我能给你的就这么多——却够你，把我送上绞架了。",
+          "kind": "交底"
+        }
+      ]
     }
   ],
   "pool": [
@@ -2834,6 +2878,22 @@
       "kind": "锚"
     },
     {
+      "charId": "charley",
+      "name": "Charley Ford",
+      "film": "The Assassination of Jesse James by the Coward Robert Ford",
+      "filmCN": "《神枪手之死》",
+      "year": "2007",
+      "accent": "#6d94b0",
+      "bg": "#161d29",
+      "text": "#dde5ee",
+      "muted": "#7e8ea2",
+      "auLink": "/WinterSunBlog/series/nothing-warmer-than-you/",
+      "label": "STILL SOMETHING LEFT",
+      "line": "There's always something else I want to do — turns out it's you.",
+      "lineCN": "我总还有别的想做的事——原来，那件事是你。",
+      "kind": "锚"
+    },
+    {
       "charId": "gary",
       "name": "Gary",
       "film": "Strictly Business",
@@ -3584,6 +3644,22 @@
       "line": "The whole town calls me C.P. — the version of me they can live with. You call me Clay. You're the only one who ever wanted the real one.",
       "lineCN": "全镇都叫我 C.P.——那个他们能接受的我。你叫我 Clay。你是唯一，想要那个真实的我的人。",
       "kind": "暗告白"
+    },
+    {
+      "charId": "charley",
+      "name": "Charley Ford",
+      "film": "The Assassination of Jesse James by the Coward Robert Ford",
+      "filmCN": "《神枪手之死》",
+      "year": "2007",
+      "accent": "#6d94b0",
+      "bg": "#161d29",
+      "text": "#dde5ee",
+      "muted": "#7e8ea2",
+      "auLink": "/WinterSunBlog/series/nothing-warmer-than-you/",
+      "label": "ON CREDIT",
+      "line": "It's not stealing, sugar. It's borrowing. I'll pay it all back — someday.",
+      "lineCN": "这不叫偷，sugar。这叫借。总有一天，连本带利，都还你。",
+      "kind": "痞话"
     },
     {
       "charId": "gary",
@@ -4338,6 +4414,22 @@
       "kind": "情话 · 迟到"
     },
     {
+      "charId": "charley",
+      "name": "Charley Ford",
+      "film": "The Assassination of Jesse James by the Coward Robert Ford",
+      "filmCN": "《神枪手之死》",
+      "year": "2007",
+      "accent": "#6d94b0",
+      "bg": "#161d29",
+      "text": "#dde5ee",
+      "muted": "#7e8ea2",
+      "auLink": "/WinterSunBlog/series/nothing-warmer-than-you/",
+      "label": "IT DON'T BITE",
+      "line": "Easy now, sugar. It doesn't bite good girls.",
+      "lineCN": "别怕，sugar。它不咬乖孩子。",
+      "kind": "护"
+    },
+    {
       "charId": "gary",
       "name": "Gary",
       "film": "Strictly Business",
@@ -5090,6 +5182,22 @@
       "kind": "情话 · 夏夜"
     },
     {
+      "charId": "charley",
+      "name": "Charley Ford",
+      "film": "The Assassination of Jesse James by the Coward Robert Ford",
+      "filmCN": "《神枪手之死》",
+      "year": "2007",
+      "accent": "#6d94b0",
+      "bg": "#161d29",
+      "text": "#dde5ee",
+      "muted": "#7e8ea2",
+      "auLink": "/WinterSunBlog/series/nothing-warmer-than-you/",
+      "label": "UGLY AS SIN",
+      "line": "Ugly as sin, they all say. You're the only one who ever looked twice — and God help me, I believe you.",
+      "lineCN": "他们都说我丑得没救。只有你多看了我两眼——要命的是，我竟信了你。",
+      "kind": "暗告白"
+    },
+    {
       "charId": "gary",
       "name": "Gary",
       "film": "Strictly Business",
@@ -5840,6 +5948,22 @@
       "line": "I'm no good with soft words, Winter. So I just kept that little bear you won me — all these years, right where I'd see it every single day.",
       "lineCN": "我不擅长说软话，Winter。所以我就把你替我赢来的那只小熊，一直留着——这么多年，摆在我天天都看得见的地方。",
       "kind": "暗告白 · 小熊"
+    },
+    {
+      "charId": "charley",
+      "name": "Charley Ford",
+      "film": "The Assassination of Jesse James by the Coward Robert Ford",
+      "filmCN": "《神枪手之死》",
+      "year": "2007",
+      "accent": "#6d94b0",
+      "bg": "#161d29",
+      "text": "#dde5ee",
+      "muted": "#7e8ea2",
+      "auLink": "/WinterSunBlog/series/nothing-warmer-than-you/",
+      "label": "ENOUGH ROPE",
+      "line": "Charley. That's all I've got to give you — and it's enough rope to hang me.",
+      "lineCN": "Charley。我能给你的就这么多——却够你，把我送上绞架了。",
+      "kind": "交底"
     }
   ]
 }

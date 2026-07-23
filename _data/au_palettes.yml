@@ -369,6 +369,19 @@
   bg_cn: "散场夜墨黑"
   bg_en: "Empty-Gym Black"
 
+"See How They Stay":        # Inspector Stoppard · 色卡同源画册 id: stoppard
+  mf_id: stoppard                # → Many Faces 画册锚点 /sam/many-faces/#stoppard
+  theme_id: stoppard
+  accent: "#e2c48f"
+  accent_ink: "#8a6a37"        # accent 偏浅，浅色主题下加深到对比度 ≥4.5:1
+  bg: "#1a1f2c"
+  text: "#ebe2d4"
+  muted: "#7c8090"
+  accent_cn: "旧照片暖褐"
+  accent_en: "Old Photograph"
+  bg_cn: "伦敦午夜蓝"
+  bg_en: "London Midnight"
+
 "Wholly Known":             # Eddie Carbone · A View from the Bridge · 非画册角色，独立配色
   accent: "#c0492e"
   accent_ink: "#9d3a22"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
@@ -379,3 +392,16 @@
   accent_en: "Dockside Ember"
   bg_cn: "港湾落雪夜"
   bg_en: "Snowfall Harbor"
+
+"Nothing Warmer Than You":  # Charley Ford · 雪原枪蓝 · 色卡同源画册 id: charley
+  mf_id: charley                # → Many Faces 画册锚点 /sam/many-faces/#charley
+  theme_id: charley
+  accent: "#6d94b0"
+  accent_ink: "#3f6480"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#161d29"
+  text: "#dde5ee"
+  muted: "#7e8ea2"
+  accent_cn: "枪管钢蓝"
+  accent_en: "Gunmetal Blue"
+  bg_cn: "雪原夜蓝"
+  bg_en: "Snowfield Night"

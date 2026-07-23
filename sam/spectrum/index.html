@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Six Dimensions · 六维光谱 · Winter Sun</title>
-<meta name="description" content="狡黠、隐忍、疯狂、璞真、浪漫、优雅——四十七个 Sam Rockwell 角色的性格光谱地图。">
+<meta name="description" content="狡黠、隐忍、疯狂、璞真、浪漫、优雅——四十八个 Sam Rockwell 角色的性格光谱地图。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Six Dimensions · 六维光谱 · Winter Sun">
-<meta property="og:description" content="六个维度，四十七张面孔。看清他其实演过多少种人。">
+<meta property="og:description" content="六个维度，四十八张面孔。看清他其实演过多少种人。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/spectrum/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
@@ -97,6 +97,7 @@ const CHARS = [
   {id:"jim",name:"Jim Crocker",film:"Piccadilly Jim",filmCN:"《花花公子吉米》",year:"2004",label:"THE ONE THAT'S REAL",line:"I'll be anyone you like — but the fool in love? That one's actually me.",lineCN:"你要谁我就演谁——可那个爱上你的傻瓜，才是真的我。",tagline:"他用最绅士的方式把你逗笑。",bg:"#161214",accent:"#d8b25a",text:"#f0e3dc",muted:"#8d6278",profile:{guile:8,forbear:2,chaos:6,raw:7,romance:8,grace:9},auLink:null},
   {id:"zaphod",name:"Zaphod Beeblebrox",film:"The Hitchhiker's Guide to the Galaxy",filmCN:"《银河系漫游指南》",year:"2005",label:"BOTH HEADS AGREE",line:"My two heads agree on exactly one thing, baby doll. You.",lineCN:"我那两个脑袋只在一件事上意见一致，baby doll——就是你。",tagline:"他叫你 baby doll，整个银河系都知道这件事，除了他自己。",bg:"#0b0a12",accent:"#d4a82a",text:"#e8e4d0",muted:"#8a7a48",profile:{guile:2,forbear:1,chaos:10,raw:10,romance:8,grace:6},auLink:"/WinterSunBlog/series/zaphod-au/"},
   {id:"brad",name:"Brad Cairn",film:"Joshua",filmCN:"《约书亚》",year:"2007",label:"THE FIRST TO ASK",line:"You were the first to ask if I was okay. I'd forgotten that was a question.",lineCN:"你是第一个问我「还好吗」的人——我都快忘了，这也能是个问题。",tagline:"他独自看清，独自承担。",bg:"#1c2230",accent:"#c9d84e",text:"#e8eadc",muted:"#7a8590",profile:{guile:5,forbear:9,chaos:3,raw:5,romance:6,grace:7},auLink:null},
+  {id:"charley",name:"Charley Ford",film:"The Assassination of Jesse James by the Coward Robert Ford",filmCN:"《神枪手之死》",year:"2007",label:"STILL SOMETHING LEFT",line:"There's always something else I want to do — turns out it's you.",lineCN:"我总还有别的想做的事——原来，那件事是你。",tagline:"他举得起枪，却始终扣不下扳机；全世界都当他是个笑话，你偏偏，把这只爱笑的大狗狗，看成了最好看的人。",bg:"#161d29",accent:"#6d94b0",text:"#dde5ee",muted:"#7e8ea2",profile:{guile:1,forbear:2,chaos:5,raw:8,romance:9,grace:4},auLink:"/WinterSunBlog/series/nothing-warmer-than-you/"},
   {id:"glenn",name:"Glenn Marchand",film:"Snow Angels",filmCN:"《雪天使》",year:"2007",label:"THE ONE WHO DIDN'T BURN",line:"I'm the fire that burns everything down. You're the one who didn't.",lineCN:"我是那团烧尽一切的火——你是唯一，没被烧毁的人。",tagline:"那片灰白的雪地里，是你抓住了他的手。",bg:"#1c2030",accent:"#b8d0e0",text:"#dce4ea",muted:"#7a8090",profile:{guile:4,forbear:3,chaos:8,raw:7,romance:5,grace:3},auLink:null},
   {id:"reston",name:"Jim Reston",film:"Frost/Nixon",filmCN:"《福斯特对话尼克松》",year:"2008",label:"OFF THE RECORD",line:"I won't say \"I love you\" — too cheap. I'll just prove they were wrong about you.",lineCN:"我不说「我爱你」——太廉价。我只会逐条证明：他们看错了你。",tagline:"他不是野火，是恒星——对真相寸步不让，对你寸步不离。",bg:"#1f1814",accent:"#3f8f94",text:"#ebe0cc",muted:"#8a7458",profile:{guile:8,forbear:3,chaos:2,raw:8,romance:5,grace:6},auLink:null},
   {id:"victor",name:"Victor Mancini",film:"Choke",filmCN:"《窒色》",year:"2008",label:"BEFORE HE COULD ASK",line:"Everyone left before I could ask them to stay. You stayed before I dared.",lineCN:"所有人都在我开口挽留之前就走了——你却在我还不敢开口之前，留下了。",tagline:"他知道自己是个混蛋，可他真心想成为不是混蛋的那个人。",bg:"#350d1e",accent:"#d2a24a",text:"#f5e0e8",muted:"#96495f",profile:{guile:7,forbear:7,chaos:5,raw:6,romance:6,grace:3},auLink:"/WinterSunBlog/series/choke-point/"},
@@ -162,8 +163,8 @@ const AVERAGE = (() => {
     p[d.key] = CHARS.reduce((s, c) => s + c.profile[d.key], 0) / CHARS.length;
   });
   return {
-    id: "__avg", name: "四十七个他 · 平均的 Sam", film: "The Average of Forty-Seven Faces",
-    filmCN: "四十七张面孔叠在一起", year: "", label: "THE MEAN OF ALL",
+    id: "__avg", name: "四十八个他 · 平均的 Sam", film: "The Average of Forty-Eight Faces",
+    filmCN: "四十八张面孔叠在一起", year: "", label: "THE MEAN OF ALL",
     tagline: "把他演过的每一个人叠在一起，露出的那张脸。",
     line: "", lineCN: "", accent: AVG_ACCENT, text: "#ede4dc", muted: "#8a7a6e",
     bg: "#1a1610", profile: p, auLink: null, isAvg: true,
@@ -347,7 +348,7 @@ function App() {
           fontSize: "clamp(14px,3.8vw,16px)", lineHeight: 2, color: "#a08b6b",
         }}>
           狡黠、隐忍、疯狂、璞真、浪漫、优雅——<br />
-          同一个人，四十七种配比。左边点一个角色，看他的形状；<br />
+          同一个人，四十八种配比。左边点一个角色，看他的形状；<br />
           或者就停在<span style={{ color: "#a2897c" }}>平均的那张脸</span>上。
         </p>
       </header>
@@ -431,11 +432,11 @@ function App() {
 
           <div style={{ marginTop: "clamp(20px,4vw,32px)" }}>
             <div style={{ fontFamily: TYPE, fontSize: 11, letterSpacing: 2.5, color: "#8a7558", textTransform: "uppercase", marginBottom: 20 }}>
-              在四十七人里的位置
+              在四十八人里的位置
             </div>
             {DIMS.map(d => <Strip key={d.key} dim={d} selIdx={selIdx} />)}
             <p style={{ fontFamily: SERIF, fontSize: 11.5, color: "#5f5340", lineHeight: 1.7, marginTop: 4 }}>
-              每个点是一个角色，横轴是该维度 0→10。虚线六边形是四十七人的平均。
+              每个点是一个角色，横轴是该维度 0→10。虚线六边形是四十八人的平均。
             </p>
           </div>
         </div>
