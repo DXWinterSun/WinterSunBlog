@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 5 · 你想要什么就做吧 — Tuning the Devil"
 date: 2026-06-10
-tags: [Wild Bill Wharton, Sam Rockwell, AU, Tuning the Devil, 暗涌, 炽恋]
+tags: [Wild Bill Wharton, Sam Rockwell, AU, Tuning the Devil, 暗涌]
 categories: ["AU Story"]
 series: "Tuning the Devil"
 series_title: 'Tuning the Devil · William "Wild Bill" Wharton AU'

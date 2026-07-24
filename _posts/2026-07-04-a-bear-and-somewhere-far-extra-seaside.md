@@ -3,7 +3,7 @@ layout: post
 title: "番外 · 海边 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
-tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 炽恋, 安放]
+tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 安放]
 categories: ["AU Story"]
 series: "A Bear and Somewhere Far"
 series_title: "A Bear and Somewhere Far · C.P. Ellis AU"

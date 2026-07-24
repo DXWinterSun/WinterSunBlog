@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 6 · 燔祭 — Faith Unseen"
 date: 2026-07-08
 image: Don-Verdean.jpg
-tags: [Don Verdean, Sam Rockwell, AU, Faith Unseen, 炽恋, 悸动]
+tags: [Don Verdean, Sam Rockwell, AU, Faith Unseen, 悸动]
 categories: ["AU Story"]
 series: "Faith Unseen"
 series_title: "Faith Unseen · Don Verdean AU"

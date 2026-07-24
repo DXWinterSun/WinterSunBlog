@@ -3,7 +3,7 @@ layout: post
 title: "Extra 3 · 第四分钟 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 炽恋, 缱绻]
+tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
 series_title: "The Making of You · Aldo Stankas AU"

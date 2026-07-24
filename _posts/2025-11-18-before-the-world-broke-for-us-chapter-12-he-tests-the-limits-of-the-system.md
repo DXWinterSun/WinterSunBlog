@@ -10,7 +10,7 @@ series_order: 12
 series_type: "Series"
 chapter_type: "Chapter 12"
 summary: "吻不让碰，那他就试试——到底哪一步世界才会拦住他。"
-tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 炽恋, 暗涌]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 暗涌]
 ---
 
 🤠🔥💣🌘

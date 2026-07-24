@@ -10,7 +10,7 @@ series_order: 13
 series_type: "Series"
 chapter_type: "Chapter 13"
 summary: "他说：这次，不是职责。"
-tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 炽恋]
+tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻]
 ---
 
 **🕯️ 《The Invisible Light》· 第十三章｜“这次，不是职责。**”

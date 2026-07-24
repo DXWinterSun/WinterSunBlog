@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · First Day on the Heart of Gold — Zaphod AU"
 date: 2026-05-09
 image: zaphod-au.jpg
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 悸动, 炽恋]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 悸动]
 categories: ["AU Story"]
 series: "Zaphod AU"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"

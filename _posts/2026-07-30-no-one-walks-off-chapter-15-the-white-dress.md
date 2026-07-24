@@ -10,7 +10,7 @@ series_order: 15
 series_type: "Series"
 chapter_type: "Chapter 15"
 summary: "她头一回换下棒球衫，穿上白裙子站到他面前——想看他会不会也乱。"
-tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 炽恋, 暗涌]
+tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 暗涌]
 ---
 
 > 你穿了一辈子的棒球衫和球鞋。那天你头一回换上一条白裙子——不为任何一个男孩，只为站到他面前，看他会不会，也跟着乱了阵脚。

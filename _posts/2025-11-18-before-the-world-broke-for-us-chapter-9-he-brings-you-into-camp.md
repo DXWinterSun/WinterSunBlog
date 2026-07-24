@@ -10,7 +10,7 @@ series_order: 9
 series_type: "Series"
 chapter_type: "Chapter 9"
 summary: "他一枪抵向同伴额头，冷冷道：你试试看动她。"
-tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 暗涌, 炽恋]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 暗涌]
 ---
 
 🤠🔥🌘

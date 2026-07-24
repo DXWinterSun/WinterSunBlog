@@ -10,7 +10,7 @@ series_order: 8
 series_type: "Series"
 chapter_type: "Chapter 8"
 summary: "宙斯降临神庙问罪，你迎风而立，怒斥控制，甘愿斩断神性也要自由。"
-tags: [Menelaus, BayBay, AU, Menelaus AU, 暗涌, 炽恋]
+tags: [Menelaus, BayBay, AU, Menelaus AU, 暗涌]
 ---
 
 ⚡️You Called Me Zeus｜你终于喊出"宙斯"

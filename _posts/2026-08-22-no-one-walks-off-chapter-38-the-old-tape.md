@@ -10,7 +10,7 @@ series_order: 38
 series_type: "Series"
 chapter_type: "Chapter 38"
 summary: "他怕你看了老录像嫌他不如往昔。可你眼里根本没那少年，只有身边这个他。"
-tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 炽恋, 缱绻]
+tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 缱绻]
 ---
 
 > 他一直不肯给你看他年轻时打球的录像——他怕你看见那个闪闪发光的少年，再回头看看如今的他，会失望。他忘了：你从头到尾要的，从来就不是录像里那个人。

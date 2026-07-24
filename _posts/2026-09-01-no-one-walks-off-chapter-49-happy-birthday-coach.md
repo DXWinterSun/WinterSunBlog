@@ -10,7 +10,7 @@ series_order: 49
 series_type: "Series"
 chapter_type: "Chapter 49"
 summary: "他给别人鼓了一辈子掌，这回满屋子人为他而来。你把他好好疼了一场。"
-tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 炽恋, 安放]
+tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 缱绻, 安放]
 ---
 
 > 他给别人鼓了一辈子掌，站在场边，替一茬又一茬的臭小子欢呼、庆功、拍肩膀。可从没人，为他站起来，鼓过一次。这个连自己上回过生日是哪年都想不起来的男人——这一天，你要让他知道，他值得。值得一屋子人为他而来，值得一座刻着他名字的奖杯，值得，被人好好地，爱一场。

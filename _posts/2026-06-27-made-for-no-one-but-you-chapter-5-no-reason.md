@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 5 · 不用理由 — Made for No One but You"
 date: 2026-06-27
 image: made-for-no-one-but-you.svg
-tags: [Sammy, AU, Made for No One but You, 悸动, 炽恋]
+tags: [Sammy, AU, Made for No One but You, 悸动]
 categories: ["AU Story"]
 series: "Made for No One but You"
 series_title: "Made for No One but You · Westworld AU"

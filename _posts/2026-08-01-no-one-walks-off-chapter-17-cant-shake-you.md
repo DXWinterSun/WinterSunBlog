@@ -10,7 +10,7 @@ series_order: 17
 series_type: "Series"
 chapter_type: "Chapter 17"
 summary: "真相之后你成了甩不掉的黏人精，赖着他要亲要抱——最后赖到了床上。"
-tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 炽恋, 缱绻]
+tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 缱绻]
 ---
 
 > 从前你是那个把家撑起来的大人。真相之后你却成了个黏人精——赖上他，缠着他，要亲要抱，半步都不肯离。而他嘴上嫌你烦，身体却诚实得很。

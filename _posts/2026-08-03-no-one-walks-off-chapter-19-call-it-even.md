@@ -10,7 +10,7 @@ series_order: 19
 series_type: "Series"
 chapter_type: "Chapter 19"
 summary: "白天是人人羡慕的模范父女，夜里是分不开的恋人——扯平了，也更黏了。"
-tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 缱绻, 炽恋]
+tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 缱绻]
 ---
 
 > 白天，你们是全校都要夸一句“感情真好”的模范父女。没人会往别处想——他们看不见的是，夜里那扇门关上以后，这对“父女”有多没羞没臊。
