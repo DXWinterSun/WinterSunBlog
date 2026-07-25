@@ -167,6 +167,17 @@ grep -E '^summary:' _posts/<file>.md | sed 's/^summary: *"//; s/"$//' | awk '{pr
 应该是 ~105。要精确按字符数可以用 Python：
 `python3 -c "import sys; print(len(sys.argv[1]))" "<summary 内容>"`）
 
+## ⚠️ 章节结尾的收束引语（closing blockquote）：短，别复述整章
+
+每章正文**最后**那段 `>` 收束引语，一律写成**几句短的、情绪化或诗一样的收束
+（约 3–6 短行）就好，绝不整段复述本章情节**。Winter 明确不喜欢那种把整章又
+讲一遍的长尾巴——又冗长、又没人看。
+
+- 只留最戳心的意象 / 一句钩子 / 一点余韵，不要事无巨细地复盘剧情。
+- 多行诗式收束直接换行写即可：kramdown 默认 `hard_wrap` 会把单换行渲染成分行。
+- **开头**那段 `>` 题词 / 引语（钩子）不受此限制，但也别写太长。
+- 这条是全站通用，写任何系列 / 番外都照此收着点，别放飞。
+
 ## Sam tab 的 The Collection（AU 系列卡片）
 
 `/sam/`（`sam/index.html`）里「The Collection」区块的 AU 系列卡片是
