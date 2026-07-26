@@ -42,8 +42,8 @@ tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 缱绻, 安放]
     </radialGradient>
   </defs>
   <circle cx="120" cy="120" r="96" fill="url(#flGlow)">
-    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.5s" repeatCount="indefinite"/>
-    <animate attributeName="r" values="90;100;90" dur="4.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.45;1;0.45" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="80;110;80" dur="4s" repeatCount="indefinite"/>
   </circle>
   <g>
     <ellipse cx="120" cy="66" rx="15" ry="46" fill="url(#flPetal)" transform="rotate(0 120 120)"/>

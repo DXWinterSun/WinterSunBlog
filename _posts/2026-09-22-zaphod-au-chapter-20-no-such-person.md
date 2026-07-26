@@ -97,8 +97,12 @@ Zaphod Beeblebrox 决定，动用职权。
       <text x="180" y="103" font-size="46" letter-spacing="2">DON'T</text>
       <text x="180" y="152" font-size="46" letter-spacing="2">PANIC</text>
     </g>
+    <!-- blinking cursor -->
+    <rect x="250" y="123" width="13" height="30" fill="#b6ff7a"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite"/></rect>
+    <!-- scanline sweep -->
+    <rect x="34" y="40" width="292" height="3" fill="#c6ff9a" opacity="0.3"><animate attributeName="y" values="38;190" dur="3.4s" repeatCount="indefinite"/></rect>
     <!-- screen flicker -->
-    <rect x="34" y="40" width="292" height="150" fill="#7CFC00" opacity="0"><animate attributeName="opacity" values="0;0.04;0;0.02;0" dur="3.5s" repeatCount="indefinite"/></rect>
+    <rect x="34" y="40" width="292" height="150" fill="#7CFC00" opacity="0"><animate attributeName="opacity" values="0;0.12;0.02;0.16;0.03;0" dur="2.6s" repeatCount="indefinite"/></rect>
   </g>
   <text x="180" y="30" text-anchor="middle" fill="#d4a82a" font-family="Georgia,serif" font-size="11" letter-spacing="3" opacity="0.8">THE HITCHHIKER'S GUIDE</text>
 </svg>

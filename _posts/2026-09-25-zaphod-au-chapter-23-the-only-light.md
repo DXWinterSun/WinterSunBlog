@@ -102,8 +102,8 @@ Heart of Gold，停了下来。
     <circle cx="361.1" cy="63.6" r="0.7" fill="#cbd6e6" opacity="0.35"><animate attributeName="opacity" values="0.1;0.4;0.1" dur="4.1s" repeatCount="indefinite"/></circle>
     <circle cx="304.4" cy="121.0" r="0.7" fill="#cbd6e6" opacity="0.35"><animate attributeName="opacity" values="0.1;0.4;0.1" dur="3.2s" repeatCount="indefinite"/></circle>
   <circle cx="230" cy="105" r="70" fill="url(#lgHalo)">
-    <animate attributeName="r" values="60;80;60" dur="5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;1;0.6" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="50;94;50" dur="4.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="4.2s" repeatCount="indefinite"/>
   </circle>
   <circle cx="230" cy="105" r="9" fill="url(#lgCore)">
     <animateTransform attributeName="transform" type="rotate" from="0 230 105" to="360 230 105" dur="14s" repeatCount="indefinite"/>
