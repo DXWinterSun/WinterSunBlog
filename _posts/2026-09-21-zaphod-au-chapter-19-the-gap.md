@@ -60,6 +60,106 @@ Maximegalon 星际天文台，耗费三百年，绘成了一幅号称“全银�
 
 “凭空消失，总统先生。”台长陪着笑，“宇宙嘛，无奇不有。”
 
+<div class="c-star-figure" role="img" aria-label="一张星图，繁星之间有一个本该有星云、却空着的缺口" style="margin:2rem auto;max-width:460px;">
+<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+  <defs>
+    <radialGradient id="f1neb1" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#7a5cff" stop-opacity="0.22"/><stop offset="1" stop-color="#7a5cff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="f1neb2" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#d4a82a" stop-opacity="0.18"/><stop offset="1" stop-color="#d4a82a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="f1ghost" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#f7a8d0" stop-opacity="0.13"/><stop offset="0.6" stop-color="#c86bb4" stop-opacity="0.05"/><stop offset="1" stop-color="#c86bb4" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="120" cy="95" rx="70" ry="52" fill="url(#f1neb1)"/>
+  <ellipse cx="210" cy="235" rx="80" ry="46" fill="url(#f1neb2)"/>
+  <circle cx="208.9" cy="167.0" r="1.3" fill="#fff" opacity="0.64"/>
+    <circle cx="92.3" cy="236.3" r="1.3" fill="#fff" opacity="0.76"/>
+    <circle cx="49.8" cy="94.2" r="0.6" fill="#fff" opacity="0.7"/>
+    <circle cx="289.7" cy="177.1" r="1.1" fill="#fff" opacity="0.98"/>
+    <circle cx="281.3" cy="52.7" r="0.5" fill="#fff"><animate attributeName="opacity" values="0.89;0.22;0.89" dur="2.1s" repeatCount="indefinite"/></circle>
+    <circle cx="23.8" cy="257.8" r="0.5" fill="#fff" opacity="0.86"/>
+    <circle cx="270.4" cy="63.5" r="0.8" fill="#fff" opacity="0.77"/>
+    <circle cx="302.1" cy="137.9" r="0.9" fill="#fff" opacity="0.61"/>
+    <circle cx="421.7" cy="31.6" r="0.9" fill="#fff" opacity="0.55"/>
+    <circle cx="136.3" cy="27.9" r="0.6" fill="#fff" opacity="0.61"/>
+    <circle cx="179.6" cy="280.1" r="0.5" fill="#fff" opacity="0.49"/>
+    <circle cx="31.2" cy="114.6" r="1.1" fill="#fff" opacity="0.62"/>
+    <circle cx="96.1" cy="199.7" r="1.0" fill="#fff" opacity="0.41"/>
+    <circle cx="436.0" cy="223.3" r="0.6" fill="#fff" opacity="0.44"/>
+    <circle cx="12.9" cy="140.0" r="1.3" fill="#fff" opacity="0.47"/>
+    <circle cx="206.7" cy="62.2" r="0.7" fill="#fff" opacity="0.62"/>
+    <circle cx="183.3" cy="289.2" r="0.5" fill="#fff" opacity="0.53"/>
+    <circle cx="364.7" cy="94.4" r="0.5" fill="#fff" opacity="0.49"/>
+    <circle cx="387.3" cy="190.3" r="0.6" fill="#fff"><animate attributeName="opacity" values="0.38;0.1;0.38" dur="2.4s" repeatCount="indefinite"/></circle>
+    <circle cx="204.0" cy="10.7" r="1.0" fill="#fff" opacity="0.89"/>
+    <circle cx="41.0" cy="67.3" r="0.8" fill="#fff" opacity="0.36"/>
+    <circle cx="284.2" cy="44.1" r="1.3" fill="#fff"><animate attributeName="opacity" values="0.89;0.22;0.89" dur="2.5s" repeatCount="indefinite"/></circle>
+    <circle cx="179.4" cy="186.1" r="0.9" fill="#fff" opacity="0.94"/>
+    <circle cx="118.8" cy="61.9" r="1.5" fill="#fff" opacity="0.48"/>
+    <circle cx="399.7" cy="179.4" r="1.1" fill="#fff"><animate attributeName="opacity" values="0.38;0.1;0.38" dur="3.5s" repeatCount="indefinite"/></circle>
+    <circle cx="235.5" cy="80.5" r="1.1" fill="#fff" opacity="0.52"/>
+    <circle cx="272.8" cy="91.3" r="0.7" fill="#fff" opacity="0.95"/>
+    <circle cx="64.1" cy="144.1" r="0.6" fill="#fff" opacity="0.53"/>
+    <circle cx="98.6" cy="12.7" r="0.9" fill="#fff" opacity="0.62"/>
+    <circle cx="28.7" cy="88.1" r="1.5" fill="#fff"><animate attributeName="opacity" values="0.72;0.18;0.72" dur="2.7s" repeatCount="indefinite"/></circle>
+    <circle cx="168.8" cy="261.0" r="1.0" fill="#fff" opacity="0.78"/>
+    <circle cx="267.5" cy="47.9" r="0.5" fill="#fff" opacity="0.95"/>
+    <circle cx="166.7" cy="96.6" r="0.5" fill="#fff" opacity="0.36"/>
+    <circle cx="222.1" cy="215.5" r="1.0" fill="#fff"><animate attributeName="opacity" values="0.44;0.11;0.44" dur="2.8s" repeatCount="indefinite"/></circle>
+    <circle cx="209.2" cy="112.4" r="0.5" fill="#fff" opacity="0.94"/>
+    <circle cx="320.4" cy="233.3" r="1.0" fill="#fff" opacity="0.58"/>
+    <circle cx="408.0" cy="255.4" r="1.1" fill="#fff"><animate attributeName="opacity" values="0.96;0.24;0.96" dur="3.4s" repeatCount="indefinite"/></circle>
+    <circle cx="230.0" cy="12.1" r="1.1" fill="#fff"><animate attributeName="opacity" values="0.6;0.15;0.6" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="40.1" cy="33.7" r="0.6" fill="#fff" opacity="1.0"/>
+    <circle cx="334.4" cy="173.0" r="1.3" fill="#fff" opacity="0.65"/>
+    <circle cx="238.3" cy="154.1" r="0.9" fill="#fff" opacity="0.74"/>
+    <circle cx="110.2" cy="206.3" r="1.3" fill="#fff" opacity="0.86"/>
+    <circle cx="223.9" cy="262.6" r="1.0" fill="#fff" opacity="0.55"/>
+    <circle cx="97.9" cy="56.2" r="1.0" fill="#fff" opacity="0.78"/>
+    <circle cx="403.9" cy="100.9" r="0.9" fill="#fff" opacity="0.48"/>
+    <circle cx="365.9" cy="267.6" r="0.8" fill="#fff" opacity="0.6"/>
+    <circle cx="148.5" cy="46.7" r="1.3" fill="#fff" opacity="0.58"/>
+    <circle cx="26.0" cy="26.2" r="0.9" fill="#fff"><animate attributeName="opacity" values="0.88;0.22;0.88" dur="3.6s" repeatCount="indefinite"/></circle>
+    <circle cx="217.3" cy="270.9" r="1.1" fill="#fff" opacity="0.6"/>
+    <circle cx="306.4" cy="211.4" r="1.3" fill="#fff" opacity="0.56"/>
+    <circle cx="131.5" cy="180.5" r="0.9" fill="#fff" opacity="0.72"/>
+    <circle cx="359.4" cy="13.4" r="0.7" fill="#fff"><animate attributeName="opacity" values="0.61;0.15;0.61" dur="2.3s" repeatCount="indefinite"/></circle>
+    <circle cx="349.5" cy="83.7" r="0.7" fill="#fff" opacity="0.87"/>
+    <circle cx="59.2" cy="39.0" r="1.5" fill="#fff" opacity="0.78"/>
+    <circle cx="433.6" cy="202.4" r="0.8" fill="#fff" opacity="0.89"/>
+    <circle cx="325.1" cy="222.4" r="1.5" fill="#fff"><animate attributeName="opacity" values="0.81;0.2;0.81" dur="3.1s" repeatCount="indefinite"/></circle>
+    <circle cx="128.9" cy="106.2" r="1.5" fill="#fff" opacity="0.68"/>
+    <circle cx="78.7" cy="249.0" r="0.8" fill="#fff" opacity="0.41"/>
+    <circle cx="328.7" cy="44.9" r="1.3" fill="#fff" opacity="0.48"/>
+    <circle cx="11.0" cy="164.2" r="1.5" fill="#fff" opacity="0.87"/>
+    <circle cx="213.9" cy="193.0" r="0.8" fill="#fff" opacity="0.41"/>
+    <circle cx="362.4" cy="270.5" r="0.6" fill="#fff" opacity="0.49"/>
+    <circle cx="443.3" cy="285.6" r="1.5" fill="#fff" opacity="0.98"/>
+    <circle cx="124.3" cy="212.0" r="0.5" fill="#fff"><animate attributeName="opacity" values="0.58;0.14;0.58" dur="2.6s" repeatCount="indefinite"/></circle>
+    <circle cx="203.8" cy="164.3" r="0.9" fill="#fff"><animate attributeName="opacity" values="0.67;0.17;0.67" dur="2.4s" repeatCount="indefinite"/></circle>
+    <circle cx="367.3" cy="26.2" r="0.5" fill="#fff" opacity="0.46"/>
+    <circle cx="357.8" cy="47.9" r="0.7" fill="#fff" opacity="1.0"/>
+    <circle cx="238.1" cy="200.5" r="1.3" fill="#fff" opacity="0.96"/>
+    <circle cx="429.4" cy="32.4" r="0.8" fill="#fff" opacity="0.64"/>
+    <circle cx="377.0" cy="167.5" r="0.7" fill="#fff" opacity="0.69"/>
+    <circle cx="256.6" cy="96.5" r="1.1" fill="#fff" opacity="0.97"/>
+    <circle cx="278.6" cy="94.5" r="0.7" fill="#fff" opacity="0.98"/>
+    <circle cx="262.4" cy="65.1" r="1.5" fill="#fff"><animate attributeName="opacity" values="0.42;0.1;0.42" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle cx="175.4" cy="160.9" r="0.5" fill="#fff" opacity="0.69"/>
+    <circle cx="363.7" cy="167.9" r="1.3" fill="#fff"><animate attributeName="opacity" values="0.41;0.1;0.41" dur="3.0s" repeatCount="indefinite"/></circle>
+    <circle cx="421.3" cy="138.3" r="1.1" fill="#fff" opacity="0.52"/>
+    <circle cx="64.4" cy="131.2" r="1.3" fill="#fff"><animate attributeName="opacity" values="0.69;0.17;0.69" dur="2.8s" repeatCount="indefinite"/></circle>
+    <circle cx="194.3" cy="16.4" r="0.9" fill="#fff" opacity="0.43"/>
+  <!-- the gap: charted, but empty -->
+  <circle cx="340" cy="128" r="26" fill="url(#f1ghost)">
+    <animate attributeName="opacity" values="0.9;0.5;0.9" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="340" cy="128" r="30" fill="none" stroke="#8fa0c0" stroke-width="1" stroke-dasharray="3 4" opacity="0.65"/>
+  <g stroke="#8fa0c0" stroke-width="1" opacity="0.55">
+    <line x1="334" y1="128" x2="346" y2="128"/>
+    <line x1="340" y1="122" x2="340" y2="134"/>
+  </g>
+  <text x="340" y="174" text-anchor="middle" fill="#8fa0c0" font-family="Georgia,serif" font-style="italic" font-size="11" opacity="0.7">? — nebula missing</text>
+</svg>
+</div>
+
 众人的注意力，早又被别处的璀璨勾走了。
 
 只有他，还盯着那个小小的、黑的缺口，挪不开眼。

@@ -30,6 +30,79 @@ Zaphod Beeblebrox 决定，动用职权。
 
 “‘Baby doll’：一种旧地球的、供孩童把玩的娃娃。亦作亲昵称呼。除此之外，本指南没有任何补充。祝您愉快。别慌。”
 
+<div class="c-guide-figure" role="img" aria-label="银河系搭车客指南的屏幕，印着大大的 DON’T PANIC" style="margin:2rem auto;max-width:360px;">
+<svg viewBox="0 0 360 250" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;filter:drop-shadow(0 6px 16px rgba(0,0,0,.4));">
+  <defs>
+    <linearGradient id="f3body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2b30"/><stop offset="1" stop-color="#141417"/></linearGradient>
+    <radialGradient id="f3screen" cx="0.5" cy="0.4" r="0.75"><stop offset="0" stop-color="#0d2a14"/><stop offset="1" stop-color="#04120a"/></radialGradient>
+    <filter id="f3glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.4"/></filter>
+    <clipPath id="f3sclip"><rect x="34" y="40" width="292" height="150" rx="10"/></clipPath>
+  </defs>
+  <!-- device body -->
+  <rect x="8" y="10" width="344" height="230" rx="22" fill="url(#f3body)" stroke="#d4a82a" stroke-width="1.5" stroke-opacity="0.5"/>
+  <!-- little grille + buttons -->
+  <g fill="#3a3a40"><circle cx="300" cy="214" r="6"/><circle cx="320" cy="214" r="6"/></g>
+  <rect x="40" y="208" width="60" height="7" rx="3.5" fill="#3a3a40"/>
+  <!-- screen -->
+  <rect x="34" y="40" width="292" height="150" rx="10" fill="url(#f3screen)" stroke="#0a3a1c" stroke-width="2"/>
+  <g clip-path="url(#f3sclip)">
+    <!-- scanlines -->
+    <g stroke="#0a3a1c" stroke-width="1" opacity="0.5">
+      <line x1="34" y1="44" x2="326" y2="44"/>
+      <line x1="34" y1="48" x2="326" y2="48"/>
+      <line x1="34" y1="52" x2="326" y2="52"/>
+      <line x1="34" y1="56" x2="326" y2="56"/>
+      <line x1="34" y1="60" x2="326" y2="60"/>
+      <line x1="34" y1="64" x2="326" y2="64"/>
+      <line x1="34" y1="68" x2="326" y2="68"/>
+      <line x1="34" y1="72" x2="326" y2="72"/>
+      <line x1="34" y1="76" x2="326" y2="76"/>
+      <line x1="34" y1="80" x2="326" y2="80"/>
+      <line x1="34" y1="84" x2="326" y2="84"/>
+      <line x1="34" y1="88" x2="326" y2="88"/>
+      <line x1="34" y1="92" x2="326" y2="92"/>
+      <line x1="34" y1="96" x2="326" y2="96"/>
+      <line x1="34" y1="100" x2="326" y2="100"/>
+      <line x1="34" y1="104" x2="326" y2="104"/>
+      <line x1="34" y1="108" x2="326" y2="108"/>
+      <line x1="34" y1="112" x2="326" y2="112"/>
+      <line x1="34" y1="116" x2="326" y2="116"/>
+      <line x1="34" y1="120" x2="326" y2="120"/>
+      <line x1="34" y1="124" x2="326" y2="124"/>
+      <line x1="34" y1="128" x2="326" y2="128"/>
+      <line x1="34" y1="132" x2="326" y2="132"/>
+      <line x1="34" y1="136" x2="326" y2="136"/>
+      <line x1="34" y1="140" x2="326" y2="140"/>
+      <line x1="34" y1="144" x2="326" y2="144"/>
+      <line x1="34" y1="148" x2="326" y2="148"/>
+      <line x1="34" y1="152" x2="326" y2="152"/>
+      <line x1="34" y1="156" x2="326" y2="156"/>
+      <line x1="34" y1="160" x2="326" y2="160"/>
+      <line x1="34" y1="164" x2="326" y2="164"/>
+      <line x1="34" y1="168" x2="326" y2="168"/>
+      <line x1="34" y1="172" x2="326" y2="172"/>
+      <line x1="34" y1="176" x2="326" y2="176"/>
+      <line x1="34" y1="180" x2="326" y2="180"/>
+      <line x1="34" y1="184" x2="326" y2="184"/>
+      <line x1="34" y1="188" x2="326" y2="188"/>
+    </g>
+    <!-- glow copy -->
+    <g fill="#7CFC00" filter="url(#f3glow)" opacity="0.9" font-family="'Arial Rounded MT Bold','Trebuchet MS',Verdana,sans-serif" font-weight="700" text-anchor="middle">
+      <text x="180" y="103" font-size="46" letter-spacing="2">DON'T</text>
+      <text x="180" y="152" font-size="46" letter-spacing="2">PANIC</text>
+    </g>
+    <!-- sharp text -->
+    <g fill="#b6ff7a" font-family="'Arial Rounded MT Bold','Trebuchet MS',Verdana,sans-serif" font-weight="700" text-anchor="middle">
+      <text x="180" y="103" font-size="46" letter-spacing="2">DON'T</text>
+      <text x="180" y="152" font-size="46" letter-spacing="2">PANIC</text>
+    </g>
+    <!-- screen flicker -->
+    <rect x="34" y="40" width="292" height="150" fill="#7CFC00" opacity="0"><animate attributeName="opacity" values="0;0.04;0;0.02;0" dur="3.5s" repeatCount="indefinite"/></rect>
+  </g>
+  <text x="180" y="30" text-anchor="middle" fill="#d4a82a" font-family="Georgia,serif" font-size="11" letter-spacing="3" opacity="0.8">THE HITCHHIKER'S GUIDE</text>
+</svg>
+</div>
+
 别慌。
 
 不知怎么，看到这两个字，他心口，又空了一下。
