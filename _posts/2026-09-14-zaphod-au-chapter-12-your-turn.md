@@ -4,6 +4,7 @@ title: "Chapter 12 · 轮到你了 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-09-14
 image: zaphod-au.jpg
+has_art: true
 series: "Zaphod AU"
 series_title: "Don't Panic, Baby Doll · Zaphod AU"
 series_order: 12
@@ -23,6 +24,55 @@ tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 缱绻, 安放]
 场地，还是 Betelgeuse VII 那座最宏伟的星云礼堂——那里的光是暖金色的，落下来时，会让他那头乱糟糟的金色卷发，显得更好看。
 
 花，还是那种只在五个星系里生长、会流转微光的银色花，因为你知道，他喜欢闪的东西。
+
+<div class="c-flower-figure" role="img" aria-label="一朵会流转微光的银色花" style="margin:2rem auto;max-width:260px;">
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+  <defs>
+    <radialGradient id="flGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#dff0ff" stop-opacity="0.85"/><stop offset="0.5" stop-color="#a9d6f7" stop-opacity="0.3"/><stop offset="1" stop-color="#a9d6f7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flPetal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#e4eef8"/><stop offset="1" stop-color="#a9c8e6"/>
+    </linearGradient>
+    <linearGradient id="flPetal2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c9dcf0"/>
+    </linearGradient>
+    <radialGradient id="flCore" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="0.6" stop-color="#eaf4ff"/><stop offset="1" stop-color="#bcd6ee"/>
+    </radialGradient>
+  </defs>
+  <circle cx="120" cy="120" r="96" fill="url(#flGlow)">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.5s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="90;100;90" dur="4.5s" repeatCount="indefinite"/>
+  </circle>
+  <g>
+    <ellipse cx="120" cy="66" rx="15" ry="46" fill="url(#flPetal)" transform="rotate(0 120 120)"/>
+    <ellipse cx="120" cy="66" rx="15" ry="46" fill="url(#flPetal)" transform="rotate(45 120 120)"/>
+    <ellipse cx="120" cy="66" rx="15" ry="46" fill="url(#flPetal)" transform="rotate(90 120 120)"/>
+    <ellipse cx="120" cy="66" rx="15" ry="46" fill="url(#flPetal)" transform="rotate(135 120 120)"/>
+    <ellipse cx="120" cy="66" rx="15" ry="46" fill="url(#flPetal)" transform="rotate(180 120 120)"/>
+    <ellipse cx="120" cy="66" rx="15" ry="46" fill="url(#flPetal)" transform="rotate(225 120 120)"/>
+    <ellipse cx="120" cy="66" rx="15" ry="46" fill="url(#flPetal)" transform="rotate(270 120 120)"/>
+    <ellipse cx="120" cy="66" rx="15" ry="46" fill="url(#flPetal)" transform="rotate(315 120 120)"/>
+    <ellipse cx="120" cy="84" rx="10" ry="34" fill="url(#flPetal2)" opacity="0.85" transform="rotate(22.5 120 120)"/>
+    <ellipse cx="120" cy="84" rx="10" ry="34" fill="url(#flPetal2)" opacity="0.85" transform="rotate(67.5 120 120)"/>
+    <ellipse cx="120" cy="84" rx="10" ry="34" fill="url(#flPetal2)" opacity="0.85" transform="rotate(112.5 120 120)"/>
+    <ellipse cx="120" cy="84" rx="10" ry="34" fill="url(#flPetal2)" opacity="0.85" transform="rotate(157.5 120 120)"/>
+    <ellipse cx="120" cy="84" rx="10" ry="34" fill="url(#flPetal2)" opacity="0.85" transform="rotate(202.5 120 120)"/>
+    <ellipse cx="120" cy="84" rx="10" ry="34" fill="url(#flPetal2)" opacity="0.85" transform="rotate(247.5 120 120)"/>
+    <ellipse cx="120" cy="84" rx="10" ry="34" fill="url(#flPetal2)" opacity="0.85" transform="rotate(292.5 120 120)"/>
+    <ellipse cx="120" cy="84" rx="10" ry="34" fill="url(#flPetal2)" opacity="0.85" transform="rotate(337.5 120 120)"/>
+    <animateTransform attributeName="transform" type="rotate" values="0 120 120;4 120 120;0 120 120" dur="9s" repeatCount="indefinite"/>
+  </g>
+  <circle cx="120" cy="120" r="16" fill="url(#flCore)"/>
+  <g fill="#ffffff">
+    <circle cx="120" cy="120" r="2.5"><animate attributeName="opacity" values="1;0.4;1" dur="2.6s" repeatCount="indefinite"/></circle>
+    <circle cx="112" cy="114" r="1.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.1s" repeatCount="indefinite"/></circle>
+    <circle cx="128" cy="126" r="1.4"><animate attributeName="opacity" values="1;0.4;1" dur="2.3s" repeatCount="indefinite"/></circle>
+    <circle cx="127" cy="112" r="1.1"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/></circle>
+  </g>
+</svg>
+</div>
 
 一切，都和上一回，一模一样。
 

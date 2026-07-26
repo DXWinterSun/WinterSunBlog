@@ -4,6 +4,7 @@ title: "Chapter 23 · 唯一的光 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-09-25
 image: zaphod-au.jpg
+has_art: true
 series: "Zaphod AU"
 series_title: "Don't Panic, Baby Doll · Zaphod AU"
 series_order: 23
@@ -81,6 +82,35 @@ Heart of Gold，停了下来。
 然后，在那片没有尽头的黑的最深处——
 
 他看见了，一点光。
+
+<div class="c-onelight-figure" role="img" aria-label="整片黑暗里，唯一的一点缓缓旋转的粉金色光" style="margin:2rem auto;max-width:420px;">
+<svg viewBox="0 0 460 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+  <defs>
+    <radialGradient id="lgVign" cx="0.5" cy="0.5" r="0.62">
+      <stop offset="0" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.55"/>
+    </radialGradient>
+    <radialGradient id="lgHalo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd9ec" stop-opacity="0.55"/><stop offset="0.4" stop-color="#f7a8d0" stop-opacity="0.18"/><stop offset="1" stop-color="#f7a8d0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lgCore" cx="0.42" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="0.35" stop-color="#ffd9ec"/><stop offset="0.7" stop-color="#f26cc0"/><stop offset="1" stop-color="#8f3fac"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="460" height="210" fill="url(#lgVign)"/>
+  <circle cx="42.7" cy="184.7" r="0.7" fill="#cbd6e6" opacity="0.35"><animate attributeName="opacity" values="0.1;0.4;0.1" dur="3.4s" repeatCount="indefinite"/></circle>
+    <circle cx="427.8" cy="180.9" r="0.7" fill="#cbd6e6" opacity="0.35"><animate attributeName="opacity" values="0.1;0.4;0.1" dur="3.5s" repeatCount="indefinite"/></circle>
+    <circle cx="361.1" cy="63.6" r="0.7" fill="#cbd6e6" opacity="0.35"><animate attributeName="opacity" values="0.1;0.4;0.1" dur="4.1s" repeatCount="indefinite"/></circle>
+    <circle cx="304.4" cy="121.0" r="0.7" fill="#cbd6e6" opacity="0.35"><animate attributeName="opacity" values="0.1;0.4;0.1" dur="3.2s" repeatCount="indefinite"/></circle>
+  <circle cx="230" cy="105" r="70" fill="url(#lgHalo)">
+    <animate attributeName="r" values="60;80;60" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="230" cy="105" r="9" fill="url(#lgCore)">
+    <animateTransform attributeName="transform" type="rotate" from="0 230 105" to="360 230 105" dur="14s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="230" cy="105" r="9" fill="none" stroke="#fff3fb" stroke-width="0.5" opacity="0.5"/>
+</svg>
+</div>
 
 极小，极远。一点，粉金色的、微弱的、正在缓缓旋转的光。
 
