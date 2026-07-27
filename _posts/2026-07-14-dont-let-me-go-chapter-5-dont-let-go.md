@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 5 · 别松开我 — Don't Let Me Go"
 date: 2026-07-14
 image: snow-angels.png.webp
-tags: [Glenn Marchand, Sam Rockwell, AU, "Don't Let Me Go", 暗涌, 炽恋]
+tags: [Glenn Marchand, Sam Rockwell, AU, "Don't Let Me Go", 暗涌]
 categories: ["AU Story"]
 series: "Don't Let Me Go"
 series_title: "Don't Let Me Go · Glenn Marchand AU"

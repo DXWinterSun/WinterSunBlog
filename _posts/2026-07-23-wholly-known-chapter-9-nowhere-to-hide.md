@@ -11,7 +11,7 @@ series_type: "Series"
 series_status: ongoing
 chapter_type: "Chapter 9"
 summary: "他最不敢见光的欲望，终于被人完整地接住了。而你说：没关系。"
-tags: [Eddie Carbone, Sam Rockwell, AU, Wholly Known, 炽恋, 缱绻]
+tags: [Eddie Carbone, Sam Rockwell, AU, Wholly Known, 缱绻]
 ---
 
 > 他这辈子，把自己最不堪的那一点，藏在了谁都够不着的地方。可你早就看见了。看见了，还没有走。

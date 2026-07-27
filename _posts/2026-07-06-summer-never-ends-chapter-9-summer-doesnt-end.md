@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 9 · 夏天不结束 — Summer Never Ends"
 date: 2026-07-06
 image: the-way-way-back.JPG
-tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 炽恋, 缱绻]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 缱绻]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"

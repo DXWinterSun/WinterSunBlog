@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 21 · 绝望的十六年 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
-tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 炽恋, 思念]
+tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 思念]
 categories: ["AU Story"]
 series: "A Bear and Somewhere Far"
 series_title: "A Bear and Somewhere Far · C.P. Ellis AU"

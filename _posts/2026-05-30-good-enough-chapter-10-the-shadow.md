@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 title: "Chapter 10 · 影子 — Good Enough"
 date: 2026-05-30

@@ -3,7 +3,7 @@ layout: post
 title: "番外 · The Long Con — The Real Thing"
 date: 2026-06-20
 image: sam-rockwell-matchstick-men.jpg
-tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 怀旧]
+tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怀旧]
 categories: ["AU Story"]
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"

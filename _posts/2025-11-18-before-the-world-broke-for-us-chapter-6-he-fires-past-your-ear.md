@@ -10,7 +10,7 @@ series_order: 6
 series_type: "Series"
 chapter_type: "Chapter 6"
 summary: "枪从你肩膀上方掠过，火药味与皮革的味道让你几乎站不稳。"
-tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 暗涌, 炽恋]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 暗涌]
 ---
 
 🔥🤠
