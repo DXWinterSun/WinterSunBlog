@@ -48,6 +48,19 @@
   bg_cn: "落幕玄黑"
   bg_en: "After-Curtain Onyx"
 
+"Better Living Through You":  # Douglas Varney · 色卡同源画册 id: doug
+  mf_id: doug                # → Many Faces 画册锚点 /sam/many-faces/#doug
+  theme_id: doug
+  accent: "#e6ecea"
+  accent_ink: "#6b4a2c"      # 画册 accent 是近白"处方白大褂"，浅色主题下不可读 → 取深棕墨（药瓶棕系），实测 ~7.9:1 vs 白
+  bg: "#1e1408"
+  text: "#ece1cf"
+  muted: "#9d8f78"
+  accent_cn: "处方白大褂"
+  accent_en: "Lab Coat"
+  bg_cn: "药瓶陈皮棕"
+  bg_en: "Pill-Bottle Brown"
+
 "The Making of You":        # Aldo Stankas · Trust Me · 色卡同源画册 id: aldo
   mf_id: aldo                # → Many Faces 画册锚点 /sam/many-faces/#aldo
   theme_id: aldo
