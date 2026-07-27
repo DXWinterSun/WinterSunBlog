@@ -34,8 +34,8 @@
   /* —— 深色模式：该系列深底 —— */
   :root[data-theme="dark"]{
     --c-bg:          {{ p.bg }};
-    --c-bg-soft:     {{ p.bg }};
-    --c-paper:       {{ p.bg }};
+    --c-bg-soft:     color-mix(in srgb, {{ p.bg }}, #ffffff 6%);
+    --c-paper:       color-mix(in srgb, {{ p.bg }}, #ffffff 9%);
     --c-ink:         {{ p.text }};
     --c-ink-soft:    {{ p.text }};
     --c-muted:       {{ p.muted }};
@@ -53,7 +53,9 @@
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --c-bg: {{ p.bg }}; --c-bg-soft: {{ p.bg }}; --c-paper: {{ p.bg }};
+      --c-bg: {{ p.bg }};
+      --c-bg-soft: color-mix(in srgb, {{ p.bg }}, #ffffff 6%);
+      --c-paper: color-mix(in srgb, {{ p.bg }}, #ffffff 9%);
       --c-ink: {{ p.text }}; --c-ink-soft: {{ p.text }};
       --c-muted: {{ p.muted }}; --c-muted-soft: {{ p.muted }};
       --c-line: rgba(255,255,255,.10); --c-line-strong: rgba(255,255,255,.20);
