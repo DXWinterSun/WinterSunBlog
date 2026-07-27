@@ -125,6 +125,8 @@
 **剧情弧（按序）**：无爱无性婚姻起手 → 骑行团被甩、垫底、付全账（去势）→ 亲自送药给 Elizabeth、被轻易勾引、婚外情；她教他穿衣/瑜伽/床事（"reverse cowgirl"场）→ 他身为药剂师**自调药物鸡尾酒**、越嗑越深 → 儿子在校用排泄物涂污储物柜、校长约谈 → 岳父晚餐提出让 Ethan 去他那住几晚、当众说 Doug"不够格当男性榜样"→ 父子靠**一起搞破坏（扮忍者去搞 vandalism）**联结（⚠️ Winter 说她看到"砸 Bishop's 药房"；检索版本是"扮忍者搞破坏"未点明砸药房——以 Winter 所见为准，本 AU 反正不走这条线）→ 后半嗑药后参加镇上骑行赛 "Woodbury Classic"、嗑自制药**赢过 Kara**、Kara 来电、俩人做爱 → DEA 查库存（因 Walter 从没合法过户）→ Elizabeth 怂恿他**篡改 Jack 心脏药剂量**制造"自然猝死"。
 
 **结局/反转（多源一致）**：Doug 被警察铐住带回自己药房，Carp 在等 → **Noah 被发现 OD 死在药房**，纸面证明 Noah 一直偷药贩药，**正好替 Doug 的库存亏空顶了包**，Doug 脱身 → **反转：Jack 没死、活着走进药房买阿司匹林**——原来 Noah **根本没送**那份被篡改的药，Jack 只是先前**在椅子上睡着**被误当成死了，**谋杀从未发生** → Doug **为了儿子 Ethan 不逃了**、改邪归正当个真父亲；与 Elizabeth **好聚好散**（她离开 Jack、出国）；与 Kara **离婚**（片子框成更健康的结局）。**Doug 最终两个女人都没跟，单身、清醒、成为 Ethan 真正的父亲。**
+- ⭐ **片尾（Winter 亲见）**：Doug **把药房招牌从 "Bishop's" 换成自己的名字 "Varney's"、门脸翻新** → 全片"披别人姓 → 拿回自己名字"这条线的**实体收束**，即"他不再是 bishop，他是 king"的具象加冕。旁白收尾：*"Doug Varney wasn't used to winning, but he was beginning to enjoy how it felt."* + 主旨句 *"You can't help everyone, but everyone can help someone. And sometimes that someone is yourself."*
+- ⭐ **本 AU 对主旨句的接法**：Doug 仍**自己**把招牌换成 Varney's（换招牌永远是他的手）；「你」是"帮到他的那个人"，但你帮的方式是让他相信"我配"——**给他爱情，不夺他自挣的王冠**。不写成"被贵妇搭救的落难者"。
 
 **已核金句**：
 - ✅ 逐字（quote 库）：Doug "What was that?" / Elizabeth "You mean reverse cowgirl?" / Doug "Yeah, that was amazing! I've never seen that before." / Elizabeth "Yeah, **you don't watch a lot of porn, do you, Doug?**"
