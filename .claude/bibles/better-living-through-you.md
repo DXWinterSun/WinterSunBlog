@@ -36,7 +36,10 @@
 - **来 Bishop 药房当助手的动机**（真实、立得住）：对这行有兴趣 + 他正好招人 + 她正好有空 + 待在家喝酒享乐太闷 + 想挣份薪水、做点自己喜欢的事、日子有奔头。
 - **一上手就读懂他**：看见镇上人怎么怠慢他、他工作时的样子、他的孤独 / 紧绷 / 渴。她自己也无牵无挂 → **一拍即合**。
 - 她**能在床上、在别的很多方面"点化"他**（保留电影里 Elizabeth 式的教导感）——但出发点是**疼他**，不是用他。
-- **名字：待定**（剧中称呼/署名用）。方向：旧钱、清贵。候选待抛给 Winter：Vivienne / Eleanor / Genevieve …
+- **名字**：名 = **Winter**（永远是 Winter 本人，固定）。
+  - **亡夫姓（公开身份 / married）＝ Sterling** ✅（Winter 定）→「Winter Sterling」/「Mrs. Sterling」。纯银、冷、钱味锃亮，正是她嫁进的那门冷钱。
+  - **娘家姓（maiden）＝ 待定**：要暖、朴素、有生气，与冷 Sterling 反差；心机方向——**带一点草木/药草气**，暗合她"前药剂师"的根（对药草的懂行是从娘家带来的）。⚠️ 忌用 Hale / Vale（Winter 明确不要，嫌太默认太俗）。候选：Sorrel / Sage / Laurel（草药系）、Meade（暖牧歌系）。
+  - **母题**：她婚后披亡夫姓、Doug 披岳父 Bishop 姓——两人都戴着"别人的名字"。结局可让两人一起卸下借来的姓（她要回娘家姓 / Doug 甩掉 Bishop 变 king）。
 
 ---
 
@@ -67,7 +70,7 @@
 ## 四、母题清单（每章尽量带一下）
 
 - **白大褂**：他唯一合法的"权威/体面"外壳；也是"可以一层层剥开的规矩"。剥白大褂 = 解他被镇上套上的枷锁。药房干净微苦的药剂味 = 他的气味。
-- **king / bishop 双关**（电影金句，务必用）："他不再是 bishop，他是 king。" bishop 既是岳父的姓、又是只能斜走/被锁死的棋子；king 是整局的核心。→ tagline 方向："你不只是个 Bishop——你是我的 King。"
+- **king / bishop 双关**（Winter 在蓝光字幕里亲眼看到，据此采信；⚠️但线上多方检索**查不到确切措辞/由谁说出**——引用前需向 Winter 核对她字幕里的原句）："他不再是 bishop，他是 king。" bishop 既是岳父的姓、又是只能斜走/被锁死的棋子；king 是整局的核心。→ tagline 方向："你不只是个 Bishop——你是我的 King。"
 - **猎物 → 王 / 黏人小动物**：一只被生活训练成猎物（受惊会装死的负鼠感）的男人，被真正看见后露出王的样子。既怕又软又认命又忍不住渴望。
 - **"You don't have to do that"**：他连被取悦都本能觉得是给对方添负担、自己不配 → 让他"终于肯收下、敢要"是张力所在。嘴上推辞、手却挽留（探进发间）。
 - **手帕**：老派、体面、憨的小动作，"还没被世界磨油滑"的男人才有。
@@ -100,7 +103,40 @@
 ---
 
 ## 八、电影事实档（FILM FACTS）
-> ⚠️ **待后台深研补全**（Winter 要求扒准，避免引用出错）。填入前不要凭记忆断言剧情细节。
-> 待补：完整人物表（准确拼写 + 演员）、逐场剧情、结局反转、旁白身份、金句原话、儿子线、岳父线、店员、"reverse cowgirl / porn"场、"两个快乐父母"台词原文。
+> 来源：后台检索（Wikipedia/IMDb/Fandom/TVTropes/评论站的搜索摘要，多源交叉核对）。⚠️ 标记项 = 单源或未能独立核实，引用前留意。
+> 铁规：**Winter 说她在片里看到的，一律采信（她的眼睛=真相）**，哪怕线上查不到（如 king/bishop 句）。
 
-*（研究返回后填此节。）*
+**基本**：*Better Living Through Chemistry*（2014，美国喜剧正剧）。导演/编剧 Geoff Moore & David Posamentier。片名取自杜邦旧广告语。小镇 **Woodbury**（州未提及，别乱指定）。当代背景。旁白 = **Jane Fonda**（画外音全程，并以"药房顾客/她本人"出镜）。
+
+**人物表（拼写已核）**：
+| 角色 | 演员 | 备注 |
+|---|---|---|
+| **Douglas "Doug" Varney** | Sam Rockwell | 主角，小镇药剂师 |
+| **Kara Varney** | Michelle Monaghan | 妻，好胜的自行车手/动感单车教练；连赢 6 届 "Tour de Woodbury" |
+| **Elizabeth Roberts** | Olivia Wilde | 富家有夫之妇，婚外情对象（本 AU 由 Winter 顶替） |
+| **Jack Roberts** | Ray Liotta | Elizabeth 的有钱冷漠丈夫，预谋下毒的对象 |
+| **Walter Bishop** | Ken Howard | Doug 岳父（Kara 之父），药房原主，不许 Doug 把店改名 Varney's |
+| **Ethan Varney** | Harrison Holzer | Doug 之子，青春期、闯祸 |
+| **Noah** | Ben Schwartz | 药房送货小哥/店员；偷药贩药；最后 OD 死 |
+| **Agent Andrew Carp** | Norbert Leo Butz | DEA 探员，查药房库存 |
+
+**药房**：名为 **"Bishop's"** ✅。岳父 Walter Bishop 不肯让 Doug 改名 Varney's = 去势设定的根。
+
+**剧情弧（按序）**：无爱无性婚姻起手 → 骑行团被甩、垫底、付全账（去势）→ 亲自送药给 Elizabeth、被轻易勾引、婚外情；她教他穿衣/瑜伽/床事（"reverse cowgirl"场）→ 他身为药剂师**自调药物鸡尾酒**、越嗑越深 → 儿子在校用排泄物涂污储物柜、校长约谈 → 岳父晚餐提出让 Ethan 去他那住几晚、当众说 Doug"不够格当男性榜样"→ 父子靠**一起搞破坏（扮忍者去搞 vandalism）**联结（⚠️ Winter 说她看到"砸 Bishop's 药房"；检索版本是"扮忍者搞破坏"未点明砸药房——以 Winter 所见为准，本 AU 反正不走这条线）→ 后半嗑药后参加镇上骑行赛 "Woodbury Classic"、嗑自制药**赢过 Kara**、Kara 来电、俩人做爱 → DEA 查库存（因 Walter 从没合法过户）→ Elizabeth 怂恿他**篡改 Jack 心脏药剂量**制造"自然猝死"。
+
+**结局/反转（多源一致）**：Doug 被警察铐住带回自己药房，Carp 在等 → **Noah 被发现 OD 死在药房**，纸面证明 Noah 一直偷药贩药，**正好替 Doug 的库存亏空顶了包**，Doug 脱身 → **反转：Jack 没死、活着走进药房买阿司匹林**——原来 Noah **根本没送**那份被篡改的药，Jack 只是先前**在椅子上睡着**被误当成死了，**谋杀从未发生** → Doug **为了儿子 Ethan 不逃了**、改邪归正当个真父亲；与 Elizabeth **好聚好散**（她离开 Jack、出国）；与 Kara **离婚**（片子框成更健康的结局）。**Doug 最终两个女人都没跟，单身、清醒、成为 Ethan 真正的父亲。**
+
+**已核金句**：
+- ✅ 逐字（quote 库）：Doug "What was that?" / Elizabeth "You mean reverse cowgirl?" / Doug "Yeah, that was amazing! I've never seen that before." / Elizabeth "Yeah, **you don't watch a lot of porn, do you, Doug?**"
+- ✅ 旁白(Fonda)：*"You can't help everyone, but everyone can help someone. And sometimes that someone is yourself…"*
+- ✅ Elizabeth：*"Girls don't, but women do."*
+
+**⚠️ 未能线上核实（但 Winter 看到的按采信处理）**：
+- **"He is no longer a bishop, he is the king"** 象棋双关——线上查不到确切措辞/谁说的。**引用前向 Winter 核对她蓝光字幕原句。**（本 AU 要用，务必拿到原文。）
+- "authentically nice guy"、"I'll give you something to remember me by"——未在 quote 源找到逐字。
+- 离婚信"两个快乐父母胜过两个受罪父母"——检索仅得 AI 转述 *"…better to be raised by two happy parents apart, than miserable ones together."*，**非逐字**；意思真、措辞待核。
+- 开场"朝妻子伸手被拒"具体镜头、片尾旁白揭晓的具体调度——描述吻合但未独立坐实。
+
+**口碑**：RT 24% / Metacritic 40 / IMDb ~6.2 / 票房极低（~$12 万，基本 VOD）。评价：普遍夸 Rockwell 的表演与卡司，但嫌剧本温吞、语气摇摆、"flirts with danger but never goes all in"——好卡司好前提被新导演剧本浪费。→ 印证 Winter "制作精致可惜口碑不好"的感受。
+
+**戏外（Olivia Wilde 谈 Sam）**：可核实的只有她多次公开讲他的"试镜绝招"轶事（假装拿错 sides、其实早背熟了"冷读"，屡试不爽；SmartLess 播客等，2024–25）。**未能核实她在任何颁奖礼上为 Sam 做过正式致辞/致敬**——Winter 若记得那段，属线上够不到的活动影像，别当既定事实写。
