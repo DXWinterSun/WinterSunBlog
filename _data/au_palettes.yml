@@ -418,3 +418,15 @@
   accent_en: "Gunmetal Blue"
   bg_cn: "雪原夜蓝"
   bg_en: "Snowfield Night"
+
+"Some Steps Only We Know":   # Jim Crocker · Piccadilly Jim · 色卡同源画册 id: jim
+  mf_id: jim                # → Many Faces 画册锚点 /sam/many-faces/#jim
+  accent: "#d8b25a"
+  accent_ink: "#94741a"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#161214"
+  text: "#f0e3dc"
+  muted: "#9b8d84"
+  accent_cn: "夜会香槟金"
+  accent_en: "Club Champagne"
+  bg_cn: "貂皮大氅黑"
+  bg_en: "Mink Black"
