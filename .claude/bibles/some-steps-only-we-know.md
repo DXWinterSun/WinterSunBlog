@@ -1,11 +1,11 @@
-# Everything But the Name · 系列圣经（内部工作文件，Jekyll 不发布）
+# Some Steps Only We Know · 系列圣经（内部工作文件，Jekyll 不发布）
 
 > Piccadilly Jim（Sam Rockwell）**双 AU 之一 —— 青梅竹马线**。
 > 姊妹篇（女仆线）另建圣经，晚点写。Jim = 全站第一个开双 AU 的角色。
-> 标题「Everything But the Name」为暂定，Winter 可改（见文末候选）。
+> 标题定名（Winter 拍板）：呼应 Keane《Somewhere Only We Know》，扣「你俩独有舞步」母题。
 
-series_name: Everything But the Name（暂定）
-slug: series/everything-but-the-name/ ｜ collection_order 25（女仆线将用 26）
+series_name: Some Steps Only We Know
+slug: series/some-steps-only-we-know/ ｜ collection_order 25（女仆线将用 26）
 角色: Jim Crocker（Sam Rockwell，《Piccadilly Jim》2004）画册 id `jim`
 配色: 同源画册 —— 夜会香槟金 accent `#d8b25a` / 貂皮大氅黑 bg `#161214`（text `#f0e3dc` / muted `#8d6278`）
 状态: 筹备中，未发布
@@ -52,7 +52,7 @@ slug: series/everything-but-the-name/ ｜ collection_order 25（女仆线将用 
 - **Jim 不 OOC 的红线**：careless 不是 cruel；动情靠身体动作泄、不靠嘴说；被问软处就打岔／耍宝挡回去。
 - 正文弯引号 “ ”／‘ ’，内层 ‘ ’；第二人称「你」。
 - 名物贴合西方老钱世界，别出中式古装味。
-- 内链带 `{{ site.baseurl }}`；`summary` ≤35 字、无 ASCII 双引号；章节 `tags` 前四个身份标签齐（Jim Crocker · Sam Rockwell · AU · Everything But the Name · mood…）。
+- 内链带 `{{ site.baseurl }}`；`summary` ≤35 字、无 ASCII 双引号；章节 `tags` 前四个身份标签齐（Jim Crocker · Sam Rockwell · AU · Some Steps Only We Know · mood…）。
 
 ## 已写章节流水
 （尚未动笔。**第一章拟**：开在一场派对／夜店，立起「你俩的默契＋他的双标保护欲＋你的默认」，Ann 只投个影子或还没出现。）
