@@ -431,13 +431,13 @@
   bg_cn: "貂皮大氅黑"
   bg_en: "Mink Black"
 
-"The One I Kept":            # Jim Crocker · Piccadilly Jim（女仆线）· 色卡同源画册 id: jim
+"The One I Kept":            # Jim Crocker · Piccadilly Jim（女仆线）· 与青梅竹马线共用同一套（一个角色一套色）
   mf_id: jim                # → Many Faces 画册锚点 /sam/many-faces/#jim
   accent: "#d8b25a"
   accent_ink: "#94741a"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#161214"
-  text: "#ece0d6"              # 比青梅竹马线略冷一档，做出更压抑的阅读基调
-  muted: "#8a8079"
+  text: "#f0e3dc"
+  muted: "#9b8d84"
   accent_cn: "夜会香槟金"
   accent_en: "Club Champagne"
   bg_cn: "貂皮大氅黑"
