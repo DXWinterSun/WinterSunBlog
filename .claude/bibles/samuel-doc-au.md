@@ -144,12 +144,24 @@
   - Ch1 "别的用处"的慌张 + 推眼镜 → 他动心即慌、拿正事岔开的声口，后续加码。
   - Ch1 那双干净的手 → 全系列核心母题，已立。
 
-## 待办 / 开写前
-- [x] 体裁 = "女A男O 的感觉"（气质反转，**非 omegaverse 设定**）；砍掉外星人，纯 1870s 西部。
-- [x] "你" = Winter Slade，Alpha 气质、全镇最快的枪；身世定为先1后3（血仇→老枪手收养→19岁报仇→空了→飘进镇赖上他）。
-- [x] 关系脊梁 + 深层互救定稿；开头基本锁定 C 线。
-- [ ] Winter 定中后段主要冲突（哪伙人/什么事）与节奏。
-- [ ] 定系列英文名 + slug + 配色（配色先查 `_data/sam_themes.yml` 有没有 Doc 的现成色卡）。
-- [ ] 定"他→你"的昵称、系列红线。
-- [ ] 开坑时补 Sam 画册条目（Doc 是 Sam 本人角色）。
+## 部署记录（2026-07-29）
+- **已上线到工作分支**（`claude/cowboys-aliens-discussion-exwdoy`）：
+  - 系列首页 `series/the-saloon-nobody-dares/`（collection_order 27）+ 第一章 `_posts/2026-07-29-…-chapter-1-absolution.md`。
+  - 封面 `images/doc-au.jpg`；配色 au_palettes 键 `The Saloon Nobody Dares`（mf_id `doc`）。
+- **专属色卡（真源=画册，全站 5 处已同步，check_palette_sync 绿）**：
+  accent `#c39a45`「斑驳金叶 / Gold Leaf」｜bg `#1a140c`「油灯陈木 / Lamplit Oak」｜
+  text `#ece1cf`｜muted `#9d8f78`｜accent_ink `#8a651c`（au_palettes 用）｜year 2011。
+- **画册那套已全部加 Doc**：many-faces(id `doc`)/quiz/spectrum(+__avg 四十九)/lines.json(49 角色·245 pool)/
+  sam_themes/au_palettes；`_data/sam.yml` faces 48→49、wall_lines 240→245；四处硬编码计数(quiz 47→49、
+  spectrum 四十八→四十九、today/manifest metas)一并校正。
+  - Doc 的六维：`{guile:6, forbear:6, chaos:2, raw:5, romance:7, grace:7}`；锚句 = inscription
+    "PUT IT AWAY"（你的枪要人命，我的手救人命…）；lines.json 5 句(锚/痞话/护/暗告白/交底)。
+- ⚠️ **未并入 main**：站点从 main 部署，需 Winter 点头后把工作分支并进 main 才在线上可见。
+
+## 待办
+- [x] 体裁 / 世界 / 身世 / 关系脊梁 / 开头 全部定稿并写完第 1 章。
+- [x] 系列英文名 The Saloon Nobody Dares + slug + 配色 + Sam 画册条目 全部上线（工作分支）。
+- [ ] Winter 定中后段主要冲突（哪伙人/什么事）与节奏 → 写第 2 章。
+- [ ] 定"他→你"的昵称、系列红线（含辣度）。
+- [ ] Winter 点头后把工作分支并入 main（上线到网站）。
 </content>

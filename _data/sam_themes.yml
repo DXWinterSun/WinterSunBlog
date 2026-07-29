@@ -310,6 +310,19 @@
   text: "#e7eaf2"
   muted: "#7c8aa6"
 
+- id: doc
+  year: 2011
+  name: "Doc"
+  anchor: doc
+  cn: 斑驳金叶
+  en: Gold Leaf
+  bg_cn: 油灯陈木
+  bg_en: Lamplit Oak
+  accent: "#c39a45"
+  bg: "#1a140c"
+  text: "#ece1cf"
+  muted: "#9d8f78"
+
 - id: kenny
   year: 2010
   name: "Kenny Waters"

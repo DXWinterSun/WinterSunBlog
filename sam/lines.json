@@ -2,8 +2,8 @@
   "meta": {
     "start": "2026-02-13",
     "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-    "characters_count": 48,
-    "pool_count": 240,
+    "characters_count": 49,
+    "pool_count": 245,
     "mf_alias": {
       "johnmoon": "john",
       "sambell": "sam",
@@ -1152,6 +1152,50 @@
           "line": "The eighth one sold me out, and I cried in a stranger's arms. Next time I would rather it be yours.",
           "lineCN": "排第八的那个把我卖了，我哭在一个陌生人怀里。下一次，我想哭在你怀里。",
           "kind": "情话"
+        }
+      ]
+    },
+    {
+      "id": "doc",
+      "name": "Doc",
+      "film": "Cowboys & Aliens",
+      "filmCN": "《牛仔与外星人》",
+      "year": "2011",
+      "accent": "#c39a45",
+      "bg": "#1a140c",
+      "text": "#ece1cf",
+      "muted": "#9d8f78",
+      "auLink": "/WinterSunBlog/series/the-saloon-nobody-dares/",
+      "quotes": [
+        {
+          "label": "PUT IT AWAY",
+          "line": "Your gun takes lives. My hands save them. Put it away — and let me.",
+          "lineCN": "你的枪要人命，我的手救人命。把枪收了——让我来。",
+          "kind": "锚"
+        },
+        {
+          "label": "ON THE HOUSE",
+          "line": "That's my best whiskey you're bleeding into. Front half's on me — the back half we save for you.",
+          "lineCN": "你正往我最好的酒里淌血呢。前半瓶算我请——后半瓶，省着给你。",
+          "kind": "痞话"
+        },
+        {
+          "label": "MY TABLE",
+          "line": "You bleed for the whole town. In here, you bleed on my table — and I'm the one who closes it.",
+          "lineCN": "你为全镇淌血。进了这门，你就淌在我的台子上——由我来给你收口。",
+          "kind": "护"
+        },
+        {
+          "label": "JUST DOC",
+          "line": "Everyone gets ‘Doc.’ The rest of my name I'm saving — for the day you actually stay.",
+          "lineCN": "谁都能叫我一声 Doc。剩下的名字我留着——留到你真肯留下那天。",
+          "kind": "暗告白"
+        },
+        {
+          "label": "NO GOOD WITH A GUN",
+          "line": "I'm no good with a gun, and we both know it. But nobody closes a wound like I do — so don't you dare bleed out on me.",
+          "lineCN": "我不会使枪，你我都清楚。可这镇上没人比我更会缝伤——所以你，给我好好活着。",
+          "kind": "交底"
         }
       ]
     },
@@ -2542,6 +2586,22 @@
       "kind": "锚"
     },
     {
+      "charId": "doc",
+      "name": "Doc",
+      "film": "Cowboys & Aliens",
+      "filmCN": "《牛仔与外星人》",
+      "year": "2011",
+      "accent": "#c39a45",
+      "bg": "#1a140c",
+      "text": "#ece1cf",
+      "muted": "#9d8f78",
+      "auLink": "/WinterSunBlog/series/the-saloon-nobody-dares/",
+      "label": "PUT IT AWAY",
+      "line": "Your gun takes lives. My hands save them. Put it away — and let me.",
+      "lineCN": "你的枪要人命，我的手救人命。把枪收了——让我来。",
+      "kind": "锚"
+    },
+    {
       "charId": "billy",
       "name": "Billy Bickle",
       "film": "Seven Psychopaths",
@@ -3308,6 +3368,22 @@
       "line": "The eyeliner, the velvet, all of it is costume. You are the only real thing in this room.",
       "lineCN": "眼线、丝绒，全是戏服。你是这屋子里唯一真的东西。",
       "kind": "暗告白"
+    },
+    {
+      "charId": "doc",
+      "name": "Doc",
+      "film": "Cowboys & Aliens",
+      "filmCN": "《牛仔与外星人》",
+      "year": "2011",
+      "accent": "#c39a45",
+      "bg": "#1a140c",
+      "text": "#ece1cf",
+      "muted": "#9d8f78",
+      "auLink": "/WinterSunBlog/series/the-saloon-nobody-dares/",
+      "label": "ON THE HOUSE",
+      "line": "That's my best whiskey you're bleeding into. Front half's on me — the back half we save for you.",
+      "lineCN": "你正往我最好的酒里淌血呢。前半瓶算我请——后半瓶，省着给你。",
+      "kind": "痞话"
     },
     {
       "charId": "billy",
@@ -4078,6 +4154,22 @@
       "kind": "情话 · 不正经"
     },
     {
+      "charId": "doc",
+      "name": "Doc",
+      "film": "Cowboys & Aliens",
+      "filmCN": "《牛仔与外星人》",
+      "year": "2011",
+      "accent": "#c39a45",
+      "bg": "#1a140c",
+      "text": "#ece1cf",
+      "muted": "#9d8f78",
+      "auLink": "/WinterSunBlog/series/the-saloon-nobody-dares/",
+      "label": "MY TABLE",
+      "line": "You bleed for the whole town. In here, you bleed on my table — and I'm the one who closes it.",
+      "lineCN": "你为全镇淌血。进了这门，你就淌在我的台子上——由我来给你收口。",
+      "kind": "护"
+    },
+    {
       "charId": "billy",
       "name": "Billy Bickle",
       "film": "Seven Psychopaths",
@@ -4846,6 +4938,22 @@
       "kind": "暗告白 · 孩子气"
     },
     {
+      "charId": "doc",
+      "name": "Doc",
+      "film": "Cowboys & Aliens",
+      "filmCN": "《牛仔与外星人》",
+      "year": "2011",
+      "accent": "#c39a45",
+      "bg": "#1a140c",
+      "text": "#ece1cf",
+      "muted": "#9d8f78",
+      "auLink": "/WinterSunBlog/series/the-saloon-nobody-dares/",
+      "label": "JUST DOC",
+      "line": "Everyone gets ‘Doc.’ The rest of my name I'm saving — for the day you actually stay.",
+      "lineCN": "谁都能叫我一声 Doc。剩下的名字我留着——留到你真肯留下那天。",
+      "kind": "暗告白"
+    },
+    {
       "charId": "billy",
       "name": "Billy Bickle",
       "film": "Seven Psychopaths",
@@ -5612,6 +5720,22 @@
       "line": "The eighth one sold me out, and I cried in a stranger's arms. Next time I would rather it be yours.",
       "lineCN": "排第八的那个把我卖了，我哭在一个陌生人怀里。下一次，我想哭在你怀里。",
       "kind": "情话"
+    },
+    {
+      "charId": "doc",
+      "name": "Doc",
+      "film": "Cowboys & Aliens",
+      "filmCN": "《牛仔与外星人》",
+      "year": "2011",
+      "accent": "#c39a45",
+      "bg": "#1a140c",
+      "text": "#ece1cf",
+      "muted": "#9d8f78",
+      "auLink": "/WinterSunBlog/series/the-saloon-nobody-dares/",
+      "label": "NO GOOD WITH A GUN",
+      "line": "I'm no good with a gun, and we both know it. But nobody closes a wound like I do — so don't you dare bleed out on me.",
+      "lineCN": "我不会使枪，你我都清楚。可这镇上没人比我更会缝伤——所以你，给我好好活着。",
+      "kind": "交底"
     },
     {
       "charId": "billy",
