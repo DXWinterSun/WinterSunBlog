@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 9
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 9"
 summary: "你算了算，攒够了，走得起——可那些珠宝，你一件也带不走。"

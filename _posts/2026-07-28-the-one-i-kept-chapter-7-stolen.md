@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 7
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 7"
 summary: "他把你圈成了顺手的伴儿，你便偷来一段近乎恋人的日子。"

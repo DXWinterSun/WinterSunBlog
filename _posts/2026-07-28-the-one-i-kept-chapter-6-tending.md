@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 6
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 6"
 summary: "他醉得吐了，你毫不嫌弃地伺候他——他却说，他这身体，正需要你。"

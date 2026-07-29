@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 4
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 4"
 summary: "他楼上笑得意气风发，你在楼下端着托盘，心口莫名泛了酸。"

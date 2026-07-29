@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 11
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 11"
 summary: "你只带走那条最不值钱的银链——满抽屉的珠宝，一件没动地留给了他。"

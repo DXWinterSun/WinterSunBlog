@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 12
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 12"
 summary: "你以为走得够远，却和他困在同一座城——他隔着橱窗，认出了你。"

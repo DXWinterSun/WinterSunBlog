@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 14
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 14"
 summary: "你要把链子摘下来还他，他一把按住——原来那些首饰，他都是为你选的。"

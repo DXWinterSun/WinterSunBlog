@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 3
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 3"
 summary: "他就着一排书架要了你——还笑你，当初在楼梯上死活不肯。"

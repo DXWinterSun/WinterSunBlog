@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 8
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 8"
 summary: "他和门当户对的小姐聊得投机，你在一旁斟茶，清清楚楚地什么也不是。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 15
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 15"
 summary: "他把你捞进车里说回家——又停在时装店，当众认你：这是我未婚妻。"

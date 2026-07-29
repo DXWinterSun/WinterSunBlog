@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 5
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 5"
 summary: "他搂着你，说了几句醉话——你却捂了一整夜，越陷越深。"

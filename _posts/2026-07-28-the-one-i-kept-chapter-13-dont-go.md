@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 13
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 13"
 summary: "下工出门，他就在街对面——你想逃，他却大步追来，喊你别走。"

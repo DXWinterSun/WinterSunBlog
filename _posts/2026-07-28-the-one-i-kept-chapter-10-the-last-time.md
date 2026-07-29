@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 10
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 10"
 summary: "他不知道这是最后一次——你把泪，都藏进了床单里。"

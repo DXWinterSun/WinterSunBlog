@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The One I Kept"
 series_title: "The One I Kept · Jim Crocker AU"
 series_order: 1
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 1"
 summary: "别的姑娘得的是丝绒盒子，你只得两个字：配你。"
