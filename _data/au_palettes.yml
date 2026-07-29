@@ -442,3 +442,15 @@
   accent_en: "Club Champagne"
   bg_cn: "貂皮大氅黑"
   bg_en: "Mink Black"
+
+"The Saloon Nobody Dares":  # Doc（Samuel Stockwell）· Cowboys & Aliens · Sam Rockwell
+  # mf_id / theme_id 待「画册那套」同步时补上（届时纳入 check_palette_sync）
+  accent: "#c39a45"
+  accent_ink: "#8a651c"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#1a140c"
+  text: "#ece1cf"
+  muted: "#9d8f78"
+  accent_cn: "金叶"
+  accent_en: "Gold Leaf"
+  bg_cn: "陈木"
+  bg_en: "Aged Oak"
