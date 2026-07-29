@@ -443,6 +443,21 @@
   bg_cn: "貂皮大氅黑"
   bg_en: "Mink Black"
 
+"Fog City":                 # Young Sam · Sam Rockwell 本人（16—18 岁，非电影角色）· 无画册出处，独立配色
+  accent: "#5b9db8"
+  accent_ink: "#35708c"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1（实测 ~5.5:1 vs 白）
+  bg: "#1b222b"
+  text: "#e3eaef"
+  muted: "#9c8f7d"
+  accent_cn: "你画的海"
+  accent_en: "Painted Ocean"
+  bg_cn: "双峰暮雾"
+  bg_en: "Twin Peaks Fog"
+  text_cn: "镜片浅光"          # ↓ 这个系列四色全名展示（au-palette-strip 对带 text_cn 的条目渲染四格）
+  text_en: "Lens Glint"
+  muted_cn: "磁带暖褐"
+  muted_en: "Cassette Brown"
+
 "The Saloon Nobody Dares":  # Doc（Samuel Stockwell）· Cowboys & Aliens · Sam Rockwell · 色卡同源画册 id: doc
   mf_id: doc                # → Many Faces 画册锚点 /sam/many-faces/#doc
   theme_id: doc
