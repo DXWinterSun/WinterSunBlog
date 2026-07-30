@@ -899,3 +899,122 @@
   font-style: normal;
   font-size: 17px;
 }
+
+/* ————— 彩蛋入口迷你卡（星图 / 点唱机）—————
+   浅色页面上两张「通往夜晚的门票」：颜色就是目的地页面的颜色。 */
+.c-egg-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin: 16px auto 0;
+  padding: 11px 18px 11px 12px;
+  max-width: min(400px, 94%);
+  border-radius: 14px;
+  text-align: left;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 10px 26px rgba(10, 14, 24, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(10, 14, 24, 0.3);
+  }
+}
+
+.c-egg-card__art {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.c-egg-card__body { min-width: 0; }
+
+.c-egg-card__eyebrow {
+  display: block;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 8.5px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.c-egg-card__title {
+  display: block;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+
+.c-egg-card__desc {
+  display: block;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+  margin-top: 3px;
+  opacity: 0.7;
+}
+
+.c-egg-card__arrow {
+  margin-left: 4px;
+  font-size: 15px;
+  opacity: 0.85;
+  transition: transform 0.18s ease;
+}
+.c-egg-card:hover .c-egg-card__arrow { transform: translateX(3px); }
+
+/* 星图款：深夜蓝 + 会眨眼的迷你星座 */
+.c-egg-card--sky {
+  background: linear-gradient(135deg, #131a30 0%, #1b2440 55%, #171f38 100%);
+  color: #e8edf8;
+
+  .c-egg-card__art {
+    background:
+      radial-gradient(circle at 78% 22%, rgba(140, 160, 220, 0.28), transparent 55%),
+      #0d1224;
+  }
+  .c-egg-card__eyebrow { color: #9db0d8; }
+  .c-egg-card__arrow { color: #cdd9f5; }
+
+  .tw-star { animation: eggTwinkle 2.8s ease-in-out infinite; }
+  .tw-star:nth-child(odd) { animation-delay: -1.4s; }
+}
+
+/* 点唱机款：暖木色 + 转动的小黑胶 */
+.c-egg-card--juke {
+  background: linear-gradient(135deg, #241a13 0%, #1a120d 60%, #14100b 100%);
+  color: #f2e7d2;
+
+  .c-egg-card__art {
+    background:
+      radial-gradient(circle at 50% 115%, rgba(203, 161, 76, 0.25), transparent 60%),
+      #0f0b08;
+  }
+  .c-egg-card__eyebrow { color: #cba14c; }
+  .c-egg-card__arrow { color: #e6c377; }
+
+  .egg-vinyl {
+    animation: eggSpin 7s linear infinite;
+    transform-origin: 28px 30px;
+  }
+}
+
+@keyframes eggTwinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+@keyframes eggSpin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-egg-card--sky .tw-star,
+  .c-egg-card--juke .egg-vinyl { animation: none; }
+}

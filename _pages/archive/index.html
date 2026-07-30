@@ -56,9 +56,28 @@ nav_active: archive
     没有任何文章的情绪自动跳过，pill 与小标题用各自的配色。
   {% endcomment %}
   <div class="c-archive-panel" data-archive-panel="mood" hidden>
-    <p class="c-archive__mood-desc" style="margin-bottom: 18px;">
-      选不动？去 <a href="{{ site.baseurl }}/jukebox/" style="border-bottom: 1px solid currentColor; text-decoration: none;">🎵 情绪点唱机</a>——投一枚币，让机器替你选一章。
-    </p>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <a class="c-egg-card c-egg-card--juke" href="{{ site.baseurl }}/jukebox/">
+        <span class="c-egg-card__art" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="56" height="56" fill="none">
+            <g class="egg-vinyl">
+              <circle cx="28" cy="30" r="18" fill="#0b0b0d"/>
+              <circle cx="28" cy="30" r="14" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+              <circle cx="28" cy="30" r="10.5" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              <circle cx="28" cy="30" r="6" fill="#cba14c"/>
+              <circle cx="28" cy="30" r="1.4" fill="#0b0b0d"/>
+            </g>
+            <text x="43" y="14" font-size="10" fill="#e6c377" opacity="0.9">♪</text>
+          </svg>
+        </span>
+        <span class="c-egg-card__body">
+          <span class="c-egg-card__eyebrow">Mood Jukebox</span>
+          <span class="c-egg-card__title">情绪点唱机</span>
+          <span class="c-egg-card__desc">选不动？投一枚币，让机器替你选一章</span>
+        </span>
+        <span class="c-egg-card__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
     <ul class="c-archive-tags" role="tablist">
       {% assign shown = 0 %}
       {% for mood in site.data.moods %}
