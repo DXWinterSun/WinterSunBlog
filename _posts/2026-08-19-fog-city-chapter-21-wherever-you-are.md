@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 21 · 你在哪儿，哪儿就亮 — Fog City"
+title: "Chapter 23 · 你在哪儿，哪儿就亮 — Fog City"
 date: 2026-08-19
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 安放, 怀旧]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 21
+series_order: 23
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 21"
+chapter_type: "Chapter 23"
 summary: "领奖词的最后一句，三十一岁——录在磁带 A 面的第三十分钟。"
 ---
 

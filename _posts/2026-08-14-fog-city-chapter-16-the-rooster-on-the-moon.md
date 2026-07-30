@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 16 · 月球上的鸡 — Fog City"
+title: "Chapter 17 · 月球上的鸡 — Fog City"
 date: 2026-08-14
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 思念, 缱绻]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 16
+series_order: 17
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 16"
+chapter_type: "Chapter 17"
 summary: "他在伦敦演月球上的孤独；台词是假的，思念是真的，寄往纽约。"
 ---
 

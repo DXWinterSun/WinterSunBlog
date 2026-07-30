@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 15 · 跳舞的反派 — Fog City"
+title: "Chapter 16 · 跳舞的反派 — Fog City"
 date: 2026-08-13
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 悸动, 絮语]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 15
+series_order: 16
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 15"
+chapter_type: "Chapter 16"
 summary: "全场为反派倒吸一口气；只有你认出那副骨头——1986 年，走廊产。"
 ---
 

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 20 · 全黑的冬天 — Fog City"
+title: "Chapter 22 · 全黑的冬天 — Fog City"
 date: 2026-08-18
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 悸动, 安放]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 20
+series_order: 22
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 20"
+chapter_type: "Chapter 22"
 summary: "领奖台上他没头没尾地感谢了海洋；全世界不懂，雾里长大的懂。"
 ---
 

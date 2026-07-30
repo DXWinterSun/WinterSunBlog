@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 22 · 一帧一帧 — Fog City"
+title: "Chapter 24 · 一帧一帧 — Fog City"
 date: 2026-08-20
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 怀旧, 絮语]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 22
+series_order: 24
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 22"
+chapter_type: "Chapter 24"
 summary: "有人一帧一帧找到了那盘带子；三十二年前的你，在向现在挥手。"
 ---
 

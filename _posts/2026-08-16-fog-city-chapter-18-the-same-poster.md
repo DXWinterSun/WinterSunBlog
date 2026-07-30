@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 18 · 同一张海报 — Fog City"
+title: "Chapter 19 · 同一张海报 — Fog City"
 date: 2026-08-16
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 缱绻, 安放]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 18
+series_order: 19
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 18"
+chapter_type: "Chapter 19"
 summary: "百老汇的节目册上，你们的名字第一次印在同一页。"
 ---
 

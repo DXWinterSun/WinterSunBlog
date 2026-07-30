@@ -1,34 +1,22 @@
 ---
 layout: post
-title: "Chapter 12 · 三个月的失败 — Fog City"
+title: "Chapter 13 · 三个月的失败 — Fog City"
 date: 2026-08-10
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 絮语, 怀旧]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 12
+series_order: 13
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 12"
+chapter_type: "Chapter 13"
 summary: "纽约没有雾号，只有灯，和一墙的“再三个月”——第五年，有人看见他了。"
 ---
 
 > “No one should come to New York to live unless he is willing to be lucky.”  
 > 谁都别来纽约讨生活——除非他愿意碰运气。  
 > ——E.B. 怀特《这里是纽约》
-
-灰狗巴士开了三天四夜。
-
-你们轮流靠着对方睡，穿过内华达的盐滩、犹他的红岩、内布拉斯加长到怀疑人生的玉米地。他把沿途每个州都当成一幕戏报给你听——“第二幕：怀俄明。人物：牛，牛，还是牛。冲突：无。”——报到宾夕法尼亚的时候他自己都睡着了，脑袋一点一点的，跟波托拉大道那班车上一模一样。
-
-然后，林肯隧道，一个弯，曼哈顿把自己整个砸进车窗。
-
-到港务局车站已经是晚上。他背着两个人的包，拉着你，一路走到时报广场边上才停下。剧场区的灯一条街连着一条街，招牌摞着招牌，亮得雾都没地方待。
-
-“看，”他说，声音有点哑，“我没瞎讲吧。”
-
-你想起跨年那班车上他半睡不睡的呓语。灯是真的。一条街连着一条街，全亮着。
 
 安顿下来的日子是这样的：他睡他妈妈家的沙发——沙发比他短一截，他说这是纽约给他上的第一课，人得学会折叠；你住学校宿舍，上铺是个只在凌晨出没的雕塑系姑娘。你们的家当加起来不满四个纸箱，其中半箱是你的颜料，还有一个深蓝色眼镜盒，里面躺着一只断角的玻璃小马。
 

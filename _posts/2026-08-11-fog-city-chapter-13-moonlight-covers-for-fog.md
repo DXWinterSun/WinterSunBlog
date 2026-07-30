@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 13 · 月亮替雾值班 — Fog City"
+title: "Chapter 14 · 月亮替雾值班 — Fog City"
 date: 2026-08-11
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 絮语, 缱绻]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 13
+series_order: 14
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 13"
+chapter_type: "Chapter 14"
 summary: "广告只有三十秒，买断了七年的再三个月；窗台的地图重新开业。"
 ---
 
