@@ -2,8 +2,8 @@
   "meta": {
     "start": "2026-02-13",
     "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-    "characters_count": 49,
-    "pool_count": 245,
+    "characters_count": 50,
+    "pool_count": 250,
     "mf_alias": {
       "johnmoon": "john",
       "sambell": "sam",
@@ -11,6 +11,50 @@
     }
   },
   "characters": [
+    {
+      "id": "youngsam",
+      "name": "Young Sam",
+      "film": "Fog City",
+      "filmCN": "《雾往低处走》",
+      "year": "1986",
+      "bg": "#1b222b",
+      "accent": "#5b9db8",
+      "text": "#e3eaef",
+      "muted": "#9c8f7d",
+      "auLink": "/WinterSunBlog/series/fog-city/",
+      "quotes": [
+        {
+          "label": "FOG CITY",
+          "line": "I can't see them. That's why I dare.",
+          "lineCN": "看不清，才敢演。",
+          "kind": "锚"
+        },
+        {
+          "label": "SPILLED",
+          "line": "Oh. Then I almost spilled the sea.",
+          "lineCN": "哦。那我差点把海洒了。",
+          "kind": "暗告白"
+        },
+        {
+          "label": "MIXTAPE",
+          "line": "Haven't decided yet. You'll know when I do.",
+          "lineCN": "还没想好。想好了你就知道了。",
+          "kind": "情话"
+        },
+        {
+          "label": "OCEAN BEACH",
+          "line": "The ocean comes with me. What else would I look at from the stage?",
+          "lineCN": "海跟我走啊——不然我在台上看不清的时候，往下看什么？",
+          "kind": "暗告白"
+        },
+        {
+          "label": "SIDE A",
+          "line": "Wherever you are, that's where the light is.",
+          "lineCN": "你在哪儿，哪儿就亮。",
+          "kind": "情话"
+        }
+      ]
+    },
     {
       "id": "gary",
       "name": "Gary",
@@ -2170,6 +2214,22 @@
   ],
   "pool": [
     {
+      "charId": "youngsam",
+      "name": "Young Sam",
+      "film": "Fog City",
+      "filmCN": "《雾往低处走》",
+      "year": "1986",
+      "accent": "#5b9db8",
+      "bg": "#1b222b",
+      "text": "#e3eaef",
+      "muted": "#9c8f7d",
+      "auLink": "/WinterSunBlog/series/fog-city/",
+      "label": "FOG CITY",
+      "line": "I can't see them. That's why I dare.",
+      "lineCN": "看不清，才敢演。",
+      "kind": "锚"
+    },
+    {
       "charId": "gary",
       "name": "Gary",
       "film": "Strictly Business",
@@ -2952,6 +3012,22 @@
       "line": "There's always something else I want to do — turns out it's you.",
       "lineCN": "我总还有别的想做的事——原来，那件事是你。",
       "kind": "锚"
+    },
+    {
+      "charId": "youngsam",
+      "name": "Young Sam",
+      "film": "Fog City",
+      "filmCN": "《雾往低处走》",
+      "year": "1986",
+      "accent": "#5b9db8",
+      "bg": "#1b222b",
+      "text": "#e3eaef",
+      "muted": "#9c8f7d",
+      "auLink": "/WinterSunBlog/series/fog-city/",
+      "label": "SPILLED",
+      "line": "Oh. Then I almost spilled the sea.",
+      "lineCN": "哦。那我差点把海洒了。",
+      "kind": "暗告白"
     },
     {
       "charId": "gary",
@@ -3738,6 +3814,22 @@
       "kind": "痞话"
     },
     {
+      "charId": "youngsam",
+      "name": "Young Sam",
+      "film": "Fog City",
+      "filmCN": "《雾往低处走》",
+      "year": "1986",
+      "accent": "#5b9db8",
+      "bg": "#1b222b",
+      "text": "#e3eaef",
+      "muted": "#9c8f7d",
+      "auLink": "/WinterSunBlog/series/fog-city/",
+      "label": "MIXTAPE",
+      "line": "Haven't decided yet. You'll know when I do.",
+      "lineCN": "还没想好。想好了你就知道了。",
+      "kind": "情话"
+    },
+    {
       "charId": "gary",
       "name": "Gary",
       "film": "Strictly Business",
@@ -4522,6 +4614,22 @@
       "kind": "护"
     },
     {
+      "charId": "youngsam",
+      "name": "Young Sam",
+      "film": "Fog City",
+      "filmCN": "《雾往低处走》",
+      "year": "1986",
+      "accent": "#5b9db8",
+      "bg": "#1b222b",
+      "text": "#e3eaef",
+      "muted": "#9c8f7d",
+      "auLink": "/WinterSunBlog/series/fog-city/",
+      "label": "OCEAN BEACH",
+      "line": "The ocean comes with me. What else would I look at from the stage?",
+      "lineCN": "海跟我走啊——不然我在台上看不清的时候，往下看什么？",
+      "kind": "暗告白"
+    },
+    {
       "charId": "gary",
       "name": "Gary",
       "film": "Strictly Business",
@@ -5304,6 +5412,22 @@
       "line": "Ugly as sin, they all say. You're the only one who ever looked twice — and God help me, I believe you.",
       "lineCN": "他们都说我丑得没救。只有你多看了我两眼——要命的是，我竟信了你。",
       "kind": "暗告白"
+    },
+    {
+      "charId": "youngsam",
+      "name": "Young Sam",
+      "film": "Fog City",
+      "filmCN": "《雾往低处走》",
+      "year": "1986",
+      "accent": "#5b9db8",
+      "bg": "#1b222b",
+      "text": "#e3eaef",
+      "muted": "#9c8f7d",
+      "auLink": "/WinterSunBlog/series/fog-city/",
+      "label": "SIDE A",
+      "line": "Wherever you are, that's where the light is.",
+      "lineCN": "你在哪儿，哪儿就亮。",
+      "kind": "情话"
     },
     {
       "charId": "gary",

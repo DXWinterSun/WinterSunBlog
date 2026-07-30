@@ -443,7 +443,9 @@
   bg_cn: "貂皮大氅黑"
   bg_en: "Mink Black"
 
-"Fog City":                 # Young Sam · Sam Rockwell 本人（16—18 岁，非电影角色）· 无画册出处，独立配色
+"Fog City":                 # Young Sam · 2026-07 入册，色卡同源画册 id: youngsam
+  mf_id: youngsam                # → Many Faces 画册锚点 /sam/many-faces/#youngsam
+  theme_id: youngsam
   accent: "#5b9db8"
   accent_ink: "#35708c"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1（实测 ~5.5:1 vs 白）
   bg: "#1b222b"

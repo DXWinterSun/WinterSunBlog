@@ -54,6 +54,36 @@ function spectrumHref(c) {
 
 const characters = [
 {
+      id: "youngsam",
+      name: "Young Sam",
+      namePostfix: "Himself",
+      roleNote: "Himself",
+      film: "Fog City",
+      filmCN: "《雾往低处走》",
+      year: "1986",
+      auLink: { href: "/WinterSunBlog/series/fog-city/", title: "Fog City · Young Sam AU", label: "还没成为任何人的少年 Sam——1986 年雾城的排练厅里，你认识了一切开始之前的他。" },
+      tagline: "还没成为任何人的他，把人生第一场私人演出，给了端着颜料桶的你。",
+      desc: `一九八六年的旧金山，雾每天下午三点准时翻过双子峰。McAteer 的走廊里，一个高年级男生正在和地板打架——收音机是他自己带的，观众是碰巧的，他只是随时随地都在练，好像笃定了哪天舞台会从天上掉下来，他必须接得住。然后他一个定格收尾，转身，差点把你那桶海洒进雾里。
+
+那时候他还不叫任何人认识的那个名字。没有履历，没有奖，没有镜头感，只有排练厅、观众席，和一身用不完的表演欲。他不是爱现的人——不给他舞台，他能在教室最后一排安静得像件搭在椅背上的外套。可是在一个端着颜料桶的姑娘面前，他也说不清为什么，就是希望你面前是他的舞台。那四十秒的走廊海难，是他头一回为一个具体的人演。
+
+这本画册里往后的每一张脸——骗子、警察、宇航员、杀手、教练、总统、狼——都是从这个男生身上长出来的。你比全世界早三十年看见他，也比全世界多看了一层：台上他千人千面，台下对你，他只有一张会脸红的脸。你们的爱是这本画册的第一页——后来的每一张脸，都从这里开始。`,
+      inscription: { label: "FOG CITY", line: "I can't see them. That's why I dare.", gloss: "看不清，才敢演。" },
+      bg: "#1b222b",
+      accent: "#5b9db8",
+      text: "#e3eaef",
+      muted: "#9c8f7d",
+      bgNameEn: "Twin Peaks Fog",
+      bgNameCn: "双峰暮雾",
+      accentNameEn: "Painted Ocean",
+      accentNameCn: "你画的海",
+      textNameEn: "Lens Glint",
+      textNameCn: "镜片浅光",
+      mutedNameEn: "Cassette Brown",
+      mutedNameCn: "磁带暖褐",
+      profile: { guile:4, forbear:3, chaos:7, raw:9, romance:9, grace:3 },
+    },
+{
       id: "gary",
       name: "Gary",
       film: "Strictly Business",
@@ -1658,86 +1688,51 @@ function CharacterCard({ c, idx }) {
             ── COLOR PALETTE ──
           </p>
           <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            gap: "32px",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            columnGap: "32px",
+            rowGap: "22px",
             width: "100%",
             maxWidth: "320px",
           }}>
-            {/* 主色 accent */}
-            <div style={{ flex: 1, textAlign: "center" }}>
-              <div style={{
-                width: "32px",
-                height: "32px",
-                borderRadius: "50%",
-                background: c.accent,
-                margin: "0 auto 12px",
-                border: "1px solid " + c.muted + "60",
-                boxShadow: "0 2px 8px " + c.accent + "40",
-              }} />
-              <p style={{
-                fontFamily: "'Playfair Display', serif",
-                fontStyle: "italic",
-                fontSize: "0.85rem",
-                color: c.accent,
-                margin: "0 0 4px 0",
-                letterSpacing: "0.05em",
-              }}>
-                {c.accentNameEn}
-              </p>
-              <p style={{
-                fontFamily: "'Noto Serif SC', serif",
-                fontSize: "0.75rem",
-                color: c.text,
-                opacity: 0.7,
-                letterSpacing: "0.15em",
-                margin: 0,
-              }}>
-                {c.accentNameCn}
-              </p>
-            </div>
-            {/* 分隔线 */}
-            <div style={{
-              width: "1px",
-              minHeight: "60px",
-              background: c.muted,
-              opacity: 0.3,
-              alignSelf: "stretch",
-              marginTop: "8px",
-            }} />
-            {/* 背景色 bg */}
-            <div style={{ flex: 1, textAlign: "center" }}>
-              <div style={{
-                width: "32px",
-                height: "32px",
-                borderRadius: "50%",
-                background: c.bg,
-                margin: "0 auto 12px",
-                border: "1px solid " + c.muted + "60",
-                boxShadow: "0 2px 8px " + c.bg + "60",
-              }} />
-              <p style={{
-                fontFamily: "'Playfair Display', serif",
-                fontStyle: "italic",
-                fontSize: "0.85rem",
-                color: c.muted,
-                margin: "0 0 4px 0",
-                letterSpacing: "0.05em",
-              }}>
-                {c.bgNameEn}
-              </p>
-              <p style={{
-                fontFamily: "'Noto Serif SC', serif",
-                fontSize: "0.75rem",
-                color: c.text,
-                opacity: 0.6,
-                letterSpacing: "0.15em",
-                margin: 0,
-              }}>
-                {c.bgNameCn}
-              </p>
-            </div>
+            {[
+              { hex: c.accent, en: c.accentNameEn, cn: c.accentNameCn, nameColor: c.accent },
+              { hex: c.bg, en: c.bgNameEn, cn: c.bgNameCn, nameColor: c.muted },
+              { hex: c.text, en: c.textNameEn || "Ink Light", cn: c.textNameCn || "字里光", nameColor: c.muted },
+              { hex: c.muted, en: c.mutedNameEn || "Under Voice", cn: c.mutedNameCn || "低语灰", nameColor: c.muted },
+            ].map((sw, si) => (
+              <div key={si} style={{ textAlign: "center" }}>
+                <div style={{
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "50%",
+                  background: sw.hex,
+                  margin: "0 auto 12px",
+                  border: "1px solid " + c.muted + "60",
+                  boxShadow: "0 2px 8px " + sw.hex + "50",
+                }} />
+                <p style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontStyle: "italic",
+                  fontSize: "0.85rem",
+                  color: sw.nameColor,
+                  margin: "0 0 4px 0",
+                  letterSpacing: "0.05em",
+                }}>
+                  {sw.en}
+                </p>
+                <p style={{
+                  fontFamily: "'Noto Serif SC', serif",
+                  fontSize: "0.75rem",
+                  color: c.text,
+                  opacity: 0.65,
+                  letterSpacing: "0.15em",
+                  margin: 0,
+                }}>
+                  {sw.cn}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -1839,6 +1834,15 @@ function CharacterCard({ c, idx }) {
 }
 
 function SamGallery() {
+  // 目录搜索：按角色名 / 片名（中英）过滤跳转列表，卡片本体不受影响
+  const [query, setQuery] = useState("");
+  const q = query.trim().toLowerCase();
+  const contentsList = q
+    ? characters.filter(function(c) {
+        return (c.name + " " + c.film + " " + c.filmCN + " " + c.id + " " + (c.roleNote || "") + " " + (c.namePostfix || ""))
+          .toLowerCase().indexOf(q) !== -1;
+      })
+    : characters;
   useEffect(function() {
     // 由我们自己接管滚动落位，关掉浏览器自带的（React 动态渲染会让它扑空）
     if ("scrollRestoration" in window.history) {
@@ -2030,8 +2034,41 @@ function SamGallery() {
             }}>
               {characters.length} FACES · {Math.min.apply(null, characters.map(function(c) { return parseInt(c.year, 10); }))}–{Math.max.apply(null, characters.map(function(c) { return parseInt(c.year, 10); }))}
             </p>
+            <input
+              type="text"
+              value={query}
+              onChange={function(e) { setQuery(e.target.value); }}
+              placeholder="搜 · 角色名 / 片名 · Search"
+              style={{
+                display: "block",
+                width: "100%",
+                boxSizing: "border-box",
+                margin: "0 0 18px",
+                padding: "10px 12px",
+                background: "transparent",
+                border: "1px solid #a8896a",
+                borderRadius: "2px",
+                color: "#2a1410",
+                fontFamily: "'Noto Serif SC', serif",
+                fontSize: "0.85rem",
+                letterSpacing: "0.08em",
+                outline: "none",
+              }}
+            />
+            {q && contentsList.length === 0 && (
+              <p style={{
+                fontFamily: "'Noto Serif SC', serif",
+                fontSize: "0.8rem",
+                color: "#7a3a26",
+                opacity: 0.75,
+                letterSpacing: "0.1em",
+                margin: "0 0 12px",
+              }}>
+                雾太大了，没找到这张脸——换个名字试试？
+              </p>
+            )}
             <div style={{ display: "flex", flexDirection: "column", gap: "10px", textAlign: "left" }}>
-              {characters.map(function(c, i) {
+              {contentsList.map(function(c, i) {
                 return (
                   <button
                     key={c.id}
@@ -2058,7 +2095,7 @@ function SamGallery() {
                       width: "30px",
                       flexShrink: 0,
                     }}>
-                      {String(i + 1).padStart(2, "0")}
+                      {String(characters.indexOf(c) + 1).padStart(2, "0")}
                     </span>
                     <span style={{ flex: 1, display: "flex", flexDirection: "column", gap: "2px" }}>
                       <span style={{

@@ -1,3 +1,16 @@
+- id: youngsam
+  year: 1986
+  name: "Young Sam"
+  anchor: youngsam
+  cn: 你画的海
+  en: Painted Ocean
+  bg_cn: 双峰暮雾
+  bg_en: Twin Peaks Fog
+  accent: "#5b9db8"
+  bg: "#1b222b"
+  text: "#e3eaef"
+  muted: "#9c8f7d"
+
 - id: gary
   year: 1991
   name: "Gary"
