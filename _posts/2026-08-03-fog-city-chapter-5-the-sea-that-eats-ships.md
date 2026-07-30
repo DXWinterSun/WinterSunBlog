@@ -14,8 +14,8 @@ chapter_type: "Chapter 5"
 summary: "首演夜，你的海当众吃了船；追光碾过浪尖那笔白，停在他身上。"
 ---
 
-> “Be not afeard; the isle is full of noises, sounds and sweet airs, that give delight and hurt not.”
-> 别怕。这岛上满是声音，都只让人欢喜，不伤人。
+> “Be not afeard; the isle is full of noises, sounds and sweet airs, that give delight and hurt not.”  
+> 别怕。这岛上满是声音，都只让人欢喜，不伤人。  
 > ——《暴风雨》第三幕。开演前，他念给你听的一句
 
 首演定在十二月的第一个周六。
@@ -88,8 +88,8 @@ summary: "首演夜，你的海当众吃了船；追光碾过浪尖那笔白，�
 
 出门的时候他把眼镜收回口袋。雾在外面等着你们，厚得像另一场戏的大幕。你们把首演夜走成了一条很长的下坡路，路灯一盏一盏，像谢幕以后还有人不肯关的灯。
 
-> 海吃了船，满堂彩。
-> 追光碾过浪尖那笔白，
-> 在他身上停下来——
-> 你说不清是谁照亮了谁。
+> 海吃了船，满堂彩。  
+> 追光碾过浪尖那笔白，  
+> 在他身上停下来——  
+> 你说不清是谁照亮了谁。  
 > 反正那一晚，光认得路。

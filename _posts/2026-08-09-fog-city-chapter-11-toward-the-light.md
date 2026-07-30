@@ -14,8 +14,8 @@ chapter_type: "Chapter 11"
 summary: "雾往低处走，人往亮处走；那年秋天，海跟他走。"
 ---
 
-> “One day if I do go to heaven… I'll look around and say, ‘It ain't bad, but it ain't San Francisco.’”
-> 有朝一日我若真上了天堂，我会四下看看，说：还行——但比不上旧金山。
+> “One day if I do go to heaven… I'll look around and say, ‘It ain't bad, but it ain't San Francisco.’”  
+> 有朝一日我若真上了天堂，我会四下看看，说：还行——但比不上旧金山。  
 > ——赫布·凯恩，替全城说话的专栏作家
 
 八月的雾城有一种收尾的味道。
@@ -102,8 +102,8 @@ A 面三十分钟。前二十九分钟是这样的：清嗓子。清嗓子。很
 
 你们的秋天，在东边。
 
-> 二十九分钟，三十七次重来，
-> 一分钟正文——他一个人录了一整夜。
-> 这次他当面说，只说了四个字：
-> 海，跟我走。
+> 二十九分钟，三十七次重来，  
+> 一分钟正文——他一个人录了一整夜。  
+> 这次他当面说，只说了四个字：  
+> 海，跟我走。  
 > 而海早在冬天，就买好了船票。

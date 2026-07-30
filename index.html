@@ -144,7 +144,30 @@ layout: home
       replacing the per-chapter cards for that series.
     {% endcomment %}
     {% assign reversed_posts = site.posts | reverse %}
-    {% assign all_series = reversed_posts | map: "series" | uniq | compact | reverse %}
+    {%- comment -%}
+      系列卡片顺序 = 按「最近更新」新→旧（正在连载的系列排最前）。
+      章节日期写在未来的（如 Zaphod 按日连载排到了未来）不参与计时，
+      避免未来日期永远霸榜；全部章节都在未来的系列沉到末尾，
+      等日期到了自然归位。
+    {%- endcomment -%}
+    {% assign nowts = site.time | date: '%s' | plus: 0 %}
+    {% assign all_series = "" | split: "" %}
+    {% for p in site.posts %}
+      {% if p.series %}
+        {% assign pts = p.date | date: '%s' | plus: 0 %}
+        {% if pts <= nowts %}
+          {% unless all_series contains p.series %}
+            {% assign all_series = all_series | push: p.series %}
+          {% endunless %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% assign debut_order = reversed_posts | map: "series" | uniq | compact | reverse %}
+    {% for s in debut_order %}
+      {% unless all_series contains s %}
+        {% assign all_series = all_series | push: s %}
+      {% endunless %}
+    {% endfor %}
     {% for series_name in all_series %}
       {% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
       {% assign series_first = series_posts | first %}
