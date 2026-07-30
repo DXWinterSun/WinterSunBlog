@@ -215,10 +215,23 @@ function ColorStrip({ theme }) {
       <span style={{ display: "flex", justifyContent: "space-between" }}>
         {ticks.map(function (_, i) { return <i key={"t" + i} style={{ width: 5, height: 3, borderRadius: 1, background: perf, flexShrink: 0 }} />; })}
       </span>
-      <span style={{ display: "inline-flex", alignItems: "stretch" }}>
+      <span style={{ display: "inline-flex", alignItems: "stretch", flexWrap: "wrap", justifyContent: "center", maxWidth: "min(92vw, 560px)" }}>
         <Swatch hex={theme.accent} cn={theme.cn} en={theme.en} />
         <span style={{ width: 1, alignSelf: "stretch", background: edge, margin: "5px 0" }} />
         <Swatch hex={theme.bg} cn={theme.bg_cn} en={theme.bg_en} />
+        {/* 四色全名（全站标准）：浅色 + 灰色，色卡库里有名字才渲染 */}
+        {theme.text_cn ? (
+          <React.Fragment>
+            <span style={{ width: 1, alignSelf: "stretch", background: edge, margin: "5px 0" }} />
+            <Swatch hex={theme.text} cn={theme.text_cn} en={theme.text_en} />
+          </React.Fragment>
+        ) : null}
+        {theme.muted_cn ? (
+          <React.Fragment>
+            <span style={{ width: 1, alignSelf: "stretch", background: edge, margin: "5px 0" }} />
+            <Swatch hex={theme.muted} cn={theme.muted_cn} en={theme.muted_en} />
+          </React.Fragment>
+        ) : null}
       </span>
       <span style={{ display: "flex", justifyContent: "space-between" }}>
         {ticks.map(function (_, i) { return <i key={"b" + i} style={{ width: 5, height: 3, borderRadius: 1, background: perf, flexShrink: 0 }} />; })}

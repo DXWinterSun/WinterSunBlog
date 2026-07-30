@@ -237,16 +237,23 @@ collection_desc: "一句话钩子，≤45字，收在完整一句。"   # 卡片
 spectrum / sam_themes，**漏了 `sam/lines.json` 和 `_data/au_palettes.yml`**——台词墙 /
 今日 / 小组件 / 放映室一直显示旧的金橙色，6 个 AU 系列主题色也停在旧版。）
 
-五份色卡拷贝（真源 → 拷贝）：
+五份色卡拷贝（真源 → 拷贝）。**⚠️ 2026-07 起全站「四色八名」标准：四个颜色
+（bg/accent/text/muted）每个都有中英文名字，展示处一律显示全部四色**（画册 2×2
+色卡区、换个心情选色卡与「当前」行、台词墙色带、Sam 页系列卡、章节页四格胶片）：
 
 | 文件 | 角色键 | 需同步的字段 |
 |---|---|---|
-| **真源** `sam/many-faces/index.html` | `id` | `bg`/`accent`/`text`/`muted` + `bgName{En,Cn}`/`accentName{En,Cn}` |
+| **真源** `sam/many-faces/index.html` | `id` | `bg`/`accent`/`text`/`muted` + `bgName{En,Cn}`/`accentName{En,Cn}`/`textName{En,Cn}`/`mutedName{En,Cn}` |
 | `sam/quiz/index.html` | `id`（别名见下） | 四色 |
 | `sam/spectrum/index.html` | `id`（别名见下） | 四色 |
-| `_data/sam_themes.yml` | `anchor` | 四色 + `cn`/`en`/`bg_cn`/`bg_en` |
+| `_data/sam_themes.yml` | `anchor` | 四色 + `cn`/`en`/`bg_cn`/`bg_en`/`text_cn`/`text_en`/`muted_cn`/`muted_en` |
 | `sam/lines.json` | `id` + `mf_alias` | `characters[]` 四色，**再从 characters 重建 `pool[]`** |
-| `_data/au_palettes.yml` | `mf_id` | **只**同步 `accent`/`bg` + 四色名；`accent_ink` 按新 accent 暗一档重算 |
+| `_data/au_palettes.yml` | `mf_id` | 同步 `accent`/`bg` + **八个色名**；`accent_ink` 按新 accent 暗一档重算 |
+
+四色起名的口径（Winter 定的）：①同一角色四个中文名**字数一样长**（与既有
+bg/accent 名对齐，3–6 字皆可）；②四个名字之间尽量不重复用字；③text 色值都近白，
+但名字别全叫「××白」——东西真是白的才叫白，纸张发旧叫米，其余用霜/瓷/纱/绢/釉/
+象牙/羊皮等意象；④意象必须从该角色那部片里长出来。
 
 **id 别名**（画册 id ≠ 其它页 id 的三个）：画册 `sam`→`sambell`、`john`→`johnmoon`、
 `hendrix`→`klenz`。quiz/spectrum 用后者，lines.json 用 `meta.mf_alias` 记这层映射。
@@ -736,8 +743,8 @@ tags: [标签1, 标签2]
 grep -A 10 "id: <角色关键词>" _data/sam_themes.yml
 ```
 
-**如果找到了**：直接用他的 `accent`、`bg`、`accent_cn`、`accent_en`、
-`bg_cn`、`bg_en` 六个字段，复制到 `_data/au_palettes.yml` 的新条目里。
+**如果找到了**：直接用他的 `accent`、`bg` + 八个色名字段（`accent_cn/en`、
+`bg_cn/en`、`text_cn/en`、`muted_cn/en`），复制到 `_data/au_palettes.yml` 的新条目里。
 `accent_ink` 取 `accent` 值的 ~80%（手动暗一档），`text` 和 `muted`
 照抄 sam_themes 里同一条目的值。键名用 `series_name`（英文，与 front
 matter 完全一致）。条目末尾注明来源，例：

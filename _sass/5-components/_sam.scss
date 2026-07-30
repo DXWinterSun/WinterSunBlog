@@ -889,6 +889,8 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
 
 .c-sam-card__pcols {
   display: flex;
+  flex-wrap: wrap;          // 四色时窄屏自动折成 2×2
+  row-gap: 6px;
   gap: 10px;
 }
 

@@ -34,6 +34,10 @@
   accent_en: "Raw Timber"
   bg_cn: "炉膛夜黑"
   bg_en: "Forge Soot"
+  text_cn: "玉米饼黄"
+  text_en: "Cornbread Gold"
+  muted_cn: "草垫灰褐"
+  muted_en: "Cell-Straw Grey"
 
 "Good Enough":              # Justin Hammer
   mf_id: hammer                # → Many Faces 画册锚点 /sam/many-faces/#hammer
@@ -47,6 +51,10 @@
   accent_en: "Spotlight Sapphire"
   bg_cn: "落幕玄黑"
   bg_en: "After-Curtain Onyx"
+  text_cn: "展厅冷白"
+  text_en: "Expo White"
+  muted_cn: "提案青灰"
+  muted_en: "Boardroom Slate"
 
 "Better Living Through You":  # Douglas Varney · 色卡同源画册 id: doug
   mf_id: doug                # → Many Faces 画册锚点 /sam/many-faces/#doug
@@ -60,6 +68,10 @@
   accent_en: "Lab Coat"
   bg_cn: "药瓶陈皮棕"
   bg_en: "Pill-Bottle Brown"
+  text_cn: "剂量签薄荷"
+  text_en: "Dosage-Label Mint"
+  muted_cn: "诊所旧橱褐"
+  muted_en: "Clinic-Cabinet Tan"
 
 "The Making of You":        # Aldo Stankas · Trust Me · 色卡同源画册 id: aldo
   mf_id: aldo                # → Many Faces 画册锚点 /sam/many-faces/#aldo
@@ -73,6 +85,10 @@
   accent_en: "Broker's Emerald"
   bg_cn: "空头支票"
   bg_en: "Blank-Cheque Black"
+  text_cn: "合约薄荷"
+  text_en: "Contract Mint"
+  muted_cn: "佣金灰绿"
+  muted_en: "Commission Sage"
 
 "Zaphod AU":                # Zaphod Beeblebrox
   mf_id: zaphod                # → Many Faces 画册锚点 /sam/many-faces/#zaphod
@@ -86,6 +102,10 @@
   accent_en: "President's Mane"
   bg_cn: "黑甲漆夜"
   bg_en: "Lacquer Black"
+  text_cn: "柠檬泡沫"
+  text_en: "Gargle-Blaster Fizz"
+  muted_cn: "通缉令褐"
+  muted_en: "Wanted-Poster Tan"
 
 "Knox AU":                  # Eric Knox
   mf_id: eric                # → Many Faces 画册锚点 /sam/many-faces/#eric
@@ -99,6 +119,10 @@
   accent_en: "Crimson Lens"
   bg_cn: "可乐棕"
   bg_en: "Cola Noir"
+  text_cn: "探戈绢"
+  text_en: "Tango Silk"
+  muted_cn: "雪茄烬"
+  muted_en: "Cigar Ash"
 
 "Sam Bell · Moon AU":       # Sam Bell
   mf_id: sam                # → Many Faces 画册锚点 /sam/many-faces/#sam
@@ -112,6 +136,10 @@
   accent_en: "Sarang Glow"
   bg_cn: "月球蔚蓝"
   bg_en: "Lunar Blue"
+  text_cn: "舱壁净白"
+  text_en: "Module White"
+  muted_cn: "倒计时灰"
+  muted_en: "Countdown Grey"
 
 "Everybody's Home":         # Sam Bell · Moon AU（唯一正典）· 色卡同源画册 theme_id: sambell
   mf_id: sam                # → Many Faces 画册锚点 /sam/many-faces/#sam
@@ -125,6 +153,10 @@
   accent_en: "Sarang Glow"
   bg_cn: "月球蔚蓝"
   bg_en: "Lunar Blue"
+  text_cn: "舱壁净白"
+  text_en: "Module White"
+  muted_cn: "倒计时灰"
+  muted_en: "Countdown Grey"
 
 "A Single Shot AU":         # John Moon
   mf_id: john                # → Many Faces 画册锚点 /sam/many-faces/#john
@@ -138,6 +170,10 @@
   accent_en: "Lone Mist"
   bg_cn: "西弗州山夜"
   bg_en: "Appalachian Dusk"
+  text_cn: "猎季拂晓霜"
+  text_en: "First-Light Frost"
+  muted_cn: "铁盒旧钞灰"
+  muted_en: "Cash-Box Grey"
 
 "The Cardinal":             # Krzysztof "Kris" Wilk · 色卡同源 sam_themes.yml id: kris
   mf_id: krzysztof                # → Many Faces 画册锚点 /sam/many-faces/#krzysztof
@@ -151,6 +187,10 @@
   accent_en: "Ember Cardinal"
   bg_cn: "华沙墨蓝"
   bg_en: "Warsaw Indigo"
+  text_cn: "舞票米白"
+  text_en: "Taxi-Ticket Cream"
+  muted_cn: "乡愁烟青"
+  muted_en: "Homesick Slate"
 
 "Only I Know":              # Jason Dixon · 色卡同源 sam_themes.yml id: dixon
   mf_id: dixon                # → Many Faces 画册锚点 /sam/many-faces/#dixon
@@ -164,6 +204,10 @@
   accent_en: "Reborn Flame"
   bg_cn: "焦烬玫瑰"
   bg_en: "Charred Rose"
+  text_cn: "遗信浅米"
+  text_en: "Last-Letter Cream"
+  muted_cn: "落日绛灰"
+  muted_en: "Sunset Ash-Rose"
 
 "The Real Thing":           # Frank Mercer · 色卡同源画册 id: frank
   mf_id: frank                # → Many Faces 画册锚点 /sam/many-faces/#frank
@@ -176,6 +220,10 @@
   accent_en: "Hazel Mauve"
   bg_cn: "焦黑火柴"
   bg_en: "Burnt Matchstick"
+  text_cn: "奖券浅樱"
+  text_en: "Lotto-Ticket Blush"
+  muted_cn: "磷头暗褐"
+  muted_en: "Striker Umber"
 
 "Menelaus AU":
   accent: "#c9963a"
@@ -266,6 +314,10 @@
   accent_en: "Caramel Bear"
   bg_cn: "蝉鸣仲夏夜"
   bg_en: "Cicada Nightfall"
+  text_cn: "加油站灯白"
+  text_en: "Filling-Station White"
+  muted_cn: "烟叶灰卡其"
+  muted_en: "Tobacco Khaki"
 
 "Summer Never Ends":         # Owen · 色卡同源 sam_themes.yml id: owen
   mf_id: owen                # → Many Faces 画册锚点 /sam/many-faces/#owen
@@ -279,6 +331,10 @@
   accent_en: "Waterslide Aqua"
   bg_cn: "氯味深池"
   bg_en: "Chlorine Deep"
+  text_cn: "水花溅银"
+  text_en: "Splash Silver"
+  muted_cn: "池畔青灰"
+  muted_en: "Poolside Slate"
 
 "Faith Unseen":             # Don Verdean · 色卡同源 sam_themes.yml id: donverdean
   mf_id: donverdean                # → Many Faces 画册锚点 /sam/many-faces/#donverdean
@@ -292,6 +348,10 @@
   accent_en: "Relic Turquoise"
   bg_cn: "暮土玄褐"
   bg_en: "Dusk Umber"
+  text_cn: "经卷羊皮"
+  text_en: "Parchment"
+  muted_cn: "考古沙驼"
+  muted_en: "Dig-Site Khaki"
 
 "This House Is Clean":      # Eric Bowen · 色卡同源 sam_themes.yml id: bowen
   mf_id: bowen                # → Many Faces 画册锚点 /sam/many-faces/#bowen
@@ -305,6 +365,10 @@
   accent_en: "Static Glow"
   bg_cn: "空房暮灰"
   bg_en: "Empty-Room Grey"
+  text_cn: "雪花屏白"
+  text_en: "Static White"
+  muted_cn: "地基尘烟"
+  muted_en: "Foundation Dust"
 
 "What He Owed":             # Colonel Silas Groves · 色卡同源 sam_themes.yml id: silas
   mf_id: silas                # → Many Faces 画册锚点 /sam/many-faces/#silas
@@ -318,6 +382,10 @@
   accent_en: "Dried Blood"
   bg_cn: "边境暮雪"
   bg_en: "Frontier Dusk"
+  text_cn: "画布亚麻"
+  text_en: "Canvas Linen"
+  muted_cn: "军毯灰褐"
+  muted_en: "Army-Wool Grey"
 
 "Made for No One but You":  # Sammy · 原创角色，无 Sam Rockwell 出处，不进 Sam 画册
   accent: "#3fc4e8"
@@ -342,6 +410,10 @@
   accent_en: "Colonial Gilt"
   bg_cn: "海报品红夜"
   bg_en: "Poster Magenta Night"
+  text_cn: "餐巾纸浅粉"
+  text_en: "Napkin Pink"
+  muted_cn: "唇印暗玫瑰"
+  muted_en: "Lipstick Rose"
 
 "The Part Where You Live":   # Billy Bickle · 色卡同源 sam_themes.yml id: billy
   mf_id: billy                # → Many Faces 画册锚点 /sam/many-faces/#billy
@@ -355,6 +427,10 @@
   accent_en: "Jack of Diamonds"
   bg_cn: "沙漠焦土"
   bg_en: "Scorched Desert"
+  text_cn: "剧本纸白"
+  text_en: "Screenplay White"
+  muted_cn: "西施犬褐"
+  muted_en: "Shih-Tzu Brown"
 
 "Don't Let Me Go":          # Glenn Marchand · 色卡同源画册 id: glenn
   mf_id: glenn                # → Many Faces 画册锚点 /sam/many-faces/#glenn
@@ -368,6 +444,10 @@
   accent_en: "First Snow"
   bg_cn: "寒冬冷蓝灰"
   bg_en: "Winter Steel"
+  text_cn: "圣诗册页霜"
+  text_en: "Hymnal Frost"
+  muted_cn: "冰封湖水黛"
+  muted_en: "Frozen-Lake Slate"
 
 "No One Walks Off":         # Bill Greaves · 色卡同源画册 id: greaves
   mf_id: greaves                 # → Many Faces 画册锚点 /sam/many-faces/#greaves
@@ -381,6 +461,10 @@
   accent_en: "Courtside Crimson"
   bg_cn: "散场夜墨黑"
   bg_en: "Empty-Gym Black"
+  text_cn: "记分牌灯白"
+  text_en: "Scoreboard White"
+  muted_cn: "枫木地板褐"
+  muted_en: "Hardwood Tan"
 
 "See How They Stay":        # Inspector Stoppard · 色卡同源画册 id: stoppard
   mf_id: stoppard                # → Many Faces 画册锚点 /sam/many-faces/#stoppard
@@ -394,6 +478,10 @@
   accent_en: "Old Photograph"
   bg_cn: "伦敦午夜蓝"
   bg_en: "London Midnight"
+  text_cn: "剧院票根米"
+  text_en: "Ticket-Stub Cream"
+  muted_cn: "西区浓雾灰"
+  muted_en: "West-End Fog"
 
 "Wholly Known":             # Eddie Carbone · A View from the Bridge · 非画册角色，独立配色
   accent: "#c0492e"
@@ -418,6 +506,10 @@
   accent_en: "Gunmetal Blue"
   bg_cn: "雪原夜蓝"
   bg_en: "Snowfield Night"
+  text_cn: "台口灯白"
+  text_en: "Footlight White"
+  muted_cn: "挽歌青灰"
+  muted_en: "Elegy Slate"
 
 "Some Steps Only We Know":   # Jim Crocker · Piccadilly Jim · 色卡同源画册 id: jim
   mf_id: jim                # → Many Faces 画册锚点 /sam/many-faces/#jim
@@ -430,6 +522,10 @@
   accent_en: "Club Champagne"
   bg_cn: "貂皮大氅黑"
   bg_en: "Mink Black"
+  text_cn: "晨衣缎面光"
+  text_en: "Satin Sheen"
+  muted_cn: "八卦版胭脂"
+  muted_en: "Tabloid Rouge"
 
 "The One I Kept":            # Jim Crocker · Piccadilly Jim（女仆线）· 与青梅竹马线共用同一套（一个角色一套色）
   mf_id: jim                # → Many Faces 画册锚点 /sam/many-faces/#jim
@@ -442,6 +538,10 @@
   accent_en: "Club Champagne"
   bg_cn: "貂皮大氅黑"
   bg_en: "Mink Black"
+  text_cn: "晨衣缎面光"
+  text_en: "Satin Sheen"
+  muted_cn: "八卦版胭脂"
+  muted_en: "Tabloid Rouge"
 
 "Fog City":                 # Young Sam · 2026-07 入册，色卡同源画册 id: youngsam
   mf_id: youngsam                # → Many Faces 画册锚点 /sam/many-faces/#youngsam
@@ -472,3 +572,7 @@
   accent_en: "Gold Leaf"
   bg_cn: "油灯陈木"
   bg_en: "Lamplit Oak"
+  text_cn: "威士忌光"
+  text_en: "Whiskey Glow"
+  muted_cn: "荒漠尘褐"
+  muted_en: "Trail Dust"

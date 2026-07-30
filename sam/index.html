@@ -518,6 +518,19 @@ title: Sam
               <i style="background: {{ pal.bg }}"></i>
               <span class="c-sam-card__pname"><b>{{ pal.bg_cn }}</b><em>{{ pal.bg_en }}</em></span>
             </span>
+            {%- comment -%} 四色全名（全站标准）：浅色 + 灰色，配色表里有名字才渲染 {%- endcomment -%}
+            {%- if pal.text_cn %}
+            <span class="c-sam-card__pcol">
+              <i style="background: {{ pal.text }}"></i>
+              <span class="c-sam-card__pname"><b>{{ pal.text_cn }}</b><em>{{ pal.text_en }}</em></span>
+            </span>
+            {%- endif %}
+            {%- if pal.muted_cn %}
+            <span class="c-sam-card__pcol">
+              <i style="background: {{ pal.muted }}"></i>
+              <span class="c-sam-card__pname"><b>{{ pal.muted_cn }}</b><em>{{ pal.muted_en }}</em></span>
+            </span>
+            {%- endif %}
           </span>
           <span class="c-sam-card__psig" aria-hidden="true">♡ Winter Sun · 亲手调制，只为 Sam</span>
         </div>
