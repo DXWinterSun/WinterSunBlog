@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 title: "Chapter 2 · 没有观众的人 — Good Enough"
 date: 2026-05-30

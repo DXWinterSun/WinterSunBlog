@@ -92,6 +92,30 @@
   margin: 36px 0 8px;
 }
 
+/* 姊妹篇 · 同角色另一段 AU 的互跳 CTA（Jim 一人两线） */
+.c-sister-au__cta {
+  text-align: center;
+  margin: 12px 0 0;
+
+  a {
+    display: inline-block;
+    font-family: $heading-font-family;
+    font-style: italic;
+    font-size: 18px;
+    color: $accent;
+    text-decoration: none;
+    border: 1px solid $accent-soft;
+    border-radius: 999px;
+    padding: 10px 28px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    &:hover {
+      background-color: $accent-soft;
+      border-color: $accent;
+      color: $accent-dark;
+    }
+  }
+}
+
 /* 收束一段私密叙事的轻收尾（比 closing 小一号、更收敛） */
 .c-sam-intro__softclose {
   font-family: $heading-font-family;

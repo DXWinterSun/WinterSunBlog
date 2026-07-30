@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 title: "Chapter 8 · 为什么 — Good Enough"
 date: 2026-05-30

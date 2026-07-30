@@ -119,6 +119,12 @@ const CHARS = [
     line:"You were the first to ask if I was okay. I'd forgotten that was a question.", lineCN:"你是第一个问我「还好吗」的人——我都快忘了，这也能是个问题。",
     bg:"#1c2230", accent:"#c9d84e", text:"#e8eadc", muted:"#7a8590",
     profile:{guile:5,forbear:9,chaos:3,raw:5,romance:6,grace:7} },
+  { id:"charley", name:"Charley Ford", film:"The Assassination of Jesse James by the Coward Robert Ford", filmCN:"《神枪手之死》", year:"2007",
+    tagline:"他举得起枪，却始终扣不下扳机；全世界都当他是个笑话，你偏偏，把这只爱笑的大狗狗，看成了最好看的人。",
+    line:"There's always something else I want to do — turns out it's you.", lineCN:"我总还有别的想做的事——原来，那件事是你。",
+    bg:"#161d29", accent:"#6d94b0", text:"#dde5ee", muted:"#7e8ea2",
+    profile:{guile:1,forbear:2,chaos:5,raw:8,romance:9,grace:4},
+    auLink:"/WinterSunBlog/series/nothing-warmer-than-you/" },
   { id:"glenn", name:"Glenn Marchand", film:"Snow Angels", filmCN:"《雪天使》", year:"2007",
     tagline:"那片灰白的雪地里，是你抓住了他的手。",
     line:"I'm the fire that burns everything down. You're the one who didn't.", lineCN:"我是那团烧尽一切的火——你是唯一，没被烧毁的人。",
@@ -173,6 +179,12 @@ const CHARS = [
     line:"Everybody gets a number. Not you. I'm not putting you on a list where somebody could be ahead of you.", lineCN:"谁都有个编号。你没有——我不会把你放进一张名单里，让任何人排在你前面。",
     bg:"#181320", accent:"#d15f82", text:"#f2e4ea", muted:"#8a7d9c",
     profile:{guile:6,forbear:1,chaos:9,raw:6,romance:8,grace:7} },
+  { id:"doc", name:"Doc", film:"Cowboys & Aliens", filmCN:"《牛仔与外星人》", year:"2011",
+    tagline:"他连枪都握不稳，却是全镇唯一敢拦下你、逼你坐下让他缝伤的人。",
+    line:"Your gun takes lives. My hands save them. Put it away — and let me.", lineCN:"你的枪要人命，我的手救人命。把枪收了——让我来。",
+    bg:"#1a140c", accent:"#c39a45", text:"#ece1cf", muted:"#9d8f78",
+    profile:{guile:6,forbear:6,chaos:2,raw:5,romance:7,grace:7},
+    auLink:"/WinterSunBlog/series/the-saloon-nobody-dares/" },
   { id:"billy", name:"Billy Bickle", film:"Seven Psychopaths", filmCN:"《七个神经病》", year:"2012",
     tagline:"他想为这故事写一个最漂亮的结局——可你告诉他：没有你，它永远写不完。",
     line:"I wanted to go out in a blaze. You rewrote the ending — so I lived. For you and you only.", lineCN:"我本想轰轰烈烈地谢幕——是你改了结局，于是我活了下来。只为你。",
@@ -779,7 +791,7 @@ function Intro({ onStart, palette, onShuffle }) {
           display:"flex", alignItems:"baseline", justifyContent:"center", gap:20,
           margin:"0 0 6px"
         }}>
-          {[["47","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
+          {[["49","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
             <React.Fragment key={i}>
               {i>0 && <span style={{width:1, height:26, background:p.muted, opacity:0.3}}/>}
               <span style={{display:"flex", flexDirection:"column", alignItems:"center", gap:2}}>

@@ -10,7 +10,7 @@ series_order: 15
 series_type: "Series"
 chapter_type: "Chapter 15"
 summary: "你说我想要你，系统开始崩溃——他终于吻下来了。"
-tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 炽恋, 安放]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 安放]
 ---
 
 🤠🔥🌘

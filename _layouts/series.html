@@ -50,12 +50,12 @@ layout: home
 
   {% if chapters.size > 0 %}
   <nav class="c-series-toc" aria-label="目录">
-    <div class="c-series-toc__title">目录 · Contents</div>
+    <div class="c-series-toc__title">目录 · Contents{% assign art_count = chapters | where: "has_art", true | size %}{% if art_count > 0 %}<span class="c-series-toc__legend" style="font-size:.66em;opacity:.5;font-weight:400;margin-left:.5em;letter-spacing:.02em;">✦ 含手绘小彩蛋</span>{% endif %}</div>
     <ul class="c-series-toc__list">
       {% for chapter in chapters %}
       <li class="c-series-toc__item">
         <a href="{{ chapter.url | prepend: site.baseurl }}">
-          <span class="c-series-toc__label">{{ chapter.title | split: " — " | first }}</span>
+          <span class="c-series-toc__label">{{ chapter.title | split: " — " | first }}</span>{% if chapter.has_art %}<span class="c-series-toc__art" title="含手绘插画" aria-label="（含手绘插画）" style="margin-left:.35em;font-size:.8em;opacity:.6;">✦</span>{% endif %}
         </a>
       </li>
       {% endfor %}
@@ -74,7 +74,7 @@ layout: home
         {% endif %}
       </div>
       <div class="c-post__body">
-        <div class="c-post__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}</div>
+        <div class="c-post__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}</div>
         <h3 class="c-post__title">{{ chapter.title | split: " — " | first }}</h3>
         {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
         <div class="c-post__meta">

@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 title: "Chapter 9 · 争分夺秒 — Good Enough"
 date: 2026-05-30

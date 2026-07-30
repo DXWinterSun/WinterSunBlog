@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 title: "Chapter 7 · 亲手 — Good Enough"
 date: 2026-05-30

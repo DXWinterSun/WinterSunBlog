@@ -10,7 +10,7 @@ series_order: 21
 series_type: "Series"
 chapter_type: "Chapter 21"
 summary: "那年你一身白越了线；他生日这天，你换一条红的，把自己当礼物送他。"
-tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 炽恋, 缱绻]
+tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 缱绻]
 ---
 
 > 那年你一身白，走到他面前，越过了那条线。这一年他生日，你换了一条红的——这一次，你想把你自己，整整齐齐地，包成一份礼物，送给他。

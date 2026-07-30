@@ -10,7 +10,7 @@ series_order: 14
 series_type: "Series"
 chapter_type: "Chapter 14"
 summary: "他突然停住——沉默就是答案。他像被雷劈中，握你腰的手开始颤抖。"
-tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 炽恋, 缱绻]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 缱绻]
 ---
 
 🤠🔥💣🌘

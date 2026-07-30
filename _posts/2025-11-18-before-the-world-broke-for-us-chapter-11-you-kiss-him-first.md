@@ -10,7 +10,7 @@ series_order: 11
 series_type: "Series"
 chapter_type: "Chapter 11"
 summary: "他的枪抵着你的腿，你却捧住他的脸，主动吻了下去。"
-tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 炽恋, 悸动]
+tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 悸动]
 ---
 
 🤠🔥💋🌘

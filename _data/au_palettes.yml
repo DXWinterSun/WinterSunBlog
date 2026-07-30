@@ -48,6 +48,19 @@
   bg_cn: "落幕玄黑"
   bg_en: "After-Curtain Onyx"
 
+"Better Living Through You":  # Douglas Varney · 色卡同源画册 id: doug
+  mf_id: doug                # → Many Faces 画册锚点 /sam/many-faces/#doug
+  theme_id: doug
+  accent: "#e6ecea"
+  accent_ink: "#6b4a2c"      # 画册 accent 是近白"处方白大褂"，浅色主题下不可读 → 取深棕墨（药瓶棕系），实测 ~7.9:1 vs 白
+  bg: "#1e1408"
+  text: "#ece1cf"
+  muted: "#9d8f78"
+  accent_cn: "处方白大褂"
+  accent_en: "Lab Coat"
+  bg_cn: "药瓶陈皮棕"
+  bg_en: "Pill-Bottle Brown"
+
 "The Making of You":        # Aldo Stankas · Trust Me · 色卡同源画册 id: aldo
   mf_id: aldo                # → Many Faces 画册锚点 /sam/many-faces/#aldo
   theme_id: aldo
@@ -369,6 +382,19 @@
   bg_cn: "散场夜墨黑"
   bg_en: "Empty-Gym Black"
 
+"See How They Stay":        # Inspector Stoppard · 色卡同源画册 id: stoppard
+  mf_id: stoppard                # → Many Faces 画册锚点 /sam/many-faces/#stoppard
+  theme_id: stoppard
+  accent: "#e2c48f"
+  accent_ink: "#8a6a37"        # accent 偏浅，浅色主题下加深到对比度 ≥4.5:1
+  bg: "#1a1f2c"
+  text: "#ebe2d4"
+  muted: "#7c8090"
+  accent_cn: "旧照片暖褐"
+  accent_en: "Old Photograph"
+  bg_cn: "伦敦午夜蓝"
+  bg_en: "London Midnight"
+
 "Wholly Known":             # Eddie Carbone · A View from the Bridge · 非画册角色，独立配色
   accent: "#c0492e"
   accent_ink: "#9d3a22"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
@@ -379,3 +405,68 @@
   accent_en: "Dockside Ember"
   bg_cn: "港湾落雪夜"
   bg_en: "Snowfall Harbor"
+
+"Nothing Warmer Than You":  # Charley Ford · 雪原枪蓝 · 色卡同源画册 id: charley
+  mf_id: charley                # → Many Faces 画册锚点 /sam/many-faces/#charley
+  theme_id: charley
+  accent: "#6d94b0"
+  accent_ink: "#3f6480"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#161d29"
+  text: "#dde5ee"
+  muted: "#7e8ea2"
+  accent_cn: "枪管钢蓝"
+  accent_en: "Gunmetal Blue"
+  bg_cn: "雪原夜蓝"
+  bg_en: "Snowfield Night"
+
+"Some Steps Only We Know":   # Jim Crocker · Piccadilly Jim · 色卡同源画册 id: jim
+  mf_id: jim                # → Many Faces 画册锚点 /sam/many-faces/#jim
+  accent: "#d8b25a"
+  accent_ink: "#94741a"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#161214"
+  text: "#f0e3dc"
+  muted: "#9b8d84"
+  accent_cn: "夜会香槟金"
+  accent_en: "Club Champagne"
+  bg_cn: "貂皮大氅黑"
+  bg_en: "Mink Black"
+
+"The One I Kept":            # Jim Crocker · Piccadilly Jim（女仆线）· 与青梅竹马线共用同一套（一个角色一套色）
+  mf_id: jim                # → Many Faces 画册锚点 /sam/many-faces/#jim
+  accent: "#d8b25a"
+  accent_ink: "#94741a"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#161214"
+  text: "#f0e3dc"
+  muted: "#9b8d84"
+  accent_cn: "夜会香槟金"
+  accent_en: "Club Champagne"
+  bg_cn: "貂皮大氅黑"
+  bg_en: "Mink Black"
+
+"Fog City":                 # Young Sam · Sam Rockwell 本人（16—18 岁，非电影角色）· 无画册出处，独立配色
+  accent: "#5b9db8"
+  accent_ink: "#35708c"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1（实测 ~5.5:1 vs 白）
+  bg: "#1b222b"
+  text: "#e3eaef"
+  muted: "#9c8f7d"
+  accent_cn: "你画的海"
+  accent_en: "Painted Ocean"
+  bg_cn: "双峰暮雾"
+  bg_en: "Twin Peaks Fog"
+  text_cn: "镜片浅光"          # ↓ 这个系列四色全名展示（au-palette-strip 对带 text_cn 的条目渲染四格）
+  text_en: "Lens Glint"
+  muted_cn: "磁带暖褐"
+  muted_en: "Cassette Brown"
+
+"The Saloon Nobody Dares":  # Doc（Samuel Stockwell）· Cowboys & Aliens · Sam Rockwell · 色卡同源画册 id: doc
+  mf_id: doc                # → Many Faces 画册锚点 /sam/many-faces/#doc
+  theme_id: doc
+  accent: "#c39a45"
+  accent_ink: "#8a651c"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#1a140c"
+  text: "#ece1cf"
+  muted: "#9d8f78"
+  accent_cn: "斑驳金叶"
+  accent_en: "Gold Leaf"
+  bg_cn: "油灯陈木"
+  bg_en: "Lamplit Oak"

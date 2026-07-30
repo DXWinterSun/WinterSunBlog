@@ -10,7 +10,7 @@ series_order: 30
 series_type: "Series"
 chapter_type: "Chapter 30"
 summary: "大一暑假的夏夜，破皮卡，满天星。他就着星光跑调唱给你听——你最幸福。"
-tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 炽恋, 缱绻]
+tags: [Bill Greaves, Sam Rockwell, AU, No One Walks Off, 缱绻]
 ---
 
 > 大一那年的暑假，一个夏夜，一辆破皮卡，和满天的星。他就着星光，低低地唱给你一个人听——那一刻你想，这世上再没有比你更幸福的女孩了。

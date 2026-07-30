@@ -109,7 +109,7 @@ layout: home
     {% assign next_post = series_posts[next_idx] %}
     <nav class="c-chapter-nav" aria-label="Chapter navigation">
       <div class="c-chapter-nav__series">
-        Part of <a href="{{ site.baseurl }}/series/{{ page.series | slugify }}/">{{ page.series }}</a> · Chapter {{ page.series_order }} of {{ series_posts.size }}
+        Part of <a href="{{ site.baseurl }}/series/{{ page.series | slugify }}/">{{ page.series }}</a> · {% if page.series_order == 0 %}{{ page.chapter_type | default: "Prologue" }}{% else %}Chapter {{ page.series_order }} of {{ series_posts.size }}{% endif %}
       </div>
       <div class="c-chapter-nav__pair">
         {% if cur_idx > 0 %}

@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 title: "Chapter 4 · 不是斯塔克 — Good Enough"
 date: 2026-05-30

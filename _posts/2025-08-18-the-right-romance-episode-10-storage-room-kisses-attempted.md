@@ -10,7 +10,7 @@ series_order: 10
 series_type: "Series"
 chapter_type: "Episode 10"
 summary: "储物间，他想亲你，被自己绘倒了。"
-tags: [Sam Pinkett, BayBay, AU, The Right Romance, 炽恋, 悸动]
+tags: [Sam Pinkett, BayBay, AU, The Right Romance, 絮语, 悸动]
 ---
 
 **💼 Episode 10｜Storage Room Kisses (Attempted)**

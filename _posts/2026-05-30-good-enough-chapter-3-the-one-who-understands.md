@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 title: "Chapter 3 · 听得懂的人 — Good Enough"
 date: 2026-05-30

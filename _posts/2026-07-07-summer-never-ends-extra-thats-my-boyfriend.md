@@ -3,7 +3,7 @@ layout: post
 title: "Extra · 是我男朋友 — Summer Never Ends"
 date: 2026-07-07
 image: the-way-way-back.JPG
-tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 悸动, 炽恋]
+tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 悸动]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"
