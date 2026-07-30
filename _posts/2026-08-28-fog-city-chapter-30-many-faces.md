@@ -102,7 +102,17 @@ summary: "他趁你不在翻开了四十年的秘密；然后把它们，一幕�
 
 于是你做了一份正式的。角色按年份排幕，每一幕用他们各自的颜色，台词用他们各自的那一句——做完你把它挂在了一个所有人都找得到的地方。反正，看得懂的人自然看得懂。
 
-它在这里：<a href="{{ site.baseurl }}/fog-city/playbill/">Many Faces · 演出节目单</a>。
+它在这里——
+
+<a class="c-ticket" href="{{ site.baseurl }}/fog-city/playbill/">
+  <span class="c-ticket__stub" aria-hidden="true">Admit One</span>
+  <span class="c-ticket__body">
+    <span class="c-ticket__eyebrow">Fog City Company · Est. 1986</span>
+    <span class="c-ticket__title">MANY FACES · 演出节目单</span>
+    <span class="c-ticket__meta">一人剧团 · 剧目：她的四十年</span>
+    <span class="c-ticket__cta">撕开票根，入场 →</span>
+  </span>
+</a>
 
 和你的本子一样，它会一直长下去。他每演一个新的人，节目单就自动多一幕——加演场次待定，演出未完。
 

@@ -1018,3 +1018,120 @@
   .c-egg-card--sky .tw-star,
   .c-egg-card--juke .egg-vinyl { animation: none; }
 }
+
+/* ──────────────────────────────────────────────────────────────
+   c-ticket —— 戏票式入口卡（正文里通往某个页面的「入场券」）
+   与 c-note / c-decree 同族：吃 AU 色卡令牌，随系列配色明暗翻转。
+   首例：Fog City Ch30 通往演出节目单 fog-city/playbill/ 的入口。
+   ────────────────────────────────────────────────────────────── */
+.c-ticket {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  max-width: 480px;
+  margin: 30px auto;
+  text-decoration: none;
+  background:
+    linear-gradient(115deg, color-mix(in srgb, $accent 9%, transparent) 0%, transparent 55%),
+    $paper-warm;
+  border: 1px solid $line-strong;
+  border-radius: 10px;
+  box-shadow:
+    0 12px 28px rgba(var(--rgb-shadow, 0, 0, 0), 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  transform: rotate(-0.4deg);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow:
+      0 18px 36px rgba(var(--rgb-shadow, 0, 0, 0), 0.22),
+      0 0 0 2px color-mix(in srgb, $accent 55%, transparent);
+  }
+}
+
+/* 左端票根：ADMIT ONE + 撕票孔虚线 */
+.c-ticket__stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  padding: 16px 13px;
+  border-right: 2px dashed color-mix(in srgb, $ink 28%, transparent);
+  background: color-mix(in srgb, $accent 14%, transparent);
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  line-height: 1.5;
+  color: $accent-dark;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* 撕票孔：票根分割线上下各咬一个半圆 */
+.c-ticket::before,
+.c-ticket::after {
+  content: "";
+  position: absolute;
+  left: var(--stub-w, 40px);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: $cream;
+  border: 1px solid $line-strong;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.c-ticket::before { top: -8px; }
+.c-ticket::after  { bottom: -8px; }
+
+.c-ticket__body {
+  flex: 1 1 auto;
+  padding: 16px 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.c-ticket__eyebrow {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.c-ticket__title {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: $ink;
+  line-height: 1.35;
+}
+
+.c-ticket__meta {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: $ink-soft;
+}
+
+.c-ticket__cta {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: $accent-dark;
+
+  .c-ticket:hover & { text-decoration: underline; text-underline-offset: 3px; }
+}
+
+@media (max-width: 480px) {
+  .c-ticket { max-width: 100%; }
+  .c-ticket__title { font-size: 17px; }
+}
