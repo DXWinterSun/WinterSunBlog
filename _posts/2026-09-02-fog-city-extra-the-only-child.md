@@ -71,19 +71,23 @@ summary: "玻璃做的独生子女：角是爸爸点的，帽子是妈妈织的�
   </defs>
 
   <rect width="360" height="320" rx="10" fill="url(#ponyBg)"/>
-  <circle cx="308" cy="58" r="150" fill="url(#ponyLamp)"/>
-  <ellipse cx="80" cy="70" rx="90" ry="34" fill="#5b9db8" opacity=".08"/>
-  <ellipse cx="230" cy="120" rx="120" ry="40" fill="#5b9db8" opacity=".07"/>
-  <ellipse cx="120" cy="170" rx="100" ry="30" fill="#5b9db8" opacity=".06"/>
+  <circle cx="308" cy="58" r="150" fill="url(#ponyLamp)"><animate attributeName="opacity" values="0.8;1;0.8" dur="7s" repeatCount="indefinite"/></circle>
+  <ellipse cx="80" cy="70" rx="90" ry="34" fill="#5b9db8" opacity=".08"><animateTransform attributeName="transform" type="translate" values="0 0;16 0;0 0" dur="22s" repeatCount="indefinite"/></ellipse>
+  <ellipse cx="230" cy="120" rx="120" ry="40" fill="#5b9db8" opacity=".07"><animateTransform attributeName="transform" type="translate" values="0 0;-20 0;0 0" dur="28s" repeatCount="indefinite"/></ellipse>
+  <ellipse cx="120" cy="170" rx="100" ry="30" fill="#5b9db8" opacity=".06"><animateTransform attributeName="transform" type="translate" values="0 0;12 0;0 0" dur="19s" repeatCount="indefinite"/></ellipse>
 
-  <circle cx="46" cy="52" r="2" fill="#e3eaef" opacity=".45"/>
-  <circle cx="92" cy="108" r="1.6" fill="#e3eaef" opacity=".35"/>
-  <circle cx="150" cy="60" r="1.8" fill="#e3eaef" opacity=".4"/>
-  <circle cx="238" cy="44" r="2.2" fill="#e3eaef" opacity=".45"/>
-  <circle cx="286" cy="128" r="1.5" fill="#e3eaef" opacity=".3"/>
-  <circle cx="322" cy="180" r="1.8" fill="#e3eaef" opacity=".3"/>
-  <circle cx="60" cy="150" r="1.5" fill="#e3eaef" opacity=".3"/>
-  <circle cx="196" cy="92" r="1.4" fill="#e3eaef" opacity=".3"/>
+  <g>
+    <circle cx="46" cy="52" r="2.0" fill="#e3eaef"><animateTransform attributeName="transform" type="translate" values="0 0;0 210" dur="11.0s" begin="0.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.59;0.59;0" keyTimes="0;0.15;0.8;1" dur="11.0s" begin="0.0s" repeatCount="indefinite"/></circle>
+    <circle cx="92" cy="38" r="1.6" fill="#e3eaef"><animateTransform attributeName="transform" type="translate" values="0 0;0 224" dur="9.5s" begin="2.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.54;0.54;0" keyTimes="0;0.15;0.8;1" dur="9.5s" begin="2.1s" repeatCount="indefinite"/></circle>
+    <circle cx="150" cy="60" r="1.8" fill="#e3eaef"><animateTransform attributeName="transform" type="translate" values="0 0;0 202" dur="10.2s" begin="4.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.57;0.57;0" keyTimes="0;0.15;0.8;1" dur="10.2s" begin="4.0s" repeatCount="indefinite"/></circle>
+    <circle cx="238" cy="44" r="2.2" fill="#e3eaef"><animateTransform attributeName="transform" type="translate" values="0 0;0 218" dur="8.8s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.61;0.61;0" keyTimes="0;0.15;0.8;1" dur="8.8s" begin="1.2s" repeatCount="indefinite"/></circle>
+    <circle cx="286" cy="58" r="1.5" fill="#e3eaef"><animateTransform attributeName="transform" type="translate" values="0 0;0 204" dur="12.0s" begin="5.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.53;0.53;0" keyTimes="0;0.15;0.8;1" dur="12.0s" begin="5.5s" repeatCount="indefinite"/></circle>
+    <circle cx="322" cy="70" r="1.8" fill="#e3eaef"><animateTransform attributeName="transform" type="translate" values="0 0;0 192" dur="9.0s" begin="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.57;0.57;0" keyTimes="0;0.15;0.8;1" dur="9.0s" begin="3.2s" repeatCount="indefinite"/></circle>
+    <circle cx="60" cy="80" r="1.5" fill="#e3eaef"><animateTransform attributeName="transform" type="translate" values="0 0;0 182" dur="10.5s" begin="6.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.53;0.53;0" keyTimes="0;0.15;0.8;1" dur="10.5s" begin="6.4s" repeatCount="indefinite"/></circle>
+    <circle cx="196" cy="52" r="1.4" fill="#e3eaef"><animateTransform attributeName="transform" type="translate" values="0 0;0 210" dur="8.5s" begin="0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.52;0.52;0" keyTimes="0;0.15;0.8;1" dur="8.5s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="130" cy="44" r="1.3" fill="#e3eaef"><animateTransform attributeName="transform" type="translate" values="0 0;0 218" dur="11.5s" begin="7.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.51;0.51;0" keyTimes="0;0.15;0.8;1" dur="11.5s" begin="7.0s" repeatCount="indefinite"/></circle>
+    <circle cx="266" cy="90" r="1.2" fill="#e3eaef"><animateTransform attributeName="transform" type="translate" values="0 0;0 172" dur="9.8s" begin="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.49;0.49;0" keyTimes="0;0.15;0.8;1" dur="9.8s" begin="2.8s" repeatCount="indefinite"/></circle>
+  </g>
 
   <rect x="0" y="262" width="360" height="58" fill="url(#ponySill)"/>
   <rect x="0" y="262" width="360" height="2.5" fill="#8a7458" opacity=".55"/>
@@ -115,7 +119,7 @@ summary: "玻璃做的独生子女：角是爸爸点的，帽子是妈妈织的�
 
   <path d="M215,214 l9,-2 1,12 -9,3 z" fill="#f2ead9" opacity=".9" stroke="#d8cdb8" stroke-width=".5"/>
 
-  <g transform="rotate(-12 150 114)">
+  <g transform="rotate(-12 150 114)"><animateTransform attributeName="transform" type="rotate" values="-12 150 114;-8 150 114;-12 150 114" dur="6s" repeatCount="indefinite"/>
     <path d="M137,112 Q146,84 166,82 Q157,95 159,111 Z" fill="url(#ponyHat)"/>
     <path d="M143,104 q8,-8 16,-14" stroke="#8e2a20" stroke-width="1" fill="none" opacity=".5"/>
     <path d="M148,109 q7,-7 13,-12" stroke="#8e2a20" stroke-width="1" fill="none" opacity=".4"/>
@@ -128,10 +132,10 @@ summary: "玻璃做的独生子女：角是爸爸点的，帽子是妈妈织的�
   <circle cx="130" cy="96" r="1.7" fill="#20242a"/>
 
   <circle cx="128" cy="134" r="1.8" fill="#3c4a56"/>
-  <ellipse cx="170" cy="172" rx="14" ry="6" fill="#ffffff" opacity=".5" transform="rotate(-18 170 172)"/>
+  <ellipse cx="170" cy="172" rx="14" ry="6" fill="#ffffff" transform="rotate(-18 170 172)"><animate attributeName="opacity" values="0.5;0.75;0.5" dur="6s" repeatCount="indefinite"/></ellipse>
   <ellipse cx="127" cy="129" rx="5" ry="2.6" fill="#ffffff" opacity=".55" transform="rotate(-14 127 129)"/>
-  <path d="M206,160 l1.6,4 4,1.6 -4,1.6 -1.6,4 -1.6,-4 -4,-1.6 4,-1.6 z" fill="#ffffff" opacity=".8"/>
-  <path d="M148,190 l1.2,3 3,1.2 -3,1.2 -1.2,3 -1.2,-3 -3,-1.2 3,-1.2 z" fill="#ffffff" opacity=".6"/>
+  <path d="M206,160 l1.6,4 4,1.6 -4,1.6 -1.6,4 -1.6,-4 -4,-1.6 4,-1.6 z" fill="#ffffff"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="3.2s" repeatCount="indefinite"/></path>
+  <path d="M148,190 l1.2,3 3,1.2 -3,1.2 -1.2,3 -1.2,-3 -3,-1.2 3,-1.2 z" fill="#ffffff"><animate attributeName="opacity" values="0.6;0.15;0.6" dur="4.1s" begin="1s" repeatCount="indefinite"/></path>
 </svg>
 </div>
 
