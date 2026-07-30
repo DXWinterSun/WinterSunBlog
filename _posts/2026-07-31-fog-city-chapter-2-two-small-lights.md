@@ -14,8 +14,8 @@ chapter_type: "Chapter 2"
 summary: "灯一暗，你把下巴搁上他的头顶；他的镜片里，落着两小块舞台。"
 ---
 
-> “A man walks across this empty space whilst someone else is watching him, and this is all that is needed for an act of theatre to be engaged.”
-> 一个人走过一片空的空间，另一个人看着他——这就已经是戏剧了。
+> “A man walks across this empty space whilst someone else is watching him, and this is all that is needed for an act of theatre to be engaged.”  
+> 一个人走过一片空的空间，另一个人看着他——这就已经是戏剧了。  
 > ——彼得·布鲁克《空的空间》，戏剧科阅读书目的第一本
 
 十月中，《暴风雨》排到一半，舞蹈科的秋季专场先上了。导戏的老师在排练厅里宣布全组都去看，用的词是“偷师”——去看看人家怎么用身体讲话。于是那天晚上，戏剧科的孩子们轰轰烈烈占了礼堂侧后三排，像一窝迁徙的鸟落进别人的地盘。
@@ -90,8 +90,8 @@ summary: "灯一暗，你把下巴搁上他的头顶；他的镜片里，落着�
 
 从那以后，看戏成了规矩：别的年级的汇演、音乐科的独奏会、舞蹈科的专场，他坐前排，你坐他后排，灯一暗，你的胳膊就有了去处。谁也没说定过——就像谁也没说定过很多后来的事。
 
-> 那晚的光都给了台上。
-> 只有两小块拐了弯，落在他的镜片上；
-> 还有一束没人看见的，
-> 从你那排出发，落在他后脑勺。
+> 那晚的光都给了台上。  
+> 只有两小块拐了弯，落在他的镜片上；  
+> 还有一束没人看见的，  
+> 从你那排出发，落在他后脑勺。  
 > ——没人看见。摄像机看见了。
