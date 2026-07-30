@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 30 · Many Faces — Fog City"
+title: "Chapter 31 · Many Faces — Fog City"
 date: 2026-08-28
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 悸动, 安放]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 30
+series_order: 31
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 30"
+chapter_type: "Chapter 31"
 summary: "他趁你不在翻开了四十年的秘密；然后把它们，一幕一幕演还给你。"
 ---
 

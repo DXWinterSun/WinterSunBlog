@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 25 · 五十岁学舞 — Fog City"
+title: "Chapter 26 · 五十岁学舞 — Fog City"
 date: 2026-08-21
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 絮语, 缱绻]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 25
+series_order: 26
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 25"
+chapter_type: "Chapter 26"
 summary: "五十岁他第一次交学费学舞，功课是——把自己的半拍藏起来。"
 ---
 

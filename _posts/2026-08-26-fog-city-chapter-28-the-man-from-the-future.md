@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 28 · 来自未来的人 — Fog City"
+title: "Chapter 29 · 来自未来的人 — Fog City"
 date: 2026-08-26
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 絮语, 安放]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 28
+series_order: 29
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 28"
+chapter_type: "Chapter 29"
 summary: "全片只有他知道未来；可你比他早四十年入行——1986 年就签了。"
 ---
 

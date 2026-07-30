@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 27 · 那声 Kid — Fog City"
+title: "Chapter 28 · 那声 Kid — Fog City"
 date: 2026-08-23
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 缱绻, 絮语]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 27
+series_order: 28
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 27"
+chapter_type: "Chapter 28"
 summary: "海报没给他 C 位，你给；他那声 kid，从银幕漏进了家里。"
 ---
 

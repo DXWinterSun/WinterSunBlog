@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 26 · 大坏狼 — Fog City"
+title: "Chapter 27 · 大坏狼 — Fog City"
 date: 2026-08-22
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 絮语, 安放]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 26
+series_order: 27
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 26"
+chapter_type: "Chapter 27"
 summary: "动画师照着他画了一只狼；新一批粉丝六岁，只认识他的声音。"
 ---
 

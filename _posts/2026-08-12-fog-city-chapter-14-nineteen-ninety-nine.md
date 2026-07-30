@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 15 · 一九九九 — Fog City"
+title: "Chapter 16 · 一九九九 — Fog City"
 date: 2026-08-12
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 悸动, 怀旧]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 15
+series_order: 16
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 15"
+chapter_type: "Chapter 16"
 summary: "同一个十二月，两张海报一起上墙；换海报的人，收下他第一个签名。"
 ---
 

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 14 · 月亮替雾值班 — Fog City"
+title: "Chapter 15 · 月亮替雾值班 — Fog City"
 date: 2026-08-11
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 絮语, 缱绻]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 14
+series_order: 15
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 14"
+chapter_type: "Chapter 15"
 summary: "广告只有三十秒，买断了七年的再三个月；窗台的地图重新开业。"
 ---
 
@@ -44,7 +44,7 @@ summary: "广告只有三十秒，买断了七年的再三个月；窗台的地�
 
 其实那几年，他一直在零零碎碎地上银幕，小到连他自己都记不全。
 
-《Strictly Business》里他是收发室调上来的新人，西装笔挺，统共没几场戏——那是他第一次穿着西装出现在大银幕上，你在午夜场的黑暗里认出他的领带打歪了一度，全场只有你笑了。《Somebody to Love》里他晃过去几分钟，连名字都排在演职员表很深的地方。然后是《Mercy》——这回他终于是个正经的重要配角，戏份连贯，有名有姓。可片子排片少得可怜，你跑了三家录像带店才找到那盘带子，最后一家的店员说这片从来没人租过。
+《Strictly Business》里他是收发室调上来的新人，西装笔挺，统共没几场戏——那是他第一次穿着西装出现在大银幕上，你在午夜场的黑暗里认出他的领带打歪了一度，全场只有你笑了。《Somebody to Love》里他晃过去几分钟，连名字都排在演职员表很深的地方——手上那圈纱布，全世界只有你知道来历。然后是《Mercy》——这回他终于是个正经的重要配角，戏份连贯，有名有姓。可片子排片少得可怜，你跑了三家录像带店才找到那盘带子，最后一家的店员说这片从来没人租过。
 
 “那正好。”你说，“卖给我吧。”
 

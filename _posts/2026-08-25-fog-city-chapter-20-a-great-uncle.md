@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 20 · 了不起的叔叔 — Fog City"
+title: "Chapter 21 · 了不起的叔叔 — Fog City"
 date: 2026-08-25
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 安放, 絮语]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 20
+series_order: 21
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 20"
+chapter_type: "Chapter 21"
 summary: "他在直播里说讨厌小孩又找补；这道题，你们二十多年前就交卷了。"
 ---
 

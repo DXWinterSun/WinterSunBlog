@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 29 · B 面 — Fog City"
+title: "Chapter 30 · B 面 — Fog City"
 date: 2026-08-27
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 安放, 缱绻]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 29
+series_order: 30
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 29"
+chapter_type: "Chapter 30"
 summary: "他把磁带借走又还回来；B 面第一句只有两个字——想好了。"
 ---
 

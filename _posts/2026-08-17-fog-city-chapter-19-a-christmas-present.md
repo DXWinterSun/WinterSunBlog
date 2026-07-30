@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 21 · 圣诞礼物 — Fog City"
+title: "Chapter 22 · 圣诞礼物 — Fog City"
 date: 2026-08-17
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 暗涌, 缱绻]
 categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
-series_order: 21
+series_order: 22
 series_status: ongoing
 series_type: Series
-chapter_type: "Chapter 21"
+chapter_type: "Chapter 22"
 summary: "剧本像圣诞礼物；可接下来三个月，家里住进了一个坏警察。"
 ---
 
