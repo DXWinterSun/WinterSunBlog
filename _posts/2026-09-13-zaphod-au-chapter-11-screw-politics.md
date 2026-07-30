@@ -6,7 +6,7 @@ date: 2026-09-13
 image: zaphod-au.jpg
 has_art: true
 series: "Zaphod AU"
-series_title: "Don't Panic, Baby Doll · Zaphod AU"
+series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 11
 series_status: ongoing
 series_type: Series

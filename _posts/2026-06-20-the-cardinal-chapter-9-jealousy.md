@@ -6,7 +6,7 @@ image: sam-rockwell-polish-guy.png
 tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 暗涌]
 categories: ["AU Story"]
 series: "The Cardinal"
-series_title: "The Cardinal · Krzysztof AU"
+series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
 series_order: 9
 series_status: ongoing
 series_type: Series
