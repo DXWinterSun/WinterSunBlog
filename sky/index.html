@@ -518,22 +518,26 @@
         if (p[1] > maxY) { maxY = p[1]; labelX = p[0]; }
       });
 
-      // 星座名（点击进系列页）
-      var sub = (s.title || "").replace(s.name, "").replace(/^[\s·—-]+/, "");
+      // 双层命名：近看（星座尺度）显示故事名，凑近才见细节；
+      // 角色名做小字注脚。远看（宇宙尺度）只剩角色轮廓（见星系层）。
+      // title 统一格式 "Story · Character AU"，按最后一个 · 拆分。
+      var ti = (s.title || "").lastIndexOf("·");
+      var storyName = ti > 0 ? s.title.slice(0, ti).trim() : (s.title || s.name);
+      var charAU = ti > 0 ? s.title.slice(ti + 1).trim() : "";
       var label = el("g", { "class": "cons-label" }, g);
       var t1 = el("text", {
         x: labelX.toFixed(1), y: (maxY + 30).toFixed(1),
         "text-anchor": "middle", fill: s.accent, "font-size": 17,
         "class": "cons-label__main"
       }, label);
-      t1.textContent = s.name;
-      if (sub) {
+      t1.textContent = storyName;
+      if (charAU) {
         var t2 = el("text", {
           x: labelX.toFixed(1), y: (maxY + 47).toFixed(1),
           "text-anchor": "middle", fill: "#8d99b5", "font-size": 8.5,
           "class": "cons-label__sub"
         }, label);
-        t2.textContent = sub;
+        t2.textContent = charAU;
       }
       label.addEventListener("click", function (e) {
         e.stopPropagation();
@@ -547,7 +551,7 @@
       galaxies.push({
         cx: mx / pts.length, cy: my / pts.length,
         spread: Math.min(46, 16 + pts.length * 1.1),
-        accent: s.accent, name: s.name, sub: sub, url: s.url, r: r
+        accent: s.accent, label: charAU || storyName, url: s.url, r: r
       });
     });
 
@@ -578,7 +582,7 @@
         "text-anchor": "middle", fill: ga.accent, "font-size": 26,
         "class": "cons-label__main"
       }, gg);
-      gt.textContent = ga.name;
+      gt.textContent = ga.label;   // 宇宙尺度只看得清「轮廓」：角色名
       // 点一团星系 → 俯冲扎进那座星座
       gg.addEventListener("click", function (e) {
         e.stopPropagation();

@@ -5,7 +5,7 @@ categories: ["AU Story"]
 date: 2026-09-17
 image: zaphod-au.jpg
 series: "Zaphod AU"
-series_title: "Don't Panic, Baby Doll · Zaphod AU"
+series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 15
 series_status: ongoing
 series_type: Series

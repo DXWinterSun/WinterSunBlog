@@ -416,6 +416,18 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
 `Sam Bell · Moon AU`（用了剧名 Moon）、`A Single Shot AU`（纯剧名）、
 `Alexios AU`（缺 Story 名）。都应改成 `Story · Character AU`。
 
+**角色段必须用「完整角色名」**（2026-07 全站统一过一遍，以该系列首页 byline 的
+角色名为准，含军衔 / 绰号引号）：`Eric Knox`（不是 Knox）、`Zaphod Beeblebrox`
+（不是 Zaphod）、`Colonel Silas Groves`、`Krzysztof "Kris" Wilk`、
+`William "Wild Bill" Wharton`。byline、title 角色段、章节 tags 里的角色名三处
+要同名。**已知特批例外：`Made for No One but You · Westworld AU`——Winter
+本人拍板保留 Westworld AU 命名，别「修正」它。**
+
+**星图吃这个格式做双层命名**：`sky/` 把系列 `title` 按最后一个 `·` 拆成
+「故事名 / 角色段」——宇宙尺度（拉远）只显示角色段（远看轮廓），星座尺度
+显示故事名 + 角色段小字（凑近看细节）。所以系列 `title` 守不守
+`Story · Character AU` 格式，直接决定星图标签对不对。
+
 ## ⚠️ 系列首页 byline 格式统一为「角色 · 作品出处 · 演员 · 状态」
 
 `c-hero__byline-text` 的固定格式是四段：

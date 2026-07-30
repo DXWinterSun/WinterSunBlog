@@ -6,7 +6,7 @@ image: silas-groves.jpg
 tags: [Colonel Silas Groves, Sam Rockwell, AU, What He Owed, 暗涌, 怅惘]
 categories: ["AU Story"]
 series: "What He Owed"
-series_title: "What He Owed · Silas Groves AU"
+series_title: "What He Owed · Colonel Silas Groves AU"
 series_order: 2
 series_status: ongoing
 series_type: Series
