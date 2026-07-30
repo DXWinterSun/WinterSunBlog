@@ -888,20 +888,18 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
 }
 
 .c-sam-card__pcols {
-  display: flex;
-  flex-wrap: wrap;          // 四色时窄屏自动折成 2×2
-  row-gap: 6px;
-  gap: 10px;
+  // 四色标准后固定 2×2 网格（两色的老条目自然占一行），不再用竖线分隔——
+  // flex 折行会让分隔线孤悬在行首，难看
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 16px;
 }
 
 .c-sam-card__pcol {
   display: flex;
   align-items: center;
   gap: 7px;
-  & + & {
-    padding-left: 10px;
-    border-left: 1px solid rgba(255, 255, 255, 0.16);
-  }
+  min-width: 0;
   i {
     flex: 0 0 auto;
     width: 15px;
