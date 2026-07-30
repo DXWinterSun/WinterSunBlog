@@ -166,6 +166,29 @@
     color: #8d99b5; opacity: .45;
   }
 
+  /* 宇宙尺度切换按钮 */
+  .scale-btn {
+    position: fixed; left: 16px; bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 5;
+    background: rgba(13,17,30,.78);
+    border: 1px solid rgba(140,160,210,.35);
+    color: #cdd9f5; border-radius: 999px;
+    font-family: 'Noto Serif SC', serif; font-weight: 300;
+    font-size: 12.5px; letter-spacing: 2px;
+    padding: 9px 18px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: border-color .25s, color .25s, box-shadow .25s;
+  }
+  .scale-btn:hover {
+    border-color: rgba(180,200,245,.7); color: #eef2fb;
+    box-shadow: 0 0 18px rgba(140,160,220,.25);
+  }
+
+  /* 语义缩放的两层交叉淡化 + 星系可点 */
+  #cons-layer, #gal-layer { transition: opacity .2s linear; }
+  .galaxy { cursor: pointer; }
+  .galaxy:hover circle:first-of-type { opacity: 1; }
+
   .loading {
     position: fixed; inset: 0; z-index: 2;
     display: flex; align-items: center; justify-content: center;
@@ -189,6 +212,7 @@
   <p>写下的每一个平行时空，都在天上</p>
 </div>
 <div class="hint" id="hint">拖动漫游这片夜空 · 点一颗星，落进那个故事</div>
+<button class="scale-btn" id="scale-btn" type="button">🔭 宇宙尺度</button>
 
 <div class="card" id="card" role="dialog" aria-label="章节信息">
   <button class="card__close" id="card-close" aria-label="关闭">✕</button>
@@ -214,6 +238,7 @@
   // 虚拟世界尺寸（星座按网格 + 抖动布进这块天里）
   var W = 1900, H = 1260;
   var MOODS = [];
+  var consLayer = null, galLayer = null;   // 星座层 / 星系层（语义缩放交叉淡化）
 
   /* —— 确定性随机：同一个系列名永远长成同一座星座 —— */
   function hash(str) {
@@ -242,12 +267,48 @@
   var vb = { x: 0, y: 0, w: W };
   function aspect() { return window.innerWidth / Math.max(1, window.innerHeight); }
   function applyVB() {
+    // 允许拉远到「宇宙尺度」（约 2.5 倍世界宽），拉远后星座会凝成星系
+    vb.w = Math.max(500, Math.min(vb.w, W * 2.1));
     var h = vb.w / aspect();
-    var pad = 120;
-    vb.w = Math.max(500, Math.min(vb.w, W + pad * 2));
-    vb.x = Math.max(-pad, Math.min(vb.x, W + pad - vb.w));
-    vb.y = Math.max(-pad, Math.min(vb.y, H + pad - h));
+    var padX = Math.max(120, (vb.w - W) / 2);
+    var padY = Math.max(120, (h - H) / 2);
+    vb.x = Math.max(-padX, Math.min(vb.x, W + padX - vb.w));
+    vb.y = Math.max(-padY, Math.min(vb.y, H + padY - h));
     svg.setAttribute("viewBox", vb.x + " " + vb.y + " " + vb.w + " " + h);
+    updateScaleUI();
+  }
+  // 语义缩放：0 = 星座尺度，1 = 宇宙尺度（星座淡出，星系淡入）
+  function scaleT() {
+    var t = (vb.w - W * 1.12) / (W * 0.65);
+    return Math.max(0, Math.min(1, t));
+  }
+  function updateScaleUI() {
+    var t = scaleT();
+    if (consLayer) {
+      consLayer.style.opacity = (1 - t).toFixed(3);
+      consLayer.style.pointerEvents = t > 0.55 ? "none" : "auto";
+    }
+    if (galLayer) {
+      galLayer.style.opacity = t.toFixed(3);
+      galLayer.style.pointerEvents = t > 0.45 ? "auto" : "none";
+    }
+    var btn = document.getElementById("scale-btn");
+    if (btn) btn.textContent = t > 0.5 ? "✦ 回到星座" : "🔭 宇宙尺度";
+  }
+  // 平滑镜头（缓入缓出）；用户一拖动就取消
+  var flying = null;
+  function animateVB(tx, ty, tw, ms) {
+    if (flying) cancelAnimationFrame(flying);
+    var sx = vb.x, sy = vb.y, sw = vb.w, t0 = null;
+    function ease(u) { return u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; }
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var u = Math.min(1, (ts - t0) / ms), e = ease(u);
+      vb.x = sx + (tx - sx) * e; vb.y = sy + (ty - sy) * e; vb.w = sw + (tw - sw) * e;
+      applyVB();
+      if (u < 1) flying = requestAnimationFrame(step); else flying = null;
+    }
+    flying = requestAnimationFrame(step);
   }
   function initView() {
     var a = aspect();
@@ -260,12 +321,42 @@
   window.addEventListener("resize", applyVB);
 
   var panning = false, px = 0, py = 0, moved = 0;
+  var touches = {};                        // 多指：双指捏合缩放
+  var pinch = null;
+  function touchCount() { var k = 0, i; for (i in touches) k++; return k; }
   svg.addEventListener("pointerdown", function (e) {
-    panning = true; moved = 0; px = e.clientX; py = e.clientY;
-    svg.classList.add("is-panning");
+    if (flying) { cancelAnimationFrame(flying); flying = null; }
+    touches[e.pointerId] = { x: e.clientX, y: e.clientY };
+    if (touchCount() === 2) {
+      var pts = Object.keys(touches).map(function (k) { return touches[k]; });
+      pinch = {
+        d0: Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y),
+        w0: vb.w,
+        mx: (pts[0].x + pts[1].x) / 2, my: (pts[0].y + pts[1].y) / 2
+      };
+      panning = false;
+    } else {
+      panning = true; moved = 0; px = e.clientX; py = e.clientY;
+      svg.classList.add("is-panning");
+    }
     svg.setPointerCapture(e.pointerId);
   });
   svg.addEventListener("pointermove", function (e) {
+    if (touches[e.pointerId]) { touches[e.pointerId].x = e.clientX; touches[e.pointerId].y = e.clientY; }
+    if (pinch && touchCount() >= 2) {
+      var pts = Object.keys(touches).map(function (k) { return touches[k]; });
+      var d = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      if (d > 8) {
+        var wx = vb.x + (pinch.mx / window.innerWidth) * vb.w;
+        var wy = vb.y + (pinch.my / window.innerHeight) * (vb.w / aspect());
+        vb.w = pinch.w0 * pinch.d0 / d;
+        vb.x = wx - (pinch.mx / window.innerWidth) * vb.w;
+        vb.y = wy - (pinch.my / window.innerHeight) * (vb.w / aspect());
+        applyVB(); hideHint();
+      }
+      moved = 99;
+      return;
+    }
     if (!panning) return;
     var scale = vb.w / window.innerWidth;
     vb.x -= (e.clientX - px) * scale;
@@ -275,10 +366,16 @@
     applyVB();
     if (moved > 8) hideHint();
   });
-  svg.addEventListener("pointerup", function () { panning = false; svg.classList.remove("is-panning"); });
-  svg.addEventListener("pointercancel", function () { panning = false; svg.classList.remove("is-panning"); });
+  function endPointer(e) {
+    delete touches[e.pointerId];
+    if (touchCount() < 2) pinch = null;
+    if (touchCount() === 0) { panning = false; svg.classList.remove("is-panning"); }
+  }
+  svg.addEventListener("pointerup", endPointer);
+  svg.addEventListener("pointercancel", endPointer);
   svg.addEventListener("wheel", function (e) {
     e.preventDefault();
+    if (flying) { cancelAnimationFrame(flying); flying = null; }
     var f = e.deltaY > 0 ? 1.08 : 0.925;
     var mx = vb.x + (e.clientX / window.innerWidth) * vb.w;
     var my = vb.y + (e.clientY / window.innerHeight) * (vb.w / aspect());
@@ -340,6 +437,7 @@
 
   function build(series) {
     var totalStars = 0;
+    var galaxies = [];   // 每个系列凝成一团星云：{cx, cy, spread, accent, name, sub, url}
 
     // 背景微星
     var bg = el("g", {}, svg);
@@ -364,6 +462,8 @@
     var rows = Math.ceil(N / cols);
     var cw = W / cols, ch = H / rows;
 
+    consLayer = el("g", { id: "cons-layer" }, svg);
+
     series.forEach(function (s, si) {
       var r = rng(hash(s.name));
       var col = si % cols, row = Math.floor(si / cols);
@@ -383,7 +483,7 @@
         if (d > R) { x = cx + dx / d * R * (0.55 + r() * 0.3); y = cy + dy / d * R * (0.55 + r() * 0.3); ang += Math.PI * (0.6 + r() * 0.5); }
       });
 
-      var g = el("g", {}, svg);
+      var g = el("g", {}, consLayer);
 
       // 连线
       if (pts.length > 1) {
@@ -440,11 +540,72 @@
         if (moved > 8) return;
         window.location.href = s.url;
       });
+
+      // 记下这团「星系」的凝聚点（星位质心）
+      var mx = 0, my = 0;
+      pts.forEach(function (p) { mx += p[0]; my += p[1]; });
+      galaxies.push({
+        cx: mx / pts.length, cy: my / pts.length,
+        spread: Math.min(46, 16 + pts.length * 1.1),
+        accent: s.accent, name: s.name, sub: sub, url: s.url, r: r
+      });
+    });
+
+    // ————— 星系层：拉远后每个系列凝成一团自己颜色的星云 —————
+    var defs = el("defs", {}, svg);
+    var filt = el("filter", { id: "galblur", x: "-80%", y: "-80%", width: "260%", height: "260%" }, defs);
+    el("feGaussianBlur", { stdDeviation: 7 }, filt);
+    galLayer = el("g", { id: "gal-layer" }, svg);
+    galLayer.style.opacity = 0;
+    galLayer.style.pointerEvents = "none";
+    galaxies.forEach(function (ga) {
+      var gg = el("g", { "class": "galaxy" }, galLayer);
+      var rot1 = Math.floor(ga.r() * 360), rot2 = rot1 + 55;
+      el("ellipse", {
+        cx: ga.cx, cy: ga.cy, rx: ga.spread * 1.45, ry: ga.spread * 0.6,
+        fill: ga.accent, opacity: 0.3, filter: "url(#galblur)",
+        transform: "rotate(" + rot1 + " " + ga.cx + " " + ga.cy + ")"
+      }, gg);
+      el("ellipse", {
+        cx: ga.cx, cy: ga.cy, rx: ga.spread * 0.9, ry: ga.spread * 0.42,
+        fill: ga.accent, opacity: 0.28, filter: "url(#galblur)",
+        transform: "rotate(" + rot2 + " " + ga.cx + " " + ga.cy + ")"
+      }, gg);
+      el("circle", { cx: ga.cx, cy: ga.cy, r: 6, fill: ga.accent, opacity: 0.9 }, gg);
+      el("circle", { cx: ga.cx, cy: ga.cy, r: 2.4, fill: "#ffffff", opacity: 0.95 }, gg);
+      var gt = el("text", {
+        x: ga.cx, y: ga.cy + ga.spread * 0.6 + 30,
+        "text-anchor": "middle", fill: ga.accent, "font-size": 26,
+        "class": "cons-label__main"
+      }, gg);
+      gt.textContent = ga.name;
+      // 点一团星系 → 俯冲扎进那座星座
+      gg.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (moved > 8) return;
+        var tw = Math.max(640, ga.spread * 16);
+        animateVB(ga.cx - tw / 2, ga.cy - (tw / aspect()) / 2, tw, 950);
+      });
     });
 
     $("counts").textContent = series.length + " CONSTELLATIONS · " + totalStars + " STARS";
     initView();
   }
+
+  // ————— 「宇宙尺度」按钮 —————
+  $("scale-btn").addEventListener("click", function () {
+    if (scaleT() > 0.5) {
+      // 回到星座尺度（与初始取景一致）
+      var a = aspect();
+      var tw = a >= W / H ? W : Math.max(720, H * a);
+      animateVB((W - tw) / 2, (H - tw / a) / 2, tw, 1100);
+    } else {
+      // 拉到宇宙尺度：星座凝成星系
+      var tw2 = W * 1.95;
+      animateVB((W - tw2) / 2, (H - tw2 / aspect()) / 2, tw2, 1100);
+      hideHint();
+    }
+  });
 })();
 </script>
 
