@@ -445,6 +445,140 @@
   color: $ink-soft;
 }
 
+/* ──────────────────────────────────────────────────────────────
+   c-tape —— Archive › By Mood 的「磁带架」（2026-07-31）
+   每篇文章 = 一盘磁带的侧脊：情绪色端盖（两颗小螺丝）+ 奶白手写标签
+   （曲名 — 歌手式：章名 + 系列名·日期）+ SIDE A/B 端标。
+   配色全部吃 .c-archive-tag-content 上的 --mood 变量，随情绪自动换色；
+   悬停整盘带子向右抽出（抽带感）。By Year 视图仍用上面的极简列表。
+   ────────────────────────────────────────────────────────────── */
+
+.c-tape-shelf {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.c-tape-slot { margin: 0; }
+
+.c-tape {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  padding: 6px 12px 6px 6px;
+  border: 1px solid $line;
+  border-radius: 5px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 46%),
+    $paper-warm;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+
+  // 情绪色的低透明罩：给「带壳」上一层该情绪的塑料色
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--mood, #{$accent});
+    opacity: 0.09;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateX(7px);
+    border-color: var(--mood, #{$accent-soft});
+    box-shadow: -4px 2px 12px rgba(0, 0, 0, 0.09);
+    .c-tape__title { color: var(--mood, #{$accent}); }
+  }
+}
+
+// 左端盖：情绪色竖条 + 两颗小螺丝
+.c-tape__cap {
+  position: relative;
+  flex: 0 0 auto;
+  width: 13px;
+  border-radius: 3px;
+  background: var(--mood, #{$accent});
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+  }
+  &::before { top: 5px; }
+  &::after { bottom: 5px; }
+}
+
+// 中间的手写标签纸
+.c-tape__label {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 4px 12px 5px;
+  background: $paper;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 2px;
+}
+
+.c-tape__title {
+  font-family: $heading-font-family;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: $ink;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.18s ease;
+}
+
+.c-tape__meta {
+  font-family: $heading-font-family;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $muted;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 右端标：SIDE A / SIDE B
+.c-tape__side {
+  position: relative;
+  flex: 0 0 auto;
+  align-self: center;
+  padding-left: 10px;
+  border-left: 1px dashed rgba(0, 0, 0, 0.14);
+  font-family: $heading-font-family;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  color: var(--mood, #{$accent});
+}
+
+@media only screen and (max-width: 600px) {
+  .c-tape { padding: 5px 10px 5px 5px; gap: 8px; }
+  .c-tape__cap { width: 11px; }
+  .c-tape__label { padding: 3px 10px 4px; }
+  .c-tape__title { font-size: 14.5px; }
+  .c-tape__meta { font-size: 9px; letter-spacing: 0.1em; }
+  .c-tape__side { font-size: 8px; padding-left: 8px; }
+}
+
 
 /* ===============
 	ARCHIVE CTA AT BOTTOM OF HOME GRID
@@ -989,7 +1123,7 @@
   .tw-star:nth-child(odd) { animation-delay: -1.4s; }
 }
 
-/* 点唱机款：暖木色 + 转动的小黑胶 */
+/* 磁带机款：暖木色 + 转动的小卷盘（2026-07 点唱机改装成 Mixtape 后同步换图） */
 .c-egg-card--juke {
   background: linear-gradient(135deg, #241a13 0%, #1a120d 60%, #14100b 100%);
   color: #f2e7d2;
@@ -1002,9 +1136,10 @@
   .c-egg-card__eyebrow { color: #cba14c; }
   .c-egg-card__arrow { color: #e6c377; }
 
-  .egg-vinyl {
-    animation: eggSpin 7s linear infinite;
-    transform-origin: 28px 30px;
+  .egg-reel {
+    animation: eggSpin 3.6s linear infinite;
+    transform-box: fill-box;
+    transform-origin: center;
   }
 }
 
@@ -1016,7 +1151,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .c-egg-card--sky .tw-star,
-  .c-egg-card--juke .egg-vinyl { animation: none; }
+  .c-egg-card--juke .egg-reel { animation: none; }
 }
 
 /* ──────────────────────────────────────────────────────────────
