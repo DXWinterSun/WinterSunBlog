@@ -57,11 +57,18 @@ layout: home
   {% if art_count > 0 %}<div class="c-chapter-list__legend">✦ 含手绘小彩蛋</div>{% endif %}
   <div class="c-chapter-list">
     {% for chapter in chapters %}
+    {% comment %} 标题只显示章名（Chapter N 已在眉头，避免出现两次） {% endcomment %}
+    {% assign disp = chapter.title | split: " — " | first %}
+    {% assign disp_parts = disp | split: " · " %}
+    {% if disp_parts.size > 1 %}
+      {% assign disp_prefix = disp_parts[0] | append: " · " %}
+      {% assign disp = disp | replace_first: disp_prefix, "" %}
+    {% endif %}
     <a class="c-chapter-card" href="{{ chapter.url | prepend: site.baseurl }}">
-      <span class="c-chapter-card__no">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+      <span class="c-chapter-card__no"><i>No.</i>{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
       <span class="c-chapter-card__body">
         <span class="c-chapter-card__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}</span>
-        <span class="c-chapter-card__title">{{ chapter.title | split: " — " | first }}</span>
+        <span class="c-chapter-card__title">{{ disp }}</span>
         {% if chapter.summary %}<span class="c-chapter-card__summary">{{ chapter.summary }}</span>{% endif %}
         <span class="c-chapter-card__meta">
           {{ chapter.date | date: '%Y, %b %d' }}

@@ -307,7 +307,7 @@
 
   /* ========== 折角记号（仅本机有批注的卡片）========== */
   function markDogears() {
-    var posts = document.querySelectorAll(".c-post");
+    var posts = document.querySelectorAll(".c-post, .c-chapter-card");
     for (var i = 0; i < posts.length; i++) {
       var a = posts[i];
       var n = Store.get(keyOf(a));
@@ -321,7 +321,7 @@
 
   /* ========== 卡片交互（仅解锁后拦截右键 / 长按）========== */
   function attachCards() {
-    var posts = document.querySelectorAll(".c-post");
+    var posts = document.querySelectorAll(".c-post, .c-chapter-card");
     for (var i = 0; i < posts.length; i++) {
       (function (a) {
         a.addEventListener("contextmenu", function (e) {

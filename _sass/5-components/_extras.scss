@@ -1153,22 +1153,43 @@
   gap: 10px;
 }
 
+/* 票根样式（2026-07-30 二改）：左端撕票根 + 虚线撕票线 + 上下咬口，
+   与 c-ticket（Ch31 节目单入口）同一家族；配合 polaroid-notes.js，
+   长按/右键可翻到「票根背面」写记忆碎片（带图卡片仍是拍立得）。 */
 .c-chapter-card {
+  position: relative;
   display: flex;
-  align-items: baseline;
-  gap: 14px;
-  padding: 14px 18px 13px;
-  background: $paper;
+  align-items: stretch;
+  background:
+    linear-gradient(115deg, color-mix(in srgb, $accent 7%, transparent) 0%, transparent 50%),
+    $paper;
   border: 1px solid $line;
-  border-left: 3px solid color-mix(in srgb, $accent 55%, transparent);
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px;
   text-decoration: none;
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  /* 撕票线上下的两个半圆咬口 */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: var(--stub-w, 52px);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $cream;
+    border: 1px solid $line;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  &::before { top: -7px; }
+  &::after { bottom: -7px; }
 
   &:hover {
     transform: translateX(4px);
-    border-left-color: $accent;
-    box-shadow: 0 8px 20px -12px rgba(var(--rgb-shadow, 0, 0, 0), 0.3);
+    box-shadow: 0 8px 20px -12px rgba(var(--rgb-shadow, 0, 0, 0), 0.35),
+      0 0 0 1.5px color-mix(in srgb, $accent 45%, transparent);
 
     .c-chapter-card__arrow { opacity: 1; transform: translateX(2px); }
     .c-chapter-card__title { color: $accent-dark; }
@@ -1177,12 +1198,30 @@
 
 .c-chapter-card__no {
   flex: 0 0 auto;
+  width: var(--stub-w, 52px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 10px 4px;
+  border-right: 2px dashed color-mix(in srgb, $ink 28%, transparent);
+  background: color-mix(in srgb, $accent 10%, transparent);
   font-family: 'Playfair Display', 'EB Garamond', serif;
   font-style: italic;
-  font-size: 14px;
+  font-size: 15px;
   color: $accent-dark;
-  opacity: 0.75;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
+
+  i {
+    font-style: normal;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    color: $muted;
+  }
 }
 
 .c-chapter-card__body {
@@ -1191,6 +1230,7 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
+  padding: 13px 4px 12px 16px;
 }
 
 .c-chapter-card__eyebrow {
@@ -1230,6 +1270,7 @@
 .c-chapter-card__arrow {
   flex: 0 0 auto;
   align-self: center;
+  padding: 0 14px;
   color: $accent-dark;
   opacity: 0.35;
   font-size: 15px;
@@ -1237,6 +1278,7 @@
 }
 
 @media (max-width: 480px) {
-  .c-chapter-card { padding: 12px 14px 11px; gap: 10px; }
+  .c-chapter-card { --stub-w: 46px; }
   .c-chapter-card__title { font-size: 15.5px; }
+  .c-chapter-card__arrow { padding: 0 10px; }
 }
