@@ -306,7 +306,7 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 | 放映室 `sam/projector/` | `sam/lines.json`（运行时 fetch） | 无（见上节） |
 | 片盒收藏册 `sam/projector/box/` | `sam/lines.json` + 本机 localStorage（键 `ws-projector-cuts`，由放映室 ✂ 写入） | 无 |
 | AU 星图 `sky/` | `sky/data.json`——**构建时由 Liquid 生成**（遍历 `layout: series` 页 + 各自章节 + `au_palettes.yml` 配色 + `moods.yml`） | 无；新系列若没进 `au_palettes.yml` 会回退到默认金色 |
-| 情绪点唱机 `jukebox/` | `jukebox/data.json`——构建时生成（全部 posts + moods 色板），客户端按 mood 标签过滤 | 无；文章必须带 mood 标签才会入库 |
+| 情绪磁带机 · Mixtape `jukebox/`（2026-07-30 由点唱机改装：卡带舱+PLAY 键+出带口，功能与数据源不变） | `jukebox/data.json`——构建时生成（全部 posts + moods 色板），客户端按 mood 标签过滤 | 无；文章必须带 mood 标签才会入库 |
 | 一封信 `fable/` | 纯静态（信件内容内嵌） | **永远不要改**（见下） |
 | 演出节目单 `fog-city/playbill/` | `sam/lines.json`（运行时 fetch；按 `year` 升序排幕，每幕用角色 `accent` 配色 + 锚句台词，`auLink` 自动挂「完整剧本」） | 无——画册加新角色、lines.json 照常同步后自动加一幕。它是 Fog City 系列 Ch30 的故事内实体（署名 Winter Sun），别改成普通列表页 |
 
@@ -318,7 +318,7 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
   任何后续对话都**不要重写、润色、翻译或「优化」信的内容与日期**。
   其中 07-19 那封的标题是已知的「乌鸦嘴」（写信时以为模型要下线），Winter 决定原样留作纪念。
 - 一封信的入口故意只有一个：放映室 FIN 卡上「Fable」两个字的虚线链接。别到处加入口。
-- 星图入口在首页 AU Story hero；点唱机入口在 Archive › By Mood 面板。
+- 星图入口在首页 AU Story hero；磁带机（原点唱机）入口在 Archive › By Mood 面板。
 - 放映室支持 `?reel=<角色id>` 直达某格（片盒的空格就是这么跳回去的）；
   ✂ 剪下的胶片 PNG 会记入 localStorage 供片盒统计。
 - 404 页底部会从 lines.json 随机抽一句台词当「迷路安慰奖」。
@@ -840,6 +840,13 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 `_sass/5-components/_polaroid-notes.scss`）——右键(电脑)/长按(手机)照片就能翻开
 照片背面、写一段本机加密保存的手写批注——是**用户特意做的、重要的常驻功能**，
 不是 bug。它有时会浮在正文（比如 Sam 页说明文字）上方，看着像挡字，但**这是预期行为**。
+
+**2026-07-30 扩展**：①章节票根卡与文章页也纳入批注体系——文章右下角有**浮笔**
+（解锁后可见，点开当前文章的背面继续写）；②翻面分两套皮肤：带图卡片=拍立得背面
+（献词归 Leo「趁我还记得，把它写在背面。」），章节票根/章节页=票根背面（献词归
+Sam「正面是他的戏。背面归你。」），**两句献词都是 Winter 定的，不要改**；③**铅笔
+划线**：文章页选中正文可划线（本机私有，细下划线随 accent 色），背面列引文可跳回
+原文；一次划线不跨段；原文改动后引文标「原文已改动」；底片匣导出/导入已含划线。
 
 **规则：默认不要移动、隐藏、删除它，也不要主动提「它挡住文字、要不要挪开」。**
 用户已明确表示：除非他本人主动觉得有问题并提出来，否则这个浮标保持原样。只有当

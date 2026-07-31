@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>情绪点唱机 · Winter Sun</title>
-<meta name="description" content="一台只收录这里的故事的老点唱机。选一种今晚的心情，投一枚币，让机器替你挑一章。">
+<title>情绪磁带机 · Mixtape · Winter Sun</title>
+<meta name="description" content="一台只收录这里的故事的磁带机。选一种今晚的心情，按下 PLAY，让机器替你挑一章。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="情绪点唱机 · Winter Sun">
+<meta property="og:title" content="情绪磁带机 · Mixtape · Winter Sun">
 <meta property="og:description" content="选一种今晚的心情，投一枚币，让机器替你挑一章。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/jukebox/">
 <meta name="twitter:card" content="summary">
@@ -112,55 +112,79 @@
     font-size: 11px; letter-spacing: 3px; color: #9b8a74; margin-top: 6px;
   }
 
-  /* ————— 唱片窗 ————— */
+  /* ————— 磁带舱 ————— */
   .window {
     position: relative; margin: 0 auto 18px;
-    width: min(300px, 76%); height: 150px;
+    width: min(320px, 82%); height: 178px;
     background: radial-gradient(ellipse at 50% 120%, #0d0906 30%, #070503 100%);
-    border-radius: 130px 130px 10px 10px;
+    border-radius: 14px;
     border: 1px solid rgba(255,222,180,.14);
     overflow: hidden;
     box-shadow: inset 0 6px 24px rgba(0,0,0,.8);
-  }
-  .vinyl {
-    position: absolute; left: 50%; bottom: -68px; transform: translateX(-50%);
-    width: 190px; height: 190px; border-radius: 50%;
-    background:
-      radial-gradient(circle, transparent 0 25%, rgba(255,255,255,.028) 25.5% 26%, transparent 26.5%),
-      repeating-radial-gradient(circle, #0a0a0c 0 2.6px, #141417 2.6px 3.4px),
-      #0a0a0c;
-    box-shadow: 0 0 26px rgba(0,0,0,.8), inset 0 0 18px rgba(255,255,255,.03);
-    transition: transform .6s ease;
-  }
-  .vinyl.is-spinning { animation: spin 2.2s linear infinite; }
-  @keyframes spin { to { transform: translateX(-50%) rotate(360deg); } }
-  .vinyl__label {
-    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-    width: 62px; height: 62px; border-radius: 50%;
-    background: radial-gradient(circle, color-mix(in srgb, var(--mood) 88%, #000) 0 62%, color-mix(in srgb, var(--mood) 55%, #000) 100%);
     display: flex; align-items: center; justify-content: center;
+  }
+  .cassette {
+    position: relative; width: min(282px, 90%);
+    border-radius: 10px; padding: 11px 13px 13px;
+    background: linear-gradient(180deg, #251b12, #16100a);
+    border: 1px solid rgba(255,222,180,.18);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 26px rgba(0,0,0,.5);
+  }
+  .cass-label {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 8px;
+    background: linear-gradient(180deg, #efe6cf, #e2d5b6);
+    border: 1px solid rgba(0,0,0,.28);
+    border-radius: 5px; padding: 6px 10px;
+  }
+  .cass-label__mood {
+    font-family: 'Noto Serif SC', serif; font-weight: 500;
+    font-size: 14px; letter-spacing: 3px;
+    color: color-mix(in srgb, var(--mood) 62%, #3a2d1c);
+    transition: color .8s ease;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .cass-label__side {
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 8px; letter-spacing: 1px; color: rgba(255,248,235,.92); text-align: center;
-    transition: background .8s ease;
+    font-size: 8px; letter-spacing: 2px; color: #7a6a4c; flex-shrink: 0;
   }
-  .vinyl__hole { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 7px; height: 7px; border-radius: 50%; background: #070503; }
-  .tonearm {
-    position: absolute; right: 16px; top: 8px; width: 4px; height: 92px;
-    background: linear-gradient(180deg, #c8b394, #8a745a);
-    border-radius: 3px; transform-origin: 50% 6px;
-    transform: rotate(-38deg); transition: transform .9s cubic-bezier(.5,.1,.3,1);
-    box-shadow: 0 0 6px rgba(0,0,0,.6);
+  .cass-win {
+    position: relative; margin-top: 10px; height: 58px;
+    border-radius: 29px; background: #0b0805;
+    border: 1px solid rgba(255,222,180,.15);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px;
   }
-  .tonearm::after { content: ""; position: absolute; left: -3px; bottom: -6px; width: 10px; height: 16px; border-radius: 3px; background: #d9c6a4; }
-  .tonearm.is-on { transform: rotate(-7deg); }
+  .cass-tape {
+    position: absolute; left: 66px; right: 66px; top: 50%; height: 15px;
+    transform: translateY(-50%);
+    background: #1a1109;
+    border-top: 1.5px solid rgba(255,222,180,.12);
+    border-bottom: 1.5px solid rgba(255,222,180,.12);
+  }
+  .cass-reel {
+    position: relative; z-index: 1; width: 44px; height: 44px; border-radius: 50%;
+    background: radial-gradient(circle, #2c2116 0 42%, #191009 43% 100%);
+    border: 2px solid #c8b394;
+    display: grid; place-items: center;
+  }
+  .cass-reel i {
+    display: block; width: 28px; height: 28px; border-radius: 50%;
+    background: repeating-conic-gradient(#c8b394 0 14deg, transparent 14deg 60deg);
+  }
+  .is-spinning .cass-reel i { animation: reelspin 1.5s linear infinite; }
+  @keyframes reelspin { to { transform: rotate(360deg); } }
+  .cass-screw { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #6f5c40; box-shadow: inset 0 -1px 1px rgba(0,0,0,.7); }
+  .cass-screw.s1 { left: 5px; top: 5px; } .cass-screw.s2 { right: 5px; top: 5px; }
+  .cass-screw.s3 { left: 5px; bottom: 5px; } .cass-screw.s4 { right: 5px; bottom: 5px; }
   /* 选片时窗里闪过的曲名 */
   .flicker-title {
     position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
     padding: 0 18px; text-align: center;
     font-weight: 300; font-size: 12px; line-height: 1.6;
     color: #cbbba0; opacity: 0; transition: opacity .2s;
+    background: rgba(7,5,3,.82); border-radius: 14px;
   }
-  .flicker-title.is-on { opacity: .9; }
+  .flicker-title.is-on { opacity: 1; }
 
   /* ————— 选键（九宫情绪键） ————— */
   .keys {
@@ -195,30 +219,23 @@
   .key__n { position: absolute; top: 5px; right: 7px; font-family: 'Special Elite', monospace; font-size: 8px; color: #9b8a74; opacity: .8; }
   .key[disabled] { opacity: .35; cursor: not-allowed; }
 
-  /* ————— 投币口 ————— */
+  /* ————— PLAY 键 ————— */
   .coinrow {
     display: flex; align-items: center; justify-content: center; gap: 10px;
     font-weight: 300; font-size: 11.5px; letter-spacing: 2px; color: #9b8a74;
   }
-  .slot {
-    width: 30px; height: 9px; border-radius: 5px;
-    background: #070503; border: 1px solid rgba(255,222,180,.2);
-    position: relative; overflow: visible;
+  .playbtn {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 11px; letter-spacing: 3px; color: #e9dcc6;
+    background: linear-gradient(180deg, #2b1f16, #1c130d);
+    border: 1px solid rgba(255,222,180,.25);
+    border-radius: 7px; padding: 7px 16px 6px;
+    box-shadow: 0 3px 0 rgba(0,0,0,.55);
+    cursor: pointer;
+    transition: transform .1s ease, box-shadow .1s ease, border-color .3s ease;
   }
-  .coin {
-    position: absolute; left: 50%; top: -26px; transform: translateX(-50%) scale(0);
-    width: 20px; height: 20px; border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #f0d9a0, #c9a95c 60%, #96742f);
-    border: 1px solid #7d6026;
-    font-family: 'Special Elite', monospace; font-size: 8px; color: #6d5420;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .coin.is-dropping { animation: coindrop .8s cubic-bezier(.5,0,.8,.4) 1 forwards; }
-  @keyframes coindrop {
-    0% { transform: translateX(-50%) scale(1) translateY(0) rotate(0); opacity: 1; }
-    70% { transform: translateX(-50%) scale(1) translateY(20px) rotate(40deg); opacity: 1; }
-    100% { transform: translateX(-50%) scale(.3, 1) translateY(26px) rotate(80deg); opacity: 0; }
-  }
+  .playbtn:hover { border-color: color-mix(in srgb, var(--mood) 65%, transparent); }
+  .playbtn.is-pressed, .playbtn:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(0,0,0,.55); }
 
   /* ————— 出票口：故事卡 ————— */
   .ticket-slot {
@@ -226,10 +243,12 @@
     perspective: 700px;
   }
   .ticket {
-    background: rgba(24,18,13,.92);
-    border: 1px solid color-mix(in srgb, var(--mood) 45%, transparent);
-    border-left: 4px solid var(--mood);
-    border-radius: 12px; padding: 18px 20px 16px;
+    background:
+      repeating-linear-gradient(180deg, transparent 0 27px, rgba(58,47,30,.14) 27px 28px),
+      linear-gradient(180deg, #f2e9d3, #e6d9ba);
+    border: 1px solid rgba(0,0,0,.3);
+    border-left: 10px solid var(--mood);
+    border-radius: 8px; padding: 18px 20px 16px;
     box-shadow: 0 16px 44px rgba(0,0,0,.5);
     opacity: 0; transform: rotateX(-24deg) translateY(-14px);
     transform-origin: top center;
@@ -240,20 +259,20 @@
   .ticket__eyebrow {
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--mood); margin: 0 0 8px; transition: color .8s ease;
+    color: color-mix(in srgb, var(--mood) 70%, #3a2d1c); margin: 0 0 8px; transition: color .8s ease;
   }
-  .ticket__title { font-weight: 500; font-size: 15.5px; line-height: 1.55; margin: 0; color: #f4ecdd; }
-  .ticket__summary { font-weight: 300; font-size: 13px; line-height: 1.95; color: #cfc2ac; margin: 10px 0 0; }
+  .ticket__title { font-family: 'Noto Serif SC', serif; font-weight: 600; font-size: 15.5px; line-height: 1.55; margin: 0; color: #3a2f1e; }
+  .ticket__summary { font-weight: 400; font-size: 13px; line-height: 1.95; color: #5c4f38; margin: 10px 0 0; }
   .ticket__foot { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; gap: 10px; }
   .ticket__moods { display: flex; gap: 6px; flex-wrap: wrap; }
   .ticket__mood {
     font-size: 10.5px; font-weight: 300; letter-spacing: 1px;
     padding: 2px 9px; border-radius: 999px;
-    border: 1px solid var(--m-c, #888); color: var(--m-c, #aaa); opacity: .9;
+    border: 1px solid var(--m-c, #888); color: color-mix(in srgb, var(--m-c, #888) 65%, #3a2d1c); opacity: .95;
   }
   .ticket__go {
-    font-weight: 300; font-size: 12.5px; letter-spacing: 1px; white-space: nowrap;
-    color: var(--mood); text-decoration: none;
+    font-weight: 500; font-size: 12.5px; letter-spacing: 1px; white-space: nowrap;
+    color: color-mix(in srgb, var(--mood) 60%, #3a2d1c); text-decoration: none;
     border-bottom: 1px solid color-mix(in srgb, var(--mood) 55%, transparent);
     padding-bottom: 1px; transition: color .8s ease;
   }
@@ -280,7 +299,7 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .juke::before { animation: none; }
-    .vinyl.is-spinning { animation-duration: 6s; }
+    .is-spinning .cass-reel i { animation-duration: 5s; }
   }
 </style>
 </head>
@@ -293,22 +312,26 @@
 
 <div class="juke">
   <p class="marquee" id="marquee">SELECT YOUR MOOD</p>
-  <h1 class="brand">Mood Jukebox<small>今晚想读点什么心情？</small></h1>
+  <h1 class="brand">Mood Mixtape<small>情绪磁带机 · 今晚想读点什么心情？</small></h1>
 
   <div class="window">
-    <div class="vinyl" id="vinyl">
-      <span class="vinyl__label" id="vinyl-label">W×F</span>
-      <span class="vinyl__hole"></span>
+    <div class="cassette" id="vinyl">
+      <div class="cass-label"><span class="cass-label__mood" id="vinyl-label">MIXTAPE</span><span class="cass-label__side">SIDE A</span></div>
+      <div class="cass-win">
+        <span class="cass-reel"><i></i></span>
+        <span class="cass-tape"></span>
+        <span class="cass-reel"><i></i></span>
+      </div>
+      <span class="cass-screw s1"></span><span class="cass-screw s2"></span><span class="cass-screw s3"></span><span class="cass-screw s4"></span>
     </div>
-    <div class="tonearm" id="tonearm"></div>
     <div class="flicker-title" id="flicker"></div>
   </div>
 
   <div class="keys" id="keys" role="group" aria-label="九种情绪选键"></div>
 
   <div class="coinrow">
-    <span>投币</span>
-    <span class="slot"><span class="coin" id="coin">W</span></span>
+    <span>按下</span>
+    <button class="playbtn" id="coin" type="button">▶ PLAY</button>
     <span>让机器替你选一章</span>
   </div>
 </div>
@@ -320,7 +343,7 @@
     <p class="ticket__summary" id="tk-summary"></p>
     <div class="ticket__foot">
       <div class="ticket__moods" id="tk-moods"></div>
-      <a class="ticket__go" id="tk-go">去读这一章 →</a>
+      <a class="ticket__go" id="tk-go">去听这一首 →</a>
     </div>
   </div>
   <button class="again" id="again" type="button">同样心情 · 再来一首</button>
@@ -350,7 +373,7 @@
         total++;
         mine.forEach(function (t) { BYMOOD[t].push(p); });
       });
-      $("counts").textContent = total + " STORIES ON THE RACK";
+      $("counts").textContent = total + " TAPES ON THE SHELF";
       buildKeys();
     })
     .catch(function () {
@@ -396,15 +419,15 @@
 
     if (reduced) { land(choice); return; }
 
-    // 投币 → 选片闪动 → 落针出票
-    var coin = $("coin");
-    coin.classList.remove("is-dropping"); void coin.offsetWidth;
-    coin.style.transform = "translateX(-50%) scale(1)";
-    coin.classList.add("is-dropping");
-    $("marquee").textContent = "COIN ACCEPTED";
+    // 按下 PLAY → 倒带闪动 → 出带
+    var play = $("coin");
+    play.classList.remove("is-pressed"); void play.offsetWidth;
+    play.classList.add("is-pressed");
+    setTimeout(function () { play.classList.remove("is-pressed"); }, 240);
+    $("marquee").textContent = "TAPE IN";
 
     setTimeout(function () {
-      $("marquee").textContent = "SEARCHING THE RACK…";
+      $("marquee").textContent = "REWINDING\u2026";
       var flicker = $("flicker"), i = 0;
       flicker.classList.add("is-on");
       var shuffle = setInterval(function () {
@@ -420,11 +443,10 @@
   }
 
   function land(choice) {
-    $("marquee").textContent = "NOW PLAYING";
+    $("marquee").textContent = "NOW PLAYING \u00b7 SIDE A";
     $("vinyl").classList.add("is-spinning");
-    $("tonearm").classList.add("is-on");
 
-    $("tk-eyebrow").textContent = choice.st || "Story";
+    $("tk-eyebrow").textContent = "SIDE A \u00b7 " + (choice.st || "Story");
     $("tk-title").textContent = choice.t;
     $("tk-summary").textContent = choice.s || "";
     $("tk-go").href = choice.u;
@@ -447,6 +469,12 @@
       busy = false;
     }, reduced ? 0 : 220);
   }
+
+  $("coin").addEventListener("click", function () {
+    if (busy) return;
+    if (!current) { $("marquee").textContent = "SELECT YOUR MOOD FIRST"; return; }
+    $("again").click();
+  });
 
   $("again").addEventListener("click", function () {
     if (!current || busy) return;
