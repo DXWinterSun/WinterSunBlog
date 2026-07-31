@@ -245,15 +245,6 @@
   .playbtn:hover { border-color: color-mix(in srgb, var(--mood) 65%, transparent); }
   .playbtn.is-pressed, .playbtn:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(0,0,0,.55); }
 
-  .again {
-    display: block; margin: 16px auto 0;
-    background: none; border: 1px solid rgba(255,222,180,.25); border-radius: 999px;
-    color: #cfc2ac; font-weight: 300; font-size: 12px; letter-spacing: 2px;
-    padding: 7px 22px; opacity: 0; pointer-events: none; transition: opacity .4s ease .2s, border-color .25s;
-  }
-  .again.is-on { opacity: 1; pointer-events: auto; }
-  .again:hover { border-color: var(--mood); color: var(--mood); }
-
   .mood-desc {
     width: min(560px, 100%);
     text-align: center; font-weight: 300; font-size: 12px; line-height: 2;
@@ -305,13 +296,12 @@
   <div class="keys" id="keys" role="group" aria-label="九种情绪选键"></div>
 
   <div class="coinrow">
-    <span>按下</span>
+    <span>同样心情</span>
     <button class="playbtn" id="coin" type="button">▶ PLAY</button>
-    <span>让机器替你选一章</span>
+    <span>再来一首</span>
   </div>
 </div>
 
-<button class="again" id="again" type="button">同样心情 · 再来一首</button>
 
 <p class="mood-desc" id="mood-desc">九种心情，都调好了色。</p>
 <span class="colophon">Winter × Fable</span>
@@ -370,7 +360,6 @@
     document.querySelectorAll(".key").forEach(function (k) { k.classList.remove("is-lit"); });
     keyEl.classList.add("is-lit");
     $("mood-desc").textContent = m.color_cn + " · " + (m.desc || "");
-    $("again").classList.remove("is-on");
     $("vinyl-label").textContent = m.cn;
     $("cass-song").hidden = true;
     $("cass-note").hidden = true;
@@ -417,7 +406,6 @@
     $("cass-go").href = choice.u;
     $("cass-foot").hidden = false;
     $("vinyl").classList.add("has-tape");
-    $("again").classList.add("is-on");
     busy = false;
   }
 
@@ -429,14 +417,10 @@
     if (href) window.location.href = href;
   });
 
+  // 选心情键 = 直接抽一盘；PLAY 键 = 同样心情再来一首（不再有重复按钮）
   $("coin").addEventListener("click", function () {
     if (busy) return;
     if (!current) { $("marquee").textContent = "SELECT YOUR MOOD FIRST"; return; }
-    $("again").click();
-  });
-
-  $("again").addEventListener("click", function () {
-    if (!current || busy) return;
     var keyEl = null, i = 0;
     document.querySelectorAll(".key").forEach(function (k) {
       if (MOODS[i] && MOODS[i].cn === current.cn) keyEl = k;
