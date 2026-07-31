@@ -905,11 +905,9 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    // 外圈统一浅描边：深色色点（如近黑的 bg 色）在深色卡底上边缘会融进
-    // 背景、显得比浅色点小一圈（光学错觉），勾一道同宽的亮边让四个圆等大
-    box-shadow:
-      0 0 0 1.5px rgba(255, 255, 255, 0.55),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+    // 内描边加亮（Winter 不要外圈）：深色色点在深色卡底上边缘会融进背景
+    // 显小，内圈亮边贴着边缘勾出轮廓，四个圆视觉等大
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
   }
 }
 
