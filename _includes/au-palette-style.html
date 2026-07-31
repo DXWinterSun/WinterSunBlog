@@ -29,7 +29,7 @@
     --au-fsurf: rgba(0,0,0,.045);
     --au-fedge: rgba(0,0,0,.12);
     --au-fperf: rgba(0,0,0,.30);
-    --au-fdot:  rgba(0,0,0,.20);
+    --au-fdot:  rgba(0,0,0,.28);
   }
   /* —— 深色模式：该系列深底 —— */
   :root[data-theme="dark"]{
@@ -49,7 +49,7 @@
     --au-fsurf: rgba(255,255,255,.05);
     --au-fedge: rgba(255,255,255,.10);
     --au-fperf: rgba(255,255,255,.40);
-    --au-fdot:  rgba(255,255,255,.16);
+    --au-fdot:  rgba(255,255,255,.50);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -62,7 +62,7 @@
       --c-accent: {{ p.accent }}; --c-accent-soft: {{ p.accent }}; --c-accent-dark: {{ p.accent }};
       --rgb-shadow: 0, 0, 0;
       --au-fsurf: rgba(255,255,255,.05); --au-fedge: rgba(255,255,255,.10);
-      --au-fperf: rgba(255,255,255,.40); --au-fdot: rgba(255,255,255,.16);
+      --au-fperf: rgba(255,255,255,.40); --au-fdot: rgba(255,255,255,.50);
     }
   }
 
@@ -91,7 +91,9 @@
   .au-strip__frames{ display: inline-flex; align-items: stretch; }
   .au-strip__frame{ display: flex; align-items: center; gap: 10px; padding: 4px 16px; }
   .au-strip__div{ width: 1px; align-self: stretch; background: var(--au-fedge); margin: 6px 0; }
-  .au-strip__dot{ width: 24px; height: 24px; border-radius: 50%; flex: 0 0 auto; box-shadow: inset 0 0 0 1px var(--au-fdot); }
+  /* 外圈描边而非内圈：深色色点（尤其 bg 色，和深色主题页底几乎同色）边缘
+     会融进背景、显得比浅色点小一圈，外圈亮边让四个圆视觉等大 */
+  .au-strip__dot{ width: 24px; height: 24px; border-radius: 50%; flex: 0 0 auto; box-shadow: 0 0 0 1.5px var(--au-fdot); }
   .au-strip__name{ display: flex; flex-direction: column; text-align: left; line-height: 1.18; }
   .au-strip__cn{ font-family: 'Noto Serif SC', serif; font-size: 15px; color: var(--c-ink); }
   .au-strip__en{ font-family: 'EB Garamond', serif; font-style: italic; font-size: 12.5px; color: var(--c-muted); }
