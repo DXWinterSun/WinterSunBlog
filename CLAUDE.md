@@ -822,11 +822,16 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 
 ## 其他
 
-- **首页系列卡片的排序**（2026-07-30 按 Winter 的规矩复原）：**Sam 的 AU 系列按
-  「创建顺序」排**（= `collection_order` 升序，与 Sam 页 The Collection 同一套编号，
-  编号即开坑先后）；**非 Sam 的系列（tumblr 搬运的 Hector / Leonard / BayBay 等）
-  统一垫底**，内部按第一篇章节日期从早到晚。不按「最近更新」排（曾短暂改过，
-  Winter 不要）。逻辑在 `index.html` 系列卡区块。
+- **⚠️ 系列卡片排序（两个页面方向相反，已翻过两次车，照抄下表别自由发挥）：**
+
+  | 页面 | 方向 | 依据 |
+  |---|---|---|
+  | 首页 AU Story（`index.html`） | 创建时间**新 → 老**（最新开坑排最前） | `collection_order` **倒序** |
+  | Sam 页 The Collection（`sam/index.html`） | 创建时间**老 → 新** | `collection_order` **升序** |
+
+  两页都是「非 Sam 系列统一垫底」（首页里非 Sam 内部也是新→老，按第一章日期）。
+  **永远不按「最近更新」排**（曾短暂改过，Winter 不要）。创建时间 = `collection_order`
+  编号（编号即开坑先后）。改动任何一页排序前，先对照本表。
 - 工作分支：`claude/redesign-blog-homepage-RSiJO`（首页改版相关）。
 - 只在用户明确要求时再开 PR。
 - 内部链接全部要用 `{{ site.baseurl }}` 前缀，否则在 GitHub Pages

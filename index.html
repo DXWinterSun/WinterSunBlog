@@ -161,15 +161,17 @@ layout: home
       replacing the per-chapter cards for that series.
     {% endcomment %}
     {%- comment -%}
-      系列卡片顺序（Winter 定的规矩，2026-07 复原）：
-      ① Sam 的 AU 系列按「创建顺序」排 = series/*/index.html 的 collection_order
-        升序（与 Sam 页 The Collection 同一套编号，编号就是开坑先后）；
-      ② 非 Sam 的系列（tumblr 搬运的 Hector / Leonard / BayBay 等）统一垫底，
-        内部按第一篇章节日期从早到晚。
-      不再按「最近更新」排，也就不需要未来日期补丁了。
+      ⚠️ 系列卡片排序 · Winter 定的规矩（两个页面方向相反，别再搞混）：
+      ┌──────────────┬────────────────────────────────┐
+      │ 首页 AU Story（本文件）│ 按创建时间「新 → 老」：最新开坑的排最前     │
+      │ Sam 页 The Collection │ 按创建时间「老 → 新」：collection_order 升序 │
+      └──────────────┴────────────────────────────────┘
+      创建时间 = collection_order（编号即开坑先后）。本页取其【倒序】。
+      非 Sam 的系列（tumblr 搬运的 Hector / Leonard / BayBay 等）统一垫底，
+      内部同样「新 → 老」（按第一篇章节日期）。不按「最近更新」排。
     {%- endcomment -%}
     {% assign all_series = "" | split: "" %}
-    {% assign sam_pages = site.pages | where_exp: "p", "p.sam_collection" | sort: "collection_order" %}
+    {% assign sam_pages = site.pages | where_exp: "p", "p.sam_collection" | sort: "collection_order" | reverse %}
     {% for sp in sam_pages %}
       {% if sp.series_name %}
         {% assign sp_count = site.posts | where: "series", sp.series_name | size %}
@@ -181,12 +183,17 @@ layout: home
       {% endif %}
     {% endfor %}
     {% assign chrono_posts = site.posts | sort: "date" %}
+    {% assign nonsam_debut = "" | split: "" %}
     {% for p in chrono_posts %}
       {% if p.series %}
-        {% unless all_series contains p.series %}
-          {% assign all_series = all_series | push: p.series %}
+        {% unless all_series contains p.series or nonsam_debut contains p.series %}
+          {% assign nonsam_debut = nonsam_debut | push: p.series %}
         {% endunless %}
       {% endif %}
+    {% endfor %}
+    {% assign nonsam_debut = nonsam_debut | reverse %}
+    {% for s in nonsam_debut %}
+      {% assign all_series = all_series | push: s %}
     {% endfor %}
     {% for series_name in all_series %}
       {% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
