@@ -579,6 +579,188 @@
   .c-tape__side { font-size: 8px; padding-left: 8px; }
 }
 
+/* ──────────────────────────────────────────────────────────────
+   c-tl —— Archive › By Year 的「时间轴」（2026-07-31）
+   左侧轴线贯穿十年：年份 = 空心圆环大站点，月份 = 实心小节点，
+   文章 = 「日 + 标题 + 系列/分类」挂在轴上。顶部 c-tl-jump 年份 pill
+   直接锚点跳年。
+   ────────────────────────────────────────────────────────────── */
+
+.c-tl-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  margin: 0 0 30px;
+
+  a {
+    font-family: $heading-font-family;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    padding: 4px 13px;
+    border: 1px solid $line;
+    border-radius: 999px;
+    color: $muted;
+    text-decoration: none;
+    transition: $global-transition;
+    &:hover {
+      color: $accent;
+      border-color: $accent-soft;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.c-tl {
+  position: relative;
+  padding-left: 30px;
+
+  // 轴线
+  &::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    border-radius: 1px;
+    background: $line;
+  }
+}
+
+.c-tl__year {
+  margin-bottom: 46px;
+  scroll-margin-top: 84px;
+  &:last-child { margin-bottom: 0; }
+}
+
+.c-tl__year-head {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-bottom: 1px solid $line;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+// 年份大站点：空心圆环，压在轴线上
+.c-tl__year-node {
+  position: absolute;
+  left: -27px;
+  top: 9px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: $paper;
+  border: 2.5px solid $accent;
+  box-shadow: 0 0 0 3px $paper;
+}
+
+.c-tl__year-num {
+  font-family: $heading-font-family;
+  font-size: 32px;
+  font-weight: 700;
+  color: $ink;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.c-tl__year-meta {
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.c-tl__month { margin: 16px 0 4px; }
+
+.c-tl__month-label {
+  position: relative;
+  display: inline-block;
+  font-family: $heading-font-family;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: $ink-soft;
+  margin-bottom: 2px;
+}
+
+// 月份小节点：实心圆点，压在轴线上
+.c-tl__month-dot {
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: $accent-soft;
+  box-shadow: 0 0 0 3px $paper;
+}
+
+.c-tl__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c-tl__item { margin: 0; }
+
+.c-tl__link {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 7px 0;
+  text-decoration: none;
+  &:hover {
+    .c-tl__title { color: $accent; }
+    .c-tl__day { color: $accent; }
+  }
+}
+
+.c-tl__day {
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: $muted;
+  text-align: right;
+  transition: color 0.15s ease;
+}
+
+.c-tl__body { min-width: 0; }
+
+.c-tl__title {
+  display: block;
+  font-family: $heading-font-family;
+  font-size: 16.5px;
+  color: $ink;
+  line-height: 1.45;
+  transition: color 0.15s ease;
+}
+
+.c-tl__meta {
+  display: block;
+  margin-top: 1px;
+  font-family: $heading-font-family;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+@media only screen and (max-width: 600px) {
+  .c-tl { padding-left: 26px; }
+  .c-tl::before { left: 7px; }
+  .c-tl__year-node { left: -25px; top: 7px; width: 11px; height: 11px; }
+  .c-tl__month-dot { left: -22px; }
+  .c-tl__year-num { font-size: 26px; }
+  .c-tl__link { grid-template-columns: 26px 1fr; gap: 10px; }
+  .c-tl__title { font-size: 15.5px; }
+}
+
 
 /* ===============
 	ARCHIVE CTA AT BOTTOM OF HOME GRID
