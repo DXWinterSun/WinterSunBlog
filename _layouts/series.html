@@ -48,46 +48,34 @@ layout: home
     <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · {{ page.series_status | default: "ongoing" }}</span>
   </div>
 
+  {% comment %}
+    章节列表（2026-07-30 按 Winter 的要求改版）：封面图在页顶已有，章节不再
+    重复配图；纯文字目录与配图卡片二合一，只留这一列无图章节卡。
+  {% endcomment %}
   {% if chapters.size > 0 %}
-  <nav class="c-series-toc" aria-label="目录">
-    <div class="c-series-toc__title">目录 · Contents{% assign art_count = chapters | where: "has_art", true | size %}{% if art_count > 0 %}<span class="c-series-toc__legend" style="font-size:.66em;opacity:.5;font-weight:400;margin-left:.5em;letter-spacing:.02em;">✦ 含手绘小彩蛋</span>{% endif %}</div>
-    <ul class="c-series-toc__list">
-      {% for chapter in chapters %}
-      <li class="c-series-toc__item">
-        <a href="{{ chapter.url | prepend: site.baseurl }}">
-          <span class="c-series-toc__label">{{ chapter.title | split: " — " | first }}</span>{% if chapter.has_art %}<span class="c-series-toc__art" title="含手绘插画" aria-label="（含手绘插画）" style="margin-left:.35em;font-size:.8em;opacity:.6;">✦</span>{% endif %}
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-  </nav>
-  {% endif %}
-
-  <div class="c-post-grid">
+  {% assign art_count = chapters | where: "has_art", true | size %}
+  {% if art_count > 0 %}<div class="c-chapter-list__legend">✦ 含手绘小彩蛋</div>{% endif %}
+  <div class="c-chapter-list">
     {% for chapter in chapters %}
-    <a class="c-post" href="{{ chapter.url | prepend: site.baseurl }}">
-      <div class="c-post__image-wrap">
-        {% if chapter.image %}
-        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: chapter.image }}')"></div>
-        {% else %}
-        <div class="c-post__placeholder">{{ chapter.chapter_type | default: "Chapter" }}</div>
-        {% endif %}
-      </div>
-      <div class="c-post__body">
-        <div class="c-post__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}</div>
-        <h3 class="c-post__title">{{ chapter.title | split: " — " | first }}</h3>
-        {% if chapter.summary %}<p class="c-post__summary">{{ chapter.summary }}</p>{% endif %}
-        <div class="c-post__meta">
-          <span>{{ chapter.date | date: '%Y, %b %d' }}</span>
+    <a class="c-chapter-card" href="{{ chapter.url | prepend: site.baseurl }}">
+      <span class="c-chapter-card__no">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+      <span class="c-chapter-card__body">
+        <span class="c-chapter-card__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}</span>
+        <span class="c-chapter-card__title">{{ chapter.title | split: " — " | first }}</span>
+        {% if chapter.summary %}<span class="c-chapter-card__summary">{{ chapter.summary }}</span>{% endif %}
+        <span class="c-chapter-card__meta">
+          {{ chapter.date | date: '%Y, %b %d' }}
           {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
           {% assign mins = chars | divided_by: 500 %}
           {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
-          <span>{{ mins }} min read</span>
-        </div>
-      </div>
+          · {{ mins }} min read
+        </span>
+      </span>
+      <span class="c-chapter-card__arrow" aria-hidden="true">→</span>
     </a>
     {% endfor %}
   </div>
+  {% endif %}
 </section>
 {% endif %}
 </div>

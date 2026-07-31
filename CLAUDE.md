@@ -791,10 +791,11 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 为了让长系列好读，章节列表和上下文导航全部由模板统一生成，**新系列、
 新章节会自动继承，不需要每篇手动加**。三个部分：
 
-1. **系列首页的「目录 + 配图卡片」** —— 由 `_layouts/series.html` 渲染。
+1. **系列首页的章节列表** —— 由 `_layouts/series.html` 渲染。
    每个 `series/*/index.html` 只负责写 hero + 简介，**章节区块不要手写**。
-   只要 front matter 里有这两行就会自动出现（含顶部纯文字「目录 ·
-   Contents」快速跳转 + 下方配图卡片，按 `series_order` 排序）：
+   只要 front matter 里有这两行就会自动出现（**2026-07-30 按 Winter 要求改版：
+   封面图页顶已有，章节不再重复配图；旧的「纯文字目录 + 配图卡片」双目录
+   已合并为一列无图章节卡 `c-chapter-list`**，按 `series_order` 排序）：
 
    ```yaml
    layout: series
