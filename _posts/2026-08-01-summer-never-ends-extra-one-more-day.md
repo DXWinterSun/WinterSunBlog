@@ -1,15 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 33 · 多开一天（婚礼）
-
-> Winter 已认可（2026-08-01；她钦定：闭园多一天办婚礼 / 外婆牵她进场 / 广播宣誓守则终章 /
-> Duncan 伴郎致辞 / 全员最后一滑 / 洞房夜单独成篇）。
-> 发布时文件名：`_posts/<发布日期>-summer-never-ends-extra-one-more-day.md`（date 与文件名同步）
-> 时间线：求婚次年九月（劳动节闭园夜的第二天）。她 23 / 他 48。老板 79 首次登场。外婆 81。Duncan 19。
-
-```yaml
 ---
 layout: post
 title: "Extra · 多开一天 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 安放, 缱绻]
 categories: ["AU Story"]
@@ -21,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "乐园本该在昨天关门——今年，它多开了一天。"
 ---
-```
-
-正文：
 
 > "The park closed last night. For good, till May."
 > "Then what's this?"
