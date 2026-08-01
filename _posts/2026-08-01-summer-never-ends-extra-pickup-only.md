@@ -1,15 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 28 · 包裹自提
-
-> Winter 已认可（2026-08-01，她提议「插播一个生日 + 员工宿舍留宿一晚」）。
-> 小连载「校园泳池」第 3 篇（生日插播）。
-> 发布时文件名：`_posts/<发布日期>-summer-never-ends-extra-pickup-only.md`（date 与文件名同步）
-> 时间线：大三 11/6，21 岁生日。守则第七条打补丁：本年度冬季开园日顺延至感恩节执行（预告下一篇）。
-
-```yaml
 ---
 layout: post
 title: "Extra · 包裹自提 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 缱绻, 悸动]
 categories: ["AU Story"]
@@ -21,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "今年的生日包裹没有寄出——快递员说，货到自提。"
 ---
-```
-
-正文：
 
 > "No package this year?"
 > "This year the courier came in person. Pickup only."

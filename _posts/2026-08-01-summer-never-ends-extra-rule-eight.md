@@ -1,14 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 27 · 期中守则
-
-> Winter 已认可（2026-08-01）。小连载「校园泳池」第 2/3 篇。
-> 发布时文件名：`_posts/<发布日期>-summer-never-ends-extra-rule-eight.md`（date 与文件名同步）
-> 时间线：大三十月下旬 · 期中考试周。守则第八条（期中周谢绝一人）、第九条（考完当晚归他管）。
-
-```yaml
 ---
 layout: post
 title: "Extra · 期中守则 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 絮语, 缱绻]
 categories: ["AU Story"]
@@ -20,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "期中周，全校只有一个人被泳池拒之门外。"
 ---
-```
-
-正文：
 
 > "The pool is open to all students."
 > "Not to you. Not this week. Rule eight."

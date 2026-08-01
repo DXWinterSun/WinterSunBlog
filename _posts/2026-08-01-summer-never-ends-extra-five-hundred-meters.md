@@ -1,15 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 26 · 五百米
-
-> Winter 已认可（2026-08-01「别的都特别好」；3L 楼层「一月穿人字拖」月份穿帮已改）。
-> 小连载「校园泳池」第 1/3 篇。发布时文件名：
-> `_posts/<发布日期>-summer-never-ends-extra-five-hundred-meters.md`（date 与文件名同步）
-> 时间线：大三（夏 3 之后）十月初。发射机随车西迁，冬眠电台转本地直播。
-
-```yaml
 ---
 layout: post
 title: "Extra · 五百米 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 悸动, 缱绻]
 categories: ["AU Story"]
@@ -21,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "你说想他的那通电话，他是在五百米外接的。"
 ---
-```
-
-正文：
 
 > "Last year, the radio came home. This year, the station moved."
 > "How far is the signal now?"

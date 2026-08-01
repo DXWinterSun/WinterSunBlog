@@ -1,15 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 29 · 十七个弯
-
-> Winter 已认可（2026-08-01）。校园小连载收尾篇（感恩节东岸行）。
-> 发布时文件名：`_posts/<发布日期>-summer-never-ends-extra-seventeen-bends.md`（date 与文件名同步）
-> 时间线：大三感恩节。第二次冬季开园（守则第七条顺延执行）。
-> ⚠️ 重要设定新增：外婆七十九岁；Owen 已把求婚预约单给外婆看过（Winter 门外偷听，但两人从未点破）。
-
-```yaml
 ---
 layout: post
 title: "Extra · 十七个弯 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 缱绻, 安放]
 categories: ["AU Story"]
@@ -21,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "空掉的漂流河，你终于把那十七个弯，一个一个数完了。"
 ---
-```
-
-正文：
 
 > "Seventeen bends. You told me to count them once."
 > "That was five years ago."

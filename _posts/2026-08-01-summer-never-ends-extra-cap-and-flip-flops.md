@@ -1,16 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 30 · 学士帽与人字拖
-
-> Winter 已认可（2026-08-01）。发布时文件名：
-> `_posts/<发布日期>-summer-never-ends-extra-cap-and-flip-flops.md`（date 与文件名同步）
-> 时间线：大四五月中旬毕业典礼。距开园日（求婚开闸）十二天。
-> ⚠️ 本篇兑现 Ch6 埋的「外婆想看太平洋」；父母首次登场；她宣布「我也排了队」，
-> 毕业去向留白，与求婚同日揭晓（Winter 定：回东岸留在乐园 + 一份非夏季的工作）。
-
-```yaml
 ---
 layout: post
 title: "Extra · 学士帽与人字拖 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 安放, 怀旧]
 categories: ["AU Story"]
@@ -22,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "他穿了西装，配人字拖；外婆第一次看见了太平洋。"
 ---
-```
-
-正文：
 
 > "Your ceremony. Your stage. I'm just a guest."
 > "You flew my grandmother across a continent."
