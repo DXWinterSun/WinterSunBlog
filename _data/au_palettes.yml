@@ -576,3 +576,20 @@
   text_en: "Whiskey Glow"
   muted_cn: "荒漠尘褐"
   muted_en: "Trail Dust"
+
+"Interoffice":              # Gary O'Hara · Strictly Business · Sam Rockwell · 色卡同源画册 id: gary
+  mf_id: gary                # → Many Faces 画册锚点 /sam/many-faces/#gary
+  theme_id: gary
+  accent: "#5b84b1"
+  accent_ink: "#48698d"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#14110d"
+  text: "#ede2d0"
+  muted: "#8a7558"
+  accent_cn: "天际钢蓝"
+  accent_en: "Skyline Steel"
+  bg_cn: "顶楼黑檀"
+  bg_en: "Penthouse Ebony"
+  text_cn: "信笺米黄"
+  text_en: "Mailroom Ivory"
+  muted_cn: "公文皮褐"
+  muted_en: "Briefcase Tan"
