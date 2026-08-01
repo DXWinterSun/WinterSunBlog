@@ -1,13 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 21 · 全园早知道
-
-> Winter 已认可（2026-08-01「攒几章一起发」）。发布时文件名：
-> `_posts/<发布日期>-summer-never-ends-extra-everyone-knew.md`（date 字段与文件名同步为发布当天）
-
-```yaml
 ---
 layout: post
 title: "Extra · 全园早知道 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 絮语, 缱绻]
 categories: ["AU Story"]
@@ -19,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "投票议题：经理谈恋爱之后，是否变得更烦人了。"
 ---
-```
-
-正文（与聊天里 Winter 过目的版本一字不差）：
 
 > "Did you two seriously think it was a secret?"
 > "The whole park bought tickets to this show five years ago."

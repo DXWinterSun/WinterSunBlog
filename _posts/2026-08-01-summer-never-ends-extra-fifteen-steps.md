@@ -1,14 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 22 · 十五级台阶
-
-> Winter 已认可（2026-08-01；指示：收束引语里的英文 permanently 改为中文「永久」，已改；
-> 「四十五岁」按时间线改为「四十四岁」）。发布时文件名：
-> `_posts/<发布日期>-summer-never-ends-extra-fifteen-steps.md`（date 与文件名同步为发布当天）
-
-```yaml
 ---
 layout: post
 title: "Extra · 十五级台阶 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 絮语, 安放]
 categories: ["AU Story"]
@@ -20,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "搬家这件事没有发生过——你只是一件一件，被失物招领了。"
 ---
-```
-
-正文：
 
 > "Fourteen steps from bed to work. Shortest commute in America."
 > "Fifteen. You always skip the creaky one."
