@@ -1,16 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 39 · 哗变
-
-> Winter 已认可（2026-08-01：「大副才是实际上的主导人」）。暂不上线，与 E38 一起攒着发。
-> 发布时文件名：`_posts/<发布日期>-summer-never-ends-extra-mutiny.md`（date 与文件名同步）
-> 时间线：紧接 E38 —— 四月二十六日夜，她返航当晚，读完四十封信之后。
-> ⚠️ 新玩法入册：返航盘点（身体逐项登记）／逼她朗读自己写的荤信／**船长×大副**（她夺权 →
-> 他第四十分钟「哗变」抢回主控）。新道具：《Worth the Wait 航海日志》，船没买就开始记。
-
-```yaml
 ---
 layout: post
 title: "Extra · 哗变 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 炽恋, 缱绻]
 categories: ["AU Story"]
@@ -22,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "船长下令，大副执行——然后大副哗变了。"
 ---
-```
-
-正文：
 
 > "Aye aye, Captain."
 > "…Say that again."

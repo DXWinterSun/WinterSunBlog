@@ -1,16 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 38 · 大副
-
-> Winter 已认可（2026-08-01；并抓出「翻成英文」的穿帮——他们本来就说英语，已改成
-> 「你把它拿去写在船尾了」）。她指示：暂不上线，攒着一起发。
-> 发布时文件名：`_posts/<发布日期>-summer-never-ends-extra-first-mate.md`（date 与文件名同步）
-> 时间线：婚后第一年三月中—四月二十六日，她的六周北大西洋航次。回港后当晚读信。
-> ⚠️ 新 PINNED：**船 · 预约单 No.002**（船名 Worth the Wait；船长=她/大副=他；铁盒「船。排队中。」）
-
-```yaml
 ---
 layout: post
 title: "Extra · 大副 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 思念, 缱绻]
 categories: ["AU Story"]
@@ -22,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "四十天，四十封没法寄出的信。最后一封，她取了个号。"
 ---
-```
-
-正文：
 
 > "Rank on our boat: I'm captain. You're first mate."
 > "On what grounds?"

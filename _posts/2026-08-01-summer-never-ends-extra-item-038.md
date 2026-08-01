@@ -1,19 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 40 · 编号038
-
-> Winter 已认可（2026-08-01：「太惊喜了那个被我藏起来的衣服」）。暂不上线，与 E38、E39 一起攒着发。
-> 发布时文件名：`_posts/<发布日期>-summer-never-ends-extra-item-038.md`（date 与文件名同步）
-> 时间线：婚后第一年五月最后一个周日夜（开园前夜），紧接 E38/E39 之后约一个月。Duncan 20 岁，念档案学。
-> ⚠️ 新设定入册：①Duncan 的档案覆盖 8/3–9/4（＝Ch6 休息室偷听之后到闭园夜）；
-> ②**编号六**：废纸篓里三张写了她名字又划掉的排班表（比 Ch7 早十天，实物夹在本子后面）；
-> ③**编号038**：他跑丢的那只左脚人字拖，在失物招领处躺了五年零八个月，本篇结案认领，
-> 此后摆在阁楼窗台上（旧收音机旁）；④她偷藏他旧工作衫、在加州宿舍放了四年；
-> ⑤她曾在登记册写下又划掉「编号000。一个夏天。无人认领。」；⑥登记册新增 **编号054**（这本档案）。
-
-```yaml
 ---
 layout: post
 title: "Extra · 编号038 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 怀旧, 缱绻]
 categories: ["AU Story"]
@@ -25,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "失物招领处躺了五年的那只人字拖，是他跑丢的。"
 ---
-```
-
-正文：
 
 > "Why did you keep it?"
 > "Because someone told me I wasn't worth a close look."

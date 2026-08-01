@@ -1,22 +1,7 @@
-# 待发草稿 · Summer Never Ends **正文 Chapter 12** · 两百个名字
-
-> Winter 已认可（2026-08-01）。暂不上线，与 E38–40、Ch11 一起攒着发。
-> `chapter_type: "Chapter 12"`，`series_order: 42`。
-> 发布时文件名：`_posts/<发布日期>-summer-never-ends-chapter-12-two-hundred-names.md`
-> 时间线：七月二十三日—九月十一日（第 44 个夏天的最后 45 天 + 闭园）。
->
-> **本章新设定**：Alvarez（土地信托项目主任，五十岁上下，1989 年在这儿学的游泳）；
-> 盐沼 27 英亩；三笔钱（镇开放空间基金＋州海岸带补助＋土地信托）后**缺口 11.4 万**；
-> 铁盒打开，3240 元，付律师+评估 2800，剩 440，纸条添注「插队一次。理由：园子。船长已批。」；
-> Duncan 的《四十四年社区使用档案》137 页 → **本镇 45 岁以下居民约 71% 在此学会游泳**；
-> Lewis 八本账；Roddy 三周敲门 → 341 份联署（法定门槛 200）；
-> **特别镇民大会：十月四日晚七点，本镇小学体育馆**，提案人＝Owen ＋ Winter（她一周前就把名字签上了）。
-
-```yaml
 ---
 layout: post
 title: "Chapter 12 · 两百个名字 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 暗涌, 安放]
 categories: ["AU Story"]
@@ -28,9 +13,6 @@ series_type: Series
 chapter_type: "Chapter 12"
 summary: "要开一次特别镇民大会，先得凑够两百个名字。"
 ---
-```
-
-正文：
 
 > "Two hundred signatures and the town has to hold the meeting."
 > "And if we get them?"

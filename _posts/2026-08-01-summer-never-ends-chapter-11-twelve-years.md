@@ -1,23 +1,7 @@
-# 待发草稿 · Summer Never Ends **正文 Chapter 11** · 十二年
-
-> Winter 已认可（2026-08-01）。暂不上线，与 E38–40 一起攒着发。
-> ⚠️ 这是**正文重开**：`chapter_type: "Chapter 11"`，但 `series_order: 41`（接在番外之后，时序正确）。
-> 发布时文件名：`_posts/<发布日期>-summer-never-ends-chapter-11-twelve-years.md`
-> 时间线：婚后第一年七月十九日（第 44 个夏天，旺季）。老板 80，Owen 48，她 23，Duncan 20。
->
-> **保卫战总方案（Winter 2026-08-01 拍板）**：老板必须拿到他的钱——解法是**换一个买家**。
-> 镇上的开放空间基金 + 州海岸带补助 + 土地信托，按评估价买下整块地；老板一次性拿钱去养老院。
-> 园子归镇子所有，Owen 从「私人老板的经理」变成**给全镇看园子的人**（有正式合同和退休金）。
-> 那片盐沼是杠杆（让开发难、让保护值钱），不是用来把开发商告死的武器。
-> **决战＝特别镇民大会**（citizen petition 需两百个签名才能召开）：Owen 必须站到麦克风前，
-> 对着一屋子被他逗笑了二十六年的邻居，讲一次不能靠玩笑过关的话。
-> 代价：铁盒被打开（律师费、评估费），船往后推一两年。
-
-```yaml
 ---
 layout: post
 title: "Chapter 11 · 十二年 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 暗涌, 怅惘]
 categories: ["AU Story"]
@@ -29,9 +13,6 @@ series_type: Series
 chapter_type: "Chapter 11"
 summary: "老板拖了十二年没签的那份合同，今年放在了桌上。"
 ---
-```
-
-正文：
 
 > "You should've signed it twelve years ago."
 > "I know."
