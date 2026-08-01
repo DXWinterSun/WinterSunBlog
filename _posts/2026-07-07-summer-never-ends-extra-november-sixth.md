@@ -7,7 +7,7 @@ tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 思念, 缱绻]
 categories: ["AU Story"]
 series: "Summer Never Ends"
 series_title: "Summer Never Ends · Owen AU"
-series_order: 18
+series_order: 12
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"

@@ -13,7 +13,7 @@ series_type: Series
 chapter_type: "Chapter 4"
 summary: "黄昏的漂流河上，你第一次看见安静的他。"
 easter_eggs:
-  - series_order: 12
+  - series_order: 11
     label: "拉住你泳圈的那只手，他其实门儿清——这是走私的第一件货"
 ---
 
