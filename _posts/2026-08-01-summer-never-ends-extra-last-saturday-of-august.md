@@ -1,16 +1,7 @@
-# 待发草稿 · Summer Never Ends Extra 24 · 八月最后一个周六
-
-> Winter 已认可（2026-08-01「对！进抽屉」；「Roddy more不知道」已改「Roddy 更不知道」）。
-> 发布时文件名：`_posts/<发布日期>-summer-never-ends-extra-last-saturday-of-august.md`
-> （date 与文件名同步为发布当天）
-> 时间线：夏 2 · 八月最后一个周六（闭园夜 E19 前约一周）。
-> ⚠️ 本篇挂出全系列最大 PINNED：毕业那年开园日 · 二号检票口 · 求婚开闸。
-
-```yaml
 ---
 layout: post
 title: "Extra · 八月最后一个周六 — Summer Never Ends"
-date: 发布当天
+date: 2026-08-01
 image: the-way-way-back.JPG
 tags: [Owen, Sam Rockwell, AU, Summer Never Ends, 缱绻, 安放]
 categories: ["AU Story"]
@@ -22,9 +13,6 @@ series_type: Series
 chapter_type: "Extra"
 summary: "那个年年目送你离开的位置，今年他带你站了上去。"
 ---
-```
-
-正文：
 
 > "What's this number for?"
 > "A line that hasn't opened yet. It opens on opening day, the year you graduate. Hold the number."
