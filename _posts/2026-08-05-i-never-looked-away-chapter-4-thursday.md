@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 4
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 4"
 summary: "他把饼干盒还回来，里面躺着一块河里的绿玻璃。"

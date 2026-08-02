@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 5
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 5"
 summary: "你在他门口等到天黑，然后做了件没脑子的事。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 7
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 7"
 summary: "母亲把钱放在台阶上，你捡起来放进他手里。"

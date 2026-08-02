@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 8
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 8"
 summary: "父亲要打一通电话，你把自己押上了赌桌。"

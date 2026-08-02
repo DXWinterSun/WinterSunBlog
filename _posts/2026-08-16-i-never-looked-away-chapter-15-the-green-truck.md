@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 15
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 15"
 summary: "星期四来的是一辆绿卡车，两个陌生人。"

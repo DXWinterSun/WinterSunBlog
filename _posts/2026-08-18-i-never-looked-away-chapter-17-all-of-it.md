@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 17
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 17"
 summary: "卡车、河里、那张会响的床，都归你们。"

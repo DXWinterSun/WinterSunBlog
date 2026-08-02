@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 14
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 14"
 summary: "罐子满了那天，他把钱分成了两摞。"

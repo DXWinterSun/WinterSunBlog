@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 18
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 18"
 summary: "他跟了一路，跟到不能再跟为止。"

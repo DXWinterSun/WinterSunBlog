@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 16
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 16"
 summary: "新来的把草坪割秃了，你搬椅子出来看戏。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 2
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 2"
 summary: "你梦见他从水里上来，醒来时脸烫得要命。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 3
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 3"
 summary: "他赶了你三回，最后把唯一那把椅子让给了你。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 11
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 11"
 summary: "半夜窗户响了三声，是他站在草坪上。"

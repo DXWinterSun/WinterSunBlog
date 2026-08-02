@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 10
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 10"
 summary: "你梦见了他的身体，醒来时他就坐在门口。"

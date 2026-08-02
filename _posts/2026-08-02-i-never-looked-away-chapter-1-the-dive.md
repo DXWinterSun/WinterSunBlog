@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Never Looked Away"
 series_title: "I Never Looked Away · Trent AU"
 series_order: 1
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 1"
 summary: "所有人都把脸转开，只有你没有移开眼。"
