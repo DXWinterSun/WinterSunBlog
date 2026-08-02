@@ -185,6 +185,23 @@
   text: "#ede0e0"
   muted: "#8d6e62"
 
+- id: silk
+  year: 2001
+  name: "Jimmy Silk"
+  anchor: silk
+  cn: 愚人金箔
+  en: Fool's Gold
+  bg_cn: 深港夜靛
+  bg_en: Harbor Indigo
+  text_cn: 薄荷糖白
+  text_en: Peppermint White
+  muted_cn: 车窗雾灰
+  muted_en: Windshield Grey
+  accent: "#c8a43e"
+  bg: "#0e1820"
+  text: "#e7ece9"
+  muted: "#7d8e97"
+
 - id: pero
   year: 2002
   name: 'Pero "Pepe" Mahalovic'

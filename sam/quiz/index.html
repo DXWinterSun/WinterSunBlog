@@ -92,6 +92,11 @@ const CHARS = [
     bg:"#1b1310", accent:"#cf3550", text:"#ede0e0", muted:"#8d6e62",
     profile:{guile:10,forbear:6,chaos:8,raw:1,romance:7,grace:9},
     auLink:"/WinterSunBlog/series/knox-au/" },
+  { id:"silk", name:"Jimmy Silk", film:"Heist", filmCN:"《各怀鬼胎》", year:"2001",
+    tagline:"他学着大人的样子说狠话，全屋子只有你没笑。",
+    line:"I'm not a religious man. But I never lied to you. That's the closest I ever got.", lineCN:"我不信教。可我从没对你撒过谎——这大概就是我离虔诚最近的一次了。",
+    bg:"#0e1820", accent:"#c8a43e", text:"#e7ece9", muted:"#7d8e97",
+    profile:{guile:4,forbear:1,chaos:7,raw:6,romance:8,grace:4} },
   { id:"pero", name:"Pero \"Pepe\" Mahalovic", film:"Welcome to Collinwood", filmCN:"《欢迎来到科林伍德》", year:"2002",
     tagline:"他在拳台上喊着「我太好看了」，看你的时候他不喊了——他只是看着。",
     line:"Up on the canvas I yell \"I'm too good-lookin'\". You're the only one who actually agrees.", lineCN:"拳台上我喊「我太好看了」——也只有你，会真的点头，还夸我一句好看。",
@@ -796,7 +801,7 @@ function Intro({ onStart, palette, onShuffle }) {
           display:"flex", alignItems:"baseline", justifyContent:"center", gap:20,
           margin:"0 0 6px"
         }}>
-          {[["50","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
+          {[["51","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
             <React.Fragment key={i}>
               {i>0 && <span style={{width:1, height:26, background:p.muted, opacity:0.3}}/>}
               <span style={{display:"flex", flexDirection:"column", alignItems:"center", gap:2}}>

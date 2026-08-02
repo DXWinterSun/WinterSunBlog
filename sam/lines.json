@@ -2,8 +2,8 @@
   "meta": {
     "start": "2026-02-13",
     "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-    "characters_count": 50,
-    "pool_count": 250,
+    "characters_count": 51,
+    "pool_count": 255,
     "mf_alias": {
       "johnmoon": "john",
       "sambell": "sam",
@@ -492,6 +492,50 @@
           "line": "When the gun came up, you ran the wrong way — toward me. No one in my whole calculated life ever did that.",
           "lineCN": "枪口抬起来的时候，你跑错了方向——朝我冲。我算计了一辈子，从没有人为我那样跑过。",
           "kind": "AU · 情话"
+        }
+      ]
+    },
+    {
+      "id": "silk",
+      "name": "Jimmy Silk",
+      "film": "Heist",
+      "filmCN": "《各怀鬼胎》",
+      "year": "2001",
+      "accent": "#c8a43e",
+      "bg": "#0e1820",
+      "text": "#e7ece9",
+      "muted": "#7d8e97",
+      "auLink": null,
+      "quotes": [
+        {
+          "label": "NOT A RELIGIOUS MAN",
+          "line": "I'm not a religious man. But I never lied to you. That's the closest I ever got.",
+          "lineCN": "我不信教。可我从没对你撒过谎——这大概就是我离虔诚最近的一次了。",
+          "kind": "锚"
+        },
+        {
+          "label": "THE WRAPPER",
+          "line": "I drop things behind me and never look back. You're the only one who ever bent down and picked something up.",
+          "lineCN": "我走过的地方总落下点什么，从不回头看。你是唯一一个弯下腰、把它捡起来的人。",
+          "kind": "AU · 暗告白"
+        },
+        {
+          "label": "QUIET AS AN ANT",
+          "line": "Every tough line I've got, I rehearsed it in a mirror. Around you I forget all of them — and that's the only time I sound like anybody.",
+          "lineCN": "我那些狠话，每一句都对着镜子练过。在你面前我全忘了——也只有那时候，我听着才像个人。",
+          "kind": "AU · 心碎"
+        },
+        {
+          "label": "FOOL'S GOLD",
+          "line": "I drove off with a truck full of worthless metal, grinning like an idiot. You were in the seat beside me. Do the math.",
+          "lineCN": "我拉着一车不值钱的废铁开走，还笑得像个傻子。副驾上坐着你。这笔账你自己算。",
+          "kind": "AU · 暗告白"
+        },
+        {
+          "label": "THE ONE THING I WASN'T FAKING",
+          "line": "I couldn't run a con to save my life. But the way he talks to you — the way that made me want to break something — none of that was an act.",
+          "lineCN": "骗人这事我是真不行。可他跟你说话那个腔调——那个让我想砸东西的火——一点都没掺假。",
+          "kind": "AU · 真心"
         }
       ]
     },
@@ -2390,6 +2434,22 @@
       "kind": "锚"
     },
     {
+      "charId": "silk",
+      "name": "Jimmy Silk",
+      "film": "Heist",
+      "filmCN": "《各怀鬼胎》",
+      "year": "2001",
+      "accent": "#c8a43e",
+      "bg": "#0e1820",
+      "text": "#e7ece9",
+      "muted": "#7d8e97",
+      "auLink": null,
+      "label": "NOT A RELIGIOUS MAN",
+      "line": "I'm not a religious man. But I never lied to you. That's the closest I ever got.",
+      "lineCN": "我不信教。可我从没对你撒过谎——这大概就是我离虔诚最近的一次了。",
+      "kind": "锚"
+    },
+    {
       "charId": "pero",
       "name": "Pero \"Pepe\" Mahalovic",
       "film": "Welcome to Collinwood",
@@ -3187,6 +3247,22 @@
       "label": "THE VARIABLE",
       "line": "You were supposed to be a piece I moved. You turned into the one number the whole equation couldn't solve for.",
       "lineCN": "你本该只是我推动的一枚棋子。你却变成了整道方程唯一解不出的那个数。",
+      "kind": "AU · 暗告白"
+    },
+    {
+      "charId": "silk",
+      "name": "Jimmy Silk",
+      "film": "Heist",
+      "filmCN": "《各怀鬼胎》",
+      "year": "2001",
+      "accent": "#c8a43e",
+      "bg": "#0e1820",
+      "text": "#e7ece9",
+      "muted": "#7d8e97",
+      "auLink": null,
+      "label": "THE WRAPPER",
+      "line": "I drop things behind me and never look back. You're the only one who ever bent down and picked something up.",
+      "lineCN": "我走过的地方总落下点什么，从不回头看。你是唯一一个弯下腰、把它捡起来的人。",
       "kind": "AU · 暗告白"
     },
     {
@@ -3990,6 +4066,22 @@
       "kind": "AU · 心碎"
     },
     {
+      "charId": "silk",
+      "name": "Jimmy Silk",
+      "film": "Heist",
+      "filmCN": "《各怀鬼胎》",
+      "year": "2001",
+      "accent": "#c8a43e",
+      "bg": "#0e1820",
+      "text": "#e7ece9",
+      "muted": "#7d8e97",
+      "auLink": null,
+      "label": "QUIET AS AN ANT",
+      "line": "Every tough line I've got, I rehearsed it in a mirror. Around you I forget all of them — and that's the only time I sound like anybody.",
+      "lineCN": "我那些狠话，每一句都对着镜子练过。在你面前我全忘了——也只有那时候，我听着才像个人。",
+      "kind": "AU · 心碎"
+    },
+    {
       "charId": "pero",
       "name": "Pero \"Pepe\" Mahalovic",
       "film": "Welcome to Collinwood",
@@ -4787,6 +4879,22 @@
       "label": "PLAIN SIGHT",
       "line": "Everyone looked at me and saw a genius or a fool. You looked at me and just saw… me. That was the one thing I couldn't survive.",
       "lineCN": "所有人看我，看到的不是天才就是蠢货。你看我，只看见……我。这是我唯一招架不住的。",
+      "kind": "AU · 暗告白"
+    },
+    {
+      "charId": "silk",
+      "name": "Jimmy Silk",
+      "film": "Heist",
+      "filmCN": "《各怀鬼胎》",
+      "year": "2001",
+      "accent": "#c8a43e",
+      "bg": "#0e1820",
+      "text": "#e7ece9",
+      "muted": "#7d8e97",
+      "auLink": null,
+      "label": "FOOL'S GOLD",
+      "line": "I drove off with a truck full of worthless metal, grinning like an idiot. You were in the seat beside me. Do the math.",
+      "lineCN": "我拉着一车不值钱的废铁开走，还笑得像个傻子。副驾上坐着你。这笔账你自己算。",
       "kind": "AU · 暗告白"
     },
     {
@@ -5588,6 +5696,22 @@
       "line": "When the gun came up, you ran the wrong way — toward me. No one in my whole calculated life ever did that.",
       "lineCN": "枪口抬起来的时候，你跑错了方向——朝我冲。我算计了一辈子，从没有人为我那样跑过。",
       "kind": "AU · 情话"
+    },
+    {
+      "charId": "silk",
+      "name": "Jimmy Silk",
+      "film": "Heist",
+      "filmCN": "《各怀鬼胎》",
+      "year": "2001",
+      "accent": "#c8a43e",
+      "bg": "#0e1820",
+      "text": "#e7ece9",
+      "muted": "#7d8e97",
+      "auLink": null,
+      "label": "THE ONE THING I WASN'T FAKING",
+      "line": "I couldn't run a con to save my life. But the way he talks to you — the way that made me want to break something — none of that was an act.",
+      "lineCN": "骗人这事我是真不行。可他跟你说话那个腔调——那个让我想砸东西的火——一点都没掺假。",
+      "kind": "AU · 真心"
     },
     {
       "charId": "pero",
