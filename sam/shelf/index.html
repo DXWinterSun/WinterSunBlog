@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>藏品架 · Winter Sun</title>
+<meta name="description" content="他的碟片、卡牌、周边——一件一件，都摆在这个架子上。可以直接在页面里添加新藏品。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="藏品架 · The Collector's Shelf">
+<meta property="og:description" content="他的东西，我一件件收。">
+<meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/shelf/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0d0a08">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ————— 藏品架 · The Collector's Shelf —————
+     Winter 拥有的 Sam 碟片 / 卡牌 / 周边收藏册。
+     藏品记录存本机 localStorage（键 ws-sam-shelf），页面里直接添加；
+     角色联动读 sam/lines.json（零内嵌，画册加人自动跟上）。 */
+  html, body { margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    min-height: 100dvh;
+    background:
+      radial-gradient(ellipse 100% 50% at 50% -5%, rgba(203,161,76,.08), transparent 60%),
+      #0d0a08;
+    color: #ece1d0;
+    font-family: 'Noto Serif SC', serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column; align-items: center;
+    padding: max(16px, env(safe-area-inset-top)) 18px max(30px, env(safe-area-inset-bottom));
+  }
+  a { color: inherit; }
+  button { font-family: inherit; }
+
+  .topbar {
+    width: 100%; max-width: 860px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 22px;
+  }
+  .back {
+    font-weight: 300; font-size: 12px; letter-spacing: 1px;
+    color: #8a7558; text-decoration: none;
+  }
+  .back:hover { color: #ece1d0; }
+  .progress-num {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 10px; letter-spacing: 2px; color: #8a7558; text-transform: uppercase;
+  }
+
+  .head { text-align: center; margin-bottom: 8px; }
+  .head h1 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: clamp(22px, 5vw, 30px); margin: 0; letter-spacing: 1px; color: #f2e7d2;
+  }
+  .head p {
+    font-weight: 300; font-size: clamp(11.5px, 3vw, 13px); letter-spacing: 2px;
+    color: #8a7558; margin: 8px 0 0; line-height: 1.9;
+  }
+
+  /* 统计行 */
+  .stats {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px;
+    margin: 16px 0 4px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 10px; letter-spacing: 2px; color: #8a7558; text-transform: uppercase;
+  }
+  .stats b { color: #cba14c; font-weight: 400; }
+
+  /* 添加按钮 */
+  .add-btn {
+    margin: 18px auto 6px;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 26px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(230,190,110,.5);
+    background: linear-gradient(160deg, rgba(203,161,76,.22), rgba(203,161,76,.06));
+    color: #ecd9a8; font-size: 14px; letter-spacing: 2px;
+    transition: box-shadow .25s ease, transform .15s ease;
+  }
+  .add-btn:hover { box-shadow: 0 6px 24px rgba(203,161,76,.25); transform: translateY(-1px); }
+  .add-btn__plus { font-size: 17px; line-height: 1; }
+
+  /* 筛选条 */
+  .filters {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 7px;
+    margin: 18px auto 6px; max-width: 720px;
+  }
+  .chip {
+    padding: 6px 13px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(255,222,180,.16);
+    background: #14100b; color: #a8916d;
+    font-size: 12px; letter-spacing: 1px;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .chip:hover { border-color: rgba(255,222,180,.4); color: #ece1d0; }
+  .chip.is-on {
+    border-color: rgba(230,190,110,.7); color: #ecd9a8;
+    background: linear-gradient(160deg, rgba(203,161,76,.2), rgba(203,161,76,.04));
+  }
+
+  /* 角色筛选提示条 */
+  .charbar {
+    display: none; align-items: center; gap: 10px;
+    margin: 12px auto 0; padding: 7px 14px; border-radius: 999px;
+    border: 1px dashed color-mix(in srgb, var(--a, #cba14c) 55%, transparent);
+    background: color-mix(in srgb, var(--a, #cba14c) 10%, #14100b);
+    font-size: 12.5px; letter-spacing: 1px; color: #ece1d0;
+  }
+  .charbar.is-on { display: inline-flex; }
+  .charbar button {
+    border: 0; background: none; cursor: pointer; color: #8a7558;
+    font-size: 14px; padding: 0 2px; line-height: 1;
+  }
+  .charbar button:hover { color: #ece1d0; }
+
+  /* ————— 架子（藏品格栅） ————— */
+  .section-label {
+    width: 100%; max-width: 860px;
+    margin: 26px 0 12px;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  .section-label h2 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: 17px; margin: 0; color: #e7d5ae; letter-spacing: 1px; white-space: nowrap;
+  }
+  .section-label .rule { flex: 1; height: 1px; background: rgba(255,222,180,.14); }
+  .section-label .count {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 9.5px; letter-spacing: 2px; color: #8a7558;
+  }
+
+  .grid {
+    width: 100%; max-width: 860px;
+    display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+  }
+  .item {
+    position: relative; text-align: left; cursor: pointer;
+    border-radius: 10px; overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--a, #cba14c) 32%, transparent);
+    background:
+      linear-gradient(160deg, color-mix(in srgb, var(--a, #cba14c) 16%, var(--b, #14100b)), var(--b, #14100b) 68%);
+    padding: 14px 14px 12px;
+    transition: transform .15s ease, box-shadow .25s ease;
+  }
+  .item:hover { transform: translateY(-2px); box-shadow: 0 8px 26px color-mix(in srgb, var(--a, #cba14c) 20%, transparent); }
+  .item--wish { border-style: dashed; background: #120e0a; }
+  .item__top { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+  .item__emoji { font-size: 19px; line-height: 1; }
+  .item__type {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    color: color-mix(in srgb, var(--a, #cba14c) 85%, #fff);
+  }
+  .item__badges { margin-left: auto; display: flex; gap: 5px; font-size: 12px; }
+  .item__name {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 600;
+    font-size: 15px; line-height: 1.45; color: #f4ecdd; margin: 0 0 6px;
+  }
+  .item--wish .item__name { color: #c9b889; }
+  .item__spec {
+    display: inline-block; margin: 0 0 7px; padding: 2px 9px;
+    border-radius: 4px; border: 1px solid rgba(255,222,180,.18);
+    font-size: 10.5px; letter-spacing: 1.5px; color: #b7a179;
+  }
+  .item__char {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin: 0 0 7px; padding: 3px 10px 3px 4px; border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--a, #cba14c) 45%, transparent);
+    background: color-mix(in srgb, var(--a, #cba14c) 14%, transparent);
+    font-size: 11px; letter-spacing: .5px; color: #ece1d0;
+    text-decoration: none;
+  }
+  .item__char i {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--a, #cba14c); font-style: normal;
+  }
+  .item__char:hover { border-color: color-mix(in srgb, var(--a, #cba14c) 90%, transparent); }
+  .item__note {
+    font-weight: 300; font-size: 12px; line-height: 1.9; color: #b8a687; margin: 2px 0 0;
+  }
+  .item__date {
+    display: block; margin-top: 8px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 9px; letter-spacing: 2px; color: #7a684e;
+  }
+
+  .empty {
+    width: 100%; max-width: 560px; margin: 8px auto; text-align: center;
+    font-weight: 300; font-size: 13px; line-height: 2.2; color: #8a7558;
+    border: 1px dashed rgba(255,222,180,.18); border-radius: 12px;
+    padding: 28px 20px;
+  }
+
+  /* ————— 角色联动地图 ————— */
+  .map-grid {
+    width: 100%; max-width: 860px;
+    display: grid; gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  }
+  .mslot {
+    position: relative; cursor: pointer; text-align: center;
+    border-radius: 6px; padding: 10px 6px 9px;
+    border: 1px dashed rgba(255,222,180,.13);
+    background: #120e0a;
+    transition: transform .15s ease, box-shadow .25s ease;
+  }
+  .mslot:hover { transform: translateY(-2px); }
+  .mslot--got {
+    border-style: solid;
+    border-color: color-mix(in srgb, var(--a, #cba14c) 55%, transparent);
+    background: linear-gradient(160deg, color-mix(in srgb, var(--a, #cba14c) 30%, var(--b, #14100b)), var(--b, #14100b) 75%);
+  }
+  .mslot--got:hover { box-shadow: 0 5px 18px color-mix(in srgb, var(--a, #cba14c) 22%, transparent); }
+  .mslot__name {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: 11.5px; line-height: 1.3; color: #f4ecdd; word-break: break-word;
+  }
+  .mslot:not(.mslot--got) .mslot__name { color: #57492f9e; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; }
+  .mslot__year {
+    display: block; margin-top: 4px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8px; letter-spacing: 2px; color: #6d5f4c;
+  }
+  .mslot__n {
+    position: absolute; top: 5px; right: 6px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8px; letter-spacing: 1px;
+    color: color-mix(in srgb, var(--a, #cba14c) 85%, #fff);
+  }
+  .map-hint {
+    width: 100%; max-width: 860px; margin: 10px 0 0;
+    font-weight: 300; font-size: 11.5px; line-height: 2; color: #8a7558; text-align: center;
+  }
+
+  /* 备份 / 恢复 */
+  .backup {
+    margin-top: 34px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+  }
+  .backup button {
+    padding: 8px 18px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(255,222,180,.2); background: #14100b;
+    color: #a8916d; font-size: 12px; letter-spacing: 1.5px;
+  }
+  .backup button:hover { border-color: rgba(255,222,180,.45); color: #ece1d0; }
+
+  .note {
+    margin-top: 16px; max-width: 560px; text-align: center;
+    font-weight: 300; font-size: 11.5px; line-height: 2.1; color: #8a7558;
+  }
+  .colophon {
+    margin-top: 14px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
+    color: #8a7558; opacity: .5;
+  }
+  .loading {
+    margin: 40px auto; font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 11px; letter-spacing: 3px; color: #8a7558; text-transform: uppercase;
+  }
+
+  /* ————— 添加 / 编辑弹窗 ————— */
+  .overlay {
+    position: fixed; inset: 0; z-index: 40; display: none;
+    align-items: flex-end; justify-content: center;
+    background: rgba(8,6,4,.72); backdrop-filter: blur(3px);
+    padding: 14px;
+  }
+  .overlay.is-on { display: flex; }
+  @media (min-width: 560px) { .overlay { align-items: center; } }
+  .sheet {
+    width: min(480px, 100%); max-height: min(88dvh, 680px); overflow-y: auto;
+    border-radius: 16px; padding: 22px 20px 18px;
+    border: 1px solid rgba(230,190,110,.35);
+    background:
+      radial-gradient(ellipse 90% 60% at 50% -10%, rgba(203,161,76,.1), transparent 60%),
+      #171209;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  }
+  .sheet h2 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: 19px; margin: 0 0 16px; color: #ecd9a8; letter-spacing: 1px; text-align: center;
+  }
+  .f-label {
+    display: block; margin: 14px 0 6px;
+    font-size: 11.5px; letter-spacing: 2px; color: #a8916d;
+  }
+  .f-label small { color: #6d5f4c; letter-spacing: 1px; }
+  .f-input, .f-select, .f-area {
+    width: 100%; padding: 10px 12px; border-radius: 8px;
+    border: 1px solid rgba(255,222,180,.2); background: #0f0b07;
+    color: #ece1d0; font-family: 'Noto Serif SC', serif; font-size: 14px;
+  }
+  .f-input:focus, .f-select:focus, .f-area:focus { outline: none; border-color: rgba(230,190,110,.6); }
+  .f-area { min-height: 64px; resize: vertical; line-height: 1.8; }
+  .types { display: flex; flex-wrap: wrap; gap: 7px; }
+  .t-chip {
+    padding: 7px 13px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(255,222,180,.16); background: #0f0b07;
+    color: #a8916d; font-size: 12.5px; letter-spacing: 1px;
+  }
+  .t-chip.is-on {
+    border-color: rgba(230,190,110,.7); color: #ecd9a8;
+    background: linear-gradient(160deg, rgba(203,161,76,.22), rgba(203,161,76,.05));
+  }
+  .toggles { display: flex; flex-direction: column; gap: 9px; margin-top: 14px; }
+  .tog {
+    display: flex; align-items: center; gap: 9px; cursor: pointer;
+    font-size: 13px;
+  }
+  .tog input { width: 16px; height: 16px; accent-color: #cba14c; }
+  .tog span { color: #cbb891; }
+  .sheet-actions { display: flex; gap: 10px; margin-top: 20px; }
+  .btn-save {
+    flex: 1; padding: 12px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(230,190,110,.6);
+    background: linear-gradient(160deg, rgba(203,161,76,.32), rgba(203,161,76,.1));
+    color: #f2e7d2; font-size: 14px; letter-spacing: 3px;
+  }
+  .btn-save:hover { box-shadow: 0 6px 22px rgba(203,161,76,.25); }
+  .btn-cancel, .btn-del {
+    padding: 12px 18px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(255,222,180,.18); background: none;
+    color: #8a7558; font-size: 13px; letter-spacing: 1px;
+  }
+  .btn-cancel:hover { color: #ece1d0; }
+  .btn-del { border-color: rgba(200,90,70,.4); color: #b3705e; }
+  .btn-del:hover { border-color: rgba(200,90,70,.8); color: #e08a72; }
+
+  /* 保存成功的小提示 */
+  .toast {
+    position: fixed; left: 50%; bottom: max(26px, env(safe-area-inset-bottom));
+    transform: translateX(-50%) translateY(12px); z-index: 50;
+    padding: 10px 22px; border-radius: 999px;
+    border: 1px solid rgba(230,190,110,.5);
+    background: #1c1508; color: #ecd9a8;
+    font-size: 13px; letter-spacing: 1.5px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .toast.is-on { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="../">← 回 Sam 页</a>
+  <span class="progress-num" id="progress-num"></span>
+</div>
+
+<div class="head">
+  <h1>The Collector&rsquo;s Shelf</h1>
+  <p>藏品架 · 他的东西，我一件件收</p>
+</div>
+
+<div class="stats" id="stats"></div>
+
+<button type="button" class="add-btn" id="add-btn"><span class="add-btn__plus">＋</span>添加一件藏品</button>
+
+<div class="filters" id="filters"></div>
+<div class="charbar" id="charbar"><span id="charbar-text"></span><button type="button" id="charbar-x" aria-label="取消角色筛选">✕</button></div>
+
+<div class="section-label" id="own-label">
+  <h2>🗄️ 已入手</h2><span class="rule"></span><span class="count" id="own-count"></span>
+</div>
+<div class="grid" id="own-grid"></div>
+<div class="empty" id="own-empty" style="display:none">
+  架子还空着。点上面的「＋ 添加一件藏品」，<br>把第一件他的东西摆上来。
+</div>
+
+<div class="section-label" id="wish-label" style="display:none">
+  <h2>🌠 心愿单</h2><span class="rule"></span><span class="count" id="wish-count"></span>
+</div>
+<div class="grid" id="wish-grid"></div>
+
+<div class="section-label">
+  <h2>🎞️ 角色联动 · 画册地图</h2><span class="rule"></span><span class="count" id="map-count"></span>
+</div>
+<div class="loading" id="map-loading">Lighting the shelf…</div>
+<div class="map-grid" id="map-grid"></div>
+<p class="map-hint">添加藏品时选了「关联角色」，他的格子就会亮起来。<br>点亮着的格子＝只看他的藏品；点暗着的格子＝去画册看看这张脸。</p>
+
+<div class="backup">
+  <button type="button" id="btn-export">⬇ 备份到文件</button>
+  <button type="button" id="btn-import">⬆ 从文件恢复</button>
+  <input type="file" id="import-file" accept=".json,application/json" style="display:none">
+</div>
+
+<p class="note">
+  藏品记录保存在这台设备的浏览器里，只有你自己看得见改得了。<br>
+  换手机 / 换电脑前，先「备份到文件」，到新设备上「从文件恢复」，两边的记录会自动合并、不会弄丢。
+</p>
+<span class="colophon">Winter Sun · Kept with love</span>
+
+<div class="toast" id="toast"></div>
+
+<!-- 添加 / 编辑弹窗 -->
+<div class="overlay" id="overlay">
+  <div class="sheet" role="dialog" aria-modal="true" aria-label="添加或编辑藏品">
+    <h2 id="sheet-title">添加一件藏品</h2>
+
+    <label class="f-label" for="f-name">它叫什么</label>
+    <input class="f-input" id="f-name" type="text" placeholder="例：《月球》蓝光 / Topps 签名卡…" maxlength="80">
+
+    <label class="f-label">它是哪一类</label>
+    <div class="types" id="f-types"></div>
+
+    <label class="f-label" for="f-spec">版本 / 规格 <small>（可不填）</small></label>
+    <input class="f-input" id="f-spec" type="text" placeholder="例：蓝光 / DVD / 4K / 铁盒版 / 2 of 5…" maxlength="40">
+
+    <label class="f-label" for="f-char">关联角色 <small>（可不填 · 选了会点亮画册地图）</small></label>
+    <select class="f-select" id="f-char"><option value="">— 不关联某个角色 —</option></select>
+
+    <label class="f-label" for="f-date">入手日期 <small>（可不填）</small></label>
+    <input class="f-input" id="f-date" type="date">
+
+    <label class="f-label" for="f-note">想说的话 <small>（可不填 · 淘它的故事、在哪买的、为什么值）</small></label>
+    <textarea class="f-area" id="f-note" maxlength="300"></textarea>
+
+    <div class="toggles">
+      <label class="tog"><input type="checkbox" id="f-signed"><span>✍️ 上面有他的亲笔签名</span></label>
+      <label class="tog"><input type="checkbox" id="f-wish"><span>🌠 还没入手，先放进心愿单</span></label>
+    </div>
+
+    <div class="sheet-actions">
+      <button type="button" class="btn-cancel" id="btn-cancel">取消</button>
+      <button type="button" class="btn-del" id="btn-del" style="display:none">删除</button>
+      <button type="button" class="btn-save" id="btn-save">摆上架子</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var KEY = "ws-sam-shelf";
+
+  var TYPES = [
+    { id: "disc",  emoji: "📀", label: "碟片" },
+    { id: "card",  emoji: "🃏", label: "卡牌" },
+    { id: "goods", emoji: "🧸", label: "周边" },
+    { id: "book",  emoji: "📖", label: "书刊" },
+    { id: "other", emoji: "🎁", label: "其他" }
+  ];
+  var FILTERS = [{ id: "all", label: "全部" }]
+    .concat(TYPES.map(function (t) { return { id: t.id, label: t.emoji + " " + t.label }; }))
+    .concat([{ id: "signed", label: "✍️ 有签名" }]);
+
+  var typeById = {};
+  TYPES.forEach(function (t) { typeById[t.id] = t; });
+
+  /* ————— 数据 ————— */
+  var store = load();
+  var chars = [];          // 来自 lines.json，按年份升序
+  var charById = {};
+  var filter = "all";      // 类型筛选
+  var charFilter = "";     // 角色筛选（点地图亮格）
+  var editingId = null;    // 正在编辑的藏品 id
+  var formType = "disc";   // 弹窗里选中的类型
+
+  function load() {
+    var s = null;
+    try { s = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) {}
+    if (!s || !Array.isArray(s.items)) {
+      /* 首次打开：把 Winter 在 Sam 页亲笔写过的两件镇架之宝先摆上 */
+      s = { v: 1, seeded: 1, items: [
+        { id: "seed-topps", name: "Topps 漫威签名卡 · Justin Hammer 2/5", type: "card",
+          spec: "2 of 5", charId: "hammer", date: "", signed: 1, wish: 0, added: 1,
+          note: "他去年第一次官方签售，我在 eBay 拍下。因为是他亲手签的，值。" },
+        { id: "seed-mercy", name: "《Mercy》DVD", type: "disc",
+          spec: "DVD", charId: "matty", date: "", signed: 0, wish: 0, added: 2,
+          note: "第一次海淘、从 Amazon 辗转淘来。攒着一个念想：哪天当面，请他签这一张。" }
+      ] };
+      save(s);
+    }
+    return s;
+  }
+  function save(s) {
+    try { localStorage.setItem(KEY, JSON.stringify(s || store)); } catch (e) {}
+  }
+  function uid() {
+    return Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 7);
+  }
+
+  /* ————— 角色数据（lines.json，零内嵌） ————— */
+  fetch("../lines.json", { cache: "no-cache" })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var alias = (data.meta && data.meta.mf_alias) || {};
+      chars = (data.characters || []).slice().sort(function (a, b) {
+        return (parseInt(a.year, 10) || 0) - (parseInt(b.year, 10) || 0);
+      });
+      chars.forEach(function (c) {
+        c.mfAnchor = alias[c.id] || c.id;
+        charById[c.id] = c;
+      });
+      var sel = $("f-char");
+      chars.forEach(function (c) {
+        var o = document.createElement("option");
+        o.value = c.id;
+        o.textContent = c.name + " · " + (c.filmCN || c.film) + "（" + c.year + "）";
+        sel.appendChild(o);
+      });
+      $("map-loading").remove();
+      render();
+    })
+    .catch(function () {
+      $("map-loading").textContent = "画册没接上…藏品照常可记，刷新可重试";
+      render();
+    });
+
+  /* ————— 渲染 ————— */
+  function matches(it) {
+    if (charFilter && it.charId !== charFilter) return false;
+    if (filter === "all") return true;
+    if (filter === "signed") return !!it.signed;
+    return it.type === filter;
+  }
+
+  function itemCard(it) {
+    var c = it.charId ? charById[it.charId] : null;
+    var t = typeById[it.type] || typeById.other;
+    var el = document.createElement("div");
+    el.className = "item" + (it.wish ? " item--wish" : "");
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("aria-label", "编辑：" + it.name);
+    if (c) { el.style.setProperty("--a", c.accent); el.style.setProperty("--b", c.bg); }
+
+    var top = document.createElement("div"); top.className = "item__top";
+    var em = document.createElement("span"); em.className = "item__emoji"; em.textContent = t.emoji;
+    var ty = document.createElement("span"); ty.className = "item__type"; ty.textContent = t.label;
+    var bd = document.createElement("span"); bd.className = "item__badges";
+    if (it.signed) bd.textContent = "✍️";
+    top.appendChild(em); top.appendChild(ty); top.appendChild(bd);
+    el.appendChild(top);
+
+    var nm = document.createElement("p"); nm.className = "item__name"; nm.textContent = it.name;
+    el.appendChild(nm);
+
+    if (it.spec) {
+      var sp = document.createElement("span"); sp.className = "item__spec"; sp.textContent = it.spec;
+      el.appendChild(sp); el.appendChild(document.createElement("br"));
+    }
+
+    if (c) {
+      var ch = document.createElement("a");
+      ch.className = "item__char";
+      ch.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor);
+      ch.innerHTML = "<i></i>";
+      ch.appendChild(document.createTextNode(c.name + " · " + (c.filmCN || c.film)));
+      ch.addEventListener("click", function (e) { e.stopPropagation(); });
+      el.appendChild(ch);
+    }
+
+    if (it.note) {
+      var no = document.createElement("p"); no.className = "item__note"; no.textContent = it.note;
+      el.appendChild(no);
+    }
+    if (it.date) {
+      var dt = document.createElement("span"); dt.className = "item__date";
+      dt.textContent = (it.wish ? "许愿于 " : "入手于 ") + it.date;
+      el.appendChild(dt);
+    }
+
+    function open() { openSheet(it.id); }
+    el.addEventListener("click", open);
+    el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+    return el;
+  }
+
+  function render() {
+    var items = store.items.slice().sort(function (a, b) { return (b.added || 0) - (a.added || 0); });
+    var own = items.filter(function (it) { return !it.wish && matches(it); });
+    var wish = items.filter(function (it) { return it.wish && matches(it); });
+
+    var ownGrid = $("own-grid"); ownGrid.innerHTML = "";
+    own.forEach(function (it) { ownGrid.appendChild(itemCard(it)); });
+    $("own-empty").style.display = own.length ? "none" : "block";
+    $("own-count").textContent = own.length + " ITEMS";
+
+    var wishGrid = $("wish-grid"); wishGrid.innerHTML = "";
+    wish.forEach(function (it) { wishGrid.appendChild(itemCard(it)); });
+    $("wish-label").style.display = wish.length ? "flex" : "none";
+    $("wish-count").textContent = wish.length + " WISHES";
+
+    /* 统计 */
+    var allOwn = store.items.filter(function (it) { return !it.wish; });
+    var allWish = store.items.filter(function (it) { return it.wish; });
+    var signed = allOwn.filter(function (it) { return it.signed; });
+    var coveredIds = {};
+    allOwn.forEach(function (it) { if (it.charId) coveredIds[it.charId] = (coveredIds[it.charId] || 0) + 1; });
+    var covered = Object.keys(coveredIds).length;
+
+    var stats = $("stats");
+    stats.innerHTML = "";
+    [["已入手", allOwn.length + " 件"],
+     ["有签名", signed.length + " 件"],
+     ["心愿单", allWish.length + " 件"]]
+      .concat(chars.length ? [["点亮角色", covered + " / " + chars.length]] : [])
+      .forEach(function (p) {
+        var s = document.createElement("span");
+        s.innerHTML = p[0] + " <b>" + p[1] + "</b>";
+        stats.appendChild(s);
+      });
+    $("progress-num").textContent = "SHELF " + allOwn.length;
+
+    /* 角色地图 */
+    if (chars.length) {
+      var map = $("map-grid"); map.innerHTML = "";
+      chars.forEach(function (c) {
+        var n = coveredIds[c.id] || 0;
+        var d = document.createElement("div");
+        d.className = "mslot" + (n ? " mslot--got" : "");
+        d.setAttribute("role", "button");
+        d.setAttribute("tabindex", "0");
+        if (n) { d.style.setProperty("--a", c.accent); d.style.setProperty("--b", c.bg); }
+        d.setAttribute("aria-label", c.name + (n ? "（有 " + n + " 件藏品，点击筛选）" : "（还没有藏品，点击去画册）"));
+        var nm = document.createElement("span"); nm.className = "mslot__name"; nm.textContent = c.name;
+        var yr = document.createElement("span"); yr.className = "mslot__year"; yr.textContent = c.year;
+        d.appendChild(nm); d.appendChild(yr);
+        if (n > 1) {
+          var b = document.createElement("span"); b.className = "mslot__n"; b.textContent = "×" + n;
+          d.appendChild(b);
+        }
+        function go() {
+          if (n) { setCharFilter(c.id); }
+          else { location.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor); }
+        }
+        d.addEventListener("click", go);
+        d.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+        map.appendChild(d);
+      });
+      $("map-count").textContent = covered + " / " + chars.length + " LIT";
+    }
+  }
+
+  /* ————— 筛选 ————— */
+  var filWrap = $("filters");
+  FILTERS.forEach(function (f) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "chip" + (f.id === "all" ? " is-on" : "");
+    b.textContent = f.label;
+    b.addEventListener("click", function () {
+      filter = f.id;
+      filWrap.querySelectorAll(".chip").forEach(function (x) { x.classList.remove("is-on"); });
+      b.classList.add("is-on");
+      render();
+    });
+    filWrap.appendChild(b);
+  });
+
+  function setCharFilter(id) {
+    charFilter = id;
+    var bar = $("charbar");
+    if (id && charById[id]) {
+      var c = charById[id];
+      bar.style.setProperty("--a", c.accent);
+      $("charbar-text").textContent = "只看 " + c.name + " · " + (c.filmCN || c.film) + " 的藏品";
+      bar.classList.add("is-on");
+      $("own-label").scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      bar.classList.remove("is-on");
+    }
+    render();
+  }
+  $("charbar-x").addEventListener("click", function () { setCharFilter(""); });
+
+  /* ————— 弹窗 ————— */
+  var tWrap = $("f-types");
+  TYPES.forEach(function (t) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "t-chip";
+    b.dataset.type = t.id;
+    b.textContent = t.emoji + " " + t.label;
+    b.addEventListener("click", function () { setFormType(t.id); });
+    tWrap.appendChild(b);
+  });
+  function setFormType(id) {
+    formType = id;
+    tWrap.querySelectorAll(".t-chip").forEach(function (x) {
+      x.classList.toggle("is-on", x.dataset.type === id);
+    });
+  }
+
+  function openSheet(id) {
+    editingId = id || null;
+    var it = id ? store.items.find(function (x) { return x.id === id; }) : null;
+    $("sheet-title").textContent = it ? "改一改这件藏品" : "添加一件藏品";
+    $("f-name").value = it ? it.name : "";
+    $("f-spec").value = it ? (it.spec || "") : "";
+    $("f-char").value = it ? (it.charId || "") : "";
+    $("f-date").value = it ? (it.date || "") : "";
+    $("f-note").value = it ? (it.note || "") : "";
+    $("f-signed").checked = it ? !!it.signed : false;
+    $("f-wish").checked = it ? !!it.wish : false;
+    setFormType(it ? it.type : "disc");
+    $("btn-del").style.display = it ? "block" : "none";
+    $("btn-save").textContent = it ? "保存修改" : "摆上架子";
+    $("overlay").classList.add("is-on");
+    if (!it) setTimeout(function () { $("f-name").focus(); }, 60);
+  }
+  function closeSheet() { $("overlay").classList.remove("is-on"); editingId = null; }
+
+  $("add-btn").addEventListener("click", function () { openSheet(null); });
+  $("btn-cancel").addEventListener("click", closeSheet);
+  $("overlay").addEventListener("click", function (e) { if (e.target === $("overlay")) closeSheet(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && $("overlay").classList.contains("is-on")) closeSheet();
+  });
+
+  $("btn-save").addEventListener("click", function () {
+    var name = $("f-name").value.trim();
+    if (!name) { $("f-name").focus(); $("f-name").placeholder = "先给它起个名字呀"; return; }
+    var data = {
+      name: name,
+      type: formType,
+      spec: $("f-spec").value.trim(),
+      charId: $("f-char").value,
+      date: $("f-date").value,
+      note: $("f-note").value.trim(),
+      signed: $("f-signed").checked ? 1 : 0,
+      wish: $("f-wish").checked ? 1 : 0
+    };
+    if (editingId) {
+      var it = store.items.find(function (x) { return x.id === editingId; });
+      if (it) Object.keys(data).forEach(function (k) { it[k] = data[k]; });
+      toast("改好了 ✓");
+    } else {
+      data.id = uid();
+      data.added = Date.now();
+      store.items.push(data);
+      toast(data.wish ? "已放进心愿单 🌠" : "已经摆上架子 ✓");
+    }
+    save();
+    closeSheet();
+    render();
+  });
+
+  $("btn-del").addEventListener("click", function () {
+    if (!editingId) return;
+    var it = store.items.find(function (x) { return x.id === editingId; });
+    if (!it) return;
+    if (!confirm("把「" + it.name + "」从架子上拿下来？\n（删掉就找不回来了）")) return;
+    store.items = store.items.filter(function (x) { return x.id !== editingId; });
+    save();
+    closeSheet();
+    render();
+    toast("已从架子上取下");
+  });
+
+  /* ————— 备份 / 恢复 ————— */
+  $("btn-export").addEventListener("click", function () {
+    var blob = new Blob([JSON.stringify(store, null, 2)], { type: "application/json" });
+    var a = document.createElement("a");
+    var d = new Date();
+    var stamp = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    a.href = URL.createObjectURL(blob);
+    a.download = "sam-shelf-" + stamp + ".json";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+    toast("备份文件已保存 ⬇");
+  });
+
+  $("btn-import").addEventListener("click", function () { $("import-file").click(); });
+  $("import-file").addEventListener("change", function () {
+    var f = this.files && this.files[0];
+    this.value = "";
+    if (!f) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      var incoming = null;
+      try { incoming = JSON.parse(reader.result); } catch (e) {}
+      if (!incoming || !Array.isArray(incoming.items)) {
+        toast("这个文件读不出藏品记录…"); return;
+      }
+      /* 按 id 合并：新的补进来，同一件以文件里的为准，本机独有的保留 */
+      var byId = {};
+      store.items.forEach(function (it) { byId[it.id] = it; });
+      incoming.items.forEach(function (it) { if (it && it.id) byId[it.id] = it; });
+      store.items = Object.keys(byId).map(function (k) { return byId[k]; });
+      save();
+      render();
+      toast("恢复完成 · 现在架上共 " + store.items.length + " 件");
+    };
+    reader.readAsText(f);
+  });
+
+  function toast(msg) {
+    var t = $("toast");
+    t.textContent = msg;
+    t.classList.add("is-on");
+    clearTimeout(t._h);
+    t._h = setTimeout(function () { t.classList.remove("is-on"); }, 2200);
+  }
+
+  render();
+})();
+</script>
+
+</body>
+</html>
