@@ -593,3 +593,20 @@
   text_en: "Mailroom Ivory"
   muted_cn: "公文皮褐"
   muted_en: "Briefcase Tan"
+
+"Nickel and Dime":          # Jimmy Silk · Heist · Sam Rockwell · 色卡同源画册 id: silk
+  mf_id: silk                # → Many Faces 画册锚点 /sam/many-faces/#silk
+  theme_id: silk
+  accent: "#c8a43e"
+  accent_ink: "#8a6f28"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#0e1820"
+  text: "#e7ece9"
+  muted: "#7d8e97"
+  accent_cn: "愚人金箔"
+  accent_en: "Fool's Gold"
+  bg_cn: "深港夜靛"
+  bg_en: "Harbor Indigo"
+  text_cn: "薄荷糖白"
+  text_en: "Peppermint White"
+  muted_cn: "车窗雾灰"
+  muted_en: "Windshield Grey"
