@@ -610,3 +610,20 @@
   text_en: "Peppermint White"
   muted_cn: "车窗雾灰"
   muted_en: "Windshield Grey"
+
+"I Never Looked Away":      # Trent · Lawn Dogs · Sam Rockwell · 色卡同源画册 id: trent
+  mf_id: trent               # → Many Faces 画册锚点 /sam/many-faces/#trent
+  theme_id: trent
+  accent: "#79a7bd"
+  accent_ink: "#587a8b"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#141c12"
+  text: "#dce5ea"
+  muted: "#7a7654"
+  accent_cn: "天蓝卡车"
+  accent_en: "Pickup Sky"
+  bg_cn: "新刈草青"
+  bg_en: "Mown Lawn"
+  text_cn: "晨露微光"
+  text_en: "Morning Dew"
+  muted_cn: "木篱旧褐"
+  muted_en: "Fence-Post Brown"
