@@ -1,0 +1,30 @@
+{
+  "v": 1,
+  "note": "藏品架 sam/shelf/ 的公开数据。馆长（Winter）在页面里编辑后由浏览器直接提交回本文件；手改时保持 items 数组结构即可。",
+  "items": [
+    {
+      "id": "seed-topps",
+      "name": "Topps 漫威签名卡 · Justin Hammer 2/5",
+      "type": "card",
+      "spec": "2 of 5",
+      "charId": "hammer",
+      "date": "",
+      "signed": 1,
+      "wish": 0,
+      "added": 1,
+      "note": "他去年第一次官方签售，我在 eBay 拍下。因为是他亲手签的，值。"
+    },
+    {
+      "id": "seed-mercy",
+      "name": "《Mercy》DVD",
+      "type": "disc",
+      "spec": "DVD",
+      "charId": "matty",
+      "date": "",
+      "signed": 0,
+      "wish": 0,
+      "added": 2,
+      "note": "第一次海淘、从 Amazon 辗转淘来。攒着一个念想：哪天当面，请他签这一张。"
+    }
+  ]
+}
