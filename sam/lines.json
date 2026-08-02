@@ -514,27 +514,27 @@
           "kind": "锚"
         },
         {
-          "label": "THE WRAPPER",
-          "line": "I drop things behind me and never look back. You're the only one who ever bent down and picked something up.",
-          "lineCN": "我走过的地方总落下点什么，从不回头看。你是唯一一个弯下腰、把它捡起来的人。",
-          "kind": "AU · 暗告白"
+          "label": "THE FIRST THING I KEPT",
+          "line": "I never picked up after myself in my life. You did it once. I've been keeping things ever since.",
+          "lineCN": "我这辈子没收拾过自己扔下的东西。你替我捡了一次——从那以后，我开始留东西了。",
+          "kind": "AU · 信物"
         },
         {
-          "label": "QUIET AS AN ANT",
-          "line": "Every tough line I've got, I rehearsed it in a mirror. Around you I forget all of them — and that's the only time I sound like anybody.",
-          "lineCN": "我那些狠话，每一句都对着镜子练过。在你面前我全忘了——也只有那时候，我听着才像个人。",
+          "label": "MINE TO SAY",
+          "line": "Nickel's mine to say. Anybody else tries it, we're gonna have a problem.",
+          "lineCN": "五分钱这三个字只有我能叫。别人敢叫，我们就有的谈了。",
+          "kind": "AU · 占有"
+        },
+        {
+          "label": "JUST LOOK AT ME",
+          "line": "You can smile at them. Don't smile at me — just look at me.",
+          "lineCN": "你可以对他们笑。别对我笑——你看着我就行。",
           "kind": "AU · 心碎"
         },
         {
-          "label": "FOOL'S GOLD",
-          "line": "I drove off with a truck full of worthless metal, grinning like an idiot. You were in the seat beside me. Do the math.",
-          "lineCN": "我拉着一车不值钱的废铁开走，还笑得像个傻子。副驾上坐着你。这笔账你自己算。",
-          "kind": "AU · 暗告白"
-        },
-        {
-          "label": "THE ONE THING I WASN'T FAKING",
-          "line": "I couldn't run a con to save my life. But the way he talks to you — the way that made me want to break something — none of that was an act.",
-          "lineCN": "骗人这事我是真不行。可他跟你说话那个腔调——那个让我想砸东西的火——一点都没掺假。",
+          "label": "WORTH BEING CAREFUL WITH",
+          "line": "They all think I'm stupid. Maybe. I just never had anything worth being careful with before.",
+          "lineCN": "他们都觉得我蠢。也许吧。我只是以前从来没有过一样，值得我小心的东西。",
           "kind": "AU · 真心"
         }
       ]
@@ -3260,10 +3260,10 @@
       "text": "#e7ece9",
       "muted": "#7d8e97",
       "auLink": "/WinterSunBlog/series/nickel-and-dime/",
-      "label": "THE WRAPPER",
-      "line": "I drop things behind me and never look back. You're the only one who ever bent down and picked something up.",
-      "lineCN": "我走过的地方总落下点什么，从不回头看。你是唯一一个弯下腰、把它捡起来的人。",
-      "kind": "AU · 暗告白"
+      "label": "THE FIRST THING I KEPT",
+      "line": "I never picked up after myself in my life. You did it once. I've been keeping things ever since.",
+      "lineCN": "我这辈子没收拾过自己扔下的东西。你替我捡了一次——从那以后，我开始留东西了。",
+      "kind": "AU · 信物"
     },
     {
       "charId": "pero",
@@ -4076,10 +4076,10 @@
       "text": "#e7ece9",
       "muted": "#7d8e97",
       "auLink": "/WinterSunBlog/series/nickel-and-dime/",
-      "label": "QUIET AS AN ANT",
-      "line": "Every tough line I've got, I rehearsed it in a mirror. Around you I forget all of them — and that's the only time I sound like anybody.",
-      "lineCN": "我那些狠话，每一句都对着镜子练过。在你面前我全忘了——也只有那时候，我听着才像个人。",
-      "kind": "AU · 心碎"
+      "label": "MINE TO SAY",
+      "line": "Nickel's mine to say. Anybody else tries it, we're gonna have a problem.",
+      "lineCN": "五分钱这三个字只有我能叫。别人敢叫，我们就有的谈了。",
+      "kind": "AU · 占有"
     },
     {
       "charId": "pero",
@@ -4892,10 +4892,10 @@
       "text": "#e7ece9",
       "muted": "#7d8e97",
       "auLink": "/WinterSunBlog/series/nickel-and-dime/",
-      "label": "FOOL'S GOLD",
-      "line": "I drove off with a truck full of worthless metal, grinning like an idiot. You were in the seat beside me. Do the math.",
-      "lineCN": "我拉着一车不值钱的废铁开走，还笑得像个傻子。副驾上坐着你。这笔账你自己算。",
-      "kind": "AU · 暗告白"
+      "label": "JUST LOOK AT ME",
+      "line": "You can smile at them. Don't smile at me — just look at me.",
+      "lineCN": "你可以对他们笑。别对我笑——你看着我就行。",
+      "kind": "AU · 心碎"
     },
     {
       "charId": "pero",
@@ -5708,9 +5708,9 @@
       "text": "#e7ece9",
       "muted": "#7d8e97",
       "auLink": "/WinterSunBlog/series/nickel-and-dime/",
-      "label": "THE ONE THING I WASN'T FAKING",
-      "line": "I couldn't run a con to save my life. But the way he talks to you — the way that made me want to break something — none of that was an act.",
-      "lineCN": "骗人这事我是真不行。可他跟你说话那个腔调——那个让我想砸东西的火——一点都没掺假。",
+      "label": "WORTH BEING CAREFUL WITH",
+      "line": "They all think I'm stupid. Maybe. I just never had anything worth being careful with before.",
+      "lineCN": "他们都觉得我蠢。也许吧。我只是以前从来没有过一样，值得我小心的东西。",
       "kind": "AU · 真心"
     },
     {
