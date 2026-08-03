@@ -13,8 +13,8 @@ summary: "你唱完了那半句，他把手从口袋里拿了出来。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 悸动, 怅惘]
 ---
 
-> 全屋子的人都在跟着唱那一句。
-> 所以没有人发现，
+> 全屋子的人都在跟着唱那一句。  
+> 所以没有人发现，  
 > 那一句是唱给谁的。
 
 ---
@@ -211,8 +211,8 @@ Julian 站在长桌旁边，端着杯子，正温和地看着你，脸上是那�
 
 你知道它要来了。你从第一个音起就知道它要来了。
 
-> *If you want to call me baby, just go ahead now.*
-> *And if you like to tell me maybe, just go ahead now.*
+> *If you want to call me baby, just go ahead now.*  
+> *And if you like to tell me maybe, just go ahead now.*  
 > *And if you want to buy me flowers, just go ahead now.*
 
 屋子里的人跟着一句一句地唱。这一段最好唱，谁都会唱。
@@ -359,10 +359,10 @@ Julian 是过了一会儿才走过来的。
 
 电梯门合上了。
 
-> 你唱错了两个地方。
-> 第二段第三小节你换早了半拍，
+> 你唱错了两个地方。  
+> 第二段第三小节你换早了半拍，  
 > 最后那一下你收得太快。
 >
-> 可你把那一句唱完了。
-> 他在电梯里按着开门键，
+> 可你把那一句唱完了。  
+> 他在电梯里按着开门键，  
 > 只说了三个字。

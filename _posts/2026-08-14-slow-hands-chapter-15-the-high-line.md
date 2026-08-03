@@ -13,7 +13,7 @@ summary: "他说他需要一个能把高的那条线唱住的人。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 安放, 缱绻]
 ---
 
-> 他教你的每一样东西，
+> 他教你的每一样东西，  
 > 都是让你将来不需要他的东西。
 
 ---
@@ -178,12 +178,12 @@ tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 安放, 缱绻]
 
 你听不太清歌词，只抓到几句：
 
-> *There's a train that goes by every eleven minutes.*
-> *I never learned to sleep through it.*
+> *There's a train that goes by every eleven minutes.*  
+> *I never learned to sleep through it.*  
 > *Now I don't want to.*
 >
-> 有一列火车，每十一分钟过一次。
-> 我一直没学会睡过去。
+> 有一列火车，每十一分钟过一次。  
+> 我一直没学会睡过去。  
 > 现在我不想学了。
 
 你的眼睛一下子就热了。
@@ -352,7 +352,7 @@ tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 安放, 缱绻]
 
 “再来一遍。”他说。
 
-> 十二月的那个晚上你数过。
+> 十二月的那个晚上你数过。  
 > 你们唱了三十七遍才对上第六次。
 >
 > 而他说的那句话你记了一辈子——

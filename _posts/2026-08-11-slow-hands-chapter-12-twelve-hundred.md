@@ -13,7 +13,7 @@ summary: "二十年的名字，都写在他最好那个晚上的背面。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 怅惘, 安放]
 ---
 
-> 他说过改天。
+> 他说过改天。  
 > 改天不是不说。
 
 ---
@@ -400,7 +400,7 @@ tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 怅惘, 安放]
 
 他唱得很轻，几乎只有气息，可每一个字都稳，稳得像那双手按在弦上的时候。
 
-> *Marry him, or marry me……*
+> *Marry him, or marry me……*  
 > *I'm the one that loved you baby, can't you see?*
 
 一次唱完。一个字都没有跳过，一次都没有停。
@@ -417,10 +417,10 @@ tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 怅惘, 安放]
 
 “我一直知道。”
 
-> 他印了两千张海报。
-> 贴出去六百，剩下一千四在他家放了二十年。
+> 他印了两千张海报。  
+> 贴出去六百，剩下一千四在他家放了二十年。  
 > 后来有一天他需要纸，就把它们裁了。
 >
-> 二十年来每一个学生的名字，
-> 都写在他最好的那个晚上的背面。
+> 二十年来每一个学生的名字，  
+> 都写在他最好的那个晚上的背面。  
 > 而你的名字在最上面那张。

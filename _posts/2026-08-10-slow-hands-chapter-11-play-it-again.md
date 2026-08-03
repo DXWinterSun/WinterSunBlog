@@ -13,8 +13,8 @@ summary: "他说这次是对的。然后他说，再弹一遍。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 缱绻, 安放]
 ---
 
-> 三次调弦。
-> 第一次是他松开的，第二次是你拧回去的，
+> 三次调弦。  
+> 第一次是他松开的，第二次是你拧回去的，  
 > 第三次，他站在厨房门口看着你调。
 
 ---
@@ -353,10 +353,10 @@ tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 缱绻, 安放]
 
 弹到中段的时候你开始唱。你的声音不亮，气也不太够，可你唱得很稳。
 
-> *I could drink a case of you, darling,*
+> *I could drink a case of you, darling,*  
 > *and I would still be on my feet.*
 >
-> 我可以把你整箱地喝下去，亲爱的。
+> 我可以把你整箱地喝下去，亲爱的。  
 > 我还是站得稳。
 
 ---
@@ -427,11 +427,11 @@ tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 缱绻, 安放]
 
 哼的是这一首。
 
-> 三月的时候他把这首歌弹了两句给你听，
+> 三月的时候他把这首歌弹了两句给你听，  
 > 然后说这个你现在弹不了。
 >
-> 十月的时候你把它弹完了，
-> 弹了七遍。
-> 而他坐在你身后，
-> 把下巴搁在你肩膀上，
+> 十月的时候你把它弹完了，  
+> 弹了七遍。  
+> 而他坐在你身后，  
+> 把下巴搁在你肩膀上，  
 > 一句话都没有再纠正。
