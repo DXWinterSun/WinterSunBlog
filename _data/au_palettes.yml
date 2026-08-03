@@ -577,6 +577,23 @@
   muted_cn: "荒漠尘褐"
   muted_en: "Trail Dust"
 
+"Slow Hands":               # Gary Petrosino · A Case of You · Sam Rockwell · 色卡同源画册 id: garyguitar
+  mf_id: garyguitar          # → Many Faces 画册锚点 /sam/many-faces/#garyguitar
+  theme_id: garyguitar
+  accent: "#7cc94b"
+  accent_ink: "#4a782d"        # accent 暗一档，浅色主题下对比度 5.2:1（绿色偏亮，压得比 0.8 更狠）
+  bg: "#171310"
+  text: "#ede4d3"
+  muted: "#8e897e"
+  accent_cn: "氪石荧光"
+  accent_en: "Kryptonite Glow"
+  bg_cn: "琴箱陈褐"
+  bg_en: "Soundhole Umber"
+  text_cn: "拨片乳白"
+  text_en: "Celluloid Pick"
+  muted_cn: "素圈银灰"
+  muted_en: "Hoop Silver"
+
 "Interoffice":              # Gary O'Hara · Strictly Business · Sam Rockwell · 色卡同源画册 id: gary
   mf_id: gary                # → Many Faces 画册锚点 /sam/many-faces/#gary
   theme_id: gary
