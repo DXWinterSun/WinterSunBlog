@@ -26,37 +26,54 @@ function dayCount() {
   const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
   return Math.floor((today - START) / 86400000) + 1;
 }
-function todayIndex(n) {
+function daysSinceStart() {
   const now = new Date();
   const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
-  const days = Math.round((today - START) / 86400000);
-  return ((days % n) + n) % n;
+  return Math.round((today - START) / 86400000);
+}
+function todayIndex(n) {
+  return ((daysSinceStart() % n) + n) % n;
 }
 
-// 防重复（2026-07 加）：台词册因新增角色按年份「插页」，days%n 顺序走读
-// 会撞上最近读过的句子。用 Scriptable 的 Keychain 记住读过哪些：撞上已读
-// 就往后翻到未读；同一天内保持同一句。逻辑与网站每日一句 / 台词墙一致。
-function dailyPick(pool) {
-  const n = pool.length;
-  const qkey = (q) => q.charId + "|" + q.line;
-  const now = new Date();
-  const p2 = (x) => (x < 10 ? "0" + x : "" + x);
-  const dstr = now.getFullYear() + "." + p2(now.getMonth() + 1) + "." + p2(now.getDate());
-  const KC = "ws-daily-pick";
-  let store = {};
-  try { if (Keychain.contains(KC)) store = JSON.parse(Keychain.get(KC)); } catch (e) {}
-  if (store.date === dstr && store.key) {
-    for (let i = 0; i < n; i++) if (qkey(pool[i]) === store.key) return pool[i];
+// ── 「今日一句」排班：严格轮转（三处同源，改一处要三处一起改）────────
+// N = 角色总数。发牌顺序由 N 确定性洗一次牌得到（不是按年份的流水账），
+// 之后一天一个、周而复始 → 任意连续 N 天里每个角色正好出现一次，
+// 同一个人两次出现的间隔恒为 N 天，谁都不会被冷落、也不会扎堆。
+// 用他第几句台词 = 第几轮 % 5，所以五轮下来他的五句也走匀。
+// 全部由日期算出，不依赖 Keychain 记忆 —— 与网站每日一句 / 台词墙永远一致。
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function rosterOrder(n) {
+  const order = [];
+  for (let i = 0; i < n; i++) order.push(i);
+  const rnd = mulberry32((n * 2654435761) | 0);
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1)), t = order[i];
+    order[i] = order[j]; order[j] = t;
   }
-  let seen = Array.isArray(store.seen) ? store.seen : [];
-  let idx = todayIndex(n), q = pool[idx], hops = 0;
-  while (seen.indexOf(qkey(q)) >= 0 && hops < n) { idx = (idx + 1) % n; q = pool[idx]; hops++; }
-  if (hops >= n) { seen = []; idx = todayIndex(n); q = pool[idx]; }
-  seen.push(qkey(q));
-  const cap = Math.max(60, Math.floor(n * 0.8));
-  if (seen.length > cap) seen = seen.slice(-cap);
-  try { Keychain.set(KC, JSON.stringify({ date: dstr, key: qkey(q), seen: seen })); } catch (e) {}
-  return q;
+  return order;
+}
+function mergeQ(c, q) {
+  return {
+    charId: c.id, name: c.name, film: c.film, filmCN: c.filmCN, year: c.year,
+    accent: c.accent, bg: c.bg, text: c.text, muted: c.muted, auLink: c.auLink,
+    label: q.label, line: q.line, lineCN: q.lineCN, kind: q.kind,
+  };
+}
+function dailyPick(characters) {
+  const n = characters.length;
+  if (!n) return null;
+  const days = daysSinceStart();
+  const cycle = Math.floor(days / n);
+  const c = characters[rosterOrder(n)[days - cycle * n]];
+  const qn = c.quotes.length;
+  return mergeQ(c, c.quotes[((cycle % qn) + qn) % qn]);
 }
 function shade(hex, amt) { // amt<0 变暗
   const h = hex.replace("#", "");
@@ -92,23 +109,16 @@ async function getData() {
 function pickQuote(data) {
   const fromParam = (typeof args !== "undefined" && args.widgetParameter) || "";
   const raw = (PIN || fromParam || "").trim();
-  if (!raw) return { c: dailyPick(data.pool), pinned: false };
+  if (!raw) return { c: dailyPick(data.characters), pinned: false };
 
   const bits = raw.split(":");
   const character = data.characters.find(function (x) { return x.id === bits[0].trim(); });
-  if (!character) return { c: dailyPick(data.pool), pinned: false };
+  if (!character) return { c: dailyPick(data.characters), pinned: false };
 
   const n = parseInt(bits[1], 10);
   const quotes = character.quotes;
   const q = (n >= 1 && n <= quotes.length) ? quotes[n - 1] : quotes[todayIndex(quotes.length)];
-  return {
-    pinned: true,
-    c: {
-      charId: character.id, name: character.name, film: character.film, filmCN: character.filmCN, year: character.year,
-      accent: character.accent, bg: character.bg, text: character.text, muted: character.muted, auLink: character.auLink,
-      label: q.label, line: q.line, lineCN: q.lineCN, kind: q.kind,
-    },
-  };
+  return { pinned: true, c: mergeQ(character, q) };
 }
 
 function paint(w, c, pinned) {

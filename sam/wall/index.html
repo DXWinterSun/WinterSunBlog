@@ -98,37 +98,48 @@ const DISPLAY = "'Playfair Display', serif";
 const GARA = "'Cormorant Garamond', serif";
 const TYPE = "'Special Elite', 'Courier New', monospace";
 
-function todayIndex(n) {
+function daysSinceStart() {
   const d = new Date();
   const start = Date.UTC(2026, 1, 13); // 2026-02-13, the day it began
   const today = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
-  const days = Math.round((today - start) / 86400000);
-  return ((days % n) + n) % n;
+  return Math.round((today - start) / 86400000);
+}
+function todayIndex(n) {
+  return ((daysSinceStart() % n) + n) % n;
 }
 
-// 防重复：pool 因新增角色「插页」会让 days%n 撞上最近读过的句子。
-// 本机记忆（与每日一句页共用 localStorage 键 ws-daily-pick）：撞上已读
-// 就往后翻到未读；同一天内两页显示同一句。同天重复调用幂等。
-function dailyPick(pool) {
-  const n = pool.length;
-  const qkey = (q) => q.charId + "|" + q.line;
-  const d = new Date();
-  const pad2 = (x) => (x < 10 ? "0" + x : "" + x);
-  const dstr = d.getFullYear() + "." + pad2(d.getMonth() + 1) + "." + pad2(d.getDate());
-  let store = {};
-  try { store = JSON.parse(localStorage.getItem("ws-daily-pick") || "{}"); } catch (e) {}
-  if (store.date === dstr && store.key) {
-    for (let i = 0; i < n; i++) if (qkey(pool[i]) === store.key) return pool[i];
+// ── 「今日一句」排班：严格轮转（三处同源，改一处要三处一起改）────────
+// N = 角色总数。发牌顺序由 N 确定性洗一次牌得到（不是按年份的流水账），
+// 之后一天一个、周而复始 → 任意连续 N 天里每个角色正好出现一次，
+// 同一个人两次出现的间隔恒为 N 天，谁都不会被冷落、也不会扎堆。
+// 用他第几句台词 = 第几轮 % 5，所以五轮下来他的五句也走匀。
+// 全部由日期算出，不依赖任何本机记忆 —— 今日页 / 台词墙 / 小组件永远一致。
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function rosterOrder(n) {
+  const order = [];
+  for (let i = 0; i < n; i++) order.push(i);
+  const rnd = mulberry32((n * 2654435761) | 0);
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1)), t = order[i];
+    order[i] = order[j]; order[j] = t;
   }
-  let seen = Array.isArray(store.seen) ? store.seen : [];
-  let idx = todayIndex(n), q = pool[idx], hops = 0;
-  while (seen.indexOf(qkey(q)) >= 0 && hops < n) { idx = (idx + 1) % n; q = pool[idx]; hops++; }
-  if (hops >= n) { seen = []; idx = todayIndex(n); q = pool[idx]; }
-  seen.push(qkey(q));
-  const cap = Math.max(60, Math.floor(n * 0.8));
-  if (seen.length > cap) seen = seen.slice(-cap);
-  try { localStorage.setItem("ws-daily-pick", JSON.stringify({ date: dstr, key: qkey(q), seen: seen })); } catch (e) {}
-  return q;
+  return order;
+}
+function dailyPick(characters) {
+  const n = characters.length;
+  if (!n) return null;
+  const days = daysSinceStart();
+  const cycle = Math.floor(days / n);
+  const c = characters[rosterOrder(n)[days - cycle * n]];
+  const qn = c.quotes.length;
+  return mergeQ(c, c.quotes[((cycle % qn) + qn) % qn]);
 }
 
 // merge a character's meta with one of its quotes → same shape as a pool item
@@ -432,7 +443,7 @@ function App() {
       .then(function (r) { return r.json(); })
       .then(function (d) {
         var chars = d.characters;
-        var todayQ = dailyPick(d.pool);
+        var todayQ = dailyPick(d.characters);
         var params = new URLSearchParams(window.location.search);
         var wantedId = params.get("char");
         var c = (wantedId && chars.find(function (x) { return x.id === wantedId; })) || null;
@@ -456,7 +467,7 @@ function App() {
   if (!data || !activeQuote) return <Centered>正在把他的话一句句取回来……</Centered>;
 
   const pool = data.pool;
-  const todayCharId = dailyPick(pool).charId;
+  const todayCharId = dailyPick(data.characters).charId;
   const selectedChar = data.characters.find(function (c) { return c.id === selectedId; }) || data.characters[0];
   const activeQuoteIdx = selectedChar.quotes.findIndex(function (q) { return q.line === activeQuote.line; });
   const quotePin = selectedChar.id + (activeQuoteIdx >= 0 ? ":" + (activeQuoteIdx + 1) : "");

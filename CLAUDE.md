@@ -331,11 +331,34 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
   （仓库的 Gemfile.lock 是远古版本，别用 bundler；需全局 `gem install jekyll` + 各插件）。
 
 **`sam/lines.json` 要点：**
-- `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。
+- `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。**每日轮换只读它。**
 - `pool`：是 `characters` 的 **5 轮 round-robin 展开**（第 r 轮 = 每个角色第 r 句），
   加人后**从 `characters` 重新生成整个 pool**（脚本：`pool=[entry(chars[i],chars[i].quotes[r]) for r in 0..4 for i in 0..N-1]`），别手插。
+  ⚠️ 2026-08 起 `pool` **已不参与每日选句**，只剩「全部 N 句」的计数与列举用途，但仍要保持同步。
 - `meta.characters_count` / `meta.pool_count` 要一起更新（= N / 5N）。
 - `mf_alias`：仅当角色 id ≠ 画册锚点 id 时才加一条；相同则不用。
+
+### ⚠️ 「今日一句」的排班算法：严格轮转，三处必须字字相同
+
+`sam/today/index.html`、`sam/wall/index.html`、`sam/widget/sam-today.js` 各自内嵌
+一份 `mulberry32` / `rosterOrder` / `dailyPick`，**三份必须完全一致**（只允许
+`var`/`let`/`const` 关键字不同），否则同一天三处会显示不同的句子。
+
+算法：`N` = 角色数；发牌顺序 = 用 `N` 做种子对 `0..N-1` 洗一次牌（Fisher–Yates +
+mulberry32），之后按「离 2026-02-13 的天数」一天发一个，周而复始；用他第几句台词
+= `Math.floor(days / N) % 5`。性质：**任意连续 N 天内每个角色正好出现一次，同一个人
+两次出现的间隔恒为 N 天。** 纯按日期计算，**不准再引入 localStorage / Keychain 之类
+的「本机去重记忆」**——旧版那套 `ws-daily-pick` 记忆正是重复率高的病根（它按「句子」
+去重而不是按「角色」，一旦本机记忆和轮转错位，就会把同一个人的五句连着发出来，
+新加的角色也总被挤到后面）。
+
+改动其中任何一处后，跑这个脚本确认三份仍然同源：
+
+```bash
+python3 tools/check_daily_rotation.py
+```
+
+（加新角色 → N 变了 → 发牌顺序会整体重洗一次，这是预期的；此后照旧人人有份。）
 
 **计数总闸 `_data/sam.yml`：** `faces`（角色数）、`wall_lines`（台词数 = 5×角色数）。
 首页 `sam/index.html` 三张卡的计数从这里读，**改这一个文件，首页三处一起更新**。

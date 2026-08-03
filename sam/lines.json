@@ -1,7 +1,7 @@
 {
   "meta": {
     "start": "2026-02-13",
-    "note": "「今日一句」唯一数据源。今日页/小组件/台词墙共用 pool（按日期取模），台词墙分组展示用 characters。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
+    "note": "「今日一句」唯一数据源。今日页/小组件/台词墙的每日轮换只读 characters（严格轮转：按 N=角色数 洗一次牌定顺序，一天一个，任意连续 N 天每人正好一次；台词序号 = 第几轮 % 5）。pool 只剩「全部 N 句」的计数与列举用途，不再参与每日选句。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
     "characters_count": 51,
     "pool_count": 255,
     "mf_alias": {
