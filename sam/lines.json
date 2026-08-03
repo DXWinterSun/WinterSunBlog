@@ -2,8 +2,8 @@
   "meta": {
     "start": "2026-02-13",
     "note": "「今日一句」唯一数据源。今日页/小组件/台词墙的每日轮换只读 characters（严格轮转：按 N=角色数 洗一次牌定顺序，一天一个，任意连续 N 天每人正好一次；台词序号 = 第几轮 % 5）。pool 只剩「全部 N 句」的计数与列举用途，不再参与每日选句。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-    "characters_count": 51,
-    "pool_count": 255,
+    "characters_count": 52,
+    "pool_count": 260,
     "mf_alias": {
       "johnmoon": "john",
       "sambell": "sam",
@@ -1464,6 +1464,50 @@
       ]
     },
     {
+      "id": "garyguitar",
+      "name": "Gary",
+      "film": "A Case of You",
+      "filmCN": "《关于你》",
+      "year": "2013",
+      "bg": "#171310",
+      "accent": "#7cc94b",
+      "text": "#ede4d3",
+      "muted": "#8e897e",
+      "auLink": null,
+      "quotes": [
+        {
+          "label": "THE G",
+          "line": "You want the G? Sit down, sweetheart — let me show you exactly where it is.",
+          "lineCN": "你想找 G？坐好了，宝贝——我给你指准了它在哪儿。",
+          "kind": "锚"
+        },
+        {
+          "label": "FAME, PUSSY, MONEY",
+          "line": "Fame, pussy, or money — that's why anybody picks up a guitar. You're the first one who made me forget which one I was in it for.",
+          "lineCN": "图名、图女人、还是图钱——抱起吉他的人无非这三样。你是第一个让我忘了自己当初图哪样的人。",
+          "kind": "暗告白"
+        },
+        {
+          "label": "BOTH HANDS",
+          "line": "Fretting hand, picking hand — twenty years of both. Sweetheart, there is nothing about my fingers that isn't practiced.",
+          "lineCN": "按弦的手，拨弦的手，两只都练了二十年。宝贝，我这十根指头，没有一处是生的。",
+          "kind": "情话"
+        },
+        {
+          "label": "SLOW HANDS",
+          "line": "Anybody can go fast. The whole art is knowing when to slow down — and slowing down until you ask me for the next beat.",
+          "lineCN": "谁都会弹快。真正的手艺是知道什么时候慢下来——慢到你自己开口要下一拍。",
+          "kind": "情话"
+        },
+        {
+          "label": "OUT OF TALK",
+          "line": "I have never once in my life run out of things to say. Then you sat down on that amp, and I had to go tune a guitar that was already in tune.",
+          "lineCN": "我这辈子没有一回没话说。直到你在那只音箱上坐下，我只好去调一把根本没跑音的琴。",
+          "kind": "暗告白"
+        }
+      ]
+    },
+    {
       "id": "doug",
       "name": "Doug Varney",
       "film": "Better Living Through Chemistry",
@@ -2786,6 +2830,22 @@
       "kind": "锚"
     },
     {
+      "charId": "garyguitar",
+      "name": "Gary",
+      "film": "A Case of You",
+      "filmCN": "《关于你》",
+      "year": "2013",
+      "accent": "#7cc94b",
+      "bg": "#171310",
+      "text": "#ede4d3",
+      "muted": "#8e897e",
+      "auLink": null,
+      "label": "THE G",
+      "line": "You want the G? Sit down, sweetheart — let me show you exactly where it is.",
+      "lineCN": "你想找 G？坐好了，宝贝——我给你指准了它在哪儿。",
+      "kind": "锚"
+    },
+    {
       "charId": "doug",
       "name": "Doug Varney",
       "film": "Better Living Through Chemistry",
@@ -3599,6 +3659,22 @@
       "label": "POLISH, NOT SELL",
       "line": "Everyone else, I shine up and sell. You — I just want to watch you shine, and keep you.",
       "lineCN": "别人我都是擦亮了卖掉。你——我只想看着你发光，然后把你留下。",
+      "kind": "暗告白"
+    },
+    {
+      "charId": "garyguitar",
+      "name": "Gary",
+      "film": "A Case of You",
+      "filmCN": "《关于你》",
+      "year": "2013",
+      "accent": "#7cc94b",
+      "bg": "#171310",
+      "text": "#ede4d3",
+      "muted": "#8e897e",
+      "auLink": null,
+      "label": "FAME, PUSSY, MONEY",
+      "line": "Fame, pussy, or money — that's why anybody picks up a guitar. You're the first one who made me forget which one I was in it for.",
+      "lineCN": "图名、图女人、还是图钱——抱起吉他的人无非这三样。你是第一个让我忘了自己当初图哪样的人。",
       "kind": "暗告白"
     },
     {
@@ -4418,6 +4494,22 @@
       "kind": "情话"
     },
     {
+      "charId": "garyguitar",
+      "name": "Gary",
+      "film": "A Case of You",
+      "filmCN": "《关于你》",
+      "year": "2013",
+      "accent": "#7cc94b",
+      "bg": "#171310",
+      "text": "#ede4d3",
+      "muted": "#8e897e",
+      "auLink": null,
+      "label": "BOTH HANDS",
+      "line": "Fretting hand, picking hand — twenty years of both. Sweetheart, there is nothing about my fingers that isn't practiced.",
+      "lineCN": "按弦的手，拨弦的手，两只都练了二十年。宝贝，我这十根指头，没有一处是生的。",
+      "kind": "情话"
+    },
+    {
       "charId": "doug",
       "name": "Doug Varney",
       "film": "Better Living Through Chemistry",
@@ -5234,6 +5326,22 @@
       "kind": "情话"
     },
     {
+      "charId": "garyguitar",
+      "name": "Gary",
+      "film": "A Case of You",
+      "filmCN": "《关于你》",
+      "year": "2013",
+      "accent": "#7cc94b",
+      "bg": "#171310",
+      "text": "#ede4d3",
+      "muted": "#8e897e",
+      "auLink": null,
+      "label": "SLOW HANDS",
+      "line": "Anybody can go fast. The whole art is knowing when to slow down — and slowing down until you ask me for the next beat.",
+      "lineCN": "谁都会弹快。真正的手艺是知道什么时候慢下来——慢到你自己开口要下一拍。",
+      "kind": "情话"
+    },
+    {
       "charId": "doug",
       "name": "Doug Varney",
       "film": "Better Living Through Chemistry",
@@ -6047,6 +6155,22 @@
       "label": "UNDER THE SUIT",
       "line": "They buy the suit, the tie, the smile. You're the only one I let see the man who takes them off at night.",
       "lineCN": "他们买的是那身西装、领巾、笑容。只有你，我肯让你看见夜里把它们一件件卸下的那个人。",
+      "kind": "暗告白"
+    },
+    {
+      "charId": "garyguitar",
+      "name": "Gary",
+      "film": "A Case of You",
+      "filmCN": "《关于你》",
+      "year": "2013",
+      "accent": "#7cc94b",
+      "bg": "#171310",
+      "text": "#ede4d3",
+      "muted": "#8e897e",
+      "auLink": null,
+      "label": "OUT OF TALK",
+      "line": "I have never once in my life run out of things to say. Then you sat down on that amp, and I had to go tune a guitar that was already in tune.",
+      "lineCN": "我这辈子没有一回没话说。直到你在那只音箱上坐下，我只好去调一把根本没跑音的琴。",
       "kind": "暗告白"
     },
     {

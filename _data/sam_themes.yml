@@ -559,6 +559,23 @@
   text: "#e4efe9"
   muted: "#7d9a8c"
 
+- id: garyguitar
+  year: 2013
+  name: "Gary"
+  anchor: garyguitar
+  cn: 氪石荧光
+  en: Kryptonite Glow
+  bg_cn: 琴箱陈褐
+  bg_en: Soundhole Umber
+  text_cn: 拨片乳白
+  text_en: Celluloid Pick
+  muted_cn: 素圈银灰
+  muted_en: Hoop Silver
+  accent: "#7cc94b"
+  bg: "#171310"
+  text: "#ede4d3"
+  muted: "#8e897e"
+
 - id: varney
   year: 2014
   name: "Doug Varney"

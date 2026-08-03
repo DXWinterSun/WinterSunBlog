@@ -219,6 +219,12 @@ const CHARS = [
     bg:"#0f1613", accent:"#2ea86a", text:"#e4efe9", muted:"#7d9a8c",
     profile:{guile:9,forbear:7,chaos:2,raw:2,romance:7,grace:9},
     auLink:"/WinterSunBlog/series/the-making-of-you/" },
+  { id:"garyguitar", name:"Gary", film:"A Case of You", filmCN:"《关于你》", year:"2013",
+    tagline:"满嘴没一句正经，可那十根指头一落到弦上——你才明白他刚才说的每一句荤话，可能都是真的。",
+    line:"You want the G? Sit down, sweetheart — let me show you exactly where it is.", lineCN:"你想找 G？坐好了，宝贝——我给你指准了它在哪儿。",
+    bg:"#171310", accent:"#7cc94b", text:"#ede4d3", muted:"#8e897e",
+    profile:{guile:4,forbear:1,chaos:8,raw:8,romance:7,grace:5},
+    auLink:null },
   { id:"doug", name:"Doug Varney", film:"Better Living Through Chemistry", filmCN:"《毒醉心迷》", year:"2014",
     tagline:"他规矩了一辈子，直到他遇见你才决定不规矩了。",
     line:"Spent my whole life behind that counter. You made me feel alive.", lineCN:"我这辈子都困在柜台后面——是你，让我觉得自己还活着。",
@@ -803,7 +809,7 @@ function Intro({ onStart, palette, onShuffle }) {
           display:"flex", alignItems:"baseline", justifyContent:"center", gap:20,
           margin:"0 0 6px"
         }}>
-          {[["51","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
+          {[["52","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
             <React.Fragment key={i}>
               {i>0 && <span style={{width:1, height:26, background:p.muted, opacity:0.3}}/>}
               <span style={{display:"flex", flexDirection:"column", alignItems:"center", gap:2}}>
