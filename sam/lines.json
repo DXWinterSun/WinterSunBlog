@@ -1500,9 +1500,9 @@
           "kind": "情话"
         },
         {
-          "label": "OUT OF TALK",
-          "line": "I have never once in my life run out of things to say. Then you sat down on that amp, and I had to go tune a guitar that was already in tune.",
-          "lineCN": "我这辈子没有一回没话说。直到你在那只音箱上坐下，我只好去调一把根本没跑音的琴。",
+          "label": "JUST GO AHEAD NOW",
+          "line": "There's a song from '93 I've been humming for twenty years. I get to the part that matters and I stop. One of these days I'll let you hear the whole thing.",
+          "lineCN": "有一首九三年的歌，我哼了二十年。每次哼到最要紧的那句就停下来。总有一天，我让你听完整的。",
           "kind": "暗告白"
         }
       ]
@@ -6168,9 +6168,9 @@
       "text": "#ede4d3",
       "muted": "#8e897e",
       "auLink": null,
-      "label": "OUT OF TALK",
-      "line": "I have never once in my life run out of things to say. Then you sat down on that amp, and I had to go tune a guitar that was already in tune.",
-      "lineCN": "我这辈子没有一回没话说。直到你在那只音箱上坐下，我只好去调一把根本没跑音的琴。",
+      "label": "JUST GO AHEAD NOW",
+      "line": "There's a song from '93 I've been humming for twenty years. I get to the part that matters and I stop. One of these days I'll let you hear the whole thing.",
+      "lineCN": "有一首九三年的歌，我哼了二十年。每次哼到最要紧的那句就停下来。总有一天，我让你听完整的。",
       "kind": "暗告白"
     },
     {
