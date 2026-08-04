@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 15 · 你该给我礼物了 — You Are My Fact"
 date: 2026-05-31
 image: you-are-my-fact.jpg
-tags: [Leonard Shelby, Guy Pearce, AU, You Are My Fact, 思念, 缱绻]
+tags: [Leonard Shelby, Guy Pearce, AU, You Are My Fact, 缱绻, 思念]
 categories: ["AU Story"]
 series: "You Are My Fact"
 series_title: "You Are My Fact · Leonard Shelby AU"
