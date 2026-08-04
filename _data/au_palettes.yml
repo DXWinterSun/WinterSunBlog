@@ -644,3 +644,20 @@
   text_en: "Morning Dew"
   muted_cn: "木篱旧褐"
   muted_en: "Fence-Post Brown"
+
+"I Missed You on Purpose":   # Jerry · Jerry and Tom · Sam Rockwell · 色卡同源画册 id: jerry
+  mf_id: jerry                # → Many Faces 画册锚点 /sam/many-faces/#jerry
+  theme_id: jerry
+  accent: "#e08f2e"
+  accent_ink: "#b37225"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#20120c"
+  text: "#f0e0d0"
+  muted: "#a07060"
+  accent_cn: "金毛薯条橙"
+  accent_en: "Fry Basket Orange"
+  bg_cn: "深夜快餐棕"
+  bg_en: "Late-Night Diner"
+  text_cn: "卡座餐纸白"
+  text_en: "Diner-Napkin White"
+  muted_cn: "二手车暗红"
+  muted_en: "Used-Car Maroon"
