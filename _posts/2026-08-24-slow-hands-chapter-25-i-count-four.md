@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 24 · 我数四拍 — Slow Hands"
+title: "Chapter 25 · 我数四拍 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-23
+date: 2026-08-24
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 24
+series_order: 25
 series_type: "Series"
-chapter_type: "Chapter 24"
+chapter_type: "Chapter 25"
 summary: "他说你憋得住的，我知道你憋得住。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 炽恋, 缱绻]
 ---

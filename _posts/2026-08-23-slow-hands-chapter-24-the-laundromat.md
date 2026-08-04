@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 23 · 洗衣房 — Slow Hands"
+title: "Chapter 24 · 洗衣房 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-22
+date: 2026-08-23
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 23
+series_order: 24
 series_type: "Series"
-chapter_type: "Chapter 23"
+chapter_type: "Chapter 24"
 summary: "他在电话里只说了两个字：洗衣房。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 安放, 怀旧]
 ---

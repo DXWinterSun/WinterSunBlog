@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 21 · 你说 — Slow Hands"
+title: "Chapter 22 · 你说 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-20
+date: 2026-08-21
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 21
+series_order: 22
 series_type: "Series"
-chapter_type: "Chapter 21"
+chapter_type: "Chapter 22"
 summary: "那九个字他写了三次才写完，最长停了十一秒。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 炽恋, 安放]
 ---

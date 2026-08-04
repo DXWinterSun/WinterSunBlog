@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 16 · Slow Hands — Slow Hands"
+title: "Chapter 17 · Slow Hands — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-15
+date: 2026-08-16
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 16
+series_order: 17
 series_type: "Series"
-chapter_type: "Chapter 16"
+chapter_type: "Chapter 17"
 summary: "那句骂他的话他背了二十年，现在成了名字。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 安放, 怀旧]
 ---

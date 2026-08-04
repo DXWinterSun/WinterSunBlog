@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 22 · 半个衣柜 — Slow Hands"
+title: "Chapter 23 · 半个衣柜 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-21
+date: 2026-08-22
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 22
+series_order: 23
 series_type: "Series"
-chapter_type: "Chapter 22"
+chapter_type: "Chapter 23"
 summary: "二十七张付过钱的存根，和三十几张空的。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 缱绻, 安放]
 ---
@@ -83,6 +83,28 @@ tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 缱绻, 安放]
 “那个我另外挂着。”
 
 （后来你在衣柜最里面找到了它。挂在一个单独的塑料套里，套子是新的。那是他去年九月为了去你们社里那场送别会翻出来熨的那一件。）
+
+---
+
+（胸口那个口袋里还有东西。）
+
+（你把它抠出来的时候手指有点发抖——一张纸质的临时访客卡，塑料膜已经卷边了，正面印着你们社的标志和一行打印的字：`GARY PETROSINO / GUEST`。）
+
+（他跟前台说过谢谢，然后把它带走了。他带了将近一年。）
+
+（背面有一行字。他那手难看得要死的字，写得很用力，压出了印子：）
+
+> **9/27 — 5:47 PM**
+
+（精确到分钟。）
+
+（那天晚上你坐在衣柜前面的地板上，把手机拿出来，翻到那天实习生发在群里的那一段视频。你把它从头放了一遍，看着进度条，等着自己抬起眼睛的那一下。）
+
+（五点四十七分。）
+
+（他不在屋子里。可他把那一分钟记下来了。）
+
+（你没有去问他。你把卡放回了那个口袋，把塑料套挂回衣柜最里面，然后在地板上坐了很久。）
 
 ## 你东西本来就少
 

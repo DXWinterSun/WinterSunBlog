@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 15 · 高的那条线 — Slow Hands"
+title: "Chapter 16 · 高的那条线 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-14
+date: 2026-08-15
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 15
+series_order: 16
 series_type: "Series"
-chapter_type: "Chapter 15"
+chapter_type: "Chapter 16"
 summary: "他说他需要一个能把高的那条线唱住的人。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 安放, 缱绻]
 ---

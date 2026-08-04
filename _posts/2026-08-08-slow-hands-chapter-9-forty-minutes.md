@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 8 · 四十分钟到了 — Slow Hands"
+title: "Chapter 9 · 四十分钟到了 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-07
+date: 2026-08-08
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 8
+series_order: 9
 series_type: "Series"
-chapter_type: "Chapter 8"
+chapter_type: "Chapter 9"
 summary: "你问他为什么不现场示范一下，节拍器还在响。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 暗涌, 悸动]
 ---

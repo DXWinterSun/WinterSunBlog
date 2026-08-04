@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 13 · The Slow One — Slow Hands"
+title: "Chapter 14 · The Slow One — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-12
+date: 2026-08-13
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 13
+series_order: 14
 series_type: "Series"
-chapter_type: "Chapter 13"
+chapter_type: "Chapter 14"
 summary: "那首歌没有名字，他们管它叫慢的那首。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 缱绻, 安放]
 ---

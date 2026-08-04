@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 17 · 星期二夜 — Slow Hands"
+title: "Chapter 18 · 星期二夜 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-16
+date: 2026-08-17
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 17
+series_order: 18
 series_type: "Series"
-chapter_type: "Chapter 17"
+chapter_type: "Chapter 18"
 summary: "台下有个女人说，她九三年在 Wetlands 见过他。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 悸动, 暗涌]
 ---

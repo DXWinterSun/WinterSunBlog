@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 19 · 开口 — Slow Hands"
+title: "Chapter 20 · 开口 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-18
+date: 2026-08-19
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 19
+series_order: 20
 series_type: "Series"
-chapter_type: "Chapter 19"
+chapter_type: "Chapter 20"
 summary: "那个老头说，我留下来是看你会不会开口。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 安放, 悸动]
 ---

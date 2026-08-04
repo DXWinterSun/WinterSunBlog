@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 14 · 我不用猜 — Slow Hands"
+title: "Chapter 15 · 我不用猜 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-13
+date: 2026-08-14
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 14
+series_order: 15
 series_type: "Series"
-chapter_type: "Chapter 14"
+chapter_type: "Chapter 15"
 summary: "他说别的男人在猜，而他不用猜，他听。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 炽恋, 缱绻]
 ---

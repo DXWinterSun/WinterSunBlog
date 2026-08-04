@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 10 · 下周三 — Slow Hands"
+title: "Chapter 11 · 下周三 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-09
+date: 2026-08-10
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 10
+series_order: 11
 series_type: "Series"
-chapter_type: "Chapter 10"
+chapter_type: "Chapter 11"
 summary: "你说他还欠你一个示范，他闭了一下眼睛。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 炽恋, 缱绻]
 ---
@@ -24,6 +24,12 @@ tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 炽恋, 缱绻]
 星期一你想了一整天。
 
 理由是站不住的。你会弹了，你出师了，那首歌你已经在一屋子人面前弹完了。吉他课这件事有始有终，结清了，收据你有一摞，最后一张上写着九月最后一个星期三。
+
+而且他走了。
+
+星期五那天他站在那间屋子的最后一排，听你弹到一半，然后走了，一句话都没有留。整个周末你把那半小时拆成一帧一帧看了不下二十遍，找自己哪儿做错了——找到了七八个，每一个都能成立，每一个都不足以让一个人一声不吭地走掉。
+
+一个不想再见你的人，是不会想再见你的。这个道理不用改稿子的人也懂。
 
 你甚至认真地搜了一下——学生结课以后还去老师家，算什么。
 

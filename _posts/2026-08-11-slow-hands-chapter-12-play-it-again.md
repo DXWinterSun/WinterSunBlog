@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 11 · 再弹一遍 — Slow Hands"
+title: "Chapter 12 · 再弹一遍 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-10
+date: 2026-08-11
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 11
+series_order: 12
 series_type: "Series"
-chapter_type: "Chapter 11"
+chapter_type: "Chapter 12"
 summary: "他说这次是对的。然后他说，再弹一遍。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 缱绻, 安放]
 ---

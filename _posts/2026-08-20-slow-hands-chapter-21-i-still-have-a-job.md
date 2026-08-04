@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 20 · 我还得上班 — Slow Hands"
+title: "Chapter 21 · 我还得上班 — Slow Hands"
 categories: ["AU Story"]
-date: 2026-08-19
+date: 2026-08-20
 image: gary-petrosino-au.png
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
-series_order: 20
+series_order: 21
 series_type: "Series"
-chapter_type: "Chapter 20"
+chapter_type: "Chapter 21"
 summary: "账上有五个月是空的，所以你还得上班。"
 tags: [Gary Petrosino, Sam Rockwell, AU, Slow Hands, 安放, 絮语]
 ---
@@ -432,7 +432,7 @@ Marty 把纸拿过去，看了一眼，“嗯”了一声。
 
 他记的就是这个。
 
-他不知道那首歌是九三年的。不知道有人为它哼了二十年。不知道那半句“嫁他，还是嫁我”是唱给最后一排一个靠着书架站着的男人听的。不知道那天晚上那个男人穿了一件压在箱底、临时熨过的衬衫。
+他不知道那首歌是九三年的。不知道有人为它哼了二十年。不知道那半句“嫁他，还是嫁我”是唱给最后一排一个空掉的位置的。不知道那个位置上原来站着一个穿了压箱底衬衫的男人，也不知道他为什么在那一句之前走掉了。
 
 他到最后都不知道。
 
