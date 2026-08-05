@@ -181,6 +181,19 @@
       "wish": 0,
       "id": "msg86rfz-1fcmi",
       "added": 1785942726767
+    },
+    {
+      "name": "签名海报",
+      "type": "goods",
+      "spec": "签名海报",
+      "charId": "klenz",
+      "date": "",
+      "note": "",
+      "nas": 0,
+      "signed": 1,
+      "wish": 0,
+      "id": "msg87ezx-dj4oz",
+      "added": 1785942757293
     }
   ]
 }
