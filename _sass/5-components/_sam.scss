@@ -750,6 +750,85 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   transition: color $global-transition;
 }
 
+/* ————— 彩蛋画砖：每个互动彩蛋一块深色小灯箱 + 专属手绘图案 ————— */
+.c-sam-toy__art {
+  position: relative;
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 72% 22%, rgba(230, 195, 119, 0.10), transparent 58%),
+    #191411;
+  box-shadow: inset 0 0 0 1px rgba(230, 195, 119, 0.10);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease;
+
+  svg { position: absolute; inset: 6px; width: 52px; height: 52px; }
+}
+
+.c-sam-toy__num {
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(232, 220, 198, 0.38);
+}
+
+.c-sam-toy:hover .c-sam-toy__art {
+  box-shadow: inset 0 0 0 1px rgba(230, 195, 119, 0.35), 0 6px 18px -8px rgba(0, 0, 0, 0.5);
+}
+
+/* 图案小动画：默认静止，悬停时各演各的一小段 */
+.c-sam-toy__art--faces {
+  .sam-art-card { transform-box: view-box; transform-origin: 50% 88%; transition: transform 0.3s ease; }
+  .sam-art-card--l { transform: rotate(-14deg) translateX(-2px); }
+  .sam-art-card--r { transform: rotate(14deg) translateX(2px); }
+}
+.c-sam-toy:hover .c-sam-toy__art--faces {
+  .sam-art-card--l { transform: rotate(-22deg) translateX(-4px); }
+  .sam-art-card--r { transform: rotate(22deg) translateX(4px); }
+}
+
+.c-sam-toy:hover .c-sam-toy__art--today {
+  .sam-art-sun { animation: samArtSunrise 0.6s ease; }
+  .sam-art-ray { animation: samArtBlink 1.2s ease infinite; }
+}
+.c-sam-toy:hover .c-sam-toy__art--quiz .sam-art-check {
+  stroke-dasharray: 14;
+  animation: samArtDraw 0.5s ease forwards;
+}
+.c-sam-toy:hover .c-sam-toy__art--spectrum .sam-art-radar {
+  transform-box: view-box; transform-origin: 50% 50%;
+  animation: samArtPulse 1.4s ease-in-out infinite;
+}
+.c-sam-toy:hover .c-sam-toy__art--wall .sam-art-sign {
+  stroke-dasharray: 46;
+  animation: samArtDraw 0.9s ease forwards;
+}
+.c-sam-toy:hover .c-sam-toy__art--projector .sam-art-frames {
+  animation: samArtReel 1.1s linear infinite;
+}
+.c-sam-toy:hover .c-sam-toy__art--shelf {
+  .sam-art-star { transform-box: view-box; transform-origin: center; animation: samArtTwinkle 1s ease-in-out infinite; }
+  .sam-art-disc { transform-box: view-box; transform-origin: 15.5px 27.5px; animation: samArtSpin 2.4s linear infinite; }
+}
+
+@keyframes samArtSunrise { from { transform: translateY(4px); opacity: 0.3; } to { transform: none; opacity: 1; } }
+@keyframes samArtBlink { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.25; } }
+@keyframes samArtDraw { from { stroke-dashoffset: 46; } to { stroke-dashoffset: 0; } }
+@keyframes samArtPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(0.88); } }
+@keyframes samArtReel { from { transform: translateY(0); } to { transform: translateY(-11.5px); } }
+@keyframes samArtTwinkle { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.55); opacity: 0.5; } }
+@keyframes samArtSpin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-sam-toy:hover .c-sam-toy__art * { animation: none !important; }
+}
+
 .c-sam-toy__body {
   display: flex;
   flex-direction: column;
