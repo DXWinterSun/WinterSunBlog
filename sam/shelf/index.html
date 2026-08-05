@@ -544,8 +544,8 @@
   <div class="sheet" role="dialog" aria-modal="true" aria-label="添加或编辑藏品">
     <h2 id="sheet-title">添加一件藏品</h2>
 
-    <label class="f-label" for="f-name">它叫什么</label>
-    <input class="f-input" id="f-name" type="text" placeholder="例：《月球》蓝光 / Topps 签名卡…" maxlength="80">
+    <label class="f-label" for="f-name">它叫什么 <small id="f-name-hint"></small></label>
+    <input class="f-input" id="f-name" type="text" placeholder="" maxlength="80">
 
     <label class="f-label">它是哪一类</label>
     <div class="types" id="f-types"></div>
@@ -1014,6 +1014,31 @@
     $("f-nas-row").style.display = isDisc ? "flex" : "none";
     $("f-fmt-row").style.display = isDisc ? "flex" : "none";
     $("f-region-row").style.display = isDisc ? "flex" : "none";
+    updateNameHint();
+  }
+
+  /* 碟片不用起名：选了角色就自动用电影名 */
+  function autoDiscName() {
+    var c = charById[$("f-char").value];
+    if (!c) return "";
+    return c.filmCN || ("《" + c.film + "》");
+  }
+  function updateNameHint() {
+    var hint = $("f-name-hint");
+    var input = $("f-name");
+    if (formType === "disc") {
+      var auto = autoDiscName();
+      if (auto) {
+        hint.textContent = "（可不填 · 不填就叫「" + auto + "」）";
+        input.placeholder = auto + "（自动用电影名，想改再填）";
+      } else {
+        hint.textContent = "（可不填 · 选了关联角色就自动用电影名）";
+        input.placeholder = "例：《月球》蓝光…";
+      }
+    } else {
+      hint.textContent = "";
+      input.placeholder = "例：Topps 签名卡 / 亚克力立牌…";
+    }
   }
 
   /* ————— 碟片的制式 / 版本点选（单选可取消，落进 spec 字符串） ————— */
@@ -1096,6 +1121,7 @@
   function closeSheet() { $("overlay").classList.remove("is-on"); editingId = null; }
 
   $("add-btn").addEventListener("click", function () { openSheet(null); });
+  $("f-char").addEventListener("change", updateNameHint);
   $("btn-cancel").addEventListener("click", closeSheet);
   $("overlay").addEventListener("click", function (e) { if (e.target === $("overlay")) closeSheet(); });
   document.addEventListener("keydown", function (e) {
@@ -1106,7 +1132,12 @@
 
   $("btn-save").addEventListener("click", function () {
     var name = $("f-name").value.trim();
-    if (!name) { $("f-name").focus(); $("f-name").placeholder = "先给它起个名字呀"; return; }
+    if (!name && formType === "disc") name = autoDiscName();
+    if (!name) {
+      toast(formType === "disc" ? "选一个关联角色，或给它起个名字～" : "先给它起个名字呀");
+      $("f-name").focus();
+      return;
+    }
     var data = {
       name: name,
       type: formType,
