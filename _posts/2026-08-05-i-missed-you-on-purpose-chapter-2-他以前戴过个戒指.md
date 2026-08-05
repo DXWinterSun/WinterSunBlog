@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Missed You on Purpose"
 series_title: "I Missed You on Purpose · Jerry AU"
 series_order: 2
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 2"
 summary: "他说以前戴过个戒指。你信了，还替他难过了一下。"

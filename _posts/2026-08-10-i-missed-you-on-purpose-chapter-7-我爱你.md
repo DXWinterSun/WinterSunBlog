@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Missed You on Purpose"
 series_title: "I Missed You on Purpose · Jerry AU"
 series_order: 7
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 7"
 summary: "午夜钟声一响你就说了。他一个字也说不出来。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Missed You on Purpose"
 series_title: "I Missed You on Purpose · Jerry AU"
 series_order: 6
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 6"
 summary: "翻到他那面。她本来是三个礼拜内要办完的一单活。"
@@ -39,7 +39,7 @@ Winter Lark。二十四岁。Blue Star 深夜餐馆。晚十一点到早七点�
 
 Tom 也停下来看了他一眼，那是纯粹的困惑，不是警觉——就好像他徒弟忽然问他一辆车为什么有四个轮子。
 
-“不知道。”Tom 说，“上头给的名字。”
+“不知道。”Tom 说，“Billy 给的名字。”
 
 “哦。”
 
@@ -107,7 +107,9 @@ Tom 也停下来看了他一眼，那是纯粹的困惑，不是警觉——就�
 
 然后他想：*超就超了。*
 
-Tom 什么也没说。上头也什么都没催。他们那行，一单活拖一个月太正常了——要等时机，要等天气，要等目标松懈。
+Tom 什么也没说。Billy 也没催。
+
+他们这行统共就这么几个人：Billy，Vic，Tom，他。两个坐在办公室椅子上起身都费劲的老家伙，加一个师傅一个徒弟。没有名册，没有规矩手册，没有谁会打电话来催进度。一单活拖一个月太正常了——要等时机，要等天气，要等目标松懈。
 
 没有人会问他为什么拖着。
 

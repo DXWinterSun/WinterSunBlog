@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Missed You on Purpose"
 series_title: "I Missed You on Purpose · Jerry AU"
 series_order: 4
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 4"
 summary: "他从不过夜。你问了一次，他给的理由好得让你更爱他。"
