@@ -396,6 +396,8 @@
   .f-input:focus, .f-select:focus, .f-area:focus { outline: none; border-color: rgba(230,190,110,.6); }
   .f-area { min-height: 64px; resize: vertical; line-height: 1.8; }
   .types { display: flex; flex-wrap: wrap; gap: 7px; }
+  .spec-chips { margin-bottom: 8px; }
+  .spec-chips .t-chip { padding: 6px 12px; font-size: 12px; }
   .t-chip {
     padding: 7px 13px; border-radius: 999px; cursor: pointer;
     border: 1px solid rgba(255,222,180,.16); background: #0f0b07;
@@ -548,8 +550,10 @@
     <label class="f-label">它是哪一类</label>
     <div class="types" id="f-types"></div>
 
-    <label class="f-label" for="f-spec">版本 / 规格 <small>（可不填）</small></label>
-    <input class="f-input" id="f-spec" type="text" placeholder="例：蓝光 / DVD / 4K / 铁盒版 / 2 of 5…" maxlength="40">
+    <label class="f-label" for="f-spec">版本 / 规格 <small>（可不填 · 点一下选中，再点取消）</small></label>
+    <div class="types spec-chips" id="f-fmt-row" style="display:none"></div>
+    <div class="types spec-chips" id="f-region-row" style="display:none"></div>
+    <input class="f-input" id="f-spec" type="text" placeholder="其它补充：铁盒版 / 2 of 5…" maxlength="40">
 
     <label class="f-label" for="f-char">关联角色 <small>（可不填 · 选了会点亮画册地图）</small></label>
     <select class="f-select" id="f-char"><option value="">— 不关联某个角色 —</option></select>
@@ -1005,8 +1009,67 @@
     tWrap.querySelectorAll(".t-chip").forEach(function (x) {
       x.classList.toggle("is-on", x.dataset.type === id);
     });
-    /* 「导进 NAS」只对碟片有意义 */
-    $("f-nas-row").style.display = (id === "disc") ? "flex" : "none";
+    /* 「导进 NAS」与制式 / 版本点选只对碟片有意义 */
+    var isDisc = (id === "disc");
+    $("f-nas-row").style.display = isDisc ? "flex" : "none";
+    $("f-fmt-row").style.display = isDisc ? "flex" : "none";
+    $("f-region-row").style.display = isDisc ? "flex" : "none";
+  }
+
+  /* ————— 碟片的制式 / 版本点选（单选可取消，落进 spec 字符串） ————— */
+  var FMTS = ["蓝光", "DVD", "4K UHD"];
+  var REGIONS = ["美版", "英版", "日版", "港版", "台版", "国版"];
+  var specFmt = "", specRegion = "";
+
+  function buildSpecChips(wrapId, values, getter, setter) {
+    var wrap = $(wrapId);
+    values.forEach(function (v) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "t-chip";
+      b.dataset.val = v;
+      b.textContent = v;
+      b.addEventListener("click", function () {
+        setter(getter() === v ? "" : v);
+        syncSpecChips();
+      });
+      wrap.appendChild(b);
+    });
+  }
+  function syncSpecChips() {
+    $("f-fmt-row").querySelectorAll(".t-chip").forEach(function (x) {
+      x.classList.toggle("is-on", x.dataset.val === specFmt);
+    });
+    $("f-region-row").querySelectorAll(".t-chip").forEach(function (x) {
+      x.classList.toggle("is-on", x.dataset.val === specRegion);
+    });
+  }
+  buildSpecChips("f-fmt-row", FMTS,
+    function () { return specFmt; }, function (v) { specFmt = v; });
+  buildSpecChips("f-region-row", REGIONS,
+    function () { return specRegion; }, function (v) { specRegion = v; });
+
+  /* 把已有的 spec 字符串拆回「制式 / 版本 / 其它」（兼容旧数据「蓝光」「DVD」等） */
+  function parseSpec(spec) {
+    var fmt = "", region = "", rest = [];
+    String(spec || "").split("·").forEach(function (raw) {
+      var tok = raw.trim();
+      if (!tok) return;
+      if (!fmt && FMTS.indexOf(tok) >= 0) fmt = tok;
+      else if (!region && REGIONS.indexOf(tok) >= 0) region = tok;
+      else rest.push(tok);
+    });
+    return { fmt: fmt, region: region, rest: rest.join(" · ") };
+  }
+  function composeSpec() {
+    var parts = [];
+    if (formType === "disc") {
+      if (specFmt) parts.push(specFmt);
+      if (specRegion) parts.push(specRegion);
+    }
+    var extra = $("f-spec").value.trim();
+    if (extra) parts.push(extra);
+    return parts.join(" · ");
   }
 
   function openSheet(id, presetChar) {
@@ -1014,7 +1077,10 @@
     var it = id ? items.find(function (x) { return x.id === id; }) : null;
     $("sheet-title").textContent = it ? "改一改这件藏品" : "添加一件藏品";
     $("f-name").value = it ? it.name : "";
-    $("f-spec").value = it ? (it.spec || "") : "";
+    var sp = parseSpec(it ? it.spec : "");
+    specFmt = sp.fmt; specRegion = sp.region;
+    syncSpecChips();
+    $("f-spec").value = sp.rest;
     $("f-char").value = it ? (it.charId || "") : (presetChar || "");
     $("f-date").value = it ? (it.date || "") : "";
     $("f-note").value = it ? (it.note || "") : "";
@@ -1044,7 +1110,7 @@
     var data = {
       name: name,
       type: formType,
-      spec: $("f-spec").value.trim(),
+      spec: composeSpec(),
       charId: $("f-char").value,
       date: $("f-date").value,
       note: $("f-note").value.trim(),
