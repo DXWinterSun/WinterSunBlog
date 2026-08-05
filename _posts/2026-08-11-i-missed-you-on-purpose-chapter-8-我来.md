@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Missed You on Purpose"
 series_title: "I Missed You on Purpose · Jerry AU"
 series_order: 8
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 8"
 summary: "他去找 Tom 探口风。Tom 很和气地说：你下不去手，我去。"

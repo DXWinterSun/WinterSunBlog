@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Missed You on Purpose"
 series_title: "I Missed You on Purpose · Jerry AU"
 series_order: 11
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 11"
 summary: "你放他进来，给他裹上被子，然后哭着问他为什么不回家。"

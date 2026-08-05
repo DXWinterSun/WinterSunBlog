@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Missed You on Purpose"
 series_title: "I Missed You on Purpose · Jerry AU"
 series_order: 13
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 13"
 summary: "他第一次用了那把钥匙。他说：有人要杀你，现在就走。"

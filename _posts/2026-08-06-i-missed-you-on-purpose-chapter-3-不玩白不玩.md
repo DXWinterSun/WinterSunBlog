@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Missed You on Purpose"
 series_title: "I Missed You on Purpose · Jerry AU"
 series_order: 3
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 3"
 summary: "暖气坏了。他说他在你旁边你就不冷了。你信了。"

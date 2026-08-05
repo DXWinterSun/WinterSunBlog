@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Missed You on Purpose"
 series_title: "I Missed You on Purpose · Jerry AU"
 series_order: 10
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 10"
 summary: "你手里握着他的戒指。他说不管怎么样，你不能离开我。"
