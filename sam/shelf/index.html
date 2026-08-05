@@ -236,8 +236,8 @@
   .mslot {
     position: relative; cursor: pointer; text-align: center;
     border-radius: 6px; padding: 10px 6px 9px;
-    border: 1px dashed rgba(255,222,180,.13);
-    background: #120e0a;
+    border: 1px dashed rgba(255,222,180,.22);
+    background: #17120c;
     transition: transform .15s ease, box-shadow .25s ease;
   }
   .mslot:hover { transform: translateY(-2px); }
@@ -251,11 +251,17 @@
     font-family: 'Playfair Display', serif; font-weight: 700;
     font-size: 11.5px; line-height: 1.3; color: #f4ecdd; word-break: break-word;
   }
-  .mslot:not(.mslot--got) .mslot__name { color: #57492f9e; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; }
+  .mslot:not(.mslot--got) .mslot__name { color: #b5a179; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; }
+  .mslot__film {
+    display: block; margin-top: 3px;
+    font-weight: 300; font-size: 9.5px; letter-spacing: .5px;
+    color: #8a7558; line-height: 1.4;
+  }
+  .mslot--got .mslot__film { color: rgba(236,225,208,.82); }
   .mslot__year {
-    display: block; margin-top: 4px;
+    display: block; margin-top: 3px;
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 8px; letter-spacing: 2px; color: #6d5f4c;
+    font-size: 8px; letter-spacing: 2px; color: #857050;
   }
   .mslot__n {
     position: absolute; top: 5px; right: 6px;
@@ -803,8 +809,9 @@
         if (n) { d.style.setProperty("--a", c.accent); d.style.setProperty("--b", c.bg); }
         d.setAttribute("aria-label", c.name + (n ? "（有 " + n + " 件藏品，点击筛选）" : "（还没有藏品，点击去画册）"));
         var nm = document.createElement("span"); nm.className = "mslot__name"; nm.textContent = c.name;
+        var fm = document.createElement("span"); fm.className = "mslot__film"; fm.textContent = c.filmCN || c.film;
         var yr = document.createElement("span"); yr.className = "mslot__year"; yr.textContent = c.year;
-        d.appendChild(nm); d.appendChild(yr);
+        d.appendChild(nm); d.appendChild(fm); d.appendChild(yr);
         if (n > 1) {
           var b = document.createElement("span"); b.className = "mslot__n"; b.textContent = "×" + n;
           d.appendChild(b);
