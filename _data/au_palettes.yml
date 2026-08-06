@@ -56,6 +56,23 @@
   muted_cn: "提案青灰"
   muted_en: "Boardroom Slate"
 
+"The Most Powerful Man":      # George W. Bush · 色卡同源画册 id: bush
+  mf_id: bush                # → Many Faces 画册锚点 /sam/many-faces/#bush
+  theme_id: bush
+  accent: "#c17f34"
+  accent_ink: "#9a662a"
+  bg: "#16181e"
+  text: "#f1e3cb"
+  muted: "#626d8d"
+  accent_cn: "德州牛仔金"
+  accent_en: "Texan Tan"
+  bg_cn: "总统西装夜"
+  bg_en: "Suit Midnight"
+  text_cn: "讲稿卡片米"
+  text_en: "Speech-Card Cream"
+  muted_cn: "战情室暗蓝"
+  muted_en: "War-Room Navy"
+
 "Better Living Through You":  # Douglas Varney · 色卡同源画册 id: doug
   mf_id: doug                # → Many Faces 画册锚点 /sam/many-faces/#doug
   theme_id: doug
