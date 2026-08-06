@@ -2,6 +2,7 @@
 layout: post
 title: "Chapter 1 · 隔着一扇门 — The Most Powerful Man"
 date: 2026-08-06
+image: "the-most-powerful-man.jpeg"
 tags: [George W. Bush, Sam Rockwell, AU, The Most Powerful Man, 悸动, 絮语]
 categories: ["AU Story"]
 series: "The Most Powerful Man"

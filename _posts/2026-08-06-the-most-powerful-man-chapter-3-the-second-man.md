@@ -2,6 +2,7 @@
 layout: post
 title: "Chapter 3 · 屋里的第二个人 — The Most Powerful Man"
 date: 2026-08-06
+image: "the-most-powerful-man.jpeg"
 tags: [George W. Bush, Sam Rockwell, AU, The Most Powerful Man, 暗涌, 悸动]
 categories: ["AU Story"]
 series: "The Most Powerful Man"

@@ -669,6 +669,15 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   background-position-x: left !important;
 }
 
+/* ----- The Most Powerful Man · George W. Bush AU · 封面从右裁剪 -----
+   封面 the-most-powerful-man.jpeg 里 Bush 翘脚坐在办公桌后、在画面右侧；默认
+   水平居中裁剪在窄容器里会把他切掉（左侧是 Cheney 的腿）。仅针对这张图把
+   【水平锚点】改到右边，纵向不动，于是系列封面 / 章节卡 / 首页卡 / 文章头图
+   都从右往左裁，总统完整保留。 */
+[style*="the-most-powerful-man"] {
+  background-position-x: right !important;
+}
+
 /* ----- Series logline (one-line "in brief" premise) -----
    Deliberately NOT the emotional hero quote: upright (not italic), boxed,
    sits below the cover. The poetic .c-hero__lede stays up by the title; this

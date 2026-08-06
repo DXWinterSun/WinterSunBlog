@@ -69,5 +69,5 @@
 
 ## 部署（接力 winter-blog-publishing）
 - 节奏：**每写满三章部署一次**（章章聊天里过目认可，攒够 3 章走一次发布：新建 series 首页 + 3 篇 _posts + au_palettes 加 bush 条目 + 跑 check 脚本 + ff-merge 到 main）。
-- 封面图：Winter 上传到 main 的 `images/`，交付时若未上传标「待上传」。
+- 封面图：`images/the-most-powerful-man.jpeg`（Vice 剧照，Bush 翘脚坐办公桌后玩地球仪，在画面右侧）。**裁切从右往左**——`_sass/5-components/_sam.scss` 里 `[style*="the-most-powerful-man"] { background-position-x: right }`（镜像 Billy/Bill Greaves 的 left 逻辑，保住右边的总统不被切掉）。三章共用这张封面。
 - 工作分支：`claude/president-au-color-palette-tvwdt9`。
