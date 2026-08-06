@@ -1599,3 +1599,68 @@
   .c-chapter-card__title { font-size: 15.5px; }
   .c-chapter-card__arrow { padding: 0 10px; }
 }
+
+/* ===============
+	SMS — in-story text thread on an old keypad phone (Nokia-era).
+	Self-contained monochrome-LCD look; a period device, so it uses a fixed
+	retro palette (reads the same in either site theme) rather than the AU
+	tokens. Use for saved / shown text messages (see c-note / c-decree for
+	handwritten notes and official documents).
+=============== */
+.c-sms {
+  max-width: 320px;
+  margin: 30px auto 22px;
+  padding: 16px 14px 24px;
+  border-radius: 20px 20px 30px 30px;
+  background: linear-gradient(#4b504a, rgba(52,56,51,0) 42%), #2c2f2a;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 -3px 8px rgba(0,0,0,.35);
+  border: 1px solid #1c1e1b;
+}
+/* speaker slit above the screen */
+.c-sms::before {
+  content: "";
+  display: block;
+  width: 34px; height: 4px;
+  margin: 0 auto 12px;
+  border-radius: 3px;
+  background: #1c1e1b;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.6);
+}
+.c-sms__screen {
+  padding: 10px 10px 12px;
+  border-radius: 6px;
+  background: #a9b795;
+  background-image: linear-gradient(180deg, #b7c2a6, #9fae88);
+  box-shadow: inset 0 2px 6px rgba(40,50,30,.45), 0 1px 0 rgba(255,255,255,.15);
+  font-family: 'Courier New', ui-monospace, monospace;
+  color: #28311c;
+}
+.c-sms__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 8px; padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(40,49,28,.4);
+  font-size: 10px; letter-spacing: .04em; opacity: .85;
+}
+.c-sms__bar b { font-weight: 700; letter-spacing: .14em; }
+.c-sms__msg { margin: 7px 0; display: flex; flex-direction: column; max-width: 84%; }
+.c-sms__msg--in  { align-items: flex-start; }
+.c-sms__msg--out { align-items: flex-end; margin-left: auto; text-align: right; }
+.c-sms__from {
+  font-size: 9.5px; font-weight: 700; letter-spacing: .05em; opacity: .7; margin-bottom: 2px;
+}
+.c-sms__text {
+  display: inline-block;
+  padding: 5px 8px;
+  border: 1.5px solid #28311c;
+  border-radius: 3px;
+  background: rgba(255,255,255,.16);
+  font-size: 13px; line-height: 1.55; word-break: break-word;
+}
+.c-sms__msg--out .c-sms__text { background: rgba(40,49,28,.14); }
+.c-sms__time {
+  display: block; margin-top: 9px; text-align: center;
+  font-size: 9.5px; letter-spacing: .12em; opacity: .6;
+}
