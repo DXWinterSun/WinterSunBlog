@@ -815,11 +815,11 @@
 
 **33-1** ｜[锚]｜JUST A COWBOY
 - EN: "Everybody's watchin' the most powerful man in the world. You're just watchin' some cowboy from Texas."
-- 中：全世界都盯着那个「最有权力的人」——你盯着的，不过是个德州来的牛仔。
+- 中：全世界都盯着那个「最有权力的人」——你盯着的，不过是个得州来的牛仔。
 
 **33-2** ｜[AU · 助理]｜MY ASSISTANT'S EYES
 - EN: "I've got generals, advisors, a whole cabinet weighin' in. The only verdict I actually wait on is my assistant's — am I still just some boy from Texas in your eyes?"
-- 中：将军、顾问、一整个内阁都在给我出主意。可我真正等的，只有我助理小姐的评判——在你眼里，我是不是还是那个德州来的大男孩？
+- 中：将军、顾问、一整个内阁都在给我出主意。可我真正等的，只有我助理小姐的评判——在你眼里，我是不是还是那个得州来的大男孩？
 
 **33-3** ｜[AU · 助理 · 暗告白]｜THE SCHEDULE
 - EN: "You hand me the schedule every mornin' like it runs the world. Truth is, the only thing I read twice is whether you were smilin' when you gave it to me."
