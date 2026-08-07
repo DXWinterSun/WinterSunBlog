@@ -1584,20 +1584,65 @@
   color: $muted;
 }
 
+/* 右侧「基调」栏：竖排 mood 胶囊 + 箭头。分隔线用 $line，随明暗翻。 */
+.c-chapter-card__aside {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 14px 12px 8px;
+  border-left: 1px solid $line;
+}
+
+/* 每个 mood 胶囊：色值经 --m 注入；填充/描边/字色都由 --m 与主题令牌
+   （$paper/$ink/$muted）color-mix 出来——所以深色系列里字亮、浅色系列里字
+   深，两种主题都清楚，且始终保留该情绪的色相。 */
+.c-chapter-card__mtag {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 2.5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: color-mix(in srgb, var(--m) 15%, $paper);
+  border: 1px solid color-mix(in srgb, var(--m) 42%, transparent);
+}
+
+.c-chapter-card__mtag-m {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 12.5px;
+  line-height: 1.2;
+  color: color-mix(in srgb, var(--m), $ink 30%);
+}
+
+.c-chapter-card__mtag-c {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  color: color-mix(in srgb, var(--m), $muted 52%);
+  opacity: 0.9;
+}
+
 .c-chapter-card__arrow {
   flex: 0 0 auto;
-  align-self: center;
-  padding: 0 14px;
+  margin-top: 2px;
   color: $accent-dark;
   opacity: 0.35;
   font-size: 15px;
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .c-chapter-card { --stub-w: 46px; }
   .c-chapter-card__title { font-size: 15.5px; }
-  .c-chapter-card__arrow { padding: 0 10px; }
+  .c-chapter-card__body { padding-right: 2px; }
+  /* 窄屏：色卡名占地方，收起，只留带色的情绪名，仍一眼看基调 */
+  .c-chapter-card__aside { padding: 12px 11px 12px 6px; gap: 5px; }
+  .c-chapter-card__mtag { padding: 2px 8px; }
+  .c-chapter-card__mtag-m { font-size: 11.5px; }
+  .c-chapter-card__mtag-c { display: none; }
 }
 
 /* ===============

@@ -78,7 +78,15 @@ layout: home
           · {{ mins }} min read
         </span>
       </span>
-      <span class="c-chapter-card__arrow" aria-hidden="true">→</span>
+      {% comment %}
+        右侧「基调」栏：把本章 tags 里的 mood 标签（对照 _data/moods.yml 的 cn）
+        渲染成带专属色的小胶囊，同时显示情绪名 + 色卡名（如 安放 · 停泊）。
+        遍历 moods.yml（顺序＝从烫到静）自动滤掉身份标签、顺带定序。
+      {% endcomment %}
+      <span class="c-chapter-card__aside">
+        {% for m in site.data.moods %}{% if chapter.tags contains m.cn %}<span class="c-chapter-card__mtag" style="--m:{{ m.hex }}"><span class="c-chapter-card__mtag-m">{{ m.cn }}</span><span class="c-chapter-card__mtag-c">{{ m.color_cn }}</span></span>{% endif %}{% endfor %}
+        <span class="c-chapter-card__arrow" aria-hidden="true">→</span>
+      </span>
     </a>
     {% endfor %}
   </div>
