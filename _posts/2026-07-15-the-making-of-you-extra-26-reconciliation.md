@@ -76,7 +76,7 @@ Aldo Stankas，全城最难被撼动的男人，此刻居然为一行字，耳�
 <div class="c-note" role="group" aria-label="日记">
   <span class="c-note__label">（忘了几点）</span>
   <div class="c-note__body">
-    <p>他今天丢给我一个橘子，说我“瘦得像竹竿”。</p>
+    <p>他今天丢给我一个橘子，说我“绷成这样，镜头前会露怯”。</p>
     <p>我没舍得吃。放窗台上了，和那个苹果一起。</p>
     <p>（我真的有病。）</p>
   </div>
