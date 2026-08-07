@@ -7,7 +7,7 @@ tags: [George W. Bush, Sam Rockwell, AU, The Most Powerful Man, 缱绻, 思念]
 categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
-series_order: 24
+series_order: 25
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
