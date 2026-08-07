@@ -826,6 +826,11 @@ series_title: "English Title · Character AU"   # 用于顶部返回链接显示
 series_order: N                 # 整数，章节排序（1 开始）
 series_type: "Series"           # 固定值
 chapter_type: "Chapter N"       # 显示在卡片眉头，如 "Chapter 1" / "Extra"
+story_time: "1994"              # 可选：故事内年代戳。非线性叙事的系列（如 Fog City
+                                # 番外跨四十年乱序）必写；线性系列可省略。值是展示
+                                # 字符串："1986"、"1986–87"、"1999–2026"、"1986 →"
+                                # （→ 表示从该年一直延续到当下的贯穿线）。显示在系列
+                                # 页票根眉头和章节页日期旁的虚线小戳里。
 summary: "≤35字的钩子引言。"    # 必须 ≤35 汉字含标点
 tags: [标签1, 标签2]
 ---

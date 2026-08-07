@@ -8,6 +8,7 @@ categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
 series_order: 50
+story_time: "1999–2026"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"

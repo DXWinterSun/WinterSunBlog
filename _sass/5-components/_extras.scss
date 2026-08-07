@@ -1558,6 +1558,34 @@
   opacity: 0.85;
 }
 
+/* 「故事时间」年代戳（front matter 的 story_time）：非线性叙事的系列
+   （如 Fog City 番外满天飞）用它标注这一章发生在故事里的哪一年。
+   做成票面日期戳的样子——虚线小框，跟随系列 accent 色。 */
+.c-chapter-card__era {
+  margin-left: 10px;
+  font-style: normal;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: $accent-dark;
+  border: 1px dashed rgba(var(--rgb-accent), 0.5);
+  border-radius: 3px;
+  padding: 1px 7px;
+  white-space: nowrap;
+}
+
+.c-article__era {
+  display: inline-block;
+  margin-left: 12px;
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: $accent;
+  border: 1px dashed rgba(var(--rgb-accent), 0.45);
+  border-radius: 3px;
+  padding: 1px 9px;
+  white-space: nowrap;
+}
+
 .c-chapter-card__title {
   font-family: 'Noto Serif SC', serif;
   font-weight: 600;

@@ -69,7 +69,7 @@ layout: home
     <a class="c-chapter-card" data-moods="{{ cmoods | strip }}" href="{{ chapter.url | prepend: site.baseurl }}">
       <span class="c-chapter-card__no"><i>No.</i>{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
       <span class="c-chapter-card__body">
-        <span class="c-chapter-card__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}</span>
+        <span class="c-chapter-card__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}{% if chapter.story_time %}<i class="c-chapter-card__era" title="故事发生的年代">{{ chapter.story_time }}</i>{% endif %}</span>
         <span class="c-chapter-card__title">{{ disp }}</span>
         {% if chapter.summary %}<span class="c-chapter-card__summary">{{ chapter.summary }}</span>{% endif %}
         <span class="c-chapter-card__meta">

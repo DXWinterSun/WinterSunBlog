@@ -8,6 +8,7 @@ categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
 series_order: 28
+story_time: "2024"
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 28"

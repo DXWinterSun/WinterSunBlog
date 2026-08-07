@@ -8,6 +8,7 @@ categories: ["AU Story"]
 series: "Fog City"
 series_title: "Fog City · Young Sam AU"
 series_order: 53
+story_time: "1994"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
