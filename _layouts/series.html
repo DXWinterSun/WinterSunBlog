@@ -64,7 +64,9 @@ layout: home
       {% assign disp_prefix = disp_parts[0] | append: " · " %}
       {% assign disp = disp | replace_first: disp_prefix, "" %}
     {% endif %}
-    <a class="c-chapter-card" href="{{ chapter.url | prepend: site.baseurl }}">
+    {% comment %} data-moods：本章命中的 mood（供目录基调筛选用），空格分隔 {% endcomment %}
+    {% capture cmoods %}{% for m in site.data.moods %}{% if chapter.tags contains m.cn %}{{ m.cn }} {% endif %}{% endfor %}{% endcapture %}
+    <a class="c-chapter-card" data-moods="{{ cmoods | strip }}" href="{{ chapter.url | prepend: site.baseurl }}">
       <span class="c-chapter-card__no"><i>No.</i>{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
       <span class="c-chapter-card__body">
         <span class="c-chapter-card__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}</span>
@@ -90,6 +92,95 @@ layout: home
     </a>
     {% endfor %}
   </div>
+
+  {% comment %}
+    基调筛选：本系列目录里，按情绪标签筛章。筛选条本身由下方脚本在浏览器里
+    生成——只列出「本系列真实出现过」的 mood（各带一个计数），点一个或多个即
+    只显示命中其中任一情绪的章节，「全部」清空。没有 JS 时不出现筛选条、章节
+    照常全列（渐进增强）。mood 调色板从 _data/moods.yml 传给脚本。
+  {% endcomment %}
+  <script type="application/json" id="mood-meta">{{ site.data.moods | jsonify }}</script>
+  <script>
+  (function(){
+    var list = document.querySelector('.c-chapter-list');
+    var metaEl = document.getElementById('mood-meta');
+    if(!list || !metaEl) return;
+    var meta;
+    try { meta = JSON.parse(metaEl.textContent); } catch(e){ return; }
+    var cards = Array.prototype.slice.call(list.querySelectorAll('.c-chapter-card'));
+    if(!cards.length) return;
+
+    var counts = {};
+    cards.forEach(function(c){
+      (c.getAttribute('data-moods') || '').split(' ').filter(Boolean).forEach(function(m){
+        counts[m] = (counts[m] || 0) + 1;
+      });
+    });
+    var present = meta.filter(function(m){ return counts[m.cn]; }); // 保留 moods.yml 的从烫到静顺序
+    if(present.length < 2) return; // 少于两种情绪，没什么可筛的
+
+    var selected = {};
+    var bar = document.createElement('div');
+    bar.className = 'c-mood-filter';
+    bar.setAttribute('role', 'group');
+    bar.setAttribute('aria-label', '按基调筛选章节');
+
+    var label = document.createElement('span');
+    label.className = 'c-mood-filter__label';
+    label.textContent = '按基调筛选';
+    bar.appendChild(label);
+
+    var chips = [];
+    present.forEach(function(m){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'c-mood-filter__chip';
+      b.style.setProperty('--m', m.hex);
+      b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = '<span class="c-mood-filter__chip-cn">' + m.cn + '</span>' +
+                    '<span class="c-mood-filter__chip-cnt">' + counts[m.cn] + '</span>';
+      b.addEventListener('click', function(){
+        if(selected[m.cn]){ delete selected[m.cn]; b.setAttribute('aria-pressed','false'); }
+        else { selected[m.cn] = true; b.setAttribute('aria-pressed','true'); }
+        apply();
+      });
+      chips.push(b);
+      bar.appendChild(b);
+    });
+
+    var reset = document.createElement('button');
+    reset.type = 'button';
+    reset.className = 'c-mood-filter__reset';
+    reset.textContent = '全部';
+    reset.addEventListener('click', function(){
+      selected = {};
+      chips.forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+      apply();
+    });
+    bar.appendChild(reset);
+
+    var count = document.createElement('span');
+    count.className = 'c-mood-filter__count';
+    count.setAttribute('aria-live', 'polite');
+    bar.appendChild(count);
+
+    list.parentNode.insertBefore(bar, list);
+
+    function apply(){
+      var keys = Object.keys(selected);
+      var shown = 0;
+      cards.forEach(function(c){
+        var ms = (c.getAttribute('data-moods') || '').split(' ').filter(Boolean);
+        var vis = !keys.length || ms.some(function(x){ return selected[x]; });
+        c.style.display = vis ? '' : 'none';
+        if(vis) shown++;
+      });
+      count.textContent = keys.length ? ('显示 ' + shown + ' / ' + cards.length + ' 章') : '';
+      reset.style.display = keys.length ? '' : 'none';
+    }
+    apply();
+  })();
+  </script>
   {% endif %}
 </section>
 {% endif %}
