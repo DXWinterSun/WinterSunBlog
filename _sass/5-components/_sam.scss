@@ -678,6 +678,14 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   background-position-x: right !important;
 }
 
+/* ----- Off the Air · Chuck Barris AU · 封面从右裁剪 -----
+   封面 chuck-barris-au.jpg 里 Chuck 戴黑礼帽、持枪站在画面右侧（左侧是暗巷夜色）；
+   默认水平居中裁剪在窄容器里会把他切掉。仅针对这张图把【水平锚点】改到右边，纵向不动，
+   于是系列封面 / 章节卡 / 首页卡 / 文章头图 都从右往左裁，人物完整保留。 */
+[style*="chuck-barris-au"] {
+  background-position-x: right !important;
+}
+
 /* ----- Series logline (one-line "in brief" premise) -----
    Deliberately NOT the emotional hero quote: upright (not italic), boxed,
    sits below the cover. The poetic .c-hero__lede stays up by the title; this
