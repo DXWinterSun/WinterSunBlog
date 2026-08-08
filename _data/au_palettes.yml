@@ -678,3 +678,20 @@
   text_en: "Diner-Napkin White"
   muted_cn: "二手车暗红"
   muted_en: "Used-Car Maroon"
+
+"Off the Air":              # Chuck Barris · Confessions of a Dangerous Mind · Sam Rockwell · 色卡同源画册 id: chuck
+  mf_id: chuck                # → Many Faces 画册锚点 /sam/many-faces/#chuck
+  theme_id: chuck
+  accent: "#de6e8e"
+  accent_ink: "#b25872"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#15182a"
+  text: "#ede4d0"
+  muted: "#8088a0"
+  accent_cn: "镁光节目粉"
+  accent_en: "Limelight Pink"
+  bg_cn: "午夜情报蓝"
+  bg_en: "Midnight Spy"
+  text_cn: "提词卡片白"
+  text_en: "Cue-Card White"
+  muted_cn: "机密档案灰"
+  muted_en: "Dossier Grey"

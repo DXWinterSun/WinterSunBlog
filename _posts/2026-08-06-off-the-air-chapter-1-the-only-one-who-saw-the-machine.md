@@ -1,16 +1,22 @@
-# Off the Air · Chapter 1 · 头号选手（已 approve · 待落盘部署）
-
-- 中文标题：头号选手
-- mood：悸动 · 暗涌
-- summary（≤35）：她把提词卡翻了过去，问了个真问题——全场只有造机器的人听懂了。
-- 时间：1968 年 12 月（开播满三年）
-- approve 时间：2026-08-08（Winter：「这次的可以」）
-
-> 这是一台把陌生人放进去、把“爱情”倒出来的机器。
-> 一九六八年冬天，全场只有一个人看穿了它——
-> 而看穿它的人，正被那个造它的人，从头到尾地看着。
-
 ---
+layout: post
+title: "Chapter 1 · 头号选手 — Off the Air"
+date: 2026-08-06
+image: chuck-barris-au.jpg
+tags: [Chuck Barris, Sam Rockwell, AU, Off the Air, 悸动, 暗涌]
+categories: ["AU Story"]
+series: "Off the Air"
+series_title: "Off the Air · Chuck Barris AU"
+series_order: 1
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 1"
+summary: "她把提词卡翻了过去，问了个真问题——全场只有造机器的人听懂了。"
+---
+
+> 这是一台把陌生人放进去、把“爱情”倒出来的机器。  
+> 一九六八年冬天，全场只有一个人看穿了它——  
+> 而看穿它的人，正被那个造它的人，从头到尾地看着。  
 
 一九六八年十二月，这档节目开播满三年的那个冬天，你坐在 ABC 摄影棚的聚光灯下，面前是一面画着心形和箭头的隔屏。屏那头藏着今晚的三位男嘉宾——一号、二号、三号——你看不见他们，全场却看得见。今晚握着提问和选择权的人，是你。
 

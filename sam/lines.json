@@ -593,7 +593,7 @@
       "bg": "#15182a",
       "text": "#ede4d0",
       "muted": "#8088a0",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/off-the-air/",
       "quotes": [
         {
           "label": "OFF THE AIR",
@@ -615,8 +615,8 @@
         },
         {
           "label": "TWO LIVES",
-          "line": "I live two lives and lie in both. To you I only ever wanted to tell the truth. Terrifying, isn't it?",
-          "lineCN": "我过着两种人生，两边都在撒谎。唯独对你，我只想说真话。很吓人吧？",
+          "line": "I live two lives and lie in both — you'd think I'd have gotten good at it by now. But with you, all I ever wanted was to tell the truth. Terrifying, isn't it?",
+          "lineCN": "我过着两种人生，两边都撒谎——按说练了这么多年，早该撒得炉火纯青了吧。可偏偏对你，我只想说真话。很吓人吧？",
           "kind": "暗告白"
         },
         {
@@ -2519,7 +2519,7 @@
       "bg": "#15182a",
       "text": "#ede4d0",
       "muted": "#8088a0",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/off-the-air/",
       "label": "OFF THE AIR",
       "line": "I've conned a whole country. You're the only one I never want to fool.",
       "lineCN": "我骗过整个国家——你是我唯一不想骗的人。",
@@ -3351,7 +3351,7 @@
       "bg": "#15182a",
       "text": "#ede4d0",
       "muted": "#8088a0",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/off-the-air/",
       "label": "NO GONG",
       "line": "My whole life is one long show with a gong waiting to cut it short. With you I forget there's an audience at all.",
       "lineCN": "我这辈子就是一场随时会被锣声打断的秀。只有跟你在一起，我才会忘了还有观众。",
@@ -4183,7 +4183,7 @@
       "bg": "#15182a",
       "text": "#ede4d0",
       "muted": "#8088a0",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/off-the-air/",
       "label": "THE ONE TRUE THING",
       "line": "Everything I built was fake — the games, the smiles, the whole act. You're the one true thing I never scripted.",
       "lineCN": "我造出来的都是假的——那些游戏、笑容、整套表演。你是我唯一没写进剧本的、真的东西。",
@@ -5015,10 +5015,10 @@
       "bg": "#15182a",
       "text": "#ede4d0",
       "muted": "#8088a0",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/off-the-air/",
       "label": "TWO LIVES",
-      "line": "I live two lives and lie in both. To you I only ever wanted to tell the truth. Terrifying, isn't it?",
-      "lineCN": "我过着两种人生，两边都在撒谎。唯独对你，我只想说真话。很吓人吧？",
+      "line": "I live two lives and lie in both — you'd think I'd have gotten good at it by now. But with you, all I ever wanted was to tell the truth. Terrifying, isn't it?",
+      "lineCN": "我过着两种人生，两边都撒谎——按说练了这么多年，早该撒得炉火纯青了吧。可偏偏对你，我只想说真话。很吓人吧？",
       "kind": "暗告白"
     },
     {
@@ -5847,7 +5847,7 @@
       "bg": "#15182a",
       "text": "#ede4d0",
       "muted": "#8088a0",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/off-the-air/",
       "label": "PICK A WINNER",
       "line": "I spent years deciding who wins and who gets gonged. You're the only prize I ever wanted for myself.",
       "lineCN": "我花了好些年决定谁赢、谁被敲锣淘汰。你是我唯一，想留给自己的奖品。",
