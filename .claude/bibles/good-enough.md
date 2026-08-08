@@ -185,6 +185,6 @@ Justin Hammer 油嘴滑舌、无时无刻不在耍宝、动不动没来由地傻
 
 ## 待办 / 开写前
 
-- [x] 名字确认 **Vera Frost**。
+- [x] 名字确认 **Winter Frost**。
 - [ ] 发布新 Ch1 时，同批把旧 11 章设 `published: false` 封存下线；系列首页 `index.html`
       的"关于这个系列"简介按新设定（形象顾问 / 暗恋 / 声誉战）改写。
