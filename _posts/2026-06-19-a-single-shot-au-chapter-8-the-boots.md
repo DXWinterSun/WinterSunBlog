@@ -14,7 +14,7 @@ chapter_type: "Chapter 8"
 summary: "他别好那把老枪，要独自去。可你已经系好了鞋带。"
 ---
 
-> 这是 *A Single Shot* (2013) AU 系列的第八章。前情见 [〈一〉The Pit]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-1-the-pit/)、[〈二〉The Trailer]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-2-the-trailer/)、[〈三〉Stay]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-3-stay/)、[〈四〉The Birches]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-4-the-birches/)、[〈五〉Closer]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-5-closer/)、[〈六〉Allowed]({{ site.baseurl }}/2026/05/03/a-single-shot-au-chapter-6-allowed/)、[〈七〉The Letter]({{ site.baseurl }}/2026/05/03/a-single-shot-au-chapter-7-the-letter/)。
+> 这是 *A Single Shot* (2013) AU 系列的第八章。前情见 [〈一〉The Pit]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-1-the-pit/)、[〈二〉The Trailer]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-2-the-trailer/)、[〈三〉Stay]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-3-stay/)、[〈四〉The Birches]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-4-the-birches/)、[〈五〉Closer]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-5-closer/)、[〈六〉Allowed]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-6-allowed/)、[〈七〉The Letter]({{ site.baseurl }}/2026/05/02/a-single-shot-au-chapter-7-the-letter/)。
 
 早饭是燕麦粥。
 
@@ -152,7 +152,7 @@ summary: "他别好那把老枪，要独自去。可你已经系好了鞋带。"
 
 ---
 
-外面是十月底的山。
+外面是十一月初的山。
 
 云压得很低。空气里有一种快下雪、又还没下下来的湿冷。脚下的落叶是湿的，踩上去几乎没有声音。
 
@@ -272,15 +272,15 @@ summary: "他别好那把老枪，要独自去。可你已经系好了鞋带。"
 
 他用他那只好的手，在松土里刨。刨了几下，刨出来一样东西——
 
-一个旧的、帆布的、装饲料用的口袋。
+一个磨旧的红色铁盒子。
 
-口袋上还沾着土。
+盒子上还沾着土。
 
 他没打开它。
 
 他把它拎起来，放在坑边的地上。
 
-然后他在那个口袋旁边蹲下来，抬起头，看你。
+然后他在那个盒子旁边蹲下来，抬起头，看你。
 
 "我本来——"他说。
 
@@ -290,7 +290,7 @@ summary: "他别好那把老枪，要独自去。可你已经系好了鞋带。"
 
 "把它烧掉。把它扔进河里。或者……拿它去把那帮人打发走，给我自己换一个清静。"
 
-他低下头，看着那个沾着土的口袋。
+他低下头，看着那个沾着土的盒子。
 
 "——可那样的话，她还是在这底下。她家里人还是在找她。"
 
@@ -300,7 +300,7 @@ summary: "他别好那把老枪，要独自去。可你已经系好了鞋带。"
 
 "所以我想清楚了。"他说。
 
-"这个口袋，我一分钱不留。我把它，连同这底下的事，一起交给 Simpson。"
+"这个盒子，我一分钱不留。我把它，连同这底下的事，一起交给 Simpson。"
 
 "——我告诉他，那天到底发生了什么。全部。"
 
@@ -348,7 +348,7 @@ summary: "他别好那把老枪，要独自去。可你已经系好了鞋带。"
 
 ---
 
-你们下山的时候，他把那个口袋背在身上。
+你们下山的时候，他把那个盒子拎在手里。
 
 不知道是不是错觉——你觉得他下山的脚步，比上山的时候轻。
 
@@ -388,7 +388,7 @@ summary: "他别好那把老枪，要独自去。可你已经系好了鞋带。"
 
 炉子里的火早就灭了。屋里是凉的。
 
-他把那个口袋，放进门边的角落。
+他把那个盒子，放进门边的角落。
 
 明天，他要把它带进城去。
 
@@ -410,4 +410,4 @@ summary: "他别好那把老枪，要独自去。可你已经系好了鞋带。"
 
 ---
 
-下一章预告：第二天清早，他把那个沾着土的口袋放在副驾驶的座位上，发动了那辆旧皮卡。城里警长办公室门口，Simpson 抬头，看见从车上下来的不止他一个——还有你。"Moon，"Simpson 说，"——你这是要干什么。"他没想到的是，John 从车斗里拎下来的，是那个口袋。
+下一章预告：第二天清早，他把那个沾着土的盒子放在副驾驶的座位上，发动了那辆旧皮卡。城里警长办公室门口，Simpson 抬头，看见从车上下来的不止他一个——还有你。"Moon，"Simpson 说，"——你这是要干什么。"他没想到的是，John 从车斗里拎下来的，是那个盒子。

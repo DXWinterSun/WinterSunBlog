@@ -11,7 +11,7 @@ series_order: 2
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 2"
-summary: "她听见他说，这场投票从一开始就没打算通过——他没打算认真辩解。"
+summary: "你听见他说，这场投票从一开始就没打算通过——他没打算认真辩解。"
 ---
 
 > 他这辈子几乎没有说不出话的时候。除了那一次，被自己说漏了嘴。

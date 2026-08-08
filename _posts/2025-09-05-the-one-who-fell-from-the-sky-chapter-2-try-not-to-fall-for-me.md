@@ -37,7 +37,7 @@ tags: [Charles, BayBay, AU, The One Who Fell from the Sky, 缱绻, 悸动]
 
 你点点头。
 
-> "And you?"
+> "那你呢？"
 >
 > 你问，"你也经常上天？"
 
