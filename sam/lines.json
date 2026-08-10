@@ -1702,10 +1702,10 @@
           "kind": "锚"
         },
         {
-          "label": "A WHOLE THING",
-          "line": "I only kill bad people. It's a whole thing — I've got a code. You're the one good thing I get to keep.",
-          "lineCN": "我只杀坏人。这是有讲究的——我有我的原则。你是我唯一能留下的、好的东西。",
-          "kind": "电影 · 他的准则"
+          "label": "I TURN THE GUN AROUND",
+          "line": "Someone pays to have a person killed? Then that someone's the bad one. So I turn the gun around.",
+          "lineCN": "有人花钱买一条命？那出钱的才是坏的。所以我把枪，掉个头。",
+          "kind": "电影 · 掉转枪口"
         },
         {
           "label": "YOU STAYED AND LAUGHED",
@@ -1720,10 +1720,10 @@
           "kind": "电影 · 名场面"
         },
         {
-          "label": "YOUR FLOWER",
-          "line": "I remember which flower's yours. I'm a dangerous man with a very short list, and you're at the top of all of it.",
-          "lineCN": "我记得哪种花是你的。我是个危险的人，名单很短——而你，在每一张名单的最上头。",
-          "kind": "暗告白 · 信物"
+          "label": "ROOM TO LOVE YOU",
+          "line": "I don't always think before I move — but I'm no bad guy. You think a bad man's got room in him to love you like this?",
+          "lineCN": "我有时候不过脑子就动手——可我不是坏人。你觉得，坏人心里还腾得出地方，这样去爱你吗？",
+          "kind": "电影 · 他不是坏人"
         }
       ]
     },
@@ -3752,10 +3752,10 @@
       "text": "#eed9d8",
       "muted": "#628d72",
       "auLink": null,
-      "label": "A WHOLE THING",
-      "line": "I only kill bad people. It's a whole thing — I've got a code. You're the one good thing I get to keep.",
-      "lineCN": "我只杀坏人。这是有讲究的——我有我的原则。你是我唯一能留下的、好的东西。",
-      "kind": "电影 · 他的准则"
+      "label": "I TURN THE GUN AROUND",
+      "line": "Someone pays to have a person killed? Then that someone's the bad one. So I turn the gun around.",
+      "lineCN": "有人花钱买一条命？那出钱的才是坏的。所以我把枪，掉个头。",
+      "kind": "电影 · 掉转枪口"
     },
     {
       "charId": "donverdean",
@@ -6248,10 +6248,10 @@
       "text": "#eed9d8",
       "muted": "#628d72",
       "auLink": null,
-      "label": "YOUR FLOWER",
-      "line": "I remember which flower's yours. I'm a dangerous man with a very short list, and you're at the top of all of it.",
-      "lineCN": "我记得哪种花是你的。我是个危险的人，名单很短——而你，在每一张名单的最上头。",
-      "kind": "暗告白 · 信物"
+      "label": "ROOM TO LOVE YOU",
+      "line": "I don't always think before I move — but I'm no bad guy. You think a bad man's got room in him to love you like this?",
+      "lineCN": "我有时候不过脑子就动手——可我不是坏人。你觉得，坏人心里还腾得出地方，这样去爱你吗？",
+      "kind": "电影 · 他不是坏人"
     },
     {
       "charId": "donverdean",
