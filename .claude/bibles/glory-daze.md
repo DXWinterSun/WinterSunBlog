@@ -136,8 +136,35 @@ him like he's dead
 专辑 11 首当 CD 四年攒下的原创歌（系列名=他们的「专辑」=这些歌,母题闭环）：
 1 Holiday from Real · 2 The Mixed Tape · 3 Bruised · 4 I'm Ready · 5 La La Lie · **6 Dark Blue（乐队招牌/
 主打,Winter 钦点）** · **7 Miss Delaney（Rob 最后偷偷写的那首）** · 8 Kill the Messenger · 9 Rescued ·
-10 MFEO Pt.1/Pt.2 · 11 Into the Airwaves。早年用《The Mixed Tape》这类轻快的。引用歌词按站规
-英+中并列 `>`,partial 即可。
+10 MFEO Pt.1/Pt.2 · 11 Into the Airwaves。引用歌词按站规英+中并列 `>`,partial 即可。
+
+**情绪地图（Winter 定,2026-08）**：整张是主唱的**分手专辑**,底色偏忧伤;**轻快面 = Holiday from
+Real + Dark Blue**（青春/招牌/派对）,其余偏伤——留给中后段的暗涌与 near-miss,写时灵活调用。
+
+**《Holiday from Real》= 系列的魂/CD 的招牌暖曲**：加州夏天、想让假期永不结束、青春永驻——
+**正是 Rob「怕定下来」的另一面**（不是懒,是舍不得夏天散场:「when it's all over, I'll come back
+for another year」）。还顺手勾了 LA 双关（「the rents are high, and LA's easy」）与合租（「living
+on your floor」）。⚠️ **可复现甜点**：桥段「you wore my favorite sweater / being poor was never
+better」→ 落到**你穿着他那件洗灰的无袖卫衣**上,做成复现意象（信物级）。
+
+<details><summary>《Holiday from Real》歌词全文（Winter 提供,2026-08）</summary>
+
+Sound of seagulls
+（V1）She thinks I'm much too thin / She asks me if I'm sick / What's a girl to do / With friends
+like this / She lets me drive her car / So I can score an eighth / From the lesbians / Out west in Venice
+（Pre1）Oh, California in the summer / Ah, and my hair is growing long / Fuck yeah, we can live like this
+（Chorus）But if you left it up to me / Every day would be / A holiday from real / We'd waste our weeks
+/ Beneath the sun / We'd fry our brains / And say it's so much fun out here / But when it's all over /
+I'll come back for another year
+（V2）I'll look for work today / I'm spilling out the door / Put my glasses on / So no one sees me /
+I never thought that / I'd be living on your floor / But the rents are high / And LA's easy
+（Pre2）Oh, it's a picture of perfection / Ah, and the postcard's gonna read / "Fuck yeah we can live
+like this... / We can live like this"
+（Bridge）Hey Madeline / You sure look fine / You wore my favorite sweater / Being poor was never
+better / A safety buzz / Some cheap red wine / Oh, the trouble we can get in / So let's screw this one
+up right
+（末段）…When it's all over / I'll come back for another / …I'll come back for another year
+</details>
 
 ## 铁律（写进圣经防手滑）
 
