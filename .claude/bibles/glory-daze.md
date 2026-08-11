@@ -3,9 +3,11 @@
 > 出处片：《Glory Daze》（1995，豆瓣译《光荣的迷惑》）。角色 Rob（Sam Rockwell 饰），
 > 26 岁演青春男高毫无违和。海边大学城散伙青春群像 + 慢热暗恋 + 改写 canon 的圆满收梢。
 
-series_name: **待定**（见文末「待你拍板」）｜ slug: 待定 ｜ collection_order: 待查（现有最大值 +1）
-角色: **Robert "Rob" Cove**（Sam Rockwell,《Glory Daze》1995）｜ 画册 id: 待定（若入画册再建）
-配色: **待定**（Winter 提供或另建；不自己编色）
+series_name: **Everything in Transit**（英文）｜ slug: **everything-in-transit** ｜ collection_order: 待查（现有最大值 +1）
+展示标题: **Everything in Transit · Rob Cove AU**（hero h1 只写 `Everything in Transit`）
+角色: **Robert "Rob" Cove**（Sam Rockwell,《Glory Daze》1995）｜ 画册 id: **rob**（进画册，待建全套）
+配色: **待 Winter 从选项里挑**（见文末「配色候选」）
+乐队名: **Certified Dropouts（CD）**——对外的哏,学霸叫这个反差可爱
 封面图: 灰色无袖卫衣那张原片截图（ROOTS BRAND · WORKOUT · 后院栅栏背景）——即他的 signature look
 
 ---
@@ -55,9 +57,8 @@ series_name: **待定**（见文末「待你拍板」）｜ slug: 待定 ｜ col
 
 - **C & D 三重母题（本系列的心脏）**：同一对字母 = 你俩的**姓**（Cove / Delaney）＋互相的
   **称呼**（C / D，随口叫，不必每次 Mr/Miss）＋**乐队名 CD**。三层含义从第一天缠到最后一天。
-- **「CD」双关**：对外是全队公认的哏（如 **Certified Dropouts** / Compact Disaster / Coastal
-  Disturbance——待定）；私底下只有你（后来才后知后觉的他）知道 = **Cove & Delaney**。感情浮上来
-  那天，这名字自己回来扎一下。
+- **「CD」双关**：对外 = **Certified Dropouts**（全队公认的哏,学霸叫这个反差可爱）；私底下只有你
+  （后来才后知后觉的他）知道 = **Cove & Delaney**。感情浮上来那天,这名字自己回来扎一下。
 - **称呼变味**：同一句「Miss D / D」，从鼻子里哼出来的带刺 →（某个深夜排练后他很轻地一声「…D.」，
   俩人当场都愣住）→ 最后成了「只有他能这么叫你」的专属。不用直白告白就把心动写透。
 - **互损底子**：他叫你 **pretty princess**（戳你家里宠出来的完美主义乖乖学霸）；你叫他 **snob
@@ -119,10 +120,16 @@ series_name: **待定**（见文末「待你拍板」）｜ slug: 待定 ｜ col
 
 ## 衣橱档案（写正文必带穿搭，含「你」）
 
-- **Rob 的 signature**：① **灰色无袖卫衣**（ROOTS BRAND · WORKOUT，袖子自己剪的、毛边）=台上
-  &封面；② **粉衬衫**（排练到半夜，扣子解到第三颗）；③ **墨绿棒球衫 / raglan 插肩**（白天窝后院
-  抱吉他懒拨）。共性：永远松垮、旧、像随手抓的，可他穿什么都好看还不自知。（Winter 会陆续发原片
-  截图补充，一张张记这里。）
+- **Rob 的 signature 衣橱**（豆瓣影评："导演把 Sam 当换装娃娃拍"——全片颜值担当,一套套地换）：
+  - ① **灰色无袖卫衣**（ROOTS BRAND · WORKOUT,袖子自己剪的、毛边）= 台上主打 & **封面**
+  - ② **粉缎衬衫 + 深色佩斯利/提花外套**（70s 复古、舞台/排练时,扣子解到第三颗;身后"A Different…"
+    舞蹈海报）= 他"表演者/换装娃娃"的高光造型
+  - ③ **淡紫/薰衣草 短袖 camp-collar polo**（街上跟 Slosh 侃"Oh, I'm telling you"）= 慵懒日常
+  - ④ **蓝绿格子法兰绒 + 藏青 henley**（啃披萨那场）= 家里松垮款
+  - ⑤ **墨绿 Roots 棒球衫 / varsity jacket**（后院派对端盘子"Gotta get out of here"）= 白天户外
+  - ⑥ **黑毕业袍 + 银灰佩斯利围巾**（毕业典礼)
+  - 共性：永远松垮、旧、像随手抓的,可他穿什么都好看还不自知。紫/粉/墨绿是他的高频色。
+    （Winter 会陆续再发截图补充。）
 - **你（Winter Delaney）**：中性 grunge 辣妹。背心/babydoll 小 T + 垮到胯的牛仔/工装、低腰、板鞋；
   法兰绒系腰上或套男生给的大三号；**偶尔一手：吊带碎花裙 + 敞开法兰绒 + 马丁靴**（又飒又软，能把
   Rob 看愣）；choker 颈带、hoop 耳环、深色唇。**故意的、有品味的松垮。**
@@ -153,19 +160,25 @@ series_name: **待定**（见文末「待你拍板」）｜ slug: 待定 ｜ col
 
 ---
 
-## 待你拍板（Winter 的创作特权，我不替你定）
+## 配色候选（待 Winter 挑一版；挑完我建全套 5 处色卡 + au_palettes）
 
-1. **系列英文标题**（展示用，格式 `Story · Rob Cove AU`；内部 series_name/slug 随它定）。几个方向：
-   - **Stay for the Encore**（乐队 + 「别走/再唱一首」，把「你不要离开我」藏进返场里，甜）
-   - **Sun-Bleached**（晒褪色，海边旧棉布的青春怅惘美，配那件洗白无袖卫衣，氛围款）
-   - **Last Summer at El Rancho**（地点 + 散场，群像感强）
-   - **In Transit**（呼应《Everything in Transit》，离别与回家；克制的文艺款）
-   - 或你自己想一个 / 把上面拼一拼。
-2. **配色**：你提供 6 色 + 4 名，或让我按封面那张的蓝灰/暖木色调提一版给你选（不自己拍板落库）。
-3. **「CD」对外的哏**：Certified Dropouts / Compact Disaster / Coastal Disturbance / 你另想。
-4. **是否把 Rob Cove 加进「Many Faces of Sam」画册**（他是 Sam 本人角色，够资格）——要的话另走
-   winter-many-faces-of-sam 那套（tagline / inscription / 六维打分 / 色卡）。
-5. **谁先破功**：目前定「他先（埋着）」，你若想调再说。
+四色 = bg（深底）/ accent（signature 亮色）/ text（近白,带意象名）/ muted（中间调）。三版都从原片质感长出来：
+
+- **A · 晒白的海岸**（暖离愁,最贴专辑《Everything in Transit》）
+  bg 黄昏靛 `#14161f` / accent 落日橘 `#d98a5c` / text 沙滩米 `#f4ede4` / muted 浮木灰 `#8c8378`
+- **B · 牵牛花与粉衬衫**（梦、暗恋、他的"换装娃娃"气质;紫来自后院牵牛花+那件粉缎衬衫）
+  bg 深茄紫 `#17131f` / accent 牵牛紫 `#a986c9` / text 晓雾纱 `#f2e9f0` / muted 烟灰紫 `#877e93`
+- **C · 墨绿球衫**（校园、青草、慵懒日常;绿来自 Roots varsity + 圣克鲁兹红杉/藤叶）
+  bg 深林墨 `#10160f` / accent 苔岭绿 `#4f9e6f` / text 羊皮纸 `#eef0e8` / muted 雾松灰 `#7d857a`
+  （色值是初稿,挑定后我按四色八名标准精修 + 算 accent_ink,再落 5 处同源。）
+
+## 剩下待办（挑完配色就动）
+
+- 进画册全套（winter-many-faces-of-sam）：tagline / desc / **inscription 第一人称锚句** / 六维打分 /
+  5 句台词 / 色卡同源 5 处 + au_palettes + sam_themes（带 year=1995/96）。内容我起草,你过目。
+- 系列首页 `series/everything-in-transit/`：hero 引言、logline、关于这个系列、设定档案。
+- 第一章「结梁子」起手。
+- **谁先破功**：现定「他先（埋着）」,你若想调再说。
 
 ## 已写章节流水
 
