@@ -2,8 +2,8 @@
   "meta": {
     "start": "2026-02-13",
     "note": "「今日一句」唯一数据源。今日页/小组件/台词墙的每日轮换只读 characters（严格轮转：按 N=角色数 洗一次牌定顺序，一天一个，任意连续 N 天每人正好一次；台词序号 = 第几轮 % 5）。pool 只剩「全部 N 句」的计数与列举用途，不再参与每日选句。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-    "characters_count": 52,
-    "pool_count": 260,
+    "characters_count": 53,
+    "pool_count": 265,
     "mf_alias": {
       "johnmoon": "john",
       "sambell": "sam",
@@ -140,6 +140,50 @@
           "line": "To the room I'm Kris. My mother called me Krzysiu. …I'd like it if you did too.",
           "lineCN": "对这屋子里的人我是 Kris。我妈妈叫我 Krzysiu。……如果你也这么叫我，我会很高兴。",
           "kind": "AU · 暗告白"
+        }
+      ]
+    },
+    {
+      "id": "rob",
+      "name": "Rob Cove",
+      "film": "Glory Daze",
+      "filmCN": "《光荣的迷惑》",
+      "year": "1995",
+      "bg": "#16202b",
+      "accent": "#e28a5a",
+      "text": "#f4ecdd",
+      "muted": "#9b9083",
+      "auLink": "/WinterSunBlog/series/everything-in-transit/",
+      "quotes": [
+        {
+          "label": "THE ONE I HID",
+          "line": "You thought I was going solo. I was just writing the one song I could never let you read the title of — well, not yet.",
+          "lineCN": "你以为我要单飞。我只是在写那首——绝不能让你看见歌名的歌。嗯……暂时不给你看。",
+          "kind": "锚"
+        },
+        {
+          "label": "EASY, PRINCESS",
+          "line": "Easy, princess. I only steal three things — your harmonies, your fries, and the last word.",
+          "lineCN": "悠着点，princess。我就偷三样——你的和声、你的薯条，还有最后一句嘴。",
+          "kind": "贫嘴"
+        },
+        {
+          "label": "ONLY WHEN I SING",
+          "line": "I can fake my way through anything but a song. And yours is the only voice that ever caught mine.",
+          "lineCN": "除了唱歌，我什么都能糊弄。而你的声音，是唯一接得住我的那一个。",
+          "kind": "暗告白"
+        },
+        {
+          "label": "THE ONE THING",
+          "line": "I'm no good at staying, sweetheart. For you I'd learn the one thing I swore I never would.",
+          "lineCN": "我不擅长留下，sweetheart。可为了你，我愿意学会那件我发誓绝不学的事。",
+          "kind": "情话"
+        },
+        {
+          "label": "NEVER JUST THE BAND",
+          "line": "'C and D.' I keep telling everyone it's just the band. It was never just the band.",
+          "lineCN": "“C 和 D”——我逢人就说那不过是乐队的名字。可它从来就不只是乐队。",
+          "kind": "暗告白"
         }
       ]
     },
@@ -2350,6 +2394,22 @@
       "kind": "锚"
     },
     {
+      "charId": "rob",
+      "name": "Rob Cove",
+      "film": "Glory Daze",
+      "filmCN": "《光荣的迷惑》",
+      "year": "1995",
+      "accent": "#e28a5a",
+      "bg": "#16202b",
+      "text": "#f4ecdd",
+      "muted": "#9b9083",
+      "auLink": "/WinterSunBlog/series/everything-in-transit/",
+      "label": "THE ONE I HID",
+      "line": "You thought I was going solo. I was just writing the one song I could never let you read the title of — well, not yet.",
+      "lineCN": "你以为我要单飞。我只是在写那首——绝不能让你看见歌名的歌。嗯……暂时不给你看。",
+      "kind": "锚"
+    },
+    {
       "charId": "matty",
       "name": "Matty",
       "film": "Mercy",
@@ -3180,6 +3240,22 @@
       "line": "I missed you today. …I don't know how to say it lighter, so I'll just say it true.",
       "lineCN": "我今天想你了。……我不会把它说得更轻巧，那就说得诚实一点吧。",
       "kind": "AU · 暗告白"
+    },
+    {
+      "charId": "rob",
+      "name": "Rob Cove",
+      "film": "Glory Daze",
+      "filmCN": "《光荣的迷惑》",
+      "year": "1995",
+      "accent": "#e28a5a",
+      "bg": "#16202b",
+      "text": "#f4ecdd",
+      "muted": "#9b9083",
+      "auLink": "/WinterSunBlog/series/everything-in-transit/",
+      "label": "EASY, PRINCESS",
+      "line": "Easy, princess. I only steal three things — your harmonies, your fries, and the last word.",
+      "lineCN": "悠着点，princess。我就偷三样——你的和声、你的薯条，还有最后一句嘴。",
+      "kind": "贫嘴"
     },
     {
       "charId": "matty",
@@ -4014,6 +4090,22 @@
       "kind": "AU · 信物"
     },
     {
+      "charId": "rob",
+      "name": "Rob Cove",
+      "film": "Glory Daze",
+      "filmCN": "《光荣的迷惑》",
+      "year": "1995",
+      "accent": "#e28a5a",
+      "bg": "#16202b",
+      "text": "#f4ecdd",
+      "muted": "#9b9083",
+      "auLink": "/WinterSunBlog/series/everything-in-transit/",
+      "label": "ONLY WHEN I SING",
+      "line": "I can fake my way through anything but a song. And yours is the only voice that ever caught mine.",
+      "lineCN": "除了唱歌，我什么都能糊弄。而你的声音，是唯一接得住我的那一个。",
+      "kind": "暗告白"
+    },
+    {
       "charId": "matty",
       "name": "Matty",
       "film": "Mercy",
@@ -4846,6 +4938,22 @@
       "kind": "AU · 情话"
     },
     {
+      "charId": "rob",
+      "name": "Rob Cove",
+      "film": "Glory Daze",
+      "filmCN": "《光荣的迷惑》",
+      "year": "1995",
+      "accent": "#e28a5a",
+      "bg": "#16202b",
+      "text": "#f4ecdd",
+      "muted": "#9b9083",
+      "auLink": "/WinterSunBlog/series/everything-in-transit/",
+      "label": "THE ONE THING",
+      "line": "I'm no good at staying, sweetheart. For you I'd learn the one thing I swore I never would.",
+      "lineCN": "我不擅长留下，sweetheart。可为了你，我愿意学会那件我发誓绝不学的事。",
+      "kind": "情话"
+    },
+    {
       "charId": "matty",
       "name": "Matty",
       "film": "Mercy",
@@ -5676,6 +5784,22 @@
       "line": "To the room I'm Kris. My mother called me Krzysiu. …I'd like it if you did too.",
       "lineCN": "对这屋子里的人我是 Kris。我妈妈叫我 Krzysiu。……如果你也这么叫我，我会很高兴。",
       "kind": "AU · 暗告白"
+    },
+    {
+      "charId": "rob",
+      "name": "Rob Cove",
+      "film": "Glory Daze",
+      "filmCN": "《光荣的迷惑》",
+      "year": "1995",
+      "accent": "#e28a5a",
+      "bg": "#16202b",
+      "text": "#f4ecdd",
+      "muted": "#9b9083",
+      "auLink": "/WinterSunBlog/series/everything-in-transit/",
+      "label": "NEVER JUST THE BAND",
+      "line": "'C and D.' I keep telling everyone it's just the band. It was never just the band.",
+      "lineCN": "“C 和 D”——我逢人就说那不过是乐队的名字。可它从来就不只是乐队。",
+      "kind": "暗告白"
     },
     {
       "charId": "matty",

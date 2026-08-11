@@ -695,3 +695,19 @@
   text_en: "Cue-Card White"
   muted_cn: "机密档案灰"
   muted_en: "Dossier Grey"
+"Everything in Transit":    # Rob Cove · 色卡同源画册 id: rob
+  mf_id: rob                 # → Many Faces 画册锚点 /sam/many-faces/#rob
+  theme_id: rob
+  accent: "#e28a5a"
+  accent_ink: "#9a5a38"
+  bg: "#16202b"
+  text: "#f4ecdd"
+  muted: "#9b9083"
+  accent_cn: "落日珊瑚"
+  accent_en: "Sunset Coral"
+  bg_cn: "暮蓝深湾"
+  bg_en: "Dusk Cove"
+  text_cn: "晒暖沙米"
+  text_en: "Warm Sand"
+  muted_cn: "潮汐浮木"
+  muted_en: "Driftwood"

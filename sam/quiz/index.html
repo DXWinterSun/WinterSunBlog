@@ -50,6 +50,11 @@ const CHARS = [
     bg:"#11161c", accent:"#bc4d3a", text:"#ece0d2", muted:"#62768d",
     profile:{guile:4,forbear:8,chaos:2,raw:5,romance:8,grace:5},
     auLink:"/WinterSunBlog/series/the-cardinal/" },
+  { id:"rob", name:"Rob Cove", film:"Glory Daze", filmCN:"《光荣的迷惑》", year:"1995",
+    tagline:"他背着你偷偷写一首歌，你气得骂他是不是想单飞——却没料到那首歌的名字，就是你。",
+    line:"You thought I was going solo. I was just writing the one song I could never let you read the title of — well, not yet.", lineCN:"你以为我要单飞。我只是在写那首——绝不能让你看见歌名的歌。嗯……暂时不给你看。",
+    bg:"#16202b", accent:"#e28a5a", text:"#f4ecdd", muted:"#9b9083",
+    profile:{guile:7,forbear:5,chaos:7,raw:7,romance:8,grace:6} },
   { id:"matty", name:"Matty", film:"Mercy", filmCN:"《宽恕》", year:"1995",
     tagline:"他曾以为他们是 Bonnie and Clyde——但她只看上了他的车，你看上的是他。",
     line:"I always thought the next one'd be better — I never thought she'd stay.", lineCN:"我一直以为「下一个」会更好——没想到她真的留了下来。",
@@ -809,7 +814,7 @@ function Intro({ onStart, palette, onShuffle }) {
           display:"flex", alignItems:"baseline", justifyContent:"center", gap:20,
           margin:"0 0 6px"
         }}>
-          {[["52","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
+          {[["53","个角色"],["20","道题"],["6","个维度"]].map(([n,label],i)=>(
             <React.Fragment key={i}>
               {i>0 && <span style={{width:1, height:26, background:p.muted, opacity:0.3}}/>}
               <span style={{display:"flex", flexDirection:"column", alignItems:"center", gap:2}}>

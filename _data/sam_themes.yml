@@ -880,3 +880,19 @@
   bg: "#161d29"
   text: "#dde5ee"
   muted: "#7e8ea2"
+- id: rob
+  year: 1995
+  name: "Rob Cove"
+  anchor: rob
+  cn: 落日珊瑚
+  en: Sunset Coral
+  bg_cn: 暮蓝深湾
+  bg_en: Dusk Cove
+  text_cn: 晒暖沙米
+  text_en: Warm Sand
+  muted_cn: 潮汐浮木
+  muted_en: Driftwood
+  accent: "#e28a5a"
+  bg: "#16202b"
+  text: "#f4ecdd"
+  muted: "#9b9083"
