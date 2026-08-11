@@ -69,6 +69,48 @@ series_name: **Everything in Transit**（英文）｜ slug: **everything-in-tran
   把头发吹到脸上。**细节比「他穿了件绿衬衫」生动一百倍。**
 - **海**：Cove（海湾）本身就是母题；潮汐、晒白、末夏将尽的怅惘。
 
+## 歌 · 《Miss Delaney》（CD 的原创曲，母题级）
+
+歌词全文见本节末。**定位**：故事里它是 **CD 乐队的原创歌**（词多半 Rob 写，唱给/关于 D）。
+**⚠️ 绝不能写成「翻唱」**——真歌是 Jack's Mannequin《Everything in Transit》(2005) 里的，
+说成翻唱=时代穿帮。当成他们自己写的歌就干净了。
+
+**为什么天生契合**：
+- 歌名 = 你的名字 Delaney。
+- 副歌「You waited by the window / I waited by the door」= 你俩各自死扛、隔着一扇门的 near-miss；
+  末段升级「I was kicking down your door」= 他其实想破门。
+- 「the vinyl queen from my surfer dream / she likes the Beach Boys」= 海边黑胶音乐女孩 = Winter。
+- 「one less sad robot / something more than just metal」= 松弛外壳下想变真的 Rob。
+- 通篇 pining。
+
+**用法**：
+- 引用按站规：**英文原句 + 中译并列，`>` 引用块**。**不必全篇照搬**，partial 即可。
+- 不贴合我们故事的行（bridge「Arin, I would never lie to you」那句人名、「前男友」框架）**跳过或
+  重新诠释**——借的是「关于 D、关于隔门相望」的情绪，不是原歌具体人事。
+- **payoff 候选（后面挑）**：① 它是你俩「较劲/真香」那场合写出的第一首歌，歌名起初是他拿你姓
+  开涮的玩笑，后期意义变味、跟 CD/称呼一样回来扎人；② 或后期 Rob 首演新歌报幕《Miss Delaney》，
+  你当场听懂是写自己。
+- 加固系列名：CD 的歌 = 那张「专辑」《Everything in Transit》里的曲子，母题闭环。
+
+<details><summary>歌词全文（Winter 提供，2026-08）</summary>
+
+（Verse 1）Finally, I'm letting go / Of all my downer thoughts / In no time there'll be /
+One less sad robot / Looking for a chance to be / Something more than just metal
+（Verse 2）Now I'm going part time / With a film projectionist / And she's the vinyl queen /
+From my surfer dream / She likes the Beach Boys / More than radio metal / And she's so good /
+But, she's no good for me
+（Chorus）Oh, Miss Delaney / What's the matter? / You waited by the window / I waited by the door /
+Oh, Miss Delaney / Where's your boyfriend? / He isn't up in heaven, so / Why treat him like he's dead?
+（Post-Chorus）It's not that everyday / Everyday is coming up / With the green grass / But the times
+pass, when / I think of you / Whenever I'm at dinner
+（Verse 3）Finally / I've found someone to dull this lonely scene / I don't spend my nights searching
+for earthquakes / It's biblical how fucked my sleep can be / But she won't sleep with me
+（Bridge）From here you can find everything / Arin, I / Would never lie to you
+（末段 Chorus）Oh, Miss Delaney / Whatcha sad for? / You waited by the window / And I was kicking
+down your door / Oh, Miss Delaney / Where's your boyfriend? / He isn't up in heaven, so / Why treat
+him like he's dead
+</details>
+
 ## 铁律（写进圣经防手滑）
 
 - **称呼**：你俩互称 **C / D**，随意灵活（可 princess、可全名 Robert Cove / Winter Delaney 在
