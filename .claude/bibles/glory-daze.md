@@ -6,7 +6,9 @@
 series_name: **Everything in Transit**（英文）｜ slug: **everything-in-transit** ｜ collection_order: 待查（现有最大值 +1）
 展示标题: **Everything in Transit · Rob Cove AU**（hero h1 只写 `Everything in Transit`）
 角色: **Robert "Rob" Cove**（Sam Rockwell,《Glory Daze》1995）｜ 画册 id: **rob**（进画册，待建全套）
-配色: **待 Winter 从选项里挑**（见文末「配色候选」）
+配色: **A1 · 落日珊瑚**（暖夏海岸,已定 2026-08）——
+  accent 落日珊瑚 `#e28a5a` / bg 暮色潮蓝 `#16202b` / text 晒暖沙米 `#f4ecdd` / muted 潮汐浮木 `#9b9083`
+  （四色八名,四中文名均 4 字;accent_ink 由 accent 暗一档派生,落库时精算 ≥4.5:1）
 乐队名: **Certified Dropouts（CD）**——对外的哏,学霸叫这个反差可爱
 封面图: 灰色无袖卫衣那张原片截图（ROOTS BRAND · WORKOUT · 后院栅栏背景）——即他的 signature look
 
