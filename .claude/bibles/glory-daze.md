@@ -116,6 +116,29 @@ down your door / Oh, Miss Delaney / Where's your boyfriend? / He isn't up in hea
 him like he's dead
 </details>
 
+## 时间线 & 音乐之路（2026-08 定）
+
+- **四年形状**：大一到大三,同住、打闹、玩乐队,心意没说破——**因为不说也没关系**。
+  **最后一学期（大四）**毕业逼近、各奔东西的问题才浮上来,矛盾集中爆发。
+- **《Miss Delaney》写作时机 = 最后一学期**,且与「Rob 要不要跟 Joanie 走 / 是否分手」缠在一起。
+  写歌 = 他把真相写明白 = 他从 Joanie 那儿抽离的过程。
+- **⚠️ 城市 = 洛杉矶（LA），canon 实锤**（Rob 与 Joanie 要去 LA,他愁「离丈母娘太近」）。
+  **LA 双关（本系列的结构核心之一）**：90 年代想搞音乐、真往上走,圣地也是 LA（主流唱片/A&R/
+  日落大道）。所以「去 LA」同时是两条相反的路——**跟 Joanie 去=安定/收编/乐队散**；
+  **带乐队去=追梦/继续和你唱**。目的地同一个,跟谁去、为什么去,天壤之别。他纠结的从不是
+  「去不去 LA」,是「这是哪一个 LA」。（纳什维尔=乡村都城,不对路;西雅图 grunge 中期已过气。）
+- **「迟迟犹豫」的死结**：他最在意 D 怎么想;D 被 flag+对 Joanie 的愧疚捆着,**逼自己表现支持**;
+  越支持他越读成「她要我走」,越往 Joanie 那条路滑。两人都在演大方、都在成全对方、都难受。near-miss 引擎。
+- **AU 分叉结局**：他选「带乐队去 LA + 和 D」,与 Joanie 体面分开,《Miss Delaney》被唱出来。
+
+## 四年的歌单 = 《Everything in Transit》曲目（CD 原创,⚠️别写成翻唱）
+
+专辑 11 首当 CD 四年攒下的原创歌（系列名=他们的「专辑」=这些歌,母题闭环）：
+1 Holiday from Real · 2 The Mixed Tape · 3 Bruised · 4 I'm Ready · 5 La La Lie · **6 Dark Blue（乐队招牌/
+主打,Winter 钦点）** · **7 Miss Delaney（Rob 最后偷偷写的那首）** · 8 Kill the Messenger · 9 Rescued ·
+10 MFEO Pt.1/Pt.2 · 11 Into the Airwaves。早年用《The Mixed Tape》这类轻快的。引用歌词按站规
+英+中并列 `>`,partial 即可。
+
 ## 铁律（写进圣经防手滑）
 
 - **称呼**：你俩互称 **C / D**，随意灵活（可 princess、可全名 Robert Cove / Winter Delaney 在
