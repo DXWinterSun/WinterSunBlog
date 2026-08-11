@@ -1600,7 +1600,10 @@
   line-height: 1.75;
   color: $ink-soft;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  /* 3 行：右侧 mood 标签栏（.c-chapter-card__aside）挤窄了正文列，
+     ≤35 字的 summary 在窄列里排到第 3 行才收得下——给足 3 行，
+     保持原本 35 字上限也能完整显示，无需回炉缩写任何一篇。 */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
