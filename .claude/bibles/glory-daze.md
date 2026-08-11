@@ -137,6 +137,12 @@ him like he's dead
 - **「迟迟犹豫」的死结**：他最在意 D 怎么想;D 被 flag+对 Joanie 的愧疚捆着,**逼自己表现支持**;
   越支持他越读成「她要我走」,越往 Joanie 那条路滑。两人都在演大方、都在成全对方、都难受。near-miss 引擎。
 - **AU 分叉结局**：他选「带乐队去 LA + 和 D」,与 Joanie 体面分开,《Miss Delaney》被唱出来。
+- **AU 全面「补天」（Winter 定 2026-08,把 canon 的遗憾逐个补圆）**：
+  · Rob → 留下、和「你」在一起（canon 是跟 Joanie 去 LA）;
+  · **Jack × Dina → 一直热恋、一直在一起**（⚠️ canon 里 Jack 与 Dina 已分手、Dina 另有男友、Jack 失落
+    告别；本 AU 分叉让他俩幸福到底,是 Winter 的心愿。写中段时 Jack×Dina 作为温暖的 side-couple 背景常驻）;
+  · Joanie → 体面、她值得的收梢（非情敌反派）;
+  · Mickey × Chelsea → 在一起（canon 保留）。
 
 ## 四年的歌单 = 《Everything in Transit》曲目（CD 原创,⚠️别写成翻唱）
 
@@ -324,6 +330,14 @@ up right
    =CD 诞生(Slosh 起)→ **C&D=Cove&Delaney 只埋种子**(Dennis 考据+Rob 过度否认+你没在意+forward-flash)
    → Holiday from Real 雏形(Rob 半醉哼 hook)。腕带扎发信物复现(你抱贝斯前扎发+他偷看)。
 
-（够一批三章了。下一步：三章一起走发布流程上线。之后方向：从「秘密默契」到台上第一次同台/Joanie 登场铺垫。）
+**Ch1–3 已上线**（2026-08，_posts/ 已发布，封面 images/rob-cove-au.jpeg）。
+
+**下一批方向（Winter 定）**：**校园生活 + 派对/livehouse 演出的黄金中段**（Holiday from Real 那股青春劲儿）。
+- Rob 台上风采全开（可上那件**粉缎衬衫**的换装娃娃高光造型）。
+- **Joanie 正式登场 = 那个「小姐妹」**：她目睹 Rob 台上的风采后动心 → **「你」非常自然地去问 Rob 的意思、
+  替她保媒** = 本系列最疼的 near-miss 扣（你亲手把 Rob 推给姐妹 → Rob 实锤「她对我没意思」→ 咽下心动）。
+  Winter 要「非常自然」——做得越坦荡后面越疼。这颗扣落地时,DEFERRED 里「保媒反讽 payoff」开始计息。
+- **Jack × Dina 热恋**作为温暖 side-couple 背景常驻（见 AU 补天）。
+- 建议节奏：可 Ch4 校园+派对+Rob 风采+Joanie 动心（收在你要去问 Rob）→ Ch5 保媒+Rob 咽下心动。攒三章一发。
 
 （下一章：真香——较劲着合写/合唱，发现只有彼此接得住对方。）
