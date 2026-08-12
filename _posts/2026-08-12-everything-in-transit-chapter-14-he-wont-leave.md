@@ -1,14 +1,17 @@
-# Everything in Transit · Ch14 草稿 v2（整章重写 · 待 Winter 认可 · 攒批部署）
-
-series_order: 14 ｜ chapter_type: "Chapter 14" ｜ 中文名: 换他不走了（可改 / 回收 Ch7「有人不走了」/ 备选「守夜」）
-summary（≤35）: 他留宿那晚，Rob 赖在你房间不肯走，理由假得离谱，就是不走。
+---
+layout: post
+title: "Chapter 14 · 换他不走了 — Everything in Transit"
+date: 2026-08-12
+image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 暗涌]
-要点：Ch7 镜像。**Joanie 回自己公寓不在**;定睡哪儿 Slosh 起哄「让 Brody 上楼跟 **D**（⚠称呼:自家人叫 D,
-不叫 Winnie）挤」→**Rob 一字「沙发」堵死**(醋的火种)→Brody 睡楼下。**Rob 却赖你房间不走**(借口歌卡副歌/我房
-间闷),竖耳听楼下、肩一响就绷;你戳穿→他给不出理由、把吉他塞你怀岔话(没理由=最大理由)。你没赶他;他赖一整夜、
-睡懒人沙发、给你盖毯。你「一直不肯深想的东西又动了一下」。收束回 Ch7。Joanie 不在=他大可回房却偏赖你这儿。
-⚠称呼铁律:自家人(Slosh/Jack/Rob)叫你 D;Brody 才叫 Winnie;你叫 Rob→C/Rob,气头 Robert。未 reveal 秘密歌。
-
+categories: ["AU Story"]
+series: "Everything in Transit"
+series_title: "Everything in Transit · Rob Cove AU"
+series_order: 14
+series_status: ongoing
+series_type: Series
+chapter_type: Chapter 14
+summary: "他留宿那晚，Rob 赖在你房间不肯走，理由假得离谱，就是不走。"
 ---
 
 Brody 留宿那晚，纯属意外。

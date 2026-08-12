@@ -1,14 +1,17 @@
-# Everything in Transit · Ch11 草稿（待 Winter 认可 · 攒批部署）
-
-series_order: 11 ｜ chapter_type: "Chapter 11" ｜ 中文名: 不是常识（可改 / 备选「栈桥那天」「Thanks buddy」）
-summary（≤35）: 你又忘带腕带，Rob 熟练地把他的给你——Brody 也偷偷学了一手。
+---
+layout: post
+title: "Chapter 11 · 不是常识 — Everything in Transit"
+date: 2026-08-12
+image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 暗涌]
-要点：圣克鲁兹海滨栈桥全员出游(Jack&Dina/Slosh/Mickey/Dennis/Rob&Joanie/Brody)。**腕带回收①·Ch11 版**：
-你又忘带,Rob 头都不回、熟练随手给你(动作做过千遍),**Brody 愣住→「Thanks buddy——我学到了」**(他戴发带
-不戴腕带),Rob 才惊觉自己当众干了这个、耳朵不自然、「常识而已」遮过去;旁人只当胡闹,你没往深想「那根到底为谁
-戴」。Brody 甜(丑章鱼/拍照亭)。Rob 越过人群那个「很静、说不出名字」的眼神,你俩对上、他先移开去听 Joanie。
-⚠️腕带你每次都还(别写没还)。未预支 Miss Delaney/摊牌。
-
+categories: ["AU Story"]
+series: "Everything in Transit"
+series_title: "Everything in Transit · Rob Cove AU"
+series_order: 11
+series_status: ongoing
+series_type: Series
+chapter_type: Chapter 11
+summary: "你又忘带腕带，Rob 熟练地把他的给你——Brody 也偷偷学了一手。"
 ---
 
 那年秋天有个周末，天气好得不像话，一群人浩浩荡荡杀去了圣克鲁兹的海滨栈桥。

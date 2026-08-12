@@ -1,13 +1,17 @@
-# Everything in Transit · Ch8 草稿（待 Winter 认可 · 下一批部署）
-
-series_order: 8 ｜ chapter_type: "Chapter 8" ｜ 中文名: 我更喜欢你的声音（可改 / 备选「冲浪的那个」「Brody」）
-summary（≤35）: 海边派对，一个冲浪男孩直直朝你走来——他说，更喜欢你的声音。
+---
+layout: post
+title: "Chapter 8 · 我更喜欢你的声音 — Everything in Transit"
+date: 2026-08-12
+image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 暗涌]
-要点：大二秋。又一场海边派对(CD 唱新歌含《Bruised》)。**Brody 登场**(体育系/小麦色/直球阳光,与 Rob 反着来)
-直接搭讪、把你哄得很开心。**Rob 吃味**:「我唱得不好听?」→ Brody「好听——不过我更喜欢 Winter 的声音」→
-Rob 笑卡壳、整晚不在状态、眼睛直往你俩飘(Joanie 就在身边=更显他没道理)。你浑然不觉「他会为你不得劲」。
-Brody 要走你电话。腕带信物再现(还没还)。symmetric 醋意开闸。⚠️未预支 Miss Delaney/摊牌。
-
+categories: ["AU Story"]
+series: "Everything in Transit"
+series_title: "Everything in Transit · Rob Cove AU"
+series_order: 8
+series_status: ongoing
+series_type: Series
+chapter_type: Chapter 8
+summary: "海边派对，一个冲浪男孩直直朝你走来——他说，更喜欢你的声音。"
 ---
 
 又是一场海边派对。

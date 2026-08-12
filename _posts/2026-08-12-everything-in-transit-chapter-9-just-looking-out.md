@@ -1,12 +1,17 @@
-# Everything in Transit · Ch9 草稿（待 Winter 认可 · 下一批部署 · 凑齐 Ch7-9）
-
-series_order: 9 ｜ chapter_type: "Chapter 9" ｜ 中文名: 哥们儿的关心（可改 / 备选「谁接的电话」「替你把关」）
-summary（≤35）: 电话总打到家里找你，常是 Rob 接——他说替你把关，脸却越来越臭。
+---
+layout: post
+title: "Chapter 9 · 哥们儿的关心 — Everything in Transit"
+date: 2026-08-12
+image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 暗涌]
-要点：共用座机梗落地——**Rob 接到 Brody 找你的电话**(你在三米外拿橙子"忙着呢")。Brody 成 El Rancho 常客
-(讨喜、爱听你唱)。Slosh 起哄、Jack 意味深长。**Rob 拿「哥们儿关心/替你把关」当幌子来管你**(却暴露他比 Brody
-懂你太多:知道你《Bruised》改了多少遍)。你揉他头发打趣、浑然不觉;他耳根红你没看见。⚠️未预支 Miss Delaney/摊牌。
-
+categories: ["AU Story"]
+series: "Everything in Transit"
+series_title: "Everything in Transit · Rob Cove AU"
+series_order: 9
+series_status: ongoing
+series_type: Series
+chapter_type: Chapter 9
+summary: "电话总打到家里找你，常是 Rob 接——他说替你把关，脸却越来越臭。"
 ---
 
 El Rancho 的电话钉在走廊的墙上，一部黑色的老式座机，线长得能扯到厨房，也能扯到楼梯口。它平时响起来，多半是催房租的、找 Slosh 讨兼职工钱的，或者哪个助教通知 Dennis 又逃了课。

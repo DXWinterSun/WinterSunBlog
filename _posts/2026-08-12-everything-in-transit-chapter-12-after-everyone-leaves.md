@@ -1,14 +1,17 @@
-# Everything in Transit · Ch12 草稿（待 Winter 认可 · 攒批部署）
-
-series_order: 12 ｜ chapter_type: "Chapter 12" ｜ 中文名: 散场之后（可改 / 备选「那半秒」「把头发放下来」）
-summary（≤35）: 热闹散尽，只剩你俩。你取下腕带还他——长发落下那一瞬，他看愣了。
+---
+layout: post
+title: "Chapter 12 · 散场之后 — Everything in Transit"
+date: 2026-08-12
+image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 暗涌]
-要点：栈桥归来、Brody 送章鱼道别、Joanie 回自己公寓(大二·不每晚留)、众人散，走廊只剩你俩。你把腕带从头发
-取下还他→**长发唰地落下→Rob 看愣、忘了接、喉结动、没了痞笑、指尖相触、腕带带着你发梢温度他攥紧、耳根红、
-一个字「嗯」**。你说「谢谢 C，下次我一定记着带我自己的」;他把满肚子话咽成「……没什么。晚安，D」进门。**你也
-无端漏跳一拍**(张力首次双向);他背靠门板攥着腕带没松开。全篇迄今最动人的一下:他的壳头回被你、不是被醋撞裂。
-⚠️腕带这次正式还了。未预支 Miss Delaney/摊牌。
-
+categories: ["AU Story"]
+series: "Everything in Transit"
+series_title: "Everything in Transit · Rob Cove AU"
+series_order: 12
+series_status: ongoing
+series_type: Series
+chapter_type: Chapter 12
+summary: "热闹散尽，只剩你俩。你取下腕带还他——长发落下那一瞬，他看愣了。"
 ---
 
 回到 El Rancho 的时候，已经快半夜了。

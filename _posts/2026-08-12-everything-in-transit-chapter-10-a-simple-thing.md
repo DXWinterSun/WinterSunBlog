@@ -1,13 +1,17 @@
-# Everything in Transit · Ch10 草稿（待 Winter 认可 · 攒批部署）
-
-series_order: 10 ｜ chapter_type: "Chapter 10" ｜ 中文名: 一件简单的事（可改 / 备选「学冲浪」「简单的喜欢」）
-summary（≤35）: 学冲浪的那个清晨，一切都那么简单——简单到你几乎相信，你可以要这一份。
+---
+layout: post
+title: "Chapter 10 · 一件简单的事 — Everything in Transit"
+date: 2026-08-12
+image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 怅惘]
-要点：Brody 教你冲浪(清晨空海、干净直接的好、「所以我一直没松手」)。你尝到「简单的喜欢」的甜、几乎想要这
-一份(threshold,别锁死)。回来满脸发光→**Rob 独坐台阶、吉他一个音都弹不出、故意走调「恭喜」**。你浑然不觉。
-收束落在 Rob 独自看你转身的背影。⚠️腕带已按 Winter 修正:那次(Ch6)之后就还了,别再写「她一直没还」。
-⚠️「你和 Brody 到底成不成」留给 Winter 定 Ch11。未预支 Miss Delaney/摊牌。
-
+categories: ["AU Story"]
+series: "Everything in Transit"
+series_title: "Everything in Transit · Rob Cove AU"
+series_order: 10
+series_status: ongoing
+series_type: Series
+chapter_type: Chapter 10
+summary: "学冲浪的那个清晨，一切都那么简单——简单到你几乎相信，你可以要这一份。"
 ---
 
 Brody 教你冲浪，是从一个礼拜六的清晨开始的。

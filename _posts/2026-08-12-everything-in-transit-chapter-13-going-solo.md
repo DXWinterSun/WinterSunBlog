@@ -1,14 +1,17 @@
-# Everything in Transit · Ch13 草稿（待 Winter 认可 · 攒批部署）
-
-series_order: 13 ｜ chapter_type: "Chapter 13" ｜ 中文名: 单飞（可改 / 备选「他藏着的那首」「第一个唱给你听」）
-summary（≤35）: 他开始躲着你写歌，一见你就藏谱子。你骂他要单飞——不知道，他写的是你。
+---
+layout: post
+title: "Chapter 13 · 单飞 — Everything in Transit"
+date: 2026-08-12
+image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 暗涌, 怅惘]
-要点：Ch12 破防后 Rob 变了→**开始偷偷写《Miss Delaney》**(半夜溜练习室带上从不关的门、卷角小本、你一凑近
-就藏、瞎弹搪塞)。你俩是共享一切的双主唱,他头回藏歌=你难受;你「Robert Cove」直呼全名(认真信号)逼问→
-「你是不是要单飞?」他难得认真「我没有」+ **「写完了,第一个唱给你听」(伏笔 reveal)**。dramatic irony:你以为他
-搞 solo,其实那歌每句写的都是你、你是唯一不能看的人。你的烦躁自我归因「职业不满」、又想不到别处。收束点
-Miss Delaney=写你、他不是不给看是不敢。⚠️未点破歌名/未 reveal。Brody 背景在。腕带已还(别写没还)。
-
+categories: ["AU Story"]
+series: "Everything in Transit"
+series_title: "Everything in Transit · Rob Cove AU"
+series_order: 13
+series_status: ongoing
+series_type: Series
+chapter_type: Chapter 13
+summary: "他开始躲着你写歌，一见你就藏谱子。你骂他要单飞——不知道，他写的是你。"
 ---
 
 栈桥那天之后，有些东西不太一样了。

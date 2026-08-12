@@ -1,14 +1,17 @@
-# Everything in Transit · Ch7 草稿 v2（Winter 加料 · 待认可 · 下一批部署）
-
-series_order: 7 ｜ chapter_type: "Chapter 7" ｜ 中文名: 有人不走了（可改 / 回收 Ch5 收束「有人第一次不走了才开始疼」）
-summary（≤35）: 她第一次在这屋里过夜。你躲去阳台，行云流水写出了《Bruised》。
+---
+layout: post
+title: "Chapter 7 · 有人不走了 — Everything in Transit"
+date: 2026-08-12
+image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 暗涌, 怅惘]
-v2 加料(Winter)：房里有**动静**(克制不写实)→你不想再听、抱吉他躲**阳台**→行云流水写出《Bruised》
-(副歌贴合、其余不必对号入座)→事后被追问,你把它推给「一本书」=**昆德拉《不能承受之轻》**(妙:书本身就是
-「一个男人两个女人」=你的处境;你只淡淡点一句「一个男人和两个女人」,不多说)。**《Bruised》=你的秘密歌**,
-与 Rob 后来的《Miss Delaney》成镜像(都藏了真正写的人)。
-腕带信物再现。⚠️未预支 Miss Delaney/摊牌。
-
+categories: ["AU Story"]
+series: "Everything in Transit"
+series_title: "Everything in Transit · Rob Cove AU"
+series_order: 7
+series_status: ongoing
+series_type: Series
+chapter_type: Chapter 7
+summary: "她第一次在这屋里过夜。你躲去阳台，行云流水写出了《Bruised》。"
 ---
 
 你早该想到会有这么一天的。
