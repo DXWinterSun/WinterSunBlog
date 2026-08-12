@@ -233,6 +233,10 @@ up right
 | 客串彩蛋 | — | Matt Damon（被嫌的前室友）、Matthew McConaughey（酒鬼租车员）、Mary Woronov（Joanie 她妈=Rob 怵的丈母娘）、Brendan Fraser、Leah Remini、Spalding Gray（Jack 的爸）|
 
 > ⚠️ 除 Jack Freeman 外，原片室友（含 Rob）**没有记录在案的姓**——Cove 是 AU 赐给 Rob 的姓。
+> **⚠️ 命名铁律（Winter 定 2026-08）**：**Cove 只属于 AU**。所以——**AU 场合**（系列首页、章节正文/front
+> matter、`series_title`、`collection_title`、画册 auLink 的「… · Rob Cove AU」标题、章节 tags）用
+> **「Rob Cove」**；**记录电影角色的场合**（画册 `name`、quiz/spectrum `name`、sam_themes `name`、
+> lines.json `name`/台词墙）一律只用**「Rob」**。别在画册那侧写成 Rob Cove。
 
 ## 配角声口（⚠️ 每章守住，别写歪 2026-08 Winter 校正）
 
