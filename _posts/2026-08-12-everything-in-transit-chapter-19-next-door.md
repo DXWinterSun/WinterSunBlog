@@ -11,7 +11,7 @@ series_order: 19
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 19
-summary: "他想把两间屋并成一间，被 Slosh 一句噎了回去——你俩，还是做隔壁。"
+summary: "他想把两间屋并成一间，被 Slosh 一句噎了回去——还是做隔壁。"
 ---
 
 The Catalyst 那场演出之后，有些东西，悄悄变了。
