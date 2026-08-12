@@ -197,6 +197,15 @@
   color: $ink-soft;
 }
 
+/* 出处小字：低调、比正文更淡更小，另起一行不抢戏 */
+.c-sam-detail__src {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.62;
+}
+
 /* 丁克 / Larry King 引用块 —— 感情重量最重的一段，单独高亮 */
 .c-sam-dink {
   margin: 0 0 8px;
