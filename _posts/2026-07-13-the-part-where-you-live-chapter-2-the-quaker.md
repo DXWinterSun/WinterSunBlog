@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 2 · 贵格会的人 — The Part Where You Live"
 categories: ["AU Story"]
 date: 2026-07-13
-image: 7-psychopaths.PNG
+image: 7-psychopaths.jpg
 series: "The Part Where You Live"
 series_title: "The Part Where You Live · Billy Bickle AU"
 series_order: 2

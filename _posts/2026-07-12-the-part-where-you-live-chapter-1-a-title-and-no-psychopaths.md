@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 1 · 有标题，没有神经病 — The Part Where You Live"
 categories: ["AU Story"]
 date: 2026-07-12
-image: 7-psychopaths.PNG
+image: 7-psychopaths.jpg
 series: "The Part Where You Live"
 series_title: "The Part Where You Live · Billy Bickle AU"
 series_order: 1

@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 6 · 不是那个调弦 — Slow Hands"
 categories: ["AU Story"]
 date: 2026-08-06
-image: gary-petrosino-au.png
+image: gary-petrosino-au.jpg
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
 series_order: 6

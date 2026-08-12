@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 25 · 我数四拍 — Slow Hands"
 categories: ["AU Story"]
 date: 2026-08-24
-image: gary-petrosino-au.png
+image: gary-petrosino-au.jpg
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
 series_order: 25

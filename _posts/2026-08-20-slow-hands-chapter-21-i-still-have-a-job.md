@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 21 · 我还得上班 — Slow Hands"
 categories: ["AU Story"]
 date: 2026-08-20
-image: gary-petrosino-au.png
+image: gary-petrosino-au.jpg
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
 series_order: 21
