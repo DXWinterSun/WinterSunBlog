@@ -1274,19 +1274,19 @@
   overflow: hidden;
   border: 1px solid $line;
   box-shadow: 0 6px 16px rgba(var(--rgb-shadow, 0,0,0), .22);
-  background: #17171b;   /* 无封面时的底：唱片套的深色 */
+  background: $accent-dark;   /* 无封面时的底：唱片套，用色卡深调 */
 }
 
-/* 默认占位：纯 CSS 画的黑胶唱片（有封面图时被 img 盖住） */
+/* 默认占位：纯 CSS 画的黑胶唱片，盘面用本 AU 的招牌色（有封面图时被 img 盖住） */
 .c-song__art::before {
   content: "";
   position: absolute;
   inset: 9px;
   border-radius: 50%;
   background:
-    repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.055) 0 1px, transparent 1px 4px),
-    radial-gradient(circle at 50% 50%, $accent 0 19%, #101013 19% 100%);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.5);
+    repeating-radial-gradient(circle at 50% 50%, rgba(0,0,0,.13) 0 1px, transparent 1px 5px),
+    radial-gradient(circle at 50% 50%, $paper-warm 0 21%, $accent-dark 21% 23.5%, $accent 23.5% 100%);
+  box-shadow: inset 0 0 15px rgba(0,0,0,.24);
 }
 .c-song__art::after {   /* 唱片中心孔 */
   content: "";
@@ -1297,8 +1297,8 @@
   height: 5px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: $paper-warm;
-  box-shadow: 0 0 0 1px rgba(0,0,0,.45);
+  background: $accent-dark;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.35);
 }
 .c-song__art img {   /* 有封面：铺满、盖住黑胶占位 */
   position: absolute;
