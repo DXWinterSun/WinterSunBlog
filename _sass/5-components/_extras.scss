@@ -1216,6 +1216,93 @@
   font-size: 17px;
 }
 
+/* ===============
+	SONG (章节底部「本章曲目 · Song」— 唱片内页式曲目卡)
+	致敬真实词曲作者 + 专辑；比裸代码块好看。歌词槽可选，随 AU 配色明暗翻转。
+=============== */
+
+.c-song {
+  position: relative;
+  max-width: 560px;
+  margin: 48px auto 20px;
+  padding: 26px 30px 22px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, $accent 6%, transparent) 0%, transparent 44%),
+    $paper-warm;
+  border: 1px solid $line;
+  border-left: 3px solid $accent;
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(var(--rgb-shadow, 0,0,0), .16);
+}
+
+.c-song__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 13px;
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $accent-dark;
+}
+
+/* 小唱片圆点 */
+.c-song__eyebrow::before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, $paper-warm 0 2px, $accent 2px 100%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, $accent 55%, transparent);
+  flex: 0 0 auto;
+}
+
+.c-song__title {
+  margin: 0 0 6px;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 25px;
+  line-height: 1.2;
+  color: $ink;
+}
+
+.c-song__credit {
+  margin: 0 0 4px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: $muted;
+}
+.c-song__credit strong { color: $ink-soft; font-weight: 600; }
+
+.c-song__lyrics {
+  margin: 18px 0;
+  padding-top: 18px;
+  border-top: 1px solid color-mix(in srgb, $accent 22%, transparent);
+  font-family: 'Noto Serif SC', 'EB Garamond', serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $ink;
+}
+
+/* 一段 = 一个 <p>；原文行在上，译文行在下（可选） */
+.c-song__lyrics p { margin: 0 0 15px; }
+.c-song__lyrics p:last-child { margin-bottom: 0; }
+.c-song__en { display: block; font-style: italic; }
+.c-song__cn { display: block; margin-top: 2px; font-size: 14px; color: $muted; }
+
+.c-song__note {
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid $line;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: $muted;
+  opacity: .9;
+}
+.c-song__note a { color: $accent; text-decoration: none; }
+.c-song__note a:hover { color: $accent-dark; }
+
 /* ————— 彩蛋入口迷你卡（星图 / 点唱机）—————
    浅色页面上两张「通往夜晚的门票」：颜色就是目的地页面的颜色。 */
 .c-egg-card {
