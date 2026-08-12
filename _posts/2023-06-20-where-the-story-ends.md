@@ -10,47 +10,93 @@ summary: "故事终结之处，新的开始也在徐徐展开。我所爱的，�
 
 **我以这首歌的名字作为这篇文章的标题。这篇文章，郑重地献给The Fray陪我走过的十载春秋。**
 
-```    
-Where the Story Ends 故事终结之处
-Artist: The Fray
-翻译：冬璇
-
-Trying not to lose my head, but I have never been this scared before 我竭尽全力不让自己崩溃，可我从未感到如此恐惧
-Tell you what I'll do instead, lay my body down on the floor 为了缓解恐惧，我将躺在地上
-To forget what I've done, silhouette 'til the good Lord come 清空脑袋，忘掉自己的所作所为，像一具剪影等待救世主到来
-
-All we know is distance 我们感知的唯有距离
-We're close and then we run 我们亲密无间，而后各自奔走
-Kiss away the difference 以亲吻，来消弭分歧
-I know you hate this one 我明白，这是你所怨恨的
-
-Trying not to lose your own 你用尽力气保持理智
-Boxing up everything you've got 将你的物件一一打包
-All you ever knew of home 你记忆中的家的模样
-You're scared, scared to see your mother there in the door 你无比、无比害怕会看见自己的母亲站在门口等你回家
-You wonder "Where did the years go?" 你不禁思索“这些年岁都去了哪里？”
-
-All we know is distance 我们能感知的唯有距离
-We're close and then we run 亲密无间的我们如今各自奔逃
-Kiss away the difference 亲吻能消弭分歧
-I know you hate this one 可我知道，这是你所厌恶的
-But this is how the story ends 可这便是故事终结之处
-Or have we just begun? 又或者，一切才刚开始？
-To kiss away the difference 只需一吻，即可消弭所有分歧
-I know you hate this one 可我明白，这是你所怨恨的
-
-The violins make no sounds 小提琴喑哑无声
-And I begin to feel the ground 我终于有了知觉，身下地板冰凉
-
-All we know is distance 我们感知的唯有距离
-We're close and then we run 我们亲密无间，而后各自奔走
-Kiss away the difference 以亲吻，来消弭分歧
-I know you hate this one 我明白，这是你所怨恨的
-But this is where the story ends 可这便是故事终结之处
-Or have we just begun? 又或者，一切才刚开始？
-To kiss away the difference 我们以亲吻消弭分歧
-I know you hate this one 我明白，这是你所怨恨的 
-```
+<aside class="c-song" role="group" aria-label="这首歌">
+  <div class="c-song__eyebrow">这首歌 · Song</div>
+  <div class="c-song__head">
+    <div class="c-song__art"></div>
+    <div class="c-song__meta">
+      <h3 class="c-song__title">Where the Story Ends</h3>
+      <p class="c-song__artist">The Fray</p>
+      <p class="c-song__credit"><strong>词曲</strong> Isaac Slade &middot; Joe King &nbsp;&middot;&nbsp; <strong>收录于</strong>《The Fray》(2009)</p>
+      <p class="c-song__credit"><strong>中文翻译</strong> 冬璇</p>
+    </div>
+  </div>
+  <div class="c-song__lyrics">
+    <p>
+      <span class="c-song__en">Trying not to lose my head, but I have never been this scared before</span>
+      <span class="c-song__cn">我竭尽全力不让自己崩溃，可我从未感到如此恐惧</span>
+      <span class="c-song__en">Tell you what I&rsquo;ll do instead, lay my body down on the floor</span>
+      <span class="c-song__cn">为了缓解恐惧，我将躺在地上</span>
+      <span class="c-song__en">To forget what I&rsquo;ve done, silhouette &rsquo;til the good Lord come</span>
+      <span class="c-song__cn">清空脑袋，忘掉自己的所作所为，像一具剪影等待救世主到来</span>
+    </p>
+    <p>
+      <span class="c-song__en">All we know is distance</span>
+      <span class="c-song__cn">我们感知的唯有距离</span>
+      <span class="c-song__en">We&rsquo;re close and then we run</span>
+      <span class="c-song__cn">我们亲密无间，而后各自奔走</span>
+      <span class="c-song__en">Kiss away the difference</span>
+      <span class="c-song__cn">以亲吻，来消弭分歧</span>
+      <span class="c-song__en">I know you hate this one</span>
+      <span class="c-song__cn">我明白，这是你所怨恨的</span>
+    </p>
+    <p>
+      <span class="c-song__en">Trying not to lose your own</span>
+      <span class="c-song__cn">你用尽力气保持理智</span>
+      <span class="c-song__en">Boxing up everything you&rsquo;ve got</span>
+      <span class="c-song__cn">将你的物件一一打包</span>
+      <span class="c-song__en">All you ever knew of home</span>
+      <span class="c-song__cn">你记忆中的家的模样</span>
+      <span class="c-song__en">You&rsquo;re scared, scared to see your mother there in the door</span>
+      <span class="c-song__cn">你无比、无比害怕会看见自己的母亲站在门口等你回家</span>
+      <span class="c-song__en">You wonder "Where did the years go?"</span>
+      <span class="c-song__cn">你不禁思索“这些年岁都去了哪里？”</span>
+    </p>
+    <p>
+      <span class="c-song__en">All we know is distance</span>
+      <span class="c-song__cn">我们能感知的唯有距离</span>
+      <span class="c-song__en">We&rsquo;re close and then we run</span>
+      <span class="c-song__cn">亲密无间的我们如今各自奔逃</span>
+      <span class="c-song__en">Kiss away the difference</span>
+      <span class="c-song__cn">亲吻能消弭分歧</span>
+      <span class="c-song__en">I know you hate this one</span>
+      <span class="c-song__cn">可我知道，这是你所厌恶的</span>
+      <span class="c-song__en">But this is how the story ends</span>
+      <span class="c-song__cn">可这便是故事终结之处</span>
+      <span class="c-song__en">Or have we just begun?</span>
+      <span class="c-song__cn">又或者，一切才刚开始？</span>
+      <span class="c-song__en">To kiss away the difference</span>
+      <span class="c-song__cn">只需一吻，即可消弭所有分歧</span>
+      <span class="c-song__en">I know you hate this one</span>
+      <span class="c-song__cn">可我明白，这是你所怨恨的</span>
+    </p>
+    <p>
+      <span class="c-song__en">The violins make no sounds</span>
+      <span class="c-song__cn">小提琴喑哑无声</span>
+      <span class="c-song__en">And I begin to feel the ground</span>
+      <span class="c-song__cn">我终于有了知觉，身下地板冰凉</span>
+    </p>
+    <p>
+      <span class="c-song__en">All we know is distance</span>
+      <span class="c-song__cn">我们感知的唯有距离</span>
+      <span class="c-song__en">We&rsquo;re close and then we run</span>
+      <span class="c-song__cn">我们亲密无间，而后各自奔走</span>
+      <span class="c-song__en">Kiss away the difference</span>
+      <span class="c-song__cn">以亲吻，来消弭分歧</span>
+      <span class="c-song__en">I know you hate this one</span>
+      <span class="c-song__cn">我明白，这是你所怨恨的</span>
+      <span class="c-song__en">But this is where the story ends</span>
+      <span class="c-song__cn">可这便是故事终结之处</span>
+      <span class="c-song__en">Or have we just begun?</span>
+      <span class="c-song__cn">又或者，一切才刚开始？</span>
+      <span class="c-song__en">To kiss away the difference</span>
+      <span class="c-song__cn">我们以亲吻消弭分歧</span>
+      <span class="c-song__en">I know you hate this one</span>
+      <span class="c-song__cn">我明白，这是你所怨恨的</span>
+    </p>
+  </div>
+  <p class="c-song__note">本文为非商业的个人分享，歌曲版权归原作者与版权方所有。</p>
+</aside>
 
 
 
