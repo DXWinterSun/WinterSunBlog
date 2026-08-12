@@ -1266,6 +1266,7 @@
 }
 
 .c-song__art {
+  position: relative;
   flex: 0 0 auto;
   width: 92px;
   height: 92px;
@@ -1273,8 +1274,36 @@
   overflow: hidden;
   border: 1px solid $line;
   box-shadow: 0 6px 16px rgba(var(--rgb-shadow, 0,0,0), .22);
+  background: #17171b;   /* 无封面时的底：唱片套的深色 */
 }
-.c-song__art img {
+
+/* 默认占位：纯 CSS 画的黑胶唱片（有封面图时被 img 盖住） */
+.c-song__art::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.055) 0 1px, transparent 1px 4px),
+    radial-gradient(circle at 50% 50%, $accent 0 19%, #101013 19% 100%);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.5);
+}
+.c-song__art::after {   /* 唱片中心孔 */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: $paper-warm;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.45);
+}
+.c-song__art img {   /* 有封面：铺满、盖住黑胶占位 */
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
@@ -1284,12 +1313,22 @@
 .c-song__meta { min-width: 0; }
 
 .c-song__title {
-  margin: 0 0 6px;
+  margin: 0 0 3px;
   font-family: $heading-font-family;
   font-style: italic;
   font-size: 25px;
   line-height: 1.2;
   color: $ink;
+}
+
+/* 歌名下紧跟的音乐人名（醒目，便于查原曲） */
+.c-song__artist {
+  margin: 0 0 8px;
+  font-family: $heading-font-family;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: $accent-dark;
 }
 
 .c-song__credit {
@@ -1305,6 +1344,7 @@
   .c-song__head { gap: 14px; }
   .c-song__art { width: 72px; height: 72px; }
   .c-song__title { font-size: 21px; }
+  .c-song__artist { font-size: 14px; }
 }
 
 .c-song__lyrics {
