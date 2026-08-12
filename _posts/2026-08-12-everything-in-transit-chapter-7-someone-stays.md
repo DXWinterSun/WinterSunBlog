@@ -96,6 +96,8 @@ Joanie 点了头。他们一起上了楼，进了 Rob 那间屋。门，轻轻�
       <span class="c-song__cn">一小时一小时地过，她还在数</span>
       <span class="c-song__en">That I am not there</span>
       <span class="c-song__cn">我不在的每一分钟</span>
+      <span class="c-song__en">I swear I didn&rsquo;t mean for it to feel like this</span>
+      <span class="c-song__cn">我发誓，我没想让它变成这样</span>
       <span class="c-song__en">Like every inch of me is bruised</span>
       <span class="c-song__cn">像我浑身上下，寸寸都是淤青</span>
     </p>

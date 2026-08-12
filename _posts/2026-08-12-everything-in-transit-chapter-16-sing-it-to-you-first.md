@@ -121,11 +121,13 @@ C，和 D。
   <div class="c-song__lyrics">
     <p>
       <span class="c-song__en">Oh, Miss Delaney, what&rsquo;s the matter?</span>
-      <span class="c-song__cn">哦，Delaney 小姐，你怎么了？</span>
-      <span class="c-song__en">You waited by the window</span>
-      <span class="c-song__cn">你守在窗前</span>
-      <span class="c-song__en">I waited by the door</span>
-      <span class="c-song__cn">我守在门口</span>
+      <span class="c-song__cn">哦，Delaney 小姐，你这是怎么了？</span>
+      <span class="c-song__en">You waited by the window, I waited by the door</span>
+      <span class="c-song__cn">你守在窗前，我守在门口</span>
+      <span class="c-song__en">Oh, Miss Delaney, where&rsquo;s your boyfriend?</span>
+      <span class="c-song__cn">哦，Delaney 小姐，你的他去哪了？</span>
+      <span class="c-song__en">He isn&rsquo;t up in heaven, so why treat him like he&rsquo;s dead?</span>
+      <span class="c-song__cn">他又没上天堂，你何必把他当成已经死了？</span>
     </p>
   </div>
   <p class="c-song__note">本系列为非商业同人创作，歌曲版权归原作者与版权方所有。</p>

@@ -74,6 +74,10 @@ Rob 今天没穿那件灰卫衣。他不知从哪儿翻出一件粉色的缎面�
       <span class="c-song__cn">每一天，都会是一场逃离现实的假期</span>
       <span class="c-song__en">We&rsquo;d waste our weeks beneath the sun</span>
       <span class="c-song__cn">我们把一个个星期，虚度在太阳底下</span>
+      <span class="c-song__en">We&rsquo;d fry our brains and say it&rsquo;s so much fun out here</span>
+      <span class="c-song__cn">把脑子晒得发昏，嘴上却说这儿真快活</span>
+      <span class="c-song__en">But when it&rsquo;s all over, I&rsquo;ll come back for another year</span>
+      <span class="c-song__cn">可等一切结束，我还会回来，再过上一年</span>
     </p>
   </div>
   <p class="c-song__note">本系列为非商业同人创作，歌曲版权归原作者与版权方所有。</p>
