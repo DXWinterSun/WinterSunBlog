@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · 假期永不结束 — Everything in Transit"
+title: "Chapter 3 · Certified Dropouts — Everything in Transit"
 date: 2026-08-11
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 悸动]
