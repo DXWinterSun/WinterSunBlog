@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 12 · 松下来 — Better Living Through You"
 date: 2026-07-27
-image: better-living-through-chemistry.png
+image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 缱绻, 絮语]
 categories: ["AU Story"]
 series: "Better Living Through You"

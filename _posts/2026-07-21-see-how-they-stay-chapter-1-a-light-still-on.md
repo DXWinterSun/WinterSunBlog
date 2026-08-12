@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 1 · 留灯 — See How They Stay"
 date: 2026-07-21
-image: "See How They Run(8).png"
+image: "See How They Run(8).jpg"
 tags: [Inspector Stoppard, Sam Rockwell, AU, See How They Stay, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "See How They Stay"

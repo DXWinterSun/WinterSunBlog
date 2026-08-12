@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 13 · 窗台 — The Cardinal"
 date: 2026-06-20
-image: sam-rockwell-polish-guy.png
+image: sam-rockwell-polish-guy.jpg
 tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 怅惘, 缱绻]
 categories: ["AU Story"]
 series: "The Cardinal"

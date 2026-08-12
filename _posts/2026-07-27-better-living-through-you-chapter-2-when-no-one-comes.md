@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 2 · 没有人来的时候 — Better Living Through You"
 date: 2026-07-27
-image: better-living-through-chemistry.png
+image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 悸动, 絮语]
 categories: ["AU Story"]
 series: "Better Living Through You"

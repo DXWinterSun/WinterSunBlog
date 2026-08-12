@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 15 · 我不用猜 — Slow Hands"
 categories: ["AU Story"]
 date: 2026-08-14
-image: gary-petrosino-au.png
+image: gary-petrosino-au.jpg
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
 series_order: 15

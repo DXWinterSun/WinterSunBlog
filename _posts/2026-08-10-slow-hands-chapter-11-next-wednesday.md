@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 11 · 下周三 — Slow Hands"
 categories: ["AU Story"]
 date: 2026-08-10
-image: gary-petrosino-au.png
+image: gary-petrosino-au.jpg
 series: "Slow Hands"
 series_title: "Slow Hands · Gary Petrosino AU"
 series_order: 11

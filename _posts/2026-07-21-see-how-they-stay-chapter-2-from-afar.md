@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 2 · 远远地 — See How They Stay"
 date: 2026-07-21
-image: "See How They Run(8).png"
+image: "See How They Run(8).jpg"
 tags: [Inspector Stoppard, Sam Rockwell, AU, See How They Stay, 悸动, 怅惘]
 categories: ["AU Story"]
 series: "See How They Stay"
