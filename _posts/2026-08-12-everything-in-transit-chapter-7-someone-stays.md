@@ -90,5 +90,15 @@ Joanie 点了头。他们一起上了楼，进了 Rob 那间屋。门，轻轻�
       <p class="c-song__credit"><strong>词曲</strong> Andrew McMahon &nbsp;·&nbsp; <strong>收录于</strong>《Everything in Transit》(2005)</p>
     </div>
   </div>
+  <div class="c-song__lyrics">
+    <p>
+      <span class="c-song__en">Hours pass, and she still counts the minutes</span>
+      <span class="c-song__cn">一小时一小时地过，她还在数</span>
+      <span class="c-song__en">That I am not there</span>
+      <span class="c-song__cn">我不在的每一分钟</span>
+      <span class="c-song__en">Like every inch of me is bruised</span>
+      <span class="c-song__cn">像我浑身上下，寸寸都是淤青</span>
+    </p>
+  </div>
   <p class="c-song__note">本系列为非商业同人创作，歌曲版权归原作者与版权方所有。</p>
 </aside>

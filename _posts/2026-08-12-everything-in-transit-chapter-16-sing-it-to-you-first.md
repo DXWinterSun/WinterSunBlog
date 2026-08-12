@@ -118,5 +118,15 @@ C，和 D。
       <p class="c-song__credit"><strong>词曲</strong> Andrew McMahon &nbsp;·&nbsp; <strong>收录于</strong>《Everything in Transit》(2005)</p>
     </div>
   </div>
+  <div class="c-song__lyrics">
+    <p>
+      <span class="c-song__en">Oh, Miss Delaney, what&rsquo;s the matter?</span>
+      <span class="c-song__cn">哦，Delaney 小姐，你怎么了？</span>
+      <span class="c-song__en">You waited by the window</span>
+      <span class="c-song__cn">你守在窗前</span>
+      <span class="c-song__en">I waited by the door</span>
+      <span class="c-song__cn">我守在门口</span>
+    </p>
+  </div>
   <p class="c-song__note">本系列为非商业同人创作，歌曲版权归原作者与版权方所有。</p>
 </aside>

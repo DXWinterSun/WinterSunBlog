@@ -55,3 +55,26 @@ Rob 今天没穿那件灰卫衣。他不知从哪儿翻出一件粉色的缎面�
 > 有些门，是别人先替你推开的。
 > 你那时还站在门外，笑着，什么都没看见——
 > 只当，那不过是个再痛快不过的夏夜。
+
+<aside class="c-song" role="group" aria-label="本章曲目">
+  <div class="c-song__eyebrow">本章曲目 · Song</div>
+  <div class="c-song__head">
+    <div class="c-song__art"><img src="{{ site.baseurl }}/images/everything-in-transit-album.jpeg" alt="Everything in Transit 专辑封面" loading="lazy"></div>
+    <div class="c-song__meta">
+      <h3 class="c-song__title">Holiday from Real</h3>
+      <p class="c-song__artist">Jack&rsquo;s Mannequin</p>
+      <p class="c-song__credit"><strong>词曲</strong> Andrew McMahon &nbsp;·&nbsp; <strong>收录于</strong>《Everything in Transit》(2005)</p>
+    </div>
+  </div>
+  <div class="c-song__lyrics">
+    <p>
+      <span class="c-song__en">But if you left it up to me</span>
+      <span class="c-song__cn">可要是由着我</span>
+      <span class="c-song__en">Every day would be a holiday from real</span>
+      <span class="c-song__cn">每一天，都会是一场逃离现实的假期</span>
+      <span class="c-song__en">We&rsquo;d waste our weeks beneath the sun</span>
+      <span class="c-song__cn">我们把一个个星期，虚度在太阳底下</span>
+    </p>
+  </div>
+  <p class="c-song__note">本系列为非商业同人创作，歌曲版权归原作者与版权方所有。</p>
+</aside>
