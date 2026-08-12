@@ -79,3 +79,16 @@ Joanie 点了头。他们一起上了楼，进了 Rob 那间屋。门，轻轻�
 > 你把它叫作《Bruised》，然后骗所有人说，是一本书写的。
 > 只有你自己知道——
 > 那不是书。那是你，隔着一堵墙，亲手按下的、第一块淤青。
+
+<aside class="c-song" role="group" aria-label="本章曲目">
+  <div class="c-song__eyebrow">本章曲目 · Song</div>
+  <div class="c-song__head">
+    <div class="c-song__art"><img src="{{ site.baseurl }}/images/everything-in-transit-album.jpeg" alt="Everything in Transit 专辑封面" loading="lazy"></div>
+    <div class="c-song__meta">
+      <h3 class="c-song__title">Bruised</h3>
+      <p class="c-song__artist">Jack&rsquo;s Mannequin</p>
+      <p class="c-song__credit"><strong>词曲</strong> Andrew McMahon &nbsp;·&nbsp; <strong>收录于</strong>《Everything in Transit》(2005)</p>
+    </div>
+  </div>
+  <p class="c-song__note">本系列为非商业同人创作，歌曲版权归原作者与版权方所有。</p>
+</aside>
