@@ -8,6 +8,9 @@ categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
 series_order: 11
+series_status: ongoing
+series_type: "Series"
+chapter_type: "Chapter 11"
 summary: "他一路凶到底，只为讨一句：你现在要的，是我。"
 ---
 

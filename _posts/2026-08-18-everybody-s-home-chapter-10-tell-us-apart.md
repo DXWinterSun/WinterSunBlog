@@ -8,6 +8,9 @@ categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
 series_order: 10
+series_status: ongoing
+series_type: "Series"
+chapter_type: "Chapter 10"
 summary: "他赌你会把他认成另一个 Sam，你偏不。"
 ---
 
