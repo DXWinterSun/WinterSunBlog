@@ -44,6 +44,17 @@ Vic 只因「这事对我有意义」而做。
 → 候选池再加一颗:**“No one will know.” “I know.”**（这一来一回是个完美的两拍，画册若能承载对白型刻字最好；
 否则单取 “I know.”）。
 
+**（同场景续，Winter 紧接着补）**：派对上大家都开始玩比赛了，Vic 还没擦完；众人劝他别擦了、
+**「已经不需要音乐了」**，Vic 说 **“It's not about the music. The records have to be cleaned.”**
+→ **这句把「I know」补完整，可能就是 THE inscription（头号，暂列第一）。** 它点破:他的用心**从来不以「有没有用/
+被不被需要」为条件**。音乐(功能/回报)结束了，可「东西值得被好好对待」这件事没有结束——**"have to be" 是一种温柔却
+绝对的内在标准。** 别人都散去玩乐(派对的功能用尽了)，只有他还留在原地，安静地擦——因为「值得」不需要观众，也不需要理由。
+→ **AU 承诺(desc 收束可用)**:他会用一模一样的方式待「你」——不是因为你有用、不是因为有人在看，
+是因为**你本就值得被好好擦亮**。
+→ 刻字排序更新：① `It's not about the music. The records have to be cleaned.`（题眼级，最完整）
+② `I know.` / `No one will know. — I know.` ③ `Beauty's never been my enemy.`
+④ `I can't deny any of that.` ⑤ `I can quit anytime I want.`（arc 反讽，追完再评）。
+
 **S3 · “beauty's never been my enemy” + Vic the Chick（Winter 2026-08-13 补，她最新看到）：**
 大家一起看「男女对决」的大型体育节目（应是影射 1973 年真实的 Battle of the Sexes 网球赛），然后打赌。
 Vic 说 **“my money is on the filly.”**（filly＝小母马，指押那个女的）。Chet 质问他怎么支持对家，
