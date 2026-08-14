@@ -32,6 +32,12 @@
 
 ## Winter 的素材本（边追边加，最新在上）
 
+**S3 · 垒球场 “I'm on both teams!”（Winter 2026-08-13，「好狂野」，附截图）：**
+接 cold-turkey 之后转场垒球——Vic 脱掉上衣、袒胸露乳（金毛+胸毛+choker），指着两边喊
+**“You're gonna lose, you're gonna lose! I'm on both teams!”**（你会输、你也会输，我两队都参加）。
+→ 轻的一颗，但同源:**他心里没有「敌人」这一栏**（呼应 beauty's never been my enemy）。众人分边厮杀，
+他偏要站在所有人那边——连打球都拒绝与谁为敌。**全世界都是他的队友。** 也再度实证「袒胸露乳=毫无防备」的视觉母题。
+
 **S3 · 擦唱片的阴影面：发火 → 自觉上瘾 → cold turkey（Winter 2026-08-13 补，最新，附截图）：**
 承上：Vic 执着擦唱片，有人来碰，他**第一次发火**——“Don't touch the fucking vinyl!” → 对着凑近的胖子
 “Get the fuck off of me, you fatsy little fuck!”（Winter：第一次看见 Vic 发火）。发完他忽然自省，说
