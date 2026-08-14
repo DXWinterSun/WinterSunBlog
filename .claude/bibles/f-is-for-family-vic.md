@@ -39,7 +39,12 @@ look for Bill in my helicopter.”** → **“I knew you'd be happy for me, Fran
 细节：他那辆**迷幻嬉皮面包车**，车牌 **“MNAGE3”**（ménage à trois 三人行梗，70s 加州老色批气质）。
 → 收三味:① **“Anything for the Murphys”** = 给不是家人的人豁出一切（generosity 主题，可作 tagline/line 料）;
 ② **乱给人起名（Mr. Helicopter）** = 再证「不记真名、只发标签」母题（同 Cutie Pie / Zaphod baby doll）;
-③ 视觉签名 +1:迷幻面包车 + MNAGE3 车牌（配图可用）。**紧接着就是坠机**（Winter 的最爱、全聊天起点）。
+③ 视觉签名 +1:迷幻面包车 + MNAGE3 车牌（配图可用）。
+**坠机（确认，Winter 追到）**：Vic **一边嗑药一边开飞机、没及时看见 fuel 警示灯亮**，坠机；机上还有
+**德国老爷爷 Otto（就是他刚起名「Mr. Helicopter」那位）**和另一个邻居——他乱起的名一语成谶。都没大事。
+→ **这一幕把 Vic 浓缩成一个动作:他的英雄主义和他的灾难是同一个手势。** 他在天上，因为他是 Vic（肯为邻居孩子豁出去飞）；
+他摔下来，也因为他是 Vic（嗑药、没心没肺、顾不上油表）。**给得出最真的心意，给不出不出岔子的结果。**
+——这是 Winter 全场聊天的起点与最爱，desc / AU 里 Vic「暖而闯祸」的定性场景，务必用。
 
 **S3E8 · 泳池/热水浴缸的贫嘴 pun 专场（Winter 2026-08-13，附截图）：**
 Vic 泡池子里劝暴躁的 Frank 放松:**“Nama-stay, don't nama-go.”**（瑜伽谐音梗）、**“Mellow out, Frank.”**
