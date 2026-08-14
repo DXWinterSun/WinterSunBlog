@@ -32,6 +32,14 @@
 
 ## Winter 的素材本（边追边加，最新在上）
 
+**S3E8 · 泳池/热水浴缸的贫嘴 pun 专场（Winter 2026-08-13，附截图）：**
+Vic 泡池子里劝暴躁的 Frank 放松:**“Nama-stay, don't nama-go.”**（瑜伽谐音梗）、**“Mellow out, Frank.”**
+Frank 回怼 **“Ah, Christ, Vic, you were smarter when you were using narcotics.”**（你嗑药时比现在聪明）。
+→ 两味料记下:① **声口**——Vic 爱说**谐音梗/瑜伽腔的贫嘴**（跟 Justin Hammer 的快嘴不同，Vic 是软塌塌的土味 pun），
+写他时留着;② **Vic↔Frank 动力学**——全剧最暴躁的是 Frank，而 Vic 是**永远在劝他「放轻松」的那个**，
+一个满身刺、一个满身澡堂热气，天生反义词。③ 官方盖章「戒瘾后的 Vic 更呆但善意不变」（Frank 那句吐槽）。
+（S3E8 是 Vic 戏很足的一集，追剧线可标重点。）
+
 **S3 · 垒球场 “I'm on both teams!”（Winter 2026-08-13，「好狂野」，附截图）：**
 接 cold-turkey 之后转场垒球——Vic 脱掉上衣、袒胸露乳（金毛+胸毛+choker），指着两边喊
 **“You're gonna lose, you're gonna lose! I'm on both teams!”**（你会输、你也会输，我两队都参加）。
