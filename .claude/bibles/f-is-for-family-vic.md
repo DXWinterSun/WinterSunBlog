@@ -32,6 +32,15 @@
 
 ## Winter 的素材本（边追边加，最新在上）
 
+**S3 finale 序曲 · 直升机找 Bill（Winter 2026-08-13 追到，附截图；前文已铺垫「Vic 在学开飞机」）：**
+Bill 走丢，Vic 手搭 Frank 肩 **“Anything for the Murphys, right, guys?”** → **“Hey, Frank, I'll go up and
+look for Bill in my helicopter.”** → **“I knew you'd be happy for me, Frank.”**（他去玩命找孩子，却高兴得像收礼物）
+→ 拉人同去，还给人乱起名 **“Otto, my man, your name is Mr. Helicopter.”**
+细节：他那辆**迷幻嬉皮面包车**，车牌 **“MNAGE3”**（ménage à trois 三人行梗，70s 加州老色批气质）。
+→ 收三味:① **“Anything for the Murphys”** = 给不是家人的人豁出一切（generosity 主题，可作 tagline/line 料）;
+② **乱给人起名（Mr. Helicopter）** = 再证「不记真名、只发标签」母题（同 Cutie Pie / Zaphod baby doll）;
+③ 视觉签名 +1:迷幻面包车 + MNAGE3 车牌（配图可用）。**紧接着就是坠机**（Winter 的最爱、全聊天起点）。
+
 **S3E8 · 泳池/热水浴缸的贫嘴 pun 专场（Winter 2026-08-13，附截图）：**
 Vic 泡池子里劝暴躁的 Frank 放松:**“Nama-stay, don't nama-go.”**（瑜伽谐音梗）、**“Mellow out, Frank.”**
 Frank 回怼 **“Ah, Christ, Vic, you were smarter when you were using narcotics.”**（你嗑药时比现在聪明）。
