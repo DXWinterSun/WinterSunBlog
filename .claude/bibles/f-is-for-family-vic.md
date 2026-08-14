@@ -32,6 +32,17 @@
 
 ## Winter 的素材本（边追边加，最新在上）
 
+**S3 · “beauty's never been my enemy” + Vic the Chick（Winter 2026-08-13 补，她最新看到）：**
+大家一起看「男女对决」的大型体育节目（应是影射 1973 年真实的 Battle of the Sexes 网球赛），然后打赌。
+Vic 说 **“my money is on the filly.”**（filly＝小母马，指押那个女的）。Chet 质问他怎么支持对家，
+Vic 捂着胸口、一脸深情：**“Beauty's never been my enemy.”** ← Winter「真的苏我一脸」。
+接着大家取笑他 **“Vic the Chick”**，他不但不生气，还夸 **“good one.”**
+→ 两层魂同框：① **反 macho 的温柔**——满屋直男（Frank 的暴躁、Chet 的军人式阳刚）里，只有他毫不犹豫站到「美」
+那边，浪漫得理直气壮，一点不在乎「男人该支持男人」那套；② **自尊不脆**——被取笑娘、被安「Vic the Chick」的绰号，
+他没有要维护的男子气概，反而欣赏这个笑话。**他之所以让人爱得省力，就是没有那层「男人的壳」要人先攻破。**
+→ **“Beauty's never been my enemy.”** 进 tagline / inscription 候选池（第一人称、浪漫、gallant；
+在 desc 第二人称框里可暗指「你」就是他永不与之为敌的那份美）。
+
 **S3E1 · 幸运体质 + 反炫耀（Winter 2026-08-13 补）：**
 他说自己现在没工作了，可「这可怎么办呢——遣散费够我花五年都花不完，去赌场输了一部分、结果赢得更多，
 这生活真是太不幸了」（Winter 转述，非逐字）。
