@@ -215,6 +215,32 @@ Winter 定性：**天然呆**。这句 → **`inscription` 并列头号候选**�
 
 ---
 
+## Vic 出场 & 剧情线（2026-08-13 查，给 Winter 串的追剧线）
+
+> 说明：逐集「打勾出场表」查不到可靠源（数据库多被墙）。Vic 是常驻邻居，几乎每季都有零星短镜头；
+> 下面标的是**他有正经戏份 / 大事发生**的集，够 Winter 挑重点看。剧情细节以各季 wiki + Winter 亲看为准。
+
+- **S1（6 集）· 立人设**：被引入为街角那个令人艳羡的松弛邻居——热水浴缸、可卡因、party 不断、"Heeeey Frank!"、
+  女友 Cutie Pie（真名 Karen）。基本是「别人家过得比你爽」的背景担当，戏不重但气质定型。
+- **S2（10 集）· 触底①**：Cutie Pie 出轨多人（含 14 岁 Kevin）→ Kevin 演出即兴曲捅破 → Vic 崩溃、掏枪
+  把家砸烂、却回头安慰 Kevin。后落魄睡（借来的）地下室。**`Pray Away`（S2）**：砸房之后、和他那只蟾蜍。
+- **S3（10 集）· Winter 正在看的富矿**：国庆 party 擦唱片「I know / The records have to be cleaned」；
+  Battle-of-Sexes 打赌「my money is on the filly / Beauty's never been my enemy」+「Vic the Chick」；
+  发火→自觉上瘾→cold-turkey 掀唱片；垒球「I'm on both teams」。**S3 finale `Landing the Plane`**：Bill 走丢，
+  Vic 开直升机去找、没油坠机（← Winter 的最爱）。
+- **S4（10 集）· 触底②→转机**：30 岁生日；被电台只让管「怀旧老歌」→ 提前中年危机；自荐当 Kevin 乐队经纪、
+  乱改风格失败但被原谅。**S4 finale `Baby, Baby, Baby`（E10）**：Vic Jr 出生线收束，他兴冲冲抱娃给 Frank 显摆，
+  偏赶上 Frank 的爹（Big Bill）弥留（时机糟透，Vic 式倒霉）。
+- **S5（8 集，告别季）· 单亲爸爸**：Cutie Pie/Karen 不想当妈、离开（约 **`Blind Alley` E3**）；
+  Vic **为好好当爹把毒/瘾全戒了**，大半戏是一个人半夜哄那个「松弛得随他爹」的娃。
+  全剧 **finale `Bye Bye, Frankie`（E8）** 收尾（Frank 的 Box 16 / Bach's 16 反高潮）。Vic 是结局最治愈的角色之一。
+- **重点看这几集(Vic 戏多/关键)**：S2 砸房那几集 + `Pray Away`；S3 全季（尤其 party 擦唱片那集、`Landing the Plane`）；
+  S4 `Baby, Baby, Baby`；S5 `Blind Alley` + 单亲带娃线 + `Bye Bye, Frankie`。
+- ⚠️ 存疑待核（源冲突，别当定论）：Karen「怀孕揭示 vs 生产 vs 复合又离开」的确切集数分布在 S4 尾～S5 初之间有出入；
+  Big Bill 确切死于哪一集也需再核。追到了以 Winter 亲看为准，回来订正。
+
+---
+
 ## 上线部署清单（等 Winter 定稿后照做——画册加人 = 牵一发动全身）
 
 > 依据 `CLAUDE.md`「新增一个 Sam 角色 = 要同步四个彩蛋 + 计数总闸」+「画册维护」skill。
