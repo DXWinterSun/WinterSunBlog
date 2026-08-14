@@ -32,6 +32,15 @@
 
 ## Winter 的素材本（边追边加，最新在上）
 
+**S4E1《Father Confessor》冷开场 · 忏悔室荤话（Winter 2026-08-13 追到，「开幕雷击」）：**
+Vic 在天主教忏悔室里，对神父用**神圣术语**一本正经讲自己一场嗑药+艳遇的荒唐夜：
+**“I received the sacrament of oral sex, but I passed out before I could reciprocate.”**
+（有人给他口，他还没回敬就嗑嗨断片了，却当成「圣礼」在忏悔）。
+→ 笑点=神圣场合×荤内容的反差；**最 Vic 的是他并非故意亵渎**——他**真心把纵欲当成庄严美好的事**。
+呼应「擦唱片的虔诚」:**对 Vic 而言凡他爱的/享受的都是神圣的**（唱片是、艳遇也是），一视同仁的傻气敬重。
+→ 反讽记一笔:标题《Father Confessor》里「Father」双关神父/父亲，而这**正是他当爹那一季（S4）的开场**——
+开局一个满嘴荤话的 Vic，季末他真成了 father。
+
 **S3 finale 序曲 · 直升机找 Bill（Winter 2026-08-13 追到，附截图；前文已铺垫「Vic 在学开飞机」）：**
 Bill 走丢，Vic 手搭 Frank 肩 **“Anything for the Murphys, right, guys?”** → **“Hey, Frank, I'll go up and
 look for Bill in my helicopter.”** → **“I knew you'd be happy for me, Frank.”**（他去玩命找孩子，却高兴得像收礼物）
