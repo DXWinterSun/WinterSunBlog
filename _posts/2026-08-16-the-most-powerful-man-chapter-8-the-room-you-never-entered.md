@@ -33,7 +33,7 @@ Daniel 明天下午飞到华盛顿。
 
 你原本应该期待。你的丈夫要来看你。你 6 周没见他了。你应该心跳快一点。
 
-你心跳没快。你只是在完成一份 checklist。
+你心跳没快。你只是在完成一张清单。
 
 你没允许自己想为什么。
 
@@ -163,7 +163,7 @@ Daniel 看你的眼神有一秒变了一下——他没料到你会提议。他�
 
 周日的 West Wing 是空的——大部分工作人员周末不在，总统今天在戴维营（他每个周末大部分时间都去戴维营），只有几个 Secret Service 和几个值班人员。
 
-你带 Daniel 走过 Roosevelt Room, Cabinet Room, Press Briefing Room——这些他都在电视上见过。他每一间都短暂地进去看一下，没多说话。Daniel 是那种堪萨斯男人——他不会因为进了名场所就 gasp，他就是安静地看。
+你带 Daniel 走过 Roosevelt Room, Cabinet Room, Press Briefing Room——这些他都在电视上见过。他每一间都短暂地进去看一下，没多说话。Daniel 是那种堪萨斯男人——他不会因为进了名场所就惊叹出声，他就是安静地看。
 
 你带他走到你自己的小办公室——椭圆办公室隔壁的那个小办公室。
 
@@ -287,13 +287,13 @@ W 握手：
 
 “Miss Hart speaks well of you”——W 从来没跟你谈论过 Daniel。你 4 个月前跟他说过一次 Daniel 是家庭律师，他回了一句 “That's honest work”，然后 6 月 25 日晚上他让你转达 “hi from a fellow lawyer”，然后就再也没提过。你跟他之间的对话里没有一次是关于 Daniel 的。
 
-W 今天下午在走廊里对 Daniel 说的这句话——“Miss Hart speaks well of you”——是一个 total fabrication。
+W 今天下午在走廊里对 Daniel 说的这句话——“Miss Hart speaks well of you”——是一句他现编的话。
 
 你从来没在 W 面前 speak well of Daniel。你甚至从来没在 W 面前 speak of Daniel。
 
 W 刚才这句话是他在这一秒为你和 Daniel 之间的关系造了一个空气——“你的丈夫在你老板心里是被你正面提起过的一个人”。
 
-这份 fabrication 是善意的。它是他今天下午给 Daniel 的一份礼物——让 Daniel 感觉到“我妻子在她老板面前是把我当一个存在的男人来谈论的”。
+这句现编的话是善意的。它是他今天下午给 Daniel 的一份礼物——让 Daniel 感觉到“我妻子在她老板面前是把我当一个存在的男人来谈论的”。
 
 你听到这句话的时候你的呼吸停了 0.3 秒——你意识到 W 今天下午在走廊里做了一件他不必做的事。他本来可以只是“Mr. Reed, nice to meet you, welcome to the White House”，然后离开。他没有。他多说了一句。他多说的这一句是给 Daniel 的。
 
@@ -521,7 +521,7 @@ Daniel 保护你不知道——他今天下午在 Union Station 抱你的时候�
 
 你保护 Daniel 不知道——你今晚在他睡过的枕头味道里入睡的时候，你在心里已经开始把他从“我的生活”降级为“我不能背叛的一份责任”。
 
-W 保护 Daniel 和你都不知道——他今天下午在走廊里那 30 秒说的那句 “Miss Hart speaks well of you” 是一份 fabrication。他为什么要 fabricate？他自己可能也不完全知道。
+W 保护 Daniel 和你都不知道——他今天下午在走廊里那 30 秒说的那句 “Miss Hart speaks well of you” 是他现编的。他为什么要编？他自己可能也不完全知道。
 
 你们三个今晚各自睡着。
 
