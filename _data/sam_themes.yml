@@ -733,18 +733,18 @@
   year: 2018
   name: "George W. Bush"
   anchor: bush
-  cn: 得州牛仔金
-  en: Texan Tan
-  bg_cn: 总统西装夜
-  bg_en: Suit Midnight
-  text_cn: 讲稿卡片米
-  text_en: Speech-Card Cream
-  muted_cn: 战情室暗蓝
-  muted_en: War-Room Navy
-  accent: "#c17f34"
-  bg: "#16181e"
-  text: "#f1e3cb"
-  muted: "#626d8d"
+  cn: 榛色枯草金
+  en: Dry-Grass Hazel
+  bg_cn: 就职日寒夜
+  bg_en: Inaugural Midnight
+  text_cn: 简报纸页米
+  text_en: Briefing Cream
+  muted_cn: 封套雾灰蓝
+  muted_en: Sealed Slate
+  accent: "#bf9d5e"
+  bg: "#141922"
+  text: "#ece4d5"
+  muted: "#7a8698"
 
 - id: klenz
   year: 2019

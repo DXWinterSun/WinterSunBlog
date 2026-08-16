@@ -4,6 +4,25 @@
 `_config.yml` 的 `exclude`，Jekyll 构建时会完全跳过。用来安全地留住
 一些「写过、但决定不上线」的旧稿，避免它们随着旧分支被删而丢失。
 
+## the-most-powerful-man-v1/
+
+George W. Bush（《副总统》Vice，Sam Rockwell 饰）AU 的**第一版**，系列名
+《The Most Powerful Man》，轻松甜宠 / 偷欢日常向（靴子翘桌上、鸡翅、舔指尖、
+那方没派上用场的手帕），共 53 章正文 + 8 篇番外。
+
+2026-08 由 Winter 换成**第二版**：同名系列，但改成 2001 年真实白宫的编年——
+就职日、EP-3 撞机与王伟、黄椭圆厅的 Laura、8 月 6 日那份 PDB、9·11、十月走廊里
+和丈夫的相遇；主角仍是 Winter Hart，但设定成已婚的副幕僚秘书，基调从「甜」
+换成「暗涌 + 克制 + 心理上的越界」。线上现在跑的是第二版
+（`_posts/2026-08-16-the-most-powerful-man-*` + `series/the-most-powerful-man/`）。
+
+- `2026-08-06-the-most-powerful-man-*.md` —— 61 篇正文 / 番外（原在 `_posts/`）
+- `series-index.html` —— 第一版系列首页（原 `series/the-most-powerful-man/index.html`）
+
+> 两版共用同一张封面 `images/the-most-powerful-man.jpeg`。第二版换色卡时，
+> 画册 id `bush` 的四色也一并改了（得州牛仔金 → 榛色枯草金），第一版若要放回线上，
+> 色卡也会跟着是新的。
+
 ## the-one-who-remembers/
 
 Leonard Shelby（《记忆碎片》Memento，Guy Pearce 饰）AU 的**早期版本**，
