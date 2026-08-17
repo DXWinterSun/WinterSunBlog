@@ -46,7 +46,7 @@
 - 2004-12（Ch18 他视角）：12/02 不点名；12/10 Kerik 退出；12/14 名册回来（她 11/29 已签）；12/15 批她接任幕僚秘书（GWB 缩写）＋夜里任命书全名＋看到第七/九栏、跪下「Lord, don't let it have been me.」；12/17 恭喜二十秒、傍晚他亲手归档。
 - 2005-01-20（Ch19）：第二次就职。她数底稿：freedom 27 / liberty 15 / Iraq 0。誓词 35 字不变（首席大法官病后嗓音）。演讲引用（day of fire / fire in the minds of men / history we have seen together vs 2001 的 angel in the whirlwind、small things with great love）。傍晚椭圆办公室他原样复用 Ch1 那句「first thing this country needs me to sign」；第一份＝全国祈祷与感恩日公告；摆笔的人从礼宾员换成她；她头一回忘了数秒。
 
-## 章节流水（1–20 已成稿；1–17 已上线，18–20 在工作分支待发）
+## 章节流水（1–20 已上线）
 1 门后初见 ｜2 那扇门（她的不安）｜3 行星停在那（Daniel 追问）｜4 两个 sorry（海南撞机）｜5 黄椭圆厅 ｜6 夏天（GWB 便利贴）｜7 那一天（9/11，榛色变灰）｜8 你没进的房间（Daniel 来访+握手）｜9 战时 ｜10 他叫你 Winter 的那晚（AUMF）｜11 你拦不住的战争（Powell）｜12 手背上的温度（她承认爱他）｜13 最下面那格抽屉（他生日）｜14 戴维营（Laura 允许的温度）｜15 四页（碎纸机、她的牵连）｜16 五点半（他视角·大选夜·吞下 glad）｜17 还不上的那笔（感恩节·Daniel 放手）｜18 紧急联系人（他视角·十二月人事）｜19 三十五个字（第二次就职·镜像 Ch1）｜20 没有编号（终裁到达·她的诚实自白·戒指入抽屉）
 
 ## PINNED / DEFERRED
