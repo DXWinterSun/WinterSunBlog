@@ -17,7 +17,7 @@ summary: "你走进他家，喝了他妻子种的柠檬。你终于看懂了她�
 > 你以为走出椭圆办公室的他会更真。  
 > 你没想过那会是另一个男人。
 
-### 10 月 18 日，周六早上 9 点 20 分
+### <span class="c-logstamp__when">10 月 18 日 · 周六 09:20</span>亲自送一趟
 
 Miers 昨晚打电话给你的时候她声音里有一份你从未听过的紧——她母亲在得州朗维尤老家昨天下午摔了一跤，髋骨骨折，Miers 今天早上第一班飞机回去。她需要你今天留守。
 
@@ -49,7 +49,7 @@ Miers 停了一秒，又说：Bremer 昨晚发来一份中央司令部、国防�
 
 ---
 
-### 早上 10 点 45 分
+### <span class="c-logstamp__when">周六 10:45</span>进山
 
 Suburban 拐进 Catoctin Mountain Park。这里的海拔比华盛顿高五百米——你感觉到耳朵里那份轻微的压力变化。
 
@@ -85,7 +85,7 @@ Suburban 停在门口。
 
 ---
 
-### 早上 11 点 05 分
+### <span class="c-logstamp__when">周六 11:05</span>他家的空气
 
 你走进 Aspen Lodge。
 
@@ -535,7 +535,7 @@ Suburban 开走。
 
 ---
 
-### 下午 2 点 40 分，返程
+### <span class="c-logstamp__when">周六 14:40 · 返程</span>被 Laura 允许的温度
 
 Suburban 沿着来时的路开出 Catoctin 山。
 
