@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "Chapter 34 · Everything Here Has a Name — Everybody's Home"
-date: 2026-09-11 09:00:00
+title: "Chapter 36 · Everything Here Has a Name — Everybody's Home"
+date: 2026-09-13 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 炽恋, 缱绻]
 categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
-series_order: 34
+series_order: 36
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 34"
+chapter_type: "Chapter 36"
 summary: "他给每株植物都起了名字，唯独没给你起。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十四章。前情见
-> [〈三十三〉The First Page]({{ site.baseurl }}{% post_url 2026-09-10-everybody-s-home-chapter-33-the-first-page %})。回站以后，有人在温室里跟他的花花草草说了一下午的话。你支着下巴看了一下午。
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十六章。前情见
+> [〈三十五〉The First Page]({{ site.baseurl }}{% post_url 2026-09-12-everybody-s-home-chapter-35-the-first-page %})。回站以后，有人在温室里跟他的花花草草说了一下午的话。你支着下巴看了一下午。
 
 ## 一 · 温室
 
@@ -250,4 +250,4 @@ Sam 6 的表情裂了一下。他绕过你们往前走了两步，忽然停住�
 ❦  *Sarang，韩语里是“爱”的意思。*
 
 
-下一章：〈三十五〉暂定。温室那一场，另外两位有意见。他们提出了申请——**书面的**。
+下一章：〈三十七〉暂定。温室那一场，另外两位有意见。他们提出了申请——**书面的**。

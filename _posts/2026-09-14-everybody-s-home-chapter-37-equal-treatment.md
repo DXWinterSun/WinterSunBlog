@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "Chapter 35 · Equal Treatment — Everybody's Home"
-date: 2026-09-12 09:00:00
+title: "Chapter 37 · Equal Treatment — Everybody's Home"
+date: 2026-09-14 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 炽恋, 絮语]
 categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
-series_order: 35
+series_order: 37
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 35"
+chapter_type: "Chapter 37"
 summary: "三个人，三条拉链，一张窗口表。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十五章。前情见
-> [〈三十四〉Everything Here Has a Name]({{ site.baseurl }}{% post_url 2026-09-11-everybody-s-home-chapter-34-everything-here-has-a-name %})。温室那一场，另外两位有意见。他们提出了申请——书面的。
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十七章。前情见
+> [〈三十六〉Everything Here Has a Name]({{ site.baseurl }}{% post_url 2026-09-13-everybody-s-home-chapter-36-everything-here-has-a-name %})。温室那一场，另外两位有意见。他们提出了申请——书面的。
 
 ## 一 · 申请
 
@@ -279,4 +279,4 @@ Sam 19 沉默了三秒，然后把表格收进文件夹，公事公办地点了�
 ❦  *Sarang，韩语里是“爱”的意思。*
 
 
-下一章：〈三十六〉暂定。一份研究计划书递到了你面前。三位署名人，一个课题，预计工期：一整夜。
+下一章：〈三十八〉暂定。一份研究计划书递到了你面前。三位署名人，一个课题，预计工期：一整夜。
