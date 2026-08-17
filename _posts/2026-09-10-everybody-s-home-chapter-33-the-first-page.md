@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "Chapter 30 · The First Page — Everybody's Home"
-date: 2026-09-07 09:00:00
+title: "Chapter 33 · The First Page — Everybody's Home"
+date: 2026-09-10 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 怀旧, 安放]
 categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
-series_order: 30
+series_order: 33
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 30"
+chapter_type: "Chapter 33"
 summary: "那三年，全宇宙只剩他一个人记得。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十章。前情见
-> [〈二十九〉First Rain]({{ site.baseurl }}{% post_url 2026-09-06-everybody-s-home-chapter-29-first-rain %})。有些故事，全世界都排着队想听。可它的第一页，得先念给家里人。
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十三章。前情见
+> [〈三十二〉First Rain]({{ site.baseurl }}{% post_url 2026-09-09-everybody-s-home-chapter-32-first-rain %})。有些故事，全世界都排着队想听。可它的第一页，得先念给家里人。
 
 ## 一 · 推门
 
@@ -235,4 +235,4 @@ Sam 5 给她签完名，在扉页多写了一行字。
 ❦  *Sarang，韩语里是“爱”的意思。*
 
 
-下一章：〈三十一〉暂定。回站以后，有人在温室里跟他的花花草草说了一下午的话。你支着下巴看了一下午——直到他红着脸问你看什么。
+下一章：〈三十四〉暂定。回站以后，有人在温室里跟他的花花草草说了一下午的话。你支着下巴看了一下午——直到他红着脸问你看什么。

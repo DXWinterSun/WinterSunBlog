@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "Chapter 33 · Under Observation — Everybody's Home"
-date: 2026-09-10 09:00:00
+title: "Chapter 36 · Under Observation — Everybody's Home"
+date: 2026-09-13 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 炽恋, 缱绻]
 categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
-series_order: 33
+series_order: 36
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 33"
+chapter_type: "Chapter 36"
 summary: "课题：受试者敏感区分布测绘。工期：一整夜。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十三章。前情见
-> [〈三十二〉Equal Treatment]({{ site.baseurl }}{% post_url 2026-09-09-everybody-s-home-chapter-32-equal-treatment %})。一份研究计划书递到了你面前。三位署名人，一个课题，预计工期：一整夜。
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十六章。前情见
+> [〈三十五〉Equal Treatment]({{ site.baseurl }}{% post_url 2026-09-12-everybody-s-home-chapter-35-equal-treatment %})。一份研究计划书递到了你面前。三位署名人，一个课题，预计工期：一整夜。
 
 ## 一 · 计划书
 
@@ -329,4 +329,4 @@ Sam 7 清了清嗓子，用他做技术汇报的腔调，一字一句地念：
 ❦  *Sarang，韩语里是“爱”的意思。*
 
 
-下一章：〈三十四〉暂定。夏天到了，辣椒熟了。33 宣布要办一场“史上最科学”的丰收宴——全家都很害怕。
+下一章：〈三十七〉暂定。秋天的第二场立法听证。第一排正中那个位置，这次没有空着——而坐在那儿的人，起了个坏主意。
