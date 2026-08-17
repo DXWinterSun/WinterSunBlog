@@ -2025,7 +2025,3 @@ h3:has(> .c-logstamp__when) {
   opacity: .95;
 }
 
-/* 不支持 :has() 的老浏览器：至少日期还是小的、退成灰的眉标 */
-@supports not selector(h3:has(> span)) {
-  .c-logstamp__when { color: $muted; }
-}

@@ -998,6 +998,23 @@ Sam「正面是他的戏。背面归你。」），**两句献词都是 Winter �
 
 一句话：**攒成一包、一次推、推完等 20 分钟别打断。**
 
+## ⚠️ 动 `_sass/` 之前必须本地编一遍：`bash tools/check_scss.sh`
+
+GitHub Pages 锁死在**很老的 ruby-sass 3.7.4** 上，很多现代 CSS 写法它直接当语法错，
+**整站构建会失败**（不是样式失效，是构建挂掉、线上停在旧版）。而一次构建要 ~20 分钟，
+靠「推上去试试」的代价极高。
+
+已经踩过的坑（2026-08）：`@supports not selector(h3:has(> span)) { … }` —— 老 Sass 不认
+`selector()` 形式的 `@supports` 条件，一行让整站构建 failure。
+
+规矩：**改完 `_sass/` 下任何文件，先跑 `bash tools/check_scss.sh`**（脚本会用同版本
+Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**编过了再推**。
+
+顺带记两条老 Sass 的已知边界：
+- `:has()`、`::before`、CSS 变量、`@supports (display: grid)` 这类**能编**。
+- `@supports not selector(...)`、`@layer`、嵌套裸 `&` 的新写法这类**不能编**——真要用，
+  写成两条独立规则或直接放弃降级分支。
+
 ## 图片工作流（封面图）
 
 - **默认前提**：用户上传的图片文件统一传到 `main` 分支（通过 GitHub
