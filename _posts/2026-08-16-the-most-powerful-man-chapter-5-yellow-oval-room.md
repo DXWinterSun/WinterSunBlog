@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 5
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 5"
 summary: "她用食指替他理平领口那道褶。你站在两米外，看完了整个婚姻。"

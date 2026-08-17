@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 14
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 14"
 summary: "你走进他家，喝了他妻子种的柠檬。你终于看懂了她。"

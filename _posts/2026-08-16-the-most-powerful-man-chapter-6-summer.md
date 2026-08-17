@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 6
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 6"
 summary: "烟花底下隔着五十米，他冲你点了下头。没有人看见。"
@@ -174,7 +174,7 @@ W 不在——他刚出去开会。Andy Card 一个助手告诉你放桌上就�
 
 但你走的时候视线扫过了那张照片一秒。
 
-是一张全家照——看样子是 90 年代拍的，Laura 头发还是深金色，Barbara 和 Jenna 那对孪生女儿看着大约 12、13 岁，W 比现在瘦一些、年轻很多，背景是德州克劳福德的牧场。四个人都在笑。W 的一只手搭在 Laura 肩膀上，Laura 的一只手搭在其中一个女儿的头上。
+是一张全家照——看样子是 90 年代拍的，Laura 头发还是深金色，Barbara 和 Jenna 那对孪生女儿看着大约 12、13 岁，W 比现在瘦一些、年轻很多，背景是得州克劳福德的牧场。四个人都在笑。W 的一只手搭在 Laura 肩膀上，Laura 的一只手搭在其中一个女儿的头上。
 
 你看了那张照片一秒。
 
@@ -232,7 +232,7 @@ W 明天飞去克劳福德牧场——他任内第一次真正的夏天假期。
 
 （你应该去。堪萨斯八月是有点味道的。）
 
-你笑了。“is somethin'”——这句得州式的老话——他跟你分享的是他这份德州男人对中西部夏天的记忆。
+你笑了。“is somethin'”——这句得州式的老话——他跟你分享的是他这份得州男人对中西部夏天的记忆。
 
 “It is, sir. Hot and slow.”
 

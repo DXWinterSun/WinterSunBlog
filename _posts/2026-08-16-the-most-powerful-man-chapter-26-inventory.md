@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 26
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 26"
 summary: "一夜之间输掉两院。第二天早上，八点二十的敲门声没变。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 7
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 7"
 summary: "你赤脚跑过十七街，回头看那栋楼——想的却是他回不回得来。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 23
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 23"
 summary: "他这四年咽下去的话没伤过他。伤他的是说出口的那句。"

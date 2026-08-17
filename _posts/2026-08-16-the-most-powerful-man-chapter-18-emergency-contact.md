@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 18
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 18"
 summary: "他没敢开口求的那一件成了。同一张表上还有另一件。"

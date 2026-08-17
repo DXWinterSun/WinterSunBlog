@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 28
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 28"
 summary: "你到了那种颜色的原产地。他的八月，晒着他的颜色。"

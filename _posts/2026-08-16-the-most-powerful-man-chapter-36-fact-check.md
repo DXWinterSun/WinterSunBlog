@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 36
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 36"
 summary: "一年半没听过的声音，在电话里问你一个钟点。"

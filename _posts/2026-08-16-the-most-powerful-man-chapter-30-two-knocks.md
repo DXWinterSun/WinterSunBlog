@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 30
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 30"
 summary: "八年都是你走向他。那个周五夜里，他敲了你的门。"

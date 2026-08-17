@@ -8,10 +8,10 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 35
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 35"
-summary: "履历能带你去任何地方。你用它去了德州的一间仓库。"
+summary: "履历能带你去任何地方。你用它去了得州的一间仓库。"
 ---
 
 > 人人都问你接下来去哪儿。  
@@ -86,7 +86,7 @@ summary: "履历能带你去任何地方。你用它去了德州的一间仓库�
 
 你捏着话筒，看着窗外。
 
-一间德州的仓库。公务员的薪水，纽约开价的零头。头衔说出去没人接得住。
+一间得州的仓库。公务员的薪水，纽约开价的零头。头衔说出去没人接得住。
 
 你说：
 

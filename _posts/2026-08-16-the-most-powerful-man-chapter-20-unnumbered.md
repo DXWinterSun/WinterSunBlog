@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 20
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 20"
 summary: "法院说你恢复单身。今晚你把不能写的那几栏，一栏一栏填完。"

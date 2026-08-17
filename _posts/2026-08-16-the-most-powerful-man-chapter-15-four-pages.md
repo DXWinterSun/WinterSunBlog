@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 15
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 15"
 summary: "五十三页进了碎纸机。少掉的那四页，你到死都不会知道。"

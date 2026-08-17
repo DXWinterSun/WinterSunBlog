@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 24
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 24"
 summary: "这个十月，楼里每个人都在学同一件事：忠诚的价钱。"

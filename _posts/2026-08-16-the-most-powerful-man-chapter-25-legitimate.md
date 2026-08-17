@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 25
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 25"
 summary: "一年一度，三秒钟，全世界最正当的一张合影。"

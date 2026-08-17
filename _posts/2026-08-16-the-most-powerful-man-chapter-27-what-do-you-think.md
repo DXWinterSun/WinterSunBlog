@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 27
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 27"
 summary: "他把那把椅子给了你第二遍，把你的名字用了第二遍。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 11
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 11"
 summary: "他把手摊在桌上，掌心朝上。六秒钟，你俩都没有说话。"

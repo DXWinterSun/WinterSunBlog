@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 13
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 13"
 summary: "你把那张从没送出去的感谢卡撕成四片，扔进了垃圾桶。"

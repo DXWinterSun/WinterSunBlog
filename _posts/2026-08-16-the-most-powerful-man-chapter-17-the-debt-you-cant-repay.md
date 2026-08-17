@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 17
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 17"
 summary: "你以为你是来还债的。他把最后一样东西也给了你。"

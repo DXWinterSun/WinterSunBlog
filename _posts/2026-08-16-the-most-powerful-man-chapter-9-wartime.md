@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 9
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 9"
 summary: "他趴在桌上睡着了。你在门外坐了十八分钟，替他守着。"

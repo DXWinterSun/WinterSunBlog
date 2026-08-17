@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 4
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 4"
 summary: "他把那份电报折进内袋。规矩上不该，可他今晚要带它回家。"

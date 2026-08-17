@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 8
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 8"
 summary: "丈夫和他在走廊里握了手。三十秒，你听见自己屏住了呼吸。"

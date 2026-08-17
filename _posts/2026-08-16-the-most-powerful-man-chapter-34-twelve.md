@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 34
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 34"
 summary: "最后一次十二秒，走到十二，谁都没动。他说出了那个数。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 32
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 32"
 summary: "雪把路封了。今晚的话不归档，今晚的事也不归档。"

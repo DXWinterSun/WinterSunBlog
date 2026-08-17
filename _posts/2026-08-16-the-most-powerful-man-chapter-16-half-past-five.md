@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 16
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 16"
 summary: "他跪下祷告，第一个跳出来的名字不是他妻子的。"

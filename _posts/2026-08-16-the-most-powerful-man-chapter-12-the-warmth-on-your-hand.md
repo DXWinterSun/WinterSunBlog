@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 12
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 12"
 summary: "你在空白文档上打下三个字，看了三十秒，然后全部删掉。"

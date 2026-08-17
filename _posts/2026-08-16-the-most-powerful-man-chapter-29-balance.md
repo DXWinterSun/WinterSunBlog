@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 29
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 29"
 summary: "你把剩下的十二秒加了加。八年的爱，余额三个多小时。"

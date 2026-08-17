@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 2
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 2"
 summary: "文件封面署名换了人。他看了三秒，翻过去，然后叫住了你。"
@@ -46,7 +46,7 @@ Prepared for the President by the Office of the Vice President.
 
 但你听得见。
 
-里面是两个男人的声音。一个是他——你已经能认出他那份德州口音的低音——语气跟前几天你听到的松弛感不太一样，稍微紧了半档。另一个声音你没听过几次，但你认得出——极其平的、几乎没有起伏的、每一句话都像在陈述事实的男中音。
+里面是两个男人的声音。一个是他——你已经能认出他那份得州口音的低音——语气跟前几天你听到的松弛感不太一样，稍微紧了半档。另一个声音你没听过几次，但你认得出——极其平的、几乎没有起伏的、每一句话都像在陈述事实的男中音。
 
 Cheney。
 

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 37
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 37"
 summary: "十二年后，他终于问了。你没有说谎。"

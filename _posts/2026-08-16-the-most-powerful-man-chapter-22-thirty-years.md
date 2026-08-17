@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 22
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 22"
 summary: "守了三十年的秘密上了头版。你的那一个，才满一年。"

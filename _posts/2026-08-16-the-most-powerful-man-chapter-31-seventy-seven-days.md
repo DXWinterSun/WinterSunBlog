@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 31
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 31"
 summary: "他打完那通祝贺电话，跪下来，第一次没有求原谅。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "The Most Powerful Man"
 series_title: "The Most Powerful Man · George W. Bush AU"
 series_order: 21
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 21"
 summary: "凌晨一点，官邸走廊。你们第一次用夜里的音量说话。"
