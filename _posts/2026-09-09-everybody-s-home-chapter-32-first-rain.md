@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "Chapter 29 · First Rain — Everybody's Home"
-date: 2026-09-06 09:00:00
+title: "Chapter 32 · First Rain — Everybody's Home"
+date: 2026-09-09 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 絮语, 怀旧]
 categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
-series_order: 29
+series_order: 32
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 29"
+chapter_type: "Chapter 32"
 summary: "第一场春雨落下来的时候，全家都在线追更。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第二十九章。前情见
-> [〈二十八〉Closing Argument]({{ site.baseurl }}{% post_url 2026-09-05-everybody-s-home-chapter-28-closing-argument %})。这个家添了两样新东西：一个论坛，一份简讯。从此一百五十六个人分散在两个星球上过日子，可谁也没漏掉谁的日子。
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十二章。前情见
+> [〈三十一〉All Present]({{ site.baseurl }}{% post_url 2026-09-08-everybody-s-home-chapter-31-all-present %})。生日月刚过完，这个家添了两样新东西：一个论坛，一份简讯。从此一百五十六个人分散在两个星球上过日子，可谁也没漏掉谁的日子。
 
 ## 一 · 简讯
 
@@ -31,7 +31,7 @@ summary: "第一场春雨落下来的时候，全家都在线追更。"
     <p>【地面】辣椒地第 19 天：科学区出苗 37 株，经验区出苗 41 株。33 拒绝置评。</p>
     <p>【地面】74 与 Harper 女士本周对接三次，均为公务。本刊按惯例照录本人说法。</p>
     <p>【站内】19 收到第六封退稿信，篇幅八页，创历史新高。本刊看好这本书，也看好别的。</p>
-    <p>【天气】大哥家所在地区，预计后天迎来今春第一场透雨。</p>
+    <p>【天气】大哥家所在地区，预计后天迎来入夏前的第一场透雨。</p>
     <p>【轮值】下周地球体验轮值：抽签结果见附件。手下留情，别挤爆附件。</p>
   </div>
   <span class="c-note__sign">— 今日结语：全员在册，无人失联。晚安。</span>
@@ -134,4 +134,4 @@ Sam 7 看着门缝里的灯光，轻轻地说：
 ❦  *Sarang，韩语里是“爱”的意思。*
 
 
-下一章：〈三十〉暂定。有些故事，全世界都排着队想听。可它的第一页，得先念给家里人。
+下一章：〈三十三〉暂定。有些故事，全世界都排着队想听。可它的第一页，得先念给家里人。
