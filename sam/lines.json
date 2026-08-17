@@ -1953,41 +1953,41 @@
       "film": "Vice",
       "filmCN": "《副总统》",
       "year": "2018",
-      "accent": "#c17f34",
-      "bg": "#16181e",
-      "text": "#f1e3cb",
-      "muted": "#626d8d",
-      "auLink": null,
+      "accent": "#bf9d5e",
+      "bg": "#141922",
+      "text": "#ece4d5",
+      "muted": "#7a8698",
+      "auLink": "/WinterSunBlog/series/the-most-powerful-man/",
       "quotes": [
         {
-          "label": "JUST A COWBOY",
-          "line": "Everybody's watchin' the most powerful man in the world. You're just watchin' some cowboy from Texas.",
-          "lineCN": "全世界都盯着那个「最有权力的人」——你盯着的，不过是个得州来的牛仔。",
+          "label": "NOT IN THE FILE",
+          "line": "Everything that mattered tonight, you're the only one who saw. And none of it goes in the file.",
+          "lineCN": "今晚真正要紧的事，只有你看见了。而它一样都不会进档案。",
           "kind": "锚"
         },
         {
-          "label": "MY ASSISTANT'S EYES",
-          "line": "I've got generals, advisors, a whole cabinet weighin' in. The only verdict I actually wait on is my assistant's — am I still just some boy from Texas in your eyes?",
-          "lineCN": "将军、顾问、一整个内阁都在给我出主意。可我真正等的，只有我助理小姐的评判——在你眼里，我是不是还是那个得州来的大男孩？",
-          "kind": "AU · 助理"
+          "label": "BLACK, NO SUGAR",
+          "line": "Brought you somethin' back from Andrews. Black, no sugar — that's right, isn't it? Don't file the note. That one's not for the archive.",
+          "lineCN": "从安德鲁斯给你带了点东西。黑的，不加糖——没错吧？那张便条别归档。那张不进档案。",
+          "kind": "AU · 一杯咖啡"
         },
         {
-          "label": "THE SCHEDULE",
-          "line": "You hand me the schedule every mornin' like it runs the world. Truth is, the only thing I read twice is whether you were smilin' when you gave it to me.",
-          "lineCN": "你每天早上把日程递给我，像它掌管着整个世界。可说实话，我唯一会看两遍的，是你递给我的时候，有没有在笑。",
-          "kind": "AU · 助理 · 暗告白"
+          "label": "THE ONE-LINE VERSION",
+          "line": "I got a whole cabinet writin' me twelve pages. Just give me the one line. You're the only one in this house who hands me the thing itself.",
+          "lineCN": "一整个内阁给我写十二页。你给我一句话就行——这栋房子里只有你，直接把那件事本身递到我手上。",
+          "kind": "AU · 幕僚"
         },
         {
-          "label": "BEST WINGS IN D.C.",
-          "line": "Forget the briefin'. You hungry? C'mon — I know the best wings in D.C., and today I'm buyin'.",
-          "lineCN": "简报先放一边。你饿不饿？走——我知道全华盛顿最好吃的鸡翅，今天我请。",
-          "kind": "情话 · 轻松"
+          "label": "THANKS FOR WAITIN'",
+          "line": "I know you stood out there the whole time. I'm not gonna say what that was. I'm just gonna say — thanks for waitin' out there.",
+          "lineCN": "我知道你在外面站了整整那么久。我不打算说那算什么。我只想说——谢谢你在外面等。",
+          "kind": "AU · 克制"
         },
         {
-          "label": "EXECUTIVE ORDER",
-          "line": "They can all wait. Sit down, kick your feet up, split these wings with me. Consider it an executive order.",
-          "lineCN": "让他们都等着吧。坐下，把脚翘起来，跟我一起把这盘鸡翅分了。就当这是一道总统令。",
-          "kind": "情话 · 轻松"
+          "label": "YOUR NAME",
+          "line": "Twenty-one months I called you Miss Hart, and I meant every one of 'em. Tonight I'm gonna use your name once. Just once. Winter.",
+          "lineCN": "二十一个月我一直叫你 Hart 小姐，每一声我都是认真的。今晚我想用一次你的名字。就一次。Winter。",
+          "kind": "AU · 那一声"
         }
       ]
     },
@@ -3055,14 +3055,14 @@
       "film": "Vice",
       "filmCN": "《副总统》",
       "year": "2018",
-      "accent": "#c17f34",
-      "bg": "#16181e",
-      "text": "#f1e3cb",
-      "muted": "#626d8d",
-      "auLink": null,
-      "label": "JUST A COWBOY",
-      "line": "Everybody's watchin' the most powerful man in the world. You're just watchin' some cowboy from Texas.",
-      "lineCN": "全世界都盯着那个「最有权力的人」——你盯着的，不过是个得州来的牛仔。",
+      "accent": "#bf9d5e",
+      "bg": "#141922",
+      "text": "#ece4d5",
+      "muted": "#7a8698",
+      "auLink": "/WinterSunBlog/series/the-most-powerful-man/",
+      "label": "NOT IN THE FILE",
+      "line": "Everything that mattered tonight, you're the only one who saw. And none of it goes in the file.",
+      "lineCN": "今晚真正要紧的事，只有你看见了。而它一样都不会进档案。",
       "kind": "锚"
     },
     {
@@ -3903,15 +3903,15 @@
       "film": "Vice",
       "filmCN": "《副总统》",
       "year": "2018",
-      "accent": "#c17f34",
-      "bg": "#16181e",
-      "text": "#f1e3cb",
-      "muted": "#626d8d",
-      "auLink": null,
-      "label": "MY ASSISTANT'S EYES",
-      "line": "I've got generals, advisors, a whole cabinet weighin' in. The only verdict I actually wait on is my assistant's — am I still just some boy from Texas in your eyes?",
-      "lineCN": "将军、顾问、一整个内阁都在给我出主意。可我真正等的，只有我助理小姐的评判——在你眼里，我是不是还是那个得州来的大男孩？",
-      "kind": "AU · 助理"
+      "accent": "#bf9d5e",
+      "bg": "#141922",
+      "text": "#ece4d5",
+      "muted": "#7a8698",
+      "auLink": "/WinterSunBlog/series/the-most-powerful-man/",
+      "label": "BLACK, NO SUGAR",
+      "line": "Brought you somethin' back from Andrews. Black, no sugar — that's right, isn't it? Don't file the note. That one's not for the archive.",
+      "lineCN": "从安德鲁斯给你带了点东西。黑的，不加糖——没错吧？那张便条别归档。那张不进档案。",
+      "kind": "AU · 一杯咖啡"
     },
     {
       "charId": "klenz",
@@ -4751,15 +4751,15 @@
       "film": "Vice",
       "filmCN": "《副总统》",
       "year": "2018",
-      "accent": "#c17f34",
-      "bg": "#16181e",
-      "text": "#f1e3cb",
-      "muted": "#626d8d",
-      "auLink": null,
-      "label": "THE SCHEDULE",
-      "line": "You hand me the schedule every mornin' like it runs the world. Truth is, the only thing I read twice is whether you were smilin' when you gave it to me.",
-      "lineCN": "你每天早上把日程递给我，像它掌管着整个世界。可说实话，我唯一会看两遍的，是你递给我的时候，有没有在笑。",
-      "kind": "AU · 助理 · 暗告白"
+      "accent": "#bf9d5e",
+      "bg": "#141922",
+      "text": "#ece4d5",
+      "muted": "#7a8698",
+      "auLink": "/WinterSunBlog/series/the-most-powerful-man/",
+      "label": "THE ONE-LINE VERSION",
+      "line": "I got a whole cabinet writin' me twelve pages. Just give me the one line. You're the only one in this house who hands me the thing itself.",
+      "lineCN": "一整个内阁给我写十二页。你给我一句话就行——这栋房子里只有你，直接把那件事本身递到我手上。",
+      "kind": "AU · 幕僚"
     },
     {
       "charId": "klenz",
@@ -5599,15 +5599,15 @@
       "film": "Vice",
       "filmCN": "《副总统》",
       "year": "2018",
-      "accent": "#c17f34",
-      "bg": "#16181e",
-      "text": "#f1e3cb",
-      "muted": "#626d8d",
-      "auLink": null,
-      "label": "BEST WINGS IN D.C.",
-      "line": "Forget the briefin'. You hungry? C'mon — I know the best wings in D.C., and today I'm buyin'.",
-      "lineCN": "简报先放一边。你饿不饿？走——我知道全华盛顿最好吃的鸡翅，今天我请。",
-      "kind": "情话 · 轻松"
+      "accent": "#bf9d5e",
+      "bg": "#141922",
+      "text": "#ece4d5",
+      "muted": "#7a8698",
+      "auLink": "/WinterSunBlog/series/the-most-powerful-man/",
+      "label": "THANKS FOR WAITIN'",
+      "line": "I know you stood out there the whole time. I'm not gonna say what that was. I'm just gonna say — thanks for waitin' out there.",
+      "lineCN": "我知道你在外面站了整整那么久。我不打算说那算什么。我只想说——谢谢你在外面等。",
+      "kind": "AU · 克制"
     },
     {
       "charId": "klenz",
@@ -6447,15 +6447,15 @@
       "film": "Vice",
       "filmCN": "《副总统》",
       "year": "2018",
-      "accent": "#c17f34",
-      "bg": "#16181e",
-      "text": "#f1e3cb",
-      "muted": "#626d8d",
-      "auLink": null,
-      "label": "EXECUTIVE ORDER",
-      "line": "They can all wait. Sit down, kick your feet up, split these wings with me. Consider it an executive order.",
-      "lineCN": "让他们都等着吧。坐下，把脚翘起来，跟我一起把这盘鸡翅分了。就当这是一道总统令。",
-      "kind": "情话 · 轻松"
+      "accent": "#bf9d5e",
+      "bg": "#141922",
+      "text": "#ece4d5",
+      "muted": "#7a8698",
+      "auLink": "/WinterSunBlog/series/the-most-powerful-man/",
+      "label": "YOUR NAME",
+      "line": "Twenty-one months I called you Miss Hart, and I meant every one of 'em. Tonight I'm gonna use your name once. Just once. Winter.",
+      "lineCN": "二十一个月我一直叫你 Hart 小姐，每一声我都是认真的。今晚我想用一次你的名字。就一次。Winter。",
+      "kind": "AU · 那一声"
     },
     {
       "charId": "klenz",

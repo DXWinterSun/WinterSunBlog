@@ -59,19 +59,19 @@
 "The Most Powerful Man":      # George W. Bush · 色卡同源画册 id: bush
   mf_id: bush                # → Many Faces 画册锚点 /sam/many-faces/#bush
   theme_id: bush
-  accent: "#c17f34"
-  accent_ink: "#9a662a"
-  bg: "#16181e"
-  text: "#f1e3cb"
-  muted: "#626d8d"
-  accent_cn: "得州牛仔金"
-  accent_en: "Texan Tan"
-  bg_cn: "总统西装夜"
-  bg_en: "Suit Midnight"
-  text_cn: "讲稿卡片米"
-  text_en: "Speech-Card Cream"
-  muted_cn: "战情室暗蓝"
-  muted_en: "War-Room Navy"
+  accent: "#bf9d5e"
+  accent_ink: "#7d6537"      # 画册 accent 偏浅（枯草榛金）→ 额外加深，浅色主题下 ~5.4:1
+  bg: "#141922"
+  text: "#ece4d5"
+  muted: "#7a8698"
+  accent_cn: "榛色枯草金"
+  accent_en: "Dry-Grass Hazel"
+  bg_cn: "就职日寒夜"
+  bg_en: "Inaugural Midnight"
+  text_cn: "简报纸页米"
+  text_en: "Briefing Cream"
+  muted_cn: "封套雾灰蓝"
+  muted_en: "Sealed Slate"
 
 "Better Living Through You":  # Douglas Varney · 色卡同源画册 id: doug
   mf_id: doug                # → Many Faces 画册锚点 /sam/many-faces/#doug

@@ -1988,3 +1988,40 @@
   display: block; margin-top: 9px; text-align: center;
   font-size: 9.5px; letter-spacing: .12em; opacity: .6;
 }
+
+/* ===============
+   c-logstamp —— 章节内的「档案条」小节标记
+   写法（Markdown 里直接写）：
+     ### <span class="c-logstamp__when">10 月 4 日 · 周四 20:15</span>到达大厅
+   日期做小号眉标，短标题做主行，左边一条随 AU 配色的竖线。
+   只有带 .c-logstamp__when 的 h3 会被套上，别的文章的 h3 不受影响。
+=============== */
+h3:has(> .c-logstamp__when) {
+  position: relative;
+  margin: 3.2em 0 1.4em;
+  padding-left: 18px;
+  font-size: 19px;
+  line-height: 1.35;
+  letter-spacing: .04em;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0; top: .18em; bottom: .1em;
+    width: 2px;
+    background: $accent;
+    opacity: .85;
+  }
+}
+
+.c-logstamp__when {
+  display: block;
+  margin-bottom: 5px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: $accent;
+  opacity: .95;
+}
+
