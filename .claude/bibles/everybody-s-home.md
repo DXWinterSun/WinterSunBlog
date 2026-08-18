@@ -330,14 +330,23 @@ Winter 复盘后决定：**Seven 退出恋人线，改为常驻家人**（最年
 
 ### 回改清单（执行中，逐项打勾）
 
-- 🔴 整章重写：**Ch13 Purely Random**（原＝Seven 的第一次）→ 群像向「新醒来的人怎么被接住」；
-  **Ch14 Ordinary Things**（原＝Seven 的地球约会）→ 群像向「Sam 们第一次回地球」；
-  **Ch23 Last In, First Out**（原＝Seven 优先夜）→ 改写为 5/6 双人戏。
-- 🟠 群戏改双人：**Ch21 The Protocol**、**Ch22 Under Maintenance**、**Ch30 Handle With Care**
-  （三条缎带→两条）、**Ch40 Equal Treatment**（三条拉链→两条、矿车夜改归属）、
-  **Ch41 Under Observation**（三处→两处）、**Ch42 Contempt of Court**（酒店三人→两人）。
-- 🟡 零散清理：Ch11、Ch12 结尾钩子、Ch19、Ch20、Ch24、Ch25、Ch29、Ch31、Ch32、Ch33、Ch34、Ch35、Ch36。
-- ⚙️ 全书通读查穿帮（称呼、床位、「三个人」「仨」「三处」「四个人」类量词、Seven 的亲密动作）。
+- 🔴 整章重写（未开始，待聊天里草拟给 Winter 过目）：**Ch13 Purely Random**（原＝Seven 的第一次）
+  → 群像向「新醒来的人怎么被接住」；**Ch14 Ordinary Things**（原＝Seven 的地球约会）→ 群像向
+  「Sam 们第一次回地球」；**Ch23 Last In, First Out**（原＝Seven 优先夜）→ 改写为 5/6 双人戏
+  （新方向：Six 的「永远排在后面/替补件」心结 + Five 安抚，呼应标题 LIFO 仓储术语）。
+- ✅ 群戏改双人（已完成、已落盘、已推 main）：**Ch19 Nothing Happened**（Seven 摸头代替脸颊吻、
+  四人床改三人）、**Ch20 Snowed In**（Seven 以 78% 效率暖炉为由主动下楼独睡）、
+  **Ch21 The Protocol**（三人夜改两人，Seven 楼下暖炉哏收尾）、**Ch22 Under Maintenance**
+  （温泉+炉火三人改两人，Seven 送可可后退场）、**Ch30 Handle With Care**（三条缎带→两条，
+  Seven 白天单独收到量身手套当生日礼、当晚主动去机库带 34/51 加班）、**Ch40 Equal Treatment**
+  （矿车夜/Seven 独享窗口整段删除，三条拉链→两条，Six 单独申请代替 Six+Seven 联署）、
+  **Ch41 Under Observation**（研究计划书署名 5·6 两人，三处→两处，测绘六区改 5/6 分工，
+  Seven 的报告哏转给 Six）、**Ch42 Contempt of Court**（酒店戏 Seven 独立段落整段删除，
+  三人从犯改 Five 一人，落地窗终场三人改两人）。
+- 🟡 零散清理（待逐章核查是否有残留 Seven 亲密描写/量词）：Ch11、Ch12 结尾钩子、Ch24、Ch25、
+  Ch29、Ch31、Ch32、Ch33、Ch34、Ch35、Ch36。
+- ⚙️ 全书通读查穿帮（称呼、床位、「三个人」「仨」「三处」「四个人」类量词、Seven 的亲密动作）——
+  待 🔴🟡 项目全部完成后统一做最后一遍通读。
 
 ## PINNED / DEFERRED
 
