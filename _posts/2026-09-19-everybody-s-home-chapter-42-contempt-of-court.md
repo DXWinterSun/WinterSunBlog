@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "Chapter 41 · Contempt of Court — Everybody's Home"
-date: 2026-09-18 09:00:00
+title: "Chapter 42 · Contempt of Court — Everybody's Home"
+date: 2026-09-19 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 炽恋, 暗涌]
 categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
-series_order: 41
+series_order: 42
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 41"
+chapter_type: "Chapter 42"
 summary: "她在第一排做了个手势。只有台上那个人看得懂。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第四十一章。前情见
-> [〈四十〉Under Observation]({{ site.baseurl }}{% post_url 2026-09-17-everybody-s-home-chapter-40-under-observation %})。秋天的第二场立法听证。这一次，第一排正中那个位置，没有空着。
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第四十二章。前情见
+> [〈四十一〉Under Observation]({{ site.baseurl }}{% post_url 2026-09-18-everybody-s-home-chapter-41-under-observation %})。秋天的第二场立法听证。这一次，第一排正中那个位置，没有空着。
 
 ## 一 · 第一排
 
