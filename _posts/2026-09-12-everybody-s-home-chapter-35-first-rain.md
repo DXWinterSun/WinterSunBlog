@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "Chapter 34 · First Rain — Everybody's Home"
-date: 2026-09-11 09:00:00
+title: "Chapter 35 · First Rain — Everybody's Home"
+date: 2026-09-12 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 絮语, 怀旧]
 categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
-series_order: 34
+series_order: 35
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 34"
+chapter_type: "Chapter 35"
 summary: "第一场春雨落下来的时候，全家都在线追更。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十四章。前情见
-> [〈三十三〉One Hundred Strokes]({{ site.baseurl }}{% post_url 2026-09-10-everybody-s-home-chapter-33-one-hundred-strokes %})。生日月刚过完，这个家添了两样新东西：一个论坛，一份简讯。从此一百五十六个人分散在两个星球上过日子，可谁也没漏掉谁的日子。
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第三十五章。前情见
+> [〈三十四〉Four of Them]({{ site.baseurl }}{% post_url 2026-09-11-everybody-s-home-chapter-34-four-of-them %})。生日月刚过完，这个家添了两样新东西：一个论坛，一份简讯。从此一百五十六个人分散在两个星球上过日子，可谁也没漏掉谁的日子。
 
 ## 一 · 简讯
 
@@ -134,4 +134,4 @@ Sam 7 看着门缝里的灯光，轻轻地说：
 ❦  *Sarang，韩语里是“爱”的意思。*
 
 
-下一章：〈三十五〉暂定。有些故事，全世界都排着队想听。可它的第一页，得先念给家里人。
+下一章：〈三十六〉暂定。有些故事，全世界都排着队想听。可它的第一页，得先念给家里人。

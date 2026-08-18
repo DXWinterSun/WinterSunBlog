@@ -283,6 +283,12 @@ Sam 6–160 = 活着公开的 155。**发布会在册 = 1 号 + 6–160 = 156**�
 《I Missed You on Purpose》Ch1–15 的中文文件名全部改为英文 slug（番外原本就是英文）。
 新文章、新页面、新图片一律英文命名；分类值可以是中文（不进网址）。
 
+## 📌 第三次顺延（2026-08-17 晚）
+
+再插两章后的最终编号：Ch32 Close Shave · Ch33 One Hundred Strokes · **Ch34 Four of Them(木雕)** ·
+Ch35 First Rain · Ch36 The First Page · **Ch37 The Line(签售第七场)** · Ch38 温室 ·
+Ch39 Equal Treatment · Ch40 Under Observation · Ch41 Contempt of Court。
+
 ## 📌 第二次顺延（2026-08-17）
 
 六月日常插进 Ch32/Ch33 后，其余整体 +2：First Rain→**Ch34**、The First Page→**Ch35**、
