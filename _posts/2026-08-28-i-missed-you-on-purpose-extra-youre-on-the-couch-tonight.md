@@ -7,7 +7,7 @@ tags: [Jerry, Sam Rockwell, AU, I Missed You on Purpose, 炽恋, 絮语]
 categories: ["AU Story"]
 series: "I Missed You on Purpose"
 series_title: "I Missed You on Purpose · Jerry AU"
-series_order: 25
+series_order: 26
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
