@@ -82,7 +82,27 @@ summary: "那张二十二岁的照片，你多看了九秒。谨此存档。"
 
 （好家伙。那小子穿飞行服上相，一向的。）
 
-然后他转回来，用谈判的口吻说：
+“Eleven seconds.” 他又把这个数字过了一遍，像在验钞。然后，试探地：“You sure it wasn't twelve?”
+
+（十一秒。你确定不是十二？）
+
+“Eleven, sir.”
+
+（十一，先生。）
+
+“Round it up.”
+
+（四舍五入一下嘛。）
+
+“Archives don't round, sir.”
+
+（档案不四舍五入，先生。）
+
+“Tonight they do.” 他把下巴搁在你头顶上，就这么定了案。
+
+（今晚它们四舍五入。）
+
+然后他用谈判的口吻说：
 
 “Nine seconds. I want the itemization.”
 
@@ -98,9 +118,25 @@ summary: "那张二十二岁的照片，你多看了九秒。谨此存档。"
 
 （那个笑，先生。它往左边歪。每张照片，每一年，都是同样的三度。大多数人的笑是对称的。对称的容易忘。）
 
-“Three degrees.” 他摸了摸自己的嘴角，像在核对库存，“Anything else?”
+“Three degrees.” 他摸了摸自己的嘴角，像在核对库存。然后他往下滑了半寸，把姿势调整成一个更适合听故事的角度：
 
-（三度。还有吗？）
+“Say the three degrees part again.”
+
+（三度那段，再说一遍。）
+
+“The grin goes left, sir. Every photograph, every——”
+
+（那个笑往左边歪，先生。每张照片，每——）
+
+“Slower.”
+
+（说慢点。）
+
+你说慢了。他听完，满意地叹了口气，像一个被按要求讲了第二遍睡前故事的人。
+
+“Anything else?”
+
+（还有吗？）
 
 “The forearms. You roll your sleeves to the exact same place a rancher does. Two folds. It didn't match the file, sir——the file said Yale.”
 
@@ -152,6 +188,28 @@ summary: "那张二十二岁的照片，你多看了九秒。谨此存档。"
 
 （是走路，先生。定论：走路。）
 
+“And the demonstration itself?” 他还站在那儿不肯下场，“Rate it. For the permanent record.”
+
+（那演示本身呢？打个分。进永久档案的那种。）
+
+“Ten, sir.”
+
+（十分，先生。）
+
+“Out of ten?”
+
+（满分十分？）
+
+“Out of ten.”
+
+（满分十分。）
+
+他点点头，把这个分数照单全收，毫不推辞：
+
+“Fair.”
+
+（公允。）
+
 ---
 
 ### <span class="c-logstamp__when">同夜 · 更深</span>没进档案的那一张
@@ -167,6 +225,20 @@ summary: "那张二十二岁的照片，你多看了九秒。谨此存档。"
 “Didn't know till tonight somebody was loggin' anomalies.”
 
 （直到今晚才知道，有人在另记异常。）
+
+他沉默了两秒。然后，用一种他大概自以为很随意、实际上全无掩护的语气问：
+
+“Nine seconds over standard. What's a fella gotta do for a full ten?”
+
+（超标九秒。一个人得怎么做，才够上整十秒？）
+
+你想了想。今晚不归档，你给了他真话：
+
+“The standard stopped applying to you years ago, sir. There is no clock anymore.”
+
+（标准很多年前就对你失效了，先生。早就没有计时这回事了。）
+
+他的手臂收紧了一下。你听见他在你头顶上方咽了一次。
 
 你没接话。你知道他还有半句。
 
@@ -208,11 +280,29 @@ summary: "那张二十二岁的照片，你多看了九秒。谨此存档。"
 
 ---
 
-后来炉火矮下去，你困意上来的时候，听见他在你头顶轻声说了最后一句。那句话你后来想起来就要笑，笑完鼻子就要酸：
+后来炉火矮下去。他在你头顶轻声说了一句，那句话你后来想起来就要笑，笑完鼻子就要酸：
 
 “Best damn briefing of my presidency.”
 
 （我这总统当八年，听得最好的一场简报。）
+
+然后，过了一会儿，声音已经沉到一半了，他又说：
+
+“Say the corridor one again.”
+
+（走廊那条，再说一遍。）
+
+“A corridor, sir. One eleven in the morning——”
+
+（一条走廊，先生。凌晨一点十一分——）
+
+“Slower.”
+
+（说慢点。）
+
+你说得很慢。一个词一个词地放。说到旧 T 恤的时候，他的呼吸开始变匀；说到两杯咖啡的时候，收着你的那条手臂沉下来了，却还固执地没松。
+
+最后几个字，你是说给炉火听的。
 
 > 全世界画了八年他的耳朵。  
 > 你记了八年别的：  
