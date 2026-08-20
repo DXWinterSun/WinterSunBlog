@@ -32,6 +32,24 @@
 
 ## Winter 的素材本（边追边加，最新在上）
 
+**⭐⭐ S4 生产 · 他连她真名都不知道（Winter 2026-08-13 看完，截图铁证；labels-not-names 母题封顶）：**
+产房里 Cutie Pie 阵痛，问 **“Now you don't know my name?”**（你连我名字都不知道吗？）；
+**Vic 低头从她病历上读出一个「K」**，才试探 **“And you're… Karen?”** → **“Karen… what a beautiful name.”**
+→ **官方铁证**:他和她好了多年、就要一起有孩子，却是**在产房照着病历，第一次知道她真名叫 Karen**。
+**他从不给人真名、只给甜标签（Cutie Pie）；这辈子唯一一次学会她的真名，是在她给他生孩子的产床上。**
+又好笑又心碎到顶。→ 直接**焊死** AU 机关:「那个甜标签底下、唯一被他认真、从一开始就记住真名的人＝你」。
+可作 desc 题眼级素材，或炽恋/定情场的核心反差。
+
+**S4 亲看确认 · 其它金句与设定（Winter 2026-08-13 校准）：**
+- **对背叛绝缘·官方原话**：**“If I killed everyone who fucked my girlfriend, I'd have no friends left.”**
+  （我要把睡过我女友的人都杀了，就没朋友了）——连绿帽都一笑了之，进金句/line 候选。
+- **S4「被时代淘汰」线**：他接手 Kevin 乐队、擅自改成 cheesy 的「船长/yacht-rock」雅皮乐队 → 砸了但被原谅；
+  台词 **“How out of touch do you want me to be?”**（被贬管怀旧老歌后，干脆把「过气」演到底）。
+- **转折点·当爹**：**“I'm a dad now — not a woman calling me daddy, but I actually have a kid.”**
+  从纵欲的甜标签人生，到第一次有了「真的、要负责」的人。是他全弧光的支点。
+- **单亲爸爸确认（S5）**：Karen 不想当妈、**跟一个「圣诞精灵」跑了**，Vic 独自养 Vic Jr；
+  推着火焰婴儿车、求宝宝别哭、彻夜未眠。邻居来教他哄睡小技巧。全对上之前剧透。
+
 **S4E1《Father Confessor》冷开场 · 忏悔室荤话（Winter 2026-08-13 追到，「开幕雷击」）：**
 Vic 在天主教忏悔室里，对神父用**神圣术语**一本正经讲自己一场嗑药+艳遇的荒唐夜：
 **“I received the sacrament of oral sex, but I passed out before I could reciprocate.”**
@@ -282,8 +300,11 @@ Winter 定性：**天然呆**。这句 → **`inscription` 并列头号候选**�
   全剧 **finale `Bye Bye, Frankie`（E8）** 收尾（Frank 的 Box 16 / Bach's 16 反高潮）。Vic 是结局最治愈的角色之一。
 - **重点看这几集(Vic 戏多/关键)**：S2 砸房那几集 + `Pray Away`；S3 全季（尤其 party 擦唱片那集、`Landing the Plane`）；
   S4 `Baby, Baby, Baby`；S5 `Blind Alley` + 单亲带娃线 + `Bye Bye, Frankie`。
-- ⚠️ 存疑待核（源冲突，别当定论）：Karen「怀孕揭示 vs 生产 vs 复合又离开」的确切集数分布在 S4 尾～S5 初之间有出入；
-  Big Bill 确切死于哪一集也需再核。追到了以 Winter 亲看为准，回来订正。
+- ✅ **已由 Winter 亲看订正（2026-08-13 看完全剧）**：S4 里 Vic 接手 Kevin 乐队、把他们改造成「船长」雅皮/yacht-rock
+  乐队（「你想我多冥顽不化？」）；**生产在产房里**——Cutie Pie 阵痛，问 Vic「你根本不知道我名字吗？」，
+  **Vic 从她病历上读出「K」，才知道她真名 Karen**（见素材本铁证）。Big Bill 之死与葬礼在此前后（Vic 抱新生儿去给
+  Frank 显摆时，正赶上 Big Bill 弥留；葬礼上有「再见爷爷升空」）。**S5** Karen 离开（跟一个「圣诞精灵」跑了），
+  Vic 成单亲爸爸，推着火焰婴儿车、彻夜哄不睡的娃。原「怀孕/生产/复合」集数存疑一节到此作罢。
 
 ---
 
