@@ -2,11 +2,11 @@
 layout: post
 title: "Chapter 14 · 护短 — The Cardinal"
 date: 2026-06-20
-image: sam-rockwell-polish-guy.png
+image: sam-rockwell-polish-guy.jpg
 tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻]
 categories: ["AU Story"]
 series: "The Cardinal"
-series_title: "The Cardinal · Krzysztof AU"
+series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
 series_order: 14
 series_status: ongoing
 series_type: Series
@@ -43,7 +43,7 @@ summary: "有人来搭讪，得知你男友是那酒保后，愈发难听；他�
 
 先是一愣。随即，像是听到了什么天大的笑话，"噗"地笑出了声。
 
-——他压根没往那上头想过。在他眼里，那不过是个倒酒的下人，怎么可能，跟你这样的姑娘，扯上关系？
+——他压根没往那上头想过。在他眼里，那不过是个倒酒的伙计，怎么可能，跟你这样的姑娘，扯上关系？
 
 而这个认知，让他那点被拒绝的火气，一下找到了出口。他脸上的笑，变了味，话也越说越难听。
 

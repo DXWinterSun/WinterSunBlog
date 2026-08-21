@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 17 · 可爱 — Better Living Through You"
 date: 2026-07-27
-image: better-living-through-chemistry.png
+image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 缱绻, 絮语]
 categories: ["AU Story"]
 series: "Better Living Through You"
@@ -42,7 +42,7 @@ summary: "你一样一样数给他听，他有多可爱——直到有一天，�
 
 他的眼睛又红了。可这一次不是委屈，是一种被人一点一点、耐心地、彻底地看见和珍惜之后，那种快要盛不下的东西。
 
-“你怎么……”他声音哑哑的，带着点哭腔，“你怎么净说这些。”
+“您怎么……”他声音哑哑的，带着点哭腔，“您怎么净说这些。”
 
 “因为是真的。”你把他搂进怀里，让他埋在你颈窝，像哄一个小孩，“而且我打算，往后每天都说给你听。你得慢慢习惯——习惯自己，是个这么可爱、这么好、这么值得被人疼的人。”
 

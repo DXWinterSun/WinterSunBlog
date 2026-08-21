@@ -2,7 +2,7 @@
 layout: post
 title: "Extra · 舞池 — Better Living Through You"
 date: 2026-07-27
-image: better-living-through-chemistry.png
+image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 缱绻, 安放]
 categories: ["AU Story"]
 series: "Better Living Through You"
@@ -36,7 +36,7 @@ summary: "满室都是配得上你的人，你却穿过舞池，把手伸给了�
 
 他抬起头，眼里闪过一点慌：“太太，我……我不懂那些。我怕给您丢……”
 
-“Doug，”你打断他，看着他的眼睛，一字一句，“我要我丈夫，陪我去。就这么简单。”
+“Doug，”你打断他，看着他的眼睛，一字一句，“我要我的人，陪我去。就这么简单。”
 
 他张了张嘴，到底没再拒绝。他低下头，耳根悄悄红了，只是那点迟疑，还是没能完全从他眉间散去。
 

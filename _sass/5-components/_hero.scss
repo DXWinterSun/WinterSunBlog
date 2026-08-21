@@ -312,6 +312,9 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  flex-wrap: wrap;              /* 窄屏时英文小字换到下一行，不再和标题打架 */
+  column-gap: 16px;
+  row-gap: 2px;
   margin: 16px 0 24px;
   border-bottom: 1px solid $line;
   padding-bottom: 12px;

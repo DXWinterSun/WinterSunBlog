@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 4 · 征稿启事 — The Part Where You Live"
 categories: ["AU Story"]
 date: 2026-07-15
-image: 7-psychopaths.PNG
+image: 7-psychopaths.jpg
 series: "The Part Where You Live"
 series_title: "The Part Where You Live · Billy Bickle AU"
 series_order: 4
@@ -62,7 +62,7 @@ tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 絮语, 悸动]
 
 屋里静得能听见那只兔子呼吸。
 
-"你没听错。专杀那些杀人的。我们走遍整个国家，一个一个地找他们。德州那个月光下杀人的，克利夫兰那个碎尸的……我们让他们尝尝自己给别人的东西。"他停顿了一下，浑浊的眼睛望向某个很远的地方，"我们本来还要去杀那个'十二宫',在加州。可到了最后关头，放下枪的人是我。我跟 Maggie 说，我不想再干了。我累了。我说，我们再这么杀下去，就跟那些人没两样了。"
+"你没听错。专杀那些杀人的。我们走遍整个国家，一个一个地找他们。得州那个月光下杀人的，克利夫兰那个碎尸的……我们让他们尝尝自己给别人的东西。"他停顿了一下，浑浊的眼睛望向某个很远的地方，"我们本来还要去杀那个'十二宫',在加州。可到了最后关头，放下枪的人是我。我跟 Maggie 说，我不想再干了。我累了。我说，我们再这么杀下去，就跟那些人没两样了。"
 
 他低下头，看着膝上那只兔子。
 

@@ -17,7 +17,7 @@ tags: [Hector Escaton, Rodrigo Santoro, AU, Before the World Broke for Us, 暗�
 
 ---
 
-黄沙镇的傍晚总是被夕阳染得血一样红。
+Sweetwater的傍晚总是被夕阳染得血一样红。
 
 你坐在酒馆里，轻轻摇着杯子，看着窗外的风沙。
 

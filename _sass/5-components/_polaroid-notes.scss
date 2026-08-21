@@ -393,3 +393,143 @@
 .pol-lucky-backdrop[data-kind="letter"] .pol-lucky-send { display: inline-block; }
 .pol-lucky-backdrop[data-kind="letter"] .pol-lucky-nav { display: none; }
 .pol-lucky-backdrop[data-kind="letter"] .pol-lucky-date { font-style: italic; }
+
+/* —— 票根背面（章节卡 / 章节页翻面）：与拍立得背面同一编辑器，换票纸皮肤。
+      献词归 Sam：「正面是他的戏。背面归你。」拍立得那句仍归 Leo。 —— */
+.pol-editor--ticket {
+  background: #f6f1e2;
+  border-radius: 10px;
+}
+.pol-editor--ticket .pol-ed-top {
+  position: relative;
+  background: transparent;
+  border-bottom: 2px dashed rgba(74, 66, 52, 0.4);
+}
+.pol-editor--ticket .pol-ed-top::after {
+  content: "ADMIT ONE";
+  position: absolute;
+  top: 8px;
+  right: 40px;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  color: rgba(74, 66, 52, 0.4);
+}
+.pol-editor--ticket .pol-ed-line { color: #4a4234; }
+.pol-editor--ticket .pol-ed-line-en { color: #8a7d63; }
+.pol-editor--ticket .pol-ed-x { color: #4a4234; }
+
+/* —— 文章页右下角浮笔（避开右下回顶按钮，浮在其上方）—— */
+.pol-pen {
+  position: fixed;
+  right: 16px;
+  bottom: 78px;
+  z-index: 1100;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #f6f1e2;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.pol-pen svg { width: 19px; height: 19px; }
+.pol-pen:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28); }
+
+/* —— 手机端：左下角记忆碎片浮标收窄（隐藏英文小字、收紧间距），
+      给右下浮笔让位，两角互不打架 —— */
+@media (max-width: 520px) {
+  .pol-lock {
+    padding: 6px 10px;
+    gap: 7px;
+  }
+  .pol-lock .pol-lock-tag i,
+  .pol-lock .pol-lk-stack i { display: none; }
+  .pol-lock .pol-lock-tag b,
+  .pol-lock .pol-lk-stack b { font-size: 11.5px; }
+  .pol-pen { right: 12px; bottom: 72px; width: 40px; height: 40px; }
+  .pol-pen svg { width: 17px; height: 17px; }
+}
+
+/* —— 铅笔划线：正文里的细下划线（本机私有），点击翻开背面 —— */
+.pol-line {
+  border-bottom: 1.5px solid color-mix(in srgb, var(--c-accent) 70%, transparent);
+  padding-bottom: 1px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.pol-line:hover { background: color-mix(in srgb, var(--c-accent) 10%, transparent); }
+.pol-line--flash { animation: polLineFlash 1.6s ease; }
+@keyframes polLineFlash {
+  0%, 60% { background: color-mix(in srgb, var(--c-accent) 26%, transparent); }
+  100% { background: transparent; }
+}
+
+/* 选中后浮出的「划线」小按钮 */
+.pol-mark-bubble {
+  position: fixed;
+  z-index: 1300;
+  display: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: #f6f1e2;
+  color: #4a4234;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.pol-mark-bubble:hover { transform: translateY(-1px); }
+
+/* 背面的划线引文列表 */
+.pol-ed-marks {
+  margin: 0 13px 12px;
+  padding-top: 10px;
+  border-top: 2px dashed rgba(74, 66, 52, 0.3);
+}
+.pol-ed-marks-title {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #8a7d63;
+  margin-bottom: 7px;
+}
+.pol-ed-mark {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(74, 66, 52, 0.12);
+}
+.pol-ed-mark:last-child { border-bottom: none; }
+.pol-ed-mark-q {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: 'EB Garamond', 'Noto Serif SC', serif;
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #4a4234;
+}
+.pol-ed-mark.is-orphan .pol-ed-mark-q { opacity: 0.55; }
+.pol-ed-mark-acts { flex: 0 0 auto; display: flex; gap: 8px; align-items: baseline; }
+.pol-ed-mark-acts button {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 11.5px;
+  color: #8a7d63;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.pol-ed-mark-acts button:hover { color: #4a4234; }
+.pol-ed-mark-note {
+  font-style: normal;
+  font-size: 10.5px;
+  color: #a3937a;
+}

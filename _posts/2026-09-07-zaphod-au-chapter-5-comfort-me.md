@@ -5,7 +5,7 @@ categories: ["AU Story"]
 date: 2026-09-07
 image: zaphod-au.jpg
 series: "Zaphod AU"
-series_title: "Don't Panic, Baby Doll · Zaphod AU"
+series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 5
 series_status: ongoing
 series_type: Series
@@ -20,7 +20,7 @@ tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 缱绻, 怅惘]
 
 他是全银河系最耀眼的那颗星，魅力开到十成，又向来怎么开心怎么来。所以，带不同的姑娘回 Heart of Gold，对他而言，是再寻常不过的事。
 
-她们一个比一个漂亮。有名媛，有明星，有仰慕他仰慕到发狂的追随者。他享受被追捧、被爱慕的每一刻，如同他享受台下山呼海啸的赞歌。
+她们一个比一个漂亮。有名媛，有明星，有仰慕他仰慕到发狂的追随者。他享受被追捧、被爱慕的每一刻，如同他享受台下震天动地的赞歌。
 
 而你——他的专属助理——常常是那个替他把一切打点妥当的人。
 

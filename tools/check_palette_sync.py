@@ -46,6 +46,8 @@ def parse_many_faces():
         rec.update({
             "bgNameEn": _field(block, "bgNameEn"), "bgNameCn": _field(block, "bgNameCn"),
             "accentNameEn": _field(block, "accentNameEn"), "accentNameCn": _field(block, "accentNameCn"),
+            "textNameEn": _field(block, "textNameEn"), "textNameCn": _field(block, "textNameCn"),
+            "mutedNameEn": _field(block, "mutedNameEn"), "mutedNameCn": _field(block, "mutedNameCn"),
         })
         if rec["bg"] and rec["accent"]:
             chars[cid] = rec
@@ -112,9 +114,18 @@ def main():
             continue
         cmp_color("sam_themes", cid, ref, t)
         for f, mfk in [("cn", "accentNameCn"), ("en", "accentNameEn"),
-                       ("bg_cn", "bgNameCn"), ("bg_en", "bgNameEn")]:
+                       ("bg_cn", "bgNameCn"), ("bg_en", "bgNameEn"),
+                       ("text_cn", "textNameCn"), ("text_en", "textNameEn"),
+                       ("muted_cn", "mutedNameCn"), ("muted_en", "mutedNameEn")]:
             if ref.get(mfk) and t.get(f) and ref[mfk] != t[f]:
                 issues.append(f"[sam_themes] {cid} {f}: 画册={ref[mfk]} vs {t[f]}")
+        # 四色八名标准（2026-07 起）：画册与选色器都必须有 text/muted 名字
+        for mfk in ["textNameCn", "textNameEn", "mutedNameCn", "mutedNameEn"]:
+            if not ref.get(mfk):
+                issues.append(f"[many-faces] {cid} 缺 {mfk}（四色八名标准）")
+        for f in ["text_cn", "text_en", "muted_cn", "muted_en"]:
+            if not t.get(f):
+                issues.append(f"[sam_themes] {cid} 缺 {f}（四色八名标准）")
 
     # lines.json characters + pool
     lines = parse_lines()
@@ -150,7 +161,10 @@ def main():
             continue
         for f, mfk in [("accent", "accent"), ("bg", "bg"),
                        ("accent_cn", "accentNameCn"), ("accent_en", "accentNameEn"),
-                       ("bg_cn", "bgNameCn"), ("bg_en", "bgNameEn")]:
+                       ("bg_cn", "bgNameCn"), ("bg_en", "bgNameEn"),
+                       # text/muted 的「色值」各系列可微调，但「名字」必须与画册一致
+                       ("text_cn", "textNameCn"), ("text_en", "textNameEn"),
+                       ("muted_cn", "mutedNameCn"), ("muted_en", "mutedNameEn")]:
             a, b = v.get(f), ref.get(mfk)
             if a and b and str(a).lower() != str(b).lower():
                 issues.append(f"[au_palettes] '{series}' {f}: 画册={b} vs {a}")

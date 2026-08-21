@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Many Faces · 演出节目单 · Fog City</title>
+<meta name="description" content="FOG CITY 剧团呈现：一人剧团，演员一名，观众一名。剧目——她的四十年。节目单随画册自动加场，演出未完。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Many Faces · 演出节目单 · Fog City">
+<meta property="og:description" content="FOG CITY 剧团呈现：一人剧团，演员一名，观众一名。剧目——她的四十年。">
+<meta name="theme-color" content="#1b222b">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ————— Many Faces · 演出节目单 —————
+     Fog City 系列的实体节目单（Ch30）。角色数据零内嵌：
+     全部来自 /sam/lines.json（与今日页/台词墙/放映室同源）。
+     画册加新角色 → lines.json 照常同步 → 这里按年份自动加一幕，无需任何改动。 */
+  html, body { margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --bg: #1b222b;        /* 双峰暮雾 */
+    --accent: #5b9db8;    /* 你画的海 */
+    --text: #e3eaef;      /* 镜片浅光 */
+    --muted: #9c8f7d;     /* 磁带暖褐 */
+    --edge: rgba(227,234,239,.14);
+  }
+  body {
+    background:
+      radial-gradient(ellipse 90% 50% at 50% 0%, rgba(91,157,184,.12) 0%, transparent 60%),
+      var(--bg);
+    color: var(--text);
+    font-family: 'Noto Serif SC', serif;
+    line-height: 1.9;
+    padding: 48px 18px 90px;
+  }
+  .bill { max-width: 680px; margin: 0 auto; }
+
+  /* ——— 封面头 ——— */
+  .head { text-align: center; border: 1px solid var(--edge); border-radius: 4px; padding: 38px 22px 30px; position: relative; }
+  .head::before, .head::after {
+    content: ""; position: absolute; left: 10px; right: 10px; height: 1px; background: var(--edge);
+  }
+  .head::before { top: 6px; } .head::after { bottom: 6px; }
+  .head__troupe { font-family: 'Playfair Display', serif; letter-spacing: .35em; font-size: 13px; color: var(--muted); text-transform: uppercase; }
+  .head__title { font-family: 'Playfair Display', serif; font-size: clamp(34px, 8vw, 52px); font-weight: 700; margin: 14px 0 4px; letter-spacing: .04em; }
+  .head__cn { font-size: 15px; letter-spacing: .5em; text-indent: .5em; color: var(--accent); margin-bottom: 18px; }
+  .head__meta { font-size: 13.5px; color: var(--muted); line-height: 2.1; }
+  .head__meta b { color: var(--text); font-weight: 500; }
+  .rules {
+    margin: 26px auto 0; display: inline-block; border: 1px dashed rgba(156,143,125,.55);
+    padding: 10px 22px; font-size: 13px; color: var(--muted); letter-spacing: .12em;
+  }
+  .rules b { color: var(--accent); font-weight: 500; letter-spacing: .2em; }
+
+  /* ——— 幕次 ——— */
+  .acts { margin-top: 44px; }
+  .act {
+    display: block; text-decoration: none; color: inherit;
+    border-left: 3px solid var(--act-accent, var(--accent));
+    background: linear-gradient(100deg, var(--act-tint, rgba(91,157,184,.06)), transparent 70%);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 18px 14px 20px;
+    margin-bottom: 14px;
+    transition: transform .15s ease;
+  }
+  .act:hover { transform: translateX(4px); }
+  .act__row1 { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .act__no { font-family: 'Playfair Display', serif; font-style: italic; font-size: 12.5px; letter-spacing: .18em; color: var(--muted); }
+  .act__name { font-family: 'Playfair Display', 'Noto Serif SC', serif; font-size: 19px; font-weight: 500; color: var(--act-accent, var(--accent)); }
+  .act__film { font-size: 13px; color: var(--muted); }
+  .act__quote { margin-top: 7px; font-size: 14.5px; }
+  .act__quote-en { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15.5px; color: var(--text); opacity: .92; }
+  .act__quote-cn { display: block; font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+  .act__label { font-size: 10.5px; letter-spacing: .22em; color: var(--act-accent, var(--accent)); opacity: .85; margin-top: 8px; }
+  .act__script { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .act__script em { color: var(--act-accent, var(--accent)); font-style: normal; border-bottom: 1px dashed currentColor; }
+
+  /* ——— 幕间与页脚 ——— */
+  .intermission { text-align: center; color: var(--muted); font-size: 12.5px; letter-spacing: .35em; margin: 34px 0; }
+  .tail { margin-top: 46px; text-align: center; border-top: 1px solid var(--edge); padding-top: 30px; color: var(--muted); font-size: 13.5px; line-height: 2.3; }
+  .tail__ongoing { color: var(--accent); letter-spacing: .1em; }
+  .tail__links { margin-top: 18px; font-size: 13px; }
+  .tail__links a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed rgba(91,157,184,.5); margin: 0 10px; }
+  .credit { margin-top: 26px; font-size: 12px; color: var(--muted); opacity: .8; }
+  .credit i { font-family: 'Cormorant Garamond', serif; }
+  #loading { text-align: center; color: var(--muted); padding: 60px 0; letter-spacing: .3em; }
+</style>
+</head>
+<body>
+<div class="bill">
+  <header class="head">
+    <div class="head__troupe">Fog City Company · Est. 1986</div>
+    <h1 class="head__title">MANY FACES</h1>
+    <div class="head__cn">一 人 剧 团</div>
+    <div class="head__meta">
+      剧目：<b>她的四十年</b><br>
+      演员：<b>一名</b>　·　观众：<b>一名</b><br>
+      首演：某个她不在家的下午之后 · 场地：客厅<br>
+      <span id="act-count">…</span>
+    </div>
+    <div class="rules"><b>剧场规矩</b>　散场前，请勿移动。请勿说话。</div>
+  </header>
+
+  <main class="acts" id="acts"><div id="loading">开 幕 前 · 请 稍 候</div></main>
+
+  <footer class="tail">
+    <div>本节目单随画册自动加场——新的角色到任，即刻排入对应年份的一幕。</div>
+    <div class="tail__ongoing">加演场次待定 · 演出未完</div>
+    <div class="tail__links">
+      <a href="/WinterSunBlog/series/fog-city/">← 返回 Fog City</a>
+      <a href="/WinterSunBlog/sam/many-faces/">去画册看每一张脸 →</a>
+    </div>
+    <div class="credit">节目单排版：<i>Winter Sun</i>（舞美设计 · 观众全勤）</div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  fetch('/WinterSunBlog/sam/lines.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var alias = (data.meta && data.meta.mf_alias) || {};
+      var chars = data.characters.slice().sort(function (a, b) {
+        return (parseInt(a.year, 10) || 0) - (parseInt(b.year, 10) || 0) || a.id.localeCompare(b.id);
+      });
+      var acts = document.getElementById('acts');
+      acts.innerHTML = '';
+      chars.forEach(function (c, i) {
+        var anchor = alias[c.id] || c.id;
+        var q = (c.quotes && c.quotes[0]) || {};
+        var a = document.createElement('a');
+        a.className = 'act';
+        a.href = '/WinterSunBlog/sam/many-faces/#' + anchor;
+        /* 专属配色：左侧描边与角色名用该角色 accent，行底晕染用 accent 极淡色 */
+        a.style.setProperty('--act-accent', c.accent);
+        a.style.setProperty('--act-tint', c.accent + '14');
+        var script = c.auLink
+          ? '<div class="act__script">这一幕，她的本子里写成了长篇 → <em>完整剧本</em></div>' : '';
+        a.innerHTML =
+          '<div class="act__row1">' +
+            '<span class="act__no">第 ' + (i + 1) + ' 幕</span>' +
+            '<span class="act__name">' + c.name + '</span>' +
+            '<span class="act__film">' + c.filmCN + ' · ' + c.film + ' · ' + c.year + '</span>' +
+          '</div>' +
+          (q.label ? '<div class="act__label">' + q.label + '</div>' : '') +
+          '<div class="act__quote">' +
+            '<span class="act__quote-en">“' + (q.line || '') + '”</span>' +
+            '<span class="act__quote-cn">' + (q.lineCN || '') + '</span>' +
+          '</div>' + script;
+        if (c.auLink) {
+          a.href = c.auLink;
+        }
+        acts.appendChild(a);
+        /* 每十幕一个幕间休息符 */
+        if ((i + 1) % 10 === 0 && i + 1 < chars.length) {
+          var br = document.createElement('div');
+          br.className = 'intermission';
+          br.textContent = '· 幕 间 ·';
+          acts.appendChild(br);
+        }
+      });
+      document.getElementById('act-count').textContent =
+        '全剧共 ' + chars.length + ' 幕 · 一人分饰 ' + chars.length + ' 角';
+    })
+    .catch(function () {
+      document.getElementById('loading').textContent = '节目单临时缺席——请稍后再来。';
+    });
+})();
+</script>
+</body>
+</html>

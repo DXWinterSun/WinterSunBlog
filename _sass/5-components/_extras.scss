@@ -445,6 +445,322 @@
   color: $ink-soft;
 }
 
+/* ──────────────────────────────────────────────────────────────
+   c-tape —— Archive › By Mood 的「磁带架」（2026-07-31）
+   每篇文章 = 一盘磁带的侧脊：情绪色端盖（两颗小螺丝）+ 奶白手写标签
+   （曲名 — 歌手式：章名 + 系列名·日期）+ SIDE A/B 端标。
+   配色全部吃 .c-archive-tag-content 上的 --mood 变量，随情绪自动换色；
+   悬停整盘带子向右抽出（抽带感）。By Year 视图仍用上面的极简列表。
+   ────────────────────────────────────────────────────────────── */
+
+.c-tape-shelf {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.c-tape-slot { margin: 0; }
+
+.c-tape {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  padding: 6px 12px 6px 6px;
+  border: 1px solid $line;
+  border-radius: 5px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 46%),
+    $paper-warm;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+
+  // 情绪色的低透明罩：给「带壳」上一层该情绪的塑料色
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--mood, #{$accent});
+    opacity: 0.09;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateX(7px);
+    border-color: var(--mood, #{$accent-soft});
+    box-shadow: -4px 2px 12px rgba(0, 0, 0, 0.09);
+    .c-tape__title { color: var(--mood, #{$accent}); }
+  }
+}
+
+// 左端盖：情绪色竖条 + 两颗小螺丝
+.c-tape__cap {
+  position: relative;
+  flex: 0 0 auto;
+  width: 13px;
+  border-radius: 3px;
+  background: var(--mood, #{$accent});
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+  }
+  &::before { top: 5px; }
+  &::after { bottom: 5px; }
+}
+
+// 中间的手写标签纸
+.c-tape__label {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 4px 12px 5px;
+  background: $paper;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 2px;
+}
+
+.c-tape__title {
+  font-family: $heading-font-family;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: $ink;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.18s ease;
+}
+
+.c-tape__meta {
+  font-family: $heading-font-family;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $muted;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 右端标：SIDE A / SIDE B
+.c-tape__side {
+  position: relative;
+  flex: 0 0 auto;
+  align-self: center;
+  padding-left: 10px;
+  border-left: 1px dashed rgba(0, 0, 0, 0.14);
+  font-family: $heading-font-family;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  color: var(--mood, #{$accent});
+}
+
+@media only screen and (max-width: 600px) {
+  .c-tape { padding: 5px 10px 5px 5px; gap: 8px; }
+  .c-tape__cap { width: 11px; }
+  .c-tape__label { padding: 3px 10px 4px; }
+  .c-tape__title { font-size: 14.5px; }
+  .c-tape__meta { font-size: 9px; letter-spacing: 0.1em; }
+  .c-tape__side { font-size: 8px; padding-left: 8px; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   c-tl —— Archive › By Year 的「时间轴」（2026-07-31）
+   左侧轴线贯穿十年：年份 = 空心圆环大站点，月份 = 实心小节点，
+   文章 = 「日 + 标题 + 系列/分类」挂在轴上。顶部 c-tl-jump 年份 pill
+   直接锚点跳年。
+   ────────────────────────────────────────────────────────────── */
+
+.c-tl-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  margin: 0 0 30px;
+
+  a {
+    font-family: $heading-font-family;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    padding: 4px 13px;
+    border: 1px solid $line;
+    border-radius: 999px;
+    color: $muted;
+    text-decoration: none;
+    transition: $global-transition;
+    &:hover {
+      color: $accent;
+      border-color: $accent-soft;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.c-tl {
+  position: relative;
+  padding-left: 30px;
+
+  // 轴线
+  &::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    border-radius: 1px;
+    background: $line;
+  }
+}
+
+.c-tl__year {
+  margin-bottom: 46px;
+  scroll-margin-top: 84px;
+  &:last-child { margin-bottom: 0; }
+}
+
+.c-tl__year-head {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-bottom: 1px solid $line;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+// 年份大站点：空心圆环，压在轴线上
+.c-tl__year-node {
+  position: absolute;
+  left: -27px;
+  top: 9px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: $paper;
+  border: 2.5px solid $accent;
+  box-shadow: 0 0 0 3px $paper;
+}
+
+.c-tl__year-num {
+  font-family: $heading-font-family;
+  font-size: 32px;
+  font-weight: 700;
+  color: $ink;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.c-tl__year-meta {
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.c-tl__month { margin: 16px 0 4px; }
+
+.c-tl__month-label {
+  position: relative;
+  display: inline-block;
+  font-family: $heading-font-family;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: $ink-soft;
+  margin-bottom: 2px;
+}
+
+// 月份小节点：实心圆点，压在轴线上
+.c-tl__month-dot {
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: $accent-soft;
+  box-shadow: 0 0 0 3px $paper;
+}
+
+.c-tl__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c-tl__item { margin: 0; }
+
+.c-tl__link {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 7px 0;
+  text-decoration: none;
+  &:hover {
+    .c-tl__title { color: $accent; }
+    .c-tl__day { color: $accent; }
+  }
+}
+
+.c-tl__day {
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: $muted;
+  text-align: right;
+  transition: color 0.15s ease;
+}
+
+.c-tl__body { min-width: 0; }
+
+.c-tl__title {
+  display: block;
+  font-family: $heading-font-family;
+  font-size: 16.5px;
+  color: $ink;
+  line-height: 1.45;
+  transition: color 0.15s ease;
+}
+
+.c-tl__meta {
+  display: block;
+  margin-top: 1px;
+  font-family: $heading-font-family;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+@media only screen and (max-width: 600px) {
+  .c-tl { padding-left: 26px; }
+  .c-tl::before { left: 7px; }
+  .c-tl__year-node { left: -25px; top: 7px; width: 11px; height: 11px; }
+  .c-tl__month-dot { left: -22px; }
+  .c-tl__year-num { font-size: 26px; }
+  .c-tl__link { grid-template-columns: 26px 1fr; gap: 10px; }
+  .c-tl__title { font-size: 15.5px; }
+}
+
 
 /* ===============
 	ARCHIVE CTA AT BOTTOM OF HOME GRID
@@ -899,3 +1215,813 @@
   font-style: normal;
   font-size: 17px;
 }
+
+/* ===============
+	SONG (章节底部「本章曲目 · Song」— 唱片内页式曲目卡)
+	致敬真实词曲作者 + 专辑；比裸代码块好看。歌词槽可选，随 AU 配色明暗翻转。
+=============== */
+
+.c-song {
+  position: relative;
+  max-width: 560px;
+  margin: 48px auto 20px;
+  padding: 26px 30px 22px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, $accent 6%, transparent) 0%, transparent 44%),
+    $paper-warm;
+  border: 1px solid $line;
+  border-left: 3px solid $accent;
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(var(--rgb-shadow, 0,0,0), .16);
+}
+
+.c-song__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 13px;
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $accent-dark;
+}
+
+/* 小唱片圆点 */
+.c-song__eyebrow::before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, $paper-warm 0 2px, $accent 2px 100%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, $accent 55%, transparent);
+  flex: 0 0 auto;
+}
+
+/* 顶部：小专辑封面 + 歌名/署名 并排（封面可选） */
+.c-song__head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.c-song__art {
+  position: relative;
+  flex: 0 0 auto;
+  width: 92px;
+  height: 92px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid $line;
+  box-shadow: 0 6px 16px rgba(var(--rgb-shadow, 0,0,0), .22);
+  background: $accent-dark;   /* 无封面时的底：唱片套，用色卡深调 */
+}
+
+/* 默认占位：纯 CSS 画的黑胶唱片，盘面用本 AU 的招牌色（有封面图时被 img 盖住） */
+.c-song__art::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(circle at 50% 50%, rgba(0,0,0,.13) 0 1px, transparent 1px 5px),
+    radial-gradient(circle at 50% 50%, $paper-warm 0 21%, $accent-dark 21% 23.5%, $accent 23.5% 100%);
+  box-shadow: inset 0 0 15px rgba(0,0,0,.24);
+}
+.c-song__art::after {   /* 唱片中心孔 */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: $accent-dark;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.35);
+}
+.c-song__art img {   /* 有封面：铺满、盖住黑胶占位 */
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c-song__meta { min-width: 0; }
+
+.c-song__title {
+  margin: 0 0 3px;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 25px;
+  line-height: 1.2;
+  color: $ink;
+}
+
+/* 歌名下紧跟的音乐人名（醒目，便于查原曲） */
+.c-song__artist {
+  margin: 0 0 8px;
+  font-family: $heading-font-family;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: $accent-dark;
+}
+
+.c-song__credit {
+  margin: 0 0 4px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: $muted;
+}
+.c-song__credit strong { color: $ink-soft; font-weight: 600; }
+
+/* 窄屏：封面缩一点，仍并排 */
+@media (max-width: 460px) {
+  .c-song__head { gap: 14px; }
+  .c-song__art { width: 72px; height: 72px; }
+  .c-song__title { font-size: 21px; }
+  .c-song__artist { font-size: 14px; }
+}
+
+.c-song__lyrics {
+  margin: 18px 0;
+  padding-top: 18px;
+  border-top: 1px solid color-mix(in srgb, $accent 22%, transparent);
+  font-family: 'Noto Serif SC', 'EB Garamond', serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $ink;
+}
+
+/* 一段 = 一个 <p>；原文行在上，译文行在下（可选） */
+.c-song__lyrics p { margin: 0 0 15px; }
+.c-song__lyrics p:last-child { margin-bottom: 0; }
+.c-song__en { display: block; font-style: italic; }
+.c-song__cn { display: block; margin-top: 2px; font-size: 14px; color: $muted; }
+
+.c-song__note {
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid $line;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: $muted;
+  opacity: .9;
+}
+.c-song__note a { color: $accent; text-decoration: none; }
+.c-song__note a:hover { color: $accent-dark; }
+
+/* ————— 彩蛋入口迷你卡（星图 / 点唱机）—————
+   浅色页面上两张「通往夜晚的门票」：颜色就是目的地页面的颜色。 */
+.c-egg-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin: 16px auto 0;
+  padding: 11px 18px 11px 12px;
+  max-width: min(400px, 94%);
+  border-radius: 14px;
+  text-align: left;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 10px 26px rgba(10, 14, 24, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(10, 14, 24, 0.3);
+  }
+}
+
+.c-egg-card__art {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.c-egg-card__body { min-width: 0; }
+
+.c-egg-card__eyebrow {
+  display: block;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 8.5px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.c-egg-card__title {
+  display: block;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+
+.c-egg-card__desc {
+  display: block;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+  margin-top: 3px;
+  opacity: 0.7;
+}
+
+.c-egg-card__arrow {
+  margin-left: 4px;
+  font-size: 15px;
+  opacity: 0.85;
+  transition: transform 0.18s ease;
+}
+.c-egg-card:hover .c-egg-card__arrow { transform: translateX(3px); }
+
+/* 星图款：深夜蓝 + 会眨眼的迷你星座 */
+.c-egg-card--sky {
+  background: linear-gradient(135deg, #131a30 0%, #1b2440 55%, #171f38 100%);
+  color: #e8edf8;
+
+  .c-egg-card__art {
+    background:
+      radial-gradient(circle at 78% 22%, rgba(140, 160, 220, 0.28), transparent 55%),
+      #0d1224;
+  }
+  .c-egg-card__eyebrow { color: #9db0d8; }
+  .c-egg-card__arrow { color: #cdd9f5; }
+
+  .tw-star { animation: eggTwinkle 2.8s ease-in-out infinite; }
+  .tw-star:nth-child(odd) { animation-delay: -1.4s; }
+}
+
+/* 磁带机款：暖木色 + 转动的小卷盘（2026-07 点唱机改装成 Mixtape 后同步换图） */
+.c-egg-card--juke {
+  background: linear-gradient(135deg, #241a13 0%, #1a120d 60%, #14100b 100%);
+  color: #f2e7d2;
+
+  .c-egg-card__art {
+    background:
+      radial-gradient(circle at 50% 115%, rgba(203, 161, 76, 0.25), transparent 60%),
+      #0f0b08;
+  }
+  .c-egg-card__eyebrow { color: #cba14c; }
+  .c-egg-card__arrow { color: #e6c377; }
+
+  .egg-reel {
+    animation: eggSpin 3.6s linear infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+}
+
+@keyframes eggTwinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+@keyframes eggSpin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-egg-card--sky .tw-star,
+  .c-egg-card--juke .egg-reel { animation: none; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   c-ticket —— 戏票式入口卡（正文里通往某个页面的「入场券」）
+   与 c-note / c-decree 同族：吃 AU 色卡令牌，随系列配色明暗翻转。
+   首例：Fog City Ch30 通往演出节目单 fog-city/playbill/ 的入口。
+   ────────────────────────────────────────────────────────────── */
+.c-ticket {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  max-width: 480px;
+  margin: 30px auto;
+  text-decoration: none;
+  background:
+    linear-gradient(115deg, color-mix(in srgb, $accent 9%, transparent) 0%, transparent 55%),
+    $paper-warm;
+  border: 1px solid $line-strong;
+  border-radius: 10px;
+  box-shadow:
+    0 12px 28px rgba(var(--rgb-shadow, 0, 0, 0), 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  transform: rotate(-0.4deg);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow:
+      0 18px 36px rgba(var(--rgb-shadow, 0, 0, 0), 0.22),
+      0 0 0 2px color-mix(in srgb, $accent 55%, transparent);
+  }
+}
+
+/* 左端票根：ADMIT ONE + 撕票孔虚线 */
+.c-ticket__stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  padding: 16px 13px;
+  border-right: 2px dashed color-mix(in srgb, $ink 28%, transparent);
+  background: color-mix(in srgb, $accent 14%, transparent);
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  line-height: 1.5;
+  color: $accent-dark;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* 撕票孔：票根分割线上下各咬一个半圆 */
+.c-ticket::before,
+.c-ticket::after {
+  content: "";
+  position: absolute;
+  left: var(--stub-w, 40px);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: $cream;
+  border: 1px solid $line-strong;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.c-ticket::before { top: -8px; }
+.c-ticket::after  { bottom: -8px; }
+
+.c-ticket__body {
+  flex: 1 1 auto;
+  padding: 16px 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.c-ticket__eyebrow {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.c-ticket__title {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: $ink;
+  line-height: 1.35;
+}
+
+.c-ticket__meta {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: $ink-soft;
+}
+
+.c-ticket__cta {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: $accent-dark;
+
+  .c-ticket:hover & { text-decoration: underline; text-underline-offset: 3px; }
+}
+
+@media (max-width: 480px) {
+  .c-ticket { max-width: 100%; }
+  .c-ticket__title { font-size: 17px; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   c-chapter-list —— 系列首页的无图章节卡列（2026-07-30 改版）
+   取代旧的「纯文字目录 + 配图卡片」双目录；吃 AU 色卡令牌自动翻转。
+   ────────────────────────────────────────────────────────────── */
+.c-chapter-list__legend {
+  font-size: 12px;
+  color: $muted;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.c-chapter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 票根样式（2026-07-30 二改）：左端撕票根 + 虚线撕票线 + 上下咬口，
+   与 c-ticket（Ch31 节目单入口）同一家族；配合 polaroid-notes.js，
+   长按/右键可翻到「票根背面」写记忆碎片（带图卡片仍是拍立得）。 */
+.c-chapter-card {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background:
+    linear-gradient(115deg, color-mix(in srgb, $accent 7%, transparent) 0%, transparent 50%),
+    $paper;
+  border: 1px solid $line;
+  border-radius: 10px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  /* 撕票线上下的两个半圆咬口 */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: var(--stub-w, 52px);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $cream;
+    border: 1px solid $line;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  &::before { top: -7px; }
+  &::after { bottom: -7px; }
+
+  &:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 20px -12px rgba(var(--rgb-shadow, 0, 0, 0), 0.35),
+      0 0 0 1.5px color-mix(in srgb, $accent 45%, transparent);
+
+    .c-chapter-card__arrow { opacity: 1; transform: translateX(2px); }
+    .c-chapter-card__title { color: $accent-dark; }
+  }
+}
+
+.c-chapter-card__no {
+  flex: 0 0 auto;
+  width: var(--stub-w, 52px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 10px 4px;
+  border-right: 2px dashed color-mix(in srgb, $ink 28%, transparent);
+  background: color-mix(in srgb, $accent 10%, transparent);
+  font-family: 'Playfair Display', 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: $accent-dark;
+  letter-spacing: 0.06em;
+
+  i {
+    font-style: normal;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    color: $muted;
+  }
+}
+
+.c-chapter-card__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 13px 4px 12px 16px;
+}
+
+.c-chapter-card__eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $accent-dark;
+  opacity: 0.85;
+}
+
+/* 「故事时间」年代戳（front matter 的 story_time）：非线性叙事的系列
+   （如 Fog City 番外满天飞）用它标注这一章发生在故事里的哪一年。
+   做成票面日期戳的样子——虚线小框，跟随系列 accent 色。 */
+.c-chapter-card__era {
+  margin-left: 10px;
+  font-style: normal;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: $accent-dark;
+  border: 1px dashed rgba(var(--rgb-accent), 0.5);
+  border-radius: 3px;
+  padding: 1px 7px;
+  white-space: nowrap;
+}
+
+.c-article__era {
+  display: inline-block;
+  margin-left: 12px;
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: $accent;
+  border: 1px dashed rgba(var(--rgb-accent), 0.45);
+  border-radius: 3px;
+  padding: 1px 9px;
+  white-space: nowrap;
+}
+
+.c-chapter-card__title {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 600;
+  font-size: 16.5px;
+  line-height: 1.45;
+  color: $ink;
+  transition: color 0.15s ease;
+}
+
+.c-chapter-card__summary {
+  font-size: 13px;
+  line-height: 1.75;
+  color: $ink-soft;
+  display: -webkit-box;
+  /* 3 行：右侧 mood 标签栏（.c-chapter-card__aside）挤窄了正文列，
+     ≤35 字的 summary 在窄列里排到第 3 行才收得下——给足 3 行，
+     保持原本 35 字上限也能完整显示，无需回炉缩写任何一篇。 */
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.c-chapter-card__meta {
+  margin-top: 3px;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: $muted;
+}
+
+/* 右侧「基调」栏：竖排 mood 胶囊 + 箭头。分隔线用 $line，随明暗翻。 */
+.c-chapter-card__aside {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 14px 12px 8px;
+  border-left: 1px solid $line;
+}
+
+/* 每个 mood 胶囊：色值经 --m 注入；填充/描边/字色都由 --m 与主题令牌
+   （$paper/$ink/$muted）color-mix 出来——所以深色系列里字亮、浅色系列里字
+   深，两种主题都清楚，且始终保留该情绪的色相。 */
+.c-chapter-card__mtag {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 2.5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: color-mix(in srgb, var(--m) 15%, $paper);
+  border: 1px solid color-mix(in srgb, var(--m) 42%, transparent);
+}
+
+.c-chapter-card__mtag-m {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 12.5px;
+  line-height: 1.2;
+  color: color-mix(in srgb, var(--m), $ink 30%);
+}
+
+.c-chapter-card__mtag-c {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  color: color-mix(in srgb, var(--m), $muted 52%);
+  opacity: 0.9;
+}
+
+.c-chapter-card__arrow {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: $accent-dark;
+  opacity: 0.35;
+  font-size: 15px;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   c-mood-filter —— 目录里的「按基调筛选」条（由 series.html 的脚本注入）。
+   只列出本系列真实出现过的 mood，各带计数；点选一个或多个即只显示命中任一
+   情绪的章节。每个 chip 的颜色 = 该 mood 专属色，字色/描边经主题令牌 color-mix
+   出来，深浅主题都清楚。
+   ────────────────────────────────────────────────────────────── */
+.c-mood-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0 16px;
+}
+
+.c-mood-filter__label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: $muted;
+  margin-right: 2px;
+}
+
+.c-mood-filter__chip {
+  --m: #888;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  cursor: pointer;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 13px;
+  line-height: 1.2;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--m) 8%, $paper);
+  border: 1px solid color-mix(in srgb, var(--m) 34%, transparent);
+  color: color-mix(in srgb, var(--m), $ink 34%);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.12s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--m) 55%, transparent);
+  }
+
+  &[aria-pressed="true"] {
+    background: color-mix(in srgb, var(--m) 26%, $paper);
+    border-color: color-mix(in srgb, var(--m) 72%, transparent);
+    color: color-mix(in srgb, var(--m), $ink 14%);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--m) 38%, transparent);
+  }
+}
+
+.c-mood-filter__chip-cnt {
+  font-size: 10.5px;
+  opacity: 0.85;
+  color: color-mix(in srgb, var(--m), $muted 46%);
+}
+
+.c-mood-filter__chip[aria-pressed="true"] .c-mood-filter__chip-cnt {
+  color: color-mix(in srgb, var(--m), $ink 30%);
+}
+
+.c-mood-filter__reset {
+  cursor: pointer;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  padding: 3px 4px;
+  background: none;
+  border: none;
+  color: $muted;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+
+  &:hover { color: $accent-dark; }
+}
+
+.c-mood-filter__count {
+  margin-left: auto;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: $muted;
+}
+
+@media (max-width: 560px) {
+  .c-mood-filter { gap: 6px; }
+  .c-mood-filter__count { margin-left: 0; width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .c-chapter-card { --stub-w: 46px; }
+  .c-chapter-card__title { font-size: 15.5px; }
+  .c-chapter-card__body { padding-right: 2px; }
+  /* 窄屏：色卡名占地方，收起，只留带色的情绪名，仍一眼看基调 */
+  .c-chapter-card__aside { padding: 12px 11px 12px 6px; gap: 5px; }
+  .c-chapter-card__mtag { padding: 2px 8px; }
+  .c-chapter-card__mtag-m { font-size: 11.5px; }
+  .c-chapter-card__mtag-c { display: none; }
+}
+
+/* ===============
+	SMS — in-story text thread on an old keypad phone (Nokia-era).
+	Self-contained monochrome-LCD look; a period device, so it uses a fixed
+	retro palette (reads the same in either site theme) rather than the AU
+	tokens. Use for saved / shown text messages (see c-note / c-decree for
+	handwritten notes and official documents).
+=============== */
+.c-sms {
+  max-width: 320px;
+  margin: 30px auto 22px;
+  padding: 16px 14px 24px;
+  border-radius: 20px 20px 30px 30px;
+  background: linear-gradient(#4b504a, rgba(52,56,51,0) 42%), #2c2f2a;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 -3px 8px rgba(0,0,0,.35);
+  border: 1px solid #1c1e1b;
+}
+/* speaker slit above the screen */
+.c-sms::before {
+  content: "";
+  display: block;
+  width: 34px; height: 4px;
+  margin: 0 auto 12px;
+  border-radius: 3px;
+  background: #1c1e1b;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.6);
+}
+.c-sms__screen {
+  padding: 10px 10px 12px;
+  border-radius: 6px;
+  background: #a9b795;
+  background-image: linear-gradient(180deg, #b7c2a6, #9fae88);
+  box-shadow: inset 0 2px 6px rgba(40,50,30,.45), 0 1px 0 rgba(255,255,255,.15);
+  font-family: 'Courier New', ui-monospace, monospace;
+  color: #28311c;
+}
+.c-sms__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 8px; padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(40,49,28,.4);
+  font-size: 10px; letter-spacing: .04em; opacity: .85;
+}
+.c-sms__bar b { font-weight: 700; letter-spacing: .14em; }
+.c-sms__msg { margin: 7px 0; display: flex; flex-direction: column; max-width: 84%; }
+.c-sms__msg--in  { align-items: flex-start; }
+.c-sms__msg--out { align-items: flex-end; margin-left: auto; text-align: right; }
+.c-sms__from {
+  font-size: 9.5px; font-weight: 700; letter-spacing: .05em; opacity: .7; margin-bottom: 2px;
+}
+.c-sms__text {
+  display: inline-block;
+  padding: 5px 8px;
+  border: 1.5px solid #28311c;
+  border-radius: 3px;
+  background: rgba(255,255,255,.16);
+  font-size: 13px; line-height: 1.55; word-break: break-word;
+}
+.c-sms__msg--out .c-sms__text { background: rgba(40,49,28,.14); }
+.c-sms__time {
+  display: block; margin-top: 9px; text-align: center;
+  font-size: 9.5px; letter-spacing: .12em; opacity: .6;
+}
+
+/* ===============
+   c-logstamp —— 章节内的「档案条」小节标记
+   写法（Markdown 里直接写）：
+     ### <span class="c-logstamp__when">10 月 4 日 · 周四 20:15</span>到达大厅
+   日期做小号眉标，短标题做主行，左边一条随 AU 配色的竖线。
+   只有带 .c-logstamp__when 的 h3 会被套上，别的文章的 h3 不受影响。
+=============== */
+h3:has(> .c-logstamp__when) {
+  position: relative;
+  margin: 3.2em 0 1.4em;
+  padding-left: 18px;
+  font-size: 19px;
+  line-height: 1.35;
+  letter-spacing: .04em;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0; top: .18em; bottom: .1em;
+    width: 2px;
+    background: $accent;
+    opacity: .85;
+  }
+}
+
+.c-logstamp__when {
+  display: block;
+  margin-bottom: 5px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: $accent;
+  opacity: .95;
+}
+

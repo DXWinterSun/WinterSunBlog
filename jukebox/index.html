@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>情绪点唱机 · Winter Sun</title>
-<meta name="description" content="一台只收录这里的故事的老点唱机。选一种今晚的心情，投一枚币，让机器替你挑一章。">
+<title>情绪磁带机 · Mixtape · Winter Sun</title>
+<meta name="description" content="一台只收录这里的故事的磁带机。选一种今晚的心情，按下 PLAY，让机器替你挑一章。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="情绪点唱机 · Winter Sun">
+<meta property="og:title" content="情绪磁带机 · Mixtape · Winter Sun">
 <meta property="og:description" content="选一种今晚的心情，投一枚币，让机器替你挑一章。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/jukebox/">
 <meta name="twitter:card" content="summary">
@@ -83,14 +83,7 @@
     -webkit-mask: linear-gradient(#000 0 0) border-box; /* 只显示描边区域由 border-color transparent 实现 */
     opacity: .8; pointer-events: none;
     filter: drop-shadow(0 0 10px color-mix(in srgb, var(--mood) 55%, transparent));
-    animation: neon 4.2s ease-in-out infinite;
     transition: filter .8s ease;
-  }
-  @keyframes neon {
-    0%, 100% { opacity: .82; }
-    45% { opacity: .98; }
-    58% { opacity: .74; }
-    61% { opacity: .95; }
   }
 
   .marquee {
@@ -102,6 +95,9 @@
     min-height: 16px; transition: color .8s ease;
   }
   .brand {
+    /* position:relative 让标题浮在霓虹拱管那层之上——否则会被半透明的
+       拱管装饰层压暗（之前「标题发虚还跟着灯管闪」就是这个原因） */
+    position: relative;
     text-align: center;
     font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
     font-size: clamp(19px, 4.6vw, 24px); letter-spacing: 1px;
@@ -112,55 +108,91 @@
     font-size: 11px; letter-spacing: 3px; color: #9b8a74; margin-top: 6px;
   }
 
-  /* ————— 唱片窗 ————— */
+  /* ————— 磁带舱 ————— */
   .window {
     position: relative; margin: 0 auto 18px;
-    width: min(300px, 76%); height: 150px;
+    width: min(320px, 82%); min-height: 178px; padding: 16px 0;
     background: radial-gradient(ellipse at 50% 120%, #0d0906 30%, #070503 100%);
-    border-radius: 130px 130px 10px 10px;
+    border-radius: 14px;
     border: 1px solid rgba(255,222,180,.14);
     overflow: hidden;
     box-shadow: inset 0 6px 24px rgba(0,0,0,.8);
-  }
-  .vinyl {
-    position: absolute; left: 50%; bottom: -68px; transform: translateX(-50%);
-    width: 190px; height: 190px; border-radius: 50%;
-    background:
-      radial-gradient(circle, transparent 0 25%, rgba(255,255,255,.028) 25.5% 26%, transparent 26.5%),
-      repeating-radial-gradient(circle, #0a0a0c 0 2.6px, #141417 2.6px 3.4px),
-      #0a0a0c;
-    box-shadow: 0 0 26px rgba(0,0,0,.8), inset 0 0 18px rgba(255,255,255,.03);
-    transition: transform .6s ease;
-  }
-  .vinyl.is-spinning { animation: spin 2.2s linear infinite; }
-  @keyframes spin { to { transform: translateX(-50%) rotate(360deg); } }
-  .vinyl__label {
-    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-    width: 62px; height: 62px; border-radius: 50%;
-    background: radial-gradient(circle, color-mix(in srgb, var(--mood) 88%, #000) 0 62%, color-mix(in srgb, var(--mood) 55%, #000) 100%);
     display: flex; align-items: center; justify-content: center;
+  }
+  .cassette {
+    position: relative; width: min(282px, 90%);
+    border-radius: 10px; padding: 11px 13px 13px;
+    background: linear-gradient(180deg, #251b12, #16100a);
+    border: 1px solid rgba(255,222,180,.18);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 26px rgba(0,0,0,.5);
+  }
+  .cass-label {
+    background: linear-gradient(180deg, #efe6cf, #e2d5b6);
+    border: 1px solid rgba(0,0,0,.28);
+    border-radius: 5px; padding: 7px 11px 8px;
+  }
+  .cass-label__row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  /* 抽中之后，文章信息直接写在标签纸上（2026-07-31 按 Winter 的要求：
+     故事卡不再从下方吐出，标签就是那张卡） */
+  .cass-label__song {
+    margin-top: 7px; padding-top: 7px;
+    border-top: 1px solid rgba(58,45,28,.28);
+    font-weight: 600; font-size: 13.5px; line-height: 1.55; color: #3a2f1e;
+  }
+  .cass-label__note { margin-top: 3px; font-weight: 400; font-size: 11px; line-height: 1.8; color: #5c4f38; }
+  .cass-label__foot { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-top: 7px; }
+  .cass-label__st {
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 8px; letter-spacing: 1px; color: rgba(255,248,235,.92); text-align: center;
-    transition: background .8s ease;
+    font-size: 8px; letter-spacing: 1.5px; line-height: 1.7; text-transform: uppercase; color: #7a6a4c;
   }
-  .vinyl__hole { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 7px; height: 7px; border-radius: 50%; background: #070503; }
-  .tonearm {
-    position: absolute; right: 16px; top: 8px; width: 4px; height: 92px;
-    background: linear-gradient(180deg, #c8b394, #8a745a);
-    border-radius: 3px; transform-origin: 50% 6px;
-    transform: rotate(-38deg); transition: transform .9s cubic-bezier(.5,.1,.3,1);
-    box-shadow: 0 0 6px rgba(0,0,0,.6);
+  .cass-label__go {
+    font-weight: 500; font-size: 11.5px; letter-spacing: 1px; white-space: nowrap;
+    color: color-mix(in srgb, var(--mood) 60%, #3a2d1c); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--mood) 55%, transparent);
+    padding-bottom: 1px; transition: color .8s ease;
   }
-  .tonearm::after { content: ""; position: absolute; left: -3px; bottom: -6px; width: 10px; height: 16px; border-radius: 3px; background: #d9c6a4; }
-  .tonearm.is-on { transform: rotate(-7deg); }
-  /* 选片时窗里闪过的曲名 */
-  .flicker-title {
-    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    padding: 0 18px; text-align: center;
-    font-weight: 300; font-size: 12px; line-height: 1.6;
-    color: #cbbba0; opacity: 0; transition: opacity .2s;
+  .cassette.has-tape { cursor: pointer; }
+  [hidden] { display: none !important; }
+  .cass-label__mood {
+    font-family: 'Noto Serif SC', serif; font-weight: 500;
+    font-size: 14px; letter-spacing: 3px;
+    color: color-mix(in srgb, var(--mood) 62%, #3a2d1c);
+    transition: color .8s ease;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .flicker-title.is-on { opacity: .9; }
+  .cass-label__side {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 8px; letter-spacing: 2px; color: #7a6a4c; flex-shrink: 0;
+  }
+  .cass-win {
+    position: relative; margin-top: 10px; height: 58px;
+    border-radius: 29px; background: #0b0805;
+    border: 1px solid rgba(255,222,180,.15);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px;
+  }
+  .cass-tape {
+    position: absolute; left: 66px; right: 66px; top: 50%; height: 15px;
+    transform: translateY(-50%);
+    background: #1a1109;
+    border-top: 1.5px solid rgba(255,222,180,.12);
+    border-bottom: 1.5px solid rgba(255,222,180,.12);
+  }
+  .cass-reel {
+    position: relative; z-index: 1; width: 44px; height: 44px; border-radius: 50%;
+    background: radial-gradient(circle, #2c2116 0 42%, #191009 43% 100%);
+    border: 2px solid #c8b394;
+    display: grid; place-items: center;
+  }
+  .cass-reel i {
+    display: block; width: 28px; height: 28px; border-radius: 50%;
+    background: repeating-conic-gradient(#c8b394 0 14deg, transparent 14deg 60deg);
+  }
+  .is-spinning .cass-reel i { animation: reelspin 1.5s linear infinite; }
+  @keyframes reelspin { to { transform: rotate(360deg); } }
+  .cass-screw { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #6f5c40; box-shadow: inset 0 -1px 1px rgba(0,0,0,.7); }
+  .cass-screw.s1 { left: 5px; top: 5px; } .cass-screw.s2 { right: 5px; top: 5px; }
+  .cass-screw.s3 { left: 5px; bottom: 5px; } .cass-screw.s4 { right: 5px; bottom: 5px; }
 
   /* ————— 选键（九宫情绪键） ————— */
   .keys {
@@ -195,76 +227,23 @@
   .key__n { position: absolute; top: 5px; right: 7px; font-family: 'Special Elite', monospace; font-size: 8px; color: #9b8a74; opacity: .8; }
   .key[disabled] { opacity: .35; cursor: not-allowed; }
 
-  /* ————— 投币口 ————— */
+  /* ————— PLAY 键 ————— */
   .coinrow {
     display: flex; align-items: center; justify-content: center; gap: 10px;
     font-weight: 300; font-size: 11.5px; letter-spacing: 2px; color: #9b8a74;
   }
-  .slot {
-    width: 30px; height: 9px; border-radius: 5px;
-    background: #070503; border: 1px solid rgba(255,222,180,.2);
-    position: relative; overflow: visible;
-  }
-  .coin {
-    position: absolute; left: 50%; top: -26px; transform: translateX(-50%) scale(0);
-    width: 20px; height: 20px; border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #f0d9a0, #c9a95c 60%, #96742f);
-    border: 1px solid #7d6026;
-    font-family: 'Special Elite', monospace; font-size: 8px; color: #6d5420;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .coin.is-dropping { animation: coindrop .8s cubic-bezier(.5,0,.8,.4) 1 forwards; }
-  @keyframes coindrop {
-    0% { transform: translateX(-50%) scale(1) translateY(0) rotate(0); opacity: 1; }
-    70% { transform: translateX(-50%) scale(1) translateY(20px) rotate(40deg); opacity: 1; }
-    100% { transform: translateX(-50%) scale(.3, 1) translateY(26px) rotate(80deg); opacity: 0; }
-  }
-
-  /* ————— 出票口：故事卡 ————— */
-  .ticket-slot {
-    width: min(560px, 100%); margin-top: 16px;
-    perspective: 700px;
-  }
-  .ticket {
-    background: rgba(24,18,13,.92);
-    border: 1px solid color-mix(in srgb, var(--mood) 45%, transparent);
-    border-left: 4px solid var(--mood);
-    border-radius: 12px; padding: 18px 20px 16px;
-    box-shadow: 0 16px 44px rgba(0,0,0,.5);
-    opacity: 0; transform: rotateX(-24deg) translateY(-14px);
-    transform-origin: top center;
-    transition: opacity .45s ease, transform .45s cubic-bezier(.2,.8,.3,1.1), border-color .8s ease;
-    pointer-events: none;
-  }
-  .ticket.is-out { opacity: 1; transform: none; pointer-events: auto; }
-  .ticket__eyebrow {
+  .playbtn {
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--mood); margin: 0 0 8px; transition: color .8s ease;
+    font-size: 11px; letter-spacing: 3px; color: #e9dcc6;
+    background: linear-gradient(180deg, #2b1f16, #1c130d);
+    border: 1px solid rgba(255,222,180,.25);
+    border-radius: 7px; padding: 7px 16px 6px;
+    box-shadow: 0 3px 0 rgba(0,0,0,.55);
+    cursor: pointer;
+    transition: transform .1s ease, box-shadow .1s ease, border-color .3s ease;
   }
-  .ticket__title { font-weight: 500; font-size: 15.5px; line-height: 1.55; margin: 0; color: #f4ecdd; }
-  .ticket__summary { font-weight: 300; font-size: 13px; line-height: 1.95; color: #cfc2ac; margin: 10px 0 0; }
-  .ticket__foot { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; gap: 10px; }
-  .ticket__moods { display: flex; gap: 6px; flex-wrap: wrap; }
-  .ticket__mood {
-    font-size: 10.5px; font-weight: 300; letter-spacing: 1px;
-    padding: 2px 9px; border-radius: 999px;
-    border: 1px solid var(--m-c, #888); color: var(--m-c, #aaa); opacity: .9;
-  }
-  .ticket__go {
-    font-weight: 300; font-size: 12.5px; letter-spacing: 1px; white-space: nowrap;
-    color: var(--mood); text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--mood) 55%, transparent);
-    padding-bottom: 1px; transition: color .8s ease;
-  }
-  .again {
-    display: block; margin: 14px auto 0;
-    background: none; border: 1px solid rgba(255,222,180,.25); border-radius: 999px;
-    color: #cfc2ac; font-weight: 300; font-size: 12px; letter-spacing: 2px;
-    padding: 7px 22px; opacity: 0; pointer-events: none; transition: opacity .4s ease .2s, border-color .25s;
-  }
-  .again.is-on { opacity: 1; pointer-events: auto; }
-  .again:hover { border-color: var(--mood); color: var(--mood); }
+  .playbtn:hover { border-color: color-mix(in srgb, var(--mood) 65%, transparent); }
+  .playbtn.is-pressed, .playbtn:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(0,0,0,.55); }
 
   .mood-desc {
     width: min(560px, 100%);
@@ -279,8 +258,7 @@
     color: #9b8a74; opacity: .5;
   }
   @media (prefers-reduced-motion: reduce) {
-    .juke::before { animation: none; }
-    .vinyl.is-spinning { animation-duration: 6s; }
+    .is-spinning .cass-reel i { animation-duration: 5s; }
   }
 </style>
 </head>
@@ -293,38 +271,37 @@
 
 <div class="juke">
   <p class="marquee" id="marquee">SELECT YOUR MOOD</p>
-  <h1 class="brand">Mood Jukebox<small>今晚想读点什么心情？</small></h1>
+  <h1 class="brand">Mood Mixtape<small>情绪磁带机 · 今晚想读点什么心情？</small></h1>
 
   <div class="window">
-    <div class="vinyl" id="vinyl">
-      <span class="vinyl__label" id="vinyl-label">W×F</span>
-      <span class="vinyl__hole"></span>
+    <div class="cassette" id="vinyl" aria-live="polite">
+      <div class="cass-label">
+        <div class="cass-label__row"><span class="cass-label__mood" id="vinyl-label">MIXTAPE</span><span class="cass-label__side">SIDE A</span></div>
+        <div class="cass-label__song" id="cass-song" hidden></div>
+        <div class="cass-label__note" id="cass-note" hidden></div>
+        <div class="cass-label__foot" id="cass-foot" hidden>
+          <span class="cass-label__st" id="cass-st"></span>
+          <a class="cass-label__go" id="cass-go">去听这一首 →</a>
+        </div>
+      </div>
+      <div class="cass-win">
+        <span class="cass-reel"><i></i></span>
+        <span class="cass-tape"></span>
+        <span class="cass-reel"><i></i></span>
+      </div>
+      <span class="cass-screw s1"></span><span class="cass-screw s2"></span><span class="cass-screw s3"></span><span class="cass-screw s4"></span>
     </div>
-    <div class="tonearm" id="tonearm"></div>
-    <div class="flicker-title" id="flicker"></div>
   </div>
 
   <div class="keys" id="keys" role="group" aria-label="九种情绪选键"></div>
 
   <div class="coinrow">
-    <span>投币</span>
-    <span class="slot"><span class="coin" id="coin">W</span></span>
-    <span>让机器替你选一章</span>
+    <span>同样心情</span>
+    <button class="playbtn" id="coin" type="button">▶ PLAY</button>
+    <span>再来一首</span>
   </div>
 </div>
 
-<div class="ticket-slot">
-  <div class="ticket" id="ticket" role="region" aria-label="点到的故事" aria-live="polite">
-    <p class="ticket__eyebrow" id="tk-eyebrow"></p>
-    <h2 class="ticket__title" id="tk-title"></h2>
-    <p class="ticket__summary" id="tk-summary"></p>
-    <div class="ticket__foot">
-      <div class="ticket__moods" id="tk-moods"></div>
-      <a class="ticket__go" id="tk-go">去读这一章 →</a>
-    </div>
-  </div>
-  <button class="again" id="again" type="button">同样心情 · 再来一首</button>
-</div>
 
 <p class="mood-desc" id="mood-desc">九种心情，都调好了色。</p>
 <span class="colophon">Winter × Fable</span>
@@ -350,7 +327,7 @@
         total++;
         mine.forEach(function (t) { BYMOOD[t].push(p); });
       });
-      $("counts").textContent = total + " STORIES ON THE RACK";
+      $("counts").textContent = total + " TAPES ON THE SHELF";
       buildKeys();
     })
     .catch(function () {
@@ -383,9 +360,11 @@
     document.querySelectorAll(".key").forEach(function (k) { k.classList.remove("is-lit"); });
     keyEl.classList.add("is-lit");
     $("mood-desc").textContent = m.color_cn + " · " + (m.desc || "");
-    $("ticket").classList.remove("is-out");
-    $("again").classList.remove("is-on");
     $("vinyl-label").textContent = m.cn;
+    $("cass-song").hidden = true;
+    $("cass-note").hidden = true;
+    $("cass-foot").hidden = true;
+    $("vinyl").classList.remove("has-tape");
 
     var pool = BYMOOD[m.cn];
     played[m.cn] = played[m.cn] || [];
@@ -396,60 +375,52 @@
 
     if (reduced) { land(choice); return; }
 
-    // 投币 → 选片闪动 → 落针出票
-    var coin = $("coin");
-    coin.classList.remove("is-dropping"); void coin.offsetWidth;
-    coin.style.transform = "translateX(-50%) scale(1)";
-    coin.classList.add("is-dropping");
-    $("marquee").textContent = "COIN ACCEPTED";
+    // 按下 PLAY → 卷盘倒带 → 曲目直接落在磁带标签纸上
+    var play = $("coin");
+    play.classList.remove("is-pressed"); void play.offsetWidth;
+    play.classList.add("is-pressed");
+    setTimeout(function () { play.classList.remove("is-pressed"); }, 240);
+    $("marquee").textContent = "TAPE IN";
+
+    $("vinyl").classList.add("is-spinning");
 
     setTimeout(function () {
-      $("marquee").textContent = "SEARCHING THE RACK…";
-      var flicker = $("flicker"), i = 0;
-      flicker.classList.add("is-on");
-      var shuffle = setInterval(function () {
-        var rndP = pool[Math.floor(Math.random() * pool.length)];
-        flicker.textContent = rndP.t;
-        if (++i >= 7) {
-          clearInterval(shuffle);
-          flicker.classList.remove("is-on");
-          land(choice);
-        }
-      }, 130);
+      $("marquee").textContent = "REWINDING\u2026";
+      setTimeout(function () { land(choice); }, 820);
     }, 650);
   }
 
   function land(choice) {
-    $("marquee").textContent = "NOW PLAYING";
+    $("marquee").textContent = "NOW PLAYING \u00b7 SIDE A";
     $("vinyl").classList.add("is-spinning");
-    $("tonearm").classList.add("is-on");
 
-    $("tk-eyebrow").textContent = choice.st || "Story";
-    $("tk-title").textContent = choice.t;
-    $("tk-summary").textContent = choice.s || "";
-    $("tk-go").href = choice.u;
-    var box = $("tk-moods");
-    box.textContent = "";
-    (choice.g || []).forEach(function (tag) {
-      MOODS.forEach(function (m) {
-        if (m.cn === tag) {
-          var pill = document.createElement("span");
-          pill.className = "ticket__mood";
-          pill.style.setProperty("--m-c", m.hex);
-          pill.textContent = m.cn;
-          box.appendChild(pill);
-        }
-      });
-    });
-    setTimeout(function () {
-      $("ticket").classList.add("is-out");
-      $("again").classList.add("is-on");
-      busy = false;
-    }, reduced ? 0 : 220);
+    // 标签上照 mixtape 的「曲名 — 歌手」写法：标题里的「 — 系列名」拆到底行
+    var parts = choice.t.split(" — ");
+    $("cass-song").textContent = parts[0];
+    $("cass-song").hidden = false;
+    if (choice.s) {
+      $("cass-note").textContent = choice.s;
+      $("cass-note").hidden = false;
+    }
+    $("cass-st").textContent = parts[1] || choice.st || "Story";
+    $("cass-go").href = choice.u;
+    $("cass-foot").hidden = false;
+    $("vinyl").classList.add("has-tape");
+    busy = false;
   }
 
-  $("again").addEventListener("click", function () {
-    if (!current || busy) return;
+  // \u6574\u76d8\u78c1\u5e26\u90fd\u80fd\u70b9\u8fdb\u6587\u7ae0\uff08\u6807\u7b7e\u4e0a\u7684\u300c\u53bb\u542c\u8fd9\u4e00\u9996\u300d\u662f\u6b63\u5f0f\u94fe\u63a5\uff09
+  $("vinyl").addEventListener("click", function (e) {
+    if (e.target.closest("a")) return;
+    if (!$("vinyl").classList.contains("has-tape")) return;
+    var href = $("cass-go").getAttribute("href");
+    if (href) window.location.href = href;
+  });
+
+  // 选心情键 = 直接抽一盘；PLAY 键 = 同样心情再来一首（不再有重复按钮）
+  $("coin").addEventListener("click", function () {
+    if (busy) return;
+    if (!current) { $("marquee").textContent = "SELECT YOUR MOOD FIRST"; return; }
     var keyEl = null, i = 0;
     document.querySelectorAll(".key").forEach(function (k) {
       if (MOODS[i] && MOODS[i].cn === current.cn) keyEl = k;

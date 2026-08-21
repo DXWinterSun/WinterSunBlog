@@ -13,7 +13,7 @@ series_type: Series
 chapter_type: "Chapter 7"
 summary: "你把自己的名字，写进了他护了五年的那一栏。"
 easter_eggs:
-  - series_order: 12
+  - series_order: 11
     label: "落空的手、亲手重誊的排班表——他当时在想什么"
 ---
 

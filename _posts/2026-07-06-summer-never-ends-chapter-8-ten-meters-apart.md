@@ -13,7 +13,7 @@ series_type: Series
 chapter_type: "Chapter 8"
 summary: "十米的落差，一台对讲机，和五年的账。"
 easter_eggs:
-  - series_order: 12
+  - series_order: 11
     label: "接住她，接住她——他冲下六层楼的那十几秒"
 ---
 

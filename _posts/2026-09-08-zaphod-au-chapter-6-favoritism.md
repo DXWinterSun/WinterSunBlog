@@ -5,7 +5,7 @@ categories: ["AU Story"]
 date: 2026-09-08
 image: zaphod-au.jpg
 series: "Zaphod AU"
-series_title: "Don't Panic, Baby Doll · Zaphod AU"
+series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 6
 series_status: ongoing
 series_type: Series
@@ -74,7 +74,7 @@ Vessa 眼睛唰地一亮，立刻切换成一副娇滴滴的委屈相，整个�
 
 Vessa 当场就晕乎了。
 
-你眼睁睁看着他把她迷得两眼冒星星、骨头都酥了半边，一只手臂揽着她的腰，一颗脑袋在她耳边不知嘀咕了句什么甜言蜜语，逗得她咯咯直笑，整个人软成一滩水，彻底忘了自己方才是来兴师问罪的。
+你眼睁睁看着他把她迷得两眼冒星星、骨头都酥了半边，一只手臂揽着她的腰，一颗脑袋在她耳边不知嘀咕了句什么甜言蜜语，逗得她咯咯直笑，整个人软成一滩水，彻底忘了自己方才是来上门算账的。
 
 “来，”他笑眯眯地，揽着她，脚下不紧不慢地，往舷侧那道门挪了两步，“总统先生给你看样好东西——”
 

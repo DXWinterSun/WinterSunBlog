@@ -9,7 +9,7 @@ series_title: "The Right Romance · Sam Pinkett AU"
 series_order: 3
 series_type: "Series"
 chapter_type: "Episode 03"
-summary: "他发现你从不说自己的难处，今天他问了。"
+summary: "Phil 一句话，你才知道他和上司那笔旧账。"
 tags: [Sam Pinkett, BayBay, AU, The Right Romance, 悸动, 暗涌]
 ---
 

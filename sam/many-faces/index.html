@@ -54,8 +54,38 @@ function spectrumHref(c) {
 
 const characters = [
 {
+      id: "youngsam",
+      name: "Young Sam",
+      namePostfix: "Himself",
+      roleNote: "Himself",
+      film: "Fog City",
+      filmCN: "《雾往低处走》",
+      year: "1986",
+      auLink: { href: "/WinterSunBlog/series/fog-city/", title: "Fog City · Young Sam AU", label: "还没成为任何人的少年 Sam——1986 年雾城的排练厅里，你认识了一切开始之前的他。" },
+      tagline: "还没成为任何人的他，把人生第一场私人演出，给了端着颜料桶的你。",
+      desc: `一九八六年的旧金山，雾每天下午三点准时翻过双子峰。McAteer 的走廊里，一个高年级男生正在和地板打架——收音机是他自己带的，观众是碰巧的，他只是随时随地都在练，好像笃定了哪天舞台会从天上掉下来，他必须接得住。然后他一个定格收尾，转身，差点把你那桶海洒进雾里。
+
+那时候他还不叫任何人认识的那个名字。没有履历，没有奖，没有镜头感，只有排练厅、观众席，和一身用不完的表演欲。他不是爱现的人——不给他舞台，他能在教室最后一排安静得像件搭在椅背上的外套。可是在一个端着颜料桶的姑娘面前，他也说不清为什么，就是希望你面前是他的舞台。那四十秒的走廊海难，是他头一回为一个具体的人演。
+
+这本画册里往后的每一张脸——骗子、警察、宇航员、杀手、教练、总统、狼——都是从这个男生身上长出来的。你比全世界早三十年看见他，也比全世界多看了一层：台上他千人千面，台下对你，他只有一张会脸红的脸。你们的爱是这本画册的第一页——后来的每一张脸，都从这里开始。`,
+      inscription: { label: "FOG CITY", line: "I can't see them. That's why I dare.", gloss: "看不清，才敢演。" },
+      bg: "#1b222b",
+      accent: "#5b9db8",
+      text: "#e3eaef",
+      muted: "#9c8f7d",
+      bgNameEn: "Twin Peaks Fog",
+      bgNameCn: "双峰暮雾",
+      accentNameEn: "Painted Ocean",
+      accentNameCn: "你画的海",
+      textNameEn: "Lens Glint",
+      textNameCn: "镜片浅光",
+      mutedNameEn: "Cassette Brown",
+      mutedNameCn: "磁带暖褐",
+      profile: { guile:4, forbear:3, chaos:7, raw:9, romance:9, grace:3 },
+    },
+{
       id: "gary",
-      name: "Gary",
+      name: "Gary O'Hara",
       film: "Strictly Business",
       filmCN: "《登龙妙招》",
       year: "1991",
@@ -74,6 +104,10 @@ const characters = [
       bgNameCn: "顶楼黑檀",
       accentNameEn: "Skyline Steel",
       accentNameCn: "天际钢蓝",
+      textNameEn: "Mailroom Ivory",
+      textNameCn: "信笺米黄",
+      mutedNameEn: "Briefcase Tan",
+      mutedNameCn: "公文皮褐",
       profile: { guile:5, forbear:6, chaos:1, raw:6, romance:6, grace:6 },
     },
 {
@@ -99,8 +133,40 @@ const characters = [
       bgNameCn: "华沙墨蓝",
       accentNameEn: "Ember Cardinal",
       accentNameCn: "余烬绯红",
+      textNameEn: "Taxi-Ticket Cream",
+      textNameCn: "舞票米白",
+      mutedNameEn: "Homesick Slate",
+      mutedNameCn: "乡愁烟青",
       profile: { guile:4, forbear:8, chaos:2, raw:5, romance:8, grace:5 },
       auLink: { href: "/WinterSunBlog/series/the-cardinal/", title: "The Cardinal · Krzysztof AU", label: "一个再也回不去家的波兰人，等到了愿意一个字母一个字母学着喊他名字的你。" },
+    },
+{
+      id: "rob",
+      name: "Rob",
+      film: "Glory Daze",
+      filmCN: "《光荣的迷惑》",
+      year: "1995",
+      auLink: { href: "/WinterSunBlog/series/everything-in-transit/", title: "Everything in Transit · Rob Cove AU", label: "1995 年圣克鲁兹的海边，你和这个不肯长大的男孩组了支叫 CD 的乐队——两个主唱，隔着一扇门，唱了整整四年。" },
+      tagline: "他背着你偷偷写一首歌，你气得骂他是不是想单飞——却没料到那首歌的名字，就是你。",
+      desc: `一九九五年的圣克鲁兹，海就在城边上，午后的光把每样东西都晒得发旧发软。合租屋 El Rancho 的后院常年在开派对，而他是这堆人里最松垮的那个——洗得发灰的无袖卫衣，袖口是自己剪的，毛边；一双榛色眼睛懒懒的，笑起来痞得让人牙痒。他对什么都一副满不在乎的样子，好像用力气是件丢人的事。可只要吉他往身上一挂、他一开嗓，整个后院——连带那片海——都会安静下来。他好看，而且好看得毫不自知，这才最要命。
+
+你们是从互相看不顺眼开始的。一堂课把你俩摁成一组，谁都不服谁——你嫌他油、不正经，他嫌你太较真。较着劲非要证明“我能把你那破歌写得更好”，结果写着写着才发现：他那个调子，偏偏只有你的声音接得住。于是你成了乐队的另一个主唱，两个人凑在一支叫 CD 的破乐队里，排练、抢麦、拌嘴，一晃就是四年——四年的海风、四年的后院派对、四年里你成了最懂他那些歌的人。你以为你们之间没有秘密了。
+
+可他偏偏留了一手。有一阵子他总背着你写点什么，谱子一见你来就往吉他盒里塞，问就打哈哈。你气坏了——身为另一个主唱，你冲他嚷“你的创作凭什么瞒着我，你是不是想单飞”，他只笑，不认也不否。你怎么会想到，那首他死活不让你看的歌，歌名就是你的名字；他不是要走，他只是不敢让你太早读懂它。你们的爱是四年海风与喧闹里、他悄悄写下又迟迟不敢弹的那一首歌——直到某个再平常不过的夜里，他当着你的面唱了出来，一个字没解释，却什么都说尽了。`,
+      inscription: { label: "THE ONE I HID", line: "You thought I was going solo. I was just writing the one song I could never let you read the title of — well, not yet.", gloss: "你以为我要单飞。我只是在写那首——绝不能让你看见歌名的歌。嗯……暂时不给你看。" },
+      bg: "#16202b",
+      accent: "#e28a5a",
+      text: "#f4ecdd",
+      muted: "#9b9083",
+      bgNameEn: "Dusk Cove",
+      bgNameCn: "暮蓝深湾",
+      accentNameEn: "Sunset Coral",
+      accentNameCn: "落日珊瑚",
+      textNameEn: "Warm Sand",
+      textNameCn: "晒暖沙米",
+      mutedNameEn: "Driftwood",
+      mutedNameCn: "潮汐浮木",
+      profile: { guile:7, forbear:5, chaos:7, raw:7, romance:8, grace:6 },
     },
 {
       id: "matty",
@@ -123,6 +189,10 @@ const characters = [
       bgNameCn: "凌晨地铁月台",
       accentNameEn: "Booth Fluorescent",
       accentNameCn: "旧电话亭荧光",
+      textNameEn: "Front-Page White",
+      textNameCn: "晨报头版纸白",
+      mutedNameEn: "Rail-Tie Grey",
+      mutedNameCn: "铁轨枕木灰褐",
       profile: { guile:3, forbear:1, chaos:7, raw:8, romance:7, grace:2 },
     },
 {
@@ -146,6 +216,10 @@ const characters = [
       bgNameCn: "月光银白",
       accentNameEn: "Forest Moss",
       accentNameCn: "林间苔绿",
+      textNameEn: "Firefly Pale",
+      textNameCn: "萤火浅碧",
+      mutedNameEn: "Buckskin Sage",
+      mutedNameCn: "鹿皮青灰",
       profile: { guile:1, forbear:1, chaos:6, raw:10, romance:8, grace:1 },
     },
 {
@@ -161,6 +235,7 @@ const characters = [
 
 和他在一起，你会一点点明白：原来「被一个人完完整整地接住」是什么感觉——他不嫌你怪，不嫌你不够好，他只是张开手，像接住一阵风一样接住你。最让人心动的是，他本可以一个人轻装离开，却因为你，第一次愿意说出「这里有我想带走的人」。你们的爱是世界对两个自由灵魂罕有的成全——不响亮，可一旦发生，你们就成了彼此最辽阔的那片远方。`,
       inscription: { label: "ON THE ROAD OUT", line: "I was saving up to leave. Now I'm saving up to take you with me.", gloss: "我攒钱本是为了离开——如今攒钱，是为了带你一起走。" },
+      auLink: { href: "/WinterSunBlog/series/i-never-looked-away/", title: "I Never Looked Away · Trent AU", label: "全镇都叫他 lawn boy，只有你叫他的名字——1997 年那个铁门内外的夏天。" },
       bg: "#141c12",
       accent: "#79a7bd",
       text: "#dce5ea",
@@ -169,6 +244,10 @@ const characters = [
       bgNameCn: "新刈草青",
       accentNameEn: "Pickup Sky",
       accentNameCn: "天蓝卡车",
+      textNameEn: "Morning Dew",
+      textNameCn: "晨露微光",
+      mutedNameEn: "Fence-Post Brown",
+      mutedNameCn: "木篱旧褐",
       profile: { guile:5, forbear:8, chaos:3, raw:5, romance:7, grace:2 },
     },
 {
@@ -192,6 +271,10 @@ const characters = [
       bgNameCn: "格纹芥末棕",
       accentNameEn: "Vintage Costume Red",
       accentNameCn: "复古戏服红",
+      textNameEn: "Off-Key Setlist",
+      textNameCn: "走音歌单米",
+      mutedNameEn: "Safe-Door Tan",
+      mutedNameCn: "保险柜旧褐",
       profile: { guile:1, forbear:2, chaos:4, raw:8, romance:6, grace:3 },
     },
 {
@@ -217,6 +300,10 @@ const characters = [
       bgNameCn: "深夜快餐棕",
       accentNameEn: "Fry Basket Orange",
       accentNameCn: "金毛薯条橙",
+      textNameEn: "Diner-Napkin White",
+      textNameCn: "卡座餐纸白",
+      mutedNameEn: "Used-Car Maroon",
+      mutedNameCn: "二手车暗红",
       profile: { guile:7, forbear:1, chaos:10, raw:8, romance:7, grace:4 },
     },
 {
@@ -241,6 +328,10 @@ const characters = [
       bgNameCn: "炉膛夜黑",
       accentNameEn: "Raw Timber",
       accentNameCn: "锯木原色",
+      textNameEn: "Cornbread Gold",
+      textNameCn: "玉米饼黄",
+      mutedNameEn: "Cell-Straw Grey",
+      mutedNameCn: "草垫灰褐",
       profile: { guile:5, forbear:0, chaos:10, raw:9, romance:7, grace:1 },
     },
 {
@@ -264,6 +355,10 @@ const characters = [
       bgNameCn: "深空黛黑",
       accentNameEn: "Console Teal",
       accentNameCn: "控制台青",
+      textNameEn: "Ship-Light Glow",
+      textNameCn: "舰灯清辉",
+      mutedNameEn: "Crewman Grey",
+      mutedNameCn: "舱员烟灰",
       profile: { guile:2, forbear:2, chaos:5, raw:8, romance:8, grace:5 },
     },
 {
@@ -288,7 +383,39 @@ const characters = [
       bgNameCn: "可乐棕",
       accentNameEn: "Crimson Lens",
       accentNameCn: "镜绯红",
+      textNameEn: "Tango Silk",
+      textNameCn: "探戈绢",
+      mutedNameEn: "Cigar Ash",
+      mutedNameCn: "雪茄烬",
       profile: { guile:10, forbear:6, chaos:8, raw:1, romance:7, grace:9 },
+    },
+{
+      id: "silk",
+      name: "Jimmy Silk",
+      film: "Heist",
+      filmCN: "《各怀鬼胎》",
+      year: "2001",
+      tagline: "他叫你五分钱——叫得那么轻慢，攥得那么紧。",
+      desc: `他是那种一进门就急着让你知道他是谁的人。头发梳得一丝不苟，皮夹克永远敞着，嘴里永远嚼着点什么。他的狠话都对着镜子练过，重音落得太整齐，一开口满屋子都听得出来——只有他自己以为没人听得出来。他二十几岁，急着长成一个数得上的人，急得整个人都在发烫。
+
+他念不出你的姓，抛起一枚五分硬币，说你以后就叫这个：不值钱，但硬。那是轻慢，也是他藏得极差的私心——他把自己最怕被人扣上的那个词，转手给了他最不想弄丢的人。而你回他一个姓。全世界都叫他 Jimmy，把他当个孩子；只有你张口叫他的姓，把那个一文不值的姓当成一个有分量的名字。他记了一辈子。
+
+他什么都给不了你。他兜里是空的，脾气坏，主意都写在脸上，谁都能一眼看穿。可他会不问你同不同意就把外套罩到你身上，会在别人拿你当件东西的时候整个人烧起来，会为了一样很小的、你以为没人在意的东西，一声不响地上一趟楼。你们的爱是一枚被无数人摸得快平了的五分硬币——他攥在手心里，攥出一个印子，谁问都说那是垃圾。`,
+      inscription: { label: "NOT A RELIGIOUS MAN", line: "I'm not a religious man. But I never lied to you. That's the closest I ever got.", gloss: "我不信教。可我从没对你撒过谎——这大概就是我离虔诚最近的一次了。" },
+      auLink: { href: "/WinterSunBlog/series/nickel-and-dime/", title: "Nickel and Dime · Jimmy Silk AU", label: "他叫你五分钱——叫得那么轻慢，攥得那么紧。" },
+      bg: "#0e1820",
+      accent: "#c8a43e",
+      text: "#e7ece9",
+      muted: "#7d8e97",
+      bgNameEn: "Harbor Indigo",
+      bgNameCn: "深港夜靛",
+      accentNameEn: "Fool's Gold",
+      accentNameCn: "愚人金箔",
+      textNameEn: "Peppermint White",
+      textNameCn: "薄荷糖白",
+      mutedNameEn: "Windshield Grey",
+      mutedNameCn: "车窗雾灰",
+      profile: { guile:4, forbear:1, chaos:7, raw:6, romance:8, grace:4 },
     },
 {
       id: "pero",
@@ -311,6 +438,10 @@ const characters = [
       bgNameCn: "科林伍德暮色",
       accentNameEn: "Ring Rust",
       accentNameCn: "拳击场铁锈橘",
+      textNameEn: "Aged Blueprint",
+      textNameCn: "保险箱图纸黄",
+      mutedNameEn: "Worn-Glove Brown",
+      mutedNameCn: "更衣室拳套褐",
       profile: { guile:4, forbear:2, chaos:7, raw:8, romance:7, grace:4 },
     },
 {
@@ -322,10 +453,11 @@ const characters = [
       tagline: "他白天造梦，夜里杀人——你是他这辈子唯一不想骗的人。",
       desc: `他是那种活在两个世界里的男人——白天他在录影棚耍嘴皮、跳着古怪的舞步、把整个美国逗笑；夜里他披着风衣消失在赫尔辛基或西柏林的雪里，回来时手心还残着没散尽的血气。这两个版本的他，没有人能同时拥抱——除了你。
 
-和他在一起，你会看见他的天才和疯狂原来是同一团火——他可以在镜头前调情，也可以在酒店房间里像一只受伤的兽把自己蜷成一团。他骗过所有人，连他自己都不放过；他对世界演过一出又一出戏，唯独站在你面前的时候，他不知道自己应该是哪一个版本。可正是这种"不知道"，让他终于看清了一件事——他骗得了所有人，骗不了自己有多想留在你身边。
+和他在一起，你会看见他的天才和疯狂原来是同一团火——他可以在镜头前调情，也可以在酒店房间里像一只受伤的兽把自己蜷成一团。他压根不信爱情这回事——在他眼里，婚姻不过是四对夫妻、八个问题，外加一台冰箱——偏偏就是他，亲手造出了全美国最大的那几台“爱情”机器，还让所有人排着队来买。他骗过所有人，连他自己都不放过；他对世界演过一出又一出戏，唯独站在你面前的时候，他不知道自己应该是哪一个版本。可正是这种“不知道”，让他终于看清了一件事——他骗得了所有人，骗不了自己有多想留在你身边。
 
 最让人心碎的是他偶尔看你的眼神：那个永远在表演的男人，会在你面前忽然安静下来，仿佛你是他唯一不需要演戏的角落，是他这一辈子唯一不想再骗的人。你们的爱是一个把整个人生都活成谜题的男人，最后把所有版本的自己摊开给你——而你只是轻轻点头，把那些他原以为永远见不得光的部分，一个一个收下了。`,
       inscription: { label: "OFF THE AIR", line: "I've conned a whole country. You're the only one I never want to fool.", gloss: "我骗过整个国家——你是我唯一不想骗的人。" },
+      auLink: { href: "/WinterSunBlog/series/off-the-air/", title: "Off the Air · Chuck Barris AU", label: "他白天造梦、夜里杀人——你是唯一同时看见这两张脸、还都爱下来的人。" },
       bg: "#15182a",
       accent: "#de6e8e",
       text: "#ede4d0",
@@ -334,6 +466,10 @@ const characters = [
       bgNameCn: "午夜情报蓝",
       accentNameEn: "Limelight Pink",
       accentNameCn: "镁光节目粉",
+      textNameEn: "Cue-Card White",
+      textNameCn: "提词卡片白",
+      mutedNameEn: "Dossier Grey",
+      mutedNameCn: "机密档案灰",
       profile: { guile:8, forbear:7, chaos:9, raw:3, romance:7, grace:7 },
     },
 {
@@ -358,6 +494,10 @@ const characters = [
       bgNameCn: "焦黑火柴",
       accentNameEn: "Hazel Mauve",
       accentNameCn: "紫雾榛眸",
+      textNameEn: "Lotto-Ticket Blush",
+      textNameCn: "奖券浅樱",
+      mutedNameEn: "Striker Umber",
+      mutedNameCn: "磷头暗褐",
       profile: { guile:9, forbear:2, chaos:6, raw:3, romance:7, grace:7 },
     },
 {
@@ -381,7 +521,15 @@ const characters = [
       bgNameCn: "貂皮大氅黑",
       accentNameEn: "Club Champagne",
       accentNameCn: "夜会香槟金",
+      textNameEn: "Satin Sheen",
+      textNameCn: "晨衣缎面光",
+      mutedNameEn: "Tabloid Rouge",
+      mutedNameCn: "八卦版胭脂",
       profile: { guile:8, forbear:2, chaos:6, raw:7, romance:8, grace:9 },
+      auLinks: [
+        { href: "/WinterSunBlog/series/some-steps-only-we-know/", title: "Some Steps Only We Know · Jim Crocker AU", label: "青梅竹马线 · 全世界都叫他 Jim，你却只唤他「J」——从小一块儿长大的默契，最怕的是他哪天当真娶了别人。" },
+        { href: "/WinterSunBlog/series/the-one-i-kept/", title: "The One I Kept · Jim Crocker AU", label: "女仆线 · 你是他府里的女仆，走时只带走那条最不值钱的「配你」银链；他却倾其所有，也要把你追回来。" },
+      ],
     },
 {
       id: "zaphod",
@@ -407,6 +555,10 @@ const characters = [
       bgNameCn: "黑甲漆夜",
       accentNameEn: "President's Mane",
       accentNameCn: "总统鬃金",
+      textNameEn: "Gargle-Blaster Fizz",
+      textNameCn: "柠檬泡沫",
+      mutedNameEn: "Wanted-Poster Tan",
+      mutedNameCn: "通缉令褐",
       profile: { guile:2, forbear:1, chaos:10, raw:10, romance:8, grace:6 },
     },
 {
@@ -432,6 +584,10 @@ const characters = [
       bgNameCn: "曼哈顿冬夜",
       accentNameEn: "Tennis Ball",
       accentNameCn: "网球荧光黄",
+      textNameEn: "Nursery White",
+      textNameCn: "育儿室奶白",
+      mutedNameEn: "Park Fog",
+      mutedNameCn: "中央公园雾",
       profile: { guile:5, forbear:9, chaos:3, raw:5, romance:6, grace:7 },
     },
 {
@@ -455,6 +611,10 @@ const characters = [
       bgNameCn: "雪原夜蓝",
       accentNameEn: "Gunmetal Blue",
       accentNameCn: "枪管钢蓝",
+      textNameEn: "Footlight White",
+      textNameCn: "台口灯白",
+      mutedNameEn: "Elegy Slate",
+      mutedNameCn: "挽歌青灰",
       profile: { guile:1, forbear:2, chaos:5, raw:8, romance:9, grace:4 },
       auLink: { href: "/WinterSunBlog/series/nothing-warmer-than-you/", title: "Nothing Warmer Than You · Charley Ford AU", label: "一个太软、当不成凶徒的亡命徒，被会骑马的农场姑娘，从注定的宿命里，一点点拉了回来。" },
     },
@@ -479,6 +639,10 @@ const characters = [
       bgNameCn: "寒冬冷蓝灰",
       accentNameEn: "First Snow",
       accentNameCn: "初雪微光白",
+      textNameEn: "Hymnal Frost",
+      textNameCn: "圣诗册页霜",
+      mutedNameEn: "Frozen-Lake Slate",
+      mutedNameCn: "冰封湖水黛",
       profile: { guile:4, forbear:3, chaos:8, raw:7, romance:5, grace:3 },
       auLink: { href: "/WinterSunBlog/series/don-t-let-me-go/", title: "Don't Let Me Go · Glenn Marchand AU", label: "灰白的雪地里，你从枪口下拦住了他——全镇都说他没救了，只有你不肯放手。" },
     },
@@ -503,6 +667,10 @@ const characters = [
       bgNameCn: "深夜手稿棕",
       accentNameEn: "Studio Cathode Blue",
       accentNameCn: "演播室蓝光",
+      textNameEn: "Typescript Cream",
+      textNameCn: "打字机稿米",
+      mutedNameEn: "Reel-Tape Brown",
+      mutedNameCn: "录音带陈褐",
       profile: { guile:8, forbear:3, chaos:2, raw:8, romance:5, grace:6 },
     },
 {
@@ -529,6 +697,10 @@ const characters = [
       bgNameCn: "海报品红夜",
       accentNameEn: "Colonial Gilt",
       accentNameCn: "殖民地铜金",
+      textNameEn: "Napkin Pink",
+      textNameCn: "餐巾纸浅粉",
+      mutedNameEn: "Lipstick Rose",
+      mutedNameCn: "唇印暗玫瑰",
       profile: { guile:7, forbear:7, chaos:5, raw:6, romance:6, grace:3 },
     },
 {
@@ -556,6 +728,10 @@ const characters = [
       bgNameCn: "苍穹墨夜",
       accentNameEn: "Cosmic Violet",
       accentNameCn: "星际紫晶",
+      textNameEn: "Lilac Page",
+      textNameCn: "稿纸薄藕",
+      mutedNameEn: "Penstroke Shadow",
+      mutedNameCn: "笔锋黛影",
       profile: { guile:1, forbear:7, chaos:7, raw:9, romance:7, grace:3 },
     },
 {
@@ -583,6 +759,10 @@ const characters = [
       bgNameCn: "月球蔚蓝",
       accentNameEn: "Sarang Glow",
       accentNameCn: "基地微光",
+      textNameEn: "Module White",
+      textNameCn: "舱壁净白",
+      mutedNameEn: "Countdown Grey",
+      mutedNameCn: "倒计时灰",
       profile: { guile:5, forbear:8, chaos:3, raw:6, romance:8, grace:5 },
     },
 {
@@ -606,6 +786,10 @@ const characters = [
       bgNameCn: "鼓皮深棕",
       accentNameEn: "Santa Hat",
       accentNameCn: "圣诞帽红",
+      textNameEn: "Wire-Coat Glaze",
+      textNameCn: "电线瓷釉",
+      mutedNameEn: "Suitcase Tan",
+      mutedNameCn: "行李箱褐",
       profile: { guile:5, forbear:7, chaos:2, raw:6, romance:5, grace:7 },
     },
 {
@@ -632,6 +816,10 @@ const characters = [
       bgNameCn: "散场夜墨黑",
       accentNameEn: "Courtside Crimson",
       accentNameCn: "球场领带红",
+      textNameEn: "Scoreboard White",
+      textNameCn: "记分牌灯白",
+      mutedNameEn: "Hardwood Tan",
+      mutedNameCn: "枫木地板褐",
       profile: { guile:6, forbear:3, chaos:6, raw:8, romance:7, grace:2 },
     },
 {
@@ -656,6 +844,10 @@ const characters = [
       bgNameCn: "落幕玄黑",
       accentNameEn: "Spotlight Sapphire",
       accentNameCn: "电光钴蓝",
+      textNameEn: "Expo White",
+      textNameCn: "展厅冷白",
+      mutedNameEn: "Boardroom Slate",
+      mutedNameCn: "提案青灰",
       profile: { guile:6, forbear:2, chaos:7, raw:4, romance:8, grace:8 },
     },
 {
@@ -679,6 +871,10 @@ const characters = [
       bgNameCn: "囚室灰墙",
       accentNameEn: "Barred Blue",
       accentNameCn: "铁窗微蓝",
+      textNameEn: "Yellowed Files",
+      textNameCn: "案卷泛黄",
+      mutedNameEn: "Visiting-Room Blue",
+      mutedNameCn: "会客室青",
       profile: { guile:2, forbear:3, chaos:8, raw:9, romance:7, grace:2 },
     },
 {
@@ -704,7 +900,39 @@ const characters = [
       bgNameCn: "地窖绒黑",
       accentNameEn: "Smoky Kohl",
       accentNameCn: "烟熏眼影",
+      textNameEn: "Disco Blush",
+      textNameCn: "舞厅粉纱",
+      mutedNameEn: "Mauve Haze",
+      mutedNameCn: "暮霭灰紫",
       profile: { guile:6, forbear:1, chaos:9, raw:6, romance:8, grace:7 },
+    },
+{
+      id: "doc",
+      name: "Doc",
+      film: "Cowboys & Aliens",
+      filmCN: "《牛仔与外星人》",
+      year: "2011",
+      tagline: "他连枪都握不稳，却是全镇唯一敢拦下你、逼你坐下让他缝伤的人。",
+      desc: `1870 年代，一个叫赦免的尘土小镇。镇上没有正经大夫，谁挨了枪、发了热，就抬进街尾那家 Gold Leaf 酒馆——鎏金招牌剥得斑驳，配这破地方，倒像他本人：一身讲究的灰三件套、鼻梁上架副金丝眼镜，在漫天风尘里执拗地体面着。他又卖酒又缝人，倒酒的台子翻手就是手术台，一双干净得不像西部人的手，是这镇上仅有的那点“医”。
+
+他枪都握不稳，嘴皮子却毒得很——你见过他怎样只凭一张嘴，把镇上最横的那个混账怼得下不来台。可这利索的舌头是他的盔甲：越是动了心，他越要拿正经事挡回去，情话张口就来，一戳到软处又梗着脖子犯轴。他这辈子只怕一件事——怕自己没用，怕自己不够体面，怕配不上他想成为的那个人。
+
+你是全境最快的枪，报尽了血仇，却把自己也打空了，带着一身伤飘进他的酒馆。你本想买瓶酒自己浇伤口，是他按住了瓶子，逼你坐下、替你缝好，还慢半拍问一句“明儿还来换吗”。你替全镇挡子弹，唯独在他这儿卸下枪、阖上两只眼；你的枪要人命，他的手偏偏救人命。你们的爱是赦免镇那盏彻夜不灭的油灯——一个杀空了自己的神枪手，终于遇上一双肯把她重新缝回人间的、干净的手。`,
+      inscription: { label: "PUT IT AWAY", line: "Your gun takes lives. My hands save them. Put it away — and let me.", gloss: "你的枪要人命，我的手救人命。把枪收了——让我来。" },
+      bg: "#1a140c",
+      accent: "#c39a45",
+      text: "#ece1cf",
+      muted: "#9d8f78",
+      bgNameEn: "Lamplit Oak",
+      bgNameCn: "油灯陈木",
+      accentNameEn: "Gold Leaf",
+      accentNameCn: "斑驳金叶",
+      textNameEn: "Whiskey Glow",
+      textNameCn: "威士忌光",
+      mutedNameEn: "Trail Dust",
+      mutedNameCn: "荒漠尘褐",
+      profile: { guile:6, forbear:6, chaos:2, raw:5, romance:7, grace:7 },
+      auLink: { href: "/WinterSunBlog/series/the-saloon-nobody-dares/", title: "The Saloon Nobody Dares · Doc AU", label: "全镇最快的枪飘进他的酒馆；他用一双干净的手，把你从荒芜里焐回人间。" },
     },
 {
       id: "billy",
@@ -729,6 +957,10 @@ const characters = [
       bgNameCn: "沙漠焦土",
       accentNameEn: "Jack of Diamonds",
       accentNameCn: "方块J焰",
+      textNameEn: "Screenplay White",
+      textNameCn: "剧本纸白",
+      mutedNameEn: "Shih-Tzu Brown",
+      mutedNameCn: "西施犬褐",
       profile: { guile:3, forbear:1, chaos:10, raw:8, romance:9, grace:5 },
     },
 {
@@ -752,6 +984,10 @@ const characters = [
       bgNameCn: "氯味深池",
       accentNameEn: "Waterslide Aqua",
       accentNameCn: "滑梯翠蓝",
+      textNameEn: "Splash Silver",
+      textNameCn: "水花溅银",
+      mutedNameEn: "Poolside Slate",
+      mutedNameCn: "池畔青灰",
       profile: { guile:4, forbear:3, chaos:6, raw:7, romance:7, grace:3 },
       auLink: { href: "/WinterSunBlog/series/summer-never-ends/", title: "Summer Never Ends · Owen AU", label: "他记得你的每一个夏天，却抢先替你写好了结局——你要做的，是让他撕了重写。" },
     },
@@ -779,6 +1015,10 @@ const characters = [
       bgNameCn: "西弗州山夜",
       accentNameEn: "Lone Mist",
       accentNameCn: "孤枪冷雾蓝",
+      textNameEn: "First-Light Frost",
+      textNameCn: "猎季拂晓霜",
+      mutedNameEn: "Cash-Box Grey",
+      mutedNameCn: "铁盒旧钞灰",
       profile: { guile:2, forbear:10, chaos:1, raw:7, romance:4, grace:1 },
     },
 {
@@ -802,8 +1042,43 @@ const characters = [
       bgNameCn: "空头支票",
       accentNameEn: "Broker's Emerald",
       accentNameCn: "分红翡翠",
+      textNameEn: "Contract Mint",
+      textNameCn: "合约薄荷",
+      mutedNameEn: "Commission Sage",
+      mutedNameCn: "佣金灰绿",
       profile: { guile:9, forbear:7, chaos:2, raw:2, romance:7, grace:9 },
       auLink: { href: "/WinterSunBlog/series/the-making-of-you/", title: "The Making of You · Aldo Stankas AU", label: "十九岁、一无所有的你，被全城最贵的经纪人一眼相中、签下、雕成明星——你却藏起了不该有的心动。" },
+    },
+{
+      id: "garyguitar",
+      name: "Gary",
+      namePostfix: "Guitar Teacher",
+      film: "A Case of You",
+      filmCN: "《关于你》",
+      year: "2013",
+      tagline: "他满嘴没一句正经——可满屋子人唱着跳着的时候，他一个人坐在边上，小声念一首九三年的歌。",
+      desc: `2013 年的纽约，一间小得转不开身的屋子，靠墙堆着一摞卡带、几张边角卷起来的旧海报——他整个人卡在九十年代那阵热闹里，出不来，也不想出来。你还没坐下，他先把琴往腿上一横，抬眼问你：学音乐图什么？图出名？图女人？还是图钱？——他一口气把三个答案都替你说了，说得那么理所当然，好像人活着无非就这三样，哪一样他都不觉得丢人。榛色的眼睛在窗户漏进来的光里亮着，左耳那枚素圈银耳环晃了一下。这是他的开场白，二十年没换过。
+
+他的嘴是真没有把门的。一节课四十分钟，正经讲琴的不到十分钟，剩下的全用来讲某个女人、某个夏天、某场糟糕透顶的演出，讲得眉飞色舞、荤素不忌，中间不带喘气的。你要是脸红了，他只会更来劲。你问他 G 和弦在哪儿，他能一脸正色地把两个 G 混作一谈，告诉你它藏得有多深、该用哪根指头、力道怎么使——然后当真抱起琴，一板一眼地示范给你看，仿佛刚才那句话是你自己想歪了。
+
+可你没法说他是在吹牛。二十年按弦、二十年拨弦，那十根指头灵活得不像话——快起来看不清，慢下来一寸一寸地磨，落在哪里都精准得叫人心慌。那些荤话不是遮羞布，是账单：他确实什么都懂、什么都练过、什么都做得很好，而且他压根没打算跟你客气。真正让你意外的是他懂完这一切之后还剩下的那点东西——他会在你弹错的地方停下来，说你不是按错了，是你心里没人；这个他听得出来。而轮到他自己心里有人的那天，那个一辈子没缺过话的男人，忽然一句完整的话都说不出来了，只好低头去调一根根本没跑音的弦。
+
+他教你的第一天，示范用的就是一首九三年的老歌。他唱得张扬又好听，唱完还挑了挑眉，等你鼓掌——你当时只当是他随手挑的。直到后来有一回，一屋子人围成圈唱着跳着，热闹得要把屋顶掀了，你回头找他，他一个人坐在边上，谁也没看，嘴里小声念着什么。你凑近才听清，是那首歌；他念到“嫁他，还是嫁我”那一句就停住了，站起身，去做点别的事。你忽然就明白了：他把所有话都说尽了，唯独这一句，他打算念一辈子，也不打算说出口。你们的爱是一间堆满旧磁带的屋子里，一双什么都会的手，和一张终于哑掉的嘴。`,
+      inscription: { label: "THE G", line: "You want the G? Sit down, sweetheart — let me show you exactly where it is.", gloss: "你想找 G？坐好了，宝贝——我给你指准了它在哪儿。" },
+      bg: "#171310",
+      accent: "#7cc94b",
+      text: "#ede4d3",
+      muted: "#8e897e",
+      bgNameEn: "Soundhole Umber",
+      bgNameCn: "琴箱陈褐",
+      accentNameEn: "Kryptonite Glow",
+      accentNameCn: "氪石荧光",
+      textNameEn: "Celluloid Pick",
+      textNameCn: "拨片乳白",
+      mutedNameEn: "Hoop Silver",
+      mutedNameCn: "素圈银灰",
+      profile: { guile:4, forbear:1, chaos:8, raw:8, romance:7, grace:5 },
+      auLink: { href: "/WinterSunBlog/series/slow-hands/", title: "Slow Hands · Gary Petrosino AU", label: "2013 年的布鲁克林，你为另一个男人去学一首歌——而每周三晚上七点，替你调音的人是他。" },
     },
 {
       id: "doug",
@@ -826,6 +1101,10 @@ const characters = [
       bgNameCn: "药瓶陈皮棕",
       accentNameEn: "Lab Coat",
       accentNameCn: "处方白大褂",
+      textNameEn: "Dosage-Label Mint",
+      textNameCn: "剂量签薄荷",
+      mutedNameEn: "Clinic-Cabinet Tan",
+      mutedNameCn: "诊所旧橱褐",
       profile: { guile:5, forbear:7, chaos:6, raw:5, romance:6, grace:4 },
       auLink: { href: "/WinterSunBlog/series/better-living-through-you/", title: "Better Living Through You · Doug Varney AU", label: "他守着一家不写他名字的店——你偏要他，把名字挂上门。" },
     },
@@ -850,6 +1129,10 @@ const characters = [
       bgNameCn: "别墅夏夜",
       accentNameEn: "Racing Green",
       accentNameCn: "敞篷车绿",
+      textNameEn: "Veranda Moon",
+      textNameCn: "凉台月色",
+      mutedNameEn: "Bourbon Amber",
+      mutedNameCn: "波本琥珀",
       profile: { guile:3, forbear:9, chaos:5, raw:6, romance:7, grace:3 },
     },
 {
@@ -873,6 +1156,10 @@ const characters = [
       bgNameCn: "停车场夜",
       accentNameEn: "Legal Slate Blue",
       accentNameCn: "法务灰蓝",
+      textNameEn: "Streetlamp Glimmer",
+      textNameCn: "街灯熹微",
+      mutedNameEn: "Half-Beat Grey",
+      mutedNameCn: "慢半拍灰",
       profile: { guile:5, forbear:7, chaos:3, raw:5, romance:7, grace:6 },
     },
 {
@@ -899,6 +1186,10 @@ const characters = [
       bgNameCn: "空房暮灰",
       accentNameEn: "Static Glow",
       accentNameCn: "荧屏冷光",
+      textNameEn: "Static White",
+      textNameCn: "雪花屏白",
+      mutedNameEn: "Foundation Dust",
+      mutedNameCn: "地基尘烟",
       profile: { guile:2, forbear:8, chaos:3, raw:8, romance:6, grace:3 },
     },
 {
@@ -924,6 +1215,10 @@ const characters = [
       bgNameCn: "小熊软糖绿",
       accentNameEn: "Clown Nose",
       accentNameCn: "丑角红鼻头",
+      textNameEn: "Dance-Step Blossom",
+      textNameCn: "舞步樱花粉",
+      mutedNameEn: "Cha-Cha Moss",
+      mutedNameCn: "恰恰慢板苔",
       profile: { guile:5, forbear:2, chaos:8, raw:9, romance:9, grace:10 },
     },
 {
@@ -950,6 +1245,10 @@ const characters = [
       bgNameCn: "暮土玄褐",
       accentNameEn: "Relic Turquoise",
       accentNameCn: "圣物青绿",
+      textNameEn: "Parchment",
+      textNameCn: "经卷羊皮",
+      mutedNameEn: "Dig-Site Khaki",
+      mutedNameCn: "考古沙驼",
       profile: { guile:7, forbear:5, chaos:4, raw:7, romance:7, grace:6 },
     },
 {
@@ -976,6 +1275,10 @@ const characters = [
       bgNameCn: "焦烬玫瑰",
       accentNameEn: "Reborn Flame",
       accentNameCn: "重生焰橘",
+      textNameEn: "Last-Letter Cream",
+      textNameCn: "遗信浅米",
+      mutedNameEn: "Sunset Ash-Rose",
+      mutedNameCn: "落日绛灰",
       profile: { guile:2, forbear:2, chaos:6, raw:9, romance:1, grace:2 },
     },
 {
@@ -1002,6 +1305,10 @@ const characters = [
       bgNameCn: "边境暮雪",
       accentNameEn: "Dried Blood",
       accentNameCn: "陈血锈红",
+      textNameEn: "Canvas Linen",
+      textNameCn: "画布亚麻",
+      mutedNameEn: "Army-Wool Grey",
+      mutedNameCn: "军毯灰褐",
       profile: { guile:5, forbear:8, chaos:4, raw:6, romance:7, grace:7 },
     },
 {
@@ -1025,6 +1332,10 @@ const characters = [
       bgNameCn: "酒馆烟灰",
       accentNameEn: "Iguana Jewel",
       accentNameCn: "蓝蜥宝石",
+      textNameEn: "Doughnut Glaze",
+      textNameCn: "糖霜浅釉",
+      mutedNameEn: "Rainy-Street Lead",
+      mutedNameCn: "雨街铅色",
       profile: { guile:4, forbear:4, chaos:5, raw:7, romance:7, grace:4 },
     },
 {
@@ -1033,22 +1344,27 @@ const characters = [
       film: "Vice",
       filmCN: "《副总统》",
       year: "2018",
-      tagline: "权力坐在他肩上，他只顾舔指尖；他满不在乎，你满不设防。",
-      desc: `你是他身边最得力的那个人——他签字之前的每一份文件、他开口之前的每一个数字，都先过你的手。所以你比谁都清楚，他们口中那个「这世上最有权力的人」，私底下究竟是什么样子：西部衬衫的领口松松敞着，整个人懒懒地陷进椅背，一口慢悠悠的德州腔，那双榛色的眼睛里盛不下什么要紧事。那副压垮过无数人的权力，落到他肩上，像一件随手搭着的旧外套——而一遍遍替他把它扶正、不让它滑到地上的人，是你。
+      tagline: "他把最重的那一份折起来放进内袋，整栋楼里只有你看见。",
+      desc: `全世界都替他定了性：一个门面，一个笑话，一个被楼下那位牵着走的人。稿子是别人写的，方向是别人定的，连他念错一个词都够人说上三天。可你的位子在椭圆办公室隔壁——他要签的每一份文件、要念的每一个数字，都先过你的手。所以你比谁都早看见另一个他：一双榛色的眼睛，一口慢悠悠的得州腔，和一件他还没准备好、却已经穿在身上的重量。
 
-他总在吃点什么。今天是鸡翅，明天是椒盐卷饼，后天是个直接上手、毫无章法的三明治——可重点从来不是他吃什么，而是他对什么都那么满不在乎、那么随性自在的样子。他会把靴子翘到桌上，会跟着收音机跑调地哼歌，会在最一本正经的会议中途突然问你午饭吃什么。有回文件等着他签，你递上一方手帕让他擦擦手——他接过去看了一眼，却没擦，反倒低头把指尖一根根舔干净，再心满意足地冲你咧嘴一笑，把那方手帕原样还给你。你又好气又好笑，竟一句话都说不出来。多少回你站在门外，替他挡下那些急着要答案的人，心里想：他们若看见此刻的他，会作何感想。可也正是这样一个看上去最不正经的人，让你在日复一日的鸡毛蒜皮里，一点一点放下了戒备。
+他不解释自己。他记得住每一个下属的姓；他会为了一个称呼停顿一秒，然后改口；他会把一份规矩上不该带走的电报折进内袋，带回楼上过一夜，第二天早上原样交回来，只让你登记成“延迟归档”。他从不说他在扛什么——他只是扛着。有一晚他趴在桌上睡着了，你在门外站了二十分钟没进去；他醒了以后一个字没提，只在你要走的时候说了一句：谢谢你在外面等。这栋楼里所有真正要紧的事都是这样发生的——没人记录，只有你看见。
 
-直到某个真正要紧的时刻——所有人都以为他会照旧打个哈哈糊弄过去——他忽然不笑了。他放下手里的东西，认认真真做了一件没人指望他做、却该有人去做的事。那一刻你才明白：他那副满不在乎，从来不是没有分量，只是他把分量都藏在了笑底下。史书自有它冷冰冰的评分，可你是站在他身边、亲眼看着他做出选择的那个人。你本该公事公办、转身就走的——你比谁都清楚他不是个该让人心动的选项；可你没有。你认了，认得心甘情愿：原来一个德州大男孩，一边漫不经心地舔着指尖，一边却能在关键时刻，让你彻底缴械。`,
-      inscription: { label: "JUST A COWBOY", line: "Everybody's watchin' the most powerful man in the world. You're just watchin' some cowboy from Texas.", gloss: "全世界都盯着那个\"最有权力的人\"——你盯着的，不过是个德州来的牛仔。" },
-      bg: "#16181e",
-      accent: "#c17f34",
-      text: "#f1e3cb",
-      muted: "#626d8d",
-      bgNameEn: "Suit Navy",
-      bgNameCn: "总统西装夜",
-      accentNameEn: "Texan Tan",
-      accentNameCn: "德州牛仔金",
-      profile: { guile:3, forbear:2, chaos:8, raw:9, romance:5, grace:5 },
+他不是无辜的。他签下过让几万人再也回不了家的东西，他在一份被精心喂养的信息里让自己相信了该相信的，他在一场被摆出来的胜利里笑得像个二十岁的男孩。这些也全是他。你没办法只爱那个疲惫的、把手掌摊开放在桌面上让你选择的他，也没办法只恨那个签了字的他——你爱的是全部：空的和确信的、犯了大错的和想成为一个更好的自己的、在错的路上走得最深也最真诚的。全世界会给他打分，一遍又一遍，打上几十年。而你是站在他身边、亲眼看着他做出每一个选择的那一个。`,
+      inscription: { label: "NOT IN THE FILE", line: "Everything that mattered tonight, you're the only one who saw. And none of it goes in the file.", gloss: "今晚真正要紧的事，只有你看见了。而它一样都不会进档案。" },
+      bg: "#141922",
+      accent: "#bf9d5e",
+      text: "#ece4d5",
+      muted: "#7a8698",
+      bgNameEn: "Inaugural Midnight",
+      bgNameCn: "就职日寒夜",
+      accentNameEn: "Dry-Grass Hazel",
+      accentNameCn: "榛色枯草金",
+      textNameEn: "Briefing Cream",
+      textNameCn: "简报纸页米",
+      mutedNameEn: "Sealed Slate",
+      mutedNameCn: "封套雾灰蓝",
+      auLink: { href: "/WinterSunBlog/series/the-most-powerful-man/", title: "The Most Powerful Man · George W. Bush AU", label: "2001 年的白宫西翼，你是那个替他管文件的人——也是唯一一个看清了他的人。" },
+      profile: { guile:4, forbear:9, chaos:2, raw:9, romance:7, grace:7 },
     },
 {
       id: "hendrix",
@@ -1071,6 +1387,10 @@ const characters = [
       bgNameCn: "登台华服绿",
       accentNameEn: "Scorched Oxblood",
       accentNameCn: "焦锈军装红",
+      textNameEn: "Starched-Lace White",
+      textNameCn: "鞋带浆洗白",
+      mutedNameEn: "Ribbon Olive",
+      mutedNameCn: "勋表旧橄榄",
       profile: { guile:6, forbear:9, chaos:3, raw:7, romance:7, grace:7 },
     },
 {
@@ -1094,6 +1414,10 @@ const characters = [
       bgNameCn: "档案橡木",
       accentNameEn: "Ashtray Sage",
       accentNameCn: "香烟灰绿",
+      textNameEn: "Office Cream",
+      textNameCn: "律所奶油",
+      mutedNameEn: "Snickers Brown",
+      mutedNameCn: "士力架褐",
       profile: { guile:6, forbear:3, chaos:2, raw:7, romance:6, grace:3 },
     },
 {
@@ -1120,6 +1444,10 @@ const characters = [
       bgNameCn: "蝉鸣仲夏夜",
       accentNameEn: "Caramel Bear",
       accentNameCn: "焦糖小熊棕",
+      textNameEn: "Filling-Station White",
+      textNameCn: "加油站灯白",
+      mutedNameEn: "Tobacco Khaki",
+      mutedNameCn: "烟叶灰卡其",
       profile: { guile:4, forbear:9, chaos:3, raw:4, romance:8, grace:2 },
     },
 {
@@ -1143,6 +1471,10 @@ const characters = [
       bgNameCn: "狼影灰蓝",
       accentNameEn: "Magnet Gold",
       accentNameCn: "磁石黄金",
+      textNameEn: "Gala Ivory",
+      textNameCn: "请柬象牙",
+      mutedNameEn: "Getaway Steel",
+      mutedNameCn: "车影钢青",
       profile: { guile:8, forbear:2, chaos:8, raw:3, romance:8, grace:8 },
     },
 {
@@ -1167,6 +1499,10 @@ const characters = [
       bgNameCn: "伦敦午夜蓝",
       accentNameEn: "Old Photograph",
       accentNameCn: "旧照片暖褐",
+      textNameEn: "Ticket-Stub Cream",
+      textNameCn: "剧院票根米",
+      mutedNameEn: "West-End Fog",
+      mutedNameCn: "西区浓雾灰",
       profile: { guile:5, forbear:9, chaos:2, raw:2, romance:4, grace:6 },
     },
 {
@@ -1190,6 +1526,10 @@ const characters = [
       bgNameCn: "午夜枪管蓝",
       accentNameEn: "Casing Silver",
       accentNameCn: "冷银弹壳光",
+      textNameEn: "Paperback Cream",
+      textNameCn: "平装书页米",
+      mutedNameEn: "Night-Train Grey",
+      mutedNameCn: "夜行列车灰",
       profile: { guile:7, forbear:5, chaos:7, raw:5, romance:9, grace:5 },
     },
 {
@@ -1213,6 +1553,10 @@ const characters = [
       bgNameCn: "荧光夜紫",
       accentNameEn: "Glitch Magenta",
       accentNameCn: "故障玫红",
+      textNameEn: "Pixel Glow",
+      textNameCn: "像素微芒",
+      mutedNameEn: "Prophecy Haze",
+      mutedNameCn: "预言暮霭",
       profile: { guile:6, forbear:6, chaos:8, raw:6, romance:4, grace:1 },
     },
 ];
@@ -1510,7 +1854,7 @@ function CharacterCard({ c, idx }) {
           </div>
         )}
 
-        {c.auLink && (
+        {(c.auLink || c.auLinks) && (
           <div style={{ marginBottom: "40px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
               <div style={{ flex: 1, height: "1px", background: c.accent, opacity: 0.3 }} />
@@ -1522,15 +1866,18 @@ function CharacterCard({ c, idx }) {
                 opacity: 0.75,
                 textTransform: "uppercase",
                 whiteSpace: "nowrap",
-              }}>AU · STORY</span>
+              }}>{(c.auLinks && c.auLinks.length > 1) ? "AU · STORIES" : "AU · STORY"}</span>
               <div style={{ flex: 1, height: "1px", background: c.accent, opacity: 0.3 }} />
             </div>
+            {(c.auLinks || [c.auLink]).map(function(au, ai) { return (
             <a
-              href={c.auLink.href}
+              key={ai}
+              href={au.href}
               style={{
                 display: "block",
                 textDecoration: "none",
                 padding: "20px 20px 20px 18px",
+                marginTop: ai > 0 ? "14px" : 0,
                 borderLeft: "2px solid " + c.accent,
                 background: c.accent + "0d",
                 borderRadius: "0 3px 3px 0",
@@ -1555,7 +1902,7 @@ function CharacterCard({ c, idx }) {
                 lineHeight: 1.25,
                 letterSpacing: "0.02em",
               }}>
-                {c.auLink.title}
+                {au.title}
               </p>
               <p style={{
                 fontFamily: "'Noto Serif SC', serif",
@@ -1565,7 +1912,7 @@ function CharacterCard({ c, idx }) {
                 margin: "0 0 16px 0",
                 lineHeight: 1.7,
               }}>
-                {c.auLink.label}
+                {au.label}
               </p>
               <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: "6px" }}>
                 <span style={{
@@ -1579,6 +1926,7 @@ function CharacterCard({ c, idx }) {
                 <span style={{ color: c.accent, opacity: 0.85, fontSize: "0.85rem" }}>↗</span>
               </div>
             </a>
+            ); })}
           </div>
         )}
 
@@ -1626,86 +1974,51 @@ function CharacterCard({ c, idx }) {
             ── COLOR PALETTE ──
           </p>
           <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            gap: "32px",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            columnGap: "32px",
+            rowGap: "22px",
             width: "100%",
             maxWidth: "320px",
           }}>
-            {/* 主色 accent */}
-            <div style={{ flex: 1, textAlign: "center" }}>
-              <div style={{
-                width: "32px",
-                height: "32px",
-                borderRadius: "50%",
-                background: c.accent,
-                margin: "0 auto 12px",
-                border: "1px solid " + c.muted + "60",
-                boxShadow: "0 2px 8px " + c.accent + "40",
-              }} />
-              <p style={{
-                fontFamily: "'Playfair Display', serif",
-                fontStyle: "italic",
-                fontSize: "0.85rem",
-                color: c.accent,
-                margin: "0 0 4px 0",
-                letterSpacing: "0.05em",
-              }}>
-                {c.accentNameEn}
-              </p>
-              <p style={{
-                fontFamily: "'Noto Serif SC', serif",
-                fontSize: "0.75rem",
-                color: c.text,
-                opacity: 0.7,
-                letterSpacing: "0.15em",
-                margin: 0,
-              }}>
-                {c.accentNameCn}
-              </p>
-            </div>
-            {/* 分隔线 */}
-            <div style={{
-              width: "1px",
-              minHeight: "60px",
-              background: c.muted,
-              opacity: 0.3,
-              alignSelf: "stretch",
-              marginTop: "8px",
-            }} />
-            {/* 背景色 bg */}
-            <div style={{ flex: 1, textAlign: "center" }}>
-              <div style={{
-                width: "32px",
-                height: "32px",
-                borderRadius: "50%",
-                background: c.bg,
-                margin: "0 auto 12px",
-                border: "1px solid " + c.muted + "60",
-                boxShadow: "0 2px 8px " + c.bg + "60",
-              }} />
-              <p style={{
-                fontFamily: "'Playfair Display', serif",
-                fontStyle: "italic",
-                fontSize: "0.85rem",
-                color: c.muted,
-                margin: "0 0 4px 0",
-                letterSpacing: "0.05em",
-              }}>
-                {c.bgNameEn}
-              </p>
-              <p style={{
-                fontFamily: "'Noto Serif SC', serif",
-                fontSize: "0.75rem",
-                color: c.text,
-                opacity: 0.6,
-                letterSpacing: "0.15em",
-                margin: 0,
-              }}>
-                {c.bgNameCn}
-              </p>
-            </div>
+            {[
+              { hex: c.accent, en: c.accentNameEn, cn: c.accentNameCn, nameColor: c.accent },
+              { hex: c.bg, en: c.bgNameEn, cn: c.bgNameCn, nameColor: c.muted },
+              { hex: c.text, en: c.textNameEn || "Ink Light", cn: c.textNameCn || "字里光", nameColor: c.muted },
+              { hex: c.muted, en: c.mutedNameEn || "Under Voice", cn: c.mutedNameCn || "低语灰", nameColor: c.muted },
+            ].map((sw, si) => (
+              <div key={si} style={{ textAlign: "center" }}>
+                <div style={{
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "50%",
+                  background: sw.hex,
+                  margin: "0 auto 12px",
+                  border: "1px solid " + c.muted + "60",
+                  boxShadow: "0 2px 8px " + sw.hex + "50",
+                }} />
+                <p style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontStyle: "italic",
+                  fontSize: "0.85rem",
+                  color: sw.nameColor,
+                  margin: "0 0 4px 0",
+                  letterSpacing: "0.05em",
+                }}>
+                  {sw.en}
+                </p>
+                <p style={{
+                  fontFamily: "'Noto Serif SC', serif",
+                  fontSize: "0.75rem",
+                  color: c.text,
+                  opacity: 0.65,
+                  letterSpacing: "0.15em",
+                  margin: 0,
+                }}>
+                  {sw.cn}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -1807,6 +2120,15 @@ function CharacterCard({ c, idx }) {
 }
 
 function SamGallery() {
+  // 目录搜索：按角色名 / 片名（中英）过滤跳转列表，卡片本体不受影响
+  const [query, setQuery] = useState("");
+  const q = query.trim().toLowerCase();
+  const contentsList = q
+    ? characters.filter(function(c) {
+        return (c.name + " " + c.film + " " + c.filmCN + " " + c.id + " " + (c.roleNote || "") + " " + (c.namePostfix || ""))
+          .toLowerCase().indexOf(q) !== -1;
+      })
+    : characters;
   useEffect(function() {
     // 由我们自己接管滚动落位，关掉浏览器自带的（React 动态渲染会让它扑空）
     if ("scrollRestoration" in window.history) {
@@ -1998,8 +2320,41 @@ function SamGallery() {
             }}>
               {characters.length} FACES · {Math.min.apply(null, characters.map(function(c) { return parseInt(c.year, 10); }))}–{Math.max.apply(null, characters.map(function(c) { return parseInt(c.year, 10); }))}
             </p>
+            <input
+              type="text"
+              value={query}
+              onChange={function(e) { setQuery(e.target.value); }}
+              placeholder="搜 · 角色名 / 片名 · Search"
+              style={{
+                display: "block",
+                width: "100%",
+                boxSizing: "border-box",
+                margin: "0 0 18px",
+                padding: "10px 12px",
+                background: "transparent",
+                border: "1px solid #a8896a",
+                borderRadius: "2px",
+                color: "#2a1410",
+                fontFamily: "'Noto Serif SC', serif",
+                fontSize: "0.85rem",
+                letterSpacing: "0.08em",
+                outline: "none",
+              }}
+            />
+            {q && contentsList.length === 0 && (
+              <p style={{
+                fontFamily: "'Noto Serif SC', serif",
+                fontSize: "0.8rem",
+                color: "#7a3a26",
+                opacity: 0.75,
+                letterSpacing: "0.1em",
+                margin: "0 0 12px",
+              }}>
+                雾太大了，没找到这张脸——换个名字试试？
+              </p>
+            )}
             <div style={{ display: "flex", flexDirection: "column", gap: "10px", textAlign: "left" }}>
-              {characters.map(function(c, i) {
+              {contentsList.map(function(c, i) {
                 return (
                   <button
                     key={c.id}
@@ -2026,7 +2381,7 @@ function SamGallery() {
                       width: "30px",
                       flexShrink: 0,
                     }}>
-                      {String(i + 1).padStart(2, "0")}
+                      {String(characters.indexOf(c) + 1).padStart(2, "0")}
                     </span>
                     <span style={{ flex: 1, display: "flex", flexDirection: "column", gap: "2px" }}>
                       <span style={{
@@ -2060,7 +2415,7 @@ function SamGallery() {
                       }}>
                         {c.year}
                       </span>
-                      {c.auLink && (
+                      {(c.auLink || c.auLinks) && (
                         <span style={{
                           fontFamily: "'Special Elite', monospace",
                           fontSize: "0.58rem",
@@ -2068,7 +2423,7 @@ function SamGallery() {
                           color: "#5c2618",
                           opacity: 0.85,
                         }}>
-                          AU ↗
+                          {(c.auLinks && c.auLinks.length > 1) ? "AU×2 ↗" : "AU ↗"}
                         </span>
                       )}
                     </span>

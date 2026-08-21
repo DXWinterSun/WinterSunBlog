@@ -16,6 +16,9 @@
   var LONGPRESS_MS = 480;
   // 拍立得背面黑条上印着的一句话（仪式感所在，想换就改这里）：
   var NOTE_TAGLINE = "趁我还记得，把它写在背面。";
+  // 票根背面（章节卡 / 章节页）献给 Sam 的一句——正面归他，背面归她：
+  var TICKET_TAGLINE = "正面是他的戏。背面归你。";
+  var TICKET_TAGLINE_EN = "His show on the front. The back is yours.";
   var NOTE_TAGLINE_EN = "While it's still mine to remember.";
   // 左下角浮标上的导语（钢笔旁的小字）：
   var LOCK_LABEL = "记忆碎片";
@@ -291,15 +294,22 @@
       }, 450);
     });
   }
-  function openEditor(id) {
+  function openEditor(id, kind) {
     loadFonts();
     if (!backdrop) buildEditor();
+    var ed = backdrop.querySelector(".pol-editor");
+    var isTicket = kind === "ticket";
+    ed.classList.toggle("pol-editor--ticket", isTicket);
+    ed.setAttribute("aria-label", isTicket ? "票根背面" : "照片背面");
+    backdrop.querySelector(".pol-ed-line").textContent = isTicket ? TICKET_TAGLINE : NOTE_TAGLINE;
+    backdrop.querySelector(".pol-ed-line-en").textContent = isTicket ? TICKET_TAGLINE_EN : NOTE_TAGLINE_EN;
     current = id;
     var n = Store.get(id);
     note.value = n.text;
     note.readOnly = !unlocked;
     note.placeholder = unlocked ? "写下你不想忘记的……" : "🔒 解锁后可编辑";
     tsEl.textContent = n.ts ? "上次编辑 " + fmt(n.ts) : "";
+    renderEditorMarks(id);
     backdrop.classList.add("open");
     if (unlocked) setTimeout(function () { note.focus(); }, 420);
   }
@@ -307,7 +317,7 @@
 
   /* ========== 折角记号（仅本机有批注的卡片）========== */
   function markDogears() {
-    var posts = document.querySelectorAll(".c-post");
+    var posts = document.querySelectorAll(".c-post, .c-chapter-card");
     for (var i = 0; i < posts.length; i++) {
       var a = posts[i];
       var n = Store.get(keyOf(a));
@@ -321,19 +331,20 @@
 
   /* ========== 卡片交互（仅解锁后拦截右键 / 长按）========== */
   function attachCards() {
-    var posts = document.querySelectorAll(".c-post");
+    var posts = document.querySelectorAll(".c-post, .c-chapter-card");
     for (var i = 0; i < posts.length; i++) {
       (function (a) {
+        var kind = a.classList.contains("c-chapter-card") ? "ticket" : "photo";
         a.addEventListener("contextmenu", function (e) {
           if (!unlocked) return;          // 锁定时保留浏览器默认右键，不打扰访客
           e.preventDefault();
-          openEditor(keyOf(a));
+          openEditor(keyOf(a), kind);
         });
         var timer = null, moved = false, longFired = false;
         a.addEventListener("touchstart", function () {
           if (!unlocked) return;
           moved = false; longFired = false;
-          timer = setTimeout(function () { if (!moved) { longFired = true; openEditor(keyOf(a)); } }, LONGPRESS_MS);
+          timer = setTimeout(function () { if (!moved) { longFired = true; openEditor(keyOf(a), kind); } }, LONGPRESS_MS);
         }, { passive: true });
         a.addEventListener("touchmove", function () { moved = true; clearTimeout(timer); }, { passive: true });
         a.addEventListener("touchend", function () { clearTimeout(timer); }, { passive: true });
@@ -380,6 +391,7 @@
     var boxBtn = lockEl.querySelector('[data-act="box"]');
     if (boxBtn) boxBtn.addEventListener("click", toggleBox);
     syncDeckVisible();
+    if (typeof syncPenVisible === "function") syncPenVisible();
   }
   function showPwInput() {
     var setting = !hasPass();
@@ -409,7 +421,7 @@
   function exportNotes() {
     var journals = {};
     for (var i = 0; i < JOURNALS.length; i++) journals[JOURNALS[i].id] = storeOf(JOURNALS[i]).all();
-    var data = { app: "wiw-polaroid-notes", v: 2, exported: Date.now(), notes: Store.all(), journals: journals };
+    var data = { app: "wiw-polaroid-notes", v: 3, exported: Date.now(), notes: Store.all(), journals: journals, marks: Marks.all() };
     var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     var url = URL.createObjectURL(blob);
     var d = new Date();
@@ -435,6 +447,23 @@
           else if ((inc.ts || 0) > (ex.ts || 0) && inc.text !== ex.text) { cur[id] = inc; updated++; }
         }
         localStorage.setItem(LS_NOTES, JSON.stringify(cur));
+        // 划线合并（按 文字+指纹 去重）
+        if (data && data.marks && typeof data.marks === "object") {
+          var curMarks = Marks.all();
+          for (var mp in data.marks) {
+            if (!data.marks.hasOwnProperty(mp)) continue;
+            var mine = curMarks[mp] || [], theirs = data.marks[mp] || [];
+            for (var ti = 0; ti < theirs.length; ti++) {
+              var tm = theirs[ti], dup = false;
+              for (var mi = 0; mi < mine.length; mi++) {
+                if (mine[mi].t === tm.t && mine[mi].p === tm.p && mine[mi].s === tm.s) { dup = true; break; }
+              }
+              if (!dup) mine.push(tm);
+            }
+            if (mine.length) curMarks[mp] = mine;
+          }
+          try { localStorage.setItem(LS_MARKS, JSON.stringify(curMarks)); } catch (e) {}
+        }
         // 各 journal 也一并合并（按日期，谁更新留谁）
         var incJournals = (data && data.journals) ? data.journals
           : (data && data.lucky) ? { fortunes: data.lucky } : null;   // 兼容旧 v1 的 lucky 字段
@@ -853,9 +882,246 @@
       .catch(function () { setSendMsg("网络不太顺，待会儿再试…"); });
   }
 
+  /* ========== 铅笔划线：选中正文 → 划线（本机私有），背面引用 + 跳回 ==========
+     锚定方式：存「选中文字 + 前后各 20 字指纹」，载入时全文搜索定位；
+     原文改动导致定位失败时，引文保留在背面并标「原文已改动」。 */
+  var LS_MARKS = "wiw-pol-marks";
+  var Marks = {
+    all: function () { try { return JSON.parse(localStorage.getItem(LS_MARKS)) || {}; } catch (e) { return {}; } },
+    forPath: function (path) { var a = this.all(); return a[path] || []; },
+    save: function (path, arr) {
+      var a = this.all();
+      if (arr && arr.length) a[path] = arr; else delete a[path];
+      try { localStorage.setItem(LS_MARKS, JSON.stringify(a)); } catch (e) {}
+    }
+  };
+  function artContainer() { return document.querySelector(".c-article .c-wrap-content"); }
+  var BLOCK_SEL = "p, li, blockquote, h1, h2, h3, h4, h5, h6";
+  function blockOf(node) {
+    var el = node.nodeType === 1 ? node : node.parentNode;
+    while (el && el !== document.body) {
+      if (el.matches && el.matches(BLOCK_SEL)) return el;
+      el = el.parentNode;
+    }
+    return null;
+  }
+
+  /* —— 定位：在容器里按 文字+指纹 找到字符区间，映射成 DOM Range —— */
+  function findMarkRange(root, m) {
+    var blocks = root.querySelectorAll(BLOCK_SEL);
+    var best = null, bestScore = -1;
+    for (var b = 0; b < blocks.length; b++) {
+      var txt = blocks[b].textContent, from = 0, idx;
+      while ((idx = txt.indexOf(m.t, from)) >= 0) {
+        var pre = txt.slice(Math.max(0, idx - 20), idx);
+        var post = txt.slice(idx + m.t.length, idx + m.t.length + 20);
+        var score = 0;
+        if (m.p && pre.slice(-m.p.length) === m.p) score += 2; else if (m.p && pre.indexOf(m.p.slice(-6)) >= 0) score += 1;
+        if (m.s && post.slice(0, m.s.length) === m.s) score += 2; else if (m.s && post.indexOf(m.s.slice(0, 6)) >= 0) score += 1;
+        if (!m.p && !m.s) score = 1;
+        if (score > bestScore) { bestScore = score; best = { block: blocks[b], start: idx, end: idx + m.t.length }; }
+        from = idx + 1;
+      }
+    }
+    if (!best) return null;
+    // 字符偏移 → DOM Range
+    var range = document.createRange(), walker = document.createTreeWalker(best.block, NodeFilter.SHOW_TEXT), n, pos = 0, sSet = false;
+    while ((n = walker.nextNode())) {
+      var len = n.nodeValue.length;
+      if (!sSet && pos + len > best.start) { range.setStart(n, best.start - pos); sSet = true; }
+      if (sSet && pos + len >= best.end) { range.setEnd(n, best.end - pos); return range; }
+      pos += len;
+    }
+    return null;
+  }
+  /* —— 给 Range 里的每个文本节点套 <span class="pol-line"> —— */
+  function paintRange(range, idx) {
+    var nodes = [], walker = document.createTreeWalker(range.commonAncestorContainer.nodeType === 3 ? range.commonAncestorContainer.parentNode : range.commonAncestorContainer, NodeFilter.SHOW_TEXT), n;
+    while ((n = walker.nextNode())) { if (range.intersectsNode(n)) nodes.push(n); }
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i], s0 = 0, e0 = node.nodeValue.length;
+      if (node === range.startContainer) s0 = range.startOffset;
+      if (node === range.endContainer) e0 = range.endOffset;
+      if (e0 <= s0) continue;
+      var target = node;
+      if (s0 > 0) target = target.splitText(s0);
+      if (e0 - s0 < target.nodeValue.length) target.splitText(e0 - s0);
+      var wrap = document.createElement("span");
+      wrap.className = "pol-line";
+      wrap.setAttribute("data-mark", idx);
+      target.parentNode.insertBefore(wrap, target);
+      wrap.appendChild(target);
+    }
+  }
+  function unpaintAll() {
+    var root = artContainer(); if (!root) return;
+    var spans = root.querySelectorAll(".pol-line");
+    for (var i = 0; i < spans.length; i++) {
+      var sp = spans[i], parent = sp.parentNode;
+      while (sp.firstChild) parent.insertBefore(sp.firstChild, sp);
+      parent.removeChild(sp);
+      parent.normalize();
+    }
+  }
+  var markOrphans = {};   // idx → true（本次载入没定位到）
+  function renderMarks() {
+    var root = artContainer(); if (!root || !isArticlePage()) return;
+    unpaintAll();
+    markOrphans = {};
+    var arr = Marks.forPath(location.pathname);
+    for (var i = 0; i < arr.length; i++) {
+      var r = findMarkRange(root, arr[i]);
+      if (r) paintRange(r, i); else markOrphans[i] = true;
+    }
+  }
+  function scrollToMark(idx) {
+    var el = document.querySelector('.pol-line[data-mark="' + idx + '"]');
+    if (!el) return;
+    el.scrollIntoView({ block: "center", behavior: "smooth" });
+    var all = document.querySelectorAll('.pol-line[data-mark="' + idx + '"]');
+    for (var i = 0; i < all.length; i++) all[i].classList.add("pol-line--flash");
+    setTimeout(function () {
+      for (var i = 0; i < all.length; i++) all[i].classList.remove("pol-line--flash");
+    }, 1800);
+  }
+
+  /* —— 选中文字后浮出的「划线」小按钮（仅文章页 + 解锁后）—— */
+  var bubbleEl = null;
+  function buildBubble() {
+    bubbleEl = document.createElement("button");
+    bubbleEl.type = "button";
+    bubbleEl.className = "pol-mark-bubble";
+    bubbleEl.textContent = "✏️ 划线";
+    document.body.appendChild(bubbleEl);
+    bubbleEl.addEventListener("mousedown", function (e) { e.preventDefault(); });
+    bubbleEl.addEventListener("click", function () {
+      var sel = window.getSelection();
+      if (!sel || sel.isCollapsed) { hideBubble(); return; }
+      var range = sel.getRangeAt(0);
+      var text = range.toString().replace(/\s+/g, " ").trim();
+      var block = blockOf(range.startContainer);
+      if (!text || !block) { hideBubble(); return; }
+      var preRange = document.createRange();
+      preRange.selectNodeContents(block); preRange.setEnd(range.startContainer, range.startOffset);
+      var postRange = document.createRange();
+      postRange.selectNodeContents(block); postRange.setStart(range.endContainer, range.endOffset);
+      var mark = { t: range.toString(), p: preRange.toString().slice(-20), s: postRange.toString().slice(0, 20), ts: Date.now() };
+      var arr = Marks.forPath(location.pathname);
+      arr.push(mark);
+      Marks.save(location.pathname, arr);
+      sel.removeAllRanges();
+      hideBubble();
+      renderMarks();
+    });
+  }
+  function hideBubble() { if (bubbleEl) bubbleEl.style.display = "none"; }
+  function maybeShowBubble() {
+    if (!unlocked || !isArticlePage()) return;
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) { hideBubble(); return; }
+    var range = sel.getRangeAt(0);
+    var root = artContainer();
+    if (!root || !root.contains(range.commonAncestorContainer)) { hideBubble(); return; }
+    var text = range.toString().trim();
+    if (text.length < 2 || text.length > 300) { hideBubble(); return; }
+    var b1 = blockOf(range.startContainer), b2 = blockOf(range.endContainer);
+    if (!b1 || b1 !== b2) { hideBubble(); return; }   // v1：一次划线不跨段
+    if (!bubbleEl) buildBubble();
+    var rect = range.getBoundingClientRect();
+    bubbleEl.style.display = "block";
+    var x = Math.min(Math.max(rect.left + rect.width / 2 - 34, 8), window.innerWidth - 84);
+    var y = rect.top - 40; if (y < 8) y = rect.bottom + 10;
+    bubbleEl.style.left = x + "px";
+    bubbleEl.style.top = y + "px";
+  }
+  function attachMarking() {
+    document.addEventListener("mouseup", function () { setTimeout(maybeShowBubble, 10); });
+    document.addEventListener("touchend", function () { setTimeout(maybeShowBubble, 150); });
+    document.addEventListener("selectionchange", function () {
+      var sel = window.getSelection();
+      if (!sel || sel.isCollapsed) hideBubble();
+    });
+    // 点已有的划线 → 翻开背面
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+      if (t && t.classList && t.classList.contains("pol-line") && unlocked) {
+        e.preventDefault();
+        openEditor(location.pathname, document.querySelector(".c-chapter-return") ? "ticket" : "photo");
+      }
+    });
+  }
+
+  /* —— 背面的划线引文列表 —— */
+  var marksBox = null;
+  function renderEditorMarks(id) {
+    if (!backdrop) return;
+    if (!marksBox) {
+      marksBox = document.createElement("div");
+      marksBox.className = "pol-ed-marks";
+      backdrop.querySelector(".pol-editor").appendChild(marksBox);
+    }
+    var arr = Marks.forPath(id);
+    if (!arr.length) { marksBox.style.display = "none"; return; }
+    marksBox.style.display = "";
+    var onPage = isArticlePage() && location.pathname === id;
+    var html = '<div class="pol-ed-marks-title">✏️ 划线 · ' + arr.length + ' 条</div>';
+    for (var i = 0; i < arr.length; i++) {
+      var q = arr[i].t.length > 64 ? arr[i].t.slice(0, 64) + "…" : arr[i].t;
+      var orphan = onPage && markOrphans[i];
+      html += '<div class="pol-ed-mark' + (orphan ? ' is-orphan' : '') + '" data-i="' + i + '">' +
+        '<span class="pol-ed-mark-q">' + q.replace(/</g, "&lt;") + '</span>' +
+        '<span class="pol-ed-mark-acts">' +
+          (orphan ? '<i class="pol-ed-mark-note">原文已改动</i>' : '<button type="button" data-act="go">跳转</button>') +
+          (unlocked ? '<button type="button" data-act="del">删除</button>' : '') +
+        '</span></div>';
+    }
+    marksBox.innerHTML = html;
+    marksBox.onclick = function (e) {
+      var btn = e.target.closest ? e.target.closest("button") : null;
+      if (!btn) return;
+      var row = btn.parentNode.parentNode, i = +row.getAttribute("data-i");
+      if (btn.getAttribute("data-act") === "go") {
+        if (onPage) { closeEditor(); setTimeout(function () { scrollToMark(i); }, 150); }
+        else { location.href = id + "#pol-mark-" + i; }
+      } else if (btn.getAttribute("data-act") === "del") {
+        var arr2 = Marks.forPath(id);
+        arr2.splice(i, 1);
+        Marks.save(id, arr2);
+        if (onPage) renderMarks();
+        renderEditorMarks(id);
+      }
+    };
+  }
+
+  /* ========== 文章页浮笔：边读边写，落在同一张背面上 ========== */
+  var penEl = null;
+  function isArticlePage() {
+    return !!document.querySelector(".c-article__header .c-article__title") &&
+      /\/\d{4}\/\d{2}\/\d{2}\//.test(location.pathname);
+  }
+  function buildPen() {
+    if (!isArticlePage()) return;
+    penEl = document.createElement("button");
+    penEl.type = "button";
+    penEl.className = "pol-pen";
+    penEl.title = "写在背面";
+    penEl.setAttribute("aria-label", "写在这一篇的背面");
+    penEl.innerHTML = PEN_SVG;
+    document.body.appendChild(penEl);
+    var kind = document.querySelector(".c-chapter-return") ? "ticket" : "photo";
+    penEl.addEventListener("click", function () { openEditor(keyOf({ getAttribute: function () { return location.pathname; } }), kind); });
+    syncPenVisible();
+  }
+  function syncPenVisible() { if (penEl) penEl.style.display = unlocked ? "" : "none"; }
+
   /* ========== 启动 ========== */
   function init() {
-    buildLock(); buildDeck(); buildGuest(); markDogears(); attachCards(); syncDeckVisible();
+    buildLock(); buildDeck(); buildGuest(); markDogears(); attachCards(); buildPen(); syncDeckVisible();
+    if (isArticlePage()) {
+      renderMarks(); attachMarking();
+      var hm = location.hash.match(/^#pol-mark-(\d+)$/);
+      if (hm) setTimeout(function () { scrollToMark(+hm[1]); }, 400);
+    }
     // 整站明暗切换时，若正开着写作卡，实时重算颜色（深↔浅翻转，色源仍是所选角色）
     if (window.MutationObserver) {
       new MutationObserver(function () {

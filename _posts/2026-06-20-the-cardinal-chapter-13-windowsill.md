@@ -2,11 +2,11 @@
 layout: post
 title: "Chapter 13 · 窗台 — The Cardinal"
 date: 2026-06-20
-image: sam-rockwell-polish-guy.png
+image: sam-rockwell-polish-guy.jpg
 tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 怅惘, 缱绻]
 categories: ["AU Story"]
 series: "The Cardinal"
-series_title: "The Cardinal · Krzysztof AU"
+series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
 series_order: 13
 series_status: ongoing
 series_type: Series
@@ -19,7 +19,7 @@ summary: "他脱口说了句重话，说完就后悔了。你呆住，哭着躲�
 
 那天晚上，本来是好好的。
 
-年关将近，屋里暖融融的。你窝在灯下，一边胡乱翻着书，一边有一句没一句地，跟他说着话。说着说着，不知怎么，就说到了以后。
+岁末将近，屋里暖融融的。你窝在灯下，一边胡乱翻着书，一边有一句没一句地，跟他说着话。说着说着，不知怎么，就说到了以后。
 
 其实你只是随口的。你说，等你明年毕业了，论文写完了，或许可以留下来——你不太想走。你说，你想就在这座城市，在这间小屋里，跟他，一直这样过下去。
 

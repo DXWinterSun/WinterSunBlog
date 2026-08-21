@@ -2,11 +2,11 @@
 layout: post
 title: "Chapter 11 · Kotku — The Cardinal"
 date: 2026-06-20
-image: sam-rockwell-polish-guy.png
+image: sam-rockwell-polish-guy.jpg
 tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻, 安放]
 categories: ["AU Story"]
 series: "The Cardinal"
-series_title: "The Cardinal · Krzysztof AU"
+series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
 series_order: 11
 series_status: ongoing
 series_type: Series

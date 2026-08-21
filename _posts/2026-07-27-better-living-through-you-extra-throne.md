@@ -2,7 +2,7 @@
 layout: post
 title: "Extra · 王后的宝座 — Better Living Through You"
 date: 2026-07-27
-image: better-living-through-chemistry.png
+image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 缱绻]
 categories: ["AU Story"]
 series: "Better Living Through You"
@@ -78,4 +78,4 @@ summary: "他从你脚尖一路吻上来，供奉他的王后——你破碎的�
 
 那一夜，王后坐在她的宝座上，被她的王，虔诚地、彻底地，供奉了一场。
 
-而这一次，他们谁也没有把“我爱你”，攥在手里。
+而这一夜，又一次，他们谁也没有把“我爱你”，攥在手里。

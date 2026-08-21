@@ -94,9 +94,26 @@ layout: home
     <span class="c-hero__byline-text">在另一个时空里，他们也曾相遇</span>
     <span class="c-hero__byline-rule"></span>
   </div>
-  <p class="c-hero__lede">
-    <a href="{{ site.baseurl }}/sky/" style="text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px;">✦ 打开 AU 星图 — 每写一章，天上就多一颗星</a>
-  </p>
+  <a class="c-egg-card c-egg-card--sky" href="{{ site.baseurl }}/sky/">
+    <span class="c-egg-card__art" aria-hidden="true">
+      <svg viewBox="0 0 56 56" width="56" height="56" fill="none">
+        <path d="M12 40 L22 26 L34 31 L44 14" stroke="#8fa8d8" stroke-width="1" opacity="0.5"/>
+        <circle class="tw-star" cx="12" cy="40" r="1.6" fill="#f4f6ff"/>
+        <circle class="tw-star" cx="22" cy="26" r="2.2" fill="#f4f6ff"/>
+        <circle class="tw-star" cx="34" cy="31" r="1.4" fill="#f4f6ff"/>
+        <circle class="tw-star" cx="44" cy="14" r="2.6" fill="#ffe9b8"/>
+        <circle class="tw-star" cx="9" cy="15" r="1" fill="#f4f6ff" opacity="0.7"/>
+        <circle class="tw-star" cx="47" cy="44" r="1.1" fill="#f4f6ff" opacity="0.6"/>
+        <circle cx="28" cy="8" r="0.8" fill="#f4f6ff" opacity="0.5"/>
+      </svg>
+    </span>
+    <span class="c-egg-card__body">
+      <span class="c-egg-card__eyebrow">The Written Sky</span>
+      <span class="c-egg-card__title">AU 星图</span>
+      <span class="c-egg-card__desc">每写一章，天上就多一颗星</span>
+    </span>
+    <span class="c-egg-card__arrow" aria-hidden="true">→</span>
+  </a>
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="Lyrics">
@@ -143,8 +160,41 @@ layout: home
       individual chapters); shown when their parent category is the active filter,
       replacing the per-chapter cards for that series.
     {% endcomment %}
-    {% assign reversed_posts = site.posts | reverse %}
-    {% assign all_series = reversed_posts | map: "series" | uniq | compact | reverse %}
+    {%- comment -%}
+      ⚠️ 系列卡片排序 · Winter 定的规矩（两个页面方向相反，别再搞混）：
+      ┌──────────────┬────────────────────────────────┐
+      │ 首页 AU Story（本文件）│ 按创建时间「新 → 老」：最新开坑的排最前     │
+      │ Sam 页 The Collection │ 按创建时间「老 → 新」：collection_order 升序 │
+      └──────────────┴────────────────────────────────┘
+      创建时间 = collection_order（编号即开坑先后）。本页取其【倒序】。
+      非 Sam 的系列（tumblr 搬运的 Hector / Leonard / BayBay 等）统一垫底，
+      内部同样「新 → 老」（按第一篇章节日期）。不按「最近更新」排。
+    {%- endcomment -%}
+    {% assign all_series = "" | split: "" %}
+    {% assign sam_pages = site.pages | where_exp: "p", "p.sam_collection" | sort: "collection_order" | reverse %}
+    {% for sp in sam_pages %}
+      {% if sp.series_name %}
+        {% assign sp_count = site.posts | where: "series", sp.series_name | size %}
+        {% if sp_count > 0 %}
+          {% unless all_series contains sp.series_name %}
+            {% assign all_series = all_series | push: sp.series_name %}
+          {% endunless %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% assign chrono_posts = site.posts | sort: "date" %}
+    {% assign nonsam_debut = "" | split: "" %}
+    {% for p in chrono_posts %}
+      {% if p.series %}
+        {% unless all_series contains p.series or nonsam_debut contains p.series %}
+          {% assign nonsam_debut = nonsam_debut | push: p.series %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+    {% assign nonsam_debut = nonsam_debut | reverse %}
+    {% for s in nonsam_debut %}
+      {% assign all_series = all_series | push: s %}
+    {% endfor %}
     {% for series_name in all_series %}
       {% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
       {% assign series_first = series_posts | first %}

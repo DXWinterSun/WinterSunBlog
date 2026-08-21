@@ -14,3 +14,5 @@ story_91465444_final.html
 .DS_Store
 **/.DS_Store
 .idea/
+__pycache__/
+*.pyc

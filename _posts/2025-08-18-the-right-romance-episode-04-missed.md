@@ -9,7 +9,7 @@ series_title: "The Right Romance · Sam Pinkett AU"
 series_order: 4
 series_type: "Series"
 chapter_type: "Episode 04"
-summary: "你请假一天，他把那天过得一团糟。"
+summary: "一声“Pinkett先生”，把他轻轻关在了门外。"
 tags: [Sam Pinkett, BayBay, AU, The Right Romance, 思念, 缱绻]
 ---
 

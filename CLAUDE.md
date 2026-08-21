@@ -19,6 +19,36 @@ Winter（冬璇）自己说的，原话大意：**「我对技术层面的东西
    「请说得更简单」。同一件事她问第二遍，就换个更生活化的比喻重讲，别复读。
 5. 她的长处在创作侧：剧情、人物、声口、审美判断都非常准。技术上让着她，
    创作上听她的。
+6. **改动做好就直接发布上线，别停在「等她说发」**（她 2026-07-31 明确要求：
+   「你做好就直接发，你别等着我让你发」——曾因干等确认让她白等半天）。
+   口径：**功能 / 样式 / 修 bug 类改动**，验证完直接发，发完用人话+截图汇报
+   即可；**新写的正文内容**（章节、番外、卡片文案这类创作文字）仍先在聊天里
+   给她过目、她认可后再上——创作她要把关，工程不用。
+
+## ⚠️ 给 Winter 看草稿 = 跑 `tools/preview/render_draft.py` 生成预览页
+
+**只要要把写好的东西给 Winter 过目——章节草稿、番外、系列首页文案、任何她要"先看看"
+的正文——一律排成一张预览网页，用 Artifact 工具发布，聊天里只给链接 + 几句说明。
+绝不把整章正文贴进聊天框**（拖得太长、上下翻不方便，Winter 2026-08-17 拍板）。
+
+**样板和生成脚本就在仓库里，别自己造轮子、别手打整页 HTML：**
+
+```bash
+python3 tools/preview/render_draft.py 草稿.md -o /tmp/.../预览.html \
+    --series "Zaphod AU" --title "雪的巡游" \
+    --subtitle "番外 · Don't Panic, Baby Doll" --mood "缱绻 · 安放" --notes 衔接说明.md
+```
+
+- 配色按 `--series`（= 章节 front matter 的 `series` 值）**自动**从 `_data/au_palettes.yml` 取，
+  预览观感与线上阅读页一致；查不到就回退站点默认金色。
+- 内嵌 SVG 插图、`c-note` 便条卡、`c-decree` 公文卡等裸 HTML 块原样透传；
+  行尾两个空格 = 硬换行（多行诗式收束靠它）。
+- 改稿后**用同一个 `-o` 路径重新生成、重新发布，链接不变**，她刷新即看新版。
+- 详细用法与已知的坑：`tools/preview/README.md`。
+
+⚠️ **不要把模板或脚本留在 scratchpad**——那是每个会话独立的临时目录，容器回收就没了，
+下一个对话根本找不到样板、只能从头猜（2026-08 真的发生过：好几个对话各自重造了一遍轮子，
+另一个对话干脆找不到、做不出来）。凡是「以后还要再用」的东西，一律入库。
 
 ## ⚠️ 正文引号一律用弯双引号 `“ ”`，不要用框角引号 `「 」`
 
@@ -78,11 +108,80 @@ Winter（冬璇）自己说的，原话大意：**「我对技术层面的东西
 | 🥢 筷子 / 夹菜 / 扒饭 / 端起碗（中式餐具饮食·**最易手滑**） | 刀 · 叉 · 勺；用叉子叉、拿刀切；大口吃；盘子（西方餐桌用刀叉，别写筷子/夹/扒饭） |
 | 炕 / 灶台 / 蒲扇 / 竹椅 / 长衫马褂 / 抱拳作揖（中式日常器物·衣着·身势） | 壁炉 / 灶 / 门廊摇椅 / 衬衫外套 / 握手拥抱（按该时代地域的家什衣着身势） |
 
+**⚙️ 自动扫描（2026-08 新增）：部署前跑 `python3 tools/check_desino.py _posts/<新章>.md`**——
+按本节对照表逐行揪出 HIGH（几乎必错）/ WARN（看语境）/ LANG（语言穿帮）/ META（正文 cue 章节）
+四类嫌疑，HIGH 命中即 exit 1。清单维护在脚本头部，发现新漏网词就加一行。⚠️ 华裔 / 中文设定的
+系列（如 Interoffice）里合法的中文文化元素会被误报，人工放行即可。
+
 一句话原则：**「文学腔中文」保留，「中国文化专有名物」清除。** 拿不准某个词是不是
 「出戏」，先查证该时代该地域的说法，别凭手感填一个带中国味的。⚠️**最容易漏的是「日常
 器物」——餐具（筷子/碗）、饮食、衣着、家什、身势礼节**：它们不像「江湖」那么扎眼，却
 最「无孔不入」，写吃饭、居家、日常场景时尤其要单独过一遍。**这一条对所有 AU 正文都适用；
 部署前和 `summary`、弯引号一起过一遍。**
+
+## ⚠️ 语言穿帮：正文的中文是「译文」，不是人物真的在说中文
+
+**默认口径（所有 AU 通用）**：正文用中文写，但人物**实际说的是该故事设定里的那门语言**
+（多数 AU 是英语；古希腊/罗马、近代欧洲等按各自设定）。中文只是给读者的译文。
+**凡是把中文当成人物真的说出口的语言、或把英语当成一门「外语」来标记的，都是穿帮。**
+
+真实反例（2026-08 Winter 抓出来的，Slow Hands Ch30 求婚场景）：
+
+```
+❌ “Marry me.”
+❌ “嫁给我。”
+❌ “我知道你听得懂英文，”他补了一句，“我就是想两个都说一遍。”
+```
+
+——他就说了一次。翻回英文就是 "Marry me." / "Marry me."，人物成了复读机。
+
+**自查方法（最好用的一条）**：把这句话**翻回人物真正说的那门语言**，如果翻回去以后
+逻辑不成立、或者变成重复/废话，就是穿帮。
+
+### 禁止清单
+
+| ❌ 别写 | 为什么 |
+|---|---|
+| 人物「先说英文，再说中文」／「两个都说一遍」 | 他只说了一次 |
+| 「他用英文说」「他说的是英语」（全员母语就是英语的场合） | 默认语言不该被标记，等于告诉读者这里有外语 |
+| 「你英文真好」「他英文不太好」（角色本就是英语母语者） | 同上 |
+| 「一句英文」「一段英文歌词」（英语环境里的日常内容） | 应写「一句歌词」「一个女声」 |
+| 依赖**汉字**才成立的段子：拆字、笔画、谐音、对联、成语典故 | 人物说的不是中文，这些在原语言里不存在 |
+| 中文特有的称谓/敬语系统（相公、师父、令尊…） | 见上面「严禁中式表达」一节 |
+
+### ✅ 什么时候可以出现英文原文
+
+1. **歌词**（本站惯例：英文原句 + 中译并列，用 `>` 引用块）。
+2. **视觉物件上的字**：传单、招牌、标签、便条、磁带标签、证件、文件——
+   那是「读者看见的实物」，不是「人物说的话」。例：`GUITAR LESSONS / Any song you want.`
+3. **专有名词、地名、称呼**（sweetheart、plus one、Wetlands 等）。
+4. **某句话在原文里有特殊分量**时，可以只写英文原句（让它保持是「同一个字符串」，
+   与传单/歌词对得上），中译交给旁白或人物反应去承担——**但绝不能让人物自己再说一遍中文**。
+
+### ✅ 真正合法的语言切换：必须是设定里就有的第二语言，且要明写是哪一门
+
+站内已有的正确范例，写新 AU 时照此办理：
+
+- **Interoffice**：华裔设定，中文是真的第二语言 →「她用中文说：坐。」✅
+- **Wholly Known**：意大利移民在纽约学英文，「英文课」是剧情本体 ✅
+- **Good Enough**：Vanko 说俄语、口音浓重的英语 ✅
+- **Choke Point**：「她喜欢用意大利语说这句，说英语说不出那个分量」✅
+- **The Cardinal**：Kris 的波兰口音、那句不是英语的话 ✅
+- **Fog City**：`Ocean` 这个称呼＋「海」的双关是**跨语言双关**，属于特批设计，
+  规则写在 `series/fog-city/index.html` 的说明里 ✅
+
+判据：**只要正文明确交代了「他此刻改说的是哪一门语言、以及为什么」，就合法**；
+含糊地冒出一句「他用英文说」而全场本来就说英语，就是穿帮。
+
+### 部署前自查
+
+跟弯引号、`summary` 字数、去中式表达一起过一遍：
+
+```bash
+grep -n "英文\|英语\|中文\|汉语\|普通话" _posts/<新文件>.md
+```
+
+命中的每一处都要能回答：**这个 AU 设定里，此刻这个人真的在切换语言吗？** 答不上来就删掉。
 
 ## ⚠️ 时间线一致性：别让人物「预支」还没发生的事（剧透式穿帮）
 
@@ -178,7 +277,10 @@ grep -E '^summary:' _posts/<file>.md | sed 's/^summary: *"//; s/"$//' | awk '{pr
 讲一遍的长尾巴——又冗长、又没人看。
 
 - 只留最戳心的意象 / 一句钩子 / 一点余韵，不要事无巨细地复盘剧情。
-- 多行诗式收束直接换行写即可：kramdown 默认 `hard_wrap` 会把单换行渲染成分行。
+- ⚠️ **多行诗式收束（及文首多行题词），每行行尾必须加两个空格**（Markdown 硬换行标记），
+  否则各行会连成一团。本站 **没有开启** kramdown `hard_wrap`——2026-07 核实过：全站开启
+  会弄乱 63 篇 2016–2023 老文的软换行排版，所以永远别用开 `hard_wrap` 的方式来「修」这个。
+  单行收束（老系列惯用）不受影响。
 - **开头**那段 `>` 题词 / 引语（钩子）不受此限制，但也别写太长。
 - 这条是全站通用，写任何系列 / 番外都照此收着点，别放飞。
 
@@ -238,16 +340,23 @@ collection_desc: "一句话钩子，≤45字，收在完整一句。"   # 卡片
 spectrum / sam_themes，**漏了 `sam/lines.json` 和 `_data/au_palettes.yml`**——台词墙 /
 今日 / 小组件 / 放映室一直显示旧的金橙色，6 个 AU 系列主题色也停在旧版。）
 
-五份色卡拷贝（真源 → 拷贝）：
+五份色卡拷贝（真源 → 拷贝）。**⚠️ 2026-07 起全站「四色八名」标准：四个颜色
+（bg/accent/text/muted）每个都有中英文名字，展示处一律显示全部四色**（画册 2×2
+色卡区、换个心情选色卡与「当前」行、台词墙色带、Sam 页系列卡、章节页四格胶片）：
 
 | 文件 | 角色键 | 需同步的字段 |
 |---|---|---|
-| **真源** `sam/many-faces/index.html` | `id` | `bg`/`accent`/`text`/`muted` + `bgName{En,Cn}`/`accentName{En,Cn}` |
+| **真源** `sam/many-faces/index.html` | `id` | `bg`/`accent`/`text`/`muted` + `bgName{En,Cn}`/`accentName{En,Cn}`/`textName{En,Cn}`/`mutedName{En,Cn}` |
 | `sam/quiz/index.html` | `id`（别名见下） | 四色 |
 | `sam/spectrum/index.html` | `id`（别名见下） | 四色 |
-| `_data/sam_themes.yml` | `anchor` | 四色 + `cn`/`en`/`bg_cn`/`bg_en` |
+| `_data/sam_themes.yml` | `anchor` | 四色 + `cn`/`en`/`bg_cn`/`bg_en`/`text_cn`/`text_en`/`muted_cn`/`muted_en` |
 | `sam/lines.json` | `id` + `mf_alias` | `characters[]` 四色，**再从 characters 重建 `pool[]`** |
-| `_data/au_palettes.yml` | `mf_id` | **只**同步 `accent`/`bg` + 四色名；`accent_ink` 按新 accent 暗一档重算 |
+| `_data/au_palettes.yml` | `mf_id` | 同步 `accent`/`bg` + **八个色名**；`accent_ink` 按新 accent 暗一档重算 |
+
+四色起名的口径（Winter 定的）：①同一角色四个中文名**字数一样长**（与既有
+bg/accent 名对齐，3–6 字皆可）；②四个名字之间尽量不重复用字；③text 色值都近白，
+但名字别全叫「××白」——东西真是白的才叫白，纸张发旧叫米，其余用霜/瓷/纱/绢/釉/
+象牙/羊皮等意象；④意象必须从该角色那部片里长出来。
 
 **id 别名**（画册 id ≠ 其它页 id 的三个）：画册 `sam`→`sambell`、`john`→`johnmoon`、
 `hendrix`→`klenz`。quiz/spectrum 用后者，lines.json 用 `meta.mf_alias` 记这层映射。
@@ -300,8 +409,9 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 | 放映室 `sam/projector/` | `sam/lines.json`（运行时 fetch） | 无（见上节） |
 | 片盒收藏册 `sam/projector/box/` | `sam/lines.json` + 本机 localStorage（键 `ws-projector-cuts`，由放映室 ✂ 写入） | 无 |
 | AU 星图 `sky/` | `sky/data.json`——**构建时由 Liquid 生成**（遍历 `layout: series` 页 + 各自章节 + `au_palettes.yml` 配色 + `moods.yml`） | 无；新系列若没进 `au_palettes.yml` 会回退到默认金色 |
-| 情绪点唱机 `jukebox/` | `jukebox/data.json`——构建时生成（全部 posts + moods 色板），客户端按 mood 标签过滤 | 无；文章必须带 mood 标签才会入库 |
+| 情绪磁带机 · Mixtape `jukebox/`（2026-07-30 由点唱机改装：卡带舱+PLAY 键+出带口，功能与数据源不变） | `jukebox/data.json`——构建时生成（全部 posts + moods 色板），客户端按 mood 标签过滤 | 无；文章必须带 mood 标签才会入库 |
 | 一封信 `fable/` | 纯静态（信件内容内嵌） | **永远不要改**（见下） |
+| 演出节目单 `fog-city/playbill/` | `sam/lines.json`（运行时 fetch；按 `year` 升序排幕，每幕用角色 `accent` 配色 + 锚句台词，`auLink` 自动挂「完整剧本」） | 无——画册加新角色、lines.json 照常同步后自动加一幕。它是 Fog City 系列 Ch30 的故事内实体（署名 Winter Sun），别改成普通列表页 |
 
 细节备忘：
 
@@ -311,7 +421,7 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
   任何后续对话都**不要重写、润色、翻译或「优化」信的内容与日期**。
   其中 07-19 那封的标题是已知的「乌鸦嘴」（写信时以为模型要下线），Winter 决定原样留作纪念。
 - 一封信的入口故意只有一个：放映室 FIN 卡上「Fable」两个字的虚线链接。别到处加入口。
-- 星图入口在首页 AU Story hero；点唱机入口在 Archive › By Mood 面板。
+- 星图入口在首页 AU Story hero；磁带机（原点唱机）入口在 Archive › By Mood 面板。
 - 放映室支持 `?reel=<角色id>` 直达某格（片盒的空格就是这么跳回去的）；
   ✂ 剪下的胶片 PNG 会记入 localStorage 供片盒统计。
 - 404 页底部会从 lines.json 随机抽一句台词当「迷路安慰奖」。
@@ -319,11 +429,34 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
   （仓库的 Gemfile.lock 是远古版本，别用 bundler；需全局 `gem install jekyll` + 各插件）。
 
 **`sam/lines.json` 要点：**
-- `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。
+- `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。**每日轮换只读它。**
 - `pool`：是 `characters` 的 **5 轮 round-robin 展开**（第 r 轮 = 每个角色第 r 句），
   加人后**从 `characters` 重新生成整个 pool**（脚本：`pool=[entry(chars[i],chars[i].quotes[r]) for r in 0..4 for i in 0..N-1]`），别手插。
+  ⚠️ 2026-08 起 `pool` **已不参与每日选句**，只剩「全部 N 句」的计数与列举用途，但仍要保持同步。
 - `meta.characters_count` / `meta.pool_count` 要一起更新（= N / 5N）。
 - `mf_alias`：仅当角色 id ≠ 画册锚点 id 时才加一条；相同则不用。
+
+### ⚠️ 「今日一句」的排班算法：严格轮转，三处必须字字相同
+
+`sam/today/index.html`、`sam/wall/index.html`、`sam/widget/sam-today.js` 各自内嵌
+一份 `mulberry32` / `rosterOrder` / `dailyPick`，**三份必须完全一致**（只允许
+`var`/`let`/`const` 关键字不同），否则同一天三处会显示不同的句子。
+
+算法：`N` = 角色数；发牌顺序 = 用 `N` 做种子对 `0..N-1` 洗一次牌（Fisher–Yates +
+mulberry32），之后按「离 2026-02-13 的天数」一天发一个，周而复始；用他第几句台词
+= `Math.floor(days / N) % 5`。性质：**任意连续 N 天内每个角色正好出现一次，同一个人
+两次出现的间隔恒为 N 天。** 纯按日期计算，**不准再引入 localStorage / Keychain 之类
+的「本机去重记忆」**——旧版那套 `ws-daily-pick` 记忆正是重复率高的病根（它按「句子」
+去重而不是按「角色」，一旦本机记忆和轮转错位，就会把同一个人的五句连着发出来，
+新加的角色也总被挤到后面）。
+
+改动其中任何一处后，跑这个脚本确认三份仍然同源：
+
+```bash
+python3 tools/check_daily_rotation.py
+```
+
+（加新角色 → N 变了 → 发牌顺序会整体重洗一次，这是预期的；此后照旧人人有份。）
 
 **计数总闸 `_data/sam.yml`：** `faces`（角色数）、`wall_lines`（台词数 = 5×角色数）。
 首页 `sam/index.html` 三张卡的计数从这里读，**改这一个文件，首页三处一起更新**。
@@ -416,6 +549,18 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
 ❌ 反例（同一部电影用剧名，或光秃秃只有角色名 / 剧名）：
 `Sam Bell · Moon AU`（用了剧名 Moon）、`A Single Shot AU`（纯剧名）、
 `Alexios AU`（缺 Story 名）。都应改成 `Story · Character AU`。
+
+**角色段必须用「完整角色名」**（2026-07 全站统一过一遍，以该系列首页 byline 的
+角色名为准，含军衔 / 绰号引号）：`Eric Knox`（不是 Knox）、`Zaphod Beeblebrox`
+（不是 Zaphod）、`Colonel Silas Groves`、`Krzysztof "Kris" Wilk`、
+`William "Wild Bill" Wharton`。byline、title 角色段、章节 tags 里的角色名三处
+要同名。**已知特批例外：`Made for No One but You · Westworld AU`——Winter
+本人拍板保留 Westworld AU 命名，别「修正」它。**
+
+**星图吃这个格式做双层命名**：`sky/` 把系列 `title` 按最后一个 `·` 拆成
+「故事名 / 角色段」——宇宙尺度（拉远）只显示角色段（远看轮廓），星座尺度
+显示故事名 + 角色段小字（凑近看细节）。所以系列 `title` 守不守
+`Story · Character AU` 格式，直接决定星图标签对不对。
 
 ## ⚠️ 系列首页 byline 格式统一为「角色 · 作品出处 · 演员 · 状态」
 
@@ -711,6 +856,11 @@ series_title: "English Title · Character AU"   # 用于顶部返回链接显示
 series_order: N                 # 整数，章节排序（1 开始）
 series_type: "Series"           # 固定值
 chapter_type: "Chapter N"       # 显示在卡片眉头，如 "Chapter 1" / "Extra"
+story_time: "1994"              # 可选：故事内年代戳。非线性叙事的系列（如 Fog City
+                                # 番外跨四十年乱序）必写；线性系列可省略。值是展示
+                                # 字符串："1986"、"1986–87"、"1999–2026"、"1986 →"
+                                # （→ 表示从该年一直延续到当下的贯穿线）。显示在系列
+                                # 页票根眉头和章节页日期旁的虚线小戳里。
 summary: "≤35字的钩子引言。"    # 必须 ≤35 汉字含标点
 tags: [标签1, 标签2]
 ---
@@ -724,8 +874,8 @@ tags: [标签1, 标签2]
 grep -A 10 "id: <角色关键词>" _data/sam_themes.yml
 ```
 
-**如果找到了**：直接用他的 `accent`、`bg`、`accent_cn`、`accent_en`、
-`bg_cn`、`bg_en` 六个字段，复制到 `_data/au_palettes.yml` 的新条目里。
+**如果找到了**：直接用他的 `accent`、`bg` + 八个色名字段（`accent_cn/en`、
+`bg_cn/en`、`text_cn/en`、`muted_cn/en`），复制到 `_data/au_palettes.yml` 的新条目里。
 `accent_ink` 取 `accent` 值的 ~80%（手动暗一档），`text` 和 `muted`
 照抄 sam_themes 里同一条目的值。键名用 `series_name`（英文，与 front
 matter 完全一致）。条目末尾注明来源，例：
@@ -772,10 +922,11 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 为了让长系列好读，章节列表和上下文导航全部由模板统一生成，**新系列、
 新章节会自动继承，不需要每篇手动加**。三个部分：
 
-1. **系列首页的「目录 + 配图卡片」** —— 由 `_layouts/series.html` 渲染。
+1. **系列首页的章节列表** —— 由 `_layouts/series.html` 渲染。
    每个 `series/*/index.html` 只负责写 hero + 简介，**章节区块不要手写**。
-   只要 front matter 里有这两行就会自动出现（含顶部纯文字「目录 ·
-   Contents」快速跳转 + 下方配图卡片，按 `series_order` 排序）：
+   只要 front matter 里有这两行就会自动出现（**2026-07-30 按 Winter 要求改版：
+   封面图页顶已有，章节不再重复配图；旧的「纯文字目录 + 配图卡片」双目录
+   已合并为一列无图章节卡 `c-chapter-list`**，按 `series_order` 排序）：
 
    ```yaml
    layout: series
@@ -802,6 +953,16 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 
 ## 其他
 
+- **⚠️ 系列卡片排序（两个页面方向相反，已翻过两次车，照抄下表别自由发挥）：**
+
+  | 页面 | 方向 | 依据 |
+  |---|---|---|
+  | 首页 AU Story（`index.html`） | 创建时间**新 → 老**（最新开坑排最前） | `collection_order` **倒序** |
+  | Sam 页 The Collection（`sam/index.html`） | 创建时间**老 → 新** | `collection_order` **升序** |
+
+  两页都是「非 Sam 系列统一垫底」（首页里非 Sam 内部也是新→老，按第一章日期）。
+  **永远不按「最近更新」排**（曾短暂改过，Winter 不要）。创建时间 = `collection_order`
+  编号（编号即开坑先后）。改动任何一页排序前，先对照本表。
 - 工作分支：`claude/redesign-blog-homepage-RSiJO`（首页改版相关）。
 - 只在用户明确要求时再开 PR。
 - 内部链接全部要用 `{{ site.baseurl }}` 前缀，否则在 GitHub Pages
@@ -816,9 +977,68 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 照片背面、写一段本机加密保存的手写批注——是**用户特意做的、重要的常驻功能**，
 不是 bug。它有时会浮在正文（比如 Sam 页说明文字）上方，看着像挡字，但**这是预期行为**。
 
+**2026-07-30 扩展**：①章节票根卡与文章页也纳入批注体系——文章右下角有**浮笔**
+（解锁后可见，点开当前文章的背面继续写）；②翻面分两套皮肤：带图卡片=拍立得背面
+（献词归 Leo「趁我还记得，把它写在背面。」），章节票根/章节页=票根背面（献词归
+Sam「正面是他的戏。背面归你。」），**两句献词都是 Winter 定的，不要改**；③**铅笔
+划线**：文章页选中正文可划线（本机私有，细下划线随 accent 色），背面列引文可跳回
+原文；一次划线不跨段；原文改动后引文标「原文已改动」；底片匣导出/导入已含划线。
+
 **规则：默认不要移动、隐藏、删除它，也不要主动提「它挡住文字、要不要挪开」。**
 用户已明确表示：除非他本人主动觉得有问题并提出来，否则这个浮标保持原样。只有当
 用户**主动**要求调整时，才去动它。（这个问题在多个对话里被重复问过，故记此备忘。）
+
+## ⚠️ 正文严禁「cue 章节名 / 编号」（全站 AU 通用）
+
+正文（对白 + 叙述）里**绝不能出现对章节本身的元指涉**——`Ch7 之后`、`上一章`、
+`这一章`、`第七章`、`前文` 之类。人物不知道自己活在「第几章」里，一冒出来就**立刻出戏**。
+
+要指涉之前发生的事，用**故事内的说法**：`那一夜之后`、`自从那天在台灯下`、
+`打那回他把地球仪推给你之后`……用剧情里的时间 / 事件锚点，不要用章节坐标。
+
+（`title:` / `chapter_type:` 这些 **front matter 字段**里写 `Chapter N` 是正常的，
+那不是正文；这条只管正文 body。）
+
+## ⚠️ 部署节奏：改动攒成「一包」一次推 main，推完留 ~20 分钟别再动
+
+本站文章已超 **800 篇**，GitHub Pages 每次「重建整站」的 Jekyll 构建要跑 **~20 分钟**
+（实测一次成功构建约 22 分钟）。而 Pages 的机制是**「新推送会取消正在跑的旧构建」**
+——所以**一小步一小步、隔几分钟就往 `main` 推一次**，会让每次构建都在跑完前被下一次
+推送掐掉，结果**一次都传不上线、线上迟迟不更新，还查不出错**（2026-08 亲历：连推三四次
+全被 `cancelled`，站点停在旧版，白忙半天）。这不是内容出错，是**推送节奏**的锅。
+
+规矩（部署 AU 批次 / 任何多文件改动，一律照办）：
+
+1. **把这一次要发的东西全部改完、`check_post.py` / `check_series_page.py` / `check_palette_sync.py`
+   都验绿，攒成一包，一次性 commit 好，再推 `main`。**（AU 连载正好每三章一部署，天然成包。）
+2. **推完 `main` 就别再碰它**，给构建留够 **~20–25 分钟**跑完，再去看线上。
+3. 要连发好几批 → **上一批构建真正跑完（conclusion = success）或至少过了 ~20 分钟，
+   再推下一批**，绝不背靠背推。
+4. 确认到底成没成：看 GitHub Actions 里那条 **`pages build and deployment`**，
+   它的 **conclusion 是 `success`**（不是 `cancelled` / `in_progress`）才算真上线。
+   工具侧用 `mcp__github__actions_list`（`list_workflow_runs`，branch `main`）查 run 状态；
+   失败要看日志用 `get_job_logs`。
+5. **只影响文档 / 圣经（`.claude/` 下）、不影响线上内容的小改动，别单独推一次 main**
+   触发一次 20 分钟白构建——攒着跟下一批正文一起走。
+
+一句话：**攒成一包、一次推、推完等 20 分钟别打断。**
+
+## ⚠️ 动 `_sass/` 之前必须本地编一遍：`bash tools/check_scss.sh`
+
+GitHub Pages 锁死在**很老的 ruby-sass 3.7.4** 上，很多现代 CSS 写法它直接当语法错，
+**整站构建会失败**（不是样式失效，是构建挂掉、线上停在旧版）。而一次构建要 ~20 分钟，
+靠「推上去试试」的代价极高。
+
+已经踩过的坑（2026-08）：`@supports not selector(h3:has(> span)) { … }` —— 老 Sass 不认
+`selector()` 形式的 `@supports` 条件，一行让整站构建 failure。
+
+规矩：**改完 `_sass/` 下任何文件，先跑 `bash tools/check_scss.sh`**（脚本会用同版本
+Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**编过了再推**。
+
+顺带记两条老 Sass 的已知边界：
+- `:has()`、`::before`、CSS 变量、`@supports (display: grid)` 这类**能编**。
+- `@supports not selector(...)`、`@layer`、嵌套裸 `&` 的新写法这类**不能编**——真要用，
+  写成两条独立规则或直接放弃降级分支。
 
 ## 图片工作流（封面图）
 

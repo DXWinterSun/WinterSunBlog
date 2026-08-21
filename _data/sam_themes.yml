@@ -1,11 +1,32 @@
+- id: youngsam
+  year: 1986
+  name: "Young Sam"
+  anchor: youngsam
+  cn: 你画的海
+  en: Painted Ocean
+  bg_cn: 双峰暮雾
+  bg_en: Twin Peaks Fog
+  text_cn: 镜片浅光
+  text_en: Lens Glint
+  muted_cn: 磁带暖褐
+  muted_en: Cassette Brown
+  accent: "#5b9db8"
+  bg: "#1b222b"
+  text: "#e3eaef"
+  muted: "#9c8f7d"
+
 - id: gary
   year: 1991
-  name: "Gary"
+  name: "Gary O'Hara"
   anchor: gary
   cn: 天际钢蓝
   en: Skyline Steel
   bg_cn: 顶楼黑檀
   bg_en: Penthouse Ebony
+  text_cn: 信笺米黄
+  text_en: Mailroom Ivory
+  muted_cn: 公文皮褐
+  muted_en: Briefcase Tan
   accent: "#5b84b1"
   bg: "#14110d"
   text: "#ede2d0"
@@ -19,6 +40,10 @@
   en: Ember Cardinal
   bg_cn: 华沙墨蓝
   bg_en: Warsaw Indigo
+  text_cn: 舞票米白
+  text_en: Taxi-Ticket Cream
+  muted_cn: 乡愁烟青
+  muted_en: Homesick Slate
   accent: "#bc4d3a"
   bg: "#11161c"
   text: "#ece0d2"
@@ -32,6 +57,10 @@
   en: Booth Fluorescent
   bg_cn: 凌晨地铁月台
   bg_en: Pre-Dawn Subway
+  text_cn: 晨报头版纸白
+  text_en: Front-Page White
+  muted_cn: 铁轨枕木灰褐
+  muted_en: Rail-Tie Grey
   accent: "#7ec9a0"
   bg: "#171d24"
   text: "#ebe0cc"
@@ -45,6 +74,10 @@
   en: Forest Moss
   bg_cn: 月光银白
   bg_en: Moonlight Silver
+  text_cn: 萤火浅碧
+  text_en: Firefly Pale
+  muted_cn: 鹿皮青灰
+  muted_en: Buckskin Sage
   accent: "#b8c878"
   bg: "#1a2418"
   text: "#e8eed8"
@@ -58,6 +91,10 @@
   en: Pickup Sky
   bg_cn: 新刈草青
   bg_en: Mown Lawn
+  text_cn: 晨露微光
+  text_en: Morning Dew
+  muted_cn: 木篱旧褐
+  muted_en: Fence-Post Brown
   accent: "#79a7bd"
   bg: "#141c12"
   text: "#dce5ea"
@@ -71,6 +108,10 @@
   en: Vintage Costume Red
   bg_cn: 格纹芥末棕
   bg_en: Plaid Mustard
+  text_cn: 走音歌单米
+  text_en: Off-Key Setlist
+  muted_cn: 保险柜旧褐
+  muted_en: Safe-Door Tan
   accent: "#b23d2c"
   bg: "#211a0f"
   text: "#f0e2d4"
@@ -84,6 +125,10 @@
   en: Fry Basket Orange
   bg_cn: 深夜快餐棕
   bg_en: Late-Night Diner
+  text_cn: 卡座餐纸白
+  text_en: Diner-Napkin White
+  muted_cn: 二手车暗红
+  muted_en: Used-Car Maroon
   accent: "#e08f2e"
   bg: "#20120c"
   text: "#f0e0d0"
@@ -97,6 +142,10 @@
   en: Raw Timber
   bg_cn: 炉膛夜黑
   bg_en: Forge Soot
+  text_cn: 玉米饼黄
+  text_en: Cornbread Gold
+  muted_cn: 草垫灰褐
+  muted_en: Cell-Straw Grey
   accent: "#8a8058"
   bg: "#1b1510"
   text: "#ece0d0"
@@ -110,6 +159,10 @@
   en: Console Teal
   bg_cn: 深空黛黑
   bg_en: Deep-Space Black
+  text_cn: 舰灯清辉
+  text_en: Ship-Light Glow
+  muted_cn: 舱员烟灰
+  muted_en: Crewman Grey
   accent: "#43b3bf"
   bg: "#0f161a"
   text: "#dfe7ea"
@@ -123,10 +176,31 @@
   en: Crimson Lens
   bg_cn: 可乐棕
   bg_en: Cola Noir
+  text_cn: 探戈绢
+  text_en: Tango Silk
+  muted_cn: 雪茄烬
+  muted_en: Cigar Ash
   accent: "#cf3550"
   bg: "#1b1310"
   text: "#ede0e0"
   muted: "#8d6e62"
+
+- id: silk
+  year: 2001
+  name: "Jimmy Silk"
+  anchor: silk
+  cn: 愚人金箔
+  en: Fool's Gold
+  bg_cn: 深港夜靛
+  bg_en: Harbor Indigo
+  text_cn: 薄荷糖白
+  text_en: Peppermint White
+  muted_cn: 车窗雾灰
+  muted_en: Windshield Grey
+  accent: "#c8a43e"
+  bg: "#0e1820"
+  text: "#e7ece9"
+  muted: "#7d8e97"
 
 - id: pero
   year: 2002
@@ -136,6 +210,10 @@
   en: Ring Rust
   bg_cn: 科林伍德暮色
   bg_en: Collinwood Dusk
+  text_cn: 保险箱图纸黄
+  text_en: Aged Blueprint
+  muted_cn: 更衣室拳套褐
+  muted_en: Worn-Glove Brown
   accent: "#b8703a"
   bg: "#1a1612"
   text: "#ede0cc"
@@ -149,6 +227,10 @@
   en: Limelight Pink
   bg_cn: 午夜情报蓝
   bg_en: Midnight Spy
+  text_cn: 提词卡片白
+  text_en: Cue-Card White
+  muted_cn: 机密档案灰
+  muted_en: Dossier Grey
   accent: "#de6e8e"
   bg: "#15182a"
   text: "#ede4d0"
@@ -162,6 +244,10 @@
   en: Hazel Mauve
   bg_cn: 焦黑火柴
   bg_en: Burnt Matchstick
+  text_cn: 奖券浅樱
+  text_en: Lotto-Ticket Blush
+  muted_cn: 磷头暗褐
+  muted_en: Striker Umber
   accent: "#9a7ba0"
   bg: "#1a1410"
   text: "#ede0e6"
@@ -175,6 +261,10 @@
   en: Club Champagne
   bg_cn: 貂皮大氅黑
   bg_en: Mink Black
+  text_cn: 晨衣缎面光
+  text_en: Satin Sheen
+  muted_cn: 八卦版胭脂
+  muted_en: Tabloid Rouge
   accent: "#d8b25a"
   bg: "#161214"
   text: "#f0e3dc"
@@ -188,6 +278,10 @@
   en: President's Mane
   bg_cn: 黑甲漆夜
   bg_en: Lacquer Black
+  text_cn: 柠檬泡沫
+  text_en: Gargle-Blaster Fizz
+  muted_cn: 通缉令褐
+  muted_en: Wanted-Poster Tan
   accent: "#d4a82a"
   bg: "#0b0a12"
   text: "#e8e4d0"
@@ -201,6 +295,10 @@
   en: Tennis Ball
   bg_cn: 曼哈顿冬夜
   bg_en: Manhattan Slate
+  text_cn: 育儿室奶白
+  text_en: Nursery White
+  muted_cn: 中央公园雾
+  muted_en: Park Fog
   accent: "#c9d84e"
   bg: "#1c2230"
   text: "#e8eadc"
@@ -214,6 +312,10 @@
   en: First Snow
   bg_cn: 寒冬冷蓝灰
   bg_en: Winter Steel
+  text_cn: 圣诗册页霜
+  text_en: Hymnal Frost
+  muted_cn: 冰封湖水黛
+  muted_en: Frozen-Lake Slate
   accent: "#b8d0e0"
   bg: "#1c2030"
   text: "#dce4ea"
@@ -227,6 +329,10 @@
   en: Studio Cathode Blue
   bg_cn: 深夜手稿棕
   bg_en: Manuscript Brown
+  text_cn: 打字机稿米
+  text_en: Typescript Cream
+  muted_cn: 录音带陈褐
+  muted_en: Reel-Tape Brown
   accent: "#3f8f94"
   bg: "#1f1814"
   text: "#ebe0cc"
@@ -240,6 +346,10 @@
   en: Colonial Gilt
   bg_cn: 海报品红夜
   bg_en: Poster Magenta Night
+  text_cn: 餐巾纸浅粉
+  text_en: Napkin Pink
+  muted_cn: 唇印暗玫瑰
+  muted_en: Lipstick Rose
   accent: "#d2a24a"
   bg: "#350d1e"
   text: "#f5e0e8"
@@ -253,6 +363,10 @@
   en: Cosmic Violet
   bg_cn: 苍穹墨夜
   bg_en: Stardust Night
+  text_cn: 稿纸薄藕
+  text_en: Lilac Page
+  muted_cn: 笔锋黛影
+  muted_en: Penstroke Shadow
   accent: "#8f6fd4"
   bg: "#160f24"
   text: "#e6e0f5"
@@ -266,6 +380,10 @@
   en: Sarang Glow
   bg_cn: 月球蔚蓝
   bg_en: Lunar Blue
+  text_cn: 舱壁净白
+  text_en: Module White
+  muted_cn: 倒计时灰
+  muted_en: Countdown Grey
   accent: "#7eb0d5"
   bg: "#162038"
   text: "#e8eef5"
@@ -279,6 +397,10 @@
   en: Santa Hat
   bg_cn: 鼓皮深棕
   bg_en: Drumskin Brown
+  text_cn: 电线瓷釉
+  text_en: Wire-Coat Glaze
+  muted_cn: 行李箱褐
+  muted_en: Suitcase Tan
   accent: "#cc4436"
   bg: "#211910"
   text: "#ede4d4"
@@ -292,6 +414,10 @@
   en: Courtside Crimson
   bg_cn: 散场夜墨黑
   bg_en: Empty-Gym Black
+  text_cn: 记分牌灯白
+  text_en: Scoreboard White
+  muted_cn: 枫木地板褐
+  muted_en: Hardwood Tan
   accent: "#c1352b"
   bg: "#16110d"
   text: "#ede3d3"
@@ -305,10 +431,31 @@
   en: Spotlight Sapphire
   bg_cn: 落幕玄黑
   bg_en: After-Curtain Onyx
+  text_cn: 展厅冷白
+  text_en: Expo White
+  muted_cn: 提案青灰
+  muted_en: Boardroom Slate
   accent: "#4a87ee"
   bg: "#13151c"
   text: "#e7eaf2"
   muted: "#7c8aa6"
+
+- id: doc
+  year: 2011
+  name: "Doc"
+  anchor: doc
+  cn: 斑驳金叶
+  en: Gold Leaf
+  bg_cn: 油灯陈木
+  bg_en: Lamplit Oak
+  text_cn: 威士忌光
+  text_en: Whiskey Glow
+  muted_cn: 荒漠尘褐
+  muted_en: Trail Dust
+  accent: "#c39a45"
+  bg: "#1a140c"
+  text: "#ece1cf"
+  muted: "#9d8f78"
 
 - id: kenny
   year: 2010
@@ -318,6 +465,10 @@
   en: Barred Blue
   bg_cn: 囚室灰墙
   bg_en: Cell Concrete
+  text_cn: 案卷泛黄
+  text_en: Yellowed Files
+  muted_cn: 会客室青
+  muted_en: Visiting-Room Blue
   accent: "#7a8fa3"
   bg: "#1c1e1f"
   text: "#f0e0d4"
@@ -331,6 +482,10 @@
   en: Smoky Kohl
   bg_cn: 地窖绒黑
   bg_en: Basement Velvet
+  text_cn: 舞厅粉纱
+  text_en: Disco Blush
+  muted_cn: 暮霭灰紫
+  muted_en: Mauve Haze
   accent: "#d15f82"
   bg: "#181320"
   text: "#f2e4ea"
@@ -344,6 +499,10 @@
   en: Jack of Diamonds
   bg_cn: 沙漠焦土
   bg_en: Scorched Desert
+  text_cn: 剧本纸白
+  text_en: Screenplay White
+  muted_cn: 西施犬褐
+  muted_en: Shih-Tzu Brown
   accent: "#c94a1e"
   bg: "#281208"
   text: "#f5e6d0"
@@ -357,6 +516,10 @@
   en: Waterslide Aqua
   bg_cn: 氯味深池
   bg_en: Chlorine Deep
+  text_cn: 水花溅银
+  text_en: Splash Silver
+  muted_cn: 池畔青灰
+  muted_en: Poolside Slate
   accent: "#35bfc9"
   bg: "#15282e"
   text: "#dce9ea"
@@ -370,6 +533,10 @@
   en: Lone Mist
   bg_cn: 西弗州山夜
   bg_en: Appalachian Dusk
+  text_cn: 猎季拂晓霜
+  text_en: First-Light Frost
+  muted_cn: 铁盒旧钞灰
+  muted_en: Cash-Box Grey
   accent: "#8fa0b0"
   bg: "#14181f"
   text: "#dce3ea"
@@ -383,10 +550,31 @@
   en: Broker's Emerald
   bg_cn: 空头支票
   bg_en: Blank-Cheque Black
+  text_cn: 合约薄荷
+  text_en: Contract Mint
+  muted_cn: 佣金灰绿
+  muted_en: Commission Sage
   accent: "#2ea86a"
   bg: "#0f1613"
   text: "#e4efe9"
   muted: "#7d9a8c"
+
+- id: garyguitar
+  year: 2013
+  name: "Gary"
+  anchor: garyguitar
+  cn: 氪石荧光
+  en: Kryptonite Glow
+  bg_cn: 琴箱陈褐
+  bg_en: Soundhole Umber
+  text_cn: 拨片乳白
+  text_en: Celluloid Pick
+  muted_cn: 素圈银灰
+  muted_en: Hoop Silver
+  accent: "#7cc94b"
+  bg: "#171310"
+  text: "#ede4d3"
+  muted: "#8e897e"
 
 - id: varney
   year: 2014
@@ -396,6 +584,10 @@
   en: Lab Coat
   bg_cn: 药瓶陈皮棕
   bg_en: Pill-Bottle Brown
+  text_cn: 剂量签薄荷
+  text_en: Dosage-Label Mint
+  muted_cn: 诊所旧橱褐
+  muted_en: Clinic-Cabinet Tan
   accent: "#e6ecea"
   bg: "#1e1408"
   text: "#dceae5"
@@ -409,6 +601,10 @@
   en: Racing Green
   bg_cn: 别墅夏夜
   bg_en: Villa Summer Night
+  text_cn: 凉台月色
+  text_en: Veranda Moon
+  muted_cn: 波本琥珀
+  muted_en: Bourbon Amber
   accent: "#3f7a52"
   bg: "#2a1810"
   text: "#eee6d4"
@@ -422,6 +618,10 @@
   en: Legal Slate Blue
   bg_cn: 停车场夜
   bg_en: Strip-Mall Night
+  text_cn: 街灯熹微
+  text_en: Streetlamp Glimmer
+  muted_cn: 慢半拍灰
+  muted_en: Half-Beat Grey
   accent: "#63788a"
   bg: "#1c2228"
   text: "#e2e8ec"
@@ -435,6 +635,10 @@
   en: Static Glow
   bg_cn: 空房暮灰
   bg_en: Empty-Room Grey
+  text_cn: 雪花屏白
+  text_en: Static White
+  muted_cn: 地基尘烟
+  muted_en: Foundation Dust
   accent: "#9fb8c9"
   bg: "#1b1917"
   text: "#ece6dd"
@@ -448,6 +652,10 @@
   en: Clown Nose
   bg_cn: 小熊软糖绿
   bg_en: Gummy Bear Green
+  text_cn: 舞步樱花粉
+  text_en: Dance-Step Blossom
+  muted_cn: 恰恰慢板苔
+  muted_en: Cha-Cha Moss
   accent: "#e23b2e"
   bg: "#14241a"
   text: "#eed9d8"
@@ -461,6 +669,10 @@
   en: Relic Turquoise
   bg_cn: 暮土玄褐
   bg_en: Dusk Umber
+  text_cn: 经卷羊皮
+  text_en: Parchment
+  muted_cn: 考古沙驼
+  muted_en: Dig-Site Khaki
   accent: "#4fa0a0"
   bg: "#1a1410"
   text: "#ece2cd"
@@ -474,6 +686,10 @@
   en: Reborn Flame
   bg_cn: 焦烬玫瑰
   bg_en: Charred Rose
+  text_cn: 遗信浅米
+  text_en: Last-Letter Cream
+  muted_cn: 落日绛灰
+  muted_en: Sunset Ash-Rose
   accent: "#e2622a"
   bg: "#241015"
   text: "#f5e6d3"
@@ -487,6 +703,10 @@
   en: Dried Blood
   bg_cn: 边境暮雪
   bg_en: Frontier Dusk
+  text_cn: 画布亚麻
+  text_en: Canvas Linen
+  muted_cn: 军毯灰褐
+  muted_en: Army-Wool Grey
   accent: "#8c3229"
   bg: "#161a1f"
   text: "#e9e4d8"
@@ -500,6 +720,10 @@
   en: Iguana Jewel
   bg_cn: 酒馆烟灰
   bg_en: Tavern Smoke
+  text_cn: 糖霜浅釉
+  text_en: Doughnut Glaze
+  muted_cn: 雨街铅色
+  muted_en: Rainy-Street Lead
   accent: "#2e9fd4"
   bg: "#1a1f24"
   text: "#dce5ea"
@@ -509,14 +733,18 @@
   year: 2018
   name: "George W. Bush"
   anchor: bush
-  cn: 德州牛仔金
-  en: Texan Tan
-  bg_cn: 总统西装夜
-  bg_en: Suit Navy
-  accent: "#c17f34"
-  bg: "#16181e"
-  text: "#f1e3cb"
-  muted: "#626d8d"
+  cn: 榛色枯草金
+  en: Dry-Grass Hazel
+  bg_cn: 就职日寒夜
+  bg_en: Inaugural Midnight
+  text_cn: 简报纸页米
+  text_en: Briefing Cream
+  muted_cn: 封套雾灰蓝
+  muted_en: Sealed Slate
+  accent: "#bf9d5e"
+  bg: "#141922"
+  text: "#ece4d5"
+  muted: "#7a8698"
 
 - id: klenz
   year: 2019
@@ -526,6 +754,10 @@
   en: Scorched Oxblood
   bg_cn: 登台华服绿
   bg_en: Costume Green
+  text_cn: 鞋带浆洗白
+  text_en: Starched-Lace White
+  muted_cn: 勋表旧橄榄
+  muted_en: Ribbon Olive
   accent: "#9c3f2a"
   bg: "#14241c"
   text: "#ede8d8"
@@ -539,6 +771,10 @@
   en: Ashtray Sage
   bg_cn: 档案橡木
   bg_en: Archive Oak
+  text_cn: 律所奶油
+  text_en: Office Cream
+  muted_cn: 士力架褐
+  muted_en: Snickers Brown
   accent: "#7a9468"
   bg: "#1c1410"
   text: "#ede0d0"
@@ -552,6 +788,10 @@
   en: Caramel Bear
   bg_cn: 蝉鸣仲夏夜
   bg_en: Cicada Nightfall
+  text_cn: 加油站灯白
+  text_en: Filling-Station White
+  muted_cn: 烟叶灰卡其
+  muted_en: Tobacco Khaki
   accent: "#9c6f38"
   bg: "#161510"
   text: "#ece2ce"
@@ -565,6 +805,10 @@
   en: Magnet Gold
   bg_cn: 狼影灰蓝
   bg_en: Wolf Shadow
+  text_cn: 请柬象牙
+  text_en: Gala Ivory
+  muted_cn: 车影钢青
+  muted_en: Getaway Steel
   accent: "#e0b840"
   bg: "#14161d"
   text: "#ede6d8"
@@ -578,6 +822,10 @@
   en: Old Photograph
   bg_cn: 伦敦午夜蓝
   bg_en: London Midnight
+  text_cn: 剧院票根米
+  text_en: Ticket-Stub Cream
+  muted_cn: 西区浓雾灰
+  muted_en: West-End Fog
   accent: "#e2c48f"
   bg: "#1a1f2c"
   text: "#ebe2d4"
@@ -591,6 +839,10 @@
   en: Casing Silver
   bg_cn: 午夜枪管蓝
   bg_en: Gunmetal Blue
+  text_cn: 平装书页米
+  text_en: Paperback Cream
+  muted_cn: 夜行列车灰
+  muted_en: Night-Train Grey
   accent: "#a8adb8"
   bg: "#15192a"
   text: "#ebe2d0"
@@ -604,6 +856,10 @@
   en: Glitch Magenta
   bg_cn: 荧光夜紫
   bg_en: Neon Violet
+  text_cn: 像素微芒
+  text_en: Pixel Glow
+  muted_cn: 预言暮霭
+  muted_en: Prophecy Haze
   accent: "#d460a0"
   bg: "#1a0e2a"
   text: "#ede0ec"
@@ -616,7 +872,27 @@
   en: Gunmetal Blue
   bg_cn: 雪原夜蓝
   bg_en: Snowfield Night
+  text_cn: 台口灯白
+  text_en: Footlight White
+  muted_cn: 挽歌青灰
+  muted_en: Elegy Slate
   accent: "#6d94b0"
   bg: "#161d29"
   text: "#dde5ee"
   muted: "#7e8ea2"
+- id: rob
+  year: 1995
+  name: "Rob"
+  anchor: rob
+  cn: 落日珊瑚
+  en: Sunset Coral
+  bg_cn: 暮蓝深湾
+  bg_en: Dusk Cove
+  text_cn: 晒暖沙米
+  text_en: Warm Sand
+  muted_cn: 潮汐浮木
+  muted_en: Driftwood
+  accent: "#e28a5a"
+  bg: "#16202b"
+  text: "#f4ecdd"
+  muted: "#9b9083"

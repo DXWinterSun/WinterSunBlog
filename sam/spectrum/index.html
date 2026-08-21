@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Six Dimensions · 六维光谱 · Winter Sun</title>
-<meta name="description" content="狡黠、隐忍、疯狂、璞真、浪漫、优雅——四十八个 Sam Rockwell 角色的性格光谱地图。">
+<meta name="description" content="狡黠、隐忍、疯狂、璞真、浪漫、优雅——五十三个 Sam Rockwell 角色的性格光谱地图。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Six Dimensions · 六维光谱 · Winter Sun">
-<meta property="og:description" content="六个维度，四十八张面孔。看清他其实演过多少种人。">
+<meta property="og:description" content="六个维度，五十三张面孔。看清他其实演过多少种人。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/spectrum/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
@@ -81,8 +81,10 @@
 const { useState, useMemo, useRef } = React;
 
 const CHARS = [
-  {id:"gary",name:"Gary",film:"Strictly Business",filmCN:"《登龙妙招》",year:"1991",label:"OFF THE CLOCK",line:"I'd rather lose clean than win dirty.",lineCN:"宁可干干净净地输，也不脏着赢。",tagline:"他穿西装还带着收发室新人的青涩——可真正帅的，是他知错就改的那一下。",bg:"#14110d",accent:"#5b84b1",text:"#ede2d0",muted:"#8a7558",profile:{guile:5,forbear:6,chaos:1,raw:6,romance:6,grace:6},auLink:null},
+  {id:"youngsam",name:"Young Sam",film:"Fog City",filmCN:"《雾往低处走》",year:"1986",label:"FOG CITY",line:"I can't see them. That's why I dare.",lineCN:"看不清，才敢演。",tagline:"还没成为任何人的他，把人生第一场私人演出，给了端着颜料桶的你。",bg:"#1b222b",accent:"#5b9db8",text:"#e3eaef",muted:"#9c8f7d",profile:{guile:4,forbear:3,chaos:7,raw:9,romance:9,grace:3}},
+  {id:"gary",name:"Gary O'Hara",film:"Strictly Business",filmCN:"《登龙妙招》",year:"1991",label:"OFF THE CLOCK",line:"I'd rather lose clean than win dirty.",lineCN:"宁可干干净净地输，也不脏着赢。",tagline:"他穿西装还带着收发室新人的青涩——可真正帅的，是他知错就改的那一下。",bg:"#14110d",accent:"#5b84b1",text:"#ede2d0",muted:"#8a7558",profile:{guile:5,forbear:6,chaos:1,raw:6,romance:6,grace:6},auLink:null},
   {id:"krzysztof",name:"Krzysztof \"Kris\" Wilk",film:"Somebody to Love",filmCN:"《去爱那个人》",year:"1994",label:"PO POLSKU",line:"Ja też cię chcę.",lineCN:"我也想要你。",tagline:"拗口的辅音让他早早认了命——直到你，一个字母一个字母，学着把它叫回来。",bg:"#11161c",accent:"#bc4d3a",text:"#ece0d2",muted:"#62768d",profile:{guile:4,forbear:8,chaos:2,raw:5,romance:8,grace:5},auLink:"/WinterSunBlog/series/the-cardinal/"},
+  {id:"rob",name:"Rob",film:"Glory Daze",filmCN:"《光荣的迷惑》",year:"1995",label:"THE ONE I HID",line:"You thought I was going solo. I was just writing the one song I could never let you read the title of — well, not yet.",lineCN:"你以为我要单飞。我只是在写那首——绝不能让你看见歌名的歌。嗯……暂时不给你看。",tagline:"他背着你偷偷写一首歌，你气得骂他是不是想单飞——却没料到那首歌的名字，就是你。",bg:"#16202b",accent:"#e28a5a",text:"#f4ecdd",muted:"#9b9083",profile:{guile:7,forbear:5,chaos:7,raw:7,romance:8,grace:6},auLink:"/WinterSunBlog/series/everything-in-transit/"},
   {id:"matty",name:"Matty",film:"Mercy",filmCN:"《宽恕》",year:"1995",label:"THE NEXT ONE",line:"I always thought the next one'd be better — I never thought she'd stay.",lineCN:"我一直以为「下一个」会更好——没想到她真的留了下来。",tagline:"他曾以为他们是 Bonnie and Clyde——但她只看上了他的车，你看上的是他。",bg:"#171d24",accent:"#7ec9a0",text:"#ebe0cc",muted:"#7d7264",profile:{guile:3,forbear:1,chaos:7,raw:8,romance:7,grace:2},auLink:null},
   {id:"buck",name:"Buck \"The Kid\"",film:"Box of Moonlight",filmCN:"《月光宝盒》",year:"1996",label:"HIS FAVORITE THING",line:"Here. This one's my favorite. It's yours now.",lineCN:"给你。这个我最喜欢——现在归你了。",tagline:"他是林中仙子，也是认准你之后再也不肯走开的大狗。",bg:"#1a2418",accent:"#b8c878",text:"#e8eed8",muted:"#7a8868",profile:{guile:1,forbear:1,chaos:6,raw:10,romance:8,grace:1},auLink:null},
   {id:"trent",name:"Trent",film:"Lawn Dogs",filmCN:"《割草叔叔》",year:"1997",label:"ON THE ROAD OUT",line:"I was saving up to leave. Now I'm saving up to take you with me.",lineCN:"我攒钱本是为了离开——如今攒钱，是为了带你一起走。",tagline:"他不属于这里，但他愿意为你停下来。",bg:"#141c12",accent:"#79a7bd",text:"#dce5ea",muted:"#7a7654",profile:{guile:5,forbear:8,chaos:3,raw:5,romance:7,grace:2},auLink:null},
@@ -91,8 +93,9 @@ const CHARS = [
   {id:"wildbill",name:"Wild Bill Wharton",film:"The Green Mile",filmCN:"《绿里奇迹》",year:"1999",label:"UNDER HIS BREATH",line:"I ain't listenin' to you.",lineCN:"我才没听你的。",tagline:"他对全世界都没有刹车——除了你伸手的那一下。",bg:"#1b1510",accent:"#8a8058",text:"#ece0d0",muted:"#93826a",profile:{guile:5,forbear:0,chaos:10,raw:9,romance:7,grace:1},auLink:"/WinterSunBlog/series/tuning-the-devil/"},
   {id:"guy",name:"Guy Fleegman",film:"Galaxy Quest",filmCN:"《惊爆银河系》",year:"1999",label:"CREWMAN HALE",line:"Hale. So I make it to the end after all.",lineCN:"Hale——原来我能活到结局。",tagline:"他认定自己是注定领盒饭的那个——可你偏不准他死。",bg:"#0f161a",accent:"#43b3bf",text:"#dfe7ea",muted:"#738088",profile:{guile:2,forbear:2,chaos:5,raw:8,romance:8,grace:5},auLink:null},
   {id:"eric",name:"Eric Knox",film:"Charlie's Angels",filmCN:"《霹雳娇娃》",year:"2000",label:"EVERY MOVE BUT ONE",line:"I planned every move on the board. I never planned on you.",lineCN:"棋盘上每一步我都算到了——唯独没算到你。",tagline:"他计划了一切，却没有计划上你。",bg:"#1b1310",accent:"#cf3550",text:"#ede0e0",muted:"#8d6e62",profile:{guile:10,forbear:6,chaos:8,raw:1,romance:7,grace:9},auLink:"/WinterSunBlog/series/knox-au/"},
+  {id:"silk",name:"Jimmy Silk",film:"Heist",filmCN:"《各怀鬼胎》",year:"2001",label:"NOT A RELIGIOUS MAN",line:"I'm not a religious man. But I never lied to you. That's the closest I ever got.",lineCN:"我不信教。可我从没对你撒过谎——这大概就是我离虔诚最近的一次了。",tagline:"他叫你五分钱——叫得那么轻慢，攥得那么紧。",bg:"#0e1820",accent:"#c8a43e",text:"#e7ece9",muted:"#7d8e97",profile:{guile:4,forbear:1,chaos:7,raw:6,romance:8,grace:4},auLink:"/WinterSunBlog/series/nickel-and-dime/"},
   {id:"pero",name:"Pero \"Pepe\" Mahalovic",film:"Welcome to Collinwood",filmCN:"《欢迎来到科林伍德》",year:"2002",label:"BEFORE THE BELL",line:"Up on the canvas I yell \"I'm too good-lookin'\". You're the only one who actually agrees.",lineCN:"拳台上我喊「我太好看了」——也只有你，会真的点头，还夸我一句好看。",tagline:"他在拳台上喊着「我太好看了」，看你的时候他不喊了——他只是看着。",bg:"#1a1612",accent:"#b8703a",text:"#ede0cc",muted:"#8a7458",profile:{guile:4,forbear:2,chaos:7,raw:8,romance:7,grace:4},auLink:null},
-  {id:"chuck",name:"Chuck Barris",film:"Confessions of a Dangerous Mind",filmCN:"《危险思想的自白》",year:"2002",label:"OFF THE AIR",line:"I've conned a whole country. You're the only one I never want to fool.",lineCN:"我骗过整个国家——你是我唯一不想骗的人。",tagline:"他白天造梦，夜里杀人——你是他这辈子唯一不想骗的人。",bg:"#15182a",accent:"#de6e8e",text:"#ede4d0",muted:"#8088a0",profile:{guile:8,forbear:7,chaos:9,raw:3,romance:7,grace:7},auLink:null},
+  {id:"chuck",name:"Chuck Barris",film:"Confessions of a Dangerous Mind",filmCN:"《危险思想的自白》",year:"2002",label:"OFF THE AIR",line:"I've conned a whole country. You're the only one I never want to fool.",lineCN:"我骗过整个国家——你是我唯一不想骗的人。",tagline:"他白天造梦，夜里杀人——你是他这辈子唯一不想骗的人。",bg:"#15182a",accent:"#de6e8e",text:"#ede4d0",muted:"#8088a0",profile:{guile:8,forbear:7,chaos:9,raw:3,romance:7,grace:7},auLink:"/WinterSunBlog/series/off-the-air/"},
   {id:"frank",name:"Frank Mercer",film:"Matchstick Men",filmCN:"《火柴人》",year:"2003",label:"THE PART HE COULDN'T PLAY",line:"I've played every part there is. Yours is the one I couldn't keep up.",lineCN:"什么角色我都演过——唯独你那一场，我演不下去了。",tagline:"他把那只狐狸别在你心口，没提他自己也是。",bg:"#1a1410",accent:"#9a7ba0",text:"#ede0e6",muted:"#8d7462",profile:{guile:9,forbear:2,chaos:6,raw:3,romance:7,grace:7},auLink:"/WinterSunBlog/series/the-real-thing/"},
   {id:"jim",name:"Jim Crocker",film:"Piccadilly Jim",filmCN:"《花花公子吉米》",year:"2004",label:"THE ONE THAT'S REAL",line:"I'll be anyone you like — but the fool in love? That one's actually me.",lineCN:"你要谁我就演谁——可那个爱上你的傻瓜，才是真的我。",tagline:"他用最绅士的方式把你逗笑。",bg:"#161214",accent:"#d8b25a",text:"#f0e3dc",muted:"#8d6278",profile:{guile:8,forbear:2,chaos:6,raw:7,romance:8,grace:9},auLink:null},
   {id:"zaphod",name:"Zaphod Beeblebrox",film:"The Hitchhiker's Guide to the Galaxy",filmCN:"《银河系漫游指南》",year:"2005",label:"BOTH HEADS AGREE",line:"My two heads agree on exactly one thing, baby doll. You.",lineCN:"我那两个脑袋只在一件事上意见一致，baby doll——就是你。",tagline:"他叫你 baby doll，整个银河系都知道这件事，除了他自己。",bg:"#0b0a12",accent:"#d4a82a",text:"#e8e4d0",muted:"#8a7a48",profile:{guile:2,forbear:1,chaos:10,raw:10,romance:8,grace:6},auLink:"/WinterSunBlog/series/zaphod-au/"},
@@ -108,10 +111,12 @@ const CHARS = [
   {id:"hammer",name:"Justin Hammer",film:"Iron Man 2",filmCN:"《钢铁侠2》",year:"2010",label:"OFF THE STAGE",line:"I don't have to be him — not when you look at me like that.",lineCN:"我不必活成他——只要你这样看着我。",tagline:"全世界都把他当成一个笑话——只有你，看清了那副眼镜后面的人。",bg:"#13151c",accent:"#4a87ee",text:"#e7eaf2",muted:"#7c8aa6",profile:{guile:6,forbear:2,chaos:7,raw:4,romance:8,grace:8},auLink:"/WinterSunBlog/series/good-enough/"},
   {id:"kenny",name:"Kenny Waters",film:"Conviction",filmCN:"《定罪》",year:"2010",label:"NEVER TO YOU",line:"I'll lie to a judge, a jury, the whole damn town — never to you.",lineCN:"法官、陪审团、整个镇子我都能骗——唯独不骗你。",tagline:"他生猛、暴躁，笑起来却像个孩子；全世界都说他有罪，只有你一个人，不肯松手。",bg:"#1c1e1f",accent:"#7a8fa3",text:"#f0e0d4",muted:"#627f8d",profile:{guile:2,forbear:3,chaos:8,raw:9,romance:7,grace:2},auLink:null},
   {id:"karl",name:"Karl Fairhurst",film:"The Sitter",filmCN:"《保姆奇遇记》",year:"2011",label:"NO NUMBER FOR YOU",line:"Everybody gets a number. Not you. I'm not putting you on a list where somebody could be ahead of you.",lineCN:"谁都有个编号。你没有——我不会把你放进一张名单里，让任何人排在你前面。",tagline:"他把朋友从第一排到第十二——唯独不敢给你一个编号。",bg:"#181320",accent:"#d15f82",text:"#f2e4ea",muted:"#8a7d9c",profile:{guile:6,forbear:1,chaos:9,raw:6,romance:8,grace:7},auLink:null},
+  {id:"doc",name:"Doc",film:"Cowboys & Aliens",filmCN:"《牛仔与外星人》",year:"2011",label:"PUT IT AWAY",line:"Your gun takes lives. My hands save them. Put it away — and let me.",lineCN:"你的枪要人命，我的手救人命。把枪收了——让我来。",tagline:"他连枪都握不稳，却是全镇唯一敢拦下你、逼你坐下让他缝伤的人。",bg:"#1a140c",accent:"#c39a45",text:"#ece1cf",muted:"#9d8f78",profile:{guile:6,forbear:6,chaos:2,raw:5,romance:7,grace:7},auLink:"/WinterSunBlog/series/the-saloon-nobody-dares/"},
   {id:"billy",name:"Billy Bickle",film:"Seven Psychopaths",filmCN:"《七个神经病》",year:"2012",label:"REWROTE THE ENDING",line:"I wanted to go out in a blaze. You rewrote the ending — so I lived. For you and you only.",lineCN:"我本想轰轰烈烈地谢幕——是你改了结局，于是我活了下来。只为你。",tagline:"他想为这故事写一个最漂亮的结局——可你告诉他：没有你，它永远写不完。",bg:"#281208",accent:"#c94a1e",text:"#f5e6d0",muted:"#b07840",profile:{guile:3,forbear:1,chaos:10,raw:8,romance:9,grace:5},auLink:null},
   {id:"owen",name:"Owen",film:"The Way Way Back",filmCN:"《迷途知返》",year:"2013",label:"A CRIME AT THE WATER PARK",line:"Being sad at a water park's a crime. C'mon — I'm breaking you out.",lineCN:"在水上乐园还愁眉苦脸，这可是犯罪——走，我带你越狱。",tagline:"他能把最糟的暑假变成你这辈子最难忘的。",bg:"#15282e",accent:"#35bfc9",text:"#dce9ea",muted:"#75899a",profile:{guile:4,forbear:3,chaos:6,raw:7,romance:7,grace:3},auLink:null},
   {id:"johnmoon",name:"John Moon",film:"A Single Shot",filmCN:"《致命一击》",year:"2013",label:"STILL BREATHING",line:"I'd already climbed into the grave. You're the one who heard me breathing.",lineCN:"我已经躺进了那个坑里——是你，听见了我还在呼吸。",tagline:"他不说，但他每件事都为你做了。",bg:"#14181f",accent:"#8fa0b0",text:"#dce3ea",muted:"#62728d",profile:{guile:2,forbear:10,chaos:1,raw:7,romance:4,grace:1},auLink:"/WinterSunBlog/series/a-single-shot-au/"},
   {id:"aldo",name:"Aldo Stankas",film:"Trust Me",filmCN:"《明星少女养成记》",year:"2013",label:"NO COMMISSION",line:"I put a price on everyone in this town — you're the one deal I don't want to close.",lineCN:"这城里每个人我都标好了价——唯独你，是我唯一不想成交的那一单。",tagline:"他给这座城里每个人都标好了价钱——只有看着你的时候，他忘了报价。",bg:"#0f1613",accent:"#2ea86a",text:"#e4efe9",muted:"#7d9a8c",profile:{guile:9,forbear:7,chaos:2,raw:2,romance:7,grace:9},auLink:"/WinterSunBlog/series/the-making-of-you/"},
+  {id:"garyguitar",name:"Gary",film:"A Case of You",filmCN:"《关于你》",year:"2013",label:"THE G",line:"You want the G? Sit down, sweetheart — let me show you exactly where it is.",lineCN:"你想找 G？坐好了，宝贝——我给你指准了它在哪儿。",tagline:"他满嘴没一句正经——可满屋子人唱着跳着的时候，他一个人坐在边上，小声念一首九三年的歌。",bg:"#171310",accent:"#7cc94b",text:"#ede4d3",muted:"#8e897e",profile:{guile:4,forbear:1,chaos:8,raw:8,romance:7,grace:5},auLink:"/WinterSunBlog/series/slow-hands/"},
   {id:"doug",name:"Doug Varney",film:"Better Living Through Chemistry",filmCN:"《毒醉心迷》",year:"2014",label:"OFF THE LEASH",line:"Spent my whole life behind that counter. You made me feel alive.",lineCN:"我这辈子都困在柜台后面——是你，让我觉得自己还活着。",tagline:"他规矩了一辈子，直到他遇见你才决定不规矩了。",bg:"#1e1408",accent:"#e6ecea",text:"#dceae5",muted:"#8d7a62",profile:{guile:5,forbear:7,chaos:6,raw:5,romance:6,grace:4},auLink:null},
   {id:"wayne",name:"Wayne",film:"Loitering with Intent",filmCN:"《十日编剧手册》",year:"2014",label:"MEANT IT ALL ALONG",line:"I called it a joke so it wouldn't hurt when you said no. You said yes.",lineCN:"我假装是玩笑，这样你拒绝时我才不会疼——可你说了「我愿意」。",tagline:"他一直叫你小姑娘，结果这个小姑娘成了他的未婚妻。",bg:"#2a1810",accent:"#3f7a52",text:"#eee6d4",muted:"#8a7050",profile:{guile:3,forbear:9,chaos:5,raw:6,romance:7,grace:3},auLink:null},
   {id:"craig",name:"Craig",film:"Laggies",filmCN:"《慢半拍》",year:"2014",label:"WHY PEOPLE START",line:"I end marriages for a living. With you, I remembered why people start them.",lineCN:"我靠终结婚姻为生——和你在一起，我才想起人们为什么开始。",tagline:"他是个离婚律师，可他从没放弃相信爱情。",bg:"#1c2228",accent:"#63788a",text:"#e2e8ec",muted:"#5f7280",profile:{guile:5,forbear:7,chaos:3,raw:5,romance:7,grace:6},auLink:null},
@@ -121,7 +126,7 @@ const CHARS = [
   {id:"dixon",name:"Jason Dixon",film:"Three Billboards Outside Ebbing, Missouri",filmCN:"《三块广告牌》",year:"2017",label:"TRYIN' EVERY DAY",line:"I'm no good at this. But I'm tryin' — every damn day — to be who you saw.",lineCN:"我不擅长这个。可我每天都在拼命，想成为你看见的那个我。",tagline:"他会为你打架，也会笨拙地为你写道歉信。",bg:"#241015",accent:"#e2622a",text:"#f5e6d3",muted:"#8d626d",profile:{guile:2,forbear:2,chaos:6,raw:9,romance:1,grace:2},auLink:null},
   {id:"silas",name:"Colonel Silas Groves",film:"Woman Walks Ahead",filmCN:"《女先行者》",year:"2017",label:"A DEBT, HE SAID",line:"I told myself I owed your brother this much. I don't fully believe that anymore.",lineCN:"我告诉自己，这是我欠你哥哥的。可这句话，我自己都不再全信了。",tagline:"他对整片染血的雪原视而不见，却见不得那雪地上，有一滴是你的。",bg:"#161a1f",accent:"#8c3229",text:"#e9e4d8",muted:"#6e6558",profile:{guile:5,forbear:8,chaos:4,raw:6,romance:7,grace:7},auLink:"/WinterSunBlog/series/what-he-owed/"},
   {id:"eddie",name:"Eddie",film:"Blue Iguana",filmCN:"《蓝蜥蜴》",year:"2018",label:"PLAYING IT OUT",line:"Never been dealt a good hand. But this one I'll play with you till the end.",lineCN:"我这辈子没拿过一手好牌——可这一手，我要和你打到底。",tagline:"他是个倒霉蛋，可倒霉得让你想笑、想心疼、想替他打架。",bg:"#1a1f24",accent:"#2e9fd4",text:"#dce5ea",muted:"#7a8088",profile:{guile:4,forbear:4,chaos:5,raw:7,romance:7,grace:4},auLink:null},
-  {id:"bush",name:"George W. Bush",film:"Vice",filmCN:"《副总统》",year:"2018",label:"JUST A COWBOY",line:"Everybody's watchin' the most powerful man in the world. You're just watchin' some cowboy from Texas.",lineCN:"全世界都盯着那个「最有权力的人」——你盯着的，不过是个德州来的牛仔。",tagline:"权力坐在他肩上，他只顾舔指尖；他满不在乎，你满不设防。",bg:"#16181e",accent:"#c17f34",text:"#f1e3cb",muted:"#626d8d",profile:{guile:3,forbear:2,chaos:8,raw:9,romance:5,grace:5},auLink:null},
+  {id:"bush",name:"George W. Bush",film:"Vice",filmCN:"《副总统》",year:"2018",label:"NOT IN THE FILE",line:"Everything that mattered tonight, you're the only one who saw. And none of it goes in the file.",lineCN:"今晚真正要紧的事，只有你看见了。而它一样都不会进档案。",tagline:"他把最重的那一份折起来放进内袋，整栋楼里只有你看见。",bg:"#141922",accent:"#bf9d5e",text:"#ece4d5",muted:"#7a8698",profile:{guile:4,forbear:9,chaos:2,raw:9,romance:7,grace:7},auLink:"/WinterSunBlog/series/the-most-powerful-man/"},
   {id:"klenz",name:"Captain Klenzendorf",film:"Jojo Rabbit",filmCN:"《乔乔的异想世界》",year:"2019",label:"NEVER OUT LOUD",line:"I'll never say it out loud. I'll just spend everything I have keeping you safe.",lineCN:"这话我永远不会说出口——我只会用我所有的一切，换你平安。",tagline:"他从不说我爱你，但他用生命爱你。",bg:"#14241c",accent:"#9c3f2a",text:"#ede8d8",muted:"#8b7d4d",profile:{guile:6,forbear:9,chaos:3,raw:7,romance:7,grace:7},auLink:null},
   {id:"watson",name:"Watson Bryant",film:"Richard Jewell",filmCN:"《理查德·朱维尔的哀歌》",year:"2019",label:"SO HE STAYED",line:"Everyone else packed up and left. I know who you are — so I stayed.",lineCN:"别人都收拾东西走了。我知道你是什么人——所以我没走。",tagline:"他不修边幅，很少正经，可当所有人都走了，他还在。",bg:"#1c1410",accent:"#7a9468",text:"#ede0d0",muted:"#8a6848",profile:{guile:6,forbear:3,chaos:2,raw:7,romance:6,grace:3},auLink:null},
   {id:"wolf",name:"Mr. Wolf",film:"The Bad Guys",filmCN:"《坏蛋联盟》",year:"2022",label:"RATHER EARN IT",line:"I could steal anything in the world. You're the first thing I'd rather earn.",lineCN:"这世上没有我偷不到的东西——你却是第一件，我宁愿靠自己挣来的。",tagline:"他做了一辈子坏事，因为你想第一次试试做好人。",bg:"#14161d",accent:"#e0b840",text:"#ede6d8",muted:"#7a7d8a",profile:{guile:8,forbear:2,chaos:8,raw:3,romance:8,grace:8},auLink:null},
@@ -163,8 +168,8 @@ const AVERAGE = (() => {
     p[d.key] = CHARS.reduce((s, c) => s + c.profile[d.key], 0) / CHARS.length;
   });
   return {
-    id: "__avg", name: "四十八个他 · 平均的 Sam", film: "The Average of Forty-Eight Faces",
-    filmCN: "四十八张面孔叠在一起", year: "", label: "THE MEAN OF ALL",
+    id: "__avg", name: "五十三个他 · 平均的 Sam", film: "The Average of Fifty-Three Faces",
+    filmCN: "五十三张面孔叠在一起", year: "", label: "THE MEAN OF ALL",
     tagline: "把他演过的每一个人叠在一起，露出的那张脸。",
     line: "", lineCN: "", accent: AVG_ACCENT, text: "#ede4dc", muted: "#8a7a6e",
     bg: "#1a1610", profile: p, auLink: null, isAvg: true,
@@ -348,7 +353,7 @@ function App() {
           fontSize: "clamp(14px,3.8vw,16px)", lineHeight: 2, color: "#a08b6b",
         }}>
           狡黠、隐忍、疯狂、璞真、浪漫、优雅——<br />
-          同一个人，四十八种配比。左边点一个角色，看他的形状；<br />
+          同一个人，五十三种配比。左边点一个角色，看他的形状；<br />
           或者就停在<span style={{ color: "#a2897c" }}>平均的那张脸</span>上。
         </p>
       </header>
@@ -432,11 +437,11 @@ function App() {
 
           <div style={{ marginTop: "clamp(20px,4vw,32px)" }}>
             <div style={{ fontFamily: TYPE, fontSize: 11, letterSpacing: 2.5, color: "#8a7558", textTransform: "uppercase", marginBottom: 20 }}>
-              在四十八人里的位置
+              在五十三人里的位置
             </div>
             {DIMS.map(d => <Strip key={d.key} dim={d} selIdx={selIdx} />)}
             <p style={{ fontFamily: SERIF, fontSize: 11.5, color: "#5f5340", lineHeight: 1.7, marginTop: 4 }}>
-              每个点是一个角色，横轴是该维度 0→10。虚线六边形是四十八人的平均。
+              每个点是一个角色，横轴是该维度 0→10。虚线六边形是五十三人的平均。
             </p>
           </div>
         </div>

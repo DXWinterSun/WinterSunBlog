@@ -27,26 +27,53 @@ nav_active: archive
     <button class="c-archive-tab" type="button" role="tab" data-archive-view="mood" aria-selected="false">By Mood</button>
   </div>
 
-  {% comment %} ===== BY YEAR ===== {% endcomment %}
+  {% comment %}
+    ===== BY YEAR =====
+    时间轴（2026-07-31 按 Winter 的要求改版）：左侧一条轴线贯穿十年，
+    年份是大站点（空心圆环 + 大字号年份），月份是小节点（实心小圆点），
+    每篇文章以「日 + 标题 + 系列/分类」挂在轴上，标题照磁带架的写法把
+    「 — 系列名」拆到小字行。顶部一排年份 pill 可直接跳到某一年。
+  {% endcomment %}
   <div class="c-archive-panel" data-archive-panel="year">
     {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-    {% for year_group in posts_by_year %}
-    <div class="c-archive__year">
-      <div class="c-archive__heading">
-        <span class="c-archive__year-num">{{ year_group.name }}</span>
-        <span class="c-archive__year-meta">{{ year_group.items.size }} {% if year_group.items.size == 1 %}story{% else %}stories{% endif %}</span>
-      </div>
-      <ul class="c-archive__list">
-        {% for post in year_group.items %}
-        <li class="c-archive__item">
-          <span class="c-archive__date">{{ post.date | date: '%b %d' }}</span>
-          <a class="c-archive__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          {% if post.categories.size > 0 %}<span class="c-archive__cat">{{ post.categories | first }}</span>{% endif %}
-        </li>
+    <nav class="c-tl-jump" aria-label="跳到某一年">
+      {% for year_group in posts_by_year %}
+      <a href="#y{{ year_group.name }}">{{ year_group.name }}</a>
+      {% endfor %}
+    </nav>
+    <div class="c-tl">
+      {% for year_group in posts_by_year %}
+      <section class="c-tl__year" id="y{{ year_group.name }}">
+        <div class="c-tl__year-head">
+          <span class="c-tl__year-node" aria-hidden="true"></span>
+          <span class="c-tl__year-num">{{ year_group.name }}</span>
+          <span class="c-tl__year-meta">{{ year_group.items.size }} {% if year_group.items.size == 1 %}story{% else %}stories{% endif %}</span>
+        </div>
+        {% assign by_month = year_group.items | group_by_exp: "post", "post.date | date: '%m'" %}
+        {% for month_group in by_month %}
+        {% assign first_p = month_group.items | first %}
+        <div class="c-tl__month">
+          <span class="c-tl__month-label"><i class="c-tl__month-dot" aria-hidden="true"></i>{{ first_p.date | date: '%b' }}</span>
+          <ul class="c-tl__list">
+            {% for post in month_group.items %}
+            {% assign tp = post.title | split: " — " %}
+            <li class="c-tl__item">
+              <a class="c-tl__link" href="{{ post.url | prepend: site.baseurl }}">
+                <span class="c-tl__day">{{ post.date | date: '%d' }}</span>
+                <span class="c-tl__body">
+                  <span class="c-tl__title">{{ tp | first }}</span>
+                  {% capture tl_from %}{% if tp.size > 1 %}{{ tp | last }}{% elsif post.categories.size > 0 %}{{ post.categories | first }}{% endif %}{% endcapture %}
+                  {% if tl_from != "" %}<span class="c-tl__meta">{{ tl_from }}</span>{% endif %}
+                </span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
         {% endfor %}
-      </ul>
+      </section>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 
   {% comment %}
@@ -56,9 +83,29 @@ nav_active: archive
     没有任何文章的情绪自动跳过，pill 与小标题用各自的配色。
   {% endcomment %}
   <div class="c-archive-panel" data-archive-panel="mood" hidden>
-    <p class="c-archive__mood-desc" style="margin-bottom: 18px;">
-      选不动？去 <a href="{{ site.baseurl }}/jukebox/" style="border-bottom: 1px solid currentColor; text-decoration: none;">🎵 情绪点唱机</a>——投一枚币，让机器替你选一章。
-    </p>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <a class="c-egg-card c-egg-card--juke" href="{{ site.baseurl }}/jukebox/">
+        <span class="c-egg-card__art" aria-hidden="true">
+          <svg viewBox="0 0 56 56" width="56" height="56" fill="none">
+            <rect x="5" y="14" width="46" height="29" rx="4" fill="#14100b" stroke="rgba(230,195,119,0.55)" stroke-width="1"/>
+            <rect x="9" y="18" width="38" height="12.5" rx="2" fill="#f2e7d2"/>
+            <circle cx="19" cy="24.2" r="4.6" fill="#14100b"/>
+            <circle cx="37" cy="24.2" r="4.6" fill="#14100b"/>
+            <circle class="egg-reel" cx="19" cy="24.2" r="2.9" stroke="#e6c377" stroke-width="1.5" stroke-dasharray="2.2 2.2"/>
+            <circle class="egg-reel" cx="37" cy="24.2" r="2.9" stroke="#e6c377" stroke-width="1.5" stroke-dasharray="2.2 2.2"/>
+            <line x1="25" y1="24.2" x2="31" y2="24.2" stroke="#cba14c" stroke-width="1.4" opacity="0.75"/>
+            <rect x="20" y="34.5" width="16" height="5.5" rx="1.5" stroke="rgba(242,231,210,0.4)" stroke-width="1"/>
+            <text x="43" y="12" font-size="10" fill="#e6c377" opacity="0.9">♪</text>
+          </svg>
+        </span>
+        <span class="c-egg-card__body">
+          <span class="c-egg-card__eyebrow">Mood Mixtape</span>
+          <span class="c-egg-card__title">情绪磁带机</span>
+          <span class="c-egg-card__desc">选不动？按下 PLAY，让磁带替你选一章</span>
+        </span>
+        <span class="c-egg-card__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
     <ul class="c-archive-tags" role="tablist">
       {% assign shown = 0 %}
       {% for mood in site.data.moods %}
@@ -98,12 +145,26 @@ nav_active: archive
         </span>
       </div>
       {% if mood.desc %}<p class="c-archive__mood-desc">{{ mood.desc }}</p>{% endif %}
-      <ul class="c-archive__list">
+      {% comment %}
+        磁带架（2026-07-31 按 Winter 的要求改版）：By Mood 视图的文章列表做成
+        一格「带架」——每篇文章是一盘磁带的侧脊：情绪色端盖 + 奶白手写标签
+        （标题 — 系列名拆开，像磁带上的「曲名 — 歌手」）+ SIDE A/B 端标，
+        悬停时整盘带子向右抽出。By Year 视图保持原来的极简列表，不动。
+      {% endcomment %}
+      <ul class="c-archive__list c-tape-shelf">
         {% for post in site.tags[mood.cn] %}{% if post.title %}
-        <li class="c-archive__item">
-          <span class="c-archive__date">{{ post.date | date: '%Y, %b %d' }}</span>
-          <a class="c-archive__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          {% if post.categories.size > 0 %}<span class="c-archive__cat">{{ post.categories | first }}</span>{% endif %}
+        {% assign tp = post.title | split: " — " %}
+        {% assign side_odd = forloop.index | modulo: 2 %}
+        <li class="c-tape-slot">
+          <a class="c-tape" href="{{ post.url | prepend: site.baseurl }}">
+            <span class="c-tape__cap" aria-hidden="true"></span>
+            <span class="c-tape__label">
+              <span class="c-tape__title">{{ tp | first }}</span>
+              {% capture tape_from %}{% if tp.size > 1 %}{{ tp | last }}{% elsif post.categories.size > 0 %}{{ post.categories | first }}{% endif %}{% endcapture %}
+              <span class="c-tape__meta">{% if tape_from != "" %}{{ tape_from }} · {% endif %}{{ post.date | date: '%Y, %b %d' }}</span>
+            </span>
+            <span class="c-tape__side" aria-hidden="true">SIDE {% if side_odd == 1 %}A{% else %}B{% endif %}</span>
+          </a>
         </li>
         {% endif %}{% endfor %}
       </ul>

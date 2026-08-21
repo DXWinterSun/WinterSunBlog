@@ -5,7 +5,7 @@
 {%- assign key = page.series_name | default: page.series -%}
 {%- assign p = site.data.au_palettes[key] -%}
 {%- if p -%}
-<div class="au-strip" aria-label="系列配色 · Palette">
+<div class="au-strip{% if p.text_cn %} au-strip--quad{% endif %}" aria-label="系列配色 · Palette">
   <span class="au-strip__perf"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
   <span class="au-strip__frames">
     <span class="au-strip__frame">
@@ -17,6 +17,21 @@
       <span class="au-strip__dot" style="background: {{ p.bg }}"></span>
       <span class="au-strip__name"><span class="au-strip__cn">{{ p.bg_cn }}</span><span class="au-strip__en">{{ p.bg_en }}</span></span>
     </span>
+    {%- comment -%} 四色全名展示：色卡里写了 text_cn 的系列（如 Fog City）多渲染两格 {%- endcomment -%}
+    {%- if p.text_cn %}
+    <span class="au-strip__div"></span>
+    <span class="au-strip__frame">
+      <span class="au-strip__dot" style="background: {{ p.text }}"></span>
+      <span class="au-strip__name"><span class="au-strip__cn">{{ p.text_cn }}</span><span class="au-strip__en">{{ p.text_en }}</span></span>
+    </span>
+    {%- endif %}
+    {%- if p.muted_cn %}
+    <span class="au-strip__div"></span>
+    <span class="au-strip__frame">
+      <span class="au-strip__dot" style="background: {{ p.muted }}"></span>
+      <span class="au-strip__name"><span class="au-strip__cn">{{ p.muted_cn }}</span><span class="au-strip__en">{{ p.muted_en }}</span></span>
+    </span>
+    {%- endif %}
   </span>
   <span class="au-strip__perf"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
   <button class="au-strip__switch" type="button"

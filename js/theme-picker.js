@@ -247,6 +247,21 @@
             '<span class="c-palette-card__sep"></span>' +
             '<span class="c-palette-card__bg-cn">' + t.bg_cn + '</span>' +
             '<span class="c-palette-card__bg-en">' + t.bg_en + '</span>' +
+            // 四色全名：浅色 + 灰色（text/muted），有名字才渲染（全站四色标准）
+            (t.text_cn && t.muted_cn
+              ? '<span class="c-palette-card__minis">' +
+                  '<span class="c-palette-card__mini">' +
+                    '<i style="background:' + t.text + '"></i>' +
+                    '<span class="c-palette-card__mini-cn">' + t.text_cn + '</span>' +
+                    '<span class="c-palette-card__mini-en">' + t.text_en + '</span>' +
+                  '</span>' +
+                  '<span class="c-palette-card__mini">' +
+                    '<i style="background:' + t.muted + '"></i>' +
+                    '<span class="c-palette-card__mini-cn">' + t.muted_cn + '</span>' +
+                    '<span class="c-palette-card__mini-en">' + t.muted_en + '</span>' +
+                  '</span>' +
+                '</span>'
+              : '') +
             '<a class="c-palette-card__char" href="' + charHref + '" target="_blank" rel="noopener" tabindex="-1">' + t.name + '</a>' +
           '</span>' +
           '<span class="c-palette-card__perfs">' + PERFS + '</span>' +
@@ -296,17 +311,22 @@
     el.style.backgroundColor = 'hsl(' + hue + ',' + s + '%,' + l + '%)';
   }
 
-  // Swatches shown in the "当前" indicator. A preset is a PAIR — accent (亮) +
-  // background (暗) — so both are shown, each as dot + name, matching the card.
-  // Custom-hue / AU-direct / default have no named dark half, so show one.
+  // Swatches shown in the "当前" indicator. A preset shows all FOUR named
+  // colors — accent / bg / text / muted（全站四色标准）, matching the card.
+  // Custom-hue / AU-direct / default have no named halves, so show one.
   function currentSwatches() {
     var s = currentState;
     if (s && s.type === 'preset') {
       var t = THEMES.filter(function (x) { return x.id === s.id; })[0];
-      if (t) return [
-        { color: t.accent, name: t.cn + ' · ' + t.en },
-        { color: t.bg,     name: t.bg_cn + ' · ' + t.bg_en }
-      ];
+      if (t) {
+        var sw = [
+          { color: t.accent, name: t.cn + ' · ' + t.en },
+          { color: t.bg,     name: t.bg_cn + ' · ' + t.bg_en }
+        ];
+        if (t.text_cn)  sw.push({ color: t.text,  name: t.text_cn + ' · ' + t.text_en });
+        if (t.muted_cn) sw.push({ color: t.muted, name: t.muted_cn + ' · ' + t.muted_en });
+        return sw;
+      }
     } else if (s && s.type === 'custom') {
       var sat = isDark() ? 62 : 58, li = isDark() ? 65 : 47;
       return [{ color: hslToHex(s.hue, sat, li), name: '随心染色 · 自定义' }];
