@@ -7,7 +7,7 @@ tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 暗�
 categories: ["AU Story"]
 series: "Better Living Through You"
 series_title: "Better Living Through You · Douglas Varney AU"
-series_order: 60
+series_order: 61
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
