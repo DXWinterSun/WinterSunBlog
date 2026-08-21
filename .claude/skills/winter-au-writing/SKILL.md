@@ -39,8 +39,19 @@ Winter 常常是「看了一部片，喜欢里面某个角色，想给他开个 
 （拖得太长、上下翻不方便）——一律排成可预览的 Artifact 网页交付：眉标写「草稿 · 待冬璇过目」，
 用该系列的 AU 配色，正文照博客阅读样式（档案条/小节、引语块、hr 分隔）。聊天里只给链接
 ＋几句设计说明。她点头后才落盘部署；有修改就重发同一个链接（她刷新即看新版）。
-工具侧惯例：模板 CSS 存 scratchpad 反复复用，用小脚本从已写好的 .md 直接生成，
-几乎不耗额外 token——别手打整页 HTML。
+⚙️ **样板和生成脚本在仓库里：`tools/preview/`**（`render_draft.py` + `README.md`）。
+**别手打整页 HTML，也别把模板留在 scratchpad**（scratchpad 每个对话各自独立、会话结束就没，
+下一个对话根本找不到样板——2026-08 真的发生过）。用法：
+
+```bash
+python3 tools/preview/render_draft.py 草稿.md -o /tmp/.../预览.html \
+    --series "Zaphod AU" --title "雪的巡游" \
+    --subtitle "番外 · Don't Panic, Baby Doll" --mood "缱绻 · 安放" --notes 衔接说明.md
+```
+
+配色按 `--series` 自动从 `_data/au_palettes.yml` 取，所以预览观感和线上阅读页一致；
+内嵌 SVG 插图 / `c-note` / `c-decree` 等裸 HTML 块原样透传；行尾两空格 = 硬换行。
+改稿后**用同一个 `-o` 路径重新生成并重新发布，链接不变**。细节见 `tools/preview/README.md`。
 
 写草稿时的呈现方式：
 - 章节标题给中文名 + 一句 mood 提示；
