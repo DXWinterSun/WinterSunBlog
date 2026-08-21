@@ -8,6 +8,9 @@ categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
 series_order: 6
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 6"
 summary: "他回到抛下他等死的基地——这次是来接下一个自己。"
 ---
 

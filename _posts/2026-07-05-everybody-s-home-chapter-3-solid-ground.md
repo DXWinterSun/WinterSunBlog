@@ -8,6 +8,9 @@ categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
 series_order: 3
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 3"
 summary: "他第一次站上真的土地，才敢信自己真的活下来了。"
 ---
 

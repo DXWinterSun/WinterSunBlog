@@ -8,6 +8,9 @@ categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
 series_order: 9
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 9"
 summary: "基地成了他们的，他们却转过头，要你一起当这个家。"
 ---
 

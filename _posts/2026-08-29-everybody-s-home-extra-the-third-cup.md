@@ -11,6 +11,7 @@ series_order: 21
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+has_art: true
 summary: "他挑了两个礼拜，其实是为了那扇窗。"
 ---
 

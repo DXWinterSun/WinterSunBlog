@@ -8,6 +8,9 @@ categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
 series_order: 2
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 2"
 summary: "他笑着说，没想到我能活着，看见这一切成真。"
 ---
 

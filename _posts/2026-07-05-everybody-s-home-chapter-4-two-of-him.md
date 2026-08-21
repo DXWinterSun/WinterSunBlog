@@ -8,6 +8,9 @@ categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
 series_order: 4
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 4"
 summary: "他以为把自己留在车里害死了——门一开，那个自己活着。"
 ---
 
