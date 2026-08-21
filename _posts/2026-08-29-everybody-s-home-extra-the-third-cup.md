@@ -11,6 +11,7 @@ series_order: 21
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+has_art: true
 summary: "他挑了两个礼拜，其实是为了那扇窗。"
 ---
 
@@ -890,4 +891,4 @@ Six 的耳朵又红了。
 
 ---
 
-下一篇番外：待定。
+下一篇番外：**Three Kilometres North** —— 北面三公里，那辆车还在原地。三个人第一次一起去那儿。

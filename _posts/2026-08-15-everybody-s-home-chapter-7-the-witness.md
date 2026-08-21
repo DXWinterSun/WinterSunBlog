@@ -8,6 +8,9 @@ categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
 series_order: 7
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 7"
 summary: "他站在梦了一辈子的家门口，开门的是那个真正活着的自己。"
 ---
 

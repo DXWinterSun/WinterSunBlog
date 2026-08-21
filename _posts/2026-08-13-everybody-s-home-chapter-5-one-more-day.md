@@ -8,6 +8,9 @@ categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
 series_order: 5
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 5"
 summary: "明天回月球玩命，今夜他头一回，只为自己要一次。"
 ---
 
