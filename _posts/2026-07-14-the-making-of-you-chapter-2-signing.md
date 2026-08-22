@@ -11,6 +11,7 @@ series_order: 2
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 2
+story_time: "19岁"
 summary: "他绕着你走了一圈，像清点一件刚到手的货：“抬下巴。”"
 ---
 

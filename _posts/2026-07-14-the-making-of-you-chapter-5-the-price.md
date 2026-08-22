@@ -11,6 +11,7 @@ series_order: 6
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 6
+story_time: "20岁"
 summary: "试镜那天你是最好的那个。可这行里，最好的，从来不等于买得起的。"
 ---
 

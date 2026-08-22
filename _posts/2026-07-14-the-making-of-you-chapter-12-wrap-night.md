@@ -11,6 +11,7 @@ series_order: 17
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 17
+story_time: "21岁"
 summary: "香槟到第三杯，你嘴瓢了半个字。他手里那支从不点的烟，点着了。"
 ---
 

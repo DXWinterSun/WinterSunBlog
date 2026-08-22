@@ -11,6 +11,7 @@ series_order: 12
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 12
+story_time: "20岁"
 summary: "他从不跟组。可你的片场，他“顺路”来了四次。"
 ---
 

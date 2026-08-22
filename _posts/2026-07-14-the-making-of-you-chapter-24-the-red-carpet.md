@@ -11,6 +11,7 @@ series_order: 30
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 30
+story_time: "23岁"
 summary: "二十年侧门进场的人，第一次把自己的名字，走在了灯下。"
 ---
 

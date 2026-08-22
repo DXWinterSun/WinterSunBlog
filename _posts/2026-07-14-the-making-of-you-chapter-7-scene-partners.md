@@ -11,6 +11,7 @@ series_order: 9
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 9
+story_time: "20岁"
 summary: "他兑现了承诺——一个真正合你的角色。你却不敢高兴，只敢拼命。"
 ---
 

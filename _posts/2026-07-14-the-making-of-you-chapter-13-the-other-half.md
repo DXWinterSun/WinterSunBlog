@@ -11,6 +11,7 @@ series_order: 18
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 18
+story_time: "21岁"
 summary: "当初你只听了半句就逃了。这一次，他把下半句说完了。"
 ---
 

@@ -11,6 +11,7 @@ series_order: 7
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 7
+story_time: "20岁"
 summary: "他说不过是图个乐子。你信了，从此不敢有一丝差错。"
 ---
 

@@ -11,6 +11,7 @@ series_order: 11
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 11
+story_time: "20岁"
 summary: "你太怕被他丢下，怕到把他教你的，一样样全还了回去。"
 ---
 

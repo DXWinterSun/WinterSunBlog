@@ -11,6 +11,7 @@ series_order: 5
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 5
+story_time: "19岁"
 summary: "他第一次帮你争来试镜。你觉得他好像温和了些——也许，只是你想看见。"
 ---
 

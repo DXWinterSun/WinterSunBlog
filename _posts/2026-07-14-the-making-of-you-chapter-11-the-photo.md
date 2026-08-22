@@ -11,6 +11,7 @@ series_order: 14
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 14
+story_time: "21岁"
 summary: "凌晨的车被拍到了。他的回应只有一句：她是我的艺人，仅此而已。"
 ---
 

@@ -11,6 +11,7 @@ series_order: 8
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 8
+story_time: "20岁"
 summary: "有人愿为你付一切。你却选了那个把你当货、又舍不得放手的人。"
 ---
 

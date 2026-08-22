@@ -11,6 +11,7 @@ series_order: 4
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 4
+story_time: "19岁"
 summary: "全城都当你们有一腿。只有你知道，什么都没有——你白担了这个名。"
 ---
 

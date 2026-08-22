@@ -11,6 +11,7 @@ series_order: 29
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 29
+story_time: "23岁"
 summary: "全城最会发声明的人，亲自给自己写了一份——更正三年前那句。"
 ---
 
