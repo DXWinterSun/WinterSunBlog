@@ -11,6 +11,7 @@ series_order: 26
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 26
+story_time: "22岁"
 summary: "他打开那个写着杂物的箱子，笑到一半，忽然笑不出来了。"
 ---
 

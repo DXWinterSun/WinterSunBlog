@@ -11,6 +11,7 @@ series_order: 28
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 28
+story_time: "22岁"
 summary: "影评人说，那是演不出来的。你说：对，那不是演的。"
 ---
 

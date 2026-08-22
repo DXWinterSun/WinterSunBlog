@@ -11,6 +11,7 @@ series_order: 1
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 1
+story_time: "19岁"
 summary: "十九岁，戏剧学院在读。你以为演砸的那天，全城最贵的经纪人叫住了你。"
 ---
 

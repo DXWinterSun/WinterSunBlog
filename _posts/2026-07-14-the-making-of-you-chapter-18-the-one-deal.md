@@ -11,6 +11,7 @@ series_order: 24
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 24
+story_time: "22岁"
 summary: "他带你回到那条走廊。三年了，他终于把价，报给你听。"
 ---
 

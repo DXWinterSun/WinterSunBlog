@@ -11,6 +11,7 @@ series_order: 32
 series_status: complete
 series_type: Series
 chapter_type: Chapter 32
+story_time: "23岁"
 summary: "他这辈子走过两次红毯：一次是男朋友，一次是新郎。"
 ---
 

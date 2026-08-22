@@ -11,6 +11,7 @@ series_order: 22
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 22
+story_time: "22岁"
 summary: "提名那天他说：这回，穿裙子的事，我亲自管。"
 ---
 

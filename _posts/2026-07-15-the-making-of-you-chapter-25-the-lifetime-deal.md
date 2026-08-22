@@ -11,6 +11,7 @@ series_order: 31
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 31
+story_time: "23岁"
 summary: "他请了全城的媒体开发布会。压轴那单的乙方签名栏，空着。"
 ---
 

@@ -11,6 +11,7 @@ series_order: 16
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 16
+story_time: "21岁"
 summary: "买来的能卖，你不是买来的——你是他画出来的，砸了补不回来。"
 ---
 

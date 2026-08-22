@@ -11,6 +11,7 @@ series_order: 19
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 19
+story_time: "22岁"
 summary: "他们夸的是他的才、你的貌。你挣的那张毕业证，一个字都不算。"
 ---
 

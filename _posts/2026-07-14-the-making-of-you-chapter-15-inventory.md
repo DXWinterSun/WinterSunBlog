@@ -11,6 +11,7 @@ series_order: 15
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 15
+story_time: "21岁"
 summary: "你亲眼看他甩掉一个人，干净得不带一丝人情——下一个，会是你吗？"
 ---
 

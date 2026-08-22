@@ -11,6 +11,7 @@ series_order: 3
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 3
+story_time: "19岁"
 summary: "别人是他花钱供的存货，你是他从零捏的。你却羡慕那些他肯破费的。"
 ---
 

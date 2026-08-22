@@ -11,6 +11,7 @@ series_order: 23
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 23
+story_time: "22岁"
 summary: "红毯、信封、致辞——你把那个奖，给了走廊里的那个人。"
 ---
 

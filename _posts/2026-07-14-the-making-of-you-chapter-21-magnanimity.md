@@ -11,6 +11,7 @@ series_order: 27
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 27
+story_time: "22岁"
 summary: "全网都在磕你和男主角。而这部戏，是他亲自替你谈的。"
 ---
 

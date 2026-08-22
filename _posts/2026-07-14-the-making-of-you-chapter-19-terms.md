@@ -11,6 +11,7 @@ series_order: 25
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 25
+story_time: "22岁"
 summary: "全城最会谈判的人，第一次谈恋爱——谈得像在并购。"
 ---
 

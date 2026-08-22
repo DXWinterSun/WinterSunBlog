@@ -11,6 +11,7 @@ series_order: 21
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 21
+story_time: "22岁"
 summary: "电影上映，轮到别人来挖你了。开出的，正是你当年羡慕的一切。"
 ---
 

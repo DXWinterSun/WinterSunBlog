@@ -11,6 +11,7 @@ series_order: 13
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 13
+story_time: "21岁"
 summary: "凌晨两点收工，你在他车里睡着了。醒来时，身上盖着他的外套。"
 ---
 

@@ -11,6 +11,7 @@ series_order: 10
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 10
+story_time: "20岁"
 summary: "你成了。那一刻你什么都忘了——冲上去，抱住了他。"
 ---
 

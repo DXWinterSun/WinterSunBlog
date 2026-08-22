@@ -11,6 +11,7 @@ series_order: 20
 series_status: ongoing
 series_type: Series
 chapter_type: Chapter 20
+story_time: "22岁"
 summary: "第一笔片酬，换来第一个有阳光的房间。有个纸箱，你死也不让他碰。"
 ---
 
