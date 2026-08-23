@@ -20,7 +20,8 @@ series 值）取该 AU 的 accent / bg / text / muted，所以预览页的观感
 支持的 Markdown 子集（跟博客正文实际用到的一致）：
   ### 小节标题 ／ > 引用块 ／ **粗体** ／ --- 分隔线
   行尾两个空格 = 硬换行（诗式收束、多行题词靠这个）
-  以 < 开头的裸 HTML 块原样透传（内嵌 SVG 插图、c-note、c-decree 等）
+  以 < 开头的裸 HTML 块原样透传（内嵌 SVG 插图、c-note 便条卡、c-decree 公文卡、c-comm 通讯屏等，
+  后两者预览页自带简化样式，看到的效果跟线上接近）
 """
 import argparse, html, os, re, sys
 
@@ -130,7 +131,7 @@ def to_html(src):
 
 
 CSS = '''<style>
-:root{--bg:%(bg)s;--accent:%(accent)s;--ink:%(text)s;--muted:%(muted)s;}
+:root{--bg:__BG__;--accent:__ACCENT__;--ink:__TEXT__;--muted:__MUTED__;}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
  font-family:"Songti SC","Noto Serif SC",Georgia,serif;line-height:2.05;font-size:17px;}
@@ -146,10 +147,74 @@ h3::before{content:"";display:block;width:26px;height:1px;background:currentColo
  opacity:.45;margin-bottom:.9rem;}
 p{margin:0 0 1.5rem;text-align:justify;}
 strong{color:#fff;font-weight:600;}
-hr{border:0;border-top:1px solid var(--muted);opacity:.35;margin:2.6rem auto;width:40%%;}
+hr{border:0;border-top:1px solid var(--muted);opacity:.35;margin:2.6rem auto;width:40%;}
 blockquote{margin:2.2rem 0;padding:1.1rem 0 1.1rem 1.4rem;border-left:2px solid var(--accent);
- background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 9%%,transparent),transparent 70%%);}
+ background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 9%,transparent),transparent 70%);}
 blockquote p{margin:0}
+/* 正文里的实物卡片组件（与博客 _sass/5-components/_extras.scss 观感对齐的简化版）*/
+.c-note{position:relative;max-width:32rem;margin:2.8rem auto;padding:2.1rem 1.8rem 1.7rem;
+ background:#f2eadd;color:#3b3329;border-radius:2px;transform:rotate(-.4deg);
+ box-shadow:0 12px 32px rgba(0,0,0,.38);line-height:1.95;}
+.c-note::before{content:"";position:absolute;top:-11px;left:50%;width:92px;height:22px;
+ transform:translateX(-50%) rotate(-1.6deg);background:color-mix(in srgb,var(--accent) 42%,transparent);
+ opacity:.75;box-shadow:0 1px 4px rgba(0,0,0,.18);}
+.c-note__label{display:block;font-size:.68rem;letter-spacing:.2em;opacity:.5;
+ margin-bottom:1rem;font-family:system-ui,sans-serif;}
+.c-note__body p{margin:0 0 .5rem;text-align:left;}
+.c-note__sign{display:block;text-align:right;margin-top:1.1rem;opacity:.72;}
+/* c-comm —— 设备屏幕上的通讯记录（飞船通讯板 / 终端）。屏幕恒为暗，不随主题翻转。*/
+.c-comm{max-width:29rem;margin:2.6rem auto;border-radius:10px;overflow:hidden;
+ border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);
+ background:color-mix(in srgb,var(--accent) 7%,#0a0c11);
+ box-shadow:0 14px 34px rgba(0,0,0,.42),0 0 22px color-mix(in srgb,var(--accent) 12%,transparent);}
+.c-comm__bar{display:flex;align-items:center;gap:9px;padding:9px 14px;
+ border-bottom:1px solid color-mix(in srgb,var(--accent) 22%,transparent);
+ background:color-mix(in srgb,var(--accent) 12%,transparent);
+ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;
+ letter-spacing:.18em;text-transform:uppercase;color:color-mix(in srgb,var(--accent) 62%,#fff);}
+.c-comm__bar::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;
+ background:var(--accent);box-shadow:0 0 8px var(--accent);animation:comm-pulse 2.6s ease-in-out infinite;}
+.c-comm__id{flex:1 1 auto}
+.c-comm__meta{flex:none;opacity:.72;letter-spacing:.12em}
+.c-comm__log{counter-reset:comm;margin:0;padding:16px 16px 14px;list-style:none;
+ background-image:repeating-linear-gradient(180deg,rgba(255,255,255,.028) 0,rgba(255,255,255,.028) 1px,transparent 1px,transparent 3px);}
+.c-comm__log>li{position:relative;margin:0 0 9px;padding-left:42px;font-size:15px;line-height:1.82;
+ text-align:left;color:color-mix(in srgb,var(--accent) 30%,#eef2f6);}
+.c-comm__log>li:last-child{margin-bottom:0}
+.c-comm__log>li::before{counter-increment:comm;content:counter(comm,decimal-leading-zero);
+ position:absolute;left:0;top:.28em;width:30px;text-align:right;
+ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;
+ color:color-mix(in srgb,var(--accent) 52%,transparent);}
+.c-comm__gap{padding-left:42px !important;margin:14px 0 !important;line-height:1 !important;
+ border-top:1px dashed color-mix(in srgb,var(--accent) 26%,transparent);font-size:11px !important;
+ letter-spacing:.4em;color:color-mix(in srgb,var(--accent) 42%,transparent) !important;}
+.c-comm__gap::before{content:"" !important;counter-increment:none !important}
+.c-comm__last{color:color-mix(in srgb,var(--accent) 22%,#fff) !important;
+ text-shadow:0 0 14px color-mix(in srgb,var(--accent) 55%,transparent);}
+.c-comm__wait{display:flex;align-items:center;gap:8px;padding:10px 16px 12px;
+ border-top:1px solid color-mix(in srgb,var(--accent) 18%,transparent);
+ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;
+ letter-spacing:.2em;text-transform:uppercase;color:color-mix(in srgb,var(--accent) 48%,transparent);}
+.c-comm__wait::before{content:"";flex:none;width:7px;height:13px;background:var(--accent);
+ animation:comm-caret 1.1s steps(1,end) infinite;}
+@keyframes comm-pulse{0%,100%{opacity:1}50%{opacity:.28}}
+@keyframes comm-caret{0%,49%{opacity:1}50%,100%{opacity:0}}
+.c-decree{position:relative;max-width:34rem;margin:2.8rem auto;padding:2.4rem 2rem 2rem;
+ background:#f4efe4;color:#332c22;border:1px solid rgba(0,0,0,.14);
+ box-shadow:0 12px 34px rgba(0,0,0,.38);line-height:1.9;}
+.c-decree__seal{position:absolute;top:1.4rem;right:1.4rem;width:76px;height:76px;border-radius:50%;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+ border:2px solid color-mix(in srgb,var(--accent) 70%,#000);color:color-mix(in srgb,var(--accent) 70%,#000);
+ font-family:system-ui,sans-serif;font-size:.5rem;letter-spacing:.08em;opacity:.8;transform:rotate(-8deg);}
+.c-decree__stamp{position:absolute;top:1rem;left:1.2rem;font-size:.64rem;letter-spacing:.16em;
+ opacity:.5;font-family:system-ui,sans-serif;}
+.c-decree__title{margin:.4rem 0 .3rem;font-size:1.15rem;letter-spacing:.08em;}
+.c-decree__subtitle{margin:0 0 1.2rem;font-size:.8rem;opacity:.6;}
+.c-decree__body{margin:0 0 .8rem;text-align:justify;}
+.c-decree__sign{margin-top:1.6rem;text-align:right;}
+.c-decree__sign-label{display:block;font-size:.66rem;letter-spacing:.16em;opacity:.5;
+ font-family:system-ui,sans-serif;}
+.c-decree__signature{font-size:1.05rem;}
 .foot{margin-top:4rem;padding-top:1.6rem;border-top:1px solid var(--accent);
  color:var(--muted);font-size:.82rem;line-height:1.9;font-family:system-ui,sans-serif;}
 .foot b,.foot strong{color:var(--accent);font-weight:600;}
@@ -175,6 +240,9 @@ def main():
         src = src.split('---', 2)[2]
 
     pal = palette(a.series)
+    css = CSS
+    for k, v in pal.items():
+        css = css.replace(f'__{k.upper()}__', v)
     body = to_html(src)
 
     foot = ''
@@ -190,7 +258,7 @@ def main():
         subs += (f'<div class="sub" style="opacity:.7;letter-spacing:.06em">'
                  f'mood：{html.escape(a.mood)}</div>\n')
 
-    page = (f'<title>{html.escape(a.title)}</title>\n{CSS % pal}\n<div class="wrap">\n'
+    page = (f'<title>{html.escape(a.title)}</title>\n{css}\n<div class="wrap">\n'
             f'<div class="eyebrow">{html.escape(a.eyebrow)}</div>\n'
             f'<h1>{html.escape(a.title)}</h1>\n{subs}<div class="rule"></div>\n'
             f'{body}\n{foot}\n</div>')
