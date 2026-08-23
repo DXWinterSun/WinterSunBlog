@@ -1113,6 +1113,44 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 </div>
 ```
 
+### 3. `c-comm`——设备屏幕上的通讯记录（飞船通讯板 / 终端 / 控制台）
+
+适用：**科技设备屏幕上显示的一串消息**——飞船通讯板、终端日志、控制台留言、
+未来向的即时消息。科幻 / 近未来 / 太空题材用它，别用便条卡（暖纸手写卡配飞船太出戏）。
+吃 AU 色卡令牌，但屏幕本身**恒为暗**（发光屏理应如此），不随站点明暗主题翻转。
+
+```html
+<div class="c-comm" role="group" aria-label="通讯记录">
+  <div class="c-comm__bar">
+    <span class="c-comm__id">Heart of Gold · 通讯板</span>
+    <span class="c-comm__meta">未读 47</span>          <!-- 右上角计数，可选 -->
+  </div>
+  <ol class="c-comm__log">
+    <li>到了吗</li>
+    <li>我不是催。我就是问问。</li>
+    <li class="c-comm__gap" style="counter-reset: comm 45;">· · · · ·</li>
+    <li>baby doll。</li>
+    <li class="c-comm__last">回来。</li>
+  </ol>
+  <div class="c-comm__wait">等待回复</div>                <!-- 底部闪烁光标，可选 -->
+</div>
+```
+
+- **序号自动编号**，不用手写。中间要跳号（只展示一部分、暗示还有几十条没显示）就插一条
+  `c-comm__gap`，用内联 `style="counter-reset: comm N;"` 把编号接到 N+1。
+  这样读者一眼就看出中间断了多少条——比写一句「他发了四十七条」有力得多。
+- `c-comm__gap` 那行渲染成一道虚线，本身不占编号；`c-comm__last` 让最后一条发亮。
+- `c-comm__wait` 是底部那个一直闪的光标 + 一句没人回的状态词。
+
+### 三种卡片怎么选
+
+| 内容 | 用哪个 |
+|---|---|
+| 私人手写：字条、信、明信片、餐巾纸上的字 | `c-note` |
+| 官方 / 盖章：公文、声明、判决、证书 | `c-decree` |
+| 科技设备屏幕上的消息串：飞船通讯板、终端、控制台 | `c-comm` |
+| 诺基亚时代按键机的单色屏短信（固定复古配色，不吃 AU 令牌） | `c-sms` |
+
 ### 判断 formal 还是 note
 
 - 有机构 / 盖章 / 官腔气质 → `c-decree`（哪怕是恶搞的「管理层批复」）。

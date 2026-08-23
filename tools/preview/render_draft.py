@@ -20,7 +20,7 @@ series 值）取该 AU 的 accent / bg / text / muted，所以预览页的观感
 支持的 Markdown 子集（跟博客正文实际用到的一致）：
   ### 小节标题 ／ > 引用块 ／ **粗体** ／ --- 分隔线
   行尾两个空格 = 硬换行（诗式收束、多行题词靠这个）
-  以 < 开头的裸 HTML 块原样透传（内嵌 SVG 插图、c-note 便条卡、c-decree 公文卡等，
+  以 < 开头的裸 HTML 块原样透传（内嵌 SVG 插图、c-note 便条卡、c-decree 公文卡、c-comm 通讯屏等，
   后两者预览页自带简化样式，看到的效果跟线上接近）
 """
 import argparse, html, os, re, sys
@@ -162,6 +162,43 @@ blockquote p{margin:0}
  margin-bottom:1rem;font-family:system-ui,sans-serif;}
 .c-note__body p{margin:0 0 .5rem;text-align:left;}
 .c-note__sign{display:block;text-align:right;margin-top:1.1rem;opacity:.72;}
+/* c-comm —— 设备屏幕上的通讯记录（飞船通讯板 / 终端）。屏幕恒为暗，不随主题翻转。*/
+.c-comm{max-width:29rem;margin:2.6rem auto;border-radius:10px;overflow:hidden;
+ border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);
+ background:color-mix(in srgb,var(--accent) 7%,#0a0c11);
+ box-shadow:0 14px 34px rgba(0,0,0,.42),0 0 22px color-mix(in srgb,var(--accent) 12%,transparent);}
+.c-comm__bar{display:flex;align-items:center;gap:9px;padding:9px 14px;
+ border-bottom:1px solid color-mix(in srgb,var(--accent) 22%,transparent);
+ background:color-mix(in srgb,var(--accent) 12%,transparent);
+ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;
+ letter-spacing:.18em;text-transform:uppercase;color:color-mix(in srgb,var(--accent) 62%,#fff);}
+.c-comm__bar::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;
+ background:var(--accent);box-shadow:0 0 8px var(--accent);animation:comm-pulse 2.6s ease-in-out infinite;}
+.c-comm__id{flex:1 1 auto}
+.c-comm__meta{flex:none;opacity:.72;letter-spacing:.12em}
+.c-comm__log{counter-reset:comm;margin:0;padding:16px 16px 14px;list-style:none;
+ background-image:repeating-linear-gradient(180deg,rgba(255,255,255,.028) 0,rgba(255,255,255,.028) 1px,transparent 1px,transparent 3px);}
+.c-comm__log>li{position:relative;margin:0 0 9px;padding-left:42px;font-size:15px;line-height:1.82;
+ text-align:left;color:color-mix(in srgb,var(--accent) 30%,#eef2f6);}
+.c-comm__log>li:last-child{margin-bottom:0}
+.c-comm__log>li::before{counter-increment:comm;content:counter(comm,decimal-leading-zero);
+ position:absolute;left:0;top:.28em;width:30px;text-align:right;
+ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;
+ color:color-mix(in srgb,var(--accent) 52%,transparent);}
+.c-comm__gap{padding-left:42px !important;margin:14px 0 !important;line-height:1 !important;
+ border-top:1px dashed color-mix(in srgb,var(--accent) 26%,transparent);font-size:11px !important;
+ letter-spacing:.4em;color:color-mix(in srgb,var(--accent) 42%,transparent) !important;}
+.c-comm__gap::before{content:"" !important;counter-increment:none !important}
+.c-comm__last{color:color-mix(in srgb,var(--accent) 22%,#fff) !important;
+ text-shadow:0 0 14px color-mix(in srgb,var(--accent) 55%,transparent);}
+.c-comm__wait{display:flex;align-items:center;gap:8px;padding:10px 16px 12px;
+ border-top:1px solid color-mix(in srgb,var(--accent) 18%,transparent);
+ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;
+ letter-spacing:.2em;text-transform:uppercase;color:color-mix(in srgb,var(--accent) 48%,transparent);}
+.c-comm__wait::before{content:"";flex:none;width:7px;height:13px;background:var(--accent);
+ animation:comm-caret 1.1s steps(1,end) infinite;}
+@keyframes comm-pulse{0%,100%{opacity:1}50%{opacity:.28}}
+@keyframes comm-caret{0%,49%{opacity:1}50%,100%{opacity:0}}
 .c-decree{position:relative;max-width:34rem;margin:2.8rem auto;padding:2.4rem 2rem 2rem;
  background:#f4efe4;color:#332c22;border:1px solid rgba(0,0,0,.14);
  box-shadow:0 12px 34px rgba(0,0,0,.38);line-height:1.9;}
