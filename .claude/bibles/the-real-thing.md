@@ -358,6 +358,9 @@ series_name: **The Real Thing** ｜ slug `series/the-real-thing/` ｜ collection
 - **绝不让他抒情**——动情靠身体动作泄漏，嘴上永远在挡。
 - **第一幕、第二幕不许透露他有钱。**
 - 称呼：你叫 Frank（验他时才用全名）；他换着叫。
+- ⚠️ **时间线自查（本系列已踩过一次）**：每章写完专门过一遍——这一章里每一处回指、
+  每一个名字、每一个心照不宣的梗，放在**这个时间点**是不是已经成立。
+  （踩过的坑：Ch5 闺蜜那顿饭上，「你」拿家宴才见到的舅公举例。）
 - 全站规则照旧：正文弯双引号 “ ”／‘ ’；`summary` ≤35 字且无 ASCII 双引号；
   身份标签齐 `[Frank Mercer, Sam Rockwell, AU, The Real Thing, mood…]`；
   去中式表达（`tools/check_desino.py`）；正文不许 cue 章节号；内链带 `{{ site.baseurl }}`。
