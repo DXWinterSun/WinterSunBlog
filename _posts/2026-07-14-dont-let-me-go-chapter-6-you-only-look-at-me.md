@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · 你只看着我 — Don't Let Me Go"
+title: "Chapter 6 · 手腕上那圈青 — Don't Let Me Go"
 date: 2026-07-14
 image: snow-angels.png.webp
 tags: [Glenn Marchand, Sam Rockwell, AU, "Don't Let Me Go", 暗涌, 安放]

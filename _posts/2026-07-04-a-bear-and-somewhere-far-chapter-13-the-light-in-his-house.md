@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 13 · 他家的灯 — A Bear and Somewhere Far"
+title: "Chapter 13 · 他替孩子掖了掖被角 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
 tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 怅惘, 暗涌]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 忍不住（他视角） — Better Living Through You"
+title: "Extra · 不过是懦夫的自保 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 暗涌]

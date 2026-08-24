@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 15 · 赢家 — Better Living Through You"
+title: "Chapter 15 · 她要的是个赢家 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 暗涌, 怅惘]

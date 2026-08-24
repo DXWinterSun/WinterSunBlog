@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · 打烊之后 — Better Living Through You"
+title: "Chapter 8 · 做个人原来这么好 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 缱绻]

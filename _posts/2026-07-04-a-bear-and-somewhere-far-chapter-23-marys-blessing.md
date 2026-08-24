@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 23 · Mary 的成全 — A Bear and Somewhere Far"
+title: "Chapter 23 · 谢谢你把他找回来 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
 tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 安放, 缱绻]

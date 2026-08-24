@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · Close Call — Nothing Warmer Than You"
+title: "Chapter 3 · The Horse He Can't Ride Away — Nothing Warmer Than You"
 date: 2026-07-19
 image: charley-ford-au.jpg
 tags: [Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 悸动, 暗涌]

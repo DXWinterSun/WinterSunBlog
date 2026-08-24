@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 16 · 留灯 — Better Living Through You"
+title: "Chapter 16 · 我不想在那儿 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 缱绻]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 平安夜的灯火 — A Bear and Somewhere Far"
+title: "Chapter 7 · 他没看树 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
 tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 缱绻]

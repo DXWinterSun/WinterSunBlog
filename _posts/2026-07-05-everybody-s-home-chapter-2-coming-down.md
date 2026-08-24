@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 2 · Coming Down — Everybody's Home"
+title: "Chapter 2 · I Thought I Made You Up — Everybody's Home"
 date: 2026-07-05 12:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 怅惘, 缱绻]

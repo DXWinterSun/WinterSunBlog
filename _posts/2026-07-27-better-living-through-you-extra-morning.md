@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 早晨 — Better Living Through You"
+title: "Extra · You wanna party? — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.png
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 缱绻]

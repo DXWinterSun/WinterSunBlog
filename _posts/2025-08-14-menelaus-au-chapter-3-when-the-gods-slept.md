@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · When the Gods Slept — If You'll Have Me"
+title: "Chapter 3 · I Meant to Kiss You — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg

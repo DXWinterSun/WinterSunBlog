@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 2 · The Mercenary and the Spirit Girl — The Only War"
+title: "Chapter 2 · Before You, I Never Stopped Running — The Only War"
 categories: ["AU Story"]
 date: 2025-10-10
 image: alexios-au.svg

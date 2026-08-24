@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 11 · 最后一个夏天 — A Bear and Somewhere Far"
+title: "Chapter 11 · 等见到你的时候我给你 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
 tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 缱绻, 怅惘]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 10 · Loaded — Nothing Warmer Than You"
+title: "Chapter 10 · Everything but the Gun — Nothing Warmer Than You"
 date: 2026-07-22
 image: charley-ford-au.jpg
 tags: [Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 炽恋, 缱绻]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "番外 · 海边 — A Bear and Somewhere Far"
+title: "番外 · 藏着小熊的戒指 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
 tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 安放]

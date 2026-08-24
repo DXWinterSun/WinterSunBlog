@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 11 · 让我对你好 — Don't Let Me Go"
+title: "Chapter 11 · 告诉我我做对了 — Don't Let Me Go"
 date: 2026-07-14
 image: snow-angels.png.webp
 tags: [Glenn Marchand, Sam Rockwell, AU, "Don't Let Me Go", 炽恋, 缱绻]

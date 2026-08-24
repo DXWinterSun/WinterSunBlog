@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · Full Circle — Everybody's Home"
+title: "Chapter 6 · The Roof of the Rover — Everybody's Home"
 date: 2026-08-14 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 暗涌, 安放]

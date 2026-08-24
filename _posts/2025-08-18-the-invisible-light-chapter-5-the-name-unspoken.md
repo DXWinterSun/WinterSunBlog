@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 5 · 连名字都来不及说出口 — The Invisible Light"
+title: "Chapter 5 · 替他挡的那一刀 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

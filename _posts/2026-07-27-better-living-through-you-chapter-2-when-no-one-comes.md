@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 2 · 没有人来的时候 — Better Living Through You"
+title: "Chapter 2 · 你不用跟我说对不起 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 悸动, 絮语]

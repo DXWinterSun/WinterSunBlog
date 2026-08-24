@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 14 · The Moment He Discovers Your First Time — Before the World Broke for Us"
+title: "Chapter 14 · I'll Break This World to Reach You — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

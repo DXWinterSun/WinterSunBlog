@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · 桥 — Fog City"
+title: "Chapter 8 · 我现在就说 — Fog City"
 date: 2026-08-06
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 悸动, 安放]

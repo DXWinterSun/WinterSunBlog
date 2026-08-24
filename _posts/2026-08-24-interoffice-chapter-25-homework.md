@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 25 · 功课 — Interoffice"
+title: "Chapter 25 · 卖不掉的东西 — Interoffice"
 date: 2026-08-24
 image: gary-ohara-au.jpg
 tags: [Gary O'Hara, Sam Rockwell, AU, Interoffice, 絮语, 悸动]

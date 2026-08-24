@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 16 · 我终于亲吻了你。 — The Invisible Light"
+title: "Chapter 16 · 吻得比画得好 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

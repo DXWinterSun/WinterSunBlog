@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 旁白 — Fog City"
+title: "Extra · 他们只要我的嗓子 — Fog City"
 date: 2026-09-18
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 缱绻, 怀旧]

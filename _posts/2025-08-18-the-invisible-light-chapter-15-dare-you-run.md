@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 15 · 你舍得逃吗？ — The Invisible Light"
+title: "Chapter 15 · 你会怪我吗 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 13 · 星期天 — Better Living Through You"
+title: "Chapter 13 · 薯片渣掉在地毯上 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 缱绻, 絮语]

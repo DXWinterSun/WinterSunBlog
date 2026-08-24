@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 10 · Second Nature — Everybody's Home"
+title: "Chapter 10 · He Made It Three — Everybody's Home"
 date: 2026-08-18 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 悸动, 暗涌]

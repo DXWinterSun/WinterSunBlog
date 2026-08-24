@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 觉得无聊 — I Missed You on Purpose"
+title: "Extra · 第八回在想中午吃什么 — I Missed You on Purpose"
 date: 2026-08-22
 image: jerry-and-tom-au.jpg
 tags: [Jerry, Sam Rockwell, AU, I Missed You on Purpose, 暗涌, 怅惘]

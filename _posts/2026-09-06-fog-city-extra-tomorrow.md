@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 明天 — Fog City"
+title: "Extra · 生日是明天 — Fog City"
 date: 2026-09-06
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 絮语, 怀旧]

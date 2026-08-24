@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 15 · 后知后觉 — Everything in Transit"
+title: "Chapter 15 · 她一次次说下次 — Everything in Transit"
 date: 2026-08-12
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 怅惘, 暗涌]

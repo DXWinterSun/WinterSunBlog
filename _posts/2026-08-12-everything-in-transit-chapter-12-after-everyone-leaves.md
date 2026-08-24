@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 12 · 散场之后 — Everything in Transit"
+title: "Chapter 12 · 腕带还了回去 — Everything in Transit"
 date: 2026-08-12
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 暗涌]

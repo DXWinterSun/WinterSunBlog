@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 我爱你 — I Never Looked Away"
+title: "Extra · 他一遍也没说 — I Never Looked Away"
 date: 2026-08-25
 image: i-never-looked-away.jpg
 tags: [Trent, Sam Rockwell, AU, I Never Looked Away, 炽恋, 缱绻]

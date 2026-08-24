@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 5 · Throwing In — Nothing Warmer Than You"
+title: "Chapter 5 · Take Me With You — Nothing Warmer Than You"
 date: 2026-07-21
 image: charley-ford-au.jpg
 tags: [Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 悸动, 暗涌]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · On Horseback, He First Doubts the World — Before the World Broke for Us"
+title: "Chapter 7 · But You Do — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

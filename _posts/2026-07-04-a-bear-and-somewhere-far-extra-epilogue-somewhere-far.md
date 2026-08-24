@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "尾声 · 远方 — A Bear and Somewhere Far"
+title: "尾声 · 它不用再替他了 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
 tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 安放, 怀旧]

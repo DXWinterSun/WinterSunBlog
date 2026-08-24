@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 5 · The Boy Who Prayed for You — If You'll Have Me"
+title: "Chapter 5 · I Want to Marry Her — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg

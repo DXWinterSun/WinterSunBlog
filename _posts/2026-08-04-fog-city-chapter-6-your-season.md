@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · 你的季节 — Fog City"
+title: "Chapter 6 · 裁走浪尖那笔白 — Fog City"
 date: 2026-08-04
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 缱绻, 怅惘]

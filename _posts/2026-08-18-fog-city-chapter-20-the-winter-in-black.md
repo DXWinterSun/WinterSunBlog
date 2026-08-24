@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 23 · 全黑的冬天 — Fog City"
+title: "Chapter 23 · 他谢了海洋 — Fog City"
 date: 2026-08-18
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 悸动, 安放]

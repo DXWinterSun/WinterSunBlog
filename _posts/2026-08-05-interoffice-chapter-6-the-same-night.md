@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · 同一个晚上 — Interoffice"
+title: "Chapter 6 · 扣上那三个金属环 — Interoffice"
 date: 2026-08-05
 image: gary-ohara-au.jpg
 tags: [Gary O'Hara, Sam Rockwell, AU, Interoffice, 暗涌, 怅惘]

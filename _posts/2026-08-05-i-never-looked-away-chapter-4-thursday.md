@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 4 · 星期四 — I Never Looked Away"
+title: "Chapter 4 · 盒子里那块绿玻璃 — I Never Looked Away"
 date: 2026-08-05
 image: i-never-looked-away.jpg
 tags: [Trent, Sam Rockwell, AU, I Never Looked Away, 悸动, 暗涌]

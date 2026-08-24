@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 21 · 补发 — Interoffice"
+title: "Chapter 21 · 他的生日在你前一天 — Interoffice"
 date: 2026-08-20
 image: gary-ohara-au.jpg
 tags: [Gary O'Hara, Sam Rockwell, AU, Interoffice, 缱绻, 悸动]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 21 · 你真的好英俊。 — The Invisible Light"
+title: "Chapter 21 · 他连那颗痣都记得 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

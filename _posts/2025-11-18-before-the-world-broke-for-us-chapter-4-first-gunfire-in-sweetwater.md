@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 4 · First Gunfire in Sweetwater — Before the World Broke for Us"
+title: "Chapter 4 · You Really Should Run — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

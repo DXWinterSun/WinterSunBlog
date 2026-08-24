@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · The Night of the Vow — If You'll Have Me"
+title: "Chapter 6 · He Walked into the Bedpost — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg

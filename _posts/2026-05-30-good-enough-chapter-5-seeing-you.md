@@ -1,7 +1,7 @@
 ---
 published: false
 layout: post
-title: "Chapter 5 · 看你 — Good Enough"
+title: "Chapter 5 · 没有追光，就它自己 — Good Enough"
 date: 2026-05-30
 image: justin-hammer-au.webp
 tags: [Justin Hammer, Sam Rockwell, AU, Good Enough, 安放, 悸动]

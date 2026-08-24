@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 14 · 八样 — Nickel and Dime"
+title: "Chapter 14 · 第一个往上加的数 — Nickel and Dime"
 categories: ["AU Story"]
 date: 2026-08-02
 image: jimmy-silk-au.jpg

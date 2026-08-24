@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · 我来 — I Missed You on Purpose"
+title: "Chapter 8 · 他说了一个日子 — I Missed You on Purpose"
 date: 2026-08-11
 image: jerry-and-tom-au.jpg
 tags: [Jerry, Sam Rockwell, AU, I Missed You on Purpose, 暗涌, 怅惘]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 2 · 上楼 — Interoffice"
+title: "Chapter 2 · 他把一层楼搬成十步 — Interoffice"
 date: 2026-08-01
 image: gary-ohara-au.jpg
 tags: [Gary O'Hara, Sam Rockwell, AU, Interoffice, 悸动, 絮语]

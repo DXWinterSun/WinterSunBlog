@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 14 · 暖你的手 — Don't Let Me Go"
+title: "Chapter 14 · 你的手，我包了 — Don't Let Me Go"
 date: 2026-07-14
 image: snow-angels.png.webp
 tags: [Glenn Marchand, Sam Rockwell, AU, "Don't Let Me Go", 安放, 缱绻]

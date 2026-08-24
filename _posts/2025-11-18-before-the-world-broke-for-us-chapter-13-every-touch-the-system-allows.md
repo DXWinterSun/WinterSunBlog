@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 13 · Every Touch the System Allows — Before the World Broke for Us"
+title: "Chapter 13 · Because You Started It — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

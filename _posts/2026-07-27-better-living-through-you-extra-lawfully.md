@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 名正言顺 — Better Living Through You"
+title: "Extra · 跟我自己的太太回家 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 缱绻]

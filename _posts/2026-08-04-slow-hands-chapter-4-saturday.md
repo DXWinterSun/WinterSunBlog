@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 4 · 星期六 — Slow Hands"
+title: "Chapter 4 · 他叫了你一声姓 — Slow Hands"
 categories: ["AU Story"]
 date: 2026-08-04
 image: gary-petrosino-au.jpg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 9 · He Brings You into Camp — Before the World Broke for Us"
+title: "Chapter 9 · Try Touching Her — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

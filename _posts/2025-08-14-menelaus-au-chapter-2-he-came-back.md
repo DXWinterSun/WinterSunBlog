@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 2 · He Came Back — If You'll Have Me"
+title: "Chapter 2 · I Was Never Afraid You'd Die — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg

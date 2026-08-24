@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 5 · One More Day — Everybody's Home"
+title: "Chapter 5 · The First Real Thing — Everybody's Home"
 date: 2026-08-13 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 缱绻, 安放]

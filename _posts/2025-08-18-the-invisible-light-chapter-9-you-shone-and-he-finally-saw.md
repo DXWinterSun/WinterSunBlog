@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 9 · 你在人群中发光，而他终于移不开眼 — The Invisible Light"
+title: "Chapter 9 · 她到底是谁 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

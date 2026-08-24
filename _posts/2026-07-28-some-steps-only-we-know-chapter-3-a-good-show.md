@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · 又一场好戏 — Some Steps Only We Know"
+title: "Chapter 3 · 他把真名咽了回去 — Some Steps Only We Know"
 date: 2026-07-28
 image: some-steps-only-we-know.jpg
 tags: [Jim Crocker, Sam Rockwell, AU, Some Steps Only We Know, 絮语, 暗涌]

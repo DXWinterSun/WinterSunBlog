@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · 知道了 — Nickel and Dime"
+title: "Chapter 6 · 他先说了一遍才吻你 — Nickel and Dime"
 categories: ["AU Story"]
 date: 2026-08-02
 image: jimmy-silk-au.jpg

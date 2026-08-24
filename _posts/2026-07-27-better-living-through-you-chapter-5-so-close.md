@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 5 · 差一点 — Better Living Through You"
+title: "Chapter 5 · 浴缸外那声敲门 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 暗涌, 悸动]

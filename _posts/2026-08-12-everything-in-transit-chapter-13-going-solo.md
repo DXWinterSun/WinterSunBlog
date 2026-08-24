@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 13 · 单飞 — Everything in Transit"
+title: "Chapter 13 · 他不是不肯，是不敢 — Everything in Transit"
 date: 2026-08-12
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 暗涌, 怅惘]

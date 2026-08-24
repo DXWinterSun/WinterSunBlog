@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 11 · 二楼 — I Never Looked Away"
+title: "Chapter 11 · 窗台上那个泥脚印 — I Never Looked Away"
 date: 2026-08-12
 image: i-never-looked-away.jpg
 tags: [Trent, Sam Rockwell, AU, I Never Looked Away, 悸动, 缱绻]

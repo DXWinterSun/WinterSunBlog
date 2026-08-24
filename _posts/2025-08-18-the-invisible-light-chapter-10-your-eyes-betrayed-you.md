@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 10 · 你没能藏好眼神，他却走近了你 — The Invisible Light"
+title: "Chapter 10 · 他没看懂那一眼 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

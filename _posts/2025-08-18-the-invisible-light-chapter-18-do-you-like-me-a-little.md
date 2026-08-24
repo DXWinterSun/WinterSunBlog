@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 18 · 你是不是也有一点喜欢我？ — The Invisible Light"
+title: "Chapter 18 · 不止一点 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

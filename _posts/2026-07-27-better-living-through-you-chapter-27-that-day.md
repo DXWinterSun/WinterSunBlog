@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 27 · 那一天 — Better Living Through You"
+title: "Chapter 27 · 门上终于是他的姓 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 缱绻, 安放]

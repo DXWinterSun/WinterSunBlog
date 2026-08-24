@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 11 · 你画得太专注，他看见了你心里所有光 — The Invisible Light"
+title: "Chapter 11 · 他站在你身后没出声 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

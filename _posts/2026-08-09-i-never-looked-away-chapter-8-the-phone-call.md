@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · 那通电话 — I Never Looked Away"
+title: "Chapter 8 · 录取通知是我考回来的 — I Never Looked Away"
 date: 2026-08-09
 image: i-never-looked-away.jpg
 tags: [Trent, Sam Rockwell, AU, I Never Looked Away, 暗涌, 怅惘]

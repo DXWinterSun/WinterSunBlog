@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 23 · 只有你 — Everything in Transit"
+title: "Chapter 23 · 没一个让我写过歌 — Everything in Transit"
 date: 2026-08-12
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 缱绻, 絮语]

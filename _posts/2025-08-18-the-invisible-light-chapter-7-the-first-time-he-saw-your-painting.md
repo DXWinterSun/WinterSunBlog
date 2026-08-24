@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 他第一次看到你为他画的那张画 — The Invisible Light"
+title: "Chapter 7 · 他念了一声 Winter — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

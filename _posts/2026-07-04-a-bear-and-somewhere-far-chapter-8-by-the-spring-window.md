@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · 春光里的窗前 — A Bear and Somewhere Far"
+title: "Chapter 8 · 会一直这样下去的 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
 tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 缱绻]

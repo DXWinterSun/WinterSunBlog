@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 10 · 成年礼 — Fog City"
+title: "Chapter 10 · 一只吊着的公鸡 — Fog City"
 date: 2026-08-08
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 絮语, 缱绻]

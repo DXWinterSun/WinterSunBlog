@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "番外 · 婚礼 — A Bear and Somewhere Far"
+title: "番外 · 我这边不用留位子 — A Bear and Somewhere Far"
 date: 2026-07-14
 image: clay.JPG
 tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 安放, 缱绻]

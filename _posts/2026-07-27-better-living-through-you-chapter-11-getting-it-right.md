@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 11 · 火候 — Better Living Through You"
+title: "Chapter 11 · 你做得好极了 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 缱绻]

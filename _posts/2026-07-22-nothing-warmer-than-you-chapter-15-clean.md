@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 15 · Clean — Nothing Warmer Than You"
+title: "Chapter 15 · The Bullet He Never Fired — Nothing Warmer Than You"
 date: 2026-07-22
 image: charley-ford-au.jpg
 tags: [Charley Ford, Sam Rockwell, AU, Nothing Warmer Than You, 怅惘, 暗涌]

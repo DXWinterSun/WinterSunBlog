@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 21 · 缰绳 — Better Living Through You"
+title: "Chapter 21 · 领带上那道褶皱 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 暗涌]

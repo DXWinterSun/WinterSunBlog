@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 12 · He Tests the Limits of the System — Before the World Broke for Us"
+title: "Chapter 12 · Then Keep Kissing Me — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

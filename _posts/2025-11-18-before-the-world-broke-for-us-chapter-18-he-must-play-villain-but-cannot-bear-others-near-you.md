@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 18 · He Must Play Villain but Cannot Bear Others Near You — Before the World Broke for Us"
+title: "Chapter 18 · He Broke Character — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · 顺路 — Interoffice"
+title: "Chapter 3 · 他在研究消防疏散图 — Interoffice"
 date: 2026-08-02
 image: gary-ohara-au.jpg
 tags: [Gary O'Hara, Sam Rockwell, AU, Interoffice, 悸动, 絮语]

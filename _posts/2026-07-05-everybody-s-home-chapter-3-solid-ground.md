@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · Solid Ground — Everybody's Home"
+title: "Chapter 3 · That's Wind — Everybody's Home"
 date: 2026-07-05 15:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 安放, 缱绻]

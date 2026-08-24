@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 10 · 一件简单的事 — Everything in Transit"
+title: "Chapter 10 · 那把不出声的吉他 — Everything in Transit"
 date: 2026-08-12
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 怅惘]

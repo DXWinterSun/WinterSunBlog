@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 23 · 儿子 — Better Living Through You"
+title: "Chapter 23 · 我不想长成你那样 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 暗涌, 安放]

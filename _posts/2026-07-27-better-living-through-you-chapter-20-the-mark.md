@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 20 · 标记 — Better Living Through You"
+title: "Chapter 20 · 我把您弄脏了 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 缱绻]

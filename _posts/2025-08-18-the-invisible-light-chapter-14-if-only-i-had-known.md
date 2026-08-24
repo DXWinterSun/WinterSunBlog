@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 14 · 如果我早知道你看我的眼神是这样 — The Invisible Light"
+title: "Chapter 14 · 想逃又舍不得逃 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

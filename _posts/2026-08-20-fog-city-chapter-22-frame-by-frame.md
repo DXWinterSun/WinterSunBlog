@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 25 · 一帧一帧 — Fog City"
+title: "Chapter 25 · 让她留在雾里 — Fog City"
 date: 2026-08-20
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 怀旧, 絮语]

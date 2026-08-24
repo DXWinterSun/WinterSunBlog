@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 16 · After the First Time, His Possession — Before the World Broke for Us"
+title: "Chapter 16 · They Passed Through. You Stayed. — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

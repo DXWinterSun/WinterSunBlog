@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 22 · 天黑之前 — Better Living Through You"
+title: "Chapter 22 · 过得像做贼一样 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 暗涌, 怅惘]

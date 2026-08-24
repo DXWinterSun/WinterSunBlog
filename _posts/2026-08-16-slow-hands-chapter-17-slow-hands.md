@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 17 · Slow Hands — Slow Hands"
+title: "Chapter 17 · 那句骂他的话成了名字 — Slow Hands"
 categories: ["AU Story"]
 date: 2026-08-16
 image: gary-petrosino-au.jpg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 20 · 开口 — Slow Hands"
+title: "Chapter 20 · 他说了四次不行 — Slow Hands"
 categories: ["AU Story"]
 date: 2026-08-19
 image: gary-petrosino-au.jpg

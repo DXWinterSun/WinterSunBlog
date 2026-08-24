@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · 你以为他永远不会知道 — The Invisible Light"
+title: "Chapter 8 · 她一直都这么安静吗 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

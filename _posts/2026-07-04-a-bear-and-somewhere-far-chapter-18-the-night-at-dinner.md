@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 18 · 家宴之夜 — A Bear and Somewhere Far"
+title: "Chapter 18 · 谁是外人 — A Bear and Somewhere Far"
 date: 2026-07-04
 image: clay.JPG
 tags: [C.P. Ellis, Sam Rockwell, AU, A Bear and Somewhere Far, 暗涌, 缱绻]

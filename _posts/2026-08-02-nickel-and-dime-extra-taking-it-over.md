@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 承包 — Nickel and Dime"
+title: "Extra · 这地方归我承包 — Nickel and Dime"
 categories: ["AU Story"]
 date: 2026-08-02
 image: jimmy-silk-au.jpg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 20 · 梦中的你 — Off the Air"
+title: "Chapter 20 · 唯一不想骗的人 — Off the Air"
 date: 2026-08-25
 image: chuck-barris-au.jpg
 tags: [Chuck Barris, Sam Rockwell, AU, Off the Air, 缱绻, 安放]

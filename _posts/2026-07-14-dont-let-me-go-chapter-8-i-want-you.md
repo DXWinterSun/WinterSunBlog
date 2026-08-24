@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · 我想要你 — Don't Let Me Go"
+title: "Chapter 8 · 你摸摸，我是热的 — Don't Let Me Go"
 date: 2026-07-14
 image: snow-angels.png.webp
 tags: [Glenn Marchand, Sam Rockwell, AU, "Don't Let Me Go", 炽恋, 缱绻]

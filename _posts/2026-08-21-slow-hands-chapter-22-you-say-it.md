@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 22 · 你说 — Slow Hands"
+title: "Chapter 22 · 别再交下个月的房租了 — Slow Hands"
 categories: ["AU Story"]
 date: 2026-08-21
 image: gary-petrosino-au.jpg

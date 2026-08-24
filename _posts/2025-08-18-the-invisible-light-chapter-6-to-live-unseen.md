@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · 不被记得，也要好好活着 — The Invisible Light"
+title: "Chapter 6 · 他一次也没来问过 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

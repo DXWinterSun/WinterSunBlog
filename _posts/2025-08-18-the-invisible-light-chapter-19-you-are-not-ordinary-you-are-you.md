@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 19 · 你不是普通人——你是你。 — The Invisible Light"
+title: "Chapter 19 · 你是 Winter Ashcombe — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

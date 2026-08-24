@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 照常 — Better Living Through You"
+title: "Chapter 7 · 我不后悔 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 悸动, 缱绻]

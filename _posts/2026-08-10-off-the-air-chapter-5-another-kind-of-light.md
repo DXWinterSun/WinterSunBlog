@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 5 · 另一种光 — Off the Air"
+title: "Chapter 5 · 你要是不开枪 — Off the Air"
 date: 2026-08-10
 image: chuck-barris-au.jpg
 tags: [Chuck Barris, Sam Rockwell, AU, Off the Air, 暗涌, 悸动]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 4 · 海边那场 — Everything in Transit"
+title: "Chapter 4 · 有人问他单不单身 — Everything in Transit"
 date: 2026-08-12
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 怀旧]

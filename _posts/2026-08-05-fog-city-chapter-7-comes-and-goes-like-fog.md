@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 像雾一样来去 — Fog City"
+title: "Chapter 7 · 窗台上那张地图 — Fog City"
 date: 2026-08-05
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 思念, 缱绻]

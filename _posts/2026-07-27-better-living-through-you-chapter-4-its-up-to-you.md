@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 4 · 你说了算 — Better Living Through You"
+title: "Chapter 4 · 他自己关上的那扇门 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 暗涌, 怅惘]

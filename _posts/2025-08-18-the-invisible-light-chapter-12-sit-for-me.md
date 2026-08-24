@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 12 · 他终于坐在你面前 — The Invisible Light"
+title: "Chapter 12 · 这个月的画像派给谁 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

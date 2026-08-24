@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 慢慢来 — Fog City"
+title: "Extra · 你再慢我就自己来 — Fog City"
 date: 2026-09-16
 image: fog-city-au.jpg
 tags: [Young Sam, Sam Rockwell, AU, Fog City, 炽恋, 缱绻]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 18 · 工间 — Interoffice"
+title: "Chapter 18 · 电梯里那二十四秒 — Interoffice"
 date: 2026-08-17
 image: gary-ohara-au.jpg
 tags: [Gary O'Hara, Sam Rockwell, AU, Interoffice, 絮语, 悸动]

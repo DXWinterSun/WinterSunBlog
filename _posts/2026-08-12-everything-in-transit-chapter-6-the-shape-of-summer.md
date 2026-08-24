@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · 夏天的样子 — Everything in Transit"
+title: "Chapter 6 · 他手上那根腕带 — Everything in Transit"
 date: 2026-08-12
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 缱绻]

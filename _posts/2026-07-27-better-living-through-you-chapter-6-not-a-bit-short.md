@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · 一点不差 — Better Living Through You"
+title: "Chapter 6 · 湿着头发按了门铃 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 缱绻]

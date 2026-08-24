@@ -1,7 +1,7 @@
 ---
 published: false
 layout: post
-title: "Chapter 8 · 为什么 — Good Enough"
+title: "Chapter 8 · 他以为没人懂俄语 — Good Enough"
 date: 2026-05-30
 image: justin-hammer-au.webp
 tags: [Justin Hammer, Sam Rockwell, AU, Good Enough, 安放, 悸动]

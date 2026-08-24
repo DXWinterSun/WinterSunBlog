@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 梳洗 — Better Living Through You"
+title: "Extra · 他把喉咙交给你 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 缱绻, 絮语]

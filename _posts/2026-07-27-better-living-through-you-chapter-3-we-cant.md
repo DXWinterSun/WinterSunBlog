@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · 不行 — Better Living Through You"
+title: "Chapter 3 · 最诚实的那句不行 — Better Living Through You"
 date: 2026-07-27
 image: better-living-through-chemistry.jpg
 tags: [Douglas Varney, Sam Rockwell, AU, Better Living Through You, 炽恋, 暗涌]

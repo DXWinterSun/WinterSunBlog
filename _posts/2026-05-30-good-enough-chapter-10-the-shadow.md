@@ -1,7 +1,7 @@
 ---
 published: false
 layout: post
-title: "Chapter 10 · 影子 — Good Enough"
+title: "Chapter 10 · 去敲斯塔克的门 — Good Enough"
 date: 2026-05-30
 image: justin-hammer-au.webp
 tags: [Justin Hammer, Sam Rockwell, AU, Good Enough, 安放, 悸动]

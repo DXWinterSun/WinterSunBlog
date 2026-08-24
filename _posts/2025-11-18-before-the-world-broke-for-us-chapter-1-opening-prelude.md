@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 1 · Opening Prelude — Before the World Broke for Us"
+title: "Chapter 1 · The World Really Did Stop — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · The First Time He Wants to Kiss You — Before the World Broke for Us"
+title: "Chapter 8 · The One Thing I Can't Explain — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

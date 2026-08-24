@@ -1,7 +1,7 @@
 ---
 published: false
 layout: post
-title: "Chapter 9 · 争分夺秒 — Good Enough"
+title: "Chapter 9 · 出了事我担 — Good Enough"
 date: 2026-05-30
 image: justin-hammer-au.webp
 tags: [Justin Hammer, Sam Rockwell, AU, Good Enough, 安放, 悸动]

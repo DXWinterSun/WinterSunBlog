@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · 后楼梯 — Nickel and Dime"
+title: "Chapter 3 · 他蹲下来给你穿鞋 — Nickel and Dime"
 categories: ["AU Story"]
 date: 2026-08-02
 image: jimmy-silk-au.jpg

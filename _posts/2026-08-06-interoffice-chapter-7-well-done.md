@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 干得好 — Interoffice"
+title: "Chapter 7 · 第六到第十一页 — Interoffice"
 date: 2026-08-06
 image: gary-ohara-au.jpg
 tags: [Gary O'Hara, Sam Rockwell, AU, Interoffice, 暗涌, 怅惘]

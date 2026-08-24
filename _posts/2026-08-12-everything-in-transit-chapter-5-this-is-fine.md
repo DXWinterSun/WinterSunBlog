@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 5 · 这样就很好 — Everything in Transit"
+title: "Chapter 5 · 第一个起哄的是你 — Everything in Transit"
 date: 2026-08-12
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 怅惘]

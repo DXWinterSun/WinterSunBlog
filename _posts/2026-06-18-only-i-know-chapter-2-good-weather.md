@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 2 · 好天气 — Only I Know"
+title: "Chapter 2 · 就离开了几分钟 — Only I Know"
 date: 2026-06-18
 image: 3-billboards-au.JPG
 tags: [Jason Dixon, Sam Rockwell, AU, Only I Know, 怅惘, 缱绻]

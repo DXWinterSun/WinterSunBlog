@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 9 · The Council Scene — If You'll Have Me"
+title: "Chapter 9 · If She Thinks She's Right, She's Right — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-16
 image: menelaus-au.svg

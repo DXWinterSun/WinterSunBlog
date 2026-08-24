@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 10 · 说出来 — Nickel and Dime"
+title: "Chapter 10 · 我一次都没上来 — Nickel and Dime"
 categories: ["AU Story"]
 date: 2026-08-02
 image: jimmy-silk-au.jpg

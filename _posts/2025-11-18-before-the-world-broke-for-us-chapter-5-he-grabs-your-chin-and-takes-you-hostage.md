@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 5 · He Grabs Your Chin and Takes You Hostage — Before the World Broke for Us"
+title: "Chapter 5 · Hostage, and Not Afraid — Before the World Broke for Us"
 categories: ["AU Story"]
 date: 2025-11-18
 image: before-the-world-broke-for-us.svg

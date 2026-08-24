@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 停电 — Slow Hands"
+title: "Chapter 7 · 谁也不欠谁的四十分钟 — Slow Hands"
 categories: ["AU Story"]
 date: 2026-08-06
 image: gary-petrosino-au.jpg

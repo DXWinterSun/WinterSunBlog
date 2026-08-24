@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 10 · Menelaus Confessions — If You'll Have Me"
+title: "Chapter 10 · You're Like Honey Cake — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-16
 image: menelaus-au.svg

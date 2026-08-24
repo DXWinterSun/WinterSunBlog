@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 1 · The Beach Special — The Only War"
+title: "Chapter 1 · Trained to Break Fortresses — The Only War"
 categories: ["AU Story"]
 date: 2025-10-10
 image: alexios-au.svg

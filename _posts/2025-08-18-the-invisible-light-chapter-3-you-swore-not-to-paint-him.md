@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · 你曾说过不再画他 — The Invisible Light"
+title: "Chapter 3 · 只要不是他 — The Invisible Light"
 categories: ["AU Story"]
 date: 2025-08-18
 image: the-invisible-light.svg

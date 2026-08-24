@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 5 · 没人拦着 — Some Steps Only We Know"
+title: "Chapter 5 · 他头一回把你丢下 — Some Steps Only We Know"
 date: 2026-07-28
 image: some-steps-only-we-know.jpg
 tags: [Jim Crocker, Sam Rockwell, AU, Some Steps Only We Know, 暗涌, 怅惘]

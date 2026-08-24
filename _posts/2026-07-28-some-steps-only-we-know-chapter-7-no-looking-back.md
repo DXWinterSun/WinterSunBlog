@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 没有回头 — Some Steps Only We Know"
+title: "Chapter 7 · 那声 Crocker 没管用 — Some Steps Only We Know"
 date: 2026-07-28
 image: some-steps-only-we-know.jpg
 tags: [Jim Crocker, Sam Rockwell, AU, Some Steps Only We Know, 暗涌, 怅惘]

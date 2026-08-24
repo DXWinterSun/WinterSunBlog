@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · Off Duty — Everybody's Home"
+title: "Extra · He Just Cleared Three Days — Everybody's Home"
 date: 2026-08-27 09:00:00
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 炽恋, 安放]
