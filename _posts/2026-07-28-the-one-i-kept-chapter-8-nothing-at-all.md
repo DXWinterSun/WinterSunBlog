@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · 什么也不是 — The One I Kept"
+title: "Chapter 8 · 站在三步开外 — The One I Kept"
 date: 2026-07-28
 image: the-one-i-kept.jpg
 tags: [Jim Crocker, Sam Rockwell, AU, The One I Kept, 暗涌, 怅惘]

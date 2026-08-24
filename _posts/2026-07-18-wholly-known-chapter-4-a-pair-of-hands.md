@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 4 · 一双手 — Wholly Known"
+title: "Chapter 4 · 替他缠好那只手 — Wholly Known"
 categories: ["AU Story"]
 date: 2026-07-18
 image: "wholly-known.svg"

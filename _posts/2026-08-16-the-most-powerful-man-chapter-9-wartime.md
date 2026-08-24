@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 9 · 战时 — The Most Powerful Man"
+title: "Chapter 9 · 那十八分钟 — The Most Powerful Man"
 date: 2026-08-16
 image: "the-most-powerful-man.jpeg"
 tags: [George W. Bush, Sam Rockwell, AU, The Most Powerful Man, 暗涌, 缱绻]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 14 · 护短 — The Cardinal"
+title: "Chapter 14 · 谁那么说你都不答应 — The Cardinal"
 date: 2026-06-20
 image: sam-rockwell-polish-guy.jpg
 tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻]

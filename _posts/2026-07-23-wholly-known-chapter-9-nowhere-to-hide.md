@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 9 · 无处躲 — Wholly Known"
+title: "Chapter 9 · 我都知道，Eddie — Wholly Known"
 categories: ["AU Story"]
 date: 2026-07-23
 image: "wholly-known.svg"

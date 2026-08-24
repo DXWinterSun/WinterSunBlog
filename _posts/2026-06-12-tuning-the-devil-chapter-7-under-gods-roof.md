@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 神的屋檐下 — Tuning the Devil"
+title: "Chapter 7 · 神都不在，怕什么 — Tuning the Devil"
 date: 2026-06-12
 tags: [Wild Bill Wharton, Sam Rockwell, AU, Tuning the Devil, 暗涌, 炽恋]
 categories: ["AU Story"]

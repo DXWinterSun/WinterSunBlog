@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "番外 · 取之不竭 — Don't Panic, Baby Doll"
+title: "番外 · 不用端着了 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-10-01
 image: zaphod-au.jpg

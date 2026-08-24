@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · 钥匙 — The Cardinal"
+title: "Chapter 3 · 一把钥匙，没有字 — The Cardinal"
 date: 2026-06-20
 image: sam-rockwell-polish-guy.jpg
 tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻, 怅惘]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "番外 · 留守 — Don't Panic, Baby Doll"
+title: "番外 · 四十七条未读 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-10-05
 image: zaphod-au.jpg

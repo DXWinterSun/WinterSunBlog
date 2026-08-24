@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 一家人 — Wholly Known"
+title: "Chapter 7 · 一家人，说这些做什么 — Wholly Known"
 categories: ["AU Story"]
 date: 2026-07-21
 image: "wholly-known.svg"

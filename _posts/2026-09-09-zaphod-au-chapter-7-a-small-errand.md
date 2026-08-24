@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 一件小事 — Don't Panic, Baby Doll"
+title: "Chapter 7 · 一个哈欠宣了战 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-09-09
 image: zaphod-au.jpg

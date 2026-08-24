@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · 偏爱 — Don't Panic, Baby Doll"
+title: "Chapter 6 · 他把她扔进了太空 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-09-08
 image: zaphod-au.jpg

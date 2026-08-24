@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 7 · 那一天 — The Most Powerful Man"
+title: "Chapter 7 · 八点四十六分 — The Most Powerful Man"
 date: 2026-08-16
 image: "the-most-powerful-man.jpeg"
 tags: [George W. Bush, Sam Rockwell, AU, The Most Powerful Man, 怅惘, 思念]

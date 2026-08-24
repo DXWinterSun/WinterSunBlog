@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 2 · 掌心 — Wholly Known"
+title: "Chapter 2 · 攥得太紧会化掉 — Wholly Known"
 categories: ["AU Story"]
 date: 2026-07-16
 image: "wholly-known.svg"

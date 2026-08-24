@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 8 · 口琴 — The Cardinal"
+title: "Chapter 8 · 能让我想起她 — The Cardinal"
 date: 2026-06-20
 image: sam-rockwell-polish-guy.jpg
 tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 怀旧, 怅惘]

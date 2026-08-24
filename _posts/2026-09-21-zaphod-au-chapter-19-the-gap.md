@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 19 · 缺口 — Don't Panic, Baby Doll"
+title: "Chapter 19 · 本该有星云的地方 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-09-21
 image: zaphod-au.jpg

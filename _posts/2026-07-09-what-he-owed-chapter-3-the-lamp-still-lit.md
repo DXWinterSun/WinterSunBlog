@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 3 · 灯还亮着 — What He Owed"
+title: "Chapter 3 · 这回轮不到你照顾人 — What He Owed"
 date: 2026-07-09
 image: silas-groves.jpg
 tags: [Colonel Silas Groves, Sam Rockwell, AU, What He Owed, 缱绻, 悸动]

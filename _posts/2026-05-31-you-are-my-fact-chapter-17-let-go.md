@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 17 · 松手 — You Are My Fact"
+title: "Chapter 17 · 不用追了 — You Are My Fact"
 date: 2026-05-31
 image: you-are-my-fact.jpg
 tags: [Leonard Shelby, Guy Pearce, AU, You Are My Fact, 暗涌, 安放]

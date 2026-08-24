@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 6 · 夏天 — The Most Powerful Man"
+title: "Chapter 6 · 听说你喝黑的 — The Most Powerful Man"
 date: 2026-08-16
 image: "the-most-powerful-man.jpeg"
 tags: [George W. Bush, Sam Rockwell, AU, The Most Powerful Man, 悸动, 怀旧]

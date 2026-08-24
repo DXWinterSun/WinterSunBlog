@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 12 · 同一座城 — The One I Kept"
+title: "Chapter 12 · 隔着橱窗那条链子 — The One I Kept"
 date: 2026-07-28
 image: the-one-i-kept.jpg
 tags: [Jim Crocker, Sam Rockwell, AU, The One I Kept, 思念, 怅惘]

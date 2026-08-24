@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 15 · 回家 — The One I Kept"
+title: "Chapter 15 · 这是我未婚妻 — The One I Kept"
 date: 2026-07-28
 image: the-one-i-kept.jpg
 tags: [Jim Crocker, Sam Rockwell, AU, The One I Kept, 缱绻, 絮语]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "番外 · 忍辱负重 — Don't Panic, Baby Doll"
+title: "番外 · 对着虚空喊二老好 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-09-30
 image: zaphod-au.jpg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 1 · 第一夜 — This House Is Clean"
+title: "Chapter 1 · 挂两件外套的地方 — This House Is Clean"
 date: 2026-07-09
 image: eric-bowen.JPG
 tags: [Eric Bowen, Sam Rockwell, AU, This House Is Clean, 安放, 絮语]

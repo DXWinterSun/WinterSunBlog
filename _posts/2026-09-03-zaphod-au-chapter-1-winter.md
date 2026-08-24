@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 1 · 冬天 — Don't Panic, Baby Doll"
+title: "Chapter 1 · 很美的季节 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-09-03
 image: zaphod-au.jpg

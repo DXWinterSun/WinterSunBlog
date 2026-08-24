@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 13 · 誓词 — Don't Panic, Baby Doll"
+title: "Chapter 13 · 念到一半他睡着了 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-09-15
 image: zaphod-au.jpg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 25 · 正当 — The Most Powerful Man"
+title: "Chapter 25 · 有摄影师作证的三秒 — The Most Powerful Man"
 date: 2026-08-16
 image: "the-most-powerful-man.jpeg"
 tags: [George W. Bush, Sam Rockwell, AU, The Most Powerful Man, 絮语, 怅惘]

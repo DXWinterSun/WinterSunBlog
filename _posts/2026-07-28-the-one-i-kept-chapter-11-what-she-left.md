@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 11 · 留下的 — The One I Kept"
+title: "Chapter 11 · 珠宝一件没动 — The One I Kept"
 date: 2026-07-28
 image: the-one-i-kept.jpg
 tags: [Jim Crocker, Sam Rockwell, AU, The One I Kept, 怅惘, 思念]
