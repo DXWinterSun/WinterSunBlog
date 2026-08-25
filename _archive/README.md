@@ -53,3 +53,19 @@ Leonard Shelby（《记忆碎片》Memento，Guy Pearce 饰）AU 的**早期版�
 
 > 存档来源：2026-07-07 清理旧分支时，从 `claude/sweet-planck-lt0hcr` 等 8 个
 > 分支（内容一致）中提取。存好后这些分支即可安全删除。
+
+## the-real-thing-v1/
+
+Frank Mercer（《火柴人》Matchstick Men, 2003，Sam Rockwell 饰）AU《The Real Thing》的
+**第一版**：7 章正文 + 9 篇番外，2026-06-20 发布，剧情是「他骗了你 → 走 → 又回来找你」。
+
+2026-08-25 由 Winter 拍板**整体重制（v2）**：骨架保留，但人物内核、「你」的身份、城市与结构
+全部重做，正文全部重写——「你」定名 **Winter Bellamy**（以辨真伪为生的鉴定人），城市改成
+Newport / 波士顿（一座什么都要验明出处的城）对洛杉矶；Frank 改成**已经金盆洗手、身上揣着
+一百多万**的退休骗子，藏的不是穷是有钱；新增第三幕「鉴定」（她一件件核对、飞洛杉矶见 Roy）。
+线上现在跑的是第二版（`_posts/2026-08-*-the-real-thing-chapter-*` + `series/the-real-thing/`）。
+
+- `2026-06-20-the-real-thing-*.md` —— 16 篇正文 / 番外（原在 `_posts/`）
+- `series-index.html` —— 第一版系列首页（原 `series/the-real-thing/index.html`）
+
+> 两版共用同一角色色卡（画册 id `frank`）。第二版圣经见 `.claude/bibles/the-real-thing.md`。
