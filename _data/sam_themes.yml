@@ -240,18 +240,18 @@
   year: 2003
   name: "Frank Mercer"
   anchor: frank
-  cn: 紫雾榛眸
-  en: Hazel Mauve
-  bg_cn: 焦黑火柴
+  cn: 狐瞳榛金
+  en: Fox-Eye Hazel
+  bg_cn: 火柴焦黑
   bg_en: Burnt Matchstick
-  text_cn: 奖券浅樱
-  text_en: Lotto-Ticket Blush
-  muted_cn: 磷头暗褐
-  muted_en: Striker Umber
-  accent: "#9a7ba0"
-  bg: "#1a1410"
-  text: "#ede0e6"
-  muted: "#8d7462"
+  text_cn: 车漆冷银
+  text_en: Vanquish Silver
+  muted_cn: 荧屏微蓝
+  muted_en: Television Blue
+  accent: "#c2914b"
+  bg: "#131110"
+  text: "#dfe3e6"
+  muted: "#7f8a94"
 
 - id: crocker
   year: 2004
