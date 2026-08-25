@@ -228,19 +228,19 @@
 
 "The Real Thing":           # Frank Mercer · 色卡同源画册 id: frank
   mf_id: frank                # → Many Faces 画册锚点 /sam/many-faces/#frank
-  accent: "#9a7ba0"
-  accent_ink: "#7b6280"
-  bg: "#1a1410"
-  text: "#ede0e6"
-  muted: "#8d7462"
-  accent_cn: "紫雾榛眸"
-  accent_en: "Hazel Mauve"
-  bg_cn: "焦黑火柴"
+  accent: "#c2914b"
+  accent_ink: "#8f6b37"
+  bg: "#131110"
+  text: "#dfe3e6"
+  muted: "#7f8a94"
+  accent_cn: "狐瞳榛金"
+  accent_en: "Fox-Eye Hazel"
+  bg_cn: "火柴焦黑"
   bg_en: "Burnt Matchstick"
-  text_cn: "奖券浅樱"
-  text_en: "Lotto-Ticket Blush"
-  muted_cn: "磷头暗褐"
-  muted_en: "Striker Umber"
+  text_cn: "车漆冷银"
+  text_en: "Vanquish Silver"
+  muted_cn: "荧屏微蓝"
+  muted_en: "Television Blue"
 
 "Menelaus AU":
   accent: "#c9963a"

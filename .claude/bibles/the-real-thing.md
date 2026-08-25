@@ -12,6 +12,24 @@ series_name: **The Real Thing** ｜ slug `series/the-real-thing/` ｜ collection
 
 ---
 
+## 配色（Winter 2026-08-25 定稿，已全站同步）
+
+旧的那套（accent「紫雾榛眸」#9a7ba0）其实是块**藕紫色**，跟榛色无关，银色也压根没进过色卡——
+Winter 驳回，重排如下。**四个格子＝四样他身上的东西**，中文名都是四个字、彼此不重字：
+
+| 槽位 | 中文 | 英文 | 色值 | 是什么 |
+|---|---|---|---|---|
+| accent | **狐瞳榛金** | Fox-Eye Hazel | `#c2914b` | 他的眼睛，也是**那只玩具狐狸的眼睛**（Ch22） |
+| text | **车漆冷银** | Vanquish Silver | `#dfe3e6` | 你送他的那辆车。**故事的每一个字都是那辆车的漆色** |
+| muted | **荧屏微蓝** | Television Blue | `#7f8a94` | 他一进屋就开电视、不看，「屋里有个声音就不算一个人在家」（Ch17） |
+| bg | **火柴焦黑** | Burnt Matchstick | `#131110` | 火柴烧完剩下的那截；**这一行的人叫火柴人** |
+
+`accent_ink`（浅色主题链接色）＝ `#8f6b37`（对白纸 4.5:1）。
+⚠️ 六处拷贝（画册／quiz／spectrum／sam_themes／lines.json＋pool／au_palettes）已同步，
+`python3 tools/check_palette_sync.py` 全绿。改任何一处都要六处一起改再跑一遍。
+
+---
+
 ## 一句话内核
 
 **他这辈子分不清「真的」和「演的」——在他脑子里那本来就是一回事。**
