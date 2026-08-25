@@ -16,7 +16,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怀旧, 安放]
 ---
 
 > 两年前他拿走一百多万，  
-> 给那个人留了一块钱，  
+> 给那个人留了一百块，  
 > 还写了一句让他好好享用。  
 >   
 > 这一次他还了一部分，  
@@ -442,7 +442,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怀旧, 安放]
 
 “……我记得。”
 
-“一块钱。”
+“一百块。”
 
 “嗯。”
 
@@ -461,8 +461,6 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怀旧, 安放]
 “P.S. Enjoy the gift.”Roy 说。
 
 “嗯。”
-
-“我为那一句，想了两年。”
 
 ---
 
@@ -496,7 +494,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怀旧, 安放]
 
 “……”
 
-“那句话我琢磨了两年。”
+“那句话我记着呢。”
 
 “我知道。”
 
