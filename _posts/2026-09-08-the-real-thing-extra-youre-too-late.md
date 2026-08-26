@@ -398,7 +398,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “**你还真是。**”
 
-“闭嘴。”
+“别问了。”
 
 “不。”他掐住你的下巴，把你的脸抬起来，“你刚才在看什么。”
 

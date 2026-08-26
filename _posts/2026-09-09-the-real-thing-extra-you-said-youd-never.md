@@ -165,7 +165,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “你抖得跟筛子似的。”
 
-“Frank，你闭嘴。”
+“Frank——”
 
 他笑了一声。
 
