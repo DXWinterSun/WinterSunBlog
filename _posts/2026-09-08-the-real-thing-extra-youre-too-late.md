@@ -136,7 +136,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 你站在门口没有动。
 
-“你每次都晚一步。”他说。
+“你每次都晚一步，honey。”他说。
 
 他把毛巾从架子上扯下来，慢条斯理地开始擦肩膀。
 
@@ -154,7 +154,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “你早就知道。”
 
-“亲爱的，”他说，“你调过闹钟。”
+“babe，”他说，“你调过闹钟。”
 
 “……”
 
@@ -162,7 +162,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 你张了张嘴。
 
-“你要是想看，”他说，“你直说不就完了。”
+“你要是想看，”他说，“你直说不就完了，honey。”
 
 ---
 
@@ -278,7 +278,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “我不求——”
 
-“那我等着。”
+“那我等着，honey。”
 
 他低下去了，这一回他不慢了。
 
@@ -324,7 +324,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 他一把抓住你的脚踝，抓得很稳，往上一提架到自己腰上，笑着往前顶了一步，把自己顶进你两腿中间。
 
-“别踢。”他说，“待会儿有你踢的。”
+“别踢，babe。”他说，“待会儿有你踢的。”
 
 ---
 
@@ -440,7 +440,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “Frank——”
 
-“我知道，宝贝儿，我知道。”他一下比一下更重，“你脱不下来。你就只能这么挂在我身上，两只脚踩着它，让我操你。”
+“我知道，babe，我知道。”他一下比一下更重，“你脱不下来。你就只能这么挂在我身上，两只脚踩着它，让我操你。”
 
 你叫出了声。
 

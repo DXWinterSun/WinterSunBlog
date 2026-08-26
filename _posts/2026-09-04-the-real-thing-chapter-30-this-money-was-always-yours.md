@@ -567,7 +567,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 安放]
 
 “回来啦——”
 
-“慢点儿。”他说，“地上凉。”
+“慢点儿，honey。”他说，“地上凉。”
 
 你光着脚跑过去，一头撞进那股冷气里，冻得直往回缩，又不肯松手。
 
@@ -577,7 +577,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 安放]
 
 ---
 
-“我买了那个你上回说好吃的。”他说，“他家今天没有那个大的了，我买了两个小的。”
+“我买了那个你上回说好吃的。”他说，“他家今天没有那个大的了，我买了两个小的，sweetheart。”
 
 “好呀。”你说，“两个小的加起来比一个大的还多呢。”
 
@@ -585,7 +585,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 安放]
 
 “怎么了嘛。”
 
-“没怎么。”他说，“听着挺占便宜的。”
+“没怎么。”他说，“听着挺占便宜的，babe。”
 
 ---
 

@@ -53,7 +53,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “……为什么。”
 
-“热水器就那么点热水。”他说，“你洗完我洗，我每次都赶上凉的。”
+“热水器就那么点热水。”他说，“你洗完我洗，我每次都赶上凉的，honey。”
 
 你看着他。
 
@@ -163,7 +163,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “……没有。”
 
-“你抖得跟筛子似的。”
+“你抖得跟筛子似的，sweetheart。”
 
 “Frank——”
 
@@ -275,7 +275,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 他愣了一下。
 
-“……哦，宝贝儿。”他说。
+“……哦，babe。”他说。
 
 他的手指在你脸上蹭了一下。
 
@@ -327,7 +327,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “对，就这样——”
 
-“天啊。你看看你。”
+“天啊。你看看你，babe。”
 
 “你知不知道你现在这个样子——”
 
@@ -355,7 +355,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “我还没弄完。”
 
-“我知道你还没弄完。”他把你抱起来，你的两条腿自动缠上他的腰，“我要是让你弄完了，今天晚上就到此为止了，你懂不懂。”
+“我知道你还没弄完。”他把你抱起来，你的两条腿自动缠上他的腰，“我要是让你弄完了，今天晚上就到此为止了，你懂不懂，honey。”
 
 “……你放我下来。”
 
@@ -539,7 +539,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 他大概是察觉到了。
 
-“……宝贝儿。”他说。
+“……sweetheart。”他说。
 
 他的拇指在你耳朵后头蹭了一下，非常轻。
 

@@ -59,7 +59,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “没干嘛。”
 
-“你在看我。”
+“你在看我，honey。”
 
 “我不能看你？”
 
@@ -97,7 +97,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “Frank。”
 
-“不是，你等会儿。”他一屁股坐到茶几上，一条腿架起来，把那只破了洞的袜子举到你面前晃了晃，“你跟我说清楚。是这个？”
+“不是，你等会儿。”他一屁股坐到茶几上，一条腿架起来，把那只破了洞的袜子举到你面前晃了晃，“你跟我说清楚，sweetheart。是这个？”
 
 “你放下。”
 
@@ -105,7 +105,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “Frank——”
 
-“你脸红了。”他说，“你现在整个耳朵都是红的。”
+“你脸红了。”他说，“你现在整个耳朵都是红的，honey。”
 
 ---
 
@@ -191,7 +191,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 ---
 
-“说清楚点。”他咬着你的下唇含糊地说，“你要我干什么。”
+“说清楚点。”他咬着你的下唇含糊地说，“你要我干什么，babe。”
 
 “……你听见了。”
 
@@ -199,7 +199,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “Frank——”
 
-“我耳朵不好。”他说，“我这个人吧，凡事都要人说清楚。你不说清楚我不敢动。我怕办错了事。”
+“我耳朵不好，sweetheart。”他说，“我这个人吧，凡事都要人说清楚。你不说清楚我不敢动。我怕办错了事。”
 
 那个语气你听过一百遍。那是他在酒会上、在拍卖厅里、在任何一张桌子对面用的那个语气——温和、诚恳、给人留足了余地，逼着对方自己把话说出口。
 
@@ -251,7 +251,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 他把你的腿分得更开一点，看你的脸。他咬你锁骨底下那块，看你的脸。他在你耳朵边上说了一句很难听的话，看你的脸——那一句你后来死都不肯承认自己有反应，可你脖子上那块皮肤当场就红了，他一眼就看见了。
 
-“记下了。”他说。
+“记下了，honey。”他说。
 
 “你记什么——”
 
@@ -287,7 +287,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 中午你站在炉子前面烧水，他从后头贴上来。那次是站着的，你两只手撑在台面上，那壶水后来烧干了，报废了。
 
-“我赔你一个。”事后他说。
+“我赔你一个，babe。”事后他说。
 
 “你赔我一个屁。”
 
@@ -309,7 +309,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 ---
 
-“你说说。”他喘着气笑，“你这个到底是怎么回事。”
+“你说说，honey。”他喘着气笑，“你这个到底是怎么回事。”
 
 “不许问。”
 
@@ -399,7 +399,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 
 “……”
 
-“慢点坐。”
+“慢点坐，sweetheart。”
 
 “Frank——”
 

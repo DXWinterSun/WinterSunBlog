@@ -46,7 +46,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 怅惘]
 
 “Frank。”
 
-“真的。那个鱼——那个鱼他们怎么弄的，外头那层是脆的，里头还是嫩的。我他妈想不明白。”
+“真的。那个鱼——那个鱼他们怎么弄的，外头那层是脆的，里头还是嫩的。我他妈想不明白，honey。”
 
 你把大衣脱下来，慢慢地挂上，等他。
 
@@ -222,7 +222,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 怅惘]
 
 “太紧了。”你说。
 
-“忍着。”
+“忍着，sweetheart。”
 
 ---
 
@@ -240,7 +240,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 怅惘]
 
 “六月十二号。”你在最上面写了一行，“还有半年。”
 
-“半年很久。”他说。
+“半年很久，honey。”他说。
 
 “半年一点都不久。你不知道我妈。”
 
@@ -250,7 +250,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 怅惘]
 
 场地。名单。你妈那边的花。西装——你抬头看了他一眼，“你得做一套。”
 
-“我有西装。”
+“我有西装，sweetheart。”
 
 “你有的那套我知道。”
 
@@ -284,7 +284,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 怅惘]
 
 笔尖停在下一行。
 
-“……剩下的位子你随便卖。”他说，“卖给谁都行，我不挑。你要是卖不掉，摆几盆花也挺好看的。”
+“……剩下的位子你随便卖。”他说，“卖给谁都行，我不挑，babe。你要是卖不掉，摆几盆花也挺好看的。”
 
 你没有笑。
 

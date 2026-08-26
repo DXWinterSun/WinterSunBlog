@@ -140,7 +140,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 絮语, 缱绻]
 
 晚上他趴在沙发上，脸朝着你这边。
 
-“今天想吃什么。”他说。
+“今天想吃什么，honey。”他说。
 
 “不知道。你说。”
 
@@ -150,7 +150,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 絮语, 缱绻]
 
 “……你请我？”
 
-“怎么了。”他说，“不行吗。”
+“怎么了，sweetheart。”他说，“不行吗。”
 
 “行啊。”你说，“你请。”
 
@@ -174,7 +174,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 絮语, 缱绻]
 
 你把书合上了。
 
-“一分都没有了。”他说，“我今天下午出门的时候还有二十七块。现在我有——”他伸出手，摊开，“——这个。”
+“一分都没有了。”他说，“我今天下午出门的时候还有二十七块，babe。现在我有——”他伸出手，摊开，“——这个。”
 
 他手心里是一张揉皱的收据和两枚硬币。
 

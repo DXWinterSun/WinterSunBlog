@@ -32,7 +32,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 悸动]
 
 “Frank，那是十一份。”
 
-“十二。”他说，“还有一份在后备箱里，那个不能压。”
+“十二。”他说，“还有一份在后备箱里，那个不能压，honey。”
 
 你转过头看他。他两只手规规矩矩地搭在方向盘上，眼睛看着前面，一副没什么好说的样子。仪表台上那只小狐狸随着路面轻轻晃。
 
@@ -50,7 +50,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 悸动]
 
 “开车的是你。”
 
-“那你更别看我了。”
+“那你更别看我了，sweetheart。”
 
 ---
 
@@ -108,7 +108,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 悸动]
 
 “你怎么什么都知道。”你母亲一边收拾包装纸一边笑着说，“Winter 从来不肯告诉我你们的事，我问她她就说‘挺好的’。”
 
-“她说得对。”他说，“确实挺好的。”
+“她说得对，Bellamy 太太。”他说，“确实挺好的。”
 
 满屋子人都笑了。
 
@@ -308,7 +308,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 悸动]
 
 “我没不告诉你——”
 
-“你没告诉我。”
+“你没告诉我，honey。”
 
 满屋子人都在笑他。
 

@@ -48,7 +48,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]
 
 “你刚才笑了。”
 
-“我脸就长这样。”
+“我脸就长这样，sweetheart。”
 
 她伸手过来在他腿上拍了一下，然后把手放回方向盘。
 
@@ -176,7 +176,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]
 
 “你怎么张嘴就是钱。”
 
-“职业病。”
+“职业病，honey。”
 
 “你现在的职业是卖二手车。”
 

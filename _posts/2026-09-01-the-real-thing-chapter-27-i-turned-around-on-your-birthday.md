@@ -150,7 +150,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]
 
 “你在看。”
 
-“我在等饭。”他说。
+“我在等饭，honey。”他说。
 
 ---
 

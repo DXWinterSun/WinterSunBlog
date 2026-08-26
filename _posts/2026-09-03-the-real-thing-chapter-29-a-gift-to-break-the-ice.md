@@ -142,7 +142,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怀旧, 安放]
 
 “先生，办好了。”
 
-“谢谢。”
+“谢谢，小姐。”
 
 “今天到账。”
 
@@ -422,7 +422,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怀旧, 安放]
 
 “你他妈是不是有病。”
 
-“你今天已经说过一遍了。”
+“你今天已经说过一遍了，pal。”
 
 “那我再说一遍。”
 
@@ -542,7 +542,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怀旧, 安放]
 
 “她。”
 
-“意料之中。”
+“意料之中，babe。”
 
 “你今天干什么了。”
 
@@ -554,7 +554,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怀旧, 安放]
 
 “你？”
 
-“别提了。”
+“别提了，sweetheart。”
 
 她笑起来了。
 

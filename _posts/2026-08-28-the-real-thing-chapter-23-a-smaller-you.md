@@ -31,7 +31,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 悸动]
 
 “你到底想穿哪套。”
 
-“我想穿哪套都不对。”他一屁股坐到床沿上，“他今天看我，看的不是衣服。”
+“我想穿哪套都不对，sweetheart。”他一屁股坐到床沿上，“他今天看我，看的不是衣服。”
 
 ——他说得对。
 
@@ -101,7 +101,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 悸动]
 
 “你紧张。”
 
-“我不紧张。”他打了一下方向盘，“我从来不紧张。这是我的职业素养。”
+“我不紧张。”他打了一下方向盘，“我从来不紧张，honey。这是我的职业素养。”
 
 你伸出手。
 
@@ -299,7 +299,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 悸动]
 
 你报了街名。
 
-“别动，”他说，“我来接你。”
+“别动，honey，”他说，“我来接你。”
 
 ---
 
