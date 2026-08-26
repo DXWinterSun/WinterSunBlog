@@ -58,6 +58,11 @@ byline: `Bill Greaves · The Winning Season · Sam Rockwell · ongoing`
 - **他抽烟**。原片名场面：Abbie 说这里不能抽烟，他直接回一个烟圈（Winter 截图确认）。
 - **开场对白（原片实有 · Winter 重看）**：他推脱「我怎么可能教女生打篮球？女人都讨厌我，
   都恨我」；第一天吊儿郎当看完球队后 Terry 补刀「**不止女生恨你**」（=人人都烦他）。
+- ⭐ **经典台词（原片实有 · Winter 钦点双用）**：**“Don't contradict me when I tell you to
+  do something. Do it.”**（我让你做的时候别跟我犟，做就是了。）双重用法与系列名同构
+  （同一句话·两个房间）：①球场原义——16 岁你多嘴问为什么被一句压回，日记里骂他霸道、
+  骂完停笔很久；②炽恋回收——成年后原文原样、教练腔一丝不苟，只是指令不在战术板上；
+  你的身体比脑子先服从：**六年肌肉记忆是他亲手练出来的**，当年每次「听话」都是这一刻的伏笔。
 - **Abbie 补充设定（Winter 重看）**：爸妈不在身边，跟着奶奶过。**他教过 Abbie 开车**。
 - **Onion butt 对话（原片实有）**：他对 Abbie 说 “You're not my type. I like big tits and
   onion butts.” Abbie 问啥是 onion butt → “It's a butt that brings tears to your eyes.”
@@ -282,6 +287,7 @@ byline: `Bill Greaves · The Winning Season · Sam Rockwell · ongoing`
 - 十八岁生日后他躲你眼睛的三天 → 回收点：他招供「那天我动过一个念头，我把它掐了」。
 - 洋葱圈泡牛奶 → 回收点：成年后餐馆里你当他面把洋葱圈按进牛奶，「有个人说过，
   没有规定不能这么吃」——他想起来的那个表情。
+- “Don't contradict me… Do it.” → 球场章先立原义，炽恋章原文回收（见原片设定节）。
 
 **待讨论 / 已定待写**
 - ⭐ **游戏厅事件**（Winter 定要用，走 **B**）：他冲进游戏厅把 Molly 拖回家，你正好在场，
