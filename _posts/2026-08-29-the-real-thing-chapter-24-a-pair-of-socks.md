@@ -55,7 +55,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 安放]
 
 “你喝什么。”
 
-“跟您一样。”
+“跟您一样，sir。”
 
 “不用跟我一样。”
 
@@ -85,7 +85,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 安放]
 
 他从来没有像现在这样，不知道自己该把手放在哪儿。
 
-“您问吧。”他说。
+“您问吧，sir。”他说。
 
 “我不问。”老先生说，“你说。”
 

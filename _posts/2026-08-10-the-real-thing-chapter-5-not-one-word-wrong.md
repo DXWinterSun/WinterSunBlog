@@ -210,7 +210,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 暗涌]
 
 “你是做什么的？”
 
-“客户关系。”
+“客户关系，sir。”
 
 “具体一点。”
 
