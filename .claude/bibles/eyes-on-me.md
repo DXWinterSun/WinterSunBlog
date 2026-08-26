@@ -59,6 +59,9 @@ byline: `Bill Greaves · The Winning Season · Sam Rockwell · ongoing`
 - **Onion butt 对话（原片实有）**：他对 Abbie 说 “You're not my type. I like big tits and
   onion butts.” Abbie 问啥是 onion butt → “It's a butt that brings tears to your eyes.”
 - **他爱吃**，看比赛手里要有爆米花之类的零食；原片里他会**跟替补席的姑娘要爆米花吃**。
+- **洋葱圈泡牛奶（原片实有 · Winter 重看）**：赛后聚餐他把洋葱圈按进牛奶里，姑娘们齐呼
+  gross，他说「怎么了？还能有规定说不能这么吃吗？」你在旁边默默记下（小本本第三页；
+  与 onion butt 同属他的洋葱宇宙）。安排进**第一次赢球那章**的饭桌。
 - **发球（原片实有 · Winter 重看）**：输掉第一场后他意识到还有很多路要走，给每人发了
   一颗篮球，**亲手写上每个人的名字**，要求每天带着球练。姑娘们把球当宝贝。
 - ⭐ **主题注脚**：这队快凑成「没爸的孩子俱乐部」——Abbie 没爸妈、Wendy 没人管、你爸早走、
@@ -272,6 +275,8 @@ byline: `Bill Greaves · The Winning Season · Sam Rockwell · ongoing`
 - 你和 Wendy 的「随口问问」→ 回收点：Wendy 第一个猜到，随后知情多米诺（→毕业季助攻团）。
 - Kathy 那句「我认识一个人」→ 回收点：毕业季由她最后推你一把（首尾呼应）。
 - 十八岁生日后他躲你眼睛的三天 → 回收点：他招供「那天我动过一个念头，我把它掐了」。
+- 洋葱圈泡牛奶 → 回收点：成年后餐馆里你当他面把洋葱圈按进牛奶，「有个人说过，
+  没有规定不能这么吃」——他想起来的那个表情。
 
 **待讨论 / 已定待写**
 - ⭐ **游戏厅事件**（Winter 定要用，走 **B**）：他冲进游戏厅把 Molly 拖回家，你正好在场，
