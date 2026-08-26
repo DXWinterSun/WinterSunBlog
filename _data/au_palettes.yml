@@ -711,3 +711,20 @@
   text_en: "Warm Sand"
   muted_cn: "潮汐浮木"
   muted_en: "Driftwood"
+
+"The Serbian Tornado":      # Pero "Pepe" Mahlovic · 色卡同源画册 id: pero
+  mf_id: pero                # → Many Faces 画册锚点 /sam/many-faces/#pero
+  theme_id: pero
+  accent: "#b8703a"
+  accent_ink: "#935a2e"
+  bg: "#1a1612"
+  text: "#ede0cc"
+  muted: "#8a7458"
+  accent_cn: "拳击场铁锈橘"
+  accent_en: "Ring Rust"
+  bg_cn: "科林伍德暮色"
+  bg_en: "Collinwood Dusk"
+  text_cn: "保险箱图纸黄"
+  text_en: "Aged Blueprint"
+  muted_cn: "更衣室拳套褐"
+  muted_en: "Worn-Glove Brown"
