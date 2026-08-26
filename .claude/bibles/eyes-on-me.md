@@ -10,6 +10,9 @@ series_name: **Eyes on Me** ｜ slug `series/eyes-on-me/`
 配色（与 No One Walks Off 共用同一套 · 一个角色一套色）: 球场领带红 accent `#c1352b` /
   散场夜墨黑 bg `#16110d` / text `#ede3d3` / muted `#9e8f79`
 byline: `Bill Greaves · The Winning Season · Sam Rockwell · ongoing`
+封面图: **`The Winning Season(15).jpg`**（main 分支 images/，Winter 2026-08-26 上传，已压缩至
+  1600px；白衬衫红领带储物柜前——与 No One Walks Off 的 `The Winning Season(5).jpg` 分开，
+  部署时每章 front matter `image:` 都用 15 这张）
 系列名来历: 他每次集合都吼的那句口令 **“Eyes on me.”**（都看着我）——教练口令 + 暗恋心声，
   同一句话两层意思。
 ⭐ 系列论题（Winter 2026-08-26 原话，第一章开场结构即用此）：全镇恨他、全队骂他，
