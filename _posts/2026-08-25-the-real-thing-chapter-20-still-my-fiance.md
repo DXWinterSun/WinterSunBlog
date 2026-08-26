@@ -289,7 +289,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]
 
 他挠了挠后脑勺。
 
-“他会不会带枪。”
+“他会不会带枪啊，honey。”
 
 你笑出了声。你笑得眼泪又下来了，你抬手捶了他一下。
 

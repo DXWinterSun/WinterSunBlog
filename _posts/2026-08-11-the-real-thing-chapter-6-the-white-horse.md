@@ -33,7 +33,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 悸动]
 
 “干什么？”
 
-“过来就知道了。”
+“过来就知道了，honey。”
 
 “Frank——”
 
@@ -41,7 +41,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 悸动]
 
 你到的时候他在楼下等着。他没解释，只是牵着你上楼，到门口的时候停下来，从背后伸手蒙住了你的眼睛。
 
-“不许偷看。”
+“不许偷看，sweetheart。”
 
 “你搞什么鬼。”
 
@@ -105,7 +105,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 悸动]
 
 他在你身后蹲下来，蹲了两秒觉得别扭，干脆一屁股坐到地板上，从后头把你整个圈了进去。
 
-“哎，哎。”他下巴搁在你肩上，“这就哭了？我这儿还有别的呢。”
+“哎，哎。”他下巴搁在你肩上，“这就哭了，honey？我这儿还有别的呢。”
 
 “……什么别的。”你的声音闷在他小臂上。
 
@@ -137,7 +137,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 悸动]
 
 “Frank。”
 
-“真的。”他摊摊手，“我这人运气一向不错。”
+“真的。”他摊摊手，“我这人运气一向不错，sweetheart。”
 
 你后来问过他很多次。每一次他都是这一套。
 
