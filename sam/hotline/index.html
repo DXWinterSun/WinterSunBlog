@@ -174,6 +174,7 @@
     background: var(--accent); color: var(--ink);
     border-radius: 16px 16px 4px 16px; padding: 9px 14px;
     font-size: 14.5px; line-height: 1.75; letter-spacing: .3px;
+    white-space: pre-wrap; overflow-wrap: break-word;
   }
   .msg--me.msg--emoji .msg-bubble {
     background: transparent; color: inherit; font-size: 34px; line-height: 1.25; padding: 2px 2px;
@@ -215,6 +216,23 @@
     font-size: 10.5px; color: var(--muted); letter-spacing: 1.5px;
     text-align: center; margin: 0 0 9px; opacity: .8;
   }
+  .chat-free { display: flex; align-items: flex-end; gap: 8px; margin-bottom: 9px; }
+  .chat-free textarea {
+    flex: 1; min-width: 0; resize: none; overflow-y: hidden;
+    background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.14);
+    border-radius: 18px; padding: 9px 15px; color: var(--text);
+    font-family: inherit; font-size: 14.5px; line-height: 1.65; letter-spacing: .3px;
+    outline: none; transition: border-color .2s ease;
+  }
+  .chat-free textarea::placeholder { color: var(--muted); opacity: .75; }
+  .chat-free textarea:focus { border-color: var(--accent); }
+  .chat-free button {
+    flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%;
+    background: var(--accent); color: var(--ink); border: none;
+    font-size: 18px; line-height: 1; display: flex; align-items: center; justify-content: center;
+    transition: opacity .2s ease;
+  }
+  .chat-free button:disabled { opacity: .4; cursor: default; }
   .chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
   .chips::-webkit-scrollbar { display: none; }
   .chip {
@@ -264,7 +282,11 @@
   </div>
   <div class="chat-log" id="log" aria-live="polite"></div>
   <div class="chat-input">
-    <p class="chat-hint">挑一句发给他 · 他挑一句回你</p>
+    <p class="chat-hint">想说什么都行 · 他挑一句回你</p>
+    <form class="chat-free" id="freeform">
+      <textarea id="freetext" rows="1" maxlength="300" placeholder="跟他说点什么……"></textarea>
+      <button type="submit" id="freesend" aria-label="发送">&#8593;</button>
+    </form>
     <div class="chips" id="chips"></div>
   </div>
 </section>
@@ -427,6 +449,26 @@
   function setBusy(v) {
     busy = v;
     Array.prototype.forEach.call(document.querySelectorAll('.chip'), function (b) { b.disabled = v; });
+    $('freesend').disabled = v;
+  }
+
+  /* ————— 自定义消息：不指望他答对题，但按几个关键词轻轻偏一下情绪桶，
+     让「倾诉」这件事看起来像被听见了 ————— */
+  function bucketForText(s) {
+    if (/累|难过|哭|委屈|睡不着|失眠|烦|怕|孤单|寂寞|难受|崩溃|不开心|低落|emo/i.test(s)) return ['soft', 'love'];
+    if (/想你|爱|喜欢|亲|抱|吻|心动|宝贝/.test(s)) return ['love', 'any'];
+    if (/在吗|你好|嗨|hello|hi/i.test(s)) return ['anchor', 'any'];
+    return ['any'];
+  }
+  function sendFree() {
+    var box = $('freetext');
+    var v = box.value.replace(/\s+$/, '');
+    if (!v.trim() || busy || !current) return;
+    var msg = { w: 'm', t: Date.now(), x: v };
+    saveMsg(current.id, msg);
+    $('log').appendChild(bubbleMe(msg)); scrollLog();
+    box.value = ''; box.style.height = 'auto';
+    himReplies(current, bucketForText(v));
   }
 
   /* ————— 对话流程 ————— */
@@ -494,6 +536,15 @@
     renderRoster(); // 刷新每个号码的「n 条」计数
     try { window.history.replaceState(null, '', window.location.pathname); } catch (e) {}
   }
+
+  $('freeform').addEventListener('submit', function (e) { e.preventDefault(); sendFree(); });
+  $('freetext').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendFree(); }
+  });
+  $('freetext').addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 110) + 'px';
+  });
 
   $('back').addEventListener('click', closeChat);
   $('random').addEventListener('click', function () {
