@@ -217,6 +217,17 @@
     text-align: center; margin: 0 0 9px; opacity: .8;
   }
   .chat-free { display: flex; align-items: flex-end; gap: 8px; margin-bottom: 9px; }
+  .chat-vent {
+    flex: 0 0 auto; height: 38px; border-radius: 999px; padding: 0 13px;
+    background: transparent; border: 1px solid rgba(255,255,255,.18);
+    color: var(--muted); font-size: 12px; letter-spacing: 1.5px; white-space: nowrap;
+    transition: background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .chat-vent.on {
+    background: var(--accent); color: var(--ink); border-color: var(--accent);
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+  .chat-vent:disabled { opacity: .4; cursor: default; }
   .chat-free textarea {
     flex: 1; min-width: 0; resize: none; overflow-y: hidden;
     background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.14);
@@ -226,13 +237,13 @@
   }
   .chat-free textarea::placeholder { color: var(--muted); opacity: .75; }
   .chat-free textarea:focus { border-color: var(--accent); }
-  .chat-free button {
+  .chat-free button[type="submit"] {
     flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%;
     background: var(--accent); color: var(--ink); border: none;
     font-size: 18px; line-height: 1; display: flex; align-items: center; justify-content: center;
     transition: opacity .2s ease;
   }
-  .chat-free button:disabled { opacity: .4; cursor: default; }
+  .chat-free button[type="submit"]:disabled { opacity: .4; cursor: default; }
   .chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
   .chips::-webkit-scrollbar { display: none; }
   .chip {
@@ -282,9 +293,10 @@
   </div>
   <div class="chat-log" id="log" aria-live="polite"></div>
   <div class="chat-input">
-    <p class="chat-hint">想说什么都行 · 他挑一句回你</p>
+    <p class="chat-hint" id="hint">想说什么都行 · 他挑一句回你</p>
     <form class="chat-free" id="freeform">
-      <textarea id="freetext" rows="1" maxlength="300" placeholder="跟他说点什么……"></textarea>
+      <button type="button" class="chat-vent" id="vent">倾诉</button>
+      <textarea id="freetext" rows="1" maxlength="600" placeholder="跟他说点什么……"></textarea>
       <button type="submit" id="freesend" aria-label="发送">&#8593;</button>
     </form>
     <div class="chips" id="chips"></div>
@@ -314,6 +326,7 @@
   var MF_ALIAS = {};
   var current = null;      // 当前聊天对象
   var busy = false;        // 他正在输入时锁住输入区
+  var venting = false;     // 倾诉模式：开着时他只听不回，关掉才基于这一段回一句
 
   /* ————— 小工具 ————— */
   function $(id) { return document.getElementById(id); }
@@ -450,6 +463,32 @@
     busy = v;
     Array.prototype.forEach.call(document.querySelectorAll('.chip'), function (b) { b.disabled = v; });
     $('freesend').disabled = v;
+    $('vent').disabled = v;
+  }
+
+  /* ————— 倾诉模式 ————— */
+  function statusLine() {
+    if (!current) return '';
+    return current.filmCN + ' · ' + current.year + (venting ? ' · 他在听' : ' · 线是通的');
+  }
+  function setVent(v) {
+    venting = v;
+    var b = $('vent');
+    b.textContent = v ? '说完了' : '倾诉';
+    b.classList.toggle('on', v);
+    $('hint').textContent = v
+      ? '他在听，不插话——说完了，点左边那颗键'
+      : '想说什么都行 · 他挑一句回你';
+    $('cstatus').textContent = statusLine();
+  }
+  function ventTrail(charId) {
+    /* 收尾时取「上一次他开口之后」你连着说的所有话，合起来定情绪 */
+    var past = history(charId), out = [];
+    for (var i = past.length - 1; i >= 0; i--) {
+      if (past[i].w !== 'm') break;
+      out.unshift(past[i].x || '');
+    }
+    return out.join('。');
   }
 
   /* ————— 自定义消息：不指望他答对题，但按几个关键词轻轻偏一下情绪桶，
@@ -468,7 +507,7 @@
     saveMsg(current.id, msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
     box.value = ''; box.style.height = 'auto';
-    himReplies(current, bucketForText(v));
+    if (!venting) himReplies(current, bucketForText(v));
   }
 
   /* ————— 对话流程 ————— */
@@ -503,7 +542,7 @@
     var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
     saveMsg(current.id, msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
-    himReplies(current, chip.pref);
+    if (!venting) himReplies(current, chip.pref);
   }
 
   function openChat(c) {
@@ -512,7 +551,8 @@
     $('roster').classList.add('hidden');
     $('chat').classList.remove('hidden');
     $('cname').textContent = c.name;
-    $('cstatus').textContent = c.filmCN + ' · ' + c.year + ' · 线是通的';
+    setVent(false);
+    $('cstatus').textContent = statusLine();
     $('chatid').href = mfHref(c.id);
     var log = $('log');
     log.innerHTML = '<div class="chat-day">— This line only rings for you —</div>';
@@ -536,6 +576,15 @@
     renderRoster(); // 刷新每个号码的「n 条」计数
     try { window.history.replaceState(null, '', window.location.pathname); } catch (e) {}
   }
+
+  $('vent').addEventListener('click', function () {
+    if (busy || !current) return;
+    if (!venting) { setVent(true); return; }
+    /* 关掉倾诉模式：他把你这一段都听完了，回一句 */
+    setVent(false);
+    var trail = ventTrail(current.id);
+    if (trail.trim()) himReplies(current, bucketForText(trail), 1100);
+  });
 
   $('freeform').addEventListener('submit', function (e) { e.preventDefault(); sendFree(); });
   $('freetext').addEventListener('keydown', function (e) {

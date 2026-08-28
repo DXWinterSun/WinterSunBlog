@@ -495,7 +495,7 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 | AU 星图 `sky/` | `sky/data.json`——**构建时由 Liquid 生成**（遍历 `layout: series` 页 + 各自章节 + `au_palettes.yml` 配色 + `moods.yml`） | 无；新系列若没进 `au_palettes.yml` 会回退到默认金色 |
 | 情绪磁带机 · Mixtape `jukebox/`（2026-07-30 由点唱机改装：卡带舱+PLAY 键+出带口，功能与数据源不变） | `jukebox/data.json`——构建时生成（全部 posts + moods 色板），客户端按 mood 标签过滤 | 无；文章必须带 mood 标签才会入库 |
 | 一封信 `fable/` | 纯静态（信件内容内嵌） | **永远不要改**（见下） |
-| 深夜热线 `sam/hotline/`（2026-08 加：选一个角色进聊天室，发预设消息或自己打一段话倾诉，他按消息情绪（自定义文字走关键词轻匹配）从自己 5 句台词里挑一句回复；对话历史存本机 localStorage 键 `ws-hotline-v1`） | `sam/lines.json`（运行时 fetch，按台词 `kind` 分桶：锚 / 情话系 / 暗告白系） | 无——lines.json 加好新角色，通讯录自动多一个号码 |
+| 深夜热线 `sam/hotline/`（2026-08 加：选一个角色进聊天室，发预设消息或自己打一段话倾诉，他按消息情绪（自定义文字走关键词轻匹配）从自己 5 句台词里挑一句回复；「倾诉」键开倾诉模式=他只听不回、状态变「他在听」，点「说完了」他才把这一段合起来定情绪回一句；对话历史存本机 localStorage 键 `ws-hotline-v1`） | `sam/lines.json`（运行时 fetch，按台词 `kind` 分桶：锚 / 情话系 / 暗告白系） | 无——lines.json 加好新角色，通讯录自动多一个号码 |
 | 演出节目单 `fog-city/playbill/` | `sam/lines.json`（运行时 fetch；按 `year` 升序排幕，每幕用角色 `accent` 配色 + 锚句台词，`auLink` 自动挂「完整剧本」） | 无——画册加新角色、lines.json 照常同步后自动加一幕。它是 Fog City 系列 Ch30 的故事内实体（署名 Winter Sun），别改成普通列表页 |
 
 细节备忘：
