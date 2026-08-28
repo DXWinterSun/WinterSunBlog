@@ -1,8 +1,26 @@
-# Off the Air · Extra · 我早就不带火了（已 approve · 攒包待部署）
-
-- mood：怀旧 · 缱绻 ／ story_time：1981–82 ／ series_order：22
-- summary（20 字）：他戒不掉的从来不是烟——是伸手向你要火。
-- approve：2026-08-28（Winter 未提修改、点了下一篇，按认可记）
+---
+layout: post
+title: "Extra · 我早就不带火了 — Off the Air"
+date: 2026-08-26
+image: chuck-barris-au.jpg
+tags: [Chuck Barris, Sam Rockwell, AU, Off the Air, 怀旧, 缱绻]
+categories: ["AU Story"]
+series: "Off the Air"
+series_title: "Off the Air · Chuck Barris AU"
+series_order: 22
+series_status: complete
+series_type: Series
+chapter_type: "Extra"
+story_time: "1981–82"
+summary: "他戒不掉的从来不是烟——是伸手向你要火。"
+easter_eggs:
+  - series_order: 2
+    label: "一九六八年那盒摄影棚火柴——正面的那一夜"
+  - series_order: 10
+    label: "W.C.—C.B.：那个他排练了四天的厕所笑话"
+  - series_order: 11
+    label: "碎掉的那晚，她替他点烟——火光照见的半张脸"
+---
 
 > 这几页没编页码，没进任何一版。  
 > 从打字机上拆下来，折了两折，  
