@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hotline · 深夜热线 · Winter Sun</title>
+<meta name="description" content="一部只打得通他的电话。选一个他，说一句话——他会用自己的话回你。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hotline · 深夜热线 · Winter Sun">
+<meta property="og:description" content="一部只打得通他的电话。选一个他，说一句话——他会用自己的话回你。">
+<meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/hotline/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#14110d" id="theme-color">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="shortcut icon" href="/WinterSunBlog/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ————————————————————————————————————————————————
+     深夜热线 · Hotline（2026-08）
+     角色数据零内嵌：全部来自 ../lines.json（与今日页/台词墙/放映室同源）。
+     新角色照常加进 lines.json，通讯录会自动多一个号码，这里不用改任何东西。
+     回复逻辑：按你发的那句话的情绪，把他的 5 句台词按 kind 分桶
+     （锚 / 情话系 / 暗告白系），优先从对应的桶里抽，避开刚说过的。
+     对话历史只存在本机 localStorage（键 ws-hotline-v1），谁也看不见。
+     ———————————————————————————————————————————————— */
+  html, body { margin: 0; padding: 0; height: 100%; }
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --bg: #14110d;
+    --accent: #cba14c;
+    --text: #ede2d0;
+    --muted: #8a7558;
+    --ink: #161310;
+  }
+  body {
+    min-height: 100%; min-height: 100dvh;
+    background: var(--bg); color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Noto Serif SC', serif;
+    transition: background .8s ease;
+  }
+  button { font-family: inherit; cursor: pointer; }
+  a { color: inherit; }
+  ::selection { background: rgba(255,255,255,.18); }
+
+  .hidden { display: none !important; }
+
+  /* ————— 通讯录（roster）————— */
+  .roster {
+    max-width: 760px; margin: 0 auto;
+    padding: clamp(28px,6vw,60px) clamp(18px,5vw,36px) 80px;
+  }
+  .roster-head { text-align: center; margin-bottom: clamp(26px,5vw,44px); }
+  .roster-back {
+    font-size: 12.5px; color: var(--muted); text-decoration: none;
+    letter-spacing: 2px; display: inline-block; margin-bottom: 24px;
+  }
+  .roster-title {
+    margin: 0; font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic;
+    font-size: clamp(40px, 10.5vw, 68px); line-height: 1.02; letter-spacing: .5px;
+  }
+  .roster-sub {
+    font-weight: 500; font-size: clamp(15px,4.4vw,20px);
+    letter-spacing: 8px; color: var(--accent); margin-top: 15px; padding-left: 8px;
+  }
+  .roster-lede {
+    margin: 20px auto 0; max-width: 460px; font-weight: 300;
+    font-size: clamp(13.5px,3.8vw,15.5px); line-height: 2; color: var(--muted);
+  }
+  .roster-divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: clamp(26px,5vw,40px) 0 18px;
+  }
+  .roster-divider i { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #3a3226); }
+  .roster-divider i:last-child { background: linear-gradient(90deg, #3a3226, transparent); }
+  .roster-divider span {
+    font-family: 'Special Elite', monospace; font-size: 11.5px; letter-spacing: 3px;
+    color: var(--muted); text-transform: uppercase; white-space: nowrap;
+  }
+  .roster-random {
+    display: block; width: 100%; text-align: center; margin: 0 0 14px;
+    font-size: 13px; color: var(--accent); background: transparent;
+    border: 1px solid #3a3226; border-radius: 999px; padding: 10px 14px;
+    letter-spacing: 1px; transition: border-color .25s ease;
+  }
+  .roster-random:hover { border-color: var(--accent); }
+  .roster-list { display: grid; gap: 9px; }
+  .contact {
+    display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+    background: rgba(255,255,255,.025); border: 1px solid rgba(255,255,255,.06);
+    border-radius: 14px; padding: 12px 16px; color: var(--text);
+    transition: border-color .25s ease, background .25s ease;
+  }
+  .contact:hover { border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.05); }
+  .contact-dot {
+    flex: 0 0 auto; width: 13px; height: 13px; border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(255,255,255,.07);
+  }
+  .contact-name {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600;
+    font-size: 19px; letter-spacing: .4px; line-height: 1.2;
+  }
+  .contact-meta { font-size: 11.5px; color: var(--muted); margin-top: 3px; letter-spacing: .5px; }
+  .contact-unread {
+    margin-left: auto; flex: 0 0 auto;
+    font-family: 'Special Elite', monospace; font-size: 10.5px; letter-spacing: 1.5px;
+    color: var(--muted); opacity: .85;
+  }
+  .roster-foot { text-align: center; margin-top: 56px; }
+  .roster-foot .en {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 16.5px; color: var(--muted); margin: 0;
+  }
+  .roster-foot .cn { font-size: 12px; color: #5f5340; letter-spacing: 2px; margin-top: 12px; }
+  .roster-foot .cn a { text-decoration: none; border-bottom: 1px dotted #5f5340; }
+
+  /* ————— 聊天室（chat）————— */
+  .chat {
+    height: 100dvh; display: flex; flex-direction: column;
+    max-width: 680px; margin: 0 auto; width: 100%;
+  }
+  .chat-top {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+    padding: max(14px, env(safe-area-inset-top)) 16px 12px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    background: var(--bg);
+    background: color-mix(in srgb, var(--bg) 86%, black); position: relative; z-index: 2;
+  }
+  .chat-back {
+    flex: 0 0 auto; background: transparent; border: none; color: var(--muted);
+    font-size: 20px; line-height: 1; padding: 6px 8px 6px 2px;
+  }
+  .chat-id { min-width: 0; flex: 1; text-decoration: none; }
+  .chat-name {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600;
+    font-size: 20px; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .chat-status { font-size: 11px; color: var(--muted); margin-top: 2px; letter-spacing: 1px; }
+  .chat-status b {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent); margin-right: 5px; vertical-align: 1px;
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
+  .chat-clear {
+    flex: 0 0 auto; background: transparent; border: none; color: var(--muted);
+    font-size: 11px; letter-spacing: 1.5px; padding: 6px 2px 6px 8px; opacity: .8;
+  }
+
+  .chat-log {
+    flex: 1 1 auto; min-height: 0; overflow-y: auto;
+    padding: 20px 16px 12px; scroll-behavior: smooth;
+  }
+  .chat-log::-webkit-scrollbar { width: 5px; }
+  .chat-log::-webkit-scrollbar-thumb { background: rgba(255,255,255,.12); border-radius: 3px; }
+
+  .chat-day {
+    text-align: center; font-family: 'Special Elite', monospace;
+    font-size: 10.5px; letter-spacing: 2.5px; color: var(--muted);
+    margin: 10px 0 18px; opacity: .8;
+  }
+  .msg { max-width: 82%; margin-bottom: 13px; animation: rise .35s ease both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+  .msg-time {
+    font-size: 10px; color: var(--muted); letter-spacing: 1px;
+    margin-top: 5px; opacity: .75;
+  }
+  .msg--me { margin-left: auto; text-align: right; }
+  .msg--me .msg-bubble {
+    display: inline-block; text-align: left;
+    background: var(--accent); color: var(--ink);
+    border-radius: 16px 16px 4px 16px; padding: 9px 14px;
+    font-size: 14.5px; line-height: 1.75; letter-spacing: .3px;
+  }
+  .msg--me.msg--emoji .msg-bubble {
+    background: transparent; color: inherit; font-size: 34px; line-height: 1.25; padding: 2px 2px;
+  }
+  .msg--him .msg-bubble {
+    display: inline-block;
+    background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.09);
+    border-radius: 16px 16px 16px 4px; padding: 11px 15px 10px;
+  }
+  .msg-stamp {
+    font-family: 'Special Elite', monospace; font-size: 10px; letter-spacing: 2.5px;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 6px; opacity: .9;
+  }
+  .msg-line {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500;
+    font-size: 17.5px; line-height: 1.5; letter-spacing: .2px;
+  }
+  .msg-gloss {
+    font-size: 13px; font-weight: 300; line-height: 1.8; color: var(--muted);
+    margin-top: 6px;
+  }
+  .typing .msg-bubble { padding: 13px 16px; }
+  .typing i {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--muted); margin: 0 2.5px;
+    animation: blink 1.2s ease-in-out infinite;
+  }
+  .typing i:nth-child(2) { animation-delay: .18s; }
+  .typing i:nth-child(3) { animation-delay: .36s; }
+  @keyframes blink { 0%,100% { opacity: .25; transform: none; } 45% { opacity: 1; transform: translateY(-2.5px); } }
+
+  .chat-input {
+    flex: 0 0 auto; padding: 10px 12px max(14px, env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(255,255,255,.08);
+    background: var(--bg);
+    background: color-mix(in srgb, var(--bg) 86%, black);
+  }
+  .chat-hint {
+    font-size: 10.5px; color: var(--muted); letter-spacing: 1.5px;
+    text-align: center; margin: 0 0 9px; opacity: .8;
+  }
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: 0 0 auto; background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.14); border-radius: 999px;
+    color: var(--text); font-size: 13.5px; letter-spacing: .5px;
+    padding: 8px 15px; transition: border-color .2s ease, background .2s ease;
+  }
+  .chip:hover { border-color: var(--accent); }
+  .chip:disabled { opacity: .4; cursor: default; }
+  .chip--emoji { font-size: 17px; padding: 6px 12px; }
+
+  .boot {
+    min-height: 100dvh; display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 13.5px; letter-spacing: 2px; text-align: center; padding: 0 30px;
+  }
+</style>
+</head>
+<body>
+
+<div class="boot" id="boot">正在接线……</div>
+
+<main class="roster hidden" id="roster">
+  <header class="roster-head">
+    <a class="roster-back" href="../">&larr; 回到 Sam</a>
+    <h1 class="roster-title">Hotline</h1>
+    <div class="roster-sub">深夜热线</div>
+    <p class="roster-lede" id="lede">一部只打得通他的电话。<br>选一个号码，说一句话——他会用自己的话回你。</p>
+  </header>
+  <div class="roster-divider" aria-hidden="true"><i></i><span>他们都在线 · All Lines Open</span><i></i></div>
+  <button class="roster-random" id="random" type="button">&#127922; 随便拨一个</button>
+  <div class="roster-list" id="list" role="list"></div>
+  <footer class="roster-foot">
+    <p class="en">Whoever you call, someone picks up on the first ring.</p>
+    <p class="cn">这些话都收在 <a href="../wall/">台词签名墙</a> · a quiet shrine, kept by 冬璇</p>
+  </footer>
+</main>
+
+<section class="chat hidden" id="chat" aria-label="对话">
+  <div class="chat-top">
+    <button class="chat-back" id="back" type="button" aria-label="返回通讯录">&larr;</button>
+    <a class="chat-id" id="chatid" href="../many-faces/" title="去他的画册页">
+      <div class="chat-name" id="cname"></div>
+      <div class="chat-status"><b></b><span id="cstatus"></span></div>
+    </a>
+    <button class="chat-clear" id="clear" type="button">撕掉这页</button>
+  </div>
+  <div class="chat-log" id="log" aria-live="polite"></div>
+  <div class="chat-input">
+    <p class="chat-hint">挑一句发给他 · 他挑一句回你</p>
+    <div class="chips" id="chips"></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ————— 预设消息：每条带情绪偏好，决定他从哪个「桶」里挑话回你 —————
+     桶：anchor = 他的锚句（签名那句）；love = 情话系；soft = 暗告白系；any = 全部 */
+  var CHIPS = [
+    { t: '在吗？',        pref: ['anchor', 'any'] },
+    { t: '想你了。',      pref: ['love', 'any'] },
+    { t: '今天有点累。',  pref: ['soft', 'love'] },
+    { t: '睡不着。',      pref: ['soft', 'love'] },
+    { t: '跟我说句话。',  pref: ['any'] },
+    { t: '晚安。',        pref: ['love', 'soft'] },
+    { t: '❤️', pref: ['love', 'any'], emoji: true },
+    { t: '🌙', pref: ['soft', 'any'], emoji: true },
+    { t: '✨', pref: ['any'],         emoji: true }
+  ];
+
+  var STORE_KEY = 'ws-hotline-v1';
+  var chars = [];          // 按年份升序（与放映室同序）
+  var MF_ALIAS = {};
+  var current = null;      // 当前聊天对象
+  var busy = false;        // 他正在输入时锁住输入区
+
+  /* ————— 小工具 ————— */
+  function $(id) { return document.getElementById(id); }
+  function yearNum(y) { var m = String(y || '').match(/\d{4}/); return m ? +m[0] : 9999; }
+  function lum(hex) {
+    var h = (hex || '').replace('#', '');
+    if (h.length !== 6) return 0;
+    var r = parseInt(h.substr(0, 2), 16) / 255, g = parseInt(h.substr(2, 2), 16) / 255, b = parseInt(h.substr(4, 2), 16) / 255;
+    return .2126 * r + .7152 * g + .0722 * b;
+  }
+  function fmtTime(ms) {
+    var d = new Date(ms);
+    return ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+  }
+  function mfHref(id) { return '../many-faces/#' + (MF_ALIAS[id] || id); }
+
+  /* ————— 本机对话存档（localStorage，读写都兜底）————— */
+  function loadStore() {
+    try { return JSON.parse(localStorage.getItem(STORE_KEY)) || { chats: {} }; }
+    catch (e) { return { chats: {} }; }
+  }
+  function saveMsg(charId, msg) {
+    try {
+      var s = loadStore();
+      (s.chats[charId] = s.chats[charId] || []).push(msg);
+      if (s.chats[charId].length > 80) s.chats[charId] = s.chats[charId].slice(-80);
+      localStorage.setItem(STORE_KEY, JSON.stringify(s));
+    } catch (e) {}
+  }
+  function history(charId) { return loadStore().chats[charId] || []; }
+  function clearHistory(charId) {
+    try {
+      var s = loadStore();
+      delete s.chats[charId];
+      localStorage.setItem(STORE_KEY, JSON.stringify(s));
+    } catch (e) {}
+  }
+
+  /* ————— 台词分桶：kind 字符串包含关键词即归桶 ————— */
+  function bucketOf(kind) {
+    var k = String(kind || '');
+    if (k.indexOf('锚') !== -1) return 'anchor';
+    if (/情话|甜|缱绻|忠诚|痞话|贫嘴|不正经/.test(k)) return 'love';
+    return 'soft'; // 暗告白与其余变体都算「说给你听的软话」
+  }
+  function pickReply(c, prefs) {
+    var recent = history(c.id).filter(function (m) { return m.w === 'h' && m.line; })
+      .slice(-2).map(function (m) { return m.line; });
+    function candidates(bucket) {
+      return c.quotes.filter(function (q) {
+        if (recent.indexOf(q.line) !== -1) return false;
+        if (bucket === 'any') return true;
+        return bucketOf(q.kind) === bucket;
+      });
+    }
+    for (var i = 0; i < prefs.length; i++) {
+      var pool = candidates(prefs[i]);
+      if (pool.length) return pool[Math.floor(Math.random() * pool.length)];
+    }
+    var all = candidates('any');
+    if (all.length) return all[Math.floor(Math.random() * all.length)];
+    return c.quotes[Math.floor(Math.random() * c.quotes.length)];
+  }
+
+  /* ————— 渲染 ————— */
+  function applyTheme(c) {
+    var r = document.documentElement.style;
+    if (c) {
+      r.setProperty('--bg', c.bg); r.setProperty('--accent', c.accent);
+      r.setProperty('--text', c.text); r.setProperty('--muted', c.muted);
+      r.setProperty('--ink', lum(c.accent) > .45 ? '#161310' : '#faf4e8');
+      document.getElementById('theme-color').setAttribute('content', c.bg);
+    } else {
+      r.cssText = '';
+      document.getElementById('theme-color').setAttribute('content', '#14110d');
+    }
+  }
+
+  function renderRoster() {
+    var list = $('list');
+    list.innerHTML = '';
+    chars.forEach(function (c) {
+      var n = history(c.id).length;
+      var btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'contact'; btn.setAttribute('role', 'listitem');
+      btn.innerHTML =
+        '<span class="contact-dot" style="background:' + c.accent + '"></span>' +
+        '<span><span class="contact-name">' + c.name + '</span>' +
+        '<div class="contact-meta">' + c.filmCN + ' · ' + c.year + '</div></span>' +
+        (n ? '<span class="contact-unread">' + n + ' 条</span>' : '<span class="contact-unread">未拨过</span>');
+      btn.addEventListener('click', function () { openChat(c); });
+      list.appendChild(btn);
+    });
+    $('lede').innerHTML = '一部只打得通他的电话，' + chars.length + ' 个号码条条在线。<br>选一个他，说一句话——他会用自己的话回你。';
+  }
+
+  function bubbleMe(msg) {
+    var div = document.createElement('div');
+    div.className = 'msg msg--me' + (msg.e ? ' msg--emoji' : '');
+    div.innerHTML = '<span class="msg-bubble"></span><div class="msg-time">' + fmtTime(msg.t) + '</div>';
+    div.querySelector('.msg-bubble').textContent = msg.x;
+    return div;
+  }
+  function bubbleHim(msg) {
+    var div = document.createElement('div');
+    div.className = 'msg msg--him';
+    var stamp = msg.label ? '<div class="msg-stamp"></div>' : '';
+    div.innerHTML = '<span class="msg-bubble">' + stamp +
+      '<div class="msg-line"></div><div class="msg-gloss"></div></span>' +
+      '<div class="msg-time">' + fmtTime(msg.t) + '</div>';
+    if (msg.label) div.querySelector('.msg-stamp').textContent = msg.label;
+    div.querySelector('.msg-line').textContent = msg.line;
+    div.querySelector('.msg-gloss').textContent = msg.lineCN;
+    return div;
+  }
+  function scrollLog() {
+    var log = $('log');
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function renderChips() {
+    var box = $('chips');
+    box.innerHTML = '';
+    CHIPS.forEach(function (chip) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip' + (chip.emoji ? ' chip--emoji' : '');
+      b.textContent = chip.t;
+      b.addEventListener('click', function () { send(chip); });
+      box.appendChild(b);
+    });
+  }
+  function setBusy(v) {
+    busy = v;
+    Array.prototype.forEach.call(document.querySelectorAll('.chip'), function (b) { b.disabled = v; });
+  }
+
+  /* ————— 对话流程 ————— */
+  function himReplies(c, prefs, extraDelay) {
+    var log = $('log');
+    var typing = document.createElement('div');
+    typing.className = 'msg msg--him typing';
+    typing.innerHTML = '<span class="msg-bubble"><i></i><i></i><i></i></span>';
+    setBusy(true);
+    setTimeout(function () {
+      if (current !== c) return;
+      log.appendChild(typing); scrollLog();
+      setTimeout(function () {
+        if (current !== c) return;
+        typing.remove();
+        var q = pickReply(c, prefs);
+        var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
+        saveMsg(c.id, msg);
+        log.appendChild(bubbleHim(msg)); scrollLog();
+        /* 偶尔他会追一条（18%），像是想了想又补的 */
+        if (Math.random() < .18) {
+          himReplies(c, ['any'], 700);
+        } else {
+          setBusy(false);
+        }
+      }, 1100 + Math.random() * 1200);
+    }, (extraDelay || 0) + 500);
+  }
+
+  function send(chip) {
+    if (busy || !current) return;
+    var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
+    saveMsg(current.id, msg);
+    $('log').appendChild(bubbleMe(msg)); scrollLog();
+    himReplies(current, chip.pref);
+  }
+
+  function openChat(c) {
+    current = c;
+    applyTheme(c);
+    $('roster').classList.add('hidden');
+    $('chat').classList.remove('hidden');
+    $('cname').textContent = c.name;
+    $('cstatus').textContent = c.filmCN + ' · ' + c.year + ' · 线是通的';
+    $('chatid').href = mfHref(c.id);
+    var log = $('log');
+    log.innerHTML = '<div class="chat-day">— This line only rings for you —</div>';
+    var past = history(c.id);
+    past.forEach(function (m) {
+      log.appendChild(m.w === 'm' ? bubbleMe(m) : bubbleHim(m));
+    });
+    renderChips();
+    setBusy(false);
+    scrollLog();
+    try { window.history.replaceState(null, '', '?char=' + encodeURIComponent(c.id)); } catch (e) {}
+    /* 第一次拨通：他先开口，说他的锚句 */
+    if (!past.length) himReplies(c, ['anchor'], 300);
+  }
+
+  function closeChat() {
+    current = null;
+    applyTheme(null);
+    $('chat').classList.add('hidden');
+    $('roster').classList.remove('hidden');
+    renderRoster(); // 刷新每个号码的「n 条」计数
+    try { window.history.replaceState(null, '', window.location.pathname); } catch (e) {}
+  }
+
+  $('back').addEventListener('click', closeChat);
+  $('random').addEventListener('click', function () {
+    if (chars.length) openChat(chars[Math.floor(Math.random() * chars.length)]);
+  });
+  $('clear').addEventListener('click', function () {
+    if (!current) return;
+    if (window.confirm('把这段对话撕掉？他不会记得，你也找不回。')) {
+      clearHistory(current.id);
+      var c = current;
+      openChat(c);
+    }
+  });
+
+  /* ————— 数据：唯一来源 ../lines.json ————— */
+  fetch('../lines.json', { cache: 'no-cache' })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      MF_ALIAS = (data.meta && data.meta.mf_alias) || {};
+      chars = data.characters.slice().sort(function (a, b) { return yearNum(a.year) - yearNum(b.year); });
+      $('boot').classList.add('hidden');
+      renderRoster();
+      var want = new URLSearchParams(window.location.search).get('char');
+      var hit = want && chars.filter(function (c) { return c.id === want; })[0];
+      if (hit) { openChat(hit); } else { $('roster').classList.remove('hidden'); }
+    })
+    .catch(function () {
+      $('boot').textContent = '线路暂时不通。请检查网络后刷新。';
+    });
+})();
+</script>
+</body>
+</html>
