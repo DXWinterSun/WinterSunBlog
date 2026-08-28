@@ -231,8 +231,9 @@
   .chat-free textarea {
     flex: 1; min-width: 0; resize: none; overflow-y: hidden;
     background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.14);
-    border-radius: 18px; padding: 9px 15px; color: var(--text);
-    font-family: inherit; font-size: 14.5px; line-height: 1.65; letter-spacing: .3px;
+    border-radius: 18px; padding: 8px 15px; color: var(--text);
+    /* iOS Safari：输入框字号 < 16px 会在聚焦时自动放大整页且不回弹，恒用 16px 防触发 */
+    font-family: inherit; font-size: 16px; line-height: 1.6; letter-spacing: .3px;
     outline: none; transition: border-color .2s ease;
   }
   .chat-free textarea::placeholder { color: var(--muted); opacity: .75; }
