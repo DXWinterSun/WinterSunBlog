@@ -13,8 +13,15 @@
 - 配色：沿用画册 John Moon 色卡（`au_palettes.yml` 里照 `"A Single Shot AU"` 条目
   新建 `"Wintergreen"` 条目，`mf_id: john`）
 - 「你」：**Winter Greer**（姓氏 Winter 选定，与 green/Wintergreen 暗合）
-- 部署时待办：旧系列 `series/a-single-shot-au/` + 8 篇旧章撤下存档；`sam_collection`
-  卡片换到新系列首页（沿用 `collection_order: 2`）；lines.json / 画册的 `auLink` 指向新 slug
+- ✅ 已部署（2026-08-30）：16 章全部上线（`_posts/2026-08-29-wintergreen-chapter-{1..16}-*.md`，
+  日期 2026-08-29 按 08:00→23:00 排时序）；系列首页 `series/wintergreen/index.html`
+  （`sam_collection: true`、`collection_order: 2` 沿用旧槽位）；`au_palettes.yml` 条目由
+  `"A Single Shot AU"` 改名 `"Wintergreen"`（色值不动，mf_id: john）；画册 / quiz / spectrum /
+  lines.json 的 `auLink` 全部指向 `/series/wintergreen/`，画册 auLink title 改 "Wintergreen"
+  （label「那个深坑里，他没有死。」保留）。旧版 v1（A Single Shot AU，8 章）已归档：
+  `.claude/bibles/a-single-shot-au-v1-archived-chapters/ch01..08.md` + `a-single-shot-au-v1-archived.md`。
+  校验全绿：check_post ×16、check_series_page、check_desino ×16、check_palette_sync。
+  部署时顺手把 ch13/15 里残留的 `「」『』` 统一成弯引号（正文+草稿同步）。
 
 ## 正典底账（按电影，Winter 的蓝光版为准）
 

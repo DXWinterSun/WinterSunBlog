@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 13 · 循循善诱 — Wintergreen"
+date: 2026-08-29 20:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 炽恋, 缱绻]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 13
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 13"
+summary: "事后他用赴刑的语气坦白了一桩风流旧案。你笑塌：没想到你有这一面。"
+---
+
 > 他这辈子信一件事：欠了的，要还。  
 > 所以这一夜他从头到尾，  
 > 都像在还愿。

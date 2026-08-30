@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 10 · 办一件事办了两个月 — Wintergreen"
+date: 2026-08-29 17:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 絮语, 暗涌]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 10
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 10"
+summary: "车还没停稳她就嚷开了：说去办件事——你这件事办了两个月？！"
+---
+
 > 山里的消息有两条腿。  
 > 一条是邮路，慢；  
 > 一条是嘴，比皮卡还快。

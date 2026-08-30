@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 5 · 没有一张是写给人的 — Wintergreen"
+date: 2026-08-29 12:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 怀旧, 怅惘]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 5
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 5"
+summary: "信箱塞满了纸，没有一张是写给人的。他锁上拖车，带走一柄旧刻刀。"
+---
+
 > 有的人回家是为了住下。  
 > 有的人回家，是为了把门锁上。
 

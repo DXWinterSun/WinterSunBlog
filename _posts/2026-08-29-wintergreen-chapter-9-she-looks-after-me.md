@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 9 · 她管着我 — Wintergreen"
+date: 2026-08-29 16:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 絮语, 悸动]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 9
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 9"
+summary: "老板娘问你们俩这是什么。他木着脸想了三秒：……她管着我。"
+---
+
 > 山把人藏得很好。  
 > 可日子要过下去，总有一天得开回镇上——  
 > 让人看见。

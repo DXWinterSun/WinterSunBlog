@@ -175,7 +175,7 @@
   muted_cn: "倒计时灰"
   muted_en: "Countdown Grey"
 
-"A Single Shot AU":         # John Moon
+"Wintergreen":              # John Moon（v2 重写版；v1 系列名 A Single Shot AU 已归档）
   mf_id: john                # → Many Faces 画册锚点 /sam/many-faces/#john
   theme_id: johnmoon
   accent: "#8fa0b0"

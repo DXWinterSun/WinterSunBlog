@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 8 · 床够宽 — Wintergreen"
+date: 2026-08-29 15:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 缱绻, 悸动]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 8
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 8"
+summary: "睡着的他抱住了你，醒来的他拆引信似的撤退。你说：其实挺暖和的。"
+---
+
 > 他求人的话说不出口，让人的话倒是练得很熟。  
 > 所以这一次他两样都没说——  
 > 他说的是天气。

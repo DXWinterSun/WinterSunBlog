@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 11 · 不是不想 — Wintergreen"
+date: 2026-08-29 18:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 悸动, 暗涌]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 11
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 11"
+summary: "你故意钻进他怀里。他果然没把持住——也果然，在最后一道门前急刹。"
+---
+
 > 部队九年，没人教过你怎么追一个人。  
 > 但教过你别的：  
 > 阵地这种东西，你不去占，它就一直空着。

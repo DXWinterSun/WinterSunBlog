@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 16 · 这回算 — Wintergreen"
+date: 2026-08-29 23:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 安放, 缱绻]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 16
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 16"
+summary: "他练了半个月，就三样：一只刻完的小熊，一句话，和你的名字。"
+---
+
 > 一月里最冷的那几天，山下停了电，山上停了风。  
 > 全世界都缩起来的时候，  
 > 有人挑中了这样的日子。

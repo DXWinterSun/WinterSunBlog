@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 15 · 愿望不实现就不实现 — Wintergreen"
+date: 2026-08-29 22:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 缱绻, 安放]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 15
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 15"
+summary: "他的新年愿望只有一个。你要是不要他了——没关系，他可以不实现。"
+---
+
 > 新年前夜，收音机里说城里在倒数。  
 > 山里没什么可倒数的——  
 > 你们有的东西，都不打算归零。

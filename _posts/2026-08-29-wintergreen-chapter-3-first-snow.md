@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 3 · 下雪了 — Wintergreen"
+date: 2026-08-29 10:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 缱绻, 怅惘]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 3
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 3"
+summary: "他偷偷练了三天站，就为把赶你走的话说完整。门开了，话变成了雪。"
+---
+
 > 你说过：等你能自己站到门口，把这句话再说一遍。  
 > 你忘了他是个什么样的人——  
 > 他这辈子，没有赖过一笔账。

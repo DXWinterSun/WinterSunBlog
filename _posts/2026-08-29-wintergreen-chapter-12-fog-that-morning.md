@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 12 · 那天早晨，起雾 — Wintergreen"
+date: 2026-08-29 19:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 怅惘, 安放]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 12
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 12"
+summary: "他说了一整夜，把一部人生倒干净。天亮时你说：都听完了，我还在。"
+---
+
 > 他这辈子说过的话，加起来大概也没有这一夜多。  
 > 炉火烧了一夜，你哭了一夜。  
 > 他说一段，就停下来，替你擦一次眼泪。

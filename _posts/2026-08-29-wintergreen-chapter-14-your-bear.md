@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 14 · 你的熊 — Wintergreen"
+date: 2026-08-29 21:00:00
+image: a-single-shot-au.jpg
+tags: [John Moon, Sam Rockwell, AU, Wintergreen, 炽恋, 絮语]
+categories: ["AU Story"]
+series: "Wintergreen"
+series_title: "Wintergreen · John Moon AU"
+series_order: 14
+series_status: ongoing
+series_type: Series
+chapter_type: "Chapter 14"
+summary: "你说他像熊，他当你在嫌他笨。按律当罚——罚他记住他是谁的。"
+---
+
 > 这一带的山里有黑熊，他打小就认得。  
 > 他唯一不认得的，  
 > 是他自己这一头。
