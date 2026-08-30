@@ -51,6 +51,10 @@ function wallHref(c) {
 function spectrumHref(c) {
   return "/WinterSunBlog/sam/spectrum/?char=" + (WALL_ALIAS[c.id] || c.id);
 }
+// 深夜热线（sam/hotline）同样走台词墙那套 charId。
+function hotlineHref(c) {
+  return "/WinterSunBlog/sam/hotline/?char=" + (WALL_ALIAS[c.id] || c.id);
+}
 
 const characters = [
 {
@@ -1859,6 +1863,31 @@ function CharacterCard({ c, idx }) {
             </a>
           </div>
         )}
+
+        {/* 深夜热线：一键拨给他（跳 sam/hotline，只去不回） */}
+        <div style={{ margin: "0 0 44px 0", textAlign: "center" }}>
+          <a
+            href={hotlineHref(c)}
+            title="拨通深夜热线，跟他说说话"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              padding: "10px 26px",
+              borderRadius: "999px",
+              border: "1px solid " + c.accent,
+              color: c.accent,
+              textDecoration: "none",
+              fontFamily: "'Special Elite', monospace",
+              fontSize: "0.66rem",
+              letterSpacing: "0.28em",
+              background: c.accent + "0d",
+              transition: "background 0.3s ease",
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = c.accent + "22"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = c.accent + "0d"; }}
+          >&#9742; 深夜热线 · 打给他</a>
+        </div>
 
         {(c.auLink || c.auLinks) && (
           <div style={{ marginBottom: "40px" }}>
