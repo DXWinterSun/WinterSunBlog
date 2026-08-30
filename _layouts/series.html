@@ -183,5 +183,50 @@ layout: home
   </script>
   {% endif %}
 </section>
+
+{% comment %}
+  深夜热线入口（2026-08，零维护）：运行时读 sam/lines.json，认出本系列的
+  男主是哪个 Sam 角色——先按 auLink 对当前路径，对不上再按 hero byline 首段
+  的角色名对——认出来就在 hero 底部长出「打给他」小胶囊，跳 sam/hotline。
+  非 Sam 角色的系列（lines.json 里没有）自动不出现；新系列无需任何配置。
+  只做「系列 → 热线」单向入口，热线不设回程（Winter 2026-08 定）。
+{% endcomment %}
+<script>
+(function(){
+  var hero = document.querySelector('.c-series-page .c-hero');
+  if (!hero) return;
+  fetch('{{ site.baseurl }}/sam/lines.json', { cache: 'no-cache' })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      function norm(p){
+        p = (p || '').replace(/index\.html$/, '');
+        return p.slice(-1) === '/' ? p : p + '/';
+      }
+      var path = norm(window.location.pathname);
+      var bylineEl = document.querySelector('.c-hero__byline-text');
+      var bname = bylineEl ? bylineEl.textContent.split('·')[0].trim() : '';
+      var hit = null;
+      data.characters.forEach(function(c){
+        if (!hit && c.auLink && norm(c.auLink) === path) hit = c;
+      });
+      if (!hit && bname) {
+        data.characters.forEach(function(c){ if (!hit && c.name === bname) hit = c; });
+      }
+      if (!hit) return;
+      var wrap = document.createElement('div');
+      wrap.style.cssText = 'text-align:center;margin-top:22px;';
+      var a = document.createElement('a');
+      a.href = '{{ site.baseurl }}/sam/hotline/?char=' + encodeURIComponent(hit.id);
+      a.title = '拨通深夜热线，跟他说说话';
+      a.style.cssText = 'display:inline-flex;align-items:center;gap:9px;padding:9px 22px;' +
+        'border:1px solid var(--c-accent);border-radius:999px;color:var(--c-accent);' +
+        'text-decoration:none;font-size:12.5px;letter-spacing:2.5px;opacity:.9;';
+      a.textContent = '☎ 深夜热线 · 打给他';
+      wrap.appendChild(a);
+      hero.appendChild(wrap);
+    })
+    .catch(function(){});
+})();
+</script>
 {% endif %}
 </div>
