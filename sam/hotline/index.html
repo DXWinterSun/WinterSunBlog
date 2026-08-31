@@ -512,7 +512,7 @@
   }
 
   /* ————— 对话流程 ————— */
-  function himReplies(c, prefs, extraDelay) {
+  function himReplies(c, prefs, extraDelay, isFollowUp) {
     var log = $('log');
     var typing = document.createElement('div');
     typing.className = 'msg msg--him typing';
@@ -528,9 +528,10 @@
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
         saveMsg(c.id, msg);
         log.appendChild(bubbleHim(msg)); scrollLog();
-        /* 偶尔他会追一条（18%），像是想了想又补的 */
-        if (Math.random() < .18) {
-          himReplies(c, ['any'], 700);
+        /* 偶尔他会追一条（12%），像是想了想又补的——追的那条不再追，
+           防止连锁套娃、一口气刷屏（2026-08 Winter 抓过一次三连发） */
+        if (!isFollowUp && Math.random() < .12) {
+          himReplies(c, ['any'], 700, true);
         } else {
           setBusy(false);
         }
