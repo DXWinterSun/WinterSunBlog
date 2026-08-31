@@ -22,9 +22,14 @@
      深夜热线 · Hotline（2026-08）
      角色数据零内嵌：全部来自 ../lines.json（与今日页/台词墙/放映室同源）。
      新角色照常加进 lines.json，通讯录会自动多一个号码，这里不用改任何东西。
-     回复逻辑：按你发的那句话的情绪，把他的 5 句台词按 kind 分桶
-     （锚 / 情话系 / 暗告白系），优先从对应的桶里抽，避开刚说过的。
-     对话历史只存在本机 localStorage（键 ws-hotline-v1），谁也看不见。
+     回复逻辑：先认「你这句在说什么事」（intentOf → greet/miss/tired/sleepless/
+     night/love/meet/praise/tease/daily），到 ../hotline-replies.json 里取该角色
+     对应情境的回复；没写回复库的角色，退回按情绪把他 5 句台词分桶（锚 / 情话系 /
+     暗告白系）来挑。两种都避开最近说过的。
+     交互口径（2026-08 Winter 定）：默认「他在听」——你自己打的字他只听不插话，
+     点「让他回应」他才把你刚说的这一段合起来回一到两句；下方那排现成短句
+     则是直接说给他听的，点了就有回应。对话历史只存在本机 localStorage
+     （键 ws-hotline-v1），谁也看不见。
      ———————————————————————————————————————————————— */
   html, body { margin: 0; padding: 0; height: 100%; }
   *, *::before, *::after { box-sizing: border-box; }
@@ -79,6 +84,38 @@
   .roster-divider span {
     font-family: 'Special Elite', monospace; font-size: 11.5px; letter-spacing: 3px;
     color: var(--muted); text-transform: uppercase; white-space: nowrap;
+  }
+  .roster-search { position: relative; margin-bottom: 10px; }
+  .roster-search input {
+    width: 100%; background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.14); border-radius: 999px;
+    padding: 11px 40px 11px 42px; color: var(--text);
+    /* 同输入框：iOS Safari 对 <16px 的输入框会自动放大整页，恒用 16px */
+    font-family: inherit; font-size: 16px; letter-spacing: .5px;
+    outline: none; transition: border-color .2s ease;
+  }
+  .roster-search input::placeholder { color: var(--muted); opacity: .8; }
+  /* 藏掉浏览器自带的清空叉与装饰，只留我们自己那个 */
+  .roster-search input::-webkit-search-cancel-button,
+  .roster-search input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+  .roster-search input:focus { border-color: var(--accent); }
+  .roster-search__icon {
+    position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+    width: 15px; height: 15px; color: var(--muted); pointer-events: none; opacity: .8;
+  }
+  .roster-search__clear {
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    background: transparent; border: none; color: var(--muted);
+    font-size: 17px; line-height: 1; padding: 8px 12px;
+  }
+  .roster-empty {
+    text-align: center; color: var(--muted); font-size: 13.5px;
+    line-height: 2; padding: 26px 10px; opacity: .9;
+  }
+  .roster-count {
+    text-align: center; font-family: 'Special Elite', monospace;
+    font-size: 10.5px; letter-spacing: 2px; color: var(--muted);
+    opacity: .75; margin: 2px 0 10px;
   }
   .roster-random {
     display: block; width: 100%; text-align: center; margin: 0 0 14px;
@@ -225,7 +262,6 @@
   }
   .chat-vent.on {
     background: var(--accent); color: var(--ink); border-color: var(--accent);
-    animation: pulse 2.6s ease-in-out infinite;
   }
   .chat-vent:disabled { opacity: .4; cursor: default; }
   .chat-free textarea {
@@ -275,8 +311,19 @@
     <p class="roster-lede" id="lede">一部只打得通他的电话。<br>选一个号码，说一句话——他会用自己的话回你。</p>
   </header>
   <div class="roster-divider" aria-hidden="true"><i></i><span>他们都在线 · All Lines Open</span><i></i></div>
+  <div class="roster-search">
+    <svg class="roster-search__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="6.8" cy="6.8" r="4.8" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M10.4 10.4 L14.2 14.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <input id="search" type="search" autocomplete="off" autocapitalize="off" spellcheck="false"
+           placeholder="搜他的名字、电影、年份……" aria-label="搜索角色">
+    <button class="roster-search__clear hidden" id="searchclear" type="button" aria-label="清空">&times;</button>
+  </div>
   <button class="roster-random" id="random" type="button">&#127922; 随便拨一个</button>
+  <div class="roster-count hidden" id="count"></div>
   <div class="roster-list" id="list" role="list"></div>
+  <div class="roster-empty hidden" id="empty">这儿没有这个人。<br>换个名字，或者点上面那颗骰子。</div>
   <footer class="roster-foot">
     <p class="en">Whoever you call, someone picks up on the first ring.</p>
     <p class="cn">这些话都收在 <a href="../wall/">台词签名墙</a> · a quiet shrine, kept by 冬璇</p>
@@ -294,9 +341,9 @@
   </div>
   <div class="chat-log" id="log" aria-live="polite"></div>
   <div class="chat-input">
-    <p class="chat-hint" id="hint">想说什么都行 · 他挑一句回你</p>
+    <p class="chat-hint" id="hint">你说的他都听着 · 想他开口，点左边那颗键</p>
     <form class="chat-free" id="freeform">
-      <button type="button" class="chat-vent" id="vent">倾诉</button>
+      <button type="button" class="chat-vent on" id="vent">让他回应</button>
       <textarea id="freetext" rows="1" maxlength="600" placeholder="跟他说点什么……"></textarea>
       <button type="submit" id="freesend" aria-label="发送">&#8593;</button>
     </form>
@@ -308,26 +355,28 @@
 (function () {
   'use strict';
 
-  /* ————— 预设消息：每条带情绪偏好，决定他从哪个「桶」里挑话回你 —————
-     桶：anchor = 他的锚句（签名那句）；love = 情话系；soft = 暗告白系；any = 全部 */
+  /* ————— 预设消息 —————
+     intent = 情境（对上 hotline-replies.json 的分桶，他就答得上题）；
+     pref   = 老的情绪桶，给「还没写回复库」的角色回退用（从他 5 句台词里挑）。
+     桶：anchor = 锚句；love = 情话系；soft = 暗告白系；any = 全部 */
   var CHIPS = [
-    { t: '在吗？',        pref: ['anchor', 'any'] },
-    { t: '想你了。',      pref: ['love', 'any'] },
-    { t: '今天有点累。',  pref: ['soft', 'love'] },
-    { t: '睡不着。',      pref: ['soft', 'love'] },
-    { t: '跟我说句话。',  pref: ['any'] },
-    { t: '晚安。',        pref: ['love', 'soft'] },
-    { t: '❤️', pref: ['love', 'any'], emoji: true },
-    { t: '🌙', pref: ['soft', 'any'], emoji: true },
-    { t: '✨', pref: ['any'],         emoji: true }
+    { t: '在吗？',        intent: 'greet',     pref: ['anchor', 'any'] },
+    { t: '想你了。',      intent: 'miss',      pref: ['love', 'any'] },
+    { t: '今天有点累。',  intent: 'tired',     pref: ['soft', 'love'] },
+    { t: '睡不着。',      intent: 'sleepless', pref: ['soft', 'love'] },
+    { t: '跟我说句话。',  intent: 'daily',     pref: ['any'] },
+    { t: '晚安。',        intent: 'night',     pref: ['love', 'soft'] },
+    { t: '❤️', intent: 'love',   pref: ['love', 'any'], emoji: true },
+    { t: '🌙', intent: 'night',  pref: ['soft', 'any'], emoji: true },
+    { t: '✨', intent: 'praise', pref: ['any'],         emoji: true }
   ];
 
   var STORE_KEY = 'ws-hotline-v1';
   var chars = [];          // 按年份升序（与放映室同序）
   var MF_ALIAS = {};
+  var REPLIES = {};        // 对题回复库（../hotline-replies.json，可选，缺了就退回台词）
   var current = null;      // 当前聊天对象
   var busy = false;        // 他正在输入时锁住输入区
-  var venting = false;     // 倾诉模式：开着时他只听不回，关掉才基于这一段回一句
 
   /* ————— 小工具 ————— */
   function $(id) { return document.getElementById(id); }
@@ -373,6 +422,44 @@
     if (/情话|甜|缱绻|忠诚|痞话|贫嘴|不正经/.test(k)) return 'love';
     return 'soft'; // 暗告白与其余变体都算「说给你听的软话」
   }
+  /* ————— 情境识别：你这句话在说什么事 —————
+     命中的桶名对上 hotline-replies.json 里该角色的分桶；写了回复库的角色
+     就能「答得上题」，没写的角色照旧从他 5 句台词里挑。 */
+  function intentOf(s) {
+    s = String(s || '');
+    if (/晚安|睡了|去睡|睡觉|我睡|该睡|困了|good ?night|🌙|😴|🛌/i.test(s)) return 'night';
+    if (/睡不着|失眠|醒着|半夜|几点了|睡不好|又醒/.test(s)) return 'sleepless';
+    if (/累|难过|哭|委屈|烦|怕|孤单|寂寞|难受|崩溃|不开心|低落|难熬|压力|emo|想哭|撑不住|😭|😢|🥺/i.test(s)) return 'tired';
+    if (/想你|想见|好想|惦记|念你|见不到|miss/i.test(s)) return 'miss';
+    if (/爱你|喜欢你|亲亲|抱抱|抱一下|亲一下|吻|心动|我的|宝贝|love you|❤️|❤|💗|💕|😘/i.test(s)) return 'love';
+    if (/见你|见面|来找|去找|来看|见一面|什么时候见|我会去|到你那|奔现/.test(s)) return 'meet';
+    if (/好帅|真帅|帅|好看|美|演得|演技|厉害|好棒|真好|迷人|喜欢看你|✨|😍/i.test(s)) return 'praise';
+    if (/讨厌|坏|笨|傻|幼稚|不理|理我|哼|烦人|欠揍|臭|骗子|😤|😏/i.test(s)) return 'tease';
+    if (/在吗|你好|嗨|喂|在不在|忙吗|hello|hi|hey|👋/i.test(s)) return 'greet';
+    return 'daily';
+  }
+  /* 从回复库挑：先按情境，落空退 daily，再落空退整本；避开最近说过的两句 */
+  function pickFromReplies(c, intent) {
+    var set = REPLIES[c.id];
+    if (!set) return null;
+    var recent = history(c.id).filter(function (m) { return m.w === 'h' && m.line; })
+      .slice(-3).map(function (m) { return m.line; });
+    var tries = [intent, 'daily'];
+    for (var i = 0; i < tries.length; i++) {
+      var arr = (set[tries[i]] || []).filter(function (q) { return recent.indexOf(q.line) === -1; });
+      if (arr.length) {
+        var q = arr[Math.floor(Math.random() * arr.length)];
+        return { line: q.line, lineCN: q.cn };
+      }
+    }
+    var all = [];
+    for (var k in set) { if (set.hasOwnProperty(k)) all = all.concat(set[k]); }
+    all = all.filter(function (q) { return recent.indexOf(q.line) === -1; });
+    if (!all.length) return null;
+    var pick = all[Math.floor(Math.random() * all.length)];
+    return { line: pick.line, lineCN: pick.cn };
+  }
+
   function pickReply(c, prefs) {
     var recent = history(c.id).filter(function (m) { return m.w === 'h' && m.line; })
       .slice(-2).map(function (m) { return m.line; });
@@ -406,10 +493,27 @@
     }
   }
 
+  /* 搜他的名字 / 电影（中英）/ 年份；空格分词，全部命中才算 */
+  function matches(c, q) {
+    if (!q) return true;
+    var hay = [c.name, c.film, c.filmCN, c.year].join(' ').toLowerCase();
+    return q.toLowerCase().split(/\s+/).filter(Boolean)
+      .every(function (w) { return hay.indexOf(w) !== -1; });
+  }
+  function visibleChars() {
+    var q = ($('search').value || '').trim();
+    return chars.filter(function (c) { return matches(c, q); });
+  }
   function renderRoster() {
     var list = $('list');
+    var shown = visibleChars();
+    var q = ($('search').value || '').trim();
+    $('searchclear').classList.toggle('hidden', !q);
+    $('empty').classList.toggle('hidden', shown.length > 0);
+    $('count').classList.toggle('hidden', !q);
+    if (q) $('count').textContent = '找到 ' + shown.length + ' / ' + chars.length + ' 人';
     list.innerHTML = '';
-    chars.forEach(function (c) {
+    shown.forEach(function (c) {
       var n = history(c.id).length;
       var btn = document.createElement('button');
       btn.type = 'button'; btn.className = 'contact'; btn.setAttribute('role', 'listitem');
@@ -422,6 +526,7 @@
       list.appendChild(btn);
     });
     $('lede').innerHTML = '一部只打得通他的电话，' + chars.length + ' 个号码条条在线。<br>选一个他，说一句话——他会用自己的话回你。';
+    return shown;
   }
 
   function bubbleMe(msg) {
@@ -467,23 +572,13 @@
     $('vent').disabled = v;
   }
 
-  /* ————— 倾诉模式 ————— */
+  /* ————— 「他在听」：默认只听不插话，点那颗键他才开口 ————— */
   function statusLine() {
     if (!current) return '';
-    return current.filmCN + ' · ' + current.year + (venting ? ' · 他在听' : ' · 线是通的');
-  }
-  function setVent(v) {
-    venting = v;
-    var b = $('vent');
-    b.textContent = v ? '说完了' : '倾诉';
-    b.classList.toggle('on', v);
-    $('hint').textContent = v
-      ? '他在听，不插话——说完了，点左边那颗键'
-      : '想说什么都行 · 他挑一句回你';
-    $('cstatus').textContent = statusLine();
+    return current.filmCN + ' · ' + current.year + ' · 他在听';
   }
   function ventTrail(charId) {
-    /* 收尾时取「上一次他开口之后」你连着说的所有话，合起来定情绪 */
+    /* 取「上一次他开口之后」你连着说的所有话，合起来定情绪 */
     var past = history(charId), out = [];
     for (var i = past.length - 1; i >= 0; i--) {
       if (past[i].w !== 'm') break;
@@ -508,11 +603,11 @@
     saveMsg(current.id, msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
     box.value = ''; box.style.height = 'auto';
-    if (!venting) himReplies(current, bucketForText(v));
+    /* 他在听：自己打的字不自动触发回复，点「让他回应」他才开口 */
   }
 
   /* ————— 对话流程 ————— */
-  function himReplies(c, prefs, extraDelay, isFollowUp) {
+  function himReplies(c, prefs, extraDelay, isFollowUp, intent, followChance) {
     var log = $('log');
     var typing = document.createElement('div');
     typing.className = 'msg msg--him typing';
@@ -524,14 +619,14 @@
       setTimeout(function () {
         if (current !== c) return;
         typing.remove();
-        var q = pickReply(c, prefs);
+        var q = (intent && pickFromReplies(c, intent)) || pickReply(c, prefs);
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
         saveMsg(c.id, msg);
         log.appendChild(bubbleHim(msg)); scrollLog();
         /* 偶尔他会追一条（12%），像是想了想又补的——追的那条不再追，
            防止连锁套娃、一口气刷屏（2026-08 Winter 抓过一次三连发） */
-        if (!isFollowUp && Math.random() < .12) {
-          himReplies(c, ['any'], 700, true);
+        if (!isFollowUp && Math.random() < (followChance === undefined ? .12 : followChance)) {
+          himReplies(c, ['any'], 700, true, intent || 'daily');
         } else {
           setBusy(false);
         }
@@ -544,7 +639,7 @@
     var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
     saveMsg(current.id, msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
-    if (!venting) himReplies(current, chip.pref);
+    himReplies(current, chip.pref, 0, false, chip.intent);
   }
 
   function openChat(c) {
@@ -553,7 +648,6 @@
     $('roster').classList.add('hidden');
     $('chat').classList.remove('hidden');
     $('cname').textContent = c.name;
-    setVent(false);
     $('cstatus').textContent = statusLine();
     $('chatid').href = mfHref(c.id);
     var log = $('log');
@@ -581,11 +675,11 @@
 
   $('vent').addEventListener('click', function () {
     if (busy || !current) return;
-    if (!venting) { setVent(true); return; }
-    /* 关掉倾诉模式：他把你这一段都听完了，回一句 */
-    setVent(false);
+    /* 他把你刚说的这一段听完了，回一到两句（最多两句，Winter 定） */
     var trail = ventTrail(current.id);
-    if (trail.trim()) himReplies(current, bucketForText(trail), 1100);
+    var has = trail.trim();
+    himReplies(current, has ? bucketForText(trail) : ['any'], 600, false,
+               has ? intentOf(trail) : 'daily', has ? .45 : .12);
   });
 
   $('freeform').addEventListener('submit', function (e) { e.preventDefault(); sendFree(); });
@@ -599,7 +693,19 @@
 
   $('back').addEventListener('click', closeChat);
   $('random').addEventListener('click', function () {
-    if (chars.length) openChat(chars[Math.floor(Math.random() * chars.length)]);
+    var pool = visibleChars();
+    if (pool.length) openChat(pool[Math.floor(Math.random() * pool.length)]);
+  });
+  $('search').addEventListener('input', renderRoster);
+  $('searchclear').addEventListener('click', function () {
+    $('search').value = ''; renderRoster(); $('search').focus();
+  });
+  /* 搜出唯一一个人时，回车直接拨过去 */
+  $('search').addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    var pool = visibleChars();
+    if (pool.length) { this.blur(); openChat(pool[0]); }
   });
   $('clear').addEventListener('click', function () {
     if (!current) return;
@@ -611,9 +717,15 @@
   });
 
   /* ————— 数据：唯一来源 ../lines.json ————— */
-  fetch('../lines.json', { cache: 'no-cache' })
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
+  Promise.all([
+    fetch('../lines.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }),
+    /* 回复库是增强项：取不到也不影响热线可用 */
+    fetch('../hotline-replies.json', { cache: 'no-cache' })
+      .then(function (r) { return r.json(); }).catch(function () { return null; })
+  ])
+    .then(function (both) {
+      var data = both[0];
+      REPLIES = (both[1] && both[1].chars) || {};
       MF_ALIAS = (data.meta && data.meta.mf_alias) || {};
       chars = data.characters.slice().sort(function (a, b) { return yearNum(a.year) - yearNum(b.year); });
       $('boot').classList.add('hidden');

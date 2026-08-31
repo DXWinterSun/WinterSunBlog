@@ -1,0 +1,551 @@
+{
+ "meta": {
+  "note": "深夜热线的「对题回复库」。按角色 id（与 sam/lines.json 同一套 charId）分组，每人按情境分桶：greet 招呼 / miss 想念 / tired 疲惫 / sleepless 失眠 / night 晚安 / love 表白 / meet 见面 / praise 夸他 / tease 闹他 / daily 日常兜底。line = 他说的话（英文，人物的实际语言），cn = 中译。没有条目的角色自动退回 lines.json 的 5 句台词。",
+  "buckets": [
+   "greet",
+   "miss",
+   "tired",
+   "sleepless",
+   "night",
+   "love",
+   "meet",
+   "praise",
+   "tease",
+   "daily"
+  ],
+  "chars_count": 5,
+  "lines_count": 105
+ },
+ "chars": {
+  "youngsam": {
+   "greet": [
+    {
+     "line": "Ocean. You caught me mid-monologue. …Nah, keep going, the wall's heard it twice already.",
+     "cn": "Ocean。你逮着我正念独白呢。……没事你说，反正这堵墙已经听两遍了。"
+    },
+    {
+     "line": "Rehearsal ran long. I've been sitting in the third row talking to nobody. Now I'm talking to you.",
+     "cn": "排练拖堂了。我一个人坐在第三排跟空气讲话。现在改成跟你讲了。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Say that again, slower. I wanna be sure I heard it right with my glasses off.",
+     "cn": "再说一遍，慢点。我想确认摘了眼镜也没听错。"
+    },
+    {
+     "line": "Fog's coming over the hill. I keep looking at it like it's gonna turn into you.",
+     "cn": "雾正翻过山来。我一直盯着它看，好像它会变成你。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then sit in the third row and don't move. I'll do something stupid up here. You're not allowed not to laugh.",
+     "cn": "那你坐第三排别动。我在上面演点蠢的。不许你不笑。"
+    },
+    {
+     "line": "Rough one, huh. Okay — you don't talk. I'll read you the worst lines in this script till you fall asleep.",
+     "cn": "今天不好过，是吧。行——你别说话。我念剧本里最烂的几句给你听，念到你睡着。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Side A. Twenty-nine minutes of me clearing my throat. Works better than warm milk, I swear.",
+     "cn": "放 A 面。二十九分钟我在清嗓子。比热牛奶管用，真的。"
+    },
+    {
+     "line": "Me neither. Been running the same eight lines since midnight and every one of them got worse.",
+     "cn": "我也睡不着。那八句词从半夜念到现在，一句比一句烂。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night, Ocean. I'm saving Side B for you. Play it tomorrow.",
+     "cn": "晚安，Ocean。B 面给你留着。明天再放。"
+    },
+    {
+     "line": "Go to sleep. If the fog comes in tonight I'll tell you tomorrow what it looked like.",
+     "cn": "快睡。今晚要是起雾了，我明天告诉你它什么样。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Huh. Say that to the back row, I couldn't hear it. …Okay. Okay, I heard it.",
+     "cn": "……哈。你冲最后一排再说一遍，我没听清。……行。行，我听见了。"
+    },
+    {
+     "line": "You know I can't see faces from up there. I'd still know it was you saying it.",
+     "cn": "你知道我在台上看不见脸。可这句话是你说的，我照样听得出来。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then hurry. The fog comes over Twin Peaks at three and after that you won't see me. Though I'm better when nobody can.",
+     "cn": "那你快点。雾三点就翻过双子峰，晚了你就看不见我了。不过看不清的时候我演得更好。"
+    },
+    {
+     "line": "Door by the loading dock never locks. Third row's yours. It's been yours the whole time.",
+     "cn": "装卸口那扇门从来锁不上。第三排是你的。一直都是。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Careful. Say stuff like that and I'll believe you, and then I'm insufferable for a week.",
+     "cn": "小心点。这种话你说了我会当真，然后我能得意一个星期。"
+    },
+    {
+     "line": "…Yeah? Which part. Tell me the part. Don't skip the part.",
+     "cn": "……是吗？哪一段。你说哪一段。别漏了那段。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Wow. Okay. Painting one ocean does not make you the boss of me. …It kind of does.",
+     "cn": "哇哦。行。画了一片海不代表你就能管我。……好吧有点。"
+    },
+    {
+     "line": "You're mean to me. Do it again.",
+     "cn": "你对我好凶。再来一次。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Got an It's-It in my coat pocket. It's mostly liquid now. Still yours if you want it.",
+     "cn": "外套口袋里有个 It's-It。基本化成汤了。你要的话还是你的。"
+    },
+    {
+     "line": "Four lines. They gave me four lines and I lost my glasses again. Standard Tuesday.",
+     "cn": "四句词。他们就给我四句词，我又把眼镜弄丢了。标准的周二。"
+    },
+    {
+     "line": "Painting fog on a flat. You know how insane that is? Painting fog. On a flat.",
+     "cn": "在景片上画雾。你知道那多离谱吗？画雾。画在一块板子上。"
+    }
+   ]
+  },
+  "zaphod": {
+   "greet": [
+    {
+     "line": "Always, baby doll. I'm the President — I've got, like, eighty percent free time.",
+     "cn": "随时都在，baby doll。我可是总统——我大概有八成时间是闲的。"
+    },
+    {
+     "line": "Hey! Both of me were just talking about you. We disagreed on everything except that part.",
+     "cn": "嘿！我俩刚还在聊你。除了这一条，我们哪句都没谈拢。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Miss me? Course you do. …Wait, say it again, the left one didn't catch it and now he's sulking.",
+     "cn": "想我？那当然。……等等，你再说一遍，左边那个没听见，现在正闹脾气。"
+    },
+    {
+     "line": "Funny, I was gonna say that. I was TOTALLY gonna say that. You just say things faster than me, Wimble.",
+     "cn": "奇了，我正要说这句。我真的正要说。你怎么老比我快，Wimble。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Why so edgy, baby doll? Come here. Come sit by the big window. Whatever it is, the President's got you.",
+     "cn": "怎么绷这么紧，baby doll？过来。到大舷窗这边坐着。不管出了什么事，总统罩着你。"
+    },
+    {
+     "line": "New policy, effective immediately: nobody on my ship is allowed to be tired. …Except you. You're allowed. Come here.",
+     "cn": "新政策，即刻生效：我这船上不许有人喊累。……除了你。你可以。过来。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Then don't. Get up, come look — the nebula's doing that pink thing again. I ordered it for you. Probably.",
+     "cn": "那就别睡。起来看看——那片星云又粉成那样了。是我给你定的。大概吧。"
+    },
+    {
+     "line": "Two heads means double the insomnia, baby doll. Wanna hear both of us be wrong about the same thing?",
+     "cn": "两个脑袋，失眠也是双份的，baby doll。想不想听我俩为同一件事各错一遍？"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night, baby doll. Don't let the vacuum bite. …That's not a saying. I'm making it a saying.",
+     "cn": "晚安，baby doll。别让真空咬着你。……这不是俗话。我这就把它变成俗话。"
+    },
+    {
+     "line": "Sleep. And if you dream about anybody who isn't me, I'm gonna need names.",
+     "cn": "睡吧。你要是梦见了别人，我得要个名单。"
+    }
+   ],
+   "love": [
+    {
+     "line": "See, THAT'S why both heads voted for you. Unanimous. Landslide. Historic.",
+     "cn": "你看，这就是为什么两个脑袋都投了你。全票通过。压倒性胜利。载入史册。"
+    },
+    {
+     "line": "…Slower. I want to hear it once with each ear. Yes I know I've got four. That's the whole point, Winter-something.",
+     "cn": "……慢点说。我想每只耳朵各听一遍。对我知道我有四只。所以才要说慢点，Winter 什么来着。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Now you're talking. Heart of Gold, docking bay. I'll be the devastatingly handsome one.",
+     "cn": "这才像话。黄金之心号，停靠舱。我就是那个帅得不像话的。"
+    },
+    {
+     "line": "Then come on, I'll clear the schedule. …There is no schedule. I'm the President, baby doll. There has never been a schedule.",
+     "cn": "那快来，我把日程清空。……根本没有日程。我是总统，baby doll。从来就没有过日程。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "I know. Keep going though — the right one wasn't listening and he needs to hear this.",
+     "cn": "我知道。可你接着说——右边那个刚没听，他得听听这个。"
+    },
+    {
+     "line": "Careful, baby doll, flattery works on me. Every single time. It's my only real weakness. Well. Second.",
+     "cn": "小心点，baby doll，恭维对我百试百灵。每一次都灵。这是我唯一的弱点。好吧。第二个。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Rude! …Do it again. I like your voice when you're being rude.",
+     "cn": "太没礼貌了！……再来一次。你凶起来的声音我喜欢。"
+    },
+    {
+     "line": "Hey hey hey — you can't talk to the President like that. Legally you can. Emotionally? Devastating.",
+     "cn": "喂喂喂——你不能这么跟总统说话。法律上你可以。可情感上呢？毁灭性打击。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Nothing important. Ran the galaxy a bit. Broke something. Blamed somebody. You know. Tuesday.",
+     "cn": "没什么大事。治理了一下银河。弄坏了点东西。赖给了别人。你懂的。周二。"
+    },
+    {
+     "line": "Somehow it all worked out again today. Lucky guy, huh? I'm just historically, unreasonably lucky.",
+     "cn": "今天不知怎么又都摆平了。我可真走运，是吧？我就是运气好得没道理。"
+    },
+    {
+     "line": "Hang on, major decision in progress. Left head wants the red drink. Right head wants the other red drink.",
+     "cn": "等一下，正在做重大决策。左脑要那杯红的。右脑要另一杯红的。"
+    }
+   ]
+  },
+  "dixon": {
+   "greet": [
+    {
+     "line": "Yeah. I'm — yeah, I'm here. I ain't doin' nothin'. I mean I'm workin'. I'm workin' AND I'm here.",
+     "cn": "在。我——嗯，在。我没干什么。我是说我在工作。我在工作，同时也在。"
+    },
+    {
+     "line": "You need somethin'? …You don't gotta need somethin'. That ain't what I meant. Just say it.",
+     "cn": "你有事？……你也不用非得有事。我不是那意思。有话直说。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "…Huh. Well. Yeah. Same. That's — yeah. Same.",
+     "cn": "……哈。那个。嗯。我也是。就是——嗯。我也是。"
+    },
+    {
+     "line": "You know I ain't any good at this part. Ask me to go break down a door instead. That I'm good at.",
+     "cn": "你知道我不擅长这一段。你让我去撞开一扇门还差不多，那个我在行。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Sit down. I got the phones. …I said I got 'em. I ain't gonna answer 'em right, but I got 'em.",
+     "cn": "你坐着。电话我接。……我说了我接。我肯定接不好，但我接。"
+    },
+    {
+     "line": "Who was it. Just tell me who. I ain't gonna do nothin'. I'm just gonna know.",
+     "cn": "谁惹的。你告诉我是谁就行。我不干嘛。我就是知道一下。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Yeah, me neither. Been sittin' in the car outside the station for an hour like an idiot.",
+     "cn": "我也是。跟个傻子似的在局门口车里坐了一个钟头。"
+    },
+    {
+     "line": "Want me to drive by? I ain't checkin' up on you. It's on my way. …It ain't on my way.",
+     "cn": "要我开过去看看吗？我不是查你岗。顺路。……不顺路。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. Lock the back one too, not just the front. Humor me.",
+     "cn": "晚安。后门也锁，别光锁前门。就当哄我。"
+    },
+    {
+     "line": "Go on to bed. I'll be here in the mornin' bein' a pain in your ass, same as always.",
+     "cn": "去睡吧。明早我照样在，照样烦你。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Say that when I'm standin' in front of you. And then watch what my ears do.",
+     "cn": "……你当着我的面说这句。然后看看我耳朵会怎么样。"
+    },
+    {
+     "line": "I ain't got the words to give back. But I'll show up. Every day. That's my version of it.",
+     "cn": "我说不出一样的话回你。可我会出现。每天都出现。这就是我的说法。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yeah? …Okay. Okay. I gotta — I'm gonna go change my shirt. Don't come for ten minutes.",
+     "cn": "真的？……好。好。我得——我去换件衬衫。你十分钟以后再来。"
+    },
+    {
+     "line": "I'll come get you. It's on my way. Don't start with me. It's on my way.",
+     "cn": "我去接你。顺路。别跟我抬杠。顺路。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Quit it. …No. Don't quit it. But quit lookin' at me while you say it.",
+     "cn": "别说了。……不。别停。但你说的时候别看着我。"
+    },
+    {
+     "line": "Nobody says that about me. Just you. That's the whole list. It's a real short list.",
+     "cn": "没人这么说我。就你。这就是全部名单。特别短的一张名单。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Yeah, well. You knocked over my whole damn day and I still went and put the umbrella stand back, so.",
+     "cn": "行吧。你把我一整天都撞翻了，我照样把伞架扶正了，所以呢。"
+    },
+    {
+     "line": "You always gotta have the last word, don't ya. …Fine. You do. It's yours. Happy?",
+     "cn": "你非得说最后一句是吧。……行。你说。归你了。高兴了？"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Willoughby's got me doin' paperwork. Me. Paperwork. It's like handin' a dog a typewriter.",
+     "cn": "Willoughby 让我写报告。我。写报告。跟给条狗一台打字机似的。"
+    },
+    {
+     "line": "Momma cooked too much again. There's a plate. It's got your name on it. Not literally. I didn't write on it.",
+     "cn": "我妈又做多了。有一盘。上面写着你的名字。不是真写了。我没在盘子上写字。"
+    },
+    {
+     "line": "Nothin'. Sittin' here. Ain't hollered at nobody yet. Give it an hour.",
+     "cn": "没干嘛。坐着呢。还没冲谁嚷嚷。再给一小时。"
+    }
+   ]
+  },
+  "wildbill": {
+   "greet": [
+    {
+     "line": "I'm here. I'm always here. Ain't like there's anybody else in this town worth botherin'.",
+     "cn": "我在。我一直都在。这镇上又没别人值得我去烦。"
+    },
+    {
+     "line": "Well now. Look who wants somethin' from the devil. Go on then, angel. Ask.",
+     "cn": "哟。看看谁有事求恶魔了。说吧，天使小姐。开口。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Don't say things like that to me. I ain't built to hear 'em. …Say it again.",
+     "cn": "别对我说这种话。我这构造听不了。……再说一遍。"
+    },
+    {
+     "line": "I been sandin' the same board an hour on account of you. Ruined it. Hope you're pleased.",
+     "cn": "就因为你，我把同一块板子磨了一个钟头。磨废了。你满意了吧。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Come sit in the shop. Don't talk. I'll keep hammerin' — it's the only noise ever shut my head up. Might work on yours.",
+     "cn": "来木工房坐着。别说话。我接着敲——这是唯一能让我脑子安静的声儿。兴许对你也管用。"
+    },
+    {
+     "line": "Who wore you out. …I ain't gonna do nothin'. I'm just askin' as an interested party.",
+     "cn": "谁把你熬成这样。……我不干嘛。我就是作为一个有兴趣的第三方问问。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Devils don't sleep much neither. Come out on the porch and we'll be useless together.",
+     "cn": "恶魔也睡得少。上门廊来，咱俩一块儿废着。"
+    },
+    {
+     "line": "Then talk. Don't matter what about. I ain't listenin' anyway. …I'm listenin'.",
+     "cn": "那就说话。说什么都行。反正我也没听。……我听着呢。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night, angel. Don't go prayin' for me. It don't take.",
+     "cn": "晚安，天使小姐。别替我祷告。不管用的。"
+    },
+    {
+     "line": "Go on to bed. I'll be right here in the mornin', bein' a bad influence.",
+     "cn": "去睡吧。明早我还在这儿，接着带坏你。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Now that ain't fair. You know exactly what that does to me and you went and said it anyway.",
+     "cn": "……这就不厚道了。你明知道这句话对我什么效果，你还是说了。"
+    },
+    {
+     "line": "Have a little mercy. A devil ain't supposed to want one single thing. And the one thing's you.",
+     "cn": "发发慈悲吧。恶魔本不该想要任何一样东西。偏偏那样东西是你。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Good. Church door sticks — pull it, don't push. I hung it crooked on purpose so you'd have to come find me about it.",
+     "cn": "好。教堂那扇门卡——往外拉，别推。我故意装歪的，好让你非得来找我说这事。"
+    },
+    {
+     "line": "Then come on. I'll quit workin'. Ain't a thing in this box worth more than you comin' up that road.",
+     "cn": "那你来。我不干了。这箱子里没一样家伙什，比得上你从那条路上走过来。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Careful, angel. Say things like that and I'll start believin' I'm somebody worth savin'.",
+     "cn": "小心点，天使小姐。这话说多了，我真要开始相信自己是个值得救的人了。"
+    },
+    {
+     "line": "I hate everybody, fair and square. You're just the one face I keep wantin' to look at twice.",
+     "cn": "我平等地厌恶每一个人，童叟无欺。你只是那唯一一张，我想一看再看的脸。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "I ain't listenin' to you. …What'd you say? Say it again. I wasn't listenin'.",
+     "cn": "我才没听你的。……你说什么？再说一遍。我刚没听。"
+    },
+    {
+     "line": "Boss me around all you want. I only do it 'cause I don't wanna go to hell. That's all it is.",
+     "cn": "你尽管使唤我。我照办可不是为了你，我是不想下地狱。就这么回事。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Built two pews today. A devil, makin' furniture for God's house. Nobody in this town's got a clue.",
+     "cn": "今天钉了两条长椅。一个恶魔，给上帝的屋子做家什。这镇上没一个人看出来。"
+    },
+    {
+     "line": "They had cake at the church supper and they only let me have the one piece. The ONE piece, angel.",
+     "cn": "教堂晚餐上有蛋糕，他们就让我拿一块。一块，天使小姐。"
+    },
+    {
+     "line": "That nail keeps hummin' down in the bottom of the box. Off-key. Reckon you know somethin' about that.",
+     "cn": "箱子底那根钉子一直在嗡。走着调。我看你对这事儿门儿清。"
+    }
+   ]
+  },
+  "frank": {
+   "greet": [
+    {
+     "line": "For you? Always. Whatever you need, sweetheart — I've got nowhere better to be.",
+     "cn": "对你？永远在。你要什么，sweetheart——反正我也没别处可去。"
+    },
+    {
+     "line": "Yeah. Sitting in a parking lot in Newport doing nothing legal or illegal. Talk to me.",
+     "cn": "在。坐在 Newport 一个停车场里，合法非法的事一件没干。说吧。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Say it once more and I'll drive. I mean it, honey — the keys are already in my hand.",
+     "cn": "你再说一遍我就开车过去。我说真的，honey——钥匙已经在我手里了。"
+    },
+    {
+     "line": "Here's the funny part. I can read anybody in three seconds. It took me six months to admit I was reading you wrong on purpose.",
+     "cn": "好笑的是这个。我看谁三秒就能读透。可我花了半年才承认，我是故意把你读错的。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then don't perform for me. I've spent my whole life around people performing. You're the one I don't need it from.",
+     "cn": "那你别在我面前撑着。我这辈子周围全是在演的人。只有你，我不需要你演。"
+    },
+    {
+     "line": "Come here. I'll do the talking — God knows I'm good at it — and you don't say a word.",
+     "cn": "过来。我来说话——反正我这张嘴是出了名的——你一个字都别说。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Me neither. Been up appraising the ceiling. Provenance: unknown. Condition: fair.",
+     "cn": "我也没睡。一直在给天花板做鉴定。出处：不明。品相：尚可。"
+    },
+    {
+     "line": "Put me on the pillow and quit trying so hard. I'll talk about nothing till you're out.",
+     "cn": "把我搁枕头边上，别硬睡了。我说点没营养的，说到你睡着。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night, sweetheart. Lock the door. I know exactly how easy it is.",
+     "cn": "晚安，sweetheart。门锁好。这活儿有多容易我最清楚。"
+    },
+    {
+     "line": "Go to sleep. I'll still be here in the morning. That's the entire point of me now.",
+     "cn": "快睡。明早我还在。我现在存在的全部意义就是这个。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Say that again. Slower. I need to check it for provenance.",
+     "cn": "……再说一遍。慢点。我得验一下出处。"
+    },
+    {
+     "line": "Everything I ever handed anybody was counterfeit. What you just said is the first real thing anybody handed me.",
+     "cn": "我递给过所有人的东西都是赝品。你刚说的这句，是第一样有人递给我的真东西。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then I'm not moving from this spot. Tell me the street. I'll be the one looking too pleased with himself.",
+     "cn": "那我就在这儿不动了。告诉我哪条街。我就是那个笑得太得意的。"
+    },
+    {
+     "line": "Come on then. I'll even pay for parking — and honey, you know what that costs me.",
+     "cn": "那就来。停车费我出——honey，你知道这对我意味着什么。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Careful. I've talked people out of houses with less than that.",
+     "cn": "小心点。比这更轻的一句话，我骗走过人家一整栋房子。"
+    },
+    {
+     "line": "You're the only one who says it without wanting anything back. Took me a while to work out what that even was.",
+     "cn": "只有你说这话的时候什么都不图。我花了好一阵才弄明白那算怎么回事。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "You know most people are afraid of me. You look at me like I'm a receipt that doesn't add up.",
+     "cn": "你知道吗，大多数人都怕我。就你，看我的眼神像在看一张对不上的收据。"
+    },
+    {
+     "line": "Fine. You're right. Write it down, sweetheart — it's the only time this year.",
+     "cn": "行。你说得对。记下来，sweetheart——今年就这一次。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Sold nothing today. Bought nothing. Lied to nobody. Honestly, exhausting.",
+     "cn": "今天什么都没卖。什么都没买。谁也没骗。说真的，累死了。"
+    },
+    {
+     "line": "There's an auction Thursday. Lot 41 is a fake and I'm going to sit there saying nothing, just to watch you catch it.",
+     "cn": "周四有场拍卖。41 号是赝品，我打算坐着一声不吭，就为了看你把它挑出来。"
+    },
+    {
+     "line": "Carried that fox around in my pocket all day like an idiot. …It's fine. It likes it in there.",
+     "cn": "一整天像个傻子似的把那只狐狸揣在兜里。……没事。它在里头待着挺乐意。"
+    }
+   ]
+  }
+ }
+}
