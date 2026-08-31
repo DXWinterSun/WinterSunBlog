@@ -85,6 +85,38 @@
     font-family: 'Special Elite', monospace; font-size: 11.5px; letter-spacing: 3px;
     color: var(--muted); text-transform: uppercase; white-space: nowrap;
   }
+  .roster-search { position: relative; margin-bottom: 10px; }
+  .roster-search input {
+    width: 100%; background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.14); border-radius: 999px;
+    padding: 11px 40px 11px 42px; color: var(--text);
+    /* 同输入框：iOS Safari 对 <16px 的输入框会自动放大整页，恒用 16px */
+    font-family: inherit; font-size: 16px; letter-spacing: .5px;
+    outline: none; transition: border-color .2s ease;
+  }
+  .roster-search input::placeholder { color: var(--muted); opacity: .8; }
+  /* 藏掉浏览器自带的清空叉与装饰，只留我们自己那个 */
+  .roster-search input::-webkit-search-cancel-button,
+  .roster-search input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+  .roster-search input:focus { border-color: var(--accent); }
+  .roster-search__icon {
+    position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+    width: 15px; height: 15px; color: var(--muted); pointer-events: none; opacity: .8;
+  }
+  .roster-search__clear {
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    background: transparent; border: none; color: var(--muted);
+    font-size: 17px; line-height: 1; padding: 8px 12px;
+  }
+  .roster-empty {
+    text-align: center; color: var(--muted); font-size: 13.5px;
+    line-height: 2; padding: 26px 10px; opacity: .9;
+  }
+  .roster-count {
+    text-align: center; font-family: 'Special Elite', monospace;
+    font-size: 10.5px; letter-spacing: 2px; color: var(--muted);
+    opacity: .75; margin: 2px 0 10px;
+  }
   .roster-random {
     display: block; width: 100%; text-align: center; margin: 0 0 14px;
     font-size: 13px; color: var(--accent); background: transparent;
@@ -279,8 +311,19 @@
     <p class="roster-lede" id="lede">一部只打得通他的电话。<br>选一个号码，说一句话——他会用自己的话回你。</p>
   </header>
   <div class="roster-divider" aria-hidden="true"><i></i><span>他们都在线 · All Lines Open</span><i></i></div>
+  <div class="roster-search">
+    <svg class="roster-search__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="6.8" cy="6.8" r="4.8" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M10.4 10.4 L14.2 14.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <input id="search" type="search" autocomplete="off" autocapitalize="off" spellcheck="false"
+           placeholder="搜他的名字、电影、年份……" aria-label="搜索角色">
+    <button class="roster-search__clear hidden" id="searchclear" type="button" aria-label="清空">&times;</button>
+  </div>
   <button class="roster-random" id="random" type="button">&#127922; 随便拨一个</button>
+  <div class="roster-count hidden" id="count"></div>
   <div class="roster-list" id="list" role="list"></div>
+  <div class="roster-empty hidden" id="empty">这儿没有这个人。<br>换个名字，或者点上面那颗骰子。</div>
   <footer class="roster-foot">
     <p class="en">Whoever you call, someone picks up on the first ring.</p>
     <p class="cn">这些话都收在 <a href="../wall/">台词签名墙</a> · a quiet shrine, kept by 冬璇</p>
@@ -450,10 +493,27 @@
     }
   }
 
+  /* 搜他的名字 / 电影（中英）/ 年份；空格分词，全部命中才算 */
+  function matches(c, q) {
+    if (!q) return true;
+    var hay = [c.name, c.film, c.filmCN, c.year].join(' ').toLowerCase();
+    return q.toLowerCase().split(/\s+/).filter(Boolean)
+      .every(function (w) { return hay.indexOf(w) !== -1; });
+  }
+  function visibleChars() {
+    var q = ($('search').value || '').trim();
+    return chars.filter(function (c) { return matches(c, q); });
+  }
   function renderRoster() {
     var list = $('list');
+    var shown = visibleChars();
+    var q = ($('search').value || '').trim();
+    $('searchclear').classList.toggle('hidden', !q);
+    $('empty').classList.toggle('hidden', shown.length > 0);
+    $('count').classList.toggle('hidden', !q);
+    if (q) $('count').textContent = '找到 ' + shown.length + ' / ' + chars.length + ' 人';
     list.innerHTML = '';
-    chars.forEach(function (c) {
+    shown.forEach(function (c) {
       var n = history(c.id).length;
       var btn = document.createElement('button');
       btn.type = 'button'; btn.className = 'contact'; btn.setAttribute('role', 'listitem');
@@ -466,6 +526,7 @@
       list.appendChild(btn);
     });
     $('lede').innerHTML = '一部只打得通他的电话，' + chars.length + ' 个号码条条在线。<br>选一个他，说一句话——他会用自己的话回你。';
+    return shown;
   }
 
   function bubbleMe(msg) {
@@ -632,7 +693,19 @@
 
   $('back').addEventListener('click', closeChat);
   $('random').addEventListener('click', function () {
-    if (chars.length) openChat(chars[Math.floor(Math.random() * chars.length)]);
+    var pool = visibleChars();
+    if (pool.length) openChat(pool[Math.floor(Math.random() * pool.length)]);
+  });
+  $('search').addEventListener('input', renderRoster);
+  $('searchclear').addEventListener('click', function () {
+    $('search').value = ''; renderRoster(); $('search').focus();
+  });
+  /* 搜出唯一一个人时，回车直接拨过去 */
+  $('search').addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    var pool = visibleChars();
+    if (pool.length) { this.blur(); openChat(pool[0]); }
   });
   $('clear').addEventListener('click', function () {
     if (!current) return;
