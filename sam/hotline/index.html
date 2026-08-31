@@ -22,8 +22,10 @@
      深夜热线 · Hotline（2026-08）
      角色数据零内嵌：全部来自 ../lines.json（与今日页/台词墙/放映室同源）。
      新角色照常加进 lines.json，通讯录会自动多一个号码，这里不用改任何东西。
-     回复逻辑：按你发的那句话的情绪，把他的 5 句台词按 kind 分桶
-     （锚 / 情话系 / 暗告白系），优先从对应的桶里抽，避开刚说过的。
+     回复逻辑：先认「你这句在说什么事」（intentOf → greet/miss/tired/sleepless/
+     night/love/meet/praise/tease/daily），到 ../hotline-replies.json 里取该角色
+     对应情境的回复；没写回复库的角色，退回按情绪把他 5 句台词分桶（锚 / 情话系 /
+     暗告白系）来挑。两种都避开最近说过的。
      对话历史只存在本机 localStorage（键 ws-hotline-v1），谁也看不见。
      ———————————————————————————————————————————————— */
   html, body { margin: 0; padding: 0; height: 100%; }
@@ -308,23 +310,26 @@
 (function () {
   'use strict';
 
-  /* ————— 预设消息：每条带情绪偏好，决定他从哪个「桶」里挑话回你 —————
-     桶：anchor = 他的锚句（签名那句）；love = 情话系；soft = 暗告白系；any = 全部 */
+  /* ————— 预设消息 —————
+     intent = 情境（对上 hotline-replies.json 的分桶，他就答得上题）；
+     pref   = 老的情绪桶，给「还没写回复库」的角色回退用（从他 5 句台词里挑）。
+     桶：anchor = 锚句；love = 情话系；soft = 暗告白系；any = 全部 */
   var CHIPS = [
-    { t: '在吗？',        pref: ['anchor', 'any'] },
-    { t: '想你了。',      pref: ['love', 'any'] },
-    { t: '今天有点累。',  pref: ['soft', 'love'] },
-    { t: '睡不着。',      pref: ['soft', 'love'] },
-    { t: '跟我说句话。',  pref: ['any'] },
-    { t: '晚安。',        pref: ['love', 'soft'] },
-    { t: '❤️', pref: ['love', 'any'], emoji: true },
-    { t: '🌙', pref: ['soft', 'any'], emoji: true },
-    { t: '✨', pref: ['any'],         emoji: true }
+    { t: '在吗？',        intent: 'greet',     pref: ['anchor', 'any'] },
+    { t: '想你了。',      intent: 'miss',      pref: ['love', 'any'] },
+    { t: '今天有点累。',  intent: 'tired',     pref: ['soft', 'love'] },
+    { t: '睡不着。',      intent: 'sleepless', pref: ['soft', 'love'] },
+    { t: '跟我说句话。',  intent: 'daily',     pref: ['any'] },
+    { t: '晚安。',        intent: 'night',     pref: ['love', 'soft'] },
+    { t: '❤️', intent: 'love',   pref: ['love', 'any'], emoji: true },
+    { t: '🌙', intent: 'night',  pref: ['soft', 'any'], emoji: true },
+    { t: '✨', intent: 'praise', pref: ['any'],         emoji: true }
   ];
 
   var STORE_KEY = 'ws-hotline-v1';
   var chars = [];          // 按年份升序（与放映室同序）
   var MF_ALIAS = {};
+  var REPLIES = {};        // 对题回复库（../hotline-replies.json，可选，缺了就退回台词）
   var current = null;      // 当前聊天对象
   var busy = false;        // 他正在输入时锁住输入区
   var venting = false;     // 倾诉模式：开着时他只听不回，关掉才基于这一段回一句
@@ -373,6 +378,44 @@
     if (/情话|甜|缱绻|忠诚|痞话|贫嘴|不正经/.test(k)) return 'love';
     return 'soft'; // 暗告白与其余变体都算「说给你听的软话」
   }
+  /* ————— 情境识别：你这句话在说什么事 —————
+     命中的桶名对上 hotline-replies.json 里该角色的分桶；写了回复库的角色
+     就能「答得上题」，没写的角色照旧从他 5 句台词里挑。 */
+  function intentOf(s) {
+    s = String(s || '');
+    if (/晚安|睡了|去睡|睡觉|我睡|该睡|困了|good ?night|🌙|😴|🛌/i.test(s)) return 'night';
+    if (/睡不着|失眠|醒着|半夜|几点了|睡不好|又醒/.test(s)) return 'sleepless';
+    if (/累|难过|哭|委屈|烦|怕|孤单|寂寞|难受|崩溃|不开心|低落|难熬|压力|emo|想哭|撑不住|😭|😢|🥺/i.test(s)) return 'tired';
+    if (/想你|想见|好想|惦记|念你|见不到|miss/i.test(s)) return 'miss';
+    if (/爱你|喜欢你|亲亲|抱抱|抱一下|亲一下|吻|心动|我的|宝贝|love you|❤️|❤|💗|💕|😘/i.test(s)) return 'love';
+    if (/见你|见面|来找|去找|来看|见一面|什么时候见|我会去|到你那|奔现/.test(s)) return 'meet';
+    if (/好帅|真帅|帅|好看|美|演得|演技|厉害|好棒|真好|迷人|喜欢看你|✨|😍/i.test(s)) return 'praise';
+    if (/讨厌|坏|笨|傻|幼稚|不理|理我|哼|烦人|欠揍|臭|骗子|😤|😏/i.test(s)) return 'tease';
+    if (/在吗|你好|嗨|喂|在不在|忙吗|hello|hi|hey|👋/i.test(s)) return 'greet';
+    return 'daily';
+  }
+  /* 从回复库挑：先按情境，落空退 daily，再落空退整本；避开最近说过的两句 */
+  function pickFromReplies(c, intent) {
+    var set = REPLIES[c.id];
+    if (!set) return null;
+    var recent = history(c.id).filter(function (m) { return m.w === 'h' && m.line; })
+      .slice(-3).map(function (m) { return m.line; });
+    var tries = [intent, 'daily'];
+    for (var i = 0; i < tries.length; i++) {
+      var arr = (set[tries[i]] || []).filter(function (q) { return recent.indexOf(q.line) === -1; });
+      if (arr.length) {
+        var q = arr[Math.floor(Math.random() * arr.length)];
+        return { line: q.line, lineCN: q.cn };
+      }
+    }
+    var all = [];
+    for (var k in set) { if (set.hasOwnProperty(k)) all = all.concat(set[k]); }
+    all = all.filter(function (q) { return recent.indexOf(q.line) === -1; });
+    if (!all.length) return null;
+    var pick = all[Math.floor(Math.random() * all.length)];
+    return { line: pick.line, lineCN: pick.cn };
+  }
+
   function pickReply(c, prefs) {
     var recent = history(c.id).filter(function (m) { return m.w === 'h' && m.line; })
       .slice(-2).map(function (m) { return m.line; });
@@ -508,11 +551,11 @@
     saveMsg(current.id, msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
     box.value = ''; box.style.height = 'auto';
-    if (!venting) himReplies(current, bucketForText(v));
+    if (!venting) himReplies(current, bucketForText(v), 0, false, intentOf(v));
   }
 
   /* ————— 对话流程 ————— */
-  function himReplies(c, prefs, extraDelay, isFollowUp) {
+  function himReplies(c, prefs, extraDelay, isFollowUp, intent) {
     var log = $('log');
     var typing = document.createElement('div');
     typing.className = 'msg msg--him typing';
@@ -524,14 +567,14 @@
       setTimeout(function () {
         if (current !== c) return;
         typing.remove();
-        var q = pickReply(c, prefs);
+        var q = (intent && pickFromReplies(c, intent)) || pickReply(c, prefs);
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
         saveMsg(c.id, msg);
         log.appendChild(bubbleHim(msg)); scrollLog();
         /* 偶尔他会追一条（12%），像是想了想又补的——追的那条不再追，
            防止连锁套娃、一口气刷屏（2026-08 Winter 抓过一次三连发） */
         if (!isFollowUp && Math.random() < .12) {
-          himReplies(c, ['any'], 700, true);
+          himReplies(c, ['any'], 700, true, 'daily');
         } else {
           setBusy(false);
         }
@@ -544,7 +587,7 @@
     var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
     saveMsg(current.id, msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
-    if (!venting) himReplies(current, chip.pref);
+    if (!venting) himReplies(current, chip.pref, 0, false, chip.intent);
   }
 
   function openChat(c) {
@@ -585,7 +628,7 @@
     /* 关掉倾诉模式：他把你这一段都听完了，回一句 */
     setVent(false);
     var trail = ventTrail(current.id);
-    if (trail.trim()) himReplies(current, bucketForText(trail), 1100);
+    if (trail.trim()) himReplies(current, bucketForText(trail), 1100, false, intentOf(trail));
   });
 
   $('freeform').addEventListener('submit', function (e) { e.preventDefault(); sendFree(); });
@@ -611,9 +654,15 @@
   });
 
   /* ————— 数据：唯一来源 ../lines.json ————— */
-  fetch('../lines.json', { cache: 'no-cache' })
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
+  Promise.all([
+    fetch('../lines.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }),
+    /* 回复库是增强项：取不到也不影响热线可用 */
+    fetch('../hotline-replies.json', { cache: 'no-cache' })
+      .then(function (r) { return r.json(); }).catch(function () { return null; })
+  ])
+    .then(function (both) {
+      var data = both[0];
+      REPLIES = (both[1] && both[1].chars) || {};
       MF_ALIAS = (data.meta && data.meta.mf_alias) || {};
       chars = data.characters.slice().sort(function (a, b) { return yearNum(a.year) - yearNum(b.year); });
       $('boot').classList.add('hidden');
