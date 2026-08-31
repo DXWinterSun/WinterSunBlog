@@ -11,6 +11,7 @@ series_order: 8
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 8"
+story_time: "1985"
 summary: "他去找 Tom 探口风。Tom 很和气地说：你下不去手，我去。"
 ---
 

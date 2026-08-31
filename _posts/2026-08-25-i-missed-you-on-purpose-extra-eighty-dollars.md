@@ -11,6 +11,7 @@ series_order: 23
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+story_time: "1986–87"
 summary: "他消失了大半年，办成一件事。然后他推给你一个文件夹。"
 ---
 
@@ -142,7 +143,7 @@ summary: "他消失了大半年，办成一件事。然后他推给你一个文�
 
 州里开的正本副本，纸是那种官方的厚纸，边上印着花纹，右下角盖着钢印。
 
-第一张上面写着一个男人的名字：**Jerry Petrosian**。一九五四年生。
+第一张上面写着一个男人的名字：**Jerry Petrosian**。一九六一年生。
 
 第二张上面写着一个女人的名字。
 

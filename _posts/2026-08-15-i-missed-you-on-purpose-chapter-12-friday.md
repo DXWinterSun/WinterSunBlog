@@ -11,6 +11,7 @@ series_order: 12
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 12"
+story_time: "1985"
 summary: "你决定不走了。你只要求他一件事：以后不许再骗你。"
 ---
 

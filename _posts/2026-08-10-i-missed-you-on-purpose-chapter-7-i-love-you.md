@@ -11,6 +11,7 @@ series_order: 7
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 7"
+story_time: "1984–85"
 summary: "午夜钟声一响你就说了。他一个字也说不出来。"
 ---
 

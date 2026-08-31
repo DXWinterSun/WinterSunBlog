@@ -11,6 +11,7 @@ series_order: 4
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 4"
+story_time: "1984"
 summary: "他从不过夜。你问了一次，他给的理由好得让你更爱他。"
 ---
 

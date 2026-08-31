@@ -11,6 +11,7 @@ series_order: 19
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+story_time: "1985"
 summary: "他扛回来一棵最好的树，一根秃枝都没有。你却哭了。"
 ---
 

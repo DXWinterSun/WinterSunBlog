@@ -11,6 +11,7 @@ series_order: 13
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 13"
+story_time: "1985"
 summary: "他第一次用了那把钥匙。他说：有人要杀你，现在就走。"
 ---
 

@@ -11,6 +11,7 @@ series_order: 21
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+story_time: "1986"
 summary: "他回来那天特别高兴。你认得那个高兴。所以你问了。"
 ---
 

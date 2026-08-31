@@ -11,6 +11,7 @@ series_order: 9
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 9"
+story_time: "1985"
 summary: "他开始教你开车，教的全是怎么走。你只当他是宠你。"
 ---
 
