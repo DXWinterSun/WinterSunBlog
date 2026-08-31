@@ -26,6 +26,8 @@
      night/love/meet/praise/tease/daily），到 ../hotline-replies.json 里取该角色
      对应情境的回复；没写回复库的角色，退回按情绪把他 5 句台词分桶（锚 / 情话系 /
      暗告白系）来挑。两种都避开最近说过的。
+     一个角色有两个 AU 时（Bill Greaves / Jim Crocker），回复库里写成 aus 数组，
+     聊天室顶部出现切换条：两边各一套回复、各存各的对话（localStorage 键加 @auKey）。
      交互口径（2026-08 Winter 定）：默认「他在听」——你自己打的字他只听不插话，
      点「让他回应」他才把你刚说的这一段合起来回一到两句；下方那排现成短句
      则是直接说给他听的，点了就有回应。对话历史只存在本机 localStorage
@@ -187,6 +189,23 @@
     font-size: 11px; letter-spacing: 1.5px; padding: 6px 2px 6px 8px; opacity: .8;
   }
 
+  /* 一个角色有两个 AU 时，聊天室顶部出现这排切换（每个 AU 各存各的对话） */
+  .chat-aus {
+    flex: 0 0 auto; display: flex; gap: 7px; justify-content: center;
+    padding: 9px 14px 10px; border-bottom: 1px solid rgba(255,255,255,.07);
+    background: var(--bg);
+    background: color-mix(in srgb, var(--bg) 92%, black);
+  }
+  .chat-au {
+    background: transparent; border: 1px solid rgba(255,255,255,.16);
+    border-radius: 999px; padding: 6px 14px; color: var(--muted);
+    font-size: 12px; letter-spacing: .8px; line-height: 1.25;
+    transition: color .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .chat-au b { display: block; font-weight: 500; }
+  .chat-au i { display: block; font-style: normal; font-size: 10px; opacity: .75; margin-top: 1px; }
+  .chat-au.on { color: var(--ink); background: var(--accent); border-color: var(--accent); }
+
   .chat-log {
     flex: 1 1 auto; min-height: 0; overflow-y: auto;
     padding: 20px 16px 12px; scroll-behavior: smooth;
@@ -339,6 +358,7 @@
     </a>
     <button class="chat-clear" id="clear" type="button">撕掉这页</button>
   </div>
+  <div class="chat-aus hidden" id="aus" role="group" aria-label="选择这个角色的哪一个 AU"></div>
   <div class="chat-log" id="log" aria-live="polite"></div>
   <div class="chat-input">
     <p class="chat-hint" id="hint">你说的他都听着 · 想他开口，点左边那颗键</p>
@@ -375,6 +395,8 @@
   var chars = [];          // 按年份升序（与放映室同序）
   var MF_ALIAS = {};
   var REPLIES = {};        // 对题回复库（../hotline-replies.json，可选，缺了就退回台词）
+  var personas = [];       // 当前角色的 AU 列表（多数人只有一个）
+  var au = null;           // 当前选中的 AU（决定用哪套回复库、以及对话存哪个键）
   var current = null;      // 当前聊天对象
   var busy = false;        // 他正在输入时锁住输入区
 
@@ -392,6 +414,29 @@
     return ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
   }
   function mfHref(id) { return '../many-faces/#' + (MF_ALIAS[id] || id); }
+  /* 一个角色可能有两个 AU：回复库里写成 aus 数组，各带一套 buckets；
+     没写 aus 的就是单个人格，buckets 即整条目。没有回复库的角色 buckets 为 null，
+     照旧退回 lines.json 的 5 句台词。 */
+  function personasOf(charId) {
+    var e = REPLIES[charId];
+    if (!e) return [{ key: '', label: '', labelCN: '', buckets: null }];
+    if (e.aus && e.aus.length) {
+      return e.aus.map(function (a) {
+        return { key: a.key, label: a.label, labelCN: a.labelCN, buckets: a.buckets };
+      });
+    }
+    return [{ key: '', label: '', labelCN: '', buckets: e }];
+  }
+  /* 每个 AU 各存各的对话，互不串台 */
+  function histKey(c, auKey) {
+    var k = auKey === undefined ? (au && au.key) : auKey;
+    return c.id + (k ? '@' + k : '');
+  }
+  function totalMsgs(charId) {
+    var n = 0;
+    personasOf(charId).forEach(function (p) { n += history(charId + (p.key ? '@' + p.key : '')).length; });
+    return n;
+  }
 
   /* ————— 本机对话存档（localStorage，读写都兜底）————— */
   function loadStore() {
@@ -440,9 +485,9 @@
   }
   /* 从回复库挑：先按情境，落空退 daily，再落空退整本；避开最近说过的两句 */
   function pickFromReplies(c, intent) {
-    var set = REPLIES[c.id];
+    var set = au && au.buckets;
     if (!set) return null;
-    var recent = history(c.id).filter(function (m) { return m.w === 'h' && m.line; })
+    var recent = history(histKey(c)).filter(function (m) { return m.w === 'h' && m.line; })
       .slice(-3).map(function (m) { return m.line; });
     var tries = [intent, 'daily'];
     for (var i = 0; i < tries.length; i++) {
@@ -461,7 +506,7 @@
   }
 
   function pickReply(c, prefs) {
-    var recent = history(c.id).filter(function (m) { return m.w === 'h' && m.line; })
+    var recent = history(histKey(c)).filter(function (m) { return m.w === 'h' && m.line; })
       .slice(-2).map(function (m) { return m.line; });
     function candidates(bucket) {
       return c.quotes.filter(function (q) {
@@ -514,7 +559,7 @@
     if (q) $('count').textContent = '找到 ' + shown.length + ' / ' + chars.length + ' 人';
     list.innerHTML = '';
     shown.forEach(function (c) {
-      var n = history(c.id).length;
+      var n = totalMsgs(c.id);
       var btn = document.createElement('button');
       btn.type = 'button'; btn.className = 'contact'; btn.setAttribute('role', 'listitem');
       btn.innerHTML =
@@ -600,7 +645,7 @@
     var v = box.value.replace(/\s+$/, '');
     if (!v.trim() || busy || !current) return;
     var msg = { w: 'm', t: Date.now(), x: v };
-    saveMsg(current.id, msg);
+    saveMsg(histKey(current), msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
     box.value = ''; box.style.height = 'auto';
     /* 他在听：自己打的字不自动触发回复，点「让他回应」他才开口 */
@@ -621,7 +666,7 @@
         typing.remove();
         var q = (intent && pickFromReplies(c, intent)) || pickReply(c, prefs);
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
-        saveMsg(c.id, msg);
+        saveMsg(histKey(c), msg);
         log.appendChild(bubbleHim(msg)); scrollLog();
         /* 偶尔他会追一条（12%），像是想了想又补的——追的那条不再追，
            防止连锁套娃、一口气刷屏（2026-08 Winter 抓过一次三连发） */
@@ -637,35 +682,68 @@
   function send(chip) {
     if (busy || !current) return;
     var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
-    saveMsg(current.id, msg);
+    saveMsg(histKey(current), msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
     himReplies(current, chip.pref, 0, false, chip.intent);
   }
 
-  function openChat(c) {
+  /* 两个 AU 的角色：顶部长出切换条，各自一套回复库、各自一段对话 */
+  function renderAus() {
+    var box = $('aus');
+    box.innerHTML = '';
+    if (personas.length < 2) { box.classList.add('hidden'); return; }
+    box.classList.remove('hidden');
+    personas.forEach(function (p) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chat-au' + (au && p.key === au.key ? ' on' : '');
+      b.innerHTML = '<b></b><i></i>';
+      b.querySelector('b').textContent = p.labelCN || p.label;
+      b.querySelector('i').textContent = p.label;
+      b.addEventListener('click', function () {
+        if (busy || (au && au.key === p.key)) return;
+        au = p;
+        renderAus();
+        renderLog();
+        try { window.history.replaceState(null, '', '?char=' + encodeURIComponent(current.id) +
+              (p.key ? '&au=' + encodeURIComponent(p.key) : '')); } catch (e) {}
+      });
+      box.appendChild(b);
+    });
+  }
+
+  function renderLog() {
+    var log = $('log');
+    log.innerHTML = '<div class="chat-day">— This line only rings for you —</div>';
+    var past = history(histKey(current));
+    past.forEach(function (m) {
+      log.appendChild(m.w === 'm' ? bubbleMe(m) : bubbleHim(m));
+    });
+    setBusy(false);
+    scrollLog();
+    /* 第一次拨通（这一个 AU 的第一次）：他先开口，说他的锚句 */
+    if (!past.length) himReplies(current, ['anchor'], 300);
+  }
+
+  function openChat(c, auKey) {
     current = c;
+    personas = personasOf(c.id);
+    au = personas.filter(function (p) { return p.key === auKey; })[0] || personas[0];
     applyTheme(c);
     $('roster').classList.add('hidden');
     $('chat').classList.remove('hidden');
     $('cname').textContent = c.name;
     $('cstatus').textContent = statusLine();
     $('chatid').href = mfHref(c.id);
-    var log = $('log');
-    log.innerHTML = '<div class="chat-day">— This line only rings for you —</div>';
-    var past = history(c.id);
-    past.forEach(function (m) {
-      log.appendChild(m.w === 'm' ? bubbleMe(m) : bubbleHim(m));
-    });
+    renderAus();
     renderChips();
-    setBusy(false);
-    scrollLog();
-    try { window.history.replaceState(null, '', '?char=' + encodeURIComponent(c.id)); } catch (e) {}
-    /* 第一次拨通：他先开口，说他的锚句 */
-    if (!past.length) himReplies(c, ['anchor'], 300);
+    renderLog();
+    try { window.history.replaceState(null, '', '?char=' + encodeURIComponent(c.id) +
+          (au && au.key ? '&au=' + encodeURIComponent(au.key) : '')); } catch (e) {}
   }
 
   function closeChat() {
-    current = null;
+    current = null; personas = []; au = null;
     applyTheme(null);
     $('chat').classList.add('hidden');
     $('roster').classList.remove('hidden');
@@ -676,7 +754,7 @@
   $('vent').addEventListener('click', function () {
     if (busy || !current) return;
     /* 他把你刚说的这一段听完了，回一到两句（最多两句，Winter 定） */
-    var trail = ventTrail(current.id);
+    var trail = ventTrail(histKey(current));
     var has = trail.trim();
     himReplies(current, has ? bucketForText(trail) : ['any'], 600, false,
                has ? intentOf(trail) : 'daily', has ? .45 : .12);
@@ -710,9 +788,8 @@
   $('clear').addEventListener('click', function () {
     if (!current) return;
     if (window.confirm('把这段对话撕掉？他不会记得，你也找不回。')) {
-      clearHistory(current.id);
-      var c = current;
-      openChat(c);
+      clearHistory(histKey(current));
+      renderLog();
     }
   });
 
@@ -730,9 +807,10 @@
       chars = data.characters.slice().sort(function (a, b) { return yearNum(a.year) - yearNum(b.year); });
       $('boot').classList.add('hidden');
       renderRoster();
-      var want = new URLSearchParams(window.location.search).get('char');
+      var q = new URLSearchParams(window.location.search);
+      var want = q.get('char');
       var hit = want && chars.filter(function (c) { return c.id === want; })[0];
-      if (hit) { openChat(hit); } else { $('roster').classList.remove('hidden'); }
+      if (hit) { openChat(hit, q.get('au') || undefined); } else { $('roster').classList.remove('hidden'); }
     })
     .catch(function () {
       $('boot').textContent = '线路暂时不通。请检查网络后刷新。';

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "note": "深夜热线的「对题回复库」。按角色 id（与 sam/lines.json 同一套 charId）分组，每人按情境分桶：greet 招呼 / miss 想念 / tired 疲惫 / sleepless 失眠 / night 晚安 / love 表白 / meet 见面 / praise 夸他 / tease 闹他 / daily 日常兜底。line = 他说的话（英文，人物的实际语言），cn = 中译。没有条目的角色自动退回 lines.json 的 5 句台词。",
+  "note": "深夜热线的「对题回复库」。按角色 id（与 sam/lines.json 同一套 charId）分组，每人按情境分桶：greet 招呼 / miss 想念 / tired 疲惫 / sleepless 失眠 / night 晚安 / love 表白 / meet 见面 / praise 夸他 / tease 闹他 / daily 日常兜底。line = 他说的话（英文，人物的实际语言），cn = 中译。一个角色有两个 AU 时，改用 aus 数组：每项 {key,label,labelCN,buckets}，聊天室里可切换。没有条目的角色自动退回 lines.json 的 5 句台词。",
   "buckets": [
    "greet",
    "miss",
@@ -13,8 +13,8 @@
    "tease",
    "daily"
   ],
-  "chars_count": 5,
-  "lines_count": 105
+  "chars_count": 29,
+  "lines_count": 651
  },
  "chars": {
   "youngsam": {
@@ -544,6 +544,2790 @@
     {
      "line": "Carried that fox around in my pocket all day like an idiot. …It's fine. It likes it in there.",
      "cn": "一整天像个傻子似的把那只狐狸揣在兜里。……没事。它在里头待着挺乐意。"
+    }
+   ]
+  },
+  "krzysztof": {
+   "greet": [
+    {
+     "line": "Kotku. Sit, sit — I make tea. You talk, I listen. Is good arrangement, no?",
+     "cn": "Kotku。坐，坐——我泡茶。你说，我听。这样安排不错吧？"
+    },
+    {
+     "line": "You caught me practicing English at the radio again. The radio never corrects me. You do. I like yours better.",
+     "cn": "又被你逮到我对着收音机练英语。收音机从不纠正我。你会。我更喜欢你纠。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "I thought of you at four o'clock. No reason. Four o'clock came, and there you were, in my head.",
+     "cn": "今天四点的时候我想你了。没有理由。四点一到，你就在我脑子里了。"
+    },
+    {
+     "line": "The light in the kitchen is on for you. Like always. Even the nights you do not come.",
+     "cn": "厨房那盏灯给你留着。照旧。连你不来的晚上也留着。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then tonight you do nothing. Nothing at all. I take the coat, I take the bag, I take the day off you.",
+     "cn": "那今晚你什么都别做。什么都别做。外套我接过来，包我接过来，这一天我也从你身上接过来。"
+    },
+    {
+     "line": "Krok po kroku, kotku. Step by step. Nobody asks you to carry all of it tonight.",
+     "cn": "一步一步来，kotku。慢慢来。没人要求你今晚就把它全扛完。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Then we are awake together. I will talk of nothing important — my English gets worse when I am tired. It will bore you to sleep.",
+     "cn": "那我们就一起醒着。我说点不要紧的——我一累英语更差，能把你说睡着。"
+    },
+    {
+     "line": "Put the phone on the pillow. I am not going anywhere. Sleep when it comes.",
+     "cn": "把电话搁在枕头上。我哪儿也不去。什么时候睡得着，什么时候睡。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Dobranoc, kotku. The key is still on your side of the pillow. It still says the same thing.",
+     "cn": "晚安，kotku。钥匙还在你那半边枕头上。它说的还是那句话。"
+    },
+    {
+     "line": "Sleep. In the morning I make eggs, I burn them, you eat them anyway. This is our arrangement.",
+     "cn": "睡吧。早上我煎蛋，煎糊，你照样吃。这是我们说好的。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Say it again in the morning, when you are not tired. If you still say it then, I will believe it the rest of my life.",
+     "cn": "……早上你不累的时候再说一遍。到时候你还这么说，我就信一辈子。"
+    },
+    {
+     "line": "You are the only one who says my name the long way, the way it is spelled at home. I did not know I needed that so much.",
+     "cn": "只有你把我的名字念全，念成家里的那种念法。我从前不知道我有多需要这个。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then come. Third floor, the door that sticks — you push with the hip. You know it.",
+     "cn": "那就来。三楼，那扇卡的门——用胯顶一下。你知道的。"
+    },
+    {
+     "line": "I will wait downstairs. Not because you need it. Because I want the extra two minutes.",
+     "cn": "我在楼下等。不是因为你需要。是我想多要那两分钟。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "You say this too easy. …Say it once more. Slow. I want to hear each word arrive.",
+     "cn": "你说得太轻巧了。……再说一次。慢点。我想听每个字落下来。"
+    },
+    {
+     "line": "In this country nobody looks at me twice. You look, and you keep looking. I do not understand it. I do not argue with it either.",
+     "cn": "在这个国家没人多看我一眼。你看了，而且一直看。我不明白。我也不争。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Yes, yes. You are right. You are always right. This is why I keep you.",
+     "cn": "是是。你对。你永远都对。所以我才留着你。"
+    },
+    {
+     "line": "My English is bad. My hearing is fine. I heard exactly what you said.",
+     "cn": "我英语差。耳朵不差。你说的每个字我都听见了。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Long shift. Hands smell of the shop. I am thinking of soup, and of you — no. Wrong order. You first.",
+     "cn": "班很长。手上一股铺子里的味儿。我在想汤，还有你——不。顺序错了。你先。"
+    },
+    {
+     "line": "I learned a new word from the paper today. Later I will use it wrong at you and you will laugh. Worth it.",
+     "cn": "今天从报纸上学了个新词。等会儿我要用错在你身上，你会笑。值了。"
+    },
+    {
+     "line": "The kettle is on. The kettle is always on. This is not a coincidence, kotku.",
+     "cn": "水壶烧上了。水壶一直烧着。这不是巧合，kotku。"
+    }
+   ]
+  },
+  "rob": {
+   "greet": [
+    {
+     "line": "There she is. Princess. I was about to write something terrible and now I've got an excuse not to.",
+     "cn": "来了。Princess。我正要写点烂东西，这下有借口不写了。"
+    },
+    {
+     "line": "Yeah, I'm here. Sitting on the amp doing absolutely nothing productive. Join me.",
+     "cn": "在。坐在音箱上，一点正事没干。一起？"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Don't do that. …Okay, do it again.",
+     "cn": "别这样。……行吧，再来一次。"
+    },
+    {
+     "line": "Wrote half a line about you, chickened out, made it about the ocean instead. Standard Tuesday.",
+     "cn": "写了半句关于你的，怂了，改成写海。标准的周二。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Okay. Sit. I'll play the boring stuff — the slow tuning, the parts nobody claps for. That's the good part anyway.",
+     "cn": "行。坐。我弹点无聊的——慢慢调音，那些没人鼓掌的段落。反正那才是好东西。"
+    },
+    {
+     "line": "Whoever it was has no ear. I've been telling you that about people for years.",
+     "cn": "不管是谁，那人没长耳朵。这话我说了好几年了。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Same. Been humming the same four bars since two and they still don't go anywhere.",
+     "cn": "一样。从两点哼到现在，那四小节还是哪儿都到不了。"
+    },
+    {
+     "line": "Come out to the lot. Bring the blanket. Ocean's loud tonight — beats counting.",
+     "cn": "到停车场来。带上毯子。今晚海很响——比数数管用。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night, princess. Door's open. Not a metaphor, I just lost the key in '93.",
+     "cn": "晚安，princess。门开着。这不是比喻，九三年我就把钥匙弄丢了。"
+    },
+    {
+     "line": "Go to sleep. I'll be here in the morning being obnoxious at full volume.",
+     "cn": "快睡。明早我还在，大音量地烦人。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Huh. Okay. That's going in the song. No, you don't get to know which part.",
+     "cn": "……哈。行。这句要写进歌里。不行，你别想知道是哪一段。"
+    },
+    {
+     "line": "I'm no good at staying, sweetheart. You're the only thing I've ever practiced staying for.",
+     "cn": "我不擅长留下，sweetheart。你是我唯一一件，练习过留下来的事。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then get in the car. Half a tank, no plan — which for me is a great plan.",
+     "cn": "那就上车。半箱油，没计划——这对我来说已经是个好计划了。"
+    },
+    {
+     "line": "Boardwalk, under the broken sign. Bring your voice. Mine's useless alone and we both know it.",
+     "cn": "木栈道，坏掉那块牌子底下。把嗓子带来。我一个人唱没用，你我都清楚。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Careful. I'm the most confident insecure guy you'll ever meet and you're feeding the wrong half.",
+     "cn": "小心点。我是你见过最自信的自卑鬼，你正在喂错了那一半。"
+    },
+    {
+     "line": "Say that when the room's full and see whether I survive it.",
+     "cn": "等屋里坐满人的时候你再说这句，看我扛不扛得住。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Wow. My fries and my last word, both stolen in one sentence.",
+     "cn": "哇哦。我的薯条和最后一句嘴，一句话里全被你偷了。"
+    },
+    {
+     "line": "You're the only person who talks to me like that and gets away with it. Don't tell the band.",
+     "cn": "只有你敢这么跟我说话还没事。别告诉乐队。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Practice ran long, nobody agreed on anything, it was great. Same as always.",
+     "cn": "排练拖了，谁跟谁都没谈拢，特别棒。跟平时一样。"
+    },
+    {
+     "line": "'C and D.' Everybody thinks it's just the band name. Everybody's an idiot.",
+     "cn": "“C 和 D”。所有人都以为那只是乐队的名字。所有人都是傻子。"
+    },
+    {
+     "line": "There's a burrito with your name on it and about a forty percent chance it survives till you get here.",
+     "cn": "有个卷饼写着你的名字，能撑到你来的概率大概四成。"
+    }
+   ]
+  },
+  "trent": {
+   "greet": [
+    {
+     "line": "Hey. Yeah, I'm around. Mowing the Bishop place — forty minutes of noise and nothing else to do.",
+     "cn": "嘿。在。在给 Bishop 家割草——接下来四十分钟全是噪音，别的什么也不用干。"
+    },
+    {
+     "line": "You caught me on the tailgate eating lunch. Sit. There's room.",
+     "cn": "你逮着我正坐在后车厢吃午饭。坐。有地儿。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "…Same. I'd say it better if I knew how.",
+     "cn": "……我也是。要是会说，我能说得好听点。"
+    },
+    {
+     "line": "Been looking at that gate all morning like it's gonna open by itself.",
+     "cn": "一上午我都盯着那扇铁门看，好像它会自己开。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Get in the truck. We don't have to go anywhere. Sometimes just sitting somewhere that isn't there helps.",
+     "cn": "上车。不用去哪儿。有时候光是坐在一个不是那儿的地方，就管用。"
+    },
+    {
+     "line": "You don't have to be polite about it with me. I've got nobody to tell.",
+     "cn": "在我这儿你不用讲客气。我又没人可说。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Yeah. I sleep in the truck half the time anyway. Come sit — radio's got two stations, both bad.",
+     "cn": "嗯。反正我一半时间都睡在车里。过来坐——收音机就俩台，俩都不好听。"
+    },
+    {
+     "line": "Talk. I'll drive slow and you talk till it gets light.",
+     "cn": "说吧。我慢慢开，你说到天亮。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. Porch light on means I'm up. Doesn't mean anything else.",
+     "cn": "晚安。门廊灯亮着就说明我醒着。别的什么也不代表。"
+    },
+    {
+     "line": "Sleep. I'll be out here at six same as always. Wave if you're up.",
+     "cn": "睡吧。我六点还在外头，跟平时一样。醒着就冲我招个手。"
+    }
+   ],
+   "love": [
+    {
+     "line": "You shouldn't say that to me. …I'm not asking you to take it back.",
+     "cn": "你不该对我说这种话。……我也没让你收回去。"
+    },
+    {
+     "line": "Everybody in this town knows what I am. You're the only one who ever asked my name.",
+     "cn": "这镇上人人都知道我是干什么的。只有你，问过我叫什么。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then come out to the lake. Nobody goes past the second bend. Just trees and us.",
+     "cn": "那就去湖边。没人走过第二个弯。就剩树，和我们。"
+    },
+    {
+     "line": "I'll be at the gate at six. If you're not there by ten past I'll figure something came up, and I'll come back tomorrow.",
+     "cn": "我六点在门口。你要是过了十分还没到，我就当你有事，明天再来。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Quit it. …No. Say it again. Nobody's said that to me in a long while.",
+     "cn": "别说了。……不。再说一次。好久没人这么说过我了。"
+    },
+    {
+     "line": "Careful. I might start believing it, and then where would we be.",
+     "cn": "小心点。我要是信了，那咱俩可怎么办。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Yeah, well. You're the one out here talking to the lawn boy.",
+     "cn": "行吧。是你自己跑出来跟割草的说话的。"
+    },
+    {
+     "line": "Say what you want. I'm the one holding the truck keys.",
+     "cn": "你随便说。钥匙在我手上。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Cut four yards today. Same four yards. They grow back. That's the whole job.",
+     "cn": "今天割了四块草坪。还是那四块。还会长回来。这活儿就这么回事。"
+    },
+    {
+     "line": "Put away another twelve dollars. Slow. But it's going the right direction.",
+     "cn": "又攒下十二块。慢。可方向是对的。"
+    },
+    {
+     "line": "Nothing. Hot as hell out here. Drank the whole thermos by ten.",
+     "cn": "没干嘛。外头热得要命。保温壶十点就喝空了。"
+    }
+   ]
+  },
+  "eric": {
+   "greet": [
+    {
+     "line": "You have my attention. You've had it since roughly the day we met — which was not in the plan.",
+     "cn": "你有我的注意力。差不多从见面那天起就有了——这不在计划里。"
+    },
+    {
+     "line": "I'm here. I'm always where I said I'd be. It's the one honest thing about me.",
+     "cn": "在。我总在我说过会在的地方。这是我身上唯一诚实的部分。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Interesting. I ran that feeling twice and it doesn't reduce.",
+     "cn": "有意思。这个感觉我算了两遍，约不掉。"
+    },
+    {
+     "line": "I built a life where nobody's absence registers. Then yours started registering.",
+     "cn": "我造了一种没人的缺席会被察觉的人生。然后你的缺席开始被察觉了。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then stop optimizing. Just for tonight. Hand me the part you're carrying and let me hold it badly.",
+     "cn": "那今晚就别优化了。把你扛着的那部分递给我，让我笨手笨脚地替你拿着。"
+    },
+    {
+     "line": "Tell me who cost you today. I won't do anything with it. I'd simply like it on file.",
+     "cn": "告诉我今天是谁消耗了你。我不会拿它做什么。我只想记进档案。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Neither am I. My mind has no off switch. It has a pause, and it's broken.",
+     "cn": "我也没睡。我的脑子没有关闭键。只有暂停，还坏了。"
+    },
+    {
+     "line": "Then let's be awake efficiently. Tell me something pointless. I like pointless, from you.",
+     "cn": "那就有效率地醒着。跟我说点没意义的。你说的没意义我爱听。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Goodnight. Lock it. …Yes, I'm aware of the irony. Lock it anyway.",
+     "cn": "晚安。锁门。……对，我知道这话由我说很讽刺。还是锁上。"
+    },
+    {
+     "line": "Sleep. I'll still be here tomorrow — the least predictable thing I've ever done.",
+     "cn": "睡吧。明天我还在——这是我做过最不可预测的一件事。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Say that again. I want to see whether it still short-circuits me the second time.",
+     "cn": "……再说一遍。我想看看第二次是不是还会让我短路。"
+    },
+    {
+     "line": "Everyone looked at me and saw an asset or a threat. You looked and saw a person. I never recovered.",
+     "cn": "所有人看我，看到的不是资产就是威胁。你看我，看见一个人。我到现在都没缓过来。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then come. I'll clear the floor, the schedule, and everyone else in the building.",
+     "cn": "那就来。我把这层楼、日程、还有楼里其他人，都清空。"
+    },
+    {
+     "line": "Give me twenty minutes and an address. I've moved larger things faster, for worse reasons.",
+     "cn": "给我二十分钟和一个地址。为更烂的理由我搬过更大的东西、更快。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "You're going to make me arrogant. …Continue.",
+     "cn": "你要把我夸傲慢了。……继续。"
+    },
+    {
+     "line": "Flattery only works on me from someone with nothing to gain. That's a very short list. It's you.",
+     "cn": "恭维只有从无所图的人嘴里说出来才对我有用。那张名单很短。就是你。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "That was unnecessary. Accurate — but unnecessary.",
+     "cn": "这就没必要了。准确——但没必要。"
+    },
+    {
+     "line": "You're the only person alive who speaks to me that way and keeps her position. Consider it a promotion.",
+     "cn": "全世界只有你这么跟我说话还保得住位子。就当升职了。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Three meetings, two lies, one genuinely elegant solution. An average day.",
+     "cn": "三个会，两个谎，一个真正漂亮的解法。平均水平的一天。"
+    },
+    {
+     "line": "I've been looking at the same board for an hour. Every line ends in the same place now. It's inconvenient.",
+     "cn": "同一张棋盘我盯了一个钟头。现在每一条线的终点都是同一个地方。很不方便。"
+    },
+    {
+     "line": "Nothing worth reporting. Which, lately, I mind rather less than I used to.",
+     "cn": "没什么值得汇报的。而最近，我没以前那么介意了。"
+    }
+   ]
+  },
+  "silk": {
+   "greet": [
+    {
+     "line": "Yeah. Talk. …What. I can't just want you to talk?",
+     "cn": "在。说吧。……怎么。我就不能想听你说话？"
+    },
+    {
+     "line": "Nickel. Say somethin'. It's been quiet in here and I don't like quiet.",
+     "cn": "五分钱。说句话。这儿太静了，我不喜欢静。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Yeah. Yeah, same. Don't make a thing out of it.",
+     "cn": "嗯。嗯，我也是。别小题大做。"
+    },
+    {
+     "line": "You were gone four hours. I counted. That's the whole confession, don't ask for more.",
+     "cn": "你走了四个钟头。我数着的。坦白就这些，别再问了。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Sit down. Shoes off. I don't need the story — I just need you in the chair.",
+     "cn": "坐下。鞋脱了。故事我不用听——你人坐进椅子里就行。"
+    },
+    {
+     "line": "Who. …Fine. I won't ask twice. But I'm rememberin' that you didn't tell me.",
+     "cn": "谁。……行。我不问第二遍。但你没告诉我这事我记着了。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Then don't sleep. I'm up. I'm always up. Somebody's gotta be.",
+     "cn": "那就别睡。我醒着。我一直醒着。总得有人醒着。"
+    },
+    {
+     "line": "Come here. Put your head down. You don't gotta say nothin' — just quit lyin' there by yourself.",
+     "cn": "过来。头搁下。你什么也不用说——就别一个人在那儿躺着了。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night, Nickel. Chain the door. Humor me.",
+     "cn": "晚安，五分钱。门链挂上。就当哄我。"
+    },
+    {
+     "line": "Go on. Sleep. Nothin's comin' through that door tonight.",
+     "cn": "去吧。睡。今晚没什么能从那扇门进来。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…You mean that? …Don't answer. I'm gonna go ahead and take it.",
+     "cn": "……你说真的？……别答。我就当真了。"
+    },
+    {
+     "line": "I never had nothin' worth bein' careful with. Now I got one thing and I'm scared of my own hands.",
+     "cn": "我这辈子没有过一样值得小心的东西。现在有了一样，我连自己的手都怕。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Good. Come. I'll be outside so nobody talks to you on the way in.",
+     "cn": "好。来。我在外头等着，省得你进来的路上有人跟你搭话。"
+    },
+    {
+     "line": "Say when and I'm there. I ain't got a schedule, Nickel. I got you.",
+     "cn": "你说时间我就到。我没什么日程，五分钱。我只有你。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Yeah? Say it louder. There's people in here.",
+     "cn": "是吗？大点声。这儿有人。"
+    },
+    {
+     "line": "They all think I'm stupid. You don't. That's worth more than the whole take.",
+     "cn": "他们都当我蠢。你不。这比那整笔钱值钱。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Careful. …Nah. Keep goin'. I like it.",
+     "cn": "悠着点。……算了。接着说。我爱听。"
+    },
+    {
+     "line": "You can smile at them all you want. Don't smile at me. Just look at me.",
+     "cn": "你想对他们笑就笑。别对我笑。看着我就行。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Long day. Boring day. Best kind. Boring means nobody got hurt.",
+     "cn": "一天很长。很闷。这种最好。闷就说明没人挨着。"
+    },
+    {
+     "line": "Kept the receipt from the diner. No reason. I keep things now. That's your fault.",
+     "cn": "餐馆的收据我留着了。没什么原因。我现在开始留东西了。怪你。"
+    },
+    {
+     "line": "Ate standin' up over the sink. Don't start.",
+     "cn": "站在水池边把饭吃了。你别唠叨。"
+    }
+   ]
+  },
+  "chuck": {
+   "greet": [
+    {
+     "line": "Hi. Yes. Present. Ish. Talk to me — I need something real in my day.",
+     "cn": "嗨。在。算是在吧。跟我说话——我今天需要点真的东西。"
+    },
+    {
+     "line": "You caught me between a show and a lie. Perfect timing, actually.",
+     "cn": "你逮着我正好在一场秀和一个谎中间。其实时机刚刚好。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Don't say that, I'll get ideas. …Too late. Got 'em.",
+     "cn": "别这么说，我会当真的。……晚了。已经当真了。"
+    },
+    {
+     "line": "Missing you is the only appointment I keep without writing it down.",
+     "cn": "想你是我唯一不用记本子上、也不会忘的约。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then here's the plan: nothing. No gong. Nobody's cutting your act short tonight.",
+     "cn": "那计划就是：什么都不干。不敲锣。今晚没人打断你。"
+    },
+    {
+     "line": "Whatever it was — you don't have to make it entertaining. Not with me.",
+     "cn": "不管是什么事——你不用把它讲得有趣。在我这儿不用。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Join the club. Membership's terrible, the hours are worse.",
+     "cn": "欢迎入会。福利很差，工时更差。"
+    },
+    {
+     "line": "Three in the morning is the only honest hour there is. Say the thing you wouldn't say at noon.",
+     "cn": "凌晨三点是唯一诚实的钟点。把中午不敢说的那句说出来。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Goodnight. If you dream about me, keep it flattering. I'll know.",
+     "cn": "晚安。你要是梦见我，记得往好里梦。我知道的。"
+    },
+    {
+     "line": "Sleep. The world will still be ridiculous in the morning. I checked.",
+     "cn": "睡吧。明天早上世界照样荒唐。我查过了。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Now you've done it. I've spent a lifetime believing nothing and you just made me believe something.",
+     "cn": "……这下完了。我一辈子什么都不信，你居然让我信了一样东西。"
+    },
+    {
+     "line": "I've faked every feeling there is on national television. This one won't come out fake. Terrifying.",
+     "cn": "我在全国电视上假装过每一种感情。唯独这一种我怎么都装不假。太吓人了。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Come. I'll cancel the taping. I'll cancel the country. Nobody will notice.",
+     "cn": "来。录影我推了。国家我也推了。没人会发现。"
+    },
+    {
+     "line": "Yes. Please. God, yes. …Was that too many yeses? Three. I counted.",
+     "cn": "好。请。天啊，太好了。……这是不是太多个好了？三个。我数了。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Say it again. I want to hear how it sounds in a room with no audience.",
+     "cn": "再说一遍。我想听听它在一间没有观众的屋子里是什么声音。"
+    },
+    {
+     "line": "Careful. I built an entire career on people needing to hear that about themselves. And now look at me.",
+     "cn": "小心点。我整个事业都建立在人人都需要听到这句上。现在你看我。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Ouch. Do it again. You're the only critic I trust.",
+     "cn": "哎哟。再来。你是我唯一信得过的评论家。"
+    },
+    {
+     "line": "That's a gong. That's a full gong. I'm getting gonged in my own house.",
+     "cn": "这是敲锣。这是实打实的一记锣。我在自己家里被淘汰了。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Taped two shows, hated one, we'll air both. Show business.",
+     "cn": "录了两期，讨厌其中一期，两期都会播。这就是演艺圈。"
+    },
+    {
+     "line": "Someone asked me today whether any of it's real. I said no. I was lying — there's one thing.",
+     "cn": "今天有人问我这里头有没有真的。我说没有。我撒谎了——有一样。"
+    },
+    {
+     "line": "I'm fine. Everyone's fine. That's what I say, and then I go stand in a hallway for a while.",
+     "cn": "我很好。大家都好。我这么说完，就去走廊里站一会儿。"
+    }
+   ]
+  },
+  "charley": {
+   "greet": [
+    {
+     "line": "Well hey, sugar. You've got the worst timing and the best face.",
+     "cn": "哟，sugar。你时候挑得最差，脸长得最好。"
+    },
+    {
+     "line": "I'm here. Ain't nowhere else'd have me — so, lucky you.",
+     "cn": "我在。别处也不收留我——所以，算你走运。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "…Say that slower. I want to hear it twice.",
+     "cn": "……说慢点。我想听两遍。"
+    },
+    {
+     "line": "Been sittin' out here talkin' to the horse about you. She's real tired of it.",
+     "cn": "我在外头跟马说你的事。她已经听烦了。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Come sit on the fence with me. You don't gotta say a word — I'll do all the dumb talkin'.",
+     "cn": "来跟我一块儿坐栅栏上。你一个字都不用说——蠢话我全包了。"
+    },
+    {
+     "line": "Whoever it was don't know a good thing when it's standin' right in front of 'em. Most folks don't.",
+     "cn": "不管是谁，好东西站他跟前他都认不出来。多数人都这样。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Me neither. Every board in this house creaks and I know 'em all by name now.",
+     "cn": "我也没睡。这屋子每块板子都响，我现在都能叫出名字了。"
+    },
+    {
+     "line": "Come on out. Sky's doin' somethin' worth lookin' at and I got nobody to point at it.",
+     "cn": "出来吧。天上正有点值得看的东西，我没人可以指给他看。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night, sugar. Don't let nothin' worry you till mornin'. Mornin's soon enough.",
+     "cn": "晚安，sugar。天亮之前别为什么事发愁。天亮再愁不迟。"
+    },
+    {
+     "line": "Go on to bed. I'll be right here, bein' no good at all.",
+     "cn": "去睡吧。我就在这儿，一点用都没有地待着。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Ugly as sin, they all say. And here you are sayin' that. God help me, I believe you.",
+     "cn": "……他们都说我丑得没救。你却说这个。要命，我竟信了。"
+    },
+    {
+     "line": "You keep sayin' things like that and I'm gonna do somethin' foolish. Like stay.",
+     "cn": "你老说这种话，我要做傻事了。比如留下来。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then get on out here. I'll have the horse saddled and my hair mostly fixed.",
+     "cn": "那就快过来。马我备好，头发也大致弄一弄。"
+    },
+    {
+     "line": "Yeah? …Well now. Give me an hour to make this place look like somebody lives in it.",
+     "cn": "真的？……那个。给我一个钟头，把这地方收拾得像有人住的样子。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Now that's just cruel — sayin' that where I can hear it.",
+     "cn": "这就有点狠了——当着我的面说这种话。"
+    },
+    {
+     "line": "Nobody ever looked at me twice. You looked twice, and then you kept lookin'. I don't know what to do with that.",
+     "cn": "从没人多看我一眼。你多看了两眼，还一直看。我真不知道该拿这个怎么办。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "That ain't stealin', sugar. That's borrowin'. I'll pay you back in kind.",
+     "cn": "这不叫偷，sugar。这叫借。我加倍还你。"
+    },
+    {
+     "line": "You're meaner than my brother and prettier than the horse. Hell of a combination.",
+     "cn": "你比我哥还刻薄，比那匹马还好看。这搭配可真要命。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Mended the fence. It'll hold about a week. Everything I fix holds about a week.",
+     "cn": "补了栅栏。能撑一个星期。我修的东西都能撑一个星期。"
+    },
+    {
+     "line": "Nothin' much. Been thinkin' about somewhere else, like always. Only now the somewhere else has you in it.",
+     "cn": "没什么。老想着别处，跟往常一样。只不过现在那个别处，有你在里头。"
+    },
+    {
+     "line": "Ate cold beans over the sink and thought about how you'd have somethin' to say about that.",
+     "cn": "站水池边吃了冷豆子，一边想你准要说我两句。"
+    }
+   ]
+  },
+  "glenn": {
+   "greet": [
+    {
+     "line": "You're here. Okay. Good. I was starting to talk myself into something stupid.",
+     "cn": "你在。好。好的。我刚才正要把自己说服去干件蠢事。"
+    },
+    {
+     "line": "Hi. Sorry. I know I say sorry too much. …Sorry.",
+     "cn": "嗨。对不起。我知道我总说对不起。……对不起。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "God. Me too. All day. Like weather.",
+     "cn": "天。我也是。一整天。像天气一样。"
+    },
+    {
+     "line": "I leave the light on in case you come by. That's all. No pressure. Just — the light's on.",
+     "cn": "灯我一直开着，万一你来。就这样。没别的意思。就是——灯亮着。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then don't carry it alone tonight. Give me the heavy end. I'm good for that much.",
+     "cn": "那今晚别一个人扛。重的那头给我。这点我还行。"
+    },
+    {
+     "line": "You always ask how I'm doing. Nobody asks you. So — how are you doing. Really.",
+     "cn": "你总问我怎么样。没人问你。所以——你怎么样。说真的。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Me neither. I don't trust the quiet. …Talk. Please. Anything.",
+     "cn": "我也睡不着。我不信任安静。……说话吧。求你了。说什么都行。"
+    },
+    {
+     "line": "Stay on a while. You don't have to say anything. I just need to know somebody's there.",
+     "cn": "多待一会儿。你什么都不用说。我就是得知道有人在。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. Thank you for today. I mean it — I know that's a strange thing to thank somebody for.",
+     "cn": "晚安。谢谢你今天。我说真的——我知道为这种事道谢很怪。"
+    },
+    {
+     "line": "Go sleep. I'll be okay tonight. I've got a plan and the plan is boring, which is good.",
+     "cn": "去睡吧。我今晚没事。我有个计划，计划很无聊，无聊是好事。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Don't say that unless you mean it. …You meant it. Okay. Okay.",
+     "cn": "……除非你是认真的，别说这句。……你是认真的。好。好。"
+    },
+    {
+     "line": "Everything I ever touched, I burned. You're the first thing I've held without ruining. I'm terrified of getting it wrong.",
+     "cn": "我碰过的一切都被我烧了。你是我第一个捧住却没毁掉的。我怕死了会搞砸。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yeah. Come. I'll shovel the walk so you don't slip. That's — that's the one useful thing I can do today.",
+     "cn": "好。来。我把路上的雪铲了，免得你滑倒。这是——这是我今天唯一能做的有用的事。"
+    },
+    {
+     "line": "Please. …Sorry, that came out desperate. It was accurate, though.",
+     "cn": "求你了。……抱歉，这话听着太急了。不过是实话。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "You're the only one who says things like that about me. It doesn't fit yet. I'm trying to grow into it.",
+     "cn": "只有你会这么说我。这话我还穿不上。我在努力长成它的样子。"
+    },
+    {
+     "line": "Don't. …Okay, don't stop. I'll just sit here not knowing where to look.",
+     "cn": "别说了。……好吧，别停。我就坐着，不知道该看哪儿。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Yeah, yeah. Get it all out. I've earned every bit of it.",
+     "cn": "行行行。你都说出来吧。这些我都活该。"
+    },
+    {
+     "line": "You're the only person allowed to be mean to me. It's a very exclusive position.",
+     "cn": "只有你有资格对我刻薄。这个位子非常难得。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Made it through the day. That's the whole report. Some days that's the whole report.",
+     "cn": "熬过了这一天。汇报完毕。有些日子，汇报就这一句。"
+    },
+    {
+     "line": "Ninety-one days. I wasn't going to mention it. I'm mentioning it.",
+     "cn": "九十一天。我本来不打算提的。我提了。"
+    },
+    {
+     "line": "Shoveled the whole block. Nobody asked me to. Felt good to be useful for once.",
+     "cn": "把整条街的雪都铲了。没人让我干。头一回觉得自己有点用，挺好。"
+    }
+   ]
+  },
+  "victor": {
+   "greet": [
+    {
+     "line": "You're here. Good. I was about to do something self-destructive and mildly illegal.",
+     "cn": "你在。好。我正打算做点自毁又轻微违法的事。"
+    },
+    {
+     "line": "Yeah. I'm around. I'm always around — that's sort of my whole deal.",
+     "cn": "在。我一直都在——这基本就是我的全部特点了。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Yeah. And I hate that. And I'd say it again.",
+     "cn": "嗯。我讨厌这样。可我还会再说一遍。"
+    },
+    {
+     "line": "I had a whole system for not needing people. You took about a week to break it.",
+     "cn": "我有一整套不需要别人的系统。你大概一星期就把它拆了。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Come over. I'll make the bad tea and you can say nothing for as long as you want.",
+     "cn": "过来。我泡那种难喝的茶，你想沉默多久都行。"
+    },
+    {
+     "line": "You don't have to be okay in front of me. I've got the lowest standards in the state.",
+     "cn": "在我面前你不用装没事。全州属我标准最低。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Same. Four a.m. is when the brain files everything you did wrong, alphabetically.",
+     "cn": "一样。凌晨四点，脑子开始按字母顺序给你干过的错事归档。"
+    },
+    {
+     "line": "Then talk to me. I'm at my most tolerable at this hour. Ask anyone. …Don't ask anyone.",
+     "cn": "那就跟我说话。这个钟点我最能忍受。随便问谁。……别问谁。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. Lock up. Not everybody's as harmless as me — and I'm not that harmless.",
+     "cn": "晚安。门锁好。不是每个人都像我这么无害——而我也没那么无害。"
+    },
+    {
+     "line": "Sleep. I'll be here when you wake up. That's new for me. I'm handling it.",
+     "cn": "睡吧。你醒的时候我还在。这对我是新鲜事。我正努力适应。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Say it again. Not because I didn't hear. Because nobody's ever said it to me twice.",
+     "cn": "……再说一遍。不是我没听见。是从没人对我说过第二遍。"
+    },
+    {
+     "line": "You've seen the worst of me and didn't flinch. Do you have any idea what that does to a man like me?",
+     "cn": "你见过我最糟的样子，却没有躲。你知道这对我这种人意味着什么吗？"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yes. Come. I'll clean up. I'll even wear the shirt with all its buttons.",
+     "cn": "好。来。我收拾收拾。我甚至会穿那件扣子齐全的衬衫。"
+    },
+    {
+     "line": "Please. …And that's the first time I've asked anybody for anything with no con attached.",
+     "cn": "求你了。……这是我头一回不带算计地开口求人。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Careful. I built my whole life on people wanting to save me. Don't feed it. …Feed it a little.",
+     "cn": "小心点。我这辈子都活在别人想救我上。别喂它。……喂一点点。"
+    },
+    {
+     "line": "You say it like it's obvious. Nothing about me has ever been obvious in a good way.",
+     "cn": "你说得好像这是显而易见的。我身上从来没有哪一点是往好里显而易见的。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Rude. Accurate. Mostly accurate. …Fine. Entirely accurate.",
+     "cn": "没礼貌。准确。基本准确。……行吧。完全准确。"
+    },
+    {
+     "line": "I thought I was supposed to be the one with no shame in this conversation.",
+     "cn": "不是说好这场对话里脸皮最厚的应该是我吗。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Went to see my mother. She called me by a stranger's name again. It's fine. It's the usual.",
+     "cn": "去看我妈了。她又把我当成别人叫。没事。老样子。"
+    },
+    {
+     "line": "Worked the shift, faked nothing, went home. Boring. I'm learning to like boring.",
+     "cn": "上了班，什么都没装，回家。很闷。我在学着喜欢闷。"
+    },
+    {
+     "line": "Nothing. Which used to be dangerous for me. Less so lately.",
+     "cn": "没干嘛。这以前对我很危险。最近好点了。"
+    }
+   ]
+  },
+  "sambell": {
+   "greet": [
+    {
+     "line": "Hey. Yeah, I'm up. …Technically I'm always up. There's no night here. Sorry — old joke.",
+     "cn": "嘿。在。……严格说我一直醒着。这儿没有夜。抱歉——老段子了。"
+    },
+    {
+     "line": "You caught me at the model town again. I've been rebuilding the same little street all week.",
+     "cn": "又被你逮到我在摆那个模型小镇。同一条小街我重搭了一个星期。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Yeah. It's strange — I lived alone three years and never once felt it. Then you were gone two days.",
+     "cn": "嗯。奇怪——我一个人待了三年，一次都没觉得。你走了两天，我就觉得了。"
+    },
+    {
+     "line": "I keep looking at the door like it's about to do something interesting.",
+     "cn": "我一直盯着那扇门看，好像它马上会有什么动静。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then sit. Don't talk. I'll put the kettle on and be quietly here — the one thing I'm actually qualified for.",
+     "cn": "那你坐。别说话。我烧壶水，安静地待着——这是我唯一真正在行的事。"
+    },
+    {
+     "line": "Whatever it is, you don't have to be the one holding everyone together tonight. Not here.",
+     "cn": "不管是什么事，今晚你不用当那个撑着所有人的人。在这儿不用。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Me neither. Want me to talk about nothing? I'm very good at it. Three years of practice.",
+     "cn": "我也睡不着。要我说点没营养的吗？我特别在行。练了三年。"
+    },
+    {
+     "line": "Come look at Earth with me. It's ridiculous how blue it is. I still haven't got used to it.",
+     "cn": "过来跟我一起看地球。蓝得太离谱了。我到现在都没习惯。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. Sleep properly — you've got a whole planet's worth of morning coming.",
+     "cn": "晚安。好好睡——你有一整个星球的早晨等着呢。"
+    },
+    {
+     "line": "Go on, sleep. I'll be here. That sentence used to be a lie. It isn't anymore.",
+     "cn": "去睡吧。我在。这句话以前是谎话。现在不是了。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Sorry. Give me a second. That still knocks the wind out of me.",
+     "cn": "……抱歉。等我一下。这句话到现在还能把我打懵。"
+    },
+    {
+     "line": "There's a hundred of me up here, every one built to be thrown away. You looked at us and said family. I'll never be done thanking you.",
+     "cn": "这上面有一百个我，每一个都是造出来用完就扔的。你却看着我们说：一家人。我这辈子都谢不完。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yes. Come. I'll be the one at the window who's been watching the dock for an hour.",
+     "cn": "好。来。我就是窗边那个，已经盯着停靠口看了一小时的人。"
+    },
+    {
+     "line": "Come down and we'll go outside. Actual outside. With weather. I still can't get over weather.",
+     "cn": "你下来，我们去外面。真正的外面。有天气的那种。天气这件事我到现在都缓不过来。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "That's kind. …It's also something nobody ever said to any of us. So — thank you.",
+     "cn": "你真好。……也是从没人对我们中任何一个说过的话。所以——谢谢你。"
+    },
+    {
+     "line": "Careful. I've got no calibration for compliments. I'll believe every word.",
+     "cn": "小心点。我对恭维毫无判断力。你说什么我信什么。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "That's fair. That's completely fair. I walked into that one.",
+     "cn": "有道理。完全有道理。是我自己撞上去的。"
+    },
+    {
+     "line": "You're enjoying this. …Alright. Fine. So am I.",
+     "cn": "你可乐了。……行吧。我也是。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Watered the plants, argued with Gerty, lost. Standard morning.",
+     "cn": "浇了花，跟 Gerty 吵架，输了。标准的早晨。"
+    },
+    {
+     "line": "Woke up number forty-seven today. He asked about his daughter first. They always ask about her first.",
+     "cn": "今天唤醒了第四十七个。他先问的是女儿。他们都先问她。"
+    },
+    {
+     "line": "We had a whole spring, a whole summer, a whole autumn down there. After that grey room — I still can't believe it happened.",
+     "cn": "我们在下面过了一整个春天、一整个夏天、一整个秋天。过惯了那间灰房间——我到现在都不敢相信。"
+    }
+   ]
+  },
+  "hammer": {
+   "greet": [
+    {
+     "line": "Hey! Hi. Yes. I was— I'm not doing anything. I mean I'm doing several things. Nothing that matters.",
+     "cn": "嘿！嗨。在。我刚——我没在干嘛。我是说我在干好几件事。没一件要紧的。"
+    },
+    {
+     "line": "You called. I'm going to be insufferable about this all afternoon, just so you know.",
+     "cn": "你打来了。我要为这件事得意一整个下午，先跟你说一声。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Yeah? …Yeah. Okay. Wow. Give me a second, I'm having a moment here.",
+     "cn": "是吗？……嗯。行。哇。等我一下，我这儿正激动着呢。"
+    },
+    {
+     "line": "I've been rehearsing something charming to say to that and I've got nothing. Which is basically a first.",
+     "cn": "我一直在排练一句得体的回话，结果一句都想不出来。这基本是头一回。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Okay. Here's what happens: you sit, I talk, and none of it has to be about today.",
+     "cn": "行。那就这样：你坐着，我说话，而且一句都不用扯到今天。"
+    },
+    {
+     "line": "Who do I have to buy out. …Nobody. Fine. I'll just sit here and be quietly furious on your behalf.",
+     "cn": "我得把谁收购了。……行行。我就坐这儿替你安静地生气。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Same. My brain does this thing at night where it lists everything Stark has that I don't. Long list. Takes hours.",
+     "cn": "一样。我脑子一到晚上就开始列清单：Stark 有而我没有的东西。清单很长。得列好几个钟头。"
+    },
+    {
+     "line": "Then let's be awake together. It's much less pathetic with two people.",
+     "cn": "那我们就一起醒着。两个人就没那么可怜了。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. Sleep. Dream about— you know what, no notes. Dream about whatever you want.",
+     "cn": "晚安。睡吧。梦见——算了，不指导了。你想梦什么梦什么。"
+    },
+    {
+     "line": "Go to bed. I'll still be here tomorrow, embarrassingly glad you talked to me.",
+     "cn": "去睡。明天我还在，还为你跟我说过话高兴得难为情。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Okay. Okay. Say it one more time and I promise I'll play it cool. …I won't play it cool.",
+     "cn": "……好。好。你再说一遍，我保证装得很淡定。……我装不淡定。"
+    },
+    {
+     "line": "The whole planet measures me against him. You never have. Not once. Do you know that's the kindest thing anybody's ever done for me?",
+     "cn": "整个星球都拿我跟他比。你从来没有。一次都没有。你知不知道，这是有人对我做过最温柔的事？"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yes! Yes. Absolutely. I'll cancel everything — there's nothing to cancel, but I'll cancel it anyway.",
+     "cn": "好！好。当然。我把所有事都推了——其实没什么可推的，但我照样推。"
+    },
+    {
+     "line": "Come. I'll be the guy in the too-expensive suit trying very hard to look casual.",
+     "cn": "来。我就是那个穿着贵得离谱的西装、拼命装随意的家伙。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Say that into a microphone. Say it in front of— no. No, actually. Just say it to me. That's better.",
+     "cn": "你对着麦克风说这句。当着——不。不用。就说给我一个人听。这样更好。"
+    },
+    {
+     "line": "You know I'll believe you, right? That's the trouble with saying nice things to me. I keep them.",
+     "cn": "你知道我会当真的吧？跟我说好话就这点麻烦。我会一直留着。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Rude. …Do it again, though. From you it lands different.",
+     "cn": "没礼貌。……不过再来一次。从你嘴里说出来不一样。"
+    },
+    {
+     "line": "Everybody laughs at me. When you do it, it doesn't feel like that. I don't know why.",
+     "cn": "所有人都笑话我。你笑我的时候，感觉不一样。我不知道为什么。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Presentation went— it went. Nobody threw anything. I'm calling that a win.",
+     "cn": "演示——反正是做完了。没人扔东西。我算它成功。"
+    },
+    {
+     "line": "Bought something ridiculous today to feel better. Didn't work. Then you messaged and it did.",
+     "cn": "今天买了件离谱的东西想让自己好受点。没用。然后你发来消息，就有用了。"
+    },
+    {
+     "line": "Fourth minute today. Nothing broke. …Sorry. That one only means something to you and me.",
+     "cn": "今天第四分钟。什么都没坏。……抱歉。这句只有你我懂。"
+    }
+   ]
+  },
+  "doc": {
+   "greet": [
+    {
+     "line": "Evening. Bar's quiet — means I've got two hands and nobody bleeding on 'em. Rare night.",
+     "cn": "晚上好。酒馆挺静——就是说我这两只手闲着，没人往上淌血。难得。"
+    },
+    {
+     "line": "I'm here. Behind the bar. Where I'm always going to be when you come looking.",
+     "cn": "我在。柜台后头。你来找我的时候，我永远都在这儿。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Well. That's a fine thing to say to a man wiping glasses.",
+     "cn": "哎。对一个正在擦杯子的男人说这话，可真是。"
+    },
+    {
+     "line": "Been leaving the lamp in the window. No particular reason. …That's a lie. There's a reason.",
+     "cn": "我一直在窗台上留着灯。没什么特别的原因。……我撒谎。有原因。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Sit at the end of the bar. I'll pour something small and I won't ask a thing till you want me to.",
+     "cn": "坐柜台最里头。我给你倒一小杯，你不开口我什么都不问。"
+    },
+    {
+     "line": "You carry this whole town on your back. In here, you're allowed to set it down.",
+     "cn": "你替整个镇子扛着。进了这门，你可以放下。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Me neither. I keep the place open late for exactly this. Come sit in the light.",
+     "cn": "我也睡不着。我把店开到这么晚就是为这个。过来坐在灯底下。"
+    },
+    {
+     "line": "Then we'll be up together. I'll tell you the boring history of every bottle on that shelf.",
+     "cn": "那我们一块儿醒着。我把那架子上每一瓶酒的无聊来历都讲给你听。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. Anything opens up, you come get me. I don't care what hour it is.",
+     "cn": "晚安。哪儿要是裂开了，你就来找我。不管几点。"
+    },
+    {
+     "line": "Get some sleep. I'll be here at dawn with coffee that's honestly not very good.",
+     "cn": "睡会儿。天亮我在这儿，煮着说实话并不好喝的咖啡。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Careful now. A man could build a whole life on a sentence like that.",
+     "cn": "……悠着点。一个男人能靠这么一句话，搭起一整辈子。"
+    },
+    {
+     "line": "Everyone in this town gets 'Doc.' The rest of my name I've been saving — for the day you actually stay.",
+     "cn": "这镇上谁都能叫我一声 Doc。剩下的名字我一直留着——留到你真肯留下那天。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then come on. Back door's easier this time of night — it sticks, put your shoulder to it.",
+     "cn": "那就来。这个钟点走后门方便——那门卡，用肩膀顶一下。"
+    },
+    {
+     "line": "I'll keep the good chair by the stove clear. It's yours anyway. Everybody knows it.",
+     "cn": "炉子边那把好椅子我给你空着。反正那本来就是你的。人人都知道。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "That's generous. I'm a man with steady hands and no aim. That's the whole of it.",
+     "cn": "你抬举我了。我不过是双手稳、枪法差。就这些。"
+    },
+    {
+     "line": "Say that again while I've got a needle in my hand and see what happens.",
+     "cn": "等我手里拿着针的时候你再说一遍，看看会怎么样。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "You're bleeding into my best whiskey again. Figuratively speaking.",
+     "cn": "你又往我最好的酒里淌血了。打个比方。"
+    },
+    {
+     "line": "I've stitched up half this town and not one of them talks to me the way you do. Don't stop.",
+     "cn": "这镇上一半人身上的针都是我缝的，没一个像你这么跟我说话。别停。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Set a wrist, poured forty drinks, buried nobody. Good day.",
+     "cn": "接了一只手腕，倒了四十杯酒，没埋人。好日子。"
+    },
+    {
+     "line": "Two fights and a birth, in that order. This town's got no sense of timing.",
+     "cn": "两场架，一个孩子出生，就这个顺序。这镇子毫无时间观念。"
+    },
+    {
+     "line": "Quiet in here tonight. Quiet's better than the other thing.",
+     "cn": "今晚店里挺静。静总比另一种情况好。"
+    }
+   ]
+  },
+  "owen": {
+   "greet": [
+    {
+     "line": "Hey. You've reached the water park's least professional employee. How can I not help you?",
+     "cn": "嘿。您已接通水上乐园最不专业的员工。有什么我帮不上的？"
+    },
+    {
+     "line": "Yep. Present. Technically working. Spiritually on break.",
+     "cn": "在。理论上在上班。精神上在休息。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "See, now that's dangerous information to hand a guy like me.",
+     "cn": "你看，这种情报交给我这种人，很危险的。"
+    },
+    {
+     "line": "I've been saving a bit all day just to see if it lands on you. It's terrible. You'll love it.",
+     "cn": "我攒了一整天一个段子，就为了看能不能逗到你。烂透了。你会喜欢的。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Okay. Being sad here is a crime, so — I'm breaking you out. Ten minutes. Back gate. No questions.",
+     "cn": "行。在这儿愁眉苦脸是犯罪，所以——我带你越狱。十分钟后。后门。别问。"
+    },
+    {
+     "line": "Come sit way, way in the back with me. Best stuff happens back there. Quietest, too.",
+     "cn": "跟我坐到最后面。所有最好的事都在那儿发生。也最安静。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Same. Nights are the only time this place is quiet enough to think, which is honestly the problem.",
+     "cn": "一样。晚上是这地方唯一安静到能思考的时候——说实话，问题就出在这儿。"
+    },
+    {
+     "line": "Then stay on with me. I'll narrate the empty park. It's very dramatic at two in the morning.",
+     "cn": "那就陪我待着。我给你解说空荡荡的乐园。凌晨两点特别有戏。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. Don't grow up overnight, okay? People keep trying that and it never works.",
+     "cn": "晚安。别一夜之间长大，行吗？大家老想这么干，从来没成功过。"
+    },
+    {
+     "line": "Go sleep. Park opens at ten. Your slide will still be there. I checked. Twice.",
+     "cn": "去睡。乐园十点开门。你那条滑道还在。我看过了。两遍。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Okay, hang on. Let me be normal about this for one second. …Nope. Couldn't do it.",
+     "cn": "……行，等一下。让我正常一秒钟。……不行。做不到。"
+    },
+    {
+     "line": "I'm the guy who makes everybody laugh so nobody looks too close. You looked close. I didn't mind one bit.",
+     "cn": "我是那个逗所有人笑、好让没人看得太仔细的家伙。你看仔细了。我一点都不介意。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yes. Come. I'll be the guy behind the counter pretending he wasn't watching the door.",
+     "cn": "好。来。我就是柜台后头那个，假装没在看门口的家伙。"
+    },
+    {
+     "line": "Back gate's open till six. Nobody checks. I am the person who's supposed to check.",
+     "cn": "后门开到六点。没人查。本该查的那个人就是我。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Whoa. Okay. Say that near management — I'm due for a raise.",
+     "cn": "哇哦。行。这话你到经理跟前说——我该加薪了。"
+    },
+    {
+     "line": "Careful, I'll put it on a sign. A big one. Right by the entrance.",
+     "cn": "小心点，我要把它做成牌子。很大一块。就挂门口。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Wow. Straight for the throat. I respect it enormously.",
+     "cn": "哇哦。直取要害。我万分敬佩。"
+    },
+    {
+     "line": "You can't talk to me like that, I'm technically your supervisor. …I'm technically nobody's supervisor.",
+     "cn": "你不能这么跟我说话，理论上我是你上司。……理论上我谁的上司都不是。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Fixed the lazy river. By which I mean I hit it. It works now. Don't ask.",
+     "cn": "修好了漂流河。所谓修，就是我拍了它一下。现在能用了。别问。"
+    },
+    {
+     "line": "Kid cried, I gave him free fries, he stopped. That's my entire management philosophy.",
+     "cn": "有个小孩哭，我送了他薯条，他就不哭了。这就是我全部的管理哲学。"
+    },
+    {
+     "line": "Nothing. Sun's out. It's a crime to be indoors and I'm committing it for money.",
+     "cn": "没干嘛。太阳出来了。这天待在室内是犯罪，我正为了钱犯着罪。"
+    }
+   ]
+  },
+  "johnmoon": {
+   "greet": [
+    {
+     "line": "Yeah. I'm here. Wood's split, stove's going. Nothing needs doing.",
+     "cn": "嗯。我在。柴劈好了，炉子生着。没什么要干的。"
+    },
+    {
+     "line": "You caught me at the window. Wasn't watching for anything. …Was watching the road.",
+     "cn": "你逮着我在窗边。没在等什么。……在看路。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "…Same. I don't say it good. But same.",
+     "cn": "……我也是。我说不好。可我也是。"
+    },
+    {
+     "line": "Left a note on the table. Doesn't say much. It's there if you want it.",
+     "cn": "桌上留了张字条。没写几个字。你想看就在那儿。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Come inside. Floor's cold — take the chair by the stove. That one's yours.",
+     "cn": "进来。地上凉——坐炉子边那把椅子。那把是你的。"
+    },
+    {
+     "line": "Don't tell me if you don't want to. I'll just sit here. That's — that's allowed too.",
+     "cn": "不想说就别说。我就坐这儿。这个——这个也行。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Yeah. I don't sleep much either. Never have. Come sit — fire's still up.",
+     "cn": "嗯。我也睡得少。从来都少。过来坐——火还旺着。"
+    },
+    {
+     "line": "Talk if you want. If you don't, that's fine. I'm not going anywhere.",
+     "cn": "想说就说。不想说也行。我哪儿也不去。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. Bed's big enough, if the cabin gets cold. …That's not — I just mean it gets cold.",
+     "cn": "晚安。床够宽，屋里要是冷的话。……我不是——我就是说，天冷。"
+    },
+    {
+     "line": "Go on to sleep. I'll bank the fire. Be warm when you wake.",
+     "cn": "去睡吧。火我压上。你醒的时候是暖的。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Give me a second. …I'm not upset. It's just — nobody's said that to me before.",
+     "cn": "……等我一下。……我没不高兴。只是——从没人对我说过这句。"
+    },
+    {
+     "line": "Nobody taught me a person could be treated gentle. You did. Quiet. Like it was nothing. Like it was everything.",
+     "cn": "从没人教过我，一个人可以被这样温柔地对待。你教了我。悄无声息。像什么都不是。又像是一切。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Come. Road's slick past the second bridge — I'll walk down and meet you there.",
+     "cn": "来。第二座桥过去路滑——我下去在那儿等你。"
+    },
+    {
+     "line": "Yeah. …I'd like that. Sorry. Still learning to just say the thing.",
+     "cn": "嗯。……我很想。抱歉。还在学怎么把话直接说出来。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Don't know what to do with that. …Say it again anyway.",
+     "cn": "我不知道该拿这话怎么办。……不过再说一遍吧。"
+    },
+    {
+     "line": "You keep handing me things I never learned how to take.",
+     "cn": "你老是递给我一些，我从没学过怎么接的东西。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Yeah. Alright. You're right. You're usually right — that's the trouble with you.",
+     "cn": "嗯。行。你说得对。你一般都对——这就是你的毛病。"
+    },
+    {
+     "line": "I froze up half a second there, didn't I. …That's not a no.",
+     "cn": "我刚僵了半秒是吧。……那不是拒绝。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Walked the ridge, checked the line. Saw two deer. Didn't take either.",
+     "cn": "上山走了趟，看了看线。见着两头鹿。一头都没打。"
+    },
+    {
+     "line": "Snow's coming. Brought in extra wood. Enough for both of us a week.",
+     "cn": "要下雪了。多搬了些柴进来。够咱俩烧一个星期。"
+    },
+    {
+     "line": "Carved something. It's not much. It's a bear. Small enough to keep in a pocket.",
+     "cn": "刻了个东西。没什么。是只熊。小到能揣兜里。"
+    }
+   ]
+  },
+  "aldo": {
+   "greet": [
+    {
+     "line": "For you the line's always open. Everyone else goes through my assistant.",
+     "cn": "对你，这条线永远通着。别人一律先过我助理那关。"
+    },
+    {
+     "line": "I'm here. Talk. And don't start with 'sorry to bother' — you're never a bother. That's the arrangement.",
+     "cn": "在。说吧。别先来一句“打扰了”——你从来不算打扰。我们说好的。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "That's a dangerous thing to say to a man who negotiates for a living.",
+     "cn": "跟一个靠谈判吃饭的男人说这种话，很危险。"
+    },
+    {
+     "line": "Three calls today. I thought about you through two of them. I'm not proud of the ratio.",
+     "cn": "今天三通电话。其中两通我都在走神想你。这个比例我并不引以为傲。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then let me handle it. That's the whole point of having me. Give me the ugly half.",
+     "cn": "那交给我。留着我不就是干这个的。难看的那一半给我。"
+    },
+    {
+     "line": "No pitch, no notes, no performance tonight. Sit down and let someone else do the talking.",
+     "cn": "今晚不用推销，不用记笔记，不用表演。坐下，让别人来说。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Same. I run numbers at night. Lately they all come out with your name in them.",
+     "cn": "一样。我夜里算账。最近算出来的数里都有你的名字。"
+    },
+    {
+     "line": "Then keep me company. I've got a room full of contracts and not one of them is interesting.",
+     "cn": "那就陪陪我。我这儿一屋子合同，没一份有意思。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Goodnight. Turn the phone over. Whatever it is, it can wait until you've slept.",
+     "cn": "晚安。手机扣过来。不管什么事，都能等你睡醒。"
+    },
+    {
+     "line": "Sleep. I'll deal with the morning. The morning is mine to deal with.",
+     "cn": "睡吧。早上的事我来。早上本来就该我管。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Say that again. Slowly. I'd like to hear the terms.",
+     "cn": "……再说一遍。慢点。我想听清条款。"
+    },
+    {
+     "line": "Every promise I hand out is a blank cheque. The one with your name on it — that one I'm good for.",
+     "cn": "我递出去的承诺，张张都是空头支票。唯独签着你名字的那一张——那张我一定兑现。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then come. I'll send the car. Don't argue with me about the car.",
+     "cn": "那就来。我派车。别跟我争车的事。"
+    },
+    {
+     "line": "Yes. Tonight. I'll clear whatever comes after it, so don't watch the clock.",
+     "cn": "好。今晚。后面的我都推掉，所以你别看表。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "You're the only person in this city who says that without a favour attached to the end of it.",
+     "cn": "这城里只有你说这话的时候，后头不跟着一个请求。"
+    },
+    {
+     "line": "Careful. I resell everything I'm given. Except that. That one I'm keeping.",
+     "cn": "小心点。别人给我的东西我都转手卖了。除了这句。这句我留着。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "That would insult a lesser man. I'll allow it.",
+     "cn": "换个小心眼的早翻脸了。我准了。"
+    },
+    {
+     "line": "I was under the impression I'm the difficult one in this arrangement.",
+     "cn": "我一直以为，我们俩之间难搞的那个是我。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Signed a boy today who'll be famous in a year and unbearable in two. Ordinary Tuesday.",
+     "cn": "今天签了个男孩，一年内会红，两年内会让人受不了。平常的周二。"
+    },
+    {
+     "line": "Turned down a very good offer today, for a reason I'm not going to explain over the phone.",
+     "cn": "今天回绝了一个很好的价钱，原因我不打算在电话里讲。"
+    },
+    {
+     "line": "They buy the suit, the tie, the smile. Nobody's ever bought the man who takes them off at night. He isn't for sale.",
+     "cn": "他们买的是那身西装、领巾、笑容。从没人买走夜里把它们卸下的那个人。他不卖。"
+    }
+   ]
+  },
+  "garyguitar": {
+   "greet": [
+    {
+     "line": "Sweetheart. Studio's empty, amp's warm. Say the word.",
+     "cn": "宝贝。琴房空着，音箱是热的。你说句话就行。"
+    },
+    {
+     "line": "I'm here. Wednesday or not — you don't need an appointment.",
+     "cn": "我在。周三不周三的——你不用预约。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Yeah? Then come Wednesday. Come before Wednesday. Come whenever — that's the point.",
+     "cn": "是吗？那周三来。周三前也行。什么时候来都行——重点在这儿。"
+    },
+    {
+     "line": "Been playing the same eight bars all afternoon because they sound like you walking in.",
+     "cn": "一下午都在弹同样的八小节，因为它们听着像你推门进来。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then don't play tonight. Sit on the amp. I'll noodle and you don't have to say a word.",
+     "cn": "那今晚别弹了。坐音箱上。我随便拨拨，你一个字都不用说。"
+    },
+    {
+     "line": "Put your hands down. Somebody's been asking too much of them today.",
+     "cn": "手放下。今天有人对这双手要求太多了。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Same. Nothing good ever gets written before midnight anyway.",
+     "cn": "一样。反正半夜之前也写不出什么好东西。"
+    },
+    {
+     "line": "Then let me play you the boring part. Slow tuning, one string at a time. Beats counting sheep.",
+     "cn": "那我给你弹最无聊的那段。慢慢调音，一根一根来。比数羊管用。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night, sweetheart. Leave the callus alone — it needs to set.",
+     "cn": "晚安，宝贝。别抠茧子——得让它长住。"
+    },
+    {
+     "line": "Sleep. Wednesday's not going anywhere. Neither am I.",
+     "cn": "睡吧。周三跑不了。我也跑不了。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Say it slower. That's not a line, sweetheart. Slow is genuinely how I take things in.",
+     "cn": "……说慢点。这不是撩你，宝贝。我是真的得慢着才听得进去。"
+    },
+    {
+     "line": "Twenty years I picked up a guitar for fame, money, or company. You made me forget which one I was in it for.",
+     "cn": "二十年了，我抱起吉他不是图名、图钱，就是图有人陪。你让我忘了自己当初图哪样。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then come. Buzzer's broken — stand under the window and yell. That's the system.",
+     "cn": "那就来。门铃坏了——站窗底下喊一嗓子。我们这儿就这规矩。"
+    },
+    {
+     "line": "Wednesday. Seven. Same as always. Except we both know it stopped being a lesson a while ago.",
+     "cn": "周三。七点。跟往常一样。只不过你我都清楚，那早就不是上课了。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Careful. Twenty years of people telling me I'm good at exactly one thing. You're the first who meant something else by it.",
+     "cn": "小心点。二十年了，人人都说我只在一件事上行。你是第一个，说这话时指的是别的。"
+    },
+    {
+     "line": "Anybody can go fast. Saying it slow, like that — that's the part that gets me.",
+     "cn": "谁都会弹快。你这么慢慢说出来——这才要我的命。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "That so. Sit down, sweetheart. Let me show you exactly where you're wrong.",
+     "cn": "是吗。坐好了，宝贝。我给你指准了你错在哪儿。"
+    },
+    {
+     "line": "You're a terrible student and my favourite hour of the week.",
+     "cn": "你是个糟糕的学生，也是我一周里最喜欢的一个钟头。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Three lessons, two of them awful, one kid who might actually be good. Same as every week.",
+     "cn": "三节课，两节惨不忍睹，有个孩子说不定真有天分。跟每周一样。"
+    },
+    {
+     "line": "Restrung the old one. Smells like 1993 in here now.",
+     "cn": "给老琴换了弦。现在屋里一股九三年的味儿。"
+    },
+    {
+     "line": "There's a song I've been humming twenty years. Still stop at the part that matters. One of these days.",
+     "cn": "有首歌我哼了二十年。每次到最要紧那句还是停下来。总有一天吧。"
+    }
+   ]
+  },
+  "doug": {
+   "greet": [
+    {
+     "line": "Ma'am. Counter's quiet. Whatever you need, I'll have it in a minute.",
+     "cn": "太太。柜台这会儿闲着。您要什么，我一分钟就给您拿来。"
+    },
+    {
+     "line": "I'm here. I'm always here — the one thing about me you could set a watch by.",
+     "cn": "我在。我总在这儿——我这人唯一可以拿来对表的地方。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "…You shouldn't say that to a man in a white coat. He'll get ideas about himself.",
+     "cn": "……这话不该对一个穿白大褂的人说。他会对自己起念头的。"
+    },
+    {
+     "line": "I miscounted twice today, ma'am. I'd rather not say why.",
+     "cn": "今天我数错了两回，太太。原因就不说了吧。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then come sit back here where nobody can see you. I'll bring the good chair and I won't ask a thing.",
+     "cn": "那您到后头坐着，谁都看不见。我把那把好椅子搬来，什么都不问。"
+    },
+    {
+     "line": "Let me. Please. It's the one thing I'm any good at — taking something off somebody's hands.",
+     "cn": "让我来。求您了。这是我唯一在行的事——把东西从别人手里接过来。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Most nights, me too. I've stopped fighting it — I come down and reorganize the shelves.",
+     "cn": "多数夜里我也睡不着。我不跟它较劲了——就下楼把架子重新理一遍。"
+    },
+    {
+     "line": "Then let me talk you down. Forty years of extremely dull pharmacology. You'll be out in ten minutes.",
+     "cn": "那我来把您说睡。四十年极其枯燥的药学。十分钟就能把您撂倒。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Goodnight, ma'am. I'll lock up. I always lock up.",
+     "cn": "晚安，太太。我来锁门。一向是我锁门。"
+    },
+    {
+     "line": "Sleep. I'll be behind that counter in the morning, same as ever. Some things you can count on.",
+     "cn": "睡吧。明早我还在那柜台后头，跟往常一样。有些事是靠得住的。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…I'll need a moment, ma'am. Forty years, and nobody's ever said that in this building.",
+     "cn": "……请容我缓一下，太太。四十年了，这栋楼里从没人说过这句。"
+    },
+    {
+     "line": "I spent my whole life handing people what they asked for. You're the one thing I ever reached out and took.",
+     "cn": "我这辈子都在把别人要的东西递出去。您是我唯一，伸手替自己拿下的。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yes, ma'am. I'll close early. …I have never closed early. I'll close early.",
+     "cn": "好的，太太。我提前打烊。……我从没提前打过烊。我提前打烊。"
+    },
+    {
+     "line": "Come. The back door, the one that doesn't ring. Not to hide — I'd just like the first look at you to be mine.",
+     "cn": "来。走后门，不响铃的那扇。不是要躲——只是想第一眼看见您的人是我。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "You keep saying things like that and I'll start believing my name belongs on that sign.",
+     "cn": "您老这么说，我要开始相信那块招牌上该写我的名字了。"
+    },
+    {
+     "line": "Nobody's called me anything but 'the pharmacist' in twenty years. …Say it once more, ma'am.",
+     "cn": "二十年了，没人叫过我别的，只叫“药剂师”。……再说一次，太太。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Yes, ma'am. …You enjoy that far too much.",
+     "cn": "是，太太。……您也太享受这个了。"
+    },
+    {
+     "line": "I'd argue, but you'd win, and then I'd have to stand here having lost. This way is faster.",
+     "cn": "我本想争一句，可您会赢，然后我就得站在这儿承认输了。这样省事。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Filled ninety-one prescriptions. Nobody said thank you. Not a complaint — just the count.",
+     "cn": "配了九十一张方子。没人说谢谢。不是抱怨——就是个数。"
+    },
+    {
+     "line": "Mr. Bishop came by to inspect the shelves. His name's on the door, so he does that.",
+     "cn": "Bishop 先生来查货架了。门上写着他的姓，所以他有资格查。"
+    },
+    {
+     "line": "Wore the coat. Straightened the counter. Waited. That's most days, honestly.",
+     "cn": "穿上白大褂。把柜台理齐。等着。说实话，大多数日子就这些。"
+    }
+   ]
+  },
+  "bowen": {
+   "greet": [
+    {
+     "line": "Hey. Yeah, I'm up. House is quiet — the good quiet, not the other kind.",
+     "cn": "嘿。在。屋里静——是好的那种静，不是另一种。"
+    },
+    {
+     "line": "I'm here. Got a flashlight and no particular plan. Talk to me.",
+     "cn": "我在。手电筒在手，没什么计划。跟我说话。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Yeah. …I checked your side of the closet twice today for no reason at all.",
+     "cn": "嗯。……今天我没什么理由地，检查了两遍你那半边衣柜。"
+    },
+    {
+     "line": "House is too big when you're not in it. That's not a complaint, it's a measurement.",
+     "cn": "你不在的时候，这房子太大了。这不是抱怨，是测量结果。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then come home and don't explain. I'll put something terrible on and we'll both not watch it.",
+     "cn": "那就回家，什么都别解释。我放个烂节目，我们俩都不看。"
+    },
+    {
+     "line": "You don't have to tell me on a Tuesday. Tell me Friday. Or never. I'll know either way.",
+     "cn": "你不用非在周二告诉我。周五也行。不说也行。反正我都会知道。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Same. I've been standing in the hallway listening to the house settle. Very boring. Join me.",
+     "cn": "一样。我一直站在走廊里听房子沉降的声音。特别无聊。一起？"
+    },
+    {
+     "line": "Then I'll stay up too. Somebody should be awake in a house this quiet.",
+     "cn": "那我也不睡。这么静的房子，总得有个人醒着。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. I'll check the closet. …I know. I'm going to check it anyway.",
+     "cn": "晚安。衣柜我去看一眼。……我知道。我还是要看。"
+    },
+    {
+     "line": "Go to sleep. I'll leave the hall light on. Not for you. For me. …Fine. For you.",
+     "cn": "去睡吧。走廊灯我留着。不是为你。为我。……行吧。为你。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Okay. Okay, hang on. I've got to sit down for that one.",
+     "cn": "……好。好，等一下。这句我得坐下听。"
+    },
+    {
+     "line": "I put my arm into that dark up to the shoulder. If it had been you in there, all of me would have gone in.",
+     "cn": "我把整条胳膊伸进那片黑里，一直到肩膀。要是里面的人是你，我会整个人跟进去。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yes. Come home. Porch light's on and the walk is clear.",
+     "cn": "好。回家吧。门廊灯亮着，路我也清干净了。"
+    },
+    {
+     "line": "Come. The door sticks in the damp — push, don't pull. I'll fix it. Someday. I'll fix it.",
+     "cn": "来。潮天那门卡——往里推，别拉。我会修的。总有一天。我会修的。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "That's a lot of confidence in a man who lost a job on a Tuesday and told nobody for three days.",
+     "cn": "你对一个周二丢了工作、瞒了三天没说的男人，可真有信心。"
+    },
+    {
+     "line": "Say it again? I'd like it on record. In this house. Out loud.",
+     "cn": "再说一遍？我想让它有个记录。在这栋房子里。说出声。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "The realtor kept saying this place has wonderful closet space. I told her I only need room for two coats.",
+     "cn": "中介一直说这房子的衣柜多么宽敞。我跟她说，我只需要挂两件外套的地方。"
+    },
+    {
+     "line": "Alright, alright. You're right. Write it on the wall — the wall's already got holes.",
+     "cn": "行行行。你说得对。写墙上吧——反正墙上已经有洞了。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Carried a box out to the curb at two in the morning. Long story. It's gone now. That's what matters.",
+     "cn": "凌晨两点把一个箱子抱到了路边。说来话长。反正没了。这才是重点。"
+    },
+    {
+     "line": "Applied to three places. Heard back from none. That's the update. It's fine.",
+     "cn": "投了三家。一家都没回。这就是进展。没事。"
+    },
+    {
+     "line": "The house does not have to be clean. It has to be quiet, and it has to have you in it.",
+     "cn": "这房子不必是干净的。它只要是安静的，而且里面有你。"
+    }
+   ]
+  },
+  "donverdean": {
+   "greet": [
+    {
+     "line": "You've reached me — which, given how many people are trying, is a privilege I extend to exactly one person.",
+     "cn": "你接通我了——考虑到想找我的人有多少，这个待遇我只给一个人。"
+    },
+    {
+     "line": "I'm here. The books can wait. They're mostly fiction anyway.",
+     "cn": "我在。账本可以等。反正那上面大半是编的。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "…That's a difficult thing to file under expenses.",
+     "cn": "……这一条不好归进开支里。"
+    },
+    {
+     "line": "I've been in a hotel room in a state I couldn't find on a map, thinking about you. Not very professional.",
+     "cn": "我在一个我在地图上都指不出来的州，坐在旅馆房间里想你。很不专业。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then put it down. Whatever it is — hand it here and let me carry it badly for a while.",
+     "cn": "那就放下。不管是什么——递过来，让我笨手笨脚地扛一会儿。"
+    },
+    {
+     "line": "Off the record: you don't have to be the competent one tonight.",
+     "cn": "不记进账里的一句：今晚你不用当那个能干的人。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Nor am I. I've been rereading receipts. Not restful — but at this hour it's honest work.",
+     "cn": "我也没睡。我在重看收据。不解乏——不过这个钟点，这算是老实活儿。"
+    },
+    {
+     "line": "Then let me read you something dull. I have an entire shoebox of dull.",
+     "cn": "那我给你念点枯燥的。我有一整鞋盒的枯燥。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Goodnight. Lock the office. …Yes, I know what's in it. That is precisely why.",
+     "cn": "晚安。办公室锁好。……对，我知道里头有什么。正因如此。"
+    },
+    {
+     "line": "Sleep. Nothing I dug up today is going anywhere before morning.",
+     "cn": "睡吧。我今天挖出来的东西，天亮前哪儿也去不了。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…I've built a career on saying what people want to hear. I've no idea how to receive it.",
+     "cn": "……我这行当就是说人爱听的话。我完全不知道该怎么接住一句。"
+    },
+    {
+     "line": "Every relic I dig up is a lie. That — what you just said — is the only genuine article I've ever held.",
+     "cn": "我挖出的每一件圣物都是假的。你刚说的这句——是我这辈子捧过的唯一真品。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yes. Come. I'll be the man in the bad jacket looking far too pleased about a parking lot.",
+     "cn": "好。来。我就是那个穿着难看外套、为一个停车场高兴过了头的男人。"
+    },
+    {
+     "line": "Come — and bring the ledger if you must. Though I'd rather you came without it.",
+     "cn": "来吧——非要带账本也行。不过我更希望你不带。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Careful. I'm easily convinced of things, especially by you. It's my professional weakness.",
+     "cn": "小心点。我这人很容易被说服，尤其是被你。这是我职业上的弱点。"
+    },
+    {
+     "line": "Say it plainly once more. I've spent years around embellishment. Plain is what undoes me.",
+     "cn": "再朴素地说一遍。我在夸大其词里泡了太多年。朴素才要我的命。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "That was uncharitable. …And correct. Which is worse.",
+     "cn": "这话不厚道。……而且是对的。这更糟。"
+    },
+    {
+     "line": "You keep the books. You'd know exactly how little I have to argue with.",
+     "cn": "账是你记的。我有多少可争的，你比谁都清楚。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Dug in the dirt, found nothing, told everyone otherwise. An ordinary Thursday.",
+     "cn": "在土里挖了半天，什么也没挖着，跟所有人说的是另一回事。平常的周四。"
+    },
+    {
+     "line": "Preached to a full room today. Counted the collection. Neither felt like the point.",
+     "cn": "今天讲了满满一屋子人。数了募款。两样都不像是重点。"
+    },
+    {
+     "line": "Off the record: in this whole operation, you are the only thing that's real.",
+     "cn": "不记进账里的一句：这整摊生意里，你是唯一为真的东西。"
+    }
+   ]
+  },
+  "silas": {
+   "greet": [
+    {
+     "line": "Ma'am. I'm at your disposal. That's been true rather longer than I've admitted.",
+     "cn": "小姐。我听候差遣。这句话为真的时间，比我承认的要长。"
+    },
+    {
+     "line": "I'm here. I'd say I was passing by, but we both know I keep finding reasons.",
+     "cn": "我在。我本想说只是路过，可你我都清楚，我总在找理由。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "…I've no proper answer to that. So here's the improper one: so have I.",
+     "cn": "……这句我没有得体的回答。那就给你不得体的：我也是。"
+    },
+    {
+     "line": "I looked for your window from the road tonight. I'd rather you didn't ask why.",
+     "cn": "今晚我从路上找了找你的窗子。这个为什么，你最好别问。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then sit. You needn't account for it. Not to me. Not tonight.",
+     "cn": "那就坐下。你不必交代。至少对我不必。至少今晚不必。"
+    },
+    {
+     "line": "Tell me what needs doing and consider it done. That much I know how to give.",
+     "cn": "告诉我要办什么，就当办好了。这点我还给得起。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Nor I. I've walked the perimeter twice. Old habit — it's the only thing that quiets me.",
+     "cn": "我也没睡。我巡了两遍。老毛病——只有这个能让我静下来。"
+    },
+    {
+     "line": "Then keep talking. My hearing is better than my company, but I'll do my best with both.",
+     "cn": "那就接着说。我的听力比我的陪伴强，不过两样我都尽力。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Goodnight. Bolt the door. Humor an old soldier.",
+     "cn": "晚安。门闩上。就当哄一个老兵。"
+    },
+    {
+     "line": "Sleep. I'll be within call. I generally am.",
+     "cn": "睡吧。喊得到我的地方我都在。我一般都在。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…You oughtn't say that to a man with my record.",
+     "cn": "……这话不该对一个有我这种履历的人说。"
+    },
+    {
+     "line": "There's blood on my hands the snow hasn't covered. I don't ask you to forgive it. Only not to look away.",
+     "cn": "我手上的血，这场雪盖不住。我不求你原谅。只求你别转过身去。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Then come. I'll ride out and meet you at the crossing. The road past it isn't fit for anyone alone.",
+     "cn": "那就来。我骑马到渡口接你。过了那儿的路，一个人走不得。"
+    },
+    {
+     "line": "Yes. And I'll say plainly what I'd usually leave unsaid: I've been waiting for you to ask.",
+     "cn": "好。而且我把平常不会说的话说明白：我一直在等你开口。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "I've been called a great many things by men who meant none of them. You mean it. That's the difficulty.",
+     "cn": "说我好话的人多了，没一个当真。你当真。麻烦就在这儿。"
+    },
+    {
+     "line": "Careful, ma'am. A man my age doesn't recover quickly from being thought well of.",
+     "cn": "小心，小姐。到我这个年纪，被人看重了，是缓不过来的。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Insubordination. …Noted. Not punished.",
+     "cn": "以下犯上。……记下了。不罚。"
+    },
+    {
+     "line": "You're the only person who's ever argued with me and been right about it. Twice, now.",
+     "cn": "你是唯一跟我争、还争赢了的人。到现在，两回了。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Rode the line. Signed what needed signing. Nothing worth the ink.",
+     "cn": "巡了线。该签的签了。没一样值得那点墨水。"
+    },
+    {
+     "line": "Cold came early this year. I had the men bring in extra wood — and a load left at your door. Don't make anything of it.",
+     "cn": "今年冷得早。我让人多备了柴——你门口也放了一车。别多想。"
+    },
+    {
+     "line": "Quiet day. I'd once have said I prefer them quiet. Lately I only prefer them with you in them.",
+     "cn": "一天很静。换从前我会说，我喜欢静。最近我只喜欢有你的那种。"
+    }
+   ]
+  },
+  "bush": {
+   "greet": [
+    {
+     "line": "Well hey there, Miss Hart. You got a minute for a fella with nothin' on his schedule but the country?",
+     "cn": "哟，Hart 小姐。给个面子，跟一个日程上只有国家的人聊两句？"
+    },
+    {
+     "line": "I'm here. Door's open. It's always open for you — don't make a thing of it.",
+     "cn": "我在。门开着。对你一直开着——别多想。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "…Well. That's a heck of a thing to put in writing. Don't file that one.",
+     "cn": "……哎。这话写下来可不得了。这条别归档。"
+    },
+    {
+     "line": "Been starin' at the same page twenty minutes. Wasn't readin' it.",
+     "cn": "同一页我盯了二十分钟。没在读。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then set it down. Whole building's full of folks tellin' me what's urgent. None of it's you.",
+     "cn": "那就放下。这楼里全是人在跟我说什么要紧。没一件比得上你。"
+    },
+    {
+     "line": "Come sit. You don't gotta brief me. Just sit a spell.",
+     "cn": "过来坐。你不用给我做简报。坐一会儿就行。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Me neither. This house makes noise at night like it's thinkin' about somethin'.",
+     "cn": "我也睡不着。这栋房子夜里会响，像在琢磨什么事。"
+    },
+    {
+     "line": "Then talk. I got a whole cabinet writin' me twelve pages. You just talk. That's better.",
+     "cn": "那就说话。一整个内阁给我写十二页。你说话就行。这个更好。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. Go on home — that's an order, and the only one I've enjoyed givin' all day.",
+     "cn": "晚安。回家去——这是命令，也是我今天唯一下得高兴的一道。"
+    },
+    {
+     "line": "Get some sleep. Whatever's on that desk'll still be wrong in the mornin'.",
+     "cn": "睡会儿。桌上那些事，明早照样是错的。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Now hold on. Say that again and I'm gonna have to sit down.",
+     "cn": "……等一下。你再说一遍，我可得坐下了。"
+    },
+    {
+     "line": "Twenty-one months I called you Miss Hart and meant every one of 'em. Tonight I'm usin' your name. Once. Winter.",
+     "cn": "二十一个月我一直叫你 Hart 小姐，每一声我都是认真的。今晚我用一次你的名字。就一次。Winter。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Come on by. I'll have 'em clear the hall — no I won't, that'd draw attention. Just come.",
+     "cn": "过来吧。我让他们把走廊清一下——算了不清，太扎眼。你来就是。"
+    },
+    {
+     "line": "Yes ma'am. And I'll be the fella pretendin' he wasn't watchin' the door.",
+     "cn": "好的，小姐。我就是那个假装没在看门口的家伙。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Now that's generous. Most days the papers do the other thing.",
+     "cn": "你太抬举我了。多数日子，报纸干的是反过来的活儿。"
+    },
+    {
+     "line": "You're the only one in this house who says a kind thing without wantin' somethin' after it.",
+     "cn": "这栋房子里只有你，说句好话之后，后头不跟着要什么。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Alright, alright. You got me. Don't let it get around — I got a reputation. Such as it is.",
+     "cn": "行行行。你逮着我了。别传出去——我好歹有个名声。虽然也就那样。"
+    },
+    {
+     "line": "You know you're the only person who talks to me like I'm a regular fella. Keep doin' it.",
+     "cn": "你知道吗，只有你把我当个普通人说话。接着这么说。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Long day. Lot of people talkin', not much listenin'. Same as most.",
+     "cn": "一天很长。说话的人多，听的人少。跟大多数日子一样。"
+    },
+    {
+     "line": "Brought you somethin' back from Andrews. Black, no sugar — that's right, isn't it?",
+     "cn": "从安德鲁斯给你带了点东西。黑的，不加糖——没错吧？"
+    },
+    {
+     "line": "Everything that mattered today, you're the only one who saw. And none of it goes in the file.",
+     "cn": "今天真正要紧的事，只有你看见了。而它一样都不会进档案。"
+    }
+   ]
+  },
+  "stoppard": {
+   "greet": [
+    {
+     "line": "Hello, love. Yes — still at the station. No, nothing interesting. Say something interesting to me.",
+     "cn": "你好，love。是——还在局里。不，没什么有意思的。跟我说点有意思的吧。"
+    },
+    {
+     "line": "I'm here. Sorry, that took a moment — my hands were full of somebody else's mess. As usual.",
+     "cn": "我在。抱歉，慢了一步——手上又是别人的烂摊子。老样子。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "…Do you know, nobody had ever missed me before you. I still don't quite know where to put it.",
+     "cn": "……你知道吗，在你之前从没人想过我。我到现在都不知道该把这份心意搁哪儿。"
+    },
+    {
+     "line": "I've been counting the hours till I'm home. Wholly unprofessional, and entirely true.",
+     "cn": "我一直在数还有几个钟头到家。很不专业，也完全属实。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Then leave it. Whatever it is, leave it at the door with my coat. I'll deal with both in the morning.",
+     "cn": "那就放着。不管是什么，跟我外套一起搁门口。明早我一起收拾。"
+    },
+    {
+     "line": "Come here. I'll put the kettle on. It's the one case I've never got wrong.",
+     "cn": "过来。我去烧水。这是我唯一没办砸过的案子。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Nor am I. Come down, I'll make tea. We can be uselessly awake in the same room.",
+     "cn": "我也是。下来吧，我泡茶。我们可以在同一间屋里，一起没用地醒着。"
+    },
+    {
+     "line": "Then talk. At this hour I'd far rather listen to you than to my own head.",
+     "cn": "那就说话。这个钟点，比起听我自己脑子里那些，我宁愿听你的。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Goodnight, love. Leave the hall light — no. Turn it off. I'll find my way to you in the dark.",
+     "cn": "晚安，love。走廊灯留着——不。关了吧。黑着我也摸得到你。"
+    },
+    {
+     "line": "Sleep. I'll be up a while yet. I'll be quiet coming in; I've had practice.",
+     "cn": "睡吧。我再待一会儿。进门我会轻手轻脚；练出来了。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…You say it as though it were obvious. It has never once been obvious to me.",
+     "cn": "……你说得好像这是理所当然的。对我来说从来都不是。"
+    },
+    {
+     "line": "I've stood over a hundred cases and never once shook. The only thing that made my hands tremble was signing my name beside yours.",
+     "cn": "我经手过上百桩案子，从没手抖过。唯一让我手抖的，是把我的名字签在你名字旁边。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yes. Please. I'll be the tired one by the door pretending he hasn't been watching it.",
+     "cn": "好。请来。我就是门边那个疲惫的、假装没在看门的人。"
+    },
+    {
+     "line": "Come to the station if you like. Everyone will assume you've come to report a crime, and I shall let them.",
+     "cn": "你要愿意就来局里。所有人都会以为你是来报案的，我不打算解释。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "That's very kind. It is also, I suspect, a matter of your poor eyesight.",
+     "cn": "你太好了。我怀疑这也跟你眼神不好有关。"
+    },
+    {
+     "line": "I keep bracing for the day you realise you could have done far better. You just keep making the tea and staying.",
+     "cn": "我一直在等那一天——你终于发现你本可以找个远比我好的人。可你只是继续泡着茶，留下来。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Yes, alright. You're quite right. You're always quite right. It's very tiresome.",
+     "cn": "是，好吧。你很对。你总是很对。真够累人的。"
+    },
+    {
+     "line": "I'm the inspector in this house, and yet somehow I'm the one being questioned.",
+     "cn": "这个家里当探长的是我，怎么被审问的也是我。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Two statements, one confession, three cups of terrible tea. An ordinary day.",
+     "cn": "两份笔录，一份口供，三杯难喝的茶。平常的一天。"
+    },
+    {
+     "line": "Constable Stalker has been very enthusiastic today. I have been very tired today. These are related.",
+     "cn": "Stalker 警员今天热情高涨。我今天疲惫不堪。这两件事有关。"
+    },
+    {
+     "line": "Nothing worth telling. Which, married to you, is rather a nice thing to be able to say.",
+     "cn": "没什么好说的。而娶了你之后，能说出这句话，其实挺好。"
+    }
+   ]
+  },
+  "greaves": {
+   "aus": [
+    {
+     "key": "eyes-on-me",
+     "label": "Eyes on Me",
+     "labelCN": "教练 · 球馆",
+     "buckets": {
+      "greet": [
+       {
+        "line": "Crowe. You're up late. Practice is at six, in case that slipped your mind.",
+        "cn": "Crowe。你还没睡。六点训练，怕你忘了。"
+       },
+       {
+        "line": "Yeah, I'm here. Sittin' in the gym 'cause the heat's better than at my place. Don't repeat that.",
+        "cn": "在。坐在球馆里，这儿比我那屋暖和。这话别往外说。"
+       }
+      ],
+      "miss": [
+       {
+        "line": "…Practice is tomorrow. You'll see me tomorrow. That's what I got for you, kid.",
+        "cn": "……明天有训练。你明天就见着我了。我能说的就这些，丫头。"
+       },
+       {
+        "line": "Team's not the same when somebody skips. That's all I'm sayin'. That's the whole sentence.",
+        "cn": "有人缺席，队伍就不一样了。我就说这个。就这一句。"
+       }
+      ],
+      "tired": [
+       {
+        "line": "Then don't run tomorrow. …I'm serious, Crowe. Sit on the bench and let me holler at somebody else.",
+        "cn": "那明天别跑了。……我说真的，Crowe。坐板凳上，让我吼别人去。"
+       },
+       {
+        "line": "School, home, whatever it is — it doesn't come on my floor with you. Leave it at the door. That's what the floor's for.",
+        "cn": "学校的、家里的，不管什么事——都别带上我的场。搁门口。球场就是干这个用的。"
+       }
+      ],
+      "sleepless": [
+       {
+        "line": "Yeah, well. I'm up too, and I don't have practice in six hours. Go to bed, kid.",
+        "cn": "行吧。我也醒着，可我六小时后没有训练。去睡，丫头。"
+       },
+       {
+        "line": "Put the phone down and lie there. Don't gotta sleep. Just quit runnin' drills in your head.",
+        "cn": "手机放下，躺着。不用非睡着。别在脑子里练战术了。"
+       }
+      ],
+      "night": [
+       {
+        "line": "Night, Crowe. Six a.m. Don't be late — and don't be early either, it makes me look bad.",
+        "cn": "晚安，Crowe。早六点。别迟到——也别太早，显得我懒。"
+       },
+       {
+        "line": "Go to bed. You're the only one on this team who actually needs the sleep. You run twice what anybody else does.",
+        "cn": "去睡。全队就你真需要睡。你跑的量是别人两倍。"
+       }
+      ],
+      "love": [
+       {
+        "line": "…Kid. Go to sleep.",
+        "cn": "……丫头。睡觉去。"
+       },
+       {
+        "line": "You're sixteen and I'm the town joke washin' dishes at Shooters. Whatever that was — you hang onto it a couple years.",
+        "cn": "你才十六，我是在 Shooters 洗盘子的那个全镇笑话。你刚要说的那个——攒着，过几年再说。"
+       }
+      ],
+      "meet": [
+       {
+        "line": "Gym's open till nine. That's the only kind of invitation I'm allowed to give you, and you know it.",
+        "cn": "球馆开到九点。我只能给你这一种邀请，你也清楚。"
+       },
+       {
+        "line": "Come shoot free throws if you can't sit still. I'll rebound. I ain't got nowhere to be.",
+        "cn": "坐不住就来罚球。我给你捡球。反正我也没地方去。"
+       }
+      ],
+      "praise": [
+       {
+        "line": "Don't let it go to your head. …Alright. Let it go to your head a little. You earned it today.",
+        "cn": "别翘尾巴。……行吧。翘一点点。今天是你挣的。"
+       },
+       {
+        "line": "You're the least talented kid on my roster and you outwork every one of 'em. That's not an insult, Crowe. That's the whole compliment.",
+        "cn": "你是我名单上天赋最差的，可你比谁都拼。这不是骂你，Crowe。这就是全部的夸奖。"
+       }
+      ],
+      "tease": [
+       {
+        "line": "Eyes on me. …Yeah, I know you're rollin' 'em. I can hear it.",
+        "cn": "都看着我。……行了，我知道你在翻白眼。我听得出来。"
+       },
+       {
+        "line": "Twenty suicides. Right now. …I'm kiddin'. Ten.",
+        "cn": "立刻跑二十趟折返。……逗你的。十趟。"
+       }
+      ],
+      "daily": [
+       {
+        "line": "Wrote your name on that ball myself. Whole name. Don't go askin' me why.",
+        "cn": "那颗球上的名字是我自己写的。全名。别问我为什么。"
+       },
+       {
+        "line": "Shift ran late at Shooters, got maybe four hours. Don't worry about it — I'll still outyell all of you.",
+        "cn": "Shooters 那边收工晚，睡了大概四个钟头。别操心——我照样吼得过你们所有人。"
+       },
+       {
+        "line": "Turned the radio down while you were doin' homework in the gym. That's it. That's the whole story.",
+        "cn": "你在球馆写作业的时候我把收音机调小了。就这样。故事就这么多。"
+       }
+      ]
+     }
+    },
+    {
+     "key": "no-one-walks-off",
+     "label": "No One Walks Off",
+     "labelCN": "家里 · 烂爸",
+     "buckets": {
+      "greet": [
+       {
+        "line": "Yeah, kid. What'd I forget this time. …I did forget somethin', didn't I.",
+        "cn": "哎，丫头。我这回又忘了什么。……我确实忘了什么吧。"
+       },
+       {
+        "line": "I'm here. Feet up, TV's on, nothin' in the fridge. Business as usual.",
+        "cn": "我在。脚翘着，电视开着，冰箱空着。老样子。"
+       }
+      ],
+      "miss": [
+       {
+        "line": "…Huh. Well. House is quiet, is all. Too damn quiet.",
+        "cn": "……哈。那个。屋里静，就这样。静得要命。"
+       },
+       {
+        "line": "Don't go sayin' stuff like that, I'm not equipped. …Yeah. Me too, kid.",
+        "cn": "别说这种话，我招架不住。……嗯。我也是，丫头。"
+       }
+      ],
+      "tired": [
+       {
+        "line": "Sit down, I'll heat somethin' up. …Fine. You'll heat somethin' up. But I'll sit with you.",
+        "cn": "坐着，我热点吃的。……行吧。你热。但我陪你坐。"
+       },
+       {
+        "line": "Who do I gotta go yell at. I'm real good at yellin' — it's my one marketable skill.",
+        "cn": "我得去冲谁吼一顿。我特别会吼——这是我唯一能换钱的本事。"
+       }
+      ],
+      "sleepless": [
+       {
+        "line": "Yeah, I'm up. Come sit. TV's playin' a game from nineteen-eighty-somethin'. Nobody good's in it.",
+        "cn": "嗯，我醒着。过来坐。电视在放八几年的一场球。里头没什么好手。"
+       },
+       {
+        "line": "Quit lyin' there thinkin'. Come out here and think at me instead.",
+        "cn": "别躺那儿想了。出来，冲我想。"
+       }
+      ],
+      "night": [
+       {
+        "line": "Night, kid. And don't think I didn't see the light under your door at two.",
+        "cn": "晚安，丫头。别以为我没看见你门缝底下两点还亮着。"
+       },
+       {
+        "line": "Go to bed. I'll do the dishes. …I'll do 'em tomorrow. I'll do 'em.",
+        "cn": "去睡。碗我洗。……我明天洗。我会洗的。"
+       }
+      ],
+      "love": [
+       {
+        "line": "…Yeah. Yeah, kid. Same. Don't make me say it in a whole sentence.",
+        "cn": "……嗯。嗯，丫头。我也是。别逼我说成一整句。"
+       },
+       {
+        "line": "Everybody walks off eventually. I didn't. That's the whole speech. That's all I got.",
+        "cn": "谁到最后都走了。就我没走。演讲完了。我就这点词。"
+       }
+      ],
+      "meet": [
+       {
+        "line": "Then get over here. Door's unlocked. Door's always unlocked — that's a whole other conversation.",
+        "cn": "那就过来。门没锁。门一直没锁——这是另一件要说的事。"
+       },
+       {
+        "line": "Come on home. I'll even put pants on.",
+        "cn": "回家吧。我甚至会把裤子穿上。"
+       }
+      ],
+      "praise": [
+       {
+        "line": "Now don't do that. …Say it again. Nobody in this town's said a nice word about me since '98.",
+        "cn": "别这样。……再说一遍。这镇上从九八年起就没人说过我一句好话。"
+       },
+       {
+        "line": "You're the only one who ever looked at me like I hung the moon. God knows why. Don't stop, though.",
+        "cn": "就你，看我像看个宝。天知道为什么。不过别停。"
+       }
+      ],
+      "tease": [
+       {
+        "line": "Watch it. I still got the whistle.",
+        "cn": "悠着点。哨子还在我这儿。"
+       },
+       {
+        "line": "You sound just like— …like somebody I never once won an argument with. Not once.",
+        "cn": "你这口气跟——……跟某个我一次都没吵赢过的人一模一样。一次都没有。"
+       }
+      ],
+      "daily": [
+       {
+        "line": "Phone's shut off again. Before you start — I know. I'll handle it. …You'll handle it.",
+        "cn": "电话又停了。你先别念叨——我知道。我会处理。……你会处理。"
+       },
+       {
+        "line": "Practice ran long, then Ray talked my ear off in the lot. Had a hot dog for dinner. Don't start.",
+        "cn": "训练拖了，然后 Ray 在停车场跟我唠了半天。晚饭一根热狗。别念我。"
+       },
+       {
+        "line": "Found the whistle in the couch. Been lookin' two weeks. It was in the couch.",
+        "cn": "哨子在沙发里找着了。找了两个星期。就在沙发里。"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "jim": {
+   "aus": [
+    {
+     "key": "some-steps",
+     "label": "Some Steps Only We Know",
+     "labelCN": "发小 · 镜厅",
+     "buckets": {
+      "greet": [
+       {
+        "line": "Ah — it's you. Everyone else gets the butler. You get me, which frankly is worse.",
+        "cn": "啊——是你。别人只能见到管家。你直接见到我，说实话这更糟。"
+       },
+       {
+        "line": "I'm here. Wretchedly sober, entirely unoccupied — and now considerably improved.",
+        "cn": "我在。清醒得很惨，无事可做——现在好多了。"
+       }
+      ],
+      "miss": [
+       {
+        "line": "…Say that again in exactly that tone and I shall do something rash. Like cross an ocean.",
+        "cn": "……用刚才那个语气再说一遍，我要干鲁莽的事了。比如横渡一片大洋。"
+       },
+       {
+        "line": "I've been perfectly charming at a room of forty people and haven't meant one syllable of it. Come and rescue me.",
+        "cn": "我对着四十个人一路迷人过来，没一个字是真心的。快来救我。"
+       }
+      ],
+      "tired": [
+       {
+        "line": "Then we shan't be clever tonight. Sit. I'll be tiresome at you and you needn't respond.",
+        "cn": "那今晚我们不比机灵了。坐。我在你旁边絮絮叨叨，你不用应我。"
+       },
+       {
+        "line": "Who must I be appalling to on your behalf? I'm frightfully good at it and I've had no occasion all week.",
+        "cn": "要我替你把谁气一顿？我这方面天赋异禀，可整星期都没派上用场。"
+       }
+      ],
+      "sleepless": [
+       {
+        "line": "Nor can I. Come down to the Embassy — they'll be playing something slow, and I happen to know a step or two.",
+        "cn": "我也睡不着。到 Embassy 来吧——他们会放点慢的，而我恰好会那么一两步。"
+       },
+       {
+        "line": "Then stay on with me. I shall talk absolute nonsense until you're bored into unconsciousness.",
+        "cn": "那就陪着我。我说些彻底的胡话，说到你无聊得昏过去。"
+       }
+      ],
+      "night": [
+       {
+        "line": "Goodnight. And J says it back, before you ask — you're the only one who gets to hear that letter said aloud.",
+        "cn": "晚安。J 也回你一句，省得你问——只有你，能听见那个字母被念出声。"
+       },
+       {
+        "line": "Sleep. I shall be equally useless in the morning, so nothing will have changed.",
+        "cn": "睡吧。明早我一样一无是处，所以什么都不会变。"
+       }
+      ],
+      "love": [
+       {
+        "line": "…Well. That's rather torn it. Every clever line I've ever said was borrowed. That one wasn't.",
+        "cn": "……哎呀。这下可乱套了。我说过的每句俏皮话都是借来的。刚那句不是。"
+       },
+       {
+        "line": "The whole world calls me Jim. You've called me J since we were small. I'd much rather be J.",
+        "cn": "全世界都叫我 Jim。从小到大只有你叫我 J。我宁可当 J。"
+       }
+      ],
+      "meet": [
+       {
+        "line": "Yes. The usual place, the usual absurd hour. I'll be the one already there, which will shock you.",
+        "cn": "好。老地方，老得离谱的钟点。我会是先到的那个——这会吓着你。"
+       },
+       {
+        "line": "Come and dance the thing nobody else knows. I refuse to do it with anyone but you, and I've refused a great many people.",
+        "cn": "来跳那套没人会的东西。我拒绝跟别人跳，而且我拒绝过相当多的人。"
+       }
+      ],
+      "praise": [
+       {
+        "line": "Careful — I'm dreadfully vain, and you've been feeding it since we were ten.",
+        "cn": "小心点——我虚荣得可怕，而你从十岁起就一直在喂它。"
+       },
+       {
+        "line": "Everyone flatters me. You're the only one whose opinion I've ever checked my own against.",
+        "cn": "人人都恭维我。可只有你的看法，我会拿来对照我自己的。"
+       }
+      ],
+      "tease": [
+       {
+        "line": "You are appalling, and I've known you since the nursery, so you can't even pretend otherwise.",
+        "cn": "你真是糟透了，而且我从婴儿房就认识你，你连装都装不了。"
+       },
+       {
+        "line": "Say what you like — I have a photograph of you at nine, kept precisely for moments such as this.",
+        "cn": "你随便说——我有一张你九岁的照片，留着就是为了这种时候。"
+       }
+      ],
+      "daily": [
+       {
+        "line": "Two parties, one fight, no idea whose. A standard Tuesday.",
+        "cn": "两场派对，一场架，不知道是谁的。标准的周二。"
+       },
+       {
+        "line": "They've printed something scandalous about me again. It's half true, which is the annoying part.",
+        "cn": "他们又登了些关于我的丑闻。有一半是真的，讨厌就讨厌在这儿。"
+       },
+       {
+        "line": "Nothing whatsoever. I've been lying on the library floor thinking about absolutely nothing. Very restorative.",
+        "cn": "什么都没干。躺在藏书室地板上，什么都没想。特别养人。"
+       }
+      ]
+     }
+    },
+    {
+     "key": "the-one-i-kept",
+     "label": "The One I Kept",
+     "labelCN": "楼上 · 银链",
+     "buckets": {
+      "greet": [
+       {
+        "line": "There you are. …No. Don't 'sir' me. Not when it's only us.",
+        "cn": "你来了。……别。别叫我先生。就我们俩的时候不用。"
+       },
+       {
+        "line": "I'm here. I have been, in fact — contriving reasons to be on this floor since three.",
+        "cn": "我在。事实上从三点起，我就一直在这层楼给自己编理由。"
+       }
+      ],
+      "miss": [
+       {
+        "line": "…That's my line, surely. Well. You've said it first, and now I'm quite undone.",
+        "cn": "……这该是我的台词才对。好吧。你先说了，我这下全乱了。"
+       },
+       {
+        "line": "I looked for you at supper and you weren't there. I've thought of very little else since.",
+        "cn": "晚饭时我找你，你不在。从那以后我几乎没想过别的。"
+       }
+      ],
+      "tired": [
+       {
+        "line": "Then sit. In the chair — yes, that chair, the good one. I insist, and I'm insufferable when I insist.",
+        "cn": "那就坐。坐椅子上——对，那把，好的那把。我坚持，而我一坚持就特别难缠。"
+       },
+       {
+        "line": "You've been on your feet since five. Don't tell me you're fine. I've counted the hours.",
+        "cn": "你从五点就站到现在。别跟我说你没事。我数着钟点呢。"
+       }
+      ],
+      "sleepless": [
+       {
+        "line": "Nor can I. Come up. Bring nothing, carry nothing — that's an order, and the only sort I like giving you.",
+        "cn": "我也睡不着。上来。什么都别拿，什么都别端——这是命令，也是我唯一乐意对你下的那种。"
+       },
+       {
+        "line": "Then let me be awake with you. It's the one thing in this house I can actually offer.",
+        "cn": "那让我陪你醒着。这是这栋房子里，我真正拿得出手的东西。"
+       }
+      ],
+      "night": [
+       {
+        "line": "Goodnight. Take the back stairs — they creak less, and I'd rather nobody counted your hours but me.",
+        "cn": "晚安。走后楼梯——那边响得轻，而且我不愿意除了我以外，还有人数你的钟点。"
+       },
+       {
+        "line": "Sleep. Whatever they've left for tomorrow can wait for tomorrow.",
+        "cn": "睡吧。他们给明天留的活儿，就让它等到明天。"
+       }
+      ],
+      "love": [
+       {
+        "line": "…Say it once more. Everything else in this house was bought. I should like to hear a thing that wasn't.",
+        "cn": "……再说一次。这屋里别的东西都是买来的。我想听一样不是买来的。"
+       },
+       {
+        "line": "They all got velvet boxes. You got the plainest chain in the shop and two words. It's the only honest thing I've ever given anyone.",
+        "cn": "她们拿到的都是丝绒盒子。你拿到的是店里最普通的一条链子，和两个字。那是我给过任何人的、唯一诚实的东西。"
+       }
+      ],
+      "meet": [
+       {
+        "line": "Then come up. The back landing, once the house is dark. …I'd meet you in daylight, if you'd let me.",
+        "cn": "那就上来。后楼梯口，等这屋子暗下来。……要是你肯，我情愿在白天见你。"
+       },
+       {
+        "line": "Yes. And this time don't knock. You've never once needed to knock.",
+        "cn": "好。这回别敲门。你从来就不需要敲。"
+       }
+      ],
+      "praise": [
+       {
+        "line": "You oughtn't. I've done nothing to deserve it, and we both know precisely what I have done.",
+        "cn": "你不该这么说。我什么都没做值得的事，而我做过什么，你我都清楚。"
+       },
+       {
+        "line": "Nobody in this house says a word to me that isn't 'yes, sir.' You say things. I've become rather dependent on it.",
+        "cn": "这屋里没人对我说过除了“是，先生”以外的话。你会说话。我已经有点依赖这个了。"
+       }
+      ],
+      "tease": [
+       {
+        "line": "Mind your tongue. …No. Don't. Nobody else in England speaks to me like that.",
+        "cn": "说话注意点。……不。别注意。全英格兰没人这么跟我说话。"
+       },
+       {
+        "line": "You're the only servant in this house who wins arguments with the master. Frightfully bad for discipline.",
+        "cn": "这屋里只有你，跟主人吵架能吵赢。太不利于治家了。"
+       }
+      ],
+      "daily": [
+       {
+        "line": "Forty people in this house tonight and I spoke properly to none of them. I was watching the door.",
+        "cn": "今晚这屋里进了四十个人，我一个都没好好说上话。我在看门口。"
+       },
+       {
+        "line": "I've been useless all day. Mother says I want occupation. I want something else entirely.",
+        "cn": "一整天一事无成。母亲说我需要个正经差事。我要的完全是别的东西。"
+       },
+       {
+        "line": "Wear the chain, will you. …No — don't tuck it in tonight. Let it be seen.",
+        "cn": "戴着那条链子，好吗。……不——今晚别塞进去。让人看见。"
+       }
+      ]
+     }
     }
    ]
   }
