@@ -26,7 +26,10 @@
      night/love/meet/praise/tease/daily），到 ../hotline-replies.json 里取该角色
      对应情境的回复；没写回复库的角色，退回按情绪把他 5 句台词分桶（锚 / 情话系 /
      暗告白系）来挑。两种都避开最近说过的。
-     对话历史只存在本机 localStorage（键 ws-hotline-v1），谁也看不见。
+     交互口径（2026-08 Winter 定）：默认「他在听」——你自己打的字他只听不插话，
+     点「让他回应」他才把你刚说的这一段合起来回一到两句；下方那排现成短句
+     则是直接说给他听的，点了就有回应。对话历史只存在本机 localStorage
+     （键 ws-hotline-v1），谁也看不见。
      ———————————————————————————————————————————————— */
   html, body { margin: 0; padding: 0; height: 100%; }
   *, *::before, *::after { box-sizing: border-box; }
@@ -227,7 +230,6 @@
   }
   .chat-vent.on {
     background: var(--accent); color: var(--ink); border-color: var(--accent);
-    animation: pulse 2.6s ease-in-out infinite;
   }
   .chat-vent:disabled { opacity: .4; cursor: default; }
   .chat-free textarea {
@@ -296,9 +298,9 @@
   </div>
   <div class="chat-log" id="log" aria-live="polite"></div>
   <div class="chat-input">
-    <p class="chat-hint" id="hint">想说什么都行 · 他挑一句回你</p>
+    <p class="chat-hint" id="hint">你说的他都听着 · 想他开口，点左边那颗键</p>
     <form class="chat-free" id="freeform">
-      <button type="button" class="chat-vent" id="vent">倾诉</button>
+      <button type="button" class="chat-vent on" id="vent">让他回应</button>
       <textarea id="freetext" rows="1" maxlength="600" placeholder="跟他说点什么……"></textarea>
       <button type="submit" id="freesend" aria-label="发送">&#8593;</button>
     </form>
@@ -332,7 +334,6 @@
   var REPLIES = {};        // 对题回复库（../hotline-replies.json，可选，缺了就退回台词）
   var current = null;      // 当前聊天对象
   var busy = false;        // 他正在输入时锁住输入区
-  var venting = false;     // 倾诉模式：开着时他只听不回，关掉才基于这一段回一句
 
   /* ————— 小工具 ————— */
   function $(id) { return document.getElementById(id); }
@@ -510,23 +511,13 @@
     $('vent').disabled = v;
   }
 
-  /* ————— 倾诉模式 ————— */
+  /* ————— 「他在听」：默认只听不插话，点那颗键他才开口 ————— */
   function statusLine() {
     if (!current) return '';
-    return current.filmCN + ' · ' + current.year + (venting ? ' · 他在听' : ' · 线是通的');
-  }
-  function setVent(v) {
-    venting = v;
-    var b = $('vent');
-    b.textContent = v ? '说完了' : '倾诉';
-    b.classList.toggle('on', v);
-    $('hint').textContent = v
-      ? '他在听，不插话——说完了，点左边那颗键'
-      : '想说什么都行 · 他挑一句回你';
-    $('cstatus').textContent = statusLine();
+    return current.filmCN + ' · ' + current.year + ' · 他在听';
   }
   function ventTrail(charId) {
-    /* 收尾时取「上一次他开口之后」你连着说的所有话，合起来定情绪 */
+    /* 取「上一次他开口之后」你连着说的所有话，合起来定情绪 */
     var past = history(charId), out = [];
     for (var i = past.length - 1; i >= 0; i--) {
       if (past[i].w !== 'm') break;
@@ -551,11 +542,11 @@
     saveMsg(current.id, msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
     box.value = ''; box.style.height = 'auto';
-    if (!venting) himReplies(current, bucketForText(v), 0, false, intentOf(v));
+    /* 他在听：自己打的字不自动触发回复，点「让他回应」他才开口 */
   }
 
   /* ————— 对话流程 ————— */
-  function himReplies(c, prefs, extraDelay, isFollowUp, intent) {
+  function himReplies(c, prefs, extraDelay, isFollowUp, intent, followChance) {
     var log = $('log');
     var typing = document.createElement('div');
     typing.className = 'msg msg--him typing';
@@ -573,8 +564,8 @@
         log.appendChild(bubbleHim(msg)); scrollLog();
         /* 偶尔他会追一条（12%），像是想了想又补的——追的那条不再追，
            防止连锁套娃、一口气刷屏（2026-08 Winter 抓过一次三连发） */
-        if (!isFollowUp && Math.random() < .12) {
-          himReplies(c, ['any'], 700, true, 'daily');
+        if (!isFollowUp && Math.random() < (followChance === undefined ? .12 : followChance)) {
+          himReplies(c, ['any'], 700, true, intent || 'daily');
         } else {
           setBusy(false);
         }
@@ -587,7 +578,7 @@
     var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
     saveMsg(current.id, msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
-    if (!venting) himReplies(current, chip.pref, 0, false, chip.intent);
+    himReplies(current, chip.pref, 0, false, chip.intent);
   }
 
   function openChat(c) {
@@ -596,7 +587,6 @@
     $('roster').classList.add('hidden');
     $('chat').classList.remove('hidden');
     $('cname').textContent = c.name;
-    setVent(false);
     $('cstatus').textContent = statusLine();
     $('chatid').href = mfHref(c.id);
     var log = $('log');
@@ -624,11 +614,11 @@
 
   $('vent').addEventListener('click', function () {
     if (busy || !current) return;
-    if (!venting) { setVent(true); return; }
-    /* 关掉倾诉模式：他把你这一段都听完了，回一句 */
-    setVent(false);
+    /* 他把你刚说的这一段听完了，回一到两句（最多两句，Winter 定） */
     var trail = ventTrail(current.id);
-    if (trail.trim()) himReplies(current, bucketForText(trail), 1100, false, intentOf(trail));
+    var has = trail.trim();
+    himReplies(current, has ? bucketForText(trail) : ['any'], 600, false,
+               has ? intentOf(trail) : 'daily', has ? .45 : .12);
   });
 
   $('freeform').addEventListener('submit', function (e) { e.preventDefault(); sendFree(); });
