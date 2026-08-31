@@ -636,11 +636,12 @@
   var REPO_API = "https://api.github.com/repos/DXWinterSun/WinterSunBlog/contents/sam/shelf/data.json";
 
   var TYPES = [
-    { id: "disc",  emoji: "📀", label: "碟片" },
-    { id: "card",  emoji: "🃏", label: "卡牌" },
-    { id: "goods", emoji: "🧸", label: "周边" },
-    { id: "book",  emoji: "📖", label: "书刊" },
-    { id: "other", emoji: "🎁", label: "其他" }
+    { id: "disc",    emoji: "📀", label: "碟片" },
+    { id: "card",    emoji: "🃏", label: "卡牌" },
+    { id: "goods",   emoji: "🧸", label: "周边" },
+    { id: "program", emoji: "📔", label: "场刊" },
+    { id: "book",    emoji: "📖", label: "书刊" },
+    { id: "other",   emoji: "🎁", label: "其他" }
   ];
   var FILTERS = [{ id: "all", label: "全部" }]
     .concat(TYPES.map(function (t) { return { id: t.id, label: t.emoji + " " + t.label }; }))
@@ -1092,27 +1093,29 @@
     updateNameHint();
   }
 
-  /* 碟片不用起名：选了角色就自动用电影名 */
-  function autoDiscName() {
+  /* 不用自己起名：选了关联角色就自动用「电影名（＋类别）」。
+     碟片只用电影名（历来如此）；场刊 / 卡牌 / 周边 / 书刊等在后面缀上类别，
+     省得每件都手打——想自己起名照样填，填了就以填的为准。 */
+  function autoNameFor(type) {
     var c = charById[$("f-char").value];
     if (!c) return "";
-    return c.filmCN || ("《" + c.film + "》");
+    var film = c.filmCN || ("《" + c.film + "》");
+    if (type === "disc") return film;
+    var t = typeById[type];
+    return t && t.label !== "其他" ? film + t.label : film;
   }
   function updateNameHint() {
     var hint = $("f-name-hint");
     var input = $("f-name");
-    if (formType === "disc") {
-      var auto = autoDiscName();
-      if (auto) {
-        hint.textContent = "（可不填 · 不填就叫「" + auto + "」）";
-        input.placeholder = auto + "（自动用电影名，想改再填）";
-      } else {
-        hint.textContent = "（可不填 · 选了关联角色就自动用电影名）";
-        input.placeholder = "例：《月球》蓝光…";
-      }
+    var auto = autoNameFor(formType);
+    if (auto) {
+      hint.textContent = "（可不填 · 不填就叫「" + auto + "」）";
+      input.placeholder = auto + "（自动取名，想改再填）";
     } else {
-      hint.textContent = "";
-      input.placeholder = "例：Topps 签名卡 / 亚克力立牌…";
+      hint.textContent = "（可不填 · 选了关联角色就自动取名）";
+      input.placeholder = formType === "disc" ? "例：《月球》蓝光…"
+                        : formType === "program" ? "例：百老汇场刊…"
+                        : "例：Topps 签名卡 / 亚克力立牌…";
     }
   }
 
@@ -1213,7 +1216,7 @@
 
   $("btn-save").addEventListener("click", function () {
     var name = $("f-name").value.trim();
-    if (!name && formType === "disc") name = autoDiscName();
+    if (!name) name = autoNameFor(formType);
     if (!name) {
       toast(formType === "disc" ? "选一个关联角色，或给它起个名字～" : "先给它起个名字呀");
       $("f-name").focus();
