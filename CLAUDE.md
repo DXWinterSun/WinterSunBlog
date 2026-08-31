@@ -495,7 +495,7 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 | AU 星图 `sky/` | `sky/data.json`——**构建时由 Liquid 生成**（遍历 `layout: series` 页 + 各自章节 + `au_palettes.yml` 配色 + `moods.yml`） | 无；新系列若没进 `au_palettes.yml` 会回退到默认金色 |
 | 情绪磁带机 · Mixtape `jukebox/`（2026-07-30 由点唱机改装：卡带舱+PLAY 键+出带口，功能与数据源不变） | `jukebox/data.json`——构建时生成（全部 posts + moods 色板），客户端按 mood 标签过滤 | 无；文章必须带 mood 标签才会入库 |
 | 一封信 `fable/` | 纯静态（信件内容内嵌） | **永远不要改**（见下） |
-| 深夜热线 `sam/hotline/`（2026-08 加：选一个角色进聊天室，发预设消息或自己打一段话倾诉，他按消息情绪（自定义文字走关键词轻匹配）从自己 5 句台词里挑一句回复；「倾诉」键开倾诉模式=他只听不回、状态变「他在听」，点「说完了」他才把这一段合起来定情绪回一句；对话历史存本机 localStorage 键 `ws-hotline-v1`；入口除 Sam 页第 08 张卡外还有两处「打给他」：画册角色页（hotlineHref，走 WALL_ALIAS）与 AU 系列首页 hero 底部（`_layouts/series.html` 运行时读 lines.json，按 auLink 对路径、再按 byline 首段角色名认人，认不出＝非 Sam 系列自动不显示；只单向去、热线无回程，Winter 定） | `sam/lines.json`（运行时 fetch，按台词 `kind` 分桶：锚 / 情话系 / 暗告白系） | 无——lines.json 加好新角色，通讯录自动多一个号码 |
+| 深夜热线 `sam/hotline/`（2026-08 加，详见下方专条） | `sam/lines.json` ＋ `sam/hotline-replies.json`（均运行时 fetch） | 通讯录零维护；**对题回复库要人工写**（见专条） |
 | 演出节目单 `fog-city/playbill/` | `sam/lines.json`（运行时 fetch；按 `year` 升序排幕，每幕用角色 `accent` 配色 + 锚句台词，`auLink` 自动挂「完整剧本」） | 无——画册加新角色、lines.json 照常同步后自动加一幕。它是 Fog City 系列 Ch30 的故事内实体（署名 Winter Sun），别改成普通列表页 |
 
 细节备忘：
@@ -512,6 +512,51 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 - 404 页底部会从 lines.json 随机抽一句台词当「迷路安慰奖」。
 - 这批页面的构建验证方式：`JEKYLL_NO_BUNDLER_REQUIRE=true jekyll build`
   （仓库的 Gemfile.lock 是远古版本，别用 bundler；需全局 `gem install jekyll` + 各插件）。
+
+### ☎ 深夜热线 `sam/hotline/` 的交互口径与「对题回复库」
+
+**交互（2026-08 Winter 拍板，别擅自改回去）：**
+- **默认「他在听」**——你自己在输入框打的字，他只听着、一句不插；状态栏恒显示「他在听」。
+- 输入框左边那颗常驻键 **「让他回应」**＝一次性动作：点一下，他把「上一次他开口之后你连着说的所有话」
+  合起来定情绪，回 **1–2 句（硬性封顶两条）**。不是两态开关，点完不切模式。
+- 下面那排**预设短句与 emoji 是「直接说给他听」**，点了就有回应（每次 1 句，12% 概率补第二句）。
+- 通讯录有**搜索**（角色名 / 电影中英名 / 年份，空格分词全部命中；回车直拨第一个；
+  「随便拨一个」只在筛出来的人里挑）。
+- 首次拨通某人，他先说自己的**锚句**（lines.json 第 1 句）。
+- 对话历史存本机 localStorage 键 `ws-hotline-v1`，「撕掉这页」清当前角色。
+- 入口三处：Sam 页第 08 张卡、画册角色页「打给他」（`hotlineHref`，走 WALL_ALIAS）、
+  AU 系列首页 hero 底部（`_layouts/series.html` 运行时读 lines.json，先按 auLink 对路径、
+  再按 byline 首段角色名兜底认人，认不出＝非 Sam 角色系列自动不显示）。
+  **只单向去，热线不设回程**（Winter 定）。
+
+**⚠️ `sam/hotline-replies.json`＝对题回复库（唯一需要人工维护的部分）**
+
+只靠 lines.json 那 5 句金句聊天，两轮就被摸清底牌（Winter 2026-08 原话：「答复太 predictable」）。
+所以每个角色另写一套**聊天用**的回复，按情境分桶，页面按 `intentOf()` 认出你这句在说什么事，
+到对应桶里取：
+
+| 桶名 | 情境 | 关键词举例 |
+|---|---|---|
+| `greet` | 打招呼 | 在吗 / 你好 / 嗨 |
+| `miss` | 想念 | 想你 / 好想 / 惦记 |
+| `tired` | 疲惫倾诉 | 累 / 难过 / 委屈 / 崩溃 |
+| `sleepless` | 失眠 | 睡不着 / 失眠 / 半夜 |
+| `night` | 道晚安 | 晚安 / 去睡 / 🌙 |
+| `love` | 表白撒娇 | 爱你 / 喜欢你 / 抱抱 / ❤️ |
+| `meet` | 说要去见他 | 见你 / 来找你 / 我会去 |
+| `praise` | 夸他 | 好帅 / 演得好 / ✨ |
+| `tease` | 闹他 | 讨厌 / 坏 / 不理我 |
+| `daily` | 日常兜底 | （其余全部） |
+
+格式：`chars.<charId>.<桶名>[] = { line: 英文原话, cn: 中译 }`；charId 与 lines.json 同一套
+（别名同样走 `meta.mf_alias`）。**写作要求**：① 严格照该系列圣经的**称呼**（Ocean / baby doll /
+sweetheart / 天使小姐…）与**声口**；② 遵守全站语言规则——`line` 是他实际说的英文，`cn` 只是译文，
+不能让人物「中英各说一遍」；③ 每桶 2–3 条，一人 ~21–24 条；④ 守各系列自己的红线。
+**没写回复库的角色自动退回 lines.json 的 5 句台词**，页面不会坏。
+
+**已配齐的角色**（2026-08 首批 5 人）：`youngsam` / `zaphod` / `dixon` / `wildbill` / `frank`。
+待补：其余有 AU 的角色（画册里带 `auLink` 的共 29 个）。**新写回复库要先给 Winter 过目再上线**
+（属创作文字）。
 
 **`sam/lines.json` 要点：**
 - `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。**每日轮换只读它。**
