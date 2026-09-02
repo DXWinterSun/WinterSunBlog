@@ -28,9 +28,11 @@
      暗告白系）来挑。两种都避开最近说过的。
      一个角色有两个 AU 时（Bill Greaves / Jim Crocker），回复库里写成 aus 数组，
      聊天室顶部出现切换条：两边各一套回复、各存各的对话（localStorage 键加 @auKey）。
-     除了按情境取回复，还有三招让他显得「在接话」：动作对答（抱抱/亲亲/摸头…）、
-     镜像接话（你说「你是我的天空」他接「那你是我的月亮」）、问句先答一声——
-     模板在 hotline-replies.json 的 actions / mirror / question，按角色声口档取。
+     除了按情境取回复，还有四招让他显得「在接话」：动作对答（抱抱/亲亲/摸头…）、
+     镜像接话（你说「你是我的天空」他接「那你是我的月亮」）、主题回应（认出你在说
+     工作/学生/家里/天气…，把这件事的名字原样还给你）、问句先答一声——模板在
+     hotline-replies.json 的 actions / mirror / topics+topic_tpl / question，按声口档取。
+     命中主题时他多半会再补一句自己的台词（先接住那件事，再说他自己的话）。
      交互口径（2026-08 Winter 定）：默认「他在听」——你自己打的字他只听不插话，
      点「让他回应」他才把你刚说的这一段合起来回一到两句；下方那排现成短句
      则是直接说给他听的，点了就有回应。对话历史只存在本机 localStorage
@@ -536,6 +538,46 @@
     return null;
   }
 
+  /* 主题层：认出你说的是哪件事（工作 / 学生 / 家里 / 天气…），
+     用带槽位的句式把这件事的名字原样还给你——「对上了」的感觉主要来自这里。
+     一段倾诉里往往会顺带扫到好几个词（讲课讲到「嗓子」哑，可她说的是学生），
+     所以按「命中次数最多」取主题，次数相同再取「最先说到」的那个——
+     人开口第一句说的，通常就是这一趟真正想说的事。 */
+  var topicRe = null;
+  function topicOf(text) {
+    if (!EXTRA.topics) return null;
+    if (!topicRe) {
+      topicRe = EXTRA.topics.map(function (t) { return { t: t, re: new RegExp(t.re, 'g') }; });
+    }
+    var best = null, bestHits = 0, bestAt = 0;
+    topicRe.forEach(function (x) {
+      x.re.lastIndex = 0;
+      var m, hits = 0, first = -1;
+      while ((m = x.re.exec(text)) !== null) {
+        hits++;
+        if (first < 0) first = m.index;
+        if (m.index === x.re.lastIndex) x.re.lastIndex++; // 防空匹配死循环
+      }
+      if (!hits) return;
+      if (hits > bestHits || (hits === bestHits && first < bestAt)) {
+        best = x.t; bestHits = hits; bestAt = first;
+      }
+    });
+    return best;
+  }
+  function topicReply(text) {
+    var t = topicOf(text);
+    if (!t || !EXTRA.topic_tpl) return null;
+    var tpl = pickTpl(EXTRA.topic_tpl[reg()] || EXTRA.topic_tpl.warm);
+    if (!tpl) return null;
+    var fill = function (x) { return x.replace(/\{en\}/g, t.en).replace(/\{cn\}/g, t.cn); };
+    // 主题名（work / the students…）填进句首时要大写：把每个句首的小写字母提上来
+    var en = fill(tpl.line).replace(/(^|[.!?…]["')\]]?\s*)([a-z])/g, function (m, head, ch) {
+      return head + ch.toUpperCase();
+    });
+    return { line: en, lineCN: fill(tpl.cn) };
+  }
+
   function isQuestion(text) {
     return /[？?]\s*$|吗[？?]?\s*$|好不好|行不行|可以吗|是不是|会不会|有没有|对不对/.test(text);
   }
@@ -726,17 +768,22 @@
       setTimeout(function () {
         if (current !== c) return;
         typing.remove();
-        var q = (au && au.buckets && text ? (actionReply(text) || mirrorReply(text)) : null)
-             || (intent && intent !== 'daily' ? pickFromReplies(c, intent) : null)
-             || (text && isQuestion(text) && au && au.buckets ? questionReply() : null)
-             || (intent ? pickFromReplies(c, intent) : null)
-             || pickReply(c, prefs);
+        var hasLib = !!(au && au.buckets);
+        var topical = null;
+        var q = (hasLib && text ? (actionReply(text) || mirrorReply(text)) : null);
+        if (!q && hasLib && text) { q = topical = topicReply(text); }
+        q = q || (intent && intent !== 'daily' ? pickFromReplies(c, intent) : null)
+              || (hasLib && text && isQuestion(text) ? questionReply() : null)
+              || (intent ? pickFromReplies(c, intent) : null)
+              || pickReply(c, prefs);
+        /* 他先接住你说的那件事，再补一句他自己的话——两句都有才像真的在回应 */
+        var fc = topical ? .85 : (followChance === undefined ? .12 : followChance);
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
         saveMsg(histKey(c), msg);
         log.appendChild(bubbleHim(msg)); scrollLog();
         /* 偶尔他会追一条（12%），像是想了想又补的——追的那条不再追，
            防止连锁套娃、一口气刷屏（2026-08 Winter 抓过一次三连发） */
-        if (!isFollowUp && Math.random() < (followChance === undefined ? .12 : followChance)) {
+        if (!isFollowUp && Math.random() < fc) {
           himReplies(c, ['any'], 700, true, intent || 'daily');
         } else {
           setBusy(false);

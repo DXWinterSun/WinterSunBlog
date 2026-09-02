@@ -15,7 +15,7 @@
   ],
   "chars_count": 29,
   "lines_count": 651,
-  "extras_count": 64
+  "extras_count": 76
  },
  "chars": {
   "youngsam": {
@@ -3829,6 +3829,168 @@
    {
     "line": "Yes. That one I'm certain of, and I'm certain of very little.",
     "cn": "是。这一件我确定——而我确定的事情非常少。"
+   }
+  ]
+ },
+ "topics": [
+  {
+   "key": "work",
+   "re": "上班|工作|加班|老板|下班|公司|开会|职场|上了一天班",
+   "cn": "工作",
+   "en": "work"
+  },
+  {
+   "key": "teach",
+   "re": "学生|上课|讲课|课上|备课|作业|批改|考勤|带的班",
+   "cn": "学生",
+   "en": "the students"
+  },
+  {
+   "key": "exam",
+   "re": "考试|论文|答辩|期末|开学|截止|deadline",
+   "cn": "考试",
+   "en": "the exam"
+  },
+  {
+   "key": "write",
+   "re": "写不出|卡文|码字|写稿|写了一半|更新不出",
+   "cn": "写的东西",
+   "en": "the writing"
+  },
+  {
+   "key": "family",
+   "re": "我妈|妈妈|我爸|爸爸|家里人|外婆|爷爷|奶奶|亲戚",
+   "cn": "家里",
+   "en": "your family"
+  },
+  {
+   "key": "money",
+   "re": "钱|工资|房租|账单|买不起|没钱",
+   "cn": "钱",
+   "en": "money"
+  },
+  {
+   "key": "health",
+   "re": "生病|感冒|发烧|头疼|胃疼|不舒服|去医院|吃药|嗓子",
+   "cn": "身体",
+   "en": "your health"
+  },
+  {
+   "key": "commute",
+   "re": "地铁|公交|开车|堵车|路上|通勤|打车",
+   "cn": "路上",
+   "en": "the commute"
+  },
+  {
+   "key": "weather",
+   "re": "下雨|下雪|台风|好冷|好热|降温|天气",
+   "cn": "天气",
+   "en": "the weather"
+  },
+  {
+   "key": "people",
+   "re": "他们|那个人|有人|同学|群里|领导|同事",
+   "cn": "那些人",
+   "en": "those people"
+  },
+  {
+   "key": "food",
+   "re": "吃饭|没吃|外卖|好饿|做饭|点了个",
+   "cn": "吃饭",
+   "en": "eating"
+  },
+  {
+   "key": "chores",
+   "re": "打扫|洗衣|收拾屋|家务|洗碗",
+   "cn": "家务",
+   "en": "the housework"
+  },
+  {
+   "key": "phone",
+   "re": "手机|刷到|回消息|微信|消息回不完",
+   "cn": "手机",
+   "en": "the phone"
+  },
+  {
+   "key": "trip",
+   "re": "出差|机场|火车|飞机|坐车|赶路",
+   "cn": "路程",
+   "en": "the trip"
+  },
+  {
+   "key": "noise",
+   "re": "太吵|好吵|楼上|装修|吵得",
+   "cn": "吵闹",
+   "en": "the noise"
+  },
+  {
+   "key": "cat",
+   "re": "猫|猫猫|小猫",
+   "cn": "猫",
+   "en": "the cat"
+  },
+  {
+   "key": "dog",
+   "re": "狗|狗狗|小狗",
+   "cn": "狗",
+   "en": "the dog"
+  }
+ ],
+ "topic_tpl": {
+  "warm": [
+   {
+    "line": "Then {en} can wait till morning. Tonight you don't have to carry it.",
+    "cn": "那{cn}就等到明天。今晚你不用扛着它。"
+   },
+   {
+    "line": "So it's {en} again. …Alright. Tell me the worst part and let me have it.",
+    "cn": "又是{cn}的事。……好。把最难的那一段说给我，交给我。"
+   },
+   {
+    "line": "{en} took today from you. It doesn't get tonight.",
+    "cn": "{cn}拿走了你的今天。今晚不给它。"
+   }
+  ],
+  "playful": [
+   {
+    "line": "{en}? Ugh. {en} is cancelled. I've decided.",
+    "cn": "{cn}？呃。{cn}取消了。我决定的。"
+   },
+   {
+    "line": "Okay, so today's villain was {en}. Noted. I'm holding a grudge on your behalf.",
+    "cn": "行，那今天的反派就是{cn}。记下了。我替你记仇。"
+   },
+   {
+    "line": "You know what {en} needs to do? Leave you alone. Come here.",
+    "cn": "你知道{cn}最该干嘛吗？离你远点。过来。"
+   }
+  ],
+  "gruff": [
+   {
+    "line": "{en} again. …Yeah. Sit down. I got nothin' smart to say about it, but I'm here.",
+    "cn": "又是{cn}。……嗯。坐下。我说不出什么高明的，可我在。"
+   },
+   {
+    "line": "Whatever {en} did to you today — it don't get to follow you in here.",
+    "cn": "不管{cn}今天怎么折腾你——它进不来这儿。"
+   },
+   {
+    "line": "Don't talk about {en} no more tonight. Talk about somethin' else. Anythin'.",
+    "cn": "今晚别再说{cn}了。说点别的。什么都行。"
+   }
+  ],
+  "smooth": [
+   {
+    "line": "So — {en}. Hand it here and stop turning it over. I'll hold it a while.",
+    "cn": "原来是{cn}。递给我，别再翻来覆去看它了。我替你拿一会儿。"
+   },
+   {
+    "line": "{en} gets the daytime. It doesn't get this hour.",
+    "cn": "{cn}占了白天。这个钟点不归它。"
+   },
+   {
+    "line": "Tell me what {en} cost you today. I'd like it itemised.",
+    "cn": "告诉我{cn}今天让你付出了什么。我想要一份明细。"
    }
   ]
  }
