@@ -28,6 +28,9 @@
      暗告白系）来挑。两种都避开最近说过的。
      一个角色有两个 AU 时（Bill Greaves / Jim Crocker），回复库里写成 aus 数组，
      聊天室顶部出现切换条：两边各一套回复、各存各的对话（localStorage 键加 @auKey）。
+     除了按情境取回复，还有三招让他显得「在接话」：动作对答（抱抱/亲亲/摸头…）、
+     镜像接话（你说「你是我的天空」他接「那你是我的月亮」）、问句先答一声——
+     模板在 hotline-replies.json 的 actions / mirror / question，按角色声口档取。
      交互口径（2026-08 Winter 定）：默认「他在听」——你自己打的字他只听不插话，
      点「让他回应」他才把你刚说的这一段合起来回一到两句；下方那排现成短句
      则是直接说给他听的，点了就有回应。对话历史只存在本机 localStorage
@@ -394,7 +397,8 @@
   var STORE_KEY = 'ws-hotline-v1';
   var chars = [];          // 按年份升序（与放映室同序）
   var MF_ALIAS = {};
-  var REPLIES = {};        // 对题回复库（../hotline-replies.json，可选，缺了就退回台词）
+  var REPLIES = {};        // 对题回复库的 chars 部分（缺了就退回台词）
+  var EXTRA = {};          // 动作 / 接话 / 问句模板（按声口档 warm·playful·gruff·smooth 分）
   var personas = [];       // 当前角色的 AU 列表（多数人只有一个）
   var au = null;           // 当前选中的 AU（决定用哪套回复库、以及对话存哪个键）
   var current = null;      // 当前聊天对象
@@ -422,10 +426,11 @@
     if (!e) return [{ key: '', label: '', labelCN: '', buckets: null }];
     if (e.aus && e.aus.length) {
       return e.aus.map(function (a) {
-        return { key: a.key, label: a.label, labelCN: a.labelCN, buckets: a.buckets };
+        return { key: a.key, label: a.label, labelCN: a.labelCN,
+                 buckets: a.buckets, register: a.register || 'warm' };
       });
     }
-    return [{ key: '', label: '', labelCN: '', buckets: e }];
+    return [{ key: '', label: '', labelCN: '', buckets: e, register: e.register || 'warm' }];
   }
   /* 每个 AU 各存各的对话，互不串台 */
   function histKey(c, auKey) {
@@ -480,9 +485,65 @@
     if (/见你|见面|来找|去找|来看|见一面|什么时候见|我会去|到你那|奔现/.test(s)) return 'meet';
     if (/好帅|真帅|帅|好看|美|演得|演技|厉害|好棒|真好|迷人|喜欢看你|✨|😍/i.test(s)) return 'praise';
     if (/讨厌|坏|笨|傻|幼稚|不理|理我|哼|烦人|欠揍|臭|骗子|😤|😏/i.test(s)) return 'tease';
-    if (/在吗|你好|嗨|喂|在不在|忙吗|hello|hi|hey|👋/i.test(s)) return 'greet';
+    /* 打招呼只认「短句」——「你会一直在吗」这种别被「在吗」两个字劫走 */
+    if (s.length <= 8 && /在吗|你好|嗨|喂|在不在|忙吗|hello|hi|hey|👋/i.test(s)) return 'greet';
     return 'daily';
   }
+  /* ————— 「像活的」那三招（学 2010 年代那批对话应用的老路数）—————
+     ① 动作对答：认出「抱抱 / 亲亲 / 摸头 / 牵手 / 靠着 / 哭」，回一个配对的动作；
+     ② 接话（镜像）：你说「你是我的天空」，他接「那你就是我的月亮」；
+     ③ 问句：你问「你…吗？」，他先答一声再补一句。
+     三招都按角色的声口档（warm / playful / gruff / smooth）取模板；
+     没写回复库的角色照旧退回 lines.json 的五句台词。 */
+  var ACTION_RE = [
+    ['hug',     /抱抱|抱我|抱一下|抱住|抱紧|想抱|求抱|hug/i],
+    ['kiss',    /亲亲|亲一下|亲我|么么|mua|吻你|吻我|想亲|kiss/i],
+    ['headpat', /摸头|摸摸|揉头|揉揉|rua|头发/i],
+    ['hand',    /牵手|拉手|牵着|拉着我|牵我|hold my hand/i],
+    ['lean',    /靠着|靠在|靠你|蹭|贴着|依偎|枕着|lean on/i],
+    ['cry',     /哭了|想哭|好想哭|眼泪|流泪|憋不住|cry|😭|😢/i]
+  ];
+  function pickTpl(arr) { return arr && arr.length ? arr[Math.floor(Math.random() * arr.length)] : null; }
+  function reg() { return (au && au.register) || 'warm'; }
+
+  function actionReply(text) {
+    if (!EXTRA.actions) return null;
+    for (var i = 0; i < ACTION_RE.length; i++) {
+      if (ACTION_RE[i][1].test(text)) {
+        var set = EXTRA.actions[ACTION_RE[i][0]];
+        var t = pickTpl(set && (set[reg()] || set.warm));
+        if (t) return { line: t.line, lineCN: t.cn };
+      }
+    }
+    return null;
+  }
+
+  function mirrorReply(text) {
+    var m = EXTRA.mirror;
+    if (!m || !/是我的|是你的|你是|我是|you are my|you're my/i.test(text)) return null;
+    for (var i = 0; i < m.pairs.length; i++) {
+      var p = m.pairs[i];           /* [中文1, 英文1, 中文2, 英文2] */
+      if (text.indexOf(p[0]) !== -1 || text.toLowerCase().indexOf(p[1].toLowerCase()) !== -1) {
+        var t = pickTpl(m.tpl[reg()] || m.tpl.warm);
+        if (!t) return null;
+        var fill = function (x) {
+          return x.replace(/\{en1\}/g, p[1]).replace(/\{cn1\}/g, p[0])
+                  .replace(/\{en2\}/g, p[3]).replace(/\{cn2\}/g, p[2]);
+        };
+        return { line: fill(t.line), lineCN: fill(t.cn) };
+      }
+    }
+    return null;
+  }
+
+  function isQuestion(text) {
+    return /[？?]\s*$|吗[？?]?\s*$|好不好|行不行|可以吗|是不是|会不会|有没有|对不对/.test(text);
+  }
+  function questionReply() {
+    var t = pickTpl(EXTRA.question && (EXTRA.question[reg()] || EXTRA.question.warm));
+    return t ? { line: t.line, lineCN: t.cn } : null;
+  }
+
   /* 从回复库挑：先按情境，落空退 daily，再落空退整本；避开最近说过的两句 */
   function pickFromReplies(c, intent) {
     var set = au && au.buckets;
@@ -498,7 +559,8 @@
       }
     }
     var all = [];
-    for (var k in set) { if (set.hasOwnProperty(k)) all = all.concat(set[k]); }
+    /* 只收桶（数组）——条目里还有 register / pet 这类非台词字段，别混进来 */
+    for (var k in set) { if (set.hasOwnProperty(k) && Object.prototype.toString.call(set[k]) === '[object Array]') all = all.concat(set[k]); }
     all = all.filter(function (q) { return recent.indexOf(q.line) === -1; });
     if (!all.length) return null;
     var pick = all[Math.floor(Math.random() * all.length)];
@@ -652,7 +714,7 @@
   }
 
   /* ————— 对话流程 ————— */
-  function himReplies(c, prefs, extraDelay, isFollowUp, intent, followChance) {
+  function himReplies(c, prefs, extraDelay, isFollowUp, intent, followChance, text) {
     var log = $('log');
     var typing = document.createElement('div');
     typing.className = 'msg msg--him typing';
@@ -664,7 +726,11 @@
       setTimeout(function () {
         if (current !== c) return;
         typing.remove();
-        var q = (intent && pickFromReplies(c, intent)) || pickReply(c, prefs);
+        var q = (au && au.buckets && text ? (actionReply(text) || mirrorReply(text)) : null)
+             || (intent && intent !== 'daily' ? pickFromReplies(c, intent) : null)
+             || (text && isQuestion(text) && au && au.buckets ? questionReply() : null)
+             || (intent ? pickFromReplies(c, intent) : null)
+             || pickReply(c, prefs);
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
         saveMsg(histKey(c), msg);
         log.appendChild(bubbleHim(msg)); scrollLog();
@@ -684,7 +750,7 @@
     var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
     saveMsg(histKey(current), msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
-    himReplies(current, chip.pref, 0, false, chip.intent);
+    himReplies(current, chip.pref, 0, false, chip.intent, undefined, chip.t);
   }
 
   /* 两个 AU 的角色：顶部长出切换条，各自一套回复库、各自一段对话 */
@@ -757,7 +823,7 @@
     var trail = ventTrail(histKey(current));
     var has = trail.trim();
     himReplies(current, has ? bucketForText(trail) : ['any'], 600, false,
-               has ? intentOf(trail) : 'daily', has ? .45 : .12);
+               has ? intentOf(trail) : 'daily', has ? .45 : .12, has ? trail : '');
   });
 
   $('freeform').addEventListener('submit', function (e) { e.preventDefault(); sendFree(); });
@@ -803,6 +869,7 @@
     .then(function (both) {
       var data = both[0];
       REPLIES = (both[1] && both[1].chars) || {};
+      EXTRA = both[1] || {};
       MF_ALIAS = (data.meta && data.meta.mf_alias) || {};
       chars = data.characters.slice().sort(function (a, b) { return yearNum(a.year) - yearNum(b.year); });
       $('boot').classList.add('hidden');

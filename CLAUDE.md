@@ -554,9 +554,22 @@ sweetheart / 天使小姐…）与**声口**；② 遵守全站语言规则—�
 不能让人物「中英各说一遍」；③ 每桶 2–3 条，一人 ~21–24 条；④ 守各系列自己的红线。
 **没写回复库的角色自动退回 lines.json 的 5 句台词**，页面不会坏。
 
-**已配齐的角色**（2026-08 首批 5 人）：`youngsam` / `zaphod` / `dixon` / `wildbill` / `frank`。
-待补：其余有 AU 的角色（画册里带 `auLink` 的共 29 个）。**新写回复库要先给 Winter 过目再上线**
-（属创作文字）。
+**已配齐**：画册里带 `auLink` 的 **29 个有 AU 的角色全部写完**（651 条）。Bill Greaves 与
+Jim Crocker 各有两个 AU，条目改用 `aus` 数组（每项 `{key,label,labelCN,register,pet,buckets}`），
+聊天室顶部出现切换条、两边各存各的对话。**新写／改写回复库要先给 Winter 过目再上线**（属创作文字）。
+
+**⚙️ 另外三招「像活的」**（2026-08 加，学 2010 年代那批预设对话应用的老路数，同在
+`hotline-replies.json`，按角色的 `register` 声口档 `warm / playful / gruff / smooth` 取模板）：
+
+| 层 | 键 | 触发 | 例 |
+|---|---|---|---|
+| 动作对答 | `actions.<hug/kiss/headpat/hand/lean/cry>.<档>` | 抱抱 / 亲亲 / 摸头 / 牵手 / 靠着 / 想哭 | 「抱抱」→ `*把你搂过来，下巴搁在你头顶*` |
+| 镜像接话 | `mirror.pairs` + `mirror.tpl.<档>` | 「你是我的X」（X 在 pairs 里） | 「你是我的海」→「那你就是我的岸。」 |
+| 问句先答 | `question.<档>` | 句尾问号 / 吗 / 好不好… | 「你想我吗？」→「嗯。别小题大做。」 |
+
+回复优先级：**动作 → 接话 → 情境桶（非 daily）→ 问句 → daily 兜底 → 5 句台词**。
+`mirror.pairs` 每项是 `[中文1, 英文1, 中文2, 英文2]`，模板里用 `{cn1}{en1}{cn2}{en2}` 占位；
+新增角色只要给 `register`（和可选的 `pet` 称呼）就自动吃到这三层。
 
 **`sam/lines.json` 要点：**
 - `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。**每日轮换只读它。**

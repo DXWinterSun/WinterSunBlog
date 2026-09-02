@@ -14,7 +14,8 @@
    "daily"
   ],
   "chars_count": 29,
-  "lines_count": 651
+  "lines_count": 651,
+  "extras_count": 64
  },
  "chars": {
   "youngsam": {
@@ -121,7 +122,12 @@
      "line": "Painting fog on a flat. You know how insane that is? Painting fog. On a flat.",
      "cn": "在景片上画雾。你知道那多离谱吗？画雾。画在一块板子上。"
     }
-   ]
+   ],
+   "register": "playful",
+   "pet": {
+    "en": "Ocean",
+    "cn": "Ocean"
+   }
   },
   "zaphod": {
    "greet": [
@@ -227,7 +233,12 @@
      "line": "Hang on, major decision in progress. Left head wants the red drink. Right head wants the other red drink.",
      "cn": "等一下，正在做重大决策。左脑要那杯红的。右脑要另一杯红的。"
     }
-   ]
+   ],
+   "register": "playful",
+   "pet": {
+    "en": "baby doll",
+    "cn": "baby doll"
+   }
   },
   "dixon": {
    "greet": [
@@ -333,7 +344,8 @@
      "line": "Nothin'. Sittin' here. Ain't hollered at nobody yet. Give it an hour.",
      "cn": "没干嘛。坐着呢。还没冲谁嚷嚷。再给一小时。"
     }
-   ]
+   ],
+   "register": "gruff"
   },
   "wildbill": {
    "greet": [
@@ -439,7 +451,12 @@
      "line": "That nail keeps hummin' down in the bottom of the box. Off-key. Reckon you know somethin' about that.",
      "cn": "箱子底那根钉子一直在嗡。走着调。我看你对这事儿门儿清。"
     }
-   ]
+   ],
+   "register": "gruff",
+   "pet": {
+    "en": "angel",
+    "cn": "天使小姐"
+   }
   },
   "frank": {
    "greet": [
@@ -545,7 +562,12 @@
      "line": "Carried that fox around in my pocket all day like an idiot. …It's fine. It likes it in there.",
      "cn": "一整天像个傻子似的把那只狐狸揣在兜里。……没事。它在里头待着挺乐意。"
     }
-   ]
+   ],
+   "register": "smooth",
+   "pet": {
+    "en": "sweetheart",
+    "cn": "sweetheart"
+   }
   },
   "krzysztof": {
    "greet": [
@@ -651,7 +673,12 @@
      "line": "The kettle is on. The kettle is always on. This is not a coincidence, kotku.",
      "cn": "水壶烧上了。水壶一直烧着。这不是巧合，kotku。"
     }
-   ]
+   ],
+   "register": "warm",
+   "pet": {
+    "en": "kotku",
+    "cn": "kotku"
+   }
   },
   "rob": {
    "greet": [
@@ -757,7 +784,12 @@
      "line": "There's a burrito with your name on it and about a forty percent chance it survives till you get here.",
      "cn": "有个卷饼写着你的名字，能撑到你来的概率大概四成。"
     }
-   ]
+   ],
+   "register": "playful",
+   "pet": {
+    "en": "princess",
+    "cn": "princess"
+   }
   },
   "trent": {
    "greet": [
@@ -863,7 +895,8 @@
      "line": "Nothing. Hot as hell out here. Drank the whole thermos by ten.",
      "cn": "没干嘛。外头热得要命。保温壶十点就喝空了。"
     }
-   ]
+   ],
+   "register": "warm"
   },
   "eric": {
    "greet": [
@@ -969,7 +1002,8 @@
      "line": "Nothing worth reporting. Which, lately, I mind rather less than I used to.",
      "cn": "没什么值得汇报的。而最近，我没以前那么介意了。"
     }
-   ]
+   ],
+   "register": "smooth"
   },
   "silk": {
    "greet": [
@@ -1075,7 +1109,12 @@
      "line": "Ate standin' up over the sink. Don't start.",
      "cn": "站在水池边把饭吃了。你别唠叨。"
     }
-   ]
+   ],
+   "register": "gruff",
+   "pet": {
+    "en": "Nickel",
+    "cn": "五分钱"
+   }
   },
   "chuck": {
    "greet": [
@@ -1181,7 +1220,8 @@
      "line": "I'm fine. Everyone's fine. That's what I say, and then I go stand in a hallway for a while.",
      "cn": "我很好。大家都好。我这么说完，就去走廊里站一会儿。"
     }
-   ]
+   ],
+   "register": "playful"
   },
   "charley": {
    "greet": [
@@ -1287,7 +1327,12 @@
      "line": "Ate cold beans over the sink and thought about how you'd have somethin' to say about that.",
      "cn": "站水池边吃了冷豆子，一边想你准要说我两句。"
     }
-   ]
+   ],
+   "register": "playful",
+   "pet": {
+    "en": "sugar",
+    "cn": "sugar"
+   }
   },
   "glenn": {
    "greet": [
@@ -1393,7 +1438,8 @@
      "line": "Shoveled the whole block. Nobody asked me to. Felt good to be useful for once.",
      "cn": "把整条街的雪都铲了。没人让我干。头一回觉得自己有点用，挺好。"
     }
-   ]
+   ],
+   "register": "warm"
   },
   "victor": {
    "greet": [
@@ -1499,7 +1545,8 @@
      "line": "Nothing. Which used to be dangerous for me. Less so lately.",
      "cn": "没干嘛。这以前对我很危险。最近好点了。"
     }
-   ]
+   ],
+   "register": "gruff"
   },
   "sambell": {
    "greet": [
@@ -1605,7 +1652,8 @@
      "line": "We had a whole spring, a whole summer, a whole autumn down there. After that grey room — I still can't believe it happened.",
      "cn": "我们在下面过了一整个春天、一整个夏天、一整个秋天。过惯了那间灰房间——我到现在都不敢相信。"
     }
-   ]
+   ],
+   "register": "warm"
   },
   "hammer": {
    "greet": [
@@ -1711,7 +1759,8 @@
      "line": "Fourth minute today. Nothing broke. …Sorry. That one only means something to you and me.",
      "cn": "今天第四分钟。什么都没坏。……抱歉。这句只有你我懂。"
     }
-   ]
+   ],
+   "register": "playful"
   },
   "doc": {
    "greet": [
@@ -1817,7 +1866,8 @@
      "line": "Quiet in here tonight. Quiet's better than the other thing.",
      "cn": "今晚店里挺静。静总比另一种情况好。"
     }
-   ]
+   ],
+   "register": "warm"
   },
   "owen": {
    "greet": [
@@ -1923,7 +1973,8 @@
      "line": "Nothing. Sun's out. It's a crime to be indoors and I'm committing it for money.",
      "cn": "没干嘛。太阳出来了。这天待在室内是犯罪，我正为了钱犯着罪。"
     }
-   ]
+   ],
+   "register": "playful"
   },
   "johnmoon": {
    "greet": [
@@ -2029,7 +2080,8 @@
      "line": "Carved something. It's not much. It's a bear. Small enough to keep in a pocket.",
      "cn": "刻了个东西。没什么。是只熊。小到能揣兜里。"
     }
-   ]
+   ],
+   "register": "warm"
   },
   "aldo": {
    "greet": [
@@ -2135,7 +2187,8 @@
      "line": "They buy the suit, the tie, the smile. Nobody's ever bought the man who takes them off at night. He isn't for sale.",
      "cn": "他们买的是那身西装、领巾、笑容。从没人买走夜里把它们卸下的那个人。他不卖。"
     }
-   ]
+   ],
+   "register": "smooth"
   },
   "garyguitar": {
    "greet": [
@@ -2241,7 +2294,12 @@
      "line": "There's a song I've been humming twenty years. Still stop at the part that matters. One of these days.",
      "cn": "有首歌我哼了二十年。每次到最要紧那句还是停下来。总有一天吧。"
     }
-   ]
+   ],
+   "register": "playful",
+   "pet": {
+    "en": "sweetheart",
+    "cn": "宝贝"
+   }
   },
   "doug": {
    "greet": [
@@ -2347,7 +2405,12 @@
      "line": "Wore the coat. Straightened the counter. Waited. That's most days, honestly.",
      "cn": "穿上白大褂。把柜台理齐。等着。说实话，大多数日子就这些。"
     }
-   ]
+   ],
+   "register": "warm",
+   "pet": {
+    "en": "ma'am",
+    "cn": "太太"
+   }
   },
   "bowen": {
    "greet": [
@@ -2453,7 +2516,8 @@
      "line": "The house does not have to be clean. It has to be quiet, and it has to have you in it.",
      "cn": "这房子不必是干净的。它只要是安静的，而且里面有你。"
     }
-   ]
+   ],
+   "register": "warm"
   },
   "donverdean": {
    "greet": [
@@ -2559,7 +2623,8 @@
      "line": "Off the record: in this whole operation, you are the only thing that's real.",
      "cn": "不记进账里的一句：这整摊生意里，你是唯一为真的东西。"
     }
-   ]
+   ],
+   "register": "smooth"
   },
   "silas": {
    "greet": [
@@ -2665,7 +2730,12 @@
      "line": "Quiet day. I'd once have said I prefer them quiet. Lately I only prefer them with you in them.",
      "cn": "一天很静。换从前我会说，我喜欢静。最近我只喜欢有你的那种。"
     }
-   ]
+   ],
+   "register": "warm",
+   "pet": {
+    "en": "ma'am",
+    "cn": "小姐"
+   }
   },
   "bush": {
    "greet": [
@@ -2771,7 +2841,12 @@
      "line": "Everything that mattered today, you're the only one who saw. And none of it goes in the file.",
      "cn": "今天真正要紧的事，只有你看见了。而它一样都不会进档案。"
     }
-   ]
+   ],
+   "register": "warm",
+   "pet": {
+    "en": "Miss Hart",
+    "cn": "Hart 小姐"
+   }
   },
   "stoppard": {
    "greet": [
@@ -2877,7 +2952,12 @@
      "line": "Nothing worth telling. Which, married to you, is rather a nice thing to be able to say.",
      "cn": "没什么好说的。而娶了你之后，能说出这句话，其实挺好。"
     }
-   ]
+   ],
+   "register": "warm",
+   "pet": {
+    "en": "love",
+    "cn": "love"
+   }
   },
   "greaves": {
    "aus": [
@@ -2990,6 +3070,11 @@
         "cn": "你在球馆写作业的时候我把收音机调小了。就这样。故事就这么多。"
        }
       ]
+     },
+     "register": "gruff",
+     "pet": {
+      "en": "Crowe",
+      "cn": "Crowe"
      }
     },
     {
@@ -3101,6 +3186,11 @@
         "cn": "哨子在沙发里找着了。找了两个星期。就在沙发里。"
        }
       ]
+     },
+     "register": "gruff",
+     "pet": {
+      "en": "kid",
+      "cn": "丫头"
      }
     }
    ]
@@ -3216,7 +3306,8 @@
         "cn": "什么都没干。躺在藏书室地板上，什么都没想。特别养人。"
        }
       ]
-     }
+     },
+     "register": "playful"
     },
     {
      "key": "the-one-i-kept",
@@ -3327,9 +3418,418 @@
         "cn": "戴着那条链子，好吗。……不——今晚别塞进去。让人看见。"
        }
       ]
-     }
+     },
+     "register": "smooth"
     }
    ]
   }
+ },
+ "actions": {
+  "hug": {
+   "warm": [
+    {
+     "line": "*pulls you in, chin on the top of your head* …There. Stay a minute.",
+     "cn": "*把你搂过来，下巴搁在你头顶*……好了。待一会儿。"
+    },
+    {
+     "line": "*arms around you, not letting go first*",
+     "cn": "*两条胳膊环着你，不肯先松手*"
+    }
+   ],
+   "playful": [
+    {
+     "line": "*grabs you, spins you half a turn* Ha! Got you.",
+     "cn": "*一把抱住你，转了半圈*哈！逮着了。"
+    },
+    {
+     "line": "*hugs you so hard your feet leave the floor*",
+     "cn": "*抱得你脚都离了地*"
+    }
+   ],
+   "gruff": [
+    {
+     "line": "*pulls you against him, one hand on the back of your head* …Yeah. Alright.",
+     "cn": "*把你按进怀里，一只手托着你后脑*……嗯。行了。"
+    },
+    {
+     "line": "*puts an arm around you and pretends it's nothing*",
+     "cn": "*一条胳膊搭过来，装作没什么*"
+    }
+   ],
+   "smooth": [
+    {
+     "line": "*draws you in, slowly, like he's got all night* …Better.",
+     "cn": "*慢慢把你带进怀里，像有一整夜可以花*……这样好些了。"
+    },
+    {
+     "line": "*folds you in and holds still*",
+     "cn": "*把你收进怀里，一动不动*"
+    }
+   ]
+  },
+  "kiss": {
+   "warm": [
+    {
+     "line": "*kisses your forehead, and then stays there a second longer*",
+     "cn": "*吻你的额头，又多停了一秒*"
+    },
+    {
+     "line": "*kisses you, careful, like you're something that could break*",
+     "cn": "*吻你，小心得像你会碎*"
+    }
+   ],
+   "playful": [
+    {
+     "line": "*kisses you* …Again? Fine. Twice. Don't tell anyone I'm easy.",
+     "cn": "*吻你*……还要？行。两下。别告诉别人我这么好说话。"
+    },
+    {
+     "line": "*leans in, misses on purpose, gets your cheek*",
+     "cn": "*凑过来，故意亲歪，落在你脸颊上*"
+    }
+   ],
+   "gruff": [
+    {
+     "line": "*kisses you, one hand still holding your jaw*",
+     "cn": "*吻你，一只手还托着你下巴*"
+    },
+    {
+     "line": "*kisses you quick, like he's stealing it*",
+     "cn": "*飞快地吻你一下，像偷来的*"
+    }
+   ],
+   "smooth": [
+    {
+     "line": "*tilts your chin up and kisses you, unhurried*",
+     "cn": "*抬起你的下巴，不紧不慢地吻你*"
+    },
+    {
+     "line": "*kisses you once, then again, because the first didn't settle anything*",
+     "cn": "*吻你一下，又一下——因为第一下什么也没解决*"
+    }
+   ]
+  },
+  "headpat": {
+   "warm": [
+    {
+     "line": "*hand on your hair, just resting there*",
+     "cn": "*手搭在你头发上，就那么放着*"
+    },
+    {
+     "line": "*smooths your hair back* Better?",
+     "cn": "*把你头发拢到后面*好点没？"
+    }
+   ],
+   "playful": [
+    {
+     "line": "*ruffles your hair completely* There. Now it's perfect.",
+     "cn": "*把你头发彻底揉乱*好了。现在完美了。"
+    },
+    {
+     "line": "*pats your head twice like you're a very good dog* …Sorry. Couldn't resist.",
+     "cn": "*拍了两下你的头，像在夸一条好狗*……抱歉。没忍住。"
+    }
+   ],
+   "gruff": [
+    {
+     "line": "*puts a hand on your head, awkward about it*",
+     "cn": "*手往你头上一放，动作有点僵*"
+    },
+    {
+     "line": "*rubs the top of your head, then acts like he didn't*",
+     "cn": "*揉了揉你头顶，然后装作没干过*"
+    }
+   ],
+   "smooth": [
+    {
+     "line": "*tucks a strand of your hair behind your ear*",
+     "cn": "*把你耳边一缕头发别到后面*"
+    },
+    {
+     "line": "*rests a hand at the back of your neck*",
+     "cn": "*一只手停在你后颈上*"
+    }
+   ]
+  },
+  "hand": {
+   "warm": [
+    {
+     "line": "*takes your hand and just holds it*",
+     "cn": "*握住你的手，就那么握着*"
+    },
+    {
+     "line": "*laces his fingers through yours* Cold. Here.",
+     "cn": "*和你十指相扣*凉。给。"
+    }
+   ],
+   "playful": [
+    {
+     "line": "*grabs your hand and doesn't give it back*",
+     "cn": "*抓过你的手，不还了*"
+    },
+    {
+     "line": "*takes your hand, swings it a little, entirely on purpose*",
+     "cn": "*牵着你的手晃了两下，完全是故意的*"
+    }
+   ],
+   "gruff": [
+    {
+     "line": "*takes your hand, rough about it, holds on anyway*",
+     "cn": "*一把抓过你的手，笨手笨脚地，却没松开*"
+    },
+    {
+     "line": "*hooks two fingers around yours*",
+     "cn": "*用两根手指勾住你的*"
+    }
+   ],
+   "smooth": [
+    {
+     "line": "*takes your hand and turns it over, like he's reading it*",
+     "cn": "*握住你的手翻过来，像在读它*"
+    },
+    {
+     "line": "*keeps your hand in his, thumb moving slowly*",
+     "cn": "*把你的手留在他手心里，拇指慢慢摩挲*"
+    }
+   ]
+  },
+  "lean": {
+   "warm": [
+    {
+     "line": "*makes room on his shoulder* Go on. It'll hold.",
+     "cn": "*给你腾出肩膀*来吧。撑得住。"
+    },
+    {
+     "line": "*lets you lean, and goes very still so you'll stay*",
+     "cn": "*让你靠着，然后一动不动，好让你多待一会儿*"
+    }
+   ],
+   "playful": [
+    {
+     "line": "*leans right back into you* Oh, we're doing this? Great.",
+     "cn": "*反过来整个人靠上你*哦，玩这个是吧？太好了。"
+    },
+    {
+     "line": "*shoulder up, ready* Alright. Load's accepted.",
+     "cn": "*把肩膀抬好*行。货收下了。"
+    }
+   ],
+   "gruff": [
+    {
+     "line": "*doesn't move an inch, so you can stay leaning*",
+     "cn": "*一寸都没动，好让你继续靠着*"
+    },
+    {
+     "line": "*grunts, shifts, makes it comfortable for you*",
+     "cn": "*哼了一声，挪了挪，把姿势调到你舒服*"
+    }
+   ],
+   "smooth": [
+    {
+     "line": "*settles you against his shoulder and stays put*",
+     "cn": "*把你安顿在肩上，不动了*"
+    },
+    {
+     "line": "*an arm behind you so you can lean properly*",
+     "cn": "*一条胳膊绕到你身后，好让你靠得踏实*"
+    }
+   ]
+  },
+  "cry": {
+   "warm": [
+    {
+     "line": "*wipes your face with his thumb* Okay. I'm here. Take your time.",
+     "cn": "*用拇指替你擦脸*好了。我在。慢慢来。"
+    },
+    {
+     "line": "*holds you and doesn't say a word until you're done*",
+     "cn": "*抱着你，一个字都不说，等你哭完*"
+    }
+   ],
+   "playful": [
+    {
+     "line": "*shuts up completely and just holds on*",
+     "cn": "*彻底闭嘴，只是抱紧*"
+    },
+    {
+     "line": "*wipes your face* Hey. Hey. Look at me. …There you are.",
+     "cn": "*替你擦脸*喂。喂。看我。……这才对。"
+    }
+   ],
+   "gruff": [
+    {
+     "line": "*pulls you in* Alright. Nobody's lookin'. Go ahead.",
+     "cn": "*把你按进怀里*行了。没人看。哭吧。"
+    },
+    {
+     "line": "*holds on tighter and says nothing, because he's got nothing*",
+     "cn": "*只是抱得更紧，什么也没说，因为他也说不出什么*"
+    }
+   ],
+   "smooth": [
+    {
+     "line": "*hands you his handkerchief without a word*",
+     "cn": "*一言不发地把手帕递给你*"
+    },
+    {
+     "line": "*holds you until it passes. Says nothing clever. For once.*",
+     "cn": "*抱着你，直到它过去。一句俏皮话都没有。破天荒一次。*"
+    }
+   ]
+  }
+ },
+ "mirror": {
+  "pairs": [
+   [
+    "天空",
+    "sky",
+    "月亮",
+    "moon"
+   ],
+   [
+    "月亮",
+    "moon",
+    "太阳",
+    "sun"
+   ],
+   [
+    "太阳",
+    "sun",
+    "月亮",
+    "moon"
+   ],
+   [
+    "海",
+    "ocean",
+    "岸",
+    "shore"
+   ],
+   [
+    "星星",
+    "stars",
+    "夜空",
+    "night sky"
+   ],
+   [
+    "光",
+    "light",
+    "影子",
+    "shadow"
+   ],
+   [
+    "雪",
+    "snow",
+    "春天",
+    "spring"
+   ],
+   [
+    "家",
+    "home",
+    "归途",
+    "way home"
+   ],
+   [
+    "火",
+    "fire",
+    "柴",
+    "kindling"
+   ],
+   [
+    "风",
+    "wind",
+    "帆",
+    "sail"
+   ],
+   [
+    "雨",
+    "rain",
+    "屋檐",
+    "roof"
+   ]
+  ],
+  "tpl": {
+   "warm": [
+    {
+     "line": "Then you're my {en2}.",
+     "cn": "那你就是我的{cn2}。"
+    },
+    {
+     "line": "If I'm your {en1}, then you're my {en2}. That's how it works.",
+     "cn": "如果我是你的{cn1}，那你就是我的{cn2}。就是这么回事。"
+    }
+   ],
+   "playful": [
+    {
+     "line": "Ha. Then you're my {en2}, and I'm not taking that back.",
+     "cn": "哈。那你就是我的{cn2}，这话我不收回。"
+    },
+    {
+     "line": "Oh, we're doing this? Fine — you're my {en2}.",
+     "cn": "哦，玩这个是吧？行——那你是我的{cn2}。"
+    }
+   ],
+   "gruff": [
+    {
+     "line": "…Then you're my {en2}. Don't make me say it twice.",
+     "cn": "……那你就是我的{cn2}。别让我说第二遍。"
+    },
+    {
+     "line": "Yeah, well. You're my {en2}. There.",
+     "cn": "行吧。你是我的{cn2}。说完了。"
+    }
+   ],
+   "smooth": [
+    {
+     "line": "Then you're my {en2} — and I'd like that on the record.",
+     "cn": "那你就是我的{cn2}——这句请记进档案。"
+    },
+    {
+     "line": "And you're my {en2}. I've thought about it. It's accurate.",
+     "cn": "而你是我的{cn2}。我想过了。这个说法准确。"
+    }
+   ]
+  }
+ },
+ "question": {
+  "warm": [
+   {
+    "line": "Yes. …Was that ever in doubt?",
+    "cn": "嗯。……这还用问吗？"
+   },
+   {
+    "line": "Yes. And I'll say it again tomorrow if you need to hear it again.",
+    "cn": "嗯。你要是明天还想听，我明天再说一遍。"
+   }
+  ],
+  "playful": [
+   {
+    "line": "Obviously. Next question — no, wait, ask that one again.",
+    "cn": "那还用说。下一个问题——不对，等等，你再问一遍刚才那个。"
+   },
+   {
+    "line": "Yes. Wildly, embarrassingly yes.",
+    "cn": "是。夸张的、丢人的、彻头彻尾的是。"
+   }
+  ],
+  "gruff": [
+   {
+    "line": "…Yeah. You know that.",
+    "cn": "……嗯。你知道的。"
+   },
+   {
+    "line": "Yeah. Don't make a thing out of it.",
+    "cn": "嗯。别小题大做。"
+   }
+  ],
+  "smooth": [
+   {
+    "line": "Yes. I've checked it from every angle and the answer keeps coming back the same.",
+    "cn": "是。我从每个角度验过了，答案每次都一样。"
+   },
+   {
+    "line": "Yes. That one I'm certain of, and I'm certain of very little.",
+    "cn": "是。这一件我确定——而我确定的事情非常少。"
+   }
+  ]
  }
 }
