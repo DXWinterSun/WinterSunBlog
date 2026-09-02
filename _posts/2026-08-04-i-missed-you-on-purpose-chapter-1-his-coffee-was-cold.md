@@ -11,6 +11,7 @@ series_order: 1
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 1"
+story_time: "1984"
 summary: "他在斜对面坐了三天，报纸是同一天的。你只觉得他好看。"
 ---
 
