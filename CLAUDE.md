@@ -495,6 +495,7 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 | AU 星图 `sky/` | `sky/data.json`——**构建时由 Liquid 生成**（遍历 `layout: series` 页 + 各自章节 + `au_palettes.yml` 配色 + `moods.yml`） | 无；新系列若没进 `au_palettes.yml` 会回退到默认金色 |
 | 情绪磁带机 · Mixtape `jukebox/`（2026-07-30 由点唱机改装：卡带舱+PLAY 键+出带口，功能与数据源不变） | `jukebox/data.json`——构建时生成（全部 posts + moods 色板），客户端按 mood 标签过滤 | 无；文章必须带 mood 标签才会入库 |
 | 一封信 `fable/` | 纯静态（信件内容内嵌） | **永远不要改**（见下） |
+| 深夜热线 `sam/hotline/`（2026-08 加，详见下方专条） | `sam/lines.json` ＋ `sam/hotline-replies.json`（均运行时 fetch） | 通讯录零维护；**对题回复库要人工写**（见专条） |
 | 演出节目单 `fog-city/playbill/` | `sam/lines.json`（运行时 fetch；按 `year` 升序排幕，每幕用角色 `accent` 配色 + 锚句台词，`auLink` 自动挂「完整剧本」） | 无——画册加新角色、lines.json 照常同步后自动加一幕。它是 Fog City 系列 Ch30 的故事内实体（署名 Winter Sun），别改成普通列表页 |
 
 细节备忘：
@@ -511,6 +512,75 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 - 404 页底部会从 lines.json 随机抽一句台词当「迷路安慰奖」。
 - 这批页面的构建验证方式：`JEKYLL_NO_BUNDLER_REQUIRE=true jekyll build`
   （仓库的 Gemfile.lock 是远古版本，别用 bundler；需全局 `gem install jekyll` + 各插件）。
+
+### ☎ 深夜热线 `sam/hotline/` 的交互口径与「对题回复库」
+
+**交互（2026-08 Winter 拍板，别擅自改回去）：**
+- **默认「他在听」**——你自己在输入框打的字，他只听着、一句不插；状态栏恒显示「他在听」。
+- 输入框左边那颗常驻键 **「让他回应」**＝一次性动作：点一下，他把「上一次他开口之后你连着说的所有话」
+  合起来定情绪，**固定只回 1 句**（Winter 2026-09 定：早先「最多两句」那套追加逻辑已整体拿掉，
+  第二句跟第一句关联太弱、像两个人在说话）。不是两态开关，点完不切模式。
+- 下面那排**预设短句与 emoji 是「直接说给他听」**，点了就有回应（每次固定 1 句）。
+- 通讯录有**搜索**（角色名 / 电影中英名 / 年份，空格分词全部命中；回车直拨第一个；
+  「随便拨一个」只在筛出来的人里挑）。
+- 首次拨通某人，他先说自己的**锚句**（lines.json 第 1 句）。
+- 对话历史存本机 localStorage 键 `ws-hotline-v1`，「撕掉这页」清当前角色。
+- 入口三处：Sam 页第 08 张卡、画册角色页「打给他」（`hotlineHref`，走 WALL_ALIAS）、
+  AU 系列首页 hero 底部（`_layouts/series.html` 运行时读 lines.json，先按 auLink 对路径、
+  再按 byline 首段角色名兜底认人，认不出＝非 Sam 角色系列自动不显示）。
+  **只单向去，热线不设回程**（Winter 定）。
+
+**⚠️ `sam/hotline-replies.json`＝对题回复库（唯一需要人工维护的部分）**
+
+只靠 lines.json 那 5 句金句聊天，两轮就被摸清底牌（Winter 2026-08 原话：「答复太 predictable」）。
+所以每个角色另写一套**聊天用**的回复，按情境分桶，页面按 `intentOf()` 认出你这句在说什么事，
+到对应桶里取：
+
+| 桶名 | 情境 | 关键词举例 |
+|---|---|---|
+| `greet` | 打招呼 | 在吗 / 你好 / 嗨 |
+| `miss` | 想念 | 想你 / 好想 / 惦记 |
+| `tired` | 疲惫倾诉 | 累 / 难过 / 委屈 / 崩溃 |
+| `sleepless` | 失眠 | 睡不着 / 失眠 / 半夜 |
+| `night` | 道晚安 | 晚安 / 去睡 / 🌙 |
+| `love` | 表白撒娇 | 爱你 / 喜欢你 / 抱抱 / ❤️ |
+| `meet` | 说要去见他 | 见你 / 来找你 / 我会去 |
+| `praise` | 夸他 | 好帅 / 演得好 / ✨ |
+| `tease` | 闹他 | 讨厌 / 坏 / 不理我 |
+| `daily` | 日常兜底 | （其余全部） |
+
+格式：`chars.<charId>.<桶名>[] = { line: 英文原话, cn: 中译 }`；charId 与 lines.json 同一套
+（别名同样走 `meta.mf_alias`）。**写作要求**：① 严格照该系列圣经的**称呼**（Ocean / baby doll /
+sweetheart / 天使小姐…）与**声口**；② 遵守全站语言规则——`line` 是他实际说的英文，`cn` 只是译文，
+不能让人物「中英各说一遍」；③ 每桶 2–3 条，一人 ~21–24 条；④ 守各系列自己的红线。
+**没写回复库的角色自动退回 lines.json 的 5 句台词**，页面不会坏。
+
+**已配齐**：画册里带 `auLink` 的 **29 个有 AU 的角色全部写完**（651 条）。Bill Greaves 与
+Jim Crocker 各有两个 AU，条目改用 `aus` 数组（每项 `{key,label,labelCN,register,pet,buckets}`），
+聊天室顶部出现切换条、两边各存各的对话。**新写／改写回复库要先给 Winter 过目再上线**（属创作文字）。
+
+**⚙️ 另外四招「像活的」**（2026-08 加，学 2010 年代那批预设对话应用的老路数，同在
+`hotline-replies.json`，按角色的 `register` 声口档 `warm / playful / gruff / smooth` 取模板）：
+
+| 层 | 键 | 触发 | 例 |
+|---|---|---|---|
+| 动作对答 | `actions.<hug/kiss/headpat/hand/lean/cry>.<档>` | 抱抱 / 亲亲 / 摸头 / 牵手 / 靠着 / 想哭 | 「抱抱」→ `*把你搂过来，下巴搁在你头顶*` |
+| 镜像接话 | `mirror.pairs` + `mirror.tpl.<档>` | 「你是我的X」（X 在 pairs 里） | 「你是我的海」→「那你就是我的岸。」 |
+| **主题回声** | `topics[]` + `topic_tpl.<档>` | 你倾诉里说到的那件事（工作 / 学生 / 家里 / 天气…共 17 类） | 「今天学生太吵了…」→「又是学生。……嗯。坐下。」 |
+| 问句先答 | `question.<档>` | 句尾问号 / 吗 / 好不好… | 「你想我吗？」→「嗯。别小题大做。」 |
+
+回复优先级：**动作 → 接话 → 主题回声 → 情境桶（非 daily）→ 问句 → daily 兜底 → 5 句台词**。
+`mirror.pairs` 每项是 `[中文1, 英文1, 中文2, 英文2]`，模板里用 `{cn1}{en1}{cn2}{en2}` 占位；
+新增角色只要给 `register`（和可选的 `pet` 称呼）就自动吃到这四层。
+
+**主题回声（＝「对上了」的那一下）的写法与坑：**
+- `topics[]` 每项 `{key, re, cn, en}`：`re` 是关键词正则（竖线分隔），`cn` / `en` 是**这件事的名字**
+  （如 `学生` / `the students`），填进 `topic_tpl` 的 `{cn}` `{en}` 槽位。新增主题就加一行，
+  不需要写整句回复——「对上」的感觉来自把她说的那件事的名字原样还给她，不是靠理解。
+- ⚠️ **选主题按「命中次数最多」，同次数再取「最先说到」的**（`topicOf()`）。一段倾诉常会顺带
+  扫到别的词——「讲课讲到嗓子哑」会命中 health，「不想做饭」会命中 food——早期版本取「最后命中」，
+  结果她说学生、他回身体，说下雨、他回吃饭。别改回按位置取。
+- 英文模板里 `{en}` 落在句首要大写，代码里已按句末标点统一提大写，模板照常写小写的 `the students`。
 
 **`sam/lines.json` 要点：**
 - `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。**每日轮换只读它。**

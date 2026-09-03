@@ -345,7 +345,7 @@
   .keyrow input {
     flex: 1; min-width: 0; padding: 10px 12px; border-radius: 8px;
     border: 1px solid rgba(255,222,180,.2); background: #0f0b07;
-    color: #ece1d0; font-family: monospace; font-size: 13px;
+    color: #ece1d0; font-family: monospace; font-size: 16px;
   }
   .keyrow input:focus { outline: none; border-color: rgba(230,190,110,.6); }
   .keyrow button {
@@ -369,15 +369,22 @@
 
   /* ————— 添加 / 编辑弹窗 ————— */
   .overlay {
-    position: fixed; inset: 0; z-index: 40; display: none;
+    /* 高度/位移跟随 visualViewport（见下方 fitOverlay）：iPhone 上键盘顶起来时，
+       固定定位仍按「整页」算高度，弹窗底部的保存/取消会被键盘盖住点不到。 */
+    position: fixed; left: 0; right: 0; top: 0;
+    height: var(--vv-h, 100dvh);
+    transform: translateY(var(--vv-top, 0px));
+    z-index: 40; display: none;
     align-items: flex-end; justify-content: center;
     background: rgba(8,6,4,.72); backdrop-filter: blur(3px);
     padding: 14px;
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
   }
   .overlay.is-on { display: flex; }
   @media (min-width: 560px) { .overlay { align-items: center; } }
   .sheet {
-    width: min(480px, 100%); max-height: min(88dvh, 680px); overflow-y: auto;
+    width: min(480px, 100%); max-height: 100%; overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     border-radius: 16px; padding: 22px 20px 18px;
     border: 1px solid rgba(230,190,110,.35);
     background:
@@ -397,7 +404,8 @@
   .f-input, .f-select, .f-area {
     width: 100%; padding: 10px 12px; border-radius: 8px;
     border: 1px solid rgba(255,222,180,.2); background: #0f0b07;
-    color: #ece1d0; font-family: 'Noto Serif SC', serif; font-size: 14px;
+    /* iOS Safari 对字号 < 16px 的输入框会在聚焦时自动放大整页且不回弹，恒用 16px */
+    color: #ece1d0; font-family: 'Noto Serif SC', serif; font-size: 16px;
   }
   .f-input:focus, .f-select:focus, .f-area:focus { outline: none; border-color: rgba(230,190,110,.6); }
   .f-area { min-height: 64px; resize: vertical; line-height: 1.8; }
@@ -420,7 +428,13 @@
   }
   .tog input { width: 16px; height: 16px; accent-color: #cba14c; }
   .tog span { color: #cbb891; }
-  .sheet-actions { display: flex; gap: 10px; margin-top: 20px; }
+  /* 保存/取消钉在弹窗下沿：表单一长就得滚到底才够得着，手机上尤其难点 */
+  .sheet-actions {
+    display: flex; gap: 10px; margin-top: 20px;
+    position: sticky; bottom: -18px;              /* 抵消 .sheet 的下内边距 */
+    margin-left: -20px; margin-right: -20px; padding: 12px 20px 18px;
+    background: linear-gradient(to top, #171209 74%, rgba(23,18,9,0));
+  }
   .btn-save {
     flex: 1; padding: 12px; border-radius: 999px; cursor: pointer;
     border: 1px solid rgba(230,190,110,.6);
@@ -437,6 +451,30 @@
   .btn-cancel:hover { color: #ece1d0; }
   .btn-del { border-color: rgba(200,90,70,.4); color: #b3705e; }
   .btn-del:hover { border-color: rgba(200,90,70,.8); color: #e08a72; }
+
+  /* ————— 右下角常驻悬浮键（仅馆长可见）—————
+     藏品越收越多，添加键和底部的画册地图都要滑很久才够得着；
+     这两颗键钉在屏幕右下角，随时能添一件、或一步跳到地图。 */
+  .fabs {
+    position: fixed; z-index: 35;
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(18px, env(safe-area-inset-bottom));
+    display: none; flex-direction: column; align-items: center; gap: 10px;
+  }
+  body.is-curator .fabs { display: flex; }
+  .fab {
+    width: 54px; height: 54px; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(230,190,110,.55);
+    background: linear-gradient(160deg, rgba(203,161,76,.34), rgba(203,161,76,.12)), #171209;
+    color: #f2e7d2; box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    transition: transform .15s ease, box-shadow .25s ease;
+  }
+  .fab:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(203,161,76,.28); }
+  .fab:active { transform: translateY(0); }
+  .fab--add { font-size: 26px; line-height: 1; padding-bottom: 3px; }
+  .fab--map { width: 44px; height: 44px; font-size: 17px; opacity: .92; }
+  @media (max-width: 420px) { .fab { width: 50px; height: 50px; } .fab--map { width: 42px; height: 42px; } }
 
   /* 保存成功的小提示 */
   .toast {
@@ -497,6 +535,11 @@
 </div>
 <div class="map-grid" id="map-grid"></div>
 <p class="map-hint" id="map-hint" style="display:none">收了谁的东西，谁的格子就亮起来。<br><span class="map-hint__viewer">点亮着的格子＝只看他的藏品；点暗着的格子＝去画册看看这张脸。</span><span class="map-hint__curator">点任何格子＝直接给这个角色添一件藏品（也能筛选、去画册）。</span></p>
+
+<div class="fabs" id="fabs">
+  <button type="button" class="fab fab--map" id="fab-map" title="跳到画册地图（总表）" aria-label="跳到画册地图">&#127902;</button>
+  <button type="button" class="fab fab--add" id="fab-add" title="添加一件藏品" aria-label="添加一件藏品">&#65291;</button>
+</div>
 
 <p class="note" id="foot-note">
   这一整架，都是 Winter 一件一件收来的——谁来都可以看，<br>
@@ -593,11 +636,12 @@
   var REPO_API = "https://api.github.com/repos/DXWinterSun/WinterSunBlog/contents/sam/shelf/data.json";
 
   var TYPES = [
-    { id: "disc",  emoji: "📀", label: "碟片" },
-    { id: "card",  emoji: "🃏", label: "卡牌" },
-    { id: "goods", emoji: "🧸", label: "周边" },
-    { id: "book",  emoji: "📖", label: "书刊" },
-    { id: "other", emoji: "🎁", label: "其他" }
+    { id: "disc",    emoji: "📀", label: "碟片" },
+    { id: "card",    emoji: "🃏", label: "卡牌" },
+    { id: "goods",   emoji: "🧸", label: "周边" },
+    { id: "program", emoji: "📔", label: "场刊" },
+    { id: "book",    emoji: "📖", label: "书刊" },
+    { id: "other",   emoji: "🎁", label: "其他" }
   ];
   var FILTERS = [{ id: "all", label: "全部" }]
     .concat(TYPES.map(function (t) { return { id: t.id, label: t.emoji + " " + t.label }; }))
@@ -864,11 +908,36 @@
 
   /* ————— 角色小菜单（馆长专属） ————— */
   var cmChar = null;
+  /* ————— 弹窗贴合可见区域 —————
+     iOS 弹出键盘后，position:fixed 仍按整个页面算高度，弹窗底部（保存/取消）
+     会被键盘盖住。这里把 overlay 的高度与偏移绑到 visualViewport 上，
+     键盘一出现就跟着缩，按钮始终在能点到的地方。 */
+  function fitOverlay() {
+    var vv = window.visualViewport;
+    if (!vv) return;
+    var r = document.documentElement.style;
+    r.setProperty("--vv-h", vv.height + "px");
+    r.setProperty("--vv-top", vv.offsetTop + "px");
+  }
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", fitOverlay);
+    window.visualViewport.addEventListener("scroll", fitOverlay);
+    fitOverlay();
+  }
+  /* 点进某个输入框时，把它滚到视野中间，别贴着键盘边缘 */
+  document.addEventListener("focusin", function (e) {
+    if (!e.target.closest || !e.target.closest(".sheet")) return;
+    setTimeout(function () {
+      if (e.target.scrollIntoView) e.target.scrollIntoView({ block: "center", behavior: "smooth" });
+    }, 260);
+  });
+
   function closeCharMenu() { $("cm-overlay").classList.remove("is-on"); }
   function openCharMenu(c, n) {
     cmChar = c;
     $("cm-title").textContent = c.name + " · " + (c.filmCN || c.film);
     $("cm-filter").style.display = n ? "block" : "none";
+    fitOverlay();
     $("cm-overlay").classList.add("is-on");
   }
   $("cm-add").addEventListener("click", function () {
@@ -1024,27 +1093,29 @@
     updateNameHint();
   }
 
-  /* 碟片不用起名：选了角色就自动用电影名 */
-  function autoDiscName() {
+  /* 不用自己起名：选了关联角色就自动用「电影名（＋类别）」。
+     碟片只用电影名（历来如此）；场刊 / 卡牌 / 周边 / 书刊等在后面缀上类别，
+     省得每件都手打——想自己起名照样填，填了就以填的为准。 */
+  function autoNameFor(type) {
     var c = charById[$("f-char").value];
     if (!c) return "";
-    return c.filmCN || ("《" + c.film + "》");
+    var film = c.filmCN || ("《" + c.film + "》");
+    if (type === "disc") return film;
+    var t = typeById[type];
+    return t && t.label !== "其他" ? film + t.label : film;
   }
   function updateNameHint() {
     var hint = $("f-name-hint");
     var input = $("f-name");
-    if (formType === "disc") {
-      var auto = autoDiscName();
-      if (auto) {
-        hint.textContent = "（可不填 · 不填就叫「" + auto + "」）";
-        input.placeholder = auto + "（自动用电影名，想改再填）";
-      } else {
-        hint.textContent = "（可不填 · 选了关联角色就自动用电影名）";
-        input.placeholder = "例：《月球》蓝光…";
-      }
+    var auto = autoNameFor(formType);
+    if (auto) {
+      hint.textContent = "（可不填 · 不填就叫「" + auto + "」）";
+      input.placeholder = auto + "（自动取名，想改再填）";
     } else {
-      hint.textContent = "";
-      input.placeholder = "例：Topps 签名卡 / 亚克力立牌…";
+      hint.textContent = "（可不填 · 选了关联角色就自动取名）";
+      input.placeholder = formType === "disc" ? "例：《月球》蓝光…"
+                        : formType === "program" ? "例：百老汇场刊…"
+                        : "例：Topps 签名卡 / 亚克力立牌…";
     }
   }
 
@@ -1122,12 +1193,18 @@
     setFormType(it ? it.type : "disc");
     $("btn-del").style.display = it ? "block" : "none";
     $("btn-save").textContent = it ? "保存修改" : "摆上架子";
+    fitOverlay();
     $("overlay").classList.add("is-on");
     if (!it) setTimeout(function () { $("f-name").focus(); }, 60);
   }
   function closeSheet() { $("overlay").classList.remove("is-on"); editingId = null; }
 
   $("add-btn").addEventListener("click", function () { openSheet(null); });
+  $("fab-add").addEventListener("click", function () { openSheet(null); });
+  $("fab-map").addEventListener("click", function () {
+    var target = $("map-label").style.display === "none" ? $("map-grid") : $("map-label");
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
   $("f-char").addEventListener("change", updateNameHint);
   $("btn-cancel").addEventListener("click", closeSheet);
   $("overlay").addEventListener("click", function (e) { if (e.target === $("overlay")) closeSheet(); });
@@ -1139,7 +1216,7 @@
 
   $("btn-save").addEventListener("click", function () {
     var name = $("f-name").value.trim();
-    if (!name && formType === "disc") name = autoDiscName();
+    if (!name) name = autoNameFor(formType);
     if (!name) {
       toast(formType === "disc" ? "选一个关联角色，或给它起个名字～" : "先给它起个名字呀");
       $("f-name").focus();

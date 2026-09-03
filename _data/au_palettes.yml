@@ -175,7 +175,7 @@
   muted_cn: "倒计时灰"
   muted_en: "Countdown Grey"
 
-"A Single Shot AU":         # John Moon
+"Wintergreen":              # John Moon（v2 重写版；v1 系列名 A Single Shot AU 已归档）
   mf_id: john                # → Many Faces 画册锚点 /sam/many-faces/#john
   theme_id: johnmoon
   accent: "#8fa0b0"
@@ -467,6 +467,23 @@
   muted_en: "Frozen-Lake Slate"
 
 "No One Walks Off":         # Bill Greaves · 色卡同源画册 id: greaves
+  mf_id: greaves                 # → Many Faces 画册锚点 /sam/many-faces/#greaves
+  theme_id: greaves
+  accent: "#c1352b"
+  accent_ink: "#a32c22"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#16110d"
+  text: "#ede3d3"
+  muted: "#9e8f79"
+  accent_cn: "球场领带红"
+  accent_en: "Courtside Crimson"
+  bg_cn: "散场夜墨黑"
+  bg_en: "Empty-Gym Black"
+  text_cn: "记分牌灯白"
+  text_en: "Scoreboard White"
+  muted_cn: "枫木地板褐"
+  muted_en: "Hardwood Tan"
+
+"Eyes on Me":               # Bill Greaves（球员线）· 与 No One Walks Off 共用同一套（一个角色一套色）
   mf_id: greaves                 # → Many Faces 画册锚点 /sam/many-faces/#greaves
   theme_id: greaves
   accent: "#c1352b"
