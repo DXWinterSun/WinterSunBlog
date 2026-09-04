@@ -996,6 +996,22 @@
     var out = { label: q.label, line: fillPet(q.line, 'en'), lineCN: fillPet(q.lineCN, 'cn') };
     if (re) out.re = re.length > 26 ? re.slice(0, 25) + '…' : re;
     if (q.ask) out.ask = q.ask;
+    return withEmoji(out, c, intent);
+  }
+
+  /* 他回话带的表情：按声口档定频率与口味（贫嘴的多、硬汉几乎不发、慢条斯理的只发一个），
+     按情境换一套，偶尔混进他自己的专属小物件。AU 原话（带出处）和 *动作* 不加。 */
+  function withEmoji(out, c, intent) {
+    var st = EXTRA.emoji_style, r = st && st[reg()];
+    if (!r || out.label || !out.line || /^\*/.test(out.line) || !(au && au.buckets)) return out;
+    if (Math.random() >= r.rate) return out;
+    var pool = (intent && r[intent]) || r.any;
+    var own = st.chars && st.chars[c.id];
+    if (own && own.length && Math.random() < .25) pool = own;
+    var e = pool[Math.floor(Math.random() * pool.length)];
+    if (e === '…') return out;
+    if (r.double && Math.random() < r.double) e += r.any[Math.floor(Math.random() * r.any.length)];
+    out.line = out.line + ' ' + e;
     return out;
   }
 
