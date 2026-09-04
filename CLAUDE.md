@@ -604,6 +604,17 @@ Jim Crocker 各有两个 AU，条目改用 `aus` 数组（每项 `{key,label,lab
 - ⚠️ 英文模板里 `{en}` 后面别接单复数敏感的动词（`the students is…`）——用 can / should / took /
   again / did 这类不分单复数的写法。
 
+**📚 AU 语料 `sam/hotline-mined.json`（2026-09-02，Winter：「语料库再扩大一些，从他们的 AU 里筛一筛」）**
+由 **`python3 tools/hotline_mine.py`** 从 `_posts/` 各 AU 正文自动筛出「他对你说过的话」——弯双引号 /
+ASCII 双引号里的对白，靠引号前后的「他 / 角色名 / 你」判定说话人，判不出的不要；跳过题词、HTML 卡片、
+炽恋章，再过一遍露骨词表；只留能脱离上下文站住的（句末有标点、不含「他/她」第三人称、不含剧情专名、
+不带「那天/上次」这类回指）；4 个情境桶关键词分桶，其余 daily。每句带 `series` / `ch` 出处，
+页面上戳成「Wintergreen · Ch.7」，气泡只显示中文（正文即译文，无英文原句，用 `.msg-line.is-cn` 直排）。
+- 聊天里**与回复库对半混**：情境桶命中时 50% 取语料同桶的句子，daily 兜底前 50% 取语料任意句。
+- **新章节上线后重跑一遍脚本再一起推**，文件不要手改；角色 ↔ 系列的对应表在脚本头部 `MANUAL`
+  （多数按系列首页 byline 的角色名自动对上，对不上的点名写；双 AU 角色按 au key 分开存）。
+- `--sample 40` 抽样看筛得准不准；发现新的漏网剧情词就往 `CONTEXT` / `EXPLICIT` 里加。
+
 **`sam/lines.json` 要点：**
 - `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。**每日轮换只读它。**
 - `pool`：是 `characters` 的 **5 轮 round-robin 展开**（第 r 轮 = 每个角色第 r 句），

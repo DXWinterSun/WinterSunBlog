@@ -257,6 +257,9 @@
     font-size: 13px; font-weight: 300; line-height: 1.8; color: var(--muted);
     margin-top: 6px;
   }
+  .msg-gloss:empty { display: none; }
+  /* 从 AU 正文里筛出来的那些句：只有中文（正文即译文），不用斜体英文那套字 */
+  .msg-line.is-cn { font-family: inherit; font-style: normal; font-weight: 400; font-size: 15.5px; line-height: 1.75; }
   .typing .msg-bubble { padding: 13px 16px; }
   .typing i {
     display: inline-block; width: 6px; height: 6px; border-radius: 50%;
@@ -401,6 +404,7 @@
   var MF_ALIAS = {};
   var REPLIES = {};        // 对题回复库的 chars 部分（缺了就退回台词）
   var EXTRA = {};          // 动作 / 接话 / 问句模板（按声口档 warm·playful·gruff·smooth 分）
+  var MINED = {};          // 从各 AU 正文筛出的「他说过的话」（tools/hotline_mine.py 生成，带章号出处）
   var personas = [];       // 当前角色的 AU 列表（多数人只有一个）
   var au = null;           // 当前选中的 AU（决定用哪套回复库、以及对话存哪个键）
   var current = null;      // 当前聊天对象
@@ -681,6 +685,20 @@
     return t ? { line: t.line, lineCN: t.cn } : null;
   }
 
+  /* 从 AU 正文里筛出来的他说过的话：按情境桶取（daily = 任意），避开最近说过的，
+     气泡上戳一枚出处「Wintergreen · Ch.7」——他在那一章真的这么说过 */
+  function minedReply(c, bucket) {
+    var pool = MINED[c.id] && MINED[c.id][(au && au.key) || 'default'];
+    if (!pool || !pool.length) return null;
+    var recent = history(histKey(c)).filter(function (m) { return m.w === 'h' && m.line; })
+      .slice(-12).map(function (m) { return m.line; });
+    var arr = pool.filter(function (l) { return (bucket === 'daily' || l.b === bucket) && recent.indexOf(l.cn) === -1; });
+    if (!arr.length) return null;
+    var l = arr[Math.floor(Math.random() * arr.length)];
+    return { line: l.cn, lineCN: '', label: l.series + ' · Ch.' + l.ch };
+  }
+  function chance(p) { return Math.random() < p; }
+
   /* 从回复库挑：先按情境，落空退 daily，再落空退整本；避开最近说过的两句 */
   function pickFromReplies(c, intent) {
     var set = au && au.buckets;
@@ -788,6 +806,7 @@
       '<div class="msg-line"></div><div class="msg-gloss"></div></span>' +
       '<div class="msg-time">' + fmtTime(msg.t) + '</div>';
     if (msg.label) div.querySelector('.msg-stamp').textContent = msg.label;
+    if (!msg.lineCN) div.querySelector('.msg-line').classList.add('is-cn');
     div.querySelector('.msg-line').textContent = msg.line;
     div.querySelector('.msg-gloss').textContent = msg.lineCN;
     return div;
@@ -870,10 +889,12 @@
             || (intent === 'daily' && isEmojiOnly(text) ? tplReply('emoji') : null)
             || actionReply(text) || mirrorReply(text) || topicReply(text);
     }
-    q = q || (intent && intent !== 'daily' ? pickFromReplies(c, intent) : null)
+    /* 情境桶与 AU 语料对半混：一半是写给热线的回复，一半是他在正文里真说过的话 */
+    q = q || (intent && intent !== 'daily' ? ((chance(.5) && minedReply(c, intent)) || pickFromReplies(c, intent)) : null)
           || (hasLib && text && isQuestion(text) ? questionReply() : null)
           || (hasLib && pend ? tplReply('ack') : null)
-          || (hasLib && Math.random() < .4 ? askReply(key) : null)
+          || (hasLib && chance(.4) ? askReply(key) : null)
+          || (chance(.5) ? minedReply(c, 'daily') : null)
           || (intent ? pickFromReplies(c, intent) : null)
           || pickReply(c, prefs);
     return { label: q.label, line: fillPet(q.line, 'en'), lineCN: fillPet(q.lineCN, 'cn') };
@@ -1028,12 +1049,16 @@
     fetch('../lines.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }),
     /* 回复库是增强项：取不到也不影响热线可用 */
     fetch('../hotline-replies.json', { cache: 'no-cache' })
+      .then(function (r) { return r.json(); }).catch(function () { return null; }),
+    /* AU 语料同样是增强项 */
+    fetch('../hotline-mined.json', { cache: 'no-cache' })
       .then(function (r) { return r.json(); }).catch(function () { return null; })
   ])
     .then(function (both) {
       var data = both[0];
       REPLIES = (both[1] && both[1].chars) || {};
       EXTRA = both[1] || {};
+      MINED = (both[2] && both[2].chars) || {};
       MF_ALIAS = (data.meta && data.meta.mf_alias) || {};
       chars = data.characters.slice().sort(function (a, b) { return yearNum(a.year) - yearNum(b.year); });
       $('boot').classList.add('hidden');
