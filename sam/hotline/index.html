@@ -252,6 +252,21 @@
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
   .msg-read { margin-left: 6px; }
+  /* 你引他的那句：放在你自己气泡里，靠右、细线在右 */
+  .msg--me .msg-bubble .msg-quote {
+    border-left: 0; border-right: 2px solid rgba(0,0,0,.35); padding-left: 0; padding-right: 8px;
+    color: inherit; opacity: .7; font-size: 11.5px; margin-bottom: 5px; text-align: right;
+  }
+  .msg--him:not(.typing) .msg-bubble { cursor: pointer; }
+  .msg--him.is-target .msg-bubble { outline: 1px solid var(--accent); outline-offset: 2px; }
+  /* 输入框上方那条「回复：…」 */
+  .replybar {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 8px; padding: 6px 10px 6px 12px;
+    border-left: 2px solid var(--accent); background: rgba(255,255,255,.05); border-radius: 0 10px 10px 0;
+    font-size: 12px; color: var(--muted);
+  }
+  .replybar-text { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .replybar button { flex: 0 0 auto; background: none; border: 0; color: var(--muted); font-size: 18px; line-height: 1; padding: 0 2px; }
   .msg-stamp {
     font-family: 'Special Elite', monospace; font-size: 10px; letter-spacing: 2.5px;
     color: var(--accent); text-transform: uppercase; margin-bottom: 6px; opacity: .9;
@@ -377,6 +392,7 @@
   <div class="chat-log" id="log" aria-live="polite"></div>
   <div class="chat-input">
     <p class="chat-hint" id="hint">你说的他都听着 · 想他开口，点左边那颗键</p>
+    <div class="replybar hidden" id="replybar"><span class="replybar-text" id="replytext"></span><button type="button" id="replyx" aria-label="取消引用">×</button></div>
     <form class="chat-free" id="freeform">
       <button type="button" class="chat-vent on" id="vent">让他回应</button>
       <textarea id="freetext" rows="1" maxlength="600" placeholder="跟他说点什么……"></textarea>
@@ -645,7 +661,7 @@
     var pool = set.filter(function (a) { return a.key !== last; });
     var a = pickTpl(pool.length ? pool : set);
     setMeta(charId, { pending: { key: a.key, t: Date.now() }, lastAsk: a.key });
-    return { line: a.line, lineCN: a.cn };
+    return { line: a.line, lineCN: a.cn, ask: a.key };
   }
   function askBranch(charId, key, kind) {
     var set = EXTRA.asks && (EXTRA.asks[reg()] || EXTRA.asks.warm);
@@ -803,7 +819,9 @@
     var div = document.createElement('div');
     div.className = 'msg msg--me' + (msg.e ? ' msg--emoji' : '');
     div.innerHTML = '<span class="msg-bubble"></span><div class="msg-time">' + fmtTime(msg.t) + '<span class="msg-read"></span></div>';
-    div.querySelector('.msg-bubble').textContent = msg.x;
+    var bub = div.querySelector('.msg-bubble');
+    if (msg.re) { var qd = document.createElement('div'); qd.className = 'msg-quote'; qd.textContent = '↩ ' + msg.re; bub.appendChild(qd); }
+    bub.appendChild(document.createTextNode(msg.x));
     /* 已读：历史消息直接标；刚发的隔一两秒再标——像他刚看见 */
     if (!live) div.querySelector('.msg-read').textContent = '· 已读';
     else setTimeout(function () { div.querySelector('.msg-read').textContent = '· 已读'; }, 900 + Math.random() * 1500);
@@ -844,6 +862,8 @@
       '<div class="msg-time">' + fmtTime(msg.t) + '</div>';
     if (msg.label) div.querySelector('.msg-stamp').textContent = msg.label;
     if (msg.re) div.querySelector('.msg-quote').textContent = '↩ ' + msg.re;
+    div.setAttribute('data-q', msg.lineCN || msg.line || '');
+    if (msg.ask) div.setAttribute('data-ask', msg.ask);
     if (!msg.lineCN) div.querySelector('.msg-line').classList.add('is-cn');
     div.querySelector('.msg-line').textContent = msg.line;
     div.querySelector('.msg-gloss').textContent = msg.lineCN;
@@ -901,6 +921,7 @@
     var v = box.value.replace(/\s+$/, '');
     if (!v.trim() || busy || !current) return;
     var msg = { w: 'm', t: Date.now(), x: v };
+    attachReply(msg);
     saveMsg(histKey(current), msg);
     $('log').appendChild(bubbleMe(msg, true)); scrollLog();
     box.value = ''; box.style.height = 'auto';
@@ -922,6 +943,8 @@
     var meta = getMeta(key);
     var pend = meta.pending && (Date.now() - meta.pending.t < 6 * 3600e3) ? meta.pending : null;
     if (meta.pending) setMeta(key, { pending: null });
+    var lastMine = history(key).filter(function (m) { return m.w === 'm'; }).slice(-1)[0];
+    if (lastMine && lastMine.reAsk) pend = { key: lastMine.reAsk, t: Date.now() };
     var q = null, kind = text ? shortKind(text) : null, re = null;
     LAST_TOPIC = null;
     if (hasLib && text) {
@@ -950,6 +973,7 @@
           || pickReply(c, prefs);
     var out = { label: q.label, line: fillPet(q.line, 'en'), lineCN: fillPet(q.lineCN, 'cn') };
     if (re) out.re = re.length > 26 ? re.slice(0, 25) + '…' : re;
+    if (q.ask) out.ask = q.ask;
     return out;
   }
 
@@ -969,6 +993,7 @@
            反而像两个人在说话；早先那套「12% / 主题命中 85% 追一条」已整体拿掉） */
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
         if (q.re) msg.re = q.re;
+        if (q.ask) msg.ask = q.ask;
         saveMsg(histKey(c), msg);
         log.appendChild(bubbleHim(msg)); scrollLog();
         setBusy(false);
@@ -979,6 +1004,7 @@
   function send(chip) {
     if (busy || !current) return;
     var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
+    attachReply(msg);
     saveMsg(histKey(current), msg);
     $('log').appendChild(bubbleMe(msg, true)); scrollLog();
     himReplies(current, chip.pref, 0, chip.intent, chip.t, null, [chip.t]);
@@ -1010,6 +1036,7 @@
   }
 
   function renderLog() {
+    setReplyTo(null);
     var log = $('log');
     log.innerHTML = '<div class="chat-day">— This line only rings for you —</div>';
     var past = history(histKey(current)), lastDay = null;
@@ -1069,6 +1096,30 @@
     himReplies(current, has ? bucketForText(trail) : ['any'], 600,
                has ? intentOf(trail) : 'daily', has ? trail : '', null, parts);
   });
+
+  /* ————— 引用他的话：点一下他的气泡，输入框上方出现「回复：…」，发出去的话就带着它 ————— */
+  var replyTo = null;
+  function setReplyTo(r) {
+    replyTo = r;
+    Array.prototype.forEach.call(document.querySelectorAll('.msg--him.is-target'), function (d) { d.classList.remove('is-target'); });
+    if (r && r.el) r.el.classList.add('is-target');
+    $('replybar').classList.toggle('hidden', !r);
+    $('replytext').textContent = r ? '回复：' + r.q : '';
+  }
+  function attachReply(msg) {
+    if (!replyTo) return;
+    msg.re = replyTo.q.length > 26 ? replyTo.q.slice(0, 25) + '…' : replyTo.q;
+    if (replyTo.ask) msg.reAsk = replyTo.ask;
+    setReplyTo(null);
+  }
+  $('log').addEventListener('click', function (e) {
+    var him = e.target.closest && e.target.closest('.msg--him');
+    if (!him || him.classList.contains('typing')) return;
+    if (replyTo && replyTo.el === him) { setReplyTo(null); return; }
+    setReplyTo({ q: him.getAttribute('data-q') || '', ask: him.getAttribute('data-ask') || '', el: him });
+    $('freetext').focus();
+  });
+  $('replyx').addEventListener('click', function () { setReplyTo(null); });
 
   $('freeform').addEventListener('submit', function (e) { e.preventDefault(); sendFree(); });
   $('freetext').addEventListener('keydown', function (e) {
