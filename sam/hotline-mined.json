@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1740
+  "count": 1748
  },
  "chars": {
   "youngsam": {
@@ -1675,6 +1675,13 @@
      "series": "The Real Thing"
     },
     {
+     "cn": "您问吧，sir。",
+     "b": "daily",
+     "ch": 24,
+     "title": "Chapter 24 · 有一双袜子",
+     "series": "The Real Thing"
+    },
+    {
      "cn": "我在那张桌子上把每一句话都过了三遍。",
      "b": "daily",
      "ch": 25,
@@ -2071,6 +2078,55 @@
      "b": "tired",
      "ch": 44,
      "title": "Chapter 41 · 那匹马的出处",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "您不用带东西，sir。",
+     "b": "daily",
+     "ch": 49,
+     "title": "Chapter 43 · 我今年有地方去",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "你做过一回。",
+     "b": "daily",
+     "ch": 49,
+     "title": "Chapter 43 · 我今年有地方去",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "今年这顿算你的。",
+     "b": "daily",
+     "ch": 49,
+     "title": "Chapter 43 · 我今年有地方去",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "你现在过的日子跟现在一模一样。",
+     "b": "daily",
+     "ch": 50,
+     "title": "Extra · 那个 Greg",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "我小时候这儿天天堵。",
+     "b": "daily",
+     "ch": 51,
+     "title": "Chapter 44 · 第七回",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "你不用跟我说。",
+     "b": "daily",
+     "ch": 51,
+     "title": "Chapter 44 · 第七回",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "左前轮，我一上路就觉出来了。",
+     "b": "daily",
+     "ch": 51,
+     "title": "Chapter 44 · 第七回",
      "series": "The Real Thing"
     }
    ]
