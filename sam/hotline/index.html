@@ -245,6 +245,13 @@
     background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.09);
     border-radius: 16px 16px 16px 4px; padding: 11px 15px 10px;
   }
+  /* 他回的是你哪一句：气泡顶上引一小截（只在你连说了好几句时出现） */
+  .msg-quote {
+    font-size: 11.5px; color: var(--muted); border-left: 2px solid var(--accent);
+    padding-left: 8px; margin-bottom: 7px; opacity: .85; max-width: 240px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .msg-read { margin-left: 6px; }
   .msg-stamp {
     font-family: 'Special Elite', monospace; font-size: 10px; letter-spacing: 2.5px;
     color: var(--accent); text-transform: uppercase; margin-bottom: 6px; opacity: .9;
@@ -561,7 +568,7 @@
      一段倾诉里往往会顺带扫到好几个词（讲课讲到「嗓子」哑，可她说的是学生），
      所以按「命中次数最多」取主题，次数相同再取「最先说到」的那个——
      人开口第一句说的，通常就是这一趟真正想说的事。 */
-  var topicRe = null;
+  var topicRe = null, LAST_TOPIC = null;
   function topicOf(text) {
     if (!EXTRA.topics) return null;
     if (!topicRe) {
@@ -581,6 +588,7 @@
         best = x.t; bestHits = hits; bestAt = first;
       }
     });
+    LAST_TOPIC = best;
     return best;
   }
   function topicReply(text) {
@@ -791,21 +799,51 @@
     return shown;
   }
 
-  function bubbleMe(msg) {
+  function bubbleMe(msg, live) {
     var div = document.createElement('div');
     div.className = 'msg msg--me' + (msg.e ? ' msg--emoji' : '');
-    div.innerHTML = '<span class="msg-bubble"></span><div class="msg-time">' + fmtTime(msg.t) + '</div>';
+    div.innerHTML = '<span class="msg-bubble"></span><div class="msg-time">' + fmtTime(msg.t) + '<span class="msg-read"></span></div>';
     div.querySelector('.msg-bubble').textContent = msg.x;
+    /* 已读：历史消息直接标；刚发的隔一两秒再标——像他刚看见 */
+    if (!live) div.querySelector('.msg-read').textContent = '· 已读';
+    else setTimeout(function () { div.querySelector('.msg-read').textContent = '· 已读'; }, 900 + Math.random() * 1500);
     return div;
+  }
+  /* 他偶尔会「正在输入……」几秒又停下——像想说什么又咽回去了（15%，只在他在听的时候） */
+  function ghostTyping(c) {
+    if (Math.random() >= .15) return;
+    setTimeout(function () {
+      var log = $('log');
+      if (current !== c || busy || log.querySelector('.typing')) return;
+      var t = mkTyping();
+      log.appendChild(t); scrollLog();
+      setTimeout(function () { t.remove(); }, 1800 + Math.random() * 1600);
+    }, 2000 + Math.random() * 1500);
+  }
+  function mkTyping() {
+    var typing = document.createElement('div');
+    typing.className = 'msg msg--him typing';
+    typing.innerHTML = '<span class="msg-bubble"><i></i><i></i><i></i></span>';
+    return typing;
+  }
+  function dayLabel(ms) {
+    var d = new Date(ms), now = new Date();
+    var k = function (x) { return x.getFullYear() + '-' + x.getMonth() + '-' + x.getDate(); };
+    if (k(d) === k(now)) return '今天';
+    var y = new Date(now); y.setDate(now.getDate() - 1);
+    if (k(d) === k(y)) return '昨天';
+    return (d.getMonth() + 1) + '月' + d.getDate() + '日';
   }
   function bubbleHim(msg) {
     var div = document.createElement('div');
     div.className = 'msg msg--him';
     var stamp = msg.label ? '<div class="msg-stamp"></div>' : '';
-    div.innerHTML = '<span class="msg-bubble">' + stamp +
+    var quote = msg.re ? '<div class="msg-quote"></div>' : '';
+    div.innerHTML = '<span class="msg-bubble">' + quote + stamp +
       '<div class="msg-line"></div><div class="msg-gloss"></div></span>' +
       '<div class="msg-time">' + fmtTime(msg.t) + '</div>';
     if (msg.label) div.querySelector('.msg-stamp').textContent = msg.label;
+    if (msg.re) div.querySelector('.msg-quote').textContent = '↩ ' + msg.re;
     if (!msg.lineCN) div.querySelector('.msg-line').classList.add('is-cn');
     div.querySelector('.msg-line').textContent = msg.line;
     div.querySelector('.msg-gloss').textContent = msg.lineCN;
@@ -864,9 +902,10 @@
     if (!v.trim() || busy || !current) return;
     var msg = { w: 'm', t: Date.now(), x: v };
     saveMsg(histKey(current), msg);
-    $('log').appendChild(bubbleMe(msg)); scrollLog();
+    $('log').appendChild(bubbleMe(msg, true)); scrollLog();
     box.value = ''; box.style.height = 'auto';
     /* 他在听：自己打的字不自动触发回复，点「让他回应」他才开口 */
+    ghostTyping(current);
   }
 
   /* ————— 对话流程 ————— */
@@ -875,19 +914,31 @@
      → 短答（不知道 / 哦）→ 同一句发两遍 → 只发表情
      → 动作 → 接话 → 主题回声 → 情境桶 → 问句 → 他问过你、你答了别的（先接住）
      → 有时候换他问你一句（40%）→ daily 兜底 → 5 句台词 */
-  function composeReply(c, prefs, intent, text, trailCount) {
+  function composeReply(c, prefs, intent, text, parts) {
+    parts = parts || [];
+    var trailCount = parts.length;
     var key = histKey(c);
     var hasLib = !!(au && au.buckets);
     var meta = getMeta(key);
     var pend = meta.pending && (Date.now() - meta.pending.t < 6 * 3600e3) ? meta.pending : null;
     if (meta.pending) setMeta(key, { pending: null });
-    var q = null, kind = text ? shortKind(text) : null;
+    var q = null, kind = text ? shortKind(text) : null, re = null;
+    LAST_TOPIC = null;
     if (hasLib && text) {
       if (pend && (kind === 'yes' || kind === 'no')) q = askBranch(key, pend.key, kind);
       q = q || (kind ? shortReply(kind) : null)
             || (isRepeat(key, trailCount) ? tplReply('repeat') : null)
             || (intent === 'daily' && isEmojiOnly(text) ? tplReply('emoji') : null)
             || actionReply(text) || mirrorReply(text) || topicReply(text);
+      /* 你连说了好几句时，标出他接的是哪一句：主题层找含那个词的那句，其余取最后一句 */
+      if (q && trailCount >= 2) {
+        if (LAST_TOPIC) {
+          var tre = new RegExp(LAST_TOPIC.re);
+          re = parts.filter(function (p) { return tre.test(p); })[0] || null;
+        } else {
+          re = parts[parts.length - 1];
+        }
+      }
     }
     /* 情境桶与 AU 语料对半混：一半是写给热线的回复，一半是他在正文里真说过的话 */
     q = q || (intent && intent !== 'daily' ? ((chance(.5) && minedReply(c, intent)) || pickFromReplies(c, intent)) : null)
@@ -897,14 +948,15 @@
           || (chance(.5) ? minedReply(c, 'daily') : null)
           || (intent ? pickFromReplies(c, intent) : null)
           || pickReply(c, prefs);
-    return { label: q.label, line: fillPet(q.line, 'en'), lineCN: fillPet(q.lineCN, 'cn') };
+    var out = { label: q.label, line: fillPet(q.line, 'en'), lineCN: fillPet(q.lineCN, 'cn') };
+    if (re) out.re = re.length > 26 ? re.slice(0, 25) + '…' : re;
+    return out;
   }
 
-  function himReplies(c, prefs, extraDelay, intent, text, forced, trailCount) {
+  function himReplies(c, prefs, extraDelay, intent, text, forced, parts) {
     var log = $('log');
-    var typing = document.createElement('div');
-    typing.className = 'msg msg--him typing';
-    typing.innerHTML = '<span class="msg-bubble"><i></i><i></i><i></i></span>';
+    Array.prototype.forEach.call(log.querySelectorAll('.typing'), function (t) { t.remove(); });
+    var typing = mkTyping();
     setBusy(true);
     setTimeout(function () {
       if (current !== c) return;
@@ -912,10 +964,11 @@
       setTimeout(function () {
         if (current !== c) return;
         typing.remove();
-        var q = forced || composeReply(c, prefs, intent, text, trailCount);
+        var q = forced || composeReply(c, prefs, intent, text, parts);
         /* 固定只回一句（Winter 2026-09 定：追加的第二句跟第一句关联太弱，
            反而像两个人在说话；早先那套「12% / 主题命中 85% 追一条」已整体拿掉） */
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
+        if (q.re) msg.re = q.re;
         saveMsg(histKey(c), msg);
         log.appendChild(bubbleHim(msg)); scrollLog();
         setBusy(false);
@@ -927,8 +980,8 @@
     if (busy || !current) return;
     var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
     saveMsg(histKey(current), msg);
-    $('log').appendChild(bubbleMe(msg)); scrollLog();
-    himReplies(current, chip.pref, 0, chip.intent, chip.t, null, 1);
+    $('log').appendChild(bubbleMe(msg, true)); scrollLog();
+    himReplies(current, chip.pref, 0, chip.intent, chip.t, null, [chip.t]);
   }
 
   /* 两个 AU 的角色：顶部长出切换条，各自一套回复库、各自一段对话 */
@@ -959,8 +1012,14 @@
   function renderLog() {
     var log = $('log');
     log.innerHTML = '<div class="chat-day">— This line only rings for you —</div>';
-    var past = history(histKey(current));
+    var past = history(histKey(current)), lastDay = null;
     past.forEach(function (m) {
+      var dl = dayLabel(m.t || 0);
+      if (dl !== lastDay) {
+        var sep = document.createElement('div');
+        sep.className = 'chat-day'; sep.textContent = '— ' + dl + ' —';
+        log.appendChild(sep); lastDay = dl;
+      }
       log.appendChild(m.w === 'm' ? bubbleMe(m) : bubbleHim(m));
     });
     setBusy(false);
@@ -1008,7 +1067,7 @@
     var parts = ventParts(histKey(current)), trail = parts.join('。');
     var has = trail.trim();
     himReplies(current, has ? bucketForText(trail) : ['any'], 600,
-               has ? intentOf(trail) : 'daily', has ? trail : '', null, parts.length);
+               has ? intentOf(trail) : 'daily', has ? trail : '', null, parts);
   });
 
   $('freeform').addEventListener('submit', function (e) { e.preventDefault(); sendFree(); });
