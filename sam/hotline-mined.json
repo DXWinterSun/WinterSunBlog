@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1744
+  "count": 1740
  },
  "chars": {
   "youngsam": {
@@ -2099,13 +2099,6 @@
      "series": "The Cardinal"
     },
     {
-     "cn": "喜欢我这只手……这样碰你？",
-     "b": "daily",
-     "ch": 10,
-     "title": "Chapter 10 · 他的手",
-     "series": "The Cardinal"
-    },
-    {
      "cn": "我……我以前总觉得它丑。怕你看见会嫌弃。",
      "b": "daily",
      "ch": 10,
@@ -3327,13 +3320,6 @@
     {
      "cn": "拿你学生证。",
      "b": "daily",
-     "ch": 32,
-     "title": "Extra · 世界上最长的洞",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "它怕你比你怕它还厉害。它咬你干嘛，它又不缺牙。",
-     "b": "praise",
      "ch": 32,
      "title": "Extra · 世界上最长的洞",
      "series": "I Never Looked Away"
@@ -4948,13 +4934,6 @@
      "series": "Don't Let Me Go"
     },
     {
-     "cn": "你知道我这双手……做过什么。差点做过什么。我这样的人，凭什么……凭什么能碰你。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 我想要你",
-     "series": "Don't Let Me Go"
-    },
-    {
      "cn": "美得让我……让我不敢相信你是真的。",
      "b": "daily",
      "ch": 8,
@@ -5699,13 +5678,6 @@
     },
     {
      "cn": "你是哪一个。",
-     "b": "daily",
-     "ch": 14,
-     "title": "Chapter 14 · The House He Remembers",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "我没有资格碰你。",
      "b": "daily",
      "ch": 14,
      "title": "Chapter 14 · The House He Remembers",

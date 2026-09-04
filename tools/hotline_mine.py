@@ -69,7 +69,7 @@ def fm_get(fm, key):
     m = re.search(r'^' + key + r':\s*"?([^"\n]*)"?\s*$', fm, re.M)
     return m.group(1).strip() if m else ''
 
-EXPLICIT = re.compile(r'操|干你|干我|进来|进去|插|湿|硬了|舔|吸|射|阴|乳|奶子|屁股|坐上来|坐下去|腿打开|张开|daddy|Daddy|高潮|下面|摸下|脱|内裤|裸|勃|阴茎|穴|骑|顶|抽|喘|呻吟|做爱|上床|睡你|睡我|要你|要我|吃了你|吃掉你')
+EXPLICIT = re.compile(r'操|干你|干我|进来|进去|插|碰你|摸你|摸我|咬你|湿|硬了|舔|吸|射|阴|乳|奶子|屁股|坐上来|坐下去|腿打开|张开|daddy|Daddy|高潮|下面|摸下|脱|内裤|裸|勃|阴茎|穴|骑|顶|抽|喘|呻吟|做爱|上床|睡你|睡我|要你|要我|吃了你|吃掉你')
 SPEECH_HIS = None  # 按角色动态建
 
 def speaker(before, after, his_re):
