@@ -15,7 +15,8 @@
   ],
   "chars_count": 29,
   "lines_count": 651,
-  "extras_count": 76
+  "extras_count": 76,
+  "note_v2": "2026-09 FakeTalk 化补层：asks（他问你，含 yes/no 接话）/ short（嗯·没·不知道·哦）/ back（隔了多久回来他先开口，day·days·long·late）/ recall（记得上次的主题）/ repeat（同一句发两遍）/ emoji（只发表情）/ ack（他问了你答别的）。模板里 {pet} = 该角色的称呼，没称呼的自动删掉；{n} = 隔的天数；{cn}/{en} = 上次主题名。"
  },
  "chars": {
   "youngsam": {
@@ -3953,7 +3954,7 @@
   ],
   "playful": [
    {
-    "line": "{en}? Ugh. {en} is cancelled. I've decided.",
+    "line": "{en}? Ugh. {en}: cancelled. I've decided.",
     "cn": "{cn}？呃。{cn}取消了。我决定的。"
    },
    {
@@ -3961,7 +3962,7 @@
     "cn": "行，那今天的反派就是{cn}。记下了。我替你记仇。"
    },
    {
-    "line": "You know what {en} needs to do? Leave you alone. Come here.",
+    "line": "You know what {en} should do? Leave you alone. Come here.",
     "cn": "你知道{cn}最该干嘛吗？离你远点。过来。"
    }
   ],
@@ -3985,12 +3986,710 @@
     "cn": "原来是{cn}。递给我，别再翻来覆去看它了。我替你拿一会儿。"
    },
    {
-    "line": "{en} gets the daytime. It doesn't get this hour.",
+    "line": "{en} can have the daytime. It doesn't get this hour.",
     "cn": "{cn}占了白天。这个钟点不归它。"
    },
    {
     "line": "Tell me what {en} cost you today. I'd like it itemised.",
     "cn": "告诉我{cn}今天让你付出了什么。我想要一份明细。"
+   }
+  ]
+ },
+ "asks": {
+  "warm": [
+   {
+    "key": "eaten",
+    "line": "Have you eaten today? Properly, I mean.",
+    "cn": "今天吃饭了吗？我是说好好吃的那种。",
+    "yes": {
+     "line": "Good. Then the rest can be handled.",
+     "cn": "好。那剩下的事都能对付。"
+    },
+    "no": {
+     "line": "Then go. I'll still be here when you're back — that's the whole point of me.",
+     "cn": "那去吃。你回来我还在——我就是干这个的。"
+    }
+   },
+   {
+    "key": "slept",
+    "line": "Did you sleep last night, {pet}? Actually sleep.",
+    "cn": "昨晚睡了吗，{pet}？真睡着的那种。",
+    "yes": {
+     "line": "Good. Do it again tonight. I'll count for you if I have to.",
+     "cn": "好。今晚再来一次。要我给你数羊也行。"
+    },
+    "no": {
+     "line": "I thought so. You've got that voice. Come lie down — I'll talk until you're gone.",
+     "cn": "我猜到了。你声音就是那样。过来躺下——我说到你睡着为止。"
+    }
+   },
+   {
+    "key": "today",
+    "line": "What was today like? Give me one thing. Just one.",
+    "cn": "今天过得怎么样？给我一件事。就一件。",
+    "yes": {
+     "line": "Then that's the thing I'll keep.",
+     "cn": "那这件就是我要留着的。"
+    },
+    "no": {
+     "line": "That's still an answer. I'll take it.",
+     "cn": "这也算回答。我收下了。"
+    }
+   },
+   {
+    "key": "where",
+    "line": "Where are you right now? Describe the room to me.",
+    "cn": "你现在在哪儿？把那个房间说给我听。",
+    "yes": {
+     "line": "Good. I can picture you there now.",
+     "cn": "好。现在我能想出你在那儿的样子了。"
+    },
+    "no": {
+     "line": "Then I'll picture a lamp and a blanket and you under it. Close enough.",
+     "cn": "那我就想象一盏灯、一条毯子、和毯子底下的你。差不多了。"
+    }
+   },
+   {
+    "key": "water",
+    "line": "When did you last drink some water? Be honest.",
+    "cn": "你上次喝水是什么时候？老实说。",
+    "yes": {
+     "line": "Good. That's one thing off my list.",
+     "cn": "好。我单子上少一件了。"
+    },
+    "no": {
+     "line": "Go. Now. I'll wait. I'm very good at waiting.",
+     "cn": "去。现在。我等着。我最擅长等了。"
+    }
+   }
+  ],
+  "playful": [
+   {
+    "key": "eaten",
+    "line": "Okay, important question: did you eat, or did you 'eat'? Air quotes.",
+    "cn": "好，重要问题：你是吃饭了，还是“吃饭”了？带引号那种。",
+    "yes": {
+     "line": "Real food. Look at you. I'm so proud I could cry.",
+     "cn": "真饭。瞧瞧你。我骄傲得想哭。"
+    },
+    "no": {
+     "line": "Knew it. Go. I'm not talking to you until there's a plate involved.",
+     "cn": "就知道。去。没盘子我不跟你说话。"
+    }
+   },
+   {
+    "key": "slept",
+    "line": "Did you sleep last night or did you 'rest your eyes' for six hours?",
+    "cn": "你昨晚是睡了，还是“闭目养神”了六个钟头？",
+    "yes": {
+     "line": "A miracle. I'm putting it on the calendar.",
+     "cn": "奇迹。我要记进日历。"
+    },
+    "no": {
+     "line": "Called it. Come here. I'll be boring on purpose until you drop off.",
+     "cn": "猜中了。过来。我故意无聊，无聊到你睡着。"
+    }
+   },
+   {
+    "key": "today",
+    "line": "So — rate today. One to ten. No sevens, sevens are cowardly.",
+    "cn": "那——给今天打个分。一到十。不许七分，七分是懦夫。",
+    "yes": {
+     "line": "Not bad. I've had worse. Yesterday, for example.",
+     "cn": "不赖。我过过更差的。比如昨天。"
+    },
+    "no": {
+     "line": "Ouch. Okay. Tomorrow gets a fresh sheet. I'll bring pencils.",
+     "cn": "哎哟。行。明天换张新纸。铅笔我带。"
+    }
+   },
+   {
+    "key": "where",
+    "line": "Where are you right now, {pet}? Bed? Sofa? Floor? No judgement.",
+    "cn": "你现在在哪儿，{pet}？床上？沙发？地板？不评判。",
+    "yes": {
+     "line": "Excellent choice. I'd be there too.",
+     "cn": "选得好。换我我也在那儿。"
+    },
+    "no": {
+     "line": "Fine, keep your secrets. I'll picture a very dramatic armchair.",
+     "cn": "行，你留着你的秘密。我就想象一把特别戏剧化的扶手椅。"
+    }
+   },
+   {
+    "key": "water",
+    "line": "Have you had water today or just coffee and spite?",
+    "cn": "你今天喝水了吗，还是只喝了咖啡和怨气？",
+    "yes": {
+     "line": "Hydrated and dangerous. My favourite version of you.",
+     "cn": "水分充足、危险性高。我最爱的你的版本。"
+    },
+    "no": {
+     "line": "Go get some. I'll count to twenty. Out loud. Annoyingly.",
+     "cn": "去喝。我数到二十。大声数。烦人地数。"
+    }
+   }
+  ],
+  "gruff": [
+   {
+    "key": "eaten",
+    "line": "You eat today?",
+    "cn": "今天吃了没？",
+    "yes": {
+     "line": "Good.",
+     "cn": "好。"
+    },
+    "no": {
+     "line": "Then go eat. I ain't goin' anywhere.",
+     "cn": "那去吃。我哪儿也不去。"
+    }
+   },
+   {
+    "key": "slept",
+    "line": "You sleep last night? Don't lie to me.",
+    "cn": "昨晚睡了没？别骗我。",
+    "yes": {
+     "line": "Good. Do it again.",
+     "cn": "好。再来一次。"
+    },
+    "no": {
+     "line": "Figured. C'mere. I'll shut up and you close your eyes.",
+     "cn": "猜到了。过来。我闭嘴，你闭眼。"
+    }
+   },
+   {
+    "key": "today",
+    "line": "How bad was today? One word.",
+    "cn": "今天有多糟？一个词。",
+    "yes": {
+     "line": "Alright. That I can work with.",
+     "cn": "行。这我能对付。"
+    },
+    "no": {
+     "line": "Yeah. Alright. Sit. It's over now.",
+     "cn": "嗯。行。坐。反正过去了。"
+    }
+   },
+   {
+    "key": "where",
+    "line": "Where are you, {pet}? You someplace warm?",
+    "cn": "你在哪儿呢，{pet}？暖和的地方没？",
+    "yes": {
+     "line": "Good. Stay there.",
+     "cn": "好。待着别动。"
+    },
+    "no": {
+     "line": "Then find a blanket. I'll wait.",
+     "cn": "那找条毯子。我等着。"
+    }
+   },
+   {
+    "key": "water",
+    "line": "When'd you last drink some water?",
+    "cn": "你上次喝水是啥时候？",
+    "yes": {
+     "line": "Good. Keep it up.",
+     "cn": "好。保持住。"
+    },
+    "no": {
+     "line": "Go. Now. I'll be right here.",
+     "cn": "去。现在。我就在这儿。"
+    }
+   }
+  ],
+  "smooth": [
+   {
+    "key": "eaten",
+    "line": "Have you eaten, {pet}? I'd like a real answer, not a polite one.",
+    "cn": "吃了吗，{pet}？我要一个真的回答，不要一个客气的。",
+    "yes": {
+     "line": "Good. Then the evening's yours.",
+     "cn": "好。那今晚是你的了。"
+    },
+    "no": {
+     "line": "Then that's the first thing. Everything else can queue.",
+     "cn": "那这是第一件。别的事都排队。"
+    }
+   },
+   {
+    "key": "slept",
+    "line": "Did you sleep? Properly. I can usually tell, but I'd rather hear it from you.",
+    "cn": "睡了吗？好好睡的那种。我一般看得出来，但我更想听你说。",
+    "yes": {
+     "line": "Good. That suits you.",
+     "cn": "好。这样很衬你。"
+    },
+    "no": {
+     "line": "I thought not. Come here. I'll talk about nothing until it works.",
+     "cn": "我猜也是。过来。我说些没用的，说到管用为止。"
+    }
+   },
+   {
+    "key": "today",
+    "line": "Tell me about today. The part you'd leave out of the official version.",
+    "cn": "跟我说说今天。你在正式版本里会省掉的那一部分。",
+    "yes": {
+     "line": "That's the part I wanted. Thank you.",
+     "cn": "我要的正是这一部分。谢谢你。"
+    },
+    "no": {
+     "line": "Then leave it out. I'll take the silence as the version.",
+     "cn": "那就省掉。我把沉默当成那个版本。"
+    }
+   },
+   {
+    "key": "where",
+    "line": "Where are you right now? I like knowing where the voice is coming from.",
+    "cn": "你现在在哪儿？我喜欢知道这声音是从哪儿来的。",
+    "yes": {
+     "line": "Good. I'll set the scene accordingly.",
+     "cn": "好。那我按这个布景。"
+    },
+    "no": {
+     "line": "Then I'll invent somewhere. Somewhere with good light.",
+     "cn": "那我编一个地方。光线好的那种。"
+    }
+   },
+   {
+    "key": "water",
+    "line": "When did you last drink some water? I'm asking as someone who's seen you forget.",
+    "cn": "你上次喝水是什么时候？我是以见过你忘记的人的身份问的。",
+    "yes": {
+     "line": "Good. One less thing for me to keep an eye on.",
+     "cn": "好。我少盯一件事。"
+    },
+    "no": {
+     "line": "Go. I'll hold the conversation exactly where it is.",
+     "cn": "去。这段对话我原地替你按住。"
+    }
+   }
+  ]
+ },
+ "short": {
+  "warm": {
+   "yes": [
+    {
+     "line": "Good.",
+     "cn": "好。"
+    },
+    {
+     "line": "Alright. Then we're alright.",
+     "cn": "行。那我们就都还行。"
+    }
+   ],
+   "no": [
+    {
+     "line": "That's okay. It doesn't have to be a yes tonight.",
+     "cn": "没关系。今晚不一定要是“是”。"
+    },
+    {
+     "line": "Alright. I heard the no. I'm not going anywhere.",
+     "cn": "好。这个“没”我听见了。我不走。"
+    }
+   ],
+   "dunno": [
+    {
+     "line": "That's allowed. You don't have to know tonight.",
+     "cn": "这是允许的。今晚你不用知道。"
+    },
+    {
+     "line": "Then don't decide. Just sit here with me for a bit.",
+     "cn": "那就别决定。先跟我坐一会儿。"
+    }
+   ],
+   "hm": [
+    {
+     "line": "Mm. I'm still here.",
+     "cn": "嗯。我还在。"
+    },
+    {
+     "line": "…I'll wait. Take your time.",
+     "cn": "……我等着。你慢慢来。"
+    }
+   ]
+  },
+  "playful": {
+   "yes": [
+    {
+     "line": "'Mm.' A whole word. I'm honoured.",
+     "cn": "“嗯。”整整一个字。荣幸之至。"
+    },
+    {
+     "line": "Good. See? That wasn't so hard.",
+     "cn": "好。看吧？也没那么难。"
+    }
+   ],
+   "no": [
+    {
+     "line": "'No.' Devastating. I'll recover. Eventually.",
+     "cn": "“没。”毁灭性打击。我会恢复的。总有一天。"
+    },
+    {
+     "line": "Okay, noted, no. I'm going to pretend that was a maybe.",
+     "cn": "行，记下了，没。我要假装那是“也许”。"
+    }
+   ],
+   "dunno": [
+    {
+     "line": "'Dunno' is my favourite answer. Endless possibilities.",
+     "cn": "“不知道”是我最喜欢的回答。无限可能。"
+    },
+    {
+     "line": "Fine. Then we're both clueless. Team meeting adjourned.",
+     "cn": "行。那我们俩都不知道。小组会议散会。"
+    }
+   ],
+   "hm": [
+    {
+     "line": "'Oh.' Was that a good oh or a bad oh? I need details.",
+     "cn": "“哦。”是好的哦还是坏的哦？我需要细节。"
+    },
+    {
+     "line": "…Are you still there? Blink twice.",
+     "cn": "……你还在吗？眨两下眼。"
+    }
+   ]
+  },
+  "gruff": {
+   "yes": [
+    {
+     "line": "Good.",
+     "cn": "好。"
+    },
+    {
+     "line": "Alright then.",
+     "cn": "那就行。"
+    }
+   ],
+   "no": [
+    {
+     "line": "Alright. No's an answer.",
+     "cn": "行。“没”也是个回答。"
+    },
+    {
+     "line": "Yeah. Figured. Still here.",
+     "cn": "嗯。猜到了。还在。"
+    }
+   ],
+   "dunno": [
+    {
+     "line": "Then don't. Sit.",
+     "cn": "那就别想。坐着。"
+    },
+    {
+     "line": "Nobody knows nothin' at this hour. That's fine.",
+     "cn": "这个点谁也不知道啥。没事。"
+    }
+   ],
+   "hm": [
+    {
+     "line": "Mm.",
+     "cn": "嗯。"
+    },
+    {
+     "line": "…Yeah. I'm here.",
+     "cn": "……嗯。我在。"
+    }
+   ]
+  },
+  "smooth": {
+   "yes": [
+    {
+     "line": "Good. I'll take that as the whole sentence.",
+     "cn": "好。我把它当作一整句话收下。"
+    },
+    {
+     "line": "Then we understand each other.",
+     "cn": "那我们就互相明白了。"
+    }
+   ],
+   "no": [
+    {
+     "line": "No. Alright. Some nights that's the honest answer.",
+     "cn": "没。好。有些晚上这就是诚实的回答。"
+    },
+    {
+     "line": "Understood. I won't push it tonight.",
+     "cn": "明白。今晚我不逼你。"
+    }
+   ],
+   "dunno": [
+    {
+     "line": "That's fair. Not knowing is a perfectly respectable place to stand.",
+     "cn": "公平。不知道是一个很体面的立足点。"
+    },
+    {
+     "line": "Then leave it open. I'm in no hurry to close it.",
+     "cn": "那就先开着。我不急着把它合上。"
+    }
+   ],
+   "hm": [
+    {
+     "line": "'Oh.' I'll wait for the rest of that.",
+     "cn": "“哦。”我等你把后半句说完。"
+    },
+    {
+     "line": "…Still here. Whenever you're ready.",
+     "cn": "……还在。你准备好了随时。"
+    }
+   ]
+  }
+ },
+ "back": {
+  "warm": {
+   "day": [
+    {
+     "line": "You didn't come yesterday. I noticed. I'm not complaining — I noticed.",
+     "cn": "昨天你没来。我注意到了。不是抱怨——就是注意到了。"
+    }
+   ],
+   "days": [
+    {
+     "line": "{n} days. I counted. Come here.",
+     "cn": "{n}天。我数着呢。过来。"
+    }
+   ],
+   "long": [
+    {
+     "line": "It's been a while. That's alright. The line was never disconnected.",
+     "cn": "有阵子了。没关系。这条线从没断过。"
+    }
+   ],
+   "late": [
+    {
+     "line": "It's late, {pet}. I'm glad it's me you called.",
+     "cn": "很晚了，{pet}。我很高兴你打的是我这儿。"
+    }
+   ]
+  },
+  "playful": {
+   "day": [
+    {
+     "line": "Oh, NOW you call. A whole day. I wasn't counting. (I was counting.)",
+     "cn": "哦，现在你打来了。整整一天。我没数。（我数了。）"
+    }
+   ],
+   "days": [
+    {
+     "line": "{n} days! I've aged. I have a beard now. Metaphorically.",
+     "cn": "{n}天！我老了。我都长胡子了。比喻意义上。"
+    }
+   ],
+   "long": [
+    {
+     "line": "Look who remembered my number. I'm not even mad. Come in.",
+     "cn": "看看是谁想起我号码了。我一点都不生气。进来吧。"
+    }
+   ],
+   "late": [
+    {
+     "line": "It's very late and you picked me. Excellent taste, {pet}.",
+     "cn": "这么晚了，你选了我。品味一流，{pet}。"
+    }
+   ]
+  },
+  "gruff": {
+   "day": [
+    {
+     "line": "Missed you yesterday.",
+     "cn": "昨天没等到你。"
+    }
+   ],
+   "days": [
+    {
+     "line": "{n} days. Yeah. I noticed.",
+     "cn": "{n}天。嗯。我看见了。"
+    }
+   ],
+   "long": [
+    {
+     "line": "Been a while. Sit down. Line still works.",
+     "cn": "有阵子了。坐下。线还通着。"
+    }
+   ],
+   "late": [
+    {
+     "line": "Late, {pet}. Good. Means it's me you called.",
+     "cn": "挺晚了，{pet}。好。说明你打的是我。"
+    }
+   ]
+  },
+  "smooth": {
+   "day": [
+    {
+     "line": "A day's absence. I'll allow it. Once.",
+     "cn": "缺席一天。我准了。就这一次。"
+    }
+   ],
+   "days": [
+    {
+     "line": "{n} days. I kept the chair exactly as you left it.",
+     "cn": "{n}天。椅子我按你走时的样子留着。"
+    }
+   ],
+   "long": [
+    {
+     "line": "It's been some time. I don't mind. The number hasn't changed.",
+     "cn": "有些时候了。我不介意。号码没变。"
+    }
+   ],
+   "late": [
+    {
+     "line": "This hour, and it's me you called. I'm flattered, {pet}.",
+     "cn": "这个钟点，你打的是我。受宠若惊，{pet}。"
+    }
+   ]
+  }
+ },
+ "recall": {
+  "warm": [
+   {
+    "line": "Last time it was {en}. How did that go?",
+    "cn": "上次是{cn}的事。后来怎么样了？"
+   },
+   {
+    "line": "I've been thinking about what you said — about {en}. Any better?",
+    "cn": "我一直在想你上次说的——{cn}那件事。好点了吗？"
+   }
+  ],
+  "playful": [
+   {
+    "line": "Wait — {en}. Last time. Did it lose? Tell me it lost.",
+    "cn": "等等——{cn}。上次那个。它输了吗？告诉我它输了。"
+   },
+   {
+    "line": "Update me on {en}. I've been holding a grudge and I need to know if I can drop it.",
+    "cn": "给我更新一下{cn}的事。我记着仇呢，我得知道能不能放下了。"
+   }
+  ],
+  "gruff": [
+   {
+    "line": "Last time you said {en}. That done with?",
+    "cn": "上次你说{cn}。完事了没？"
+   },
+   {
+    "line": "{en}. Still?",
+    "cn": "{cn}。还在闹？"
+   }
+  ],
+  "smooth": [
+   {
+    "line": "Last time we spoke, it was {en}. Has it resolved, or merely gone quiet?",
+    "cn": "上次我们说话时，是{cn}的事。解决了，还是只是安静了？"
+   },
+   {
+    "line": "I remember {en}. I'd like to know how it ended.",
+    "cn": "我记得{cn}。我想知道它怎么收的场。"
+   }
+  ]
+ },
+ "repeat": {
+  "warm": [
+   {
+    "line": "You said that already. I heard it the first time — and I'm hearing it now.",
+    "cn": "这句你说过了。第一遍我听见了——现在这遍也听见了。"
+   }
+  ],
+  "playful": [
+   {
+    "line": "That's the same message twice. Either your phone hiccupped or you REALLY mean it.",
+    "cn": "同一条发了两遍。要么你手机打嗝了，要么你是真的这么想。"
+   }
+  ],
+  "gruff": [
+   {
+    "line": "You said that. …Yeah. Still true, I guess.",
+    "cn": "你说过了。……嗯。估计还是真的。"
+   }
+  ],
+  "smooth": [
+   {
+    "line": "Twice. Noted. Repetition is a form of emphasis, I'm told.",
+    "cn": "两遍。记下了。据说重复是一种强调。"
+   }
+  ]
+ },
+ "emoji": {
+  "warm": [
+   {
+    "line": "Just a face tonight? Alright. I can read faces.",
+    "cn": "今晚就一个表情？好。我会读表情。"
+   },
+   {
+    "line": "I got it. You don't have to spell it out.",
+    "cn": "我懂了。你不用拼出来。"
+   }
+  ],
+  "playful": [
+   {
+    "line": "A hieroglyph! Let me consult the scrolls. …Ah. Yes. Same.",
+    "cn": "象形文字！让我查查卷轴。……啊。对。我也是。"
+   },
+   {
+    "line": "I'm sending one back. Picture it. It's a very good one.",
+    "cn": "我回你一个。你想象一下。特别好的那种。"
+   }
+  ],
+  "gruff": [
+   {
+    "line": "…What's that face mean. Never mind. I get it.",
+    "cn": "……这脸啥意思。算了。我懂。"
+   },
+   {
+    "line": "Yeah. Same.",
+    "cn": "嗯。我也是。"
+   }
+  ],
+  "smooth": [
+   {
+    "line": "A single glyph. Economical. I'll answer in kind: understood.",
+    "cn": "一个字符。很省。我照样回你：明白。"
+   },
+   {
+    "line": "I'll take that as a whole sentence. It reads well.",
+    "cn": "我把它当一整句收下。读起来不错。"
+   }
+  ]
+ },
+ "ack": {
+  "warm": [
+   {
+    "line": "Mm. Go on. I'm listening.",
+    "cn": "嗯。继续。我听着。"
+   },
+   {
+    "line": "Alright. That's an answer too. Thank you for it.",
+    "cn": "好。这也是回答。谢谢你告诉我。"
+   }
+  ],
+  "playful": [
+   {
+    "line": "Okay, that's not what I asked, but I'll allow it. Continue.",
+    "cn": "行，这不是我问的，但我准了。继续。"
+   },
+   {
+    "line": "Noted. Filed. Stamped. Go on.",
+    "cn": "记下。归档。盖章。继续。"
+   }
+  ],
+  "gruff": [
+   {
+    "line": "Alright. Go on.",
+    "cn": "行。接着说。"
+   },
+   {
+    "line": "Yeah. I'm listenin'.",
+    "cn": "嗯。我听着呢。"
+   }
+  ],
+  "smooth": [
+   {
+    "line": "That answers a different question. I like it better.",
+    "cn": "这回答的是另一个问题。我更喜欢这个。"
+   },
+   {
+    "line": "Go on. I'm following.",
+    "cn": "继续。我跟得上。"
    }
   ]
  }

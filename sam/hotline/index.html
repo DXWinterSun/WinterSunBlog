@@ -463,6 +463,20 @@
     try {
       var s = loadStore();
       delete s.chats[charId];
+      if (s.meta) delete s.meta[charId];
+      localStorage.setItem(STORE_KEY, JSON.stringify(s));
+    } catch (e) {}
+  }
+  /* 每段对话的小记性：他问了什么还没答（pending）、上次聊的是哪件事（topic）、
+     上次回来打招呼是什么时候（lastBack）、上次问过哪个问题（lastAsk） */
+  function getMeta(charId) { var s = loadStore(); return (s.meta && s.meta[charId]) || {}; }
+  function setMeta(charId, patch) {
+    try {
+      var s = loadStore();
+      s.meta = s.meta || {};
+      var m = s.meta[charId] || {};
+      for (var k in patch) { if (patch.hasOwnProperty(k)) { if (patch[k] === null) delete m[k]; else m[k] = patch[k]; } }
+      s.meta[charId] = m;
       localStorage.setItem(STORE_KEY, JSON.stringify(s));
     } catch (e) {}
   }
@@ -571,11 +585,92 @@
     var tpl = pickTpl(EXTRA.topic_tpl[reg()] || EXTRA.topic_tpl.warm);
     if (!tpl) return null;
     var fill = function (x) { return x.replace(/\{en\}/g, t.en).replace(/\{cn\}/g, t.cn); };
-    // 主题名（work / the students…）填进句首时要大写：把每个句首的小写字母提上来
-    var en = fill(tpl.line).replace(/(^|[.!?…]["')\]]?\s*)([a-z])/g, function (m, head, ch) {
-      return head + ch.toUpperCase();
-    });
-    return { line: en, lineCN: fill(tpl.cn) };
+    // 主题名（work / the students…）填进句首时要大写；顺手记下「上次聊的是这件事」
+    if (current) setMeta(histKey(current), { topic: { key: t.key, t: Date.now() } });
+    return { line: capSentences(fill(tpl.line)), lineCN: fill(tpl.cn) };
+  }
+
+  /* ————— FakeTalk 化的几层（2026-09）—————
+     短答：嗯 / 没 / 不知道 / 哦 这种一两个字的回答，各有各的接法 */
+  function shortKind(text) {
+    var t = String(text || '').replace(/[\s。，、．.!！?？~～…]+/g, '');
+    if (!t || t.length > 6) return null;
+    if (/^(嗯+|好+|行+|是|对|对的|对啊|是的|是啊|好的|好呀|好啊|有|吃了|睡了|喝了|吃过了|睡过了|ok|okay|yes|yeah|yep|yup|sure|mm|mhm)$/i.test(t)) return 'yes';
+    if (/^(没|没有|不|不是|没吃|没睡|没喝|不行|不好|不想|还没|没呢|不要|没什么|no|nope|nah|notyet)$/i.test(t)) return 'no';
+    if (/^(不知道|不清楚|随便|算了|不想说|说不清|不好说|不晓得|无所谓|都行|dunno|idk|whatever|meh)$/i.test(t)) return 'dunno';
+    if (/^(哦+|噢+|喔+|呃+|额+|唉+|哎+|hm+|oh+|uh+|huh|ah+|eh+)$/i.test(t)) return 'hm';
+    return null;
+  }
+  function shortReply(kind) {
+    var set = EXTRA.short && (EXTRA.short[reg()] || EXTRA.short.warm);
+    var t = set && pickTpl(set[kind]);
+    return t ? { line: t.line, lineCN: t.cn } : null;
+  }
+  /* 只发了个表情（一个或一串），没有一个字 */
+  var EMOJI_RE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}\u{1F1E6}-\u{1F1FF}\u{1F3FB}-\u{1F3FF}]/gu;
+  function isEmojiOnly(text) {
+    var t = String(text || '');
+    if (!t.trim()) return false;
+    return !t.replace(EMOJI_RE, '').replace(/[\s。，、．.!！?？~～…]+/g, '').length;
+  }
+  function tplReply(section) {
+    var set = EXTRA[section];
+    var t = set && pickTpl(set[reg()] || set.warm);
+    return t ? { line: t.line, lineCN: t.cn } : null;
+  }
+  /* 同一句连着发了两遍 */
+  function isRepeat(charId, trailCount) {
+    var mine = history(charId).filter(function (m) { return m.w === 'm'; });
+    if (trailCount !== 1 || mine.length < 2) return false;
+    var a = (mine[mine.length - 1].x || '').trim(), b = (mine[mine.length - 2].x || '').trim();
+    return !!a && a === b;
+  }
+  /* 他问你：吃了没 / 睡了没 / 今天怎么样 / 在哪儿 / 喝水了没——问完记下来，等你答 */
+  function askReply(charId) {
+    var set = EXTRA.asks && (EXTRA.asks[reg()] || EXTRA.asks.warm);
+    if (!set || !set.length) return null;
+    var last = getMeta(charId).lastAsk;
+    var pool = set.filter(function (a) { return a.key !== last; });
+    var a = pickTpl(pool.length ? pool : set);
+    setMeta(charId, { pending: { key: a.key, t: Date.now() }, lastAsk: a.key });
+    return { line: a.line, lineCN: a.cn };
+  }
+  function askBranch(charId, key, kind) {
+    var set = EXTRA.asks && (EXTRA.asks[reg()] || EXTRA.asks.warm);
+    var a = (set || []).filter(function (x) { return x.key === key; })[0];
+    var b = a && a[kind];
+    return b ? { line: b.line, lineCN: b.cn } : shortReply(kind);
+  }
+  /* 隔了一阵回来，他先开口：记得上次的事就问那件事，不然按隔了多久打招呼 */
+  function backReply(charId, gapMs) {
+    var m = getMeta(charId), day = 864e5, hr = new Date().getHours();
+    var tp = m.topic;
+    if (tp && !tp.asked && Date.now() - tp.t < 7 * day && EXTRA.recall) {
+      var topic = (EXTRA.topics || []).filter(function (t) { return t.key === tp.key; })[0];
+      var r = topic && pickTpl(EXTRA.recall[reg()] || EXTRA.recall.warm);
+      if (r) {
+        setMeta(charId, { topic: { key: tp.key, t: tp.t, asked: true }, pending: { key: 'recall', t: Date.now() } });
+        var fill = function (x) { return x.replace(/\{en\}/g, topic.en).replace(/\{cn\}/g, topic.cn); };
+        return { line: capSentences(fill(r.line)), lineCN: fill(r.cn) };
+      }
+    }
+    var set = EXTRA.back && (EXTRA.back[reg()] || EXTRA.back.warm);
+    if (!set) return null;
+    var kind = gapMs < 36 * 3600e3 ? 'day' : gapMs < 7 * day ? 'days' : 'long';
+    if (hr < 5 && set.late && Math.random() < .5) kind = 'late';
+    var t = pickTpl(set[kind]);
+    if (!t) return null;
+    var n = String(Math.round(gapMs / day));
+    return { line: t.line.replace(/\{n\}/g, n), lineCN: t.cn.replace(/\{n\}/g, n) };
+  }
+  /* 称呼槽位：有称呼的人填进去（Ocean / baby doll / kotku…），没有的连前面的逗号一起去掉 */
+  function fillPet(x, lang) {
+    if (!x) return x;
+    var pet = au && au.pet && au.pet[lang];
+    return pet ? x.replace(/\{pet\}/g, pet) : x.replace(/[,，]?\s*\{pet\}/g, '');
+  }
+  function capSentences(en) {
+    return en.replace(/(^|[.!?…]["')\]]?\s*)([a-z])/g, function (m, head, ch) { return head + ch.toUpperCase(); });
   }
 
   function isQuestion(text) {
@@ -726,14 +821,14 @@
     if (!current) return '';
     return current.filmCN + ' · ' + current.year + ' · 他在听';
   }
-  function ventTrail(charId) {
+  function ventParts(charId) {
     /* 取「上一次他开口之后」你连着说的所有话，合起来定情绪 */
     var past = history(charId), out = [];
     for (var i = past.length - 1; i >= 0; i--) {
       if (past[i].w !== 'm') break;
       out.unshift(past[i].x || '');
     }
-    return out.join('。');
+    return out;
   }
 
   /* ————— 自定义消息：不指望他答对题，但按几个关键词轻轻偏一下情绪桶，
@@ -756,7 +851,35 @@
   }
 
   /* ————— 对话流程 ————— */
-  function himReplies(c, prefs, extraDelay, intent, text) {
+  /* 决定他这一句说什么。顺序：
+     他问过你、你答了「嗯 / 没」→ 接那个问题的分支
+     → 短答（不知道 / 哦）→ 同一句发两遍 → 只发表情
+     → 动作 → 接话 → 主题回声 → 情境桶 → 问句 → 他问过你、你答了别的（先接住）
+     → 有时候换他问你一句（40%）→ daily 兜底 → 5 句台词 */
+  function composeReply(c, prefs, intent, text, trailCount) {
+    var key = histKey(c);
+    var hasLib = !!(au && au.buckets);
+    var meta = getMeta(key);
+    var pend = meta.pending && (Date.now() - meta.pending.t < 6 * 3600e3) ? meta.pending : null;
+    if (meta.pending) setMeta(key, { pending: null });
+    var q = null, kind = text ? shortKind(text) : null;
+    if (hasLib && text) {
+      if (pend && (kind === 'yes' || kind === 'no')) q = askBranch(key, pend.key, kind);
+      q = q || (kind ? shortReply(kind) : null)
+            || (isRepeat(key, trailCount) ? tplReply('repeat') : null)
+            || (intent === 'daily' && isEmojiOnly(text) ? tplReply('emoji') : null)
+            || actionReply(text) || mirrorReply(text) || topicReply(text);
+    }
+    q = q || (intent && intent !== 'daily' ? pickFromReplies(c, intent) : null)
+          || (hasLib && text && isQuestion(text) ? questionReply() : null)
+          || (hasLib && pend ? tplReply('ack') : null)
+          || (hasLib && Math.random() < .4 ? askReply(key) : null)
+          || (intent ? pickFromReplies(c, intent) : null)
+          || pickReply(c, prefs);
+    return { label: q.label, line: fillPet(q.line, 'en'), lineCN: fillPet(q.lineCN, 'cn') };
+  }
+
+  function himReplies(c, prefs, extraDelay, intent, text, forced, trailCount) {
     var log = $('log');
     var typing = document.createElement('div');
     typing.className = 'msg msg--him typing';
@@ -768,13 +891,7 @@
       setTimeout(function () {
         if (current !== c) return;
         typing.remove();
-        var hasLib = !!(au && au.buckets);
-                var q = (hasLib && text ? (actionReply(text) || mirrorReply(text)) : null);
-        if (!q && hasLib && text) { q = topicReply(text); }
-        q = q || (intent && intent !== 'daily' ? pickFromReplies(c, intent) : null)
-              || (hasLib && text && isQuestion(text) ? questionReply() : null)
-              || (intent ? pickFromReplies(c, intent) : null)
-              || pickReply(c, prefs);
+        var q = forced || composeReply(c, prefs, intent, text, trailCount);
         /* 固定只回一句（Winter 2026-09 定：追加的第二句跟第一句关联太弱，
            反而像两个人在说话；早先那套「12% / 主题命中 85% 追一条」已整体拿掉） */
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
@@ -790,7 +907,7 @@
     var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
     saveMsg(histKey(current), msg);
     $('log').appendChild(bubbleMe(msg)); scrollLog();
-    himReplies(current, chip.pref, 0, chip.intent, chip.t);
+    himReplies(current, chip.pref, 0, chip.intent, chip.t, null, 1);
   }
 
   /* 两个 AU 的角色：顶部长出切换条，各自一套回复库、各自一段对话 */
@@ -828,7 +945,14 @@
     setBusy(false);
     scrollLog();
     /* 第一次拨通（这一个 AU 的第一次）：他先开口，说他的锚句 */
-    if (!past.length) himReplies(current, ['anchor'], 300);
+    if (!past.length) { himReplies(current, ['anchor'], 300); return; }
+    /* 隔了六个钟头以上再回来：他先开口一句（记得上次的事就问那件事）——每次回来只一句 */
+    var key = histKey(current), last = past[past.length - 1], gap = Date.now() - (last.t || 0);
+    var meta = getMeta(key);
+    if (au && au.buckets && gap >= 6 * 3600e3 && !(meta.lastBack && meta.lastBack > (last.t || 0))) {
+      var b = backReply(key, gap);
+      if (b) { setMeta(key, { lastBack: Date.now() }); himReplies(current, ['any'], 400, 'daily', '', b); }
+    }
   }
 
   function openChat(c, auKey) {
@@ -860,10 +984,10 @@
   $('vent').addEventListener('click', function () {
     if (busy || !current) return;
     /* 他把你刚说的这一段听完了，回一句（固定一句，Winter 定） */
-    var trail = ventTrail(histKey(current));
+    var parts = ventParts(histKey(current)), trail = parts.join('。');
     var has = trail.trim();
     himReplies(current, has ? bucketForText(trail) : ['any'], 600,
-               has ? intentOf(trail) : 'daily', has ? trail : '');
+               has ? intentOf(trail) : 'daily', has ? trail : '', null, parts.length);
   });
 
   $('freeform').addEventListener('submit', function (e) { e.preventDefault(); sendFree(); });
