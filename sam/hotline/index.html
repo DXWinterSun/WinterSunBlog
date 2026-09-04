@@ -252,6 +252,13 @@
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
   .msg-read { margin-left: 6px; }
+  .msg--me { position: relative; }
+  .msg-react {
+    position: absolute; left: -6px; bottom: 14px; font-size: 15px; line-height: 1;
+    background: rgba(0,0,0,.55); border-radius: 999px; padding: 3px 5px;
+    transform: scale(0); animation: pop .35s cubic-bezier(.2,1.6,.4,1) forwards;
+  }
+  @keyframes pop { to { transform: scale(1); } }
   /* 你引他的那句：放在你自己气泡里，靠右、细线在右 */
   .msg--me .msg-bubble .msg-quote {
     border-left: 0; border-right: 2px solid rgba(0,0,0,.35); padding-left: 0; padding-right: 8px;
@@ -828,6 +835,16 @@
     return div;
   }
   /* 他偶尔会「正在输入……」几秒又停下——像想说什么又咽回去了（15%，只在他在听的时候） */
+  /* 你只发了表情：隔一下，他把同一个表情贴到你那条上（像贴纸回应，不算开口） */
+  function reactBack(div, text) {
+    var em = (String(text || '').match(EMOJI_RE) || []).filter(function (x) { return !/[\uFE0F\u200D]/.test(x); });
+    if (!em.length || !isEmojiOnly(text)) return;
+    setTimeout(function () {
+      if (div.querySelector('.msg-react')) return;
+      var r = document.createElement('span'); r.className = 'msg-react'; r.textContent = em[0];
+      div.appendChild(r);
+    }, 1400 + Math.random() * 1200);
+  }
   function ghostTyping(c) {
     if (Math.random() >= .15) return;
     setTimeout(function () {
@@ -896,8 +913,11 @@
   /* ————— 「他在听」：默认只听不插话，点那颗键他才开口 ————— */
   function statusLine() {
     if (!current) return '';
-    return current.filmCN + ' · ' + current.year + ' · 他在听';
+    var m = getMeta(histKey(current));
+    var waiting = m.pending && (Date.now() - m.pending.t < 6 * 3600e3);
+    return current.filmCN + ' · ' + current.year + (waiting ? ' · 他在等你答' : ' · 他在听');
   }
+  function refreshStatus() { if (current) $('cstatus').textContent = statusLine(); }
   function ventParts(charId) {
     /* 取「上一次他开口之后」你连着说的所有话，合起来定情绪 */
     var past = history(charId), out = [];
@@ -923,7 +943,9 @@
     var msg = { w: 'm', t: Date.now(), x: v };
     attachReply(msg);
     saveMsg(histKey(current), msg);
-    $('log').appendChild(bubbleMe(msg, true)); scrollLog();
+    var el = bubbleMe(msg, true);
+    $('log').appendChild(el); scrollLog();
+    reactBack(el, v);
     box.value = ''; box.style.height = 'auto';
     /* 他在听：自己打的字不自动触发回复，点「让他回应」他才开口 */
     ghostTyping(current);
@@ -977,6 +999,13 @@
     return out;
   }
 
+  /* 他「正在输入」的时长：按这句话的长短算，短句 1 秒出头，长句最多 3 秒多 */
+  var PREPARED = null;
+  function typingDelay(forced, c, prefs, intent, text, parts) {
+    PREPARED = forced || composeReply(c, prefs, intent, text, parts);
+    var n = (PREPARED.line || '').length + (PREPARED.lineCN || '').length;
+    return 700 + Math.min(2600, n * 22) + Math.random() * 500;
+  }
   function himReplies(c, prefs, extraDelay, intent, text, forced, parts) {
     var log = $('log');
     Array.prototype.forEach.call(log.querySelectorAll('.typing'), function (t) { t.remove(); });
@@ -988,7 +1017,8 @@
       setTimeout(function () {
         if (current !== c) return;
         typing.remove();
-        var q = forced || composeReply(c, prefs, intent, text, parts);
+        var q = PREPARED || forced || composeReply(c, prefs, intent, text, parts);
+        PREPARED = null;
         /* 固定只回一句（Winter 2026-09 定：追加的第二句跟第一句关联太弱，
            反而像两个人在说话；早先那套「12% / 主题命中 85% 追一条」已整体拿掉） */
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
@@ -997,7 +1027,8 @@
         saveMsg(histKey(c), msg);
         log.appendChild(bubbleHim(msg)); scrollLog();
         setBusy(false);
-      }, 1100 + Math.random() * 1200);
+        refreshStatus();
+      }, typingDelay(forced || null, c, prefs, intent, text, parts));
     }, (extraDelay || 0) + 500);
   }
 
@@ -1006,7 +1037,9 @@
     var msg = { w: 'm', t: Date.now(), x: chip.t, e: !!chip.emoji };
     attachReply(msg);
     saveMsg(histKey(current), msg);
-    $('log').appendChild(bubbleMe(msg, true)); scrollLog();
+    var el = bubbleMe(msg, true);
+    $('log').appendChild(el); scrollLog();
+    reactBack(el, chip.t);
     himReplies(current, chip.pref, 0, chip.intent, chip.t, null, [chip.t]);
   }
 
