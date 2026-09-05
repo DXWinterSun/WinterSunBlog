@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1748
+  "count": 1758
  },
  "chars": {
   "youngsam": {
@@ -10612,6 +10612,34 @@
      "series": "Better Living Through You"
     },
     {
+     "cn": "哦……那件旧了。我寻思着，该扔了。",
+     "b": "daily",
+     "ch": 68,
+     "title": "Extra · 那是您说的",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "可您是我太太。",
+     "b": "daily",
+     "ch": 68,
+     "title": "Extra · 那是您说的",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "您说的话，我怎么能不当真呢。您要是不喜欢，那我……那我改了就是。这有什么。",
+     "b": "daily",
+     "ch": 68,
+     "title": "Extra · 那是您说的",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "我就爱穿。您管得着吗？",
+     "b": "daily",
+     "ch": 68,
+     "title": "Extra · 那是您说的",
+     "series": "Better Living Through You"
+    },
+    {
      "cn": "我说的不是那个坐。",
      "b": "daily",
      "ch": 57,
@@ -10644,6 +10672,27 @@
      "b": "daily",
      "ch": 36,
      "title": "Extra · 梳洗",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "怎、怎么了？您看我干嘛？",
+     "b": "daily",
+     "ch": 66,
+     "title": "Extra · 看我一眼",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "是……是我脸上有东西吗？",
+     "b": "daily",
+     "ch": 66,
+     "title": "Extra · 看我一眼",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "那您可说好了。",
+     "b": "daily",
+     "ch": 66,
+     "title": "Extra · 看我一眼",
      "series": "Better Living Through You"
     },
     {
@@ -10903,6 +10952,27 @@
      "b": "love",
      "ch": 63,
      "title": "Extra · 蔫了",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "您想吃什么，我做。",
+     "b": "daily",
+     "ch": 67,
+     "title": "Extra · 你选",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "没有吧。我什么都行。",
+     "b": "daily",
+     "ch": 67,
+     "title": "Extra · 你选",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "这部！我早就想看了。",
+     "b": "daily",
+     "ch": 67,
+     "title": "Extra · 你选",
      "series": "Better Living Through You"
     },
     {
