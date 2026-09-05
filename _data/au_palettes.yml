@@ -22,6 +22,21 @@
   bg_cn: "旧宝丽来"
   bg_en: "Faded Polaroid"
 
+"Sanguis Benedicta":        # William "Wild Bill" Wharton · 血族哥特，独立设计（无 mf_id，不跟画册同源）
+  accent: "#b23a43"
+  accent_ink: "#8a2a32"
+  bg: "#101320"
+  text: "#ece2d2"
+  muted: "#8d8496"
+  accent_cn: "圣血暗红"
+  accent_en: "Chalice Blood"
+  bg_cn: "午夜墨蓝"
+  bg_en: "Midnight Ink"
+  text_cn: "象牙经页"
+  text_en: "Ivory Leaf"
+  muted_cn: "香灰暗紫"
+  muted_en: "Censer Ash"
+
 "Tuning the Devil":         # Wild Bill Wharton · 色卡同源画册 id: wildbill
   mf_id: wildbill                # → Many Faces 画册锚点 /sam/many-faces/#wildbill
   theme_id: wildbill
