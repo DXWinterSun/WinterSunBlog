@@ -220,6 +220,11 @@
     font-size: 14px; padding: 0 2px; line-height: 1;
   }
   .charbar button:hover { color: #ece1d0; }
+  .charbar .charbar__more {
+    font-size: 11.5px; letter-spacing: 1px; color: #a8916d;
+    text-decoration: underline dotted; text-underline-offset: 3px;
+    padding: 0 2px 0 4px;
+  }
 
   /* ————— 架子（藏品格栅） ————— */
   .section-label {
@@ -386,6 +391,11 @@
     background: linear-gradient(160deg, color-mix(in srgb, var(--a, #cba14c) 30%, var(--b, #14100b)), var(--b, #14100b) 75%);
   }
   .mslot--got:hover { box-shadow: 0 5px 18px color-mix(in srgb, var(--a, #cba14c) 22%, transparent); }
+  /* 正在只看谁的藏品，他的格子就框起来——滚回地图时一眼认得出 */
+  .mslot--on {
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--a, #cba14c) 85%, transparent),
+                0 6px 20px color-mix(in srgb, var(--a, #cba14c) 25%, transparent);
+  }
   .mslot__name {
     font-family: 'Playfair Display', serif; font-weight: 700;
     font-size: 11.5px; line-height: 1.3; color: #f4ecdd; word-break: break-word;
@@ -692,7 +702,7 @@
 </div>
 
 <div class="filters" id="filters"></div>
-<div class="charbar" id="charbar"><span id="charbar-text"></span><button type="button" id="charbar-x" aria-label="取消角色筛选">✕</button></div>
+<div class="charbar" id="charbar"><span id="charbar-text"></span><button type="button" class="charbar__more" id="charbar-more">换个人 ↓</button><button type="button" id="charbar-x" aria-label="看回全部">✕</button></div>
 
 <div class="loading" id="loading">Dusting the shelf…</div>
 
@@ -1076,7 +1086,8 @@
       el.appendChild(sp); el.appendChild(document.createElement("br"));
     }
 
-    if (c) {
+    /* 正在只看这个人时，上面那条提示已经写了他是谁，卡片里不必再挂一次 */
+    if (c && charFilter !== it.charId) {
       var ch = document.createElement("a");
       ch.className = "item__char";
       ch.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor);
@@ -1133,8 +1144,8 @@
     body.appendChild(title);
 
     var bits = [];
-    /* 按角色分组时，组标题已经写了他是谁，行里不必再重复一遍 */
-    if (c && arrange !== "char") bits.push("<i>" + esc(c.name) + "</i> · " + esc(c.filmCN || c.film) + " " + esc(c.year));
+    /* 按角色分组、或正在只看这个人时，上面已经写了他是谁，行里不必再重复 */
+    if (c && arrange !== "char" && charFilter !== it.charId) bits.push("<i>" + esc(c.name) + "</i> · " + esc(c.filmCN || c.film) + " " + esc(c.year));
     if (it.date) bits.push(esc((it.wish ? "许愿于 " : "入手于 ") + it.date));
     if (bits.length) {
       var sub = document.createElement("span"); sub.className = "row__sub";
@@ -1230,7 +1241,7 @@
       chars.forEach(function (c) {
         var n = coveredIds[c.id] || 0;
         var d = document.createElement("div");
-        d.className = "mslot" + (n ? " mslot--got" : "");
+        d.className = "mslot" + (n ? " mslot--got" : "") + (c.id === charFilter ? " mslot--on" : "");
         d.setAttribute("role", "button");
         d.setAttribute("tabindex", "0");
         if (n) { d.style.setProperty("--a", c.accent); d.style.setProperty("--b", c.bg); }
@@ -1323,13 +1334,35 @@
       bar.style.setProperty("--a", c.accent);
       $("charbar-text").textContent = "只看 " + c.name + " · " + (c.filmCN || c.film) + " 的藏品";
       bar.classList.add("is-on");
-      $("own-label").scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
       bar.classList.remove("is-on");
     }
     render();
+    /* 先把列表重排完再滚：43 件一下缩成一两件，页面高度骤变，
+       在这之前发起的平滑滚动会被浏览器截断在半路（点了人物却没跳过去）。
+       两帧后位置才彻底稳定，再送过去。 */
+    if (id && charById[id]) {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { scrollToShelf(); });
+      });
+    }
+  }
+
+  /* 滚到「只看某某的藏品」那条提示上——它下面紧跟着就是筛出来的东西 */
+  function scrollToShelf() {
+    var bar = $("charbar");
+    var target = bar.classList.contains("is-on") ? bar : $("own-label");
+    if (!target) return;
+    var top = target.getBoundingClientRect().top + window.pageYOffset - 14;
+    var max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    window.scrollTo({ top: Math.min(top, max), behavior: "smooth" });
   }
   $("charbar-x").addEventListener("click", function () { setCharFilter(""); });
+  /* 看完一个人接着看下一个：滚回底下那张画册地图 */
+  $("charbar-more").addEventListener("click", function () {
+    var t = $("map-label").style.display === "none" ? $("map-grid") : $("map-label");
+    if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 
   /* ————— 角色小菜单（馆长专属） ————— */
   var cmChar = null;
