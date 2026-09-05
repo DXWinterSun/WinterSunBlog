@@ -114,10 +114,84 @@
   .add-btn:hover { box-shadow: 0 6px 24px rgba(203,161,76,.25); transform: translateY(-1px); }
   .add-btn__plus { font-size: 17px; line-height: 1; }
 
+  /* ————— 工具条：搜索 · 排列 · 视图 · 导出 ————— */
+  .toolbar {
+    width: 100%; max-width: 860px;
+    margin: 20px auto 0;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .searchrow {
+    width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;
+  }
+  .search {
+    position: relative; flex: 1; max-width: 430px;
+    display: flex; align-items: center;
+  }
+  .search__icon {
+    position: absolute; left: 13px; font-size: 12.5px; opacity: .55; pointer-events: none;
+  }
+  .search input {
+    width: 100%; padding: 9px 34px 9px 34px; border-radius: 999px;
+    border: 1px solid rgba(255,222,180,.16); background: #14100b;
+    color: #ece1d0; font-family: 'Noto Serif SC', serif;
+    /* iOS 对 <16px 的输入框会自动放大整页且不回弹 */
+    font-size: 16px;
+  }
+  .search input::placeholder { color: #6d5f4c; font-size: 13px; }
+  /* Chrome 给 type=search 自带一个 ✕，会和下面那颗撞在一起 */
+  .search input::-webkit-search-cancel-button,
+  .search input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
+  .search input:focus { outline: none; border-color: rgba(230,190,110,.55); }
+  .search__x {
+    position: absolute; right: 8px; display: none;
+    border: 0; background: none; cursor: pointer;
+    color: #8a7558; font-size: 14px; padding: 4px 6px; line-height: 1;
+  }
+  .search__x:hover { color: #ece1d0; }
+  .search.has-q .search__x { display: block; }
+
+  .toolrow {
+    width: 100%;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px;
+  }
+  .arrange { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .mini--icon { padding: 5px 10px; font-size: 13px; }
+  .arrange__label {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 9px; letter-spacing: 2px; color: #6d5f4c; text-transform: uppercase;
+    margin-right: 2px;
+  }
+  .mini {
+    padding: 5px 11px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(255,222,180,.13); background: #14100b;
+    color: #a8916d; font-family: 'Noto Serif SC', serif;
+    font-size: 11.5px; letter-spacing: 1px;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .mini:hover { border-color: rgba(255,222,180,.38); color: #ece1d0; }
+  .mini.is-on {
+    border-color: rgba(230,190,110,.65); color: #ecd9a8;
+    background: linear-gradient(160deg, rgba(203,161,76,.18), rgba(203,161,76,.03));
+  }
+  .seg { display: flex; gap: 6px; }
+
   /* 筛选条 */
   .filters {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 7px;
-    margin: 18px auto 6px; max-width: 720px;
+    margin: 12px auto 6px; max-width: 720px;
+  }
+  /* 手机上这排会占掉三行、把架子挤到屏幕外——改成单行横滑 */
+  @media (max-width: 620px) {
+    .filters {
+      flex-wrap: nowrap; justify-content: flex-start;
+      width: 100%; overflow-x: auto; scrollbar-width: none;
+      padding: 2px 4px 6px; margin-top: 10px;
+      -webkit-overflow-scrolling: touch;
+      /* 右侧渐隐，暗示还能往右滑 */
+      mask-image: linear-gradient(90deg, #000 88%, transparent);
+    }
+    .filters::-webkit-scrollbar { display: none; }
+    .chip { flex: none; }
   }
   .chip {
     padding: 6px 13px; border-radius: 999px; cursor: pointer;
@@ -226,6 +300,71 @@
     border: 1px dashed rgba(255,222,180,.18); border-radius: 12px;
     padding: 28px 20px;
   }
+
+  /* ————— 分组小标题（按角色 / 类别 / 年代排列时） ————— */
+  .gline {
+    grid-column: 1 / -1;
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 14px 0 -2px;
+  }
+  .grid > .gline:first-child { margin-top: 2px; }
+  .gline__dot {
+    width: 8px; height: 8px; border-radius: 50%; flex: none;
+    background: var(--a, #cba14c); align-self: center;
+  }
+  .gline__name {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 700;
+    font-size: 13.5px; color: #e7d5ae; letter-spacing: .5px;
+  }
+  .gline__sub { font-weight: 300; font-size: 11.5px; color: #8a7558; }
+  .gline__rule { flex: 1; height: 1px; background: rgba(255,222,180,.1); }
+  .gline__n {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 9px; letter-spacing: 1.5px; color: #7a684e;
+  }
+
+  /* ————— 清单视图（一行一件，像档案目录） ————— */
+  .grid.is-list { grid-template-columns: 1fr; gap: 0; }
+  .row {
+    display: flex; align-items: flex-start; gap: 11px;
+    padding: 10px 12px 10px 11px;
+    border-bottom: 1px solid rgba(255,222,180,.07);
+    border-left: 2px solid color-mix(in srgb, var(--a, #cba14c) 70%, transparent);
+    background: linear-gradient(90deg, color-mix(in srgb, var(--a, #cba14c) 7%, transparent), transparent 42%);
+    transition: background .2s ease;
+  }
+  body.is-curator .row { cursor: pointer; }
+  .row:hover { background: linear-gradient(90deg, color-mix(in srgb, var(--a, #cba14c) 14%, transparent), rgba(255,222,180,.03) 60%); }
+  .row--wish { border-left-style: dashed; }
+  .row__n {
+    flex: none; min-width: 26px; padding-top: 2px;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 9.5px; letter-spacing: 1px; color: #7a684e;
+  }
+  .row__body { flex: 1; min-width: 0; }
+  .row__title {
+    display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px;
+    font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 600;
+    font-size: 13.5px; line-height: 1.5; color: #f4ecdd;
+  }
+  .row--wish .row__title { color: #c9b889; }
+  .row__emoji { font-size: 13px; }
+  .row__spec {
+    padding: 1px 7px; border-radius: 4px;
+    border: 1px solid rgba(255,222,180,.16);
+    font-family: 'Noto Serif SC', serif; font-weight: 300;
+    font-size: 10px; letter-spacing: 1px; color: #b7a179;
+  }
+  .row__sub {
+    display: block; margin-top: 3px;
+    font-weight: 300; font-size: 11px; line-height: 1.7; color: #98855f;
+  }
+  .row__sub i { font-style: normal; color: color-mix(in srgb, var(--a, #cba14c) 80%, #fff); }
+  .row__note {
+    display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+    margin-top: 2px; font-weight: 300; font-size: 11px; line-height: 1.7; color: #7d6c50;
+  }
+  .row__badges { flex: none; font-size: 11.5px; padding-top: 2px; letter-spacing: 2px; }
 
   /* ————— 角色联动地图 ————— */
   .map-grid {
@@ -476,6 +615,28 @@
   .fab--map { width: 44px; height: 44px; font-size: 17px; opacity: .92; }
   @media (max-width: 420px) { .fab { width: 50px; height: 50px; } .fab--map { width: 42px; height: 42px; } }
 
+  /* ————— 导出清单弹窗 ————— */
+  .sheet--export { width: min(620px, 100%); }
+  .ex-hint {
+    font-weight: 300; font-size: 12px; line-height: 1.95; color: #8a7558;
+    text-align: center; margin: -8px 0 14px;
+  }
+  .ex-out {
+    width: 100%; height: min(46vh, 330px); margin-top: 12px;
+    padding: 12px 13px; border-radius: 10px; resize: vertical;
+    border: 1px solid rgba(255,222,180,.16); background: #0d0a06;
+    color: #cbb891; font-family: 'Special Elite', 'Courier New', monospace;
+    /* 等宽小字看得清结构；iOS 只在聚焦输入时放大，只读框不受影响 */
+    font-size: 11.5px; line-height: 1.85; white-space: pre; overflow: auto;
+  }
+  .ex-out:focus { outline: none; border-color: rgba(230,190,110,.5); }
+  /* 手机上横滑只能看到左边一半，宁可折行也要看得见 */
+  @media (max-width: 560px) {
+    .ex-out { white-space: pre-wrap; word-break: break-word; font-size: 11px; }
+  }
+  .ex-actions { display: flex; gap: 10px; margin-top: 14px; }
+  .ex-actions .btn-save { letter-spacing: 2px; }
+
   /* 保存成功的小提示 */
   .toast {
     position: fixed; left: 50%; bottom: max(26px, env(safe-area-inset-bottom));
@@ -511,6 +672,24 @@
 </div>
 
 <button type="button" class="add-btn" id="add-btn"><span class="add-btn__plus">＋</span>添加一件藏品</button>
+
+<div class="toolbar">
+  <div class="searchrow">
+    <div class="search" id="search">
+      <span class="search__icon">🔍</span>
+      <input id="q" type="search" placeholder="找一件东西：片名、角色…" autocomplete="off">
+      <button type="button" class="search__x" id="q-x" aria-label="清空搜索">✕</button>
+    </div>
+    <button type="button" class="mini mini--icon" id="export-btn" title="导出收藏清单">📤 导出</button>
+  </div>
+  <div class="toolrow">
+    <div class="arrange" id="arrange"><span class="arrange__label">排列</span></div>
+    <div class="seg" id="viewseg">
+      <button type="button" class="mini is-on" data-view="card">🗂️ 卡片</button>
+      <button type="button" class="mini" data-view="list">☰ 清单</button>
+    </div>
+  </div>
+</div>
 
 <div class="filters" id="filters"></div>
 <div class="charbar" id="charbar"><span id="charbar-text"></span><button type="button" id="charbar-x" aria-label="取消角色筛选">✕</button></div>
@@ -588,6 +767,28 @@
   </div>
 </div>
 
+<!-- 导出清单弹窗 -->
+<div class="overlay" id="ex-overlay">
+  <div class="sheet sheet--export" role="dialog" aria-modal="true" aria-label="导出收藏清单">
+    <h2>导出收藏清单</h2>
+    <p class="ex-hint" id="ex-hint"></p>
+
+    <label class="f-label">导出成什么样</label>
+    <div class="types" id="ex-fmts"></div>
+
+    <label class="f-label" id="ex-scope-label">导出哪些</label>
+    <div class="types" id="ex-scopes"></div>
+
+    <textarea class="ex-out" id="ex-out" readonly spellcheck="false"></textarea>
+
+    <div class="ex-actions">
+      <button type="button" class="btn-cancel" id="ex-close">关掉</button>
+      <button type="button" class="btn-cancel" id="ex-download">⬇ 存成文件</button>
+      <button type="button" class="btn-save" id="ex-copy">一键复制</button>
+    </div>
+  </div>
+</div>
+
 <!-- 添加 / 编辑弹窗 -->
 <div class="overlay" id="overlay">
   <div class="sheet" role="dialog" aria-modal="true" aria-label="添加或编辑藏品">
@@ -633,6 +834,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var KEY_TOKEN = "ws-sam-shelf-key";
   var KEY_DRAFT = "ws-sam-shelf-draft";
+  var KEY_VIEW = "ws-sam-shelf-view";
   var REPO_API = "https://api.github.com/repos/DXWinterSun/WinterSunBlog/contents/sam/shelf/data.json";
 
   var TYPES = [
@@ -654,16 +856,38 @@
   var typeById = {};
   TYPES.forEach(function (t) { typeById[t.id] = t; });
 
+  /* 排列方式：不分组的「最新入手」是历来的默认，其余三种会长出分组小标题 */
+  var ARRANGES = [
+    { id: "recent", label: "最新入手" },
+    { id: "char",   label: "按角色" },
+    { id: "type",   label: "按类别" },
+    { id: "era",    label: "按年代" }
+  ];
+
   /* ————— 状态 ————— */
   var items = [];          // 当前展示的藏品（公开数据，馆长有未发布草稿时为草稿）
   var chars = [];          // 来自 lines.json，按年份升序
   var charById = {};
+  var charOrder = {};      // 角色 id → 年份排序位次
   var filter = "all";
   var charFilter = "";
+  var query = "";
+  var view = "card";       // card | list
+  var arrange = "recent";
   var editingId = null;
   var formType = "disc";
   var token = "";
   try { token = localStorage.getItem(KEY_TOKEN) || ""; } catch (e) {}
+
+  /* 看法（视图 / 排列）只是这台设备的顺手偏好，存本机就够 */
+  try {
+    var pref = JSON.parse(localStorage.getItem(KEY_VIEW) || "null") || {};
+    if (pref.view === "list" || pref.view === "card") view = pref.view;
+    if (ARRANGES.some(function (a) { return a.id === pref.arrange; })) arrange = pref.arrange;
+  } catch (e) {}
+  function prefSave() {
+    try { localStorage.setItem(KEY_VIEW, JSON.stringify({ view: view, arrange: arrange })); } catch (e) {}
+  }
 
   function isCurator() { return !!token; }
   function applyCuratorClass() {
@@ -708,9 +932,10 @@
       chars = (data.characters || []).slice().sort(function (a, b) {
         return (parseInt(a.year, 10) || 0) - (parseInt(b.year, 10) || 0);
       });
-      chars.forEach(function (c) {
+      chars.forEach(function (c, i) {
         c.mfAnchor = alias[c.id] || c.id;
         charById[c.id] = c;
+        charOrder[c.id] = i;
       });
       var sel = $("f-char");
       chars.forEach(function (c) {
@@ -735,11 +960,89 @@
   /* ————— 渲染 ————— */
   function matches(it) {
     if (charFilter && it.charId !== charFilter) return false;
+    if (query && searchText(it).indexOf(query) < 0) return false;
     if (filter === "all") return true;
     if (filter === "signed") return !!it.signed;
     if (filter === "nas") return it.type === "disc" && !!it.nas;
     if (filter === "nonas") return it.type === "disc" && !it.nas;
     return it.type === filter;
+  }
+
+  /* 搜索能命中的所有字：名字、版本、备注、类别，以及关联角色的名字 / 片名 / 年份。
+     不缓存在藏品对象上——那些字段会被原样提交回 data.json。 */
+  function searchText(it) {
+    var c = it.charId ? charById[it.charId] : null;
+    var t = typeById[it.type];
+    return [it.name, it.spec, it.note, t && t.label,
+            c && c.name, c && c.film, c && c.filmCN, c && c.year]
+      .filter(Boolean).join(" ").toLowerCase();
+  }
+
+  /* 档案编号：按入手先后固定，换排列 / 筛选都不变 */
+  function numberMap() {
+    var map = {};
+    items.filter(function (it) { return !it.wish; })
+      .slice().sort(function (a, b) { return (a.added || 0) - (b.added || 0); })
+      .forEach(function (it, i) { map[it.id] = ("00" + (i + 1)).slice(-3); });
+    return map;
+  }
+
+  /* 按当前「排列」把一批藏品切成若干组（recent 只有一组、不显示小标题） */
+  function groupOf(list) {
+    if (arrange === "recent") return [{ key: "", items: list }];
+    var buckets = {}, order = [];
+    function push(key, meta, it) {
+      if (!buckets[key]) { buckets[key] = { key: key, items: [] , meta: meta }; order.push(key); }
+      buckets[key].items.push(it);
+    }
+    list.forEach(function (it) {
+      if (arrange === "char") {
+        var c = it.charId ? charById[it.charId] : null;
+        push(c ? c.id : "~none",
+          c ? { name: c.name, sub: c.filmCN || c.film, year: c.year, a: c.accent, rank: charOrder[c.id] }
+            : { name: "没关联角色", sub: "", rank: 9999 }, it);
+      } else if (arrange === "type") {
+        var t = typeById[it.type] || typeById.other;
+        push(t.id, { name: t.emoji + " " + t.label, sub: "", rank: TYPES.indexOf(t) }, it);
+      } else {
+        var c2 = it.charId ? charById[it.charId] : null;
+        var y = c2 ? parseInt(c2.year, 10) : 0;
+        var dec = y ? Math.floor(y / 10) * 10 : 0;
+        push(dec ? String(dec) : "~none",
+          { name: dec ? dec + "s" : "没有年份", sub: dec ? dec + "–" + (dec + 9) : "", rank: dec || 9999 }, it);
+      }
+    });
+    var groups = order.map(function (k) { return buckets[k]; })
+      .sort(function (a, b) { return (a.meta.rank || 0) - (b.meta.rank || 0); });
+    /* 年代里再按片子的年份从早到晚，读起来才像一条时间线 */
+    if (arrange === "era") {
+      var yr = function (it) {
+        var c = it.charId ? charById[it.charId] : null;
+        return c ? (parseInt(c.year, 10) || 0) : 0;
+      };
+      groups.forEach(function (g) {
+        g.items.sort(function (a, b) { return yr(a) - yr(b) || (b.added || 0) - (a.added || 0); });
+      });
+    }
+    return groups;
+  }
+
+  function groupLine(g) {
+    var el = document.createElement("div");
+    el.className = "gline";
+    if (g.meta.a) el.style.setProperty("--a", g.meta.a);
+    var dot = document.createElement("span"); dot.className = "gline__dot";
+    var nm = document.createElement("span"); nm.className = "gline__name"; nm.textContent = g.meta.name;
+    el.appendChild(dot); el.appendChild(nm);
+    if (g.meta.sub) {
+      var sb = document.createElement("span"); sb.className = "gline__sub";
+      sb.textContent = g.meta.sub + (g.meta.year ? "（" + g.meta.year + "）" : "");
+      el.appendChild(sb);
+    }
+    var rule = document.createElement("span"); rule.className = "gline__rule";
+    var n = document.createElement("span"); n.className = "gline__n"; n.textContent = g.items.length + " 件";
+    el.appendChild(rule); el.appendChild(n);
+    return el;
   }
 
   function itemCard(it) {
@@ -801,18 +1104,98 @@
     return el;
   }
 
+  /* 清单视图的一行——同样的信息，压成档案目录那样一屏能看很多 */
+  function itemRow(it) {
+    var c = it.charId ? charById[it.charId] : null;
+    var t = typeById[it.type] || typeById.other;
+    var el = document.createElement("div");
+    el.className = "row" + (it.wish ? " row--wish" : "");
+    if (c) { el.style.setProperty("--a", c.accent); el.style.setProperty("--b", c.bg); }
+    if (isCurator()) {
+      el.setAttribute("role", "button");
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("aria-label", "编辑：" + it.name);
+    }
+
+    var n = document.createElement("span"); n.className = "row__n";
+    n.textContent = it.wish ? "🌠" : (nums[it.id] || "");
+    el.appendChild(n);
+
+    var body = document.createElement("span"); body.className = "row__body";
+    var title = document.createElement("span"); title.className = "row__title";
+    var em = document.createElement("span"); em.className = "row__emoji"; em.textContent = t.emoji;
+    title.appendChild(em);
+    title.appendChild(document.createTextNode(it.name));
+    if (it.spec) {
+      var sp = document.createElement("span"); sp.className = "row__spec"; sp.textContent = it.spec;
+      title.appendChild(sp);
+    }
+    body.appendChild(title);
+
+    var bits = [];
+    /* 按角色分组时，组标题已经写了他是谁，行里不必再重复一遍 */
+    if (c && arrange !== "char") bits.push("<i>" + esc(c.name) + "</i> · " + esc(c.filmCN || c.film) + " " + esc(c.year));
+    if (it.date) bits.push(esc((it.wish ? "许愿于 " : "入手于 ") + it.date));
+    if (bits.length) {
+      var sub = document.createElement("span"); sub.className = "row__sub";
+      sub.innerHTML = bits.join(" ｜ ");
+      body.appendChild(sub);
+    }
+    if (it.note) {
+      var no = document.createElement("span"); no.className = "row__note"; no.textContent = it.note;
+      body.appendChild(no);
+    }
+    el.appendChild(body);
+
+    var badges = [];
+    if (it.type === "disc" && it.nas) badges.push("📡");
+    if (it.signed) badges.push("✍️");
+    var bd = document.createElement("span"); bd.className = "row__badges"; bd.textContent = badges.join("");
+    el.appendChild(bd);
+
+    if (isCurator()) {
+      function open() { openSheet(it.id); }
+      el.addEventListener("click", open);
+      el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+    }
+    return el;
+  }
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"]/g, function (ch) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch];
+    });
+  }
+
+  /* 把一批藏品（按当前排列分好组）铺进某个格栅。
+     分组小标题只在清单里出现——卡片是三列的，每个小标题都要独占一整行，
+     一人一件的组会把架子拉得又长又空；卡片视图里「排列」只管先后顺序。 */
+  function fillGrid(grid, list) {
+    var isList = view === "list";
+    grid.innerHTML = "";
+    grid.classList.toggle("is-list", isList);
+    var make = isList ? itemRow : itemCard;
+    groupOf(list).forEach(function (g) {
+      if (g.key && isList) grid.appendChild(groupLine(g));
+      g.items.forEach(function (it) { grid.appendChild(make(it)); });
+    });
+  }
+
+  var nums = {};
+
   function render() {
+    nums = numberMap();
     var list = items.slice().sort(function (a, b) { return (b.added || 0) - (a.added || 0); });
     var own = list.filter(function (it) { return !it.wish && matches(it); });
     var wish = list.filter(function (it) { return it.wish && matches(it); });
 
-    var ownGrid = $("own-grid"); ownGrid.innerHTML = "";
-    own.forEach(function (it) { ownGrid.appendChild(itemCard(it)); });
+    fillGrid($("own-grid"), own);
     $("own-empty").style.display = own.length ? "none" : "block";
+    $("own-empty").textContent = (query || charFilter || filter !== "all")
+      ? "这一格是空的——换个条件找找看。"
+      : "架子还空着——第一件宝贝正在路上。";
     $("own-count").textContent = own.length + " ITEMS";
 
-    var wishGrid = $("wish-grid"); wishGrid.innerHTML = "";
-    wish.forEach(function (it) { wishGrid.appendChild(itemCard(it)); });
+    fillGrid($("wish-grid"), wish);
     $("wish-label").style.display = wish.length ? "flex" : "none";
     $("wish-count").textContent = wish.length + " WISHES";
 
@@ -888,6 +1271,48 @@
       render();
     });
     filWrap.appendChild(b);
+  });
+
+  /* ————— 工具条：搜索 / 排列 / 视图 ————— */
+  var qBox = $("q"), qWrap = $("search");
+  function applyQuery() {
+    query = qBox.value.trim().toLowerCase();
+    qWrap.classList.toggle("has-q", !!query);
+    render();
+  }
+  qBox.addEventListener("input", applyQuery);
+  $("q-x").addEventListener("click", function () { qBox.value = ""; applyQuery(); qBox.focus(); });
+
+  var arrWrap = $("arrange");
+  ARRANGES.forEach(function (a) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "mini" + (a.id === arrange ? " is-on" : "");
+    b.textContent = a.label;
+    b.addEventListener("click", function () {
+      arrange = a.id;
+      arrWrap.querySelectorAll(".mini").forEach(function (x) { x.classList.remove("is-on"); });
+      b.classList.add("is-on");
+      /* 分组要看小标题才有意义，顺手切到清单；想看卡片再点回去就是 */
+      if (a.id !== "recent" && view === "card") setView("list");
+      prefSave(); render();
+    });
+    arrWrap.appendChild(b);
+  });
+
+  var viewSeg = $("viewseg");
+  function setView(v) {
+    view = v;
+    viewSeg.querySelectorAll(".mini").forEach(function (x) {
+      x.classList.toggle("is-on", x.dataset.view === v);
+    });
+  }
+  setView(view);
+  viewSeg.querySelectorAll(".mini").forEach(function (b) {
+    b.addEventListener("click", function () {
+      setView(b.dataset.view);
+      prefSave(); render();
+    });
   });
 
   function setCharFilter(id) {
@@ -1212,6 +1637,7 @@
     if (e.key !== "Escape") return;
     if ($("overlay").classList.contains("is-on")) closeSheet();
     if ($("cm-overlay").classList.contains("is-on")) closeCharMenu();
+    if ($("ex-overlay").classList.contains("is-on")) $("ex-overlay").classList.remove("is-on");
   });
 
   $("btn-save").addEventListener("click", function () {
@@ -1256,6 +1682,189 @@
     items = items.filter(function (x) { return x.id !== editingId; });
     closeSheet();
     saveAndPublish("已从架子上取下");
+  });
+
+  /* ————— 导出清单 —————
+     把架子上的东西整理成能带走的一份：可复制的清单 / 表格 / Markdown。
+     跟着当前的排列与筛选走——「你看到的样子，就是导出的样子」。 */
+  var EX_FMTS = [
+    { id: "text", label: "📝 清单", ext: "txt" },
+    { id: "csv",  label: "📊 表格（Excel）", ext: "csv" },
+    { id: "md",   label: "⌗ Markdown", ext: "md" }
+  ];
+  var exFmt = "text", exScope = "view";
+
+  function exList() {
+    var list = items.slice().sort(function (a, b) { return (b.added || 0) - (a.added || 0); });
+    if (exScope === "view") list = list.filter(matches);
+    return list;
+  }
+  function today() {
+    var d = new Date(), p = function (n) { return ("0" + n).slice(-2); };
+    return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+  }
+  function exFields(it) {
+    var c = it.charId ? charById[it.charId] : null;
+    var t = typeById[it.type] || typeById.other;
+    return {
+      n: it.wish ? "" : (nums[it.id] || ""),
+      name: it.name || "",
+      type: t.label,
+      emoji: t.emoji,
+      spec: it.spec || "",
+      char: c ? c.name : "",
+      film: c ? (c.filmCN || c.film) : "",
+      year: c ? c.year : "",
+      signed: it.signed ? "有签名" : "",
+      nas: it.type === "disc" ? (it.nas ? "已进 NAS" : "未进 NAS") : "",
+      date: it.date || "",
+      note: (it.note || "").replace(/\s*\n\s*/g, " "),
+      state: it.wish ? "心愿单" : "已入手"
+    };
+  }
+  function exHead(list) {
+    var own = list.filter(function (it) { return !it.wish; });
+    var wish = list.length - own.length;
+    var byType = TYPES.map(function (t) {
+      var n = own.filter(function (it) { return it.type === t.id; }).length;
+      return n ? t.label + " " + n : "";
+    }).filter(Boolean).join(" · ");
+    var signed = own.filter(function (it) { return it.signed; }).length;
+    var line = "已入手 " + own.length + " 件";
+    if (byType) line += "（" + byType + "）";
+    if (signed) line += " · 有签名 " + signed + " 件";
+    if (wish) line += " · 心愿单 " + wish + " 件";
+    var filtered = exScope === "view" && list.length < items.length;
+    return ["Winter Sun · 藏品架 The Collector’s Shelf",
+            today() + " 导出 · " + line,
+            filtered ? "（这一份是筛过的，不是整架）" : ""].filter(Boolean);
+  }
+  function buildText(list) {
+    var out = exHead(list);
+    out.push("");
+    groupOf(list).forEach(function (g) {
+      if (g.key) {
+        out.push("── " + g.meta.name + (g.meta.sub ? " · " + g.meta.sub : "") + " · " + g.items.length + " 件 ──");
+        out.push("");
+      }
+      g.items.forEach(function (it) {
+        var f = exFields(it);
+        out.push((f.n ? f.n + "  " : "🌠  ") + f.emoji + " " + f.name + (f.spec ? "  —  " + f.spec : ""));
+        var l2 = [];
+        if (f.char) l2.push(f.char + " · " + f.film + (f.year ? " " + f.year : ""));
+        if (f.nas) l2.push(f.nas);
+        if (f.signed) l2.push(f.signed);
+        if (f.date) l2.push((it.wish ? "许愿于 " : "入手于 ") + f.date);
+        if (l2.length) out.push("     " + l2.join(" ｜ "));
+        if (f.note) out.push("     “" + f.note + "”");
+        out.push("");
+      });
+    });
+    return out.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
+  }
+  var EX_COLS = ["编号", "名称", "类别", "版本 / 规格", "角色", "出处", "年份", "签名", "NAS", "入手日期", "想说的话", "状态"];
+  function exRow(it) {
+    var f = exFields(it);
+    return [f.n, f.name, f.type, f.spec, f.char, f.film, f.year, f.signed, f.nas, f.date, f.note, f.state];
+  }
+  function buildCsv(list) {
+    var q = function (v) { return '"' + String(v).replace(/"/g, '""') + '"'; };
+    var rows = [EX_COLS.map(q).join(",")];
+    list.forEach(function (it) { rows.push(exRow(it).map(q).join(",")); });
+    return rows.join("\r\n") + "\r\n";
+  }
+  function buildMd(list) {
+    var cell = function (v) { return String(v).replace(/\|/g, "\\|") || "—"; };
+    var out = exHead(list).map(function (l, i) { return i ? "*" + l + "*" : "# " + l; });
+    out.push("");
+    out.push("| " + EX_COLS.join(" | ") + " |");
+    out.push("|" + EX_COLS.map(function () { return " --- "; }).join("|") + "|");
+    list.forEach(function (it) { out.push("| " + exRow(it).map(cell).join(" | ") + " |"); });
+    return out.join("\n") + "\n";
+  }
+  function exBuild() {
+    var list = exList();
+    return exFmt === "csv" ? buildCsv(list) : exFmt === "md" ? buildMd(list) : buildText(list);
+  }
+  function exRefresh() {
+    $("ex-out").value = exBuild();
+    var shown = items.filter(matches).length;
+    $("ex-scopes").querySelectorAll(".t-chip").forEach(function (b) {
+      if (b.dataset.scope === "view") b.textContent = "只导现在看到的 " + shown + " 件";
+      if (b.dataset.scope === "all") b.textContent = "整架都导 " + items.length + " 件";
+    });
+    /* 没筛任何东西时两个选项一模一样，就别摆出来占地方了 */
+    var same = shown === items.length;
+    $("ex-scopes").style.display = same ? "none" : "flex";
+    $("ex-scope-label").style.display = same ? "none" : "block";
+    $("ex-hint").textContent = same
+      ? "整架 " + items.length + " 件都在下面——复制走，或者存成一个文件。"
+      : "下面这份跟着你现在的筛选走；想要整架的，点「整架都导」。";
+  }
+  function buildChips(wrapId, defs, get, set) {
+    var wrap = $(wrapId);
+    defs.forEach(function (d) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "t-chip";
+      if (d.scope) b.dataset.scope = d.scope;
+      b.textContent = d.label;
+      b.addEventListener("click", function () {
+        set(d.id);
+        wrap.querySelectorAll(".t-chip").forEach(function (x) { x.classList.toggle("is-on", x === b); });
+        exRefresh();
+      });
+      wrap.appendChild(b);
+      if (d.id === get()) b.classList.add("is-on");
+    });
+  }
+  buildChips("ex-fmts", EX_FMTS, function () { return exFmt; }, function (v) { exFmt = v; });
+  buildChips("ex-scopes",
+    [{ id: "view", scope: "view", label: "只导现在这些" }, { id: "all", scope: "all", label: "整架都导" }],
+    function () { return exScope; }, function (v) { exScope = v; });
+
+  $("export-btn").addEventListener("click", function () {
+    exRefresh();
+    fitOverlay();
+    $("ex-overlay").classList.add("is-on");
+  });
+  $("ex-close").addEventListener("click", function () { $("ex-overlay").classList.remove("is-on"); });
+  $("ex-overlay").addEventListener("click", function (e) {
+    if (e.target === $("ex-overlay")) $("ex-overlay").classList.remove("is-on");
+  });
+  $("ex-copy").addEventListener("click", function () {
+    /* 直接用生成结果，不读 textarea——浏览器会把 CSV 的 \r\n 规范化掉 */
+    var text = exBuild();
+    function fallback() {
+      /* 老 Safari / 非安全上下文没有剪贴板接口，退回「选中 + 复制」 */
+      var ta = $("ex-out");
+      ta.removeAttribute("readonly");
+      ta.focus(); ta.setSelectionRange(0, ta.value.length);
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      ta.setAttribute("readonly", "readonly");
+      toast(ok ? "复制好了 ✓ 去哪儿都能贴" : "复制不了…长按框里的字，手动全选复制");
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        toast("复制好了 ✓ 去哪儿都能贴");
+      }).catch(fallback);
+    } else { fallback(); }
+  });
+  $("ex-download").addEventListener("click", function () {
+    var f = EX_FMTS.filter(function (x) { return x.id === exFmt; })[0];
+    /* CSV 加 BOM，Excel 打开中文才不会乱码 */
+    var text = (exFmt === "csv" ? "﻿" : "") + exBuild();
+    var blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "藏品架-" + today() + "." + f.ext;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    toast("存好了 · " + a.download);
   });
 
   function toast(msg) {
