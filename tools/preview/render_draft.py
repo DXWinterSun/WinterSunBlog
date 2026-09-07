@@ -93,8 +93,19 @@ def to_html(src):
             para.clear()
 
     def flush_q():
+        # 引用块里的空行（一行只有一个 >）是块内换段，不是引用结束——
+        # 家书 / 多段题词就靠它分段，早期版本会把一整封信切成好几个方框。
         if quote:
-            out.append('<blockquote>' + join(quote) + '</blockquote>')
+            blocks, cur = [], []
+            for ln in quote:
+                if ln.strip():
+                    cur.append(ln)
+                elif cur:
+                    blocks.append(cur); cur = []
+            if cur:
+                blocks.append(cur)
+            inner = ''.join('<p>' + join(b) + '</p>' for b in blocks)
+            out.append('<blockquote>' + inner + '</blockquote>')
             quote.clear()
 
     for line in src.split('\n'):
@@ -113,8 +124,9 @@ def to_html(src):
                 out.append('\n'.join(raw).strip()); raw.clear()
             continue
 
-        if line.startswith('> '):
-            flush_p(); quote.append(line[2:])
+        if line.startswith('> ') or stripped == '>':
+            flush_p()
+            quote.append(line[2:] if line.startswith('> ') else '')
         elif line.startswith('### '):
             flush_p(); flush_q(); out.append('<h3>' + inline(line[4:]) + '</h3>')
         elif stripped in ('---', '***', '___'):
@@ -174,7 +186,8 @@ strong{color:#fff;font-weight:600;}
 hr{border:0;border-top:1px solid var(--muted);opacity:.35;margin:2.6rem auto;width:40%;}
 blockquote{margin:2.2rem 0;padding:1.1rem 0 1.1rem 1.4rem;border-left:2px solid var(--accent);
  background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 9%,transparent),transparent 70%);}
-blockquote p{margin:0}
+blockquote p{margin:0 0 .95rem}
+blockquote p:last-child{margin-bottom:0}
 /* 正文里的实物卡片组件（与博客 _sass/5-components/_extras.scss 观感对齐的简化版）*/
 .c-note{position:relative;max-width:32rem;margin:2.8rem auto;padding:2.1rem 1.8rem 1.7rem;
  background:#f2eadd;color:#3b3329;border-radius:2px;transform:rotate(-.4deg);
