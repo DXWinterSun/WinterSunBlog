@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1758
+  "count": 1767
  },
  "chars": {
   "youngsam": {
@@ -5842,6 +5842,69 @@
      "b": "daily",
      "ch": 23,
      "title": "Extra · The Middle of the Bed",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "反正长得一样。这一年多没人拦过我。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · Proof of Life",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "所以我的要求很简单。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · Proof of Life",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "系统里给我改一栏。把‘已处理’，改成‘没处理成’。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · Proof of Life",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "是替我在月亮上守到最后、又替我死过一回的那个。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · Proof of Life",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "我知道记录上是哪天。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · Proof of Life",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "我家家历上就是这天。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · Proof of Life",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "然后你把屏幕转过去，说，写家属。",
+     "b": "daily",
+     "ch": 27,
+     "title": "Extra · Next of Kin",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "前面那个是我们的。",
+     "b": "daily",
+     "ch": 27,
+     "title": "Extra · Next of Kin",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "后面那个是你的。",
+     "b": "daily",
+     "ch": 27,
+     "title": "Extra · Next of Kin",
      "series": "Everybody's Home"
     }
    ]
