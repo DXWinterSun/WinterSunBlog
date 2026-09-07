@@ -130,21 +130,45 @@ def to_html(src):
     return '\n'.join(out)
 
 
-CSS = '''<style>
+CSS = '''<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;500;600;700&family=EB+Garamond:ital@0;1&display=swap">
+<style>
 :root{--bg:__BG__;--accent:__ACCENT__;--ink:__TEXT__;--muted:__MUTED__;}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
- font-family:"Songti SC","Noto Serif SC",Georgia,serif;line-height:2.05;font-size:17px;}
-.wrap{max-width:44rem;margin:0 auto;padding:3.5rem 1.4rem 6rem;}
+ font-family:"Noto Serif SC","Songti SC",Georgia,serif;line-height:2.05;font-size:17px;
+ -webkit-font-smoothing:antialiased;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+ background:radial-gradient(ellipse 900px 500px at 15% -10%,rgba(255,255,255,.055),transparent 60%),
+            radial-gradient(ellipse 700px 500px at 100% 8%,rgba(255,255,255,.035),transparent 55%);}
+.wrap{position:relative;z-index:1;max-width:44rem;margin:0 auto;padding:3.5rem 1.4rem 6rem;}
+/* 顶部状态条 */
+.console{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
+ padding:14px 18px;border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);
+ border-radius:4px;background:color-mix(in srgb,var(--accent) 8%,transparent);
+ font-family:"EB Garamond",Georgia,serif;font-size:13px;letter-spacing:.06em;
+ color:var(--muted);margin-bottom:2.6rem;}
+.console b{color:var(--accent);font-weight:600;}
+.console .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);
+ display:inline-block;box-shadow:0 0 6px var(--accent);flex:none;}
+.console>span+span::before{content:"|";opacity:.38;margin-right:16px;}
+.console>span.dot+span::before{content:none;}
+.moodline{text-align:center;color:var(--muted);font-size:.8rem;letter-spacing:.14em;
+ margin:.55rem 0 0;font-family:"EB Garamond",Georgia,serif;}
+.kicker{font-family:"Volkhov",Georgia,serif;font-style:italic;color:var(--muted);
+ font-size:15px;text-align:center;margin:0 0 .7rem;}
 .eyebrow{font-size:.72rem;letter-spacing:.28em;color:var(--accent);text-align:center;
  margin-bottom:1.6rem;font-family:system-ui,sans-serif;}
-h1{font-size:2rem;text-align:center;margin:0 0 .5rem;font-weight:600;letter-spacing:.04em;}
-.sub{text-align:center;color:var(--muted);font-size:.85rem;letter-spacing:.12em;
- margin-bottom:.4rem;font-family:system-ui,sans-serif;}
+h1{font-family:"Volkhov","Noto Serif SC",Georgia,serif;font-weight:700;
+ font-size:clamp(28px,5vw,40px);text-align:center;margin:0 0 .5rem;line-height:1.25;
+ letter-spacing:.01em;text-wrap:balance;}
+.sub{text-align:center;color:var(--accent);font-size:1.02rem;letter-spacing:.04em;
+ margin-bottom:.4rem;font-family:"Noto Serif SC","Songti SC",serif;}
 .rule{width:60px;height:1px;background:var(--accent);opacity:.6;margin:2.4rem auto 2.8rem;}
-h3{margin:3.2rem 0 1.4rem;font-size:1.05rem;letter-spacing:.1em;color:var(--accent);font-weight:600;}
-h3::before{content:"";display:block;width:26px;height:1px;background:currentColor;
- opacity:.45;margin-bottom:.9rem;}
+h3{font-family:"Volkhov","Noto Serif SC",Georgia,serif;font-weight:400;font-style:italic;
+ margin:3.4rem 0 1.6rem;font-size:1.25rem;letter-spacing:.02em;color:var(--accent);
+ display:flex;align-items:center;gap:14px;}
+h3::after{content:"";flex:1;height:1px;
+ background:linear-gradient(to right,color-mix(in srgb,var(--accent) 55%,transparent),transparent);}
 p{margin:0 0 1.5rem;text-align:justify;}
 strong{color:#fff;font-weight:600;}
 hr{border:0;border-top:1px solid var(--muted);opacity:.35;margin:2.6rem auto;width:40%;}
@@ -232,7 +256,8 @@ def main():
     ap.add_argument('--subtitle', default='', help='副标题，如「番外 · Don\'t Panic, Baby Doll」')
     ap.add_argument('--mood', default='', help='mood 标签，如「缱绻 · 安放」')
     ap.add_argument('--notes', default='', help='衔接说明文件（.md 或 .html），渲染在页尾')
-    ap.add_argument('--eyebrow', default='草稿 · 待冬璇过目', help='顶部眉标')
+    ap.add_argument('--eyebrow', default='草稿 / 待冬璇过目', help='状态条里「状态」那一格')
+    ap.add_argument('--kicker', default='', help='大标题上方那行斜体系列名，如「Everybody\'s Home · Sam Bell AU」')
     a = ap.parse_args()
 
     src = open(a.source, encoding='utf-8').read()
@@ -255,11 +280,20 @@ def main():
     if a.subtitle:
         subs += f'<div class="sub">{html.escape(a.subtitle)}</div>\n'
     if a.mood:
-        subs += (f'<div class="sub" style="opacity:.7;letter-spacing:.06em">'
-                 f'mood：{html.escape(a.mood)}</div>\n')
+        subs += f'<p class="moodline">{html.escape(a.mood)}</p>\n'
+
+
+    cells = [f'<span><b>状态</b> · {html.escape(a.eyebrow)}</span>']
+    if a.series:
+        cells.append(f'<span><b>系列</b> · {html.escape(a.series)}</span>')
+    if a.subtitle:
+        cells.append(f'<span><b>章节</b> · {html.escape(a.subtitle)}</span>')
+    console = ('<div class="console"><span class="dot"></span>'
+               + ''.join(cells) + '</div>\n')
+    kicker = f'<p class="kicker">{html.escape(a.kicker)}</p>\n' if a.kicker else ''
 
     page = (f'<title>{html.escape(a.title)}</title>\n{css}\n<div class="wrap">\n'
-            f'<div class="eyebrow">{html.escape(a.eyebrow)}</div>\n'
+            f'{console}{kicker}'
             f'<h1>{html.escape(a.title)}</h1>\n{subs}<div class="rule"></div>\n'
             f'{body}\n{foot}\n</div>')
     open(a.out, 'w', encoding='utf-8').write(page)
