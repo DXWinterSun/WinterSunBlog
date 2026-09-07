@@ -25,3 +25,10 @@
   待 Winter 过目。预览页：https://claude.ai/code/artifact/3f364dba-88af-4a88-858d-51164baacb64
   拟定 front matter：date 2026-09-03 / series_order 26 / chapter_type Extra /
   tags 安放 · 絮语 / summary「系统里他的状态是：已处理。」
+- `extra13-next-of-kin.md` + `-notes.md` —— 番外十三《Next of Kin · 家属》（求婚），
+  待 Winter 过目。预览页：https://claude.ai/code/artifact/ee7a5d35-1827-468c-bf0c-7ef92592c6cb
+  拟定 front matter：date 2026-09-04 / series_order 27 / chapter_type Extra /
+  tags 安放 · 缱绻 / summary「他们把表格上那个词，拿来求婚。」
+  含插图（四枚戒指），生成脚本见 `illustrations/extra13-rings.py`。
+
+⚠️ 这两篇打算**一起发**，只跑一次构建。
