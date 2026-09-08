@@ -1,4 +1,4 @@
-# Off the Air · Extra · 我赚太大了（草稿 v2 重构版 · 待冬璇过目）
+# Off the Air · Extra · 我赚太大了（v2 已 approve · 攒包待部署，Winter 2026-09-08「好多了」）
 
 - mood：怅惘 · 安放 ／ story_time：1984 ／ series_order：31
 - summary（30 字）：他半夜偷偷算一笔他赢不了的账——你把账本翻过来，重算给他看。
