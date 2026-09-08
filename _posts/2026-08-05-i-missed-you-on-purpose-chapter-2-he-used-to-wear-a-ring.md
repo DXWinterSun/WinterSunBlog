@@ -11,6 +11,7 @@ series_order: 2
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 2"
+story_time: "1984"
 summary: "他说以前戴过个戒指。你信了，还替他难过了一下。"
 ---
 

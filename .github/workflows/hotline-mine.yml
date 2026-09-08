@@ -1,0 +1,61 @@
+# 深夜热线 · AU 语料自动更新
+#
+# Winter 2026-09-02：「能不能随着我们写的章节越来越多，它也能自己更新？」
+#
+# 触发时机：push 到 main 且改动了章节正文（_posts/）、筛话脚本、角色表或系列首页时。
+# 流程：跑 tools/hotline_mine.py 重新筛一遍「他对你说过的话」→ sam/hotline-mined.json
+#       有变化就由机器人替 Winter 提交回 main（只动这一个文件）。
+#
+# 关于站点构建：机器人这一次提交会让 GitHub Pages 再建一次站（顺带把刚推的那次
+# 构建掐掉重来），前后只差一分钟左右，线上多等一会儿就好。机器人只改语料文件，
+# 不会碰 _posts/，所以不会触发自己、不会循环。
+name: Hotline corpus refresh
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "_posts/**"
+      - "tools/hotline_mine.py"
+      - "sam/lines.json"
+      - "sam/hotline-replies.json"
+      - "series/*/index.html"
+      - ".github/workflows/hotline-mine.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "hotline-mine"
+  cancel-in-progress: false
+
+jobs:
+  mine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Mine dialogue from AU chapters
+        run: python3 tools/hotline_mine.py | tail -3
+
+      - name: Commit the refreshed corpus (only if it changed)
+        run: |
+          git add sam/hotline-mined.json
+          if git diff --cached --quiet; then
+            echo "语料没变化，不用提交。"
+            exit 0
+          fi
+          COUNT=$(python3 -c "import json;print(json.load(open('sam/hotline-mined.json'))['meta'].get('count',''))")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "深夜热线 · AU 语料自动更新（${COUNT} 句）"
+          # 万一这一分钟里 Winter 又推了别的，先把她的拉下来再推上去
+          git pull --rebase origin main
+          git push origin HEAD:main
