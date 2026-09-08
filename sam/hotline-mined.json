@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1767
+  "count": 1769
  },
  "chars": {
   "youngsam": {
@@ -4405,6 +4405,20 @@
      "b": "daily",
      "ch": 26,
      "title": "Extra · 不给你打退路",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "结果雁看了十几年，就我一个人看。也挺好。",
+     "b": "daily",
+     "ch": 31,
+     "title": "Extra · 我赚太大了",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "光线的问题。这个角度的晨光，打谁脸上谁好看，行业常识。",
+     "b": "praise",
+     "ch": 32,
+     "title": "Extra · 你才好看",
      "series": "Off the Air"
     }
    ]
