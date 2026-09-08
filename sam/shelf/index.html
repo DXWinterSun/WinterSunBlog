@@ -847,8 +847,10 @@
   var KEY_VIEW = "ws-sam-shelf-view";
   var REPO_API = "https://api.github.com/repos/DXWinterSun/WinterSunBlog/contents/sam/shelf/data.json";
 
+  /* fmts = 这一类东西有哪些「制式」可点；有 fmts 的还会跟着出现地区行。 */
   var TYPES = [
-    { id: "disc",    emoji: "📀", label: "碟片" },
+    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "DVD", "4K UHD"] },
+    { id: "ost",     emoji: "🎵", label: "原声带", fmts: ["CD", "黑胶", "磁带"] },
     { id: "card",    emoji: "🃏", label: "卡牌" },
     { id: "goods",   emoji: "🧸", label: "周边" },
     { id: "program", emoji: "📔", label: "场刊" },
@@ -1055,6 +1057,16 @@
     return el;
   }
 
+  /* 每件东西的三样信息各归各位，不许串门：
+     ① 名字（片名）＝标题  ② 是什么、什么版本＝标签  ③ 谁、哪年、什么时候入手＝副行。
+     副行里的片名，只在它跟标题不一样的时候才写——不然每件都要把片名念两遍。 */
+  function whoLine(it, c) {
+    if (!c) return "";
+    var film = c.filmCN || c.film;
+    var same = String(it.name || "").indexOf(film) >= 0;
+    return same ? c.name : c.name + " · " + film;
+  }
+
   function itemCard(it) {
     var c = it.charId ? charById[it.charId] : null;
     var t = typeById[it.type] || typeById.other;
@@ -1092,7 +1104,7 @@
       ch.className = "item__char";
       ch.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor);
       ch.innerHTML = "<i></i>";
-      ch.appendChild(document.createTextNode(c.name + " · " + (c.filmCN || c.film)));
+      ch.appendChild(document.createTextNode(whoLine(it, c) + " · " + c.year));
       ch.addEventListener("click", function (e) { e.stopPropagation(); });
       el.appendChild(ch);
     }
@@ -1137,15 +1149,21 @@
     var em = document.createElement("span"); em.className = "row__emoji"; em.textContent = t.emoji;
     title.appendChild(em);
     title.appendChild(document.createTextNode(it.name));
-    if (it.spec) {
-      var sp = document.createElement("span"); sp.className = "row__spec"; sp.textContent = it.spec;
+    /* 卡片顶上有「📀 碟片」那行字，清单里只有一个 emoji 太弱——把类别
+       和版本合成同一枚标签，每一行就都是「片名 ＋ 一枚标签」的样子 */
+    var showType = !(arrange === "type" || filter === it.type);   // 已经分了组 / 筛了类，就别再说一遍
+    var spec = (showType ? [t.label] : []).concat(it.spec ? [it.spec] : []).join(" · ");
+    if (spec) {
+      var sp = document.createElement("span"); sp.className = "row__spec"; sp.textContent = spec;
       title.appendChild(sp);
     }
     body.appendChild(title);
 
     var bits = [];
     /* 按角色分组、或正在只看这个人时，上面已经写了他是谁，行里不必再重复 */
-    if (c && arrange !== "char" && charFilter !== it.charId) bits.push("<i>" + esc(c.name) + "</i> · " + esc(c.filmCN || c.film) + " " + esc(c.year));
+    if (c && arrange !== "char" && charFilter !== it.charId) {
+      bits.push("<i>" + esc(whoLine(it, c)) + "</i> · " + esc(c.year));
+    }
     if (it.date) bits.push(esc((it.wish ? "许愿于 " : "入手于 ") + it.date));
     if (bits.length) {
       var sub = document.createElement("span"); sub.className = "row__sub";
@@ -1538,52 +1556,56 @@
     b.addEventListener("click", function () { setFormType(t.id); });
     tWrap.appendChild(b);
   });
+  function fmtsFor(type) {
+    var t = typeById[type];
+    return (t && t.fmts) || [];
+  }
   function setFormType(id) {
     formType = id;
     tWrap.querySelectorAll(".t-chip").forEach(function (x) {
       x.classList.toggle("is-on", x.dataset.type === id);
     });
-    /* 「导进 NAS」与制式 / 版本点选只对碟片有意义 */
-    var isDisc = (id === "disc");
-    $("f-nas-row").style.display = isDisc ? "flex" : "none";
-    $("f-fmt-row").style.display = isDisc ? "flex" : "none";
-    $("f-region-row").style.display = isDisc ? "flex" : "none";
+    /* 制式那排跟着类别换：碟片是蓝光 / DVD / 4K，原声带是 CD / 黑胶 / 磁带；
+       场刊、卡牌这些没有制式可言，整排收起来。「导进 NAS」仍只对碟片有意义。 */
+    var fmts = fmtsFor(id);
+    if (fmts.indexOf(specFmt) < 0) specFmt = "";
+    buildFmtChips(fmts);
+    $("f-nas-row").style.display = (id === "disc") ? "flex" : "none";
+    $("f-fmt-row").style.display = fmts.length ? "flex" : "none";
+    $("f-region-row").style.display = fmts.length ? "flex" : "none";
+    syncSpecChips();
     updateNameHint();
   }
 
-  /* 不用自己起名：选了关联角色就自动用「电影名（＋类别）」。
-     碟片只用电影名（历来如此）；场刊 / 卡牌 / 周边 / 书刊等在后面缀上类别，
-     省得每件都手打——想自己起名照样填，填了就以填的为准。 */
-  function autoNameFor(type) {
+  /* 不用自己起名：选了关联角色就把片名直接填进框里（可以再改）。
+     名字只写片名，是哪一类交给类别标签去说——名字里再缀一遍
+     「场刊 / 原声带」，架子上就会变成有的写在标题、有的挂成标签。 */
+  function autoNameFor() {
     var c = charById[$("f-char").value];
-    if (!c) return "";
-    var film = c.filmCN || ("《" + c.film + "》");
-    if (type === "disc") return film;
-    var t = typeById[type];
-    return t && t.label !== "其他" ? film + t.label : film;
+    return c ? (c.filmCN || ("《" + c.film + "》")) : "";
   }
+  var autoFilled = "";   // 上一次替她填进去的名字；她一动手改，就不再覆盖
   function updateNameHint() {
     var hint = $("f-name-hint");
     var input = $("f-name");
-    var auto = autoNameFor(formType);
-    if (auto) {
-      hint.textContent = "（可不填 · 不填就叫「" + auto + "」）";
-      input.placeholder = auto + "（自动取名，想改再填）";
-    } else {
-      hint.textContent = "（可不填 · 选了关联角色就自动取名）";
-      input.placeholder = formType === "disc" ? "例：《月球》蓝光…"
-                        : formType === "program" ? "例：百老汇场刊…"
-                        : "例：Topps 签名卡 / 亚克力立牌…";
+    var auto = autoNameFor();
+    if (auto && (!input.value.trim() || input.value === autoFilled)) {
+      input.value = auto;
+      autoFilled = auto;
     }
+    hint.textContent = auto ? "（已经替你填好 · 想叫别的直接改）"
+                            : "（可不填 · 选了下面的角色就自动填上片名）";
+    input.placeholder = formType === "card" ? "例：Topps 签名卡…"
+                      : formType === "goods" ? "例：亚克力立牌 / 签名海报…"
+                      : "例：《月球》…";
   }
 
-  /* ————— 碟片的制式 / 版本点选（单选可取消，落进 spec 字符串） ————— */
-  var FMTS = ["蓝光", "DVD", "4K UHD"];
+  /* ————— 制式 / 地区点选（单选可取消，落进 spec 字符串） ————— */
+  var ALL_FMTS = TYPES.reduce(function (a, t) { return a.concat(t.fmts || []); }, []);
   var REGIONS = ["美版", "英版", "日版", "港版", "台版", "国版"];
   var specFmt = "", specRegion = "";
 
-  function buildSpecChips(wrapId, values, getter, setter) {
-    var wrap = $(wrapId);
+  function buildSpecChips(wrap, values, getter, setter) {
     values.forEach(function (v) {
       var b = document.createElement("button");
       b.type = "button";
@@ -1597,6 +1619,12 @@
       wrap.appendChild(b);
     });
   }
+  function buildFmtChips(values) {
+    var wrap = $("f-fmt-row");
+    wrap.innerHTML = "";
+    buildSpecChips(wrap, values,
+      function () { return specFmt; }, function (v) { specFmt = v; });
+  }
   function syncSpecChips() {
     $("f-fmt-row").querySelectorAll(".t-chip").forEach(function (x) {
       x.classList.toggle("is-on", x.dataset.val === specFmt);
@@ -1605,18 +1633,16 @@
       x.classList.toggle("is-on", x.dataset.val === specRegion);
     });
   }
-  buildSpecChips("f-fmt-row", FMTS,
-    function () { return specFmt; }, function (v) { specFmt = v; });
-  buildSpecChips("f-region-row", REGIONS,
+  buildSpecChips($("f-region-row"), REGIONS,
     function () { return specRegion; }, function (v) { specRegion = v; });
 
-  /* 把已有的 spec 字符串拆回「制式 / 版本 / 其它」（兼容旧数据「蓝光」「DVD」等） */
+  /* 把已有的 spec 字符串拆回「制式 / 地区 / 其它」（兼容旧数据「蓝光」「DVD」等） */
   function parseSpec(spec) {
     var fmt = "", region = "", rest = [];
     String(spec || "").split("·").forEach(function (raw) {
       var tok = raw.trim();
       if (!tok) return;
-      if (!fmt && FMTS.indexOf(tok) >= 0) fmt = tok;
+      if (!fmt && ALL_FMTS.indexOf(tok) >= 0) fmt = tok;
       else if (!region && REGIONS.indexOf(tok) >= 0) region = tok;
       else rest.push(tok);
     });
@@ -1624,7 +1650,7 @@
   }
   function composeSpec() {
     var parts = [];
-    if (formType === "disc") {
+    if (fmtsFor(formType).length) {
       if (specFmt) parts.push(specFmt);
       if (specRegion) parts.push(specRegion);
     }
@@ -1638,17 +1664,20 @@
     var it = id ? items.find(function (x) { return x.id === id; }) : null;
     $("sheet-title").textContent = it ? "改一改这件藏品" : "添加一件藏品";
     $("f-name").value = it ? it.name : "";
-    var sp = parseSpec(it ? it.spec : "");
-    specFmt = sp.fmt; specRegion = sp.region;
-    syncSpecChips();
-    $("f-spec").value = sp.rest;
+    autoFilled = "";                       // 改旧藏品时别把她起的名字冲掉
     $("f-char").value = it ? (it.charId || "") : (presetChar || "");
     $("f-date").value = it ? (it.date || "") : "";
     $("f-note").value = it ? (it.note || "") : "";
     $("f-nas").checked = it ? !!it.nas : false;
     $("f-signed").checked = it ? !!it.signed : false;
     $("f-wish").checked = it ? !!it.wish : false;
+    /* 先定类别（制式那排会跟着重建），再把已有的规格拆回去点上 */
     setFormType(it ? it.type : "disc");
+    var sp = parseSpec(it ? it.spec : "");
+    specFmt = fmtsFor(formType).indexOf(sp.fmt) >= 0 ? sp.fmt : "";
+    specRegion = sp.region;
+    $("f-spec").value = sp.rest || (sp.fmt && !specFmt ? sp.fmt : "");
+    syncSpecChips();
     $("btn-del").style.display = it ? "block" : "none";
     $("btn-save").textContent = it ? "保存修改" : "摆上架子";
     fitOverlay();
@@ -1675,7 +1704,7 @@
 
   $("btn-save").addEventListener("click", function () {
     var name = $("f-name").value.trim();
-    if (!name) name = autoNameFor(formType);
+    if (!name) name = autoNameFor();
     if (!name) {
       toast(formType === "disc" ? "选一个关联角色，或给它起个名字～" : "先给它起个名字呀");
       $("f-name").focus();
@@ -1745,6 +1774,7 @@
       type: t.label,
       emoji: t.emoji,
       spec: it.spec || "",
+      who: whoLine(it, c),
       char: c ? c.name : "",
       film: c ? (c.filmCN || c.film) : "",
       year: c ? c.year : "",
@@ -1782,9 +1812,11 @@
       }
       g.items.forEach(function (it) {
         var f = exFields(it);
-        out.push((f.n ? f.n + "  " : "🌠  ") + f.emoji + " " + f.name + (f.spec ? "  —  " + f.spec : ""));
+        /* 跟页面上一个样：片名是名字，是什么、什么版本跟在破折号后面 */
+        var kind = [g.key && arrange === "type" ? "" : f.type, f.spec].filter(Boolean).join(" · ");
+        out.push((f.n ? f.n + "  " : "🌠  ") + f.emoji + " " + f.name + (kind ? "  —  " + kind : ""));
         var l2 = [];
-        if (f.char) l2.push(f.char + " · " + f.film + (f.year ? " " + f.year : ""));
+        if (f.who) l2.push(f.who + (f.year ? " · " + f.year : ""));
         if (f.nas) l2.push(f.nas);
         if (f.signed) l2.push(f.signed);
         if (f.date) l2.push((it.wish ? "许愿于 " : "入手于 ") + f.date);
