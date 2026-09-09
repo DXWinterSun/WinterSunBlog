@@ -32,6 +32,6 @@
   拟定 front matter：date 2026-09-04 / series_order 27 / chapter_type Extra /
   tags 安放 · 缱绻 / summary「他们把表格上那个词，拿来求婚。」
   含插图（四枚戒指），生成脚本见 `illustrations/extra13-rings.py`（脚本名沿用旧编号，没改）。
-- `extra15-fiances.md` + `-notes.md` —— 番外十五《Fiancés · 两个未婚夫》（原十四，**未发，待 Winter 拍板**）。
+- `extra15-fiances.md` + `-notes.md` —— 番外十五《Fiancés · 两个未婚夫》（原十四）。
 
 ⚠️ 这两篇打算**一起发**，只跑一次构建。
