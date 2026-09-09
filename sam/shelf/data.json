@@ -598,6 +598,32 @@
       "wish": 0,
       "id": "mttr4ca2-5stp2",
       "added": 1788937369130
+    },
+    {
+      "name": "《火柴人》",
+      "type": "disc",
+      "spec": "DVD · 日版 · 录像带租借专用",
+      "charId": "frank",
+      "date": "2026-09-09",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mtu2al8d-b6rnz",
+      "added": 1788956136445
+    },
+    {
+      "name": "《银河系漫游指南》",
+      "type": "program",
+      "spec": "",
+      "charId": "zaphod",
+      "date": "2026-09-09",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mtu2ayes-ao93m",
+      "added": 1788956153524
     }
   ]
 }
