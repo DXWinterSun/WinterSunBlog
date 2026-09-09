@@ -1,4 +1,4 @@
-# The Real Thing · 已过目 / 待编号的草稿（不进构建）
+# The Real Thing · 正文全文存档 + 每章笔记（按 CLAUDE.md「每章留两样东西」的规矩放这里，Jekyll 不发布）
 
 这里放 Winter 已经在预览页看过、但还没上线的正文。**不是 `_posts/`，Jekyll 不会构建它。**
 留在这里是为了不丢（scratchpad 每个会话独立，容器回收就没了）。
