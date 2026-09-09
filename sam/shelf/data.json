@@ -4,7 +4,7 @@
   "items": [
     {
       "id": "seed-topps",
-      "name": "Topps 漫威签名卡 · Justin Hammer 2/5",
+      "name": "Topps 漫威签名卡",
       "type": "card",
       "spec": "2 of 5",
       "charId": "hammer",
@@ -16,7 +16,7 @@
     },
     {
       "id": "seed-mercy",
-      "name": "《Mercy》DVD",
+      "name": "《Mercy》",
       "type": "disc",
       "spec": "DVD",
       "charId": "matty",
@@ -28,16 +28,17 @@
       "nas": 1
     },
     {
-      "name": "Mr. Right蓝光美版",
+      "name": "Mr. Right",
       "type": "disc",
-      "spec": "蓝光",
+      "spec": "蓝光 · 美版",
       "charId": "francis",
       "date": "2026-06-04",
       "note": "第一批Amazon海淘！",
       "signed": 0,
       "wish": 0,
       "id": "msbng1am-xm3e7",
-      "added": 1785666022798
+      "added": 1785666022798,
+      "nas": 1
     },
     {
       "name": "《冒牌高手》",
@@ -72,7 +73,7 @@
       "charId": "guy",
       "date": "",
       "note": "",
-      "nas": 0,
+      "nas": 1,
       "signed": 0,
       "wish": 0,
       "id": "msg7z7l9-v0blj",
@@ -105,7 +106,7 @@
       "added": 1785942538806
     },
     {
-      "name": "《月球》场刊",
+      "name": "《月球》",
       "type": "program",
       "spec": "",
       "charId": "sambell",
@@ -185,7 +186,7 @@
     {
       "name": "签名海报",
       "type": "goods",
-      "spec": "签名海报",
+      "spec": "",
       "charId": "klenz",
       "date": "",
       "note": "",
@@ -228,7 +229,7 @@
       "charId": "frank",
       "date": "",
       "note": "",
-      "nas": 0,
+      "nas": 1,
       "signed": 0,
       "wish": 0,
       "id": "msg8a23p-csqtz",
@@ -254,7 +255,7 @@
       "charId": "rob",
       "date": "2026-08-21",
       "note": "",
-      "nas": 0,
+      "nas": 1,
       "signed": 0,
       "wish": 0,
       "id": "mt3ccdj7-58d8q",
@@ -267,7 +268,7 @@
       "charId": "victor",
       "date": "2026-08-21",
       "note": "",
-      "nas": 0,
+      "nas": 1,
       "signed": 0,
       "wish": 0,
       "id": "mt3ccyl9-zlsu0",
@@ -280,7 +281,7 @@
       "charId": "doug",
       "date": "2026-08-21",
       "note": "",
-      "nas": 0,
+      "nas": 1,
       "signed": 0,
       "wish": 0,
       "id": "mt3cdlhv-umrmd",
@@ -358,7 +359,7 @@
       "charId": "greaves",
       "date": "",
       "note": "",
-      "nas": 0,
+      "nas": 1,
       "signed": 0,
       "wish": 0,
       "id": "mtg1zb6h-r5ykh",
@@ -371,7 +372,7 @@
       "charId": "glenn",
       "date": "",
       "note": "",
-      "nas": 0,
+      "nas": 1,
       "signed": 0,
       "wish": 0,
       "id": "mtg1zppz-fbp1c",
@@ -417,7 +418,7 @@
       "added": 1788109171729
     },
     {
-      "name": "《理查德·朱维尔的哀歌》场刊",
+      "name": "《理查德·朱维尔的哀歌》",
       "type": "program",
       "spec": "",
       "charId": "watson",
@@ -430,7 +431,7 @@
       "added": 1788196508183
     },
     {
-      "name": "《阿盖尔：神秘特工》场刊",
+      "name": "《阿盖尔：神秘特工》",
       "type": "program",
       "spec": "",
       "charId": "aidan",
@@ -443,7 +444,7 @@
       "added": 1788196516449
     },
     {
-      "name": "《三块广告牌》场刊",
+      "name": "《三块广告牌》",
       "type": "program",
       "spec": "",
       "charId": "dixon",
@@ -456,7 +457,7 @@
       "added": 1788196521749
     },
     {
-      "name": "《钢铁侠2》场刊",
+      "name": "《钢铁侠2》",
       "type": "program",
       "spec": "",
       "charId": "hammer",
@@ -469,7 +470,7 @@
       "added": 1788196534403
     },
     {
-      "name": "《火柴人》场刊",
+      "name": "《火柴人》",
       "type": "program",
       "spec": "",
       "charId": "frank",
@@ -482,7 +483,7 @@
       "added": 1788196541094
     },
     {
-      "name": "《副总统》场刊",
+      "name": "《副总统》",
       "type": "program",
       "spec": "",
       "charId": "bush",
@@ -495,7 +496,7 @@
       "added": 1788196630805
     },
     {
-      "name": "《福斯特对话尼克松》场刊",
+      "name": "《福斯特对话尼克松》",
       "type": "program",
       "spec": "",
       "charId": "reston",
@@ -508,7 +509,7 @@
       "added": 1788267485349
     },
     {
-      "name": "《危险思想的自白》场刊",
+      "name": "《危险思想的自白》",
       "type": "program",
       "spec": "",
       "charId": "chuck",
@@ -521,9 +522,9 @@
       "added": 1788267504804
     },
     {
-      "name": "《火柴人》OST原声带",
-      "type": "disc",
-      "spec": "",
+      "name": "《火柴人》",
+      "type": "ost",
+      "spec": "CD",
       "charId": "frank",
       "date": "2026-08-26",
       "note": "",
@@ -532,6 +533,71 @@
       "wish": 0,
       "id": "mtiofhs8-7gu8l",
       "added": 1788267722696
+    },
+    {
+      "name": "《乔乔的异想世界》",
+      "type": "program",
+      "spec": "",
+      "charId": "klenz",
+      "date": "2026-09-04",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mtn3ypzo-8oicj",
+      "added": 1788535678740
+    },
+    {
+      "name": "《绿里奇迹》",
+      "type": "program",
+      "spec": "",
+      "charId": "wildbill",
+      "date": "2026-09-04",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mtn3z0mv-m5x80",
+      "added": 1788535692535
+    },
+    {
+      "name": "《危险思想的自白》",
+      "type": "ost",
+      "spec": "CD · 日版",
+      "charId": "chuck",
+      "date": "2026-09-08",
+      "note": "Chuck Barris美得不可方物！",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mtsog1d4-dl031",
+      "added": 1788872409832
+    },
+    {
+      "name": "《月球》",
+      "type": "ost",
+      "spec": "CD · 英版",
+      "charId": "sambell",
+      "date": "2026-08-09",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mtsq4uba-bo3t4",
+      "added": 1788875246710
+    },
+    {
+      "name": "《阿盖尔：神秘特工》",
+      "type": "goods",
+      "spec": "鼠标垫",
+      "charId": "aidan",
+      "date": "2026-05-18",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mttr4ca2-5stp2",
+      "added": 1788937369130
     }
   ]
 }
