@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 15 · 我教得很好 — The Real Thing"
+title: "Chapter 16 · 我教得很好 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-20
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 15
+series_order: 16
 series_type: "Series"
-chapter_type: "Chapter 15"
+chapter_type: "Chapter 16"
 story_time: "2003"
 summary: "他不是狠不下心。他是根本不用狠。说这话的是教他的人。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 暗涌]

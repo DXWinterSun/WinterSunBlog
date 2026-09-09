@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 33 · 这儿摆那匹马 — The Real Thing"
+title: "Chapter 34 · 这儿摆那匹马 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-07
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 33
+series_order: 34
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 33"
+chapter_type: "Chapter 34"
 story_time: "2004"
 summary: "她用鞋尖在地板上点了一下。正中间。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]

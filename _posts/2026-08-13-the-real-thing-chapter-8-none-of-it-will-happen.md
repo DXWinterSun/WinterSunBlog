@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 8 · 一件都不会发生 — The Real Thing"
+title: "Chapter 9 · 一件都不会发生 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-13
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 8
+series_order: 9
 series_type: "Series"
-chapter_type: "Chapter 8"
+chapter_type: "Chapter 9"
 story_time: "2003"
 summary: "他每一声行都是真心的。他也清楚这些事一件都不会发生。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 怅惘]

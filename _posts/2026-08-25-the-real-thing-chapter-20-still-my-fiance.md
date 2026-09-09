@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 20 · 你还是不是我的未婚夫 — The Real Thing"
+title: "Chapter 21 · 你还是不是我的未婚夫 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-25
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 20
+series_order: 21
 series_type: "Series"
-chapter_type: "Chapter 20"
+chapter_type: "Chapter 21"
 story_time: "2003"
 summary: "三个月前你给他开过一张证明。那张你一次都没有撤销过。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]

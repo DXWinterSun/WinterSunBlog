@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 41 · 那匹马的出处 — The Real Thing"
+title: "Chapter 42 · 那匹马的出处 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-18
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 44
+series_order: 45
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 41"
+chapter_type: "Chapter 42"
 story_time: "2004"
 summary: "我说她这辈子的活儿，就是给东西写这一行。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]

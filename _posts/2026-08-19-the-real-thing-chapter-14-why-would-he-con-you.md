@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 14 · 他还骗你干什么 — The Real Thing"
+title: "Chapter 15 · 他还骗你干什么 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-19
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 14
+series_order: 15
 series_type: "Series"
-chapter_type: "Chapter 14"
+chapter_type: "Chapter 15"
 story_time: "2003"
 summary: "他从我这儿拿走了一百多万。他还骗你干什么？"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 怅惘]

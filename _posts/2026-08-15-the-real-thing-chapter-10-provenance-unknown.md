@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 10 · 出处不明 — The Real Thing"
+title: "Chapter 11 · 出处不明 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-15
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 10
+series_order: 11
 series_type: "Series"
-chapter_type: "Chapter 10"
+chapter_type: "Chapter 11"
 story_time: "2003"
 summary: "你替他说了最好的一次话，在他走后的第八个钟头。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 暗涌]

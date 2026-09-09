@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 17 · 去把那间屋子退了 — The Real Thing"
+title: "Chapter 18 · 去把那间屋子退了 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-22
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 17
+series_order: 18
 series_type: "Series"
-chapter_type: "Chapter 17"
+chapter_type: "Chapter 18"
 story_time: "2003"
 summary: "他开了一千四百英里，去退一间打个电话就能退掉的房子。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 悸动]

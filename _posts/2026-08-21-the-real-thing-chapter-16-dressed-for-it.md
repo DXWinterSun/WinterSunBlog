@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 16 · 他穿得很整齐 — The Real Thing"
+title: "Chapter 17 · 他穿得很整齐 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-21
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 16
+series_order: 17
 series_type: "Series"
-chapter_type: "Chapter 16"
+chapter_type: "Chapter 17"
 story_time: "2003"
 summary: "你在飞机上订好的六条，用了大概两秒钟，全部作废。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 悸动]

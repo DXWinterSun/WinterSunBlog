@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 30 · 这本来就是你的钱 — The Real Thing"
+title: "Chapter 31 · 这本来就是你的钱 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-04
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 30
+series_order: 31
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 30"
+chapter_type: "Chapter 31"
 story_time: "2004"
 summary: "你本来只是想请他来喝一杯喜酒。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 安放]

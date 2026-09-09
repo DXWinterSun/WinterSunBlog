@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 37 · 他回来过六回 — The Real Thing"
+title: "Chapter 38 · 他回来过六回 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-14
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 40
+series_order: 41
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 37"
+chapter_type: "Chapter 38"
 story_time: "2004"
 summary: "那一下停得很短，短到几乎不算停。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 安放]

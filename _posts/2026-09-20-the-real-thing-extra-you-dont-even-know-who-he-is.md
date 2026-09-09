@@ -6,7 +6,7 @@ date: 2026-09-20
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 46
+series_order: 47
 series_status: ongoing
 series_type: "Series"
 chapter_type: "Extra"

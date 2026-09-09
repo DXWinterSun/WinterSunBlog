@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 43 · 我今年有地方去 — The Real Thing"
+title: "Chapter 44 · 我今年有地方去 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-23
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 49
+series_order: 50
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 43"
+chapter_type: "Chapter 44"
 story_time: "2004"
 summary: "他这辈子守过一条规矩：什么都不写。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 安放, 缱绻]

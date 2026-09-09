@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 13 · 他两年前才开始存在 — The Real Thing"
+title: "Chapter 14 · 他两年前才开始存在 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-18
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 13
+series_order: 14
 series_type: "Series"
-chapter_type: "Chapter 13"
+chapter_type: "Chapter 14"
 story_time: "2003"
 summary: "以他的名字查全国，一切记录都始于两年前。此前空白。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 怅惘]

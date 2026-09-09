@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 12 · 他在洛杉矶有一个家 — The Real Thing"
+title: "Chapter 13 · 他在洛杉矶有一个家 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-17
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 12
+series_order: 13
 series_type: "Series"
-chapter_type: "Chapter 12"
+chapter_type: "Chapter 13"
 story_time: "2003"
 summary: "他的留言只有十一秒。你每天晚上都听一遍。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 思念, 怅惘]

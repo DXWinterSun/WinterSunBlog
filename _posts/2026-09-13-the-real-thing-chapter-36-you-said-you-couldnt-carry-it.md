@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 36 · 你不是说抱不动吗 — The Real Thing"
+title: "Chapter 37 · 你不是说抱不动吗 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-13
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 39
+series_order: 40
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 36"
+chapter_type: "Chapter 37"
 story_time: "2004"
 summary: "后保险杠上拴着十来个铁罐子，一路响。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]

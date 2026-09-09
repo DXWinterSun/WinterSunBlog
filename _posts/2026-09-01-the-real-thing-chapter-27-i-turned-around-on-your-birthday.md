@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 27 · 你生日那天我掉头了 — The Real Thing"
+title: "Chapter 28 · 你生日那天我掉头了 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-01
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 27
+series_order: 28
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 27"
+chapter_type: "Chapter 28"
 story_time: "2003"
 summary: "那一年谁都没赶上谁的生日，最后凑在同一根蜡烛上。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]

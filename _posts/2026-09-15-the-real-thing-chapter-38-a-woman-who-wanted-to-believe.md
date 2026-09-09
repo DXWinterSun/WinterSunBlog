@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 38 · 一个想信你的女人 — The Real Thing"
+title: "Chapter 39 · 一个想信你的女人 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-15
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 41
+series_order: 42
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 38"
+chapter_type: "Chapter 39"
 story_time: "2004"
 summary: "他这辈子发过很多誓。这一个没有人听见。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 暗涌]
