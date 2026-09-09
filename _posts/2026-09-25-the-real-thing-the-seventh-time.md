@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 45 · 第七回 — The Real Thing"
+title: "Chapter 46 · 第七回 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-25
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 52
+series_order: 53
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 45"
+chapter_type: "Chapter 46"
 story_time: "2004–2005"
 summary: "前六回他都是回到她身边的。第七回，她不在了。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 暗涌]
