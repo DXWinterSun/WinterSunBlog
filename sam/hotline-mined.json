@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1769
+  "count": 1771
  },
  "chars": {
   "youngsam": {
@@ -2111,22 +2111,36 @@
     {
      "cn": "我小时候这儿天天堵。",
      "b": "daily",
-     "ch": 52,
-     "title": "Chapter 45 · 第七回",
+     "ch": 53,
+     "title": "Chapter 46 · 第七回",
      "series": "The Real Thing"
     },
     {
      "cn": "你不用跟我说。",
      "b": "daily",
-     "ch": 52,
-     "title": "Chapter 45 · 第七回",
+     "ch": 53,
+     "title": "Chapter 46 · 第七回",
      "series": "The Real Thing"
     },
     {
      "cn": "左前轮，我一上路就觉出来了。",
      "b": "daily",
+     "ch": 53,
+     "title": "Chapter 46 · 第七回",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "你穿那件蓝的。",
+     "b": "daily",
      "ch": 52,
-     "title": "Chapter 45 · 第七回",
+     "title": "Chapter 45 · 那一屋子人是顺带的",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "我这辈子没见过这么卖车的。",
+     "b": "daily",
+     "ch": 52,
+     "title": "Chapter 45 · 那一屋子人是顺带的",
      "series": "The Real Thing"
     }
    ]
