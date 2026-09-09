@@ -21,14 +21,17 @@
 
 ## 当前未发布的稿子
 
-- `extra12-proof-of-life.md` + `-notes.md` —— 番外十二《Proof of Life · 确认活着》，
+- `extra12-neither-of-you.md` + `-notes.md` —— 番外十二《Neither of You · 哪一个都不许》（情敌 Jo · 「不拦」· 她改答案），
+  2026-09 插入，此后各篇顺延一位。
+- `extra13-proof-of-life.md` + `-notes.md` —— 番外十三《Proof of Life · 确认活着》（原十二），
   待 Winter 过目。预览页：https://claude.ai/code/artifact/3f364dba-88af-4a88-858d-51164baacb64
   拟定 front matter：date 2026-09-03 / series_order 26 / chapter_type Extra /
   tags 安放 · 絮语 / summary「系统里他的状态是：已处理。」
-- `extra13-next-of-kin.md` + `-notes.md` —— 番外十三《Next of Kin · 家属》（求婚），
+- `extra14-next-of-kin.md` + `-notes.md` —— 番外十四《Next of Kin · 家属》（求婚，原十三），
   待 Winter 过目。预览页：https://claude.ai/code/artifact/ee7a5d35-1827-468c-bf0c-7ef92592c6cb
   拟定 front matter：date 2026-09-04 / series_order 27 / chapter_type Extra /
   tags 安放 · 缱绻 / summary「他们把表格上那个词，拿来求婚。」
-  含插图（四枚戒指），生成脚本见 `illustrations/extra13-rings.py`。
+  含插图（四枚戒指），生成脚本见 `illustrations/extra13-rings.py`（脚本名沿用旧编号，没改）。
+- `extra15-fiances.md` + `-notes.md` —— 番外十五《Fiancés · 两个未婚夫》（原十四，**未发，待 Winter 拍板**）。
 
 ⚠️ 这两篇打算**一起发**，只跑一次构建。
