@@ -7,15 +7,15 @@ tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 安放, 絮语]
 categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
-series_order: 26
+series_order: 27
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
 summary: "系统里他的状态是：已处理。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十二。前情见
-> [Extra · One Sam Bell]({{ site.baseurl }}{% post_url 2026-09-02-everybody-s-home-extra-one-sam-bell %})。那艘船的登记上只有一个名字。要把另外两个加上去，得先解决一件事——法律上，Five 不存在。
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十三。前情见
+> [Extra · Neither of You]({{ site.baseurl }}{% post_url 2026-09-02-everybody-s-home-extra-neither-of-you %})。那艘船的登记上只有一个名字。要把另外两个加上去，得先解决一件事——法律上，Five 不存在。
 
 ## 一 · 你的证件呢
 

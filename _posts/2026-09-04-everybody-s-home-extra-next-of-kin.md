@@ -7,7 +7,7 @@ tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 安放, 缱绻]
 categories: ["AU Story"]
 series: "Everybody's Home"
 series_title: "Everybody's Home · Sam Bell AU"
-series_order: 27
+series_order: 28
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
@@ -15,7 +15,7 @@ has_art: true
 summary: "他们把表格上那个词，拿来求婚。"
 ---
 
-> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十三。前情见
+> 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十四。前情见
 > [Extra · Proof of Life]({{ site.baseurl }}{% post_url 2026-09-03-everybody-s-home-extra-proof-of-life %})。第二年春天，阳台上那三盆风信子开了。你蹲在那儿看了很久，转过身的时候，他们两个已经站在门口了——七点钟，两个人都穿戴整齐。
 
 ### 一 · 它回来了
@@ -331,9 +331,57 @@ Six 没接话。
 
 ——两个半轮扣上了。
 
+“谁的主意。”你问。
+
+Six 没吭声。
+
+“他的。”Five 说。
+
+“——戒指是你的主意。”Six 说。
+
+“戒指是我的。”Five 说，“可这事是我先问的你。你也答应了。”
+
+“那是因为你问得——”Six 停住了。
+
+你看看这个，看看那个。
+
+“……他怎么问的。”
+
+Six 不肯说。他把脸别到一边去，耳朵尖是红的。
+
+Five 说了。
+
+两个多月前的一个晚上，你先睡了，他们两个在厨房收拾。Five 擦着一个杯子，头也没抬，说：“Sam。”
+
+“嗯。”
+
+“你愿意跟我一起，向 Winter 求婚吗。”
+
+Six 手里的盘子差点掉进水池。
+
+他说他当时转过身，看着他哥，看了足有五秒钟，然后说了一句话——Five 到今天还在学：
+
+“……你这是在跟我求婚？”
+
+Five 想了想，说：“差不多。”
+
+——他真是这么答的。差不多。
+
+你笑得直不起腰，笑着笑着眼泪又下来了。因为你听明白了那句“差不多”：两个人一起向你开口，就是两个人一起说了“永远”。那个“永远”里头有你，也有他们彼此。
+
+“他想了三天。”Five 说。
+
+“我没有！”
+
+“三天。第四天早上他跟我说，他去找师傅。”
+
+Six 的耳朵红到了脖子根。
+
+“行了。”他说，“戴都戴上了。”
+
 ## 七 · 早就知道了
 
-那天中午,Eve 打来了电话。
+那天中午，Eve 打来了电话。
 
 她第一句话是：
 
