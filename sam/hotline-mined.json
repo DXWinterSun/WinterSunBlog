@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1771
+  "count": 1786
  },
  "chars": {
   "youngsam": {
@@ -7664,6 +7664,111 @@
      "b": "daily",
      "ch": 21,
      "title": "Chapter 21 · 你小子命好",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "我这辈子，前头四十年，苦是真苦。我从前想不明白，遭那些罪是图什么。",
+     "b": "daily",
+     "ch": 22,
+     "title": "Chapter 22 · 一天都不想等了",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "现在明白了。要是那些道儿，都是为了把我送到你跟前——那就不亏。一步都不亏。",
+     "b": "daily",
+     "ch": 22,
+     "title": "Chapter 22 · 一天都不想等了",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "还有一样，你得听清楚。",
+     "b": "daily",
+     "ch": 22,
+     "title": "Chapter 22 · 一天都不想等了",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "从今往后你什么都不用干。",
+     "b": "daily",
+     "ch": 22,
+     "title": "Chapter 22 · 一天都不想等了",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "饭我做。水我烧。柴我劈。地我扫。你就一件事——躺着，把它养好。",
+     "b": "daily",
+     "ch": 22,
+     "title": "Chapter 22 · 一天都不想等了",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "你的东西，一样都没动。",
+     "b": "daily",
+     "ch": 23,
+     "title": "Chapter 23 · 就我们认得",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "往后也不会。这儿就我们认得。年年都来。",
+     "b": "daily",
+     "ch": 23,
+     "title": "Chapter 23 · 就我们认得",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "你定。你念书多。",
+     "b": "daily",
+     "ch": 25,
+     "title": "Chapter 25 · 是个姑娘",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "就什么都不愁了。眼睛随谁不要紧。人随你，就行。",
+     "b": "daily",
+     "ch": 25,
+     "title": "Chapter 25 · 是个姑娘",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "炉子上还有火。屋外是雪。你在家。",
+     "b": "daily",
+     "ch": 27,
+     "title": "Chapter 27 · 这回来得及",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "我听着。今晚多长都行。",
+     "b": "daily",
+     "ch": 27,
+     "title": "Chapter 27 · 这回来得及",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "换我躺在那儿——有人肯这么陪我数到最后一口，我闭眼的时候，不怕。",
+     "b": "night",
+     "ch": 27,
+     "title": "Chapter 27 · 这回来得及",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "到日子，进产房，我跟着。",
+     "b": "daily",
+     "ch": 27,
+     "title": "Chapter 27 · 这回来得及",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "攥坏一根，还富余。到时候你可劲儿攥。",
+     "b": "daily",
+     "ch": 27,
+     "title": "Chapter 27 · 这回来得及",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "你家的事，全场都惦记着呢。",
+     "b": "daily",
+     "ch": 29,
+     "title": "Chapter 29 · 三个人回家",
      "series": "Wintergreen"
     }
    ]
