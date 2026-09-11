@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 6 · 白马王子 — The Real Thing"
+title: "Chapter 7 · 白马王子 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-11
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 6
+series_order: 7
 series_type: "Series"
-chapter_type: "Chapter 6"
+chapter_type: "Chapter 7"
 story_time: "2003"
 summary: "他把那匹白马搬进了自己家客厅正中央。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 悸动]
@@ -19,7 +19,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 悸动]
 > 那天你认出来了。  
 > 你哭了整整一个下午。
 
-入了冬，你开始想很远的事。
+夏天过了一半，你开始想很远的事。
 
 这一点你自己都吓了一跳。你从来不是那种会规划未来的人——你要什么当下就有什么，用不着规划。可那阵子你会莫名其妙地想到明年的这个时候，想到五年以后，想到很老很老的时候：想他那时候是不是还会把袜子乱扔，想到那么老了他讲那些荒唐事还会不会自己先笑出来。
 

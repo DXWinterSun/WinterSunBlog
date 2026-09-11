@@ -11,6 +11,7 @@ series_order: 5
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 5"
+story_time: "1984"
 summary: "他给你换了把新锁。你给了他一把钥匙。他愣了一下。"
 ---
 

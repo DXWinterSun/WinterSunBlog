@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 15 · 我教得很好 — The Real Thing"
+title: "Chapter 16 · 我教得很好 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-20
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 15
+series_order: 16
 series_type: "Series"
-chapter_type: "Chapter 15"
+chapter_type: "Chapter 16"
 story_time: "2003"
 summary: "他不是狠不下心。他是根本不用狠。说这话的是教他的人。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 暗涌]
@@ -302,9 +302,15 @@ Roy 往后靠回椅背上，摇了摇头。
 
 你坐在那张沙发上，把那个画面想了一遍。
 
-——你认识他半年。
+你认得那个跳法。
 
-**你一次都没有见过他跳舞。**
+你见过。你见过很多回——人行道上路过一家店，门里传出来一段音乐，他停下来扭两下；游戏摊上抱着那只丑娃娃在人堆里转一圈；等红灯的时候，两只手在方向盘上敲，肩膀一顿一顿的。半年里你笑过他不知道多少回。
+
+**他一得手就跳舞。**
+
+你把那半年里他跳过的每一回，一回一回地想了一遍。
+
+你想不出来，那些回里头，哪一回是得手了。
 
 ---
 

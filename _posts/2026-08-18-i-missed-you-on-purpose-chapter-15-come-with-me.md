@@ -11,6 +11,7 @@ series_order: 15
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 15"
+story_time: "1985"
 summary: "你说真要有人来，你希望是他。然后你说，和我一起走吧。"
 ---
 

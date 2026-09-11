@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 24 · 有一双袜子 — The Real Thing"
+title: "Chapter 25 · 有一双袜子 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-29
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 24
+series_order: 25
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 24"
+chapter_type: "Chapter 25"
 story_time: "2003"
 summary: "那晚他说了这辈子最多的真话。只瞒了一件。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 安放]
@@ -55,7 +55,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 安放]
 
 “你喝什么。”
 
-“跟您一样。”
+“跟您一样，sir。”
 
 “不用跟我一样。”
 
@@ -85,7 +85,7 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 安放]
 
 他从来没有像现在这样，不知道自己该把手放在哪儿。
 
-“您问吧。”他说。
+“您问吧，sir。”他说。
 
 “我不问。”老先生说，“你说。”
 

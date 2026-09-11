@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 34 · 那不是领带 — The Real Thing"
+title: "Chapter 35 · 那不是领带 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-11
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 37
+series_order: 38
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 34"
+chapter_type: "Chapter 35"
 story_time: "2004"
 summary: "她伸手一翻，那一小块金属露出来了。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 悸动, 缱绻]

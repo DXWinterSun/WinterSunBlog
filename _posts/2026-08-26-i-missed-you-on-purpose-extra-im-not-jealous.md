@@ -11,6 +11,7 @@ series_order: 24
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+story_time: "1987"
 summary: "店里那小伙子给你留了糖霜最厚的那个。他说他没吃醋。"
 ---
 

@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 21 · 他一分钟都没有安静过 — The Real Thing"
+title: "Chapter 22 · 他一分钟都没有安静过 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-26
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 21
+series_order: 22
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 21"
+chapter_type: "Chapter 22"
 story_time: "2003"
 summary: "上一次他一个字都没说。这一次他一分钟都没安静过。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
@@ -131,6 +131,10 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]
 那天下午他什么都没干成。他没有得手。他没有卖掉任何东西，没有骗到任何人，他连饭都没做成一顿好的。
 
 **而他在客厅正中间，绕着一匹木头马跳舞。**
+
+你在洛杉矶那张沙发上想过的那个问题，一下子有了答案。
+
+那半年里的每一回，也都不是。
 
 ---
 

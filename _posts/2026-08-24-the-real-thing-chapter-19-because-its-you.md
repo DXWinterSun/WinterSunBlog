@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 19 · 因为是你，我就想信 — The Real Thing"
+title: "Chapter 20 · 因为是你，我就想信 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-24
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 19
+series_order: 20
 series_type: "Series"
-chapter_type: "Chapter 19"
+chapter_type: "Chapter 20"
 story_time: "2003"
 summary: "他把过去全倒了出来。你一句都没验，只说因为是你。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]

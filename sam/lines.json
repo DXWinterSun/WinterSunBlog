@@ -1429,7 +1429,7 @@
       "bg": "#14181f",
       "text": "#dce3ea",
       "muted": "#62728d",
-      "auLink": "/WinterSunBlog/series/a-single-shot-au/",
+      "auLink": "/WinterSunBlog/series/wintergreen/",
       "quotes": [
         {
           "label": "STILL BREATHING",
@@ -1438,9 +1438,9 @@
           "kind": "锚"
         },
         {
-          "label": "SAT DOWN AT THE EDGE",
-          "line": "You didn't drag me out of the hole. You sat down at the edge of it, in the cold, and just… stayed till I could climb out myself.",
-          "lineCN": "你没把我从坑里拽出来。你在坑边坐下，在那么冷的天里，就那么……陪着，直到我自己能爬出来。",
+          "label": "PAPERWORK",
+          "line": "The day you dug me out of the dirt — that's the day I was yours. The paper that came later… was just paperwork.",
+          "lineCN": "打你把我从土里刨出来那天，我就归你了。后来那张纸……是补的。",
           "kind": "AU · 暗告白"
         },
         {
@@ -1456,9 +1456,9 @@
           "kind": "AU · 暗告白"
         },
         {
-          "label": "DAWN",
-          "line": "I never thought I'd see another morning. Now I wake up before the light just to make sure you're still there. You always are.",
-          "lineCN": "我从没想过还能看见第二个清晨。如今我总在天亮前醒来，只为确认你还在。你总是在。",
+          "label": "AIMED",
+          "line": "That first time was a misfire. This time — I aimed.",
+          "lineCN": "那回是走火。这回，是我瞄准了说的。",
           "kind": "AU · 情话"
         }
       ]
@@ -2867,7 +2867,7 @@
       "bg": "#14181f",
       "text": "#dce3ea",
       "muted": "#62728d",
-      "auLink": "/WinterSunBlog/series/a-single-shot-au/",
+      "auLink": "/WinterSunBlog/series/wintergreen/",
       "label": "STILL BREATHING",
       "line": "I'd already climbed into the grave. You're the one who heard me breathing.",
       "lineCN": "我已经躺进了那个坑里——是你，听见了我还在呼吸。",
@@ -3715,10 +3715,10 @@
       "bg": "#14181f",
       "text": "#dce3ea",
       "muted": "#62728d",
-      "auLink": "/WinterSunBlog/series/a-single-shot-au/",
-      "label": "SAT DOWN AT THE EDGE",
-      "line": "You didn't drag me out of the hole. You sat down at the edge of it, in the cold, and just… stayed till I could climb out myself.",
-      "lineCN": "你没把我从坑里拽出来。你在坑边坐下，在那么冷的天里，就那么……陪着，直到我自己能爬出来。",
+      "auLink": "/WinterSunBlog/series/wintergreen/",
+      "label": "PAPERWORK",
+      "line": "The day you dug me out of the dirt — that's the day I was yours. The paper that came later… was just paperwork.",
+      "lineCN": "打你把我从土里刨出来那天，我就归你了。后来那张纸……是补的。",
       "kind": "AU · 暗告白"
     },
     {
@@ -4563,7 +4563,7 @@
       "bg": "#14181f",
       "text": "#dce3ea",
       "muted": "#62728d",
-      "auLink": "/WinterSunBlog/series/a-single-shot-au/",
+      "auLink": "/WinterSunBlog/series/wintergreen/",
       "label": "NEVER TAUGHT",
       "line": "Nobody ever taught me a person could be treated gentle. You did. Quietly. Like it was nothing. Like it was everything.",
       "lineCN": "从没人教过我，一个人可以被这样温柔地对待。你教了我。悄无声息。像什么都不是。又像是一切。",
@@ -5411,7 +5411,7 @@
       "bg": "#14181f",
       "text": "#dce3ea",
       "muted": "#62728d",
-      "auLink": "/WinterSunBlog/series/a-single-shot-au/",
+      "auLink": "/WinterSunBlog/series/wintergreen/",
       "label": "LEAN IN",
       "line": "When you hold me I freeze up for half a second — every time. Don't take it wrong. That half-second is me learning I'm allowed to lean in.",
       "lineCN": "你抱我的时候，我总会先僵半秒——每一次。别误会。那半秒，是我在学：原来我可以，往你怀里塌一点点。",
@@ -6259,10 +6259,10 @@
       "bg": "#14181f",
       "text": "#dce3ea",
       "muted": "#62728d",
-      "auLink": "/WinterSunBlog/series/a-single-shot-au/",
-      "label": "DAWN",
-      "line": "I never thought I'd see another morning. Now I wake up before the light just to make sure you're still there. You always are.",
-      "lineCN": "我从没想过还能看见第二个清晨。如今我总在天亮前醒来，只为确认你还在。你总是在。",
+      "auLink": "/WinterSunBlog/series/wintergreen/",
+      "label": "AIMED",
+      "line": "That first time was a misfire. This time — I aimed.",
+      "lineCN": "那回是走火。这回，是我瞄准了说的。",
       "kind": "AU · 情话"
     },
     {

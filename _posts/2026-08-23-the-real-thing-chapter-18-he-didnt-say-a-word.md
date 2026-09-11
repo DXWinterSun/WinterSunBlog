@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 18 · 他一句话都没有说 — The Real Thing"
+title: "Chapter 19 · 他一句话都没有说 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-23
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 18
+series_order: 19
 series_type: "Series"
-chapter_type: "Chapter 18"
+chapter_type: "Chapter 19"
 story_time: "2003"
 summary: "他一句话都没有说。直到最后那三个字。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]

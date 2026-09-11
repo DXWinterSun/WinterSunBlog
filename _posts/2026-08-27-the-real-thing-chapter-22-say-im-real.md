@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 22 · 说我是真的 — The Real Thing"
+title: "Chapter 23 · 说我是真的 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-27
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 22
+series_order: 23
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 22"
+chapter_type: "Chapter 23"
 story_time: "2003"
 summary: "你一眼能看穿真假。可他那双袜子，你一次都没脱过。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]

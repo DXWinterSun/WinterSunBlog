@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 26 · 那不就是你们结婚那天吗 — The Real Thing"
+title: "Chapter 27 · 那不就是你们结婚那天吗 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-31
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 26
+series_order: 27
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 26"
+chapter_type: "Chapter 27"
 story_time: "2003"
 summary: "她翻到册子下一页，写了一个新的名字。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 暗涌, 悸动]

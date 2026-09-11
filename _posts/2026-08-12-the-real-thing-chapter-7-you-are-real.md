@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 7 · 你是真的 — The Real Thing"
+title: "Chapter 8 · 你是真的 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-12
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 7
+series_order: 8
 series_type: "Series"
-chapter_type: "Chapter 7"
+chapter_type: "Chapter 8"
 story_time: "2003"
 summary: "我这辈子没看走过眼。所以你得信我这一句：你是真的。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]

@@ -11,6 +11,7 @@ series_order: 3
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 3"
+story_time: "1984"
 summary: "暖气坏了。他说他在你旁边你就不冷了。你信了。"
 ---
 

@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 35 · 我这辈子栽在你手里了 — The Real Thing"
+title: "Chapter 36 · 我这辈子栽在你手里了 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-12
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 38
+series_order: 39
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 35"
+chapter_type: "Chapter 36"
 story_time: "2004"
 summary: "他站在那儿，一个字都说不出来。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 缱绻, 安放]

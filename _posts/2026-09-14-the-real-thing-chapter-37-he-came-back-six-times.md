@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 37 · 他回来过六回 — The Real Thing"
+title: "Chapter 38 · 他回来过六回 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-14
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 40
+series_order: 41
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 37"
+chapter_type: "Chapter 38"
 story_time: "2004"
 summary: "那一下停得很短，短到几乎不算停。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 安放]
@@ -103,6 +103,16 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 安放]
 
 ---
 
+这件事你不是今天才定的。
+
+是三月里，在一条空路上。你坐在副驾上，看着他把车靠到路肩上停下来，两只手搭在方向盘上，看着前头，很久才说了一句“那个姓不值钱”。
+
+你说你知道它值多少。
+
+从那天起，这一栏你就没想过第二种写法。
+
+---
+
 你拿起笔。
 
 “——等一下。”
@@ -139,7 +149,9 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 安放]
 
 “Mercer。”他说，“不是我爸的姓。”
 
-“……”
+这个你知道。那块平碑上头一行刻着的，不是这个姓。
+
+你没有说。
 
 “是我妈的。”
 
@@ -304,6 +316,10 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 安放]
 那匹马在隔壁屋子正中间站着。西边那扇窗现在已经不亮了。
 
 “……我妈两年前没的。”他说。
+
+这个你也知道。你三月里站在那块平碑后头，看着他把每一道笔画里的土抠出来。
+
+你等着他往下说。
 
 ---
 

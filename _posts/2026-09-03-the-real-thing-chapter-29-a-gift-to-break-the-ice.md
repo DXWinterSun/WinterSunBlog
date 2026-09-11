@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 29 · 见面礼 — The Real Thing"
+title: "Chapter 30 · 见面礼 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-03
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 29
+series_order: 30
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 29"
+chapter_type: "Chapter 30"
 story_time: "2004"
 summary: "他还了一部分，说那是请人喝喜酒的见面礼。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怀旧, 安放]

@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Chapter 32 · 我没钱吃饭了 — The Real Thing"
+title: "Chapter 33 · 我没钱吃饭了 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-06
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 32
+series_order: 33
 series_status: ongoing
 series_type: "Series"
-chapter_type: "Chapter 32"
+chapter_type: "Chapter 33"
 story_time: "2004"
 summary: "他摊开手心，里头是一张收据和两枚硬币。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 絮语, 缱绻]

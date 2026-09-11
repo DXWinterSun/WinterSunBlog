@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Chapter 9 · 一口气写完的 — The Real Thing"
+title: "Chapter 10 · 一口气写完的 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-14
 image: "the-real-thing.png"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
-series_order: 9
+series_order: 10
 series_type: "Series"
-chapter_type: "Chapter 9"
+chapter_type: "Chapter 10"
 story_time: "2003"
 summary: "他一句谎都没说过。第一个撒谎的是你。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 怅惘, 暗涌]
