@@ -585,7 +585,7 @@
     },
     {
       "id": "pero",
-      "name": "Pero \"Pepe\" Mahalovic",
+      "name": "Pero \"Pepe\" Mahlovic",
       "film": "Welcome to Collinwood",
       "filmCN": "《欢迎来到科林伍德》",
       "year": "2002",
@@ -593,18 +593,18 @@
       "bg": "#1a1612",
       "text": "#ede0cc",
       "muted": "#8a7458",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-serbian-tornado/",
       "quotes": [
         {
           "label": "BEFORE THE BELL",
-          "line": "Up on the canvas I yell 'I'm too good-lookin''. You're the only one who actually agrees.",
-          "lineCN": "拳台上我喊「我太好看了」——也只有你，会真的点头。",
+          "line": "Backstage I'm already yelling 'I'm so pretty.' You're the only one who ever actually agreed.",
+          "lineCN": "还没上场我就在后台喊「我好漂亮的」——也只有你，真的点过头。",
           "kind": "锚"
         },
         {
-          "label": "QUIET IN THE CORNER",
-          "line": "I've got a mouth that never shuts. Funny thing — around you it just… goes quiet.",
-          "lineCN": "我这张嘴从来不停。奇了怪了——一到你面前，它就……安静了。",
+          "label": "THE ONE I MEAN IT WITH",
+          "line": "I run my mouth at everybody. You're the only one I've ever meant a word to.",
+          "lineCN": "我对谁都贫。可我这辈子说过的话里，只有对你那些，我是当真的。",
           "kind": "暗告白"
         },
         {
@@ -2555,7 +2555,7 @@
     },
     {
       "charId": "pero",
-      "name": "Pero \"Pepe\" Mahalovic",
+      "name": "Pero \"Pepe\" Mahlovic",
       "film": "Welcome to Collinwood",
       "filmCN": "《欢迎来到科林伍德》",
       "year": "2002",
@@ -2563,10 +2563,10 @@
       "bg": "#1a1612",
       "text": "#ede0cc",
       "muted": "#8a7458",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-serbian-tornado/",
       "label": "BEFORE THE BELL",
-      "line": "Up on the canvas I yell 'I'm too good-lookin''. You're the only one who actually agrees.",
-      "lineCN": "拳台上我喊「我太好看了」——也只有你，会真的点头。",
+      "line": "Backstage I'm already yelling 'I'm so pretty.' You're the only one who ever actually agreed.",
+      "lineCN": "还没上场我就在后台喊「我好漂亮的」——也只有你，真的点过头。",
       "kind": "锚"
     },
     {
@@ -3403,7 +3403,7 @@
     },
     {
       "charId": "pero",
-      "name": "Pero \"Pepe\" Mahalovic",
+      "name": "Pero \"Pepe\" Mahlovic",
       "film": "Welcome to Collinwood",
       "filmCN": "《欢迎来到科林伍德》",
       "year": "2002",
@@ -3411,10 +3411,10 @@
       "bg": "#1a1612",
       "text": "#ede0cc",
       "muted": "#8a7458",
-      "auLink": null,
-      "label": "QUIET IN THE CORNER",
-      "line": "I've got a mouth that never shuts. Funny thing — around you it just… goes quiet.",
-      "lineCN": "我这张嘴从来不停。奇了怪了——一到你面前，它就……安静了。",
+      "auLink": "/WinterSunBlog/series/the-serbian-tornado/",
+      "label": "THE ONE I MEAN IT WITH",
+      "line": "I run my mouth at everybody. You're the only one I've ever meant a word to.",
+      "lineCN": "我对谁都贫。可我这辈子说过的话里，只有对你那些，我是当真的。",
       "kind": "暗告白"
     },
     {
@@ -4251,7 +4251,7 @@
     },
     {
       "charId": "pero",
-      "name": "Pero \"Pepe\" Mahalovic",
+      "name": "Pero \"Pepe\" Mahlovic",
       "film": "Welcome to Collinwood",
       "filmCN": "《欢迎来到科林伍德》",
       "year": "2002",
@@ -4259,7 +4259,7 @@
       "bg": "#1a1612",
       "text": "#ede0cc",
       "muted": "#8a7458",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-serbian-tornado/",
       "label": "TAKE THE HIT",
       "line": "I've taken worse punches than this. But nothing's ever hit me like you walking in.",
       "lineCN": "比这重的拳我都挨过。可从没有哪一下，像你走进来时那么让我招架不住。",
@@ -5099,7 +5099,7 @@
     },
     {
       "charId": "pero",
-      "name": "Pero \"Pepe\" Mahalovic",
+      "name": "Pero \"Pepe\" Mahlovic",
       "film": "Welcome to Collinwood",
       "filmCN": "《欢迎来到科林伍德》",
       "year": "2002",
@@ -5107,7 +5107,7 @@
       "bg": "#1a1612",
       "text": "#ede0cc",
       "muted": "#8a7458",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-serbian-tornado/",
       "label": "NOT FOR THE CROWD",
       "line": "All that showing off is for the crowd. This — looking at you like this — this one's just for me.",
       "lineCN": "那些显摆都是给观众看的。这个——这样看着你——这个只留给我自己。",
@@ -5947,7 +5947,7 @@
     },
     {
       "charId": "pero",
-      "name": "Pero \"Pepe\" Mahalovic",
+      "name": "Pero \"Pepe\" Mahlovic",
       "film": "Welcome to Collinwood",
       "filmCN": "《欢迎来到科林伍德》",
       "year": "2002",
@@ -5955,7 +5955,7 @@
       "bg": "#1a1612",
       "text": "#ede0cc",
       "muted": "#8a7458",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-serbian-tornado/",
       "label": "STILL STANDING",
       "line": "Knock me down all you want. As long as you're ringside, I'll get up every single time.",
       "lineCN": "随你把我打倒多少次。只要你在台边，我每次都爬起来。",
