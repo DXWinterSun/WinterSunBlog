@@ -1117,6 +1117,141 @@
     "cn": "五分钱"
    }
   },
+  "pero": {
+   "greet": [
+    {
+     "line": "Hey — hey hey hey. Look who it is. No, I wasn't doin' anything. I was busy. Very busy. Doin' nothin'.",
+     "cn": "哎——哎哎哎。看看这是谁。没有，我没忙什么。我很忙。忙着什么都不干。"
+    },
+    {
+     "line": "You know you're the only one on this street who calls me that. Whole street. Not one of 'em. …Anyway. Talk to me, sugar.",
+     "cn": "你知道这条街上只有你这么叫我。一整条街，一个都没有。……行了。说吧，sugar。"
+    },
+    {
+     "line": "Hold on, hold on — lemme sit down. Okay. I'm sittin'. Go ahead.",
+     "cn": "等会儿等会儿——我坐下。行了，我坐下了。你说。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Yeah? …Huh. Say that again, I didn't catch it.",
+     "cn": "是吗？……哈。你再说一遍，我刚才没听清。"
+    },
+    {
+     "line": "Don't say things like that over a telephone, doll. I got nowhere to put it.",
+     "cn": "别在电话里说这种话，doll。我没地方搁。"
+    },
+    {
+     "line": "I walked past your place twice today. Twice. Didn't go in. Don't ask me why, I don't know either.",
+     "cn": "我今天从你们铺子门口过了两趟。两趟。没进去。别问我为什么，我自己也不知道。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "Hey. Hey. Sit down. No — sit down first, then talk. That's the order.",
+     "cn": "喂。喂。坐下。不是——先坐下，再说话。顺序是这样的。"
+    },
+    {
+     "line": "Who was it. Give me a name. I'm not gonna do anything, honey, I just wanna know the name.",
+     "cn": "谁啊。给我个名字。我不干什么，honey，我就是想知道那个名字。"
+    },
+    {
+     "line": "You know what I do when it's like that? I talk. I just keep talkin' till it goes away. Works about half the time. …Alright, it works never. But I'm still here.",
+     "cn": "你知道我这种时候干什么吗？我说话。我就一直说，说到它过去。差不多一半的时候管用。……行吧，一次都不管用。可我还在这儿呢。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Me neither. Been lookin' at the same crack in that ceiling for an hour. It's shaped like Ohio.",
+     "cn": "我也没睡。我盯着天花板上那道裂缝盯了一个钟头了。那形状跟俄亥俄一模一样。"
+    },
+    {
+     "line": "Alright, I'll talk. You don't gotta say anything. Leave it off the hook and I'll keep goin' till you're out.",
+     "cn": "行，我来说。你什么都不用说。你把听筒搁那儿，我一直说，说到你睡着。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night, sugar. Lock the back one. I know. I know. Lock it anyway.",
+     "cn": "晚安，sugar。后门插好。我知道。我知道。插上吧。"
+    },
+    {
+     "line": "Alright. Go on. …You hang up first. No — you. Fine. Fine, on three.",
+     "cn": "行了。去吧。……你先挂。不行——你先。行行行。数到三。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Yeah. Okay. Say it again tomorrow, I wanna check if it still does that.",
+     "cn": "……嗯。行。你明天再说一遍，我想看看它是不是还有那个效果。"
+    },
+    {
+     "line": "Dušo. …That's it. That's the whole thing I was gonna say.",
+     "cn": "Dušo。……就这个。我要说的就这一个词。"
+    },
+    {
+     "line": "You know I got nothin'. You know that, right? …And you're still on the line. Huh.",
+     "cn": "你知道我什么都没有。这个你知道吧？……你还没挂。哈。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "You're comin'? Now? Okay — okay, gimme twenty minutes. No, forty. The place is a wreck. It's not a wreck. Gimme forty.",
+     "cn": "你要来？现在？行——行，给我二十分钟。不，四十。这屋子乱七八糟。它不乱。你给我四十分钟。"
+    },
+    {
+     "line": "Front door. Come in the front. I'll be standin' there like an idiot, you'll see me.",
+     "cn": "走前门。从前门进来。我会像个傻子似的站在那儿，你一眼就看得见我。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "Yeah? Say more. No, seriously, keep goin' — nobody's said anything nice to me since Tuesday.",
+     "cn": "是吗？多说点。不，我认真的，接着说——从星期二起就没人跟我说过一句好听的。"
+    },
+    {
+     "line": "Ah — that's the jacket. It's a good jacket. You oughta see it in daylight, honey, it's really somethin'.",
+     "cn": "哎——那是这件外套。这外套好。你该在白天看看它，honey，那真是个好东西。"
+    },
+    {
+     "line": "Careful. You keep that up and I'm gonna start believin' it, and then where are we.",
+     "cn": "小心点。你再这么说下去我可就要信了，那咱们可怎么办。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Oh, that's how it is. That's how it is! Fine. Fine. I'm hangin' up. …I'm not hangin' up.",
+     "cn": "哦，是这样啊。原来是这样！行。行。我挂了。……我没挂。"
+    },
+    {
+     "line": "You're mean, you know that? Everybody thinks you're the quiet one. They don't know. They don't know a thing.",
+     "cn": "你可真坏，你知道吗？所有人都以为你是安静的那个。他们不知道。他们什么都不知道。"
+    },
+    {
+     "line": "Alright, alright — don't be like that, doll. What do you want. Name it. I'll get it for you. …I'll get it eventually.",
+     "cn": "行了行了——别这样，doll。你要什么。你说。我给你弄来。……我早晚给你弄来。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "So listen to this. Guy over on Chester loses a car. A whole car. Don't ask me how —",
+     "cn": "你听这个。Chester 那边有个人把车弄丢了。一整辆车。别问我他怎么弄丢的——"
+    },
+    {
+     "line": "Nothin' much. Same as yesterday. Hey — that cord on your blind is comin' loose. I saw it. Remind me, I'll fix it.",
+     "cn": "没什么。跟昨天一样。哎——你们那个百叶帘的绳子松了。我看见了。你提醒我一下，我给你换。"
+    },
+    {
+     "line": "I ate an apple. That's the whole day right there. That's all I got.",
+     "cn": "我吃了个苹果。一整天就这么点事。说完了。"
+    }
+   ],
+   "register": "playful",
+   "pet": {
+    "en": "doll",
+    "cn": "doll"
+   }
+  },
   "chuck": {
    "greet": [
     {
@@ -4961,6 +5096,11 @@
    "bowen": [
     "🧹",
     "🧼"
+   ],
+   "pero": [
+    "🥊",
+    "🍎",
+    "🍬"
    ]
   }
  }

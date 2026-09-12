@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1786
+  "count": 1857
  },
  "chars": {
   "youngsam": {
@@ -4178,6 +4178,507 @@
      "ch": 22,
      "title": "Extra · 领子",
      "series": "Nickel and Dime"
+    }
+   ]
+  },
+  "pero": {
+   "default": [
+    {
+     "cn": "那我也叫 Pepe。",
+     "b": "daily",
+     "ch": 1,
+     "title": "Chapter 1 · 海报上的名字",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你看见没有，honey，那个裁判数到七就把手一摆，七！哪有这么数的。",
+     "b": "daily",
+     "ch": 1,
+     "title": "Chapter 1 · 海报上的名字",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我最怕这个。真的。打断骨头我都不吭声，就怕这个。",
+     "b": "daily",
+     "ch": 1,
+     "title": "Chapter 1 · 海报上的名字",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "运气好一年半就出来了。一年半算什么，honey，一年半我做梦都能做过去。",
+     "b": "daily",
+     "ch": 1,
+     "title": "Chapter 1 · 海报上的名字",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我给你买个发饰。",
+     "b": "daily",
+     "ch": 1,
+     "title": "Chapter 1 · 海报上的名字",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "橱窗里那种，带蝴蝶结的，多大的都行——你要那种能坐着的还是能躺着的？",
+     "b": "daily",
+     "ch": 1,
+     "title": "Chapter 1 · 海报上的名字",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "到这儿。转起来会开的那种。sugar，你穿那个准好看。",
+     "b": "praise",
+     "ch": 1,
+     "title": "Chapter 1 · 海报上的名字",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "法官给我判了缓刑。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 与在押人员关系",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你这儿的东西就是好使。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 与在押人员关系",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "那有什么好说的呢，baby。我不是回来了吗。",
+     "b": "miss",
+     "ch": 2,
+     "title": "Chapter 2 · 与在押人员关系",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "往后我在你这儿，什么都付钱。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 与在押人员关系",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我说真的，honey，我喝遍这一片。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 爽身粉",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "老得跟我奶奶一个岁数。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 爽身粉",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "sugar，你倒是说句话啊，好不好看。",
+     "b": "praise",
+     "ch": 3,
+     "title": "Chapter 3 · 爽身粉",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我在你这儿什么都付钱。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 爽身粉",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "您今天这个帽子。您就是想让我难受是不是。我这一进门差点没站住。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "那就是我今天嘴刁。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你看你，一句话就把我打发了。我要是外头哪个人这么跟我说话，我早翻脸了。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "再厚也不怕。",
+     "b": "tired",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我先请你吃一顿好的，doll。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "sweetheart，你就是不信我。行，你等着。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我练着呢，你别以为我不练。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "这儿，全是硬的。你摸摸——算了，你别摸，你爸在楼上。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "那个粉，你明天给我留一罐。来了新的就留一罐，sugar，我明天来拿。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "天哪。天哪。honey，你算得可真清楚。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你还给我数着呢？",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 三个礼拜",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "八点。第三场。honey，我上排了。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 一分钱",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "回头我给你紧一紧。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 一分钱",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "sweetheart，你得来。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 一分钱",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "反正你也顺路。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 一分钱",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "上礼拜五那场我没去。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 裤腿",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我说行行行，我背你。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 裤腿",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我这张嘴啊——连自己都咬。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 裤腿",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你这个人，一点都不给人留面子。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 裤腿",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "早不疼了。sweetheart，你早两天看才吓人呢。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 裤腿",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我自己缝的。怎么样。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 裤腿",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你看，一点事没有。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 裤腿",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你听听这个数。一万六。",
+     "b": "daily",
+     "ch": 10,
+     "title": "Chapter 10 · 一万六",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "可它没在我们兜里过夜。",
+     "b": "daily",
+     "ch": 10,
+     "title": "Chapter 10 · 一万六",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你就说你去看比赛。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "反正那边有个什么活动，什么教区的，你就说那个。doll，你就说那个。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我给你赢一只熊。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "还有那个转的，那个大轮子，你坐过没有？你肯定没坐过。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "baby，你等着。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你再看这一枪。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你看见没有！",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你倒是吃啊。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我以为你知道。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "这条街上要是早有你这么一位，我早搬回来住了。",
+     "b": "miss",
+     "ch": 12,
+     "title": "Chapter 12 · 我问的是你",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我没有拦过你。",
+     "b": "daily",
+     "ch": 12,
+     "title": "Chapter 12 · 我问的是你",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我这个铺子，将来交到谁手上。",
+     "b": "daily",
+     "ch": 12,
+     "title": "Chapter 12 · 我问的是你",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你爸看着呢。",
+     "b": "daily",
+     "ch": 12,
+     "title": "Chapter 12 · 我问的是你",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "这是谁家的先生啊。这个嗓门，这个肺活量，这个——太太，您这是养了个报幕员。",
+     "b": "daily",
+     "ch": 13,
+     "title": "Chapter 13 · 他去找 Giacco 了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我最近给人搬东西。",
+     "b": "daily",
+     "ch": 13,
+     "title": "Chapter 13 · 他去找 Giacco 了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我们家还有十三天呢。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 一月七号",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我教你一句话。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 一月七号",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我妈教我的时候我才这么高。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 一月七号",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "回头我把它认全了再念给你听。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 一月七号",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我知道你要说什么。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 一月七号",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "等我把那个东西弄回来——到时候你想说什么说什么，你说一整天我都听着。",
+     "b": "miss",
+     "ch": 14,
+     "title": "Chapter 14 · 一月七号",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "今天我们过节。你不知道？你这个人怎么当美国人当成这样。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 一月七号",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "来一杯，sugar，糖多放一勺，我今天要甜死。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 它好漂亮",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我没让你来啊。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 他不演了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我就是——那个上头写着日子呢。你自己看。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 他不演了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "您这个围巾。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 他不演了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "darling，您是打算今天让这条街上的人都没法好好走路是吗。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 他不演了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "但我等的那个是对的。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 他不演了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我知道。我什么都没有。我这个人从八岁起就没有一样东西是像样的。",
+     "b": "daily",
+     "ch": 17,
+     "title": "Chapter 17 · 我想从正门进来",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我当时就跟你说了。你说什么来着？",
+     "b": "daily",
+     "ch": 19,
+     "title": "Chapter 19 · 礼拜天中午",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "您叫我 Pero 就行。",
+     "b": "daily",
+     "ch": 19,
+     "title": "Chapter 19 · 礼拜天中午",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "打到有人肯叫我那个名字为止。",
+     "b": "daily",
+     "ch": 19,
+     "title": "Chapter 19 · 礼拜天中午",
+     "series": "The Serbian Tornado"
     }
    ]
   },
