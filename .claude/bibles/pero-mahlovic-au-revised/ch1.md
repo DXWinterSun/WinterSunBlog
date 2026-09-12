@@ -1,20 +1,3 @@
----
-layout: post
-title: "Chapter 1 · 海报上的名字 — The Serbian Tornado"
-date: 2026-09-01
-image: pero-mahlovic-au.jpg
-tags: [Pero Mahlovic, Sam Rockwell, AU, The Serbian Tornado, 悸动, 怅惘]
-categories: ["AU Story"]
-series: "The Serbian Tornado"
-series_title: "The Serbian Tornado · Pero Mahlovic AU"
-series_order: 1
-series_status: ongoing
-series_type: Series
-chapter_type: "Chapter 1"
-story_time: "1958"
-summary: "他的名字第一次被印在布上。十秒之后，他倒了。"
----
-
 > 一九五八年秋天，他的名字第一次被印在一块布上。  
 > 那块布后来被人卷起来，塞进后台的杂物箱里。  
 > 而你把它记了很多年。  
@@ -329,4 +312,4 @@ Giacco 神父在他对面站着，两只拳头护在脸侧，脚下几乎没动�
 > 他走进巷子里，一边走一边跟空气比划着什么。  
 > 你没听清他在说什么。  
 > 你只看见他停了半拍。  
-> 你以为那是风。
+> 你以为那是风。  
