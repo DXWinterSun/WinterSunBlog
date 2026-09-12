@@ -8,6 +8,8 @@ check_desino.py —— AU 正文「中式出戏表达」扫描器
   ❌ HIGH  几乎必错（筷子/夹菜/衙门/江湖……），部署前必须处理
   ⚠️ WARN  看语境（大人/师父/饺子/户口……），人工判断
   🗣 LANG  语言穿帮嫌疑（英文/英语/中文……），逐处回答「此刻真的在切换语言吗」
+  ✍️ HANZI 依赖汉字才成立的描写（笔画/撇捺/偏旁/拆字/谐音……）——人物说的不是中文，
+           他手写的也不是汉字，这些在原语言里根本不存在
   📖 META  正文 cue 章节（上一章/第 N 章……），题词引语行（> 开头）与「下一章：」预告行不查
 
 规则维护：出戏词清单见下方 HIGH_WORDS / WARN_WORDS，规范真源是 CLAUDE.md
@@ -73,6 +75,13 @@ UNIT_PATTERNS = [
 # 语言穿帮嫌疑
 LANG_PATTERN = re.compile(r"英文|英语|中文|汉语|普通话")
 
+# 依赖汉字才成立的描写：人物写的 / 说的不是中文，笔画、拆字、谐音在原语言里不存在
+# （2026-09 Winter 抓出：形容 Billy 手写的英文日记「横撇捺全不讲理」——英文没有撇捺）
+HANZI_PATTERN = re.compile(
+    r"笔画|偏旁|部首|横撇|撇捺|一撇一捺|一横一竖|拆字|拆开这个字|这个字.{0,6}几笔"
+    r"|谐音|同音字|对联|上联|下联|繁体字|简体字|字帖|描红"
+)
+
 # 正文 cue 章节（元指涉）
 META_PATTERN = re.compile(r"上一章|这一章|前文所述|第[一二三四五六七八九十百0-9]+章")
 
@@ -112,7 +121,7 @@ def check_file(path: str) -> int:
         return 0
 
     body = split_body(text)
-    high, warn, lang, meta = [], [], [], []
+    high, warn, lang, meta, hanzi = [], [], [], [], []
 
     for lineno, line in body:
         for word, fix in HIGH_WORDS:
@@ -126,6 +135,8 @@ def check_file(path: str) -> int:
                 high.append((lineno, "中式度量", fix, line.strip()))
         if LANG_PATTERN.search(line):
             lang.append((lineno, line.strip()))
+        if HANZI_PATTERN.search(line):
+            hanzi.append((lineno, line.strip()))
         # 题词/引语行与「下一章」预告行属于面向读者的导航文本，不算正文元指涉
         stripped = line.lstrip()
         if not stripped.startswith(">") and not stripped.startswith("下一章"):
@@ -134,7 +145,7 @@ def check_file(path: str) -> int:
 
     print(f"\n检查：{path}")
     print("─" * 56)
-    if not (high or warn or lang or meta):
+    if not (high or warn or lang or hanzi or meta):
         print("  ✅ 全部干净")
         return 0
 
@@ -154,6 +165,7 @@ def check_file(path: str) -> int:
     show(high, "❌", "HIGH · 几乎必错")
     show(warn, "⚠️", "WARN · 看语境")
     show(lang, "🗣", "LANG · 语言穿帮嫌疑（此刻真的在切换语言吗？）")
+    show(hanzi, "✍️", "HANZI · 依赖汉字才成立（他写的/说的不是中文，哪来的笔画谐音？）")
     show(meta, "📖", "META · 正文 cue 章节")
     return 1 if high else 0
 
