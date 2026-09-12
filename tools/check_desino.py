@@ -5,7 +5,7 @@ check_desino.py —— AU 正文「中式出戏表达」扫描器
 用法：python3 tools/check_desino.py _posts/某章.md [更多文件...]
 
 三档结果：
-  ❌ HIGH  几乎必错（筷子/夹菜/衙门/江湖……），部署前必须处理
+  ❌ HIGH  几乎必错（筷子/夹菜/衙门/江湖/一锅粥……含带中国饮食器物印记的俗语），部署前必须处理
   ⚠️ WARN  看语境（大人/师父/饺子/户口……），人工判断
   🗣 LANG  语言穿帮嫌疑（英文/英语/中文……），逐处回答「此刻真的在切换语言吗」
   ✍️ HANZI 依赖汉字才成立的描写（笔画/撇捺/偏旁/拆字/谐音……）——人物说的不是中文，
@@ -72,6 +72,21 @@ UNIT_PATTERNS = [
     (r"[一二三四五]更[天时]?", "后半夜/凌晨 X 点"),
 ]
 
+# 带中国饮食 / 器物印记的俗语成语（2026-09 加：脚本原先只查名物，抓不到这类比喻）
+IDIOM_WORDS = [
+    ("一锅粥", "乱成一团"),
+    ("一锅端", "一勺烩 / 全给端了"),
+    ("鸡飞狗跳", "鸡犬不宁式的混乱 → 直接写乱成什么样"),
+    ("一碗水端平", "一视同仁 / 谁也不偏"),
+    ("煮熟的鸭子", "到手的东西"),
+    ("炒鱿鱼", "被开了 / 被辞了"),
+    ("吃豆腐", "占便宜 / 动手动脚"),
+    ("开小灶", "吃偏饭 → 单独给他留一份"),
+    ("八字没一撇", "还悬在半空 / 八字＋撇都是汉字文化"),
+    ("唱白脸", "扮坏人"),
+    ("唱红脸", "扮好人"),
+]
+
 # 语言穿帮嫌疑
 LANG_PATTERN = re.compile(r"英文|英语|中文|汉语|普通话")
 
@@ -130,6 +145,9 @@ def check_file(path: str) -> int:
         for word, fix in WARN_WORDS:
             if word in line:
                 warn.append((lineno, word, fix, line.strip()))
+        for word, fix in IDIOM_WORDS:
+            if word in line:
+                high.append((lineno, word, fix, line.strip()))
         for pat, fix in UNIT_PATTERNS:
             if re.search(pat, line):
                 high.append((lineno, "中式度量", fix, line.strip()))
