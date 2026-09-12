@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1857
+  "count": 1862
  },
  "chars": {
   "youngsam": {
@@ -4678,6 +4678,41 @@
      "b": "daily",
      "ch": 19,
      "title": "Chapter 19 · 礼拜天中午",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我们家的。我爸家那边传下来的，我爷爷那会儿就是这个。",
+     "b": "daily",
+     "ch": 20,
+     "title": "Chapter 20 · 他把那半页念完了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你可以不来。",
+     "b": "daily",
+     "ch": 20,
+     "title": "Chapter 20 · 他把那半页念完了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我十年没弄这个了。",
+     "b": "daily",
+     "ch": 20,
+     "title": "Chapter 20 · 他把那半页念完了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "那你今天弄。",
+     "b": "daily",
+     "ch": 20,
+     "title": "Chapter 20 · 他把那半页念完了",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你妈是不是说过你少吃点这个。",
+     "b": "daily",
+     "ch": 20,
+     "title": "Chapter 20 · 他把那半页念完了",
      "series": "The Serbian Tornado"
     }
    ]
