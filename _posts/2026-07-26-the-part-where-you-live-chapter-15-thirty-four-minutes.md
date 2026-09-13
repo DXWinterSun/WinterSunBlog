@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 15 · 三十四分钟 — The Part Where You Live"
+date: 2026-07-26
+image: 7-psychopaths.jpg
+tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 暗涌, 怅惘]
+categories: ["AU Story"]
+series: "The Part Where You Live"
+series_title: "The Part Where You Live · Billy Bickle AU"
+series_order: 15
+series_status: complete
+series_type: Series
+chapter_type: "Chapter 15"
+summary: "你写过那么多次“他处理掉了现场”。那天你花了三十四分钟。"
+---
+
 > “You wanted it to look good. So write it.”
 > “你不是要它好看吗。那就写啊。”
 
@@ -292,4 +308,4 @@
 > 
 > 那天你花了三十四分钟。  
 > 你把“方块 J”留在了那件夹克里，  
-> 把合著者带上了车。  
+> 把合著者带上了车。

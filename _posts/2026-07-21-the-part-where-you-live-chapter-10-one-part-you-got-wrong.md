@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 10 · 有一处你写得不对 — The Part Where You Live"
+date: 2026-07-21
+image: 7-psychopaths.jpg
+tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 怅惘, 暗涌]
+categories: ["AU Story"]
+series: "The Part Where You Live"
+series_title: "The Part Where You Live · Billy Bickle AU"
+series_order: 10
+series_status: complete
+series_type: Series
+chapter_type: "Chapter 10"
+summary: "你想让他好受一点，就把那个故事念给他听。"
+---
+
 > “There's one part you got wrong.”
 > “有一处你写得不对。”
 
@@ -261,4 +277,4 @@ Hans 没有说话。
 > 他解开了那条丝巾，让你看那底下是什么。  
 > 
 > 他没有生气。  
-> 他甚至等你念完，才告诉你那个人是他。  
+> 他甚至等你念完，才告诉你那个人是他。

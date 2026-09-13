@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 7 · 你不在这场戏里 — The Part Where You Live"
+date: 2026-07-18
+image: 7-psychopaths.jpg
+tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 暗涌, 怅惘]
+categories: ["AU Story"]
+series: "The Part Where You Live"
+series_title: "The Part Where You Live · Billy Bickle AU"
+series_order: 7
+series_status: complete
+series_type: Series
+chapter_type: "Chapter 7"
+summary: "他给所有人都编好了死法，唯独你——他说你不在场。"
+---
+
 > “I wrote everybody a death. Everybody but you.”
 > “我给每个人都写了一个死法。除了你。”
 
@@ -193,4 +209,4 @@ Hans 终于把书放下了。
 > 漂亮得像真的。  
 > 
 > 而在他给所有人写好的那场戏里，  
-> 只有一个人不在场。  
+> 只有一个人不在场。

@@ -7,6 +7,7 @@ image: 7-psychopaths.jpg
 series: "The Part Where You Live"
 series_title: "The Part Where You Live · Billy Bickle AU"
 series_order: 1
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "你有个漂亮的标题，却写不出神经病——直到他把自己递到你面前。"

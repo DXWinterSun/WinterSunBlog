@@ -7,6 +7,7 @@ image: 7-psychopaths.jpg
 series: "The Part Where You Live"
 series_title: "The Part Where You Live · Billy Bickle AU"
 series_order: 3
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 3"
 summary: "你被雨夜赶出门，无处可去——只有那个从不敲门的人，接住了你。"

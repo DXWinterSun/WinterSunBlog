@@ -7,6 +7,7 @@ image: 7-psychopaths.jpg
 series: "The Part Where You Live"
 series_title: "The Part Where You Live · Billy Bickle AU"
 series_order: 5
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 5"
 summary: "他明知那是全城最疯的人的狗，偏偏偷了回来——还笑说自己这条命不值钱。"

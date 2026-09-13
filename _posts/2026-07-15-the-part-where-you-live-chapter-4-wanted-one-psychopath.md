@@ -7,6 +7,7 @@ image: 7-psychopaths.jpg
 series: "The Part Where You Live"
 series_title: "The Part Where You Live · Billy Bickle AU"
 series_order: 4
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 4"
 summary: "他登报替你招神经病——招来一屋子疯子，和你离他最近的那些夜。"

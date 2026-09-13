@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 11 · 你疼不疼 — The Part Where You Live"
+date: 2026-07-22
+image: 7-psychopaths.jpg
+tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 暗涌, 缱绻]
+categories: ["AU Story"]
+series: "The Part Where You Live"
+series_title: "The Part Where You Live · Billy Bickle AU"
+series_order: 11
+series_status: complete
+series_type: Series
+chapter_type: "Chapter 11"
+summary: "全世界都在通缉他。你走过去，问他疼不疼。"
+---
+
 > “Does it hurt?”
 > “你疼不疼？”
 
@@ -361,4 +377,4 @@ Hans 站在原地，看着你们两个人，看了很久很久。
 > 他等的是你说“怪物”。  
 > 
 > 他唯独没有等到过，  
-> 有人问他疼不疼。  
+> 有人问他疼不疼。

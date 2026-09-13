@@ -7,6 +7,7 @@ image: 7-psychopaths.jpg
 series: "The Part Where You Live"
 series_title: "The Part Where You Live · Billy Bickle AU"
 series_order: 2
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "他把最好的故事讲给你听，你醉到以为是自己想的——他没纠正你。"

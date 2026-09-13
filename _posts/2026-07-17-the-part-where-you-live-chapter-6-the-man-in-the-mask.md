@@ -7,6 +7,7 @@ image: 7-psychopaths.jpg
 series: "The Part Where You Live"
 series_title: "The Part Where You Live · Billy Bickle AU"
 series_order: 6
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 6"
 summary: "枪口抵上额头那一刻，一个戴面具的人破门而入，救了你们的命。"
