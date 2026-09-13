@@ -1,3 +1,19 @@
+---
+layout: post
+title: "Chapter 24 · 过几天 — The Part Where You Live"
+date: 2026-08-04
+image: 7-psychopaths.jpg
+tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 炽恋, 缱绻]
+categories: ["AU Story"]
+series: "The Part Where You Live"
+series_title: "The Part Where You Live · Billy Bickle AU"
+series_order: 24
+series_status: complete
+series_type: Series
+chapter_type: "Chapter 24"
+summary: "他用了一整晚，一次都没有用他那儿碰你。他只说过几天。"
+---
+
 > “A few more days. I swear. Just — a few more days.”
 > “过几天。我发誓。就再过几天。”
 
