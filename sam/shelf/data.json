@@ -628,7 +628,7 @@
     {
       "name": "《各怀鬼胎》",
       "type": "disc",
-      "spec": "VCD",
+      "spec": "港版 · VCD",
       "charId": "silk",
       "date": "2026-09-10",
       "note": "",
@@ -637,6 +637,58 @@
       "wish": 0,
       "id": "mtvdnuoz-ciuhl",
       "added": 1789035697187
+    },
+    {
+      "name": "《七个神经病》",
+      "type": "ost",
+      "spec": "CD · 美版 · 全新",
+      "charId": "billy",
+      "date": "2026-09-13",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mtzzmtzy-bgauq",
+      "added": 1789314465886
+    },
+    {
+      "name": "《各怀鬼胎》",
+      "type": "disc",
+      "spec": "DVD · 港版",
+      "charId": "silk",
+      "date": "2026-09-13",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mtzznl3c-la8m1",
+      "added": 1789314501000
+    },
+    {
+      "name": "仲夏夜之梦",
+      "type": "disc",
+      "spec": "DVD · 美版",
+      "charId": "",
+      "date": "2026-09-13",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mu0fwar6-6ezg8",
+      "added": 1789341781362
+    },
+    {
+      "name": "仲夏夜之梦",
+      "type": "program",
+      "spec": "",
+      "charId": "",
+      "date": "2026-09-13",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mu0fwlcm-pkuvu",
+      "added": 1789341795094
     }
   ]
 }
