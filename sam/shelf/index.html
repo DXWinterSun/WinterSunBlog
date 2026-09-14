@@ -1847,9 +1847,45 @@
     list.forEach(function (it) { out.push("| " + exRow(it).map(cell).join(" | ") + " |"); });
     return out.join("\n") + "\n";
   }
+  /* ————— 末尾附的作品总表 —————
+     这一段跟「收了什么」无关：它就是画册（many-faces）收录的 Sam 全部角色，
+     按年份排开，用来对着看还差哪几部。数据直接来自 sam/lines.json，
+     画册加了新角色，这张表自己就多一行。 */
+  function buildRoster(fmt) {
+    if (!chars.length) return "";
+    var no = function (i) { return ("0" + (i + 1)).slice(-2); };
+    var title = "Many Faces of Sam · 作品总表";
+    var note = "画册收录 " + chars.length + " 个角色 · 按年份排 · 这是完整片单，与架上有没有无关";
+
+    if (fmt === "csv") {
+      var q = function (v) { return '"' + String(v == null ? "" : v).replace(/"/g, '""') + '"'; };
+      var rows = ["", q(title + "（" + note + "）"),
+                  ["序号", "年份", "角色", "片名", "原片名"].map(q).join(",")];
+      chars.forEach(function (c, i) {
+        rows.push([no(i), c.year, c.name, c.filmCN || "", c.film].map(q).join(","));
+      });
+      return "\r\n" + rows.join("\r\n") + "\r\n";
+    }
+    if (fmt === "md") {
+      var md = ["", "---", "", "## 🎞️ " + title, "", "*" + note + "*", "",
+                "| # | 年份 | 角色 | 片名 | 原片名 |",
+                "| --- | --- | --- | --- | --- |"];
+      chars.forEach(function (c, i) {
+        md.push("| " + [no(i), c.year, c.name, c.filmCN || "—", c.film].join(" | ") + " |");
+      });
+      return md.join("\n") + "\n";
+    }
+    var t = ["", "────────────────────────────────", "🎞️ " + title, note, ""];
+    chars.forEach(function (c, i) {
+      t.push(no(i) + ". " + c.year + "  " + c.name + " · " + (c.filmCN || "") + " " + c.film);
+    });
+    return t.join("\n") + "\n";
+  }
+
   function exBuild() {
     var list = exList();
-    return exFmt === "csv" ? buildCsv(list) : exFmt === "md" ? buildMd(list) : buildText(list);
+    var body = exFmt === "csv" ? buildCsv(list) : exFmt === "md" ? buildMd(list) : buildText(list);
+    return body + buildRoster(exFmt);
   }
   function exRefresh() {
     $("ex-out").value = exBuild();
@@ -1862,9 +1898,11 @@
     var same = shown === items.length;
     $("ex-scopes").style.display = same ? "none" : "flex";
     $("ex-scope-label").style.display = same ? "none" : "block";
+    /* 不写作品数——藏品件数和作品数撞在一起（53 件 / 53 部）反而看晕 */
+    var tail = chars.length ? "末尾另附画册里 Sam 的完整作品表。" : "";
     $("ex-hint").textContent = same
-      ? "整架 " + items.length + " 件都在下面——复制走，或者存成一个文件。"
-      : "下面这份跟着你现在的筛选走；想要整架的，点「整架都导」。";
+      ? "整架 " + items.length + " 件都在下面。" + tail
+      : "下面这份跟着你现在的筛选走；想要整架的，点「整架都导」。" + tail;
   }
   function buildChips(wrapId, defs, get, set) {
     var wrap = $(wrapId);
