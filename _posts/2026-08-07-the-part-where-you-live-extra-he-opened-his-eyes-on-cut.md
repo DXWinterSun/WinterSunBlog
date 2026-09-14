@@ -1,7 +1,18 @@
-<!-- 番外 01 · 他一喊卡就睁眼 / He Opened His Eyes on "Cut"
-     状态：✅ 已定稿并发布 2026-09-14（series_order 27）。预览页 https://claude.ai/code/artifact/0403dcdf-e72f-4763-93fb-b68b035c7715
-     时间点：正片开始前六年，十月十九号夜戏 —— 初遇
-     拟用字段：chapter_type "Extra" / series_order 27 / mood 絮语 · 悸动 -->
+---
+layout: post
+title: "Extra · 他一喊卡就睁眼 — The Part Where You Live"
+date: 2026-08-07
+image: 7-psychopaths.jpg
+tags: [Billy Bickle, Sam Rockwell, AU, The Part Where You Live, 絮语, 悸动]
+categories: ["AU Story"]
+series: "The Part Where You Live"
+series_title: "The Part Where You Live · Billy Bickle AU"
+series_order: 27
+series_status: complete
+series_type: Series
+chapter_type: "Extra"
+summary: "那天他演一具尸体，一喊卡就睁眼，跟你贫了一整夜。"
+---
 
 > “Don't look at me. I'm dead.”
 > “别看我。我死了。”
