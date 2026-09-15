@@ -561,6 +561,30 @@
   .types { display: flex; flex-wrap: wrap; gap: 7px; }
   .spec-chips { margin-bottom: 8px; }
   .spec-chips .t-chip { padding: 6px 12px; font-size: 12px; }
+  /* 自己写的那几条规格：长相跟上面的选项一模一样，只是右边多个 × */
+  .tagbox { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
+  .tagbox:empty { display: none; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 8px 6px 12px; border-radius: 999px;
+    border: 1px solid rgba(230,190,110,.7); color: #ecd9a8;
+    background: linear-gradient(160deg, rgba(203,161,76,.22), rgba(203,161,76,.05));
+    font-size: 12.5px; letter-spacing: 1px;
+  }
+  .tag button {
+    border: 0; background: none; cursor: pointer; padding: 0;
+    width: 18px; height: 18px; border-radius: 50%; line-height: 1;
+    color: #c9b078; font-size: 13px;
+  }
+  .tag button:hover { background: rgba(203,161,76,.25); color: #f4ecdd; }
+  .tagadd { display: flex; gap: 8px; align-items: stretch; }
+  .tagadd .f-input { flex: 1 1 auto; }
+  .tagadd__btn {
+    flex: 0 0 auto; padding: 0 14px; border-radius: 8px; cursor: pointer;
+    border: 1px solid rgba(255,222,180,.2); background: #0f0b07;
+    color: #a8916d; font-family: 'Noto Serif SC', serif; font-size: 13px; letter-spacing: 1px;
+  }
+  .tagadd__btn:hover { border-color: rgba(230,190,110,.6); color: #ecd9a8; }
   .t-chip {
     padding: 7px 13px; border-radius: 999px; cursor: pointer;
     border: 1px solid rgba(255,222,180,.16); background: #0f0b07;
@@ -810,10 +834,15 @@
     <label class="f-label">它是哪一类</label>
     <div class="types" id="f-types"></div>
 
-    <label class="f-label" for="f-spec">版本 / 规格 <small>（可不填 · 点一下选中，再点取消）</small></label>
+    <label class="f-label" for="f-spec">版本 / 规格 <small>（可不填 · 点一下选中，再点取消 · 没有的自己写，能加好几条）</small></label>
     <div class="types spec-chips" id="f-fmt-row" style="display:none"></div>
     <div class="types spec-chips" id="f-region-row" style="display:none"></div>
-    <input class="f-input" id="f-spec" type="text" placeholder="其它补充：铁盒版 / 2 of 5…" maxlength="40">
+    <div class="types spec-chips" id="f-sug-row"></div>
+    <div class="tagbox" id="f-tagbox"></div>
+    <div class="tagadd">
+      <input class="f-input" id="f-spec" type="text" placeholder="没有的版本自己写：意大利版…" maxlength="24">
+      <button type="button" class="tagadd__btn" id="f-spec-add">＋ 加一条</button>
+    </div>
 
     <label class="f-label" for="f-char">关联角色 <small>（可不填 · 选了会点亮画册地图）</small></label>
     <select class="f-select" id="f-char"><option value="">— 不关联某个角色 —</option></select>
@@ -849,7 +878,7 @@
 
   /* fmts = 这一类东西有哪些「制式」可点；有 fmts 的还会跟着出现地区行。 */
   var TYPES = [
-    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "DVD", "4K UHD"] },
+    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "4K UHD", "DVD", "VCD", "LD"] },
     { id: "ost",     emoji: "🎵", label: "原声带", fmts: ["CD", "黑胶", "磁带"] },
     { id: "card",    emoji: "🃏", label: "卡牌" },
     { id: "goods",   emoji: "🧸", label: "周边" },
@@ -1602,8 +1631,12 @@
 
   /* ————— 制式 / 地区点选（单选可取消，落进 spec 字符串） ————— */
   var ALL_FMTS = TYPES.reduce(function (a, t) { return a.concat(t.fmts || []); }, []);
-  var REGIONS = ["美版", "英版", "日版", "港版", "台版", "国版"];
-  var specFmt = "", specRegion = "";
+  var REGIONS = ["美版", "英版", "日版", "港版", "台版", "国版",
+                 "法版", "德版", "意大利版", "澳版", "韩版", "欧版"];
+  /* 常写的那几条，点一下就变成一枚标签，省得每次手打 */
+  var SUGGESTS = ["铁盒", "限量", "首刷", "全新", "二手", "未拆封"];
+  var MAX_EXTRAS = 6;
+  var specFmt = "", specRegion = "", specExtras = [];
 
   function buildSpecChips(wrap, values, getter, setter) {
     values.forEach(function (v) {
@@ -1632,9 +1665,80 @@
     $("f-region-row").querySelectorAll(".t-chip").forEach(function (x) {
       x.classList.toggle("is-on", x.dataset.val === specRegion);
     });
+    $("f-sug-row").querySelectorAll(".t-chip").forEach(function (x) {
+      x.classList.toggle("is-on", specExtras.indexOf(x.dataset.val) >= 0);
+    });
+    renderExtras();
   }
   buildSpecChips($("f-region-row"), REGIONS,
     function () { return specRegion; }, function (v) { specRegion = v; });
+
+  /* ————— 自己写的规格：可以加好几条，每条都是一枚标签 ————— */
+  /* 一次输入里夹了分隔符（· / 、 , ; 斜杠…）就替她拆开，省得她自己排版；
+     「2 of 5」「482/700」这种编号里的斜杠要留着，所以斜杠两边都是数字时不拆。 */
+  function splitExtras(text) {
+    return String(text || "")
+      .replace(/(\d)\s*\/\s*(\d)/g, "$1\u0000$2")
+      .split(/[·・、,，;；\/｜|+＋]+/)
+      .map(function (x) { return x.replace(/\u0000/g, "/").trim(); })
+      .filter(Boolean);
+  }
+  function addExtras(text) {
+    var added = 0;
+    splitExtras(text).forEach(function (tok) {
+      if (tok.length > 24) tok = tok.slice(0, 24);
+      if (specExtras.length >= MAX_EXTRAS) return;
+      if (specExtras.indexOf(tok) >= 0) return;
+      if (tok === specFmt || tok === specRegion) return;   // 上面已经点过了，别重一遍
+      specExtras.push(tok); added++;
+    });
+    return added;
+  }
+  function renderExtras() {
+    var box = $("f-tagbox");
+    box.innerHTML = "";
+    specExtras.forEach(function (tok, i) {
+      if (SUGGESTS.indexOf(tok) >= 0) return;   // 上面那排已经点亮了，不必再挂一枚
+      var t = document.createElement("span");
+      t.className = "tag";
+      t.appendChild(document.createTextNode(tok));
+      var x = document.createElement("button");
+      x.type = "button";
+      x.setAttribute("aria-label", "去掉「" + tok + "」");
+      x.textContent = "×";
+      x.addEventListener("click", function () {
+        specExtras.splice(i, 1);
+        syncSpecChips();
+      });
+      t.appendChild(x);
+      box.appendChild(t);
+    });
+  }
+  buildSpecChips($("f-sug-row"), SUGGESTS,
+    function () { return ""; },
+    function (v) {
+      var at = specExtras.indexOf(v);
+      if (at >= 0) specExtras.splice(at, 1); else addExtras(v);
+    });
+  function commitSpecInput() {
+    var box = $("f-spec");
+    if (!box.value.trim()) return;
+    if (!addExtras(box.value) && specExtras.length >= MAX_EXTRAS) {
+      toast("规格最多写 " + MAX_EXTRAS + " 条");
+    }
+    box.value = "";
+    syncSpecChips();
+  }
+  $("f-spec-add").addEventListener("click", function () {
+    commitSpecInput();
+    $("f-spec").focus();
+  });
+  $("f-spec").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); commitSpecInput(); }
+    else if (e.key === "Backspace" && !this.value && specExtras.length) {
+      specExtras.pop(); syncSpecChips();
+    }
+  });
 
   /* 把已有的 spec 字符串拆回「制式 / 地区 / 其它」（兼容旧数据「蓝光」「DVD」等） */
   function parseSpec(spec) {
@@ -1646,7 +1750,7 @@
       else if (!region && REGIONS.indexOf(tok) >= 0) region = tok;
       else rest.push(tok);
     });
-    return { fmt: fmt, region: region, rest: rest.join(" · ") };
+    return { fmt: fmt, region: region, rest: rest };
   }
   function composeSpec() {
     var parts = [];
@@ -1654,9 +1758,8 @@
       if (specFmt) parts.push(specFmt);
       if (specRegion) parts.push(specRegion);
     }
-    var extra = $("f-spec").value.trim();
-    if (extra) parts.push(extra);
-    return parts.join(" · ");
+    /* 存的时候统一用同一个分隔符，她手打的那条也就和点出来的长得一样了 */
+    return parts.concat(specExtras).join(" · ");
   }
 
   function openSheet(id, presetChar) {
@@ -1674,9 +1777,14 @@
     /* 先定类别（制式那排会跟着重建），再把已有的规格拆回去点上 */
     setFormType(it ? it.type : "disc");
     var sp = parseSpec(it ? it.spec : "");
-    specFmt = fmtsFor(formType).indexOf(sp.fmt) >= 0 ? sp.fmt : "";
-    specRegion = sp.region;
-    $("f-spec").value = sp.rest || (sp.fmt && !specFmt ? sp.fmt : "");
+    var keepFmt = fmtsFor(formType).indexOf(sp.fmt) >= 0;
+    specFmt = keepFmt ? sp.fmt : "";
+    specRegion = fmtsFor(formType).length ? sp.region : "";
+    specExtras = [];
+    if (!keepFmt && sp.fmt) specExtras.push(sp.fmt);          // 换过类别的老数据，留着当一条
+    if (!fmtsFor(formType).length && sp.region) specExtras.push(sp.region);
+    sp.rest.forEach(function (tok) { if (specExtras.length < MAX_EXTRAS) specExtras.push(tok); });
+    $("f-spec").value = "";
     syncSpecChips();
     $("btn-del").style.display = it ? "block" : "none";
     $("btn-save").textContent = it ? "保存修改" : "摆上架子";
@@ -1703,6 +1811,7 @@
   });
 
   $("btn-save").addEventListener("click", function () {
+    commitSpecInput();          // 写了一条却忘了点「＋」，保存时替她收进去
     var name = $("f-name").value.trim();
     if (!name) name = autoNameFor();
     if (!name) {
