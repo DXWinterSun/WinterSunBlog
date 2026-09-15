@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Six Dimensions · 六维光谱 · Winter Sun</title>
-<meta name="description" content="狡黠、隐忍、疯狂、璞真、浪漫、优雅——五十三个 Sam Rockwell 角色的性格光谱地图。">
+<meta name="description" content="狡黠、隐忍、疯狂、璞真、浪漫、优雅——五十四个 Sam Rockwell 角色的性格光谱地图。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Six Dimensions · 六维光谱 · Winter Sun">
-<meta property="og:description" content="六个维度，五十三张面孔。看清他其实演过多少种人。">
+<meta property="og:description" content="六个维度，五十四张面孔。看清他其实演过多少种人。">
 <meta property="og:url" content="https://dxwintersun.github.io/WinterSunBlog/sam/spectrum/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
@@ -90,6 +90,7 @@ const CHARS = [
   {id:"trent",name:"Trent",film:"Lawn Dogs",filmCN:"《割草叔叔》",year:"1997",label:"ON THE ROAD OUT",line:"I was saving up to leave. Now I'm saving up to take you with me.",lineCN:"我攒钱本是为了离开——如今攒钱，是为了带你一起走。",tagline:"他不属于这里，但他愿意为你停下来。",bg:"#141c12",accent:"#79a7bd",text:"#dce5ea",muted:"#7a7654",profile:{guile:5,forbear:8,chaos:3,raw:5,romance:7,grace:2},auLink:null},
   {id:"samuel",name:"Samuel",film:"Safe Men",filmCN:"《冒牌高手》",year:"1998",label:"COULDN'T PICK A LOCK",line:"Can't crack a single safe. Cracked you wide open, though.",lineCN:"一个保险箱都撬不开——倒是把你，轻轻松松撬开了。",tagline:"他笨手笨脚，可你看一眼就想保护他。",bg:"#211a0f",accent:"#b23d2c",text:"#f0e2d4",muted:"#a08770",profile:{guile:1,forbear:2,chaos:4,raw:8,romance:6,grace:3},auLink:null},
   {id:"jerry",name:"Jerry",film:"Jerry and Tom",filmCN:"《师徒杀手闯江湖》",year:"1998",label:"OFF THE LIST",line:"You were supposed to be a job. You're the one thing I never finished.",lineCN:"你本该只是一单活——却成了我唯一没下手完成的事。",tagline:"他本来是来杀你的，结果反过来被你迷住了。",bg:"#20120c",accent:"#e08f2e",text:"#f0e0d0",muted:"#a07060",profile:{guile:7,forbear:1,chaos:10,raw:8,romance:7,grace:4},auLink:null},
+  {id:"flute",name:"Francis Flute",film:"A Midsummer Night's Dream",filmCN:"《仲夏夜之梦》",year:"1999",label:"PYRAMUS & THISBE",line:"My cherry lips have often kiss'd thy stones.",lineCN:"我的嘴唇吻过你的石头。",tagline:"全镇等着笑他。他却在一百多支蜡烛底下摘了假发，把那段话说给唯一没笑的你。",bg:"#151d2a",accent:"#c9a26c",text:"#ece6da",muted:"#8c8a93",profile:{guile:2,forbear:8,chaos:4,raw:9,romance:8,grace:2},auLink:"/WinterSunBlog/series/i-kissed-the-stones/"},
   {id:"wildbill",name:"Wild Bill Wharton",film:"The Green Mile",filmCN:"《绿里奇迹》",year:"1999",label:"UNDER HIS BREATH",line:"I ain't listenin' to you.",lineCN:"我才没听你的。",tagline:"他对全世界都没有刹车——除了你伸手的那一下。",bg:"#1b1510",accent:"#8a8058",text:"#ece0d0",muted:"#93826a",profile:{guile:5,forbear:0,chaos:10,raw:9,romance:7,grace:1},auLink:"/WinterSunBlog/series/tuning-the-devil/"},
   {id:"guy",name:"Guy Fleegman",film:"Galaxy Quest",filmCN:"《惊爆银河系》",year:"1999",label:"CREWMAN HALE",line:"Hale. So I make it to the end after all.",lineCN:"Hale——原来我能活到结局。",tagline:"他认定自己是注定领盒饭的那个——可你偏不准他死。",bg:"#0f161a",accent:"#43b3bf",text:"#dfe7ea",muted:"#738088",profile:{guile:2,forbear:2,chaos:5,raw:8,romance:8,grace:5},auLink:null},
   {id:"eric",name:"Eric Knox",film:"Charlie's Angels",filmCN:"《霹雳娇娃》",year:"2000",label:"EVERY MOVE BUT ONE",line:"I planned every move on the board. I never planned on you.",lineCN:"棋盘上每一步我都算到了——唯独没算到你。",tagline:"他计划了一切，却没有计划上你。",bg:"#1b1310",accent:"#cf3550",text:"#ede0e0",muted:"#8d6e62",profile:{guile:10,forbear:6,chaos:8,raw:1,romance:7,grace:9},auLink:"/WinterSunBlog/series/knox-au/"},
@@ -168,8 +169,8 @@ const AVERAGE = (() => {
     p[d.key] = CHARS.reduce((s, c) => s + c.profile[d.key], 0) / CHARS.length;
   });
   return {
-    id: "__avg", name: "五十三个他 · 平均的 Sam", film: "The Average of Fifty-Three Faces",
-    filmCN: "五十三张面孔叠在一起", year: "", label: "THE MEAN OF ALL",
+    id: "__avg", name: "五十四个他 · 平均的 Sam", film: "The Average of Fifty-Four Faces",
+    filmCN: "五十四张面孔叠在一起", year: "", label: "THE MEAN OF ALL",
     tagline: "把他演过的每一个人叠在一起，露出的那张脸。",
     line: "", lineCN: "", accent: AVG_ACCENT, text: "#ede4dc", muted: "#8a7a6e",
     bg: "#1a1610", profile: p, auLink: null, isAvg: true,
@@ -353,7 +354,7 @@ function App() {
           fontSize: "clamp(14px,3.8vw,16px)", lineHeight: 2, color: "#a08b6b",
         }}>
           狡黠、隐忍、疯狂、璞真、浪漫、优雅——<br />
-          同一个人，五十三种配比。左边点一个角色，看他的形状；<br />
+          同一个人，五十四种配比。左边点一个角色，看他的形状；<br />
           或者就停在<span style={{ color: "#a2897c" }}>平均的那张脸</span>上。
         </p>
       </header>
@@ -437,11 +438,11 @@ function App() {
 
           <div style={{ marginTop: "clamp(20px,4vw,32px)" }}>
             <div style={{ fontFamily: TYPE, fontSize: 11, letterSpacing: 2.5, color: "#8a7558", textTransform: "uppercase", marginBottom: 20 }}>
-              在五十三人里的位置
+              在五十四人里的位置
             </div>
             {DIMS.map(d => <Strip key={d.key} dim={d} selIdx={selIdx} />)}
             <p style={{ fontFamily: SERIF, fontSize: 11.5, color: "#5f5340", lineHeight: 1.7, marginTop: 4 }}>
-              每个点是一个角色，横轴是该维度 0→10。虚线六边形是五十三人的平均。
+              每个点是一个角色，横轴是该维度 0→10。虚线六边形是五十四人的平均。
             </p>
           </div>
         </div>

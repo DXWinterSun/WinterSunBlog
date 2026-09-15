@@ -761,17 +761,18 @@
   muted_cn: "更衣室拳套褐"
   muted_en: "Worn-Glove Brown"
 
-"I Kissed the Stones":     # Francis Flute · 画册条目待建（Winter 看完片再做），暂无 mf_id
-  accent: "#b7c8dc"
-  accent_ink: "#53667d"      # accent 偏浅，ink 额外加深以保浅色主题下 >=4.5:1
-  bg: "#151b26"
-  text: "#e8edf2"
-  muted: "#8d94a0"
-  accent_cn: "墙头月白"
-  accent_en: "Moon on the Wall"
-  bg_cn: "檐下夜蓝"
-  bg_en: "Eaves at Night"
-  text_cn: "石阶初霜"
-  text_en: "First Frost on Stone"
-  muted_cn: "炉灰微青"
-  muted_en: "Ash Gone Cool"
+"I Kissed the Stones":     # Francis Flute · 色卡同源 sam/many-faces/index.html id: flute
+  accent: "#c9a26c"            # 风箱旧金 / Bellows Gold
+  accent_ink: "#8a6c45"      # accent 暗一档，浅色主题下对白底 4.87:1
+  bg: "#151d2a"                # 夏夜深蓝 / Midsummer Blue
+  text: "#ece6da"              # 象牙初霜 / Ivory Frost（钢琴白键）
+  muted: "#8c8a93"             # 黑键微尘 / Ebony Dust
+  accent_cn: "风箱旧金"
+  accent_en: "Bellows Gold"
+  bg_cn: "夏夜深蓝"
+  bg_en: "Midsummer Blue"
+  text_cn: "象牙初霜"
+  text_en: "Ivory Frost"
+  muted_cn: "黑键微尘"
+  muted_en: "Ebony Dust"
+  mf_id: flute

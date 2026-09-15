@@ -2,8 +2,8 @@
   "meta": {
     "start": "2026-02-13",
     "note": "「今日一句」唯一数据源。今日页/小组件/台词墙的每日轮换只读 characters（严格轮转：按 N=角色数 洗一次牌定顺序，一天一个，任意连续 N 天每人正好一次；台词序号 = 第几轮 % 5）。pool 只剩「全部 N 句」的计数与列举用途，不再参与每日选句。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-    "characters_count": 53,
-    "pool_count": 265,
+    "characters_count": 54,
+    "pool_count": 270,
     "mf_alias": {
       "johnmoon": "john",
       "sambell": "sam",
@@ -404,6 +404,50 @@
           "line": "I've walked away from everything. You're the one exit I could never find.",
           "lineCN": "我从任何地方都能抽身走掉。你是我唯一，怎么都找不到的那个出口。",
           "kind": "情话"
+        }
+      ]
+    },
+    {
+      "id": "flute",
+      "name": "Francis Flute",
+      "film": "A Midsummer Night's Dream",
+      "filmCN": "《仲夏夜之梦》",
+      "year": "1999",
+      "bg": "#151d2a",
+      "accent": "#c9a26c",
+      "text": "#ece6da",
+      "muted": "#8c8a93",
+      "auLink": "/WinterSunBlog/series/i-kissed-the-stones/",
+      "quotes": [
+        {
+          "label": "PYRAMUS & THISBE",
+          "line": "My cherry lips have often kiss'd thy stones.",
+          "lineCN": "我的嘴唇吻过你的石头。",
+          "kind": "锚"
+        },
+        {
+          "label": "THE BEARD",
+          "line": "Let me not play a woman. I have a beard coming.",
+          "lineCN": "别让我演女人。我胡子都开始长出来了。",
+          "kind": "电影 · 名场面"
+        },
+        {
+          "label": "NO CHARGE",
+          "line": "That one's not on the bill.",
+          "lineCN": "那个不算钱。",
+          "kind": "暗告白"
+        },
+        {
+          "label": "THE THIRD STEP",
+          "line": "Third step from the bottom. It creaks. Don't step on it.",
+          "lineCN": "从底下数第三级。它会响。别踩。",
+          "kind": "AU · 情话"
+        },
+        {
+          "label": "YOUR NAME",
+          "line": "I've known your name since the first day. I never once dared to say it.",
+          "lineCN": "我从第一天就知道您的名字。一次都没敢叫。",
+          "kind": "AU · 暗告白"
         }
       ]
     },
@@ -2490,6 +2534,22 @@
       "kind": "锚"
     },
     {
+      "charId": "flute",
+      "name": "Francis Flute",
+      "film": "A Midsummer Night's Dream",
+      "filmCN": "《仲夏夜之梦》",
+      "year": "1999",
+      "accent": "#c9a26c",
+      "bg": "#151d2a",
+      "text": "#ece6da",
+      "muted": "#8c8a93",
+      "auLink": "/WinterSunBlog/series/i-kissed-the-stones/",
+      "label": "PYRAMUS & THISBE",
+      "line": "My cherry lips have often kiss'd thy stones.",
+      "lineCN": "我的嘴唇吻过你的石头。",
+      "kind": "锚"
+    },
+    {
       "charId": "wildbill",
       "name": "Wild Bill Wharton",
       "film": "The Green Mile",
@@ -3336,6 +3396,22 @@
       "line": "I don't miss. I missed you on purpose, and I've been lying about it ever since.",
       "lineCN": "我从不失手。对你，我是故意失的手——之后一直在为这件事撒谎。",
       "kind": "暗告白"
+    },
+    {
+      "charId": "flute",
+      "name": "Francis Flute",
+      "film": "A Midsummer Night's Dream",
+      "filmCN": "《仲夏夜之梦》",
+      "year": "1999",
+      "accent": "#c9a26c",
+      "bg": "#151d2a",
+      "text": "#ece6da",
+      "muted": "#8c8a93",
+      "auLink": "/WinterSunBlog/series/i-kissed-the-stones/",
+      "label": "THE BEARD",
+      "line": "Let me not play a woman. I have a beard coming.",
+      "lineCN": "别让我演女人。我胡子都开始长出来了。",
+      "kind": "电影 · 名场面"
     },
     {
       "charId": "wildbill",
@@ -4186,6 +4262,22 @@
       "kind": "情话"
     },
     {
+      "charId": "flute",
+      "name": "Francis Flute",
+      "film": "A Midsummer Night's Dream",
+      "filmCN": "《仲夏夜之梦》",
+      "year": "1999",
+      "accent": "#c9a26c",
+      "bg": "#151d2a",
+      "text": "#ece6da",
+      "muted": "#8c8a93",
+      "auLink": "/WinterSunBlog/series/i-kissed-the-stones/",
+      "label": "NO CHARGE",
+      "line": "That one's not on the bill.",
+      "lineCN": "那个不算钱。",
+      "kind": "暗告白"
+    },
+    {
       "charId": "wildbill",
       "name": "Wild Bill Wharton",
       "film": "The Green Mile",
@@ -5034,6 +5126,22 @@
       "kind": "暗告白"
     },
     {
+      "charId": "flute",
+      "name": "Francis Flute",
+      "film": "A Midsummer Night's Dream",
+      "filmCN": "《仲夏夜之梦》",
+      "year": "1999",
+      "accent": "#c9a26c",
+      "bg": "#151d2a",
+      "text": "#ece6da",
+      "muted": "#8c8a93",
+      "auLink": "/WinterSunBlog/series/i-kissed-the-stones/",
+      "label": "THE THIRD STEP",
+      "line": "Third step from the bottom. It creaks. Don't step on it.",
+      "lineCN": "从底下数第三级。它会响。别踩。",
+      "kind": "AU · 情话"
+    },
+    {
       "charId": "wildbill",
       "name": "Wild Bill Wharton",
       "film": "The Green Mile",
@@ -5880,6 +5988,22 @@
       "line": "I've walked away from everything. You're the one exit I could never find.",
       "lineCN": "我从任何地方都能抽身走掉。你是我唯一，怎么都找不到的那个出口。",
       "kind": "情话"
+    },
+    {
+      "charId": "flute",
+      "name": "Francis Flute",
+      "film": "A Midsummer Night's Dream",
+      "filmCN": "《仲夏夜之梦》",
+      "year": "1999",
+      "accent": "#c9a26c",
+      "bg": "#151d2a",
+      "text": "#ece6da",
+      "muted": "#8c8a93",
+      "auLink": "/WinterSunBlog/series/i-kissed-the-stones/",
+      "label": "YOUR NAME",
+      "line": "I've known your name since the first day. I never once dared to say it.",
+      "lineCN": "我从第一天就知道您的名字。一次都没敢叫。",
+      "kind": "AU · 暗告白"
     },
     {
       "charId": "wildbill",
