@@ -169,6 +169,54 @@ def main():
             if a and b and str(a).lower() != str(b).lower():
                 issues.append(f"[au_palettes] '{series}' {f}: 画册={b} vs {a}")
 
+    # ── 「穿上他的颜色」链路 ────────────────────────────────────────────
+    # _includes/au-palette-strip.html 会用 mf_id 反查 sam_themes 里
+    # anchor == mf_id 的那条，拿它的 id 挂成 data-au-theme。反查得到 → 选色器
+    # 认成「预设色卡」，「当前」行显示角色名；反查不到 → 退成「直接上色」，
+    # 显示成「AU 专属配色」，看着就不像画册角色（Francis Flute 就这么翻的车）。
+    themes_by_anchor = {(t.get("anchor") or t["id"]): t["id"] for t in
+                        __import__("yaml").safe_load(read("_data/sam_themes.yml"))}
+    strip = read("_includes/au-palette-strip.html")
+    if "p.theme_id" in strip:
+        issues.append("[au-strip] 又出现手写 theme_id —— 该字段已废弃，改由 mf_id 反查 sam_themes 推导")
+    for series, v in au.items():
+        if not isinstance(v, dict):
+            continue
+        if v.get("theme_id"):
+            issues.append(f"[au_palettes] '{series}' 还留着 theme_id —— 已废弃，删掉即可（由 mf_id 自动推导）")
+        mfid = v.get("mf_id")
+        if mfid and mfid not in themes_by_anchor:
+            issues.append(f"[穿上他的颜色] '{series}' mf_id={mfid} 在 sam_themes 里查不到 anchor，"
+                          f"按钮会退成「AU 专属配色」")
+
+    # Sam 本人演的角色，系列色卡却没写 mf_id → 「穿上他的颜色」不会认成画册色卡。
+    # 少数系列是有意独立设计的（见下表），其余都该补上 mf_id。
+    AU_NO_MF_OK = {
+        "Sanguis Benedicta",   # Wild Bill 血族哥特，有意独立配色，不跟画册同源
+        "Wholly Known",        # Eddie Carbone（舞台剧），画册里没有这个角色
+    }
+    import glob as _glob
+    for f in sorted(_glob.glob(os.path.join(ROOT, "series/*/index.html"))):
+        src = open(f, encoding="utf-8").read()
+        parts = src.split("---")
+        if len(parts) < 3:
+            continue
+        try:
+            fm = __import__("yaml").safe_load(parts[1]) or {}
+        except Exception:
+            continue
+        if not fm.get("sam_collection"):
+            continue
+        key = fm.get("series_name")
+        if key in AU_NO_MF_OK:
+            continue
+        v = au.get(key)
+        if not isinstance(v, dict):
+            issues.append(f"[穿上他的颜色] Sam 角色系列 '{key}' 在 au_palettes 里没有条目（会回退站点默认金色）")
+        elif not v.get("mf_id"):
+            issues.append(f"[穿上他的颜色] Sam 角色系列 '{key}' 缺 mf_id —— "
+                          f"「穿上他的颜色」会显示成「AU 专属配色」，且没有「在 Many Faces 里找他」链接")
+
     if issues:
         print(f"✗ 发现 {len(issues)} 处色卡未同步（画册为真源）：\n")
         for i in issues:

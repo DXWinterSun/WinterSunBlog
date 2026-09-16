@@ -494,6 +494,17 @@ bg/accent 名对齐，3–6 字皆可）；②四个名字之间尽量不重复�
   （如 Eric Bowen 的 `#9fb8c9`），ink 要额外加深到浅色主题下 ≥4.5:1 对比度，别机械 ×0.8。
 - 只有 **带 `mf_id`** 的条目才跟画册同源；无 `mf_id` 的（如 Menelaus / Invisible Light 等
   非 Sam 或原创角色）各自独立，不在同步范围。
+- ⭐ **`mf_id` 同时是「穿上他的颜色」那颗按钮的唯一开关**（2026-09 打通）：系列页那条胶片
+  色卡里的「穿上他的颜色」，由 `_includes/au-palette-strip.html` 拿 `mf_id` 去
+  `sam_themes.yml` 里反查 `anchor == mf_id` 的那条、取它的 `id` 挂成 `data-au-theme`。
+  **查得到** → 选色器认成「预设色卡」，「换个心情」的「当前」行显示角色名和四个色名；
+  **查不到（漏写 `mf_id`）** → 退成「直接上色」，显示成一句笼统的「AU 专属配色」——
+  看着就像这不是画册角色。Francis Flute 就是这么翻的车。
+  ⚠️ 这里**必须反查，不能拿 `mf_id` 直接当 `sam_themes` 的 id 用**：两边 id 常常不一样
+  （画册 `frank`→主题 `mercer`、`jim`→`crocker`、`doug`→`varney`、`sam`→`sambell`…）。
+- 🗑️ **旧的 `theme_id:` 字段已废弃、全部删除**——它是手写的第二份链接、跟 `mf_id` 会打架
+  （Douglas Varney 那条就写错成 `doug`，按钮点了毫无反应）。现在只写 `mf_id` 一个，
+  按钮那一头自动推导。`check_palette_sync.py` 会拦住任何重新冒出来的 `theme_id`。
 
 **改完色卡后必须跑校验脚本确认全站一致：**
 
@@ -502,7 +513,10 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 ```
 
 这个脚本以画册为真源，把上面 5 处拷贝逐个角色比对（含 lines.json 的 `pool`、au_palettes 的
-`mf_id` 条目），是改色卡后的**收尾必跑项**。
+`mf_id` 条目），是改色卡后的**收尾必跑项**。它另外还把「穿上他的颜色」那条链路一起验了：
+每个 `sam_collection: true` 的系列都必须有 au_palettes 条目且写了 `mf_id`（有意独立配色的
+少数例外记在脚本里的 `AU_NO_MF_OK`），每个 `mf_id` 都要能在 `sam_themes.yml` 里反查到 anchor。
+**所以新开一个 Sam 角色 AU、或给老系列换色之后，跑一次这个脚本就够，不用再手动去点按钮试。**
 
 ## ⚠️ 新增一个 Sam 角色 = 要同步「四个彩蛋 + 计数总闸」
 
