@@ -742,3 +742,18 @@
   muted_cn: "黑键微尘"
   muted_en: "Ebony Dust"
   mf_id: flute
+
+"Eyes Open":                # 囚徒（张潇）· 真人主播 AU · 独立配色（非 Sam 角色，无 mf_id）
+  accent: "#e3872b"
+  accent_ink: "#a45e1b"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
+  bg: "#131722"
+  text: "#ebe5d9"
+  muted: "#b39664"
+  accent_cn: "机车警橙"
+  accent_en: "Rider Orange"
+  bg_cn: "天黑闭眼"
+  bg_en: "Lights Out"
+  text_cn: "头灯霜白"
+  text_en: "Headlamp Frost"
+  muted_cn: "警徽旧金"
+  muted_en: "Badge Gold"
