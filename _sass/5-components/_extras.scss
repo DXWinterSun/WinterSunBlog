@@ -1990,6 +1990,80 @@
 }
 
 /* ===============
+	CHAT — in-story modern messaging thread (WeChat-era phone screen).
+	Sibling of c-sms (Nokia keypad) for present-day stories. Uses the AU
+	tokens so it follows the series palette in both themes.
+	Markup:
+	  <div class="c-chat" role="group" aria-label="微信对话">
+	    <div class="c-chat__bar">悦洋</div>
+	    <div class="c-chat__msg c-chat__msg--out">我车坏了</div>
+	    <div class="c-chat__msg c-chat__msg--in">？？？？？？</div>
+	    <div class="c-chat__msg c-chat__msg--out c-chat__msg--img">［照片］一个蹲着打包的背影</div>
+	    <div class="c-chat__time">14:32</div>
+	  </div>
+=============== */
+.c-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  max-width: 340px;
+  margin: 28px auto 20px;
+  padding: 14px 14px 16px;
+  border-radius: 18px;
+  background: $paper-warm;
+  border: 1px solid $line;
+  box-shadow: 0 10px 26px rgba(var(--rgb-shadow, 0,0,0), .16);
+}
+.c-chat__bar {
+  margin: 0 0 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $line;
+  text-align: center;
+  font-family: $heading-font-family;
+  font-size: 12.5px;
+  letter-spacing: .08em;
+  color: $muted;
+}
+.c-chat__msg {
+  position: relative;
+  max-width: 78%;
+  padding: 7px 11px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  word-break: break-word;
+  text-align: left;
+}
+.c-chat__msg--in {
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  background: $paper;
+  color: $ink;
+  border: 1px solid $line;
+}
+.c-chat__msg--out {
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  background: color-mix(in srgb, $accent 26%, $paper);
+  color: $ink;
+  border: 1px solid color-mix(in srgb, $accent 30%, transparent);
+}
+.c-chat__msg--img {
+  font-style: italic;
+  font-size: 13px;
+  color: $muted;
+  border-style: dashed;
+}
+.c-chat__time {
+  margin-top: 4px;
+  text-align: center;
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  color: $muted;
+  opacity: .8;
+}
+
+/* ===============
    c-logstamp —— 章节内的「档案条」小节标记
    写法（Markdown 里直接写）：
      ### <span class="c-logstamp__when">10 月 4 日 · 周四 20:15</span>到达大厅

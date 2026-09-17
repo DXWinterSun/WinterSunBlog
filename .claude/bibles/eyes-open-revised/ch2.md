@@ -149,17 +149,32 @@ tags: [囚徒, 张潇, AU, Eyes Open, 悸动, 絮语]
 
 塔中有信号。你坐在旅馆门口的台阶上，给你唯一敢告诉的人发了三条消息。
 
-“我车坏了。”
+<div class="c-chat" role="group" aria-label="微信对话">
+  <div class="c-chat__bar">悦洋</div>
+  <div class="c-chat__msg c-chat__msg--out">我车坏了</div>
+  <div class="c-chat__msg c-chat__msg--out">拖回库尔勒了</div>
+  <div class="c-chat__msg c-chat__msg--out">我要跟囚徒走独库公路</div>
+</div>
 
-“拖回库尔勒了。”
+回复来得很快，一条接一条。
 
-“我要跟囚徒走独库公路。”
-
-小满的回复来得很快，一条接一条：一排问号。“你被骗了，报警。”“等等，哪个囚徒？”“你说的那个囚徒？？？”然后是两个字：“照片。”
+<div class="c-chat" role="group" aria-label="微信对话">
+  <div class="c-chat__bar">悦洋</div>
+  <div class="c-chat__msg c-chat__msg--in">？？？？？？</div>
+  <div class="c-chat__msg c-chat__msg--in">你被骗了 报警</div>
+  <div class="c-chat__msg c-chat__msg--in">等等 哪个囚徒</div>
+  <div class="c-chat__msg c-chat__msg--in">你说的那个囚徒？？？</div>
+  <div class="c-chat__msg c-chat__msg--in">照片</div>
+</div>
 
 你抬起头。他正蹲在车边给硬箱重新打包，背对着你，晒黑的后颈露在衣领外面。你拍了一张，发过去。
 
-小满：“背影看不出来。让他转过来。”
+<div class="c-chat" role="group" aria-label="微信对话">
+  <div class="c-chat__bar">悦洋</div>
+  <div class="c-chat__msg c-chat__msg--out c-chat__msg--img">［照片］一个蹲着打包的背影</div>
+  <div class="c-chat__msg c-chat__msg--in">背影看不出来</div>
+  <div class="c-chat__msg c-chat__msg--in">让他转过来</div>
+</div>
 
 “拍我？”他没回头，声音从背后传来，“拍正脸。背影不收费，正脸也不收费。”
 
@@ -169,7 +184,12 @@ tags: [囚徒, 张潇, AU, Eyes Open, 悸动, 絮语]
 
 你拍了。
 
-小满回了一串问号，然后是一句：“……你活着回来。”
+<div class="c-chat" role="group" aria-label="微信对话">
+  <div class="c-chat__bar">悦洋</div>
+  <div class="c-chat__msg c-chat__msg--out c-chat__msg--img">［照片］一个摆着欠揍姿势的正脸</div>
+  <div class="c-chat__msg c-chat__msg--in">？？？？？？？？？？？？</div>
+  <div class="c-chat__msg c-chat__msg--in">……你活着回来</div>
+</div>
 
 ---
 
@@ -184,6 +204,18 @@ tags: [囚徒, 张潇, AU, Eyes Open, 悸动, 絮语]
 “为什么？”
 
 “我微博粉丝会来打你。”他想了想，“哦不对，你也是。那就……让她们打你。”
+
+“她们？”
+
+“女粉。”他说得特别自然，“我女粉多。”
+
+老赵从他的车那边头也不回地接了一句：“他粉丝百分之九十是男的。”
+
+“那剩下百分之十也不少！”
+
+阿亮：“那百分之十里还有一半是买的。”
+
+“你放屁！”
 
 “……”
 
