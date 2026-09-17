@@ -37,7 +37,8 @@ SERIES = {
         "title": "I Kissed the Stones · Francis Flute AU",
         # 说话人识别：正则 → 角色 key
         "attrib": [
-            (r"你(说|问|喊)", "她"),
+            (r"你$|^你", "她"),
+            (r"Emilia", "Emilia"),
             (r"你父亲说", "父亲"),
             (r"Lorenzo\s*说", "Lorenzo"),
             (r"Chiara\s*说", "Chiara"),
@@ -54,6 +55,16 @@ SERIES = {
             (r"她说", "她?"),
         ],
         "rules": {
+            # ⭐⭐⭐ 第②把锁：他对她永远「您」，一个「你」都不许有（到结局才开）
+            "他": {
+                "forbid": ["你"],
+                "allow_if_quote_has": ["他说你", "你看吧"],   # 他转述别人说的话
+                "why": "第②把锁：Flute 对她一律「您」，⚠️ 到结局才第一次说「你」",
+            },
+            "Emilia": {
+                "forbid": ["你"],
+                "why": "Emilia 是九岁的学生，那个年代孩子对先生用敬称 → 「您」",
+            },
             # 她的台词：绝不会把自己的爹妈叫成「您父亲／您母亲」
             "她": {
                 "forbid": ["您父亲", "您母亲", "您妈", "您爹"],
@@ -62,7 +73,8 @@ SERIES = {
             # 父亲 → 女儿：用「你」（考据：19C 意大利父母对子女用 tu）
             "父亲": {
                 "forbid": ["您"],
-                "allow_if_quote_has": ["先生", "神父"],   # 他对神父说话才用「您」
+                "allow_if_quote_has": ["先生"],
+                "allow_if_near": ["神父"],   # 他对神父说话才用「您」
                 "why": "父亲对女儿一律「你」；只有他对神父说话才用「您」",
             },
             # Lorenzo：与她一块儿长大、同一个阶层 → 「你」
@@ -76,6 +88,22 @@ SERIES = {
                 "why": "Chiara 同上，闺中玩伴 → 「你」",
             },
         },
+        # ⚠️ 已人工核过、确实不是 Flute 的「他」（分场里没提名字，脚本解析不出来）
+        #    ——每加一条都要写清真正的说话人，别拿它当消错工具
+        "ambiguous_ok": [
+            "你对我好，一直都好。你什么礼都不缺，什么话都听完。",        # Ch11 Lorenzo
+            "可是你看我的时候是空的。",                                  # Ch11 Lorenzo（同段）
+            "你母亲每个礼拜四还让人把那间屋子的琴擦一遍。",              # Ch18 父亲
+            "你那位。",                                                  # Ch19 Lorenzo
+            # Ch11 园子里那一整场（她跟 Lorenzo 谈「我不愿意」）通篇只写「他」，
+            # 这六句全是 Lorenzo 说的：
+            "你不用对不住。",
+            "你又没有骗我。",
+            "那对你不好。",
+            "镇上会说你。",
+            "可要是那个人真的值得你走这一步",
+            "——你叫他小心点。",
+        ],
         # 叙述（引号外）里不许出现的第一人称
         "narration_forbid": ["我父亲", "我母亲", "我们站", "我旁边", "我家里那"],
         "narration_why": "本系列是第二人称叙述（你），叙述里不该有「我」的所有格",
@@ -85,22 +113,66 @@ SERIES = {
 }
 
 QUOTE_RE = re.compile(r"“([^”]*)”")
-CJK_CURLY_BAD = "「』』"
 
+# 引号边界上的提示语：”X说 / X说，“
+ATTR_AFTER = re.compile(r"”\s*([^，。！？“”]{0,10}?)(说|问|答|喊|念)")
+ATTR_BEFORE = re.compile(r"([^，。！？“”]{0,10}?)(说|问|答|喊|念)[，：]?\s*“")
 
-def speaker_of(line, attrib):
-    for pat, key in attrib:
-        if re.search(pat, line):
+# 提示语碎片 → 角色
+def norm(frag, cfg):
+    for pat, key in cfg["attrib"]:
+        if re.search(pat, frag):
             return key
+    if frag.strip() in ("他", "他又", "他小声", "他重复了一遍"):
+        return "他?"
+    if frag.strip() in ("她", "她又"):
+        return "她?"
     return None
+
+
+# 一章里除 Flute 之外的男性说话人（用来判断「他」是不是 Flute）
+OTHER_MEN = ("父亲", "Lorenzo", "Bottom", "Quince", "Snug", "Snout", "Starveling",
+             "Bardi", "Baldi", "神父", "Don Pietro", "管事", "铁匠", "那个人")
+
+
+MALE_KEYS = ("父亲", "Lorenzo", "Bottom", "Quince", "Snug", "Snout",
+             "Bardi", "Baldi", "神父", "Starveling")
+
+
+def resolve(line, lines, idx, cfg, scene_male):
+    """返回 (角色, 是否为推断)。scene_male = 本场里最近一个有名有姓的男性说话人。"""
+    frags = [m.group(1) for m in ATTR_AFTER.finditer(line)] + \
+            [m.group(1) for m in ATTR_BEFORE.finditer(line)]
+    for fr in frags:
+        k = norm(fr, cfg)
+        if k and k not in ("他?", "她?"):
+            return k, False
+    for fr in frags:
+        k = norm(fr, cfg)
+        if k == "他?":
+            # 本场里出现过别的男人 → 歧义，只列不判；否则「他」就是 Flute
+            return (("他?", True) if scene_male else ("他", False))
+        if k == "她?":
+            return "她?", True
+    return None, True
 
 
 def check_file(path, cfg, list_mode=False):
     errors, reviews = [], []
     text = open(path, encoding="utf-8").read()
+    lines = text.split("\n")
     in_html = False
-    for i, line in enumerate(text.split("\n"), 1):
-        # 跳过内嵌 HTML 卡片（c-note / c-decree / c-comm）
+    scene_male = None
+    for i, line in enumerate(lines, 1):
+        if re.match(r"^-{3,}\s*$", line):
+            scene_male = None          # 分场，重置「本场出现过哪个男人」
+        # 本场里只要（叙述或提示语里）出现过别的男人，「他」就算歧义
+        for _m in ("父亲", "Lorenzo", "Bottom", "Quince", "Snug", "Snout",
+                   "Bardi", "Baldi", "神父", "Don Pietro", "Starveling",
+                   "铁匠", "管钟"):
+            if _m in line:
+                scene_male = _m
+                break
         if re.match(r"\s*<div", line):
             in_html = True
         if in_html:
@@ -110,33 +182,37 @@ def check_file(path, cfg, list_mode=False):
 
         quotes = QUOTE_RE.findall(line)
 
-        # ① 叙述（把引号内容挖掉之后）里的第一人称
+        # ① 叙述（挖掉引号内容）里的第一人称
         bare = QUOTE_RE.sub("", line)
         if not bare.lstrip().startswith(">"):
             for w in cfg.get("narration_forbid", []):
                 if w in bare:
                     errors.append((i, "叙述第一人称", w, bare.strip()[:70],
                                    cfg.get("narration_why", "")))
-
         if not quotes:
             continue
-        spk = speaker_of(line, cfg["attrib"])
-        rule = cfg["rules"].get(spk)
 
-        near = "".join(text.split("\n")[max(0, i - 3): i + 2])
+        spk, guessed = resolve(line, lines, i - 1, cfg, scene_male)
+        rule = cfg["rules"].get(spk)
+        near = "".join(lines[max(0, i - 4): i + 3])
+
         for q in quotes:
             if rule:
                 allow = any(a in q for a in rule.get("allow_if_quote_has", []))
-                if not allow and "神父" in rule.get("allow_if_quote_has", []) and "神父" in near:
+                if not allow:
+                    for ctxw in rule.get("allow_if_near", []):
+                        if ctxw in near:
+                            allow = True
+                            break
+                if not allow and any(q.startswith(x[:14]) for x in cfg.get("ambiguous_ok", [])):
                     allow = True
-                for w in rule["forbid"]:
-                    if w in q and not allow:
-                        errors.append((i, f"{spk} 的对白", w, q[:70], rule["why"]))
-                        break
-            if list_mode and ("您" in q or "你" in q):
-                reviews.append((i, spk or "（没有提示语）", q[:70]))
-            elif not rule and spk in cfg.get("review_keys", []) and ("您" in q or "你" in q):
-                reviews.append((i, spk or "（没有提示语）", q[:70]))
+                if not allow:
+                    for w in rule["forbid"]:
+                        if w in q:
+                            errors.append((i, f"{spk} 的对白", w, q[:70], rule["why"]))
+                            break
+            if ("您" in q or "你" in q) and (list_mode or spk is None or guessed):
+                reviews.append((i, (spk or "？") + ("（推断）" if guessed else ""), q[:70]))
     return errors, reviews
 
 
