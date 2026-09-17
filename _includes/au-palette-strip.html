@@ -34,11 +34,33 @@
     {%- endif %}
   </span>
   <span class="au-strip__perf"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  {%- comment -%}
+    「穿上他的颜色」按钮要挂哪种状态，由 mf_id 自动决定，不要再手写 theme_id：
+      · 有 mf_id（＝色卡同源画册）→ 反查 sam_themes 里 anchor == mf_id 的那条，
+        拿它的 id 当 data-au-theme。选色器会认成「预设色卡」，「当前」行显示
+        角色名与四个色名。
+      · 无 mf_id（＝非画册角色，或有意独立设计的配色，如 Sanguis Benedicta）
+        → 不输出 data-au-theme，走直接上色，「当前」行显示本系列自己的四色名。
+    ⚠️ sam_themes 的 id 常常 ≠ 画册 anchor（frank→mercer / jim→crocker /
+    doug→varney…），所以必须反查，不能拿 mf_id 直接当 theme_id 用。
+  {%- endcomment -%}
+  {%- assign theme_id = "" -%}
+  {%- if p.mf_id -%}
+    {%- for t in site.data.sam_themes -%}
+      {%- assign t_anchor = t.anchor | default: t.id -%}
+      {%- if t_anchor == p.mf_id -%}{%- assign theme_id = t.id -%}{%- break -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
   <button class="au-strip__switch" type="button"
-    {% if p.theme_id %}data-au-theme="{{ p.theme_id }}"{% endif %}
+    {% if theme_id != "" %}data-au-theme="{{ theme_id }}"{% endif %}
     data-au-accent="{{ p.accent }}"
     {% if p.accent_ink %}data-au-accent-ink="{{ p.accent_ink }}"{% endif %}
-    data-au-bg="{{ p.bg }}" data-au-text="{{ p.text }}" data-au-muted="{{ p.muted }}"><span class="au-strip__ico" aria-hidden="true">◑</span>穿上他的颜色</button>
+    data-au-bg="{{ p.bg }}" data-au-text="{{ p.text }}" data-au-muted="{{ p.muted }}"
+    data-au-accent-name="{{ p.accent_cn }} · {{ p.accent_en }}"
+    data-au-bg-name="{{ p.bg_cn }} · {{ p.bg_en }}"
+    {% if p.text_cn %}data-au-text-name="{{ p.text_cn }} · {{ p.text_en }}"{% endif %}
+    {% if p.muted_cn %}data-au-muted-name="{{ p.muted_cn }} · {{ p.muted_en }}"{% endif %}
+    ><span class="au-strip__ico" aria-hidden="true">◑</span>穿上他的颜色</button>
   {%- if p.mf_id %}
   <a class="au-strip__mf" href="{{ site.baseurl }}/sam/many-faces/#{{ p.mf_id }}"><span class="au-strip__ico" aria-hidden="true">◎</span>在 Many Faces 里找他</a>
   {%- endif %}

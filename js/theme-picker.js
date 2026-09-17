@@ -331,7 +331,15 @@
       var sat = isDark() ? 62 : 58, li = isDark() ? 65 : 47;
       return [{ color: hslToHex(s.hue, sat, li), name: '随心染色 · 自定义' }];
     } else if (s && s.type === 'au-direct') {
-      return [{ color: s.accent, name: 'AU 专属配色' }];
+      // 「直接上色」＝该系列有意独立设计的配色（非画册同源）。若色卡里写了
+      // 中英色名就照样显示四色，跟预设色卡的观感一致；老的本机记录没存名字，
+      // 才退回一句笼统的「AU 专属配色」。
+      var au = [];
+      if (s.accent_name) au.push({ color: s.accent, name: s.accent_name });
+      if (s.bg_name)     au.push({ color: s.bg,     name: s.bg_name });
+      if (s.text_name)   au.push({ color: s.text,   name: s.text_name });
+      if (s.muted_name)  au.push({ color: s.muted,  name: s.muted_name });
+      return au.length ? au : [{ color: s.accent, name: 'AU 专属配色' }];
     }
     var fallback = getComputedStyle(document.documentElement).getPropertyValue('--c-accent').trim();
     return [{ color: fallback || '#c0594a', name: '站点默认' }];
@@ -438,12 +446,16 @@
         state = { type: 'preset', id: id };
       } else {
         state = {
-          type:       'au-direct',
-          accent:     btn.getAttribute('data-au-accent'),
-          accent_ink: btn.getAttribute('data-au-accent-ink') || null,
-          bg:         btn.getAttribute('data-au-bg'),
-          text:       btn.getAttribute('data-au-text'),
-          muted:      btn.getAttribute('data-au-muted')
+          type:        'au-direct',
+          accent:      btn.getAttribute('data-au-accent'),
+          accent_ink:  btn.getAttribute('data-au-accent-ink') || null,
+          bg:          btn.getAttribute('data-au-bg'),
+          text:        btn.getAttribute('data-au-text'),
+          muted:       btn.getAttribute('data-au-muted'),
+          accent_name: btn.getAttribute('data-au-accent-name') || null,
+          bg_name:     btn.getAttribute('data-au-bg-name') || null,
+          text_name:   btn.getAttribute('data-au-text-name') || null,
+          muted_name:  btn.getAttribute('data-au-muted-name') || null
         };
       }
       applyState(state);

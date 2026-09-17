@@ -561,6 +561,10 @@
   .types { display: flex; flex-wrap: wrap; gap: 7px; }
   .spec-chips { margin-bottom: 8px; }
   .spec-chips .t-chip { padding: 6px 12px; font-size: 12px; }
+  /* 不常用的那些先收着，点「更多」才摊开 */
+  .spec-chips .t-chip.is-extra { display: none; }
+  .spec-chips.is-open .t-chip.is-extra { display: inline-block; }
+  .t-chip--more { border-style: dashed; color: #8a7757; letter-spacing: 0; }
   /* 自己写的那几条规格：长相跟上面的选项一模一样，只是右边多个 × */
   .tagbox { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
   .tagbox:empty { display: none; }
@@ -840,7 +844,7 @@
     <div class="types spec-chips" id="f-sug-row"></div>
     <div class="tagbox" id="f-tagbox"></div>
     <div class="tagadd">
-      <input class="f-input" id="f-spec" type="text" placeholder="没有的版本自己写：意大利版…" maxlength="24">
+      <input class="f-input" id="f-spec" type="text" placeholder="没有的自己写：首版 / 2 of 5…" maxlength="24">
       <button type="button" class="tagadd__btn" id="f-spec-add">＋ 加一条</button>
     </div>
 
@@ -878,7 +882,7 @@
 
   /* fmts = 这一类东西有哪些「制式」可点；有 fmts 的还会跟着出现地区行。 */
   var TYPES = [
-    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "4K UHD", "DVD", "VCD", "LD"] },
+    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "4K UHD", "DVD"], fmtsMore: ["VCD", "LD", "录像带"] },
     { id: "ost",     emoji: "🎵", label: "原声带", fmts: ["CD", "黑胶", "磁带"] },
     { id: "card",    emoji: "🃏", label: "卡牌" },
     { id: "goods",   emoji: "🧸", label: "周边" },
@@ -1587,7 +1591,7 @@
   });
   function fmtsFor(type) {
     var t = typeById[type];
-    return (t && t.fmts) || [];
+    return t ? (t.fmts || []).concat(t.fmtsMore || []) : [];
   }
   function setFormType(id) {
     formType = id;
@@ -1598,7 +1602,7 @@
        场刊、卡牌这些没有制式可言，整排收起来。「导进 NAS」仍只对碟片有意义。 */
     var fmts = fmtsFor(id);
     if (fmts.indexOf(specFmt) < 0) specFmt = "";
-    buildFmtChips(fmts);
+    buildFmtChips(typeById[id]);
     $("f-nas-row").style.display = (id === "disc") ? "flex" : "none";
     $("f-fmt-row").style.display = fmts.length ? "flex" : "none";
     $("f-region-row").style.display = fmts.length ? "flex" : "none";
@@ -1630,19 +1634,28 @@
   }
 
   /* ————— 制式 / 地区点选（单选可取消，落进 spec 字符串） ————— */
-  var ALL_FMTS = TYPES.reduce(function (a, t) { return a.concat(t.fmts || []); }, []);
-  var REGIONS = ["美版", "英版", "日版", "港版", "台版", "国版",
-                 "法版", "德版", "意大利版", "澳版", "韩版", "欧版"];
+  var ALL_FMTS = TYPES.reduce(function (a, t) {
+    return a.concat(t.fmts || [], t.fmtsMore || []);
+  }, []);
+  /* 每一排都是「常见的先摆出来 ＋ 点『更多』才展开剩下的」，免得一打开一屏全是圈圈 */
+  var REGIONS = ["美版", "英版", "日版", "港版", "台版"];
+  var REGIONS_MORE = ["国版", "法版", "德版", "意版", "西版", "澳版", "韩版", "欧版", "加版", "俄版"];
   /* 常写的那几条，点一下就变成一枚标签，省得每次手打 */
-  var SUGGESTS = ["铁盒", "限量", "首刷", "全新", "二手", "未拆封"];
+  var SUGGESTS = ["铁盒", "限量", "全新"];
+  var SUGGESTS_MORE = ["首刷", "初回版", "收藏版", "导演剪辑版", "二手", "未拆封"];
+  /* 从前手打的长写法，认成同一枚圈圈 */
+  var ALIAS = { "意大利版": "意版", "西班牙版": "西版", "加拿大版": "加版",
+                "俄罗斯版": "俄版", "法国版": "法版", "德国版": "德版", "韩国版": "韩版" };
+  var ALL_REGIONS = REGIONS.concat(REGIONS_MORE);
+  var ALL_SUGGESTS = SUGGESTS.concat(SUGGESTS_MORE);
   var MAX_EXTRAS = 6;
   var specFmt = "", specRegion = "", specExtras = [];
 
-  function buildSpecChips(wrap, values, getter, setter) {
-    values.forEach(function (v) {
+  function buildSpecChips(wrap, values, more, getter, setter) {
+    function chip(v, isMore) {
       var b = document.createElement("button");
       b.type = "button";
-      b.className = "t-chip";
+      b.className = "t-chip" + (isMore ? " is-extra" : "");
       b.dataset.val = v;
       b.textContent = v;
       b.addEventListener("click", function () {
@@ -1650,27 +1663,50 @@
         syncSpecChips();
       });
       wrap.appendChild(b);
-    });
+    }
+    values.forEach(function (v) { chip(v, false); });
+    (more || []).forEach(function (v) { chip(v, true); });
+    if (more && more.length) {
+      var m = document.createElement("button");
+      m.type = "button";
+      m.className = "t-chip t-chip--more";
+      m.textContent = "更多 ▾";
+      m.addEventListener("click", function () {
+        var open = wrap.classList.toggle("is-open");
+        m.textContent = open ? "收起 ▴" : "更多 ▾";
+      });
+      wrap.appendChild(m);
+    }
   }
-  function buildFmtChips(values) {
+  function buildFmtChips(t) {
     var wrap = $("f-fmt-row");
     wrap.innerHTML = "";
-    buildSpecChips(wrap, values,
+    wrap.classList.remove("is-open");
+    buildSpecChips(wrap, (t && t.fmts) || [], (t && t.fmtsMore) || [],
       function () { return specFmt; }, function (v) { specFmt = v; });
   }
+  function syncRow(rowId, isOn) {
+    var wrap = $(rowId), hidden = false;
+    wrap.querySelectorAll(".t-chip").forEach(function (x) {
+      if (!x.dataset.val) return;                      // 那枚「更多」开关
+      var on = isOn(x.dataset.val);
+      x.classList.toggle("is-on", on);
+      if (on && x.classList.contains("is-extra")) hidden = true;
+    });
+    /* 选中的那枚藏在「更多」里 → 自动把这排展开，不然她看不见自己选了什么 */
+    if (hidden && !wrap.classList.contains("is-open")) {
+      wrap.classList.add("is-open");
+      var m = wrap.querySelector(".t-chip--more");
+      if (m) m.textContent = "收起 ▴";
+    }
+  }
   function syncSpecChips() {
-    $("f-fmt-row").querySelectorAll(".t-chip").forEach(function (x) {
-      x.classList.toggle("is-on", x.dataset.val === specFmt);
-    });
-    $("f-region-row").querySelectorAll(".t-chip").forEach(function (x) {
-      x.classList.toggle("is-on", x.dataset.val === specRegion);
-    });
-    $("f-sug-row").querySelectorAll(".t-chip").forEach(function (x) {
-      x.classList.toggle("is-on", specExtras.indexOf(x.dataset.val) >= 0);
-    });
+    syncRow("f-fmt-row", function (v) { return v === specFmt; });
+    syncRow("f-region-row", function (v) { return v === specRegion; });
+    syncRow("f-sug-row", function (v) { return specExtras.indexOf(v) >= 0; });
     renderExtras();
   }
-  buildSpecChips($("f-region-row"), REGIONS,
+  buildSpecChips($("f-region-row"), REGIONS, REGIONS_MORE,
     function () { return specRegion; }, function (v) { specRegion = v; });
 
   /* ————— 自己写的规格：可以加好几条，每条都是一枚标签 ————— */
@@ -1686,7 +1722,11 @@
   function addExtras(text) {
     var added = 0;
     splitExtras(text).forEach(function (tok) {
+      if (ALIAS[tok]) tok = ALIAS[tok];
       if (tok.length > 24) tok = tok.slice(0, 24);
+      if (ALL_REGIONS.indexOf(tok) >= 0 && fmtsFor(formType).length) {
+        specRegion = tok; return;                      // 她手打了「日版」→ 直接点亮那枚圈圈
+      }
       if (specExtras.length >= MAX_EXTRAS) return;
       if (specExtras.indexOf(tok) >= 0) return;
       if (tok === specFmt || tok === specRegion) return;   // 上面已经点过了，别重一遍
@@ -1698,7 +1738,7 @@
     var box = $("f-tagbox");
     box.innerHTML = "";
     specExtras.forEach(function (tok, i) {
-      if (SUGGESTS.indexOf(tok) >= 0) return;   // 上面那排已经点亮了，不必再挂一枚
+      if (ALL_SUGGESTS.indexOf(tok) >= 0) return;   // 上面那排已经点亮了，不必再挂一枚
       var t = document.createElement("span");
       t.className = "tag";
       t.appendChild(document.createTextNode(tok));
@@ -1714,7 +1754,7 @@
       box.appendChild(t);
     });
   }
-  buildSpecChips($("f-sug-row"), SUGGESTS,
+  buildSpecChips($("f-sug-row"), SUGGESTS, SUGGESTS_MORE,
     function () { return ""; },
     function (v) {
       var at = specExtras.indexOf(v);
@@ -1746,8 +1786,9 @@
     String(spec || "").split("·").forEach(function (raw) {
       var tok = raw.trim();
       if (!tok) return;
+      if (ALIAS[tok]) tok = ALIAS[tok];                // 「意大利版」认成「意版」
       if (!fmt && ALL_FMTS.indexOf(tok) >= 0) fmt = tok;
-      else if (!region && REGIONS.indexOf(tok) >= 0) region = tok;
+      else if (!region && ALL_REGIONS.indexOf(tok) >= 0) region = tok;
       else rest.push(tok);
     });
     return { fmt: fmt, region: region, rest: rest };

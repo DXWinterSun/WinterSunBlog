@@ -39,7 +39,6 @@
 
 "Tuning the Devil":         # Wild Bill Wharton · 色卡同源画册 id: wildbill
   mf_id: wildbill                # → Many Faces 画册锚点 /sam/many-faces/#wildbill
-  theme_id: wildbill
   accent: "#8a8058"
   accent_ink: "#6e6646"
   bg: "#1b1510"
@@ -56,7 +55,6 @@
 
 "Good Enough":              # Justin Hammer
   mf_id: hammer                # → Many Faces 画册锚点 /sam/many-faces/#hammer
-  theme_id: hammer
   accent: "#4a87ee"
   accent_ink: "#2f63c0"
   bg: "#13151c"
@@ -73,7 +71,6 @@
 
 "The Most Powerful Man":      # George W. Bush · 色卡同源画册 id: bush
   mf_id: bush                # → Many Faces 画册锚点 /sam/many-faces/#bush
-  theme_id: bush
   accent: "#bf9d5e"
   accent_ink: "#7d6537"      # 画册 accent 偏浅（枯草榛金）→ 额外加深，浅色主题下 ~5.4:1
   bg: "#141922"
@@ -90,7 +87,6 @@
 
 "Better Living Through You":  # Douglas Varney · 色卡同源画册 id: doug
   mf_id: doug                # → Many Faces 画册锚点 /sam/many-faces/#doug
-  theme_id: doug
   accent: "#e6ecea"
   accent_ink: "#6b4a2c"      # 画册 accent 是近白"处方白大褂"，浅色主题下不可读 → 取深棕墨（药瓶棕系），实测 ~7.9:1 vs 白
   bg: "#1e1408"
@@ -107,7 +103,6 @@
 
 "The Making of You":        # Aldo Stankas · Trust Me · 色卡同源画册 id: aldo
   mf_id: aldo                # → Many Faces 画册锚点 /sam/many-faces/#aldo
-  theme_id: aldo
   accent: "#2ea86a"
   accent_ink: "#1f7a4c"      # accent 暗一档，浅色主题下 ≥4.5:1（实测 ~5.3:1 vs 白）
   bg: "#0f1613"
@@ -124,7 +119,6 @@
 
 "Zaphod AU":                # Zaphod Beeblebrox
   mf_id: zaphod                # → Many Faces 画册锚点 /sam/many-faces/#zaphod
-  theme_id: zaphod
   accent: "#d4a82a"
   accent_ink: "#927012"
   bg: "#0b0a12"
@@ -141,7 +135,6 @@
 
 "Knox AU":                  # Eric Knox
   mf_id: eric                # → Many Faces 画册锚点 /sam/many-faces/#eric
-  theme_id: knox
   accent: "#cf3550"
   accent_ink: "#a62a40"
   bg: "#1b1310"
@@ -158,7 +151,6 @@
 
 "Sam Bell · Moon AU":       # Sam Bell
   mf_id: sam                # → Many Faces 画册锚点 /sam/many-faces/#sam
-  theme_id: sambell
   accent: "#7eb0d5"
   accent_ink: "#3f7397"
   bg: "#162038"
@@ -173,9 +165,8 @@
   muted_cn: "倒计时灰"
   muted_en: "Countdown Grey"
 
-"Everybody's Home":         # Sam Bell · Moon AU（唯一正典）· 色卡同源画册 theme_id: sambell
+"Everybody's Home":         # Sam Bell · Moon AU（唯一正典）· 色卡同源画册 id: sambell
   mf_id: sam                # → Many Faces 画册锚点 /sam/many-faces/#sam
-  theme_id: sambell
   accent: "#7eb0d5"
   accent_ink: "#3f7397"
   bg: "#162038"
@@ -192,7 +183,6 @@
 
 "Wintergreen":              # John Moon（v2 重写版；v1 系列名 A Single Shot AU 已归档）
   mf_id: john                # → Many Faces 画册锚点 /sam/many-faces/#john
-  theme_id: johnmoon
   accent: "#8fa0b0"
   accent_ink: "#54616e"
   bg: "#14181f"
@@ -209,7 +199,6 @@
 
 "The Cardinal":             # Krzysztof "Kris" Wilk · 色卡同源 sam_themes.yml id: kris
   mf_id: krzysztof                # → Many Faces 画册锚点 /sam/many-faces/#krzysztof
-  theme_id: kris
   accent: "#bc4d3a"
   accent_ink: "#963e2e"
   bg: "#11161c"
@@ -226,7 +215,6 @@
 
 "Only I Know":              # Jason Dixon · 色卡同源 sam_themes.yml id: dixon
   mf_id: dixon                # → Many Faces 画册锚点 /sam/many-faces/#dixon
-  theme_id: dixon
   accent: "#e2622a"
   accent_ink: "#b04818"
   bg: "#241015"
@@ -336,7 +324,6 @@
 
 "A Bear and Somewhere Far":  # C.P. "Clay" Ellis · 色卡同源 many-faces id: clay
   mf_id: clay                # → Many Faces 画册锚点 /sam/many-faces/#clay
-  theme_id: clay
   accent: "#9c6f38"
   accent_ink: "#7d592d"
   bg: "#161510"
@@ -353,7 +340,6 @@
 
 "Summer Never Ends":         # Owen · 色卡同源 sam_themes.yml id: owen
   mf_id: owen                # → Many Faces 画册锚点 /sam/many-faces/#owen
-  theme_id: owen
   accent: "#35bfc9"
   accent_ink: "#21767d"
   bg: "#15282e"
@@ -370,7 +356,6 @@
 
 "Faith Unseen":             # Don Verdean · 色卡同源 sam_themes.yml id: donverdean
   mf_id: donverdean                # → Many Faces 画册锚点 /sam/many-faces/#donverdean
-  theme_id: donverdean
   accent: "#4fa0a0"
   accent_ink: "#3f8080"
   bg: "#1a1410"
@@ -387,7 +372,6 @@
 
 "This House Is Clean":      # Eric Bowen · 色卡同源 sam_themes.yml id: bowen
   mf_id: bowen                # → Many Faces 画册锚点 /sam/many-faces/#bowen
-  theme_id: bowen
   accent: "#9fb8c9"
   accent_ink: "#5e6d78"        # 画册 accent 偏浅，ink 手动加深至 ~4.7:1 保证浅色主题链接对比度
   bg: "#1b1917"
@@ -404,7 +388,6 @@
 
 "What He Owed":             # Colonel Silas Groves · 色卡同源 sam_themes.yml id: silas
   mf_id: silas                # → Many Faces 画册锚点 /sam/many-faces/#silas
-  theme_id: silas
   accent: "#8c3229"
   accent_ink: "#702821"
   bg: "#161a1f"
@@ -432,7 +415,6 @@
 
 "Choke Point":               # Victor Mancini · 色卡同源 sam_themes.yml id: victor
   mf_id: victor                # → Many Faces 画册锚点 /sam/many-faces/#victor
-  theme_id: victor
   accent: "#d2a24a"
   accent_ink: "#a8823b"
   bg: "#350d1e"
@@ -449,7 +431,6 @@
 
 "The Part Where You Live":   # Billy Bickle · 色卡同源 sam_themes.yml id: billy
   mf_id: billy                # → Many Faces 画册锚点 /sam/many-faces/#billy
-  theme_id: billy
   accent: "#c94a1e"
   accent_ink: "#a13b18"
   bg: "#281208"
@@ -466,7 +447,6 @@
 
 "Don't Let Me Go":          # Glenn Marchand · 色卡同源画册 id: glenn
   mf_id: glenn                # → Many Faces 画册锚点 /sam/many-faces/#glenn
-  theme_id: glenn
   accent: "#b8d0e0"
   accent_ink: "#46617a"        # 画册 accent 偏浅，ink 手动加深至 ~6:1 保证浅色主题链接对比度
   bg: "#1c2030"
@@ -483,7 +463,6 @@
 
 "No One Walks Off":         # Bill Greaves · 色卡同源画册 id: greaves
   mf_id: greaves                 # → Many Faces 画册锚点 /sam/many-faces/#greaves
-  theme_id: greaves
   accent: "#c1352b"
   accent_ink: "#a32c22"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#16110d"
@@ -500,7 +479,6 @@
 
 "Eyes on Me":               # Bill Greaves（球员线）· 与 No One Walks Off 共用同一套（一个角色一套色）
   mf_id: greaves                 # → Many Faces 画册锚点 /sam/many-faces/#greaves
-  theme_id: greaves
   accent: "#c1352b"
   accent_ink: "#a32c22"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#16110d"
@@ -517,7 +495,6 @@
 
 "See How They Stay":        # Inspector Stoppard · 色卡同源画册 id: stoppard
   mf_id: stoppard                # → Many Faces 画册锚点 /sam/many-faces/#stoppard
-  theme_id: stoppard
   accent: "#e2c48f"
   accent_ink: "#8a6a37"        # accent 偏浅，浅色主题下加深到对比度 ≥4.5:1
   bg: "#1a1f2c"
@@ -545,7 +522,6 @@
 
 "Nothing Warmer Than You":  # Charley Ford · 雪原枪蓝 · 色卡同源画册 id: charley
   mf_id: charley                # → Many Faces 画册锚点 /sam/many-faces/#charley
-  theme_id: charley
   accent: "#6d94b0"
   accent_ink: "#3f6480"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#161d29"
@@ -594,7 +570,6 @@
 
 "Fog City":                 # Young Sam · 2026-07 入册，色卡同源画册 id: youngsam
   mf_id: youngsam                # → Many Faces 画册锚点 /sam/many-faces/#youngsam
-  theme_id: youngsam
   accent: "#5b9db8"
   accent_ink: "#35708c"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1（实测 ~5.5:1 vs 白）
   bg: "#1b222b"
@@ -611,7 +586,6 @@
 
 "The Saloon Nobody Dares":  # Doc（Samuel Stockwell）· Cowboys & Aliens · Sam Rockwell · 色卡同源画册 id: doc
   mf_id: doc                # → Many Faces 画册锚点 /sam/many-faces/#doc
-  theme_id: doc
   accent: "#c39a45"
   accent_ink: "#8a651c"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#1a140c"
@@ -628,7 +602,6 @@
 
 "Slow Hands":               # Gary Petrosino · A Case of You · Sam Rockwell · 色卡同源画册 id: garyguitar
   mf_id: garyguitar          # → Many Faces 画册锚点 /sam/many-faces/#garyguitar
-  theme_id: garyguitar
   accent: "#7cc94b"
   accent_ink: "#4a782d"        # accent 暗一档，浅色主题下对比度 5.2:1（绿色偏亮，压得比 0.8 更狠）
   bg: "#171310"
@@ -645,7 +618,6 @@
 
 "Interoffice":              # Gary O'Hara · Strictly Business · Sam Rockwell · 色卡同源画册 id: gary
   mf_id: gary                # → Many Faces 画册锚点 /sam/many-faces/#gary
-  theme_id: gary
   accent: "#5b84b1"
   accent_ink: "#48698d"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#14110d"
@@ -662,7 +634,6 @@
 
 "Nickel and Dime":          # Jimmy Silk · Heist · Sam Rockwell · 色卡同源画册 id: silk
   mf_id: silk                # → Many Faces 画册锚点 /sam/many-faces/#silk
-  theme_id: silk
   accent: "#c8a43e"
   accent_ink: "#8a6f28"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#0e1820"
@@ -679,7 +650,6 @@
 
 "I Never Looked Away":      # Trent · Lawn Dogs · Sam Rockwell · 色卡同源画册 id: trent
   mf_id: trent               # → Many Faces 画册锚点 /sam/many-faces/#trent
-  theme_id: trent
   accent: "#79a7bd"
   accent_ink: "#587a8b"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#141c12"
@@ -696,7 +666,6 @@
 
 "I Missed You on Purpose":   # Jerry · Jerry and Tom · Sam Rockwell · 色卡同源画册 id: jerry
   mf_id: jerry                # → Many Faces 画册锚点 /sam/many-faces/#jerry
-  theme_id: jerry
   accent: "#e08f2e"
   accent_ink: "#b37225"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#20120c"
@@ -713,7 +682,6 @@
 
 "Off the Air":              # Chuck Barris · Confessions of a Dangerous Mind · Sam Rockwell · 色卡同源画册 id: chuck
   mf_id: chuck                # → Many Faces 画册锚点 /sam/many-faces/#chuck
-  theme_id: chuck
   accent: "#de6e8e"
   accent_ink: "#b25872"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
   bg: "#15182a"
@@ -729,7 +697,6 @@
   muted_en: "Dossier Grey"
 "Everything in Transit":    # Rob Cove · 色卡同源画册 id: rob
   mf_id: rob                 # → Many Faces 画册锚点 /sam/many-faces/#rob
-  theme_id: rob
   accent: "#e28a5a"
   accent_ink: "#9a5a38"
   bg: "#16202b"
@@ -746,7 +713,6 @@
 
 "The Serbian Tornado":      # Pero "Pepe" Mahlovic · 色卡同源画册 id: pero
   mf_id: pero                # → Many Faces 画册锚点 /sam/many-faces/#pero
-  theme_id: pero
   accent: "#b8703a"
   accent_ink: "#935a2e"
   bg: "#1a1612"
