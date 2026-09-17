@@ -88,10 +88,16 @@ SERIES = {
                 "why": "Chiara 同上，闺中玩伴 → 「你」",
             },
         },
-        # ⭐⭐⭐ 第②把锁**已经开了**的文件（结局 Ch21 之后的番外）：
+        # ⭐⭐⭐ 第②把锁**已经开了**的文件（时间线在结局 Ch21 之后的篇目）：
         #    这些篇里 Flute 说「你」是正常的（他在改口，且会反复说漏回「您」），
-        #    ⚠️ 所以对这些文件**不查他的「你」**——按文件名匹配（子串即可）。
-        "lock2_open_files": ["extra", "番外"],
+        #    ⚠️ 所以对这些文件**不查他的「你」**。
+        #    ⚠️⚠️ 必须**逐篇点名**，不能按「extra」这种笼统的词匹配——
+        #    番外完全可以发生在锁开之前（如 extra2 他视角写十六岁那天），
+        #    那种篇目里他的「你」仍然是错的。
+        "lock2_open_files": ["extra1", "extra-i-love-you"],
+        # ⭐ 他视角的第一人称篇目：叙述者就是他，所以叙述里出现「我」是对的，
+        #    不查「叙述第一人称」那一组；说话人提示语也按「我说／她说」认。
+        "first_person_him_files": ["his-pov", "他视角"],
         # ⚠️ 已人工核过、确实不是 Flute 的「他」（分场里没提名字，脚本解析不出来）
         #    ——每加一条都要写清真正的说话人，别拿它当消错工具
         # 格式：(章文件名里的编号, 引文开头) —— ⚠️ 只在那一章放行，避免跨章误放
@@ -179,6 +185,12 @@ def resolve(line, lines, idx, cfg, scene_male):
 def check_file(path, cfg, list_mode=False):
     base = path.split("/")[-1]
     lock2_open = any(tag in base for tag in cfg.get("lock2_open_files", []))
+    first_person = any(tag in base for tag in cfg.get("first_person_him_files", []))
+    if first_person:
+        cfg = dict(cfg)
+        cfg["narration_forbid"] = []
+        cfg["attrib"] = [(r"^我$|我说|我问|我答|我又", "他"),
+                         (r"她说|她问|她答", "她")] + list(cfg["attrib"])
     errors, reviews = [], []
     text = open(path, encoding="utf-8").read()
     lines = text.split("\n")
