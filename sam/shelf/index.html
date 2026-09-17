@@ -23,6 +23,10 @@
      （只授权本仓库 Contents 读写，存本机 localStorage 键 ws-sam-shelf-key），
      保存时由浏览器直接把 data.json 提交回 main，一两分钟后全站可见。
      未发布成功的改动缓存在本机（键 ws-sam-shelf-draft），可重试。
+     ⚠️ 馆长模式下**不读这份公开 data.json**，改读仓库原件（GitHub contents API，
+     Accept: application/vnd.github.raw）——站点重建要四十来分钟，公开副本在那之前是旧的，
+     若照它编辑，保存时会拿旧名单盖掉仓库里的新记录。publish() 里另有一道保险丝
+     （rescueMissing）：仓库里有、这台设备没有、本次又没删过的条目一律保留。
      角色联动读 sam/lines.json（零内嵌，画册加人自动跟上）。 */
   html, body { margin: 0; padding: 0; }
   *, *::before, *::after { box-sizing: border-box; }
@@ -83,6 +87,14 @@
     font-size: 10px; letter-spacing: 2px; color: #8a7558; text-transform: uppercase;
   }
   .stats b { color: #cba14c; font-weight: 400; }
+  .stats__jump {
+    border: 0; background: none; padding: 0; cursor: pointer;
+    font-family: inherit; font-size: inherit; letter-spacing: inherit;
+    color: inherit; text-transform: inherit;
+    text-decoration: underline dotted; text-underline-offset: 4px;
+    text-decoration-color: rgba(203,161,76,.45);
+  }
+  .stats__jump:hover { color: #ece1d0; }
 
   /* 未发布改动的横幅 */
   .pending {
@@ -441,6 +453,17 @@
   }
   .cm-btn--cancel { border: 0; background: none; color: #8a7558; }
   .cm-btn--cancel:hover { color: #ece1d0; }
+  .cm-btn--danger {
+    border-color: rgba(200,90,70,.55); color: #e08a72;
+    background: linear-gradient(160deg, rgba(180,70,50,.22), rgba(180,70,50,.05));
+  }
+  .cm-btn--danger:hover { border-color: rgba(220,110,90,.9); color: #ffb9a3; }
+  /* 确认小窗是从编辑窗里叫出来的，得压在它上面，否则按钮点不动 */
+  .overlay.overlay--ask { z-index: 45; }
+  .ask-text {
+    font-weight: 300; font-size: 13px; line-height: 2; color: #b8a687;
+    text-align: center; margin: -6px 0 16px;
+  }
 
   .note {
     margin-top: 34px; max-width: 560px; text-align: center;
@@ -805,6 +828,18 @@
   </div>
 </div>
 
+<!-- 确认小窗（删除藏品等） -->
+<div class="overlay overlay--ask" id="ask-overlay">
+  <div class="sheet sheet--mini" role="dialog" aria-modal="true" aria-label="请确认">
+    <h2 id="ask-title">确定吗</h2>
+    <p class="ask-text" id="ask-text"></p>
+    <div class="cm-btns">
+      <button type="button" class="cm-btn cm-btn--danger" id="ask-yes">确定</button>
+      <button type="button" class="cm-btn cm-btn--cancel" id="ask-no">算了</button>
+    </div>
+  </div>
+</div>
+
 <!-- 导出清单弹窗 -->
 <div class="overlay" id="ex-overlay">
   <div class="sheet sheet--export" role="dialog" aria-modal="true" aria-label="导出收藏清单">
@@ -851,7 +886,7 @@
     <label class="f-label" for="f-char">关联角色 <small>（可不填 · 选了会点亮画册地图）</small></label>
     <select class="f-select" id="f-char"><option value="">— 不关联某个角色 —</option></select>
 
-    <label class="f-label" for="f-date">入手日期 <small>（可不填）</small></label>
+    <label class="f-label" for="f-date">入手日期 <small>（默认今天 · 想改想清空都行）</small></label>
     <input class="f-input" id="f-date" type="date">
 
     <label class="f-label" for="f-note">想说的话 <small>（可不填 · 会公开展示在卡片上）</small></label>
@@ -952,10 +987,29 @@
     return Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 7);
   }
 
-  /* ————— 加载数据：公开 data.json + 角色 lines.json ————— */
+  /* ————— 加载数据：公开 data.json + 角色 lines.json —————
+     ⚠️ 访客读网站上那份 data.json 就够了；**馆长必须读仓库里的原件**。
+     原因：网站重建一次要四十来分钟，刚存的东西在那份公开副本里还没出现。
+     若馆长也读它，刷新后刚添的藏品会「消失」，而这时再添一件并保存，
+     就会拿这份旧名单盖掉仓库里的新记录——东西是真的会没。 */
   var loadedData = false, loadedChars = false;
-  fetch("./data.json", { cache: "no-cache" })
-    .then(function (r) { return r.json(); })
+  function fetchPublic() {
+    return fetch("./data.json", { cache: "no-cache" }).then(function (r) { return r.json(); });
+  }
+  function fetchRepo() {
+    return fetch(REPO_API + "?ref=main&_=" + Date.now(), {
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Accept": "application/vnd.github.raw",
+        "X-GitHub-Api-Version": "2022-11-28"
+      },
+      cache: "no-store"
+    }).then(function (r) {
+      if (!r.ok) throw new Error("read " + r.status);
+      return r.json();
+    });
+  }
+  (isCurator() ? fetchRepo().catch(fetchPublic) : fetchPublic())
     .then(function (data) {
       items = Array.isArray(data.items) ? data.items : [];
       /* 馆长上次有没发布成功的改动 → 先展示草稿并提示重试 */
@@ -1278,10 +1332,17 @@
      ["有签名", signed.length + " 件"],
      ["心愿单", allWish.length + " 件"]]
       .concat(discs.length ? [["碟片进 NAS", nasDone.length + " / " + discs.length]] : [])
-      .concat(chars.length ? [["点亮角色", covered + " / " + chars.length]] : [])
+      .concat(chars.length ? [["点亮角色", covered + " / " + chars.length, 1]] : [])
       .forEach(function (p) {
-        var s = document.createElement("span");
+        /* 「点亮角色」做成可点的——谁都能一步滑到底下那张画册地图 */
+        var s = document.createElement(p[2] ? "button" : "span");
         s.innerHTML = p[0] + " <b>" + p[1] + "</b>";
+        if (p[2]) {
+          s.type = "button";
+          s.className = "stats__jump";
+          s.title = "去看画册地图";
+          s.addEventListener("click", jumpToMap);
+        }
         stats.appendChild(s);
       });
     $("progress-num").textContent = "SHELF " + allOwn.length;
@@ -1355,14 +1416,19 @@
       arrange = a.id;
       arrWrap.querySelectorAll(".mini").forEach(function (x) { x.classList.remove("is-on"); });
       b.classList.add("is-on");
-      /* 分组要看小标题才有意义，顺手切到清单；想看卡片再点回去就是 */
-      if (a.id !== "recent" && view === "card") setView("list");
+      /* 分组要看小标题才有意义，顺手切到清单；切回「最新入手」时把卡片还给她 */
+      if (a.id !== "recent") {
+        if (view === "card") { viewBeforeGroup = "card"; setView("list"); }
+      } else if (viewBeforeGroup) {
+        setView(viewBeforeGroup); viewBeforeGroup = "";
+      }
       prefSave(); render();
     });
     arrWrap.appendChild(b);
   });
 
   var viewSeg = $("viewseg");
+  var viewBeforeGroup = "";      // 因为分组而被临时切走的视图，切回「最新入手」时还原
   function setView(v) {
     view = v;
     viewSeg.querySelectorAll(".mini").forEach(function (x) {
@@ -1372,6 +1438,7 @@
   setView(view);
   viewSeg.querySelectorAll(".mini").forEach(function (b) {
     b.addEventListener("click", function () {
+      viewBeforeGroup = "";      // 她自己挑的视图，就别再自作主张还原了
       setView(b.dataset.view);
       prefSave(); render();
     });
@@ -1410,10 +1477,11 @@
   }
   $("charbar-x").addEventListener("click", function () { setCharFilter(""); });
   /* 看完一个人接着看下一个：滚回底下那张画册地图 */
-  $("charbar-more").addEventListener("click", function () {
+  function jumpToMap() {
     var t = $("map-label").style.display === "none" ? $("map-grid") : $("map-label");
     if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
+  }
+  $("charbar-more").addEventListener("click", jumpToMap);
 
   /* ————— 角色小菜单（馆长专属） ————— */
   var cmChar = null;
@@ -1477,13 +1545,31 @@
       "X-GitHub-Api-Version": "2022-11-28"
     };
   }
+  function b64decodeUtf8(s) {
+    var bin = atob(String(s).replace(/\s+/g, ""));
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
+  }
+  /* 这次她亲手删掉的——只有这些才允许从仓库里消失 */
+  var deletedIds = {};
+  /* 保险丝：仓库里有、这台设备手上没有、而且这次并没有删过的东西，
+     一律原样留着再写回去。这样哪怕名单不知怎么变旧了，也绝不会盖没东西。 */
+  function rescueMissing(cur) {
+    if (!cur || !cur.content) return 0;
+    var remote;
+    try { remote = JSON.parse(b64decodeUtf8(cur.content)); } catch (e) { return 0; }
+    if (!remote || !Array.isArray(remote.items)) return 0;
+    var have = {};
+    items.forEach(function (x) { if (x && x.id) have[x.id] = 1; });
+    var back = remote.items.filter(function (x) {
+      return x && x.id && !have[x.id] && !deletedIds[x.id];
+    });
+    if (back.length) { items = back.concat(items); render(); }
+    return back.length;
+  }
   function publish() {
-    var body = JSON.stringify({
-      v: 1,
-      note: "藏品架 sam/shelf/ 的公开数据。馆长（Winter）在页面里编辑后由浏览器直接提交回本文件；手改时保持 items 数组结构即可。",
-      items: items
-    }, null, 2) + "\n";
-    /* 先取文件当前的版本号（sha），再提交新内容 */
+    /* 先取文件当前的版本号（sha）与内容，再提交新内容 */
     return fetch(REPO_API + "?ref=main&_=" + Date.now(), { headers: ghHeaders(), cache: "no-store" })
       .then(function (r) {
         if (r.status === 404) return null;
@@ -1491,12 +1577,19 @@
         return r.json();
       })
       .then(function (cur) {
+        var saved = rescueMissing(cur);
+        var body = JSON.stringify({
+          v: 1,
+          note: "藏品架 sam/shelf/ 的公开数据。馆长（Winter）在页面里编辑后由浏览器直接提交回本文件；手改时保持 items 数组结构即可。",
+          items: items
+        }, null, 2) + "\n";
         var payload = {
           message: "藏品架 · 更新收藏记录",
           content: b64utf8(body),
           branch: "main"
         };
         if (cur && cur.sha) payload.sha = cur.sha;
+        if (saved) setTimeout(function () { toast("顺手接回了 " + saved + " 件差点漏掉的"); }, 1600);
         return fetch(REPO_API, {
           method: "PUT",
           headers: ghHeaders(),
@@ -1810,7 +1903,7 @@
     $("f-name").value = it ? it.name : "";
     autoFilled = "";                       // 改旧藏品时别把她起的名字冲掉
     $("f-char").value = it ? (it.charId || "") : (presetChar || "");
-    $("f-date").value = it ? (it.date || "") : "";
+    $("f-date").value = it ? (it.date || "") : today();   // 新添的默认就是今天，省得每次点三下
     $("f-note").value = it ? (it.note || "") : "";
     $("f-nas").checked = it ? !!it.nas : false;
     $("f-signed").checked = it ? !!it.signed : false;
@@ -1835,12 +1928,11 @@
   }
   function closeSheet() { $("overlay").classList.remove("is-on"); editingId = null; }
 
-  $("add-btn").addEventListener("click", function () { openSheet(null); });
-  $("fab-add").addEventListener("click", function () { openSheet(null); });
-  $("fab-map").addEventListener("click", function () {
-    var target = $("map-label").style.display === "none" ? $("map-grid") : $("map-label");
-    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
+  /* 正在只看谁的架子，添的多半还是他的——直接替她选好 */
+  function addNew() { openSheet(null, charFilter || ""); }
+  $("add-btn").addEventListener("click", addNew);
+  $("fab-add").addEventListener("click", addNew);
+  $("fab-map").addEventListener("click", jumpToMap);
   $("f-char").addEventListener("change", updateNameHint);
   $("btn-cancel").addEventListener("click", closeSheet);
   $("overlay").addEventListener("click", function (e) { if (e.target === $("overlay")) closeSheet(); });
@@ -1849,6 +1941,7 @@
     if ($("overlay").classList.contains("is-on")) closeSheet();
     if ($("cm-overlay").classList.contains("is-on")) closeCharMenu();
     if ($("ex-overlay").classList.contains("is-on")) $("ex-overlay").classList.remove("is-on");
+    if ($("ask-overlay").classList.contains("is-on")) closeAsk();
   });
 
   $("btn-save").addEventListener("click", function () {
@@ -1886,14 +1979,32 @@
     saveAndPublish(msg);
   });
 
+  /* ————— 页面自己的确认小窗（比浏览器那个灰框好看，也不会被误点） ————— */
+  var askFn = null;
+  function ask(title, text, okLabel, fn) {
+    $("ask-title").textContent = title;
+    $("ask-text").textContent = text;
+    $("ask-yes").textContent = okLabel;
+    askFn = fn;
+    fitOverlay();
+    $("ask-overlay").classList.add("is-on");
+  }
+  function closeAsk() { $("ask-overlay").classList.remove("is-on"); askFn = null; }
+  $("ask-yes").addEventListener("click", function () { var f = askFn; closeAsk(); if (f) f(); });
+  $("ask-no").addEventListener("click", closeAsk);
+  $("ask-overlay").addEventListener("click", function (e) { if (e.target === $("ask-overlay")) closeAsk(); });
+
   $("btn-del").addEventListener("click", function () {
     if (!editingId) return;
-    var it = items.find(function (x) { return x.id === editingId; });
+    var id = editingId;
+    var it = items.find(function (x) { return x.id === id; });
     if (!it) return;
-    if (!confirm("把「" + it.name + "」从架子上拿下来？\n（删掉就找不回来了）")) return;
-    items = items.filter(function (x) { return x.id !== editingId; });
-    closeSheet();
-    saveAndPublish("已从架子上取下");
+    ask("从架子上拿下来？", "“" + it.name + "”拿下来就找不回来了。", "拿下来", function () {
+      deletedIds[id] = 1;
+      items = items.filter(function (x) { return x.id !== id; });
+      closeSheet();
+      saveAndPublish("已从架子上取下");
+    });
   });
 
   /* ————— 导出清单 —————
