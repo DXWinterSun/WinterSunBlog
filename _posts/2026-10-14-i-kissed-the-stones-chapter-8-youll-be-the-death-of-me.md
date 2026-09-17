@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 8
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 8"
 summary: "他半夜站在院子里，只是想知道那样东西还在不在。"

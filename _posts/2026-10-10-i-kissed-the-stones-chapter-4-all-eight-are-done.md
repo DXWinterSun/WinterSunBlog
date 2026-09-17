@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 4
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 4"
 summary: "八只都办好了。他手艺好，好到你二十年不必再喊他一次。"

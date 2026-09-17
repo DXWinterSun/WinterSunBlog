@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 5
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 5"
 summary: "他把那出戏贬了一路，最后还是抬头说，那您来吧。"

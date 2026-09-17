@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 10
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 10"
 summary: "她留着一个空盒子。你什么也不能说，你也藏着一样。"

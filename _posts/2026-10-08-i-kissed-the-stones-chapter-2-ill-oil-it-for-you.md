@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 2
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 2"
 summary: "他随口的一句客套，你记了三个月。"

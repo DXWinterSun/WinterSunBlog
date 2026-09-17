@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 14
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 14"
 summary: "他说他写了。你说，我要你说。"

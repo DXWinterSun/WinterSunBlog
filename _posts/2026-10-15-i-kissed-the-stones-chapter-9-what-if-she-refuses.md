@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 9
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 9"
 summary: "她向那个要嫁的人，打听了拒绝他的后果。"

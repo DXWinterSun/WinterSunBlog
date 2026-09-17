@@ -1115,7 +1115,8 @@ C｜不写，留空
 - [x] ✅ 系列首页已建（`collection_order: 40`；collection_desc 42 字、logline 54 字、hero lede 38 字，都在限内）
 - [x] ✅ 封面图 `images/francis-flute-au.jpg`（Winter 2026-09-15 在聊天里给的那张片场截图，已入库）
 - [x] ✅ **Ch1–14 已上线**（`_posts/2026-10-07` ～ `2026-10-20`）
-- [ ] ⭐⭐⭐ **Ch15–Ch21（含结局《你》）七章草稿全部写完，待 Winter 过目**（⚠️ 她认可后才能上线；上线时攒成一包一次推 main，推完等 ~40 分钟）
+- [x] ✅ ⭐⭐⭐ **Ch15–Ch21（含结局《你》）已上线**（2026-09-17 Winter 看完结局说「发吧🥺标完结！」，七章一包推 main，`_posts/2026-10-21` ～ `2026-10-27`）
+- [x] ✅ ⭐⭐⭐ **系列已标完结**：`series/i-kissed-the-stones/index.html` 与全部 21 章 front matter 的 `series_status` 都改成 `complete`，hero byline 末段也改成 `complete`（⚠️ 首页那张系列卡读的是**第 1 章**的 `series_status`，所以每一章都得改，不能只改系列首页）
       → 预览页：Ch15 <https://claude.ai/artifact/889jbVYeg6mb212j3sD8GP> ·
       Ch16 <https://claude.ai/artifact/GUEXkBCdcdBRjLaa58HupW> ·
       Ch17 <https://claude.ai/artifact/2o3T5t7bEs2z8837nMDdpE> ·
@@ -1124,8 +1125,8 @@ C｜不写，留空
       Ch20 <https://claude.ai/artifact/XpbsL3K7gRRg3jW157eqMR> ·
       ⭐ Ch21（结局）<https://claude.ai/artifact/KPdK6EYUN9ALpvr6HLJXcv>
       （⚠️ 改稿就用同一个 `-o` 路径重新生成、重新发布，链接不变）
-- [ ] ⭐ **要问 Winter 的两件事**：① 这个系列要不要标 `series_status: complete` / 展示状态改 `complete`；
-      ② Ch15–21 这一包什么时候发（她过目认可之后）
+- [ ] ⭐⭐⭐ **正传完结，往后都是番外**（Winter 2026-09-17：「以后就是番外了」）。
+      ⭐ **她点的第一篇番外**见下方「番外」一节
 - [ ] ⚠️ 热线回复库 `sam/hotline-replies.json` 还没给他写（没写会自动退回 5 句台词，页面不坏）。⚠️ 写之前要先给 Winter 过目（属创作文字）
 - [x] Ch3《空着手来的那一趟》草稿已写（雨里那趟＋Lorenzo/Chiara 初登场），待 Winter 过目
 - [x] Ch4《八只都办好了》草稿已写（夏天那几趟收尾＋他学人说话的伏笔），待 Winter 过目

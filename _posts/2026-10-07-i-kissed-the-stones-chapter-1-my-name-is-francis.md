@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 1
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 1"
 summary: "他讲了一上午的皮子，一句情话没有。你问了他名字。"

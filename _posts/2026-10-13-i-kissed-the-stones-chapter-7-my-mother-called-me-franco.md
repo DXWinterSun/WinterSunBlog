@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 7
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 7"
 summary: "你叫了一声他的名字，他替你在那个坑里待了一下午。"

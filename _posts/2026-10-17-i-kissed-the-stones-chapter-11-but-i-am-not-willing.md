@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 11
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 11"
 summary: "他说只要你愿意。你说，可我不愿意。"

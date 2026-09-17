@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 12
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 12"
 summary: "她把剪刀抵在自己喉咙上，只说三个字：放他走。"

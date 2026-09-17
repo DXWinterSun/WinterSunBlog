@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 6
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 6"
 summary: "全场都在笑。他把假发摘了，用自己的声音把那段说完。"

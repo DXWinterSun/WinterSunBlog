@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 13
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 13"
 summary: "他把你的名字写下来了，还是没有叫出口。所以你翻了窗。"
