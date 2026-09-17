@@ -1,6 +1,7 @@
 # Eyes Open · 囚徒 AU —— 系列圣经
 
-> 开坑时间：2026-09-17。状态：**Ch1–3 草稿待 Winter 过目**（Ch1 https://claude.ai/artifact/FuW4rUeKMfXkqYRVqHyPZb ｜ Ch2 https://claude.ai/artifact/DE2mHcJovyNG3yqjmwT3Wi ｜ Ch3 https://claude.ai/artifact/BNxNmEMkooXtrXvxVdjkyA ｜ Ch4 https://claude.ai/artifact/1XUUvWLitqe57ZYPonyWw4 ｜ Ch5 见提交后补）。Ch1「绝了」「甜」，Ch2「绝了」——基本认可，等她看完 Ch3 一起部署（三章一包）。
+> 开坑时间：2026-09-17。状态：**Ch1–5 已部署上线（2026-09-17，Winter 认可「一起上线」）**，封面 `images/eyes-open-au.svg`（Fable 手绘 SVG：星空、警徽月亮、公路、双人后座、两张月亮牌）。下一批 = Ch6 起。
+> 历史：（Ch1 https://claude.ai/artifact/FuW4rUeKMfXkqYRVqHyPZb ｜ Ch2 https://claude.ai/artifact/DE2mHcJovyNG3yqjmwT3Wi ｜ Ch3 https://claude.ai/artifact/BNxNmEMkooXtrXvxVdjkyA ｜ Ch4 https://claude.ai/artifact/1XUUvWLitqe57ZYPonyWw4 ｜ Ch5 https://claude.ai/artifact/8tUwNFcAQWBe5kQjhHyVrX ）。Ch1「绝了」「甜」，Ch2「绝了」——基本认可，等她看完 Ch3 一起部署（三章一包）。
 > 新增站点组件 **`c-chat`**（现代聊天气泡卡，Winter 要求短信用模板做预览；样式在 `_extras.scss`，预览脚本已同步）。
 > v1 被 Winter 打回：①他太正经（外号「老流氓」，要幽默）；②她是粉丝，不能一直没认出——第一眼认出、装不认识、狼人杀太美梦成真没收住；③内核改为「你永远逃不过他的眼睛」；④要给 26 岁的她一个出现在那里的合理理由；⑤后面要更多交集。
 > 系列首页 + 配色已落在工作分支，未推 main。封面图待 Winter 上传（`images/` 下，文件名待定）。
@@ -9,6 +10,7 @@
 
 ## 基本信息
 
+- 章节文件：`_posts/2026-09-13…17-eyes-open-chapter-N-*.md`，`image: eyes-open-au.svg`，`series_status: ongoing`。
 - `series_name`：`Eyes Open`（Winter 2026-09-17 亲选；三处一致：章节 `series:` / 首页 `series_name:` / 目录 `series/eyes-open/`）
 - 展示标题：`Eyes Open · 囚徒 AU`；章节标题格式 `Chapter N · 中文名 — Eyes Open`
 - byline：`囚徒 · PandaKill · 张潇 · ongoing`
