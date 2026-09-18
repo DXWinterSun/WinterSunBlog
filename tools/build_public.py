@@ -38,9 +38,9 @@ ASSETS = {
     "images/favicon-180.png": "images/favicon-180.png",
     "favicon.ico": "favicon.ico",
     # 自托管的程序库（2026-09-18 起不再从 unpkg 现场加载）
-    "js/vendor/react-18.3.1.production.min.js": "js/vendor/react-18.3.1.production.min.js",
-    "js/vendor/react-dom-18.3.1.production.min.js": "js/vendor/react-dom-18.3.1.production.min.js",
-    "js/vendor/babel-standalone-7.24.7.min.js": "js/vendor/babel-standalone-7.24.7.min.js",
+    "js/lib/react-18.3.1.production.min.js": "js/lib/react-18.3.1.production.min.js",
+    "js/lib/react-dom-18.3.1.production.min.js": "js/lib/react-dom-18.3.1.production.min.js",
+    "js/lib/babel-standalone-7.24.7.min.js": "js/lib/babel-standalone-7.24.7.min.js",
 }
 
 
@@ -66,7 +66,7 @@ def transform(html):
     # ── 2. 图标路径去掉 /WinterSunBlog 子路径 ────────────────────────
     html = html.replace('href="/WinterSunBlog/images/', 'href="/images/')
     html = html.replace('href="/WinterSunBlog/favicon.ico"', 'href="/favicon.ico"')
-    html = html.replace('src="/WinterSunBlog/js/vendor/', 'src="/js/vendor/')
+    html = html.replace('src="/WinterSunBlog/js/lib/', 'src="/js/lib/')
     # 加载失败提示里的「回到 Sam」在公开站没有去处，整行去掉
     html = html.replace('<p style="margin-top:26px;font-size:.8rem;"><a href="/WinterSunBlog/sam/" style="color:#8a7558;text-decoration:none;letter-spacing:2px;">&larr; 回到 Sam</a></p>', '')
 

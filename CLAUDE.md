@@ -742,7 +742,7 @@ python3 tools/check_daily_rotation.py
 | **搜索索引瘦身** | `search.json` + `js/main.js` | 只含标题/系列/章节/引言/标签（约 300 KB，以前 9 MB 含全文），且点进搜索框才下载。结果显示「标题 + 系列 · 章节」。 |
 | **首页不再渲染章节卡** | `index.html` | 系列章节在首页任何视图都不单独显示，所以只渲染无 `series` 的文章（首页 HTML 1.2 MB → 约 100 KB）。 |
 | **封面懒加载** | `data-bg="…"` + `js/main.js` | 模板里封面写 `data-bg`（不再写内联 `background-image`），滚到视野附近才加载。新模板照此写。 |
-| **React 程序库自托管** | `js/vendor/` | 画册 / 测验 / 光谱 / 台词墙不再从 unpkg 现场加载（国内常黑屏）；页面里带「加载失败」兜底提示。`tools/build_public.py` 也同步复制。升级版本 = 换文件名 + 改四页的 `<script src>`。 |
+| **React 程序库自托管** | `js/lib/` | 画册 / 测验 / 光谱 / 台词墙不再从 unpkg 现场加载（国内常黑屏）；页面里带「加载失败」兜底提示。`tools/build_public.py` 也同步复制。升级版本 = 换文件名 + 改四页的 `<script src>`。 |
 | **分享预览** | `_includes/head.html` | 每页输出 `og:*` / `twitter:card`（封面 → `og:image`，没有就头像）；`<html lang="zh-CN">`。 |
 | **阅读记忆** | `js/main.js`（`readingMemory`）、`_layouts/series.html`、`_layouts/post.html` | 本机 `localStorage` 键 **`wiw-read`**：章节页记「读到哪章、百分之几」，系列页显示「继续读 · No.N」存根、读过的票根打勾、上次那张盖戳、章节页「上次读到 N%，跳过去」。另有目录快捷键「第一章 / 最新一章 / 倒序」。纯本机，不上传。 |
 | **票根号** | `_layouts/series.html` | `No.` 后面显示章节自己的号（`chapter_type` 里的 `Chapter N`），番外显示 `EX`——缺章（No One Walks Off 没有第 44 章）时不再错位。 |
