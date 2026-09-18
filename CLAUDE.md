@@ -1189,7 +1189,8 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
    ```yaml
    layout: series
    series_name: "Good Enough"   # 必须跟各章 front matter 的 series 字段【完全一致】
-   # series_status: ongoing      # 可选，默认 ongoing，显示在 Chapters 计数旁
+   # series_status: ongoing      # 可选，默认 ongoing；complete = 完结；hiatus = 停更已久、标「待续」
+                                 # （2026-09-18 起，超过约三个月没更新的系列一律标 hiatus，续写时改回 ongoing）
    ```
 
    ⚠️ `series_name` 写错（跟 `series:` 对不上）→ 目录会是空的。之前

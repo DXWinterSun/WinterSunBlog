@@ -1,0 +1,6 @@
+{%- comment -%}
+系列状态的展示文字：ongoing / complete 原样显示，hiatus（停更已久、还没完结）显示成「hiatus · 待续」。
+用法：{% include series-status.html status=page.series_status %}
+{%- endcomment -%}
+{%- assign st = include.status | default: "ongoing" -%}
+{%- if st == "hiatus" -%}hiatus · 待续{%- else -%}{{ st }}{%- endif -%}

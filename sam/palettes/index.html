@@ -1,0 +1,60 @@
+---
+layout: home
+title: 他的 54 套配色 · Palettes
+permalink: /sam/palettes/
+nav_active: sam
+---
+{%- comment -%}
+配色墙（2026-09-18，零维护）：把 _data/sam_themes.yml 里每个角色的四个颜色和四个名字一次铺开。
+数据源就是「换个心情」选色器那份，画册加人、色卡同步之后这里自动多一格；按电影年份排。
+「穿上」按钮复用 au-strip__switch + data-au-theme，由 js/theme-picker.js 接管。
+{%- endcomment -%}
+<section class="c-hero c-hero--sam">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+  <div class="c-hero__eyebrow">Sam Rockwell · Palettes</div>
+  <h1 class="c-hero__title">His <em>Colours</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">{{ site.data.sam_themes | size }} 个角色 · 每人四色四名 · 全部手调</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    每一个他，都有一套只属于那部片子的颜色——名字也是照着片子起的。
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
+</section>
+
+<section class="c-sam-collection">
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">Palettes · 配色墙</h3>
+    <span class="c-section-heading__meta"><a href="{{ site.baseurl }}/sam/" style="color:inherit;text-decoration:none;">&larr; 回到 Sam</a></span>
+  </div>
+  <div class="c-palette-wall">
+    {%- assign themes = site.data.sam_themes | sort: "year" -%}
+    {%- for t in themes %}
+    {%- assign anchor = t.anchor | default: t.id -%}
+    <article class="c-palette-tile" style="--pt-bg: {{ t.bg }};">
+      <div class="c-palette-tile__swatches" aria-hidden="true">
+        <span class="c-palette-tile__sw" style="background: {{ t.accent }};"></span>
+        <span class="c-palette-tile__sw" style="background: {{ t.text }};"></span>
+        <span class="c-palette-tile__sw" style="background: {{ t.muted }};"></span>
+      </div>
+      <div class="c-palette-tile__names">
+        <span><em style="background: {{ t.accent }};"></em><span><b>{{ t.cn }}</b><i>{{ t.en }}</i></span></span>
+        <span><em style="background: {{ t.bg }};"></em><span><b>{{ t.bg_cn }}</b><i>{{ t.bg_en }}</i></span></span>
+        <span><em style="background: {{ t.text }};"></em><span><b>{{ t.text_cn }}</b><i>{{ t.text_en }}</i></span></span>
+        <span><em style="background: {{ t.muted }};"></em><span><b>{{ t.muted_cn }}</b><i>{{ t.muted_en }}</i></span></span>
+      </div>
+      <div class="c-palette-tile__foot">
+        <a class="c-palette-tile__who" href="{{ site.baseurl }}/sam/many-faces/#{{ anchor }}" title="在画册里看他">{{ t.name }}<small>{{ t.year }} · 在画册里看他 ↗</small></a>
+        <button class="c-palette-tile__wear au-strip__switch" type="button" data-au-theme="{{ t.id }}" title="把整个站换成他的颜色">穿上</button>
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+</section>

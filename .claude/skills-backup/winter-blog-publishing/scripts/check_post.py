@@ -24,7 +24,7 @@ MOOD_MIN, MOOD_MAX = 1, 2          # 末尾 mood 的数量范围
 SUMMARY_MAX = 35
 
 # series_status 合法取值
-VALID_STATUS = ["ongoing", "complete"]
+VALID_STATUS = ["ongoing", "complete", "hiatus"]
 
 # categories 必须等于
 REQUIRED_CATEGORIES = ["AU Story"]

@@ -45,7 +45,7 @@ layout: home
 <section class="c-sam-collection" id="chapters">
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">Chapters</h3>
-    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · {{ page.series_status | default: "ongoing" }}</span>
+    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · {% include series-status.html status=page.series_status %}</span>
   </div>
 
   {% comment %}
