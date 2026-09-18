@@ -1107,7 +1107,7 @@ collection_desc: "一两句钩子简介。"
 layout: post
 title: "Chapter N · 章节中文标题 — Series English Name"
 categories: ["AU Story"]
-date: YYYY-MM-DD
+date: YYYY-MM-DD HH:MM:SS +0800   # ⚠️ 真正上线的那天（推 main 的日子），不预排未来、不倒填；见「文章日期」一节
 image: cover-image.jpg          # 可选，封面图文件名（大小写必须与实际文件一致）
 series: "English Title"         # 必须与系列首页 series_name 完全一致，必须是英文
 series_title: "English Title · Character AU"   # 用于顶部返回链接显示
@@ -1283,6 +1283,26 @@ Sam「正面是他的戏。背面归你。」），**两句献词都是 Winter �
 （`title:` / `chapter_type:` 这些 **front matter 字段**里写 `Chapter N` 是正常的，
 那不是正文；这条只管正文 body。）
 
+## ⚠️ 文章日期 = 真正上线的那天（不预排未来、不倒着填）
+
+Winter 2026-09-18 点名的痼疾：**章节日期乱标——一堆未来的日期，还有为了「看起来一天一更」
+往前倒填的日期——时间轴彻底失去了意义。** 2026-09-18 已把全站 929 篇按 git 记录改回真实
+上线日（241 篇原本标在未来、687 篇原本倒填），旧网址都加了 `redirect_from` 跳转。此后一律：
+
+1. **`date:` 就是这一章推上 `main` 的那一天**（写成 `YYYY-MM-DD HH:MM:SS +0800`，带时间是为了
+   同一天发好几章时顺序不乱）。一天发三章就是三章同一天——那才是真的。
+2. **绝不预排未来日期**（`future: true` 只是安全网，不是用来「排期」的），**也绝不倒填**
+   到更早的日子去凑「日更」。
+3. **文件名开头的日期必须和 `date:` 同一天**（`_posts/YYYY-MM-DD-….md`）。
+4. 改一篇已上线文章的日期 = 换网址。必须把旧网址写进 `redirect_from:`：
+   ```yaml
+   redirect_from:
+     - /2026/10/07/i-kissed-the-stones-chapter-1-my-name-is-francis/
+   ```
+5. **部署前跑 `python3 tools/check_dates.py`**（未来日期 / 文件名不一致 → exit 1）。
+
+真实上线日怎么查：`git log --first-parent origin/main --follow --diff-filter=A --format=%ci -- _posts/<文件>`。
+
 ## ⚠️ 部署节奏：改动攒成「一包」一次推 main，推完留 ~20 分钟别再动
 
 本站文章已超 **800 篇**，GitHub Pages 每次「重建整站」的 Jekyll 构建要跑 **~40 分钟**
@@ -1293,8 +1313,8 @@ Sam「正面是他的戏。背面归你。」），**两句献词都是 Winter �
 
 规矩（部署 AU 批次 / 任何多文件改动，一律照办）：
 
-1. **把这一次要发的东西全部改完、`check_post.py` / `check_series_page.py` / `check_palette_sync.py`
-   都验绿，攒成一包，一次性 commit 好，再推 `main`。**（AU 连载正好每三章一部署，天然成包。）
+1. **把这一次要发的东西全部改完、`check_post.py` / `check_series_page.py` / `check_palette_sync.py` /
+   `check_dates.py` 都验绿，攒成一包，一次性 commit 好，再推 `main`。**（AU 连载正好每三章一部署，天然成包。）
 2. **推完 `main` 就别再碰它**，给构建留够 **~45 分钟**跑完，再去看线上。
 3. 要连发好几批 → **上一批构建真正跑完（conclusion = success）或至少过了 ~45 分钟，
    再推下一批**，绝不背靠背推。
