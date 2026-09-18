@@ -9,57 +9,15 @@
     {
      "cn": "你画的是天空吗？",
      "b": "daily",
-     "ch": 0,
-     "title": "Prologue · 雾往低处走",
+     "ch": 1,
+     "title": "Chapter 1 · 一桶海",
      "series": "Fog City"
     },
     {
      "cn": "那我差点把海洒了。",
      "b": "daily",
-     "ch": 0,
-     "title": "Prologue · 雾往低处走",
-     "series": "Fog City"
-    },
-    {
-     "cn": "想好了你就知道了。",
-     "b": "daily",
-     "ch": 0,
-     "title": "Prologue · 雾往低处走",
-     "series": "Fog City"
-    },
-    {
-     "cn": "发现想说的话没有歌替我说！",
-     "b": "daily",
-     "ch": 0,
-     "title": "Prologue · 雾往低处走",
-     "series": "Fog City"
-    },
-    {
-     "cn": "不用回去听了。我现在就说。",
-     "b": "daily",
-     "ch": 0,
-     "title": "Prologue · 雾往低处走",
-     "series": "Fog City"
-    },
-    {
-     "cn": "你在想什么？",
-     "b": "daily",
-     "ch": 0,
-     "title": "Prologue · 雾往低处走",
-     "series": "Fog City"
-    },
-    {
-     "cn": "海跟我走啊。",
-     "b": "meet",
-     "ch": 0,
-     "title": "Prologue · 雾往低处走",
-     "series": "Fog City"
-    },
-    {
-     "cn": "不然我在台上看不清的时候，往下看什么？",
-     "b": "daily",
-     "ch": 0,
-     "title": "Prologue · 雾往低处走",
+     "ch": 1,
+     "title": "Chapter 1 · 一桶海",
      "series": "Fog City"
     },
     {
@@ -77,119 +35,14 @@
      "series": "Fog City"
     },
     {
-     "cn": "你看清了吗？",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 两小块光",
-     "series": "Fog City"
-    },
-    {
-     "cn": "我需要一只独角兽。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 玻璃小马",
-     "series": "Fog City"
-    },
-    {
-     "cn": "你看出来了？",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 玻璃小马",
-     "series": "Fog City"
-    },
-    {
-     "cn": "剧本里没有的才是我的。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 玻璃小马",
-     "series": "Fog City"
-    },
-    {
-     "cn": "全剧我最喜欢的一句，不是我的词。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 吃船的海",
-     "series": "Fog City"
-    },
-    {
-     "cn": "别怕。这岛上满是声音，都只让人欢喜，不伤人。",
-     "b": "tired",
-     "ch": 5,
-     "title": "Chapter 5 · 吃船的海",
-     "series": "Fog City"
-    },
-    {
-     "cn": "海看得清。我一上台就看见它了。特别凶。今天它真吃着船了。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 吃船的海",
-     "series": "Fog City"
-    },
-    {
-     "cn": "浪尖上有笔白，追光一过它就亮。你什么时候加的？",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 吃船的海",
-     "series": "Fog City"
-    },
-    {
-     "cn": "我拿的是白的那笔。那笔没入账。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 你的季节",
-     "series": "Fog City"
-    },
-    {
-     "cn": "普通课堂的分我凑不齐。毕业可能有问题。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 你的季节",
-     "series": "Fog City"
-    },
-    {
-     "cn": "然后我们的教官说，很好，今晚练习无帐篷扎营。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 像雾一样来去",
-     "series": "Fog City"
-    },
-    {
-     "cn": "你现在挺像我们教官。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 像雾一样来去",
-     "series": "Fog City"
-    },
-    {
-     "cn": "我是说，你那台收音机音质太差，我惦记它。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 像雾一样来去",
-     "series": "Fog City"
-    },
-    {
-     "cn": "我说过海是你的。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 桥",
-     "series": "Fog City"
-    },
-    {
-     "cn": "这笔是我的。走到哪儿带到哪儿。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 桥",
-     "series": "Fog City"
-    },
-    {
-     "cn": "Ocean 就是你名字。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 两张毕业证",
-     "series": "Fog City"
-    },
-    {
      "cn": "我也是被换上去的那种脸。",
+     "b": "daily",
+     "ch": 10,
+     "title": "Chapter 10 · 成年礼",
+     "series": "Fog City"
+    },
+    {
+     "cn": "你在想什么？",
      "b": "daily",
      "ch": 10,
      "title": "Chapter 10 · 成年礼",
@@ -224,6 +77,20 @@
      "series": "Fog City"
     },
     {
+     "cn": "海跟我走啊。",
+     "b": "meet",
+     "ch": 11,
+     "title": "Chapter 11 · 人往亮处走",
+     "series": "Fog City"
+    },
+    {
+     "cn": "不然我在台上看不清的时候，往下看什么？",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 人往亮处走",
+     "series": "Fog City"
+    },
+    {
      "cn": "一演四个小时，不许笑场。这是我目前接过最长的角色。",
      "b": "daily",
      "ch": 13,
@@ -249,6 +116,13 @@
      "b": "daily",
      "ch": 16,
      "title": "Chapter 16 · 一九九九",
+     "series": "Fog City"
+    },
+    {
+     "cn": "我这行，家伙什就这一套。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 左手",
      "series": "Fog City"
     },
     {
@@ -343,6 +217,41 @@
      "series": "Fog City"
     },
     {
+     "cn": "你看清了吗？",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 两小块光",
+     "series": "Fog City"
+    },
+    {
+     "cn": "我能把我排的那版也演一遍吗？",
+     "b": "daily",
+     "ch": 21,
+     "title": "Chapter 21 · 了不起的叔叔",
+     "series": "Fog City"
+    },
+    {
+     "cn": "怕演砸。这是我这辈子最不敢演的一场。",
+     "b": "daily",
+     "ch": 21,
+     "title": "Chapter 21 · 了不起的叔叔",
+     "series": "Fog City"
+    },
+    {
+     "cn": "你演得比我排的好。",
+     "b": "daily",
+     "ch": 21,
+     "title": "Chapter 21 · 了不起的叔叔",
+     "series": "Fog City"
+    },
+    {
+     "cn": "我是小孩界的图书馆用户。",
+     "b": "daily",
+     "ch": 21,
+     "title": "Chapter 21 · 了不起的叔叔",
+     "series": "Fog City"
+    },
+    {
      "cn": "我有点激动。可能需要这张纸。可能还需要点止泻药。",
      "b": "daily",
      "ch": 23,
@@ -358,6 +267,13 @@
     },
     {
      "cn": "紧张。我媳妇儿的窗台没地方了，我们正在闹装修危机。",
+     "b": "daily",
+     "ch": 24,
+     "title": "Chapter 24 · 你在哪儿，哪儿就亮",
+     "series": "Fog City"
+    },
+    {
+     "cn": "想好了，你就知道了。",
      "b": "daily",
      "ch": 24,
      "title": "Chapter 24 · 你在哪儿，哪儿就亮",
@@ -406,34 +322,6 @@
      "series": "Fog City"
     },
     {
-     "cn": "我能把我排的那版也演一遍吗？",
-     "b": "daily",
-     "ch": 21,
-     "title": "Chapter 21 · 了不起的叔叔",
-     "series": "Fog City"
-    },
-    {
-     "cn": "怕演砸。这是我这辈子最不敢演的一场。",
-     "b": "daily",
-     "ch": 21,
-     "title": "Chapter 21 · 了不起的叔叔",
-     "series": "Fog City"
-    },
-    {
-     "cn": "你演得比我排的好。",
-     "b": "daily",
-     "ch": 21,
-     "title": "Chapter 21 · 了不起的叔叔",
-     "series": "Fog City"
-    },
-    {
-     "cn": "我是小孩界的图书馆用户。",
-     "b": "daily",
-     "ch": 21,
-     "title": "Chapter 21 · 了不起的叔叔",
-     "series": "Fog City"
-    },
-    {
      "cn": "台词也归你记。我归你记。",
      "b": "daily",
      "ch": 29,
@@ -462,6 +350,27 @@
      "series": "Fog City"
     },
     {
+     "cn": "我需要一只独角兽。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 玻璃小马",
+     "series": "Fog City"
+    },
+    {
+     "cn": "你看出来了？",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 玻璃小马",
+     "series": "Fog City"
+    },
+    {
+     "cn": "剧本里没有的才是我的。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 玻璃小马",
+     "series": "Fog City"
+    },
+    {
      "cn": "我这辈子对‘不该翻’的东西就没赢过，你是知道的。",
      "b": "daily",
      "ch": 31,
@@ -476,10 +385,185 @@
      "series": "Fog City"
     },
     {
-     "cn": "我这行，家伙什就这一套。",
+     "cn": "全剧我最喜欢的一句，不是我的词。",
      "b": "daily",
-     "ch": 14,
-     "title": "Chapter 14 · 左手",
+     "ch": 5,
+     "title": "Chapter 5 · 吃船的海",
+     "series": "Fog City"
+    },
+    {
+     "cn": "别怕。这岛上满是声音，都只让人欢喜，不伤人。",
+     "b": "tired",
+     "ch": 5,
+     "title": "Chapter 5 · 吃船的海",
+     "series": "Fog City"
+    },
+    {
+     "cn": "海看得清。我一上台就看见它了。特别凶。今天它真吃着船了。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 吃船的海",
+     "series": "Fog City"
+    },
+    {
+     "cn": "浪尖上有笔白，追光一过它就亮。你什么时候加的？",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 吃船的海",
+     "series": "Fog City"
+    },
+    {
+     "cn": "我拿的是白的那笔。那笔没入账。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 你的季节",
+     "series": "Fog City"
+    },
+    {
+     "cn": "普通课堂的分我凑不齐。毕业可能有问题。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 你的季节",
+     "series": "Fog City"
+    },
+    {
+     "cn": "然后我们的教官说，很好，今晚练习无帐篷扎营。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 像雾一样来去",
+     "series": "Fog City"
+    },
+    {
+     "cn": "你现在挺像我们教官。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 像雾一样来去",
+     "series": "Fog City"
+    },
+    {
+     "cn": "我是说，你那台收音机音质太差，我惦记它。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 像雾一样来去",
+     "series": "Fog City"
+    },
+    {
+     "cn": "发现想说的话没有歌替我说！",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 桥",
+     "series": "Fog City"
+    },
+    {
+     "cn": "不用回去听了。我现在就说。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 桥",
+     "series": "Fog City"
+    },
+    {
+     "cn": "我说过海是你的。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 桥",
+     "series": "Fog City"
+    },
+    {
+     "cn": "这笔是我的。走到哪儿带到哪儿。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 桥",
+     "series": "Fog City"
+    },
+    {
+     "cn": "Ocean 就是你名字。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 两张毕业证",
+     "series": "Fog City"
+    },
+    {
+     "cn": "那个账号，叫了我十几年宝宝。宝贝。Sam 宝贝，感叹号三个起步。",
+     "b": "love",
+     "ch": 43,
+     "title": "Extra · 样本更全",
+     "series": "Fog City"
+    },
+    {
+     "cn": "先当你的观众，再当你的家属——顺序不能改。一九八六年就是这个顺序。",
+     "b": "daily",
+     "ch": 43,
+     "title": "Extra · 样本更全",
+     "series": "Fog City"
+    },
+    {
+     "cn": "都办完了。你爸妈这回是正式的了。",
+     "b": "daily",
+     "ch": 38,
+     "title": "Extra · 小场面",
+     "series": "Fog City"
+    },
+    {
+     "cn": "我是观众。这一口，是鼓掌。",
+     "b": "daily",
+     "ch": 42,
+     "title": "Extra · 吃戏",
+     "series": "Fog City"
+    },
+    {
+     "cn": "你吃东西也好看。",
+     "b": "praise",
+     "ch": 42,
+     "title": "Extra · 吃戏",
+     "series": "Fog City"
+    },
+    {
+     "cn": "从走廊到体育馆，我的编舞终于给钱了。",
+     "b": "daily",
+     "ch": 52,
+     "title": "Extra · 安可",
+     "series": "Fog City"
+    },
+    {
+     "cn": "你先眨眼，我就停。",
+     "b": "daily",
+     "ch": 52,
+     "title": "Extra · 安可",
+     "series": "Fog City"
+    },
+    {
+     "cn": "你连吃醋都吃得这么有条理。",
+     "b": "daily",
+     "ch": 36,
+     "title": "Extra · 粉丝观察日记",
+     "series": "Fog City"
+    },
+    {
+     "cn": "其实你也不用选。",
+     "b": "daily",
+     "ch": 45,
+     "title": "Extra · 幸福二选一",
+     "series": "Fog City"
+    },
+    {
+     "cn": "你四十年前就选完了。",
+     "b": "daily",
+     "ch": 45,
+     "title": "Extra · 幸福二选一",
+     "series": "Fog City"
+    },
+    {
+     "cn": "一九八六年，走廊，四十秒——你把正主签了。角色是全套赠品，买一送四十九，不拆卖。",
+     "b": "daily",
+     "ch": 45,
+     "title": "Extra · 幸福二选一",
+     "series": "Fog City"
+    },
+    {
+     "cn": "设备老化。你多担待。",
+     "b": "daily",
+     "ch": 48,
+     "title": "Extra · 没录上",
      "series": "Fog City"
     },
     {
@@ -518,10 +602,24 @@
      "series": "Fog City"
     },
     {
-     "cn": "你连吃醋都吃得这么有条理。",
+     "cn": "我要求立刻把它抓起来枪毙。",
      "b": "daily",
-     "ch": 36,
-     "title": "Extra · 粉丝观察日记",
+     "ch": 50,
+     "title": "Extra · 对词机器",
+     "series": "Fog City"
+    },
+    {
+     "cn": "斯科特兄弟雇了我的嗓子。只要嗓子。",
+     "b": "daily",
+     "ch": 51,
+     "title": "Extra · 旁白",
+     "series": "Fog City"
+    },
+    {
+     "cn": "我的脸和舞都没被录用。",
+     "b": "daily",
+     "ch": 51,
+     "title": "Extra · 旁白",
      "series": "Fog City"
     },
     {
@@ -539,13 +637,6 @@
      "series": "Fog City"
     },
     {
-     "cn": "都办完了。你爸妈这回是正式的了。",
-     "b": "daily",
-     "ch": 38,
-     "title": "Extra · 小场面",
-     "series": "Fog City"
-    },
-    {
      "cn": "今天是给你点的。许愿吧。",
      "b": "daily",
      "ch": 39,
@@ -557,69 +648,6 @@
      "b": "daily",
      "ch": 39,
      "title": "Extra · 明天",
-     "series": "Fog City"
-    },
-    {
-     "cn": "我是观众。这一口，是鼓掌。",
-     "b": "daily",
-     "ch": 42,
-     "title": "Extra · 吃戏",
-     "series": "Fog City"
-    },
-    {
-     "cn": "你吃东西也好看。",
-     "b": "praise",
-     "ch": 42,
-     "title": "Extra · 吃戏",
-     "series": "Fog City"
-    },
-    {
-     "cn": "那个账号，叫了我十几年宝宝。宝贝。Sam 宝贝，感叹号三个起步。",
-     "b": "love",
-     "ch": 43,
-     "title": "Extra · 样本更全",
-     "series": "Fog City"
-    },
-    {
-     "cn": "先当你的观众，再当你的家属——顺序不能改。一九八六年就是这个顺序。",
-     "b": "daily",
-     "ch": 43,
-     "title": "Extra · 样本更全",
-     "series": "Fog City"
-    },
-    {
-     "cn": "你是不是演过那个——那个警察！",
-     "b": "daily",
-     "ch": 44,
-     "title": "Extra · Winter Rockwell",
-     "series": "Fog City"
-    },
-    {
-     "cn": "以后派，我要三分之二。",
-     "b": "daily",
-     "ch": 44,
-     "title": "Extra · Winter Rockwell",
-     "series": "Fog City"
-    },
-    {
-     "cn": "其实你也不用选。",
-     "b": "daily",
-     "ch": 45,
-     "title": "Extra · 幸福二选一",
-     "series": "Fog City"
-    },
-    {
-     "cn": "你四十年前就选完了。",
-     "b": "daily",
-     "ch": 45,
-     "title": "Extra · 幸福二选一",
-     "series": "Fog City"
-    },
-    {
-     "cn": "一九八六年，走廊，四十秒——你把正主签了。角色是全套赠品，买一送四十九，不拆卖。",
-     "b": "daily",
-     "ch": 45,
-     "title": "Extra · 幸福二选一",
      "series": "Fog City"
     },
     {
@@ -644,114 +672,30 @@
      "series": "Fog City"
     },
     {
-     "cn": "设备老化。你多担待。",
-     "b": "daily",
-     "ch": 48,
-     "title": "Extra · 没录上",
-     "series": "Fog City"
-    },
-    {
-     "cn": "我要求立刻把它抓起来枪毙。",
-     "b": "daily",
-     "ch": 50,
-     "title": "Extra · 对词机器",
-     "series": "Fog City"
-    },
-    {
-     "cn": "斯科特兄弟雇了我的嗓子。只要嗓子。",
-     "b": "daily",
-     "ch": 51,
-     "title": "Extra · 旁白",
-     "series": "Fog City"
-    },
-    {
-     "cn": "我的脸和舞都没被录用。",
-     "b": "daily",
-     "ch": 51,
-     "title": "Extra · 旁白",
-     "series": "Fog City"
-    },
-    {
-     "cn": "从走廊到体育馆，我的编舞终于给钱了。",
-     "b": "daily",
-     "ch": 52,
-     "title": "Extra · 安可",
-     "series": "Fog City"
-    },
-    {
-     "cn": "你先眨眼，我就停。",
-     "b": "daily",
-     "ch": 52,
-     "title": "Extra · 安可",
-     "series": "Fog City"
-    },
-    {
      "cn": "我逢吵必输，图个败得好看。",
      "b": "praise",
      "ch": 53,
      "title": "Extra · 到成为止",
+     "series": "Fog City"
+    },
+    {
+     "cn": "你是不是演过那个——那个警察！",
+     "b": "daily",
+     "ch": 44,
+     "title": "Extra · Winter Rockwell",
+     "series": "Fog City"
+    },
+    {
+     "cn": "以后派，我要三分之二。",
+     "b": "daily",
+     "ch": 44,
+     "title": "Extra · Winter Rockwell",
      "series": "Fog City"
     }
    ]
   },
   "zaphod": {
    "default": [
-    {
-     "cn": "你是新来的？行政处终于给我派了个赏心悦目的。叫什么？",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · Vote Beeblebrox",
-     "series": "Zaphod AU"
-    },
-    {
-     "cn": "以后你就跟着我。缺什么、要什么，找你，对吧？",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · Vote Beeblebrox",
-     "series": "Zaphod AU"
-    },
-    {
-     "cn": "除非你挑到我想要的那间，那你就得给我重挑。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · Vote Beeblebrox",
-     "series": "Zaphod AU"
-    },
-    {
-     "cn": "啧啧——我这魅力，连你都招架不住。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 湿漉漉的总统先生",
-     "series": "Zaphod AU"
-    },
-    {
-     "cn": "还是你办事我放心，baby doll。这么快就买回来了。",
-     "b": "miss",
-     "ch": 4,
-     "title": "Chapter 4 · 湿漉漉的总统先生",
-     "series": "Zaphod AU"
-    },
-    {
-     "cn": "累死了。哄哄我。",
-     "b": "tired",
-     "ch": 5,
-     "title": "Chapter 5 · 哄哄我",
-     "series": "Zaphod AU"
-    },
-    {
-     "cn": "别急着告状嘛，宝贝儿。你今天……啧，美得过分。过分到，我觉得整个银河系都得为你安静三秒钟。",
-     "b": "love",
-     "ch": 6,
-     "title": "Chapter 6 · 偏爱",
-     "series": "Zaphod AU"
-    },
-    {
-     "cn": "我这一手，帅不帅？丝滑不丝滑？——啧，连我自己都得服我自己。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 偏爱",
-     "series": "Zaphod AU"
-    },
     {
      "cn": "你怎么哭了？",
      "b": "tired",
@@ -876,6 +820,27 @@
      "b": "daily",
      "ch": 19,
      "title": "Chapter 19 · 缺口",
+     "series": "Zaphod AU"
+    },
+    {
+     "cn": "你是新来的？行政处终于给我派了个赏心悦目的。叫什么？",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · Vote Beeblebrox",
+     "series": "Zaphod AU"
+    },
+    {
+     "cn": "以后你就跟着我。缺什么、要什么，找你，对吧？",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · Vote Beeblebrox",
+     "series": "Zaphod AU"
+    },
+    {
+     "cn": "除非你挑到我想要的那间，那你就得给我重挑。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · Vote Beeblebrox",
      "series": "Zaphod AU"
     },
     {
@@ -1009,6 +974,41 @@
      "b": "daily",
      "ch": 27,
      "title": "Chapter 27 · 我愿意",
+     "series": "Zaphod AU"
+    },
+    {
+     "cn": "啧啧——我这魅力，连你都招架不住。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 湿漉漉的总统先生",
+     "series": "Zaphod AU"
+    },
+    {
+     "cn": "还是你办事我放心，baby doll。这么快就买回来了。",
+     "b": "miss",
+     "ch": 4,
+     "title": "Chapter 4 · 湿漉漉的总统先生",
+     "series": "Zaphod AU"
+    },
+    {
+     "cn": "累死了。哄哄我。",
+     "b": "tired",
+     "ch": 5,
+     "title": "Chapter 5 · 哄哄我",
+     "series": "Zaphod AU"
+    },
+    {
+     "cn": "别急着告状嘛，宝贝儿。你今天……啧，美得过分。过分到，我觉得整个银河系都得为你安静三秒钟。",
+     "b": "love",
+     "ch": 6,
+     "title": "Chapter 6 · 偏爱",
+     "series": "Zaphod AU"
+    },
+    {
+     "cn": "我这一手，帅不帅？丝滑不丝滑？——啧，连我自己都得服我自己。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 偏爱",
      "series": "Zaphod AU"
     },
     {
@@ -1437,118 +1437,6 @@
      "series": "The Real Thing"
     },
     {
-     "cn": "我路过啊，sweetheart。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 卖不掉的东西",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "我记性好啊，sweetheart。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 卖不掉的东西",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "你可能是饿糊涂了。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 平时它更糟",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "你至少得说一句这颜色衬我，sweetheart。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 一句都没说错",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "行。那我得省着穿，babe。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 一句都没说错",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "你别紧张，honey。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 一句都没说错",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "你这双眼睛，看东西比我准。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 一句都没说错",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "这一点我从你十六岁那年就知道了。你比我准，比你外公也准。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 一句都没说错",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "可东西不会看着你。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 一句都没说错",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "一只碗放在那儿，它不会在你看它的时候，也在看你。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 一句都没说错",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "我没法把那一整座还给你。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 白马王子",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "这就哭了，honey？我这儿还有别的呢。",
-     "b": "tired",
-     "ch": 7,
-     "title": "Chapter 7 · 白马王子",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "我这人运气一向不错，sweetheart。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 白马王子",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "你把整座灯塔弄成这样。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 你是真的",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "你知不知道这得多少支蜡烛。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 你是真的",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "我明天就戴着它去买咖啡。我要让全城都看见。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 你是真的",
-     "series": "The Real Thing"
-    },
-    {
      "cn": "是我这些年，见你最高兴的时候。",
      "b": "daily",
      "ch": 11,
@@ -1651,6 +1539,20 @@
      "b": "daily",
      "ch": 20,
      "title": "Chapter 20 · 因为是你，我就想信",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "我路过啊，sweetheart。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 卖不掉的东西",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "我记性好啊，sweetheart。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 卖不掉的东西",
      "series": "The Real Thing"
     },
     {
@@ -1843,10 +1745,108 @@
      "series": "The Real Thing"
     },
     {
+     "cn": "你可能是饿糊涂了。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 平时它更糟",
+     "series": "The Real Thing"
+    },
+    {
      "cn": "别抱我，我这一身都是外头的味儿。",
      "b": "love",
      "ch": 31,
      "title": "Chapter 31 · 这本来就是你的钱",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "你至少得说一句这颜色衬我，sweetheart。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 一句都没说错",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "行。那我得省着穿，babe。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 一句都没说错",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "你别紧张，honey。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 一句都没说错",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "你这双眼睛，看东西比我准。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 一句都没说错",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "这一点我从你十六岁那年就知道了。你比我准，比你外公也准。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 一句都没说错",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "可东西不会看着你。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 一句都没说错",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "一只碗放在那儿，它不会在你看它的时候，也在看你。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 一句都没说错",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "我没法把那一整座还给你。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 白马王子",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "这就哭了，honey？我这儿还有别的呢。",
+     "b": "tired",
+     "ch": 7,
+     "title": "Chapter 7 · 白马王子",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "我这人运气一向不错，sweetheart。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 白马王子",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "你把整座灯塔弄成这样。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 你是真的",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "你知不知道这得多少支蜡烛。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 你是真的",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "我明天就戴着它去买咖啡。我要让全城都看见。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 你是真的",
      "series": "The Real Thing"
     },
     {
@@ -2102,6 +2102,20 @@
      "series": "The Real Thing"
     },
     {
+     "cn": "你穿那件蓝的。",
+     "b": "daily",
+     "ch": 52,
+     "title": "Chapter 45 · 那一屋子人是顺带的",
+     "series": "The Real Thing"
+    },
+    {
+     "cn": "我这辈子没见过这么卖车的。",
+     "b": "daily",
+     "ch": 52,
+     "title": "Chapter 45 · 那一屋子人是顺带的",
+     "series": "The Real Thing"
+    },
+    {
      "cn": "你现在过的日子跟现在一模一样。",
      "b": "daily",
      "ch": 51,
@@ -2128,20 +2142,6 @@
      "ch": 53,
      "title": "Chapter 46 · 第七回",
      "series": "The Real Thing"
-    },
-    {
-     "cn": "你穿那件蓝的。",
-     "b": "daily",
-     "ch": 52,
-     "title": "Chapter 45 · 那一屋子人是顺带的",
-     "series": "The Real Thing"
-    },
-    {
-     "cn": "我这辈子没见过这么卖车的。",
-     "b": "daily",
-     "ch": 52,
-     "title": "Chapter 45 · 那一屋子人是顺带的",
-     "series": "The Real Thing"
     }
    ]
   },
@@ -2162,6 +2162,27 @@
      "series": "The Cardinal"
     },
     {
+     "cn": "我送你回去。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 他没有走",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "你这是……恋上我的味道了？",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 钥匙",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "我妈妈以前，总这么说。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · Krok po kroku",
+     "series": "The Cardinal"
+    },
+    {
      "cn": "说清楚……不然我可要自己找了。",
      "b": "daily",
      "ch": 10,
@@ -2173,6 +2194,20 @@
      "b": "daily",
      "ch": 10,
      "title": "Chapter 10 · 他的手",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "我妈妈，以前总哼这个。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 口琴",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "说你是谁的。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 吃醋",
      "series": "The Cardinal"
     },
     {
@@ -2230,41 +2265,6 @@
      "ch": 14,
      "title": "Chapter 14 · 护短",
      "series": "The Cardinal"
-    },
-    {
-     "cn": "我送你回去。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 他没有走",
-     "series": "The Cardinal"
-    },
-    {
-     "cn": "你这是……恋上我的味道了？",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 钥匙",
-     "series": "The Cardinal"
-    },
-    {
-     "cn": "我妈妈以前，总这么说。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · Krok po kroku",
-     "series": "The Cardinal"
-    },
-    {
-     "cn": "我妈妈，以前总哼这个。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 口琴",
-     "series": "The Cardinal"
-    },
-    {
-     "cn": "说你是谁的。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 吃醋",
-     "series": "The Cardinal"
     }
    ]
   },
@@ -2289,34 +2289,6 @@
      "b": "daily",
      "ch": 1,
      "title": "Chapter 1 · 结梁子",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "你反对得，有点太用力了。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 唯一的反对票",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "我就是不想把酒钱分摊得更少。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 唯一的反对票",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "还是特意下来盯我有没有偷用你的和弦？",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 唯一的反对票",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "你才是唯一那个真辍了的。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · Certified Dropouts",
      "series": "Everything in Transit"
     },
     {
@@ -2425,6 +2397,27 @@
      "series": "Everything in Transit"
     },
     {
+     "cn": "你反对得，有点太用力了。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 唯一的反对票",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "我就是不想把酒钱分摊得更少。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 唯一的反对票",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "还是特意下来盯我有没有偷用你的和弦？",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 唯一的反对票",
+     "series": "Everything in Transit"
+    },
+    {
      "cn": "那个……你今天……琴弦调得不错。",
      "b": "daily",
      "ch": 21,
@@ -2502,6 +2495,13 @@
      "series": "Everything in Transit"
     },
     {
+     "cn": "你才是唯一那个真辍了的。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · Certified Dropouts",
+     "series": "Everything in Transit"
+    },
+    {
      "cn": "本来是来晒太阳的。结果听见你唱歌。",
      "b": "daily",
      "ch": 8,
@@ -2552,279 +2552,6 @@
      "b": "daily",
      "ch": 1,
      "title": "Chapter 1 · 桥上那一跳",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "底下最深的地方九英尺，靠东边那道石梁只有四英尺半。你要是照着我那儿跳，现在已经在医院了。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 三十英尺",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "还有——别在这条桥上跟我说话。会有人看见。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 三十英尺",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "行啊。反正丢人的又不是你。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 三十英尺",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "这儿不是你该来的地方。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 会走路的房子",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "因为到时候丢的是我的活儿，不是你的脸。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 会走路的房子",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "开到没人认识我，也没人告诉我该把车停哪儿的地方。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 会走路的房子",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "底下是沙的。我拿背保证过。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 会走路的房子",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "坐着别动啊，姑奶奶。你要是掉下来我可捞不动。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 会走路的房子",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "我给你讲个故事。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 会走路的房子",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "我小时候听我妈讲的。有一栋房子，长着两条鸡腿。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 会走路的房子",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "天要黑了。我送你到桥那儿。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 会走路的房子",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你今天没来。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期四",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "有人看着，我推得比平时直多了。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期四",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "老瓶子碎的，泡个几十年，水一磨，就成这样了。我看见了就捡起来了。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期四",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你不是喜欢看水底下嘛。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期四",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你可算来了，honey。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期四",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "这条街上每一家，都有人这么看我。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期四",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你是唯一一个不这么看的。所以我才让你在窗户那儿看了两个半钟头。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期四",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "几点了你知道吗？你一个人？天黑了你一个人待在这儿？",
-     "b": "sleepless",
-     "ch": 5,
-     "title": "Chapter 5 · 退回去的那笔钱",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "这条路上晚上有人开车过来喝酒，有人打猎，有人——你脑子呢？！",
-     "b": "meet",
-     "ch": 5,
-     "title": "Chapter 5 · 退回去的那笔钱",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你当然不管！",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 退回去的那笔钱",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "这就是我说的意思。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 退回去的那笔钱",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "上车。我送你到桥那儿。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 退回去的那笔钱",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "我十六岁开始干这个。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 遮阳伞底下",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "上车。这回你别跟我犟。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 遮阳伞底下",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你母亲在窗户后面。",
-     "b": "love",
-     "ch": 7,
-     "title": "Chapter 7 · 九点整",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你母亲告诉我了。",
-     "b": "love",
-     "ch": 8,
-     "title": "Chapter 8 · 那通电话",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你以为你在跟我谈条件。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 那通电话",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "那我也告诉你一件。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 那通电话",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "我不打算跟你吵。我这个年纪了，跟自己女儿吵一个割草的，说出去像什么话。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 那通电话",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "因为我不想我女儿的名字，跟这个名字放在一起被人提起。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 那通电话",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "这句话不是我编的。是你自己告诉你母亲的。",
-     "b": "love",
-     "ch": 8,
-     "title": "Chapter 8 · 那通电话",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你今天怎么不说话？",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 那通电话",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "该送你回去了。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 测试弹簧",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "我那儿只有一张床。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 测试弹簧",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "床单我换了。是干净的，上礼拜洗的。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 测试弹簧",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "我在外头。有事你就喊。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 测试弹簧",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "因为你已经上来了。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 测试弹簧",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你明天得回去。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 测试弹簧",
      "series": "I Never Looked Away"
     },
     {
@@ -3108,6 +2835,27 @@
      "series": "I Never Looked Away"
     },
     {
+     "cn": "底下最深的地方九英尺，靠东边那道石梁只有四英尺半。你要是照着我那儿跳，现在已经在医院了。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 三十英尺",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "还有——别在这条桥上跟我说话。会有人看见。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 三十英尺",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "行啊。反正丢人的又不是你。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 三十英尺",
+     "series": "I Never Looked Away"
+    },
+    {
      "cn": "我在这儿呢。",
      "b": "tired",
      "ch": 20,
@@ -3199,6 +2947,391 @@
      "series": "I Never Looked Away"
     },
     {
+     "cn": "这儿不是你该来的地方。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 会走路的房子",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "因为到时候丢的是我的活儿，不是你的脸。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 会走路的房子",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "开到没人认识我，也没人告诉我该把车停哪儿的地方。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 会走路的房子",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "底下是沙的。我拿背保证过。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 会走路的房子",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "坐着别动啊，姑奶奶。你要是掉下来我可捞不动。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 会走路的房子",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "我给你讲个故事。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 会走路的房子",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "我小时候听我妈讲的。有一栋房子，长着两条鸡腿。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 会走路的房子",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "天要黑了。我送你到桥那儿。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 会走路的房子",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你今天没来。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期四",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "有人看着，我推得比平时直多了。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期四",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "老瓶子碎的，泡个几十年，水一磨，就成这样了。我看见了就捡起来了。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期四",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你不是喜欢看水底下嘛。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期四",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你可算来了，honey。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期四",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "这条街上每一家，都有人这么看我。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期四",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你是唯一一个不这么看的。所以我才让你在窗户那儿看了两个半钟头。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期四",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "几点了你知道吗？你一个人？天黑了你一个人待在这儿？",
+     "b": "sleepless",
+     "ch": 5,
+     "title": "Chapter 5 · 退回去的那笔钱",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "这条路上晚上有人开车过来喝酒，有人打猎，有人——你脑子呢？！",
+     "b": "meet",
+     "ch": 5,
+     "title": "Chapter 5 · 退回去的那笔钱",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你当然不管！",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 退回去的那笔钱",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "这就是我说的意思。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 退回去的那笔钱",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "上车。我送你到桥那儿。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 退回去的那笔钱",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "我十六岁开始干这个。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 遮阳伞底下",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "上车。这回你别跟我犟。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 遮阳伞底下",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你母亲在窗户后面。",
+     "b": "love",
+     "ch": 7,
+     "title": "Chapter 7 · 九点整",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你母亲告诉我了。",
+     "b": "love",
+     "ch": 8,
+     "title": "Chapter 8 · 那通电话",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你以为你在跟我谈条件。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 那通电话",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "那我也告诉你一件。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 那通电话",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "我不打算跟你吵。我这个年纪了，跟自己女儿吵一个割草的，说出去像什么话。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 那通电话",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "因为我不想我女儿的名字，跟这个名字放在一起被人提起。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 那通电话",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "这句话不是我编的。是你自己告诉你母亲的。",
+     "b": "love",
+     "ch": 8,
+     "title": "Chapter 8 · 那通电话",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你今天怎么不说话？",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 那通电话",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "该送你回去了。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 测试弹簧",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "我那儿只有一张床。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 测试弹簧",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "床单我换了。是干净的，上礼拜洗的。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 测试弹簧",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "我在外头。有事你就喊。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 测试弹簧",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "因为你已经上来了。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 测试弹簧",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你明天得回去。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 测试弹簧",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "回来把东边那片补上。",
+     "b": "miss",
+     "ch": 31,
+     "title": "Extra · 比那年好",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "我知道你喜欢。",
+     "b": "daily",
+     "ch": 31,
+     "title": "Extra · 比那年好",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "到时候你就知道了。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · 六站路",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "我算过了，两边加一块儿，够。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · 六站路",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你踩吧。反正你踩什么我都拦不住，princess。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · 六站路",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "我爸那时候在窗户那边坐着。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · 六站路",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "中间那个位置我空着呢。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · 六站路",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "等把那三十七个地方都去完了才给你吗。",
+     "b": "daily",
+     "ch": 26,
+     "title": "Extra · 六站路",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "拿你学生证。",
+     "b": "daily",
+     "ch": 32,
+     "title": "Extra · 世界上最长的洞",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "反正我知道就完了。",
+     "b": "daily",
+     "ch": 32,
+     "title": "Extra · 世界上最长的洞",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "那本册子我看了三遍。",
+     "b": "daily",
+     "ch": 32,
+     "title": "Extra · 世界上最长的洞",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "怕你问我问题我答不上来。",
+     "b": "daily",
+     "ch": 32,
+     "title": "Extra · 世界上最长的洞",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "那导游看我那眼神，跟看同行似的。",
+     "b": "daily",
+     "ch": 32,
+     "title": "Extra · 世界上最长的洞",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "不是‘三百多’，是三百六十七。你写错了。",
+     "b": "daily",
+     "ch": 32,
+     "title": "Extra · 世界上最长的洞",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "我答应你什么了。",
+     "b": "daily",
+     "ch": 29,
+     "title": "Extra · 一米板",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "你想听我说你是天才？你砸出来的动静把那边那小孩吓哭了，princess。",
+     "b": "tired",
+     "ch": 29,
+     "title": "Extra · 一米板",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "明天肩膀得废。我这胳膊五年没抬过，明天推机器都费劲。",
+     "b": "daily",
+     "ch": 29,
+     "title": "Extra · 一米板",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "反正你得管我，princess。",
+     "b": "daily",
+     "ch": 29,
+     "title": "Extra · 一米板",
+     "series": "I Never Looked Away"
+    },
+    {
+     "cn": "是你逼我跳的。",
+     "b": "daily",
+     "ch": 29,
+     "title": "Extra · 一米板",
+     "series": "I Never Looked Away"
+    },
+    {
      "cn": "我入冬前把窗户缝都堵了。",
      "b": "daily",
      "ch": 21,
@@ -3248,104 +3381,6 @@
      "series": "I Never Looked Away"
     },
     {
-     "cn": "到时候你就知道了。",
-     "b": "daily",
-     "ch": 26,
-     "title": "Extra · 六站路",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "我算过了，两边加一块儿，够。",
-     "b": "daily",
-     "ch": 26,
-     "title": "Extra · 六站路",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你踩吧。反正你踩什么我都拦不住，princess。",
-     "b": "daily",
-     "ch": 26,
-     "title": "Extra · 六站路",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "我爸那时候在窗户那边坐着。",
-     "b": "daily",
-     "ch": 26,
-     "title": "Extra · 六站路",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "中间那个位置我空着呢。",
-     "b": "daily",
-     "ch": 26,
-     "title": "Extra · 六站路",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "等把那三十七个地方都去完了才给你吗。",
-     "b": "daily",
-     "ch": 26,
-     "title": "Extra · 六站路",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你上第三级的时候老是先踩边上。",
-     "b": "daily",
-     "ch": 27,
-     "title": "Extra · 两把牙刷",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "那儿有个钉子松了，我修过两回都不行。",
-     "b": "daily",
-     "ch": 27,
-     "title": "Extra · 两把牙刷",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "那就不用你老盯着我了。",
-     "b": "daily",
-     "ch": 27,
-     "title": "Extra · 两把牙刷",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "我答应你什么了。",
-     "b": "daily",
-     "ch": 29,
-     "title": "Extra · 一米板",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "你想听我说你是天才？你砸出来的动静把那边那小孩吓哭了，princess。",
-     "b": "tired",
-     "ch": 29,
-     "title": "Extra · 一米板",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "明天肩膀得废。我这胳膊五年没抬过，明天推机器都费劲。",
-     "b": "daily",
-     "ch": 29,
-     "title": "Extra · 一米板",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "反正你得管我，princess。",
-     "b": "daily",
-     "ch": 29,
-     "title": "Extra · 一米板",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "是你逼我跳的。",
-     "b": "daily",
-     "ch": 29,
-     "title": "Extra · 一米板",
-     "series": "I Never Looked Away"
-    },
-    {
      "cn": "我下午没活儿，我去接你。",
      "b": "daily",
      "ch": 30,
@@ -3374,59 +3409,24 @@
      "series": "I Never Looked Away"
     },
     {
-     "cn": "回来把东边那片补上。",
-     "b": "miss",
-     "ch": 31,
-     "title": "Extra · 比那年好",
+     "cn": "你上第三级的时候老是先踩边上。",
+     "b": "daily",
+     "ch": 27,
+     "title": "Extra · 两把牙刷",
      "series": "I Never Looked Away"
     },
     {
-     "cn": "我知道你喜欢。",
+     "cn": "那儿有个钉子松了，我修过两回都不行。",
      "b": "daily",
-     "ch": 31,
-     "title": "Extra · 比那年好",
+     "ch": 27,
+     "title": "Extra · 两把牙刷",
      "series": "I Never Looked Away"
     },
     {
-     "cn": "拿你学生证。",
+     "cn": "那就不用你老盯着我了。",
      "b": "daily",
-     "ch": 32,
-     "title": "Extra · 世界上最长的洞",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "反正我知道就完了。",
-     "b": "daily",
-     "ch": 32,
-     "title": "Extra · 世界上最长的洞",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "那本册子我看了三遍。",
-     "b": "daily",
-     "ch": 32,
-     "title": "Extra · 世界上最长的洞",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "怕你问我问题我答不上来。",
-     "b": "daily",
-     "ch": 32,
-     "title": "Extra · 世界上最长的洞",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "那导游看我那眼神，跟看同行似的。",
-     "b": "daily",
-     "ch": 32,
-     "title": "Extra · 世界上最长的洞",
-     "series": "I Never Looked Away"
-    },
-    {
-     "cn": "不是‘三百多’，是三百六十七。你写错了。",
-     "b": "daily",
-     "ch": 32,
-     "title": "Extra · 世界上最长的洞",
+     "ch": 27,
+     "title": "Extra · 两把牙刷",
      "series": "I Never Looked Away"
     }
    ]
@@ -4233,6 +4233,83 @@
      "series": "The Serbian Tornado"
     },
     {
+     "cn": "你听听这个数。一万六。",
+     "b": "daily",
+     "ch": 10,
+     "title": "Chapter 10 · 一万六",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "可它没在我们兜里过夜。",
+     "b": "daily",
+     "ch": 10,
+     "title": "Chapter 10 · 一万六",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你就说你去看比赛。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "反正那边有个什么活动，什么教区的，你就说那个。doll，你就说那个。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我给你赢一只熊。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "还有那个转的，那个大轮子，你坐过没有？你肯定没坐过。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "baby，你等着。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你再看这一枪。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你看见没有！",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "你倒是吃啊。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
+     "cn": "我以为你知道。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 苹果糖",
+     "series": "The Serbian Tornado"
+    },
+    {
      "cn": "法官给我判了缓刑。",
      "b": "daily",
      "ch": 2,
@@ -4443,83 +4520,6 @@
      "series": "The Serbian Tornado"
     },
     {
-     "cn": "你听听这个数。一万六。",
-     "b": "daily",
-     "ch": 10,
-     "title": "Chapter 10 · 一万六",
-     "series": "The Serbian Tornado"
-    },
-    {
-     "cn": "可它没在我们兜里过夜。",
-     "b": "daily",
-     "ch": 10,
-     "title": "Chapter 10 · 一万六",
-     "series": "The Serbian Tornado"
-    },
-    {
-     "cn": "你就说你去看比赛。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 苹果糖",
-     "series": "The Serbian Tornado"
-    },
-    {
-     "cn": "反正那边有个什么活动，什么教区的，你就说那个。doll，你就说那个。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 苹果糖",
-     "series": "The Serbian Tornado"
-    },
-    {
-     "cn": "我给你赢一只熊。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 苹果糖",
-     "series": "The Serbian Tornado"
-    },
-    {
-     "cn": "还有那个转的，那个大轮子，你坐过没有？你肯定没坐过。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 苹果糖",
-     "series": "The Serbian Tornado"
-    },
-    {
-     "cn": "baby，你等着。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 苹果糖",
-     "series": "The Serbian Tornado"
-    },
-    {
-     "cn": "你再看这一枪。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 苹果糖",
-     "series": "The Serbian Tornado"
-    },
-    {
-     "cn": "你看见没有！",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 苹果糖",
-     "series": "The Serbian Tornado"
-    },
-    {
-     "cn": "你倒是吃啊。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 苹果糖",
-     "series": "The Serbian Tornado"
-    },
-    {
-     "cn": "我以为你知道。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 苹果糖",
-     "series": "The Serbian Tornado"
-    },
-    {
      "cn": "这条街上要是早有你这么一位，我早搬回来住了。",
      "b": "miss",
      "ch": 12,
@@ -4720,69 +4720,6 @@
   "chuck": {
    "default": [
     {
-     "cn": "我记不住名字，可我一旦记住了，就什么都查得到。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 广告之后",
-     "series": "Off the Air"
-    },
-    {
-     "cn": "礼拜六晚上，山上有个局，你来。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 两位女士",
-     "series": "Off the Air"
-    },
-    {
-     "cn": "我只是……让你没法专心。这是两码事。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 陪同",
-     "series": "Off the Air"
-    },
-    {
-     "cn": "我？我高兴得很。我这是在工作，baby。把两个陌生人凑成一对，是我的老本行。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 陪同",
-     "series": "Off the Air"
-    },
-    {
-     "cn": "我干这个，一干十年，从没失手过。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 陪同",
-     "series": "Off the Air"
-    },
-    {
-     "cn": "这趟……挺好的。真的。就是我大概，猜得到，回去以后咱俩不会再……",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 回到正常节目",
-     "series": "Off the Air"
-    },
-    {
-     "cn": "没事。我妈老说我，好归好，就是不够有意思。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 回到正常节目",
-     "series": "Off the Air"
-    },
-    {
-     "cn": "能中这个奖，认识你，我不亏。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 回到正常节目",
-     "series": "Off the Air"
-    },
-    {
-     "cn": "这是我家钥匙。以后你想来就来，不用在台阶上耗着了。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 一把锁",
-     "series": "Off the Air"
-    },
-    {
      "cn": "烤是烤不来的，你又不是不知道我这双手是干别的用的。",
      "b": "daily",
      "ch": 10,
@@ -4853,6 +4790,13 @@
      "series": "Off the Air"
     },
     {
+     "cn": "我记不住名字，可我一旦记住了，就什么都查得到。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 广告之后",
+     "series": "Off the Air"
+    },
+    {
      "cn": "我骗了一整个国家。",
      "b": "daily",
      "ch": 20,
@@ -4878,6 +4822,62 @@
      "b": "daily",
      "ch": 20,
      "title": "Chapter 20 · 梦中的你",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "礼拜六晚上，山上有个局，你来。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 两位女士",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "我只是……让你没法专心。这是两码事。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 陪同",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "我？我高兴得很。我这是在工作，baby。把两个陌生人凑成一对，是我的老本行。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 陪同",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "我干这个，一干十年，从没失手过。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 陪同",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "这趟……挺好的。真的。就是我大概，猜得到，回去以后咱俩不会再……",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 回到正常节目",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "没事。我妈老说我，好归好，就是不够有意思。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 回到正常节目",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "能中这个奖，认识你，我不亏。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 回到正常节目",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "这是我家钥匙。以后你想来就来，不用在台阶上耗着了。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 一把锁",
      "series": "Off the Air"
     },
     {
@@ -4923,6 +4923,13 @@
      "series": "Off the Air"
     },
     {
+     "cn": "结果雁看了十几年，就我一个人看。也挺好。",
+     "b": "daily",
+     "ch": 31,
+     "title": "Extra · 我赚太大了",
+     "series": "Off the Air"
+    },
+    {
      "cn": "你今晚的嗓子，比我捧红过的所有歌手都值钱。",
      "b": "daily",
      "ch": 25,
@@ -4958,13 +4965,6 @@
      "series": "Off the Air"
     },
     {
-     "cn": "结果雁看了十几年，就我一个人看。也挺好。",
-     "b": "daily",
-     "ch": 31,
-     "title": "Extra · 我赚太大了",
-     "series": "Off the Air"
-    },
-    {
      "cn": "光线的问题。这个角度的晨光，打谁脸上谁好看，行业常识。",
      "b": "praise",
      "ch": 32,
@@ -4987,6 +4987,104 @@
      "b": "miss",
      "ch": 1,
      "title": "Chapter 1 · Much Obliged",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "你盯着我看什么？",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · Small Hours",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "说起来，你也是个怪人。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · Small Hours",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "真没事。我保准，晌午前就回来蹭你做的饭。",
+     "b": "miss",
+     "ch": 12,
+     "title": "Chapter 12 · Still Owing",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "我说了……晌午前……回来的吧……",
+     "b": "miss",
+     "ch": 12,
+     "title": "Chapter 12 · Still Owing",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "sugar……我错了……别哭了，啊？",
+     "b": "tired",
+     "ch": 12,
+     "title": "Chapter 12 · Still Owing",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "我还。我慢慢还。一辈子……都还给你。",
+     "b": "daily",
+     "ch": 12,
+     "title": "Chapter 12 · Still Owing",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "sugar，我跟你说个事儿。",
+     "b": "daily",
+     "ch": 13,
+     "title": "Chapter 13 · Come Spring",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "忽然就特别怕。头一回。我怕的不是死，是……是我要真交代在哪个雪窝子里了，你往后可怎么办。",
+     "b": "tired",
+     "ch": 13,
+     "title": "Chapter 13 · Come Spring",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "我不想干了。这行，我不干了。",
+     "b": "daily",
+     "ch": 13,
+     "title": "Chapter 13 · Come Spring",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "我还欠你一匹马呢。",
+     "b": "daily",
+     "ch": 13,
+     "title": "Chapter 13 · Come Spring",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "我怕你嫌弃，说跟着我这么个亡命之徒，还想过安生日子，痴心妄想。",
+     "b": "daily",
+     "ch": 13,
+     "title": "Chapter 13 · Come Spring",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "这玩意儿，我头一个就把它埋了。往后过日子，用不着它。你信不信？",
+     "b": "daily",
+     "ch": 13,
+     "title": "Chapter 13 · Come Spring",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "你问这个做什么？",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · The Turning",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "你早点睡吧。",
+     "b": "night",
+     "ch": 14,
+     "title": "Chapter 14 · The Turning",
      "series": "Nothing Warmer Than You"
     },
     {
@@ -5109,146 +5207,6 @@
      "series": "Nothing Warmer Than You"
     },
     {
-     "cn": "你盯着我看什么？",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · Small Hours",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "说起来，你也是个怪人。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · Small Hours",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "真没事。我保准，晌午前就回来蹭你做的饭。",
-     "b": "miss",
-     "ch": 12,
-     "title": "Chapter 12 · Still Owing",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "我说了……晌午前……回来的吧……",
-     "b": "miss",
-     "ch": 12,
-     "title": "Chapter 12 · Still Owing",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "sugar……我错了……别哭了，啊？",
-     "b": "tired",
-     "ch": 12,
-     "title": "Chapter 12 · Still Owing",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "我还。我慢慢还。一辈子……都还给你。",
-     "b": "daily",
-     "ch": 12,
-     "title": "Chapter 12 · Still Owing",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "sugar，我跟你说个事儿。",
-     "b": "daily",
-     "ch": 13,
-     "title": "Chapter 13 · Come Spring",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "忽然就特别怕。头一回。我怕的不是死，是……是我要真交代在哪个雪窝子里了，你往后可怎么办。",
-     "b": "tired",
-     "ch": 13,
-     "title": "Chapter 13 · Come Spring",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "我不想干了。这行，我不干了。",
-     "b": "daily",
-     "ch": 13,
-     "title": "Chapter 13 · Come Spring",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "我还欠你一匹马呢。",
-     "b": "daily",
-     "ch": 13,
-     "title": "Chapter 13 · Come Spring",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "我怕你嫌弃，说跟着我这么个亡命之徒，还想过安生日子，痴心妄想。",
-     "b": "daily",
-     "ch": 13,
-     "title": "Chapter 13 · Come Spring",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "这玩意儿，我头一个就把它埋了。往后过日子，用不着它。你信不信？",
-     "b": "daily",
-     "ch": 13,
-     "title": "Chapter 13 · Come Spring",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "你问这个做什么？",
-     "b": "daily",
-     "ch": 14,
-     "title": "Chapter 14 · The Turning",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "你早点睡吧。",
-     "b": "night",
-     "ch": 14,
-     "title": "Chapter 14 · The Turning",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "别回头。有些地方，人一辈子该去一次，去了，就别再回来了。",
-     "b": "miss",
-     "ch": 15,
-     "title": "Chapter 15 · Clean",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "等安顿下来，我捎信给你。你带上嫂子孩子，来我那儿住些日子。我养马，管够。",
-     "b": "daily",
-     "ch": 15,
-     "title": "Chapter 15 · Clean",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "你……也别老一个人闷着。有事捎信。",
-     "b": "daily",
-     "ch": 15,
-     "title": "Chapter 15 · Clean",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "你早该滚了。赖在这儿算怎么回事？跟你那姑娘过日子去，别在这儿碍手碍脚。",
-     "b": "daily",
-     "ch": 15,
-     "title": "Chapter 15 · Clean",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "我这不是跟你道别么。",
-     "b": "daily",
-     "ch": 15,
-     "title": "Chapter 15 · Clean",
-     "series": "Nothing Warmer Than You"
-    },
-    {
-     "cn": "你咋了？出……出什么事了？",
-     "b": "daily",
-     "ch": 15,
-     "title": "Chapter 15 · Clean",
-     "series": "Nothing Warmer Than You"
-    },
-    {
      "cn": "你这么标致个姑娘，怎么就跟了 Charley。",
      "b": "daily",
      "ch": 8,
@@ -5295,6 +5253,48 @@
      "b": "daily",
      "ch": 9,
      "title": "Chapter 9 · The Kid",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "别回头。有些地方，人一辈子该去一次，去了，就别再回来了。",
+     "b": "miss",
+     "ch": 15,
+     "title": "Chapter 15 · Clean",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "等安顿下来，我捎信给你。你带上嫂子孩子，来我那儿住些日子。我养马，管够。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · Clean",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "你……也别老一个人闷着。有事捎信。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · Clean",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "你早该滚了。赖在这儿算怎么回事？跟你那姑娘过日子去，别在这儿碍手碍脚。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · Clean",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "我这不是跟你道别么。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · Clean",
+     "series": "Nothing Warmer Than You"
+    },
+    {
+     "cn": "你咋了？出……出什么事了？",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · Clean",
      "series": "Nothing Warmer Than You"
     }
    ]
@@ -5376,83 +5376,6 @@
      "b": "daily",
      "ch": 12,
      "title": "Chapter 12 · 她也叫 Tara",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "我、我就给了一点点。",
-     "b": "daily",
-     "ch": 13,
-     "title": "Chapter 13 · 猫爸爸",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "好好好，爸爸不吵你了，睡吧。",
-     "b": "night",
-     "ch": 13,
-     "title": "Chapter 13 · 猫爸爸",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "我以前……真没想过，我这辈子还能再当一回‘爸爸’。",
-     "b": "daily",
-     "ch": 13,
-     "title": "Chapter 13 · 猫爸爸",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "这种日子，我从前想都不敢想。是你给我的。是你，把这个家，一点一点，给我拼齐的。",
-     "b": "daily",
-     "ch": 13,
-     "title": "Chapter 13 · 猫爸爸",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "第一个月……发工资了。我就想……想给你买点什么。",
-     "b": "daily",
-     "ch": 14,
-     "title": "Chapter 14 · 暖你的手",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "我知道不是什么好东西，我也不太会挑……你要是不喜欢，我、我拿去换。",
-     "b": "daily",
-     "ch": 14,
-     "title": "Chapter 14 · 暖你的手",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "可从来没有人，替你暖一暖它们。我就想……以后，让我来。",
-     "b": "daily",
-     "ch": 14,
-     "title": "Chapter 14 · 暖你的手",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "暖不暖？大小合不合适？我不知道你手多大，我……我偷偷比着你的手套量的。",
-     "b": "daily",
-     "ch": 14,
-     "title": "Chapter 14 · 暖你的手",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "我……我不太会说话。这些话我在心里，练了一个礼拜，可现在，一句都想不起来了。",
-     "b": "daily",
-     "ch": 15,
-     "title": "Chapter 15 · 嫁给我好不好",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "可我还是想问。我自私。我这辈子头一回，想为自己，要一样东西。",
-     "b": "daily",
-     "ch": 15,
-     "title": "Chapter 15 · 嫁给我好不好",
-     "series": "Don't Let Me Go"
-    },
-    {
-     "cn": "‘结婚’这两个字，对我来说，是个坏东西。它连着背叛，连着失去，连着我这辈子最烂的那段日子。",
-     "b": "daily",
-     "ch": 15,
-     "title": "Chapter 15 · 嫁给我好不好",
      "series": "Don't Let Me Go"
     },
     {
@@ -5649,6 +5572,83 @@
      "b": "daily",
      "ch": 9,
      "title": "Chapter 9 · 你还在",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "我、我就给了一点点。",
+     "b": "daily",
+     "ch": 13,
+     "title": "Chapter 13 · 猫爸爸",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "好好好，爸爸不吵你了，睡吧。",
+     "b": "night",
+     "ch": 13,
+     "title": "Chapter 13 · 猫爸爸",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "我以前……真没想过，我这辈子还能再当一回‘爸爸’。",
+     "b": "daily",
+     "ch": 13,
+     "title": "Chapter 13 · 猫爸爸",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "这种日子，我从前想都不敢想。是你给我的。是你，把这个家，一点一点，给我拼齐的。",
+     "b": "daily",
+     "ch": 13,
+     "title": "Chapter 13 · 猫爸爸",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "第一个月……发工资了。我就想……想给你买点什么。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 暖你的手",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "我知道不是什么好东西，我也不太会挑……你要是不喜欢，我、我拿去换。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 暖你的手",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "可从来没有人，替你暖一暖它们。我就想……以后，让我来。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 暖你的手",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "暖不暖？大小合不合适？我不知道你手多大，我……我偷偷比着你的手套量的。",
+     "b": "daily",
+     "ch": 14,
+     "title": "Chapter 14 · 暖你的手",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "我……我不太会说话。这些话我在心里，练了一个礼拜，可现在，一句都想不起来了。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 嫁给我好不好",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "可我还是想问。我自私。我这辈子头一回，想为自己，要一样东西。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 嫁给我好不好",
+     "series": "Don't Let Me Go"
+    },
+    {
+     "cn": "‘结婚’这两个字，对我来说，是个坏东西。它连着背叛，连着失去，连着我这辈子最烂的那段日子。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 嫁给我好不好",
      "series": "Don't Let Me Go"
     }
    ]
@@ -5954,202 +5954,6 @@
      "series": "Everybody's Home"
     },
     {
-     "cn": "得等我们上去一个一个叫醒。你就在跟前，还杵着装什么大方。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "打。我先试的毒，好用。你哥我拿命验过货了。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "我第五个，你第六个。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "结果它就这么一小管，装在你一个人的包最底下，飞了两趟。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "真巧。我是第五个 Sam，今天是我为自己活的第五天。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "我不是要说丧气话。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "我是想说——万一明天那墙上，没人替我画第六个了。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "我想今晚，把它先……用够本。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "想了整整五天。你是我这条命里，头一件真的。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "我在上头，顾不上画。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "你在地面上，一天替我画一个。等我回来——数数你替我攒了多少天，我就知道自己离开了多久。",
-     "b": "miss",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "也把你自己，带回来。",
-     "b": "miss",
-     "ch": 5,
-     "title": "Chapter 5 · One More Day",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "你还是老样子。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · Full Circle",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "你怎么，长着我的脸。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · Full Circle",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "我叫 Sam Bell。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · Full Circle",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "你记得的每一样，都是真的。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · Full Circle",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "我知道这是什么滋味。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · Full Circle",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "所以我回来了。",
-     "b": "miss",
-     "ch": 6,
-     "title": "Chapter 6 · Full Circle",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "先别急着数你的三年。我跟你说个更长的。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · The Witness",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "有一个我，给这个家打过电话。我看过那段记录。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · The Witness",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "还有一个，把我们一个一个抱回来的你。",
-     "b": "miss",
-     "ch": 7,
-     "title": "Chapter 7 · The Witness",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "十五年前，我签了字。我以为我卖的，是我的一段数据。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · The 156",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "想的，是我这个家。是我心安理得住着的这个家。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · The 156",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "你怎么躲这么后头。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · The 156",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "没有你，我们没有一个人，能站在这儿。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · The 156",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "你不是来‘管我们’的。你是这个家里的一个。我们要的，是你跟我们一起——一起管我们的家。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · Count Me In",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "你真一天一个。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · Count Me In",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "你说缺一个回来找我算账。我可不想挨你揍。",
-     "b": "miss",
-     "ch": 9,
-     "title": "Chapter 9 · Count Me In",
-     "series": "Everybody's Home"
-    },
-    {
      "cn": "我这是替全家的安全考虑。",
      "b": "daily",
      "ch": 10,
@@ -6346,6 +6150,216 @@
      "series": "Everybody's Home"
     },
     {
+     "cn": "得等我们上去一个一个叫醒。你就在跟前，还杵着装什么大方。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "打。我先试的毒，好用。你哥我拿命验过货了。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "我第五个，你第六个。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "结果它就这么一小管，装在你一个人的包最底下，飞了两趟。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "真巧。我是第五个 Sam，今天是我为自己活的第五天。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "我不是要说丧气话。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "我是想说——万一明天那墙上，没人替我画第六个了。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "我想今晚，把它先……用够本。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "想了整整五天。你是我这条命里，头一件真的。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "我在上头，顾不上画。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "你在地面上，一天替我画一个。等我回来——数数你替我攒了多少天，我就知道自己离开了多久。",
+     "b": "miss",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "也把你自己，带回来。",
+     "b": "miss",
+     "ch": 5,
+     "title": "Chapter 5 · One More Day",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "你还是老样子。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · Full Circle",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "你怎么，长着我的脸。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · Full Circle",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "我叫 Sam Bell。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · Full Circle",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "你记得的每一样，都是真的。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · Full Circle",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "我知道这是什么滋味。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · Full Circle",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "所以我回来了。",
+     "b": "miss",
+     "ch": 6,
+     "title": "Chapter 6 · Full Circle",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "先别急着数你的三年。我跟你说个更长的。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · The Witness",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "有一个我，给这个家打过电话。我看过那段记录。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · The Witness",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "还有一个，把我们一个一个抱回来的你。",
+     "b": "miss",
+     "ch": 7,
+     "title": "Chapter 7 · The Witness",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "十五年前，我签了字。我以为我卖的，是我的一段数据。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · The 156",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "想的，是我这个家。是我心安理得住着的这个家。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · The 156",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "你怎么躲这么后头。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · The 156",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "没有你，我们没有一个人，能站在这儿。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · The 156",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "你不是来‘管我们’的。你是这个家里的一个。我们要的，是你跟我们一起——一起管我们的家。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · Count Me In",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "你真一天一个。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · Count Me In",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "你说缺一个回来找我算账。我可不想挨你揍。",
+     "b": "miss",
+     "ch": 9,
+     "title": "Chapter 9 · Count Me In",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "第一回是你把我拖出来的。",
+     "b": "daily",
+     "ch": 22,
+     "title": "Extra · Three Kilometres North",
+     "series": "Everybody's Home"
+    },
+    {
+     "cn": "我那时候意识都散了，就记得有人把我的胳膊架在肩膀上，一边拖一边骂我。骂得特别难听。",
+     "b": "daily",
+     "ch": 22,
+     "title": "Extra · Three Kilometres North",
+     "series": "Everybody's Home"
+    },
+    {
      "cn": "我在月球上修过整套维生系统。",
      "b": "daily",
      "ch": 15,
@@ -6374,38 +6388,24 @@
      "series": "Everybody's Home"
     },
     {
-     "cn": "第一回是你把我拖出来的。",
+     "cn": "然后你把屏幕转过去，说，写家属。",
      "b": "daily",
-     "ch": 22,
-     "title": "Extra · Three Kilometres North",
+     "ch": 28,
+     "title": "Extra · Next of Kin",
      "series": "Everybody's Home"
     },
     {
-     "cn": "我那时候意识都散了，就记得有人把我的胳膊架在肩膀上，一边拖一边骂我。骂得特别难听。",
+     "cn": "前面那个是我们的。",
      "b": "daily",
-     "ch": 22,
-     "title": "Extra · Three Kilometres North",
+     "ch": 28,
+     "title": "Extra · Next of Kin",
      "series": "Everybody's Home"
     },
     {
-     "cn": "我知道你不是真的。",
+     "cn": "后面那个是你的。",
      "b": "daily",
-     "ch": 23,
-     "title": "Extra · The Middle of the Bed",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "我把你放回那辆车里过一次。",
-     "b": "daily",
-     "ch": 23,
-     "title": "Extra · The Middle of the Bed",
-     "series": "Everybody's Home"
-    },
-    {
-     "cn": "就一次。我这辈子不会有第二次。",
-     "b": "daily",
-     "ch": 23,
-     "title": "Extra · The Middle of the Bed",
+     "ch": 28,
+     "title": "Extra · Next of Kin",
      "series": "Everybody's Home"
     },
     {
@@ -6451,24 +6451,24 @@
      "series": "Everybody's Home"
     },
     {
-     "cn": "然后你把屏幕转过去，说，写家属。",
+     "cn": "我知道你不是真的。",
      "b": "daily",
-     "ch": 28,
-     "title": "Extra · Next of Kin",
+     "ch": 23,
+     "title": "Extra · The Middle of the Bed",
      "series": "Everybody's Home"
     },
     {
-     "cn": "前面那个是我们的。",
+     "cn": "我把你放回那辆车里过一次。",
      "b": "daily",
-     "ch": 28,
-     "title": "Extra · Next of Kin",
+     "ch": 23,
+     "title": "Extra · The Middle of the Bed",
      "series": "Everybody's Home"
     },
     {
-     "cn": "后面那个是你的。",
+     "cn": "就一次。我这辈子不会有第二次。",
      "b": "daily",
-     "ch": 28,
-     "title": "Extra · Next of Kin",
+     "ch": 23,
+     "title": "Extra · The Middle of the Bed",
      "series": "Everybody's Home"
     }
    ]
@@ -8084,76 +8084,6 @@
      "series": "Wintergreen"
     },
     {
-     "cn": "你的床……被我占了。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 脸面不管饱",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "这儿静。没人会来动你了。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 趁地还没冻上",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "开春……我给你弄个记号。不碍眼的那种。就我们认得。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 趁地还没冻上",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "我那儿……还有几件衣裳。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 没有一张是写给人的",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "总穿你的，不像话。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 没有一张是写给人的",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "你都记些羊。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 穷人家的口香糖",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "冬天没零嘴。我爹说这是穷人家的口香糖。叶子也能嚼。熬过头一场霜，果子最甜。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 穷人家的口香糖",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "我睡外侧。靠门这边。你睡里头，贴墙，暖和。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 床够宽",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "你要是哪儿不自在……说一声。我就下去。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 床够宽",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "对了，Moon。前阵子有个姑娘来打听你——问有没有人见着你，急得不轻。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 她管着我",
-     "series": "Wintergreen"
-    },
-    {
      "cn": "我这辈子……从纸上来的，都是坏消息。",
      "b": "daily",
      "ch": 17,
@@ -8179,6 +8109,13 @@
      "b": "daily",
      "ch": 19,
      "title": "Chapter 19 · 你只是先说了实话",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "你的床……被我占了。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 脸面不管饱",
      "series": "Wintergreen"
     },
     {
@@ -8306,6 +8243,69 @@
      "ch": 29,
      "title": "Chapter 29 · 三个人回家",
      "series": "Wintergreen"
+    },
+    {
+     "cn": "这儿静。没人会来动你了。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 趁地还没冻上",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "开春……我给你弄个记号。不碍眼的那种。就我们认得。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 趁地还没冻上",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "我那儿……还有几件衣裳。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 没有一张是写给人的",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "总穿你的，不像话。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 没有一张是写给人的",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "你都记些羊。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 穷人家的口香糖",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "冬天没零嘴。我爹说这是穷人家的口香糖。叶子也能嚼。熬过头一场霜，果子最甜。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 穷人家的口香糖",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "我睡外侧。靠门这边。你睡里头，贴墙，暖和。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 床够宽",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "你要是哪儿不自在……说一声。我就下去。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 床够宽",
+     "series": "Wintergreen"
+    },
+    {
+     "cn": "对了，Moon。前阵子有个姑娘来打听你——问有没有人见着你，急得不轻。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 她管着我",
+     "series": "Wintergreen"
     }
    ]
   },
@@ -8337,41 +8337,6 @@
      "b": "daily",
      "ch": 13,
      "title": "Chapter 13 · 夜戏",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "导演给我打了电话。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 谷底",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "一屋子人等着，你把一场三页纸的对手戏，忘词忘了三回。后半场，整个人是飘的。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 谷底",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "把你退回去？",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 谷底",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "哭什么。一场围读而已，天塌了？",
-     "b": "tired",
-     "ch": 11,
-     "title": "Chapter 11 · 谷底",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "从明天起，你的戏我要在场。",
-     "b": "daily",
-     "ch": 11,
-     "title": "Chapter 11 · 谷底",
      "series": "The Making of You"
     },
     {
@@ -8445,27 +8410,6 @@
      "series": "The Making of You"
     },
     {
-     "cn": "违约条款你翻一下第九页。走法律流程，别为难我助理。",
-     "b": "daily",
-     "ch": 15,
-     "title": "Chapter 15 · 存货",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "到此为止。你我都是聪明人，别把话说难看。",
-     "b": "praise",
-     "ch": 15,
-     "title": "Chapter 15 · 存货",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "当然算数。我等你这通电话，等了小半年。",
-     "b": "miss",
-     "ch": 15,
-     "title": "Chapter 15 · 存货",
-     "series": "The Making of You"
-    },
-    {
      "cn": "等你被压榨够了，随时打给我。",
      "b": "miss",
      "ch": 21,
@@ -8505,55 +8449,6 @@
      "b": "daily",
      "ch": 22,
      "title": "Chapter 22 · 高定",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "我只问你一件事。",
-     "b": "daily",
-     "ch": 16,
-     "title": "Chapter 16 · 非卖品",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "你当然没听说。",
-     "b": "daily",
-     "ch": 16,
-     "title": "Chapter 16 · 非卖品",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "我压下来了。然后我花了三个礼拜，把一个签了八年的客户，连根拔掉。",
-     "b": "daily",
-     "ch": 16,
-     "title": "Chapter 16 · 非卖品",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "动我的人，就是动我的招牌。这条规矩，小报登你那张照片那晚，你就该记住了。",
-     "b": "love",
-     "ch": 16,
-     "title": "Chapter 16 · 非卖品",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "那些是我买来的。买来的东西，能标价，能出手，缺了随时补一个回来。",
-     "b": "miss",
-     "ch": 16,
-     "title": "Chapter 16 · 非卖品",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "砸了，就是砸了。补不回来。",
-     "b": "miss",
-     "ch": 16,
-     "title": "Chapter 16 · 非卖品",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "Aldo 到底跟你说了什么？",
-     "b": "daily",
-     "ch": 16,
-     "title": "Chapter 16 · 非卖品",
      "series": "The Making of You"
     },
     {
@@ -8844,6 +8739,48 @@
      "series": "The Making of You"
     },
     {
+     "cn": "压轴那单跟你有点关系，你坐第一排，给我撑撑场面。",
+     "b": "tired",
+     "ch": 31,
+     "title": "Chapter 31 · 终身合约",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "四年半。是我职业生涯里，最难谈的一单。",
+     "b": "daily",
+     "ch": 31,
+     "title": "Chapter 31 · 终身合约",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "这城里每个人我都标好了价。",
+     "b": "daily",
+     "ch": 31,
+     "title": "Chapter 31 · 终身合约",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "我爱你的样子，原来也一直有人在拍。回信比较长。正文，是余生。",
+     "b": "love",
+     "ch": 32,
+     "title": "Chapter 32 · Stankas 夫人",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "我给你的地价，你自己心里有数。",
+     "b": "daily",
+     "ch": 32,
+     "title": "Chapter 32 · Stankas 夫人",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "我看着你吃。",
+     "b": "daily",
+     "ch": 32,
+     "title": "Chapter 32 · Stankas 夫人",
+     "series": "The Making of You"
+    },
+    {
      "cn": "我又不吃人。你每次进这个门，都跟要上刑场似的——紧张什么？",
      "b": "daily",
      "ch": 3,
@@ -8900,13 +8837,6 @@
      "series": "The Making of You"
     },
     {
-     "cn": "你现在是我名下的人了。出去代表的不是你自己，是我的招牌。别让人看轻——看轻你，就是看轻我。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 空名",
-     "series": "The Making of You"
-    },
-    {
      "cn": "你今天没输在本事上。记住这种感觉——不是记住疼，是记住你明明是最好的那个。",
      "b": "daily",
      "ch": 6,
@@ -8949,34 +8879,6 @@
      "series": "The Making of You"
     },
     {
-     "cn": "我一听就坐不住了。所以我来了。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 行情",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "想清楚了，随时打给我。违约金那句话，我说了算数。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 行情",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "不过——我总得知会 Aldo 一声，规矩。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 行情",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "合同在这儿。签了我 Stankas，就是我的人。我的人，不外流。",
-     "b": "love",
-     "ch": 8,
-     "title": "Chapter 8 · 行情",
-     "series": "The Making of You"
-    },
-    {
      "cn": "保姆？我这是看着我的钱。",
      "b": "daily",
      "ch": 12,
@@ -8988,48 +8890,6 @@
      "b": "sleepless",
      "ch": 12,
      "title": "Chapter 12 · 探班",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "压轴那单跟你有点关系，你坐第一排，给我撑撑场面。",
-     "b": "tired",
-     "ch": 31,
-     "title": "Chapter 31 · 终身合约",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "四年半。是我职业生涯里，最难谈的一单。",
-     "b": "daily",
-     "ch": 31,
-     "title": "Chapter 31 · 终身合约",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "这城里每个人我都标好了价。",
-     "b": "daily",
-     "ch": 31,
-     "title": "Chapter 31 · 终身合约",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "我爱你的样子，原来也一直有人在拍。回信比较长。正文，是余生。",
-     "b": "love",
-     "ch": 32,
-     "title": "Chapter 32 · Stankas 夫人",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "我给你的地价，你自己心里有数。",
-     "b": "daily",
-     "ch": 32,
-     "title": "Chapter 32 · Stankas 夫人",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "我看着你吃。",
-     "b": "daily",
-     "ch": 32,
-     "title": "Chapter 32 · Stankas 夫人",
      "series": "The Making of You"
     },
     {
@@ -9257,6 +9117,251 @@
      "series": "The Making of You"
     },
     {
+     "cn": "你打算就这么去？",
+     "b": "daily",
+     "ch": 36,
+     "title": "Extra 4 · 生病条款",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "‘图个乐子’四个字，教的。我说着玩，你拿命当真。三年。",
+     "b": "daily",
+     "ch": 36,
+     "title": "Extra 4 · 生病条款",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "化石还在。你烧到三十九度，第一反应还是瞒着我。",
+     "b": "daily",
+     "ch": 36,
+     "title": "Extra 4 · 生病条款",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "怎么，我还不能自己找点乐子了？",
+     "b": "daily",
+     "ch": 37,
+     "title": "Extra 5 · 未入账",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "上车。今晚不回家——带你去个地方。",
+     "b": "meet",
+     "ch": 37,
+     "title": "Extra 5 · 未入账",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "我在这儿长到十六岁。",
+     "b": "tired",
+     "ch": 38,
+     "title": "Extra 6 · Stankas",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "我等着有人追问一句：不对吧，你这名字不像。等了三十年。",
+     "b": "daily",
+     "ch": 38,
+     "title": "Extra 6 · Stankas",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "老师没教你别的？",
+     "b": "daily",
+     "ch": 38,
+     "title": "Extra 6 · Stankas",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "再往下查，地址的代收人，登记的联系电话，是你助理的。",
+     "b": "daily",
+     "ch": 39,
+     "title": "Extra 7 · 绝版",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "凌晨两点，存图。",
+     "b": "sleepless",
+     "ch": 39,
+     "title": "Extra 7 · 绝版",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "全网没有的。绝版中的绝版——看在你补票态度端正的份上，对你一个人，开放版权。",
+     "b": "daily",
+     "ch": 39,
+     "title": "Extra 7 · 绝版",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "档案是我自己改的。",
+     "b": "daily",
+     "ch": 40,
+     "title": "Extra 8 · 十一月五日",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "假的那个，随手填的。谁记住了，谁送礼了，我就知道谁在做我的功课。",
+     "b": "daily",
+     "ch": 40,
+     "title": "Extra 8 · 十一月五日",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "都是你说。一次都不许缺席。这是愿望，也是条款。",
+     "b": "daily",
+     "ch": 40,
+     "title": "Extra 8 · 十一月五日",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "妈，看见没。你儿子命里有。",
+     "b": "daily",
+     "ch": 41,
+     "title": "Extra 9 · 蜜月",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "导演给我打了电话。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 谷底",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "一屋子人等着，你把一场三页纸的对手戏，忘词忘了三回。后半场，整个人是飘的。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 谷底",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "把你退回去？",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 谷底",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "哭什么。一场围读而已，天塌了？",
+     "b": "tired",
+     "ch": 11,
+     "title": "Chapter 11 · 谷底",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "从明天起，你的戏我要在场。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 谷底",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "违约条款你翻一下第九页。走法律流程，别为难我助理。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 存货",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "到此为止。你我都是聪明人，别把话说难看。",
+     "b": "praise",
+     "ch": 15,
+     "title": "Chapter 15 · 存货",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "当然算数。我等你这通电话，等了小半年。",
+     "b": "miss",
+     "ch": 15,
+     "title": "Chapter 15 · 存货",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "我只问你一件事。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 非卖品",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "你当然没听说。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 非卖品",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "我压下来了。然后我花了三个礼拜，把一个签了八年的客户，连根拔掉。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 非卖品",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "动我的人，就是动我的招牌。这条规矩，小报登你那张照片那晚，你就该记住了。",
+     "b": "love",
+     "ch": 16,
+     "title": "Chapter 16 · 非卖品",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "那些是我买来的。买来的东西，能标价，能出手，缺了随时补一个回来。",
+     "b": "miss",
+     "ch": 16,
+     "title": "Chapter 16 · 非卖品",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "砸了，就是砸了。补不回来。",
+     "b": "miss",
+     "ch": 16,
+     "title": "Chapter 16 · 非卖品",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "Aldo 到底跟你说了什么？",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 非卖品",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "你现在是我名下的人了。出去代表的不是你自己，是我的招牌。别让人看轻——看轻你，就是看轻我。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 空名",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "我一听就坐不住了。所以我来了。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 行情",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "想清楚了，随时打给我。违约金那句话，我说了算数。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 行情",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "不过——我总得知会 Aldo 一声，规矩。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 行情",
+     "series": "The Making of You"
+    },
+    {
+     "cn": "合同在这儿。签了我 Stankas，就是我的人。我的人，不外流。",
+     "b": "love",
+     "ch": 8,
+     "title": "Chapter 8 · 行情",
+     "series": "The Making of You"
+    },
+    {
      "cn": "你不是买来的。你是我从一张白纸上，一笔一笔，自己画出来的。",
      "b": "daily",
      "ch": 52,
@@ -9458,111 +9563,6 @@
      "ch": 65,
      "title": "Extra 33 · 捆绑",
      "series": "The Making of You"
-    },
-    {
-     "cn": "你打算就这么去？",
-     "b": "daily",
-     "ch": 36,
-     "title": "Extra 4 · 生病条款",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "‘图个乐子’四个字，教的。我说着玩，你拿命当真。三年。",
-     "b": "daily",
-     "ch": 36,
-     "title": "Extra 4 · 生病条款",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "化石还在。你烧到三十九度，第一反应还是瞒着我。",
-     "b": "daily",
-     "ch": 36,
-     "title": "Extra 4 · 生病条款",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "怎么，我还不能自己找点乐子了？",
-     "b": "daily",
-     "ch": 37,
-     "title": "Extra 5 · 未入账",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "上车。今晚不回家——带你去个地方。",
-     "b": "meet",
-     "ch": 37,
-     "title": "Extra 5 · 未入账",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "我在这儿长到十六岁。",
-     "b": "tired",
-     "ch": 38,
-     "title": "Extra 6 · Stankas",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "我等着有人追问一句：不对吧，你这名字不像。等了三十年。",
-     "b": "daily",
-     "ch": 38,
-     "title": "Extra 6 · Stankas",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "老师没教你别的？",
-     "b": "daily",
-     "ch": 38,
-     "title": "Extra 6 · Stankas",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "再往下查，地址的代收人，登记的联系电话，是你助理的。",
-     "b": "daily",
-     "ch": 39,
-     "title": "Extra 7 · 绝版",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "凌晨两点，存图。",
-     "b": "sleepless",
-     "ch": 39,
-     "title": "Extra 7 · 绝版",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "全网没有的。绝版中的绝版——看在你补票态度端正的份上，对你一个人，开放版权。",
-     "b": "daily",
-     "ch": 39,
-     "title": "Extra 7 · 绝版",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "档案是我自己改的。",
-     "b": "daily",
-     "ch": 40,
-     "title": "Extra 8 · 十一月五日",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "假的那个，随手填的。谁记住了，谁送礼了，我就知道谁在做我的功课。",
-     "b": "daily",
-     "ch": 40,
-     "title": "Extra 8 · 十一月五日",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "都是你说。一次都不许缺席。这是愿望，也是条款。",
-     "b": "daily",
-     "ch": 40,
-     "title": "Extra 8 · 十一月五日",
-     "series": "The Making of You"
-    },
-    {
-     "cn": "妈，看见没。你儿子命里有。",
-     "b": "daily",
-     "ch": 41,
-     "title": "Extra 9 · 蜜月",
-     "series": "The Making of You"
     }
    ]
   },
@@ -9622,489 +9622,6 @@
      "b": "daily",
      "ch": 1,
      "title": "Chapter 1 · 对，那首也行",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你在楼下站了二十分钟。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我以为你在给谁打电话。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "这地方会变硬。硬完你就什么都不怕了。",
-     "b": "tired",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "也是最难的。快能骗人，慢骗不了人。你在六十上面糊弄我，我一耳朵就听得出来。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你没有。你是一根一根摆上去的，像在摆餐具。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "这个角度，你什么力气都不用使，它自己就响了。你试试。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "这次不是安慰你。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "跨度不够。有几个和弦你迟早得跨过去。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "四十块钱一节课你还想听现场。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你想听什么。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "这时候最容易调错。因为整个房子都在响，你会以为是弦在响。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "下次你自己调。调不准我不给你上课。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你知道我教二十年学到什么吗。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你现在是在扫弦还是在打人。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "它一直想响。你不用逼它。你只要别拦着它。",
-     "b": "daily",
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你买咖啡机也这样？",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 一百二",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "指板磨得厉害，第五品有个坑，音准在高把位上会飘。一百二。你要不要。",
-     "b": "praise",
-     "ch": 3,
-     "title": "Chapter 3 · 一百二",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "调弦。今天你自己来，我不帮你。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 一百二",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "现在它归你管了——你想让它出声它才出声，你不放，它就不许响。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 一百二",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "然后你放开。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 一百二",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你跟着节拍器抢拍。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 一百二",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你老想跳到下一个。这个还没弹完，你心里已经在想下一个了。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 一百二",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "下不为例。你的四十分钟很贵。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 一百二",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我算得清楚。别到处说，说了别人都要赖账。",
-     "b": "daily",
-     "ch": 3,
-     "title": "Chapter 3 · 一百二",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你是那种把每个音都弹清楚、然后自己躲起来的人。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你得让它们学会各干各的。它们现在是一伙的——你动一根，另外两根跟着抖。得拆开。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "拆开以后你会发现，你能同时做的事多得多。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我洗完了。它自己转四十分钟。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "便宜。而且我不用挑。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "一天一件，两个星期洗一次。我这辈子没有一个早上是为了穿什么浪费过时间的。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你知道人一辈子要花多少时间在‘今天穿什么’上吗。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我说错了。不是九年前关的，是七年。我回去查了。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我上个月说的是‘照这个速度’。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你的换和弦还是慢。那首歌里有一段要连着换四个，你现在上去弹，只会把它弹烂。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "好歌不能拿来练手。你现在弹它，你以后每次听见它都会想起自己弹得多难听。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 星期六",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你现在不像个新手了。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 三十秒",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你要说什么我知道。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 三十秒",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你得先学一个东西。",
-     "b": "daily",
-     "ch": 5,
-     "title": "Chapter 5 · 三十秒",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你直接砸下去，它就叫了。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 不是那个调弦",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "力气不够它就不出声。你得让它没有选择。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 不是那个调弦",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "搥要狠。狠一点，你怕什么。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 不是那个调弦",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "勾就反过来——勾的时候别抬手，往下带。带的时候顺手把弦勾一下，力气全在指尖那一点点上。",
-     "b": "meet",
-     "ch": 6,
-     "title": "Chapter 6 · 不是那个调弦",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你一只手就能把整段做完。右手可以完全不用碰。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 不是那个调弦",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你要弹这个，就只能弹这个。想弹别的，得整个调回去，一根一根。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 不是那个调弦",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你会弹好的。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 不是那个调弦",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "到九月你肯定能弹好。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 不是那个调弦",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "回去以后你只弹这一首。别的先不要弹。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 不是那个调弦",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "而且你会乱。",
-     "b": "daily",
-     "ch": 6,
-     "title": "Chapter 6 · 不是那个调弦",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "热成这样你还夹着胳膊。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "松开。你整个人绷着，弦能听出来。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你从进门就绷着。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你现在这样，弹出来的东西全是紧的。你得先让自己松下来，它才肯配合你。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你要是知道，你现在就不是这个坐法。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我知道，我又不是聋子。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你那边亮着呢。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你上班的地方。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "看不见你的手。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "又没人看你。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我看得见你。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "那你现在不这么想了？",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你可以去查我的账。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 停电",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你现在越来越早了，你知道吗。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 她没带琴",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你在掐它。你现在这个力气，它疼。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 她没带琴",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我教过你八百遍了。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 她没带琴",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "先轻，让它知道你在。然后慢慢加。你一上来就按死它，它就哑给你看。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 她没带琴",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "行。那我们从第一段来。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 她没带琴",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "光按住不行，它会死在那儿。你得让它一直动。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 四十分钟到了",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "力气不能大，大了它就断气。也不能停——你一停它就没了。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 四十分钟到了",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我早说过它一直在那儿。是你自己不肯往那边去。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 四十分钟到了",
      "series": "Slow Hands"
     },
     {
@@ -10493,6 +10010,13 @@
      "series": "Slow Hands"
     },
     {
+     "cn": "下次你自己调。调不准我不给你上课。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 高的那条线",
+     "series": "Slow Hands"
+    },
+    {
      "cn": "我这个人身上没有一样东西是长久的。",
      "b": "daily",
      "ch": 16,
@@ -10721,6 +10245,104 @@
      "b": "daily",
      "ch": 19,
      "title": "Chapter 19 · 你可以自己去",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你在楼下站了二十分钟。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "我以为你在给谁打电话。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "这地方会变硬。硬完你就什么都不怕了。",
+     "b": "tired",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "也是最难的。快能骗人，慢骗不了人。你在六十上面糊弄我，我一耳朵就听得出来。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你没有。你是一根一根摆上去的，像在摆餐具。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "这个角度，你什么力气都不用使，它自己就响了。你试试。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "这次不是安慰你。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "跨度不够。有几个和弦你迟早得跨过去。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "四十块钱一节课你还想听现场。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你想听什么。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "这时候最容易调错。因为整个房子都在响，你会以为是弦在响。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你知道我教二十年学到什么吗。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你现在是在扫弦还是在打人。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "它一直想响。你不用逼它。你只要别拦着它。",
+     "b": "daily",
+     "ch": 2,
+     "title": "Chapter 2 · 茧",
      "series": "Slow Hands"
     },
     {
@@ -11053,6 +10675,69 @@
      "series": "Slow Hands"
     },
     {
+     "cn": "你买咖啡机也这样？",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 一百二",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "指板磨得厉害，第五品有个坑，音准在高把位上会飘。一百二。你要不要。",
+     "b": "praise",
+     "ch": 3,
+     "title": "Chapter 3 · 一百二",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "调弦。今天你自己来，我不帮你。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 一百二",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "现在它归你管了——你想让它出声它才出声，你不放，它就不许响。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 一百二",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "然后你放开。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 一百二",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你跟着节拍器抢拍。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 一百二",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你老想跳到下一个。这个还没弹完，你心里已经在想下一个了。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 一百二",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "下不为例。你的四十分钟很贵。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 一百二",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "我算得清楚。别到处说，说了别人都要赖账。",
+     "b": "daily",
+     "ch": 3,
+     "title": "Chapter 3 · 一百二",
+     "series": "Slow Hands"
+    },
+    {
      "cn": "你数数上面有几张是我的。",
      "b": "daily",
      "ch": 30,
@@ -11163,6 +10848,321 @@
      "ch": 31,
      "title": "Chapter 31 · 素圈",
      "series": "Slow Hands"
+    },
+    {
+     "cn": "你是那种把每个音都弹清楚、然后自己躲起来的人。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你得让它们学会各干各的。它们现在是一伙的——你动一根，另外两根跟着抖。得拆开。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "拆开以后你会发现，你能同时做的事多得多。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "我洗完了。它自己转四十分钟。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "便宜。而且我不用挑。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "一天一件，两个星期洗一次。我这辈子没有一个早上是为了穿什么浪费过时间的。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你知道人一辈子要花多少时间在‘今天穿什么’上吗。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "我说错了。不是九年前关的，是七年。我回去查了。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "我上个月说的是‘照这个速度’。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你的换和弦还是慢。那首歌里有一段要连着换四个，你现在上去弹，只会把它弹烂。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "好歌不能拿来练手。你现在弹它，你以后每次听见它都会想起自己弹得多难听。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 星期六",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你现在不像个新手了。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 三十秒",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你要说什么我知道。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 三十秒",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你得先学一个东西。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 三十秒",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你直接砸下去，它就叫了。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 不是那个调弦",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "力气不够它就不出声。你得让它没有选择。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 不是那个调弦",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "搥要狠。狠一点，你怕什么。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 不是那个调弦",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "勾就反过来——勾的时候别抬手，往下带。带的时候顺手把弦勾一下，力气全在指尖那一点点上。",
+     "b": "meet",
+     "ch": 6,
+     "title": "Chapter 6 · 不是那个调弦",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你一只手就能把整段做完。右手可以完全不用碰。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 不是那个调弦",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你要弹这个，就只能弹这个。想弹别的，得整个调回去，一根一根。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 不是那个调弦",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你会弹好的。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 不是那个调弦",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "到九月你肯定能弹好。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 不是那个调弦",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "回去以后你只弹这一首。别的先不要弹。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 不是那个调弦",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "而且你会乱。",
+     "b": "daily",
+     "ch": 6,
+     "title": "Chapter 6 · 不是那个调弦",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "热成这样你还夹着胳膊。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "松开。你整个人绷着，弦能听出来。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你从进门就绷着。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你现在这样，弹出来的东西全是紧的。你得先让自己松下来，它才肯配合你。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你要是知道，你现在就不是这个坐法。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "我知道，我又不是聋子。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你那边亮着呢。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你上班的地方。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "看不见你的手。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "又没人看你。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "我看得见你。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "那你现在不这么想了？",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你可以去查我的账。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 停电",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你现在越来越早了，你知道吗。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 她没带琴",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "你在掐它。你现在这个力气，它疼。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 她没带琴",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "我教过你八百遍了。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 她没带琴",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "先轻，让它知道你在。然后慢慢加。你一上来就按死它，它就哑给你看。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 她没带琴",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "行。那我们从第一段来。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 她没带琴",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "光按住不行，它会死在那儿。你得让它一直动。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 四十分钟到了",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "力气不能大，大了它就断气。也不能停——你一停它就没了。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 四十分钟到了",
+     "series": "Slow Hands"
+    },
+    {
+     "cn": "我早说过它一直在那儿。是你自己不肯往那边去。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 四十分钟到了",
+     "series": "Slow Hands"
     }
    ]
   },
@@ -11222,6 +11222,27 @@
      "b": "daily",
      "ch": 2,
      "title": "Chapter 2 · 没有人来的时候",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "您说得对，太太。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 你说了算",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "您……您这样，我今天没法干活了。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 照常",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "我们俩，还真是一对。",
+     "b": "daily",
+     "ch": 9,
+     "title": "Chapter 9 · 太大的房子",
      "series": "Better Living Through You"
     },
     {
@@ -11302,27 +11323,6 @@
      "series": "Better Living Through You"
     },
     {
-     "cn": "您说得对，太太。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 你说了算",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "您……您这样，我今天没法干活了。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 照常",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "我们俩，还真是一对。",
-     "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 太大的房子",
-     "series": "Better Living Through You"
-    },
-    {
      "cn": "我在家等您。",
      "b": "daily",
      "ch": 38,
@@ -11341,41 +11341,6 @@
      "b": "daily",
      "ch": 38,
      "title": "Extra · 舞池",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "哦……那件旧了。我寻思着，该扔了。",
-     "b": "daily",
-     "ch": 68,
-     "title": "Extra · 那是您说的",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "可您是我太太。",
-     "b": "daily",
-     "ch": 68,
-     "title": "Extra · 那是您说的",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "您说的话，我怎么能不当真呢。您要是不喜欢，那我……那我改了就是。这有什么。",
-     "b": "daily",
-     "ch": 68,
-     "title": "Extra · 那是您说的",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "我就爱穿。您管得着吗？",
-     "b": "daily",
-     "ch": 68,
-     "title": "Extra · 那是您说的",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "我说的不是那个坐。",
-     "b": "daily",
-     "ch": 57,
-     "title": "Extra · Bishop",
      "series": "Better Living Through You"
     },
     {
@@ -11407,27 +11372,6 @@
      "series": "Better Living Through You"
     },
     {
-     "cn": "怎、怎么了？您看我干嘛？",
-     "b": "daily",
-     "ch": 66,
-     "title": "Extra · 看我一眼",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "是……是我脸上有东西吗？",
-     "b": "daily",
-     "ch": 66,
-     "title": "Extra · 看我一眼",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "那您可说好了。",
-     "b": "daily",
-     "ch": 66,
-     "title": "Extra · 看我一眼",
-     "series": "Better Living Through You"
-    },
-    {
      "cn": "一直这么客客气气地，叫你‘太太’呀？还‘您’来‘您’去的。",
      "b": "daily",
      "ch": 47,
@@ -11446,13 +11390,6 @@
      "b": "daily",
      "ch": 47,
      "title": "Extra · 太太",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "看您家先生，看入迷了？",
-     "b": "daily",
-     "ch": 59,
-     "title": "Extra · 夫妻店",
      "series": "Better Living Through You"
     },
     {
@@ -11645,10 +11582,24 @@
      "series": "Better Living Through You"
     },
     {
+     "cn": "我说的不是那个坐。",
+     "b": "daily",
+     "ch": 57,
+     "title": "Extra · Bishop",
+     "series": "Better Living Through You"
+    },
+    {
      "cn": "叫惯了。改不回来了。",
      "b": "miss",
      "ch": 58,
      "title": "Extra · 周末",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "看您家先生，看入迷了？",
+     "b": "daily",
+     "ch": 59,
+     "title": "Extra · 夫妻店",
      "series": "Better Living Through You"
     },
     {
@@ -11684,27 +11635,6 @@
      "b": "love",
      "ch": 63,
      "title": "Extra · 蔫了",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "您想吃什么，我做。",
-     "b": "daily",
-     "ch": 67,
-     "title": "Extra · 你选",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "没有吧。我什么都行。",
-     "b": "daily",
-     "ch": 67,
-     "title": "Extra · 你选",
-     "series": "Better Living Through You"
-    },
-    {
-     "cn": "这部！我早就想看了。",
-     "b": "daily",
-     "ch": 67,
-     "title": "Extra · 你选",
      "series": "Better Living Through You"
     },
     {
@@ -11754,6 +11684,76 @@
      "b": "daily",
      "ch": 62,
      "title": "Extra · 您歇着",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "哦……那件旧了。我寻思着，该扔了。",
+     "b": "daily",
+     "ch": 68,
+     "title": "Extra · 那是您说的",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "可您是我太太。",
+     "b": "daily",
+     "ch": 68,
+     "title": "Extra · 那是您说的",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "您说的话，我怎么能不当真呢。您要是不喜欢，那我……那我改了就是。这有什么。",
+     "b": "daily",
+     "ch": 68,
+     "title": "Extra · 那是您说的",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "我就爱穿。您管得着吗？",
+     "b": "daily",
+     "ch": 68,
+     "title": "Extra · 那是您说的",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "怎、怎么了？您看我干嘛？",
+     "b": "daily",
+     "ch": 66,
+     "title": "Extra · 看我一眼",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "是……是我脸上有东西吗？",
+     "b": "daily",
+     "ch": 66,
+     "title": "Extra · 看我一眼",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "那您可说好了。",
+     "b": "daily",
+     "ch": 66,
+     "title": "Extra · 看我一眼",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "您想吃什么，我做。",
+     "b": "daily",
+     "ch": 67,
+     "title": "Extra · 你选",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "没有吧。我什么都行。",
+     "b": "daily",
+     "ch": 67,
+     "title": "Extra · 你选",
+     "series": "Better Living Through You"
+    },
+    {
+     "cn": "这部！我早就想看了。",
+     "b": "daily",
+     "ch": 67,
+     "title": "Extra · 你选",
      "series": "Better Living Through You"
     }
    ]
@@ -12096,55 +12096,6 @@
      "series": "Eyes on Me"
     },
     {
-     "cn": "你知道加练意味着你多练，我也得多来吧。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 周六不行",
-     "series": "Eyes on Me"
-    },
-    {
-     "cn": "迟到一分钟，我掉头回去睡觉。",
-     "b": "night",
-     "ch": 4,
-     "title": "Chapter 4 · 周六不行",
-     "series": "Eyes on Me"
-    },
-    {
-     "cn": "今天不练你。",
-     "b": "daily",
-     "ch": 4,
-     "title": "Chapter 4 · 周六不行",
-     "series": "Eyes on Me"
-    },
-    {
-     "cn": "再敢那么扑球，我把你捆在板凳上。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 队伍资产",
-     "series": "Eyes on Me"
-    },
-    {
-     "cn": "但是先学会怎么落地。明早六点，我教你。",
-     "b": "daily",
-     "ch": 7,
-     "title": "Chapter 7 · 队伍资产",
-     "series": "Eyes on Me"
-    },
-    {
-     "cn": "都归位。吵得我头疼。这车上就没一个省心的，包括开车的。",
-     "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 线帽",
-     "series": "Eyes on Me"
-    },
-    {
-     "cn": "大半夜的走什么。",
-     "b": "sleepless",
-     "ch": 9,
-     "title": "Chapter 9 · 他说顺路",
-     "series": "Eyes on Me"
-    },
-    {
      "cn": "我送你回去。",
      "b": "daily",
      "ch": 10,
@@ -12250,6 +12201,55 @@
      "series": "Eyes on Me"
     },
     {
+     "cn": "你知道加练意味着你多练，我也得多来吧。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 周六不行",
+     "series": "Eyes on Me"
+    },
+    {
+     "cn": "迟到一分钟，我掉头回去睡觉。",
+     "b": "night",
+     "ch": 4,
+     "title": "Chapter 4 · 周六不行",
+     "series": "Eyes on Me"
+    },
+    {
+     "cn": "今天不练你。",
+     "b": "daily",
+     "ch": 4,
+     "title": "Chapter 4 · 周六不行",
+     "series": "Eyes on Me"
+    },
+    {
+     "cn": "再敢那么扑球，我把你捆在板凳上。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 队伍资产",
+     "series": "Eyes on Me"
+    },
+    {
+     "cn": "但是先学会怎么落地。明早六点，我教你。",
+     "b": "daily",
+     "ch": 7,
+     "title": "Chapter 7 · 队伍资产",
+     "series": "Eyes on Me"
+    },
+    {
+     "cn": "都归位。吵得我头疼。这车上就没一个省心的，包括开车的。",
+     "b": "daily",
+     "ch": 8,
+     "title": "Chapter 8 · 线帽",
+     "series": "Eyes on Me"
+    },
+    {
+     "cn": "大半夜的走什么。",
+     "b": "sleepless",
+     "ch": 9,
+     "title": "Chapter 9 · 他说顺路",
+     "series": "Eyes on Me"
+    },
+    {
      "cn": "这玩意儿一个月那么些钱，我买它就一个用处。",
      "b": "daily",
      "ch": 27,
@@ -12326,6 +12326,13 @@
      "b": "daily",
      "ch": 1,
      "title": "Chapter 1 · 当家的",
+     "series": "No One Walks Off"
+    },
+    {
+     "cn": "半夜不睡，专挑我最困的时候嚎。",
+     "b": "sleepless",
+     "ch": 10,
+     "title": "Chapter 10 · 年轻的你",
      "series": "No One Walks Off"
     },
     {
@@ -12445,13 +12452,6 @@
      "b": "daily",
      "ch": 9,
      "title": "Chapter 9 · 捞人",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "半夜不睡，专挑我最困的时候嚎。",
-     "b": "sleepless",
-     "ch": 10,
-     "title": "Chapter 10 · 年轻的你",
      "series": "No One Walks Off"
     },
     {
