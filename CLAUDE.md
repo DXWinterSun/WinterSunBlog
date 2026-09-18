@@ -719,16 +719,37 @@ python3 tools/check_daily_rotation.py
 **计数总闸 `_data/sam.yml`：** `faces`（角色数）、`wall_lines`（台词数 = 5×角色数）。
 首页 `sam/index.html` 三张卡的计数从这里读，**改这一个文件，首页三处一起更新**。
 
-**但仍有几处「四十 / 两百」是硬编码、不吃 sam.yml，加人后要手动搜改：**
-`sam/index.html` 签名墙卡标题（「两百余句」）、`sam/quiz` 结果页 `["41","个角色"]`、
-`sam/spectrum` 的 SEO + `__avg` 平均脸的 name/film/filmCN + 三处「四十一人」文案、
-`sam/today`·`sam/wall`·`sam/spectrum` 的 `<meta>` SEO 描述。
-**加完人统一 `grep -rn "四十\|两百\|40 个\|200 句" sam/`（排除 `四十年/四十岁` 等正文）扫一遍补干净。**
+**但仍有几处角色数是硬编码、不吃 sam.yml，加人后要手动搜改：**
+`sam/quiz` 结果页 `["54","个角色"]`、`sam/spectrum` 的 SEO + `__avg` 平均脸的 name/film/filmCN +
+三处「五十四人」文案、`sam/today`·`sam/wall`·`sam/spectrum` 的 `<meta>` SEO 描述、
+`sam/today/manifest.webmanifest` 的描述（「五十四个角色」）。（签名墙卡标题已改成读 `sam.yml`。）
+**加完人统一 `grep -rn "五十四\|54 个\|270 句" sam/` 扫一遍补干净。**
 
 **台词（5 句）与画册 inscription 的关系：** 每个角色 5 句台词里第 1 句 `kind:"锚"`，
 **就是画册 `inscription` 那一句**（label/line/gloss 三处必须对上）。且所有 inscription /
 台词都是**第一人称**（角色对「你」说话），不是旁白第三人称——外部交付时若给成第三人称，
 部署前改成第一人称。
+
+## 🩺 2026-09-18 全站体检批 · 维护备忘
+
+这一批是 Winter 让 Fable「查一遍整个博客有什么可以优化的」之后做的（体检报告见当次对话的 Artifact）。
+以后维护要知道的几件事：
+
+| 东西 | 在哪 | 备忘 |
+|---|---|---|
+| **样式外置** | `css/main.scss` → 线上 `/css/main.css` | 以前整份 CSS 内联在每页 `<head>`；现在是外链文件（`_includes/head.html`，带 `site.time` 缓存戳）。改样式照旧改 `_sass/`，跑 `bash tools/check_scss.sh`。 |
+| **脚本 `defer`** | `_includes/javascripts.html` | 8 个脚本全部延后加载；页面里别再写依赖「脚本已同步执行完」的内联代码。 |
+| **搜索索引瘦身** | `search.json` + `js/main.js` | 只含标题/系列/章节/引言/标签（约 300 KB，以前 9 MB 含全文），且点进搜索框才下载。结果显示「标题 + 系列 · 章节」。 |
+| **首页不再渲染章节卡** | `index.html` | 系列章节在首页任何视图都不单独显示，所以只渲染无 `series` 的文章（首页 HTML 1.2 MB → 约 100 KB）。 |
+| **封面懒加载** | `data-bg="…"` + `js/main.js` | 模板里封面写 `data-bg`（不再写内联 `background-image`），滚到视野附近才加载。新模板照此写。 |
+| **React 程序库自托管** | `js/vendor/` | 画册 / 测验 / 光谱 / 台词墙不再从 unpkg 现场加载（国内常黑屏）；页面里带「加载失败」兜底提示。`tools/build_public.py` 也同步复制。升级版本 = 换文件名 + 改四页的 `<script src>`。 |
+| **分享预览** | `_includes/head.html` | 每页输出 `og:*` / `twitter:card`（封面 → `og:image`，没有就头像）；`<html lang="zh-CN">`。 |
+| **阅读记忆** | `js/main.js`（`readingMemory`）、`_layouts/series.html`、`_layouts/post.html` | 本机 `localStorage` 键 **`wiw-read`**：章节页记「读到哪章、百分之几」，系列页显示「继续读 · No.N」存根、读过的票根打勾、上次那张盖戳、章节页「上次读到 N%，跳过去」。另有目录快捷键「第一章 / 最新一章 / 倒序」。纯本机，不上传。 |
+| **票根号** | `_layouts/series.html` | `No.` 后面显示章节自己的号（`chapter_type` 里的 `Chapter N`），番外显示 `EX`——缺章（No One Walks Off 没有第 44 章）时不再错位。 |
+| **系列状态 `hiatus`** | `series_status: hiatus` | 停更约三个月以上的系列标它，显示成「hiatus · 待续」（`_includes/series-status.html`）；续写时改回 `ongoing`。首页 / Sam 页 / 系列页的状态都读系列首页这一份。 |
+| **年份彩带** | `sam/index.html`（`#js-year-ribbon`） | 运行时读 `sam/lines.json`，零维护。 |
+| **配色墙** | `sam/palettes/`（Sam 页第 09 张卡） | 由 `_data/sam_themes.yml` 构建时生成，按 `year` 排；「穿上」按钮复用 `au-strip__switch` + `data-au-theme`。零维护。 |
+| **AU 封面 WebP** | `images/the-real-thing.webp`（原 png 1.36 MB → 53 KB） | 新封面尽量传 WebP / 压过的 JPG，别传 1 MB 以上的 PNG。`images/my-psychopath.png`、`images/the-near-side.png` 目前没有任何页面引用。 |
 
 ## ⚠️ `series:` 字段必须用英文（ASCII）
 
