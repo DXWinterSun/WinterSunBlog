@@ -124,14 +124,14 @@ nav_active: sam
     ctx.fillStyle = '#fffaf4'; rr(ctx, 0, 0, W, H, 28); ctx.fill();
     var g = ctx.createLinearGradient(30, 0, W - 30, 0);
     g.addColorStop(0, t.bg); g.addColorStop(0.18, t.bg); g.addColorStop(0.42, t.accent); g.addColorStop(0.68, t.text); g.addColorStop(1, t.muted);
-    ctx.fillStyle = g; rr(ctx, 26, 26, W - 52, 190, 18); ctx.fill();
+    ctx.fillStyle = g; rr(ctx, 26, 26, W - 52, 210, 18); ctx.fill();
     four(t).forEach(function (c, i) {
-      var x = 26 + (i % 2) * ((W - 52) / 2 + 6), y = 236 + Math.floor(i / 2) * 104, w = (W - 52 - 12) / 2, h = 90;
+      var x = 26 + (i % 2) * ((W - 52) / 2 + 6), y = 256 + Math.floor(i / 2) * 114, w = (W - 52 - 12) / 2, h = 100;
       ctx.fillStyle = c[0]; rr(ctx, x, y, w, h, 14); ctx.fill();
       ctx.strokeStyle = 'rgba(0,0,0,0.06)'; ctx.lineWidth = 1; ctx.stroke();
       var ink = inkFor(c[0]);
-      ctx.fillStyle = ink; ctx.font = '500 22px "Noto Serif SC", serif'; ctx.fillText(c[1], x + 20, y + 40);
-      ctx.globalAlpha = 0.82; ctx.font = 'italic 16px "EB Garamond", serif'; ctx.fillText(c[2], x + 20, y + 66); ctx.globalAlpha = 1;
+      ctx.fillStyle = ink; ctx.font = '500 22px "Noto Serif SC", serif'; ctx.fillText(c[1], x + 20, y + 44);
+      ctx.globalAlpha = 0.82; ctx.font = 'italic 16px "EB Garamond", serif'; ctx.fillText(c[2], x + 20, y + 72); ctx.globalAlpha = 1;
     });
     foot(ctx, t, '#2b221e', '#8d7c73');
   }
