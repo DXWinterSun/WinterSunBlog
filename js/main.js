@@ -19,14 +19,21 @@ $(document).ready(function () {
         json: (window.SITE_BASEURL || '') + '/search.json',
         searchResultTemplate: '<li><a href="{url}"><span class="c-search-result__title">{title}</span><span class="c-search-result__meta">{series} {chapter}</span></a></li>',
         noResultsText: '<li><a>No results</a></li>',
-        limit: 12
+        limit: 12,
+        // 索引下载完成时，用户多半已经打了字：补搜一次，不然要再敲一下才出结果
+        success: function () {
+          if (searchInput.value) {
+            var ev = document.createEvent('Event'); ev.initEvent('keyup', true, true); searchInput.dispatchEvent(ev);
+          }
+        }
       });
-      if (searchInput.value) {
-        var ev = document.createEvent('Event'); ev.initEvent('keyup', true, true); searchInput.dispatchEvent(ev);
-      }
     };
     searchInput.addEventListener('focus', initSearch, { once: true });
     searchInput.addEventListener('input', initSearch, { once: true });
+    // 库只听 keyup；中文输入法、粘贴、手机键盘有时只发 input —— 补一个转发
+    searchInput.addEventListener('input', function () {
+      var ev = document.createEvent('Event'); ev.initEvent('keyup', true, true); searchInput.dispatchEvent(ev);
+    });
   }
 
   /* =======================
@@ -80,7 +87,7 @@ $(document).ready(function () {
       var all = loadAll();
       var rec = all[series] || { read: {} };
       var prev = (rec.last && norm(rec.last.path) === path) ? rec.last : null;
-      var pct = 0;
+      var pct = prev ? (prev.pct || 0) : 0;   // 重开同一章不把进度清零，只往前记
       function measure() {
         var doc = document.documentElement;
         var max = (doc.scrollHeight - window.innerHeight) || 1;
