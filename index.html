@@ -201,6 +201,9 @@ layout: home
       {% assign series_cat = series_first.categories | first %}
       {% assign series_count = series_posts | size %}
       {% assign series_slug = series_name | slugify %}
+      {% comment %} 状态以系列首页 front matter 的 series_status 为准（第一章上的那份早就不更新了） {% endcomment %}
+      {% assign series_page = site.pages | where: "series_name", series_name | first %}
+      {% assign series_status = series_page.series_status | default: series_first.series_status | default: "ongoing" %}
     <a class="c-post c-post--series" href="{{ site.baseurl }}/series/{{ series_slug }}/" data-category="{{ series_cat }}" data-card-type="series" target="_blank" rel="noopener">
       <div class="c-post__image-wrap">
         {% if series_first.image %}
@@ -212,7 +215,7 @@ layout: home
       <div class="c-post__body">
         <div class="c-post__eyebrow">{{ series_cat }} · {{ series_first.series_type | default: "Series" }}</div>
         <h3 class="c-post__title">{{ series_first.series_title | default: series_name }}</h3>
-        <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · {{ series_first.series_status | default: "ongoing" }}</p>
+        <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · {{ series_status }}</p>
       </div>
     </a>
     {% endfor %}

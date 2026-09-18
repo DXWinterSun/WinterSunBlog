@@ -69,6 +69,7 @@ exclude:
   - DEPLOY-CLOUDFLARE.md
   - NEW-AU-INTAKE-TEMPLATE.md
   - README.md
+  - sam/quotes-draft.md   # 台词草稿，不是页面
 
 gallery_images:
   - counting-stars.png

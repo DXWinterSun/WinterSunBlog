@@ -67,7 +67,16 @@ layout: home
     {% comment %} data-moods：本章命中的 mood（供目录基调筛选用），空格分隔 {% endcomment %}
     {% capture cmoods %}{% for m in site.data.moods %}{% if chapter.tags contains m.cn %}{{ m.cn }} {% endif %}{% endfor %}{% endcapture %}
     <a class="c-chapter-card" data-moods="{{ cmoods | strip }}" href="{{ chapter.url | prepend: site.baseurl }}">
-      <span class="c-chapter-card__no"><i>No.</i>{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+      {%- comment -%} 票根号 = 章节自己的号（chapter_type 里的 Chapter N），不是「排第几个」——
+        缺了一章（如 No One Walks Off 没有第 44 章）时，后面的票根号才不会错位；番外显示 EX。 {%- endcomment -%}
+      {%- assign ct = chapter.chapter_type | default: "" -%}
+      {%- assign ct_num = ct | replace: "Chapter ", "" | replace: "Chapter", "" | strip -%}
+      {%- assign ct_check = ct_num | plus: 0 -%}
+      {%- if ct contains "Chapter" and ct_check > 0 -%}
+      <span class="c-chapter-card__no"><i>No.</i>{% if ct_check < 10 %}0{% endif %}{{ ct_check }}</span>
+      {%- else -%}
+      <span class="c-chapter-card__no c-chapter-card__no--extra"><i>No.</i>EX</span>
+      {%- endif -%}
       <span class="c-chapter-card__body">
         <span class="c-chapter-card__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}{% if chapter.story_time %}<i class="c-chapter-card__era" title="故事发生的年代">{{ chapter.story_time }}</i>{% endif %}</span>
         <span class="c-chapter-card__title">{{ disp }}</span>
