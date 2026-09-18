@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十。前情见
-> [Extra · The Middle of the Bed]({{ site.baseurl }}{% post_url 2026-08-31-everybody-s-home-extra-the-middle-of-the-bed %})。规矩是 Five 定的，说得跟安排明天翻地一样理所当然：谁把她送到边上，谁就得退出去。他们低估了那两秒钟的空。
+> [Extra · The Middle of the Bed]({{ site.baseurl }}{% post_url 2026-09-11-everybody-s-home-extra-the-middle-of-the-bed %})。规矩是 Five 定的，说得跟安排明天翻地一样理所当然：谁把她送到边上，谁就得退出去。他们低估了那两秒钟的空。
 
 ## 一 · 规矩是 Five 定的
 

@@ -18,7 +18,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十四。前情见
-> [Extra · Proof of Life]({{ site.baseurl }}{% post_url 2026-09-03-everybody-s-home-extra-proof-of-life %})。第二年春天，阳台上那三盆风信子开了。你蹲在那儿看了很久，转过身的时候，他们两个已经站在门口了——七点钟，两个人都穿戴整齐。
+> [Extra · Proof of Life]({{ site.baseurl }}{% post_url 2026-09-11-everybody-s-home-extra-proof-of-life %})。第二年春天，阳台上那三盆风信子开了。你蹲在那儿看了很久，转过身的时候，他们两个已经站在门口了——七点钟，两个人都穿戴整齐。
 
 ### 一 · 它回来了
 

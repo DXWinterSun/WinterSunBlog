@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外六。前情见
-> [Extra · Off Duty]({{ site.baseurl }}{% post_url 2026-08-27-everybody-s-home-extra-off-duty %})。Five 说好两个礼拜，第十九天了还没回来。你们俩谁都不肯先说“想他了”——那就换个说法。地月之间的信号，来回要两秒六。
+> [Extra · Off Duty]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-extra-off-duty %})。Five 说好两个礼拜，第十九天了还没回来。你们俩谁都不肯先说“想他了”——那就换个说法。地月之间的信号，来回要两秒六。
 
 ## 一 · 是他自己闲不住
 

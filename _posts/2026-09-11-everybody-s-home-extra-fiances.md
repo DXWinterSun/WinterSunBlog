@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十五。前情见
-> [Extra · Next of Kin]({{ site.baseurl }}{% post_url 2026-09-04-everybody-s-home-extra-next-of-kin %})。求婚那天傍晚，GERTY 问了一个它必须问的问题：本系统应如何记录三位的关系。你张了张嘴，最后给出的还是那个旧答案。而 Six 就站在你身后。
+> [Extra · Next of Kin]({{ site.baseurl }}{% post_url 2026-09-11-everybody-s-home-extra-next-of-kin %})。求婚那天傍晚，GERTY 问了一个它必须问的问题：本系统应如何记录三位的关系。你张了张嘴，最后给出的还是那个旧答案。而 Six 就站在你身后。
 
 ## 一 · 本系统应如何记录
 

@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外五。前情见
-> [Extra · Out Loud]({{ site.baseurl }}{% post_url 2026-08-26-everybody-s-home-extra-out-loud %})。这回轮到 Five 走开——他说得坦坦荡荡，一点都不别扭，反倒把 Six 弄得浑身不自在。今晚的规矩还是你定的：他什么都不用决定。
+> [Extra · Out Loud]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-extra-out-loud %})。这回轮到 Five 走开——他说得坦坦荡荡，一点都不别扭，反倒把 Six 弄得浑身不自在。今晚的规矩还是你定的：他什么都不用决定。
 
 ## 一 · Five 走得特别坦荡
 

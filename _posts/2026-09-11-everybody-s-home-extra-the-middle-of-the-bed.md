@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外九。前情见
-> [Extra · Three Kilometres North]({{ site.baseurl }}{% post_url 2026-08-30-everybody-s-home-extra-three-kilometres-north %})。从月球回来的第九天夜里，他在梦里回到了那辆车上。梦里他什么都清楚：氧气还剩多少，外面是几点，以及——你不是真的。
+> [Extra · Three Kilometres North]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-extra-three-kilometres-north %})。从月球回来的第九天夜里，他在梦里回到了那辆车上。梦里他什么都清楚：氧气还剩多少，外面是几点，以及——你不是真的。
 
 ## 一 · 第九天
 

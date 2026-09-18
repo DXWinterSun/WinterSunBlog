@@ -18,7 +18,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外七。前情见
-> [Extra · The Next Ship]({{ site.baseurl }}{% post_url 2026-08-28-everybody-s-home-extra-the-next-ship %})。那通电话之后，家里立了一条新规矩。然后他们买了一艘船。八天的航程，船自己会飞，你们只要偶尔看一眼——剩下的时间，全归你们自己。
+> [Extra · The Next Ship]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-extra-the-next-ship %})。那通电话之后，家里立了一条新规矩。然后他们买了一艘船。八天的航程，船自己会飞，你们只要偶尔看一眼——剩下的时间，全归你们自己。
 
 ## 一 · 新规矩
 

@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外八。前情见
-> [Extra · The Third Cup]({{ site.baseurl }}{% post_url 2026-08-29-everybody-s-home-extra-the-third-cup %})。Sarang 以北三公里，那辆车还在原地——月球上没有风，没有雨，没有任何能让它移位的东西。你们三个，第一次一起去那儿。
+> [Extra · The Third Cup]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-extra-the-third-cup %})。Sarang 以北三公里，那辆车还在原地——月球上没有风，没有雨，没有任何能让它移位的东西。你们三个，第一次一起去那儿。
 
 ## 一 · 他总有别的事
 

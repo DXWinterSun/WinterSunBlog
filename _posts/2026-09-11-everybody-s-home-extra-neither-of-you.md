@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十二。前情见
-> [Extra · One Sam Bell]({{ site.baseurl }}{% post_url 2026-09-02-everybody-s-home-extra-one-sam-bell %})。隔壁 Marlow 家的女儿开春回来了。她只问了你一句话，你按你自己定的规矩答了。答完你才发现 Six 就站在厨房门口。
+> [Extra · One Sam Bell]({{ site.baseurl }}{% post_url 2026-09-11-everybody-s-home-extra-one-sam-bell %})。隔壁 Marlow 家的女儿开春回来了。她只问了你一句话，你按你自己定的规矩答了。答完你才发现 Six 就站在厨房门口。
 
 ## 一 · 隔壁回来了个人
 

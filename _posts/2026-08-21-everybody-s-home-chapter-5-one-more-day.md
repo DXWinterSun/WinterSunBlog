@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第五章。前情见
-> [〈四〉Two of Him]({{ site.baseurl }}{% post_url 2026-07-05-everybody-s-home-chapter-4-two-of-him %})。三只手叠在一起，说好回 Sarang。可船要明天才走——而这一夜，是出发前，唯一一夜。
+> [〈四〉Two of Him]({{ site.baseurl }}{% post_url 2026-07-12-everybody-s-home-chapter-4-two-of-him %})。三只手叠在一起，说好回 Sarang。可船要明天才走——而这一夜，是出发前，唯一一夜。
 
 ## 一 · 船
 

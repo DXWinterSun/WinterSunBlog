@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第七章。前情见
-> [〈六〉Full Circle]({{ site.baseurl }}{% post_url 2026-08-14-everybody-s-home-chapter-6-full-circle %})。战线在两头同时拉开：地面上，Sam 6 要拦住那只伸向沉睡舱的手；月球上，你们要赶在断电之前，把他们一个个叫醒。
+> [〈六〉Full Circle]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-chapter-6-full-circle %})。战线在两头同时拉开：地面上，Sam 6 要拦住那只伸向沉睡舱的手；月球上，你们要赶在断电之前，把他们一个个叫醒。
 
 ## 一 · 地球 · 那只手
 

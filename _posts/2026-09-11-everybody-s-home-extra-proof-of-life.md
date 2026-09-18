@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十三。前情见
-> [Extra · Neither of You]({{ site.baseurl }}{% post_url 2026-09-02-everybody-s-home-extra-neither-of-you %})。那艘船的登记上只有一个名字。要把另外两个加上去，得先解决一件事——法律上，Five 不存在。
+> [Extra · Neither of You]({{ site.baseurl }}{% post_url 2026-09-11-everybody-s-home-extra-neither-of-you %})。那艘船的登记上只有一个名字。要把另外两个加上去，得先解决一件事——法律上，Five 不存在。
 
 ## 一 · 你的证件呢
 

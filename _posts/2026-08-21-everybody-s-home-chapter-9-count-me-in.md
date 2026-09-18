@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第九章。前情见
-> [〈八〉The 156]({{ site.baseurl }}{% post_url 2026-08-16-everybody-s-home-chapter-8-the-156 %})。尘埃落定。基地成了他们的——可他们转过头来，要你。
+> [〈八〉The 156]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-chapter-8-the-156 %})。尘埃落定。基地成了他们的——可他们转过头来，要你。
 
 ## 一 · 过来
 

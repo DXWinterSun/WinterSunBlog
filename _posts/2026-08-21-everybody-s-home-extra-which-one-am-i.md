@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外三。前情见
-> [Extra · Let Them Hear]({{ site.baseurl }}{% post_url 2026-08-24-everybody-s-home-extra-let-them-hear %})。他俩穿着一模一样的衬衫下楼，Six 从口袋里摸出一条黑绸带。规矩是他定的：蒙上眼，不许说话，你只能靠身体认出谁是谁——认对了，才准你到。
+> [Extra · Let Them Hear]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-extra-let-them-hear %})。他俩穿着一模一样的衬衫下楼，Six 从口袋里摸出一条黑绸带。规矩是他定的：蒙上眼，不许说话，你只能靠身体认出谁是谁——认对了，才准你到。
 
 ## 一 · 他准备了一个礼拜
 

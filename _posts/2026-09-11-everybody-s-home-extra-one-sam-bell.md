@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十一。前情见
-> [Extra · Hand to Hand]({{ site.baseurl }}{% post_url 2026-09-01-everybody-s-home-extra-hand-to-hand %})。下雨的下午，你问了一个憋了很久的问题：你们俩是不是早就喜欢彼此了。你没想到他们会同时否认，更没想到自己会在半个钟头后，因为顺口顶了一句嘴，把整个下午都赔进去。
+> [Extra · Hand to Hand]({{ site.baseurl }}{% post_url 2026-09-11-everybody-s-home-extra-hand-to-hand %})。下雨的下午，你问了一个憋了很久的问题：你们俩是不是早就喜欢彼此了。你没想到他们会同时否认，更没想到自己会在半个钟头后，因为顺口顶了一句嘴，把整个下午都赔进去。
 
 ## 一 · 我问了一句
 

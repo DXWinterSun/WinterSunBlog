@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第十章。前情见
-> [〈九〉Count Me In]({{ site.baseurl }}{% post_url 2026-08-17-everybody-s-home-chapter-9-count-me-in %})。家安顿好了，你两头跑，Five 和 Six 也各自把日子过成了自己的样子。这一章开始，你和 Six 之间那件谁都没说破的事，要冒头了。
+> [〈九〉Count Me In]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-chapter-9-count-me-in %})。家安顿好了，你两头跑，Five 和 Six 也各自把日子过成了自己的样子。这一章开始，你和 Six 之间那件谁都没说破的事，要冒头了。
 
 ## 一 · 没人教过他的事
 

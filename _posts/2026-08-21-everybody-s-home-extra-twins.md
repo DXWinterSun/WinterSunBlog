@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外一。正文见
-> [〈十四〉The House He Remembers]({{ site.baseurl }}{% post_url 2026-08-22-everybody-s-home-chapter-14-the-house-he-remembers %})。正文完结之后，你们三个在地球上租下了那栋带院子的房子。这是搬进去的第一个月——买菜、修水管、被整条街围观。
+> [〈十四〉The House He Remembers]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-chapter-14-the-house-he-remembers %})。正文完结之后，你们三个在地球上租下了那栋带院子的房子。这是搬进去的第一个月——买菜、修水管、被整条街围观。
 
 ## 一 · 第一件麻烦事
 

@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第十二章。前情见
-> [〈十一〉Tell Us Apart]({{ site.baseurl }}{% post_url 2026-08-19-everybody-s-home-chapter-11-tell-us-apart %})。观测舱里，三个人手里都端着热可可，谁都没再提“该不该”。这一章，是三个人的第一次。
+> [〈十一〉Tell Us Apart]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-chapter-11-tell-us-apart %})。观测舱里，三个人手里都端着热可可，谁都没再提“该不该”。这一章，是三个人的第一次。
 
 ## 一 · 那间从没派上用场的房间
 

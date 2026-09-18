@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外二。前情见
-> [Extra · Twins]({{ site.baseurl }}{% post_url 2026-08-23-everybody-s-home-extra-twins %})。夏天的夜里，你们自己的房子，自己的床，窗开着。楼下院子里的土刚翻过，风信子的球根埋在里面等明年。而这一夜，你不打算小声。
+> [Extra · Twins]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-extra-twins %})。夏天的夜里，你们自己的房子，自己的床，窗开着。楼下院子里的土刚翻过，风信子的球根埋在里面等明年。而这一夜，你不打算小声。
 
 ## 一 · 窗开着
 

@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第十一章。前情见
-> [〈十〉Second Nature]({{ site.baseurl }}{% post_url 2026-08-18-everybody-s-home-chapter-10-second-nature %})。你订了去 Sarang 的船——这一次，他躲不掉了。
+> [〈十〉Second Nature]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-chapter-10-second-nature %})。你订了去 Sarang 的船——这一次，他躲不掉了。
 
 ## 一 · 降落
 

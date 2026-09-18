@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外四。前情见
-> [Extra · Which One Am I]({{ site.baseurl }}{% post_url 2026-08-25-everybody-s-home-extra-which-one-am-i %})。Six 走了三天——他自己走的，还嘴硬说是有事。屋子里只剩你和 Five。今晚规矩是你定的：他想要什么，都得自己说出来。
+> [Extra · Which One Am I]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-extra-which-one-am-i %})。Six 走了三天——他自己走的，还嘴硬说是有事。屋子里只剩你和 Five。今晚规矩是你定的：他想要什么，都得自己说出来。
 
 ## 一 · 他走了三天
 

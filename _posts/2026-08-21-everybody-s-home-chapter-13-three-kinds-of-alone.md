@@ -15,7 +15,7 @@ summary: "他熬了三年，他熬了两天，你熬了五年。"
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第十三章。前情见
-> [〈十二〉What's Mine]({{ site.baseurl }}{% post_url 2026-08-20-everybody-s-home-chapter-12-whats-mine %})。灯没开，谁也不想动。这一夜剩下的时间，你们三个把各自熬过的那些年，一样一样摊开说了。
+> [〈十二〉What's Mine]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-chapter-12-whats-mine %})。灯没开，谁也不想动。这一夜剩下的时间，你们三个把各自熬过的那些年，一样一样摊开说了。
 
 ## 一 · 谁也不想动
 

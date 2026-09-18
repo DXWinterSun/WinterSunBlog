@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第八章。前情见
-> [〈七〉The Witness]({{ site.baseurl }}{% post_url 2026-08-15-everybody-s-home-chapter-7-the-witness %})。冻结不了的公司，终于被拽进了聚光灯下。
+> [〈七〉The Witness]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-chapter-7-the-witness %})。冻结不了的公司，终于被拽进了聚光灯下。
 
 ## 一 · 下来
 

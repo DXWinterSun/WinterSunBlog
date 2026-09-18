@@ -17,7 +17,7 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第六章。前情见
-> [〈五〉One More Day]({{ site.baseurl }}{% post_url 2026-08-13-everybody-s-home-chapter-5-one-more-day %})。你和 Sam 5 赶回 Sarang——那座把他一个个造出来、又判了死的基地。
+> [〈五〉One More Day]({{ site.baseurl }}{% post_url 2026-08-21-everybody-s-home-chapter-5-one-more-day %})。你和 Sam 5 赶回 Sarang——那座把他一个个造出来、又判了死的基地。
 
 ## 一 · 回去
 

@@ -17,9 +17,9 @@ redirect_from:
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》第四章。前情见
-> [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-07-05-everybody-s-home-chapter-1-the-rescue %})、
-> [〈二〉Coming Down]({{ site.baseurl }}{% post_url 2026-07-05-everybody-s-home-chapter-2-coming-down %})、
-> [〈三〉Solid Ground]({{ site.baseurl }}{% post_url 2026-07-05-everybody-s-home-chapter-3-solid-ground %})。你带他去认领另一个自己——而墙角的那家公司，正盘算着把证据，连人，一把火烧干净。
+> [〈一〉The Rescue]({{ site.baseurl }}{% post_url 2026-05-02-everybody-s-home-chapter-1-the-rescue %})、
+> [〈二〉Coming Down]({{ site.baseurl }}{% post_url 2026-07-06-everybody-s-home-chapter-2-coming-down %})、
+> [〈三〉Solid Ground]({{ site.baseurl }}{% post_url 2026-07-12-everybody-s-home-chapter-3-solid-ground %})。你带他去认领另一个自己——而墙角的那家公司，正盘算着把证据，连人，一把火烧干净。
 
 ## 一 · 追着那张脸
 
