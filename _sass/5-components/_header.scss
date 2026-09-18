@@ -152,6 +152,15 @@
         }
       }
     }
+    .c-search-result__title { display: block; }
+    .c-search-result__meta {
+      display: block;
+      margin-top: 2px;
+      font-family: $heading-font-family;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: $muted;
+    }
   }
 }
 

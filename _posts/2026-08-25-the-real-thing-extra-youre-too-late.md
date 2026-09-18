@@ -3,7 +3,7 @@ layout: post
 title: "Extra · 你来晚了 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-25 22:36:23 +0800
-image: "the-real-thing.png"
+image: "the-real-thing.webp"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
 series_order: 35

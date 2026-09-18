@@ -6,15 +6,164 @@ $(document).ready(function () {
   // Simple Search Settings
   ======================= */
 
-  if (document.getElementById('js-search-input')) {
-    SimpleJekyllSearch({
-      searchInput: document.getElementById('js-search-input'),
-      resultsContainer: document.getElementById('js-results-container'),
-      json: (window.SITE_BASEURL || '') + '/search.json',
-      searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-      noResultsText: '<li><a>No results</a></li>'
-    });
+  // 索引只在第一次点进搜索框时才下载（以前每一页一打开就拉 9 MB 的全文索引）
+  var searchInput = document.getElementById('js-search-input');
+  if (searchInput) {
+    var searchReady = false;
+    var initSearch = function () {
+      if (searchReady) return;
+      searchReady = true;
+      SimpleJekyllSearch({
+        searchInput: searchInput,
+        resultsContainer: document.getElementById('js-results-container'),
+        json: (window.SITE_BASEURL || '') + '/search.json',
+        searchResultTemplate: '<li><a href="{url}"><span class="c-search-result__title">{title}</span><span class="c-search-result__meta">{series} {chapter}</span></a></li>',
+        noResultsText: '<li><a>No results</a></li>',
+        limit: 12
+      });
+      if (searchInput.value) {
+        var ev = document.createEvent('Event'); ev.initEvent('keyup', true, true); searchInput.dispatchEvent(ev);
+      }
+    };
+    searchInput.addEventListener('focus', initSearch, { once: true });
+    searchInput.addEventListener('input', initSearch, { once: true });
   }
+
+  /* =======================
+  // 封面图懒加载：模板只写 data-bg="图片地址"，滚到视野附近才真正加载
+  // （Sam 页 39 张 AU 封面以前一打开就全下载，合计 7 MB 多）
+  ======================= */
+
+  (function lazyBackgrounds() {
+    var els = document.querySelectorAll('[data-bg]');
+    if (!els.length) return;
+    function load(el) {
+      var url = el.getAttribute('data-bg');
+      if (!url) return;
+      el.style.backgroundImage = "url('" + url + "')";
+      el.removeAttribute('data-bg');
+    }
+    if (!('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(els, load);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { load(en.target); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '600px 0px' });
+    Array.prototype.forEach.call(els, function (el) { io.observe(el); });
+  })();
+
+  /* =======================
+  // 阅读记忆（2026-09-18，Winter 选的 A+B）：
+  //  · 章节页：记下「这个系列读到哪一章、读到百分之几」（本机 localStorage 键 wiw-read）
+  //  · 系列页：目录顶上的存根显示「继续读 · No.N」，读过的票根打勾，上次那张盖个戳；
+  //    另有「倒序」按钮。纯本机，不上传任何东西。
+  ======================= */
+
+  (function readingMemory() {
+    var KEY = 'wiw-read';
+    function loadAll() { try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; } }
+    function saveAll(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) { /* ignore */ } }
+    function norm(p) { return (p || '').replace(/index\.html$/, '').replace(/\/+$/, '') + '/'; }
+    function chapterNo(label) {
+      var m = /Chapter\s+(\d+)/.exec(label || '');
+      return m ? (m[1].length < 2 ? '0' + m[1] : m[1]) : 'EX';
+    }
+
+    // —— 章节页：记录 ——
+    var article = document.querySelector('.c-article[data-series]');
+    if (article) {
+      var series = article.getAttribute('data-series');
+      var path = norm(window.location.pathname);
+      var all = loadAll();
+      var rec = all[series] || { read: {} };
+      var prev = (rec.last && norm(rec.last.path) === path) ? rec.last : null;
+      var pct = 0;
+      function measure() {
+        var doc = document.documentElement;
+        var max = (doc.scrollHeight - window.innerHeight) || 1;
+        var p = Math.round(Math.min(100, Math.max(0, (window.scrollY / max) * 100)));
+        if (p > pct) pct = p;
+      }
+      function commit() {
+        var d = loadAll();
+        var r = d[series] || { read: {} };
+        r.read = r.read || {};
+        r.read[path] = Date.now();
+        r.last = { path: path, no: article.getAttribute('data-chapter-no') || '', title: article.getAttribute('data-chapter-title') || '', pct: pct, ts: Date.now() };
+        d[series] = r;
+        saveAll(d);
+      }
+      measure(); commit();
+      var t = null;
+      window.addEventListener('scroll', function () {
+        if (t) return;
+        t = setTimeout(function () { t = null; measure(); commit(); }, 800);
+      }, { passive: true });
+      window.addEventListener('pagehide', function () { measure(); commit(); });
+
+      // 上次读到 N%，跳过去
+      var pill = document.getElementById('js-resume-pill');
+      if (pill && prev && prev.pct >= 8 && prev.pct <= 95) {
+        pill.textContent = '上次读到 ' + prev.pct + '%，跳过去 ↓';
+        pill.hidden = false;
+        pill.addEventListener('click', function () {
+          var doc = document.documentElement;
+          var max = (doc.scrollHeight - window.innerHeight) || 1;
+          window.scrollTo({ top: max * prev.pct / 100, behavior: 'smooth' });
+          pill.hidden = true;
+        });
+      }
+    }
+
+    // —— 系列页：存根 + 票根标记 + 倒序 ——
+    var list = document.querySelector('.c-chapter-list[data-series]');
+    if (list) {
+      var sname = list.getAttribute('data-series');
+      var data = loadAll()[sname];
+      var cards = Array.prototype.slice.call(list.querySelectorAll('.c-chapter-card'));
+      var resume = document.getElementById('js-resume');
+      var count = resume ? parseInt(resume.getAttribute('data-count'), 10) || 0 : 0;
+      if (data && data.last) {
+        var lastPath = norm(data.last.path);
+        cards.forEach(function (c) {
+          var p = norm(c.pathname);
+          if (data.read && data.read[p]) c.classList.add('is-read');
+          if (p === lastPath) {
+            c.classList.add('is-last-read');
+            var tag = document.createElement('span');
+            tag.className = 'c-chapter-card__lastread';
+            tag.textContent = '上次读到这里';
+            c.appendChild(tag);
+          }
+        });
+        if (resume) {
+          var readCount = data.read ? Object.keys(data.read).length : 0;
+          resume.href = data.last.path;
+          document.getElementById('js-resume-no').textContent = chapterNo(data.last.no);
+          document.getElementById('js-resume-title').textContent = data.last.title || data.last.no;
+          document.getElementById('js-resume-meta').textContent =
+            (data.last.pct >= 95 ? '这章读完了 · ' : '读到 ' + data.last.pct + '% · ') + '已读 ' + readCount + ' / ' + count + ' 章';
+          resume.hidden = false;
+        }
+      } else if (resume && count >= 8) {
+        resume.href = resume.getAttribute('data-first-url');
+        document.getElementById('js-resume-eyebrow').textContent = '还没开始';
+        document.getElementById('js-resume-title').textContent = '从 No.01 开始';
+        document.getElementById('js-resume-meta').textContent = '读过的章会在这里记着（只存在你自己的手机里）';
+        resume.hidden = false;
+      }
+      var rev = document.getElementById('js-chapter-reverse');
+      if (rev) {
+        rev.addEventListener('click', function () {
+          var on = list.classList.toggle('is-reversed');
+          rev.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      }
+    }
+  })();
 
   /* =======================
   // Responsive videos

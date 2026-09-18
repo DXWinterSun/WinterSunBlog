@@ -53,9 +53,35 @@ layout: home
     重复配图；纯文字目录与配图卡片二合一，只留这一列无图章节卡。
   {% endcomment %}
   {% if chapters.size > 0 %}
+  {%- comment -%}
+    「上次读到这里」存根（2026-09-18）：读者在本机读过本系列的哪一章，由 js/main.js 记在
+    localStorage（键 wiw-read）里；有记录就把这张撕下来的半张票填上「继续读 · No.N」，
+    没记录且章数够多就显示「从 No.01 开始」。没有 JS 时不出现。
+  {%- endcomment -%}
+  {%- assign first_chapter = chapters | first -%}
+  {%- assign last_chapter = chapters | last -%}
+  <a class="c-resume" id="js-resume" hidden
+     data-first-url="{{ first_chapter.url | prepend: site.baseurl }}"
+     data-count="{{ chapters | size }}">
+    <span class="c-resume__stub"><i>No.</i><b id="js-resume-no">01</b></span>
+    <span class="c-resume__body">
+      <span class="c-resume__eyebrow" id="js-resume-eyebrow">继续读</span>
+      <span class="c-resume__title" id="js-resume-title"></span>
+      <span class="c-resume__meta" id="js-resume-meta"></span>
+    </span>
+    <span class="c-resume__arrow" aria-hidden="true">→</span>
+  </a>
+  {%- comment -%} 目录快捷键：第一章 / 最新一章 / 倒序（倒序由 js/main.js 切换） {%- endcomment -%}
+  {% if chapters.size > 3 %}
+  <div class="c-chapter-tools" role="group" aria-label="目录快捷键">
+    <a class="c-chapter-tools__chip" href="{{ first_chapter.url | prepend: site.baseurl }}"><i>↥</i>第一章</a>
+    <a class="c-chapter-tools__chip" href="{{ last_chapter.url | prepend: site.baseurl }}"><i>↧</i>最新一章</a>
+    <button class="c-chapter-tools__chip" type="button" id="js-chapter-reverse" aria-pressed="false"><i>⇅</i>倒序</button>
+  </div>
+  {% endif %}
   {% assign art_count = chapters | where: "has_art", true | size %}
   {% if art_count > 0 %}<div class="c-chapter-list__legend">✦ 含手绘小彩蛋</div>{% endif %}
-  <div class="c-chapter-list">
+  <div class="c-chapter-list" data-series="{{ page.series_name | escape }}">
     {% for chapter in chapters %}
     {% comment %} 标题只显示章名（Chapter N 已在眉头，避免出现两次） {% endcomment %}
     {% assign disp = chapter.title | split: " — " | first %}

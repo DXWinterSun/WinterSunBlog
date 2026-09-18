@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 12 · 每一通都是一分钟 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-25 08:39:17 +0800
-image: "the-real-thing.png"
+image: "the-real-thing.webp"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
 series_order: 12

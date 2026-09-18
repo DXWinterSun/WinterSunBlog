@@ -26,9 +26,28 @@
 <body>
 <div id="root"></div>
 <meta name="cache-bust" content="20260704-clay-bear">
-<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<!-- 程序库自托管（2026-09-18）：以前从 unpkg 现场加载，国内一连不上整页就黑屏。
+     三个文件在 js/vendor/，版本钉死；升级就换文件名。下面那段是「加载失败」的兜底提示。 -->
+<script src="/WinterSunBlog/js/vendor/react-18.3.1.production.min.js"></script>
+<script src="/WinterSunBlog/js/vendor/react-dom-18.3.1.production.min.js"></script>
+<script src="/WinterSunBlog/js/vendor/babel-standalone-7.24.7.min.js"></script>
+<script>
+(function () {
+  function fail(why) {
+    var r = document.getElementById('root');
+    if (!r || r.children.length) return;
+    r.innerHTML = '<div style="max-width:32em;margin:18vh auto 0;padding:0 24px;text-align:center;font-family:Georgia,\'Noto Serif SC\',serif;color:#d8cbb8;line-height:1.9;">' +
+      '<p style="font-size:1.05rem;margin:0 0 10px;">这一页没能打开。</p>' +
+      '<p style="font-size:.9rem;opacity:.75;margin:0 0 22px;">' + why + '</p>' +
+      '<a href="javascript:location.reload()" style="color:#e6c377;border:1px solid #e6c377;border-radius:999px;padding:8px 22px;text-decoration:none;font-size:.85rem;letter-spacing:2px;">再试一次</a>' +
+      '<p style="margin-top:26px;font-size:.8rem;"><a href="/WinterSunBlog/sam/" style="color:#8a7558;text-decoration:none;letter-spacing:2px;">&larr; 回到 Sam</a></p></div>';
+  }
+  if (!window.React || !window.ReactDOM || !window.Babel) { fail('页面需要的程序没有加载出来（可能是网络不稳）。'); return; }
+  window.addEventListener('load', function () {
+    setTimeout(function () { fail('页面卡在了半路（可能是网络不稳，或者浏览器太旧）。'); }, 12000);
+  });
+})();
+</script>
 <script type="text/babel" data-presets="react">
 const { useEffect, useState } = React;
 

@@ -3,7 +3,7 @@ layout: post
 title: "Extra · 那个 Greg — The Real Thing"
 categories: ["AU Story"]
 date: 2026-09-12 01:15:44 +0800
-image: "the-real-thing.png"
+image: "the-real-thing.webp"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
 series_order: 51

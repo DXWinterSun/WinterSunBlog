@@ -1,0 +1,6 @@
+---
+# 全站样式：由 Jekyll 编成 /css/main.css（以前整份 CSS 内联在每一页的 <head> 里，
+# 每页白带 140 KB、浏览器没法缓存；2026-09-18 改成外链文件，link 带 site.time 的缓存戳）。
+# 内容仍在 _includes/main.scss（@import 各分区），改样式照旧改 _sass/，改完跑 bash tools/check_scss.sh。
+---
+{% include main.scss %}

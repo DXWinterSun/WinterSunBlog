@@ -3,7 +3,7 @@ layout: post
 title: "Chapter 34 · 这儿摆那匹马 — The Real Thing"
 categories: ["AU Story"]
 date: 2026-08-25 22:35:23 +0800
-image: "the-real-thing.png"
+image: "the-real-thing.webp"
 series: "The Real Thing"
 series_title: "The Real Thing · Frank Mercer AU"
 series_order: 34
