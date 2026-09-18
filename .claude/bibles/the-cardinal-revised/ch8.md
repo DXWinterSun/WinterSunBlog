@@ -1,21 +1,10 @@
----
-layout: post
-title: "Chapter 8 · 口琴 — The Cardinal"
-date: 2026-06-22 00:46:25 +0800
-image: sam-rockwell-polish-guy.jpg
-tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 怀旧, 怅惘]
-categories: ["AU Story"]
-series: "The Cardinal"
-series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
-series_order: 8
-series_status: ongoing
-series_type: Series
-chapter_type: "Chapter 8"
-summary: "他第一次为你吹起那把藏着的口琴——也第一次，跟你说起他的华沙。"
-redirect_from:
-  - /2026/06/20/the-cardinal-chapter-8-harmonica/
----
+# Chapter 8 · 口琴 — The Cardinal
 
+- 文件：`_posts/2026-06-22-the-cardinal-chapter-8-harmonica.md`
+- summary：他第一次为你吹起那把藏着的口琴——也第一次，跟你说起他的华沙。
+- tags：['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 怀旧, 怅惘]
+
+---
 > 他不肯说出口的那些，都藏在一把旧口琴里。
 > 那一夜，你终于听见了。
 

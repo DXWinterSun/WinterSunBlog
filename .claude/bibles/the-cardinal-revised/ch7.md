@@ -1,21 +1,10 @@
----
-layout: post
-title: "Chapter 7 · Krok po kroku — The Cardinal"
-date: 2026-06-21 23:55:12 +0800
-image: sam-rockwell-polish-guy.jpg
-tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 思念, 缱绻]
-categories: ["AU Story"]
-series: "The Cardinal"
-series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
-series_order: 7
-series_status: ongoing
-series_type: Series
-chapter_type: "Chapter 7"
-summary: "你从图书馆借回一本封面印着猫头鹰的波兰语教材，偷偷开始学他的语言。"
-redirect_from:
-  - /2026/06/20/the-cardinal-chapter-7-krok-po-kroku/
----
+# Chapter 7 · Krok po kroku — The Cardinal
 
+- 文件：`_posts/2026-06-21-the-cardinal-chapter-7-krok-po-kroku.md`
+- summary：你从图书馆借回一本封面印着猫头鹰的波兰语教材，偷偷开始学他的语言。
+- tags：['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 思念, 缱绻]
+
+---
 > 他整个人，有一半，锁在一门你不会的语言里。
 > 你决定，一个字、一个字地，把它学过来。
 

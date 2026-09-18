@@ -1,21 +1,10 @@
----
-layout: post
-title: "Chapter 3 · 钥匙 — The Cardinal"
-date: 2026-06-21 23:08:44 +0800
-image: sam-rockwell-polish-guy.jpg
-tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻, 怅惘]
-categories: ["AU Story"]
-series: "The Cardinal"
-series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
-series_order: 3
-series_status: ongoing
-series_type: Series
-chapter_type: "Chapter 3"
-summary: "你醒来，他已经走了，桌上只留下一把钥匙——没有一个字。"
-redirect_from:
-  - /2026/06/20/the-cardinal-chapter-3-the-key/
----
+# Chapter 3 · 钥匙 — The Cardinal
 
+- 文件：`_posts/2026-06-21-the-cardinal-chapter-3-the-key.md`
+- summary：你醒来，他已经走了，桌上只留下一把钥匙——没有一个字。
+- tags：['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻, 怅惘]
+
+---
 > 他走的时候，没有叫醒你。
 > 桌上留下一把钥匙——一句话也没有。
 

@@ -1,21 +1,10 @@
----
-layout: post
-title: "Chapter 5 · 虚掩的门 — The Cardinal"
-date: 2026-06-21 23:35:04 +0800
-image: sam-rockwell-polish-guy.jpg
-tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻]
-categories: ["AU Story"]
-series: "The Cardinal"
-series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
-series_order: 5
-series_status: ongoing
-series_type: Series
-chapter_type: "Chapter 5"
-summary: "你没关严的门在夜风里轻轻开合；他终究还是上来了，你却以为是在梦里。"
-redirect_from:
-  - /2026/06/20/the-cardinal-chapter-5-ajar/
----
+# Chapter 5 · 虚掩的门 — The Cardinal
 
+- 文件：`_posts/2026-06-21-the-cardinal-chapter-5-ajar.md`
+- summary：你没关严的门在夜风里轻轻开合；他终究还是上来了，你却以为是在梦里。
+- tags：['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻]
+
+---
 > 你忘了把门闩好。
 > 而那一夜，月亮替他，照亮了回来的路。
 

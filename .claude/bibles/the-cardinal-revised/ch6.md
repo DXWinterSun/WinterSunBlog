@@ -1,21 +1,10 @@
----
-layout: post
-title: "Chapter 6 · 打包带走 — The Cardinal"
-date: 2026-06-21 23:41:03 +0800
-image: sam-rockwell-polish-guy.jpg
-tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 安放, 絮语]
-categories: ["AU Story"]
-series: "The Cardinal"
-series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
-series_order: 6
-series_status: ongoing
-series_type: Series
-chapter_type: "Chapter 6"
-summary: "他要你搬去同住；你一答应，他就乐得跳下床，要把你和被子一起打包带走。"
-redirect_from:
-  - /2026/06/20/the-cardinal-chapter-6-packed-up/
----
+# Chapter 6 · 打包带走 — The Cardinal
 
+- 文件：`_posts/2026-06-21-the-cardinal-chapter-6-packed-up.md`
+- summary：他要你搬去同住；你一答应，他就乐得跳下床，要把你和被子一起打包带走。
+- tags：['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 安放, 絮语]
+
+---
 > 这一次，你睁开眼，他还在。
 > 然后他说，搬过来吧——把你，连人带被子，一起打包带走。
 

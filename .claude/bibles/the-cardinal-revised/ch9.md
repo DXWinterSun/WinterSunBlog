@@ -1,21 +1,10 @@
----
-layout: post
-title: "Chapter 9 · 吃醋 — The Cardinal"
-date: 2026-06-22 01:20:01 +0800
-image: sam-rockwell-polish-guy.jpg
-tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 暗涌]
-categories: ["AU Story"]
-series: "The Cardinal"
-series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
-series_order: 9
-series_status: ongoing
-series_type: Series
-chapter_type: "Chapter 9"
-summary: "系里那个男生送你回了家；那个永远气定神闲的男人，头一回，酸了。"
-redirect_from:
-  - /2026/06/20/the-cardinal-chapter-9-jealousy/
----
+# Chapter 9 · 吃醋 — The Cardinal
 
+- 文件：`_posts/2026-06-22-the-cardinal-chapter-9-jealousy.md`
+- summary：系里那个男生送你回了家；那个永远气定神闲的男人，头一回，酸了。
+- tags：['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 暗涌]
+
+---
 > 你见过他冷静，见过他温柔，见过他若即若离。
 > 你还没见过他——吃醋。
 

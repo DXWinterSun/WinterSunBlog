@@ -1,19 +1,10 @@
----
-layout: post
-title: "Chapter 1 · 认得那种神情 — The Cardinal"
-date: 2026-06-20
-image: sam-rockwell-polish-guy.jpg
-tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 悸动, 安放]
-categories: ["AU Story"]
-series: "The Cardinal"
-series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
-series_order: 1
-series_status: ongoing
-series_type: Series
-chapter_type: "Chapter 1"
-summary: "学姐把你丢在红灯整夜不灭的舞厅，吧台后的人一眼认出了你。"
----
+# Chapter 1 · 认得那种神情 — The Cardinal
 
+- 文件：`_posts/2026-06-20-the-cardinal-chapter-1-recognize.md`
+- summary：学姐把你丢在红灯整夜不灭的舞厅，吧台后的人一眼认出了你。
+- tags：['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 悸动, 安放]
+
+---
 > 一九九四年，洛杉矶。老好莱坞东段的红灯整夜不灭。
 > 被人丢下的人，总能一眼认出彼此。
 

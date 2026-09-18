@@ -1,21 +1,10 @@
----
-layout: post
-title: "Chapter 2 · 他没有走 — The Cardinal"
-date: 2026-06-21 22:59:23 +0800
-image: sam-rockwell-polish-guy.jpg
-tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻, 暗涌]
-categories: ["AU Story"]
-series: "The Cardinal"
-series_title: 'The Cardinal · Krzysztof "Kris" Wilk AU'
-series_order: 2
-series_status: ongoing
-series_type: Series
-chapter_type: "Chapter 2"
-summary: "他本来只是送你回旅馆——可你先吻了他，他便没再走。"
-redirect_from:
-  - /2026/06/20/the-cardinal-chapter-2-he-stayed/
----
+# Chapter 2 · 他没有走 — The Cardinal
 
+- 文件：`_posts/2026-06-21-the-cardinal-chapter-2-he-stayed.md`
+- summary：他本来只是送你回旅馆——可你先吻了他，他便没再走。
+- tags：['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 缱绻, 暗涌]
+
+---
 > 凌晨三点，CARDINAL 的红灯灭了。
 > 有些事，要等到灯熄了之后，才敢做。
 
