@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1862
+  "count": 1865
  },
  "chars": {
   "youngsam": {
@@ -13158,6 +13158,27 @@
      "b": "daily",
      "ch": 17,
      "title": "Extra · Jim 少爷",
+     "series": "The One I Kept"
+    },
+    {
+     "cn": "你倒在这儿给人帮工。",
+     "b": "daily",
+     "ch": 19,
+     "title": "Extra · 不一样的不是她",
+     "series": "The One I Kept"
+    },
+    {
+     "cn": "我给得起。谁来我都给得起，给得还挺痛快，是不是。",
+     "b": "daily",
+     "ch": 19,
+     "title": "Extra · 不一样的不是她",
+     "series": "The One I Kept"
+    },
+    {
+     "cn": "说了你就不来了。",
+     "b": "daily",
+     "ch": 19,
+     "title": "Extra · 不一样的不是她",
      "series": "The One I Kept"
     }
    ]
