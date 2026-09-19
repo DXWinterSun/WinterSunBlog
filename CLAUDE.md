@@ -778,6 +778,7 @@ python3 tools/check_daily_rotation.py
 | **年份彩带** | `sam/index.html`（`#js-year-ribbon`） | 运行时读 `sam/lines.json`，零维护。 |
 | **配色墙** | `sam/palettes/`（Sam 页第 09 张卡） | 由 `_data/sam_themes.yml` 构建时生成，按 `year` 排；「穿上」按钮复用 `au-strip__switch` + `data-au-theme`。零维护。 |
 | **「N 分钟读完」已删除** | `index.html`、`_layouts/series.html`、`_layouts/category.html` | Winter 2026-09-19：「我从来都没用过那个功能……直接拿掉也没有丝毫意见」。首页卡片与章节票根现在只显示日期。（拿掉它省的构建时间可以忽略——冷构建 126 秒 → 123 秒；真正的提速在上面那两条。）别再加回来。 |
+| **`hidden` 一定要真的隐藏** | `_sass/6-trumps/helpers.scss` | 2026-09-19 Winter 在章节页看见「一个点了没反应的小标签」——那是还没填字的「上次读到 N%」药丸。根因：normalize 的 `[hidden]{display:none}` 和组件类同权重，组件层排在后面，于是组件里写的 `display:inline-flex` 把 hidden 顶掉了，留下空壳。已在 trumps 层加 `[hidden]{display:none!important}` 一次管住全站。**新组件照常用 `hidden` 属性即可，不必各自再写一遍。** |
 | **AU 封面 WebP** | `images/the-real-thing.webp`（原 png 1.36 MB → 53 KB） | 新封面尽量传 WebP / 压过的 JPG，别传 1 MB 以上的 PNG。`images/my-psychopath.png`、`images/the-near-side.png` 目前没有任何页面引用。 |
 
 ## 🗓️ Archive › By Day 日历 + 「那一天」（2026-09-19）
