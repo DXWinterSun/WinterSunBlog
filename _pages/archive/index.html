@@ -88,7 +88,8 @@ nav_active: archive
               {%- capture dkey %}{{ yg.name }}-{{ mg.name }}-{% if d < 10 %}0{% endif %}{{ d }}{% endcapture -%}
               <a class="c-cal__cell c-cal__cell--on" href="#d{{ dkey }}" title="{{ dg.items.size }} 章">
                 <i>{{ d }}</i>
-                <span class="c-cal__stamp"><b>{{ dg.items.size }}</b><s>{{ month_num }}·{{ d }}</s></span>
+                {%- assign dn = dg.items.size -%}
+                <span class="c-cal__stamp{% if dn > 99 %} c-cal__stamp--w3{% elsif dn > 9 %} c-cal__stamp--w2{% endif %}"><b>{{ dn }}</b><s>{{ month_num }}·{{ d }}</s></span>
               </a>
             {%- else -%}
               <span class="c-cal__cell"><i>{{ d }}</i></span>
