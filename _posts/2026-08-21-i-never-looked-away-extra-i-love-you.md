@@ -11,6 +11,7 @@ series_order: 24
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你说了三遍我爱你，他一遍也没有说。"
 easter_eggs:
   - series_order: 20

@@ -11,6 +11,7 @@ series_order: 15
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他惹你哭一回就抱一堆熊回来。后来你才知道，有几只是他故意惹的。"
 ---
 

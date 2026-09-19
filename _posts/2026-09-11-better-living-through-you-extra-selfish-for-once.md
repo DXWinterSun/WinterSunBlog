@@ -11,6 +11,7 @@ series_order: 69
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他满心都是让你舒服——今晚你偏要他，为自己，要一回。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-selfish-for-once/

@@ -11,6 +11,7 @@ series_order: 50
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 18
+chapter_kind: pov
 summary: "全城都把他的姓念拧。只有一个人，八年零失误。他等了八年才知道为什么。"
 easter_eggs:
   - series_order: 1

@@ -12,6 +12,7 @@ story_time: "2016"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "婚讯没有通稿——她只是把账号名改成了 Winter Rockwell。"
 redirect_from:
   - /2026/09/11/fog-city-extra-winter-rockwell/

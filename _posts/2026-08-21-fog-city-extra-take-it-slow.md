@@ -12,6 +12,7 @@ story_time: "2026"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "休息日不赶时间。他说慢工出细活，你说你再慢我就自己来。"
 redirect_from:
   - /2026/09/16/fog-city-extra-take-it-slow/

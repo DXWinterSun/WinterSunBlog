@@ -10,6 +10,7 @@ series_order: 29
 series_status: complete
 series_type: Series
 chapter_type: "番外"
+chapter_kind: extra
 summary: "从前汲得越凶越要他命；如今他不竭，你终于敢一滴不留地要他。"
 tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 炽恋, 缱绻]
 redirect_from:

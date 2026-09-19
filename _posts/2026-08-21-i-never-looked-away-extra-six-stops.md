@@ -11,6 +11,7 @@ series_order: 26
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "从今天起不是一百七十六英里，是六站路。"
 easter_eggs:
   - series_order: 13

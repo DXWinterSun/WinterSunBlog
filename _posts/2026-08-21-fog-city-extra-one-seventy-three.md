@@ -12,6 +12,7 @@ story_time: "1989 →"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "两个一百七十三。她穿上高跟，他负责仰望和骄傲。"
 redirect_from:
   - /2026/09/08/fog-city-extra-one-seventy-three/

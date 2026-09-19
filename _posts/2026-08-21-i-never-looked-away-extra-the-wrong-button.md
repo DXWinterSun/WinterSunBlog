@@ -11,6 +11,7 @@ series_order: 28
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你配到了一样的扣子，他不让你换。"
 easter_eggs:
   - series_order: 27

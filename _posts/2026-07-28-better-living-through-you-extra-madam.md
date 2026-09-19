@@ -11,6 +11,7 @@ series_order: 47
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "邻桌问你们是正常夫妻吗——他握住你戴戒指的手，讲起了你们的故事。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-madam/

@@ -11,6 +11,7 @@ series_order: 27
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1985"
 summary: "你写了一本没打算给任何人看的自白——它最终有了唯一的读者。"
 easter_eggs:

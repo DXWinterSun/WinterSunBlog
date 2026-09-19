@@ -11,6 +11,7 @@ series_order: 24
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "谁把你送到边上，谁就得退出去。"
 redirect_from:
   - /2026/09/01/everybody-s-home-extra-hand-to-hand/

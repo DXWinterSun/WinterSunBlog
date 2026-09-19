@@ -11,6 +11,7 @@ series_order: 23
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1986–87"
 summary: "他消失了大半年，办成一件事。然后他推给你一个文件夹。"
 redirect_from:

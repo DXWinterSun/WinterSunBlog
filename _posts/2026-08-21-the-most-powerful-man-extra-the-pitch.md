@@ -11,6 +11,7 @@ series_order: 93
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "防弹背心穿在里面，笑穿在外面。他替全国把那一球扔直了。"
 redirect_from:
   - /2026/08/16/the-most-powerful-man-extra-the-pitch/

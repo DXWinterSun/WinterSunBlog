@@ -11,6 +11,7 @@ series_order: 92
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "字有纸收。动作没有纸——看见的人，就是纸。"
 redirect_from:
   - /2026/08/16/the-most-powerful-man-extra-the-body/

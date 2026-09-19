@@ -12,6 +12,7 @@ story_time: "2015"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "台上那一招全场屏息。台下的私人订制版，观众一名。"
 redirect_from:
   - /2026/09/07/fog-city-extra-roped-back/

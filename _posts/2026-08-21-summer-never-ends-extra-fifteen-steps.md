@@ -11,6 +11,7 @@ series_order: 19
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "搬家这件事没有发生过——你只是一件一件，被失物招领了。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-fifteen-steps/

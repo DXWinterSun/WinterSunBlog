@@ -11,6 +11,7 @@ series_order: 62
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你围着炉灶转了半辈子——这回换他把你按进椅子里。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-you-sit/

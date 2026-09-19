@@ -11,6 +11,7 @@ series_order: 23
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他梦见这一切，是他临死前编的。"
 redirect_from:
   - /2026/08/31/everybody-s-home-extra-the-middle-of-the-bed/

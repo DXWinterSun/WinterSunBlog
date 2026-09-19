@@ -11,6 +11,7 @@ series_order: 31
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你跪下把戒指给他——你不是 bishop，你是我的 king。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-my-king/

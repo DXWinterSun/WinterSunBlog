@@ -11,6 +11,7 @@ series_order: 52
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: pov
 summary: "他视角：蔫先生心动却不敢说，嘴上一直说不行——身体却比他诚实。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-cant-his-pov/

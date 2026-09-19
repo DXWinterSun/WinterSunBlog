@@ -11,6 +11,7 @@ series_order: 43
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "从前那声太太是偷来的——今夜起，他叫得名正言顺。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-lawfully/

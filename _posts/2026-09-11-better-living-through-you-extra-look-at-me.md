@@ -11,6 +11,7 @@ series_order: 66
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他总把自己摆在你看得见的地方，偷偷盼你——多看他一眼。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-look-at-me/

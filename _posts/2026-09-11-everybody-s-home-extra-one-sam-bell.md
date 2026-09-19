@@ -11,6 +11,7 @@ series_order: 25
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你们俩是不是早就喜欢彼此了。"
 redirect_from:
   - /2026/09/02/everybody-s-home-extra-one-sam-bell/

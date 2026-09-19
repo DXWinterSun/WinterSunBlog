@@ -11,6 +11,7 @@ series_order: 30
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1985"
 summary: "他说要治你的眼睛——治了一整夜，没治好。"
 easter_eggs:

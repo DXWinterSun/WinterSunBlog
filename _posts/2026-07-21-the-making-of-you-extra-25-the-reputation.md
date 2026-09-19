@@ -11,6 +11,7 @@ series_order: 57
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 25
+chapter_kind: extra
 summary: "他最怕‘砸了我的招牌’。你在最大的光里，把这句冷话还成了情话。"
 easter_eggs:
   - series_order: 23

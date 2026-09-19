@@ -12,6 +12,7 @@ story_time: "1987 →"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "玻璃做的独生子女：角是爸爸点的，帽子是妈妈织的。"
 redirect_from:
   - /2026/09/02/fog-city-extra-the-only-child/

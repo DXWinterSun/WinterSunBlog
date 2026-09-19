@@ -11,6 +11,7 @@ series_order: 25
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1987"
 summary: "你说要不是他，你早就被办了。他说那我现在就办你。"
 redirect_from:

@@ -11,6 +11,7 @@ series_order: 20
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "新床到货当晚，他拿着验收单宣布：本次验收，通宵进行。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-acceptance-test/

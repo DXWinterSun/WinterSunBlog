@@ -11,6 +11,7 @@ series_order: 48
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你扶着栏杆面朝大海，他在身后——把那些坏话，一句句说进你耳朵。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-facing-the-sea/

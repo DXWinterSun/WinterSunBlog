@@ -11,6 +11,7 @@ series_order: 17
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他把太平洋验收得体无完肤，却在你外婆的相册前彻底缴械。"
 ---
 

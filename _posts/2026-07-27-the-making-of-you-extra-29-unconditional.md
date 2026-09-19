@@ -11,6 +11,7 @@ series_order: 61
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 29
+chapter_kind: extra
 summary: "你以为他的爱要一次次赢。差点拿命算错那天，他才让你知道——它没有条件。"
 easter_eggs:
   - series_order: 54

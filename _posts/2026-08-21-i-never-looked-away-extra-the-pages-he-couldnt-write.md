@@ -11,6 +11,7 @@ series_order: 23
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: pov
 summary: "那三天他的账本是空的，他不知道记在哪一栏。"
 easter_eggs:
   - series_order: 10

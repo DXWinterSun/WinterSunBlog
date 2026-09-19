@@ -11,6 +11,7 @@ series_order: 26
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1976"
 summary: "那人送花、吻别、无可挑剔——他守着一屋子烟味，等你回家。"
 easter_eggs:

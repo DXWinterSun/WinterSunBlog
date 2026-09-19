@@ -12,6 +12,7 @@ story_time: "2016"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "戒指揣了三年。直到你说：这就是我的 Mr. Right。"
 redirect_from:
   - /2026/09/04/fog-city-extra-this-one-has-a-next-step/

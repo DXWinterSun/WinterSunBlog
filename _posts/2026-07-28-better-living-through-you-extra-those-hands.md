@@ -11,6 +11,7 @@ series_order: 37
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他数药的手从不抖——你偏要看它，为你一粒粒撒了满柜台。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-those-hands/

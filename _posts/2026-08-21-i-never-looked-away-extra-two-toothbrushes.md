@@ -11,6 +11,7 @@ series_order: 27
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "杯子里现在有两把牙刷，中间隔着一指宽。"
 easter_eggs:
   - series_order: 1

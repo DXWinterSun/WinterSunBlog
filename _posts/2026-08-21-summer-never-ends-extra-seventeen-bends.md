@@ -11,6 +11,7 @@ series_order: 29
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "空掉的漂流河，你终于把那十七个弯，一个一个数完了。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-seventeen-bends/

@@ -11,6 +11,7 @@ series_order: 31
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他跳完上来，他父亲喘着说：比那年好。"
 easter_eggs:
   - series_order: 13

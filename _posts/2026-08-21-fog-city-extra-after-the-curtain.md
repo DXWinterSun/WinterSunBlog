@@ -12,6 +12,7 @@ story_time: "1987 →"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "剧场规矩管到散场为止。散场之后那一幕，概不外传。"
 redirect_from:
   - /2026/08/31/fog-city-extra-after-the-curtain/

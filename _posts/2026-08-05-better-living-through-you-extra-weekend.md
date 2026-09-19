@@ -11,6 +11,7 @@ series_order: 58
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "Ethan 周末来了，还追问：爸，你干嘛老叫她“太太”？"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-weekend/

@@ -11,6 +11,7 @@ series_order: 67
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "吃什么、去哪、看哪部——他永远“都行，您定”。你偏要他，自己选。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-you-pick/

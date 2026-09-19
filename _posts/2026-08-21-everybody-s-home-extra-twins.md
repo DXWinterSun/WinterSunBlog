@@ -11,6 +11,7 @@ series_order: 15
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "整条街都当他们是双胞胎，你懒得解释。"
 redirect_from:
   - /2026/08/23/everybody-s-home-extra-twins/

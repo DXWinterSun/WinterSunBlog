@@ -11,6 +11,7 @@ series_order: 28
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 has_art: true
 summary: "他们把表格上那个词，拿来求婚。"
 redirect_from:

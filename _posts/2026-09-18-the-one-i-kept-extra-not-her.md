@@ -11,6 +11,7 @@ series_order: 19
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "她们憋了很久了：凭什么是她。你站在楼梯上，一句也驳不了。"
 ---
 

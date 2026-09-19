@@ -12,6 +12,7 @@ story_time: "2026"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "休息日的早晨，你先醒，看了很久。然后把那句话说给他听。"
 redirect_from:
   - /2026/09/15/fog-city-extra-not-recorded/

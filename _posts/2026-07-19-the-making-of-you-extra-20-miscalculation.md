@@ -11,6 +11,7 @@ series_order: 52
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 20
+chapter_kind: pov
 summary: "他这辈子只算错过一次账。他没看错你的价，错在从没让你自己信。"
 easter_eggs:
   - series_order: 16

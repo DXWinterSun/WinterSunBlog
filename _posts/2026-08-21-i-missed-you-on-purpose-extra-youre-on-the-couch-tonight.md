@@ -11,6 +11,7 @@ series_order: 26
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1988"
 summary: "他做成了一年里最大的一笔买卖。回家时下巴上有块口红印。"
 redirect_from:

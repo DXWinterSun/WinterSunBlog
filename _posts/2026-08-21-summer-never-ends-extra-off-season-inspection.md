@@ -11,6 +11,7 @@ series_order: 35
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "淡季巡检表，七个点位。副园长全程陪同，不得早退。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-off-season-inspection/

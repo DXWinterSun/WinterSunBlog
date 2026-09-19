@@ -11,6 +11,7 @@ series_order: 11
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "有些东西在失物招领处躺了五年，无人认领。"
 easter_eggs:
   - series_order: 1

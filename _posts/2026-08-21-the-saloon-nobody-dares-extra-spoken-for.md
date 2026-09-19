@@ -11,6 +11,7 @@ series_order: 12
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "有姑娘撩上了你的猎物——帽檐底下，你睁开一只眼。"
 redirect_from:
   - /2026/07/29/the-saloon-nobody-dares-extra-spoken-for/

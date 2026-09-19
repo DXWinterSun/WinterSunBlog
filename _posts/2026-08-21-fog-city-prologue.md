@@ -12,6 +12,7 @@ story_time: "1986 →"
 series_status: ongoing
 series_type: Series
 chapter_type: "Prologue"
+chapter_kind: extra
 summary: "后来全世界都看他；那年雾城的观众席上，是他看别人，你看他。"
 redirect_from:
   - /2026/07/29/fog-city-prologue/

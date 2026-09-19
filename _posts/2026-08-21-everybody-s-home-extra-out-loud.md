@@ -11,6 +11,7 @@ series_order: 18
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "今晚他想要什么，都得自己开口说。"
 redirect_from:
   - /2026/08/26/everybody-s-home-extra-out-loud/

@@ -11,6 +11,7 @@ series_order: 40
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "失物招领处躺了五年的那只人字拖，是他跑丢的。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-item-038/

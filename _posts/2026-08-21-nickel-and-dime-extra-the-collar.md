@@ -9,6 +9,7 @@ series_title: "Nickel and Dime · Jimmy Silk AU"
 series_order: 22
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "别人替他翻了一下领子，他才发现你退了三个月。"
 tags: [Jimmy Silk, Sam Rockwell, AU, Nickel and Dime, 暗涌, 怅惘]
 redirect_from:

@@ -10,6 +10,7 @@ series_order: 48
 series_status: ongoing
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "2004"
 summary: "这个台子太高了。——那你就踮着。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 絮语]

@@ -9,6 +9,7 @@ series: "Knox AU"
 series_title: "Simon Says · Eric Knox AU"
 series_order: 2
 chapter_type: 番外
+chapter_kind: extra
 summary: "你本来是打算辞职的。"
 ---
 

@@ -11,6 +11,7 @@ series_order: 68
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你随口笑过他那件旧衫——几周后，你在抽屉底翻出了它。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-because-you-said-so/

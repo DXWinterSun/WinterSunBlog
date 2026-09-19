@@ -12,6 +12,7 @@ story_time: "2026"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "样本更全不是修辞——他真有一份四十年的档案。"
 redirect_from:
   - /2026/09/10/fog-city-extra-a-larger-sample/

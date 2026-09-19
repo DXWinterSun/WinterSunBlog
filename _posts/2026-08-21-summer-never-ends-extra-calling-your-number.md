@@ -11,6 +11,7 @@ series_order: 31
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "排了三年的队，今天开闸——广播里在叫001号。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-calling-your-number/

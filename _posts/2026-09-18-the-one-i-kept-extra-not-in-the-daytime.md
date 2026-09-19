@@ -11,6 +11,7 @@ series_order: 18
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "白天你已经敢当众叫他 Jim 了。可一到夜里，那声少爷自己就跑回来。"
 ---
 

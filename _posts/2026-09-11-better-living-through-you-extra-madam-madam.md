@@ -11,6 +11,7 @@ series_order: 64
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他一声声唤你太太，问你喜欢吗、是不是只他一人的——酥到骨子里。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-madam-madam/

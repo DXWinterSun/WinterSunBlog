@@ -10,6 +10,7 @@ series_order: 36
 series_status: ongoing
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "2004"
 summary: "他站在那块地巾上，两只手垂着，等着。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]

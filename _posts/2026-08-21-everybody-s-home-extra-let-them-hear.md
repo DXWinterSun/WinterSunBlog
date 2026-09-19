@@ -11,6 +11,7 @@ series_order: 16
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "窗开着，你说不关——让他们听见。"
 redirect_from:
   - /2026/08/24/everybody-s-home-extra-let-them-hear/

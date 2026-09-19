@@ -12,6 +12,7 @@ story_time: "2026"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他的版本二十分钟。你的版本三小时，全体晋级，比赛失败。"
 redirect_from:
   - /2026/09/12/fog-city-extra-keep-one/

@@ -10,6 +10,7 @@ series_order: 30
 series_status: complete
 series_type: Series
 chapter_type: "番外"
+chapter_kind: extra
 has_art: true
 summary: "画上的雪不算数，他非要带你把全银河的雪都看一遍。"
 tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 缱绻, 安放]

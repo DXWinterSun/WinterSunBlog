@@ -11,6 +11,7 @@ series_order: 24
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "夏季限定的乐园，为一个叫冬天的姑娘，开了一次冬天的门。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-winter-opening-day/

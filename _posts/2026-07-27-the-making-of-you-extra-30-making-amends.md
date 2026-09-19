@@ -11,6 +11,7 @@ series_order: 62
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 30
+chapter_kind: extra
 summary: "你从没学过怎么心安理得被人爱。他决定用余生，把这一课，补给你。"
 easter_eggs:
   - series_order: 61

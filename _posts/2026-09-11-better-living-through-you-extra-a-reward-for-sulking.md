@@ -11,6 +11,7 @@ series_order: 65
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他擅长掩饰失落，练了大半辈子——偏偏，瞒不过你。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-a-reward-for-sulking/

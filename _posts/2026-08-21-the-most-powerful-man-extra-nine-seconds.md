@@ -11,6 +11,7 @@ series_order: 95
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "那张二十二岁的照片，你多看了九秒。谨此存档。"
 redirect_from:
   - /2026/08/16/the-most-powerful-man-extra-nine-seconds/

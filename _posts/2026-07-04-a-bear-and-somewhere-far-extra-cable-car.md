@@ -11,6 +11,7 @@ series_order: 26
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他这辈子没坐过叮叮车——你说，那今天就带你坐个够。"
 ---
 

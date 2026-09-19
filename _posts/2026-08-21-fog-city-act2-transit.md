@@ -12,6 +12,7 @@ story_time: "1987"
 series_status: ongoing
 series_type: Series
 chapter_type: "Act II · 序"
+chapter_kind: extra
 summary: "旧金山篇在雾里合上；大幕没有落，只是换景——布景师本人，正在车上。"
 redirect_from:
   - /2026/08/24/fog-city-act2-transit/

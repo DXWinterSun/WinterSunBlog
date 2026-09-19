@@ -11,6 +11,7 @@ series_order: 94
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他把灵魂押给那双眼睛，对方却拿尺子量他的狗。"
 redirect_from:
   - /2026/08/16/the-most-powerful-man-extra-bigger-stronger-faster/

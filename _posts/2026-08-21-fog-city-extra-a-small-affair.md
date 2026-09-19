@@ -12,6 +12,7 @@ story_time: "2016"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "小场面：至亲好友，一只戴领结的小马，一句 Sam，我爱你。"
 redirect_from:
   - /2026/09/05/fog-city-extra-a-small-affair/

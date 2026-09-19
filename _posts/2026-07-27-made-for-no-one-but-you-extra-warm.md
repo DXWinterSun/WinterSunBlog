@@ -11,6 +11,7 @@ series_order: 10
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "门合上，你把全部的你交给他。那个功能，头一回和你的心是同一件事。"
 redirect_from:
   - /2026/06/28/made-for-no-one-but-you-extra-warm/

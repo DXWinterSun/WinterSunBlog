@@ -11,6 +11,7 @@ series_order: 64
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 32
+chapter_kind: pov
 summary: "床戏是他亲手谈成的，他却吃醋吃到胃疼，偏死不认。"
 easter_eggs:
   - series_order: 28

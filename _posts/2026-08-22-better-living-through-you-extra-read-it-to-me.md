@@ -11,6 +11,7 @@ series_order: 61
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "戒圈里刻着“我的太太”——今夜他要你一个字一个字念给他听。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-read-it-to-me/

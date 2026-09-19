@@ -11,6 +11,7 @@ series_order: 30
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他背下了你每门课几点下课，在哪栋楼。"
 easter_eggs:
   - series_order: 20

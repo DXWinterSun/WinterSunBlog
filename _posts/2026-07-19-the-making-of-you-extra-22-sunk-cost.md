@@ -11,6 +11,7 @@ series_order: 54
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 22
+chapter_kind: pov
 summary: "你替他担了三年的脏名。那是他账上唯一收不回、又舍不得注销的一笔。"
 easter_eggs:
   - series_order: 19

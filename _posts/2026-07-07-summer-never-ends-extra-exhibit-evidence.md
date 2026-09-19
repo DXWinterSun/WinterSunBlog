@@ -11,6 +11,7 @@ series_order: 13
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他一只手箍住你，另一只手翻开了那个夏天。"
 redirect_from:
   - /2026/07/06/summer-never-ends-extra-exhibit-evidence/

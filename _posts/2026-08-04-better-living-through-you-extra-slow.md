@@ -11,6 +11,7 @@ series_order: 55
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "海边一处僻静的湾，他慢条斯理地拆你——这一回，求饶的人，是你。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-slow/

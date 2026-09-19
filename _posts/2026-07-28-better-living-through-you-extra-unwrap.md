@@ -11,6 +11,7 @@ series_order: 39
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你盛装拆开他，穿着礼服坐上他赤裸的身——他望着你说，好幸福。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-unwrap/

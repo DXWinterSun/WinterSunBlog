@@ -11,6 +11,7 @@ series_order: 63
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 31
+chapter_kind: extra
 summary: "被人当众唤一声‘前辈’，全城最稳的他，头一回怕自己老了。"
 easter_eggs:
   - series_order: 43

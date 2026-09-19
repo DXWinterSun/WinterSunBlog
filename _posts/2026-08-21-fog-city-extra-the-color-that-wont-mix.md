@@ -12,6 +12,7 @@ story_time: "1986 →"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他以为你在收藏他的尴尬照。不是——是那双调不出的眼睛。"
 redirect_from:
   - /2026/08/30/fog-city-extra-the-color-that-wont-mix/

@@ -11,6 +11,7 @@ series_order: 30
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他穿了西装，配人字拖；外婆第一次看见了太平洋。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-cap-and-flip-flops/

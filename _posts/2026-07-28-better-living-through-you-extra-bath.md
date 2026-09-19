@@ -11,6 +11,7 @@ series_order: 35
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "从前替他洗掉别人，如今没什么好洗了——只剩他，干干净净全是他自己。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-bath/

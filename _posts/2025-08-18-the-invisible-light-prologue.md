@@ -9,6 +9,7 @@ series_title: "The Invisible Light · Charles II AU"
 series_order: 0
 series_type: "Series"
 chapter_type: "Prologue"
+chapter_kind: extra
 summary: "你跪倒在小画室的地板上无声痛哭，因为他从未看见过你。"
 tags: [Charles II, BayBay, AU, The Invisible Light, 怅惘, 思念]
 ---

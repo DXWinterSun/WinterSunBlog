@@ -12,6 +12,7 @@ story_time: "1989 →"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "都市传说：他每部电影都在吃。贴身观察四十年：属实。"
 redirect_from:
   - /2026/09/09/fog-city-extra-eating-scenes/

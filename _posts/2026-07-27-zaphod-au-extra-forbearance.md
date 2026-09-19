@@ -10,6 +10,7 @@ series_order: 28
 series_status: complete
 series_type: Series
 chapter_type: "番外"
+chapter_kind: extra
 summary: "岳父岳母连眼皮都懒得抬——这份委屈，全成了他撒娇的本钱。"
 tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 絮语, 缱绻]
 redirect_from:

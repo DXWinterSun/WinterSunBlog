@@ -11,6 +11,7 @@ series_order: 16
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "接机牌上写的不是你的名字，是他自己的头衔。"
 ---
 

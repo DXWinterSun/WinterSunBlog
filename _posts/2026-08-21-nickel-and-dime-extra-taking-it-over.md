@@ -9,6 +9,7 @@ series_title: "Nickel and Dime · Jimmy Silk AU"
 series_order: 20
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他说这块地方以后归他承包，别人不许碰。"
 tags: [Jimmy Silk, Sam Rockwell, AU, Nickel and Dime, 炽恋, 缱绻]
 redirect_from:

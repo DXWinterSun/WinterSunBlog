@@ -11,6 +11,7 @@ series_order: 38
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "四十天，四十封没法寄出的信。最后一封，她取了个号。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-first-mate/

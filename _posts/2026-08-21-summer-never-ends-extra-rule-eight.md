@@ -11,6 +11,7 @@ series_order: 27
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "期中周，全校只有一个人被泳池拒之门外。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-rule-eight/

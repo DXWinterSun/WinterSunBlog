@@ -11,6 +11,7 @@ series_order: 27
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "那天他演一具尸体，一喊卡就睁眼，跟你贫了一整夜。"
 redirect_from:
   - /2026/08/07/the-part-where-you-live-extra-he-opened-his-eyes-on-cut/

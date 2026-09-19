@@ -11,6 +11,7 @@ series_order: 36
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他替你吹干头发，你替他刮净胡子——他仰起头，把喉咙交给你手里的刀。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-grooming/

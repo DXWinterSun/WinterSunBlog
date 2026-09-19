@@ -11,6 +11,7 @@ series_order: 20
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "第十九天他还没回来，那就让他听见。"
 redirect_from:
   - /2026/08/28/everybody-s-home-extra-the-next-ship/

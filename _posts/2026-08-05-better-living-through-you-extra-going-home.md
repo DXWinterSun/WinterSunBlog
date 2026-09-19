@@ -11,6 +11,7 @@ series_order: 56
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "半个月到了头，你们开着那辆车往回走——这一次，回家，是件顶好的事。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-going-home/

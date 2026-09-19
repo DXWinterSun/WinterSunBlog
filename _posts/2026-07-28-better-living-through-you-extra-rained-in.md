@@ -11,6 +11,7 @@ series_order: 51
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "一整天的雨把你俩困在床上——缠绵累了，就瘫着聊天。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-rained-in/

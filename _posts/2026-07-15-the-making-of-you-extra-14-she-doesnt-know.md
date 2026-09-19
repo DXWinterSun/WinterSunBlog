@@ -11,6 +11,7 @@ series_order: 46
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 14
+chapter_kind: pov
 summary: "他难得在家办公。一整天，正经邮件一封没回。"
 ---
 

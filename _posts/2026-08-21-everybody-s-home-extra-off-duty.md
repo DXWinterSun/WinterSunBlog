@@ -11,6 +11,7 @@ series_order: 19
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "今晚他什么都不用管——连你都不用他管。"
 redirect_from:
   - /2026/08/27/everybody-s-home-extra-off-duty/

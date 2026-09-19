@@ -11,6 +11,7 @@ series_order: 17
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: pov
 story_time: "1985"
 summary: "三年里她朝他扔过十几件东西，一件都没打着。"
 redirect_from:

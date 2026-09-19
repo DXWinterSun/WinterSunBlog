@@ -10,6 +10,7 @@ series_order: 51
 series_status: ongoing
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "2004"
 summary: "“很高兴认识你，Greg。”“……我叫 Craig。”"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 絮语, 缱绻]

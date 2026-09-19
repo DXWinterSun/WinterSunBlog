@@ -11,6 +11,7 @@ series_order: 29
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1984"
 summary: "他把最后那一面也锁着——今晚你说：别对我小心。"
 easter_eggs:

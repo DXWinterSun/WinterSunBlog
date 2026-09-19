@@ -11,6 +11,7 @@ series_order: 14
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你说只要他一个，问他能不能，也只要你一个。"
 redirect_from:
   - /2026/07/28/some-steps-only-we-know-extra-only-you/

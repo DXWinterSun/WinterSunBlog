@@ -11,6 +11,7 @@ series_order: 44
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "Ben 没能带你去成的那趟海，这一回，他替你圆上了。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-setting-off/

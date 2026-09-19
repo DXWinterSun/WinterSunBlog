@@ -11,6 +11,7 @@ series_order: 25
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "写了两年信的旁观者，这次没预告，自己回来了。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-observer-returns/

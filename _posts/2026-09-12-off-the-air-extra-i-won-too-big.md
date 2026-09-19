@@ -11,6 +11,7 @@ series_order: 31
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1985"
 summary: "他半夜偷偷算一笔他赢不了的账——你把账本翻过来，重算给他看。"
 easter_eggs:

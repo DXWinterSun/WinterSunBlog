@@ -11,6 +11,7 @@ series_order: 65
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 33
+chapter_kind: extra
 summary: "全网夸你和 Cole 火花四溅，拍板这套营销的，正是酸到胃疼的他。"
 easter_eggs:
   - series_order: 64

@@ -11,6 +11,7 @@ series_order: 25
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "这一次他不用爬窗户，他从正门进来。"
 easter_eggs:
   - series_order: 11

@@ -11,6 +11,7 @@ series_order: 35
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 3
+chapter_kind: extra
 summary: "三分钟封顶的条款，那晚被你单方面撕毁了。违约金他亲自来收。"
 ---
 

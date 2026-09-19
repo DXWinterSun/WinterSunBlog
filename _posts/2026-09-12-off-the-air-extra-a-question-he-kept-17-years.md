@@ -11,6 +11,7 @@ series_order: 23
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1985 冬"
 summary: "十七年前那道没人答得上的题，他躲在隔屏后面，答了。"
 easter_eggs:

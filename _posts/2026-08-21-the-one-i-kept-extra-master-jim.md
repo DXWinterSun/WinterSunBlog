@@ -11,6 +11,7 @@ series_order: 17
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他逗你改口，你憋了半天，喊出来还是——Jim少爷。"
 redirect_from:
   - /2026/07/28/the-one-i-kept-extra-master-jim/

@@ -11,6 +11,7 @@ series_order: 27
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "系统里他的状态是：已处理。"
 redirect_from:
   - /2026/09/03/everybody-s-home-extra-proof-of-life/

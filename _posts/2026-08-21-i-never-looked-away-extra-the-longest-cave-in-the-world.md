@@ -11,6 +11,7 @@ series_order: 32
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他把导游手册背下来了，就为了在你面前显摆一下。"
 easter_eggs:
   - series_order: 21

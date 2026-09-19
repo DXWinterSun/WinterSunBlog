@@ -11,6 +11,7 @@ series_order: 43
 series_status: ongoing
 series_type: Series
 chapter_type: "B面"
+chapter_kind: pov
 story_time: "1946"
 summary: "处决令下来那天夜里，我睡了进去以后最好的一觉。"
 redirect_from:

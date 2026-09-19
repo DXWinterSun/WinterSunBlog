@@ -12,6 +12,7 @@ story_time: "1994"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "四十年唯一一次真吵。吵赢的人说：我不是相信，我是知道。"
 redirect_from:
   - /2026/09/20/fog-city-extra-until-it-happens/

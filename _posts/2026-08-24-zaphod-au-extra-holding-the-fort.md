@@ -10,6 +10,7 @@ series_order: 33
 series_status: complete
 series_type: Series
 chapter_type: "番外"
+chapter_kind: extra
 summary: "银河系总统被单独留在船上，通讯板上四十七条未读。"
 tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 絮语, 缱绻]
 redirect_from:

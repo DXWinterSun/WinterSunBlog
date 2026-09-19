@@ -11,6 +11,7 @@ series_order: 53
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: pov
 summary: "他视角：他关上门、回家却忍不住想你——那一夜，他终于不想再差一点了。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-couldnt-his-pov/

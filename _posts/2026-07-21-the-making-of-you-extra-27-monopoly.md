@@ -11,6 +11,7 @@ series_order: 59
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 27
+chapter_kind: extra
 summary: "他做了一辈子垄断的生意。偏偏你成了全世界的，他想要的，还是独家。"
 easter_eggs:
   - series_order: 34
