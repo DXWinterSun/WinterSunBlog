@@ -109,10 +109,6 @@ layout: home
         {% if chapter.summary %}<span class="c-chapter-card__summary">{{ chapter.summary }}</span>{% endif %}
         <span class="c-chapter-card__meta">
           {{ chapter.date | date: '%Y, %b %d' }}
-          {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
-          {% assign mins = chars | divided_by: 500 %}
-          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
-          · {{ mins }} min read
         </span>
       </span>
       {% comment %}

@@ -244,10 +244,6 @@ layout: home
         {% if post.summary %}<p class="c-post__summary">{{ post.summary }}</p>{% endif %}
         <div class="c-post__meta">
           <span>{{ post.date | date: '%Y, %b %d' }}</span>
-          {% capture chars %}{{ post.content | strip_html | strip | size }}{% endcapture %}
-          {% assign mins = chars | divided_by: 500 %}
-          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
-          <span>{{ mins }} min read</span>
         </div>
       </div>
     </a>
