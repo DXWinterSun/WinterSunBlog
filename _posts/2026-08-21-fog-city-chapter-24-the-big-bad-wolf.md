@@ -19,7 +19,7 @@ redirect_from:
 
 > “It's kind of a tingle.”  
 > 有点……酥酥麻麻的。  
-> ——Mr. Wolf 谈「做好事的感觉」
+> ——Mr. Wolf 谈“做好事的感觉”
 
 二〇二〇年，全世界的剧场一起黑了灯。
 

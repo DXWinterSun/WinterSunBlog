@@ -16,8 +16,6 @@ redirect_from:
   - /2026/06/18/only-i-know-chapter-4-what-he-left/
 ---
 
-## 第四章　他留下的话
-
 警长留下的信，不止一封。
 
 给 Anne 的，给 Mildred 的，给 Dixon 的……还有一封，落款上写着你的名字。
