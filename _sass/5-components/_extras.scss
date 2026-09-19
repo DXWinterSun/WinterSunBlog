@@ -919,8 +919,28 @@
 }
 
 @media only screen and (max-width: 600px) {
+  /* 小格子里日期和戳会叠在一起：把格子改成略高的竖长方形，
+     日期挪到顶上居中、戳沉到下半格，并收掉戳里那行小日期。 */
   .c-cal__grid { gap: 5px; }
-  .c-cal__cell i { left: 5px; top: 3px; font-size: 11px; }
+  .c-cal__cell {
+    aspect-ratio: 0.82;
+    i {
+      left: 50%;
+      top: 4px;
+      transform: translateX(-50%);
+      font-size: 11px;
+    }
+  }
+  .c-cal__stamp {
+    top: 63%;
+    width: 68%;
+    s { display: none; }
+    b { font-size: 15px; }
+  }
+  .c-cal__cell--on:hover .c-cal__stamp,
+  .c-cal__cell--on:focus-visible .c-cal__stamp {
+    transform: translate(-50%, -50%) rotate(6deg) scale(1.04);
+  }
   .c-cal-year__num { font-size: 26px; }
   .c-day { padding: 16px 16px 12px; }
   .c-day__chs li a { grid-template-columns: 1fr; }
