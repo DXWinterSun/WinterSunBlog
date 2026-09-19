@@ -1,0 +1,62 @@
+# 封面「对脸」锚点 · 自动更新
+#
+# Winter 2026-09-19：「需要对每张图核对人的具体位置，这好做吗？对于现有的每一个
+# 封面图和今后可能的每一张新的封面图？」——不用人核对，交给这条流水线。
+#
+# 触发时机：push 到 main 且 images/ 里有增删改（或改了脚本本身）时。
+# 流程：跑 tools/face_focus.py，用 OpenCV 的 YuNet 模型找出每张图里最大的那张脸，
+#       按裁切数学算好锚点 → _data/image_focus.yml，有变化就由机器人提交回 main。
+#       认不出脸的（手绘封面、风景图）不写进去，模板自动回退到原来的居中偏上。
+#
+# 跟 hotline-mine 一样：机器人这次提交会让 Pages 再建一次站，前后差一分钟。
+# 它只动 _data/image_focus.yml，不碰 images/，所以不会触发自己、不会循环。
+name: Cover focus refresh
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "images/**"
+      - "tools/face_focus.py"
+      - "tools/models/**"
+      - ".github/workflows/face-focus.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "face-focus"
+  cancel-in-progress: false
+
+jobs:
+  focus:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install OpenCV
+        run: pip install --quiet "opencv-python-headless==4.10.0.84" pyyaml
+
+      - name: Find the faces
+        run: python3 tools/face_focus.py --report
+
+      - name: Commit the refreshed anchors (only if they changed)
+        run: |
+          git add _data/image_focus.yml
+          if git diff --cached --quiet; then
+            echo "锚点没变化，不用提交。"
+            exit 0
+          fi
+          COUNT=$(grep -c '^"' _data/image_focus.yml || echo "?")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "封面对脸 · 锚点自动更新（${COUNT} 张）"
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -580,6 +580,355 @@
 }
 
 /* ──────────────────────────────────────────────────────────────
+   c-cal / c-day —— Archive › By Day 的「日历 + 那一天」（2026-09-19）
+
+   Winter 的要求：日历只记这天「有没有、大概多少」，具体内容留给点开之后
+   的那一天。所以格子里不放封面、不放色块，只有一枚邮戳；戳统一向右歪 6 度
+   （跟斜体同向），颜色吃 $accent（＝「换个心情」选的那套色）。
+   那一天的区块默认 display:none，靠 :target 显示 —— 没有 JS 也能用。
+   ────────────────────────────────────────────────────────────── */
+
+.c-cal-year {
+  margin: 0 0 40px;
+  scroll-margin-top: 84px;
+}
+
+.c-cal-year__head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-bottom: 1px solid $line;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+.c-cal-year__num {
+  font-family: $heading-font-family;
+  font-size: 32px;
+  font-weight: 700;
+  color: $ink;
+  line-height: 1;
+}
+
+.c-cal-year__meta {
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.c-cal { margin: 0 0 26px; }
+
+.c-cal__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.c-cal__mon {
+  font-family: $heading-font-family;
+  font-size: 20px;
+  color: $ink;
+}
+
+.c-cal__meta {
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.c-cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 7px;
+}
+
+.c-cal__wd {
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: $muted;
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+.c-cal__cell {
+  position: relative;
+  aspect-ratio: 1;
+  display: block;
+  border: 1px solid $line;
+  border-radius: 12px;
+  background: $paper-warm;
+  text-decoration: none;
+  color: inherit;
+
+  i {
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    font-style: normal;
+    font-family: $heading-font-family;
+    font-size: 13px;
+    color: $muted;
+  }
+}
+
+.c-cal__cell--pad {
+  border: 0;
+  background: transparent;
+}
+
+.c-cal__cell--on {
+  background: $paper;
+  i { color: $ink-soft; }
+
+  &:hover .c-cal__stamp,
+  &:focus-visible .c-cal__stamp {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(6deg) scale(1.07);
+  }
+}
+
+/* 邮戳：统一向右歪 6 度，颜色跟着当前主题色 */
+.c-cal__stamp {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%) rotate(6deg);
+  width: 56%;
+  aspect-ratio: 1;
+  border: 2px solid $accent-dark;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: $accent-dark;
+  opacity: 0.8;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px dashed currentColor;
+    border-radius: 50%;
+    opacity: 0.55;
+  }
+
+  b {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-weight: 400;
+    font-size: clamp(13px, 3.4vw, 17px);
+  }
+
+  s {
+    text-decoration: none;
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: clamp(6.5px, 1.6vw, 7.5px);
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+    opacity: 0.85;
+  }
+}
+
+/* ——— 那一天 ——— */
+.c-days { margin-top: 10px; }
+
+.c-day {
+  display: none;
+  scroll-margin-top: 84px;
+  background: $paper;
+  border: 1px solid $line;
+  border-radius: 16px;
+  padding: 20px 22px 16px;
+  box-shadow: 0 20px 40px -32px rgba(var(--rgb-shadow), 0.6);
+}
+
+.c-day:target { display: block; }
+
+.c-day__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  border-bottom: 1px solid $line;
+  padding-bottom: 12px;
+}
+
+.c-day__date {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+
+  b {
+    font-family: $heading-font-family;
+    font-size: clamp(32px, 9vw, 44px);
+    font-weight: 500;
+    line-height: 1;
+  }
+  i {
+    display: block;
+    font-family: $heading-font-family;
+    font-style: italic;
+    font-size: 17px;
+    color: $ink-soft;
+  }
+  em {
+    display: block;
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: $muted;
+  }
+}
+
+.c-day__meta {
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $muted;
+  white-space: nowrap;
+}
+
+.c-day__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 0 2px;
+
+  a {
+    font-family: $heading-font-family;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: $muted;
+    text-decoration: none;
+    border-bottom: 1px dotted $line-strong;
+    &:hover { color: $accent; border-color: $accent; }
+  }
+}
+
+.c-day__block {
+  margin-top: 16px;
+  border-left: 3px solid var(--ac, #{$accent});
+  padding-left: 14px;
+}
+
+.c-day__b-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.c-day__cover {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  border-radius: 9px;
+  background-size: cover;
+  box-shadow: 0 4px 10px -6px rgba(var(--rgb-shadow), 0.7);
+}
+
+.c-day__b-t {
+  min-width: 0;
+
+  small {
+    display: block;
+    font-family: $heading-font-family;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink, #{$accent-dark});
+  }
+  b {
+    font-family: $heading-font-family;
+    font-weight: 500;
+    font-size: 17px;
+    color: $ink;
+  }
+  i {
+    font-family: $heading-font-family;
+    font-style: italic;
+    font-size: 12px;
+    color: $muted;
+    margin-left: 8px;
+  }
+}
+
+.c-day__b-go {
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-family: $heading-font-family;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  color: var(--ink, #{$accent-dark});
+  text-decoration: none;
+  border: 1px solid $line-strong;
+  border-radius: 999px;
+  padding: 4px 12px;
+  white-space: nowrap;
+  &:hover { border-color: var(--ac, #{$accent}); }
+}
+
+.c-day__chs {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+
+  li a {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 3px 12px;
+    padding: 7px 0;
+    border-top: 1px dotted $line;
+    text-decoration: none;
+    color: inherit;
+    &:hover .c-day__ti { color: $accent; }
+  }
+}
+
+.c-day__ch {
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink, #{$accent-dark});
+  padding-top: 3px;
+}
+
+.c-day__ti {
+  font-family: $heading-font-family;
+  font-size: 15.5px;
+  color: $ink;
+  transition: color 0.15s ease;
+}
+
+.c-day__su {
+  grid-column: 2;
+  font-size: 12.5px;
+  color: $muted;
+  line-height: 1.5;
+}
+
+@media only screen and (max-width: 600px) {
+  .c-cal__grid { gap: 5px; }
+  .c-cal__cell i { left: 5px; top: 3px; font-size: 11px; }
+  .c-cal-year__num { font-size: 26px; }
+  .c-day { padding: 16px 16px 12px; }
+  .c-day__chs li a { grid-template-columns: 1fr; }
+  .c-day__ch { padding-top: 0; }
+  .c-day__b-go { display: none; }
+}
+
+/* ──────────────────────────────────────────────────────────────
    c-tl —— Archive › By Year 的「时间轴」（2026-07-31）
    左侧轴线贯穿十年：年份 = 空心圆环大站点，月份 = 实心小节点，
    文章 = 「日 + 标题 + 系列/分类」挂在轴上。顶部 c-tl-jump 年份 pill

@@ -23,8 +23,150 @@ nav_active: archive
 <section class="c-archive">
 
   <div class="c-archive-tabs" role="tablist">
-    <button class="c-archive-tab is-active" type="button" role="tab" data-archive-view="year" aria-selected="true">By Year</button>
+    <button class="c-archive-tab is-active" type="button" role="tab" data-archive-view="day" aria-selected="true">By Day</button>
+    <button class="c-archive-tab" type="button" role="tab" data-archive-view="year" aria-selected="false">By Year</button>
     <button class="c-archive-tab" type="button" role="tab" data-archive-view="mood" aria-selected="false">By Mood</button>
+  </div>
+
+  {% comment %}
+    ===== BY DAY · 日历 =====（2026-09-19 按 Winter 的要求新建）
+    她说旧的时间轴「一个月才分隔一次，太视觉疲劳了毫无层次，而且不同的 AU 太难区分」。
+    于是把「哪天有更新」和「那天发了什么」拆成两层：
+
+      · 日历只回答一句话：这天有东西吗、大概多少 —— 有更新的日子盖一枚邮戳，
+        戳里是当天的章数，戳统一向右歪 6 度（跟斜体同向，Winter 定），
+        颜色跟着站点当前主题色走（换个心情选了谁，戳就是谁的颜色）。
+        没更新的日子留白。空月份整块跳过，所以 2016–2025 那些年只会出现有文章的月。
+      · 点一枚戳 → 跳到下面那一天的「那一天」区块（纯 CSS `:target` 显示，
+        没有 JS 也能用），里面按系列分块：封面（已自动对脸）、章数、每一章的
+        标题与引言，外加前一天 / 后一天 / 回日历三个去处。
+
+    封面裁切锚点来自 _data/image_focus.yml（tools/face_focus.py 自动生成，见该脚本）。
+  {% endcomment %}
+  <div class="c-archive-panel" data-archive-panel="day">
+    {%- assign cal_years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
+    <nav class="c-tl-jump" aria-label="跳到某一年">
+      {%- for yg in cal_years %}<a href="#cy{{ yg.name }}">{{ yg.name }}</a>{% endfor -%}
+    </nav>
+
+    {%- for yg in cal_years %}
+    <section class="c-cal-year" id="cy{{ yg.name }}">
+      <div class="c-cal-year__head">
+        <span class="c-cal-year__num">{{ yg.name }}</span>
+        <span class="c-cal-year__meta">{{ yg.items.size }} {% if yg.items.size == 1 %}story{% else %}stories{% endif %}</span>
+      </div>
+
+      {%- assign by_month = yg.items | group_by_exp: "post", "post.date | date: '%m'" -%}
+      {%- for mg in by_month %}
+      {%- assign m_first = mg.items | first -%}
+      {%- assign first_dow = m_first.date | date: '%Y-%m-01' -%}
+      {%- assign lead = first_dow | date: '%w' | plus: 6 | modulo: 7 -%}
+      {%- assign month_num = mg.name | plus: 0 -%}
+      {%- case month_num -%}
+        {%- when 1 or 3 or 5 or 7 or 8 or 10 or 12 -%}{%- assign dcount = 31 -%}
+        {%- when 4 or 6 or 9 or 11 -%}{%- assign dcount = 30 -%}
+        {%- else -%}
+          {%- assign yr = yg.name | plus: 0 -%}
+          {%- assign q4 = yr | modulo: 4 -%}{%- assign q100 = yr | modulo: 100 -%}{%- assign q400 = yr | modulo: 400 -%}
+          {%- if q400 == 0 -%}{%- assign dcount = 29 -%}
+          {%- elsif q100 == 0 -%}{%- assign dcount = 28 -%}
+          {%- elsif q4 == 0 -%}{%- assign dcount = 29 -%}
+          {%- else -%}{%- assign dcount = 28 -%}{%- endif -%}
+      {%- endcase -%}
+      {%- assign by_day = mg.items | group_by_exp: "post", "post.date | date: '%-d'" -%}
+      <div class="c-cal">
+        <div class="c-cal__head">
+          <span class="c-cal__mon">{{ m_first.date | date: '%B' }}</span>
+          <span class="c-cal__meta">{{ mg.items.size }} 章 · {{ by_day.size }} 天有更新</span>
+        </div>
+        <div class="c-cal__grid">
+          <span class="c-cal__wd">一</span><span class="c-cal__wd">二</span><span class="c-cal__wd">三</span><span class="c-cal__wd">四</span><span class="c-cal__wd">五</span><span class="c-cal__wd">六</span><span class="c-cal__wd">日</span>
+          {%- for i in (1..lead) %}<span class="c-cal__cell c-cal__cell--pad"></span>{% endfor -%}
+          {%- for d in (1..dcount) -%}
+            {%- assign dg = by_day | where: "name", d | first -%}
+            {%- if dg -%}
+              {%- capture dkey %}{{ yg.name }}-{{ mg.name }}-{% if d < 10 %}0{% endif %}{{ d }}{% endcapture -%}
+              <a class="c-cal__cell c-cal__cell--on" href="#d{{ dkey }}" title="{{ dg.items.size }} 章">
+                <i>{{ d }}</i>
+                <span class="c-cal__stamp"><b>{{ dg.items.size }}</b><s>{{ month_num }}·{{ d }}</s></span>
+              </a>
+            {%- else -%}
+              <span class="c-cal__cell"><i>{{ d }}</i></span>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- endfor %}
+    </section>
+    {%- endfor %}
+
+    {%- comment -%} ——— 「那一天」区块：默认收起，点了日历上的戳才展开（:target） ——— {%- endcomment -%}
+    <div class="c-days">
+      {%- assign all_days = site.posts | group_by_exp: "post", "post.date | date: '%Y-%m-%d'" -%}
+      {%- for dg in all_days %}
+      {%- assign d_first = dg.items | first -%}
+      {%- assign d_idx = forloop.index0 -%}
+      {%- assign prev_i = d_idx | minus: 1 -%}
+      {%- assign next_i = d_idx | plus: 1 -%}
+      <section class="c-day" id="d{{ dg.name }}">
+        <header class="c-day__head">
+          <span class="c-day__date">
+            <b>{{ d_first.date | date: '%-d' }}</b>
+            <span><i>{{ d_first.date | date: '%B' }}</i><em>{{ d_first.date | date: '%Y' }} · {{ d_first.date | date: '%A' }}</em></span>
+          </span>
+          <span class="c-day__meta">{{ dg.items.size }} 章</span>
+        </header>
+        <nav class="c-day__nav">
+          {%- comment -%} site.posts 是新→旧，所以「前一天」在数组里是下一个 {%- endcomment -%}
+          {%- if next_i < all_days.size -%}
+            {%- assign nd = all_days[next_i] -%}
+            <a href="#d{{ nd.name }}">← {{ nd.items[0].date | date: '%-m 月 %-d 日' }}</a>
+          {%- else -%}<span></span>{%- endif -%}
+          <a class="c-day__back" href="#cy{{ d_first.date | date: '%Y' }}">回日历</a>
+          {%- if d_idx > 0 -%}
+            {%- assign nd2 = all_days[prev_i] -%}
+            <a href="#d{{ nd2.name }}">{{ nd2.items[0].date | date: '%-m 月 %-d 日' }} →</a>
+          {%- else -%}<span></span>{%- endif -%}
+        </nav>
+
+        {%- assign by_series = dg.items | group_by_exp: "post", "post.series | default: '·' " -%}
+        {%- for sg in by_series -%}
+          {%- assign s_first = sg.items | first -%}
+          {%- assign pal = site.data.au_palettes[s_first.series] -%}
+          {%- assign sorted_chs = sg.items | sort: "series_order" -%}
+          {%- assign focus = site.data.image_focus[s_first.image] -%}
+          <article class="c-day__block"{% if pal %} style="--ac: {{ pal.accent }}; --ink: {{ pal.accent_ink | default: pal.accent }};"{% endif %}>
+            <header class="c-day__b-head">
+              {%- if s_first.image %}<span class="c-day__cover" style="background-image: url('{{ s_first.image | prepend: '/images/' | prepend: site.baseurl }}'); background-position: {{ focus.sq | default: '50% 30%' }};"></span>{% endif -%}
+              <span class="c-day__b-t">
+                <small>{% if s_first.series %}{{ s_first.series_title | default: s_first.series }}{% else %}{{ s_first.categories | first }}{% endif %}</small>
+                {%- assign f_ch = sorted_chs | first -%}{%- assign l_ch = sorted_chs | last -%}
+                {%- if s_first.series -%}
+                  <b>{% if sg.items.size > 1 %}{{ f_ch.chapter_type }} – {{ l_ch.chapter_type }}{% else %}{{ f_ch.chapter_type | default: "更新" }}{% endif %}</b>
+                  <i>{{ sg.items.size }} 章</i>
+                {%- else -%}
+                  <b>单篇</b>
+                {%- endif -%}
+              </span>
+              {%- if s_first.series %}<a class="c-day__b-go" href="{{ site.baseurl }}/series/{{ s_first.series | slugify }}/">读这个系列 →</a>{% endif -%}
+            </header>
+            <ul class="c-day__chs">
+              {%- for post in sorted_chs %}
+              {%- assign disp = post.title | split: " — " | first -%}
+              {%- assign disp_parts = disp | split: " · " -%}
+              {%- if disp_parts.size > 1 %}{% assign disp = disp_parts | last %}{% endif -%}
+              <li><a href="{{ post.url | prepend: site.baseurl }}">
+                <span class="c-day__ch">{% if post.chapter_type %}{{ post.chapter_type }}{% else %}{{ post.categories | first }}{% endif %}</span>
+                <span class="c-day__ti">{{ disp }}</span>
+                {%- if post.summary %}<span class="c-day__su">{{ post.summary }}</span>{% endif -%}
+              </a></li>
+              {%- endfor %}
+            </ul>
+          </article>
+        {%- endfor -%}
+      </section>
+      {%- endfor %}
+    </div>
   </div>
 
   {% comment %}
@@ -34,7 +176,7 @@ nav_active: archive
     每篇文章以「日 + 标题 + 系列/分类」挂在轴上，标题照磁带架的写法把
     「 — 系列名」拆到小字行。顶部一排年份 pill 可直接跳到某一年。
   {% endcomment %}
-  <div class="c-archive-panel" data-archive-panel="year">
+  <div class="c-archive-panel" data-archive-panel="year" hidden>
     {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
     <nav class="c-tl-jump" aria-label="跳到某一年">
       {% for year_group in posts_by_year %}

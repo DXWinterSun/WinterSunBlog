@@ -751,6 +751,48 @@ python3 tools/check_daily_rotation.py
 | **配色墙** | `sam/palettes/`（Sam 页第 09 张卡） | 由 `_data/sam_themes.yml` 构建时生成，按 `year` 排；「穿上」按钮复用 `au-strip__switch` + `data-au-theme`。零维护。 |
 | **AU 封面 WebP** | `images/the-real-thing.webp`（原 png 1.36 MB → 53 KB） | 新封面尽量传 WebP / 压过的 JPG，别传 1 MB 以上的 PNG。`images/my-psychopath.png`、`images/the-near-side.png` 目前没有任何页面引用。 |
 
+## 🗓️ Archive › By Day 日历 + 「那一天」（2026-09-19）
+
+Winter 看完改真日期后的时间轴：「一个月才分隔一次，太视觉疲劳了毫无层次，而且不同的 AU
+太难区分」。于是把「哪天有更新」和「那天发了什么」拆成两层，做进 `_pages/archive/index.html`：
+
+| 层 | 长什么样 | 要点 |
+|---|---|---|
+| **日历**（`c-cal`） | 一个月一页挂历，有更新的日子盖一枚**邮戳**，戳里是当天章数 | 戳统一**向右歪 6 度**（Winter：跟斜体同向），颜色吃 `$accent`＝「换个心情」当前主题色。**格子里不放封面、不放底色**（试过按系列色晕染，一章的日子淡到看不见，她说「统一都没有吧」）。空月份整块跳过，所以老年份只出现有文章的月 |
+| **那一天**（`c-day`） | 点戳跳过去：大日期 + 按系列分块（封面 / 章数 / 每章标题与引言）+ 前一天 / 后一天 / 回日历 | 默认 `display:none`，靠 **`:target`** 显示，没有 JS 也能用 |
+
+- 三个页签：**By Day（默认）/ By Year（老时间轴，留着）/ By Mood**。默认页签改了，
+  `js/main.js` 的 `syncUrl()` 与初始化都以 `day` 为默认；带 `#d2026-09-13` / `#cy2026`
+  锚点进来会自动切到 By Day。文章页的情绪标签仍然跳 `?view=mood&tag=…`，没变。
+- ⚠️ Liquid 陷阱（这次踩过）：`{{ a | default: b | first }}` 会把 a 也 `first` 掉——
+  字符串取 first 得到 nil，整行就空了。要分支就老老实实写 `{% if %}`。
+- ⚠️ `site.posts` 是**新 → 旧**，所以「前一天」在数组里是**下一个**下标，别写反。
+
+## 🖼️ 封面「对脸」：`tools/face_focus.py` + `_data/image_focus.yml`
+
+Winter：「配图是方形的，需要每次都截到人的话，需要对每张图核对人的具体位置，这好做吗？」
+——不用人核对。`tools/face_focus.py` 用 OpenCV 的 YuNet 模型扫 `images/`，找出最大的那张脸，
+按裁切数学算好 `background-position`，写进 `_data/image_focus.yml`。
+
+```bash
+python3 tools/face_focus.py            # 重新扫描并写入（需要 opencv-python-headless==4.10.0.84）
+python3 tools/face_focus.py --report   # 顺带列出没认出脸的图
+```
+
+- 模板用法：`{{ site.data.image_focus[文件名].sq | default: '50% 30%' }}`；
+  数据里预存了三种容器形状的锚点：`sq`（正方形，「那一天」的小图在用）、
+  `card`（16:10 卡片）、`banner`（16:6.5 系列封面）。后两个目前没接上，要用直接取。
+- ⚠️ **不能把「脸在 19%」直接写成 `background-position: 19%`**：CSS 百分比是
+  「图上 19% 的点对齐容器 19% 的点」，不是「把这点摆到正中」。图越宽、脸越靠边偏得越多——
+  Billy Bickle 那张（`7-psychopaths.jpg`，脸在最左）就是这么被切掉半张脸的。
+  正确解在脚本的 `crop_pos()` 里，别绕过它自己写百分比。
+- **自动更新**：`.github/workflows/face-focus.yml`——push 到 main 且动了 `images/` 时，
+  机器人重扫、有变化就把 `_data/image_focus.yml` 提交回 main。所以**新封面传上去就自动对脸**。
+- 认不出脸的（手绘封面、风景图）不写进数据文件，模板回退到原来的居中偏上。
+  某张自动裁得不好看 → 在 yml 里改掉那一条并加 `manual: true`，重跑脚本会保留手改。
+- 模型文件 `tools/models/face_detection_yunet_2023mar.onnx`（232 KB）在仓库里，
+  `tools/` 已加进 `_config.yml` 的 `exclude`，不会发布到线上。
+
 ## ⚠️ `series:` 字段必须用英文（ASCII）
 
 **绝对不能用中文做 `series:` 的值。**

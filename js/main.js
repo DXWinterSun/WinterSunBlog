@@ -459,9 +459,9 @@ $(document).ready(function () {
     function syncUrl() {
       if (!(window.history && window.history.replaceState)) return;
       var activeTab = document.querySelector('.c-archive-tab.is-active');
-      var view = activeTab ? activeTab.getAttribute('data-archive-view') : 'year';
+      var view = activeTab ? activeTab.getAttribute('data-archive-view') : 'day';
       var params = new URLSearchParams(window.location.search);
-      if (view === 'year') { params.delete('view'); } else { params.set('view', view); }
+      if (view === 'day') { params.delete('view'); } else { params.set('view', view); }
       var activePill = document.querySelector('.c-archive-tag-pill.is-active');
       if (view === 'mood' && activePill) {
         params.set('tag', activePill.getAttribute('data-archive-tag'));
@@ -488,7 +488,12 @@ $(document).ready(function () {
 
     // Restore the chosen view / mood from the URL on load.
     var initParams = new URLSearchParams(window.location.search);
-    if (initParams.get('view') === 'mood') {
+    var initView = initParams.get('view');
+    // 带着 #d2026-09-13 / #cy2026 这种锚点进来（日历里点的戳）→ 一定是日历那一栏
+    if (/^#(d\d{4}-\d{2}-\d{2}|cy\d{4})$/.test(window.location.hash)) initView = 'day';
+    if (initView === 'year') {
+      activateView('year');
+    } else if (initView === 'mood') {
       activateView('mood');
       var initTag = initParams.get('tag');
       if (initTag) activateTag(initTag);
