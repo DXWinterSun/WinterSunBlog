@@ -9,7 +9,7 @@ series_name: The One I Kept
 slug: series/the-one-i-kept/ ｜ collection_order 26（青梅竹马线占了 25）
 角色: Jim Crocker（Sam Rockwell，《Piccadilly Jim》2004）画册 id `jim`
 配色: 同源画册 —— 夜会香槟金 accent `#d8b25a` / 貂皮大氅黑 bg `#161214`。**与青梅竹马线共用同一套配色**（Winter 定：一个角色一套色，text/muted 也一致 `#f0e3dc` / `#9b8d84`，不为女仆线单独调冷）
-状态: ✅ 已完结（全 16 章 2026-07-28 上线，series_status=complete，首页 byline=complete）。番外：① Extra「Jim 少爷」（名分番外，序 17，2026-07-28）；② Extra「白天你可不这么叫」（婚后·首饰＋称呼翻面，序 18，2026-09-18）；③ Extra「不一样的不是她」（楼下对质，序 19，2026-09-18）。候选剩：他视角账本体番外，待 Winter 想到再补。
+状态: ✅ 已完结（全 16 章 2026-07-28 上线，series_status=complete，首页 byline=complete）。番外：① Extra「Jim 少爷」（名分番外，序 17，2026-07-28）；② Extra「白天你可不这么叫」（婚后·首饰＋称呼翻面，序 18，2026-09-18）；③ Extra「不一样的不是她」（楼下对质，序 19，2026-09-18）；④ Extra「您别赶我走」（天鹅绒盒子·序 20，**草稿已存档 `the-one-i-kept-revised/ex4-dont-send-me-away.md`，待 Winter 过目后上线**）。候选剩：他视角账本体番外，待 Winter 想到再补。
 
 ## 原片地基（与姊妹篇共用，防 OOC）
 - 年代/世界、Jim 人设「没心没肺的迷人 ≠ 冷酷残忍」、Crocker 家族、Ann 等，全部同 `some-steps-only-we-know.md`，此处不重复。
