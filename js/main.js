@@ -409,6 +409,79 @@ $(document).ready(function () {
   });
 
   /* =======================
+  // Archive › By Day：点某一天，就在那个月历下面就地展开
+  // （2026-09-19 Winter：「每次我想点具体的哪一天就会跳到页面最下边」——
+  //   「那一天」的区块原本都堆在页面末尾，靠 :target 显示，所以一点就跳到底。
+  //   这里改成把那一块搬到被点的月历正下方再展开；没有 JS 时仍退回 :target。）
+  ======================= */
+
+  (function setupDayPanels() {
+    var panel = document.querySelector('[data-archive-panel="day"]');
+    if (!panel) return;
+    var openEl = null;
+
+    function calOf(el) { return el ? el.closest('.c-cal') : null; }
+
+    function scrollTo(el) {
+      var top = el.getBoundingClientRect().top + window.scrollY - 76;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+    }
+
+    function close(scrollBack) {
+      if (!openEl) return;
+      var cal = openEl.previousElementSibling;
+      openEl.classList.remove('is-open');
+      openEl = null;
+      if (scrollBack && cal && cal.classList.contains('c-cal')) scrollTo(cal);
+    }
+
+    function open(id, doScroll) {
+      var dayEl = document.getElementById(id);
+      if (!dayEl) return false;
+      if (dayEl === openEl) { close(true); return true; }   // 再点一次＝收起
+      if (openEl) openEl.classList.remove('is-open');
+      var cell = panel.querySelector('.c-cal__cell--on[href="#' + id + '"]');
+      var cal = calOf(cell);
+      if (cal && dayEl.previousElementSibling !== cal) cal.after(dayEl);
+      dayEl.classList.add('is-open');
+      openEl = dayEl;
+      if (doScroll) scrollTo(dayEl);
+      return true;
+    }
+
+    function remember(id) {
+      if (!(window.history && window.history.replaceState)) return;
+      window.history.replaceState(null, '', window.location.pathname + window.location.search + '#' + id);
+    }
+
+    panel.addEventListener('click', function (e) {
+      var cell = e.target.closest('.c-cal__cell--on');
+      if (cell) {
+        var id = (cell.getAttribute('href') || '').slice(1);
+        if (id && open(id, true)) { e.preventDefault(); remember(id); }
+        return;
+      }
+      var link = e.target.closest('.c-day__nav a');
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      if (href.indexOf('#d') === 0) {
+        var nid = href.slice(1);
+        if (open(nid, true)) { e.preventDefault(); remember(nid); }
+      } else if (href.indexOf('#cy') === 0) {
+        e.preventDefault();
+        close(true);
+      }
+    });
+
+    // 带 #d2026-09-13 进来（外链 / 刷新）：一样就地展开，而不是掉到页面末尾
+    var hash = window.location.hash || '';
+    if (/^#d\d{4}-\d{2}-\d{2}$/.test(hash)) {
+      setTimeout(function () { open(hash.slice(1), true); }, 60);
+    }
+  })();
+
+  /* =======================
   // Archive page: Year / Mood sub-tabs + per-tag panels
   ======================= */
 

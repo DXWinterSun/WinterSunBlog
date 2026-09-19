@@ -758,7 +758,11 @@
   box-shadow: 0 20px 40px -32px rgba(var(--rgb-shadow), 0.6);
 }
 
-.c-day:target { display: block; }
+/* :target 是没有 JS 时的退路；有 JS 时由 .is-open 控制，并且整块会被搬到该月历下方 */
+.c-day:target,
+.c-day.is-open { display: block; }
+
+.c-day.is-open { margin: 2px 0 30px; }
 
 .c-day__head {
   display: flex;
