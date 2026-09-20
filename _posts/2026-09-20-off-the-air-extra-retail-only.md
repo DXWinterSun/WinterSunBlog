@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Extra · 这几句是零售的 — Off the Air"
-date: 2026-09-20
+date: 2026-09-20 23:20:00 +0800
 image: chuck-barris-au.jpg
 tags: [Chuck Barris, Sam Rockwell, AU, Off the Air, 炽恋, 缱绻]
 categories: ["AU Story"]
@@ -11,6 +11,7 @@ series_order: 33
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1984"
 summary: "情话他批发了三十年，只有这几句，是零售的。"
 easter_eggs:

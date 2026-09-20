@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Extra · 他还不知道我要来 — Off the Air"
-date: 2026-09-20
+date: 2026-09-20 23:25:00 +0800
 image: chuck-barris-au.jpg
 tags: [Chuck Barris, Sam Rockwell, AU, Off the Air, 絮语, 缱绻]
 categories: ["AU Story"]
@@ -11,6 +11,7 @@ series_order: 34
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1986"
 summary: "母带上没播出去的那几分钟，是给我留的。"
 easter_eggs:
