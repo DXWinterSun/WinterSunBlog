@@ -147,13 +147,16 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
 }
 
 /* ── ② 翻牌 ── */
-.c-arc-grid { display: grid; gap: .6rem; grid-template-columns: repeat(4, 1fr); }
-@media (min-width: 680px) { .c-arc-grid { grid-template-columns: repeat(6, 1fr); } }
+.c-arc-grid { display: grid; gap: .6rem; grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 680px) { .c-arc-grid { grid-template-columns: repeat(5, 1fr); } }
 .c-arc-card { perspective: 800px; aspect-ratio: 3 / 4; border: 0; background: none; padding: 0; cursor: pointer; }
 .c-arc-card__in { position: relative; width: 100%; height: 100%; transition: transform .45s cubic-bezier(.3,.8,.4,1); transform-style: preserve-3d; }
 .c-arc-card.is-open .c-arc-card__in, .c-arc-card.is-done .c-arc-card__in { transform: rotateY(180deg); }
 .c-arc-card.is-done { cursor: default; }
-.c-arc-card.is-done .c-arc-card__in { opacity: .5; }
+/* ⚠️ 变淡要加在 .c-arc-card 上，不能加在 .c-arc-card__in 上：
+   那一层带着 transform-style: preserve-3d，一旦 opacity != 1 就会被压平，
+   backface-visibility 失效，配对成功的牌会露出翻转的牌背。*/
+.c-arc-card.is-done { opacity: .72; }
 .c-arc-card.is-hit { animation: arcBump .45s cubic-bezier(.3,1.5,.5,1); }
 .c-arc-card.is-miss { animation: arcShake .4s cubic-bezier(.36,.07,.19,.97); }
 .c-arc-card__face {
@@ -165,10 +168,28 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
 .c-arc-card__back { background: var(--c-paper); color: var(--c-ink); font-family: var(--a-sans); font-size: .6rem; letter-spacing: .12em; }
 .c-arc-card__back span { border: 2px solid currentColor; border-radius: 4px; padding: .1rem .3rem; opacity: .5; }
 .c-arc-card__front { transform: rotateY(180deg); background: var(--c-paper); }
-.c-arc-card__nm { font-weight: 900; font-size: .76rem; line-height: 1.25; }
-.c-arc-card__yr { font-family: ui-monospace, Menlo, monospace; font-size: .58rem; opacity: .75; margin-top: .25rem; letter-spacing: .08em; }
-.c-arc-card__qt { font-size: .62rem; line-height: 1.5; color: var(--c-ink-soft); font-weight: 600; }
+.c-arc-card__nm { font-weight: 900; font-size: .86rem; line-height: 1.25; }
+.c-arc-card__yr { font-family: ui-monospace, Menlo, monospace; font-size: .6rem; opacity: .75; margin-top: .25rem; letter-spacing: .08em; }
+.c-arc-card__qt { font-size: .72rem; line-height: 1.5; color: var(--c-ink-soft); font-weight: 600; }
+.c-arc-card__lb { font-family: var(--a-sans); font-size: .6rem; line-height: 1.4; letter-spacing: .03em; color: var(--c-ink); }
+/* 四色色卡牌面：他的 bg / accent / text / muted 排成 2×2（别给它 position，
+   那会顶掉 .c-arc-card__face 的 absolute，整张牌塌成 0 高）*/
+.c-arc-card__front.is-swatch { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+.c-arc-card__front.is-swatch i { display: block; width: 100%; height: 100%; }
+.c-arc-card__nameplate {
+  position: absolute; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.74); color: #fff;
+  font-family: var(--a-body); font-weight: 900; font-size: .62rem; line-height: 1.25;
+  padding: .28rem .15rem; animation: arcPop .4s ease;
+}
 .c-arc-diff { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.c-arc-modes { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin: .6rem 0 1rem; }
+.c-arc-mode { font: inherit; font-size: .8rem; font-weight: 700; cursor: pointer; padding: .4rem .85rem;
+  border: 2px solid var(--a-ink); border-radius: 999px; background: var(--c-paper); color: var(--c-ink);
+  box-shadow: 3px 3px 0 var(--a-ink); transition: transform .12s ease, box-shadow .12s ease; }
+.c-arc-mode:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--a-ink); }
+.c-arc-mode.is-on { background: var(--c-accent); }
+.c-arc-label { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--c-muted);
+  font-weight: 700; text-align: center; margin: 1.2rem 0 0; }
 
 /* ── ③ 扭蛋 / 集卡册 ── */
 .c-arc-gacha { text-align: center; }
@@ -276,6 +297,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
   S.best  = S.best  || {};
   S.daily = S.daily || {};
   S.free  = S.free  || {};
+  S.matchMode = S.matchMode || 'twin';
 
   function addCoins(n) { S.coins = Math.max(0, S.coins + n); save(); paintCoins(true); }
   function paintCoins(bump) {
@@ -339,7 +361,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
   /* ── 机器选单 ────────────────────────────────────────────── */
   var MACHINES = [
     { id: 'quiz',  num: '01', title: '这句是谁说的',  desc: '屏幕上弹一句他说过的话，四个人里挑一个。有倒计时，连着答对分数翻倍。', meta: '十题一局 · 每答对一题得一枚币' },
-    { id: 'match', num: '02', title: '翻牌对上号',    desc: '牌全扣着。翻两张，把人和他那句话配成一对。步数越少越厉害。', meta: '三种难度 · 通关得币' },
+    { id: 'match', num: '02', title: '翻牌对上号',    desc: '牌全扣着，翻两张配成一对。配颜色、颜色配人、人配电影、人配台词，四种玩法随你挑。', meta: '四种玩法 × 三种难度 · 通关得币' },
     { id: 'gacha', num: '03', title: '扭蛋集卡册',    desc: '拿币换一次扭蛋，抽到谁就收进册子。五十四格，集满了有东西等着你。', meta: '每天两次免费 · 之后三枚币一次' },
     { id: 'story', num: '04', title: '文字小剧场',    desc: '这台还没通电——剧情和台词得你来写。想写了随时叫我，我把机器装好。', meta: '敬请期待', dark: true }
   ];
@@ -547,23 +569,42 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
      ② 翻牌对上号
      ══════════════════════════════════════════════════════════ */
   var M = null;
+  // 四种玩法（Winter 2026-09-20 定：翻牌保留，但配对方式要「一眼能对上」，
+  // 原来的「整句台词 ↔ 角色」字太多、又得想，节奏断）
+  var PAIRS = [
+    { key: 'twin',  name: '配颜色',   tip: '翻开两张颜色一模一样就是一对。配上了才告诉你这是谁。' },
+    { key: 'color', name: '颜色配人', tip: '一半是他的四色色卡，一半是他的名字。把颜色和人对上。' },
+    { key: 'film',  name: '人配电影', tip: '一半是角色名，一半是电影。把人和他演的那部片对上。' },
+    { key: 'label', name: '人配台词', tip: '一半是角色名，一半是他那句话的小标题。' }
+  ];
   var DIFFS = [
     { n: 6,  label: '六对 · 热身', coin: 3 },
     { n: 8,  label: '八对 · 正常', coin: 5 },
     { n: 12, label: '十二对 · 要命', coin: 8 }
   ];
 
+  function curPair() {
+    return PAIRS.filter(function (p) { return p.key === S.matchMode; })[0] || PAIRS[0];
+  }
+
   function openMatchIntro() {
+    var pm = curPair();
     showStage(
       '<div class="c-arc-bar">' +
         '<div class="c-arc-bar__left"><span class="c-arc-bar__name">翻牌对上号</span></div>' +
         '<button class="c-arc-btn" data-act="close">回选单</button>' +
       '</div>' +
-      '<p class="c-arc-note" style="text-align:center">牌全扣着。翻开两张，把一个人和他说过的那句话配成一对。' +
-        '配错了牌会翻回去——记住它在哪儿。</p>' +
-      '<div class="c-arc-diff" style="margin-top:1.4rem">' +
+      '<p class="c-arc-label">玩哪种</p>' +
+      '<div class="c-arc-modes">' +
+        PAIRS.map(function (p) {
+          return '<button class="c-arc-mode' + (p.key === pm.key ? ' is-on' : '') + '" data-pmode="' + p.key + '">' + p.name + '</button>';
+        }).join('') +
+      '</div>' +
+      '<p class="c-arc-note" style="text-align:center">' + pm.tip + '<br>配错了牌会翻回去——记住它在哪儿。</p>' +
+      '<p class="c-arc-label">几对</p>' +
+      '<div class="c-arc-diff" style="margin-top:.6rem">' +
         DIFFS.map(function (d) {
-          var b = (S.best.match || {})[d.n];
+          var b = (S.best.match || {})[pm.key + d.n];
           return '<button class="c-arc-btn" data-diff="' + d.n + '">' + d.label +
             (b ? '　<span style="opacity:.6">最好 ' + b + ' 步</span>' : '') + '</button>';
         }).join('') +
@@ -571,24 +612,77 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
     );
   }
 
+  function hex2rgb(h) {
+    var v = parseInt(String(h).replace('#', ''), 16);
+    return [(v >> 16) & 255, (v >> 8) & 255, v & 255];
+  }
+  function rgbDist(a, b) {
+    var x = hex2rgb(a), y = hex2rgb(b);
+    return Math.sqrt(Math.pow(x[0]-y[0],2) + Math.pow(x[1]-y[1],2) + Math.pow(x[2]-y[2],2));
+  }
+  // 两个人的配色有多「像」——靠颜色认人的两种玩法要避开撞色，
+  // 不然满屏深蓝配钢灰，看花眼不是记性差
+  function palDist(a, b) {
+    return rgbDist(a.accent, b.accent) * 1.6 + rgbDist(a.bg, b.bg) + rgbDist(a.muted, b.muted) * 0.6;
+  }
+  function pickDistinct(rand, n) {
+    var pool = shuffle(CHARS, rand), chosen = [pool[0]];
+    while (chosen.length < n && chosen.length < pool.length) {
+      var best = null, bestD = -1;
+      for (var i = 0; i < pool.length; i++) {
+        var c = pool[i];
+        if (chosen.indexOf(c) >= 0) continue;
+        var d = Infinity;
+        for (var j = 0; j < chosen.length; j++) d = Math.min(d, palDist(c, chosen[j]));
+        if (d > bestD) { bestD = d; best = c; }
+      }
+      chosen.push(best);
+    }
+    return chosen;
+  }
+
   function startMatch(n) {
     var rand = mulberry32(Math.floor(Math.random() * 1e9));
-    var picked = shuffle(CHARS, rand).slice(0, n);
+    var mode = curPair().key;
+    var byColor = mode === 'twin' || mode === 'color';
+    var picked = byColor ? pickDistinct(rand, n) : shuffle(CHARS, rand).slice(0, n);
     var cards = [];
     picked.forEach(function (c, i) {
-      var q = c.quotes.slice().sort(function (a, b) { return a.lineCN.length - b.lineCN.length; })[0];
-      cards.push({ pid: i, kind: 'face', c: c });
-      cards.push({ pid: i, kind: 'line', c: c, q: q });
+      var q = c.quotes[Math.floor(rand() * c.quotes.length)];
+      cards.push({ pid: i, kind: 'a', c: c, q: q });
+      cards.push({ pid: i, kind: 'b', c: c, q: q });
     });
-    M = { n: n, cards: shuffle(cards, rand), open: [], moves: 0, done: 0, lock: false, start: Date.now() };
+    M = { n: n, mode: mode, cards: shuffle(cards, rand), open: [], moves: 0, done: 0, lock: false, start: Date.now() };
     paintMatch();
+  }
+
+  // 一张牌的正面长什么样，取决于玩法
+  function cardFront(card, mode) {
+    var c = card.c;
+    var swatch = '<div class="c-arc-card__face c-arc-card__front is-swatch">' +
+      '<i style="background:' + c.bg + '"></i><i style="background:' + c.accent + '"></i>' +
+      '<i style="background:' + c.text + '"></i><i style="background:' + c.muted + '"></i></div>';
+    var nameOnHis = '<div class="c-arc-card__face c-arc-card__front" style="background:' + c.bg + ';color:' + c.accent + '">' +
+      '<div class="c-arc-card__nm">' + esc(shortName(c.name)) + '</div>' +
+      '<div class="c-arc-card__yr">' + esc(c.year) + '</div></div>';
+    var namePlain = '<div class="c-arc-card__face c-arc-card__front">' +
+      '<div class="c-arc-card__nm">' + esc(shortName(c.name)) + '</div></div>';
+
+    if (mode === 'twin')  return swatch;
+    if (mode === 'color') return card.kind === 'a' ? swatch : namePlain;
+    if (mode === 'film')  return card.kind === 'a' ? nameOnHis
+      : '<div class="c-arc-card__face c-arc-card__front">' +
+          '<div class="c-arc-card__qt">' + esc(c.filmCN || c.film) + '</div></div>';
+    return card.kind === 'a' ? nameOnHis
+      : '<div class="c-arc-card__face c-arc-card__front">' +
+          '<div class="c-arc-card__lb">' + esc(card.q.label) + '</div></div>';
   }
 
   function paintMatch() {
     showStage(
       '<div class="c-arc-bar">' +
         '<div class="c-arc-bar__left">' +
-          '<span class="c-arc-bar__name">' + M.n + ' 对</span>' +
+          '<span class="c-arc-bar__name">' + curPair().name + ' · ' + M.n + ' 对</span>' +
           '<span class="c-arc-bar__stat">步数 <b id="m-moves">0</b></span>' +
           '<span class="c-arc-bar__stat">已配对 <b id="m-done">0</b> / ' + M.n + '</span>' +
         '</div>' +
@@ -596,12 +690,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
       '</div>' +
       '<div class="c-arc-grid" id="m-grid">' +
         M.cards.map(function (card, i) {
-          var front = card.kind === 'face'
-            ? '<div class="c-arc-card__face c-arc-card__front" style="background:' + card.c.bg + ';color:' + card.c.accent + '">' +
-                '<div class="c-arc-card__nm">' + esc(shortName(card.c.name)) + '</div>' +
-                '<div class="c-arc-card__yr">' + esc(card.c.year) + '</div></div>'
-            : '<div class="c-arc-card__face c-arc-card__front">' +
-                '<div class="c-arc-card__qt">' + esc(card.q.lineCN) + '</div></div>';
+          var front = cardFront(card, M.mode);
           return '<button class="c-arc-card" data-card="' + i + '" aria-label="扣着的牌">' +
             '<div class="c-arc-card__in">' +
               '<div class="c-arc-card__face c-arc-card__back"><span>SAM</span></div>' + front +
@@ -629,6 +718,13 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
         var e = stage.querySelector('[data-card="' + k + '"]');
         e.classList.remove('is-open'); e.classList.add('is-done');
         replay(e, 'is-hit');
+        if (M.mode === 'twin') {
+          var f = e.querySelector('.c-arc-card__front');
+          if (f && !f.querySelector('.c-arc-card__nameplate')) {
+            f.insertAdjacentHTML('beforeend',
+              '<span class="c-arc-card__nameplate">' + esc(shortName(M.cards[k].c.name)) + '</span>');
+          }
+        }
       });
       if (M.done === M.n) setTimeout(finishMatch, 700);
     } else {
@@ -649,13 +745,14 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
     var secs = Math.round((Date.now() - M.start) / 1000);
     var diff = DIFFS.filter(function (d) { return d.n === M.n; })[0];
     S.best.match = S.best.match || {};
-    var prev = S.best.match[M.n];
+    var rk = M.mode + M.n;                 // 纪录按「玩法 + 几对」分开记
+    var prev = S.best.match[rk];
     var isRecord = !prev || M.moves < prev;
-    if (isRecord) S.best.match[M.n] = M.moves;
+    if (isRecord) S.best.match[rk] = M.moves;
     save();
     var coins = diff.coin + (isRecord ? 3 : 0);
     addCoins(coins);
-    var moves = M.moves, n = M.n;
+    var moves = M.moves, n = M.n, best = S.best.match[rk], pname = curPair().name;
 
     showStage(
       '<div class="c-arc-result">' +
@@ -665,7 +762,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
           '<div class="c-arc-result__row"><span>用时</span><span>' + Math.floor(secs / 60) + ' 分 ' + (secs % 60) + ' 秒</span></div>' +
           '<div class="c-arc-result__row"><span>理论最少</span><span>' + n + ' 步</span></div>' +
           '<div class="c-arc-result__row"><span>赚到胶片币</span><span>+' + coins + '</span></div>' +
-          '<div class="c-arc-result__row"><span>这个难度最好</span><span>' + S.best.match[n] + ' 步</span></div>' +
+          '<div class="c-arc-result__row"><span>' + pname + ' · ' + n + ' 对最好</span><span>' + best + ' 步</span></div>' +
         '</div>' +
         '<div class="c-arc-actions">' +
           '<button class="c-arc-btn c-arc-btn--primary" data-diff="' + n + '">再来一局</button>' +
@@ -783,7 +880,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
 
   /* ── 事件总线 ────────────────────────────────────────────── */
   stage.addEventListener('click', function (e) {
-    var el = e.target.closest('[data-act],[data-diff],[data-pick],[data-card],[data-slot]');
+    var el = e.target.closest('[data-act],[data-diff],[data-pmode],[data-pick],[data-card],[data-slot]');
     if (!el) return;
     var act = el.getAttribute('data-act');
     if (act === 'close')    return closeStage();
@@ -795,6 +892,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
     if (act === 'gacha')    return openGacha();
     if (act === 'draw')     return draw();
     if (act === 'recycle')  return recycle();
+    if (el.hasAttribute('data-pmode')) { S.matchMode = el.getAttribute('data-pmode'); save(); return openMatchIntro(); }
     if (el.hasAttribute('data-diff'))  return startMatch(+el.getAttribute('data-diff'));
     if (el.hasAttribute('data-pick'))  return answer(+el.getAttribute('data-pick'));
     if (el.hasAttribute('data-card'))  return flip(+el.getAttribute('data-card'));
