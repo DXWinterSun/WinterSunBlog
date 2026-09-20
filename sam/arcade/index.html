@@ -204,11 +204,15 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
 /* 抽到新角色时那道扫光：⚠️ 底色必须 opacity: 0、且关键帧自己收尾把它淡掉。
    只写 transform 的话，动画一结束属性就回到初始值，那道光会停在卡面正中不走
    （Winter 2026-09-20：「反光的质感一直留着，看起来有点假」）。*/
-.c-arc-bigcard.is-new::before {
+.c-arc-bigcard.is-new::before,
+.c-arc-bigcard.is-shine::before {
   content: ""; position: absolute; inset: -40% -120%; pointer-events: none; opacity: 0;
   background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.55) 50%, transparent 62%);
   animation: arcSheen 1s .35s ease-out;
 }
+/* 点一下卡片＝把它拿起来对着光照一下（Winter 2026-09-20 提的） */
+.c-arc-bigcard[data-shine] { cursor: pointer; }
+.c-arc-bigcard.is-shine { animation: arcLift .9s ease; }
 .c-arc-bigcard__yr { font-family: ui-monospace, Menlo, monospace; font-size: .68rem; letter-spacing: .2em; opacity: .8; }
 .c-arc-bigcard__nm { font-family: var(--a-sans); font-size: 1.5rem; line-height: 1.2; }
 .c-arc-bigcard__fm { font-size: .8rem; opacity: .85; font-weight: 600; }
@@ -256,6 +260,11 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
 @keyframes arcFlash { 0% { opacity: 0; } 25% { opacity: .22; } 100% { opacity: 0; } }
 @keyframes arcShake { 10%, 90% { transform: translateX(-2px); } 20%, 80% { transform: translateX(4px); } 30%, 50%, 70% { transform: translateX(-7px); } 40%, 60% { transform: translateX(7px); } }
 @keyframes arcDrop  { from { opacity: 0; transform: translateY(-22px) rotate(-4deg) scale(.88); } to { opacity: 1; transform: none; } }
+@keyframes arcLift {
+  0%   { transform: none; }
+  28%  { transform: translateY(-5px) rotate(-.8deg) scale(1.025); }
+  100% { transform: none; }
+}
 @keyframes arcSheen {
   0%   { transform: translateX(-60%); opacity: 0; }
   12%  { opacity: 1; }
@@ -265,7 +274,8 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
 @media (prefers-reduced-motion: reduce) {
   .c-arc-panel.is-shake, .c-arc-card.is-miss, .c-arc-card.is-hit,
   .c-arc-result__score, .c-arc-bigcard, .c-arc-opt.is-right, .c-arc-slot.is-fresh { animation: none !important; }
-  .c-arc-bigcard.is-new::before { display: none; }
+  .c-arc-bigcard.is-new::before, .c-arc-bigcard.is-shine::before { display: none; }
+  .c-arc-bigcard.is-shine { animation: none !important; }
 }
 </style>
 
@@ -804,7 +814,9 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
     var fresh = drawn && !drawn.view && !drawn.dup;
 
     var capsule = drawn
-      ? '<div class="c-arc-bigcard' + (fresh ? ' is-new' : '') + '" style="background:' + drawn.c.bg + ';color:' + drawn.c.text + '">' +
+      ? '<div class="c-arc-bigcard' + (fresh ? ' is-new' : '') + '" data-shine tabindex="0" role="button"' +
+          ' aria-label="拿起这张卡片照一下光" title="拿起来照一下"' +
+          ' style="background:' + drawn.c.bg + ';color:' + drawn.c.text + '">' +
           '<div class="c-arc-bigcard__yr" style="color:' + drawn.c.accent + '">' + esc(drawn.c.year) + '</div>' +
           '<div class="c-arc-bigcard__nm" style="color:' + drawn.c.accent + '">' + esc(drawn.c.name) + '</div>' +
           '<div class="c-arc-bigcard__fm">' + esc(drawn.c.filmCN || drawn.c.film) + '</div>' +
@@ -887,7 +899,16 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
   }
 
   /* ── 事件总线 ────────────────────────────────────────────── */
+  function shine(card) {
+    if (!card) return;
+    card.classList.remove('is-new', 'is-shine');
+    void card.offsetWidth;                 // 强制重排，动画才会重新开始
+    card.classList.add('is-shine');
+  }
+
   stage.addEventListener('click', function (e) {
+    var lit = e.target.closest('[data-shine]');
+    if (lit) return shine(lit);
     var el = e.target.closest('[data-act],[data-diff],[data-pmode],[data-pick],[data-card],[data-slot]');
     if (!el) return;
     var act = el.getAttribute('data-act');
@@ -905,6 +926,12 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
     if (el.hasAttribute('data-pick'))  return answer(+el.getAttribute('data-pick'));
     if (el.hasAttribute('data-card'))  return flip(+el.getAttribute('data-card'));
     if (el.hasAttribute('data-slot'))  return showCard(el.getAttribute('data-slot'));
+  });
+
+  stage.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var lit = e.target.closest && e.target.closest('[data-shine]');
+    if (lit) { e.preventDefault(); shine(lit); }
   });
 
   document.addEventListener('keydown', function (e) {
