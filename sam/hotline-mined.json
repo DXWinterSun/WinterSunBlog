@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1865
+  "count": 1866
  },
  "chars": {
   "youngsam": {
@@ -4969,6 +4969,13 @@
      "b": "praise",
      "ch": 32,
      "title": "Extra · 你才好看",
+     "series": "Off the Air"
+    },
+    {
+     "cn": "行。随便看。电视反正是你的。",
+     "b": "daily",
+     "ch": 34,
+     "title": "Extra · 他还不知道我要来",
      "series": "Off the Air"
     }
    ]
