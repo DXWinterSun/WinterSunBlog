@@ -201,10 +201,13 @@ layout: home
       {% assign series_cat = series_first.categories | first %}
       {% assign series_count = series_posts | size %}
       {% assign series_slug = series_name | slugify %}
+      {% comment %} 状态以系列首页 front matter 的 series_status 为准（第一章上的那份早就不更新了） {% endcomment %}
+      {% assign series_page = site.pages | where: "series_name", series_name | first %}
+      {% assign series_status = series_page.series_status | default: series_first.series_status | default: "ongoing" %}
     <a class="c-post c-post--series" href="{{ site.baseurl }}/series/{{ series_slug }}/" data-category="{{ series_cat }}" data-card-type="series" target="_blank" rel="noopener">
       <div class="c-post__image-wrap">
         {% if series_first.image %}
-        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: series_first.image }}')"></div>
+        <div class="c-post__image" data-bg="{{ "/images/" | prepend: site.baseurl | append: series_first.image }}"></div>
         {% else %}
         <div class="c-post__placeholder">{{ series_cat | default: "Series" }}</div>
         {% endif %}
@@ -212,17 +215,23 @@ layout: home
       <div class="c-post__body">
         <div class="c-post__eyebrow">{{ series_cat }} · {{ series_first.series_type | default: "Series" }}</div>
         <h3 class="c-post__title">{{ series_first.series_title | default: series_name }}</h3>
-        <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · {{ series_first.series_status | default: "ongoing" }}</p>
+        <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · {% include series-status.html status=series_status %}</p>
       </div>
     </a>
     {% endfor %}
 
-    {% for post in site.posts %}
+    {%- comment -%}
+      2026-09-18 瘦身：系列章节在首页任何视图里都不单独显示（系列卡片代表它们），
+      以前却把 1100 多张章节卡全部渲染进 HTML 再用 is-hidden 藏起来——首页 1.2 MB 的来源。
+      现在只渲染不属于系列的文章。
+    {%- endcomment -%}
+    {% assign standalone_posts = site.posts | where_exp: "p", "p.series == nil" %}
+    {% for post in standalone_posts %}
     {% assign post_cat = post.categories | first %}
-    <a class="c-post{% if post.series %} is-hidden{% endif %}" href="{% if post.external_url %}{{ post.external_url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}" data-category="{{ post_cat }}" data-card-type="chapter"{% if post.series %} data-series="{{ post.series }}"{% endif %}{% if post.external_url or post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
+    <a class="c-post" href="{% if post.external_url %}{{ post.external_url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}" data-category="{{ post_cat }}" data-card-type="chapter"{% if post.series %} data-series="{{ post.series }}"{% endif %}{% if post.external_url or post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
       <div class="c-post__image-wrap">
         {% if post.image %}
-        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: post.image }}')"></div>
+        <div class="c-post__image" data-bg="{{ "/images/" | prepend: site.baseurl | append: post.image }}"></div>
         {% else %}
         <div class="c-post__placeholder">{{ post.categories | first | default: "Story" }}</div>
         {% endif %}
@@ -235,10 +244,6 @@ layout: home
         {% if post.summary %}<p class="c-post__summary">{{ post.summary }}</p>{% endif %}
         <div class="c-post__meta">
           <span>{{ post.date | date: '%Y, %b %d' }}</span>
-          {% capture chars %}{{ post.content | strip_html | strip | size }}{% endcapture %}
-          {% assign mins = chars | divided_by: 500 %}
-          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
-          <span>{{ mins }} min read</span>
         </div>
       </div>
     </a>

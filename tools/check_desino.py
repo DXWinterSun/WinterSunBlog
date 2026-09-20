@@ -5,9 +5,11 @@ check_desino.py —— AU 正文「中式出戏表达」扫描器
 用法：python3 tools/check_desino.py _posts/某章.md [更多文件...]
 
 三档结果：
-  ❌ HIGH  几乎必错（筷子/夹菜/衙门/江湖……），部署前必须处理
+  ❌ HIGH  几乎必错（筷子/夹菜/衙门/江湖/一锅粥……含带中国饮食器物印记的俗语），部署前必须处理
   ⚠️ WARN  看语境（大人/师父/饺子/户口……），人工判断
   🗣 LANG  语言穿帮嫌疑（英文/英语/中文……），逐处回答「此刻真的在切换语言吗」
+  ✍️ HANZI 依赖汉字才成立的描写（笔画/撇捺/偏旁/拆字/谐音……）——人物说的不是中文，
+           他手写的也不是汉字，这些在原语言里根本不存在
   📖 META  正文 cue 章节（上一章/第 N 章……），题词引语行（> 开头）与「下一章：」预告行不查
 
 规则维护：出戏词清单见下方 HIGH_WORDS / WARN_WORDS，规范真源是 CLAUDE.md
@@ -29,6 +31,8 @@ HIGH_WORDS = [
     # 官府·武侠·江湖
     ("衙门", "警局/法院/当局"), ("官府", "当局/政府"), ("报官", "报警/报案"),
     ("捕快", "警察/警长的人"), ("县令", "镇长/法官"), ("官兵", "士兵/警队"), ("兵勇", "士兵"),
+    ("追兵", "追来的人/追上来的车/警长带的人"), ("官差", "警察"), ("差役", "警察"),
+    ("兵马", "人手"), ("大军", "一帮人"), ("押解", "押送"), ("发配", "流放"),
     ("江湖", "外头/在路上/干这行的"), ("镖局", "（无对应，重写）"), ("大侠", "（无对应，重写）"),
     ("武功", "身手"), ("内力", "（无对应，重写）"), ("轻功", "身手"),
     # 称谓
@@ -42,6 +46,9 @@ HIGH_WORDS = [
     ("缘分天定", "命中注定"), ("冲喜", "（无对应，删）"),
     # 说书腔
     ("话说，", "（删）"), ("且说", "（删）"), ("看官", "（删）"), ("列位看官", "（删）"),
+    # 中式亲属称谓（只收一眼出戏的；「奶奶/外婆/叔叔/表哥」这类通用译法可留，别扩大）
+    ("姥姥", "奶奶/外婆（通用译法）"), ("姥爷", "爷爷/外公（通用译法）"),
+    ("小舅子", "内弟"), ("大舅哥", "她哥哥"),
 ]
 
 # ---- 看语境（人工判断）----
@@ -65,13 +72,35 @@ WARN_WORDS = [
 # 度量单位（带数字/汉字数量词才算命中，降低误报）
 UNIT_PATTERNS = [
     (r"[0-9一二两三四五六七八九十百千]+\s*里[地路]?(?![面头边程])", "英里/公里"),
-    (r"[0-9一二两三四五六七八九十百千]+\s*[斤两](?![只个人样件])", "磅/盎司"),
+    (r"[0-9一二两三四五六七八九十百千]+\s*[斤两](?![只个人样件秒分天年月周步句声眼下口回次趟遍道条块排头本张边])", "磅/盎司"),
     (r"[0-9一二两三四五六七八九十]+\s*丈", "英尺/米"),
     (r"[一二三四五]更[天时]?", "后半夜/凌晨 X 点"),
 ]
 
+# 带中国饮食 / 器物印记的俗语成语（2026-09 加：脚本原先只查名物，抓不到这类比喻）
+IDIOM_WORDS = [
+    ("一锅粥", "乱成一团"),
+    ("一锅端", "一勺烩 / 全给端了"),
+    ("鸡飞狗跳", "鸡犬不宁式的混乱 → 直接写乱成什么样"),
+    ("一碗水端平", "一视同仁 / 谁也不偏"),
+    ("煮熟的鸭子", "到手的东西"),
+    ("炒鱿鱼", "被开了 / 被辞了"),
+    ("吃豆腐", "占便宜 / 动手动脚"),
+    ("开小灶", "吃偏饭 → 单独给他留一份"),
+    ("八字没一撇", "还悬在半空 / 八字＋撇都是汉字文化"),
+    ("唱白脸", "扮坏人"),
+    ("唱红脸", "扮好人"),
+]
+
 # 语言穿帮嫌疑
 LANG_PATTERN = re.compile(r"英文|英语|中文|汉语|普通话")
+
+# 依赖汉字才成立的描写：人物写的 / 说的不是中文，笔画、拆字、谐音在原语言里不存在
+# （2026-09 Winter 抓出：形容 Billy 手写的英文日记「横撇捺全不讲理」——英文没有撇捺）
+HANZI_PATTERN = re.compile(
+    r"笔画|偏旁|部首|横撇|撇捺|一撇一捺|一横一竖|拆字|拆开这个字|这个字.{0,6}几笔"
+    r"|谐音|同音字|对联|上联|下联|繁体字|简体字|字帖|描红"
+)
 
 # 正文 cue 章节（元指涉）
 META_PATTERN = re.compile(r"上一章|这一章|前文所述|第[一二三四五六七八九十百0-9]+章")
@@ -112,7 +141,7 @@ def check_file(path: str) -> int:
         return 0
 
     body = split_body(text)
-    high, warn, lang, meta = [], [], [], []
+    high, warn, lang, meta, hanzi = [], [], [], [], []
 
     for lineno, line in body:
         for word, fix in HIGH_WORDS:
@@ -121,11 +150,16 @@ def check_file(path: str) -> int:
         for word, fix in WARN_WORDS:
             if word in line:
                 warn.append((lineno, word, fix, line.strip()))
+        for word, fix in IDIOM_WORDS:
+            if word in line:
+                high.append((lineno, word, fix, line.strip()))
         for pat, fix in UNIT_PATTERNS:
             if re.search(pat, line):
                 high.append((lineno, "中式度量", fix, line.strip()))
         if LANG_PATTERN.search(line):
             lang.append((lineno, line.strip()))
+        if HANZI_PATTERN.search(line):
+            hanzi.append((lineno, line.strip()))
         # 题词/引语行与「下一章」预告行属于面向读者的导航文本，不算正文元指涉
         stripped = line.lstrip()
         if not stripped.startswith(">") and not stripped.startswith("下一章"):
@@ -134,7 +168,7 @@ def check_file(path: str) -> int:
 
     print(f"\n检查：{path}")
     print("─" * 56)
-    if not (high or warn or lang or meta):
+    if not (high or warn or lang or hanzi or meta):
         print("  ✅ 全部干净")
         return 0
 
@@ -154,6 +188,7 @@ def check_file(path: str) -> int:
     show(high, "❌", "HIGH · 几乎必错")
     show(warn, "⚠️", "WARN · 看语境")
     show(lang, "🗣", "LANG · 语言穿帮嫌疑（此刻真的在切换语言吗？）")
+    show(hanzi, "✍️", "HANZI · 依赖汉字才成立（他写的/说的不是中文，哪来的笔画谐音？）")
     show(meta, "📖", "META · 正文 cue 章节")
     return 1 if high else 0
 

@@ -1,0 +1,225 @@
+---
+layout: home
+title: 他的 54 套配色 · Palettes
+permalink: /sam/palettes/
+nav_active: sam
+---
+{%- comment -%}
+配色墙（2026-09-18，零维护）：把 _data/sam_themes.yml 里每个角色的四个颜色和四个名字一次铺开。
+数据源就是「换个心情」选色器那份，画册加人、色卡同步之后这里自动多一格；按电影年份排。
+三种画法（Winter 挑的）：晕染 wash / 试色 paint / 光晕 glow，顶部切换、记在本机（ws-palettes-style）。
+「穿上」复用 au-strip__switch + data-au-theme，由 js/theme-picker.js 接管；
+「存图」用 canvas 按当前画法画一张 PNG，弹层里长按 / 右键保存，可以直接发给朋友。
+{%- endcomment -%}
+<section class="c-hero c-hero--sam">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+  <div class="c-hero__eyebrow">Sam Rockwell · Palettes</div>
+  <h1 class="c-hero__title">His <em>Colours</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">{{ site.data.sam_themes | size }} 个角色 · 每人四色四名 · 全部手调</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    每一个他，都有一套只属于那部片子的颜色——名字也是照着片子起的。
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
+</section>
+
+<section class="c-sam-collection">
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">Palettes · 配色墙</h3>
+    <span class="c-section-heading__meta"><a href="{{ site.baseurl }}/sam/" style="color:inherit;text-decoration:none;">&larr; 回到 Sam</a></span>
+  </div>
+  <div class="c-pw-switch" role="group" aria-label="换一种画法">
+    <span class="c-pw-switch__label">画法</span>
+    <button class="c-pw-switch__chip" type="button" data-style="wash" aria-pressed="false">晕染<i>Wash</i></button>
+    <button class="c-pw-switch__chip" type="button" data-style="paint" aria-pressed="false">试色<i>Paint</i></button>
+    <button class="c-pw-switch__chip" type="button" data-style="glow" aria-pressed="false">光晕<i>Glow</i></button>
+  </div>
+  <p class="c-pw-hint">「穿上」把整个站换成他的颜色；「存图」按当前画法存一张卡，发给朋友。</p>
+
+  {%- assign themes = site.data.sam_themes | sort: "year" -%}
+  <div class="c-palette-wall" id="js-palette-wall" data-style="wash">
+    {%- for t in themes %}
+    {%- assign anchor = t.anchor | default: t.id -%}
+    <article class="pt" data-idx="{{ forloop.index0 }}" style="--bg: {{ t.bg }}; --ac: {{ t.accent }}; --tx: {{ t.text }}; --mu: {{ t.muted }};">
+      <div class="pt__wash" aria-hidden="true"></div>
+      <ul class="pt__names">
+        <li class="pt__n" style="--c: {{ t.accent }};"><span class="pt__sw" aria-hidden="true"></span><span class="pt__t"><b>{{ t.cn }}</b><i>{{ t.en }}</i></span></li>
+        <li class="pt__n" style="--c: {{ t.bg }};"><span class="pt__sw" aria-hidden="true"></span><span class="pt__t"><b>{{ t.bg_cn }}</b><i>{{ t.bg_en }}</i></span></li>
+        <li class="pt__n" style="--c: {{ t.text }};"><span class="pt__sw" aria-hidden="true"></span><span class="pt__t"><b>{{ t.text_cn }}</b><i>{{ t.text_en }}</i></span></li>
+        <li class="pt__n" style="--c: {{ t.muted }};"><span class="pt__sw" aria-hidden="true"></span><span class="pt__t"><b>{{ t.muted_cn }}</b><i>{{ t.muted_en }}</i></span></li>
+      </ul>
+      <div class="pt__foot">
+        <a class="pt__who" href="{{ site.baseurl }}/sam/many-faces/#{{ anchor }}" title="在画册里看他">{{ t.name }}<small>{{ t.year }} · 在画册里看他 ↗</small></a>
+        <span class="pt__acts">
+          <button class="pt__btn au-strip__switch" type="button" data-au-theme="{{ t.id }}" title="把整个站换成他的颜色">穿上</button>
+          <button class="pt__btn pt__save" type="button" data-idx="{{ forloop.index0 }}" title="存一张图">存图</button>
+        </span>
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+<script type="application/json" id="js-palette-data">{{ themes | jsonify }}</script>
+<script>
+(function () {
+  var wall = document.getElementById('js-palette-wall');
+  if (!wall) return;
+  var THEMES = [];
+  try { THEMES = JSON.parse(document.getElementById('js-palette-data').textContent); } catch (e) {}
+  var STYLES = { wash: '晕染', paint: '试色', glow: '光晕' };
+  var KEY = 'ws-palettes-style';
+
+  // —— 深浅判断：填色的名字胶囊该用深字还是浅字 ——
+  function lum(hex) {
+    var h = (hex || '').replace('#', '');
+    if (h.length === 3) h = h.replace(/(.)/g, '$1$1');
+    var r = parseInt(h.slice(0, 2), 16) / 255, g = parseInt(h.slice(2, 4), 16) / 255, b = parseInt(h.slice(4, 6), 16) / 255;
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  }
+  function inkFor(hex) { return lum(hex) > 0.55 ? '#2b221e' : '#fff8f0'; }
+  Array.prototype.forEach.call(wall.querySelectorAll('.pt__n'), function (li) {
+    li.style.setProperty('--ink', inkFor(li.style.getPropertyValue('--c').trim()));
+  });
+
+  // —— 画法切换 ——
+  var chips = wall.parentNode.querySelectorAll('.c-pw-switch__chip');
+  function setStyle(name, save) {
+    if (!STYLES[name]) name = 'wash';
+    wall.setAttribute('data-style', name);
+    Array.prototype.forEach.call(chips, function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-style') === name ? 'true' : 'false'); });
+    if (save) { try { localStorage.setItem(KEY, name); } catch (e) {} }
+  }
+  Array.prototype.forEach.call(chips, function (c) { c.addEventListener('click', function () { setStyle(c.getAttribute('data-style'), true); }); });
+  var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+  setStyle(saved || 'wash', false);
+
+  // —— 存图：按当前画法用 canvas 画一张卡 ——
+  var W = 640, H = 600, S = 2;
+  function rr(ctx, x, y, w, h, r) {
+    ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+  function four(t) {
+    return [[t.accent, t.cn, t.en], [t.bg, t.bg_cn, t.bg_en], [t.text, t.text_cn, t.text_en], [t.muted, t.muted_cn, t.muted_en]];
+  }
+  function foot(ctx, t, ink, sub) {
+    ctx.fillStyle = ink; ctx.font = '500 26px "EB Garamond", "Noto Serif SC", serif'; ctx.textAlign = 'left';
+    ctx.fillText(t.name, 36, H - 62);
+    ctx.font = 'italic 15px "EB Garamond", serif'; ctx.fillStyle = sub;
+    ctx.fillText(t.year + '  ·  Many Faces of Sam', 36, H - 38);
+    ctx.textAlign = 'right'; ctx.font = '13px "Noto Serif SC", serif';
+    ctx.fillText('♡ Winter Sun · 亲手调制，只为 Sam', W - 36, H - 40);
+    ctx.textAlign = 'left';
+  }
+  function drawWash(ctx, t) {
+    ctx.fillStyle = '#fffaf4'; rr(ctx, 0, 0, W, H, 28); ctx.fill();
+    var g = ctx.createLinearGradient(30, 0, W - 30, 0);
+    g.addColorStop(0, t.bg); g.addColorStop(0.18, t.bg); g.addColorStop(0.42, t.accent); g.addColorStop(0.68, t.text); g.addColorStop(1, t.muted);
+    ctx.fillStyle = g; rr(ctx, 26, 26, W - 52, 210, 18); ctx.fill();
+    four(t).forEach(function (c, i) {
+      var x = 26 + (i % 2) * ((W - 52) / 2 + 6), y = 256 + Math.floor(i / 2) * 114, w = (W - 52 - 12) / 2, h = 100;
+      ctx.fillStyle = c[0]; rr(ctx, x, y, w, h, 14); ctx.fill();
+      ctx.strokeStyle = 'rgba(0,0,0,0.06)'; ctx.lineWidth = 1; ctx.stroke();
+      var ink = inkFor(c[0]);
+      ctx.fillStyle = ink; ctx.font = '500 22px "Noto Serif SC", serif'; ctx.fillText(c[1], x + 20, y + 44);
+      ctx.globalAlpha = 0.82; ctx.font = 'italic 16px "EB Garamond", serif'; ctx.fillText(c[2], x + 20, y + 72); ctx.globalAlpha = 1;
+    });
+    foot(ctx, t, '#2b221e', '#8d7c73');
+  }
+  function drawPaint(ctx, t) {
+    ctx.fillStyle = '#fbf6ef'; rr(ctx, 0, 0, W, H, 28); ctx.fill();
+    ctx.fillStyle = 'rgba(0,0,0,0.035)';
+    for (var yy = 24; yy < H - 100; yy += 14) for (var xx = 24; xx < W - 24; xx += 14) { ctx.beginPath(); ctx.arc(xx, yy, 1.1, 0, Math.PI * 2); ctx.fill(); }
+    four(t).forEach(function (c, i) {
+      var cx = 170 + (i % 2) * 300, cy = 120 + Math.floor(i / 2) * 200;
+      ctx.save(); ctx.globalAlpha = 0.92;
+      var g1 = ctx.createRadialGradient(cx - 12, cy - 10, 8, cx - 8, cy - 6, 62);
+      g1.addColorStop(0, c[0]); g1.addColorStop(0.62, c[0]); g1.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g1; ctx.beginPath(); ctx.ellipse(cx, cy, 64, 54, -0.2, 0, Math.PI * 2); ctx.fill();
+      var g2 = ctx.createRadialGradient(cx + 14, cy + 12, 4, cx + 14, cy + 12, 48);
+      g2.addColorStop(0, c[0]); g2.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g2; ctx.beginPath(); ctx.ellipse(cx + 8, cy + 8, 52, 44, 0.3, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#2b221e'; ctx.font = '500 22px "Noto Serif SC", serif'; ctx.fillText(c[1], cx, cy + 92);
+      ctx.fillStyle = '#6d5d55'; ctx.font = 'italic 16px "EB Garamond", serif'; ctx.fillText(c[2], cx, cy + 116);
+      ctx.textAlign = 'left';
+    });
+    foot(ctx, t, '#2b221e', '#8d7c73');
+  }
+  function drawGlow(ctx, t) {
+    ctx.fillStyle = t.bg; rr(ctx, 0, 0, W, H, 28); ctx.fill();
+    four(t).forEach(function (c, i) {
+      var cx = 70 + (i % 2) * 300, cy = 110 + Math.floor(i / 2) * 200;
+      ctx.save();
+      ctx.shadowColor = c[0]; ctx.shadowBlur = 48; ctx.fillStyle = c[0];
+      ctx.beginPath(); ctx.arc(cx, cy, 30, 0, Math.PI * 2); ctx.fill();
+      ctx.shadowBlur = 90; ctx.globalAlpha = 0.6; ctx.fill();
+      ctx.restore();
+      var hl = ctx.createRadialGradient(cx - 10, cy - 10, 2, cx, cy, 30);
+      hl.addColorStop(0, 'rgba(255,255,255,0.55)'); hl.addColorStop(0.5, c[0]); hl.addColorStop(1, c[0]);
+      ctx.fillStyle = hl; ctx.beginPath(); ctx.arc(cx, cy, 30, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.28)'; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.fillStyle = '#f1e9df'; ctx.font = '500 22px "Noto Serif SC", serif'; ctx.fillText(c[1], cx + 50, cy - 2);
+      ctx.globalAlpha = 0.62; ctx.font = 'italic 16px "EB Garamond", serif'; ctx.fillText(c[2], cx + 50, cy + 24); ctx.globalAlpha = 1;
+    });
+    ctx.fillStyle = 'rgba(0,0,0,0.18)'; ctx.fillRect(0, H - 96, W, 96);
+    foot(ctx, t, '#f1e9df', 'rgba(241,233,223,0.6)');
+  }
+  var DRAW = { wash: drawWash, paint: drawPaint, glow: drawGlow };
+
+  function render(t, style) {
+    var cv = document.createElement('canvas'); cv.width = W * S; cv.height = H * S;
+    var ctx = cv.getContext('2d'); ctx.scale(S, S);
+    ctx.textBaseline = 'alphabetic';
+    DRAW[style](ctx, t);
+    return cv;
+  }
+  function showModal(cv, t, style) {
+    var m = document.createElement('div'); m.className = 'c-pw-modal';
+    var img = document.createElement('img'); img.alt = t.name + ' · 配色卡';
+    var p = document.createElement('p'); p.textContent = '长按图片保存（电脑上点右键另存）。';
+    var acts = document.createElement('div'); acts.className = 'c-pw-modal__acts';
+    var dl = document.createElement('a'); dl.textContent = '下载 PNG';
+    var close = document.createElement('button'); close.type = 'button'; close.textContent = '关上';
+    acts.appendChild(dl); acts.appendChild(close);
+    m.appendChild(img); m.appendChild(p); m.appendChild(acts);
+    close.addEventListener('click', function () { document.body.removeChild(m); });
+    m.addEventListener('click', function (e) { if (e.target === m) document.body.removeChild(m); });
+    cv.toBlob(function (blob) {
+      var url = URL.createObjectURL(blob);
+      img.src = url; dl.href = url;
+      dl.download = 'sam-palette-' + t.id + '-' + style + '.png';
+    }, 'image/png');
+    document.body.appendChild(m);
+  }
+  function fontsReady() {
+    if (!document.fonts || !document.fonts.load) return Promise.resolve();
+    return Promise.all([
+      document.fonts.load('500 22px "Noto Serif SC"'), document.fonts.load('13px "Noto Serif SC"'),
+      document.fonts.load('italic 16px "EB Garamond"'), document.fonts.load('500 26px "EB Garamond"')
+    ]).catch(function () {});
+  }
+  wall.addEventListener('click', function (e) {
+    var btn = e.target.closest('.pt__save');
+    if (!btn) return;
+    var t = THEMES[parseInt(btn.getAttribute('data-idx'), 10)];
+    if (!t) return;
+    var style = wall.getAttribute('data-style') || 'wash';
+    btn.disabled = true;
+    fontsReady().then(function () {
+      showModal(render(t, style), t, style);
+      btn.disabled = false;
+    });
+  });
+})();
+</script>

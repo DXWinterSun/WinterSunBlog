@@ -11,6 +11,7 @@ series_order: 39
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 7
+chapter_kind: extra
 summary: "全网都在考古他年轻时的照片。考古大军里，混着一个小号。"
 ---
 

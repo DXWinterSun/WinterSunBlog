@@ -23,6 +23,10 @@
      （只授权本仓库 Contents 读写，存本机 localStorage 键 ws-sam-shelf-key），
      保存时由浏览器直接把 data.json 提交回 main，一两分钟后全站可见。
      未发布成功的改动缓存在本机（键 ws-sam-shelf-draft），可重试。
+     ⚠️ 馆长模式下**不读这份公开 data.json**，改读仓库原件（GitHub contents API，
+     Accept: application/vnd.github.raw）——站点重建要四十来分钟，公开副本在那之前是旧的，
+     若照它编辑，保存时会拿旧名单盖掉仓库里的新记录。publish() 里另有一道保险丝
+     （rescueMissing）：仓库里有、这台设备没有、本次又没删过的条目一律保留。
      角色联动读 sam/lines.json（零内嵌，画册加人自动跟上）。 */
   html, body { margin: 0; padding: 0; }
   *, *::before, *::after { box-sizing: border-box; }
@@ -83,6 +87,14 @@
     font-size: 10px; letter-spacing: 2px; color: #8a7558; text-transform: uppercase;
   }
   .stats b { color: #cba14c; font-weight: 400; }
+  .stats__jump {
+    border: 0; background: none; padding: 0; cursor: pointer;
+    font-family: inherit; font-size: inherit; letter-spacing: inherit;
+    color: inherit; text-transform: inherit;
+    text-decoration: underline dotted; text-underline-offset: 4px;
+    text-decoration-color: rgba(203,161,76,.45);
+  }
+  .stats__jump:hover { color: #ece1d0; }
 
   /* 未发布改动的横幅 */
   .pending {
@@ -299,6 +311,17 @@
     font-size: 9px; letter-spacing: 2px; color: #7a684e;
   }
 
+  /* 手机上卡片排两列——一列一件要滑十三屏，两列减半，也更像一排真的架子 */
+  @media (max-width: 620px) {
+    .grid:not(.is-list) { grid-template-columns: repeat(2, 1fr); gap: 9px; }
+    .grid:not(.is-list) .item { padding: 12px 11px 10px; }
+    .grid:not(.is-list) .item__name { font-size: 13.5px; }
+    .grid:not(.is-list) .item__spec { font-size: 9.5px; letter-spacing: .8px; padding: 2px 7px; }
+    .grid:not(.is-list) .item__char { font-size: 10px; padding: 3px 8px 3px 4px; }
+    .grid:not(.is-list) .item__note { font-size: 11.5px; line-height: 1.8; }
+    .grid:not(.is-list) .item__date { font-size: 8px; letter-spacing: 1.5px; }
+  }
+
   .empty {
     width: 100%; max-width: 560px; margin: 8px auto; text-align: center;
     font-weight: 300; font-size: 13px; line-height: 2.2; color: #8a7558;
@@ -441,6 +464,17 @@
   }
   .cm-btn--cancel { border: 0; background: none; color: #8a7558; }
   .cm-btn--cancel:hover { color: #ece1d0; }
+  .cm-btn--danger {
+    border-color: rgba(200,90,70,.55); color: #e08a72;
+    background: linear-gradient(160deg, rgba(180,70,50,.22), rgba(180,70,50,.05));
+  }
+  .cm-btn--danger:hover { border-color: rgba(220,110,90,.9); color: #ffb9a3; }
+  /* 确认小窗是从编辑窗里叫出来的，得压在它上面，否则按钮点不动 */
+  .overlay.overlay--ask { z-index: 45; }
+  .ask-text {
+    font-weight: 300; font-size: 13px; line-height: 2; color: #b8a687;
+    text-align: center; margin: -6px 0 16px;
+  }
 
   .note {
     margin-top: 34px; max-width: 560px; text-align: center;
@@ -561,6 +595,34 @@
   .types { display: flex; flex-wrap: wrap; gap: 7px; }
   .spec-chips { margin-bottom: 8px; }
   .spec-chips .t-chip { padding: 6px 12px; font-size: 12px; }
+  /* 不常用的那些先收着，点「更多」才摊开 */
+  .spec-chips .t-chip.is-extra { display: none; }
+  .spec-chips.is-open .t-chip.is-extra { display: inline-block; }
+  .t-chip--more { border-style: dashed; color: #8a7757; letter-spacing: 0; }
+  /* 自己写的那几条规格：长相跟上面的选项一模一样，只是右边多个 × */
+  .tagbox { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
+  .tagbox:empty { display: none; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 8px 6px 12px; border-radius: 999px;
+    border: 1px solid rgba(230,190,110,.7); color: #ecd9a8;
+    background: linear-gradient(160deg, rgba(203,161,76,.22), rgba(203,161,76,.05));
+    font-size: 12.5px; letter-spacing: 1px;
+  }
+  .tag button {
+    border: 0; background: none; cursor: pointer; padding: 0;
+    width: 18px; height: 18px; border-radius: 50%; line-height: 1;
+    color: #c9b078; font-size: 13px;
+  }
+  .tag button:hover { background: rgba(203,161,76,.25); color: #f4ecdd; }
+  .tagadd { display: flex; gap: 8px; align-items: stretch; }
+  .tagadd .f-input { flex: 1 1 auto; }
+  .tagadd__btn {
+    flex: 0 0 auto; padding: 0 14px; border-radius: 8px; cursor: pointer;
+    border: 1px solid rgba(255,222,180,.2); background: #0f0b07;
+    color: #a8916d; font-family: 'Noto Serif SC', serif; font-size: 13px; letter-spacing: 1px;
+  }
+  .tagadd__btn:hover { border-color: rgba(230,190,110,.6); color: #ecd9a8; }
   .t-chip {
     padding: 7px 13px; border-radius: 999px; cursor: pointer;
     border: 1px solid rgba(255,222,180,.16); background: #0f0b07;
@@ -777,6 +839,18 @@
   </div>
 </div>
 
+<!-- 确认小窗（删除藏品等） -->
+<div class="overlay overlay--ask" id="ask-overlay">
+  <div class="sheet sheet--mini" role="dialog" aria-modal="true" aria-label="请确认">
+    <h2 id="ask-title">确定吗</h2>
+    <p class="ask-text" id="ask-text"></p>
+    <div class="cm-btns">
+      <button type="button" class="cm-btn cm-btn--danger" id="ask-yes">确定</button>
+      <button type="button" class="cm-btn cm-btn--cancel" id="ask-no">算了</button>
+    </div>
+  </div>
+</div>
+
 <!-- 导出清单弹窗 -->
 <div class="overlay" id="ex-overlay">
   <div class="sheet sheet--export" role="dialog" aria-modal="true" aria-label="导出收藏清单">
@@ -810,15 +884,20 @@
     <label class="f-label">它是哪一类</label>
     <div class="types" id="f-types"></div>
 
-    <label class="f-label" for="f-spec">版本 / 规格 <small>（可不填 · 点一下选中，再点取消）</small></label>
+    <label class="f-label" for="f-spec">版本 / 规格 <small>（可不填 · 点一下选中，再点取消 · 没有的自己写，能加好几条）</small></label>
     <div class="types spec-chips" id="f-fmt-row" style="display:none"></div>
     <div class="types spec-chips" id="f-region-row" style="display:none"></div>
-    <input class="f-input" id="f-spec" type="text" placeholder="其它补充：铁盒版 / 2 of 5…" maxlength="40">
+    <div class="types spec-chips" id="f-sug-row"></div>
+    <div class="tagbox" id="f-tagbox"></div>
+    <div class="tagadd">
+      <input class="f-input" id="f-spec" type="text" placeholder="没有的自己写：首版 / 2 of 5…" maxlength="24">
+      <button type="button" class="tagadd__btn" id="f-spec-add">＋ 加一条</button>
+    </div>
 
     <label class="f-label" for="f-char">关联角色 <small>（可不填 · 选了会点亮画册地图）</small></label>
     <select class="f-select" id="f-char"><option value="">— 不关联某个角色 —</option></select>
 
-    <label class="f-label" for="f-date">入手日期 <small>（可不填）</small></label>
+    <label class="f-label" for="f-date">入手日期 <small>（默认今天 · 想改想清空都行）</small></label>
     <input class="f-input" id="f-date" type="date">
 
     <label class="f-label" for="f-note">想说的话 <small>（可不填 · 会公开展示在卡片上）</small></label>
@@ -849,7 +928,7 @@
 
   /* fmts = 这一类东西有哪些「制式」可点；有 fmts 的还会跟着出现地区行。 */
   var TYPES = [
-    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "DVD", "4K UHD"] },
+    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "4K UHD", "DVD"], fmtsMore: ["VCD", "LD", "录像带"] },
     { id: "ost",     emoji: "🎵", label: "原声带", fmts: ["CD", "黑胶", "磁带"] },
     { id: "card",    emoji: "🃏", label: "卡牌" },
     { id: "goods",   emoji: "🧸", label: "周边" },
@@ -919,10 +998,29 @@
     return Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 7);
   }
 
-  /* ————— 加载数据：公开 data.json + 角色 lines.json ————— */
+  /* ————— 加载数据：公开 data.json + 角色 lines.json —————
+     ⚠️ 访客读网站上那份 data.json 就够了；**馆长必须读仓库里的原件**。
+     原因：网站重建一次要四十来分钟，刚存的东西在那份公开副本里还没出现。
+     若馆长也读它，刷新后刚添的藏品会「消失」，而这时再添一件并保存，
+     就会拿这份旧名单盖掉仓库里的新记录——东西是真的会没。 */
   var loadedData = false, loadedChars = false;
-  fetch("./data.json", { cache: "no-cache" })
-    .then(function (r) { return r.json(); })
+  function fetchPublic() {
+    return fetch("./data.json", { cache: "no-cache" }).then(function (r) { return r.json(); });
+  }
+  function fetchRepo() {
+    return fetch(REPO_API + "?ref=main&_=" + Date.now(), {
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Accept": "application/vnd.github.raw",
+        "X-GitHub-Api-Version": "2022-11-28"
+      },
+      cache: "no-store"
+    }).then(function (r) {
+      if (!r.ok) throw new Error("read " + r.status);
+      return r.json();
+    });
+  }
+  (isCurator() ? fetchRepo().catch(fetchPublic) : fetchPublic())
     .then(function (data) {
       items = Array.isArray(data.items) ? data.items : [];
       /* 馆长上次有没发布成功的改动 → 先展示草稿并提示重试 */
@@ -1245,10 +1343,17 @@
      ["有签名", signed.length + " 件"],
      ["心愿单", allWish.length + " 件"]]
       .concat(discs.length ? [["碟片进 NAS", nasDone.length + " / " + discs.length]] : [])
-      .concat(chars.length ? [["点亮角色", covered + " / " + chars.length]] : [])
+      .concat(chars.length ? [["点亮角色", covered + " / " + chars.length, 1]] : [])
       .forEach(function (p) {
-        var s = document.createElement("span");
+        /* 「点亮角色」做成可点的——谁都能一步滑到底下那张画册地图 */
+        var s = document.createElement(p[2] ? "button" : "span");
         s.innerHTML = p[0] + " <b>" + p[1] + "</b>";
+        if (p[2]) {
+          s.type = "button";
+          s.className = "stats__jump";
+          s.title = "去看画册地图";
+          s.addEventListener("click", jumpToMap);
+        }
         stats.appendChild(s);
       });
     $("progress-num").textContent = "SHELF " + allOwn.length;
@@ -1322,14 +1427,19 @@
       arrange = a.id;
       arrWrap.querySelectorAll(".mini").forEach(function (x) { x.classList.remove("is-on"); });
       b.classList.add("is-on");
-      /* 分组要看小标题才有意义，顺手切到清单；想看卡片再点回去就是 */
-      if (a.id !== "recent" && view === "card") setView("list");
+      /* 分组要看小标题才有意义，顺手切到清单；切回「最新入手」时把卡片还给她 */
+      if (a.id !== "recent") {
+        if (view === "card") { viewBeforeGroup = "card"; setView("list"); }
+      } else if (viewBeforeGroup) {
+        setView(viewBeforeGroup); viewBeforeGroup = "";
+      }
       prefSave(); render();
     });
     arrWrap.appendChild(b);
   });
 
   var viewSeg = $("viewseg");
+  var viewBeforeGroup = "";      // 因为分组而被临时切走的视图，切回「最新入手」时还原
   function setView(v) {
     view = v;
     viewSeg.querySelectorAll(".mini").forEach(function (x) {
@@ -1339,6 +1449,7 @@
   setView(view);
   viewSeg.querySelectorAll(".mini").forEach(function (b) {
     b.addEventListener("click", function () {
+      viewBeforeGroup = "";      // 她自己挑的视图，就别再自作主张还原了
       setView(b.dataset.view);
       prefSave(); render();
     });
@@ -1377,10 +1488,11 @@
   }
   $("charbar-x").addEventListener("click", function () { setCharFilter(""); });
   /* 看完一个人接着看下一个：滚回底下那张画册地图 */
-  $("charbar-more").addEventListener("click", function () {
+  function jumpToMap() {
     var t = $("map-label").style.display === "none" ? $("map-grid") : $("map-label");
     if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
+  }
+  $("charbar-more").addEventListener("click", jumpToMap);
 
   /* ————— 角色小菜单（馆长专属） ————— */
   var cmChar = null;
@@ -1444,13 +1556,31 @@
       "X-GitHub-Api-Version": "2022-11-28"
     };
   }
+  function b64decodeUtf8(s) {
+    var bin = atob(String(s).replace(/\s+/g, ""));
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
+  }
+  /* 这次她亲手删掉的——只有这些才允许从仓库里消失 */
+  var deletedIds = {};
+  /* 保险丝：仓库里有、这台设备手上没有、而且这次并没有删过的东西，
+     一律原样留着再写回去。这样哪怕名单不知怎么变旧了，也绝不会盖没东西。 */
+  function rescueMissing(cur) {
+    if (!cur || !cur.content) return 0;
+    var remote;
+    try { remote = JSON.parse(b64decodeUtf8(cur.content)); } catch (e) { return 0; }
+    if (!remote || !Array.isArray(remote.items)) return 0;
+    var have = {};
+    items.forEach(function (x) { if (x && x.id) have[x.id] = 1; });
+    var back = remote.items.filter(function (x) {
+      return x && x.id && !have[x.id] && !deletedIds[x.id];
+    });
+    if (back.length) { items = back.concat(items); render(); }
+    return back.length;
+  }
   function publish() {
-    var body = JSON.stringify({
-      v: 1,
-      note: "藏品架 sam/shelf/ 的公开数据。馆长（Winter）在页面里编辑后由浏览器直接提交回本文件；手改时保持 items 数组结构即可。",
-      items: items
-    }, null, 2) + "\n";
-    /* 先取文件当前的版本号（sha），再提交新内容 */
+    /* 先取文件当前的版本号（sha）与内容，再提交新内容 */
     return fetch(REPO_API + "?ref=main&_=" + Date.now(), { headers: ghHeaders(), cache: "no-store" })
       .then(function (r) {
         if (r.status === 404) return null;
@@ -1458,12 +1588,19 @@
         return r.json();
       })
       .then(function (cur) {
+        var saved = rescueMissing(cur);
+        var body = JSON.stringify({
+          v: 1,
+          note: "藏品架 sam/shelf/ 的公开数据。馆长（Winter）在页面里编辑后由浏览器直接提交回本文件；手改时保持 items 数组结构即可。",
+          items: items
+        }, null, 2) + "\n";
         var payload = {
           message: "藏品架 · 更新收藏记录",
           content: b64utf8(body),
           branch: "main"
         };
         if (cur && cur.sha) payload.sha = cur.sha;
+        if (saved) setTimeout(function () { toast("顺手接回了 " + saved + " 件差点漏掉的"); }, 1600);
         return fetch(REPO_API, {
           method: "PUT",
           headers: ghHeaders(),
@@ -1558,7 +1695,7 @@
   });
   function fmtsFor(type) {
     var t = typeById[type];
-    return (t && t.fmts) || [];
+    return t ? (t.fmts || []).concat(t.fmtsMore || []) : [];
   }
   function setFormType(id) {
     formType = id;
@@ -1569,7 +1706,7 @@
        场刊、卡牌这些没有制式可言，整排收起来。「导进 NAS」仍只对碟片有意义。 */
     var fmts = fmtsFor(id);
     if (fmts.indexOf(specFmt) < 0) specFmt = "";
-    buildFmtChips(fmts);
+    buildFmtChips(typeById[id]);
     $("f-nas-row").style.display = (id === "disc") ? "flex" : "none";
     $("f-fmt-row").style.display = fmts.length ? "flex" : "none";
     $("f-region-row").style.display = fmts.length ? "flex" : "none";
@@ -1601,15 +1738,28 @@
   }
 
   /* ————— 制式 / 地区点选（单选可取消，落进 spec 字符串） ————— */
-  var ALL_FMTS = TYPES.reduce(function (a, t) { return a.concat(t.fmts || []); }, []);
-  var REGIONS = ["美版", "英版", "日版", "港版", "台版", "国版"];
-  var specFmt = "", specRegion = "";
+  var ALL_FMTS = TYPES.reduce(function (a, t) {
+    return a.concat(t.fmts || [], t.fmtsMore || []);
+  }, []);
+  /* 每一排都是「常见的先摆出来 ＋ 点『更多』才展开剩下的」，免得一打开一屏全是圈圈 */
+  var REGIONS = ["美版", "英版", "日版", "港版", "台版"];
+  var REGIONS_MORE = ["国版", "法版", "德版", "意版", "西版", "澳版", "韩版", "欧版", "加版", "俄版"];
+  /* 常写的那几条，点一下就变成一枚标签，省得每次手打 */
+  var SUGGESTS = ["铁盒", "限量", "全新"];
+  var SUGGESTS_MORE = ["首刷", "初回版", "收藏版", "导演剪辑版", "二手", "未拆封"];
+  /* 从前手打的长写法，认成同一枚圈圈 */
+  var ALIAS = { "意大利版": "意版", "西班牙版": "西版", "加拿大版": "加版",
+                "俄罗斯版": "俄版", "法国版": "法版", "德国版": "德版", "韩国版": "韩版" };
+  var ALL_REGIONS = REGIONS.concat(REGIONS_MORE);
+  var ALL_SUGGESTS = SUGGESTS.concat(SUGGESTS_MORE);
+  var MAX_EXTRAS = 6;
+  var specFmt = "", specRegion = "", specExtras = [];
 
-  function buildSpecChips(wrap, values, getter, setter) {
-    values.forEach(function (v) {
+  function buildSpecChips(wrap, values, more, getter, setter) {
+    function chip(v, isMore) {
       var b = document.createElement("button");
       b.type = "button";
-      b.className = "t-chip";
+      b.className = "t-chip" + (isMore ? " is-extra" : "");
       b.dataset.val = v;
       b.textContent = v;
       b.addEventListener("click", function () {
@@ -1617,24 +1767,122 @@
         syncSpecChips();
       });
       wrap.appendChild(b);
-    });
+    }
+    values.forEach(function (v) { chip(v, false); });
+    (more || []).forEach(function (v) { chip(v, true); });
+    if (more && more.length) {
+      var m = document.createElement("button");
+      m.type = "button";
+      m.className = "t-chip t-chip--more";
+      m.textContent = "更多 ▾";
+      m.addEventListener("click", function () {
+        var open = wrap.classList.toggle("is-open");
+        m.textContent = open ? "收起 ▴" : "更多 ▾";
+      });
+      wrap.appendChild(m);
+    }
   }
-  function buildFmtChips(values) {
+  function buildFmtChips(t) {
     var wrap = $("f-fmt-row");
     wrap.innerHTML = "";
-    buildSpecChips(wrap, values,
+    wrap.classList.remove("is-open");
+    buildSpecChips(wrap, (t && t.fmts) || [], (t && t.fmtsMore) || [],
       function () { return specFmt; }, function (v) { specFmt = v; });
   }
-  function syncSpecChips() {
-    $("f-fmt-row").querySelectorAll(".t-chip").forEach(function (x) {
-      x.classList.toggle("is-on", x.dataset.val === specFmt);
+  function syncRow(rowId, isOn) {
+    var wrap = $(rowId), hidden = false;
+    wrap.querySelectorAll(".t-chip").forEach(function (x) {
+      if (!x.dataset.val) return;                      // 那枚「更多」开关
+      var on = isOn(x.dataset.val);
+      x.classList.toggle("is-on", on);
+      if (on && x.classList.contains("is-extra")) hidden = true;
     });
-    $("f-region-row").querySelectorAll(".t-chip").forEach(function (x) {
-      x.classList.toggle("is-on", x.dataset.val === specRegion);
+    /* 选中的那枚藏在「更多」里 → 自动把这排展开，不然她看不见自己选了什么 */
+    if (hidden && !wrap.classList.contains("is-open")) {
+      wrap.classList.add("is-open");
+      var m = wrap.querySelector(".t-chip--more");
+      if (m) m.textContent = "收起 ▴";
+    }
+  }
+  function syncSpecChips() {
+    syncRow("f-fmt-row", function (v) { return v === specFmt; });
+    syncRow("f-region-row", function (v) { return v === specRegion; });
+    syncRow("f-sug-row", function (v) { return specExtras.indexOf(v) >= 0; });
+    renderExtras();
+  }
+  buildSpecChips($("f-region-row"), REGIONS, REGIONS_MORE,
+    function () { return specRegion; }, function (v) { specRegion = v; });
+
+  /* ————— 自己写的规格：可以加好几条，每条都是一枚标签 ————— */
+  /* 一次输入里夹了分隔符（· / 、 , ; 斜杠…）就替她拆开，省得她自己排版；
+     「2 of 5」「482/700」这种编号里的斜杠要留着，所以斜杠两边都是数字时不拆。 */
+  function splitExtras(text) {
+    return String(text || "")
+      .replace(/(\d)\s*\/\s*(\d)/g, "$1\u0000$2")
+      .split(/[·・、,，;；\/｜|+＋]+/)
+      .map(function (x) { return x.replace(/\u0000/g, "/").trim(); })
+      .filter(Boolean);
+  }
+  function addExtras(text) {
+    var added = 0;
+    splitExtras(text).forEach(function (tok) {
+      if (ALIAS[tok]) tok = ALIAS[tok];
+      if (tok.length > 24) tok = tok.slice(0, 24);
+      if (ALL_REGIONS.indexOf(tok) >= 0 && fmtsFor(formType).length) {
+        specRegion = tok; return;                      // 她手打了「日版」→ 直接点亮那枚圈圈
+      }
+      if (specExtras.length >= MAX_EXTRAS) return;
+      if (specExtras.indexOf(tok) >= 0) return;
+      if (tok === specFmt || tok === specRegion) return;   // 上面已经点过了，别重一遍
+      specExtras.push(tok); added++;
+    });
+    return added;
+  }
+  function renderExtras() {
+    var box = $("f-tagbox");
+    box.innerHTML = "";
+    specExtras.forEach(function (tok, i) {
+      if (ALL_SUGGESTS.indexOf(tok) >= 0) return;   // 上面那排已经点亮了，不必再挂一枚
+      var t = document.createElement("span");
+      t.className = "tag";
+      t.appendChild(document.createTextNode(tok));
+      var x = document.createElement("button");
+      x.type = "button";
+      x.setAttribute("aria-label", "去掉「" + tok + "」");
+      x.textContent = "×";
+      x.addEventListener("click", function () {
+        specExtras.splice(i, 1);
+        syncSpecChips();
+      });
+      t.appendChild(x);
+      box.appendChild(t);
     });
   }
-  buildSpecChips($("f-region-row"), REGIONS,
-    function () { return specRegion; }, function (v) { specRegion = v; });
+  buildSpecChips($("f-sug-row"), SUGGESTS, SUGGESTS_MORE,
+    function () { return ""; },
+    function (v) {
+      var at = specExtras.indexOf(v);
+      if (at >= 0) specExtras.splice(at, 1); else addExtras(v);
+    });
+  function commitSpecInput() {
+    var box = $("f-spec");
+    if (!box.value.trim()) return;
+    if (!addExtras(box.value) && specExtras.length >= MAX_EXTRAS) {
+      toast("规格最多写 " + MAX_EXTRAS + " 条");
+    }
+    box.value = "";
+    syncSpecChips();
+  }
+  $("f-spec-add").addEventListener("click", function () {
+    commitSpecInput();
+    $("f-spec").focus();
+  });
+  $("f-spec").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); commitSpecInput(); }
+    else if (e.key === "Backspace" && !this.value && specExtras.length) {
+      specExtras.pop(); syncSpecChips();
+    }
+  });
 
   /* 把已有的 spec 字符串拆回「制式 / 地区 / 其它」（兼容旧数据「蓝光」「DVD」等） */
   function parseSpec(spec) {
@@ -1642,11 +1890,12 @@
     String(spec || "").split("·").forEach(function (raw) {
       var tok = raw.trim();
       if (!tok) return;
+      if (ALIAS[tok]) tok = ALIAS[tok];                // 「意大利版」认成「意版」
       if (!fmt && ALL_FMTS.indexOf(tok) >= 0) fmt = tok;
-      else if (!region && REGIONS.indexOf(tok) >= 0) region = tok;
+      else if (!region && ALL_REGIONS.indexOf(tok) >= 0) region = tok;
       else rest.push(tok);
     });
-    return { fmt: fmt, region: region, rest: rest.join(" · ") };
+    return { fmt: fmt, region: region, rest: rest };
   }
   function composeSpec() {
     var parts = [];
@@ -1654,9 +1903,8 @@
       if (specFmt) parts.push(specFmt);
       if (specRegion) parts.push(specRegion);
     }
-    var extra = $("f-spec").value.trim();
-    if (extra) parts.push(extra);
-    return parts.join(" · ");
+    /* 存的时候统一用同一个分隔符，她手打的那条也就和点出来的长得一样了 */
+    return parts.concat(specExtras).join(" · ");
   }
 
   function openSheet(id, presetChar) {
@@ -1666,7 +1914,7 @@
     $("f-name").value = it ? it.name : "";
     autoFilled = "";                       // 改旧藏品时别把她起的名字冲掉
     $("f-char").value = it ? (it.charId || "") : (presetChar || "");
-    $("f-date").value = it ? (it.date || "") : "";
+    $("f-date").value = it ? (it.date || "") : today();   // 新添的默认就是今天，省得每次点三下
     $("f-note").value = it ? (it.note || "") : "";
     $("f-nas").checked = it ? !!it.nas : false;
     $("f-signed").checked = it ? !!it.signed : false;
@@ -1674,9 +1922,14 @@
     /* 先定类别（制式那排会跟着重建），再把已有的规格拆回去点上 */
     setFormType(it ? it.type : "disc");
     var sp = parseSpec(it ? it.spec : "");
-    specFmt = fmtsFor(formType).indexOf(sp.fmt) >= 0 ? sp.fmt : "";
-    specRegion = sp.region;
-    $("f-spec").value = sp.rest || (sp.fmt && !specFmt ? sp.fmt : "");
+    var keepFmt = fmtsFor(formType).indexOf(sp.fmt) >= 0;
+    specFmt = keepFmt ? sp.fmt : "";
+    specRegion = fmtsFor(formType).length ? sp.region : "";
+    specExtras = [];
+    if (!keepFmt && sp.fmt) specExtras.push(sp.fmt);          // 换过类别的老数据，留着当一条
+    if (!fmtsFor(formType).length && sp.region) specExtras.push(sp.region);
+    sp.rest.forEach(function (tok) { if (specExtras.length < MAX_EXTRAS) specExtras.push(tok); });
+    $("f-spec").value = "";
     syncSpecChips();
     $("btn-del").style.display = it ? "block" : "none";
     $("btn-save").textContent = it ? "保存修改" : "摆上架子";
@@ -1686,12 +1939,11 @@
   }
   function closeSheet() { $("overlay").classList.remove("is-on"); editingId = null; }
 
-  $("add-btn").addEventListener("click", function () { openSheet(null); });
-  $("fab-add").addEventListener("click", function () { openSheet(null); });
-  $("fab-map").addEventListener("click", function () {
-    var target = $("map-label").style.display === "none" ? $("map-grid") : $("map-label");
-    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
+  /* 正在只看谁的架子，添的多半还是他的——直接替她选好 */
+  function addNew() { openSheet(null, charFilter || ""); }
+  $("add-btn").addEventListener("click", addNew);
+  $("fab-add").addEventListener("click", addNew);
+  $("fab-map").addEventListener("click", jumpToMap);
   $("f-char").addEventListener("change", updateNameHint);
   $("btn-cancel").addEventListener("click", closeSheet);
   $("overlay").addEventListener("click", function (e) { if (e.target === $("overlay")) closeSheet(); });
@@ -1700,9 +1952,11 @@
     if ($("overlay").classList.contains("is-on")) closeSheet();
     if ($("cm-overlay").classList.contains("is-on")) closeCharMenu();
     if ($("ex-overlay").classList.contains("is-on")) $("ex-overlay").classList.remove("is-on");
+    if ($("ask-overlay").classList.contains("is-on")) closeAsk();
   });
 
   $("btn-save").addEventListener("click", function () {
+    commitSpecInput();          // 写了一条却忘了点「＋」，保存时替她收进去
     var name = $("f-name").value.trim();
     if (!name) name = autoNameFor();
     if (!name) {
@@ -1736,14 +1990,32 @@
     saveAndPublish(msg);
   });
 
+  /* ————— 页面自己的确认小窗（比浏览器那个灰框好看，也不会被误点） ————— */
+  var askFn = null;
+  function ask(title, text, okLabel, fn) {
+    $("ask-title").textContent = title;
+    $("ask-text").textContent = text;
+    $("ask-yes").textContent = okLabel;
+    askFn = fn;
+    fitOverlay();
+    $("ask-overlay").classList.add("is-on");
+  }
+  function closeAsk() { $("ask-overlay").classList.remove("is-on"); askFn = null; }
+  $("ask-yes").addEventListener("click", function () { var f = askFn; closeAsk(); if (f) f(); });
+  $("ask-no").addEventListener("click", closeAsk);
+  $("ask-overlay").addEventListener("click", function (e) { if (e.target === $("ask-overlay")) closeAsk(); });
+
   $("btn-del").addEventListener("click", function () {
     if (!editingId) return;
-    var it = items.find(function (x) { return x.id === editingId; });
+    var id = editingId;
+    var it = items.find(function (x) { return x.id === id; });
     if (!it) return;
-    if (!confirm("把「" + it.name + "」从架子上拿下来？\n（删掉就找不回来了）")) return;
-    items = items.filter(function (x) { return x.id !== editingId; });
-    closeSheet();
-    saveAndPublish("已从架子上取下");
+    ask("从架子上拿下来？", "“" + it.name + "”拿下来就找不回来了。", "拿下来", function () {
+      deletedIds[id] = 1;
+      items = items.filter(function (x) { return x.id !== id; });
+      closeSheet();
+      saveAndPublish("已从架子上取下");
+    });
   });
 
   /* ————— 导出清单 —————
@@ -1847,9 +2119,45 @@
     list.forEach(function (it) { out.push("| " + exRow(it).map(cell).join(" | ") + " |"); });
     return out.join("\n") + "\n";
   }
+  /* ————— 末尾附的作品总表 —————
+     这一段跟「收了什么」无关：它就是画册（many-faces）收录的 Sam 全部角色，
+     按年份排开，用来对着看还差哪几部。数据直接来自 sam/lines.json，
+     画册加了新角色，这张表自己就多一行。 */
+  function buildRoster(fmt) {
+    if (!chars.length) return "";
+    var no = function (i) { return ("0" + (i + 1)).slice(-2); };
+    var title = "Many Faces of Sam · 作品总表";
+    var note = "画册收录 " + chars.length + " 个角色 · 按年份排 · 这是完整片单，与架上有没有无关";
+
+    if (fmt === "csv") {
+      var q = function (v) { return '"' + String(v == null ? "" : v).replace(/"/g, '""') + '"'; };
+      var rows = ["", q(title + "（" + note + "）"),
+                  ["序号", "年份", "角色", "片名", "原片名"].map(q).join(",")];
+      chars.forEach(function (c, i) {
+        rows.push([no(i), c.year, c.name, c.filmCN || "", c.film].map(q).join(","));
+      });
+      return "\r\n" + rows.join("\r\n") + "\r\n";
+    }
+    if (fmt === "md") {
+      var md = ["", "---", "", "## 🎞️ " + title, "", "*" + note + "*", "",
+                "| # | 年份 | 角色 | 片名 | 原片名 |",
+                "| --- | --- | --- | --- | --- |"];
+      chars.forEach(function (c, i) {
+        md.push("| " + [no(i), c.year, c.name, c.filmCN || "—", c.film].join(" | ") + " |");
+      });
+      return md.join("\n") + "\n";
+    }
+    var t = ["", "────────────────────────────────", "🎞️ " + title, note, ""];
+    chars.forEach(function (c, i) {
+      t.push(no(i) + ". " + c.year + "  " + c.name + " · " + (c.filmCN || "") + " " + c.film);
+    });
+    return t.join("\n") + "\n";
+  }
+
   function exBuild() {
     var list = exList();
-    return exFmt === "csv" ? buildCsv(list) : exFmt === "md" ? buildMd(list) : buildText(list);
+    var body = exFmt === "csv" ? buildCsv(list) : exFmt === "md" ? buildMd(list) : buildText(list);
+    return body + buildRoster(exFmt);
   }
   function exRefresh() {
     $("ex-out").value = exBuild();
@@ -1862,9 +2170,11 @@
     var same = shown === items.length;
     $("ex-scopes").style.display = same ? "none" : "flex";
     $("ex-scope-label").style.display = same ? "none" : "block";
+    /* 不写作品数——藏品件数和作品数撞在一起（53 件 / 53 部）反而看晕 */
+    var tail = chars.length ? "末尾另附画册里 Sam 的完整作品表。" : "";
     $("ex-hint").textContent = same
-      ? "整架 " + items.length + " 件都在下面——复制走，或者存成一个文件。"
-      : "下面这份跟着你现在的筛选走；想要整架的，点「整架都导」。";
+      ? "整架 " + items.length + " 件都在下面。" + tail
+      : "下面这份跟着你现在的筛选走；想要整架的，点「整架都导」。" + tail;
   }
   function buildChips(wrapId, defs, get, set) {
     var wrap = $(wrapId);

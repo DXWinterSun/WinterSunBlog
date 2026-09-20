@@ -19,6 +19,14 @@ Winter（冬璇）自己说的，原话大意：**「我对技术层面的东西
    「请说得更简单」。同一件事她问第二遍，就换个更生活化的比喻重讲，别复读。
 5. 她的长处在创作侧：剧情、人物、声口、审美判断都非常准。技术上让着她，
    创作上听她的。
+7. ⭐ **每写完一章，先给下一章的「路线图」，别闷头往下写**（Winter 2026-08-26 明确提出：
+   「每次都是只写了这一章，然后下面是什么走向，你也不会给一些框架或者建议之类的，
+   然后我就越来越迷……有时候你会按照你想的来写，然后你只有写完之后我才能去看再去改」）。
+   做法：一章交稿后，**同时给一张剩余章节的框架表**（哪些是圣经里欠着必须还的伏笔、
+   哪几章我建议怎么走、哪几章空着），⭐ 再挑 **2–3 个她能凭喜好判断的岔路**给成选项
+   （A/B/C），她挑完再动笔。**别问技术、别问结构该不该，问的是剧情走向和感觉。**
+   样板：Pero AU 的「赛程表」页（按 AU 配色排成一页，聊天里只给链接）。
+
 6. **改动做好就直接发布上线，别停在「等她说发」**（她 2026-07-31 明确要求：
    「你做好就直接发，你别等着我让你发」——曾因干等确认让她白等半天）。
    口径：**功能 / 样式 / 修 bug 类改动**，验证完直接发，发完用人话+截图汇报
@@ -75,7 +83,7 @@ python3 tools/preview/render_draft.py 草稿.md -o /tmp/.../预览.html \
 3. **同一次提交里更新圣经**：章节流水加一行、PINNED 加新埋的钩子 / 划掉已回收的、
    预览页链接记一条。
 4. 这些改动**跟正文一起 commit / push 到工作分支**。⚠️ 但 `.claude/` 下的改动
-   **不单独推 `main`**（会白白触发一次 ~20 分钟构建），攒着跟下一批正文一起走。
+   **不单独推 `main`**（会白白触发一次整站重建），攒着跟下一批正文一起走。
 
 ⚠️ **续写前的自查一句话**：*如果这个对话现在原地消失，下一个对话打开 `.claude/bibles/`，
 能不能一字不差地接着往下写？* 答不上来，就是还欠着东西没存。
@@ -103,7 +111,28 @@ python3 tools/preview/render_draft.py 草稿.md -o /tmp/.../预览.html \
 | 引述 / 强调词 | `所谓的「烂片」` | `所谓的“烂片”` |
 | 嵌套内层 | `算法『飞得起来』` | `算法‘飞得起来’` |
 
-**例外（这些不是「正文」，保持原样、别动）：**
+**⚠️ 2026-09-19 补的第四条例外：「长在实物上的字」保留框角引号。**
+那次体检查出 2026-07 统一之后又冒出 222 处 `「」`，逐条核过之后发现**不是漏网，是一套有意的用法**：
+几个系列（Fog City 最系统）用 `“…”` 给**说出口的话**、用 `「…」` 给**作为实物存在的文字**。
+同一句里两种并存：
+
+> 一路夸他深情——**「**Rockwell 动情致谢相伴三十年的伴侣**」**；另一路一本正经地分析**“**海洋**”**
+
+Winter 的原话是「引号要仔细核查不能一刀切」。所以那一批按下面这把尺子分开处理
+（当次换掉 122 处、保留 100 处）：
+
+| 情况 | 怎么办 | 例 |
+|---|---|---|
+| **引述 / 强调一个词或概念** | **→ 弯引号 `“”`** | `把“被人看穿”等同于“死路一条”`、`一声声地喊着“太太”`、`他“恰好”路过` |
+| **落在对白内部** | **→ 内层单引号 `‘’`** | `“我把你锁在‘球员’那个格子里。”` |
+| **长在实物上的字**：便签、牌子、横幅、奖杯、账本、批复、磁带标签、文件夹名、帖子标题、网站配文、弹幕、跟帖 | **保留 `「」`** | `七张「再三个月」`、`那个叫「B 面素材」的文件夹` |
+| **整行只有一句引文**（账本条目、帖子标题、回声式重复） | **保留 `「」`** | 独占一行的 `「那是您说的。」` |
+| **一串连着的跟帖 / 弹幕** | 整串跟第一条走 | `「出手真狠」「这张永远退出流通了吧」` |
+
+判据一句话：**这行字是"有人说出来的"还是"印/写在某件东西上的"？** 说出来的用弯引号，
+印在东西上的留框角——框角引号在这里不是标点，是"这是一件可以拿在手里读的东西"的视觉标记。
+
+**其余三条老例外（这些不是「正文」，保持原样、别动）：**
 
 - **设计标签 / UI 文案**：Sam 彩蛋页那套框角括号是刻意的视觉母题——页面上的
   `「目录 · Contents」`、`「换个心情」`、章节返回按钮、`sam/many-faces`·`quiz`·
@@ -486,6 +515,17 @@ bg/accent 名对齐，3–6 字皆可）；②四个名字之间尽量不重复�
   （如 Eric Bowen 的 `#9fb8c9`），ink 要额外加深到浅色主题下 ≥4.5:1 对比度，别机械 ×0.8。
 - 只有 **带 `mf_id`** 的条目才跟画册同源；无 `mf_id` 的（如 Menelaus / Invisible Light 等
   非 Sam 或原创角色）各自独立，不在同步范围。
+- ⭐ **`mf_id` 同时是「穿上他的颜色」那颗按钮的唯一开关**（2026-09 打通）：系列页那条胶片
+  色卡里的「穿上他的颜色」，由 `_includes/au-palette-strip.html` 拿 `mf_id` 去
+  `sam_themes.yml` 里反查 `anchor == mf_id` 的那条、取它的 `id` 挂成 `data-au-theme`。
+  **查得到** → 选色器认成「预设色卡」，「换个心情」的「当前」行显示角色名和四个色名；
+  **查不到（漏写 `mf_id`）** → 退成「直接上色」，显示成一句笼统的「AU 专属配色」——
+  看着就像这不是画册角色。Francis Flute 就是这么翻的车。
+  ⚠️ 这里**必须反查，不能拿 `mf_id` 直接当 `sam_themes` 的 id 用**：两边 id 常常不一样
+  （画册 `frank`→主题 `mercer`、`jim`→`crocker`、`doug`→`varney`、`sam`→`sambell`…）。
+- 🗑️ **旧的 `theme_id:` 字段已废弃、全部删除**——它是手写的第二份链接、跟 `mf_id` 会打架
+  （Douglas Varney 那条就写错成 `doug`，按钮点了毫无反应）。现在只写 `mf_id` 一个，
+  按钮那一头自动推导。`check_palette_sync.py` 会拦住任何重新冒出来的 `theme_id`。
 
 **改完色卡后必须跑校验脚本确认全站一致：**
 
@@ -494,7 +534,10 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 ```
 
 这个脚本以画册为真源，把上面 5 处拷贝逐个角色比对（含 lines.json 的 `pool`、au_palettes 的
-`mf_id` 条目），是改色卡后的**收尾必跑项**。
+`mf_id` 条目），是改色卡后的**收尾必跑项**。它另外还把「穿上他的颜色」那条链路一起验了：
+每个 `sam_collection: true` 的系列都必须有 au_palettes 条目且写了 `mf_id`（有意独立配色的
+少数例外记在脚本里的 `AU_NO_MF_OK`），每个 `mf_id` 都要能在 `sam_themes.yml` 里反查到 anchor。
+**所以新开一个 Sam 角色 AU、或给老系列换色之后，跑一次这个脚本就够，不用再手动去点按钮试。**
 
 ## ⚠️ 新增一个 Sam 角色 = 要同步「四个彩蛋 + 计数总闸」
 
@@ -531,6 +574,7 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 | 情绪磁带机 · Mixtape `jukebox/`（2026-07-30 由点唱机改装：卡带舱+PLAY 键+出带口，功能与数据源不变） | `jukebox/data.json`——构建时生成（全部 posts + moods 色板），客户端按 mood 标签过滤 | 无；文章必须带 mood 标签才会入库 |
 | 一封信 `fable/` | 纯静态（信件内容内嵌） | **永远不要改**（见下） |
 | 深夜热线 `sam/hotline/`（2026-08 加，详见下方专条） | `sam/lines.json` ＋ `sam/hotline-replies.json`（均运行时 fetch） | 通讯录零维护；**对题回复库要人工写**（见专条） |
+| 游戏厅 `sam/arcade/`（2026-09-20 加，详见下方专条） | `sam/lines.json`（运行时 fetch） | 无——画册加人自动进游戏 |
 | 演出节目单 `fog-city/playbill/` | `sam/lines.json`（运行时 fetch；按 `year` 升序排幕，每幕用角色 `accent` 配色 + 锚句台词，`auLink` 自动挂「完整剧本」） | 无——画册加新角色、lines.json 照常同步后自动加一幕。它是 Fog City 系列 Ch30 的故事内实体（署名 Winter Sun），别改成普通列表页 |
 
 细节备忘：
@@ -547,6 +591,13 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 - 404 页底部会从 lines.json 随机抽一句台词当「迷路安慰奖」。
 - 这批页面的构建验证方式：`JEKYLL_NO_BUNDLER_REQUIRE=true jekyll build`
   （仓库的 Gemfile.lock 是远古版本，别用 bundler；需全局 `gem install jekyll` + 各插件）。
+- ⚠️ **本地开预览服务器时，别把指向 `_site` 的软链接放进仓库目录里**（2026-09-19 踩过）：
+  Jekyll 会顺着它绕回去扫自己生成的 `_site`，撞上 `_site/category/散文/` 这个中文目录名，
+  整个构建以 `Encoding::UndefinedConversionError` 挂掉，而且报错完全看不出跟软链接有关。
+  软链接放到仓库外面（会话的临时目录里）再起 `python3 -m http.server`。
+- ⚠️ 本机跑 `bash tools/check_scss.sh` 若报「样式编译失败」却不打印任何错误，多半是
+  PATH 上的 `sass` 是 dart-sass（sass-embedded）而不是线上那个 ruby-sass 3.7.4。
+  `gem install sass -v 3.7.4 --no-document --force` 装上真的那个再跑。
 
 ### ☎ 深夜热线 `sam/hotline/` 的交互口径与「对题回复库」
 
@@ -672,6 +723,37 @@ ASCII 双引号里的对白，靠引号前后的「他 / 角色名 / 你」判�
 - `meta.characters_count` / `meta.pool_count` 要一起更新（= N / 5N）。
 - `mf_alias`：仅当角色 id ≠ 画册锚点 id 时才加一条；相同则不用。
 
+### 🕹 游戏厅 `sam/arcade/`（Sam 页第 10 张卡）
+
+三台单机小游戏，**Jekyll 页**（`layout: home`，不是独立 HTML 页），全部数据运行时读
+`sam/lines.json`——画册加新角色，游戏自动多一个人，**零维护**。成绩 / 集卡册 / 胶片币
+只存本机 `localStorage` 键 **`ws-arcade-v1`**，不上传。
+
+| 机器 | 玩法 | 经济 |
+|---|---|---|
+| 01 这句是谁说的 | 弹一句台词四选一，15 秒倒计时，连对加成；「今日十题」按日期播种、全站同一套 | 每答对 +1 币，满分 +5 |
+| 02 翻牌对上号 | 四种配对玩法 × 三种难度（6/8/12 对） | 通关 +3/5/8，破纪录 +3 |
+| 03 扭蛋集卡册 | 54 格按年份排成时间线；未获得的人权重 ×4；重复可一键化成币；集满解锁隐藏收束 | 每天 2 次免费，之后 3 币一次 |
+| 04 文字小剧场 | 留空位（暗卡），等 Winter 定剧情 | — |
+
+**翻牌那四种玩法**（Winter 2026-09-20 定；原来的「整句台词 ↔ 角色」被她否掉：
+「猜台词对应有一点牵强」——翻牌的乐趣是**一眼看出是不是一对**，台词要读、要想，节奏就断了）：
+`twin` 配颜色（两张一样的四色卡，配上才浮出名字）/ `color` 颜色配人 / `film` 人配电影
+（**片名卡不印年份**，否则两边年份一样直接泄底）/ `label` 人配台词（只用 `quote.label` 短标题）。
+纪录按「玩法 + 几对」分开记（`S.best.match[mode+n]`）。靠颜色认人的两种玩法用 `pickDistinct()`
+挑**配色差得最远**的角色上场，否则满屏深蓝配钢灰，是看花眼不是记性差。
+
+⚠️ **两个踩过的坑，别再踩**：
+1. **牌变淡要加在 `.c-arc-card` 上，不能加在 `.c-arc-card__in` 上**——那层带
+   `transform-style: preserve-3d`，`opacity != 1` 会把 3D 压平、`backface-visibility` 失效，
+   配对成功的牌就会露出翻转的牌背（镜像的 SAM）。
+2. **四色色卡牌面 `.is-swatch` 不能给 `position: relative`**——会顶掉 `.c-arc-card__face`
+   的 `position: absolute; inset: 0`，整张牌塌成 0 高，只剩白板。
+
+皮肤是「糖纸粗描边」（网点底 / 两道描边 / 硬阴影），描边色取 `--c-ink`，所以浅色黑描边、
+暗色奶白描边；主色仍跟「换个心情」走。标题字 Archivo Black 是这一页单独加载的，中文走系统
+黑体栈（不额外下载 CJK）。动效（闪 / 抖 / 滚分 / 扫光）都包在 `prefers-reduced-motion` 里。
+
 ### ⚠️ 「今日一句」的排班算法：严格轮转，三处必须字字相同
 
 `sam/today/index.html`、`sam/wall/index.html`、`sam/widget/sam-today.js` 各自内嵌
@@ -697,16 +779,106 @@ python3 tools/check_daily_rotation.py
 **计数总闸 `_data/sam.yml`：** `faces`（角色数）、`wall_lines`（台词数 = 5×角色数）。
 首页 `sam/index.html` 三张卡的计数从这里读，**改这一个文件，首页三处一起更新**。
 
-**但仍有几处「四十 / 两百」是硬编码、不吃 sam.yml，加人后要手动搜改：**
-`sam/index.html` 签名墙卡标题（「两百余句」）、`sam/quiz` 结果页 `["41","个角色"]`、
-`sam/spectrum` 的 SEO + `__avg` 平均脸的 name/film/filmCN + 三处「四十一人」文案、
-`sam/today`·`sam/wall`·`sam/spectrum` 的 `<meta>` SEO 描述。
-**加完人统一 `grep -rn "四十\|两百\|40 个\|200 句" sam/`（排除 `四十年/四十岁` 等正文）扫一遍补干净。**
+**但仍有几处角色数是硬编码、不吃 sam.yml，加人后要手动搜改：**
+`sam/quiz` 结果页 `["54","个角色"]`、`sam/spectrum` 的 SEO + `__avg` 平均脸的 name/film/filmCN +
+三处「五十四人」文案、`sam/today`·`sam/wall`·`sam/spectrum` 的 `<meta>` SEO 描述、
+`sam/today/manifest.webmanifest` 的描述（「五十四个角色」）。（签名墙卡标题已改成读 `sam.yml`。）
+**加完人统一 `grep -rn "五十四\|54 个\|270 句" sam/` 扫一遍补干净。**
+
+### ⚠️ 台词的 `label`（widget 上那行小字）：必须是「只属于他」的那个词
+
+Winter 2026-09-20 在桌面小组件上看见 Wayne 那句挂着一个光秃秃的 `YES`：**「这个标题就『yes』感觉好简单🤣整个台词库我感觉都可以过一遍。」**
+——过完 270 条，改了 25 条。**判据就是她定章节名那把尺子：**
+
+> **移植测试**：把这个 label 放到别的角色身上还成立吗？成立 → 太泛，重起。
+
+`YES` / `FREE` / `SAFE` / `ALIVE` / `STAY` / `TRUST ME` 谁都能用，所以都不合格。
+合格的长在**他自己那句话**里、有画面、有名物：`DONUT IN THE DRAWER`、`THE KEY ON THE PILLOW`、
+`SIMON DIDN'T SAY`、`WHAT'S IN THE EGG`、`SLEEPWALKING`、`WHEN THE TANK RAN DRY`。
+
+另外两条硬规矩（2026-09-20 清过一遍，当时查出 4 对 + 1 处）：
+
+1. **`label` 全站唯一**——不同角色不能撞同一个词。撞了在 widget / 每日一句上就像复读机
+   （当时撞的：`OFF THE CLOCK` Gary ／ Craig、`OFF THE RECORD` Jim Reston ／ Don Verdean、
+   `STILL HERE` Eddie ／ Watson、`YOUR NAME` Francis Flute ／ 小布什）。
+2. **同一个角色的 5 条之间不能互相包含**（Clay 当时有 `SIXTEEN YEARS TOO LATE` 和 `SIXTEEN YEARS`）。
+
+改完必须做的两件事：
+- **`pool` 从 `characters` 整个重建**（别手改 pool，它是 5 轮 round-robin 展开，见下条）。
+- ⚠️ **第 1 句（锚句）的 label 同时印在画册 / 光谱 / 测验上**——改锚句要三处一起改；
+  改第 2–5 句则只动 lines.json 一个文件。2026-09-20 那次刻意只改 2–5 句，没碰锚句。
+
+一行自查：`python3 -c "import json,collections;d=json.load(open('sam/lines.json'));c=collections.Counter(q['label'] for x in d['characters'] for q in x['quotes']);print([k for k,v in c.items() if v>1] or 'label 全站唯一 ✓')"`
 
 **台词（5 句）与画册 inscription 的关系：** 每个角色 5 句台词里第 1 句 `kind:"锚"`，
 **就是画册 `inscription` 那一句**（label/line/gloss 三处必须对上）。且所有 inscription /
 台词都是**第一人称**（角色对「你」说话），不是旁白第三人称——外部交付时若给成第三人称，
 部署前改成第一人称。
+
+## 🩺 2026-09-18 全站体检批 · 维护备忘
+
+这一批是 Winter 让 Fable「查一遍整个博客有什么可以优化的」之后做的（体检报告见当次对话的 Artifact）。
+以后维护要知道的几件事：
+
+| 东西 | 在哪 | 备忘 |
+|---|---|---|
+| **样式外置** | `css/main.scss` → 线上 `/css/main.css` | 以前整份 CSS 内联在每页 `<head>`；现在是外链文件（`_includes/head.html`，带 `site.time` 缓存戳）。改样式照旧改 `_sass/`，跑 `bash tools/check_scss.sh`。 |
+| **脚本 `defer`** | `_includes/javascripts.html` | 8 个脚本全部延后加载；页面里别再写依赖「脚本已同步执行完」的内联代码。 |
+| **搜索索引瘦身** | `search.json` + `js/main.js` | 只含标题/系列/章节/引言/标签（约 300 KB，以前 9 MB 含全文），且点进搜索框才下载。结果显示「标题 + 系列 · 章节」。 |
+| **首页不再渲染章节卡** | `index.html` | 系列章节在首页任何视图都不单独显示，所以只渲染无 `series` 的文章（首页 HTML 1.2 MB → 约 100 KB）。 |
+| **封面懒加载** | `data-bg="…"` + `js/main.js` | 模板里封面写 `data-bg`（不再写内联 `background-image`），滚到视野附近才加载。新模板照此写。 |
+| **React 程序库自托管** | `js/lib/` | 画册 / 测验 / 光谱 / 台词墙不再从 unpkg 现场加载（国内常黑屏）；页面里带「加载失败」兜底提示。`tools/build_public.py` 也同步复制。升级版本 = 换文件名 + 改四页的 `<script src>`。 |
+| **分享预览** | `_includes/head.html` | 每页输出 `og:*` / `twitter:card`（封面 → `og:image`，没有就头像）；`<html lang="zh-CN">`。 |
+| **阅读记忆** | `js/main.js`（`readingMemory`）、`_layouts/series.html`、`_layouts/post.html` | 本机 `localStorage` 键 **`wiw-read`**：章节页记「读到哪章、百分之几」，系列页显示「继续读 · No.N」存根、读过的票根打勾、上次那张盖戳、章节页「上次读到 N%，跳过去」。另有目录快捷键「第一章 / 最新一章 / 倒序」。纯本机，不上传。 |
+| **票根号** | `_layouts/series.html` | `No.` 后面显示章节自己的号（`chapter_type` 里的 `Chapter N`），番外显示 `EX`——缺章（No One Walks Off 没有第 44 章）时不再错位。 |
+| **系列状态 `hiatus`** | `series_status: hiatus` | 停更约三个月以上的系列标它，显示成「hiatus · 待续」（`_includes/series-status.html`）；续写时改回 `ongoing`。首页 / Sam 页 / 系列页的状态都读系列首页这一份。 |
+| **年份彩带** | `sam/index.html`（`#js-year-ribbon`） | 运行时读 `sam/lines.json`，零维护。 |
+| **配色墙** | `sam/palettes/`（Sam 页第 09 张卡） | 由 `_data/sam_themes.yml` 构建时生成，按 `year` 排；「穿上」按钮复用 `au-strip__switch` + `data-au-theme`。零维护。 |
+| **「N 分钟读完」已删除** | `index.html`、`_layouts/series.html`、`_layouts/category.html` | Winter 2026-09-19：「我从来都没用过那个功能……直接拿掉也没有丝毫意见」。首页卡片与章节票根现在只显示日期。（拿掉它省的构建时间可以忽略——冷构建 126 秒 → 123 秒；真正的提速在上面那两条。）别再加回来。 |
+| **`hidden` 一定要真的隐藏** | `_sass/6-trumps/helpers.scss` | 2026-09-19 Winter 在章节页看见「一个点了没反应的小标签」——那是还没填字的「上次读到 N%」药丸。根因：normalize 的 `[hidden]{display:none}` 和组件类同权重，组件层排在后面，于是组件里写的 `display:inline-flex` 把 hidden 顶掉了，留下空壳。已在 trumps 层加 `[hidden]{display:none!important}` 一次管住全站。**新组件照常用 `hidden` 属性即可，不必各自再写一遍。** |
+| **AU 封面 WebP** | `images/the-real-thing.webp`（原 png 1.36 MB → 53 KB） | 新封面尽量传 WebP / 压过的 JPG，别传 1 MB 以上的 PNG。`images/my-psychopath.png`、`images/the-near-side.png` 目前没有任何页面引用。 |
+
+## 🗓️ Archive › By Day 日历 + 「那一天」（2026-09-19）
+
+Winter 看完改真日期后的时间轴：「一个月才分隔一次，太视觉疲劳了毫无层次，而且不同的 AU
+太难区分」。于是把「哪天有更新」和「那天发了什么」拆成两层，做进 `_pages/archive/index.html`：
+
+| 层 | 长什么样 | 要点 |
+|---|---|---|
+| **日历**（`c-cal`） | 一个月一页挂历，有更新的日子盖一枚**邮戳**，戳里是当天章数 | 戳统一**向右歪 6 度**（Winter：跟斜体同向），颜色吃 `$accent`＝「换个心情」当前主题色。**格子里不放封面、不放底色**（试过按系列色晕染，一章的日子淡到看不见，她说「统一都没有吧」）。空月份整块跳过，所以老年份只出现有文章的月 |
+| **那一天**（`c-day`） | 点戳跳过去：大日期 + 按系列分块（封面 / 章数 / 每章标题与引言）+ 前一天 / 后一天 / 回日历 | 默认 `display:none`，靠 **`:target`** 显示，没有 JS 也能用 |
+
+- 三个页签：**By Day（默认）/ By Year（老时间轴，留着）/ By Mood**。默认页签改了，
+  `js/main.js` 的 `syncUrl()` 与初始化都以 `day` 为默认；带 `#d2026-09-13` / `#cy2026`
+  锚点进来会自动切到 By Day。文章页的情绪标签仍然跳 `?view=mood&tag=…`，没变。
+- ⚠️ Liquid 陷阱（这次踩过）：`{{ a | default: b | first }}` 会把 a 也 `first` 掉——
+  字符串取 first 得到 nil，整行就空了。要分支就老老实实写 `{% if %}`。
+- ⚠️ `site.posts` 是**新 → 旧**，所以「前一天」在数组里是**下一个**下标，别写反。
+
+## 🖼️ 封面「对脸」：`tools/face_focus.py` + `_data/image_focus.yml`
+
+Winter：「配图是方形的，需要每次都截到人的话，需要对每张图核对人的具体位置，这好做吗？」
+——不用人核对。`tools/face_focus.py` 用 OpenCV 的 YuNet 模型扫 `images/`，找出最大的那张脸，
+按裁切数学算好 `background-position`，写进 `_data/image_focus.yml`。
+
+```bash
+python3 tools/face_focus.py            # 重新扫描并写入（需要 opencv-python-headless==4.10.0.84）
+python3 tools/face_focus.py --report   # 顺带列出没认出脸的图
+```
+
+- 模板用法：`{{ site.data.image_focus[文件名].sq | default: '50% 30%' }}`；
+  数据里预存了三种容器形状的锚点：`sq`（正方形，「那一天」的小图在用）、
+  `card`（16:10 卡片）、`banner`（16:6.5 系列封面）。后两个目前没接上，要用直接取。
+- ⚠️ **不能把「脸在 19%」直接写成 `background-position: 19%`**：CSS 百分比是
+  「图上 19% 的点对齐容器 19% 的点」，不是「把这点摆到正中」。图越宽、脸越靠边偏得越多——
+  Billy Bickle 那张（`7-psychopaths.jpg`，脸在最左）就是这么被切掉半张脸的。
+  正确解在脚本的 `crop_pos()` 里，别绕过它自己写百分比。
+- **自动更新**：`.github/workflows/face-focus.yml`——push 到 main 且动了 `images/` 时，
+  机器人重扫、有变化就把 `_data/image_focus.yml` 提交回 main。所以**新封面传上去就自动对脸**。
+- 认不出脸的（手绘封面、风景图）不写进数据文件，模板回退到原来的居中偏上。
+  某张自动裁得不好看 → 在 yml 里改掉那一条并加 `manual: true`，重跑脚本会保留手改。
+- 模型文件 `tools/models/face_detection_yunet_2023mar.onnx`（232 KB）在仓库里，
+  `tools/` 已加进 `_config.yml` 的 `exclude`，不会发布到线上。
 
 ## ⚠️ `series:` 字段必须用英文（ASCII）
 
@@ -914,6 +1086,44 @@ logline: "一篇温暖治愈、慢热向的救赎故事。全镇都认定 Jason 
 - 如果确实需要一篇可访问的设定文档，建普通 post 但**不加** `series:` 字段，
   用 `is_overview: true` 标记，不会出现在章节列表
 
+## ⚠️ 章节身份 `chapter_kind`：正篇 / 番外 / 他视角（写番外时别忘了这一行）
+
+Winter 2026-09-19 提的病根：**「番外、他视角、日常、主线全堆在一条线上，没有层次，
+过一阵子回头看根本想不起来哪篇是哪篇。」** 查下来她说得对——全站 1146 章里有 253 章
+不是正篇，但目录里它们全都只挂一个词 `Extra`。Better Living Through You 69 篇里 42 篇
+是番外，Summer Never Ends 43 篇里 30 篇。等于目录后半段是一片没有地标的平原。
+
+她自己还点破了更根上的一层：**「我们创作的时候也并没有很仔细地划分哪些属于番外、
+哪些属于日常、哪些属于主线。」** —— 但真正的原因是**前台从来没有那个格子可以填**。
+所以现在有了：
+
+| 值 | 什么时候用 | 目录上长什么样 |
+|---|---|---|
+| （不写） | **正篇**——`chapter_type` 是 `Chapter N` / `Episode N` 就自动算正篇 | 票根印章号 `No. 27` |
+| `extra` | **番外**：日常、糖、小片段、序、尾声、IF 线、设定向小品 | 票根印 `EX` |
+| `pov` | **他视角 / B面**：叙述视角在他身上、把「你」写成「她」的那些篇 | 票根印 `POV`，眉头多一枚「他视角」小牌 |
+
+- 系列目录顶上会自动出现一排**类型筛选**（全部 / 正篇 / 他视角 / 番外，各带篇数），
+  与下面那排「按基调筛选」取交集。**只在本系列真有两种以上类型时才出现**，
+  所以 No One Walks Off 这种纯正篇的系列看不到它，不会平白多一行。
+- **漏写 `chapter_kind` 的非正篇一律当成 `extra`**，页面不会坏，只是他视角认不出来。
+- 写新番外时顺手写上这一行；拿不准是不是「他视角」，用下面这把尺子。
+
+**⚙️ 怎么判「他视角」（这条判据是 2026-09 实测出来的，很准）：** 看正文**叙述部分**
+（去掉对白引号内的内容）里，把女主称作「她」的比例 —— `她 / (你 + 她) > 50%` 就是他视角。
+他视角篇几乎不出现「你」，因为叙述者站在他那一侧。全站 253 篇非正篇按这条筛出 22 篇，
+零误伤（`她不知道`、`未入账`、`对账`、`暗账`、`他不敢记的那几页`、两篇 `B面`……全中）。
+一次性批量判定的脚本思路：
+
+```python
+nar = re.sub(r'[“][^”]*[”]', '', re.sub(r'<[^>]+>', '', body))   # 去 HTML、去对白
+ratio = nar.count('她') / max(nar.count('你') + nar.count('她'), 1)
+kind = 'pov' if ratio > 0.5 else 'extra'
+```
+
+⚠️ **只分这三类，别再加**（Winter 2026-09-19 拍板）。序 / 尾声 / IF 线全站加起来只有 7 篇，
+并进番外，不单独立类——多一种小牌子就多一分噪音。
+
 ## 章节 `tags` 字段：身份标签 + mood 标签
 
 每篇章节 post 的 `tags:` 是**固定格式**，由两部分拼成：
@@ -1085,13 +1295,16 @@ collection_desc: "一两句钩子简介。"
 layout: post
 title: "Chapter N · 章节中文标题 — Series English Name"
 categories: ["AU Story"]
-date: YYYY-MM-DD
+date: YYYY-MM-DD HH:MM:SS +0800   # ⚠️ 真正上线的那天（推 main 的日子），不预排未来、不倒填；见「文章日期」一节
 image: cover-image.jpg          # 可选，封面图文件名（大小写必须与实际文件一致）
 series: "English Title"         # 必须与系列首页 series_name 完全一致，必须是英文
 series_title: "English Title · Character AU"   # 用于顶部返回链接显示
 series_order: N                 # 整数，章节排序（1 开始）
 series_type: "Series"           # 固定值
 chapter_type: "Chapter N"       # 显示在卡片眉头，如 "Chapter 1" / "Extra"
+chapter_kind: extra             # ⚠️ 只有「不是正篇」的才写：extra（番外）/ pov（他视角）。
+                                # 正篇不写这一行——chapter_type 里的 Chapter N / Episode N
+                                # 就是正篇的标志。详见「章节身份」一节。
 story_time: "1994"              # 可选：故事内年代戳。非线性叙事的系列（如 Fog City
                                 # 番外跨四十年乱序）必写；线性系列可省略。值是展示
                                 # 字符串："1986"、"1986–87"、"1999–2026"、"1986 →"
@@ -1167,7 +1380,8 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
    ```yaml
    layout: series
    series_name: "Good Enough"   # 必须跟各章 front matter 的 series 字段【完全一致】
-   # series_status: ongoing      # 可选，默认 ongoing，显示在 Chapters 计数旁
+   # series_status: ongoing      # 可选，默认 ongoing；complete = 完结；hiatus = 停更已久、标「待续」
+                                 # （2026-09-18 起，超过约三个月没更新的系列一律标 hiatus，续写时改回 ongoing）
    ```
 
    ⚠️ `series_name` 写错（跟 `series:` 对不上）→ 目录会是空的。之前
@@ -1187,6 +1401,33 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 `layout: series` 和 `series_name` 即可；章节照常写齐 `series*` 字段。
 目录和返回按钮都会自己长出来。**
 
+## 🗄️ 藏品架 `sam/shelf/`（Winter 自己在页面里编辑的收藏册）
+
+独立完整 HTML 页（不走 Jekyll layout）。藏品数据在 `sam/shelf/data.json`，角色联动读
+`sam/lines.json`（画册加人自动跟上，零维护）。访客只能看；Winter 在页面里贴入自己的
+GitHub 细粒度令牌（存本机 `localStorage` 键 `ws-sam-shelf-key`）后进入「馆长模式」，
+浏览器直接把 `data.json` 提交回 `main`。
+
+⚠️ **这页有两条不能动的数据安全设计**（2026-09 排查后加的，动了会真的丢东西）：
+
+1. **馆长模式下必须读仓库原件，不能读站点上那份 `./data.json`**
+   （GitHub contents API ＋ `Accept: application/vnd.github.raw`）。
+   理由：站点重建要四十来分钟，公开副本在那之前是旧的。若馆长也照它编辑，
+   她刷新后刚添的藏品会「消失」，而这时再添一件并保存，就会拿旧名单
+   **盖掉仓库里的新记录**。访客照旧读公开副本（快、且不需要令牌）。
+2. **`publish()` 里的保险丝 `rescueMissing()`**：提交前先取回仓库当前内容，凡是
+   「仓库里有、这台设备手上没有、且本次会话没删过（`deletedIds`）」的条目，一律
+   原样保留再写回去。删除按钮会把 id 记进 `deletedIds`，所以她亲手删的仍然删得掉。
+
+其余约定：未发布成功的改动缓存在本机（`ws-sam-shelf-draft`，页面顶部出现「再试一次」
+横幅）；视图 / 排列偏好存 `ws-sam-shelf-view`。**每保存一次就会触发一次站点重建**
+（2026-09-18 后约 4 分钟，以前要 40 分钟），所以连着加好几件时不必每次都等——
+但别在重建期间反复刷新页面找东西。
+
+「版本 / 规格」那几排选项（制式 / 地区 / 常用补充）都是「常见的先露出来 ＋ 点『更多 ▾』
+才展开」，自己写的每条变成一枚可删的标签，存进 `spec` 时统一用 `" · "` 拼接；
+长写法（意大利版 / 西班牙版…）在 `ALIAS` 里映射回短名（意版 / 西版）。
+
 ## 其他
 
 - **⚠️ 系列卡片排序（两个页面方向相反，已翻过两次车，照抄下表别自由发挥）：**
@@ -1203,6 +1444,14 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 - 只在用户明确要求时再开 PR。
 - 内部链接全部要用 `{{ site.baseurl }}` 前缀，否则在 GitHub Pages
   默认 URL 下会 404。
+- ⚠️ **页面正文里的内联 `<script>` 不能读 `window.SITE_BASEURL`**（2026-09-20 踩过）：
+  那个全局变量是在页面**最底部**的 `_includes/javascripts.html` 里才赋值的，而正文里的
+  脚本跑得更早，读到的永远是 `undefined` → `fetch('/sam/lines.json')` 落到站点根目录
+  （`dxwintersun.github.io/sam/…`）→ 404。本地起 `http.server` 测不出来（本地就在根目录），
+  只有线上才炸，而且只表现为页面上一句「读不到数据」。
+  **正文脚本里一律直接写 `var BASE = '{{ site.baseurl }}';`**（Liquid 在构建时就印死了），
+  再配一条相对路径兜底（如 `sam/arcade/` 里取 `../lines.json`）。要在本地验这类页面，
+  必须**把站点放进一层 `WinterSunBlog/` 目录再起服务器**，才跟线上路径一致。
 - 修改 `js/main.js` 后记得 cache-bust 已经在 `_includes/javascripts.html`
   里通过 `?v={{ site.time | date: '%Y%m%d%H%M' }}` 自动处理，不用手动改。
 
@@ -1235,35 +1484,61 @@ Sam「正面是他的戏。背面归你。」），**两句献词都是 Winter �
 （`title:` / `chapter_type:` 这些 **front matter 字段**里写 `Chapter N` 是正常的，
 那不是正文；这条只管正文 body。）
 
-## ⚠️ 部署节奏：改动攒成「一包」一次推 main，推完留 ~20 分钟别再动
+## ⚠️ 文章日期 = 真正上线的那天（不预排未来、不倒着填）
 
-本站文章已超 **800 篇**，GitHub Pages 每次「重建整站」的 Jekyll 构建要跑 **~20 分钟**
-（实测一次成功构建约 22 分钟）。而 Pages 的机制是**「新推送会取消正在跑的旧构建」**
-——所以**一小步一小步、隔几分钟就往 `main` 推一次**，会让每次构建都在跑完前被下一次
-推送掐掉，结果**一次都传不上线、线上迟迟不更新，还查不出错**（2026-08 亲历：连推三四次
-全被 `cancelled`，站点停在旧版，白忙半天）。这不是内容出错，是**推送节奏**的锅。
+Winter 2026-09-18 点名的痼疾：**章节日期乱标——一堆未来的日期，还有为了「看起来一天一更」
+往前倒填的日期——时间轴彻底失去了意义。** 2026-09-18 已把全站 929 篇按 git 记录改回真实
+上线日（241 篇原本标在未来、687 篇原本倒填），旧网址都加了 `redirect_from` 跳转。此后一律：
+
+1. **`date:` 就是这一章推上 `main` 的那一天**（写成 `YYYY-MM-DD HH:MM:SS +0800`，带时间是为了
+   同一天发好几章时顺序不乱）。一天发三章就是三章同一天——那才是真的。
+2. **绝不预排未来日期**（`future: true` 只是安全网，不是用来「排期」的），**也绝不倒填**
+   到更早的日子去凑「日更」。
+3. **文件名开头的日期必须和 `date:` 同一天**（`_posts/YYYY-MM-DD-….md`）。
+4. 改一篇已上线文章的日期 = 换网址。必须把旧网址写进 `redirect_from:`：
+   ```yaml
+   redirect_from:
+     - /2026/10/07/i-kissed-the-stones-chapter-1-my-name-is-francis/
+   ```
+5. **部署前跑 `python3 tools/check_dates.py`**（未来日期 / 文件名不一致 → exit 1）。
+
+真实上线日怎么查：`git log --first-parent origin/main --follow --diff-filter=A --format=%ci -- _posts/<文件>`。
+
+## ⚠️ 部署节奏：改动攒成「一包」一次推 main，推完让它跑完别打断
+
+⏱️ **构建时长已从 ~40 分钟降到 ~4 分钟**（2026-09-18 瘦身批的副产品，实测连续六次
+构建都是 3 分 59 秒 ～ 4 分 23 秒）。原因：以前**首页**为了显示每篇的「N 分钟读完」，
+把 1100 多篇章节的正文全部渲染了一遍，**`search.json`** 又把每篇全文再塞进索引一遍
+——等于每次构建要把整个存档翻来覆去转好几轮。现在首页只渲染没有 `series` 的文章、
+搜索索引只留标题 / 系列 / 章节 / 引言 / 标签，那几轮重活就没有了。
+（旧记录「~40 分钟 / 42 分钟」是瘦身之前的数，别再照那个等。）
+
+但**「攒成一包一次推」这条规矩不变**：Pages 的机制仍是**「新推送会取消正在跑的旧构建」**
+——一小步一小步、隔几分钟就往 `main` 推一次，每次构建都会被下一次推送掐掉，结果
+**一次都传不上线、线上迟迟不更新，还查不出错**（2026-08 亲历：连推三四次全被 `cancelled`，
+站点停在旧版，白忙半天）。这不是内容出错，是**推送节奏**的锅。
 
 规矩（部署 AU 批次 / 任何多文件改动，一律照办）：
 
-1. **把这一次要发的东西全部改完、`check_post.py` / `check_series_page.py` / `check_palette_sync.py`
-   都验绿，攒成一包，一次性 commit 好，再推 `main`。**（AU 连载正好每三章一部署，天然成包。）
-2. **推完 `main` 就别再碰它**，给构建留够 **~20–25 分钟**跑完，再去看线上。
-3. 要连发好几批 → **上一批构建真正跑完（conclusion = success）或至少过了 ~20 分钟，
+1. **把这一次要发的东西全部改完、`check_post.py` / `check_series_page.py` / `check_palette_sync.py` /
+   `check_dates.py` 都验绿，攒成一包，一次性 commit 好，再推 `main`。**（AU 连载正好每三章一部署，天然成包。）
+2. **推完 `main` 就别再碰它**，给构建留够 **~6 分钟**跑完，再去看线上。
+3. 要连发好几批 → **上一批构建真正跑完（conclusion = success）或至少过了 ~6 分钟，
    再推下一批**，绝不背靠背推。
 4. 确认到底成没成：看 GitHub Actions 里那条 **`pages build and deployment`**，
    它的 **conclusion 是 `success`**（不是 `cancelled` / `in_progress`）才算真上线。
    工具侧用 `mcp__github__actions_list`（`list_workflow_runs`，branch `main`）查 run 状态；
    失败要看日志用 `get_job_logs`。
-5. **只影响文档 / 圣经（`.claude/` 下）、不影响线上内容的小改动，别单独推一次 main**
-   触发一次 20 分钟白构建——攒着跟下一批正文一起走。
+5. **只影响文档 / 圣经（`.claude/` 下）、不影响线上内容的小改动，仍旧攒着跟下一批正文
+   一起走**（现在只白花 4 分钟，不再是要命的事，但没必要多建一次）。
 
-一句话：**攒成一包、一次推、推完等 20 分钟别打断。**
+一句话：**攒成一包、一次推、推完等它跑完（约 4 分钟）别打断。**
 
 ## ⚠️ 动 `_sass/` 之前必须本地编一遍：`bash tools/check_scss.sh`
 
 GitHub Pages 锁死在**很老的 ruby-sass 3.7.4** 上，很多现代 CSS 写法它直接当语法错，
-**整站构建会失败**（不是样式失效，是构建挂掉、线上停在旧版）。而一次构建要 ~20 分钟，
-靠「推上去试试」的代价极高。
+**整站构建会失败**（不是样式失效，是构建挂掉、线上停在旧版）。而且构建挂掉是「线上停在
+旧版、没有任何提示」，靠「推上去试试」来发现太被动。
 
 已经踩过的坑（2026-08）：`@supports not selector(h3:has(> span)) { … }` —— 老 Sass 不认
 `selector()` 形式的 `@supports` 条件，一行让整站构建 failure。

@@ -20,7 +20,7 @@ series 值）取该 AU 的 accent / bg / text / muted，所以预览页的观感
 支持的 Markdown 子集（跟博客正文实际用到的一致）：
   ### 小节标题 ／ > 引用块 ／ **粗体** ／ --- 分隔线
   行尾两个空格 = 硬换行（诗式收束、多行题词靠这个）
-  以 < 开头的裸 HTML 块原样透传（内嵌 SVG 插图、c-note 便条卡、c-decree 公文卡、c-comm 通讯屏等，
+  以 < 开头的裸 HTML 块原样透传（内嵌 SVG 插图、c-note 便条卡、c-decree 公文卡、c-comm 通讯屏、c-chat 聊天气泡等，
   后两者预览页自带简化样式，看到的效果跟线上接近）
 """
 import argparse, html, os, re, sys
@@ -198,6 +198,19 @@ blockquote p:last-child{margin-bottom:0}
 .c-note__label{display:block;font-size:.68rem;letter-spacing:.2em;opacity:.5;
  margin-bottom:1rem;font-family:system-ui,sans-serif;}
 .c-note__body p{margin:0 0 .5rem;text-align:left;}
+/* c-chat —— 现代聊天气泡（微信时代），与 _extras.scss 的 .c-chat 对齐 */
+.c-chat{display:flex;flex-direction:column;gap:7px;max-width:21rem;margin:2.4rem auto;
+ padding:14px 14px 16px;border-radius:18px;background:color-mix(in srgb,var(--bg) 82%,#fff);
+ border:1px solid color-mix(in srgb,var(--muted) 35%,transparent);box-shadow:0 10px 26px rgba(0,0,0,.28);}
+.c-chat__bar{margin:0 0 6px;padding-bottom:8px;border-bottom:1px solid color-mix(in srgb,var(--muted) 35%,transparent);
+ text-align:center;font-size:.78rem;letter-spacing:.08em;color:var(--muted);font-family:system-ui,sans-serif;}
+.c-chat__msg{max-width:78%;padding:7px 11px;border-radius:12px;font-size:.93rem;line-height:1.6;text-align:left;word-break:break-word;}
+.c-chat__msg--in{align-self:flex-start;border-bottom-left-radius:4px;background:color-mix(in srgb,var(--bg) 60%,#fff);
+ color:var(--text);border:1px solid color-mix(in srgb,var(--muted) 30%,transparent);}
+.c-chat__msg--out{align-self:flex-end;border-bottom-right-radius:4px;background:color-mix(in srgb,var(--accent) 34%,var(--bg));
+ color:var(--text);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);}
+.c-chat__msg--img{font-style:italic;font-size:.82rem;color:var(--muted);border-style:dashed;}
+.c-chat__time{margin-top:4px;text-align:center;font-size:.66rem;letter-spacing:.12em;color:var(--muted);opacity:.8;}
 .c-note__sign{display:block;text-align:right;margin-top:1.1rem;opacity:.72;}
 /* c-comm —— 设备屏幕上的通讯记录（飞船通讯板 / 终端）。屏幕恒为暗，不随主题翻转。*/
 .c-comm{max-width:29rem;margin:2.6rem auto;border-radius:10px;overflow:hidden;

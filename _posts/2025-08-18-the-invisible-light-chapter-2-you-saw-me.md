@@ -13,8 +13,6 @@ summary: "他脚步停在你画室门口，却再次走开了。"
 tags: [Charles II, BayBay, AU, The Invisible Light, 暗涌, 悸动]
 ---
 
-**🕯️ 《The Invisible Light》· 第二章｜你是否看见了我**
-
 📍**时间设定**：同一天傍晚，你独自回画室，强撑着继续工作，却在他路过时，短短一瞬，被打碎了全部情绪。
 
 你回到画室的时候，天色已暗。

@@ -45,7 +45,7 @@ layout: home
 <section class="c-sam-collection" id="chapters">
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">Chapters</h3>
-    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · {{ page.series_status | default: "ongoing" }}</span>
+    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · {% include series-status.html status=page.series_status %}</span>
   </div>
 
   {% comment %}
@@ -53,9 +53,35 @@ layout: home
     重复配图；纯文字目录与配图卡片二合一，只留这一列无图章节卡。
   {% endcomment %}
   {% if chapters.size > 0 %}
+  {%- comment -%}
+    「上次读到这里」存根（2026-09-18）：读者在本机读过本系列的哪一章，由 js/main.js 记在
+    localStorage（键 wiw-read）里；有记录就把这张撕下来的半张票填上「继续读 · No.N」，
+    没记录且章数够多就显示「从 No.01 开始」。没有 JS 时不出现。
+  {%- endcomment -%}
+  {%- assign first_chapter = chapters | first -%}
+  {%- assign last_chapter = chapters | last -%}
+  <a class="c-resume" id="js-resume" hidden
+     data-first-url="{{ first_chapter.url | prepend: site.baseurl }}"
+     data-count="{{ chapters | size }}">
+    <span class="c-resume__stub"><i>No.</i><b id="js-resume-no">01</b></span>
+    <span class="c-resume__body">
+      <span class="c-resume__eyebrow" id="js-resume-eyebrow">继续读</span>
+      <span class="c-resume__title" id="js-resume-title"></span>
+      <span class="c-resume__meta" id="js-resume-meta"></span>
+    </span>
+    <span class="c-resume__arrow" aria-hidden="true">→</span>
+  </a>
+  {%- comment -%} 目录快捷键：第一章 / 最新一章 / 倒序（倒序由 js/main.js 切换） {%- endcomment -%}
+  {% if chapters.size > 3 %}
+  <div class="c-chapter-tools" role="group" aria-label="目录快捷键">
+    <a class="c-chapter-tools__chip" href="{{ first_chapter.url | prepend: site.baseurl }}"><i>↥</i>第一章</a>
+    <a class="c-chapter-tools__chip" href="{{ last_chapter.url | prepend: site.baseurl }}"><i>↧</i>最新一章</a>
+    <button class="c-chapter-tools__chip" type="button" id="js-chapter-reverse" aria-pressed="false"><i>⇅</i>倒序</button>
+  </div>
+  {% endif %}
   {% assign art_count = chapters | where: "has_art", true | size %}
   {% if art_count > 0 %}<div class="c-chapter-list__legend">✦ 含手绘小彩蛋</div>{% endif %}
-  <div class="c-chapter-list">
+  <div class="c-chapter-list" data-series="{{ page.series_name | escape }}">
     {% for chapter in chapters %}
     {% comment %} 标题只显示章名（Chapter N 已在眉头，避免出现两次） {% endcomment %}
     {% assign disp = chapter.title | split: " — " | first %}
@@ -66,18 +92,39 @@ layout: home
     {% endif %}
     {% comment %} data-moods：本章命中的 mood（供目录基调筛选用），空格分隔 {% endcomment %}
     {% capture cmoods %}{% for m in site.data.moods %}{% if chapter.tags contains m.cn %}{{ m.cn }} {% endif %}{% endfor %}{% endcapture %}
-    <a class="c-chapter-card" data-moods="{{ cmoods | strip }}" href="{{ chapter.url | prepend: site.baseurl }}">
-      <span class="c-chapter-card__no"><i>No.</i>{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+    {%- comment -%}
+      章节身份（2026-09-19）：正篇由 chapter_type 的「Chapter N / Episode N」自动判定，
+      番外与他视角在各自 front matter 里写 `chapter_kind: extra | pov`。目录顶上的类型
+      筛选条、票根号与眉头小牌都读这一个值。写新番外时记得写这一行，漏写就当成番外。
+    {%- endcomment -%}
+    {%- assign ct = chapter.chapter_type | default: "" -%}
+    {%- assign ct_num = ct | replace: "Chapter ", "" | replace: "Chapter", "" | replace: "Episode ", "" | replace: "Episode", "" | strip -%}
+    {%- assign ct_check = ct_num | plus: 0 -%}
+    {%- assign is_main = false -%}
+    {%- if ct contains "Chapter" and ct_check > 0 -%}{%- assign is_main = true -%}{%- endif -%}
+    {%- if ct contains "Episode" -%}{%- assign is_main = true -%}{%- endif -%}
+    {%- comment -%} Oneshot 系列的本体（如 Knox AU 的 Simon Says）也是正篇，只是没有号 {%- endcomment -%}
+    {%- if ct == "Oneshot" -%}{%- assign is_main = true -%}{%- endif -%}
+    {%- if is_main -%}{%- assign ckind = "main" -%}{%- else -%}{%- assign ckind = chapter.chapter_kind | default: "extra" -%}{%- endif -%}
+    {%- if ckind == "pov" -%}{%- assign ckind_stub = "POV" -%}{%- else -%}{%- assign ckind_stub = "EX" -%}{%- endif -%}
+    {%- if is_main and ct_check == 0 -%}{%- assign ckind_stub = "ONE" -%}{%- endif -%}
+    {%- comment -%} 有号的正篇印号码，没号的正篇（Oneshot）印 ONE，其余印 EX / POV {%- endcomment -%}
+    {%- assign has_no = false -%}{%- if is_main and ct_check > 0 -%}{%- assign has_no = true -%}{%- endif -%}
+    <a class="c-chapter-card" data-moods="{{ cmoods | strip }}" data-kind="{{ ckind }}" href="{{ chapter.url | prepend: site.baseurl }}">
+      {%- comment -%} 票根号 = 章节自己的号（chapter_type 里的 Chapter N），不是「排第几个」——
+        缺了一章（如 No One Walks Off 没有第 44 章）时，后面的票根号才不会错位；
+        番外显示 EX，他视角显示 POV。 {%- endcomment -%}
+      {%- if has_no -%}
+      <span class="c-chapter-card__no"><i>No.</i>{% if ct_check < 10 %}0{% endif %}{{ ct_check }}</span>
+      {%- else -%}
+      <span class="c-chapter-card__no c-chapter-card__no--extra">{{ ckind_stub }}</span>
+      {%- endif -%}
       <span class="c-chapter-card__body">
-        <span class="c-chapter-card__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}{% if chapter.story_time %}<i class="c-chapter-card__era" title="故事发生的年代">{{ chapter.story_time }}</i>{% endif %}</span>
+        <span class="c-chapter-card__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if ckind == "pov" %} <em class="c-chapter-card__kind c-chapter-card__kind--pov">他视角</em>{% endif %}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}{% if chapter.story_time %}<i class="c-chapter-card__era" title="故事发生的年代">{{ chapter.story_time }}</i>{% endif %}</span>
         <span class="c-chapter-card__title">{{ disp }}</span>
         {% if chapter.summary %}<span class="c-chapter-card__summary">{{ chapter.summary }}</span>{% endif %}
         <span class="c-chapter-card__meta">
           {{ chapter.date | date: '%Y, %b %d' }}
-          {% capture chars %}{{ chapter.content | strip_html | strip | size }}{% endcapture %}
-          {% assign mins = chars | divided_by: 500 %}
-          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
-          · {{ mins }} min read
         </span>
       </span>
       {% comment %}
@@ -110,6 +157,47 @@ layout: home
     var cards = Array.prototype.slice.call(list.querySelectorAll('.c-chapter-card'));
     if(!cards.length) return;
 
+    /* ── 类型筛选（正篇 / 他视角 / 番外）────────────────────────────────
+       每张卡的 data-kind 来自 front matter 的 chapter_kind（正篇自动判定）。
+       只在本系列真的有两种以上类型时才出现，与下面的基调筛选取交集。 */
+    var kindOrder = [['main','正篇'], ['pov','他视角'], ['extra','番外']];
+    var kindCounts = {};
+    cards.forEach(function(c){
+      var k = c.getAttribute('data-kind') || 'main';
+      kindCounts[k] = (kindCounts[k] || 0) + 1;
+    });
+    var kindsPresent = kindOrder.filter(function(k){ return kindCounts[k[0]]; });
+    var kindPick = 'all';
+    if(kindsPresent.length > 1){
+      var kbar = document.createElement('div');
+      kbar.className = 'c-kind-filter';
+      kbar.setAttribute('role', 'group');
+      kbar.setAttribute('aria-label', '按类型筛选章节');
+      var kbtns = [];
+      function kchip(key, label, n, on){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'c-kind-filter__chip' + (on ? ' is-on' : '');
+        b.dataset.kind = key;
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        b.innerHTML = label + '<i>' + n + '</i>';
+        b.addEventListener('click', function(){
+          kindPick = key;
+          kbtns.forEach(function(x){
+            var on2 = x.dataset.kind === key;
+            x.classList.toggle('is-on', on2);
+            x.setAttribute('aria-pressed', on2 ? 'true' : 'false');
+          });
+          apply();
+        });
+        kbtns.push(b);
+        kbar.appendChild(b);
+      }
+      kchip('all', '全部', cards.length, true);
+      kindsPresent.forEach(function(k){ kchip(k[0], k[1], kindCounts[k[0]], false); });
+      list.parentNode.insertBefore(kbar, list);
+    }
+
     var counts = {};
     cards.forEach(function(c){
       (c.getAttribute('data-moods') || '').split(' ').filter(Boolean).forEach(function(m){
@@ -117,9 +205,10 @@ layout: home
       });
     });
     var present = meta.filter(function(m){ return counts[m.cn]; }); // 保留 moods.yml 的从烫到静顺序
-    if(present.length < 2) return; // 少于两种情绪，没什么可筛的
-
     var selected = {};
+    var count = null, reset = null;
+    if(present.length < 2){ apply(); return; } // 少于两种情绪就不出情绪筛选条，类型筛选照旧
+
     var bar = document.createElement('div');
     bar.className = 'c-mood-filter';
     bar.setAttribute('role', 'group');
@@ -148,7 +237,7 @@ layout: home
       bar.appendChild(b);
     });
 
-    var reset = document.createElement('button');
+    reset = document.createElement('button');
     reset.type = 'button';
     reset.className = 'c-mood-filter__reset';
     reset.textContent = '全部';
@@ -159,7 +248,7 @@ layout: home
     });
     bar.appendChild(reset);
 
-    var count = document.createElement('span');
+    count = document.createElement('span');
     count.className = 'c-mood-filter__count';
     count.setAttribute('aria-live', 'polite');
     bar.appendChild(count);
@@ -171,12 +260,15 @@ layout: home
       var shown = 0;
       cards.forEach(function(c){
         var ms = (c.getAttribute('data-moods') || '').split(' ').filter(Boolean);
-        var vis = !keys.length || ms.some(function(x){ return selected[x]; });
+        var okMood = !keys.length || ms.some(function(x){ return selected[x]; });
+        var okKind = kindPick === 'all' || (c.getAttribute('data-kind') || 'main') === kindPick;
+        var vis = okMood && okKind;
         c.style.display = vis ? '' : 'none';
         if(vis) shown++;
       });
-      count.textContent = keys.length ? ('显示 ' + shown + ' / ' + cards.length + ' 章') : '';
-      reset.style.display = keys.length ? '' : 'none';
+      var filtering = keys.length || kindPick !== 'all';
+      if(count){ count.textContent = filtering ? ('显示 ' + shown + ' / ' + cards.length + ' 章') : ''; }
+      if(reset){ reset.style.display = keys.length ? '' : 'none'; }
     }
     apply();
   })();

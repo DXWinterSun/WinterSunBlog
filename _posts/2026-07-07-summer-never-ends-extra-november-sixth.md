@@ -11,6 +11,7 @@ series_order: 12
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "隔着一整块大陆，他把你的第一个生日算得分秒不差。"
 ---
 

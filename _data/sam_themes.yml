@@ -134,6 +134,23 @@
   text: "#f0e0d0"
   muted: "#a07060"
 
+- id: flute
+  year: 1999
+  name: "Francis Flute"
+  anchor: flute
+  cn: 风箱旧金
+  en: Bellows Gold
+  bg_cn: 夏夜深蓝
+  bg_en: Midsummer Blue
+  text_cn: 象牙初霜
+  text_en: Ivory Frost
+  muted_cn: 黑键微尘
+  muted_en: Ebony Dust
+  accent: "#c9a26c"
+  bg: "#151d2a"
+  text: "#ece6da"
+  muted: "#8c8a93"
+
 - id: wildbill
   year: 1999
   name: 'William "Wild Bill" Wharton'
@@ -204,7 +221,7 @@
 
 - id: pero
   year: 2002
-  name: 'Pero "Pepe" Mahalovic'
+  name: 'Pero "Pepe" Mahlovic'
   anchor: pero
   cn: 拳击场铁锈橘
   en: Ring Rust

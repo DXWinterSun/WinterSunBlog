@@ -814,31 +814,31 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   .sam-art-card--l { transform: rotate(-14deg) translateX(-2px); }
   .sam-art-card--r { transform: rotate(14deg) translateX(2px); }
 }
-.c-sam-toy:hover .c-sam-toy__art--faces {
+.c-sam-toy:hover .c-sam-toy__art--faces, .c-sam-toy.is-peek .c-sam-toy__art--faces {
   .sam-art-card--l { transform: rotate(-22deg) translateX(-4px); }
   .sam-art-card--r { transform: rotate(22deg) translateX(4px); }
 }
 
-.c-sam-toy:hover .c-sam-toy__art--today {
+.c-sam-toy:hover .c-sam-toy__art--today, .c-sam-toy.is-peek .c-sam-toy__art--today {
   .sam-art-sun { animation: samArtSunrise 0.6s ease; }
   .sam-art-ray { animation: samArtBlink 1.2s ease infinite; }
 }
-.c-sam-toy:hover .c-sam-toy__art--quiz .sam-art-check {
+.c-sam-toy:hover .c-sam-toy__art--quiz .sam-art-check, .c-sam-toy.is-peek .c-sam-toy__art--quiz .sam-art-check {
   stroke-dasharray: 14;
   animation: samArtDraw 0.5s ease forwards;
 }
-.c-sam-toy:hover .c-sam-toy__art--spectrum .sam-art-radar {
+.c-sam-toy:hover .c-sam-toy__art--spectrum .sam-art-radar, .c-sam-toy.is-peek .c-sam-toy__art--spectrum .sam-art-radar {
   transform-box: view-box; transform-origin: 50% 50%;
   animation: samArtPulse 1.4s ease-in-out infinite;
 }
-.c-sam-toy:hover .c-sam-toy__art--wall .sam-art-sign {
+.c-sam-toy:hover .c-sam-toy__art--wall .sam-art-sign, .c-sam-toy.is-peek .c-sam-toy__art--wall .sam-art-sign {
   stroke-dasharray: 46;
   animation: samArtDraw 0.9s ease forwards;
 }
-.c-sam-toy:hover .c-sam-toy__art--projector .sam-art-frames {
+.c-sam-toy:hover .c-sam-toy__art--projector .sam-art-frames, .c-sam-toy.is-peek .c-sam-toy__art--projector .sam-art-frames {
   animation: samArtReel 1.1s linear infinite;
 }
-.c-sam-toy:hover .c-sam-toy__art--shelf {
+.c-sam-toy:hover .c-sam-toy__art--shelf, .c-sam-toy.is-peek .c-sam-toy__art--shelf {
   .sam-art-star { transform-box: view-box; transform-origin: center; animation: samArtTwinkle 1s ease-in-out infinite; }
   .sam-art-disc { transform-box: view-box; transform-origin: 15.5px 27.5px; animation: samArtSpin 2.4s linear infinite; }
 }
@@ -851,9 +851,313 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
 @keyframes samArtTwinkle { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.55); opacity: 0.5; } }
 @keyframes samArtSpin { to { transform: rotate(360deg); } }
 
-@media (prefers-reduced-motion: reduce) {
-  .c-sam-toy:hover .c-sam-toy__art * { animation: none !important; }
+.c-sam-toy__art--palettes .sam-art-swatch { transform-box: view-box; transform-origin: center; transition: transform 0.3s ease; }
+.c-sam-toy:hover .c-sam-toy__art--palettes .sam-art-swatch, .c-sam-toy.is-peek .c-sam-toy__art--palettes .sam-art-swatch {
+  animation: samArtTwinkle 1.2s ease-in-out infinite;
+  &:nth-child(2) { animation-delay: 0.15s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.45s; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-sam-toy:hover .c-sam-toy__art *, .c-sam-toy.is-peek .c-sam-toy__art * { animation: none !important; }
+}
+
+/* 「直接去看彩蛋」跳转小行（计数器之下） */
+.c-sam-jump {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 14px 0 6px;
+  font-family: $heading-font-family;
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  color: $muted;
+  a { color: $muted; text-decoration: none; border-bottom: 1px dotted $line-strong; padding-bottom: 1px; }
+  a:hover { color: $accent; border-color: $accent; }
+}
+
+/* ---- 「他的一生」年份彩带（2026-09-18） ---- */
+.c-year-ribbon {
+  margin: 0 0 22px;
+  padding: 16px 18px 26px;
+  background: $paper-warm;
+  border: 1px solid $line;
+  border-radius: 4px;
+}
+.c-year-ribbon__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.c-year-ribbon__eyebrow {
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $muted;
+}
+.c-year-ribbon__hint {
+  font-size: 12.5px;
+  color: $ink-soft;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.c-year-ribbon__track {
+  display: flex;
+  gap: 2px;
+  height: 34px;
+}
+.c-year-ribbon__tick {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: 3px;
+  background: var(--tick, #999);
+  opacity: 0.88;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  &:hover, &:focus-visible {
+    transform: translateY(-4px) scaleY(1.18);
+    opacity: 1;
+    z-index: 2;
+    .c-year-ribbon__tip { opacity: 1; transform: translate(-50%, 0); }
+  }
+}
+.c-year-ribbon__tip {
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translate(-50%, 4px);
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: $ink;
+  color: $paper;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+  b { display: block; font-weight: 600; }
+  i { display: block; font-style: normal; opacity: 0.7; font-size: 11px; }
+}
+.c-year-ribbon__axis {
+  position: relative;
+  height: 14px;
+  margin-top: 6px;
+  span {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: $muted;
+    &:first-child { transform: none; }
+    &:last-child { transform: none; }
+  }
+}
+@media (max-width: 600px) {
+  .c-year-ribbon__tip { display: none; }
+  .c-year-ribbon__track { height: 28px; gap: 1px; }
+}
+
+/* ---- AU 卡片：章数 · 状态 ---- */
+.c-sam-card__count {
+  font-family: $heading-font-family;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  color: $muted;
+}
+
+/* ---- 配色墙 sam/palettes/（2026-09-18；三种画法 + 存图，Winter 定） ---- */
+.c-pw-switch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: -4px 0 18px;
+}
+.c-pw-switch__label {
+  font-family: $heading-font-family;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $muted;
+  margin-right: 4px;
+}
+.c-pw-switch__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid $line;
+  border-radius: 999px;
+  background: $paper;
+  color: $ink-soft;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  i { font-style: normal; font-family: $heading-font-family; font-size: 11px; letter-spacing: 0.1em; opacity: 0.7; }
+  &:hover, &:focus-visible { border-color: $accent; color: $accent-dark; }
+  &[aria-pressed="true"] { background: color-mix(in srgb, $accent 12%, transparent); border-color: $accent; color: $accent-dark; }
+}
+.c-pw-hint { font-size: 13px; color: $muted; margin: 0 0 18px; }
+
+.c-palette-wall {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 8px 0 60px;
+}
+.pt {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: $paper;
+  border: 1px solid $line;
+  box-shadow: 0 14px 30px -24px rgba(var(--rgb-shadow), 0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  &:hover { transform: translateY(-2px); box-shadow: 0 20px 36px -22px rgba(var(--rgb-shadow), 0.4); }
+}
+.pt__wash { display: none; }
+.pt__names {
+  list-style: none;
+  margin: 0;
+  padding: 12px 12px 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.pt__n { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.pt__sw { display: none; flex: 0 0 auto; }
+.pt__t { min-width: 0; b { display: block; font-weight: 500; font-size: 12.5px; line-height: 1.35; } i { display: block; font-family: $heading-font-family; font-style: italic; font-size: 11px; opacity: 0.72; line-height: 1.3; } }
+.pt__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 14px;
+  margin-top: auto;
+}
+.pt__who {
+  min-width: 0;
+  font-family: $heading-font-family;
+  font-size: 14px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  small { display: block; font-size: 10.5px; opacity: 0.65; letter-spacing: 0.08em; }
+  &:hover { color: $accent; }
+}
+.pt__acts { display: flex; gap: 6px; flex: 0 0 auto; }
+.pt__btn {
+  padding: 5px 11px;
+  border: 1px solid $line-strong;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  &:hover { border-color: $accent; color: $accent; }
+}
+
+/* 画法一 · 晕染：顶上一道四色渐变，名字各自填色 */
+.c-palette-wall[data-style="wash"] {
+  .pt__wash {
+    display: block;
+    height: 88px;
+    margin: 10px 10px 0;
+    border-radius: 12px;
+    background: linear-gradient(100deg, var(--bg) 0%, var(--bg) 18%, var(--ac) 42%, var(--tx) 68%, var(--mu) 100%);
+  }
+  .pt__n { padding: 7px 12px; border-radius: 10px; background: var(--c); color: var(--ink, #fff); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06); }
+  .pt__t i { opacity: 0.8; }
+}
+
+/* 画法二 · 试色：纸上四团水彩点，名字在下面 */
+.c-palette-wall[data-style="paint"] {
+  .pt__names {
+    padding: 18px 16px 6px;
+    gap: 8px 10px;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+    background-size: 9px 9px;
+  }
+  .pt__n { flex-direction: column; text-align: center; gap: 8px; padding: 4px 0; }
+  .pt__sw {
+    display: block;
+    width: 64px;
+    height: 54px;
+    border-radius: 52% 48% 55% 45% / 60% 40% 60% 40%;
+    background:
+      radial-gradient(circle at 35% 35%, var(--c) 0%, var(--c) 55%, transparent 78%),
+      radial-gradient(circle at 60% 65%, var(--c) 0%, transparent 70%);
+    opacity: 0.92;
+  }
+}
+
+/* 画法三 · 光晕：整张卡用他的底色，四个颜色是暗处发光的小球 */
+.c-palette-wall[data-style="glow"] {
+  .pt { background: var(--bg); border-color: transparent; color: #f1e9df; }
+  .pt__names { padding: 20px 16px 8px; gap: 12px 10px; }
+  .pt__n { gap: 12px; }
+  .pt__sw {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, rgba(255, 255, 255, 0.5) 0, var(--c) 45%, var(--c) 100%);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.22),
+      0 0 18px 4px color-mix(in srgb, var(--c) 55%, transparent),
+      0 0 36px 10px color-mix(in srgb, var(--c) 22%, transparent);
+  }
+  .pt__t i { opacity: 0.6; }
+  .pt__foot { background: rgba(0, 0, 0, 0.18); }
+  .pt__btn { border-color: var(--ac); color: var(--ac); &:hover { background: rgba(255, 255, 255, 0.06); } }
+  .pt__who:hover { color: var(--ac); }
+}
+
+/* 存图弹层：长按保存 */
+.c-pw-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  background: rgba(20, 14, 12, 0.82);
+  backdrop-filter: blur(4px);
+  img { max-width: min(92vw, 520px); max-height: 70vh; border-radius: 14px; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8); }
+  p { margin: 0; color: #f1e9df; font-size: 13.5px; text-align: center; opacity: 0.85; }
+  .c-pw-modal__acts { display: flex; gap: 10px; }
+  a, button {
+    padding: 8px 18px;
+    border: 1px solid rgba(241, 233, 223, 0.5);
+    border-radius: 999px;
+    background: transparent;
+    color: #f1e9df;
+    font-family: $heading-font-family;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+@media (max-width: 900px) { .c-palette-wall { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .c-palette-wall { grid-template-columns: 1fr; } }
 
 .c-sam-toy__body {
   display: flex;

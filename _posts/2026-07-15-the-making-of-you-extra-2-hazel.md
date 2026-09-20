@@ -11,6 +11,7 @@ series_order: 34
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 2
+chapter_kind: extra
 summary: "轮到你吃醋了。他要你开个补偿价，你要的东西让他当场死机。"
 ---
 

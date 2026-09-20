@@ -11,6 +11,7 @@ series_order: 14
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "同一辆敞篷雪佛兰——上一次是逃亡，这一次是旅行。"
 ---
 

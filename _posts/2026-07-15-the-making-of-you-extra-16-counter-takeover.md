@@ -11,6 +11,7 @@ series_order: 48
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 16
+chapter_kind: extra
 summary: "天蝎座记仇。你上周的收购案，他今晚逐条反制。"
 ---
 

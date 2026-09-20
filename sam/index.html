@@ -42,6 +42,8 @@ title: Sam
     <p class="c-streak__caption">从六年前的一次偶遇，到此刻的每日一更——<br>这一栏，是我专为他留下的位置。</p>
   </div>
 
+  <p class="c-sam-jump"><a href="#interactive">直接去看彩蛋 ↓</a><span aria-hidden="true">·</span><a href="#au-stories">AU 故事 ↓</a></p>
+
   <p class="c-sam-fold-hint">点标题展开 / 收起 · 一次读一节</p>
 
   <details class="c-sam-fold" name="sam-story" id="who-is-sam">
@@ -423,6 +425,21 @@ title: Sam
   })();
 </script>
 
+<script>
+  /* 手机没有「悬停」：彩蛋卡滚进视野时让图案自己演一小段（跟电脑上悬停时一样） */
+  (function () {
+    if (!window.matchMedia || !window.matchMedia('(hover: none)').matches || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target; el.classList.add('is-peek');
+        setTimeout(function () { el.classList.remove('is-peek'); }, 2200);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.c-sam-toy').forEach(function (el) { io.observe(el); });
+  })();
+</script>
 <section class="c-sam-collection">
 
   {%- comment -%} ————— 互动彩蛋：小工具 / 小体验，独立成组 ————— {%- endcomment -%}
@@ -431,8 +448,58 @@ title: Sam
     <span class="c-section-heading__meta">Little ways to stay</span>
   </div>
 
+  {%- comment -%}
+    「他的一生」年份彩带（2026-09-18，零维护）：运行时读 sam/lines.json，把每个角色按电影年份
+    排成一条色带，每一格是他的专属色，点哪一格就去画册里看那张脸。画册加人、lines.json 同步后自动多一格。
+  {%- endcomment -%}
+  <div class="c-year-ribbon" id="js-year-ribbon" hidden>
+    <div class="c-year-ribbon__head">
+      <span class="c-year-ribbon__eyebrow">His Years · 他的一生</span>
+      <span class="c-year-ribbon__hint" id="js-year-ribbon-hint">点一格，去看那张脸</span>
+    </div>
+    <div class="c-year-ribbon__track" id="js-year-ribbon-track"></div>
+    <div class="c-year-ribbon__axis" id="js-year-ribbon-axis" aria-hidden="true"></div>
+  </div>
+  <script>
+  (function () {
+    var wrap = document.getElementById('js-year-ribbon');
+    var track = document.getElementById('js-year-ribbon-track');
+    var axis = document.getElementById('js-year-ribbon-axis');
+    var hint = document.getElementById('js-year-ribbon-hint');
+    if (!wrap || !track) return;
+    fetch('{{ site.baseurl }}/sam/lines.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
+      var alias = (data.meta && data.meta.mf_alias) || {};
+      var chars = data.characters.slice().sort(function (a, b) { return (+a.year || 0) - (+b.year || 0) || a.name.localeCompare(b.name); });
+      if (!chars.length) return;
+      var y0 = +chars[0].year, y1 = +chars[chars.length - 1].year;
+      chars.forEach(function (c) {
+        var a = document.createElement('a');
+        a.className = 'c-year-ribbon__tick';
+        a.href = '{{ site.baseurl }}/sam/many-faces/#' + (alias[c.id] || c.id);
+        a.style.setProperty('--tick', c.accent);
+        a.setAttribute('aria-label', c.name + ' · ' + c.filmCN + ' · ' + c.year);
+        a.innerHTML = '<span class="c-year-ribbon__tip"><b>' + c.name + '</b><i>' + c.filmCN + ' · ' + c.year + '</i></span>';
+        a.addEventListener('mouseenter', function () { hint.textContent = c.name + ' · ' + c.filmCN + ' · ' + c.year; });
+        a.addEventListener('mouseleave', function () { hint.textContent = '点一格，去看那张脸'; });
+        track.appendChild(a);
+      });
+      // 十年一个刻度
+      for (var y = Math.ceil(y0 / 10) * 10; y <= y1; y += 10) {
+        var m = document.createElement('span');
+        m.textContent = y;
+        var idx = 0; while (idx < chars.length && +chars[idx].year < y) idx++;
+        m.style.left = (idx / chars.length * 100) + '%';
+        axis.appendChild(m);
+      }
+      var first = document.createElement('span'); first.textContent = y0; first.style.left = '0'; axis.insertBefore(first, axis.firstChild);
+      var last = document.createElement('span'); last.textContent = y1; last.style.right = '0'; last.style.left = 'auto'; axis.appendChild(last);
+      wrap.hidden = false;
+    }).catch(function () {});
+  })();
+  </script>
+
   <div class="c-sam-toys">
-    <a class="c-sam-toy" href="{{site.baseurl}}/sam/today/" target="_blank" rel="noopener">
+    <a class="c-sam-toy" href="{{site.baseurl}}/sam/today/">
       <span class="c-sam-toy__art c-sam-toy__art--today" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none">
           <text x="6" y="36" font-family="Georgia,serif" font-style="italic" font-size="38" fill="#e6c377">&#8220;</text>
@@ -452,7 +519,7 @@ title: Sam
       <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="c-sam-toy" href="{{site.baseurl}}/sam/many-faces/" target="_blank" rel="noopener">
+    <a class="c-sam-toy" href="{{site.baseurl}}/sam/many-faces/">
       <span class="c-sam-toy__art c-sam-toy__art--faces" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none">
           <g class="sam-art-card sam-art-card--l" stroke="#7f9bc4" stroke-width="1.3">
@@ -478,7 +545,7 @@ title: Sam
       <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="c-sam-toy" href="{{site.baseurl}}/sam/quiz/" target="_blank" rel="noopener">
+    <a class="c-sam-toy" href="{{site.baseurl}}/sam/quiz/">
       <span class="c-sam-toy__art c-sam-toy__art--quiz" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none" stroke="#8aa87b">
           <rect x="9" y="8.5" width="30" height="8.4" rx="4.2" stroke-width="1.2" opacity=".55"/>
@@ -491,12 +558,12 @@ title: Sam
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Interactive · Quiz</span>
         <span class="c-sam-toy__title">角色测验 · 哪个 Sam 最适合你</span>
-        <span class="c-sam-toy__desc">{{ site.data.sam.quiz_questions }} 道题，{{ site.data.sam.faces }} 个角色，没有陪跑——测出最适合你的那个他。</span>
+        <span class="c-sam-toy__desc">{{ site.data.sam.quiz_questions }} 道题，没有陪跑——测出最适合你的那个他。</span>
       </span>
       <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="c-sam-toy" href="{{site.baseurl}}/sam/spectrum/" target="_blank" rel="noopener">
+    <a class="c-sam-toy" href="{{site.baseurl}}/sam/spectrum/">
       <span class="c-sam-toy__art c-sam-toy__art--spectrum" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none">
           <polygon points="24,8 37.8,16 37.8,32 24,40 10.2,32 10.2,16" stroke="#9b8fd6" stroke-width="1.1" opacity=".45"/>
@@ -513,7 +580,7 @@ title: Sam
       <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="c-sam-toy" href="{{site.baseurl}}/sam/wall/" target="_blank" rel="noopener">
+    <a class="c-sam-toy" href="{{site.baseurl}}/sam/wall/">
       <span class="c-sam-toy__art c-sam-toy__art--wall" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none" stroke-linecap="round">
           <path d="M10 13 H36" stroke="#7f9bc4" stroke-width="1.5" opacity=".75"/>
@@ -525,13 +592,13 @@ title: Sam
       </span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Words · Signatures</span>
-        <span class="c-sam-toy__title">台词签名墙 · 两百余句</span>
+        <span class="c-sam-toy__title">台词签名墙 · {{ site.data.sam.wall_lines }} 句</span>
         <span class="c-sam-toy__desc">{{ site.data.sam.faces }} 个角色，{{ site.data.sam.wall_lines }} 句台词，一面只对你说话的墙。</span>
       </span>
       <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="c-sam-toy" href="{{site.baseurl}}/sam/projector/" target="_blank" rel="noopener">
+    <a class="c-sam-toy" href="{{site.baseurl}}/sam/projector/">
       <span class="c-sam-toy__art c-sam-toy__art--projector" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none">
           <rect x="17" y="5" width="14" height="38" rx="2" stroke="#d6b36a" stroke-width="1.2" opacity=".8"/>
@@ -550,12 +617,12 @@ title: Sam
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Cinema · Projector</span>
         <span class="c-sam-toy__title">放映室 · 一格一格看他走过</span>
-        <span class="c-sam-toy__desc">一间只为你亮灯的放映厅：{{ site.data.sam.faces }} 个角色按年份走过投影光束，配台词打字机放映。</span>
+        <span class="c-sam-toy__desc">一间只为你亮灯的放映厅：他的角色按年份走过投影光束，台词一句句打字机放映。</span>
       </span>
       <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="c-sam-toy" href="{{site.baseurl}}/sam/shelf/" target="_blank" rel="noopener">
+    <a class="c-sam-toy" href="{{site.baseurl}}/sam/shelf/">
       <span class="c-sam-toy__art c-sam-toy__art--shelf" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none">
           <path d="M8 34.5 H40" stroke="#b0705c" stroke-width="1.6" stroke-linecap="round"/>
@@ -575,7 +642,7 @@ title: Sam
       <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="c-sam-toy" href="{{site.baseurl}}/sam/hotline/" target="_blank" rel="noopener">
+    <a class="c-sam-toy" href="{{site.baseurl}}/sam/hotline/">
       <span class="c-sam-toy__art c-sam-toy__art--hotline" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none" stroke-linecap="round">
           <path d="M11 12.5 c-2.8 3 -2.8 6.5 0 9.5 l15 15 c3 2.8 6.5 2.8 9.5 0 l1.8 -1.8 c1.3 -1.3 1.3 -3 0 -4.3 l-4.6 -4.1 c-1.2 -1 -2.8 -1 -4 0 l-1.4 1.2 -8.3 -8.3 1.2 -1.4 c1 -1.2 1 -2.8 0 -4 l-4.1 -4.6 c-1.3 -1.3 -3 -1.3 -4.3 0 z" stroke="#c98f6e" stroke-width="1.4"/>
@@ -588,7 +655,49 @@ title: Sam
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Signal · Hotline</span>
         <span class="c-sam-toy__title">深夜热线 · 拨给任何一个他</span>
-        <span class="c-sam-toy__desc">一部只打得通他的电话：{{ site.data.sam.faces }} 个号码条条在线，你说一句，他用自己的话回你。</span>
+        <span class="c-sam-toy__desc">一部只打得通他的电话：每个号码都在线，你说一句，他用自己的话回你。</span>
+      </span>
+      <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="c-sam-toy" href="{{site.baseurl}}/sam/palettes/">
+      <span class="c-sam-toy__art c-sam-toy__art--palettes" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none">
+          <rect class="sam-art-swatch" x="8" y="8" width="15" height="15" rx="2.5" fill="#5b9db8"/>
+          <rect class="sam-art-swatch" x="25" y="8" width="15" height="15" rx="2.5" fill="#c2483a"/>
+          <rect class="sam-art-swatch" x="8" y="25" width="15" height="15" rx="2.5" fill="#e6c377"/>
+          <rect class="sam-art-swatch" x="25" y="25" width="15" height="15" rx="2.5" fill="#7f9676"/>
+        </svg>
+        <i class="c-sam-toy__num">09</i>
+      </span>
+      <span class="c-sam-toy__body">
+        <span class="c-sam-toy__eyebrow">Colours · Palettes</span>
+        <span class="c-sam-toy__title">他的 {{ site.data.sam.faces }} 套配色 · 一面墙</span>
+        <span class="c-sam-toy__desc">每个角色四个颜色、四个名字——双峰暮雾、你画的海……三种画法任选，喜欢哪套就穿上，或者存成图发给朋友。</span>
+      </span>
+      <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <a class="c-sam-toy" href="{{site.baseurl}}/sam/arcade/">
+      <span class="c-sam-toy__art c-sam-toy__art--arcade" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none">
+          <rect x="9" y="7" width="30" height="34" rx="3" stroke="#d6b36a" stroke-width="1.4"/>
+          <rect x="13" y="11" width="22" height="13" rx="1.5" stroke="#d6b36a" stroke-width="1.1" opacity=".75"/>
+          <g class="sam-art-swatch" fill="#e6c377">
+            <rect x="15.4" y="13.4" width="4" height="4" rx=".8" opacity=".85"/>
+            <rect x="21.8" y="17.8" width="4" height="4" rx=".8" opacity=".5"/>
+            <rect x="28.2" y="13.4" width="4" height="4" rx=".8" opacity=".7"/>
+          </g>
+          <path d="M18 34 v-4" stroke="#c98f6e" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="18" cy="28.6" r="2" fill="#c2483a"/>
+          <circle cx="27" cy="33" r="1.7" stroke="#d6b36a" stroke-width="1.1"/>
+          <circle cx="32" cy="33" r="1.7" stroke="#d6b36a" stroke-width="1.1"/>
+        </svg>
+        <i class="c-sam-toy__num">10</i>
+      </span>
+      <span class="c-sam-toy__body">
+        <span class="c-sam-toy__eyebrow">Arcade · Play</span>
+        <span class="c-sam-toy__title">游戏厅 · 三台机器，投币不要钱</span>
+        <span class="c-sam-toy__desc">猜这句是谁说的、把人和他的话翻牌配对、扭蛋把五十四个他一个个收进册子。成绩只存在你自己这台机器里。</span>
       </span>
       <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
     </a>
@@ -616,11 +725,11 @@ title: Sam
     {%- assign chs = site.posts | where: "series", s.series_name | sort: "series_order" -%}
     {%- assign cover = chs.first.image -%}
     <a class="c-sam-card{% unless cover %} c-sam-card--nocover{% endunless %}"
-       href="{{ s.url | prepend: site.baseurl }}" target="_blank" rel="noopener"
+       href="{{ s.url | prepend: site.baseurl }}"
        {%- if pal %} style="--au-accent: {{ pal.accent }}; --au-ink: {{ pal.accent_ink | default: pal.accent }}; --au-bg: {{ pal.bg }};"{% endif %}>
       {%- if cover %}
       <div class="c-sam-card__cover">
-        <div class="c-sam-card__cover-img" style="background-image: url('{{ cover | prepend: '/images/' | prepend: site.baseurl }}')"></div>
+        <div class="c-sam-card__cover-img" data-bg="{{ cover | prepend: '/images/' | prepend: site.baseurl }}"></div>
       </div>
       {%- endif %}
       <div class="c-sam-card__body">
@@ -659,22 +768,12 @@ title: Sam
         {%- assign card_desc = s.collection_desc | default: s.logline -%}
         {% if card_desc %}<p class="c-sam-card__desc">{{ card_desc }}</p>{% endif %}
         <div class="c-sam-card__foot">
+          <span class="c-sam-card__count">{{ chs | size }} 章 · {% include series-status.html status=s.series_status %}</span>
           <span class="c-sam-card__cta">读这个故事 →</span>
         </div>
       </div>
     </a>
     {% endfor %}
 
-    {% assign sam_posts = site.posts | where_exp: "post", "post.tags contains 'Sam'" %}
-    {% for post in sam_posts %}{% unless post.series %}
-    <a class="c-sam-card c-sam-card--nocover" href="{{ post.url | prepend: site.baseurl }}" target="_blank" rel="noopener">
-      <div class="c-sam-card__body">
-        <div class="c-sam-card__eyebrow">{{ post.categories | first }} <span class="c-sam-card__tab">↗</span></div>
-        <h4 class="c-sam-card__title">{{ post.title }}</h4>
-        {% if post.summary %}<p class="c-sam-card__desc">{{ post.summary }}</p>{% endif %}
-        <div class="c-sam-card__foot"><span class="c-sam-card__cta">读这个故事 →</span></div>
-      </div>
-    </a>
-    {% endunless %}{% endfor %}
   </div>
 </section>

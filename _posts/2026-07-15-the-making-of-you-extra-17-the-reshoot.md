@@ -11,6 +11,7 @@ series_order: 49
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 17
+chapter_kind: extra
 summary: "你递给他一份剧本：八年前那场签约戏。这次，重拍，换结局。"
 ---
 

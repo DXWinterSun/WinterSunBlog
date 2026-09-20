@@ -11,6 +11,7 @@ series_order: 41
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 9
+chapter_kind: extra
 summary: "行程他排到了 3.2 版。你只砍了一刀：蜜月，没有日程。"
 ---
 
