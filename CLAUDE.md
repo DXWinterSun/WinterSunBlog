@@ -753,6 +753,31 @@ python3 tools/check_daily_rotation.py
 `sam/today/manifest.webmanifest` 的描述（「五十四个角色」）。（签名墙卡标题已改成读 `sam.yml`。）
 **加完人统一 `grep -rn "五十四\|54 个\|270 句" sam/` 扫一遍补干净。**
 
+### ⚠️ 台词的 `label`（widget 上那行小字）：必须是「只属于他」的那个词
+
+Winter 2026-09-20 在桌面小组件上看见 Wayne 那句挂着一个光秃秃的 `YES`：**「这个标题就『yes』感觉好简单🤣整个台词库我感觉都可以过一遍。」**
+——过完 270 条，改了 25 条。**判据就是她定章节名那把尺子：**
+
+> **移植测试**：把这个 label 放到别的角色身上还成立吗？成立 → 太泛，重起。
+
+`YES` / `FREE` / `SAFE` / `ALIVE` / `STAY` / `TRUST ME` 谁都能用，所以都不合格。
+合格的长在**他自己那句话**里、有画面、有名物：`DONUT IN THE DRAWER`、`THE KEY ON THE PILLOW`、
+`SIMON DIDN'T SAY`、`WHAT'S IN THE EGG`、`SLEEPWALKING`、`WHEN THE TANK RAN DRY`。
+
+另外两条硬规矩（2026-09-20 清过一遍，当时查出 4 对 + 1 处）：
+
+1. **`label` 全站唯一**——不同角色不能撞同一个词。撞了在 widget / 每日一句上就像复读机
+   （当时撞的：`OFF THE CLOCK` Gary ／ Craig、`OFF THE RECORD` Jim Reston ／ Don Verdean、
+   `STILL HERE` Eddie ／ Watson、`YOUR NAME` Francis Flute ／ 小布什）。
+2. **同一个角色的 5 条之间不能互相包含**（Clay 当时有 `SIXTEEN YEARS TOO LATE` 和 `SIXTEEN YEARS`）。
+
+改完必须做的两件事：
+- **`pool` 从 `characters` 整个重建**（别手改 pool，它是 5 轮 round-robin 展开，见下条）。
+- ⚠️ **第 1 句（锚句）的 label 同时印在画册 / 光谱 / 测验上**——改锚句要三处一起改；
+  改第 2–5 句则只动 lines.json 一个文件。2026-09-20 那次刻意只改 2–5 句，没碰锚句。
+
+一行自查：`python3 -c "import json,collections;d=json.load(open('sam/lines.json'));c=collections.Counter(q['label'] for x in d['characters'] for q in x['quotes']);print([k for k,v in c.items() if v>1] or 'label 全站唯一 ✓')"`
+
 **台词（5 句）与画册 inscription 的关系：** 每个角色 5 句台词里第 1 句 `kind:"锚"`，
 **就是画册 `inscription` 那一句**（label/line/gloss 三处必须对上）。且所有 inscription /
 台词都是**第一人称**（角色对「你」说话），不是旁白第三人称——外部交付时若给成第三人称，
