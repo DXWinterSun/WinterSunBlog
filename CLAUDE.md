@@ -1412,6 +1412,14 @@ GitHub 细粒度令牌（存本机 `localStorage` 键 `ws-sam-shelf-key`）后�
 - 只在用户明确要求时再开 PR。
 - 内部链接全部要用 `{{ site.baseurl }}` 前缀，否则在 GitHub Pages
   默认 URL 下会 404。
+- ⚠️ **页面正文里的内联 `<script>` 不能读 `window.SITE_BASEURL`**（2026-09-20 踩过）：
+  那个全局变量是在页面**最底部**的 `_includes/javascripts.html` 里才赋值的，而正文里的
+  脚本跑得更早，读到的永远是 `undefined` → `fetch('/sam/lines.json')` 落到站点根目录
+  （`dxwintersun.github.io/sam/…`）→ 404。本地起 `http.server` 测不出来（本地就在根目录），
+  只有线上才炸，而且只表现为页面上一句「读不到数据」。
+  **正文脚本里一律直接写 `var BASE = '{{ site.baseurl }}';`**（Liquid 在构建时就印死了），
+  再配一条相对路径兜底（如 `sam/arcade/` 里取 `../lines.json`）。要在本地验这类页面，
+  必须**把站点放进一层 `WinterSunBlog/` 目录再起服务器**，才跟线上路径一致。
 - 修改 `js/main.js` 后记得 cache-bust 已经在 `_includes/javascripts.html`
   里通过 `?v={{ site.time | date: '%Y%m%d%H%M' }}` 自动处理，不用手动改。
 

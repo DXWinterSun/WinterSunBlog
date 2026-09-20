@@ -254,7 +254,10 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
 
 <script>
 (function () {
-  var BASE  = window.SITE_BASEURL || '';
+  // ⚠️ 别用 window.SITE_BASEURL：它在页面底部的 javascripts.html 里才赋值，
+  // 而本段脚本在正文里、跑得更早，读到的永远是 undefined（线上就是这么
+  // 白屏「没能把台词库读进来」的）。直接用 Liquid 把 baseurl 印进来。
+  var BASE  = '{{ site.baseurl }}';
   var KEY   = 'ws-arcade-v1';
   var menu  = document.getElementById('arc-menu');
   var stage = document.getElementById('arc-stage');
@@ -810,8 +813,15 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
   paintCoins();
   menu.innerHTML = '<div class="c-arc-loading">正在把五十四个人请进来……</div>';
 
-  fetch(BASE + '/sam/lines.json')
-    .then(function (r) { return r.json(); })
+  function getLines() {
+    return fetch(BASE + '/sam/lines.json')
+      .then(function (r) { if (!r.ok) throw new Error('404'); return r.json(); })
+      .catch(function () {   // 兜底：相对路径，不依赖 baseurl 写得对不对
+        return fetch('../lines.json').then(function (r) { return r.json(); });
+      });
+  }
+
+  getLines()
     .then(function (d) {
       CHARS = (d.characters || []).filter(function (c) { return c.quotes && c.quotes.length; });
       // 册子按电影年份排成一条时间线（lines.json 末尾偶有后补的条目）
