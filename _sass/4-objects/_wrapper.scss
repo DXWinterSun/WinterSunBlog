@@ -17,8 +17,11 @@ $wrapper-offset: $base-spacing-unit;
   padding: 0 32px;
 }
 
+// ⚠️ 手机上别把边距留太厚：容器 + 区块 + 卡片三层留白叠起来，390 宽的屏幕
+// 只剩 250 出头在显示内容，正文一行只放得下 17 个字（Winter 2026-09-21：
+// 「中间只有好少的一部分可以显示」）。收到 16px 后一行约 20 字，与聊天预览页一致。
 @media only screen and (max-width: 640px) {
   .o-container {
-    padding: 0 28px;
+    padding: 0 16px;
   }
 }
