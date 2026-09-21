@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 24 · 见者有份 — Everything in Transit"
+title: "Chapter 26 · 见者有份 — Everything in Transit"
 date: 2026-08-21 17:11:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 缱绻, 絮语]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 24
+series_order: 26
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 24
+chapter_type: Chapter 26
 summary: "早餐桌他路过亲你一口，被起哄，于是他挨个把全屋都亲了一遍。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-24-everyone-gets-one/

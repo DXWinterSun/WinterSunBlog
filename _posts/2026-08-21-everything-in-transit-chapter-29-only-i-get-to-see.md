@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 27 · 只准我看 — Everything in Transit"
+title: "Chapter 29 · 只准我看 — Everything in Transit"
 date: 2026-08-21 17:14:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 炽恋, 缱绻]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 27
+series_order: 29
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 27
+chapter_type: Chapter 29
 summary: "你头一回为他穿上那身。他说只准他看——说了一遍，又一遍。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-27-only-i-get-to-see/

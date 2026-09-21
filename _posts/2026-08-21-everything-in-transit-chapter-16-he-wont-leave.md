@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 14 · 换他不走了 — Everything in Transit"
+title: "Chapter 16 · 换他不走了 — Everything in Transit"
 date: 2026-08-21 17:01:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 14
+series_order: 16
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 14
+chapter_type: Chapter 16
 summary: "他留宿那晚，Rob 赖在你房间不肯走，理由假得离谱，就是不走。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-14-he-wont-leave/

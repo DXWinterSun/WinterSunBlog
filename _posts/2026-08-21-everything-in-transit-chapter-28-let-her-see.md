@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 26 · 让她自己看看 — Everything in Transit"
+title: "Chapter 28 · 让她自己看看 — Everything in Transit"
 date: 2026-08-21 17:13:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 安放]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 26
+series_order: 28
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 26
+chapter_type: Chapter 28
 summary: "派对上，Mickey 把满是她的速写本递了过去。她一页页翻下去，笑了。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-26-let-her-see/

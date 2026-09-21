@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 23 · 只有你 — Everything in Transit"
+title: "Chapter 25 · 只有你 — Everything in Transit"
 date: 2026-08-21 17:10:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 缱绻, 絮语]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 23
+series_order: 25
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 23
+chapter_type: Chapter 25
 summary: "你吃起醋来，他乐够了才哄你——那些人，没一个他给写过歌。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-23-only-you/

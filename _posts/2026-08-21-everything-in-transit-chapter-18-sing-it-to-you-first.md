@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 16 · 第一个唱给你听 — Everything in Transit"
+title: "Chapter 18 · 第一个唱给你听 — Everything in Transit"
 date: 2026-08-21 17:03:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 16
+series_order: 18
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 16
+chapter_type: Chapter 18
 summary: "演出最后 Rob 说还有一首谁都没听过的。他一开口，唱的竟是你的名字。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-16-sing-it-to-you-first/

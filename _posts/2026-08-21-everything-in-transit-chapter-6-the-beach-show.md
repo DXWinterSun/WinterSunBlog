@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 4 · 海边那场 — Everything in Transit"
+title: "Chapter 6 · 海边那场 — Everything in Transit"
 date: 2026-08-21 16:51:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 怀旧]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 4
+series_order: 6
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 4
+chapter_type: Chapter 6
 summary: "海边演出，一堆女孩打听主唱单不单身，你笑着替他作证——什么都没多想。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-4-the-beach-show/

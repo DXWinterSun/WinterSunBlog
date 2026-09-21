@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 11 · 不是常识 — Everything in Transit"
+title: "Chapter 13 · 不是常识 — Everything in Transit"
 date: 2026-08-21 16:58:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 暗涌]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 11
+series_order: 13
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 11
+chapter_type: Chapter 13
 summary: "你又忘带腕带，Rob 熟练地把他的给你——Brody 也偷偷学了一手。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-11-not-common-sense/

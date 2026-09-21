@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 5 · 这样就很好 — Everything in Transit"
+title: "Chapter 7 · 这样就很好 — Everything in Transit"
 date: 2026-08-21 16:52:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 怅惘]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 5
+series_order: 7
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 5
+chapter_type: Chapter 7
 summary: "等你在录像带里读懂自己的心，他已牵起别人的手。可你想，这样就很好。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-5-this-is-fine/
