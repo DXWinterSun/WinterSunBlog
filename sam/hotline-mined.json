@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1866
+  "count": 1872
  },
  "chars": {
   "youngsam": {
@@ -2292,108 +2292,80 @@
      "series": "Everything in Transit"
     },
     {
-     "cn": "所以我一直没松手。",
+     "cn": "本来是来晒太阳的。结果听见你唱歌。",
      "b": "daily",
      "ch": 10,
-     "title": "Chapter 10 · 一件简单的事",
+     "title": "Chapter 10 · 我更喜欢你的声音",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "你了解多少啊？",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 哥们儿的关心",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "替你把把关。你这人心大，别被人两句好话就哄跑了。",
+     "b": "daily",
+     "ch": 11,
+     "title": "Chapter 11 · 哥们儿的关心",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "所以我一直没松手。",
+     "b": "daily",
+     "ch": 12,
+     "title": "Chapter 12 · 一件简单的事",
      "series": "Everything in Transit"
     },
     {
      "cn": "你少疑神疑鬼。",
      "b": "daily",
-     "ch": 13,
-     "title": "Chapter 13 · 单飞",
+     "ch": 15,
+     "title": "Chapter 15 · 单飞",
      "series": "Everything in Transit"
     },
     {
      "cn": "你今晚唱得，是我听过最好听的一次。",
      "b": "daily",
-     "ch": 17,
-     "title": "Chapter 17 · 换个名字叫你",
+     "ch": 19,
+     "title": "Chapter 19 · 换个名字叫你",
      "series": "Everything in Transit"
     },
     {
      "cn": "今晚我也算听明白了。",
      "b": "daily",
-     "ch": 17,
-     "title": "Chapter 17 · 换个名字叫你",
+     "ch": 19,
+     "title": "Chapter 19 · 换个名字叫你",
      "series": "Everything in Transit"
     },
     {
      "cn": "那个跟你一块儿唱歌的人……写了首歌，把你的名字，放上去了。",
      "b": "daily",
-     "ch": 17,
-     "title": "Chapter 17 · 换个名字叫你",
+     "ch": 19,
+     "title": "Chapter 19 · 换个名字叫你",
      "series": "Everything in Transit"
     },
     {
      "cn": "我是个挺简单的人。我看得出来，有些东西，我给不了。",
      "b": "daily",
-     "ch": 17,
-     "title": "Chapter 17 · 换个名字叫你",
+     "ch": 19,
+     "title": "Chapter 19 · 换个名字叫你",
      "series": "Everything in Transit"
     },
     {
      "cn": "行了、行了……我最见不得你哭。",
      "b": "tired",
-     "ch": 17,
-     "title": "Chapter 17 · 换个名字叫你",
+     "ch": 19,
+     "title": "Chapter 19 · 换个名字叫你",
      "series": "Everything in Transit"
     },
     {
      "cn": "再说你哭起来一点都不好看，鼻子都皱成一团，别糟蹋了你这张脸。",
      "b": "tired",
-     "ch": 17,
-     "title": "Chapter 17 · 换个名字叫你",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "你俩接着睡，接着睡啊。我什么都没看见。",
-     "b": "daily",
-     "ch": 18,
-     "title": "Chapter 18 · 这根不用还了",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "让我多丢一会儿人。",
-     "b": "daily",
-     "ch": 18,
-     "title": "Chapter 18 · 这根不用还了",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "嫌丑你自己扎去。",
-     "b": "daily",
-     "ch": 18,
-     "title": "Chapter 18 · 这根不用还了",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "新歌副歌卡住了，你来两句。",
-     "b": "daily",
      "ch": 19,
-     "title": "Chapter 19 · 隔壁",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "反正现在都这样了。要不……把咱俩那两间屋，并一间得了？空出来那间，还能多分摊点房租。",
-     "b": "daily",
-     "ch": 19,
-     "title": "Chapter 19 · 隔壁",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "你俩这都算破了规矩了。好歹……给人家留间自己的屋吧？",
-     "b": "daily",
-     "ch": 19,
-     "title": "Chapter 19 · 隔壁",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "谁跟你算房租了，我这叫——房屋规划！",
-     "b": "daily",
-     "ch": 19,
-     "title": "Chapter 19 · 隔壁",
+     "title": "Chapter 19 · 换个名字叫你",
      "series": "Everything in Transit"
     },
     {
@@ -2418,80 +2390,129 @@
      "series": "Everything in Transit"
     },
     {
-     "cn": "那个……你今天……琴弦调得不错。",
+     "cn": "你俩接着睡，接着睡啊。我什么都没看见。",
+     "b": "daily",
+     "ch": 20,
+     "title": "Chapter 20 · 这根不用还了",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "让我多丢一会儿人。",
+     "b": "daily",
+     "ch": 20,
+     "title": "Chapter 20 · 这根不用还了",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "嫌丑你自己扎去。",
+     "b": "daily",
+     "ch": 20,
+     "title": "Chapter 20 · 这根不用还了",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "新歌副歌卡住了，你来两句。",
      "b": "daily",
      "ch": 21,
-     "title": "Chapter 21 · 女生悄悄话",
+     "title": "Chapter 21 · 隔壁",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "反正现在都这样了。要不……把咱俩那两间屋，并一间得了？空出来那间，还能多分摊点房租。",
+     "b": "daily",
+     "ch": 21,
+     "title": "Chapter 21 · 隔壁",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "你俩这都算破了规矩了。好歹……给人家留间自己的屋吧？",
+     "b": "daily",
+     "ch": 21,
+     "title": "Chapter 21 · 隔壁",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "谁跟你算房租了，我这叫——房屋规划！",
+     "b": "daily",
+     "ch": 21,
+     "title": "Chapter 21 · 隔壁",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "那个……你今天……琴弦调得不错。",
+     "b": "daily",
+     "ch": 23,
+     "title": "Chapter 23 · 女生悄悄话",
      "series": "Everything in Transit"
     },
     {
      "cn": "我算看明白了——你俩啊，是会当哥们儿，不会当恋人。",
      "b": "daily",
-     "ch": 21,
-     "title": "Chapter 21 · 女生悄悄话",
+     "ch": 23,
+     "title": "Chapter 23 · 女生悄悄话",
      "series": "Everything in Transit"
     },
     {
      "cn": "你这是……吃醋了？",
      "b": "daily",
-     "ch": 23,
-     "title": "Chapter 23 · 只有你",
+     "ch": 25,
+     "title": "Chapter 25 · 只有你",
      "series": "Everything in Transit"
     },
     {
      "cn": "我跟你说件事儿。你听好了，我只说一遍。",
      "b": "daily",
-     "ch": 23,
-     "title": "Chapter 23 · 只有你",
+     "ch": 25,
+     "title": "Chapter 25 · 只有你",
      "series": "Everything in Transit"
     },
     {
      "cn": "是有。我不骗你，我也不是什么好东西。",
      "b": "daily",
-     "ch": 23,
-     "title": "Chapter 23 · 只有你",
+     "ch": 25,
+     "title": "Chapter 25 · 只有你",
      "series": "Everything in Transit"
     },
     {
      "cn": "那些是从前。你是……",
      "b": "daily",
-     "ch": 23,
-     "title": "Chapter 23 · 只有你",
+     "ch": 25,
+     "title": "Chapter 25 · 只有你",
      "series": "Everything in Transit"
     },
     {
      "cn": "就觉得，这衣服归你穿，比归我穿好看。",
      "b": "praise",
-     "ch": 24,
-     "title": "Chapter 24 · 见者有份",
+     "ch": 26,
+     "title": "Chapter 26 · 见者有份",
      "series": "Everything in Transit"
     },
     {
      "cn": "见者有份。都别说我偏心。",
      "b": "daily",
-     "ch": 24,
-     "title": "Chapter 24 · 见者有份",
+     "ch": 26,
+     "title": "Chapter 26 · 见者有份",
      "series": "Everything in Transit"
     },
     {
      "cn": "那我就是个反面教材。别学我。别憋着。憋两年，遭老罪了。",
      "b": "daily",
-     "ch": 25,
-     "title": "Chapter 25 · 满本子都是她",
+     "ch": 27,
+     "title": "Chapter 27 · 满本子都是她",
      "series": "Everything in Transit"
     },
     {
      "cn": "我憋了两年，遭了老罪，最后还得当着一屋子人的面出丑。",
      "b": "daily",
-     "ch": 26,
-     "title": "Chapter 26 · 让她自己看看",
+     "ch": 28,
+     "title": "Chapter 28 · 让她自己看看",
      "series": "Everything in Transit"
     },
     {
      "cn": "你比我强。你手里有本子。走过去，别回头。",
      "b": "daily",
-     "ch": 26,
-     "title": "Chapter 26 · 让她自己看看",
+     "ch": 28,
+     "title": "Chapter 28 · 让她自己看看",
      "series": "Everything in Transit"
     },
     {
@@ -2502,24 +2523,45 @@
      "series": "Everything in Transit"
     },
     {
-     "cn": "本来是来晒太阳的。结果听见你唱歌。",
+     "cn": "你这弹的是什么，得罪谁了。",
      "b": "daily",
-     "ch": 8,
-     "title": "Chapter 8 · 我更喜欢你的声音",
+     "ch": 30,
+     "title": "Chapter 30 · 手把手",
      "series": "Everything in Transit"
     },
     {
-     "cn": "你了解多少啊？",
+     "cn": "关你什么事。",
      "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 哥们儿的关心",
+     "ch": 4,
+     "title": "Chapter 4 · 他们中的一个",
      "series": "Everything in Transit"
     },
     {
-     "cn": "替你把把关。你这人心大，别被人两句好话就哄跑了。",
+     "cn": "隔壁那个兄弟会的。没见过你——你要早点出现，我可不能眼睁睁让你在这堆人里埋没了。",
      "b": "daily",
-     "ch": 9,
-     "title": "Chapter 9 · 哥们儿的关心",
+     "ch": 5,
+     "title": "Chapter 5 · 护着你",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "这是我们乐队的人。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 护着你",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "下回离这种打了发胶的远点。整支乐队跟着你担惊受怕。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 护着你",
+     "series": "Everything in Transit"
+    },
+    {
+     "cn": "我这是护乐队。少个主唱，我上哪儿凑和声去。",
+     "b": "daily",
+     "ch": 5,
+     "title": "Chapter 5 · 护着你",
      "series": "Everything in Transit"
     }
    ]
