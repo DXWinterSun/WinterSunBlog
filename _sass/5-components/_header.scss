@@ -6,6 +6,8 @@
   position: sticky;
   top: 0;
   z-index: 50;
+  transition: transform .28s ease;
+  will-change: transform;
   width: 100%;
   background-color: rgba(var(--rgb-bg), 0.92);
   backdrop-filter: saturate(140%) blur(8px);
@@ -164,13 +166,23 @@
   }
 }
 
+/* 手机上站头是两行（头像行 + 导航行），钉住不动就吃掉一百二十多像素的天花板
+   （Winter 2026-09-21：「上面的天花板也挺低的」）。往下滑时把它收上去，
+   往上滑一点、或回到顶部，它自己回来。JS 在 js/main.js 的 headerAutoHide。 */
+.c-topbar.is-tucked {
+  transform: translateY(-100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-topbar { transition: none; }
+}
+
 @media only screen and (max-width: 900px) {
   .c-topbar__inner {
     height: auto;
     flex-wrap: wrap;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    gap: 12px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    gap: 9px;
   }
   .c-nav {
     order: 3;
@@ -184,7 +196,7 @@
   }
   .c-nav__item {
     white-space: nowrap;
-    padding: 6px 12px;
+    padding: 5px 11px;
     font-size: 12px;
   }
   .c-search {

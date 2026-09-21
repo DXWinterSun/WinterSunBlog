@@ -751,3 +751,36 @@ $(document).ready(function () {
     if (buffer === "fable") { buffer = ""; showToast(); }
   });
 })();
+
+/* ————— 手机上站头会让路 —————
+   ⚠️ 独立成段、不要塞回 $(document).ready 里：那个回调里前面任何一句出错
+   （例如某个插件没加载），后面的就全都不执行了，这段也会跟着哑掉。 */
+/* =======================
+// 手机上：往下滑收起站头，往上滑 / 回到顶部再放出来
+// （站头在手机上是两行、又是钉住的，一直占着一百二十多像素的「天花板」。
+//   桌面宽度不启用；搜索框正在用时也不收，免得下拉结果跟着跑掉。）
+======================= */
+(function headerAutoHide() {
+  var bar = document.querySelector('.c-topbar');
+  if (!bar) return;
+  var last = window.scrollY || 0, ticking = false;
+
+  function update() {
+    var y = window.scrollY || 0;
+    if (window.innerWidth > 900 || (document.activeElement && bar.contains(document.activeElement))) {
+      bar.classList.remove('is-tucked');
+      last = y;
+      return;
+    }
+    var h = bar.offsetHeight;
+    if (y > last + 6 && y > h + 40) bar.classList.add('is-tucked');
+    else if (y < last - 6 || y <= 4) bar.classList.remove('is-tucked');
+    last = y;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { update(); ticking = false; });
+  }, { passive: true });
+})();

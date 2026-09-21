@@ -97,6 +97,8 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
 .c-arc-bar__stat { font-size: .8rem; color: var(--c-muted); font-weight: 600; }
 .c-arc-bar__stat b { font-family: ui-monospace, Menlo, monospace; color: var(--c-accent); font-size: 1rem; display: inline-block; }
 .c-arc-bar__stat b.is-bump { animation: arcBump .4s cubic-bezier(.3,1.6,.5,1); }
+.c-arc-bar__coins { margin-left: auto; }
+.c-arc-bar__coins.is-bump { animation: arcBump .45s cubic-bezier(.3,1.5,.5,1); }
 .c-arc-btn {
   font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; padding: .48rem 1.1rem;
   border-radius: 999px; border: 2px solid var(--a-ink); background: var(--c-paper); color: var(--c-ink);
@@ -283,8 +285,25 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
    写在前面会被后面的原样盖掉（改了半天没反应就是这个原因）。 */
 /* 手机上少留一点白——外面的容器已经收到 16px 了，这里再厚就没地方摆牌 */
 @media (max-width: 640px) {
-  .c-arc { padding: 1rem .5rem 2rem; border-radius: 12px; }
-  .c-arc-panel { padding: 1.2rem .7rem 1.4rem; }
+  /* 纵向也收：手机屏本来就矮，站头 + 浏览器工具条已经吃掉一截 */
+  .c-arc { padding: .7rem .5rem 1.4rem; border-radius: 12px; margin-top: .4rem; }
+  .c-arc-panel { padding: 1rem .7rem 1.2rem; }
+  .c-arc__head { padding: 1rem 0 .9rem; }
+  .c-arc__title { font-size: 2.3rem; margin: .35rem 0 .45rem; }
+  .c-arc__wallet { margin-top: .8rem; }
+  .c-arc__menu { gap: .8rem; margin-top: 1.1rem; }
+  .c-arc-machine { padding: 1.3rem 1rem 1rem; }
+  .c-arc-modes { gap: .4rem; margin: .35rem 0 .7rem; }
+  .c-arc-mode { font-size: .76rem; padding: .34rem .72rem; }
+  .c-arc-label { margin-top: .8rem; }
+  .c-arc-diff { gap: .45rem; margin-bottom: .9rem; }
+  .c-arc-actions { gap: .5rem; margin-top: 1rem; }
+  .c-arc-note { line-height: 1.7; margin-top: .6rem; }
+  .c-arc-bar { margin-bottom: .8rem; }
+  .c-arc-quiz__line { font-size: 1.26rem; line-height: 1.4; }
+  .c-arc-quiz__cn { font-size: .9rem; margin: .7rem auto 1.1rem; }
+  .c-arc-quiz__opts { gap: .6rem; }
+  .c-arc-opt { padding: .68rem .8rem; }
   /* 一行四张牌时每张只有 70 出头，牌要长一点、字要小一点，
      否则名字和台词标题会被挤掉——那正是 Winter 最烦的毛病 */
   .c-arc-grid { gap: .42rem; }
@@ -298,7 +317,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
 </style>
 
 <section class="c-arc">
-  <header class="c-arc__head">
+  <header class="c-arc__head" id="arc-head">
     <div class="c-arc__eyebrow">Sam Arcade</div>
     <h1 class="c-arc__title">游戏厅</h1>
     <p class="c-arc__lede">五十四个人全在这儿了。挑一台机器，投币不要钱。</p>
@@ -320,6 +339,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
   var stage = document.getElementById('arc-stage');
   var coinEl = document.getElementById('arc-coins');
   var walletEl = document.getElementById('arc-wallet');
+  var headEl = document.getElementById('arc-head');
   var CHARS = [];
 
   /* ── 本机存档 ────────────────────────────────────────────── */
@@ -338,7 +358,10 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
   function addCoins(n) { S.coins = Math.max(0, S.coins + n); save(); paintCoins(true); }
   function paintCoins(bump) {
     coinEl.textContent = S.coins;
-    if (bump) replay(walletEl, 'is-bump');
+    // 开局时头部收起来了，币数改由面板里那枚小筹码显示
+    var chip = stage.querySelector('#arc-coins-chip');
+    if (chip) chip.textContent = S.coins;
+    if (bump) { replay(walletEl, 'is-bump'); if (chip) replay(chip.parentNode, 'is-bump'); }
   }
   function replay(el, cls) {
     if (!el) return;
@@ -425,12 +448,23 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
   function showStage(html) {
     stage.hidden = false;
     stage.innerHTML = '<div class="c-arc-panel">' + html + '</div>';
+    // 手机屏就那么高：进了游戏就把大标题和四张机器卡收起来，别让人每次都先划过一屏半
+    headEl.hidden = true;
+    menu.hidden = true;
+    // 币数跟着挪进面板那一行
+    var left = stage.querySelector('.c-arc-bar__left');
+    if (left && !left.querySelector('#arc-coins-chip')) {
+      left.insertAdjacentHTML('beforeend',
+        '<span class="c-arc-bar__stat c-arc-bar__coins">🎞 <b id="arc-coins-chip">' + S.coins + '</b></span>');
+    }
     var y = stage.getBoundingClientRect().top + window.pageYOffset - 70;
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
   function panel() { return stage.querySelector('.c-arc-panel'); }
   function closeStage() {
     stage.hidden = true; stage.innerHTML = '';
+    headEl.hidden = false;
+    menu.hidden = false;
     window.scrollTo({ top: menu.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
   }
 
