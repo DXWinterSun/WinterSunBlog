@@ -737,13 +737,28 @@
   .gcard__sub {
     font-weight: var(--fw-thin); font-size: calc(12.5px * var(--fs)); color: var(--ink-dim);
   }
+  /* 件数那枚牌子是可以点的：点一下把这一组全摊开，再点收回去
+     （Winter 2026-09-22：「点这个多少件的地方，是不是点一下可以展开当下所有的，
+     然后也可以收回」） */
   .gcard__n {
-    margin-left: auto; padding: 2px 10px; border-radius: 999px;
+    margin-left: auto; padding: 2px 10px; border-radius: 999px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 5px;
     border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
     background: color-mix(in srgb, var(--a, var(--gold)) 16%, transparent);
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: calc(11px * var(--fs)); letter-spacing: 1.5px; color: var(--ink);
+    transition: transform .12s ease;
   }
+  .gcard__n:active { transform: translate(1px, 1px); }
+  .gcard__n i { font-style: normal; font-size: calc(10px * var(--fs)); transition: transform .2s ease; }
+  .gcard.is-open .gcard__n i { transform: rotate(180deg); }
+  /* 摊开：从「一条横着滑」变回「一片格栅」，一眼看全 */
+  .gcard.is-open .gcard__grid {
+    display: grid; overflow: visible;
+    grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr));
+    row-gap: 22px; mask-image: none; padding-bottom: 6px;
+  }
+  .gcard.is-open .gcard__grid > .item { flex: none; }
   /* ————— 按角色＝一份名册（Winter 2026-09-22：「一开始出现整列表那种形式，
      点进去之后会具体显示这个人对应了哪几个藏品；不点进去，就显示它有多少件藏品、
      大概是什么，放个 emoji 表示一下」） ————— */
@@ -1921,8 +1936,21 @@
       });
       head.appendChild(pal);
     }
-    var n = document.createElement("span"); n.className = "gcard__n";
-    n.textContent = g.items.length + " 件";
+    var n = document.createElement("button");
+    n.type = "button"; n.className = "gcard__n";
+    n.setAttribute("aria-expanded", "false");
+    n.setAttribute("aria-label", "全部摊开或收回，共 " + g.items.length + " 件");
+    n.appendChild(document.createTextNode(g.items.length + " 件"));
+    var ca = document.createElement("i"); ca.textContent = "▾";
+    n.appendChild(ca);
+    n.addEventListener("click", function () {
+      var open = el.classList.toggle("is-open");
+      n.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!open) {                               // 收回去时把横条滑回开头，不然像卡住了
+        var strip = el.querySelector(".gcard__grid");
+        if (strip) strip.scrollLeft = 0;
+      }
+    });
     head.appendChild(n);
     el.appendChild(head);
     var inner = document.createElement("div"); inner.className = "gcard__grid";
