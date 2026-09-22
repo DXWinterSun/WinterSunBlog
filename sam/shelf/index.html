@@ -638,7 +638,7 @@
     .item.is-shine .item__face--front::before { display: none; }
     .item__flip { transition: none; }
   }
-  .item { cursor: pointer; }   /* 点哪儿都能翻面 */
+  .item { cursor: default; }   /* 卡面本身只是闪一下，真正能点的是 ↻ 和 ✎ */
   .item:hover { transform: translate(-2px, -2px); }
   .item:hover .item__face { box-shadow: 7px 7px 0 var(--shade); }
   .item:active { transform: translate(2px, 2px); }
@@ -706,6 +706,50 @@
   }
 
   /* ————— 分组小标题（按角色 / 类别 / 年代排列时） ————— */
+  /* ————— 一组＝一张大卡（Winter 2026-09-22：「按角色分类的应该一个角色一张卡吧！」）
+     卡片视图里，按角色排＝一人一张大卡，他的东西都摆在他这张卡里；
+     按类别、按年代同理。清单视图仍旧是一条小标题线（gline），不用大卡。 */
+  .gcard {
+    grid-column: 1 / -1;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 38%, var(--c-ink));
+    border-radius: 14px; padding: 13px 12px 16px;
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--a, var(--gold)) 13%, transparent), transparent 120px),
+      var(--panel);
+    box-shadow: 4px 4px 0 color-mix(in srgb, var(--a, var(--gold)) 55%, var(--c-ink));
+  }
+  .gcard__head {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+    padding-bottom: 10px; margin-bottom: 14px;
+    border-bottom: 2px dotted rgba(var(--line-rgb),.22);
+  }
+  .gcard__dot {
+    width: 22px; height: 22px; border-radius: 50%; flex: none;
+    background: var(--a, var(--gold));
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 40%, var(--c-ink));
+  }
+  .gcard__name {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 700;
+    font-size: calc(16px * var(--fs)); color: var(--ink-bright); letter-spacing: .5px;
+    text-decoration: none;
+  }
+  a.gcard__name:hover { color: var(--gold); }
+  .gcard__sub {
+    font-weight: var(--fw-thin); font-size: calc(12.5px * var(--fs)); color: var(--ink-dim);
+  }
+  .gcard__n {
+    margin-left: auto; padding: 2px 10px; border-radius: 999px;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 16%, transparent);
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: calc(11px * var(--fs)); letter-spacing: 1.5px; color: var(--ink);
+  }
+  /* 组里那一小格栅：跟外面同一套，只是窄一点 */
+  .gcard__grid {
+    display: grid; gap: 12px; row-gap: 22px;
+    grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr));
+  }
+
   .gline {
     grid-column: 1 / -1;
     display: flex; align-items: baseline; gap: 10px;
@@ -1240,7 +1284,7 @@
 <div class="head">
   <h1>The Collector&rsquo;s Shelf</h1>
   <p>藏品架 · 他的东西，我一件件收</p>
-  <span class="curator-tag">🗝️ 馆长在馆 · 点 ✎ 改，点卡片翻面</span>
+  <span class="curator-tag">🗝️ 馆长在馆 · ↻ 翻面 · ✎ 修改</span>
 </div>
 
 <div class="stats" id="stats"></div>
@@ -1625,7 +1669,7 @@
       if (arrange === "char") {
         var c = it.charId ? charById[it.charId] : null;
         push(c ? c.id : "~none",
-          c ? { name: c.name, sub: c.filmCN || c.film, year: c.year, a: c.accent, rank: charOrder[c.id] }
+          c ? { name: c.name, sub: c.filmCN || c.film, year: c.year, a: c.accent, charId: c.id, rank: charOrder[c.id] }
             : { name: "没关联角色", sub: "", rank: 9999 }, it);
       } else if (arrange === "type") {
         var t = typeById[it.type] || typeById.other;
@@ -1651,6 +1695,41 @@
       });
     }
     return groups;
+  }
+
+  /* 一组＝一张大卡：头上是这个人（或这一类、这个年代），他的东西都摆在里头 */
+  function groupCard(g, make) {
+    var el = document.createElement("section");
+    el.className = "gcard";
+    if (g.meta.a) el.style.setProperty("--a", g.meta.a);
+    var head = document.createElement("div"); head.className = "gcard__head";
+    var dot = document.createElement("span"); dot.className = "gcard__dot";
+    head.appendChild(dot);
+    /* 按角色排的时候，名字点得开——跳去画册看这张脸 */
+    var c = g.meta.charId ? charById[g.meta.charId] : null;
+    var nm;
+    if (c) {
+      nm = document.createElement("a");
+      nm.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor);
+      nm.target = "_blank"; nm.rel = "noopener";
+    } else {
+      nm = document.createElement("span");
+    }
+    nm.className = "gcard__name"; nm.textContent = g.meta.name;
+    head.appendChild(nm);
+    if (g.meta.sub) {
+      var sb = document.createElement("span"); sb.className = "gcard__sub";
+      sb.textContent = g.meta.sub + (g.meta.year ? " · " + g.meta.year : "");
+      head.appendChild(sb);
+    }
+    var n = document.createElement("span"); n.className = "gcard__n";
+    n.textContent = g.items.length + " 件";
+    head.appendChild(n);
+    el.appendChild(head);
+    var inner = document.createElement("div"); inner.className = "gcard__grid";
+    g.items.forEach(function (it) { inner.appendChild(make(it)); });
+    el.appendChild(inner);
+    return el;
   }
 
   function groupLine(g) {
@@ -1686,9 +1765,6 @@
     var t = typeById[it.type] || typeById.other;
     var el = document.createElement("div");
     el.className = "item item--" + it.type + (it.wish ? " item--wish" : "");
-    el.setAttribute("role", "button");
-    el.setAttribute("tabindex", "0");
-    el.setAttribute("aria-label", it.name + "（点一下翻到背面）");
     if (c) { el.style.setProperty("--a", c.accent); el.style.setProperty("--b", c.bg); }
 
     /* 卡片分两层：外壳 el 只管站位和投影，真正的卡面是 face（正面）/ back（背面），
@@ -1829,21 +1905,10 @@
       el.addEventListener("pointerup", untilt);
     }
 
-    /* 点卡面＝翻面（谁都能点）。但「划着玩」不算点：卡牌要靠滑动来歪、来反光，
-       所以按下和抬起之间挪动超过 8px 就当成在划，不翻。 */
-    var downX = 0, downY = 0;
-    el.addEventListener("pointerdown", function (e) { downX = e.clientX; downY = e.clientY; });
-    el.addEventListener("click", function (e) {
-      if (e.target.closest(".item__turn, .item__edit, a")) return;   // 这几个各有各的活
-      if (Math.abs(e.clientX - downX) > 8 || Math.abs(e.clientY - downY) > 8) return;
-      el.classList.toggle("is-flipped");
-      el.classList.remove("is-tilt");
-      el.style.removeProperty("--rx"); el.style.removeProperty("--ry");
-    });
-    el.addEventListener("keydown", function (e) {
-      if (e.key !== "Enter" && e.key !== " ") return;
-      e.preventDefault(); el.classList.toggle("is-flipped");
-    });
+    /* ⚠️ 点卡面只是「闪一下光」（上面 pointerdown 那段扫光），别的什么都不做。
+       Winter 2026-09-22：「现在一点就翻页，那你放那个翻页的按钮是干什么用的？
+       难道不应该是点的时候他就闪一下？老翻来翻去的有什么意思？」——所以：
+       点卡面＝闪一下 · 点 ↻＝翻面 · 点 ✎＝编辑（只有馆长有）。三件事三个地方，不许混。 */
     return el;
   }
 
@@ -1911,16 +1976,24 @@
   }
 
   /* 把一批藏品（按当前排列分好组）铺进某个格栅。
-     分组小标题只在清单里出现——卡片是三列的，每个小标题都要独占一整行，
-     一人一件的组会把架子拉得又长又空；卡片视图里「排列」只管先后顺序。 */
+     清单视图：一组一条小标题线。卡片视图：一组一张大卡（一个角色 / 一类 / 一个年代
+     各占一张，他的东西都摆在里头）。「最新入手」不分组，照旧平铺。 */
   function fillGrid(grid, list) {
     var isList = view === "list";
     grid.innerHTML = "";
     grid.classList.toggle("is-list", isList);
     var make = isList ? itemRow : itemCard;
     groupOf(list).forEach(function (g) {
-      if (g.key && isList) grid.appendChild(groupLine(g));
-      g.items.forEach(function (it) { grid.appendChild(make(it)); });
+      if (!g.key) {                                   // 不分组：直接铺
+        g.items.forEach(function (it) { grid.appendChild(make(it)); });
+        return;
+      }
+      if (isList) {
+        grid.appendChild(groupLine(g));
+        g.items.forEach(function (it) { grid.appendChild(make(it)); });
+        return;
+      }
+      grid.appendChild(groupCard(g, make));
     });
   }
 
