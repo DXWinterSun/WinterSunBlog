@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/WinterSunBlog/css/theme-picker.css">
 <style>
   /* ————— 藏品架 · The Collector's Shelf —————
      公开收藏册：藏品数据在 ./data.json（随站点部署，人人可见）。
@@ -29,112 +30,118 @@
      （rescueMissing）：仓库里有、这台设备没有、本次又没删过的条目一律保留。
      角色联动读 sam/lines.json（零内嵌，画册加人自动跟上）。 */
 
-  /* ————— 皮肤（Winter 2026-09-22 要的：「字又细又小，颜色也比较暗」）—————
-     全页的颜色都走下面这几个令牌，换皮肤 = 换一组令牌值，DOM 一个都不用动。
-     <html data-skin="…"> 决定配色，<html data-size="…"> 决定字号（--fs 是个倍数，
-     所有 font-size 都写成 calc(Npx * var(--fs))）。选择存本机 localStorage：
-     ws-sam-shelf-skin / ws-sam-shelf-size。新增一款皮肤 = 抄一段下面的块，
-     再往 index.html 底部 SKINS 数组里加一行。 */
+  /* ————— 配色：跟全站共用「换个心情」那一套 —————
+     Winter 2026-09-22：「这个换皮肤放在这里好丑啊，浅色也看不出来配色了……
+     你要不参考一下游戏厅的主题？」——所以原先那四款自制皮肤整个撤掉，改成直接
+     用全站的选色器（54 张角色色卡 + 随心染色），跟游戏厅、文章页同一套：
+
+       · 样式：/css/theme-picker.css（由 css/theme-picker.scss 单独编出来，
+         内容就是 _sass/5-components/_theme-picker.scss，两边永远一致）
+       · 数据：/js/sam-themes-data.js（来自 _data/sam_themes.yml）
+       · 逻辑：/js/theme-picker.js —— 它把 --c-* 那套变量写在 <html> 上
+       · 记忆：localStorage 的 wiw-palette / wiw-theme，与全站同一个键，
+         所以她在博客里挑的心情，这页打开就是那个颜色
+
+     下面这一段的活儿，是把本页原有的 --bg / --ink / --gold … 统统接到 --c-* 上。
+     本页自己只留两样：--fs（字号倍数）和 --fw-thin（原来到处是 300，太细）。 */
   :root {
-    --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23c6b087'/%3E%3C/svg%3E"); --caret-on: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23f2e2b6'/%3E%3C/svg%3E");
-    --fs: 1.06;                 /* 字号倍数，data-size 会改它 */
-    --fw-thin: 400;             /* 原来到处是 300，太细，统一提一档 */
-    --bg: #0d0a08; --panel: #171208; --panel-hi: #1f1709; --sheet: #1b1409; --field: #120d08;
-    --ink: #f3ebdc; --ink-bright: #fbf5ea; --ink-gold: #f2e2b6;
-    --ink-soft: #dbcba7; --ink-mid: #c6b087; --ink-dim: #ab9469; --ink-faint: #8d7959;
-    --gold: #d9ae55; --gold-hi: #ebc273;
-    --warm: #e8b697; --warm-hi: #ed9a80; --warm-dim: #c07f6a; --warm-bright: #ffd7c4;
-    --danger: #e08a84; --ok: #9fce9b;
-    --line-rgb: 255,228,190; --goldhi-rgb: 235,198,120; --gold-rgb: 210,170,85;
-    --warm-rgb: 232,150,120; --ink-rgb: 243,235,220; --veil-rgb: 8,6,4; --sheet-rgb: 27,20,9;
-  }
-  [data-size="lg"] { --fs: 1.24; }
+    --fs: 1.06;
+    --fw-thin: 400;
 
-  /* 米纸：白天看的浅色皮 */
-  [data-skin="paper"] {
-    --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%2357472f'/%3E%3C/svg%3E"); --caret-on: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%236d4f12'/%3E%3C/svg%3E");
-    --bg: #f3ebdd; --panel: #fffaf0; --panel-hi: #fff4e2; --sheet: #fffcf5; --field: #fffdf8;
-    --ink: #2c2216; --ink-bright: #171009; --ink-gold: #6d4f12;
-    --ink-soft: #453726; --ink-mid: #57472f; --ink-dim: #6b5839; --ink-faint: #877450;
-    --gold: #9a6f16; --gold-hi: #7d5810;
+    --bg: var(--c-bg);
+    --panel: var(--c-bg-soft);
+    --panel-hi: var(--c-paper);
+    --sheet: var(--c-paper);
+    --field: var(--c-bg-soft);
+
+    --ink: var(--c-ink);
+    --ink-bright: var(--c-ink);
+    --ink-soft: var(--c-ink-soft);
+    --ink-mid: var(--c-ink-soft);
+    --ink-dim: var(--c-muted);
+    --ink-faint: var(--c-muted-soft);
+    --ink-gold: var(--c-accent);
+
+    --gold: var(--c-accent);
+    --gold-hi: var(--c-accent-dark);
+    --danger: var(--c-status-red);
+    --ok: var(--c-status-green);
+
+    /* 描边与「点亮」的底色都用当前主题色——这样换一张色卡，整页跟着换 */
+    --gold-rgb: var(--rgb-accent);
+    --goldhi-rgb: var(--rgb-accent);
+    --sheet-rgb: var(--rgb-paper);
+    --line-rgb: 31,29,26;        /* 浅色下细线是深的 */
+    --ink-rgb: 31,29,26;
+    --veil-rgb: 31,29,26;
+    --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23555049'/%3E%3C/svg%3E");
+    --caret-on: var(--caret);
+
+    /* 心愿单那颗星、删除那类语义色不跟主题走，只分昼夜 */
     --warm: #a55b36; --warm-hi: #94482a; --warm-dim: #8a4a30; --warm-bright: #7a3c22;
-    --danger: #b03a32; --ok: #3f7a3a;
-    --line-rgb: 120,95,55; --goldhi-rgb: 150,115,45; --gold-rgb: 175,135,65;
-    --warm-rgb: 165,91,54; --ink-rgb: 44,34,22; --veil-rgb: 48,36,20; --sheet-rgb: 255,252,245;
+    --warm-rgb: 165,91,54;
   }
+  /* 夜里：细线翻成浅色，卡片沿用角色自己的深底色 */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --line-rgb: 255,255,255;
+      --ink-rgb: 239,232,218;
+      --veil-rgb: 0,0,0;
+      --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23c8c0b1'/%3E%3C/svg%3E");
+      --warm: #e8b697; --warm-hi: #ed9a80; --warm-dim: #c07f6a; --warm-bright: #ffd7c4;
+      --warm-rgb: 232,150,120;
+    }
+  }
+  :root[data-theme="dark"] {
+    --line-rgb: 255,255,255;
+    --ink-rgb: 239,232,218;
+    --veil-rgb: 0,0,0;
+    --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23c8c0b1'/%3E%3C/svg%3E");
+    --warm: #e8b697; --warm-hi: #ed9a80; --warm-dim: #c07f6a; --warm-bright: #ffd7c4;
+    --warm-rgb: 232,150,120;
+  }
+  [data-size="lg"] { --fs: 1.26; }
 
-  /* 浅色皮里，卡片和地图格子不能再用角色那份深底色，否则白页上一块块发黑、
-     里头的字又是深色，根本看不清。改成只借他的 accent 往纸上染一层。 */
-  [data-skin="paper"] .item,
-  [data-skin="paper"] .mslot--got {
+  /* 白天：卡片和地图格子不能再用角色那份深底色（白页上一块块发黑、里头的字还看不清），
+     改成只借他的 accent 往纸上染一层——颜色还在，眼睛不累。 */
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .item,
+    :root:not([data-theme="dark"]) .mslot--got {
+      background: linear-gradient(160deg,
+        color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel-hi)), var(--panel-hi) 72%);
+    }
+    :root:not([data-theme="dark"]) .item__type,
+    :root:not([data-theme="dark"]) .mslot__n,
+    :root:not([data-theme="dark"]) .row__sub i {
+      color: color-mix(in srgb, var(--a, var(--gold)) 62%, var(--c-ink));
+    }
+    :root:not([data-theme="dark"]) .mslot--got .mslot__film { color: var(--ink-mid); }
+  }
+  :root[data-theme="light"] .item,
+  :root[data-theme="light"] .mslot--got {
     background: linear-gradient(160deg,
-      color-mix(in srgb, var(--a, var(--gold)) 20%, var(--panel)), var(--panel) 72%);
+      color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel-hi)), var(--panel-hi) 72%);
   }
-  [data-skin="paper"] .item__type,
-  [data-skin="paper"] .mslot__n,
-  [data-skin="paper"] .row__sub i {
-    color: color-mix(in srgb, var(--a, var(--gold)) 62%, #241a10);
+  :root[data-theme="light"] .item__type,
+  :root[data-theme="light"] .mslot__n,
+  :root[data-theme="light"] .row__sub i {
+    color: color-mix(in srgb, var(--a, var(--gold)) 62%, var(--c-ink));
   }
-  [data-skin="paper"] .mslot--got .mslot__film { color: var(--ink-mid); }
+  :root[data-theme="light"] .mslot--got .mslot__film { color: var(--ink-mid); }
 
-  /* 夜墨：冷调深色，对比更高，眼睛最不累 */
-  [data-skin="ink"] {
-    --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23b8c5d4'/%3E%3C/svg%3E"); --caret-on: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23cfe2f2'/%3E%3C/svg%3E");
-    --bg: #0e1013; --panel: #191d23; --panel-hi: #212730; --sheet: #191d23; --field: #12151a;
-    --ink: #eef2f7; --ink-bright: #ffffff; --ink-gold: #cfe2f2;
-    --ink-soft: #d3dde8; --ink-mid: #b8c5d4; --ink-dim: #9aa9ba; --ink-faint: #7d8a9a;
-    --gold: #86b9dd; --gold-hi: #a9d2ee;
-    --warm: #e8b697; --warm-hi: #f0a184; --warm-dim: #c08b74; --warm-bright: #ffd7c4;
-    --danger: #e98a84; --ok: #92cf9c;
-    --line-rgb: 205,225,245; --goldhi-rgb: 150,200,235; --gold-rgb: 110,165,205;
-    --warm-rgb: 232,150,120; --ink-rgb: 238,242,247; --veil-rgb: 4,6,9; --sheet-rgb: 25,29,35;
+  /* 顶栏右边那三颗小圆钮：换心情（心）· 昼夜 · 字号 */
+  .topbar__right { display: flex; align-items: center; gap: 8px; }
+  .iconbtn {
+    width: 36px; height: 36px; padding: 0; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--c-line); border-radius: 999px; background: transparent;
+    color: var(--ink-mid); cursor: pointer; line-height: 1;
+    font-family: inherit; font-size: calc(14px * var(--fs));
+    transition: border-color .2s ease, color .2s ease;
   }
-
-  /* 大字高对比：纯黑打底、白字亮金，字再大一号 */
-  [data-skin="bold"] {
-    --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23ded6c6'/%3E%3C/svg%3E"); --caret-on: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23ffd77a'/%3E%3C/svg%3E");
-    --fs: 1.16; --fw-thin: 500;
-    --bg: #000000; --panel: #16130d; --panel-hi: #1f1a10; --sheet: #16130d; --field: #0b0906;
-    --ink: #ffffff; --ink-bright: #ffffff; --ink-gold: #ffd77a;
-    --ink-soft: #efe9dd; --ink-mid: #ded6c6; --ink-dim: #c6bdab; --ink-faint: #a49b8a;
-    --gold: #ffc447; --gold-hi: #ffd77a;
-    --warm: #ffc0a4; --warm-hi: #ffa88c; --warm-dim: #d59a82; --warm-bright: #ffd7c4;
-    --danger: #ff938c; --ok: #a6e0a2;
-    --line-rgb: 255,242,215; --goldhi-rgb: 255,212,125; --gold-rgb: 255,196,71;
-    --warm-rgb: 255,170,140; --ink-rgb: 255,255,255; --veil-rgb: 0,0,0; --sheet-rgb: 22,19,13;
-  }
-  [data-skin="bold"][data-size="lg"] { --fs: 1.32; }
-
-  /* ————— 「换个皮肤」那一条 ————— */
-  .skinbar {
-    width: 100%; max-width: 860px; margin: -8px 0 18px;
-    padding: 12px 14px; border-radius: 12px;
-    border: 1px solid rgba(var(--line-rgb),.16); background: var(--panel);
-    display: flex; flex-direction: column; gap: 9px;
-  }
-  .skinbar__label {
-    font-size: calc(12px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim);
-  }
-  .skinbar__row { display: flex; flex-wrap: wrap; gap: 7px; }
-  /* 每枚皮肤按钮身上带着 data-skin="…"，上面那几组令牌于是也落在它自己身上——
-     所以按钮本身就是那身皮肤的小样：米纸那枚是米白的，大字那枚是纯黑的。
-     字号那两枚同理（data-size 改的是 --fs，大的那枚字就真的大）。这是故意的。 */
-  .skin-chip {
-    padding: 7px 13px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(var(--line-rgb),.22); background: var(--bg);
-    color: var(--ink-mid); font-family: inherit;
-    font-size: calc(13px * var(--fs)); letter-spacing: 1px;
-  }
-  .skin-chip.is-on {
-    border-color: rgba(var(--goldhi-rgb),.75); color: var(--ink-gold);
-    background: linear-gradient(160deg, rgba(var(--gold-rgb),.24), rgba(var(--gold-rgb),.06));
-  }
-  .skin-btn {
-    border: 1px solid rgba(var(--line-rgb),.2); background: var(--field);
-    color: var(--ink-mid); border-radius: 999px; cursor: pointer;
-    padding: 5px 12px; font-size: calc(12px * var(--fs)); letter-spacing: 1px;
-  }
-  .topbar__right { display: flex; align-items: center; gap: 10px; }
+  .iconbtn:hover { border-color: var(--gold); color: var(--gold); }
+  .iconbtn.is-on { border-color: var(--gold); color: var(--gold); }
+  @media only screen and (max-width: 480px) { .iconbtn { width: 32px; height: 32px; } }
   html, body { margin: 0; padding: 0; }
   *, *::before, *::after { box-sizing: border-box; }
   body {
@@ -852,16 +859,16 @@
   .toast.is-on { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
 <script>
-  /* 在页面画出来之前就把皮肤和字号穿好，免得先闪一下别的颜色 */
+  /* 画出来之前就把昼夜和字号穿好，免得先闪一下别的颜色。
+     wiw-theme 是全站共用的键——她在博客里切成夜里，这页打开就是夜里。
+     配色（wiw-palette）由 theme-picker.js 自己读，不用这里管。 */
   (function () {
     var d = document.documentElement;
-    var skin = "gold", size = "md";
     try {
-      skin = localStorage.getItem("ws-sam-shelf-skin") || skin;
-      size = localStorage.getItem("ws-sam-shelf-size") || size;
-    } catch (e) {}
-    d.setAttribute("data-skin", skin);
-    d.setAttribute("data-size", size);
+      var t = localStorage.getItem("wiw-theme");
+      if (t === "light" || t === "dark") d.setAttribute("data-theme", t);
+      d.setAttribute("data-size", localStorage.getItem("ws-sam-shelf-size") || "md");
+    } catch (e) { d.setAttribute("data-size", "md"); }
   })();
 </script>
 </head>
@@ -870,15 +877,16 @@
 <div class="topbar">
   <a class="back" href="../">← 回 Sam 页</a>
   <span class="topbar__right">
-    <button type="button" class="skin-btn" id="skin-btn" aria-expanded="false">🎨 换个皮肤</button>
+    <button class="c-palette-trigger" type="button" id="js-palette-trigger"
+            aria-label="换个心情 · 配色主题" title="换个心情" data-baseurl="/WinterSunBlog">
+      <svg class="c-palette-trigger__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    </button>
+    <button type="button" class="iconbtn" id="mode-btn" title="白天 / 夜里" aria-label="白天或夜里"></button>
+    <button type="button" class="iconbtn" id="fs-btn" title="字大一点" aria-label="字号">A</button>
     <span class="progress-num" id="progress-num"></span>
   </span>
-</div>
-
-<div class="skinbar" id="skinbar" hidden>
-  <span class="skinbar__label">看着舒服就好 · 只存在这台设备上</span>
-  <div class="skinbar__row" id="skin-row"></div>
-  <div class="skinbar__row" id="size-row"></div>
 </div>
 
 <div class="head">
@@ -2530,57 +2538,56 @@
     toast("存好了 · " + a.download);
   });
 
-  /* ————— 换个皮肤 · 换个字号（只存这台设备） ————— */
-  var SKINS = [
-    { id: "gold",  label: "暗金 · 原来那身", theme: "#0d0a08" },
-    { id: "paper", label: "米纸 · 白天看",   theme: "#f3ebdd" },
-    { id: "ink",   label: "夜墨 · 冷调",     theme: "#0e1013" },
-    { id: "bold",  label: "大字 · 高对比",   theme: "#000000" }
-  ];
-  var SIZES = [{ id: "md", label: "字 · 标准" }, { id: "lg", label: "字 · 大一点" }];
-  var KEY_SKIN = "ws-sam-shelf-skin", KEY_SIZE = "ws-sam-shelf-size";
+  /* ————— 昼夜 · 字号（配色本身交给全站的选色器 theme-picker.js） ————— */
+  function sysDark() {
+    return !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }
+  function isDarkNow() {
+    var t = document.documentElement.getAttribute("data-theme");
+    return t === "dark" || (!t && sysDark());
+  }
+  /* 太阳 / 月亮画成线条图（用 ☀ 这种字符，有的系统会渲染成花花绿绿的表情） */
+  var ICON_SUN = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.6" stroke-linecap="round" aria-hidden="true">' +
+    '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2' +
+    'M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/></svg>';
+  var ICON_MOON = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.6" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M20 14.5A8.2 8.2 0 0 1 9.5 4a8.3 8.3 0 1 0 10.5 10.5z"/></svg>';
+  function paintModeBtn() {
+    var b = $("mode-btn");
+    b.innerHTML = isDarkNow() ? ICON_MOON : ICON_SUN;
+    b.title = isDarkNow() ? "现在是夜里 · 点一下换白天" : "现在是白天 · 点一下换夜里";
+  }
+  $("mode-btn").addEventListener("click", function () {
+    var next = isDarkNow() ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("wiw-theme", next); } catch (e) {}   // 与全站同一个键
+    paintModeBtn();
+  });
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+      if (!document.documentElement.getAttribute("data-theme")) paintModeBtn();
+    });
+  }
+  paintModeBtn();
 
-  function currentSkin() { return document.documentElement.getAttribute("data-skin") || "gold"; }
-  function currentSize() { return document.documentElement.getAttribute("data-size") || "md"; }
-  function applySkin(id) {
-    document.documentElement.setAttribute("data-skin", id);
-    try { localStorage.setItem(KEY_SKIN, id); } catch (e) {}
-    var m = document.querySelector('meta[name="theme-color"]');
-    var hit = SKINS.filter(function (x) { return x.id === id; })[0];
-    if (m && hit) m.setAttribute("content", hit.theme);   // 手机顶上那条状态栏也跟着换
-    paintSkinChips();
+  function paintFsBtn() {
+    var lg = document.documentElement.getAttribute("data-size") === "lg";
+    var b = $("fs-btn");
+    b.textContent = lg ? "A" : "A";
+    b.style.fontSize = lg ? "calc(17px * var(--fs))" : "calc(13px * var(--fs))";
+    b.classList.toggle("is-on", lg);
+    b.title = lg ? "字号：大 · 点一下还原" : "字号：标准 · 点一下放大";
   }
-  function applySize(id) {
-    document.documentElement.setAttribute("data-size", id);
-    try { localStorage.setItem(KEY_SIZE, id); } catch (e) {}
-    paintSkinChips();
-  }
-  function paintSkinChips() {
-    $("skin-row").querySelectorAll(".skin-chip").forEach(function (b) {
-      b.classList.toggle("is-on", b.dataset.skin === currentSkin());
-    });
-    $("size-row").querySelectorAll(".skin-chip").forEach(function (b) {
-      b.classList.toggle("is-on", b.dataset.size === currentSize());
-    });
-  }
-  SKINS.forEach(function (sk) {
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "skin-chip"; b.dataset.skin = sk.id; b.textContent = sk.label;
-    b.addEventListener("click", function () { applySkin(sk.id); });
-    $("skin-row").appendChild(b);
+  $("fs-btn").addEventListener("click", function () {
+    var lg = document.documentElement.getAttribute("data-size") === "lg";
+    var next = lg ? "md" : "lg";
+    document.documentElement.setAttribute("data-size", next);
+    try { localStorage.setItem("ws-sam-shelf-size", next); } catch (e) {}
+    paintFsBtn();
   });
-  SIZES.forEach(function (sz) {
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "skin-chip"; b.dataset.size = sz.id; b.textContent = sz.label;
-    b.addEventListener("click", function () { applySize(sz.id); });
-    $("size-row").appendChild(b);
-  });
-  paintSkinChips();
-  $("skin-btn").addEventListener("click", function () {
-    var bar = $("skinbar"), open = bar.hasAttribute("hidden");
-    if (open) bar.removeAttribute("hidden"); else bar.setAttribute("hidden", "");
-    this.setAttribute("aria-expanded", open ? "true" : "false");
-  });
+  paintFsBtn();
 
   function toast(msg) {
     var t = $("toast");
@@ -2591,6 +2598,10 @@
   }
 })();
 </script>
+
+<!-- 全站共用的选色器：54 张角色色卡 + 随心染色，与博客、游戏厅同一套、同一份记忆 -->
+<script src="/WinterSunBlog/js/sam-themes-data.js"></script>
+<script src="/WinterSunBlog/js/theme-picker.js"></script>
 
 </body>
 </html>

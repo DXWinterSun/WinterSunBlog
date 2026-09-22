@@ -1,0 +1,15 @@
+---
+# 「换个心情」那一套样式，单独编成 /css/theme-picker.css。
+#
+# 给「不走 Jekyll layout 的独立整页」用（藏品架 sam/shelf/ 是第一个）：那些页面
+# 没法引整份 main.css（会被全站的 body / h1 样式覆盖掉自己的设计），但又想用
+# 同一个选色器。所以这里只编「配色令牌 + 选色器组件」两块，别的一概不带。
+#
+# 内容跟着 _sass/ 走，改了选色器样式两边自动一致，不要在独立页里另抄一份。
+# 改完照旧跑 bash tools/check_scss.sh（它编 main.scss，同一批 partial）。
+---
+@import '0-settings/global';
+@import '0-settings/colors';
+@import '0-settings/typography';
+@import '1-tools/mixins';
+@import '5-components/theme-picker';

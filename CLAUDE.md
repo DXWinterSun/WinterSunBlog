@@ -1464,6 +1464,24 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 GitHub 细粒度令牌（存本机 `localStorage` 键 `ws-sam-shelf-key`）后进入「馆长模式」，
 浏览器直接把 `data.json` 提交回 `main`。
 
+⚙️ **配色走全站那套「换个心情」，别再给独立页自造皮肤**（2026-09-22 教训：先做了四款
+自制皮肤，Winter 一看「放在这里好丑啊，浅色也看不出来配色了……你要不参考一下游戏厅的主题」）。
+做法（以后任何不走 Jekyll layout 的独立整页都照这个来）：
+
+| 要什么 | 引哪个 |
+|---|---|
+| 选色器样式 | `/css/theme-picker.css` ← 由 **`css/theme-picker.scss`** 单独编出（只 import 设置层 + `5-components/theme-picker`，不带全站 body/h1 样式，15 KB） |
+| 54 张色卡数据 | `/js/sam-themes-data.js`（来自 `_data/sam_themes.yml`） |
+| 逻辑 | `/js/theme-picker.js`——页面里只要有一颗 `id="js-palette-trigger"` 的按钮，它自己建浮层、把 `--c-*` 写到 `<html>` 上 |
+| 记忆 | `localStorage` 的 `wiw-palette`（配色）与 `wiw-theme`（昼夜），**与全站同键**，所以她在博客里挑的心情，独立页打开就是那个颜色 |
+
+独立页自己的颜色令牌一律**接到 `--c-*` 上**（藏品架里 `--bg: var(--c-bg)`、`--gold: var(--c-accent)`、
+`--gold-rgb: var(--rgb-accent)`…），换一张色卡整页跟着换。两个注意：
+① **白天不能让卡片继续用角色那份深底色**（白页上一块块发黑、里面的字还看不清），
+改成 `color-mix` 借 accent 往纸上染一层；② 细线 `--line-rgb` 昼夜要翻面（白天深、夜里浅）。
+另外顶栏那三颗小圆钮（心 = 换心情 / 日月 = 昼夜 / A = 字号）是她要的入口形态，
+**别再做成占一整行的横条**。
+
 ⚠️ **这页有两条不能动的数据安全设计**（2026-09 排查后加的，动了会真的丢东西）：
 
 1. **馆长模式下必须读仓库原件，不能读站点上那份 `./data.json`**
