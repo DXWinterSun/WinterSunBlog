@@ -447,7 +447,31 @@
   }
   /* 右下角那颗「翻面」小钮 */
   /* 正面：跟右上角那两枚小标并排；背面：钉在右下角 */
-  .item__top .item__turn { position: static; width: 22px; height: 22px; }
+  .item__top .item__turn, .item__top .item__edit { position: static; width: 22px; height: 22px; }
+  /* ✎ 编辑（只有馆长看得见）——Winter 2026-09-22：「我想欣赏动态的时候总是会误触到编辑」，
+     所以点卡片本身只翻面，进编辑一律要点这颗铅笔。手机上尤其别让整张卡都是编辑热区。 */
+  .item__edit {
+    display: none; border-radius: 50%; cursor: pointer; line-height: 1;
+    align-items: center; justify-content: center;
+    border: 2px solid var(--edge);
+    background: color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel));
+    color: var(--ink); font-size: calc(11px * var(--fs)); font-family: inherit;
+    opacity: .75; transition: opacity .15s ease, transform .15s ease;
+  }
+  body.is-curator .item__edit { display: inline-flex; }
+  .item__edit:hover { opacity: 1; transform: scale(1.1); }
+  .item__edit:active { transform: scale(.94); }
+  /* 清单那一条：铅笔钮挂在最右边 */
+  .row__edit {
+    display: none; flex: none; align-self: center; margin-left: 4px;
+    width: 26px; height: 26px; border-radius: 50%; cursor: pointer; line-height: 1;
+    align-items: center; justify-content: center;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 40%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 18%, var(--panel));
+    color: var(--ink); font-size: calc(12px * var(--fs)); font-family: inherit;
+  }
+  body.is-curator .row__edit { display: inline-flex; }
+  .row__edit:active { transform: scale(.94); }
   .item__turn {
     position: absolute; right: 7px; bottom: 7px; z-index: 3;
     width: 24px; height: 24px; border-radius: 50%; cursor: pointer; line-height: 1;
@@ -472,8 +496,8 @@
   }
   .item__back-note.is-empty { color: var(--ink-faint); font-style: italic; }
   .item__back-meta {
-    margin-top: 8px; padding-right: 28px; font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: calc(11px * var(--fs)); letter-spacing: 1.5px; line-height: 1.9; color: var(--ink-dim);
+    margin-top: 8px; padding-right: 30px; font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: calc(11px * var(--fs)); letter-spacing: .4px; line-height: 1.85; color: var(--ink-dim);
   }
   /* 背面那道条码（碟片 / 书刊背面都有这么一块） */
   .item__barcode {
@@ -614,11 +638,11 @@
     .item.is-shine .item__face--front::before { display: none; }
     .item__flip { transition: none; }
   }
-  body.is-curator .item { cursor: pointer; }
+  .item { cursor: pointer; }   /* 点哪儿都能翻面 */
   .item:hover { transform: translate(-2px, -2px); }
   .item:hover .item__face { box-shadow: 7px 7px 0 var(--shade); }
-  body.is-curator .item:active { transform: translate(2px, 2px); }
-  body.is-curator .item:active .item__face { box-shadow: 1px 1px 0 var(--shade); }
+  .item:active { transform: translate(2px, 2px); }
+  .item:active .item__face { box-shadow: 1px 1px 0 var(--shade); }
   .item--wish .item__face { border-style: dashed; background: var(--panel); }
   .item__top { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
   .item__emoji { font-size: calc(19px * var(--fs)); line-height: 1; }
@@ -752,12 +776,12 @@
       color-mix(in srgb, var(--a, var(--gold)) 80%, transparent) 0 4px, transparent 4px 8px),
       color-mix(in srgb, var(--a, var(--gold)) 22%, transparent);
   }
-  body.is-curator .row { cursor: pointer; }
+  body.is-curator .row { cursor: default; }
   .row:hover {
     transform: translate(-1px, -1px);
     box-shadow: 4px 4px 0 color-mix(in srgb, var(--a, var(--gold)) 60%, var(--c-ink));
   }
-  body.is-curator .row:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 color-mix(in srgb, var(--a, var(--gold)) 60%, var(--c-ink)); }
+  .row__edit:hover { opacity: 1; }
   .row--wish { border-style: dashed; }
   .row__n {
     flex: none; min-width: 26px; padding-top: 2px;
@@ -1216,7 +1240,7 @@
 <div class="head">
   <h1>The Collector&rsquo;s Shelf</h1>
   <p>藏品架 · 他的东西，我一件件收</p>
-  <span class="curator-tag">🗝️ 馆长在馆 · 可以编辑</span>
+  <span class="curator-tag">🗝️ 馆长在馆 · 点 ✎ 改，点卡片翻面</span>
 </div>
 
 <div class="stats" id="stats"></div>
@@ -1662,11 +1686,9 @@
     var t = typeById[it.type] || typeById.other;
     var el = document.createElement("div");
     el.className = "item item--" + it.type + (it.wish ? " item--wish" : "");
-    if (isCurator()) {
-      el.setAttribute("role", "button");
-      el.setAttribute("tabindex", "0");
-      el.setAttribute("aria-label", "编辑：" + it.name);
-    }
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("aria-label", it.name + "（点一下翻到背面）");
     if (c) { el.style.setProperty("--a", c.accent); el.style.setProperty("--b", c.bg); }
 
     /* 卡片分两层：外壳 el 只管站位和投影，真正的卡面是 face（正面）/ back（背面），
@@ -1769,6 +1791,12 @@
       });
       return b;
     }
+    /* ✎ 只有馆长看得见（CSS 里控制显隐），点它才进编辑 */
+    var ed = document.createElement("button");
+    ed.type = "button"; ed.className = "item__edit"; ed.textContent = "✎";
+    ed.setAttribute("aria-label", "编辑：" + it.name);
+    ed.addEventListener("click", function (e) { e.stopPropagation(); openSheet(it.id); });
+    top.appendChild(ed);
     top.appendChild(turnBtn());
     back.appendChild(turnBtn());
 
@@ -1801,11 +1829,21 @@
       el.addEventListener("pointerup", untilt);
     }
 
-    if (isCurator()) {
-      function open() { openSheet(it.id); }
-      el.addEventListener("click", open);
-      el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
-    }
+    /* 点卡面＝翻面（谁都能点）。但「划着玩」不算点：卡牌要靠滑动来歪、来反光，
+       所以按下和抬起之间挪动超过 8px 就当成在划，不翻。 */
+    var downX = 0, downY = 0;
+    el.addEventListener("pointerdown", function (e) { downX = e.clientX; downY = e.clientY; });
+    el.addEventListener("click", function (e) {
+      if (e.target.closest(".item__turn, .item__edit, a")) return;   // 这几个各有各的活
+      if (Math.abs(e.clientX - downX) > 8 || Math.abs(e.clientY - downY) > 8) return;
+      el.classList.toggle("is-flipped");
+      el.classList.remove("is-tilt");
+      el.style.removeProperty("--rx"); el.style.removeProperty("--ry");
+    });
+    el.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault(); el.classList.toggle("is-flipped");
+    });
     return el;
   }
 
@@ -1816,11 +1854,6 @@
     var el = document.createElement("div");
     el.className = "row row--" + it.type + (it.wish ? " row--wish" : "");
     if (c) { el.style.setProperty("--a", c.accent); el.style.setProperty("--b", c.bg); }
-    if (isCurator()) {
-      el.setAttribute("role", "button");
-      el.setAttribute("tabindex", "0");
-      el.setAttribute("aria-label", "编辑：" + it.name);
-    }
 
     var n = document.createElement("span"); n.className = "row__n";
     n.textContent = it.wish ? "🌠" : (nums[it.id] || "");
@@ -1864,11 +1897,11 @@
     var bd = document.createElement("span"); bd.className = "row__badges"; bd.textContent = badges.join("");
     el.appendChild(bd);
 
-    if (isCurator()) {
-      function open() { openSheet(it.id); }
-      el.addEventListener("click", open);
-      el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
-    }
+    var red = document.createElement("button");
+    red.type = "button"; red.className = "row__edit"; red.textContent = "✎";
+    red.setAttribute("aria-label", "编辑：" + it.name);
+    red.addEventListener("click", function (e) { e.stopPropagation(); openSheet(it.id); });
+    el.appendChild(red);
     return el;
   }
   function esc(s) {
@@ -2257,7 +2290,7 @@
         $("keypanel").classList.remove("is-on");
         applyCuratorClass();
         render();
-        toast("🗝️ 馆长在馆 · 现在可以编辑了");
+        toast("🗝️ 馆长在馆 · 点卡片上的 ✎ 就能改");
       } else {
         msg.textContent = "这把钥匙开不了门（错误 " + r.status + "）。检查一下是不是完整复制了，或者照上面的步骤重新造一把。";
         msg.className = "keymsg is-bad";
