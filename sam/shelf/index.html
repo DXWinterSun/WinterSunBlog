@@ -599,6 +599,18 @@
   .spec-chips .t-chip.is-extra { display: none; }
   .spec-chips.is-open .t-chip.is-extra { display: inline-block; }
   .t-chip--more { border-style: dashed; color: #8a7757; letter-spacing: 0; }
+  /* 年份下拉：长得跟旁边的圈圈一样，点开是手机自带的滚轮 */
+  .t-chip--year {
+    padding: 5px 10px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(255,222,180,.16); background: #0f0b07;
+    color: #a8916d; font-family: 'Noto Serif SC', serif; letter-spacing: 1px;
+    /* iOS 对字号 < 16px 的下拉同样会放大整页且不回弹，恒用 16px */
+    font-size: 16px; line-height: 1.3;
+  }
+  .t-chip--year.is-on {
+    border-color: rgba(230,190,110,.7); color: #ecd9a8;
+    background: linear-gradient(160deg, rgba(203,161,76,.22), rgba(203,161,76,.05));
+  }
   /* 自己写的那几条规格：长相跟上面的选项一模一样，只是右边多个 × */
   .tagbox { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
   .tagbox:empty { display: none; }
@@ -887,6 +899,7 @@
     <label class="f-label" for="f-spec">版本 / 规格 <small>（可不填 · 点一下选中，再点取消 · 没有的自己写，能加好几条）</small></label>
     <div class="types spec-chips" id="f-fmt-row" style="display:none"></div>
     <div class="types spec-chips" id="f-region-row" style="display:none"></div>
+    <div class="types spec-chips" id="f-issue-row" style="display:none"></div>
     <div class="types spec-chips" id="f-sug-row"></div>
     <div class="tagbox" id="f-tagbox"></div>
     <div class="tagadd">
@@ -926,15 +939,24 @@
   var KEY_VIEW = "ws-sam-shelf-view";
   var REPO_API = "https://api.github.com/repos/DXWinterSun/WinterSunBlog/contents/sam/shelf/data.json";
 
-  /* fmts = 这一类东西有哪些「制式」可点；有 fmts 的还会跟着出现地区行。 */
+  /* fmts = 这一类东西有哪些「制式」可点；有 fmts 的还会跟着出现地区行。
+     sugs = 这一类常写的那几条规格（碟片是铁盒 / 限量，书刊是封面 / 内页 / 专访）；
+     issue = 杂志、场刊这种按期出的，多给一排「Spring / 年份」直接点。 */
   var TYPES = [
-    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "4K UHD", "DVD"], fmtsMore: ["VCD", "LD", "录像带"] },
-    { id: "ost",     emoji: "🎵", label: "原声带", fmts: ["CD", "黑胶", "磁带"] },
-    { id: "card",    emoji: "🃏", label: "卡牌" },
-    { id: "goods",   emoji: "🧸", label: "周边" },
-    { id: "program", emoji: "📔", label: "场刊" },
-    { id: "book",    emoji: "📖", label: "书刊" },
-    { id: "other",   emoji: "🎁", label: "其他" }
+    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "4K UHD", "DVD"], fmtsMore: ["VCD", "LD", "录像带"],
+      sugs: ["铁盒", "限量", "全新"], sugsMore: ["首刷", "初回版", "收藏版", "导演剪辑版", "二手", "未拆封"] },
+    { id: "ost",     emoji: "🎵", label: "原声带", fmts: ["CD", "黑胶", "磁带"],
+      sugs: ["限量", "全新", "未拆封"], sugsMore: ["首版", "再版", "彩胶", "二手", "带海报"] },
+    { id: "card",    emoji: "🃏", label: "卡牌",
+      sugs: ["签名卡", "编号卡", "限量"], sugsMore: ["实物卡", "全新", "二手", "已评级"] },
+    { id: "goods",   emoji: "🧸", label: "周边",
+      sugs: ["限量", "全新", "未拆封"], sugsMore: ["带原盒", "绝版", "二手"] },
+    { id: "program", emoji: "📔", label: "场刊", issue: true,
+      sugs: ["首演场", "带票根", "全新"], sugsMore: ["签名页", "有折痕", "绝版", "二手"] },
+    { id: "book",    emoji: "📖", label: "书刊", issue: true,
+      sugs: ["封面", "内页", "专访"], sugsMore: ["整本", "剪页", "全新", "未拆封", "有折痕", "带海报", "创刊号", "绝版", "二手"] },
+    { id: "other",   emoji: "🎁", label: "其他",
+      sugs: ["限量", "全新"], sugsMore: ["未拆封", "绝版", "二手"] }
   ];
   var FILTERS = [{ id: "all", label: "全部" }]
     .concat(TYPES.map(function (t) { return { id: t.id, label: t.emoji + " " + t.label }; }))
@@ -1707,9 +1729,27 @@
     var fmts = fmtsFor(id);
     if (fmts.indexOf(specFmt) < 0) specFmt = "";
     buildFmtChips(typeById[id]);
+    buildSugChips(id);
+    /* 从书刊换成别的类别：已经点好的期号别丢，收成一条普通规格 */
+    if (!issueOn(id) && composeIssue()) {
+      var keep = composeIssue();
+      specIssueWord = ""; specIssueYear = "";
+      addExtras(keep);
+    }
+    /* 换回来的时候再把它捡回期号那排，免得同一件事有两种长相 */
+    if (issueOn(id) && !composeIssue()) {
+      for (var i = 0; i < specExtras.length; i++) {
+        var back = parseIssue(specExtras[i]);
+        if (back) {
+          specIssueWord = back.word; specIssueYear = back.year;
+          specExtras.splice(i, 1); break;
+        }
+      }
+    }
     $("f-nas-row").style.display = (id === "disc") ? "flex" : "none";
     $("f-fmt-row").style.display = fmts.length ? "flex" : "none";
     $("f-region-row").style.display = fmts.length ? "flex" : "none";
+    $("f-issue-row").style.display = issueOn(id) ? "flex" : "none";
     syncSpecChips();
     updateNameHint();
   }
@@ -1744,18 +1784,54 @@
   /* 每一排都是「常见的先摆出来 ＋ 点『更多』才展开剩下的」，免得一打开一屏全是圈圈 */
   var REGIONS = ["美版", "英版", "日版", "港版", "台版"];
   var REGIONS_MORE = ["国版", "法版", "德版", "意版", "西版", "澳版", "韩版", "欧版", "加版", "俄版"];
-  /* 常写的那几条，点一下就变成一枚标签，省得每次手打 */
-  var SUGGESTS = ["铁盒", "限量", "全新"];
-  var SUGGESTS_MORE = ["首刷", "初回版", "收藏版", "导演剪辑版", "二手", "未拆封"];
+  /* 常写的那几条，点一下就变成一枚标签，省得每次手打。
+     每一类各有各的一套（写在 TYPES 里），这里是没写的那些类别的兜底。 */
+  var SUGGESTS = ["限量", "全新"];
+  var SUGGESTS_MORE = ["未拆封", "绝版", "二手"];
+  /* 杂志 / 场刊的期号：季刊按季、月刊按月，右边跟一个年份滚轮，点完就是「Spring 2011」 */
+  var SEASONS = ["Spring", "Summer", "Fall", "Winter"];
+  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var ISSUE_WORDS = SEASONS.concat(MONTHS);
+  var YEAR_FROM = 1988;                      // 他出道那几年往前一点，再早的杂志上也没有他
   /* 从前手打的长写法，认成同一枚圈圈 */
   var ALIAS = { "意大利版": "意版", "西班牙版": "西版", "加拿大版": "加版",
                 "俄罗斯版": "俄版", "法国版": "法版", "德国版": "德版", "韩国版": "韩版" };
   var ALL_REGIONS = REGIONS.concat(REGIONS_MORE);
-  var ALL_SUGGESTS = SUGGESTS.concat(SUGGESTS_MORE);
   var MAX_EXTRAS = 6;
-  var specFmt = "", specRegion = "", specExtras = [];
+  var specFmt = "", specRegion = "", specExtras = [], specIssueWord = "", specIssueYear = "";
 
-  function buildSpecChips(wrap, values, more, getter, setter) {
+  function sugsFor(type) {
+    var t = typeById[type];
+    return { on: (t && t.sugs) || SUGGESTS, more: (t && t.sugsMore) || SUGGESTS_MORE };
+  }
+  function issueOn(type) { var t = typeById[type]; return !!(t && t.issue); }
+
+  /* 「Spring 2011」「March 2003」「Mar. 2003」「2005」都认，认不出的当普通一条规格。
+     写全名的月份统一收成短名（March → Mar），免得同一本杂志两种写法。 */
+  var MONTHS_LONG = ["January", "February", "March", "April", "May", "June",
+                     "July", "August", "September", "October", "November", "December"];
+  var ISSUE_RE = new RegExp("^(?:(" + ISSUE_WORDS.concat(MONTHS_LONG, ["Autumn", "Sept"]).join("|") +
+                            ")\\.?\\s*)?((?:19|20)\\d{2})?$", "i");
+  function parseIssue(tok) {
+    var m = ISSUE_RE.exec(String(tok || "").trim());
+    if (!m || (!m[1] && !m[2])) return null;
+    var w = "";
+    if (m[1]) {
+      var low = m[1].toLowerCase().replace(".", "");
+      if (low === "autumn") low = "fall";
+      if (low === "sept") low = "sep";
+      MONTHS_LONG.forEach(function (x, i) { if (x.toLowerCase() === low) low = MONTHS[i].toLowerCase(); });
+      ISSUE_WORDS.forEach(function (x) { if (x.toLowerCase() === low) w = x; });
+      if (!w) return null;
+    }
+    return { word: w, year: m[2] || "" };
+  }
+  function composeIssue() {
+    return [specIssueWord, specIssueYear].filter(Boolean).join(" ");
+  }
+
+  function buildSpecChips(wrap, values, more, getter, setter, tail) {
     function chip(v, isMore) {
       var b = document.createElement("button");
       b.type = "button";
@@ -1770,6 +1846,7 @@
     }
     values.forEach(function (v) { chip(v, false); });
     (more || []).forEach(function (v) { chip(v, true); });
+    if (tail) wrap.appendChild(tail);          // 年份滚轮排在「更多」前面，免得被折进去
     if (more && more.length) {
       var m = document.createElement("button");
       m.type = "button";
@@ -1788,6 +1865,43 @@
     wrap.classList.remove("is-open");
     buildSpecChips(wrap, (t && t.fmts) || [], (t && t.fmtsMore) || [],
       function () { return specFmt; }, function (v) { specFmt = v; });
+  }
+  /* 常用规格那排跟着类别换：碟片是铁盒 / 限量，书刊是封面 / 内页 / 专访 */
+  function buildSugChips(type) {
+    var wrap = $("f-sug-row"), sg = sugsFor(type);
+    wrap.innerHTML = "";
+    wrap.classList.remove("is-open");
+    buildSpecChips(wrap, sg.on, sg.more,
+      function () { return ""; },
+      function (v) {
+        var at = specExtras.indexOf(v);
+        if (at >= 0) specExtras.splice(at, 1); else addExtras(v);
+      });
+  }
+  /* 期号那排：Spring / Summer / Fall / Winter（月刊在「更多」里）＋ 一个年份滚轮 */
+  function buildIssueChips() {
+    var wrap = $("f-issue-row");
+    wrap.innerHTML = "";
+    wrap.classList.remove("is-open");
+    var sel = document.createElement("select");
+    sel.className = "t-chip--year";
+    sel.id = "f-year";
+    sel.setAttribute("aria-label", "年份");
+    var blank = document.createElement("option");
+    blank.value = ""; blank.textContent = "年份 ▾";
+    sel.appendChild(blank);
+    for (var y = new Date().getFullYear(); y >= YEAR_FROM; y--) {
+      var o = document.createElement("option");
+      o.value = String(y); o.textContent = String(y);
+      sel.appendChild(o);
+    }
+    sel.addEventListener("change", function () {
+      specIssueYear = this.value;
+      syncSpecChips();
+    });
+    buildSpecChips(wrap, SEASONS, MONTHS,
+      function () { return specIssueWord; },
+      function (v) { specIssueWord = v; }, sel);
   }
   function syncRow(rowId, isOn) {
     var wrap = $(rowId), hidden = false;
@@ -1808,6 +1922,12 @@
     syncRow("f-fmt-row", function (v) { return v === specFmt; });
     syncRow("f-region-row", function (v) { return v === specRegion; });
     syncRow("f-sug-row", function (v) { return specExtras.indexOf(v) >= 0; });
+    syncRow("f-issue-row", function (v) { return v === specIssueWord; });
+    var ysel = $("f-year");
+    if (ysel) {
+      if (ysel.value !== specIssueYear) ysel.value = specIssueYear;
+      ysel.classList.toggle("is-on", !!specIssueYear);
+    }
     renderExtras();
   }
   buildSpecChips($("f-region-row"), REGIONS, REGIONS_MORE,
@@ -1831,6 +1951,14 @@
       if (ALL_REGIONS.indexOf(tok) >= 0 && fmtsFor(formType).length) {
         specRegion = tok; return;                      // 她手打了「日版」→ 直接点亮那枚圈圈
       }
+      if (issueOn(formType)) {                         // 「Spring 2011」→ 点亮期号那排
+        var iss = parseIssue(tok);
+        if (iss) {
+          if (iss.word) specIssueWord = iss.word;
+          if (iss.year) specIssueYear = iss.year;
+          added++; return;
+        }
+      }
       if (specExtras.length >= MAX_EXTRAS) return;
       if (specExtras.indexOf(tok) >= 0) return;
       if (tok === specFmt || tok === specRegion) return;   // 上面已经点过了，别重一遍
@@ -1842,7 +1970,8 @@
     var box = $("f-tagbox");
     box.innerHTML = "";
     specExtras.forEach(function (tok, i) {
-      if (ALL_SUGGESTS.indexOf(tok) >= 0) return;   // 上面那排已经点亮了，不必再挂一枚
+      var sg = sugsFor(formType);
+      if (sg.on.indexOf(tok) >= 0 || sg.more.indexOf(tok) >= 0) return;   // 上面那排已经点亮了，不必再挂一枚
       var t = document.createElement("span");
       t.className = "tag";
       t.appendChild(document.createTextNode(tok));
@@ -1858,12 +1987,7 @@
       box.appendChild(t);
     });
   }
-  buildSpecChips($("f-sug-row"), SUGGESTS, SUGGESTS_MORE,
-    function () { return ""; },
-    function (v) {
-      var at = specExtras.indexOf(v);
-      if (at >= 0) specExtras.splice(at, 1); else addExtras(v);
-    });
+  buildIssueChips();
   function commitSpecInput() {
     var box = $("f-spec");
     if (!box.value.trim()) return;
@@ -1903,6 +2027,7 @@
       if (specFmt) parts.push(specFmt);
       if (specRegion) parts.push(specRegion);
     }
+    if (issueOn(formType) && composeIssue()) parts.push(composeIssue());
     /* 存的时候统一用同一个分隔符，她手打的那条也就和点出来的长得一样了 */
     return parts.concat(specExtras).join(" · ");
   }
@@ -1926,9 +2051,16 @@
     specFmt = keepFmt ? sp.fmt : "";
     specRegion = fmtsFor(formType).length ? sp.region : "";
     specExtras = [];
+    specIssueWord = ""; specIssueYear = "";
     if (!keepFmt && sp.fmt) specExtras.push(sp.fmt);          // 换过类别的老数据，留着当一条
     if (!fmtsFor(formType).length && sp.region) specExtras.push(sp.region);
-    sp.rest.forEach(function (tok) { if (specExtras.length < MAX_EXTRAS) specExtras.push(tok); });
+    sp.rest.forEach(function (tok) {
+      if (issueOn(formType) && !composeIssue()) {             // 老数据里的「Spring 2011」拆回期号那排
+        var iss = parseIssue(tok);
+        if (iss) { specIssueWord = iss.word; specIssueYear = iss.year; return; }
+      }
+      if (specExtras.length < MAX_EXTRAS) specExtras.push(tok);
+    });
     $("f-spec").value = "";
     syncSpecChips();
     $("btn-del").style.display = it ? "block" : "none";
