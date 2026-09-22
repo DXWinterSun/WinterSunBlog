@@ -600,16 +600,25 @@
   .spec-chips.is-open .t-chip.is-extra { display: inline-block; }
   .t-chip--more { border-style: dashed; color: #8a7757; letter-spacing: 0; }
   /* 年份下拉：长得跟旁边的圈圈一样，点开是手机自带的滚轮 */
+  .issue-pickers { display: inline-flex; gap: 7px; }
   .t-chip--year {
-    padding: 5px 10px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(255,222,180,.16); background: #0f0b07;
+    /* 关掉系统自带的那个小三角，自己画一个，免得「月份」后面跟两个箭头 */
+    -webkit-appearance: none; appearance: none;
+    padding: 5px 26px 5px 12px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(255,222,180,.16);
+    background-color: #0f0b07;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23a8916d'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 11px center;
     color: #a8916d; font-family: 'Noto Serif SC', serif; letter-spacing: 1px;
     /* iOS 对字号 < 16px 的下拉同样会放大整页且不回弹，恒用 16px */
     font-size: 16px; line-height: 1.3;
   }
   .t-chip--year.is-on {
     border-color: rgba(230,190,110,.7); color: #ecd9a8;
-    background: linear-gradient(160deg, rgba(203,161,76,.22), rgba(203,161,76,.05));
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23ecd9a8'/%3E%3C/svg%3E"),
+      linear-gradient(160deg, rgba(203,161,76,.22), rgba(203,161,76,.05));
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 11px center, 0 0;
   }
   /* 自己写的那几条规格：长相跟上面的选项一模一样，只是右边多个 × */
   .tagbox { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
@@ -1878,30 +1887,42 @@
         if (at >= 0) specExtras.splice(at, 1); else addExtras(v);
       });
   }
-  /* 期号那排：Spring / Summer / Fall / Winter（月刊在「更多」里）＋ 一个年份滚轮 */
+  /* 期号那排：Spring / Summer / Fall / Winter 四枚圈圈（季刊多半够用），
+     月刊和年份各给一个滚轮——十二个月排成三行圈圈太吵，收起来点着也快。 */
+  function makePicker(id, label, values, getter, setter) {
+    var sel = document.createElement("select");
+    sel.className = "t-chip--year";
+    sel.id = id;
+    sel.setAttribute("aria-label", label);
+    var blank = document.createElement("option");
+    blank.value = ""; blank.textContent = label;
+    sel.appendChild(blank);
+    values.forEach(function (v) {
+      var o = document.createElement("option");
+      o.value = String(v); o.textContent = String(v);
+      sel.appendChild(o);
+    });
+    sel.addEventListener("change", function () { setter(this.value); syncSpecChips(); });
+    return sel;
+  }
   function buildIssueChips() {
     var wrap = $("f-issue-row");
     wrap.innerHTML = "";
     wrap.classList.remove("is-open");
-    var sel = document.createElement("select");
-    sel.className = "t-chip--year";
-    sel.id = "f-year";
-    sel.setAttribute("aria-label", "年份");
-    var blank = document.createElement("option");
-    blank.value = ""; blank.textContent = "年份 ▾";
-    sel.appendChild(blank);
-    for (var y = new Date().getFullYear(); y >= YEAR_FROM; y--) {
-      var o = document.createElement("option");
-      o.value = String(y); o.textContent = String(y);
-      sel.appendChild(o);
-    }
-    sel.addEventListener("change", function () {
-      specIssueYear = this.value;
-      syncSpecChips();
-    });
-    buildSpecChips(wrap, SEASONS, MONTHS,
+    var years = [];
+    for (var y = new Date().getFullYear(); y >= YEAR_FROM; y--) years.push(y);
+    var mon = makePicker("f-month", "月份", MONTHS,
       function () { return specIssueWord; },
-      function (v) { specIssueWord = v; }, sel);
+      function (v) { specIssueWord = v; });                 // 选了月份，季节那枚自动灭
+    var yr = makePicker("f-year", "年份", years,
+      function () { return specIssueYear; },
+      function (v) { specIssueYear = v; });
+    var tail = document.createElement("span");
+    tail.className = "issue-pickers";
+    tail.appendChild(mon); tail.appendChild(yr);
+    buildSpecChips(wrap, SEASONS, [],
+      function () { return specIssueWord; },
+      function (v) { specIssueWord = v; }, tail);
   }
   function syncRow(rowId, isOn) {
     var wrap = $(rowId), hidden = false;
@@ -1927,6 +1948,12 @@
     if (ysel) {
       if (ysel.value !== specIssueYear) ysel.value = specIssueYear;
       ysel.classList.toggle("is-on", !!specIssueYear);
+    }
+    var msel = $("f-month");
+    if (msel) {
+      var m = MONTHS.indexOf(specIssueWord) >= 0 ? specIssueWord : "";
+      if (msel.value !== m) msel.value = m;
+      msel.classList.toggle("is-on", !!m);
     }
     renderExtras();
   }
