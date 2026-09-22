@@ -744,6 +744,16 @@
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: calc(11px * var(--fs)); letter-spacing: 1.5px; color: var(--ink);
   }
+  .gcard__pal { display: flex; gap: 2px; }
+  .gcard__pal i {
+    display: block; width: 12px; height: 7px; border-radius: 1px;
+    border: 1px solid rgba(var(--line-rgb),.25);
+  }
+  /* 「还没有他的东西」那张——画册地图的另一半，直接并在「按角色」后面 */
+  .gcard--ghosts { border-style: dashed; box-shadow: none; }
+  .gcard--ghosts .gcard__name { color: var(--ink-soft); }
+  .gcard--ghosts .map-grid { width: auto; max-width: none; }
+
   /* 组里那一小格栅：跟外面同一套，只是窄一点 */
   .gcard__grid {
     display: grid; gap: 12px; row-gap: 22px;
@@ -1697,6 +1707,42 @@
     return groups;
   }
 
+  /* 一枚角色格子（画册地图和「按角色」那一屏共用同一颗，别再各写一份） */
+  function mapSlot(c, n) {
+    var d = document.createElement("div");
+    d.className = "mslot" + (n ? " mslot--got" : "") + (c.id === charFilter ? " mslot--on" : "");
+    d.setAttribute("role", "button");
+    d.setAttribute("tabindex", "0");
+    /* 没收的那格也给 --a：让每个人的颜色都露出来（只是压淡），
+       这样一眼看过去这排格子是「不同的人」，不是一排一样的空框 */
+    d.style.setProperty("--a", c.accent);
+    if (n) { d.style.setProperty("--b", c.bg); }
+    d.setAttribute("aria-label", c.name + (n ? "（有 " + n + " 件藏品，点击筛选）" : "（还没有藏品，点击去画册）"));
+    var dot = document.createElement("span"); dot.className = "mslot__dot";
+    var nm = document.createElement("span"); nm.className = "mslot__name"; nm.textContent = c.name;
+    var fm = document.createElement("span"); fm.className = "mslot__film"; fm.textContent = c.filmCN || c.film;
+    var yr = document.createElement("span"); yr.className = "mslot__year"; yr.textContent = c.year;
+    var pal = document.createElement("span"); pal.className = "mslot__pal";
+    [c.bg, c.accent, c.text, c.muted].forEach(function (col) {
+      if (!col) return;
+      var i = document.createElement("i"); i.style.background = col; pal.appendChild(i);
+    });
+    d.appendChild(dot); d.appendChild(nm); d.appendChild(fm); d.appendChild(yr); d.appendChild(pal);
+    if (n > 1) {
+      var b = document.createElement("span"); b.className = "mslot__n"; b.textContent = "×" + n;
+      d.appendChild(b);
+    }
+    function go() {
+      /* 馆长点格子：优先「给这个角色添藏品」；访客保持原逻辑 */
+      if (isCurator()) { openCharMenu(c, n); }
+      else if (n) { setCharFilter(c.id); }
+      else { location.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor); }
+    }
+    d.addEventListener("click", go);
+    d.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+    return d;
+  }
+
   /* 一组＝一张大卡：头上是这个人（或这一类、这个年代），他的东西都摆在里头 */
   function groupCard(g, make) {
     var el = document.createElement("section");
@@ -1721,6 +1767,15 @@
       var sb = document.createElement("span"); sb.className = "gcard__sub";
       sb.textContent = g.meta.sub + (g.meta.year ? " · " + g.meta.year : "");
       head.appendChild(sb);
+    }
+    /* 他那四个颜色——跟地图格子、画册、选色器同一份 */
+    if (c) {
+      var pal = document.createElement("span"); pal.className = "gcard__pal";
+      [c.bg, c.accent, c.text, c.muted].forEach(function (col) {
+        if (!col) return;
+        var i = document.createElement("i"); i.style.background = col; pal.appendChild(i);
+      });
+      head.appendChild(pal);
     }
     var n = document.createElement("span"); n.className = "gcard__n";
     n.textContent = g.items.length + " 件";
@@ -1804,8 +1859,9 @@
       face.appendChild(sp); face.appendChild(document.createElement("br"));
     }
 
-    /* 正在只看这个人时，上面那条提示已经写了他是谁，卡片里不必再挂一次 */
-    if (c && charFilter !== it.charId) {
+    /* 按角色分组（这时卡片就在他那张大卡里）、或正在只看这个人时，
+       上面已经写了他是谁，卡片里不必再挂一次 */
+    if (c && charFilter !== it.charId && !(view === "card" && arrange === "char")) {
       var ch = document.createElement("a");
       ch.className = "item__char";
       ch.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor);
@@ -1995,6 +2051,33 @@
       }
       grid.appendChild(groupCard(g, make));
     });
+
+    /* 「按角色」＝完整的角色视图：有东西的人在上面各占一张卡，
+       没东西的人接在后面（就是画册地图那半张），不用再往页尾找一遍。
+       （Winter 2026-09-22：「两者不就应该是合并的吗？大家想看按分类的
+       不就是能直观地看到一个角色对应哪些东西吗？」） */
+    if (!isList && arrange === "char" && grid.id === "own-grid" && !query && !charFilter && chars.length) {
+      var got = {};
+      list.forEach(function (it) { if (it.charId) got[it.charId] = 1; });
+      var missing = chars.filter(function (c) { return !got[c.id]; });
+      if (missing.length) {
+        var panel = document.createElement("section");
+        panel.className = "gcard gcard--ghosts"; panel.id = "char-ghosts";
+        var head = document.createElement("div"); head.className = "gcard__head";
+        var nm = document.createElement("span"); nm.className = "gcard__name";
+        nm.textContent = "还没有他的东西";
+        var sb = document.createElement("span"); sb.className = "gcard__sub";
+        sb.textContent = "点一下去画册看看这张脸";
+        var n2 = document.createElement("span"); n2.className = "gcard__n";
+        n2.textContent = missing.length + " 人";
+        head.appendChild(nm); head.appendChild(sb); head.appendChild(n2);
+        panel.appendChild(head);
+        var mg = document.createElement("div"); mg.className = "map-grid";
+        missing.forEach(function (c) { mg.appendChild(mapSlot(c, 0)); });
+        panel.appendChild(mg);
+        grid.appendChild(panel);
+      }
+    }
   }
 
   var nums = {};
@@ -2011,6 +2094,18 @@
       ? "这一格是空的——换个条件找找看。"
       : "架子还空着——第一件宝贝正在路上。";
     $("own-count").textContent = own.length + " ITEMS";
+
+    /* 「按角色」那一屏已经把整张地图并进去了，页尾就不必再摆一次 */
+    var mapMerged = (view !== "list" && arrange === "char" && !query && !charFilter);
+    ["map-label", "map-grid", "map-hint"].forEach(function (id) {
+      var el = $(id);
+      if (!el) return;
+      if (mapMerged) { el.dataset.wasHidden = "1"; el.style.display = "none"; }
+      else if (el.dataset.wasHidden) {
+        delete el.dataset.wasHidden;
+        el.style.display = (id === "map-grid") ? "grid" : (id === "map-hint" ? "block" : "flex");
+      }
+    });
 
     fillGrid($("wish-grid"), wish);
     $("wish-label").style.display = wish.length ? "flex" : "none";
@@ -2048,44 +2143,11 @@
       });
     $("progress-num").textContent = "SHELF " + allOwn.length;
 
-    /* 角色地图 */
+    /* 角色地图（「按角色」那一屏也用同一颗格子，见 mapSlot） */
     if (chars.length) {
       var map = $("map-grid"); map.innerHTML = "";
       chars.forEach(function (c) {
-        var n = coveredIds[c.id] || 0;
-        var d = document.createElement("div");
-        d.className = "mslot" + (n ? " mslot--got" : "") + (c.id === charFilter ? " mslot--on" : "");
-        d.setAttribute("role", "button");
-        d.setAttribute("tabindex", "0");
-        /* 没收的那格也给 --a：让每个人的颜色都露出来（只是压淡），
-           这样一眼看过去这排格子是「不同的人」，不是一排一样的空框 */
-        d.style.setProperty("--a", c.accent);
-        if (n) { d.style.setProperty("--b", c.bg); }
-        d.setAttribute("aria-label", c.name + (n ? "（有 " + n + " 件藏品，点击筛选）" : "（还没有藏品，点击去画册）"));
-        var dot = document.createElement("span"); dot.className = "mslot__dot";
-        var nm = document.createElement("span"); nm.className = "mslot__name"; nm.textContent = c.name;
-        var fm = document.createElement("span"); fm.className = "mslot__film"; fm.textContent = c.filmCN || c.film;
-        var yr = document.createElement("span"); yr.className = "mslot__year"; yr.textContent = c.year;
-        /* 他那四个颜色（跟画册、选色器同一份） */
-        var pal = document.createElement("span"); pal.className = "mslot__pal";
-        [c.bg, c.accent, c.text, c.muted].forEach(function (col) {
-          if (!col) return;
-          var i = document.createElement("i"); i.style.background = col; pal.appendChild(i);
-        });
-        d.appendChild(dot); d.appendChild(nm); d.appendChild(fm); d.appendChild(yr); d.appendChild(pal);
-        if (n > 1) {
-          var b = document.createElement("span"); b.className = "mslot__n"; b.textContent = "×" + n;
-          d.appendChild(b);
-        }
-        function go() {
-          /* 馆长点格子：优先「给这个角色添藏品」；访客保持原逻辑 */
-          if (isCurator()) { openCharMenu(c, n); }
-          else if (n) { setCharFilter(c.id); }
-          else { location.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor); }
-        }
-        d.addEventListener("click", go);
-        d.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
-        map.appendChild(d);
+        map.appendChild(mapSlot(c, coveredIds[c.id] || 0));
       });
       $("map-count").textContent = covered + " / " + chars.length + " LIT";
     }
@@ -2127,19 +2189,15 @@
       arrange = a.id;
       arrWrap.querySelectorAll(".mini").forEach(function (x) { x.classList.remove("is-on"); });
       b.classList.add("is-on");
-      /* 分组要看小标题才有意义，顺手切到清单；切回「最新入手」时把卡片还给她 */
-      if (a.id !== "recent") {
-        if (view === "card") { viewBeforeGroup = "card"; setView("list"); }
-      } else if (viewBeforeGroup) {
-        setView(viewBeforeGroup); viewBeforeGroup = "";
-      }
+      /* ⚠️ 以前这里会「顺手切到清单」——那是因为当时卡片视图根本不分组。
+         现在卡片视图里一组就是一张大卡（一个角色一张），分组比清单还直观，
+         所以别再替她换视图了，她在哪个视图就留在哪个视图。 */
       prefSave(); render();
     });
     arrWrap.appendChild(b);
   });
 
   var viewSeg = $("viewseg");
-  var viewBeforeGroup = "";      // 因为分组而被临时切走的视图，切回「最新入手」时还原
   function setView(v) {
     view = v;
     viewSeg.querySelectorAll(".mini").forEach(function (x) {
@@ -2149,7 +2207,6 @@
   setView(view);
   viewSeg.querySelectorAll(".mini").forEach(function (b) {
     b.addEventListener("click", function () {
-      viewBeforeGroup = "";      // 她自己挑的视图，就别再自作主张还原了
       setView(b.dataset.view);
       prefSave(); render();
     });
@@ -2189,6 +2246,12 @@
   $("charbar-x").addEventListener("click", function () { setCharFilter(""); });
   /* 看完一个人接着看下一个：滚回底下那张画册地图 */
   function jumpToMap() {
+    /* 合并模式下地图就在「按角色」那一屏里，直接滚过去 */
+    var ghosts = $("char-ghosts");
+    if (ghosts && $("map-grid").style.display === "none") {
+      ghosts.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     var t = $("map-label").style.display === "none" ? $("map-grid") : $("map-label");
     if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
   }
