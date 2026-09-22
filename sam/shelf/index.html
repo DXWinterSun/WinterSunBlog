@@ -77,6 +77,10 @@
     --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23555049'/%3E%3C/svg%3E");
     --caret-on: var(--caret);
 
+    /* 页面零件（不属于某个角色的那些）统一用这两个：粗描边 + 硬投影 */
+    --edge-ink: color-mix(in srgb, var(--c-accent) 26%, var(--c-ink));
+    --edge-soft: rgba(var(--line-rgb),.26);
+
     /* 心愿单那颗星、删除那类语义色不跟主题走，只分昼夜 */
     --warm: #a55b36; --warm-hi: #94482a; --warm-dim: #8a4a30; --warm-bright: #7a3c22;
     --warm-rgb: 165,91,54;
@@ -190,22 +194,28 @@
   .curator-tag {
     display: none; margin: 12px auto 0;
     padding: 5px 16px; border-radius: 999px;
-    border: 1px solid rgba(var(--goldhi-rgb),.4);
+    border: 2px solid var(--gold);
     background: rgba(var(--gold-rgb),.1);
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--gold) 60%, var(--c-ink));
     font-size: calc(12.5px * var(--fs)); letter-spacing: 2px; color: var(--gold-hi);
   }
   body.is-curator .curator-tag { display: inline-block; }
 
   /* 统计行 */
   .stats {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 7px;
     margin: 16px 0 4px;
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: calc(11.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim); text-transform: uppercase;
   }
+  /* 一条统计＝一枚小牌子，不再是一排飘着的字 */
+  .stats > * {
+    padding: 4px 11px; border-radius: 999px;
+    border: 2px solid var(--edge-soft); background: var(--panel);
+  }
   .stats b { color: var(--gold); font-weight: 400; }
   .stats__jump {
-    border: 0; background: none; padding: 0; cursor: pointer;
+    cursor: pointer;
     font-family: inherit; font-size: inherit; letter-spacing: inherit;
     color: inherit; text-transform: inherit;
     text-decoration: underline dotted; text-underline-offset: 4px;
@@ -234,10 +244,11 @@
     display: none; margin: 18px auto 6px;
     align-items: center; gap: 8px;
     padding: 11px 26px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(var(--goldhi-rgb),.5);
+    border: 2px solid var(--gold);
     background: linear-gradient(160deg, rgba(var(--gold-rgb),.22), rgba(var(--gold-rgb),.06));
     color: var(--ink-gold); font-size: calc(15px * var(--fs)); letter-spacing: 2px;
-    transition: box-shadow .25s ease, transform .15s ease;
+    box-shadow: 4px 4px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink));
+    transition: box-shadow .14s ease, transform .14s ease;
   }
   body.is-curator .add-btn { display: inline-flex; }
   .add-btn:hover { box-shadow: 0 6px 24px rgba(var(--gold-rgb),.25); transform: translateY(-1px); }
@@ -261,7 +272,7 @@
   }
   .search input {
     width: 100%; padding: 9px 34px 9px 34px; border-radius: 999px;
-    border: 1px solid rgba(var(--line-rgb),.16); background: var(--panel);
+    border: 2px solid var(--edge-soft); background: var(--panel);
     color: var(--ink); font-family: 'Noto Serif SC', serif;
     /* iOS 对 <16px 的输入框会自动放大整页且不回弹 */
     font-size: calc(16px * var(--fs));
@@ -270,7 +281,10 @@
   /* Chrome 给 type=search 自带一个 ✕，会和下面那颗撞在一起 */
   .search input::-webkit-search-cancel-button,
   .search input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
-  .search input:focus { outline: none; border-color: rgba(var(--goldhi-rgb),.55); }
+  .search input:focus {
+    outline: none; border-color: var(--gold);
+    box-shadow: 3px 3px 0 color-mix(in srgb, var(--gold) 55%, var(--c-ink));
+  }
   .search__x {
     position: absolute; right: 8px; display: none;
     border: 0; background: none; cursor: pointer;
@@ -292,16 +306,19 @@
   }
   .mini {
     padding: 5px 11px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(var(--line-rgb),.13); background: var(--panel);
+    border: 2px solid var(--edge-soft); background: var(--panel);
     color: var(--ink-mid); font-family: 'Noto Serif SC', serif;
     font-size: calc(13px * var(--fs)); letter-spacing: 1px;
-    transition: border-color .2s ease, color .2s ease;
+    transition: transform .12s ease, box-shadow .12s ease, border-color .2s ease, color .2s ease;
   }
+  .mini:active { transform: translate(1px, 1px); }
   .mini:hover { border-color: rgba(var(--line-rgb),.38); color: var(--ink); }
   .mini.is-on {
-    border-color: rgba(var(--goldhi-rgb),.65); color: var(--ink-gold);
-    background: linear-gradient(160deg, rgba(var(--gold-rgb),.18), rgba(var(--gold-rgb),.03));
+    border-color: var(--gold); color: var(--ink-gold);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.22), rgba(var(--gold-rgb),.05));
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink));
   }
+  .mini.is-on:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink)); }
   .seg { display: flex; gap: 6px; }
 
   /* 筛选条 */
@@ -365,8 +382,13 @@
     font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
     font-size: calc(17px * var(--fs)); margin: 0; color: var(--ink-gold); letter-spacing: 1px; white-space: nowrap;
   }
-  .section-label .rule { flex: 1; height: 1px; background: rgba(var(--line-rgb),.14); }
+  .section-label .rule {
+    flex: 1; height: 0; background: none;
+    border-top: 2px dotted rgba(var(--line-rgb),.22);
+  }
   .section-label .count {
+    padding: 2px 10px; border-radius: 999px;
+    border: 2px solid var(--edge-soft); background: var(--panel);
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: calc(11.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim);
   }
@@ -667,24 +689,53 @@
     display: grid; gap: 8px;
     grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
   }
+  /* 一格＝一枚胶片格子（Winter 2026-09-22：「角色列表也挺普通的，就没有突出这是不同的人」）。
+     所以每格都长成那个人自己的样子：上下两排齿孔、中间一颗他的主色圆点、
+     底下一条他那四个颜色的小色带（跟画册 / 选色器里那张卡同源）。
+     已收的那格用他自己的底色＋硬投影；还没收的是虚线空片格，颜色也压淡。 */
   .mslot {
-    position: relative; cursor: pointer; text-align: center;
-    border-radius: 6px; padding: 10px 6px 9px;
-    border: 1px dashed rgba(var(--line-rgb),.22);
+    position: relative; cursor: pointer; text-align: center; overflow: hidden;
+    border-radius: 8px; padding: 14px 7px 13px;
+    border: 2px dashed color-mix(in srgb, var(--a, var(--gold)) 38%, var(--c-ink));
     background: var(--sheet);
-    transition: transform .15s ease, box-shadow .25s ease;
+    transition: transform .14s ease, box-shadow .14s ease;
   }
-  .mslot:hover { transform: translateY(-2px); }
+  /* 上下齿孔 */
+  .mslot::before, .mslot::after {
+    content: ""; position: absolute; left: 4px; right: 4px; height: 5px; pointer-events: none;
+    background: repeating-linear-gradient(90deg,
+      rgba(var(--line-rgb),.28) 0 5px, transparent 5px 11px);
+  }
+  .mslot::before { top: 4px; }
+  .mslot::after { bottom: 4px; }
+  .mslot:hover { transform: translate(-2px, -2px); }
   .mslot--got {
     border-style: solid;
-    border-color: color-mix(in srgb, var(--a, var(--gold)) 55%, transparent);
+    border-color: color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
     background: linear-gradient(160deg, color-mix(in srgb, var(--a, var(--gold)) 30%, var(--b, var(--panel))), var(--b, var(--panel)) 75%);
+    box-shadow: 3px 3px 0 color-mix(in srgb, var(--a, var(--gold)) 70%, var(--c-ink));
   }
-  .mslot--got:hover { box-shadow: 0 5px 18px color-mix(in srgb, var(--a, var(--gold)) 22%, transparent); }
+  .mslot--got:hover { box-shadow: 6px 6px 0 color-mix(in srgb, var(--a, var(--gold)) 70%, var(--c-ink)); }
+  /* 他的主色：圆点 */
+  .mslot__dot {
+    display: block; width: 26px; height: 26px; border-radius: 50%; margin: 2px auto 7px;
+    background: var(--a, var(--gold));
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 40%, var(--c-ink));
+  }
+  .mslot:not(.mslot--got) .mslot__dot { opacity: .45; }
+  /* 他的四个颜色：底下那条小色带 */
+  .mslot__pal {
+    display: flex; gap: 2px; justify-content: center; margin-top: 8px;
+  }
+  .mslot__pal i {
+    display: block; width: 11px; height: 6px; border-radius: 1px;
+    border: 1px solid rgba(var(--line-rgb),.25);
+  }
+  .mslot:not(.mslot--got) .mslot__pal { opacity: .4; }
   /* 正在只看谁的藏品，他的格子就框起来——滚回地图时一眼认得出 */
   .mslot--on {
     box-shadow: 0 0 0 2px color-mix(in srgb, var(--a, var(--gold)) 85%, transparent),
-                0 6px 20px color-mix(in srgb, var(--a, var(--gold)) 25%, transparent);
+                3px 3px 0 color-mix(in srgb, var(--a, var(--gold)) 70%, var(--c-ink));
   }
   .mslot__name {
     font-family: 'Playfair Display', serif; font-weight: 700;
@@ -703,10 +754,13 @@
     font-size: calc(10.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim);
   }
   .mslot__n {
-    position: absolute; top: 5px; right: 6px;
+    position: absolute; top: 11px; right: 7px;
+    min-width: 19px; padding: 1px 4px; border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--a, var(--gold)) 55%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel));
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: calc(10.5px * var(--fs)); letter-spacing: 1px;
-    color: color-mix(in srgb, var(--a, var(--gold)) 85%, #fff);
+    color: var(--ink);
   }
   .map-hint {
     width: 100%; max-width: 860px; margin: 10px 0 0;
@@ -720,7 +774,7 @@
   .cm-btns { display: flex; flex-direction: column; gap: 9px; }
   .cm-btn {
     padding: 12px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(var(--line-rgb),.2); background: var(--field);
+    border: 2px solid var(--edge-soft); background: var(--field);
     color: var(--ink-soft); font-size: calc(15px * var(--fs)); letter-spacing: 1px;
   }
   .cm-btn:hover { border-color: rgba(var(--line-rgb),.45); color: var(--ink); }
@@ -762,7 +816,8 @@
   .curator-door {
     margin-top: 18px;
     display: inline-flex; align-items: center; gap: 6px;
-    border: 0; background: none; cursor: pointer;
+    padding: 6px 16px; border-radius: 999px;
+    border: 2px dashed var(--edge-soft); background: none; cursor: pointer;
     font-family: 'Noto Serif SC', serif;
     font-size: calc(12.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-faint);
     opacity: .8;
@@ -771,7 +826,7 @@
   body.is-curator .curator-door--in { display: none; }
 
   .keypanel { display: none; width: min(520px, 100%); margin-top: 16px; text-align: left;
-    border: 1px solid rgba(var(--goldhi-rgb),.3); border-radius: 14px;
+    border: 2px solid var(--edge-ink); border-radius: 14px;
     background: var(--panel); padding: 20px 18px;
   }
   .keypanel.is-on { display: block; }
@@ -836,7 +891,7 @@
     width: min(480px, 100%); max-height: 100%; overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: 16px; padding: 22px 20px 18px;
-    border: 1px solid rgba(var(--goldhi-rgb),.35);
+    border: 2px solid var(--edge-ink);
     background:
       radial-gradient(ellipse 90% 60% at 50% -10%, rgba(var(--gold-rgb),.1), transparent 60%),
       var(--sheet);
@@ -872,7 +927,7 @@
     /* 关掉系统自带的那个小三角，自己画一个，免得「月份」后面跟两个箭头 */
     -webkit-appearance: none; appearance: none;
     padding: 5px 26px 5px 12px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(var(--line-rgb),.16);
+    border: 2px solid var(--edge-soft);
     background-color: var(--field);
     background-image: var(--caret);
     background-repeat: no-repeat; background-position: right 11px center;
@@ -913,12 +968,15 @@
   .tagadd__btn:hover { border-color: rgba(var(--goldhi-rgb),.6); color: var(--ink-gold); }
   .t-chip {
     padding: 7px 13px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(var(--line-rgb),.16); background: var(--field);
+    border: 2px solid var(--edge-soft); background: var(--field);
     color: var(--ink-mid); font-size: calc(14px * var(--fs)); letter-spacing: 1px;
+    transition: transform .12s ease, box-shadow .12s ease;
   }
+  .t-chip:active { transform: translate(1px, 1px); }
   .t-chip.is-on {
-    border-color: rgba(var(--goldhi-rgb),.7); color: var(--ink-gold);
+    border-color: var(--gold); color: var(--ink-gold);
     background: linear-gradient(160deg, rgba(var(--gold-rgb),.22), rgba(var(--gold-rgb),.05));
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink));
   }
   .toggles { display: flex; flex-direction: column; gap: 9px; margin-top: 14px; }
   .tog {
@@ -936,17 +994,22 @@
   }
   .btn-save {
     flex: 1; padding: 12px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(var(--goldhi-rgb),.6);
+    border: 2px solid var(--gold);
     background: linear-gradient(160deg, rgba(var(--gold-rgb),.32), rgba(var(--gold-rgb),.1));
     color: var(--ink-bright); font-size: calc(15px * var(--fs)); letter-spacing: 3px;
+    box-shadow: 3px 3px 0 color-mix(in srgb, var(--gold) 70%, var(--c-ink));
+    transition: transform .12s ease, box-shadow .12s ease;
   }
+  .btn-save:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 color-mix(in srgb, var(--gold) 70%, var(--c-ink)); }
   .btn-save:hover { box-shadow: 0 6px 22px rgba(var(--gold-rgb),.25); }
   .btn-save[disabled] { opacity: .5; cursor: wait; }
   .btn-cancel, .btn-del {
     padding: 12px 18px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(var(--line-rgb),.18); background: none;
+    border: 2px solid var(--edge-soft); background: var(--field);
     color: var(--ink-dim); font-size: calc(14.5px * var(--fs)); letter-spacing: 1px;
+    transition: transform .12s ease;
   }
+  .btn-cancel:active, .btn-del:active { transform: translate(1px, 1px); }
   .btn-cancel:hover { color: var(--ink); }
   .btn-del { border-color: rgba(200,90,70,.4); color: var(--warm-dim); }
   .btn-del:hover { border-color: rgba(200,90,70,.8); color: var(--warm-hi); }
@@ -964,9 +1027,10 @@
   .fab {
     width: 54px; height: 54px; border-radius: 50%; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
-    border: 1px solid rgba(var(--goldhi-rgb),.55);
+    border: 2px solid var(--gold);
     background: linear-gradient(160deg, rgba(var(--gold-rgb),.34), rgba(var(--gold-rgb),.12)), var(--sheet);
-    color: var(--ink-bright); box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    color: var(--ink-bright);
+    box-shadow: 4px 4px 0 color-mix(in srgb, var(--gold) 70%, var(--c-ink));
     transition: transform .15s ease, box-shadow .25s ease;
   }
   .fab:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(var(--gold-rgb),.28); }
@@ -1002,8 +1066,9 @@
     position: fixed; left: 50%; bottom: max(26px, env(safe-area-inset-bottom));
     transform: translateX(-50%) translateY(12px); z-index: 50;
     padding: 10px 22px; border-radius: 999px;
-    border: 1px solid rgba(var(--goldhi-rgb),.5);
+    border: 2px solid var(--gold);
     background: var(--panel-hi); color: var(--ink-gold);
+    box-shadow: 3px 3px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink));
     font-size: calc(14.5px * var(--fs)); letter-spacing: 1.5px;
     opacity: 0; pointer-events: none;
     transition: opacity .3s ease, transform .3s ease;
@@ -1700,12 +1765,22 @@
         d.className = "mslot" + (n ? " mslot--got" : "") + (c.id === charFilter ? " mslot--on" : "");
         d.setAttribute("role", "button");
         d.setAttribute("tabindex", "0");
-        if (n) { d.style.setProperty("--a", c.accent); d.style.setProperty("--b", c.bg); }
+        /* 没收的那格也给 --a：让每个人的颜色都露出来（只是压淡），
+           这样一眼看过去这排格子是「不同的人」，不是一排一样的空框 */
+        d.style.setProperty("--a", c.accent);
+        if (n) { d.style.setProperty("--b", c.bg); }
         d.setAttribute("aria-label", c.name + (n ? "（有 " + n + " 件藏品，点击筛选）" : "（还没有藏品，点击去画册）"));
+        var dot = document.createElement("span"); dot.className = "mslot__dot";
         var nm = document.createElement("span"); nm.className = "mslot__name"; nm.textContent = c.name;
         var fm = document.createElement("span"); fm.className = "mslot__film"; fm.textContent = c.filmCN || c.film;
         var yr = document.createElement("span"); yr.className = "mslot__year"; yr.textContent = c.year;
-        d.appendChild(nm); d.appendChild(fm); d.appendChild(yr);
+        /* 他那四个颜色（跟画册、选色器同一份） */
+        var pal = document.createElement("span"); pal.className = "mslot__pal";
+        [c.bg, c.accent, c.text, c.muted].forEach(function (col) {
+          if (!col) return;
+          var i = document.createElement("i"); i.style.background = col; pal.appendChild(i);
+        });
+        d.appendChild(dot); d.appendChild(nm); d.appendChild(fm); d.appendChild(yr); d.appendChild(pal);
         if (n > 1) {
           var b = document.createElement("span"); b.className = "mslot__n"; b.textContent = "×" + n;
           d.appendChild(b);
