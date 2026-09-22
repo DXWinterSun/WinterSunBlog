@@ -937,6 +937,19 @@
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: calc(10.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim);
   }
+  /* ＋：只有馆长看得见，点它才是「给他添一件」 */
+  .mslot__add {
+    display: none; position: absolute; left: 7px; top: 11px; z-index: 2;
+    width: 22px; height: 22px; border-radius: 50%; cursor: pointer; line-height: 1;
+    align-items: center; justify-content: center;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 20%, var(--panel));
+    color: var(--ink); font-size: calc(12px * var(--fs)); font-family: inherit;
+    opacity: .8; transition: opacity .15s ease, transform .15s ease;
+  }
+  body.is-curator .mslot__add { display: inline-flex; }
+  .mslot__add:hover { opacity: 1; transform: scale(1.1); }
+  .mslot__add:active { transform: scale(.94); }
   .mslot__n {
     position: absolute; top: 11px; right: 7px;
     min-width: 19px; padding: 1px 4px; border-radius: 999px;
@@ -1345,7 +1358,7 @@
   <h2>🎞️ 角色联动 · 画册地图</h2><span class="rule"></span><span class="count" id="map-count"></span>
 </div>
 <div class="map-grid" id="map-grid"></div>
-<p class="map-hint" id="map-hint" style="display:none">收了谁的东西，谁的格子就亮起来。<br><span class="map-hint__viewer">点亮着的格子＝只看他的藏品；点暗着的格子＝去画册看看这张脸。</span><span class="map-hint__curator">点任何格子＝直接给这个角色添一件藏品（也能筛选、去画册）。</span></p>
+<p class="map-hint" id="map-hint" style="display:none">收了谁的东西，谁的格子就亮起来。<br><span class="map-hint__viewer">点亮着的格子＝只看他的藏品；点暗着的格子＝去画册看看这张脸。</span><span class="map-hint__curator">点格子＝只看他的（还没有的就去画册）；点格子角上的 ＋＝给他添一件。</span></p>
 
 <div class="fabs" id="fabs">
   <button type="button" class="fab fab--map" id="fab-map" title="跳到画册地图（总表）" aria-label="跳到画册地图">&#127902;</button>
@@ -1732,14 +1745,24 @@
       var b = document.createElement("span"); b.className = "mslot__n"; b.textContent = "×" + n;
       d.appendChild(b);
     }
+    /* ⚠️ 点格子＝看他的东西，不是「给他添一件」。
+       Winter 2026-09-22：「你下面这个做得真的挺好的，就应该把它做成真正的卡片，
+       而不是点击就增加东西。」——跟藏品卡同一个道理：点卡面是看，动手要点角上那颗钮。 */
     function go() {
-      /* 馆长点格子：优先「给这个角色添藏品」；访客保持原逻辑 */
-      if (isCurator()) { openCharMenu(c, n); }
-      else if (n) { setCharFilter(c.id); }
-      else { location.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor); }
+      if (n) { setCharFilter(c.id); }                                  // 有东西：只看他的
+      else { location.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor); }   // 没有：去画册看这张脸
     }
-    d.addEventListener("click", go);
+    d.addEventListener("click", function (e) {
+      if (e.target.closest(".mslot__add")) return;
+      go();
+    });
     d.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+    /* ＋ 只有馆长看得见：给这个角色添一件（也能从这儿筛选、去画册） */
+    var add = document.createElement("button");
+    add.type = "button"; add.className = "mslot__add"; add.textContent = "＋";
+    add.setAttribute("aria-label", "给 " + c.name + " 添一件藏品");
+    add.addEventListener("click", function (e) { e.stopPropagation(); openCharMenu(c, n); });
+    d.appendChild(add);
     return d;
   }
 
