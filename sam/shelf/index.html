@@ -109,7 +109,7 @@
   /* 白天：卡片和地图格子不能再用角色那份深底色（白页上一块块发黑、里头的字还看不清），
      改成只借他的 accent 往纸上染一层——颜色还在，眼睛不累。 */
   @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) .item,
+    :root:not([data-theme="dark"]) .item__face,
     :root:not([data-theme="dark"]) .mslot--got {
       background: linear-gradient(160deg,
         color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel-hi)), var(--panel-hi) 72%);
@@ -121,7 +121,7 @@
     }
     :root:not([data-theme="dark"]) .mslot--got .mslot__film { color: var(--ink-mid); }
   }
-  :root[data-theme="light"] .item,
+  :root[data-theme="light"] .item__face,
   :root[data-theme="light"] .mslot--got {
     background: linear-gradient(160deg,
       color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel-hi)), var(--panel-hi) 72%);
@@ -409,27 +409,119 @@
        周边 = 底下一道斜纹贴条   其他 = 只有底子
      点一下卡片会有一道扫光（＝拿起来对着光照一下）——⚠️ 只在点的那一下扫过去，
      绝不常驻：2026-09-20 游戏厅那次她说过「反光的质感一直留着，看起来有点假」。 */
+  /* 外壳只管站位、投影和「翻面」的那点透视；真正的卡面在 .item__face 上。
+     （拆成两层是为了能翻面：外壳有 overflow:hidden 的话 3D 会被压平。） */
   .item {
     --edge: color-mix(in srgb, var(--a, var(--gold)) 42%, var(--c-ink));
     --shade: color-mix(in srgb, var(--a, var(--gold)) 72%, var(--c-ink));
     position: relative; text-align: left;
-    border-radius: 12px; overflow: hidden;
+    perspective: 1100px;
+    transition: transform .14s ease;
+  }
+  .item__flip {
+    position: relative; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .6s cubic-bezier(.2,.8,.25,1);
+  }
+  .item.is-flipped .item__flip { transform: rotateY(180deg); }
+  .item__face {
+    position: relative; height: 100%; overflow: hidden;
+    border-radius: 12px;
     border: 2px solid var(--edge);
     background:
       linear-gradient(160deg, color-mix(in srgb, var(--a, var(--gold)) 16%, var(--b, var(--panel))), var(--b, var(--panel)) 68%);
     padding: 14px 14px 12px;
-    /* 留给盒脊 / 书口那点边距走变量——手机那条 .grid:not(.is-list) .item{padding:…}
+    /* 留给盒脊 / 书口那点边距走变量——手机那条 .grid:not(.is-list) .item__face{padding:…}
        权重比 .item--disc 高，硬写 padding-left 会被它顶掉（翻过一次车）。 */
     padding-left: var(--pad-l, 14px); padding-right: var(--pad-r, 14px);
     box-shadow: 4px 4px 0 var(--shade);
-    transition: transform .14s ease, box-shadow .14s ease;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    transition: box-shadow .14s ease;
+  }
+  /* 背面：转过去 180 度扣在正面后头 */
+  .item__face--back {
+    position: absolute; inset: 0;
+    transform: rotateY(180deg);
+    display: flex; flex-direction: column;
+  }
+  /* 右下角那颗「翻面」小钮 */
+  /* 正面：跟右上角那两枚小标并排；背面：钉在右下角 */
+  .item__top .item__turn { position: static; width: 22px; height: 22px; }
+  .item__turn {
+    position: absolute; right: 7px; bottom: 7px; z-index: 3;
+    width: 24px; height: 24px; border-radius: 50%; cursor: pointer; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--edge);
+    background: color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel));
+    color: var(--ink); font-size: calc(12px * var(--fs)); font-family: inherit;
+    opacity: .75; transition: opacity .15s ease, transform .15s ease;
+  }
+  .item__turn:hover { opacity: 1; transform: scale(1.1); }
+  .item__turn:active { transform: scale(.94); }
+  /* 背面的内容 */
+  .item__back-label {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: calc(11px * var(--fs)); letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ink-dim); margin-bottom: 8px;
+  }
+  .item__back-note {
+    flex: 1; margin: 0; font-weight: var(--fw-thin);
+    font-size: calc(13.5px * var(--fs)); line-height: 1.9; color: var(--ink-soft);
+    display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .item__back-note.is-empty { color: var(--ink-faint); font-style: italic; }
+  .item__back-meta {
+    margin-top: 8px; padding-right: 28px; font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: calc(11px * var(--fs)); letter-spacing: 1.5px; line-height: 1.9; color: var(--ink-dim);
+  }
+  /* 背面那道条码（碟片 / 书刊背面都有这么一块） */
+  .item__barcode {
+    display: block; height: 15px; margin-top: 8px; margin-right: 32px;
+    background: repeating-linear-gradient(90deg,
+      rgba(var(--ink-rgb),.75) 0 1px, transparent 1px 3px,
+      rgba(var(--ink-rgb),.75) 3px 5px, transparent 5px 6px,
+      rgba(var(--ink-rgb),.75) 6px 8px, transparent 8px 11px);
+    opacity: .5;
+  }
+  /* 卡牌的背面不印条码，印一层像卡背那样的菱格 */
+  .item--card .item__face--back {
+    background-image:
+      repeating-linear-gradient(45deg, rgba(var(--line-rgb),.09) 0 6px, transparent 6px 12px),
+      repeating-linear-gradient(-45deg, rgba(var(--line-rgb),.09) 0 6px, transparent 6px 12px),
+      linear-gradient(160deg, color-mix(in srgb, var(--a, var(--gold)) 16%, var(--b, var(--panel))), var(--b, var(--panel)) 68%);
   }
   /* 点一下＝对着光照一下（一次性扫光，扫完不留） */
-  .item.is-shine::before {
-    content: ""; position: absolute; inset: -40% -120%; pointer-events: none; opacity: 0;
+  .item.is-shine .item__face--front::before {
+    content: ""; position: absolute; inset: -40% -120%; pointer-events: none; opacity: 0; z-index: 2;
     background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.5) 50%, transparent 62%);
     animation: shelfSheen .95s ease-out;
   }
+  /* ④ 架板：每张卡底下垫一块板。同一行的卡高度一样（grid 默认拉平），
+     板子左右各伸出 6px＝正好咬住 12px 的缝，一行看过去就是一条通板。 */
+  .item::after {
+    content: ""; position: absolute; left: -6px; right: -6px; bottom: -9px; height: 7px;
+    border-radius: 0 0 4px 4px; pointer-events: none;
+    background: linear-gradient(180deg,
+      color-mix(in srgb, var(--c-accent) 26%, var(--c-bg)),
+      color-mix(in srgb, var(--c-accent) 10%, var(--c-bg)) 55%,
+      color-mix(in srgb, var(--c-ink) 22%, var(--c-bg)));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 2px 5px rgba(0,0,0,.18);
+  }
+  .grid.is-list .item::after { display: none; }
+
+  /* ② 卡牌：跟着手指歪一歪，反光跟着手指走（只有卡牌有，别的媒介不闪） */
+  .item--card.is-tilt .item__flip {
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform .08s linear;
+  }
+  .item__glare {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%),
+      rgba(255,255,255,.55), rgba(255,255,255,.2) 30%, transparent 62%);
+    transition: opacity .18s ease;
+  }
+  .item--card.is-tilt .item__glare { opacity: 1; }
   @keyframes shelfSheen {
     0%   { transform: translateX(-60%); opacity: 0; }
     12%  { opacity: 1; }
@@ -439,7 +531,8 @@
   .item__medium { position: absolute; pointer-events: none; }
 
   /* 碟片：左边那条盒脊 */
-  .item--disc { border-radius: 8px; --pad-l: 28px; }
+  .item--disc { --pad-l: 28px; }
+  .item--disc .item__face { border-radius: 8px; }
   .item--disc .item__medium {
     left: 0; top: 0; bottom: 0; width: 14px;
     border-right: 2px solid var(--edge);
@@ -465,14 +558,14 @@
   }
 
   /* 卡牌：内圈细边 + 一角虹彩（静的时候很淡，点一下才真的闪） */
-  .item--card { border-radius: 16px; }
+  .item--card .item__face { border-radius: 16px; }
   .item--card .item__medium {
     inset: 5px; border-radius: 11px;
     border: 1px solid rgba(var(--line-rgb),.30);
     background: linear-gradient(135deg, rgba(255,255,255,.10), transparent 32%,
                                         transparent 68%, rgba(255,255,255,.07));
   }
-  .item--card::after {
+  .item--card .item__face--front::after {
     content: ""; position: absolute; top: -34px; right: -34px;
     width: 96px; height: 96px; border-radius: 50%; pointer-events: none;
     background: conic-gradient(from 200deg, #ff9db0, #ffe08a, #a8e6cf, #a0c4ff, #d3b4ff, #ff9db0);
@@ -480,9 +573,8 @@
   }
 
   /* 书刊 / 场刊：右边书口的页脚，上边一枚装订钉 */
-  .item--book, .item--program {
-    border-radius: 3px 12px 12px 3px; --pad-l: 23px; --pad-r: 19px;
-  }
+  .item--book, .item--program { --pad-l: 23px; --pad-r: 19px; }
+  .item--book .item__face, .item--program .item__face { border-radius: 3px 12px 12px 3px; }
   /* 右边：翻口那一叠页脚 */
   .item--book .item__medium, .item--program .item__medium {
     right: 0; top: 0; bottom: 0; width: 10px;
@@ -490,7 +582,7 @@
     background: repeating-linear-gradient(90deg, rgba(var(--line-rgb),.16) 0 1px, transparent 1px 3px);
   }
   /* 左边：订口那道装订边（两条线，中间留白＝书脊） */
-  .item--book::after, .item--program::after {
+  .item--book .item__face--front::after, .item--program .item__face--front::after {
     content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 11px; pointer-events: none;
     border-right: 1px solid rgba(var(--line-rgb),.26);
     background:
@@ -508,12 +600,15 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .item.is-shine::before { display: none; }
+    .item.is-shine .item__face--front::before { display: none; }
+    .item__flip { transition: none; }
   }
   body.is-curator .item { cursor: pointer; }
-  .item:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--shade); }
-  body.is-curator .item:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--shade); }
-  .item--wish { border-style: dashed; background: var(--panel); }
+  .item:hover { transform: translate(-2px, -2px); }
+  .item:hover .item__face { box-shadow: 7px 7px 0 var(--shade); }
+  body.is-curator .item:active { transform: translate(2px, 2px); }
+  body.is-curator .item:active .item__face { box-shadow: 1px 1px 0 var(--shade); }
+  .item--wish .item__face { border-style: dashed; background: var(--panel); }
   .item__top { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
   .item__emoji { font-size: calc(19px * var(--fs)); line-height: 1; }
   .item__type {
@@ -557,7 +652,7 @@
   /* 手机上卡片排两列——一列一件要滑十三屏，两列减半，也更像一排真的架子 */
   @media (max-width: 620px) {
     .grid:not(.is-list) { grid-template-columns: repeat(2, 1fr); gap: 9px; }
-    .grid:not(.is-list) .item {
+    .grid:not(.is-list) .item__face {
       padding: 12px 11px 10px;
       padding-left: var(--pad-l, 11px); padding-right: var(--pad-r, 11px);
     }
@@ -1563,10 +1658,16 @@
     }
     if (c) { el.style.setProperty("--a", c.accent); el.style.setProperty("--b", c.bg); }
 
+    /* 卡片分两层：外壳 el 只管站位和投影，真正的卡面是 face（正面）/ back（背面），
+       两面扣在一起，翻面就是把中间那层 flip 转 180 度。 */
+    var flip = document.createElement("div"); flip.className = "item__flip";
+    var face = document.createElement("div"); face.className = "item__face item__face--front";
+    flip.appendChild(face); el.appendChild(flip);
+
     /* 媒介记号：盒脊 / 唱片 / 内圈 / 书口 / 贴条，长什么样全交给 CSS */
     var med = document.createElement("i");
     med.className = "item__medium"; med.setAttribute("aria-hidden", "true");
-    el.appendChild(med);
+    face.appendChild(med);
     /* 点一下＝拿起来对着光照一下（扫完就撤，不留在卡面上） */
     el.addEventListener("pointerdown", function () {
       el.classList.remove("is-shine");
@@ -1584,14 +1685,14 @@
     if (it.signed) badges.push("✍️");
     bd.textContent = badges.join(" ");
     top.appendChild(em); top.appendChild(ty); top.appendChild(bd);
-    el.appendChild(top);
+    face.appendChild(top);   /* 右上角那颗翻面钮在下面 turnBtn() 定义好之后再塞进来 */
 
     var nm = document.createElement("p"); nm.className = "item__name"; nm.textContent = it.name;
-    el.appendChild(nm);
+    face.appendChild(nm);
 
     if (it.spec) {
       var sp = document.createElement("span"); sp.className = "item__spec"; sp.textContent = it.spec;
-      el.appendChild(sp); el.appendChild(document.createElement("br"));
+      face.appendChild(sp); face.appendChild(document.createElement("br"));
     }
 
     /* 正在只看这个人时，上面那条提示已经写了他是谁，卡片里不必再挂一次 */
@@ -1602,17 +1703,91 @@
       ch.innerHTML = "<i></i>";
       ch.appendChild(document.createTextNode(whoLine(it, c) + " · " + c.year));
       ch.addEventListener("click", function (e) { e.stopPropagation(); });
-      el.appendChild(ch);
+      face.appendChild(ch);
     }
 
     if (it.note) {
       var no = document.createElement("p"); no.className = "item__note"; no.textContent = it.note;
-      el.appendChild(no);
+      face.appendChild(no);
     }
     if (it.date) {
       var dt = document.createElement("span"); dt.className = "item__date";
       dt.textContent = (it.wish ? "许愿于 " : "入手于 ") + it.date;
-      el.appendChild(dt);
+      face.appendChild(dt);
+    }
+
+    /* ————— 背面：像把东西翻过来看背后 ————— */
+    var back = document.createElement("div");
+    back.className = "item__face item__face--back";
+    var bl = document.createElement("span"); bl.className = "item__back-label";
+    bl.textContent = t.label + " · 背面";
+    back.appendChild(bl);
+    var bn = document.createElement("p");
+    bn.className = "item__back-note" + (it.note ? "" : " is-empty");
+    bn.textContent = it.note || "（背面没写字）";
+    back.appendChild(bn);
+    var bm = document.createElement("span"); bm.className = "item__back-meta";
+    var metaLines = [];
+    if (it.spec) metaLines.push(it.spec);
+    if (c) metaLines.push(whoLine(it, c) + " · " + c.year);
+    if (it.date) metaLines.push((it.wish ? "许愿于 " : "入手于 ") + it.date);
+    if (it.type === "disc") metaLines.push(it.nas ? "已进 NAS" : "还没进 NAS");
+    if (it.signed) metaLines.push("有他的亲笔签名");
+    bm.innerHTML = metaLines.join("<br>");
+    back.appendChild(bm);
+    /* 碟片 / 书刊 / 场刊的背面印条码；卡牌是菱格卡背（CSS 里给的），别再叠条码 */
+    if (it.type !== "card") {
+      var bc = document.createElement("span");
+      bc.className = "item__barcode"; bc.setAttribute("aria-hidden", "true");
+      back.appendChild(bc);
+    }
+    flip.appendChild(back);
+
+    /* 两面都有一颗「翻面」小钮 */
+    function turnBtn() {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "item__turn";
+      b.textContent = "↻";
+      b.setAttribute("aria-label", "翻到另一面");
+      b.addEventListener("click", function (e) {
+        e.stopPropagation();                       // 别把馆长的「编辑」一起触发了
+        el.classList.toggle("is-flipped");
+        el.classList.remove("is-tilt");            // 翻过去就别再歪着
+        el.style.removeProperty("--rx");
+        el.style.removeProperty("--ry");
+      });
+      return b;
+    }
+    top.appendChild(turnBtn());
+    back.appendChild(turnBtn());
+
+    /* ————— 卡牌：跟着手指 / 鼠标歪一歪，反光跟着走 ————— */
+    if (it.type === "card" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      var glare = document.createElement("i");
+      glare.className = "item__glare"; glare.setAttribute("aria-hidden", "true");
+      face.appendChild(glare);
+      var tilting = false;
+      function tilt(e) {
+        if (el.classList.contains("is-flipped")) return;
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width;    // 0…1
+        var y = (e.clientY - r.top) / r.height;
+        el.style.setProperty("--ry", ((x - .5) * 13).toFixed(2) + "deg");
+        el.style.setProperty("--rx", ((.5 - y) * 11).toFixed(2) + "deg");
+        el.style.setProperty("--gx", (x * 100).toFixed(1) + "%");
+        el.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
+        if (!tilting) { tilting = true; el.classList.add("is-tilt"); }
+      }
+      function untilt() {
+        tilting = false;
+        el.classList.remove("is-tilt");
+        el.style.removeProperty("--rx");
+        el.style.removeProperty("--ry");
+      }
+      el.addEventListener("pointermove", tilt);
+      el.addEventListener("pointerleave", untilt);
+      el.addEventListener("pointercancel", untilt);
+      el.addEventListener("pointerup", untilt);
     }
 
     if (isCurator()) {
