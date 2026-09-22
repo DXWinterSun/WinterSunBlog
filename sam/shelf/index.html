@@ -744,6 +744,53 @@
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: calc(11px * var(--fs)); letter-spacing: 1.5px; color: var(--ink);
   }
+  /* ————— 按角色＝一份名册（Winter 2026-09-22：「一开始出现整列表那种形式，
+     点进去之后会具体显示这个人对应了哪几个藏品；不点进去，就显示它有多少件藏品、
+     大概是什么，放个 emoji 表示一下」） ————— */
+  .croster { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; }
+  .crow {
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 36%, var(--c-ink));
+    border-radius: 4px 12px 12px 4px;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--a, var(--gold)) 13%, transparent), transparent 46%), var(--panel);
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--a, var(--gold)) 55%, var(--c-ink));
+    overflow: hidden;
+  }
+  .crow__head {
+    width: 100%; display: flex; align-items: center; gap: 9px;
+    padding: 10px 12px; cursor: pointer; text-align: left;
+    background: none; border: 0; color: inherit; font-family: inherit;
+  }
+  .crow__dot {
+    width: 20px; height: 20px; border-radius: 50%; flex: none;
+    background: var(--a, var(--gold));
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 40%, var(--c-ink));
+  }
+  .crow__name {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 700;
+    font-size: calc(14.5px * var(--fs)); color: var(--ink-bright); letter-spacing: .3px;
+  }
+  .crow__sub { font-weight: var(--fw-thin); font-size: calc(12px * var(--fs)); color: var(--ink-dim); }
+  .crow__kinds { margin-left: auto; font-size: calc(14px * var(--fs)); letter-spacing: 1px; white-space: nowrap; }
+  .crow__n {
+    flex: none; padding: 1px 9px; border-radius: 999px;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 16%, transparent);
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: calc(11px * var(--fs)); letter-spacing: 1px; color: var(--ink);
+  }
+  .crow__caret { flex: none; color: var(--ink-dim); font-size: calc(12px * var(--fs)); transition: transform .2s ease; }
+  .crow.is-open .crow__caret { transform: rotate(90deg); }
+  .crow__body { display: none; padding: 2px 0 0; }
+  .crow.is-open .crow__body { display: block; }
+  .crow__pal { display: flex; gap: 2px; flex: none; }
+  .crow__pal i {
+    display: block; width: 10px; height: 6px; border-radius: 1px;
+    border: 1px solid rgba(var(--line-rgb),.25);
+  }
+  @media (max-width: 480px) {
+    .crow__sub, .crow__pal { display: none; }   /* 手机上先保名字、件数和那几个 emoji */
+  }
+
   .gcard__pal { display: flex; gap: 2px; }
   .gcard__pal i {
     display: block; width: 12px; height: 7px; border-radius: 1px;
@@ -754,10 +801,21 @@
   .gcard--ghosts .gcard__name { color: var(--ink-soft); }
   .gcard--ghosts .map-grid { width: auto; max-width: none; }
 
-  /* 组里那一小格栅：跟外面同一套，只是窄一点 */
+  /* 组里的东西左右滑，不再往下堆（Winter 2026-09-22：「按类别分类应该左右滑动
+     更符合逻辑一点，不然我要把一个类别的全看完才能看另一个类别」）。
+     一组占一屏高度以内，竖着滚是换组，横着滑是看这一组里的东西。 */
   .gcard__grid {
-    display: grid; gap: 12px; row-gap: 22px;
-    grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr));
+    display: flex; gap: 12px; align-items: stretch;
+    overflow-x: auto; overflow-y: visible;
+    scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+    padding: 0 2px 20px;                 /* 下面那点留白是给架板的 */
+    scrollbar-width: none;
+    /* 右边渐隐，暗示还能往右滑 */
+    mask-image: linear-gradient(90deg, #000 92%, transparent);
+  }
+  .gcard__grid::-webkit-scrollbar { display: none; }
+  .gcard__grid > .item {
+    flex: 0 0 min(250px, 76%); scroll-snap-align: start;
   }
 
   .gline {
@@ -1766,14 +1824,77 @@
     return d;
   }
 
+  /* 名册里的一行＝一个人：不点开只说「几件、大概是什么」（emoji），
+     点开才把他的东西铺出来（左右滑）。 */
+  function charRow(g, make) {
+    var c = g.meta.charId ? charById[g.meta.charId] : null;
+    var el = document.createElement("div");
+    el.className = "crow";
+    if (g.meta.a) el.style.setProperty("--a", g.meta.a);
+
+    var head = document.createElement("button");
+    head.type = "button"; head.className = "crow__head";
+    head.setAttribute("aria-expanded", "false");
+
+    var dot = document.createElement("span"); dot.className = "crow__dot";
+    var nm = document.createElement("span"); nm.className = "crow__name"; nm.textContent = g.meta.name;
+    head.appendChild(dot); head.appendChild(nm);
+    if (g.meta.sub) {
+      var sb = document.createElement("span"); sb.className = "crow__sub";
+      sb.textContent = g.meta.sub + (g.meta.year ? " · " + g.meta.year : "");
+      head.appendChild(sb);
+    }
+    if (c) {
+      var pal = document.createElement("span"); pal.className = "crow__pal";
+      [c.bg, c.accent, c.text, c.muted].forEach(function (col) {
+        if (!col) return;
+        var i = document.createElement("i"); i.style.background = col; pal.appendChild(i);
+      });
+      head.appendChild(pal);
+    }
+    /* 大概是些什么：按类别数一数，用那一类的 emoji 说话（同类两件以上就写个数） */
+    var tally = {};
+    g.items.forEach(function (it) { tally[it.type] = (tally[it.type] || 0) + 1; });
+    var kinds = TYPES.filter(function (t) { return tally[t.id]; })
+      .map(function (t) { return t.emoji + (tally[t.id] > 1 ? tally[t.id] : ""); }).join(" ");
+    var kd = document.createElement("span"); kd.className = "crow__kinds"; kd.textContent = kinds;
+    head.appendChild(kd);
+    var n = document.createElement("span"); n.className = "crow__n";
+    n.textContent = g.items.length + " 件";
+    head.appendChild(n);
+    var ca = document.createElement("span"); ca.className = "crow__caret"; ca.textContent = "▸";
+    head.appendChild(ca);
+    el.appendChild(head);
+
+    var body = document.createElement("div"); body.className = "crow__body";
+    var strip = document.createElement("div"); strip.className = "gcard__grid";
+    body.appendChild(strip);
+    el.appendChild(body);
+
+    var filled = false;
+    head.addEventListener("click", function () {
+      var open = el.classList.toggle("is-open");
+      head.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open && !filled) {                      // 点开才做卡片，省得一上来做六十张
+        g.items.forEach(function (it) { strip.appendChild(make(it)); });
+        filled = true;
+      }
+    });
+    return el;
+  }
+
   /* 一组＝一张大卡：头上是这个人（或这一类、这个年代），他的东西都摆在里头 */
   function groupCard(g, make) {
     var el = document.createElement("section");
     el.className = "gcard";
     if (g.meta.a) el.style.setProperty("--a", g.meta.a);
     var head = document.createElement("div"); head.className = "gcard__head";
-    var dot = document.createElement("span"); dot.className = "gcard__dot";
-    head.appendChild(dot);
+    /* 只有「这一组是某个人」时才点那颗色点；按类别 / 按年代没有专属颜色，
+       点了反而三组一个样（名字里本来就带着那一类的 emoji） */
+    if (g.meta.a) {
+      var dot = document.createElement("span"); dot.className = "gcard__dot";
+      head.appendChild(dot);
+    }
     /* 按角色排的时候，名字点得开——跳去画册看这张脸 */
     var c = g.meta.charId ? charById[g.meta.charId] : null;
     var nm;
@@ -2062,6 +2183,7 @@
     grid.innerHTML = "";
     grid.classList.toggle("is-list", isList);
     var make = isList ? itemRow : itemCard;
+    var roster = null;
     groupOf(list).forEach(function (g) {
       if (!g.key) {                                   // 不分组：直接铺
         g.items.forEach(function (it) { grid.appendChild(make(it)); });
@@ -2070,6 +2192,15 @@
       if (isList) {
         grid.appendChild(groupLine(g));
         g.items.forEach(function (it) { grid.appendChild(make(it)); });
+        return;
+      }
+      if (arrange === "char") {                    // 按角色＝名册，点开才展开
+        if (!roster) {
+          roster = document.createElement("div");
+          roster.className = "croster";
+          grid.appendChild(roster);
+        }
+        roster.appendChild(charRow(g, make));
         return;
       }
       grid.appendChild(groupCard(g, make));
