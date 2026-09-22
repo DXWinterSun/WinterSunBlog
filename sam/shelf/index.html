@@ -752,6 +752,26 @@
   .gcard__n:active { transform: translate(1px, 1px); }
   .gcard__n i { font-style: normal; font-size: calc(10px * var(--fs)); transition: transform .2s ease; }
   .gcard.is-open .gcard__n i { transform: rotate(180deg); }
+  /* 摊开之后，组头吸在屏幕顶上——不然滑到一半想收起来，还得爬回最上面
+     （Winter 2026-09-22：「展开了之后往下滑的话，我得滑到最上面才能把它折叠起来」） */
+  .gcard.is-open .gcard__head {
+    position: sticky; top: 0; z-index: 6;
+    margin: -13px -12px 14px; padding: 12px 12px 10px;
+    border-radius: 12px 12px 0 0;
+    background: var(--panel);
+    box-shadow: 0 6px 12px -8px rgba(0,0,0,.45);
+  }
+  /* 摊开的那一组末尾再放一颗「收起」，滑到底也不用往回爬 */
+  .gcard__collapse {
+    display: none; width: 100%; margin-top: 4px; cursor: pointer;
+    padding: 9px 12px; border-radius: 999px;
+    border: 2px dashed color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: none; color: var(--ink-dim);
+    font-family: inherit; font-size: calc(12.5px * var(--fs)); letter-spacing: 1.5px;
+  }
+  .gcard.is-open .gcard__collapse { display: block; }
+  .gcard__collapse:active { transform: translate(1px, 1px); }
+
   /* 摊开：从「一条横着滑」变回「一片格栅」，一眼看全 */
   .gcard.is-open .gcard__grid {
     display: grid; overflow: visible;
@@ -1943,19 +1963,27 @@
     n.appendChild(document.createTextNode(g.items.length + " 件"));
     var ca = document.createElement("i"); ca.textContent = "▾";
     n.appendChild(ca);
-    n.addEventListener("click", function () {
+    function toggle(scrollBack) {
       var open = el.classList.toggle("is-open");
       n.setAttribute("aria-expanded", open ? "true" : "false");
-      if (!open) {                               // 收回去时把横条滑回开头，不然像卡住了
+      if (!open) {
         var strip = el.querySelector(".gcard__grid");
-        if (strip) strip.scrollLeft = 0;
+        if (strip) strip.scrollLeft = 0;         // 收回去时把横条滑回开头，不然像卡住了
+        /* 从底下那颗收起的：收完把这一组的头带回眼前，不然会「掉」到别处 */
+        if (scrollBack) el.scrollIntoView({ block: "start", behavior: "smooth" });
       }
-    });
+    }
+    n.addEventListener("click", function () { toggle(false); });
     head.appendChild(n);
     el.appendChild(head);
     var inner = document.createElement("div"); inner.className = "gcard__grid";
     g.items.forEach(function (it) { inner.appendChild(make(it)); });
     el.appendChild(inner);
+    var col = document.createElement("button");
+    col.type = "button"; col.className = "gcard__collapse";
+    col.textContent = "▴ 收起 " + g.meta.name;
+    col.addEventListener("click", function () { toggle(true); });
+    el.appendChild(col);
     return el;
   }
 
