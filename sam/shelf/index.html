@@ -185,7 +185,7 @@
   /* ————— 总标题＝一块真的架板，上面摆着四样东西 —————
      Winter 2026-09-23：「现在这个标题没什么设计🤔」→ 给了三版，她挑了这版
      （「C 好可爱！我就喜欢这种感觉🥺」）。板子和小东西的颜色都吃当前主题色。 */
-  .head { text-align: center; margin-bottom: 8px; }
+  .head { text-align: center; margin-bottom: 0; }
   .head__eyebrow {
     display: flex; align-items: center; justify-content: center; gap: 9px;
     font-family: 'Special Elite','Courier New',monospace;
@@ -196,9 +196,9 @@
   .head h1 {
     font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
     font-size: clamp(28px, 7.4vw, 42px); margin: 0; letter-spacing: 1px; color: var(--ink-bright);
-    text-shadow: 2px 3px 0 rgba(var(--gold-rgb),.20);
+    text-shadow: 2px 2px 0 rgba(var(--gold-rgb),.14);
   }
-  .head__shelf { display: block; width: min(330px, 88%); margin: 10px auto 0; }
+  .head__shelf { display: block; width: min(320px, 88%); margin: 13px auto 0; }
   .head__things {
     display: flex; align-items: flex-end; justify-content: center; gap: 16px;
     font-size: calc(19px * var(--fs)); line-height: 1; margin-bottom: 3px;
@@ -225,16 +225,9 @@
       color-mix(in srgb, var(--gold) 58%, var(--c-ink)) 58% 100%);
     box-shadow: 3px 4px 0 rgba(var(--gold-rgb),.22); position: relative;
   }
-  /* 板子底下那两只小支脚 */
-  .head__plank::before, .head__plank::after {
-    content: ""; position: absolute; top: 100%; width: 3px; height: 8px;
-    background: rgba(var(--ink-rgb),.4);
-  }
-  .head__plank::before { left: 14%; }
-  .head__plank::after { right: 14%; }
   .head p {
     font-weight: var(--fw-thin); font-size: clamp(11.5px, 3vw, 13px); letter-spacing: 2px;
-    color: var(--ink-dim); margin: 15px 0 0; line-height: 1.9;
+    color: var(--ink-dim); margin: 9px 0 0; line-height: 1.9;
   }
   /* 进门的时候四样东西一件件落到板子上 */
   @media (prefers-reduced-motion: no-preference) {
@@ -257,25 +250,42 @@
   }
   body.is-curator .curator-tag { display: inline-block; }
 
-  /* 统计行 */
-  .stats {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 7px;
-    margin: 16px 0 4px;
-    font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: calc(11.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim); text-transform: uppercase;
+  /* ————— 统计＝架板底下吊着的一块牌 —————
+     Winter 2026-09-23：「下面的标签太丑了😂……尤其是总共多少件这种应该要显眼一点」
+     →「吊牌很不错！」所以总数做成挂在架子上的一块牌，四项小数据在牌下面一行、不加框。 */
+  .stats { display: block; text-align: center; margin: 0 0 4px; }
+  .stats__tag {
+    position: relative; display: inline-flex; align-items: baseline; gap: 7px;
+    margin-top: 22px; padding: 7px 18px 8px; border-radius: 11px;
+    border: 2px solid rgba(var(--ink-rgb),.75);
+    background: color-mix(in srgb, var(--gold) 16%, var(--panel));
+    box-shadow: 4px 5px 0 rgba(var(--gold-rgb),.45);
   }
-  /* 一条统计＝一枚小牌子，不再是一排飘着的字 */
-  .stats > * {
-    padding: 4px 11px; border-radius: 999px;
-    border: 2px solid var(--edge-soft); background: var(--panel);
+  /* 挂牌的那两根绳，从架板垂下来 */
+  .stats__tag::before, .stats__tag::after {
+    content: ""; position: absolute; bottom: 100%; width: 2px; height: 20px;
+    background: rgba(var(--ink-rgb),.45);
   }
-  .stats b { color: var(--gold); font-weight: 400; }
+  .stats__tag::before { left: 26%; }
+  .stats__tag::after { right: 26%; }
+  .stats__tag b {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: calc(31px * var(--fs)); line-height: 1; color: var(--gold);
+  }
+  .stats__tag i {
+    font-style: normal; font-size: calc(12px * var(--fs));
+    color: var(--ink-dim); letter-spacing: 2px;
+  }
+  .stats__row {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 3px 13px; margin-top: 12px;
+    font-size: calc(12px * var(--fs)); color: var(--ink-dim);
+  }
+  .stats__row > * { display: inline-flex; align-items: center; gap: 5px; }
+  .stats__row em { font-style: normal; color: var(--ink); }
   .stats__jump {
-    cursor: pointer;
-    font-family: inherit; font-size: inherit; letter-spacing: inherit;
-    color: inherit; text-transform: inherit;
+    border: 0; background: none; padding: 0; font: inherit; color: inherit; cursor: pointer;
     text-decoration: underline dotted; text-underline-offset: 4px;
-    text-decoration-color: rgba(var(--gold-rgb),.45);
+    text-decoration-color: rgba(var(--gold-rgb),.5);
   }
   .stats__jump:hover { color: var(--ink); }
 
@@ -1513,11 +1523,11 @@
 <div class="head">
   <span class="head__eyebrow"><i></i>Winter Sun · Collection<i></i></span>
   <h1>The Collector&rsquo;s Shelf</h1>
+  <p>藏品架 · 他的东西，我一件件收</p>
   <span class="head__shelf" aria-hidden="true">
     <span class="head__things" id="head-things"><span>📀</span><span>🎵</span><span>🃏</span><span>📔</span></span>
     <span class="head__plank"></span>
   </span>
-  <p>藏品架 · 他的东西，我一件件收</p>
   <span class="curator-tag">🗝️ 馆长在馆 · ↻ 翻面 · ✎ 修改</span>
 </div>
 
@@ -2619,23 +2629,31 @@
 
     var stats = $("stats");
     stats.innerHTML = "";
-    [["已入手", allOwn.length + " 件"],
-     ["有签名", signed.length + " 件"],
-     ["心愿单", allWish.length + " 件"]]
-      .concat(discs.length ? [["碟片进 NAS", nasDone.length + " / " + discs.length]] : [])
-      .concat(chars.length ? [["点亮角色", covered + " / " + chars.length, 1]] : [])
+    /* 架板底下吊着的那块牌：总共多少件 */
+    var tag = document.createElement("span");
+    tag.className = "stats__tag";
+    tag.innerHTML = "<b>" + allOwn.length + "</b><i>件藏品</i>";
+    stats.appendChild(tag);
+    /* 牌下面一行小字：签名 / NAS / 点亮 / 心愿 */
+    var row = document.createElement("span");
+    row.className = "stats__row";
+    [["✍️", "签名", signed.length]]
+      .concat(discs.length ? [["📡", "NAS", nasDone.length + " / " + discs.length]] : [])
+      .concat(chars.length ? [["✦", "点亮", covered + " / " + chars.length, 1]] : [])
+      .concat([["🌠", "心愿", allWish.length]])
       .forEach(function (p) {
-        /* 「点亮角色」做成可点的——谁都能一步滑到底下那张画册地图 */
-        var s = document.createElement(p[2] ? "button" : "span");
-        s.innerHTML = p[0] + " <b>" + p[1] + "</b>";
-        if (p[2]) {
+        /* 「点亮」做成可点的——谁都能一步滑到底下那张画册地图 */
+        var s = document.createElement(p[3] ? "button" : "span");
+        s.innerHTML = p[0] + " " + p[1] + " <em>" + p[2] + "</em>";
+        if (p[3]) {
           s.type = "button";
           s.className = "stats__jump";
           s.title = "去看画册地图";
           s.addEventListener("click", jumpToMap);
         }
-        stats.appendChild(s);
+        row.appendChild(s);
       });
+    stats.appendChild(row);
     $("progress-num").textContent = "SHELF " + allOwn.length;
 
     /* 角色地图（「按角色」那一屏也用同一颗格子，见 mapSlot） */
