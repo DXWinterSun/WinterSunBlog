@@ -203,17 +203,31 @@
     border-bottom: 2px solid rgba(var(--gold-rgb),.4);
   }
   .head__shelf { display: block; width: min(320px, 88%); margin: 13px auto 0; }
+  /* 架上那排东西＝七个类别，点一下只看那一类
+     （Winter 2026-09-23：「这部分就应该直接做成点击查看当前分类，
+       下面就别拖拖拉拉这么多行标签了……所有的类型都摆在架子上」） */
   .head__things {
-    display: flex; align-items: flex-end; justify-content: center; gap: 16px;
-    font-size: calc(19px * var(--fs)); line-height: 1; margin-bottom: 3px;
+    display: flex; align-items: flex-end; justify-content: center; gap: 13px;
+    font-size: calc(20px * var(--fs)); line-height: 1; margin-bottom: 3px;
   }
-  .head__things span {
-    display: block; cursor: pointer;
+  .head__things button {
+    position: relative; z-index: 0;
+    display: block; border: 0; background: none; padding: 0; cursor: pointer;
+    font-size: inherit; line-height: 1; color: inherit;
     filter: drop-shadow(1px 2px 0 rgba(var(--ink-rgb),.18));
-    transition: transform .16s cubic-bezier(.3,1.6,.5,1);
+    transition: transform .16s cubic-bezier(.3,1.6,.5,1), opacity .2s ease;
   }
-  .head__things span:hover { transform: translateY(-5px) rotate(-5deg); }
-  .head__things span.is-hop { animation: shelfHop .5s cubic-bezier(.3,1.5,.5,1); }
+  .head__things button:hover { transform: translateY(-5px) rotate(-5deg); }
+  /* 架上没有这一类的东西：压淡，但照样点得动（点了会告诉她还没有） */
+  .head__things button.is-empty { opacity: .3; }
+  /* 正在只看这一类：拿起来，底下垫一圈光 */
+  .head__things button.is-on { transform: translateY(-8px); }
+  .head__things button.is-on::before {
+    content: ""; position: absolute; inset: -5px -7px; z-index: -1; border-radius: 999px;
+    background: rgba(var(--gold-rgb),.22);
+    box-shadow: 0 0 0 2px rgba(var(--gold-rgb),.35);
+  }
+  .head__things button.is-hop { animation: shelfHop .5s cubic-bezier(.3,1.5,.5,1); }
   @keyframes shelfHop {
     0% { transform: none; }
     35% { transform: translateY(-13px) rotate(7deg); }
@@ -231,8 +245,15 @@
   }
   .head p {
     font-weight: var(--fw-thin); font-size: clamp(11.5px, 3vw, 13px); letter-spacing: 2px;
-    color: var(--ink-dim); margin: 9px 0 0; line-height: 1.9;
+    color: var(--ink-dim); margin: 9px 0 0; line-height: 1.9; min-height: 1.9em;
   }
+  /* 挑了某一类之后，这行就变成「只看 📀 碟片 · 36 件 ✕」 */
+  .head__sub b { font-weight: 500; color: var(--ink); }
+  .head__sub .sub__x {
+    border: 0; background: none; padding: 0 2px; margin-left: 5px; cursor: pointer;
+    font: inherit; color: var(--ink-faint);
+  }
+  .head__sub .sub__x:hover { color: var(--ink); }
   /* 进门的时候四样东西一件件落到板子上 */
   @media (prefers-reduced-motion: no-preference) {
     .head__things span { animation: shelfDrop .42s cubic-bezier(.3,1.5,.5,1) backwards; }
@@ -281,17 +302,23 @@
     color: var(--ink-dim); letter-spacing: 2px;
   }
   .stats__row {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 3px 13px; margin-top: 12px;
-    font-size: calc(12px * var(--fs)); color: var(--ink-dim);
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 3px 11px; margin-top: 12px;
+    font-size: calc(11.5px * var(--fs)); color: var(--ink-dim);
   }
   .stats__row > * { display: inline-flex; align-items: center; gap: 5px; }
   .stats__row em { font-style: normal; color: var(--ink); }
-  .stats__jump {
+  .stats__jump, .stats__pick {
     border: 0; background: none; padding: 0; font: inherit; color: inherit; cursor: pointer;
     text-decoration: underline dotted; text-underline-offset: 4px;
     text-decoration-color: rgba(var(--gold-rgb),.5);
   }
-  .stats__jump:hover { color: var(--ink); }
+  .stats__jump:hover, .stats__pick:hover { color: var(--ink); }
+  /* 正在只看「有签名 / 已进 NAS / 没进」时，这一项亮起来 */
+  .stats__pick.is-on {
+    color: var(--ink-gold); text-decoration-style: solid;
+    text-decoration-color: rgba(var(--gold-rgb),.85);
+  }
+  .stats__pick.is-on em { color: var(--ink-gold); }
 
   /* 未发布改动的横幅 */
   .pending {
@@ -367,7 +394,31 @@
     width: 100%;
     display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px;
   }
-  .arrange { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  /* 排列 / 视图＝一条连排的分段控件，不再是一颗颗散着的药丸
+     （Winter 2026-09-23：「排列方式选项卡也可以有更好的呈现方式」） */
+  .segbar {
+    display: inline-flex; align-items: center; gap: 2px; padding: 2px;
+    border: 2px solid var(--edge-soft); background: var(--panel); border-radius: 999px;
+  }
+  .segbar button {
+    border: 0; background: none; cursor: pointer; border-radius: 999px;
+    padding: 5px 12px; font-family: 'Noto Serif SC', serif;
+    font-size: calc(13px * var(--fs)); letter-spacing: 1px; color: var(--ink-mid);
+    transition: color .2s ease, background .2s ease;
+  }
+  .segbar button:hover { color: var(--ink); }
+  .segbar button.is-on {
+    color: var(--ink-gold); background: rgba(var(--gold-rgb),.2);
+    box-shadow: inset 0 0 0 2px rgba(var(--gold-rgb),.5);
+  }
+  .segbar--icon button { padding: 5px 11px; font-size: calc(14.5px * var(--fs)); letter-spacing: 0; }
+  /* 手机上收紧一点，好让「排列」和「卡片/清单」挤在同一行 */
+  @media (max-width: 430px) {
+    .toolrow { gap: 8px 8px; }
+    .segbar button { padding: 5px 8px; letter-spacing: 0; }
+    .segbar--icon button { padding: 5px 9px; }
+    .arrange__label { margin-right: 0; }
+  }
   .mini--icon { padding: 5px 10px; font-size: calc(14.5px * var(--fs)); }
   .arrange__label {
     font-family: 'Special Elite', 'Courier New', monospace;
@@ -390,37 +441,6 @@
   }
   .mini.is-on:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink)); }
   .seg { display: flex; gap: 6px; }
-
-  /* 筛选条 */
-  .filters {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 7px;
-    margin: 12px auto 6px; max-width: 720px;
-  }
-  /* 手机上这排会占掉三行、把架子挤到屏幕外——改成单行横滑 */
-  @media (max-width: 620px) {
-    .filters {
-      flex-wrap: nowrap; justify-content: flex-start;
-      width: 100%; overflow-x: auto; scrollbar-width: none;
-      padding: 2px 4px 6px; margin-top: 10px;
-      -webkit-overflow-scrolling: touch;
-      /* 右侧渐隐，暗示还能往右滑 */
-      mask-image: linear-gradient(90deg, #000 88%, transparent);
-    }
-    .filters::-webkit-scrollbar { display: none; }
-    .chip { flex: none; }
-  }
-  .chip {
-    padding: 6px 13px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(var(--line-rgb),.16);
-    background: var(--panel); color: var(--ink-mid);
-    font-size: calc(13.5px * var(--fs)); letter-spacing: 1px;
-    transition: border-color .2s ease, color .2s ease;
-  }
-  .chip:hover { border-color: rgba(var(--line-rgb),.4); color: var(--ink); }
-  .chip.is-on {
-    border-color: rgba(var(--goldhi-rgb),.7); color: var(--ink-gold);
-    background: linear-gradient(160deg, rgba(var(--gold-rgb),.2), rgba(var(--gold-rgb),.04));
-  }
 
   /* 角色筛选提示条 */
   .charbar {
@@ -1527,10 +1547,10 @@
 <div class="head">
   <span class="head__eyebrow"><i></i>Kept by Winter Sun<i></i></span>
   <h1>The Collector&rsquo;s Shelf</h1>
-  <p>藏品架 · 他在片子里，也在我柜子里</p>
-  <span class="head__shelf" aria-hidden="true">
-    <span class="head__things" id="head-things"><span>📀</span><span>🎵</span><span>🃏</span><span>📔</span></span>
-    <span class="head__plank"></span>
+  <p id="sub" class="head__sub">藏品架 · 他在片子里，也在我柜子里</p>
+  <span class="head__shelf">
+    <span class="head__things" id="head-things" role="group" aria-label="按类别挑"></span>
+    <span class="head__plank" aria-hidden="true"></span>
   </span>
   <span class="curator-tag">🗝️ 馆长在馆 · ↻ 翻面 · ✎ 修改</span>
 </div>
@@ -1553,15 +1573,15 @@
     <button type="button" class="mini mini--icon" id="export-btn" title="导出收藏清单">📤 导出</button>
   </div>
   <div class="toolrow">
-    <div class="arrange" id="arrange"><span class="arrange__label">排列</span></div>
-    <div class="seg" id="viewseg">
-      <button type="button" class="mini is-on" data-view="card">🗂️ 卡片</button>
-      <button type="button" class="mini" data-view="list">☰ 清单</button>
+    <span class="arrange__label">排列</span>
+    <div class="segbar" id="arrange" role="group" aria-label="排列方式"></div>
+    <div class="segbar segbar--icon" id="viewseg" role="group" aria-label="怎么看">
+      <button type="button" class="is-on" data-view="card" title="卡片" aria-label="卡片">🗂️</button>
+      <button type="button" data-view="list" title="清单" aria-label="清单">☰</button>
     </div>
   </div>
 </div>
 
-<div class="filters" id="filters"></div>
 <div class="charbar" id="charbar"><span id="charbar-text"></span><button type="button" class="charbar__more" id="charbar-more">换个人 ↓</button><button type="button" id="charbar-x" aria-label="看回全部">✕</button></div>
 
 <div class="loading" id="loading">Dusting the shelf…</div>
@@ -1744,23 +1764,15 @@
     { id: "other",   emoji: "🎁", label: "其他",
       sugs: ["限量", "全新"], sugsMore: ["未拆封", "绝版", "二手"] }
   ];
-  var FILTERS = [{ id: "all", label: "全部" }]
-    .concat(TYPES.map(function (t) { return { id: t.id, label: t.emoji + " " + t.label }; }))
-    .concat([
-      { id: "signed", label: "✍️ 有签名" },
-      { id: "nas", label: "📡 已进 NAS" },
-      { id: "nonas", label: "🎞️ 还没进 NAS" }
-    ]);
-
   var typeById = {};
   TYPES.forEach(function (t) { typeById[t.id] = t; });
 
   /* 排列方式：不分组的「最新入手」是历来的默认，其余三种会长出分组小标题 */
   var ARRANGES = [
-    { id: "recent", label: "最新入手" },
-    { id: "char",   label: "按角色" },
-    { id: "type",   label: "按类别" },
-    { id: "era",    label: "按年代" }
+    { id: "recent", label: "最新", full: "最新入手" },
+    { id: "char",   label: "角色", full: "按角色排" },
+    { id: "type",   label: "类别", full: "按类别排" },
+    { id: "era",    label: "年代", full: "按年代排" }
   ];
 
   /* ————— 状态 ————— */
@@ -2461,14 +2473,6 @@
   /* 空格子里说一句人话，能点的词长在句子里（Winter 2026-09-23：「太生硬了，
      我喜欢类似于『现在 Justin Hammer 还没有他的 xx，但他有 yy 和 zz，去看看？』
      ……看全部之类的也占太多空间」）。别再摆一排大按钮。 */
-  function filterName() {
-    var t = typeById[filter];
-    if (t) return t.emoji + " " + t.label;
-    if (filter === "signed") return "有签名的";
-    if (filter === "nas") return "已经进 NAS 的";
-    if (filter === "nonas") return "还没进 NAS 的";
-    return "";
-  }
   /* 「他还没有 ___」里那个空格填什么：图标 + 名字 */
   function lackOf() {
     var t = typeById[filter], head = query ? "叫「" + query + "」的" : "";
@@ -2480,12 +2484,8 @@
   }
   /* 只留某一类（角色照旧留着） */
   function onlyType(t) {
-    filter = t.id;
-    $("filters").querySelectorAll(".chip").forEach(function (x) {
-      x.classList.toggle("is-on", x.textContent.indexOf(t.label) >= 0);
-    });
     if (qBox.value) { qBox.value = ""; query = ""; qWrap.classList.remove("has-q"); }
-    render();
+    setFilter(t.id);
   }
   function matchesType(it, f) {
     if (f === "signed") return !!it.signed;
@@ -2583,12 +2583,7 @@
   /* 一步把条件放开（要留哪个就传哪个） */
   function resetFilters(keep) {
     if (!keep.keepChar) setCharFilter("");
-    if (!keep.keepFilter) {
-      filter = "all";
-      $("filters").querySelectorAll(".chip").forEach(function (x, i) {
-        x.classList.toggle("is-on", i === 0);
-      });
-    }
+    if (!keep.keepFilter) filter = "all";
     if (qBox.value) { qBox.value = ""; query = ""; qWrap.classList.remove("has-q"); }
     render();
   }
@@ -2641,23 +2636,34 @@
     /* 牌下面一行小字：签名 / NAS / 点亮 / 心愿 */
     var row = document.createElement("span");
     row.className = "stats__row";
-    [["✍️", "签名", signed.length]]
-      .concat(discs.length ? [["📡", "NAS", nasDone.length + " / " + discs.length]] : [])
-      .concat(chars.length ? [["✦", "点亮", covered + " / " + chars.length, 1]] : [])
-      .concat([["🌠", "心愿", allWish.length]])
+    /* 这一行不只是数字：签名 / NAS 这三项点一下就只看那些
+       （Winter 2026-09-23：「有签名有没有 NAS 的可以放下面」——所以并进了这一行，
+       不再单独占一排标签） */
+    [["✍️", "签名", signed.length, "signed"]]
+      .concat(discs.length ? [["📡", "已进 NAS", nasDone.length, "nas"],
+                              ["🎞️", "没进", discs.length - nasDone.length, "nonas"]] : [])
+      .concat(chars.length ? [["✦", "点亮", covered + " / " + chars.length, "", jumpToMap]] : [])
+      .concat(allWish.length ? [["🌠", "心愿", allWish.length]] : [])
       .forEach(function (p) {
-        /* 「点亮」做成可点的——谁都能一步滑到底下那张画册地图 */
-        var s = document.createElement(p[3] ? "button" : "span");
+        var pick = !!p[3], act = p[4];
+        var s = document.createElement(pick || act ? "button" : "span");
         s.innerHTML = p[0] + " " + p[1] + " <em>" + p[2] + "</em>";
-        if (p[3]) {
+        if (pick || act) {
           s.type = "button";
-          s.className = "stats__jump";
-          s.title = "去看画册地图";
-          s.addEventListener("click", jumpToMap);
+          s.className = pick ? "stats__pick" : "stats__jump";
+          if (pick) {
+            s.dataset.f = p[3];
+            s.title = "只看" + p[1];
+            s.addEventListener("click", function () { setFilter(filter === p[3] ? "all" : p[3]); });
+          } else {
+            s.title = "去看画册地图";
+            s.addEventListener("click", act);
+          }
         }
         row.appendChild(s);
       });
     stats.appendChild(row);
+    paintFilterMarks();
     $("progress-num").textContent = "SHELF " + allOwn.length;
 
     /* 角色地图（「按角色」那一屏也用同一颗格子，见 mapSlot） */
@@ -2670,37 +2676,73 @@
     }
   }
 
-  /* 标题那块架板上的小东西：点一下蹦一下（纯好玩） */
-  (function () {
-    var box = $("head-things");
-    if (!box) return;
-    box.addEventListener("click", function (e) {
-      var t = e.target;
-      if (!t || t.tagName !== "SPAN") return;
-      t.classList.remove("is-hop");
-      void t.offsetWidth;                 /* 强制重排，否则连点没反应 */
-      t.classList.add("is-hop");
-    });
-    box.addEventListener("animationend", function (e) {
-      e.target.classList && e.target.classList.remove("is-hop");
-    });
-  })();
-
-  /* ————— 筛选 ————— */
-  var filWrap = $("filters");
-  FILTERS.forEach(function (f) {
+  /* ————— 架子＝类别筛选 —————
+     七个类别一样摆一件在架板上，点一下只看那一类，再点一下看全部。
+     副标题那行兼当状态条（「只看 📀 碟片 · 36 件 ✕」），所以不再需要一排筛选标签。 */
+  var shelfBox = $("head-things"), subLine = $("sub");
+  var SUB_HOME = subLine.innerHTML;
+  TYPES.forEach(function (t) {
     var b = document.createElement("button");
     b.type = "button";
-    b.className = "chip" + (f.id === "all" ? " is-on" : "");
-    b.textContent = f.label;
+    b.dataset.t = t.id;
+    b.textContent = t.emoji;
+    b.title = t.label;
+    b.setAttribute("aria-label", "只看" + t.label);
     b.addEventListener("click", function () {
-      filter = f.id;
-      filWrap.querySelectorAll(".chip").forEach(function (x) { x.classList.remove("is-on"); });
-      b.classList.add("is-on");
-      render();
+      /* 再点一下正在看的那一类＝放回去、看全部 */
+      setFilter(filter === t.id ? "all" : t.id);
+      b.classList.remove("is-hop"); void b.offsetWidth; b.classList.add("is-hop");
     });
-    filWrap.appendChild(b);
+    b.addEventListener("pointerenter", function () { peekType(t); });
+    b.addEventListener("focus", function () { peekType(t); });
+    shelfBox.appendChild(b);
   });
+  shelfBox.addEventListener("pointerleave", function () { paintSub(); });
+  shelfBox.addEventListener("animationend", function (e) {
+    e.target.classList && e.target.classList.remove("is-hop");
+  });
+
+  /* 碰一下某一类：副标题那行先告诉她那是什么、有几件 */
+  function peekType(t) {
+    if (filter === t.id) return;
+    var n = items.filter(function (it) { return !it.wish && it.type === t.id; }).length;
+    subLine.innerHTML = "<b>" + t.emoji + " " + t.label + "</b> · " + (n ? n + " 件" : "还没有");
+  }
+
+  /* 把副标题那行画成当前状态 */
+  function paintSub() {
+    var t = typeById[filter];
+    if (!t) {
+      var nm = filter === "signed" ? "✍️ 有签名"
+             : filter === "nas" ? "📡 已进 NAS"
+             : filter === "nonas" ? "🎞️ 还没进 NAS" : "";
+      if (!nm) { subLine.innerHTML = SUB_HOME; return; }
+      subLine.innerHTML = "只看 <b>" + nm + "</b>";
+    } else {
+      var n = items.filter(function (it) { return !it.wish && it.type === t.id; }).length;
+      subLine.innerHTML = "只看 <b>" + t.emoji + " " + t.label + "</b> · " + n + " 件";
+    }
+    var x = document.createElement("button");
+    x.type = "button"; x.className = "sub__x"; x.textContent = "✕";
+    x.setAttribute("aria-label", "看回全部");
+    x.addEventListener("click", function () { setFilter("all"); });
+    subLine.appendChild(x);
+  }
+
+  /* 换一个筛选条件：状态 + 架上的记号 + 下面那行小字，一起更新 */
+  function setFilter(id) { filter = id; render(); }
+  /* 架上哪件被拿起来、哪几类还空着、下面那行小字亮哪个——每次重画一起刷 */
+  function paintFilterMarks() {
+    var own = items.filter(function (it) { return !it.wish; });
+    shelfBox.querySelectorAll("button").forEach(function (b) {
+      b.classList.toggle("is-on", b.dataset.t === filter);
+      b.classList.toggle("is-empty", !own.some(function (it) { return it.type === b.dataset.t; }));
+    });
+    $("stats").querySelectorAll(".stats__pick").forEach(function (b) {
+      b.classList.toggle("is-on", b.dataset.f === filter);
+    });
+    paintSub();
+  }
 
   /* ————— 工具条：搜索 / 排列 / 视图 ————— */
   var qBox = $("q"), qWrap = $("search");
@@ -2716,11 +2758,12 @@
   ARRANGES.forEach(function (a) {
     var b = document.createElement("button");
     b.type = "button";
-    b.className = "mini" + (a.id === arrange ? " is-on" : "");
+    b.className = a.id === arrange ? "is-on" : "";
     b.textContent = a.label;
+    b.title = a.full;
     b.addEventListener("click", function () {
       arrange = a.id;
-      arrWrap.querySelectorAll(".mini").forEach(function (x) { x.classList.remove("is-on"); });
+      arrWrap.querySelectorAll("button").forEach(function (x) { x.classList.remove("is-on"); });
       b.classList.add("is-on");
       /* ⚠️ 以前这里会「顺手切到清单」——那是因为当时卡片视图根本不分组。
          现在卡片视图里一组就是一张大卡（一个角色一张），分组比清单还直观，
@@ -2733,12 +2776,12 @@
   var viewSeg = $("viewseg");
   function setView(v) {
     view = v;
-    viewSeg.querySelectorAll(".mini").forEach(function (x) {
+    viewSeg.querySelectorAll("button").forEach(function (x) {
       x.classList.toggle("is-on", x.dataset.view === v);
     });
   }
   setView(view);
-  viewSeg.querySelectorAll(".mini").forEach(function (b) {
+  viewSeg.querySelectorAll("button").forEach(function (b) {
     b.addEventListener("click", function () {
       setView(b.dataset.view);
       prefSave(); render();
