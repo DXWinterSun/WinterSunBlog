@@ -2640,6 +2640,15 @@
         return true;
       });
   }
+  /* 把失败原因说成人话——「还是没送到」查不出病因，她只能干等（2026-09-23 踩过） */
+  function whyFailed(e) {
+    var m = String(e && e.message || "");
+    if (m.indexOf("401") >= 0) return "这台设备上的钥匙过期或不对了 · 去「馆长专用门」重贴一把";
+    if (m.indexOf("403") >= 0) return "这把钥匙没有改这个仓库的权限 · 去「馆长专用门」重贴一把";
+    if (m.indexOf("404") >= 0) return "找不到要写的文件（仓库或路径不对）";
+    if (m.indexOf("409") >= 0 || m.indexOf("422") >= 0) return "网上刚好有更新，再点一次「再试一次」就好";
+    return "网络没送到 · 过会儿再点「再试一次」";
+  }
   function saveAndPublish(successMsg) {
     draftSave(items);           // 先落本机草稿，发布失败也不丢
     render();
@@ -2648,19 +2657,14 @@
       .then(function () { toast(successMsg + " · 一两分钟后大家都能看到"); })
       .catch(function (e) {
         $("pending").classList.add("is-on");
-        var s = String(e && e.message || "");
-        if (s.indexOf("401") >= 0 || s.indexOf("403") >= 0) {
-          toast("钥匙不对或过期了…改动先记在这台设备上");
-        } else {
-          toast("网络没送到…改动先记在这台设备上，可点「再试一次」");
-        }
+        toast("没送出去：" + whyFailed(e) + "（改动先记在这台设备上）");
       });
   }
   $("pending-retry").addEventListener("click", function () {
     toast("正在再送一次…");
     publish()
       .then(function () { toast("送到了 ✓ 一两分钟后大家都能看到"); })
-      .catch(function () { toast("还是没送到…过会儿再试试"); });
+      .catch(function (e) { toast("还是没送到：" + whyFailed(e)); });
   });
 
   /* ————— 馆长门 ————— */
