@@ -222,7 +222,12 @@
     filter: drop-shadow(1px 2px 0 rgba(var(--ink-rgb),.18));
     transition: transform .16s cubic-bezier(.3,1.6,.5,1), opacity .2s ease;
   }
-  .head__things button:hover { transform: translateY(-5px) rotate(-5deg); }
+  /* ⚠️ 悬停效果只给真有鼠标的设备。手机上 :hover 会黏在上一个点过的东西上，
+     看着像还选着它；更要命的是 iOS 会把「碰一下会改内容」的第一次轻触
+     只当成悬停、不当点击，于是她得先点 ✕ 才能换下一类（Winter 2026-09-23 发现）。 */
+  @media (hover: hover) and (pointer: fine) {
+    .head__things button:hover { transform: translateY(-5px) rotate(-5deg); }
+  }
   /* 架上没有这一类的东西：压淡，但照样点得动（点了会告诉她还没有） */
   .head__things button.is-empty { opacity: .3; }
   /* 正在只看这一类：拿起来，底下垫一圈光 */
@@ -2696,11 +2701,16 @@
       setFilter(filter === t.id ? "all" : t.id);
       b.classList.remove("is-hop"); void b.offsetWidth; b.classList.add("is-hop");
     });
-    b.addEventListener("pointerenter", function () { peekType(t); });
+    /* ⚠️ 只有鼠标才「碰上去先预告」：触屏上改文字会让 iOS 吞掉第一次轻触 */
+    b.addEventListener("pointerenter", function (e) {
+      if (e.pointerType === "mouse") peekType(t);
+    });
     b.addEventListener("focus", function () { peekType(t); });
     shelfBox.appendChild(b);
   });
-  shelfBox.addEventListener("pointerleave", function () { paintSub(); });
+  shelfBox.addEventListener("pointerleave", function (e) {
+    if (e.pointerType === "mouse") paintSub();
+  });
   shelfBox.addEventListener("animationend", function (e) {
     e.target.classList && e.target.classList.remove("is-hop");
   });
