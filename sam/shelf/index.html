@@ -182,15 +182,56 @@
     font-size: calc(11.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim); text-transform: uppercase;
   }
 
+  /* ————— 总标题＝一块真的架板，上面摆着四样东西 —————
+     Winter 2026-09-23：「现在这个标题没什么设计🤔」→ 给了三版，她挑了这版
+     （「C 好可爱！我就喜欢这种感觉🥺」）。板子和小东西的颜色都吃当前主题色。 */
   .head { text-align: center; margin-bottom: 8px; }
+  .head__eyebrow {
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+    font-family: 'Special Elite','Courier New',monospace;
+    font-size: calc(10.5px * var(--fs)); letter-spacing: 3px; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 8px;
+  }
+  .head__eyebrow i { width: 24px; height: 2px; background: rgba(var(--gold-rgb),.45); }
   .head h1 {
     font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
-    font-size: clamp(22px, 5vw, 30px); margin: 0; letter-spacing: 1px; color: var(--ink-bright);
+    font-size: clamp(25px, 6.4vw, 36px); margin: 0; letter-spacing: 1px; color: var(--ink-bright);
   }
+  .head__shelf { display: block; width: min(330px, 88%); margin: 10px auto 0; }
+  .head__things {
+    display: flex; align-items: flex-end; justify-content: center; gap: 16px;
+    font-size: calc(19px * var(--fs)); line-height: 1; margin-bottom: 3px;
+  }
+  .head__things span { display: block; filter: drop-shadow(1px 2px 0 rgba(var(--ink-rgb),.18)); }
+  .head__things span:nth-child(2) { font-size: .82em; }
+  .head__things span:nth-child(4) { font-size: .88em; }
+  .head__plank {
+    display: block; height: 13px; border: 2px solid rgba(var(--ink-rgb),.6); border-radius: 3px;
+    background: linear-gradient(to bottom,
+      color-mix(in srgb, var(--gold) 34%, var(--c-bg)) 0 58%,
+      color-mix(in srgb, var(--gold) 58%, var(--c-ink)) 58% 100%);
+    box-shadow: 3px 4px 0 rgba(var(--gold-rgb),.22); position: relative;
+  }
+  /* 板子底下那两只小支脚 */
+  .head__plank::before, .head__plank::after {
+    content: ""; position: absolute; top: 100%; width: 3px; height: 8px;
+    background: rgba(var(--ink-rgb),.4);
+  }
+  .head__plank::before { left: 14%; }
+  .head__plank::after { right: 14%; }
   .head p {
     font-weight: var(--fw-thin); font-size: clamp(11.5px, 3vw, 13px); letter-spacing: 2px;
-    color: var(--ink-dim); margin: 8px 0 0; line-height: 1.9;
+    color: var(--ink-dim); margin: 15px 0 0; line-height: 1.9;
   }
+  /* 进门的时候四样东西一件件落到板子上 */
+  @media (prefers-reduced-motion: no-preference) {
+    .head__things span { animation: shelfDrop .42s cubic-bezier(.3,1.5,.5,1) backwards; }
+    .head__things span:nth-child(1) { animation-delay: .10s; }
+    .head__things span:nth-child(2) { animation-delay: .19s; }
+    .head__things span:nth-child(3) { animation-delay: .28s; }
+    .head__things span:nth-child(4) { animation-delay: .37s; }
+  }
+  @keyframes shelfDrop { from { transform: translateY(-9px); opacity: 0; } to { transform: none; opacity: 1; } }
 
   /* 馆长在馆提示 */
   .curator-tag {
@@ -1457,7 +1498,12 @@
 </div>
 
 <div class="head">
+  <span class="head__eyebrow"><i></i>Winter Sun · Collection<i></i></span>
   <h1>The Collector&rsquo;s Shelf</h1>
+  <span class="head__shelf" aria-hidden="true">
+    <span class="head__things"><span>📀</span><span>🎵</span><span>🃏</span><span>📔</span></span>
+    <span class="head__plank"></span>
+  </span>
   <p>藏品架 · 他的东西，我一件件收</p>
   <span class="curator-tag">🗝️ 馆长在馆 · ↻ 翻面 · ✎ 修改</span>
 </div>
