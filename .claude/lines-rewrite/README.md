@@ -6,7 +6,7 @@ Winter 2026-09-22 在桌面小组件上看见 Wayne 那句挂着光秃秃的 `YE
 
 | 文件 | 是什么 |
 |---|---|
-| `batch1.json` | 第一批 8 人 × 5 句的改稿（含预览页的全部文案与要问 Winter 的岔路） |
+| `batch1.json` | 第一批 8 人 × 5 句的改稿 — **Winter 2026-09-23 认可，已全部落盘上线**（含预览页文案） |
 | `audit-rows.json` | 那次全库体检的评分数据（54 人：原著厚薄 / AU 章数 / 语料条数 / 五句里有几句真属于他 / 一句诊断） |
 
 ## 怎么用
@@ -40,7 +40,7 @@ python3 tools/preview/render_lines_diff.py .claude/lines-rewrite/batch1.json -o 
 
 ⚠️ 代词（他 / 那个 / 这件事）和指代性时间（那天 / 上次 / 后来）是重灾区，逐句查。
 
-## ⚠️ 她点头之后，落盘要做的事
+## ✅ 落盘要做的事（第一批已照此走完）
 
 1. 写进 `sam/lines.json` 的 `characters[].quotes`，**再从 characters 整个重建 `pool`**
    （5 轮 round-robin，别手改 pool）。
@@ -80,7 +80,7 @@ python3 tools/preview/render_lines_diff.py .claude/lines-rewrite/batch1.json -o 
 
 ## 还欠着的
 
-- 第 2 批：体检里 B 组那 15 位（原著厚、还没写 AU）——每人从各自电影里挑一件**只有他有的东西**，
+- 第 2 批：体检里 B 组那 16 位（原著厚、还没写 AU）——每人从各自电影里挑一件**只有他有的东西**，
   替掉最泛的那一句，每人只动一句。
 - 之后每开一个新 AU，回来把那个人的五句重写一遍——那时候材料最足。
 - Gary / Jerry / Billy Bickle / Eddie 四位的热线聊天回复库（`sam/hotline-replies.json`）还没写，
