@@ -400,18 +400,22 @@ Winter 2026-09-23 在 Ch2 抓的：**「对宠物要用『他』吧🤔」**—�
 
 ### 交付记录
 
-- **合订本（现为 Ch1–12）**：https://claude.ai/artifact/S25zwsExpEJKgy4e79q1qu
+- **合订本（全 16 章）**：https://claude.ai/artifact/S25zwsExpEJKgy4e79q1qu
   ——**改稿／加章都重生成同一路径、重新发布，链接不变**，她刷新即看新版。
   衔接说明：`notes-batch1.md`（Ch1–6）、`notes-batch2.md`（Ch7–12，含砍短的说明）。
 - **路线图**：https://claude.ai/artifact/2nfsecZNg5ndLcyZz7Yiw1 （已按 16 章重排）。
-- ⚠️ 正文尚未落 `_posts/`，等 Winter 过目全部十六章之后一次部署。
+- ~~正文尚未落 `_posts/`~~ → 见下方「已上线」。
 - **2026-09-23 全十六章已成稿**，三份衔接说明：`notes-batch1.md`（1–6）/ `notes-batch2.md`（7–12）/
   `notes-batch3.md`（13–16）。Winter 挑了「炽恋落在听证会当晚」，所以后四章顺序是
   **13 听证会 → 14 那天晚上（🔥）→ 15 他拿回 Lily → 16 你值得**。
-- ⏳ **下一步＝部署**（等 Winter 过目全篇、认可之后一次性推）：系列首页
-  `series/the-ball-he-couldn-t-reach/index.html`（hero 英文标题 / byline 四段 / logline /
-  关于这个系列 / 设定档案 / `sam_collection: true` + `collection_order` 取现有最大值 +1）、
-  十六章 `_posts/`（front matter 的 `series` 三处一致、tags 补齐身份四标签、summary ≤35 字、
-  Ch14 标 `炽恋`）、`_data/au_palettes.yml` 已有条目、画册 `sam/many-faces` 里 brad 挂 `auLink`
-  并同步 `lines.json` / `quiz` / `spectrum`（跑 `check_palette_sync.py`）、`_data/sam.yml` 不变。
-  部署前跑：`check_post.py` / `check_series_page.py` / `check_palette_sync.py` / `check_dates.py` / `check_desino.py`。
+- ✅ **2026-09-23 已上线**（Winter：「用这个封面吧🤔反正坑先开好了，后面我如果二刷了这部可能会改些东西，到时候再说」）：
+  - 封面 `images/brad-cairn-au.jpg`（原片剧照：蓝色夜灯下 Brad 和 Joshua 并排躺在床上，134 KB）
+  - 系列首页 `series/the-ball-he-couldn-t-reach/`，`collection_order: 41`，`series_status: complete`
+  - 16 章 `_posts/2026-09-23-the-ball-he-couldnt-reach-chapter-N-<slug>.md`（⚠️ 文件名里是
+    `couldnt`，**目录 slug 是 `couldn-t`**——后者是 Jekyll 对 `series_name` 的 slugify 结果，别对齐）
+  - 画册 `brad` 挂上 `auLink`，并同步 quiz / spectrum / lines.json（pool 从 characters 重建）
+  - ⚠️ `tools/check_honorifics.py` **默认跑的是 I Kissed the Stones 的规则表**（那边「他对她一律用您」），
+    拿它扫这个系列会报一堆假错，别当真；这个系列的称呼锁是 Mr. Cairn / Ms. Reed → Brad，
+    脚本目前不支持按章号分段，所以没给它加规则表。
+  - ⏳ **Winter 说她二刷原片以后可能会改些东西**——到时候改哪儿都行，正文全文存档在
+    `-drafts/ch1.md`–`ch16.md`，改完记得同步 `_posts/` 与这份圣经。
