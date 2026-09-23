@@ -720,6 +720,26 @@
     text-decoration-color: rgba(var(--gold-rgb),.6);
   }
   .empty__link:hover { color: var(--gold-hi); text-decoration-style: solid; }
+  /* 句子里点名的那几类＝一枚枚带 emoji 的小卡（糖纸粗描边那一套，缩到一行字里）
+     Winter 2026-09-23：「我想能不能做成卡片，带着类别的 emoji 好看一点」 */
+  .empty__kind {
+    display: inline-flex; align-items: center; gap: 5px; vertical-align: -3px;
+    margin: 0 3px; padding: 2px 10px 3px 9px;
+    border: 2px solid rgba(var(--gold-rgb),.5); border-radius: 999px;
+    background: color-mix(in srgb, var(--gold) 9%, transparent);
+    box-shadow: 2px 2px 0 rgba(var(--gold-rgb),.22);
+    font-family: inherit; font-size: calc(13.5px * var(--fs)); line-height: 1.5;
+    color: var(--ink); cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .empty__kind i { font-style: normal; font-size: 1.05em; line-height: 1; }
+  .empty__kind u { text-decoration: none; }
+  .empty__kind s { text-decoration: none; color: var(--ink-faint); font-size: .85em; }
+  .empty__kind:hover {
+    transform: translate(-1px,-1px); box-shadow: 3px 3px 0 rgba(var(--gold-rgb),.32);
+    background: color-mix(in srgb, var(--gold) 16%, transparent);
+  }
+  .empty__kind:active { transform: translate(1px,1px); box-shadow: 1px 1px 0 rgba(var(--gold-rgb),.22); }
 
   /* ————— 分组小标题（按角色 / 类别 / 年代排列时） ————— */
   /* ————— 一组＝一张大卡（Winter 2026-09-22：「按角色分类的应该一个角色一张卡吧！」）
@@ -2411,6 +2431,19 @@
       say.appendChild(b);
       return b;
     }
+    /* 一枚带 emoji 的小卡：点了就只看这一类 */
+    function kindChip(t, n) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "empty__kind";
+      b.setAttribute("aria-label", t.label + "，" + n + " 件，点击只看这一类");
+      var e = document.createElement("i"); e.textContent = t.emoji;
+      var u = document.createElement("u"); u.textContent = t.label;
+      b.appendChild(e); b.appendChild(u);
+      if (n > 1) { var c = document.createElement("s"); c.textContent = n; b.appendChild(c); }
+      b.addEventListener("click", function () { onlyType(t); });
+      say.appendChild(b);
+      return b;
+    }
 
     var c = charFilter ? charById[charFilter] : null;
     var own = list.filter(function (it) { return !it.wish; });
@@ -2423,12 +2456,13 @@
       });
       words("现在 "); strong(c.name); words(" 还没有" + lackName() + "，");
       if (kinds.length) {
-        words("不过他有 ");
+        words("不过他有");
         kinds.slice(0, 3).forEach(function (t, i, arr) {
-          if (i) words(i === arr.length - 1 ? " 和 " : "、");
-          link(t.label, function () { onlyType(t); });
+          if (i) words(i === arr.length - 1 ? "和" : "、");
+          var n = his.filter(function (it) { return it.type === t.id; }).length;
+          kindChip(t, n);
         });
-        if (kinds.length > 3) words(" 这些");
+        if (kinds.length > 3) words("这些");
         words("，");
       }
       link("去看看？", function () { resetFilters({ keepChar: true }); });
