@@ -204,6 +204,44 @@
   }
 }
 
+/* 2026-09-23 导航瘦身到五个标签后，两头都要调（Winter：「现在这个标签少了，
+   但是电脑上都挤在一起🤔」）：
+   · 电脑上只剩五个标签、两边空着一大片，所以把间距和内边距放宽，让它们摊开；
+   · 手机上反过来，字号和内边距再收一档，390px 正好一行装得下、不用横着划。 */
+/* ⚠️ 分两级放宽，别一刀切：901–1039px 那一档，站头一行里还挤着头像、
+   180px 的搜索框和两颗小圆钮，直接用大间距会把整页撑出横向滚动条
+   （950px 宽时溢出 63px，实测过）。 */
+@media only screen and (min-width: 901px) {
+  .c-nav { gap: 0; }
+  .c-nav__list { gap: 6px; }
+  .c-nav__item {
+    letter-spacing: 0.09em;
+    > a { padding: 9px 14px; }
+  }
+}
+
+@media only screen and (min-width: 1040px) {
+  .c-nav__list { gap: 14px; }
+  .c-nav__item {
+    letter-spacing: 0.11em;
+    > a { padding: 9px 22px; }
+  }
+}
+
+
+@media only screen and (max-width: 560px) {
+  .c-nav__list { gap: 1px; }
+  .c-nav__item {
+    /* ⚠️ 上面 900px 那段给 li 也加了 5px 11px 的内边距，而 a 自己还有一份——
+       两份叠起来每个标签白占 44px，五个就是 220px，一行怎么都装不下。
+       这里把 li 的那份归零，只留 a 上的。 */
+    padding: 0;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    > a { padding: 6px 7px; }
+  }
+}
+
 @media only screen and (max-width: 480px) {
   .c-search {
     width: 140px;

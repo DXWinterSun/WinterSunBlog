@@ -3,75 +3,85 @@
 =============== */
 
 :root {
-  /* ===== Light theme (default) ===== */
-  --c-bg:            #f7f3ec;       // page background (warm cream)
-  --c-bg-soft:       #fbf8f1;       // alt surface
+  /* ===== Light theme (default) — 晴雪 Sunlit Snow ===== */
+  --c-bg:            #eff6fb;       // page background (snow under a clear sky)
+  --c-bg-soft:       #f6fafd;       // alt surface
   --c-paper:         #ffffff;       // card surface
-  --c-ink:           #1f1d1a;       // primary text
-  --c-ink-soft:      #3d3833;       // body text
-  --c-muted:         #8a8074;       // muted text
-  --c-muted-soft:    #b6ac9d;       // very muted
-  --c-line:          #e6dfd2;       // hairline
-  --c-line-strong:   #cfc6b4;       // stronger line
-  --c-accent:        #b85c5c;       // dusty rose
-  --c-accent-soft:   #d3938b;
-  --c-accent-dark:   #9c4848;       // hover
+  --c-ink:           #14212e;       // primary text
+  --c-ink-soft:      #3a4c60;       // body text
+  --c-muted:         #7c8fa2;       // muted text
+  --c-muted-soft:    #a8b9c8;       // very muted
+  --c-line:          #d9e7f0;       // hairline
+  --c-line-strong:   #bccfdd;       // stronger line
+  --c-accent:        #2c80a9;       // 晴空冰蓝（正文用，比色卡上那支暗一档以保对比度）
+  --c-accent-soft:   #7cb4d4;
+  --c-accent-dark:   #1f6285;       // hover
+  --c-accent-pure:   #3f9ecb;       // 色卡上那支纯的冰蓝（装饰用，不承载文字）
+  --c-gold:          #c1892f;       // 冬阳（点睛色，用得极省）
+  --c-gold-pure:     #e9b451;
   --c-status-red:    #c0594a;
-  --c-status-green:  #6b8a5b;
+  --c-status-green:  #5f8a6a;
   --c-paper-fixed:   #ffffff;       // stays white in both themes
   /* RGB triples for runtime opacity */
-  --rgb-shadow:      31, 29, 26;
-  --rgb-accent:      184, 92, 92;
-  --rgb-line-warm:   212, 196, 176;
+  --rgb-shadow:      20, 33, 46;
+  --rgb-accent:      44, 128, 169;
+  --rgb-line-warm:   198, 216, 230;
   --rgb-paper:       255, 255, 255;
-  --rgb-bg:          247, 243, 236;
+  --rgb-bg:          239, 246, 251;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --c-bg:            #1a1815;
-    --c-bg-soft:       #211f1a;
-    --c-paper:         #24211d;
-    --c-ink:           #efe8da;
-    --c-ink-soft:      #c8c0b1;
-    --c-muted:         #948a7c;
-    --c-muted-soft:    #6e665b;
-    --c-line:          #322e28;
-    --c-line-strong:   #4a443c;
-    --c-accent:        #d97978;
-    --c-accent-soft:   #b06564;
-    --c-accent-dark:   #f08e8d;
+    --c-bg:            #0d161f;
+    --c-bg-soft:       #111c26;
+    --c-paper:         #15202b;
+    --c-ink:           #e9f1f7;
+    --c-ink-soft:      #c3d2de;
+    --c-muted:         #7d8fa0;
+    --c-muted-soft:    #5d6e7d;
+    --c-line:          #23303c;
+    --c-line-strong:   #3a4956;
+    --c-accent:        #63b6de;
+    --c-accent-soft:   #4a90b4;
+    --c-accent-dark:   #86c9ea;
+    --c-accent-pure:   #63b6de;
+    --c-gold:          #eec070;
+    --c-gold-pure:     #eec070;
     --c-status-red:    #d97978;
     --c-status-green:  #84a06f;
     /* paper-fixed stays light */
     --rgb-shadow:      0, 0, 0;
-    --rgb-accent:      217, 121, 120;
-    --rgb-line-warm:   60, 56, 50;
-    --rgb-paper:       36, 33, 29;
-    --rgb-bg:          26, 24, 21;
+    --rgb-accent:      99, 182, 222;
+    --rgb-line-warm:   45, 58, 70;
+    --rgb-paper:       21, 32, 43;
+    --rgb-bg:          13, 22, 31;
   }
 }
 
 :root[data-theme="dark"] {
-  --c-bg:            #1a1815;
-  --c-bg-soft:       #211f1a;
-  --c-paper:         #24211d;
-  --c-ink:           #efe8da;
-  --c-ink-soft:      #c8c0b1;
-  --c-muted:         #948a7c;
-  --c-muted-soft:    #6e665b;
-  --c-line:          #322e28;
-  --c-line-strong:   #4a443c;
-  --c-accent:        #d97978;
-  --c-accent-soft:   #b06564;
-  --c-accent-dark:   #f08e8d;
+  --c-bg:            #0d161f;
+  --c-bg-soft:       #111c26;
+  --c-paper:         #15202b;
+  --c-ink:           #e9f1f7;
+  --c-ink-soft:      #c3d2de;
+  --c-muted:         #7d8fa0;
+  --c-muted-soft:    #5d6e7d;
+  --c-line:          #23303c;
+  --c-line-strong:   #3a4956;
+  --c-accent:        #63b6de;
+  --c-accent-soft:   #4a90b4;
+  --c-accent-dark:   #86c9ea;
+  --c-accent-pure:   #63b6de;
+  --c-gold:          #eec070;
+  --c-gold-pure:     #eec070;
   --c-status-red:    #d97978;
   --c-status-green:  #84a06f;
+  /* paper-fixed stays light */
   --rgb-shadow:      0, 0, 0;
-  --rgb-accent:      217, 121, 120;
-  --rgb-line-warm:   60, 56, 50;
-  --rgb-paper:       36, 33, 29;
-  --rgb-bg:          26, 24, 21;
+  --rgb-accent:      99, 182, 222;
+  --rgb-line-warm:   45, 58, 70;
+  --rgb-paper:       21, 32, 43;
+  --rgb-bg:          13, 22, 31;
 }
 
 /* ===== SCSS variables that wrap the CSS custom properties ===== */
@@ -93,6 +103,11 @@ $line-strong:      var(--c-line-strong);
 $red-color:        var(--c-status-red);
 $green-color:      var(--c-status-green);
 $white-color:      var(--c-paper-fixed);
+
+// 晴雪配色新增：冬阳点睛色 + 未压暗的纯冰蓝（装饰用）
+$gold:             var(--c-gold);
+$gold-pure:        var(--c-gold-pure);
+$accent-pure:      var(--c-accent-pure);
 
 // Legacy names — kept so other partials keep compiling
 $primary-color:    $accent;

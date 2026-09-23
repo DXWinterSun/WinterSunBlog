@@ -7,17 +7,17 @@ layout: home
   window.TOTAL_POSTS = {{ site.posts.size }};
   try {
     var p = new URLSearchParams(window.location.search);
+    // 旧链接（?cat=Daily / Novel / Lyrics / 散文）统一归到合并后的 Winter's
+    var LEGACY = { 'Daily': 'winters', 'Novel': 'winters', 'Lyrics': 'winters', '\u6563\u6587': 'winters' };
     var active = 'all';
-    if (p.get('cat')) active = p.get('cat');
+    if (p.get('cat')) active = LEGACY[p.get('cat')] || p.get('cat');
     else if (p.get('view') === 'gallery') active = 'gallery';
     document.documentElement.setAttribute('data-hero-active', active);
 
     // Reflect the active filter in the browser tab title
     var labels = {
-      'Daily': 'Daily',
-      'Novel': 'Novel',
+      'winters': 'Winter\u2019s',
       'AU Story': 'AU Story',
-      'Lyrics': 'Lyrics',
       'gallery': 'Gallery'
     };
     if (labels[active]) {
@@ -51,32 +51,17 @@ layout: home
   <div class="c-hero__role">{{ site.author-job }}</div>
 </section>
 
-<section class="c-hero c-hero--filter" data-hero-id="Daily">
+<section class="c-hero c-hero--filter" data-hero-id="winters">
   {% if site.author-image %}
   <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
     <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
   </a>
   {% endif %}
-  <div class="c-hero__eyebrow">Daily</div>
-  <h1 class="c-hero__title">Slow <em>Days</em></h1>
+  <div class="c-hero__eyebrow">Winter&rsquo;s</div>
+  <h1 class="c-hero__title">In My Own <em>Hand</em></h1>
   <div class="c-hero__byline">
     <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">平凡日子里的感想、心情，和那些值得停留的片刻</span>
-    <span class="c-hero__byline-rule"></span>
-  </div>
-</section>
-
-<section class="c-hero c-hero--filter" data-hero-id="Novel">
-  {% if site.author-image %}
-  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
-    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-  </a>
-  {% endif %}
-  <div class="c-hero__eyebrow">Novel</div>
-  <h1 class="c-hero__title">These <em>Stories</em></h1>
-  <div class="c-hero__byline">
-    <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">我写过的故事——关于爱、错过、和重逢</span>
+    <span class="c-hero__byline-text">日常、小说、歌词——这些是我自己写下的字</span>
     <span class="c-hero__byline-rule"></span>
   </div>
 </section>
@@ -114,21 +99,6 @@ layout: home
     </span>
     <span class="c-egg-card__arrow" aria-hidden="true">→</span>
   </a>
-</section>
-
-<section class="c-hero c-hero--filter" data-hero-id="Lyrics">
-  {% if site.author-image %}
-  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
-    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-  </a>
-  {% endif %}
-  <div class="c-hero__eyebrow">Lyrics</div>
-  <h1 class="c-hero__title">Borrowed <em>Songs</em></h1>
-  <div class="c-hero__byline">
-    <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">译过的词，每一句都是来不及说出口的话</span>
-    <span class="c-hero__byline-rule"></span>
-  </div>
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="gallery">
