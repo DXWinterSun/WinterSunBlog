@@ -137,16 +137,25 @@
 
   /* 顶栏右边那三颗小圆钮：换心情（心）· 昼夜 · 字号 */
   .topbar__right { display: flex; align-items: center; gap: 8px; }
+  /* ⚠️ 这三颗钮要跟全站站头那两颗长得一模一样（Winter 2026-09-23：
+     「主题选项这里和其他的还是不一样」）——尺寸 36、1px 细边、透明底、
+     悬停淡淡上色并转一下，白天/夜里那颗直接用全站同一对 🌕 / 🌑。
+     别再给这页自己画太阳月亮的线描图标。 */
   .iconbtn {
     width: 36px; height: 36px; padding: 0; flex-shrink: 0;
     display: inline-flex; align-items: center; justify-content: center;
     border: 1px solid var(--c-line); border-radius: 999px; background: transparent;
     color: var(--ink-mid); cursor: pointer; line-height: 1;
-    font-family: inherit; font-size: calc(14px * var(--fs));
-    transition: border-color .2s ease, color .2s ease;
+    font-family: inherit; font-size: 16px;
+    transition: border-color .25s ease, color .25s ease, background-color .25s ease, transform .25s ease;
   }
-  .iconbtn:hover { border-color: var(--gold); color: var(--gold); }
+  .iconbtn:hover {
+    border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+    color: var(--gold); background-color: rgba(var(--gold-rgb),.06);
+  }
+  .iconbtn--moon:hover { transform: rotate(20deg); }
   .iconbtn.is-on { border-color: var(--gold); color: var(--gold); }
+  .iconbtn--fs { font-family: 'Playfair Display', serif; font-size: calc(14px * var(--fs)); }
   @media only screen and (max-width: 480px) { .iconbtn { width: 32px; height: 32px; } }
   html, body { margin: 0; padding: 0; }
   *, *::before, *::after { box-sizing: border-box; }
@@ -177,10 +186,6 @@
     color: var(--ink-dim); text-decoration: none;
   }
   .back:hover { color: var(--ink); }
-  .progress-num {
-    font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: calc(11.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim); text-transform: uppercase;
-  }
 
   /* ————— 总标题＝一块真的架板，上面摆着四样东西 —————
      Winter 2026-09-23：「现在这个标题没什么设计🤔」→ 给了三版，她挑了这版
@@ -1538,9 +1543,8 @@
         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
       </svg>
     </button>
-    <button type="button" class="iconbtn" id="mode-btn" title="白天 / 夜里" aria-label="白天或夜里"></button>
-    <button type="button" class="iconbtn" id="fs-btn" title="字大一点" aria-label="字号">A</button>
-    <span class="progress-num" id="progress-num"></span>
+    <button type="button" class="iconbtn iconbtn--moon" id="mode-btn" title="白天 / 夜里" aria-label="白天或夜里"></button>
+    <button type="button" class="iconbtn iconbtn--fs" id="fs-btn" title="字大一点" aria-label="字号">A</button>
   </span>
 </div>
 
@@ -2664,7 +2668,6 @@
       });
     stats.appendChild(row);
     paintFilterMarks();
-    $("progress-num").textContent = "SHELF " + allOwn.length;
 
     /* 角色地图（「按角色」那一屏也用同一颗格子，见 mapSlot） */
     if (chars.length) {
@@ -3722,16 +3725,10 @@
     return t === "dark" || (!t && sysDark());
   }
   /* 太阳 / 月亮画成线条图（用 ☀ 这种字符，有的系统会渲染成花花绿绿的表情） */
-  var ICON_SUN = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" ' +
-    'stroke-width="1.6" stroke-linecap="round" aria-hidden="true">' +
-    '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2' +
-    'M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/></svg>';
-  var ICON_MOON = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" ' +
-    'stroke-width="1.6" stroke-linejoin="round" aria-hidden="true">' +
-    '<path d="M20 14.5A8.2 8.2 0 0 1 9.5 4a8.3 8.3 0 1 0 10.5 10.5z"/></svg>';
+  /* 跟全站站头同一对：🌕 现在是白天 · 🌑 现在是夜里 */
   function paintModeBtn() {
     var b = $("mode-btn");
-    b.innerHTML = isDarkNow() ? ICON_MOON : ICON_SUN;
+    b.textContent = isDarkNow() ? "🌑" : "🌕";
     b.title = isDarkNow() ? "现在是夜里 · 点一下换白天" : "现在是白天 · 点一下换夜里";
   }
   $("mode-btn").addEventListener("click", function () {
@@ -3750,8 +3747,7 @@
   function paintFsBtn() {
     var lg = document.documentElement.getAttribute("data-size") === "lg";
     var b = $("fs-btn");
-    b.textContent = lg ? "A" : "A";
-    b.style.fontSize = lg ? "calc(17px * var(--fs))" : "calc(13px * var(--fs))";
+    b.style.fontSize = lg ? "calc(17px * var(--fs))" : "calc(13.5px * var(--fs))";
     b.classList.toggle("is-on", lg);
     b.title = lg ? "字号：大 · 点一下还原" : "字号：标准 · 点一下放大";
   }
