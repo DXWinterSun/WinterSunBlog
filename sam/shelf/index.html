@@ -15,7 +15,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- EB Garamond 是给「换个心情」那个浮层用的：它在全站是正文字体，
+     这页要是不加载，浮层里的英文就会掉成另一种衬线，跟博客那边看着两回事 -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/WinterSunBlog/css/theme-picker.css">
 <style>
   /* ————— 藏品架 · The Collector's Shelf —————
@@ -783,6 +785,10 @@
      点进去之后会具体显示这个人对应了哪几个藏品；不点进去，就显示它有多少件藏品、
      大概是什么，放个 emoji 表示一下」） ————— */
   .croster { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; }
+  .crow--hasadd { display: flex; flex-wrap: wrap; align-items: center; }
+  .crow--hasadd .crow__head { flex: 1; min-width: 0; }
+  .crow--hasadd .crow__add { margin-right: 12px; }
+  .crow--hasadd .crow__body { flex: 1 0 100%; }
   .crow {
     border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 36%, var(--c-ink));
     border-radius: 4px 12px 12px 4px;
@@ -813,6 +819,19 @@
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: calc(11px * var(--fs)); letter-spacing: 1px; color: var(--ink);
   }
+  /* ＋：给这个人添一件（只有馆长看得见）。Winter 2026-09-22：「角色这里不能直接
+     增加了，可以加一个按钮」——名册取代大卡之后，这条路断了，补回来。 */
+  .crow__add {
+    display: none; flex: none;
+    width: 26px; height: 26px; border-radius: 50%; cursor: pointer; line-height: 1;
+    align-items: center; justify-content: center;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 18%, var(--panel));
+    color: var(--ink); font-size: calc(13px * var(--fs)); font-family: inherit;
+    transition: transform .12s ease;
+  }
+  body.is-curator .crow__add { display: inline-flex; }
+  .crow__add:active { transform: scale(.94); }
   .crow__caret { flex: none; color: var(--ink-dim); font-size: calc(12px * var(--fs)); transition: transform .2s ease; }
   .crow.is-open .crow__caret { transform: rotate(90deg); }
   .crow__body { display: none; padding: 2px 0 0; }
@@ -1900,6 +1919,18 @@
     var ca = document.createElement("span"); ca.className = "crow__caret"; ca.textContent = "▸";
     head.appendChild(ca);
     el.appendChild(head);
+    /* ＋ 独立放在标题行外头：按钮不能套按钮，套了点 ＋ 会连展开一起触发 */
+    if (c) {
+      var add = document.createElement("button");
+      add.type = "button"; add.className = "crow__add"; add.textContent = "＋";
+      add.setAttribute("aria-label", "给 " + c.name + " 添一件藏品");
+      add.addEventListener("click", function (e) {
+        e.stopPropagation();
+        openCharMenu(c, g.items.length);
+      });
+      head.parentNode.insertBefore(add, head.nextSibling);
+      el.classList.add("crow--hasadd");
+    }
 
     var body = document.createElement("div"); body.className = "crow__body";
     var strip = document.createElement("div"); strip.className = "gcard__grid";
