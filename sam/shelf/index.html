@@ -195,14 +195,27 @@
   .head__eyebrow i { width: 24px; height: 2px; background: rgba(var(--gold-rgb),.45); }
   .head h1 {
     font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
-    font-size: clamp(25px, 6.4vw, 36px); margin: 0; letter-spacing: 1px; color: var(--ink-bright);
+    font-size: clamp(28px, 7.4vw, 42px); margin: 0; letter-spacing: 1px; color: var(--ink-bright);
+    text-shadow: 2px 3px 0 rgba(var(--gold-rgb),.20);
   }
   .head__shelf { display: block; width: min(330px, 88%); margin: 10px auto 0; }
   .head__things {
     display: flex; align-items: flex-end; justify-content: center; gap: 16px;
     font-size: calc(19px * var(--fs)); line-height: 1; margin-bottom: 3px;
   }
-  .head__things span { display: block; filter: drop-shadow(1px 2px 0 rgba(var(--ink-rgb),.18)); }
+  .head__things span {
+    display: block; cursor: pointer;
+    filter: drop-shadow(1px 2px 0 rgba(var(--ink-rgb),.18));
+    transition: transform .16s cubic-bezier(.3,1.6,.5,1);
+  }
+  .head__things span:hover { transform: translateY(-5px) rotate(-5deg); }
+  .head__things span.is-hop { animation: shelfHop .5s cubic-bezier(.3,1.5,.5,1); }
+  @keyframes shelfHop {
+    0% { transform: none; }
+    35% { transform: translateY(-13px) rotate(7deg); }
+    62% { transform: translateY(0) rotate(-3deg); }
+    100% { transform: none; }
+  }
   .head__things span:nth-child(2) { font-size: .82em; }
   .head__things span:nth-child(4) { font-size: .88em; }
   .head__plank {
@@ -1501,7 +1514,7 @@
   <span class="head__eyebrow"><i></i>Winter Sun · Collection<i></i></span>
   <h1>The Collector&rsquo;s Shelf</h1>
   <span class="head__shelf" aria-hidden="true">
-    <span class="head__things"><span>📀</span><span>🎵</span><span>🃏</span><span>📔</span></span>
+    <span class="head__things" id="head-things"><span>📀</span><span>🎵</span><span>🃏</span><span>📔</span></span>
     <span class="head__plank"></span>
   </span>
   <p>藏品架 · 他的东西，我一件件收</p>
@@ -2634,6 +2647,22 @@
       $("map-count").textContent = covered + " / " + chars.length + " LIT";
     }
   }
+
+  /* 标题那块架板上的小东西：点一下蹦一下（纯好玩） */
+  (function () {
+    var box = $("head-things");
+    if (!box) return;
+    box.addEventListener("click", function (e) {
+      var t = e.target;
+      if (!t || t.tagName !== "SPAN") return;
+      t.classList.remove("is-hop");
+      void t.offsetWidth;                 /* 强制重排，否则连点没反应 */
+      t.classList.add("is-hop");
+    });
+    box.addEventListener("animationend", function (e) {
+      e.target.classList && e.target.classList.remove("is-hop");
+    });
+  })();
 
   /* ————— 筛选 ————— */
   var filWrap = $("filters");
