@@ -6,6 +6,7 @@
   "howto": [
    "下面一人一块，五句按顺序排。<strong>淡的是旧的，亮的是新的</strong>，最底下那行小字写着这句料是从哪儿挖出来的。",
    "第 ① 句叫「锚句」，它同时印在画册、光谱、测验三个地方——所以改它动静大一点。其中四位的锚句我建议换掉，都标了红牌。",
+   "⚠️ 这一版按一条新尺子过了一遍：<strong>每句话都得能脱离上下文站住</strong>——它会单独出现在桌面小组件、每日一句和热线里，没人替它铺垫。所以网球、桥、萤火虫、那条狗，全都点明了，不再让人猜「他在说什么」。",
    "带 🔥 的那几句是<strong>放开的</strong>——每人一句，在那件具体的东西后面把话真的说出来。你看完挑：哪几句留、哪几句不要、哪几句想换个说法。不用一条条回，把不喜欢的点出来就行。"
   ],
   "order": [
@@ -75,8 +76,8 @@
    },
    {
     "label": "NUMBERED IN PENCIL",
-    "line": "You number my notes in pencil on the back. Fiftieth one, by that morning. I write them so the number keeps going up.",
-    "lineCN": "你在我每张条子背面用铅笔编号。到那天早上，第五十张。我天天写，就为了那个数字一直往上走。",
+    "line": "You number my notes in pencil on the back. It's up to fifty now. I write one every day just to watch that number climb.",
+    "lineCN": "你在我每张条子背面用铅笔编号。已经第五十张了。我天天写一张，就为了看那个数字往上爬。",
     "src": "Interoffice 母题⑤：铁盒 + 你用铅笔写的编号（Winter 点名喜欢的细节）"
    },
    {
@@ -110,9 +111,9 @@
     "src": "系列母题④：Camelot Gardens 那道铁门＋门房登记"
    },
    {
-    "label": "NINE FEET DEEP",
-    "line": "Thirty feet down, nine feet deep, four and a half over the east ledge. I counted all of it. They call it showing off. You're the only one who ever called it knowing what I'm doing.",
-    "lineCN": "三十英尺高，九英尺深，东边那道石梁四英尺半。我全数过。他们管这叫逞能——只有你说，那叫心里有数。",
+    "label": "THIRTY FEET OFF THE BRIDGE",
+    "line": "Thirty feet down off that bridge, nine feet of water, four and a half over the east ledge. I counted all of it. They call it showing off. You're the only one who ever called it knowing what I'm doing.",
+    "lineCN": "从那座桥上往下三十英尺，水深九英尺，东边那道石梁四英尺半。我全数过。他们管这叫逞能——只有你说，那叫心里有数。",
     "src": "系列母题①「三十英尺那一跳」（他的野其实是本事）"
    },
    {
@@ -146,8 +147,8 @@
    },
    {
     "label": "I FORGOT MY LINE",
-    "line": "Everybody in that village is playing somebody. I just happen to do it best. Then you walked through and I forgot my line.",
-    "lineCN": "那个村子里每个人都在演别人。我只是碰巧演得最好的那个。然后你穿过来，我忘词了。",
+    "line": "Everybody in that fake village is playing somebody. I just happen to do it best. Then you walked through and I forgot my line.",
+    "lineCN": "那座假村子里，每个人都在演别人。我只是碰巧演得最好的那个。然后你穿过来，我忘词了。",
     "src": "Ch1 原话＋Ch4《卡壳》"
    },
    {
@@ -283,9 +284,9 @@
     "src": "句子不动（送人 vs 留下＝他的全部），标题指事化"
    },
    {
-    "label": "HOLES IN THE LID",
-    "line": "Punch a few holes in the lid and you can keep a whole night inside a jar. There's one on my shelf I saved from before I met you. It was always going to be yours.",
-    "lineCN": "在盖子上戳几个洞，一整个晚上就装得进一只罐子。我架子上留着一罐，比认识你还早。它本来就该是你的。",
+    "label": "A JAR OF FIREFLIES",
+    "line": "Punch a few holes in the lid and a jar of fireflies is a whole night you can carry around. There's one on my shelf I saved from before I met you. It was always going to be yours.",
+    "lineCN": "在盖子上戳几个洞，一罐萤火虫就是一整夜——你能拿在手里带着走。我架子上留着一罐，比认识你还早。它本来就该是你的。",
     "src": "片名 Box of Moonlight 的本体：一罐萤火虫"
    },
    {
@@ -313,10 +314,10 @@
     "src": "他的底色不是疲惫，是 Sam 式的活力：会开玩笑，再难也先把笑话备好（⚠️ 换了锚句）"
    },
    {
-    "label": "BALLS I HAVE NO BUSINESS GETTING",
-    "line": "I'm not good. I'm relentless — I get to balls I have no business getting to. That's the whole of me, honestly. Tell me where to run and I'll go get it.",
-    "lineCN": "我打得不好。我只是不肯放过——好多根本够不着的球我也扑过去。说真的，我整个人就这么回事。你说往哪儿跑，我就去把它捞回来。",
-    "src": "他打网球。「我打得不好，只是不肯放过」既是他的活力，也是他整出悲剧的形状——他一直在扑，可有些球真的够不着"
+    "label": "BAD AT TENNIS, WON'T QUIT",
+    "line": "I play tennis badly and I will not quit. I chase down balls I have no business getting to. That's the whole of me, honestly — tell me where to run and I'll go get it.",
+    "lineCN": "网球我打得不好，可我就是不肯撒手。够不着的球我照样扑过去。说真的，我整个人就这么回事——你说往哪儿跑，我就去把它捞回来。",
+    "src": "他打网球。「打得不好，只是不肯撒手」既是他的活力，也是他整出悲剧的形状——他一直在扑，可有些球真的够不着"
    },
    {
     "label": "THE CORD INSIDE MY COAT",
@@ -325,9 +326,9 @@
     "src": "上下班路上戴着耳机听歌（2007 年还是有线的，线要塞进外套免得挂着）"
    },
    {
-    "label": "TOO FAST ON THE FLOORBOARDS",
-    "line": "He could hear my key in the lock from three rooms off, and he always took the corner too fast on the floorboards. I still listen for it. You're the first person I've told that to who didn't tell me to get another dog.",
-    "lineCN": "我的钥匙一响，隔着三个房间他就听见了，冲过转角总在地板上打滑。到现在我进门还在听。这件事我跟你说过——你是第一个没劝我再养一只的人。",
+    "label": "THE DOG ON THE FLOORBOARDS",
+    "line": "The dog could hear my key in the lock from three rooms off, and he always took the corner too fast on the floorboards. I still listen for it. You're the first person I've told that to who didn't tell me to get another one.",
+    "lineCN": "我的钥匙一响，隔着三个房间那条狗就听见了，冲过转角总在地板上打滑。到现在我进门还在听。这件事我跟你说过——你是第一个没劝我再养一只的人。",
     "src": "那条金毛。片里「宠物一只只死掉」是压垮这个家的其中一刀；这句不说它死了，只说他还在听"
    },
    {
