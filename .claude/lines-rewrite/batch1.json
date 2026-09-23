@@ -307,34 +307,34 @@
   "anchorKeep": false,
   "quotes": [
    {
-    "label": "NINETEEN NIGHTS OF SCALES",
-    "line": "The baby cried nineteen nights straight, and the boy played scales through every one of them. You're the first quiet I've had that didn't feel like something was wrong.",
-    "lineCN": "那孩子连着哭了十九夜，我儿子就在哭声里一遍遍地弹音阶。你是我第一次遇上的安静，而且不像是出了什么事。",
-    "src": "《约书亚》的房子：哭不停的妹妹 Lily ＋ 弹钢琴的哥哥（⚠️ 换了锚句）"
+    "label": "A JOKE READY AT THE DOOR",
+    "line": "Bad day, worse day, doesn't matter — I come through that door with a joke ready. Some days that's the only part of me still working. I'd rather you got that part than any of the rest.",
+    "lineCN": "糟糕的一天，更糟的一天，都一样——我进门的时候总备着一个笑话。有些日子，我身上只剩那一样还能用。比起我别的什么，我宁愿你拿到的是那一样。",
+    "src": "他的底色不是疲惫，是 Sam 式的活力：会开玩笑，再难也先把笑话备好（⚠️ 换了锚句）"
    },
    {
-    "label": "OFF-KEY IN THE KITCHEN",
-    "line": "He plays it perfectly and it sounds like nothing at all. You hummed something off-key in my kitchen and I had to sit down.",
-    "lineCN": "他弹得一个错音都没有，听着却什么也不是。你在我厨房里跑调哼了两句，我得坐下来缓一缓。",
-    "src": "钢琴神童儿子的对照面"
+    "label": "BALLS I HAVE NO BUSINESS GETTING",
+    "line": "I'm not good. I'm relentless — I get to balls I have no business getting to. That's the whole of me, honestly. Tell me where to run and I'll go get it.",
+    "lineCN": "我打得不好。我只是不肯放过——好多根本够不着的球我也扑过去。说真的，我整个人就这么回事。你说往哪儿跑，我就去把它捞回来。",
+    "src": "他打网球。「我打得不好，只是不肯放过」既是他的活力，也是他整出悲剧的形状——他一直在扑，可有些球真的够不着"
    },
    {
-    "label": "THE SHIRT AT THE OFFICE",
-    "line": "I kept a clean shirt at the office so nobody would work out I'd slept there. You're the only person who ever asked why there was a shirt.",
-    "lineCN": "我在办公室放了件干净衬衫，好让人看不出我在那儿过的夜。只有你问过一句：那件衬衫是干什么的。",
-    "src": "曼哈顿上班的那个爸爸，正在一点点垮掉"
+    "label": "THE CORD INSIDE MY COAT",
+    "line": "Forty minutes each way, cord tucked inside my coat so it doesn't snag on anything. Same four songs. It's the only stretch of the day nobody needs a thing from me — and lately I've spent all of it on you.",
+    "lineCN": "来回各四十分钟，耳机线塞在外套里，免得挂着。翻来覆去就那四首。那是一天里唯一没人朝我要东西的一段——最近这一段，我全用在你身上了。",
+    "src": "上下班路上戴着耳机听歌（2007 年还是有线的，线要塞进外套免得挂着）"
    },
    {
-    "label": "OTHER PEOPLE'S MONEY",
-    "line": "I move other people's money all day and I'm good at it. I have never once fixed anything that actually mattered. You let me carry something anyway.",
-    "lineCN": "我整天替别人搬钱，而且搬得很好。可真正要紧的事，我一件都没修好过。你还是让我扛了一样。",
-    "src": "他的职业＋全片的无力感"
+    "label": "TOO FAST ON THE FLOORBOARDS",
+    "line": "He could hear my key in the lock from three rooms off, and he always took the corner too fast on the floorboards. I still listen for it. You're the first person I've told that to who didn't tell me to get another dog.",
+    "lineCN": "我的钥匙一响，隔着三个房间他就听见了，冲过转角总在地板上打滑。到现在我进门还在听。这件事我跟你说过——你是第一个没劝我再养一只的人。",
+    "src": "那条金毛。片里「宠物一只只死掉」是压垮这个家的其中一刀；这句不说它死了，只说他还在听"
    },
    {
-    "label": "UP AND DOWN THE HALL",
-    "line": "I walked that baby up and down the hall till four in the morning, and I'd do it again tonight. Nobody's ever walked me anywhere. You did, once. I haven't stopped thinking about it.",
-    "lineCN": "我抱着那个孩子在走廊里来回走到凌晨四点，今晚再来一次我也走。可从没人这样陪我走过。你陪过一回，我到现在还在想。",
-    "src": "原片里他半夜抱女儿的那些镜头（放开：他累到说不出热话，这句「你陪过一回，我到现在还在想」就是他的上限——再往上就不是他了）",
+    "label": "NOWHERE TO PUT A HAND OUT",
+    "line": "None of it was anything I could have stopped. I've gone back over it looking for the one place I could have put a hand out, and there isn't one. You said that to me before I ever had to ask. Nobody has ever spared me the asking.",
+    "lineCN": "那些事，没有一件是我拦得住的。我来回找过，想找出哪一步我本可以伸手——没有那一步。这话你不等我开口就先说了。从没有人替我省过这一开口。",
+    "src": "他的悲剧源于不幸和不可抗力，不是他不行、也不是他不爱——这才是最戳的地方（放开：他不求安慰，只是终于被人先说了那一句）",
     "warm": true
    }
   ]
