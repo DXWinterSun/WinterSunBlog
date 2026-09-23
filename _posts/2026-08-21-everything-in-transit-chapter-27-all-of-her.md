@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 25 · 满本子都是她 — Everything in Transit"
+title: "Chapter 27 · 满本子都是她 — Everything in Transit"
 date: 2026-08-21 17:12:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 缱绻]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 25
+series_order: 27
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 25
+chapter_type: Chapter 27
 summary: "Mickey 速写本一抖，满本子都是她。全屋起哄，撺掇他大胆去追。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-25-all-of-her/

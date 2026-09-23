@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 20 · 第一晚 — Everything in Transit"
+title: "Chapter 22 · 第一晚 — Everything in Transit"
 date: 2026-08-21 17:07:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 炽恋, 缱绻]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 20
+series_order: 22
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 20
+chapter_type: Chapter 22
 summary: "他赖在你屋里不走。这一夜，他没回那三步之外的隔壁。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-20-the-first-night/

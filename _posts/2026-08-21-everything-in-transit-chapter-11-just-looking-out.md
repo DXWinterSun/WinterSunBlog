@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 9 · 哥们儿的关心 — Everything in Transit"
+title: "Chapter 11 · 哥们儿的关心 — Everything in Transit"
 date: 2026-08-21 16:56:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 暗涌]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 9
+series_order: 11
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 9
+chapter_type: Chapter 11
 summary: "电话总打到家里找你，常是 Rob 接——他说替你把关，脸却越来越臭。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-9-just-looking-out/

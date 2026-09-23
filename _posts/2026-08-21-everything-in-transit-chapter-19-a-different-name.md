@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 17 · 换个名字叫你 — Everything in Transit"
+title: "Chapter 19 · 换个名字叫你 — Everything in Transit"
 date: 2026-08-21 17:04:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 安放]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 17
+series_order: 19
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 17
+chapter_type: Chapter 19
 summary: "散场后客厅只剩你俩。他张口叫你 D，又顿住——这次，他换了个名字。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-17-a-different-name/

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 10 · 一件简单的事 — Everything in Transit"
+title: "Chapter 12 · 一件简单的事 — Everything in Transit"
 date: 2026-08-21 16:57:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 怅惘]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 10
+series_order: 12
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 10
+chapter_type: Chapter 12
 summary: "学冲浪的那个清晨，一切都那么简单——简单到你几乎相信，你可以要这一份。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-10-a-simple-thing/

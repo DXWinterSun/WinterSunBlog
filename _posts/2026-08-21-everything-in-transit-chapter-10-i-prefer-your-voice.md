@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 8 · 我更喜欢你的声音 — Everything in Transit"
+title: "Chapter 10 · 我更喜欢你的声音 — Everything in Transit"
 date: 2026-08-21 16:55:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 8
+series_order: 10
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 8
+chapter_type: Chapter 10
 summary: "海边派对，一个冲浪男孩直直朝你走来——他说，更喜欢你的声音。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-8-i-prefer-your-voice/

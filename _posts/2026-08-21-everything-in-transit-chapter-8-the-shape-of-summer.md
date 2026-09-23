@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 6 · 夏天的样子 — Everything in Transit"
+title: "Chapter 8 · 夏天的样子 — Everything in Transit"
 date: 2026-08-21 16:53:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 缱绻]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 6
+series_order: 8
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 6
+chapter_type: Chapter 8
 summary: "他们早不拿你当女生看。可你忘带腕带那天，Rob 还是把手上那根给了你。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-6-the-shape-of-summer/

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 15 · 后知后觉 — Everything in Transit"
+title: "Chapter 17 · 后知后觉 — Everything in Transit"
 date: 2026-08-21 17:02:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 怅惘, 暗涌]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 15
+series_order: 17
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 15
+chapter_type: Chapter 17
 summary: "你忽然发现 Joanie 好久没来了。没吵没闹，像退潮，一寸寸退出去。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-15-hindsight/

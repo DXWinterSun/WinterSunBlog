@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 13 · 单飞 — Everything in Transit"
+title: "Chapter 15 · 单飞 — Everything in Transit"
 date: 2026-08-21 17:00:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 暗涌, 怅惘]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 13
+series_order: 15
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 13
+chapter_type: Chapter 15
 summary: "他开始躲着你写歌，一见你就藏谱子。你骂他要单飞——不知道，他写的是你。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-13-going-solo/

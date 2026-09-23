@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 19 · 隔壁 — Everything in Transit"
+title: "Chapter 21 · 隔壁 — Everything in Transit"
 date: 2026-08-21 17:06:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 缱绻]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 19
+series_order: 21
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 19
+chapter_type: Chapter 21
 summary: "他想把两间屋并成一间，被 Slosh 一句噎了回去——还是做隔壁。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-19-next-door/

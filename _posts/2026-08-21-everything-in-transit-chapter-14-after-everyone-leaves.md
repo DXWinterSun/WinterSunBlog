@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 12 · 散场之后 — Everything in Transit"
+title: "Chapter 14 · 散场之后 — Everything in Transit"
 date: 2026-08-21 16:59:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 12
+series_order: 14
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 12
+chapter_type: Chapter 14
 summary: "热闹散尽，只剩你俩。你取下腕带还他——长发落下那一瞬，他看愣了。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-12-after-everyone-leaves/

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 22 · 现学现卖 — Everything in Transit"
+title: "Chapter 24 · 现学现卖 — Everything in Transit"
 date: 2026-08-21 17:09:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 炽恋, 缱绻]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 22
+series_order: 24
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 22
+chapter_type: Chapter 24
 summary: "你带着现学的阵仗主动出击——把那个嘴上最贫的人，整不会了。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-22-fresh-lessons/

@@ -15,7 +15,10 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- EB Garamond 是给「换个心情」那个浮层用的：它在全站是正文字体，
+     这页要是不加载，浮层里的英文就会掉成另一种衬线，跟博客那边看着两回事 -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/WinterSunBlog/css/theme-picker.css">
 <style>
   /* ————— 藏品架 · The Collector's Shelf —————
      公开收藏册：藏品数据在 ./data.json（随站点部署，人人可见）。
@@ -28,14 +31,134 @@
      若照它编辑，保存时会拿旧名单盖掉仓库里的新记录。publish() 里另有一道保险丝
      （rescueMissing）：仓库里有、这台设备没有、本次又没删过的条目一律保留。
      角色联动读 sam/lines.json（零内嵌，画册加人自动跟上）。 */
+
+  /* ————— 配色：跟全站共用「换个心情」那一套 —————
+     Winter 2026-09-22：「这个换皮肤放在这里好丑啊，浅色也看不出来配色了……
+     你要不参考一下游戏厅的主题？」——所以原先那四款自制皮肤整个撤掉，改成直接
+     用全站的选色器（54 张角色色卡 + 随心染色），跟游戏厅、文章页同一套：
+
+       · 样式：/css/theme-picker.css（由 css/theme-picker.scss 单独编出来，
+         内容就是 _sass/5-components/_theme-picker.scss，两边永远一致）
+       · 数据：/js/sam-themes-data.js（来自 _data/sam_themes.yml）
+       · 逻辑：/js/theme-picker.js —— 它把 --c-* 那套变量写在 <html> 上
+       · 记忆：localStorage 的 wiw-palette / wiw-theme，与全站同一个键，
+         所以她在博客里挑的心情，这页打开就是那个颜色
+
+     下面这一段的活儿，是把本页原有的 --bg / --ink / --gold … 统统接到 --c-* 上。
+     本页自己只留两样：--fs（字号倍数）和 --fw-thin（原来到处是 300，太细）。 */
+  :root {
+    --fs: 1.06;
+    --fw-thin: 400;
+
+    --bg: var(--c-bg);
+    --panel: var(--c-bg-soft);
+    --panel-hi: var(--c-paper);
+    --sheet: var(--c-paper);
+    --field: var(--c-bg-soft);
+
+    --ink: var(--c-ink);
+    --ink-bright: var(--c-ink);
+    --ink-soft: var(--c-ink-soft);
+    --ink-mid: var(--c-ink-soft);
+    --ink-dim: var(--c-muted);
+    --ink-faint: var(--c-muted-soft);
+    --ink-gold: var(--c-accent);
+
+    --gold: var(--c-accent);
+    --gold-hi: var(--c-accent-dark);
+    --danger: var(--c-status-red);
+    --ok: var(--c-status-green);
+
+    /* 描边与「点亮」的底色都用当前主题色——这样换一张色卡，整页跟着换 */
+    --gold-rgb: var(--rgb-accent);
+    --goldhi-rgb: var(--rgb-accent);
+    --sheet-rgb: var(--rgb-paper);
+    --line-rgb: 31,29,26;        /* 浅色下细线是深的 */
+    --ink-rgb: 31,29,26;
+    --veil-rgb: 31,29,26;
+    --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23555049'/%3E%3C/svg%3E");
+    --caret-on: var(--caret);
+
+    /* 页面零件（不属于某个角色的那些）统一用这两个：粗描边 + 硬投影 */
+    --edge-ink: color-mix(in srgb, var(--c-accent) 26%, var(--c-ink));
+    --edge-soft: rgba(var(--line-rgb),.26);
+
+    /* 心愿单那颗星、删除那类语义色不跟主题走，只分昼夜 */
+    --warm: #a55b36; --warm-hi: #94482a; --warm-dim: #8a4a30; --warm-bright: #7a3c22;
+    --warm-rgb: 165,91,54;
+  }
+  /* 夜里：细线翻成浅色，卡片沿用角色自己的深底色 */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --line-rgb: 255,255,255;
+      --ink-rgb: 239,232,218;
+      --veil-rgb: 0,0,0;
+      --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23c8c0b1'/%3E%3C/svg%3E");
+      --warm: #e8b697; --warm-hi: #ed9a80; --warm-dim: #c07f6a; --warm-bright: #ffd7c4;
+      --warm-rgb: 232,150,120;
+    }
+  }
+  :root[data-theme="dark"] {
+    --line-rgb: 255,255,255;
+    --ink-rgb: 239,232,218;
+    --veil-rgb: 0,0,0;
+    --caret: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23c8c0b1'/%3E%3C/svg%3E");
+    --warm: #e8b697; --warm-hi: #ed9a80; --warm-dim: #c07f6a; --warm-bright: #ffd7c4;
+    --warm-rgb: 232,150,120;
+  }
+  [data-size="lg"] { --fs: 1.26; }
+
+  /* 白天：卡片和地图格子不能再用角色那份深底色（白页上一块块发黑、里头的字还看不清），
+     改成只借他的 accent 往纸上染一层——颜色还在，眼睛不累。 */
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .item__face,
+    :root:not([data-theme="dark"]) .mslot--got {
+      background: linear-gradient(160deg,
+        color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel-hi)), var(--panel-hi) 72%);
+    }
+    :root:not([data-theme="dark"]) .item__type,
+    :root:not([data-theme="dark"]) .mslot__n,
+    :root:not([data-theme="dark"]) .row__sub i {
+      color: color-mix(in srgb, var(--a, var(--gold)) 62%, var(--c-ink));
+    }
+    :root:not([data-theme="dark"]) .mslot--got .mslot__film { color: var(--ink-mid); }
+  }
+  :root[data-theme="light"] .item__face,
+  :root[data-theme="light"] .mslot--got {
+    background: linear-gradient(160deg,
+      color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel-hi)), var(--panel-hi) 72%);
+  }
+  :root[data-theme="light"] .item__type,
+  :root[data-theme="light"] .mslot__n,
+  :root[data-theme="light"] .row__sub i {
+    color: color-mix(in srgb, var(--a, var(--gold)) 62%, var(--c-ink));
+  }
+  :root[data-theme="light"] .mslot--got .mslot__film { color: var(--ink-mid); }
+
+  /* 顶栏右边那三颗小圆钮：换心情（心）· 昼夜 · 字号 */
+  .topbar__right { display: flex; align-items: center; gap: 8px; }
+  .iconbtn {
+    width: 36px; height: 36px; padding: 0; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--c-line); border-radius: 999px; background: transparent;
+    color: var(--ink-mid); cursor: pointer; line-height: 1;
+    font-family: inherit; font-size: calc(14px * var(--fs));
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .iconbtn:hover { border-color: var(--gold); color: var(--gold); }
+  .iconbtn.is-on { border-color: var(--gold); color: var(--gold); }
+  @media only screen and (max-width: 480px) { .iconbtn { width: 32px; height: 32px; } }
   html, body { margin: 0; padding: 0; }
   *, *::before, *::after { box-sizing: border-box; }
   body {
     min-height: 100dvh;
-    background:
-      radial-gradient(ellipse 100% 50% at 50% -5%, rgba(203,161,76,.08), transparent 60%),
-      #0d0a08;
-    color: #ece1d0;
+    /* 一层极淡的网点当地，卡片浮在上面才有层次（游戏厅那张网点底的做法） */
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(ellipse 100% 50% at 50% -5%, rgba(var(--gold-rgb),.08), transparent 60%),
+      radial-gradient(rgba(var(--line-rgb),.055) 1.4px, transparent 1.5px);
+    background-size: auto, 13px 13px;
+    color: var(--ink);
     font-family: 'Noto Serif SC', serif;
     -webkit-font-smoothing: antialiased;
     display: flex; flex-direction: column; align-items: center;
@@ -50,81 +173,156 @@
     margin-bottom: 22px;
   }
   .back {
-    font-weight: 300; font-size: 12px; letter-spacing: 1px;
-    color: #8a7558; text-decoration: none;
+    font-weight: var(--fw-thin); font-size: calc(13.5px * var(--fs)); letter-spacing: 1px;
+    color: var(--ink-dim); text-decoration: none;
   }
-  .back:hover { color: #ece1d0; }
+  .back:hover { color: var(--ink); }
   .progress-num {
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 10px; letter-spacing: 2px; color: #8a7558; text-transform: uppercase;
+    font-size: calc(11.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim); text-transform: uppercase;
   }
 
-  .head { text-align: center; margin-bottom: 8px; }
+  /* ————— 总标题＝一块真的架板，上面摆着四样东西 —————
+     Winter 2026-09-23：「现在这个标题没什么设计🤔」→ 给了三版，她挑了这版
+     （「C 好可爱！我就喜欢这种感觉🥺」）。板子和小东西的颜色都吃当前主题色。 */
+  .head { text-align: center; margin-bottom: 0; }
+  .head__eyebrow {
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+    font-family: 'Special Elite','Courier New',monospace;
+    font-size: calc(10.5px * var(--fs)); letter-spacing: 3px; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 8px;
+  }
+  .head__eyebrow i { width: 24px; height: 2px; background: rgba(var(--gold-rgb),.45); }
+  /* 标题被两道主题色细线夹住，像票据 / 展签的抬头（Winter 2026-09-23 从五版里挑的） */
   .head h1 {
     font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
-    font-size: clamp(22px, 5vw, 30px); margin: 0; letter-spacing: 1px; color: #f2e7d2;
+    font-size: clamp(28px, 7.4vw, 42px); letter-spacing: 1px; color: var(--ink-bright);
+    text-shadow: 2px 2px 0 rgba(var(--gold-rgb),.14);
+    width: min(340px, 92%); margin: 0 auto; padding: 11px 0 13px;
+    border-top: 2px solid rgba(var(--gold-rgb),.4);
+    border-bottom: 2px solid rgba(var(--gold-rgb),.4);
+  }
+  .head__shelf { display: block; width: min(320px, 88%); margin: 13px auto 0; }
+  .head__things {
+    display: flex; align-items: flex-end; justify-content: center; gap: 16px;
+    font-size: calc(19px * var(--fs)); line-height: 1; margin-bottom: 3px;
+  }
+  .head__things span {
+    display: block; cursor: pointer;
+    filter: drop-shadow(1px 2px 0 rgba(var(--ink-rgb),.18));
+    transition: transform .16s cubic-bezier(.3,1.6,.5,1);
+  }
+  .head__things span:hover { transform: translateY(-5px) rotate(-5deg); }
+  .head__things span.is-hop { animation: shelfHop .5s cubic-bezier(.3,1.5,.5,1); }
+  @keyframes shelfHop {
+    0% { transform: none; }
+    35% { transform: translateY(-13px) rotate(7deg); }
+    62% { transform: translateY(0) rotate(-3deg); }
+    100% { transform: none; }
+  }
+  .head__things span:nth-child(2) { font-size: .82em; }
+  .head__things span:nth-child(4) { font-size: .88em; }
+  .head__plank {
+    display: block; height: 13px; border: 2px solid rgba(var(--ink-rgb),.6); border-radius: 3px;
+    background: linear-gradient(to bottom,
+      color-mix(in srgb, var(--gold) 34%, var(--c-bg)) 0 58%,
+      color-mix(in srgb, var(--gold) 58%, var(--c-ink)) 58% 100%);
+    box-shadow: 3px 4px 0 rgba(var(--gold-rgb),.22); position: relative;
   }
   .head p {
-    font-weight: 300; font-size: clamp(11.5px, 3vw, 13px); letter-spacing: 2px;
-    color: #8a7558; margin: 8px 0 0; line-height: 1.9;
+    font-weight: var(--fw-thin); font-size: clamp(11.5px, 3vw, 13px); letter-spacing: 2px;
+    color: var(--ink-dim); margin: 9px 0 0; line-height: 1.9;
   }
+  /* 进门的时候四样东西一件件落到板子上 */
+  @media (prefers-reduced-motion: no-preference) {
+    .head__things span { animation: shelfDrop .42s cubic-bezier(.3,1.5,.5,1) backwards; }
+    .head__things span:nth-child(1) { animation-delay: .10s; }
+    .head__things span:nth-child(2) { animation-delay: .19s; }
+    .head__things span:nth-child(3) { animation-delay: .28s; }
+    .head__things span:nth-child(4) { animation-delay: .37s; }
+  }
+  @keyframes shelfDrop { from { transform: translateY(-9px); opacity: 0; } to { transform: none; opacity: 1; } }
 
   /* 馆长在馆提示 */
   .curator-tag {
     display: none; margin: 12px auto 0;
     padding: 5px 16px; border-radius: 999px;
-    border: 1px solid rgba(230,190,110,.4);
-    background: rgba(203,161,76,.1);
-    font-size: 11px; letter-spacing: 2px; color: #cfa95c;
+    border: 2px solid var(--gold);
+    background: rgba(var(--gold-rgb),.1);
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--gold) 60%, var(--c-ink));
+    font-size: calc(12.5px * var(--fs)); letter-spacing: 2px; color: var(--gold-hi);
   }
   body.is-curator .curator-tag { display: inline-block; }
 
-  /* 统计行 */
-  .stats {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px;
-    margin: 16px 0 4px;
-    font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 10px; letter-spacing: 2px; color: #8a7558; text-transform: uppercase;
+  /* ————— 统计＝架板底下吊着的一块牌 —————
+     Winter 2026-09-23：「下面的标签太丑了😂……尤其是总共多少件这种应该要显眼一点」
+     →「吊牌很不错！」所以总数做成挂在架子上的一块牌，四项小数据在牌下面一行、不加框。 */
+  .stats { display: block; text-align: center; margin: 0 0 4px; }
+  .stats__tag {
+    position: relative; display: inline-flex; align-items: baseline; gap: 7px;
+    margin-top: 22px; padding: 7px 18px 8px; border-radius: 11px;
+    border: 2px solid rgba(var(--ink-rgb),.75);
+    background: color-mix(in srgb, var(--gold) 16%, var(--panel));
+    box-shadow: 4px 5px 0 rgba(var(--gold-rgb),.45);
   }
-  .stats b { color: #cba14c; font-weight: 400; }
+  /* 挂牌的那两根绳，从架板垂下来 */
+  .stats__tag::before, .stats__tag::after {
+    content: ""; position: absolute; bottom: 100%; width: 2px; height: 20px;
+    background: rgba(var(--ink-rgb),.45);
+  }
+  .stats__tag::before { left: 26%; }
+  .stats__tag::after { right: 26%; }
+  .stats__tag b {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+    font-size: calc(31px * var(--fs)); line-height: 1; color: var(--gold);
+  }
+  .stats__tag i {
+    font-style: normal; font-size: calc(12px * var(--fs));
+    color: var(--ink-dim); letter-spacing: 2px;
+  }
+  .stats__row {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 3px 13px; margin-top: 12px;
+    font-size: calc(12px * var(--fs)); color: var(--ink-dim);
+  }
+  .stats__row > * { display: inline-flex; align-items: center; gap: 5px; }
+  .stats__row em { font-style: normal; color: var(--ink); }
   .stats__jump {
-    border: 0; background: none; padding: 0; cursor: pointer;
-    font-family: inherit; font-size: inherit; letter-spacing: inherit;
-    color: inherit; text-transform: inherit;
+    border: 0; background: none; padding: 0; font: inherit; color: inherit; cursor: pointer;
     text-decoration: underline dotted; text-underline-offset: 4px;
-    text-decoration-color: rgba(203,161,76,.45);
+    text-decoration-color: rgba(var(--gold-rgb),.5);
   }
-  .stats__jump:hover { color: #ece1d0; }
+  .stats__jump:hover { color: var(--ink); }
 
   /* 未发布改动的横幅 */
   .pending {
     display: none; margin: 14px auto 0; max-width: 560px;
     padding: 10px 18px; border-radius: 10px; text-align: center;
-    border: 1px dashed rgba(224,138,114,.55);
+    border: 1px dashed rgba(var(--warm-rgb),.55);
     background: rgba(180,90,60,.1);
-    font-size: 12.5px; line-height: 2; color: #e0a98a; letter-spacing: .5px;
+    font-size: calc(14px * var(--fs)); line-height: 2; color: var(--warm); letter-spacing: .5px;
   }
   .pending.is-on { display: block; }
   .pending button {
     margin-left: 8px; padding: 4px 14px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(224,138,114,.6); background: none;
-    color: #e0a98a; font-size: 12px; letter-spacing: 1px;
+    border: 1px solid rgba(var(--warm-rgb),.6); background: none;
+    color: var(--warm); font-size: calc(13.5px * var(--fs)); letter-spacing: 1px;
   }
-  .pending button:hover { color: #ffd7c4; border-color: #e0a98a; }
+  .pending button:hover { color: var(--warm-bright); border-color: var(--warm); }
 
   /* 添加按钮（仅馆长可见） */
   .add-btn {
     display: none; margin: 18px auto 6px;
     align-items: center; gap: 8px;
     padding: 11px 26px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(230,190,110,.5);
-    background: linear-gradient(160deg, rgba(203,161,76,.22), rgba(203,161,76,.06));
-    color: #ecd9a8; font-size: 14px; letter-spacing: 2px;
-    transition: box-shadow .25s ease, transform .15s ease;
+    border: 2px solid var(--gold);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.22), rgba(var(--gold-rgb),.06));
+    color: var(--ink-gold); font-size: calc(15px * var(--fs)); letter-spacing: 2px;
+    box-shadow: 4px 4px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink));
+    transition: box-shadow .14s ease, transform .14s ease;
   }
   body.is-curator .add-btn { display: inline-flex; }
-  .add-btn:hover { box-shadow: 0 6px 24px rgba(203,161,76,.25); transform: translateY(-1px); }
-  .add-btn__plus { font-size: 17px; line-height: 1; }
+  .add-btn:hover { box-shadow: 0 6px 24px rgba(var(--gold-rgb),.25); transform: translateY(-1px); }
+  .add-btn__plus { font-size: calc(17px * var(--fs)); line-height: 1; }
 
   /* ————— 工具条：搜索 · 排列 · 视图 · 导出 ————— */
   .toolbar {
@@ -140,26 +338,29 @@
     display: flex; align-items: center;
   }
   .search__icon {
-    position: absolute; left: 13px; font-size: 12.5px; opacity: .55; pointer-events: none;
+    position: absolute; left: 13px; font-size: calc(14px * var(--fs)); opacity: .55; pointer-events: none;
   }
   .search input {
     width: 100%; padding: 9px 34px 9px 34px; border-radius: 999px;
-    border: 1px solid rgba(255,222,180,.16); background: #14100b;
-    color: #ece1d0; font-family: 'Noto Serif SC', serif;
+    border: 2px solid var(--edge-soft); background: var(--panel);
+    color: var(--ink); font-family: 'Noto Serif SC', serif;
     /* iOS 对 <16px 的输入框会自动放大整页且不回弹 */
-    font-size: 16px;
+    font-size: calc(16px * var(--fs));
   }
-  .search input::placeholder { color: #6d5f4c; font-size: 13px; }
+  .search input::placeholder { color: var(--ink-faint); font-size: calc(14.5px * var(--fs)); }
   /* Chrome 给 type=search 自带一个 ✕，会和下面那颗撞在一起 */
   .search input::-webkit-search-cancel-button,
   .search input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
-  .search input:focus { outline: none; border-color: rgba(230,190,110,.55); }
+  .search input:focus {
+    outline: none; border-color: var(--gold);
+    box-shadow: 3px 3px 0 color-mix(in srgb, var(--gold) 55%, var(--c-ink));
+  }
   .search__x {
     position: absolute; right: 8px; display: none;
     border: 0; background: none; cursor: pointer;
-    color: #8a7558; font-size: 14px; padding: 4px 6px; line-height: 1;
+    color: var(--ink-dim); font-size: calc(15px * var(--fs)); padding: 4px 6px; line-height: 1;
   }
-  .search__x:hover { color: #ece1d0; }
+  .search__x:hover { color: var(--ink); }
   .search.has-q .search__x { display: block; }
 
   .toolrow {
@@ -167,24 +368,27 @@
     display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px;
   }
   .arrange { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-  .mini--icon { padding: 5px 10px; font-size: 13px; }
+  .mini--icon { padding: 5px 10px; font-size: calc(14.5px * var(--fs)); }
   .arrange__label {
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 9px; letter-spacing: 2px; color: #6d5f4c; text-transform: uppercase;
+    font-size: calc(11px * var(--fs)); letter-spacing: 2px; color: var(--ink-faint); text-transform: uppercase;
     margin-right: 2px;
   }
   .mini {
     padding: 5px 11px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(255,222,180,.13); background: #14100b;
-    color: #a8916d; font-family: 'Noto Serif SC', serif;
-    font-size: 11.5px; letter-spacing: 1px;
-    transition: border-color .2s ease, color .2s ease;
+    border: 2px solid var(--edge-soft); background: var(--panel);
+    color: var(--ink-mid); font-family: 'Noto Serif SC', serif;
+    font-size: calc(13px * var(--fs)); letter-spacing: 1px;
+    transition: transform .12s ease, box-shadow .12s ease, border-color .2s ease, color .2s ease;
   }
-  .mini:hover { border-color: rgba(255,222,180,.38); color: #ece1d0; }
+  .mini:active { transform: translate(1px, 1px); }
+  .mini:hover { border-color: rgba(var(--line-rgb),.38); color: var(--ink); }
   .mini.is-on {
-    border-color: rgba(230,190,110,.65); color: #ecd9a8;
-    background: linear-gradient(160deg, rgba(203,161,76,.18), rgba(203,161,76,.03));
+    border-color: var(--gold); color: var(--ink-gold);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.22), rgba(var(--gold-rgb),.05));
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink));
   }
+  .mini.is-on:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink)); }
   .seg { display: flex; gap: 6px; }
 
   /* 筛选条 */
@@ -207,33 +411,33 @@
   }
   .chip {
     padding: 6px 13px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(255,222,180,.16);
-    background: #14100b; color: #a8916d;
-    font-size: 12px; letter-spacing: 1px;
+    border: 1px solid rgba(var(--line-rgb),.16);
+    background: var(--panel); color: var(--ink-mid);
+    font-size: calc(13.5px * var(--fs)); letter-spacing: 1px;
     transition: border-color .2s ease, color .2s ease;
   }
-  .chip:hover { border-color: rgba(255,222,180,.4); color: #ece1d0; }
+  .chip:hover { border-color: rgba(var(--line-rgb),.4); color: var(--ink); }
   .chip.is-on {
-    border-color: rgba(230,190,110,.7); color: #ecd9a8;
-    background: linear-gradient(160deg, rgba(203,161,76,.2), rgba(203,161,76,.04));
+    border-color: rgba(var(--goldhi-rgb),.7); color: var(--ink-gold);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.2), rgba(var(--gold-rgb),.04));
   }
 
   /* 角色筛选提示条 */
   .charbar {
     display: none; align-items: center; gap: 10px;
     margin: 12px auto 0; padding: 7px 14px; border-radius: 999px;
-    border: 1px dashed color-mix(in srgb, var(--a, #cba14c) 55%, transparent);
-    background: color-mix(in srgb, var(--a, #cba14c) 10%, #14100b);
-    font-size: 12.5px; letter-spacing: 1px; color: #ece1d0;
+    border: 1px dashed color-mix(in srgb, var(--a, var(--gold)) 55%, transparent);
+    background: color-mix(in srgb, var(--a, var(--gold)) 10%, var(--panel));
+    font-size: calc(14px * var(--fs)); letter-spacing: 1px; color: var(--ink);
   }
   .charbar.is-on { display: inline-flex; }
   .charbar button {
-    border: 0; background: none; cursor: pointer; color: #8a7558;
-    font-size: 14px; padding: 0 2px; line-height: 1;
+    border: 0; background: none; cursor: pointer; color: var(--ink-dim);
+    font-size: calc(15px * var(--fs)); padding: 0 2px; line-height: 1;
   }
-  .charbar button:hover { color: #ece1d0; }
+  .charbar button:hover { color: var(--ink); }
   .charbar .charbar__more {
-    font-size: 11.5px; letter-spacing: 1px; color: #a8916d;
+    font-size: calc(13px * var(--fs)); letter-spacing: 1px; color: var(--ink-mid);
     text-decoration: underline dotted; text-underline-offset: 3px;
     padding: 0 2px 0 4px;
   }
@@ -246,90 +450,536 @@
   }
   .section-label h2 {
     font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
-    font-size: 17px; margin: 0; color: #e7d5ae; letter-spacing: 1px; white-space: nowrap;
+    font-size: calc(17px * var(--fs)); margin: 0; color: var(--ink-gold); letter-spacing: 1px; white-space: nowrap;
   }
-  .section-label .rule { flex: 1; height: 1px; background: rgba(255,222,180,.14); }
+  .section-label .rule {
+    flex: 1; height: 0; background: none;
+    border-top: 2px dotted rgba(var(--line-rgb),.22);
+  }
   .section-label .count {
+    padding: 2px 10px; border-radius: 999px;
+    border: 2px solid var(--edge-soft); background: var(--panel);
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 9.5px; letter-spacing: 2px; color: #8a7558;
+    font-size: calc(11.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim);
   }
 
   .grid {
     width: 100%; max-width: 860px;
-    display: grid; gap: 12px;
+    display: grid; gap: 12px 12px;
+    row-gap: 22px;                 /* 给架板留出厚度，一层层才分得开 */
     grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
   }
+  /* ————— 藏品卡：一种媒介一个长相（Winter 2026-09-22 要的）—————
+     「不同的媒介是不是可以有不同的卡片呈现方式……我挺喜欢游戏厅那种有层次的呈现，
+       包括抽卡的反光质感、边框、圆角。」
+
+     所以照游戏厅那套「糖纸粗描边」来：两像素描边 + 硬投影（不虚化）+ 圆角，
+     投影用这个角色自己的颜色，六十张卡就有六十种影子。各媒介再各带一个记号：
+       碟片 = 左边一条盒脊     原声带 = 右上角露出半张唱片
+       卡牌 = 内圈细边＋一角虹彩   书刊 / 场刊 = 右边书口页脚＋上边装订钉
+       周边 = 底下一道斜纹贴条   其他 = 只有底子
+     点一下卡片会有一道扫光（＝拿起来对着光照一下）——⚠️ 只在点的那一下扫过去，
+     绝不常驻：2026-09-20 游戏厅那次她说过「反光的质感一直留着，看起来有点假」。 */
+  /* 外壳只管站位、投影和「翻面」的那点透视；真正的卡面在 .item__face 上。
+     （拆成两层是为了能翻面：外壳有 overflow:hidden 的话 3D 会被压平。） */
   .item {
+    --edge: color-mix(in srgb, var(--a, var(--gold)) 42%, var(--c-ink));
+    --shade: color-mix(in srgb, var(--a, var(--gold)) 72%, var(--c-ink));
     position: relative; text-align: left;
-    border-radius: 10px; overflow: hidden;
-    border: 1px solid color-mix(in srgb, var(--a, #cba14c) 32%, transparent);
-    background:
-      linear-gradient(160deg, color-mix(in srgb, var(--a, #cba14c) 16%, var(--b, #14100b)), var(--b, #14100b) 68%);
-    padding: 14px 14px 12px;
-    transition: transform .15s ease, box-shadow .25s ease;
+    perspective: 1100px;
+    transition: transform .14s ease;
   }
-  body.is-curator .item { cursor: pointer; }
-  body.is-curator .item:hover { transform: translateY(-2px); box-shadow: 0 8px 26px color-mix(in srgb, var(--a, #cba14c) 20%, transparent); }
-  .item--wish { border-style: dashed; background: #120e0a; }
+  .item__flip {
+    position: relative; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .6s cubic-bezier(.2,.8,.25,1);
+  }
+  .item.is-flipped .item__flip { transform: rotateY(180deg); }
+  .item__face {
+    position: relative; height: 100%; overflow: hidden;
+    border-radius: 12px;
+    border: 2px solid var(--edge);
+    background:
+      linear-gradient(160deg, color-mix(in srgb, var(--a, var(--gold)) 16%, var(--b, var(--panel))), var(--b, var(--panel)) 68%);
+    padding: 14px 14px 12px;
+    /* 留给盒脊 / 书口那点边距走变量——手机那条 .grid:not(.is-list) .item__face{padding:…}
+       权重比 .item--disc 高，硬写 padding-left 会被它顶掉（翻过一次车）。 */
+    padding-left: var(--pad-l, 14px); padding-right: var(--pad-r, 14px);
+    box-shadow: 4px 4px 0 var(--shade);
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    transition: box-shadow .14s ease;
+  }
+  /* 背面：转过去 180 度扣在正面后头 */
+  .item__face--back {
+    position: absolute; inset: 0;
+    transform: rotateY(180deg);
+    display: flex; flex-direction: column;
+  }
+  /* 右下角那颗「翻面」小钮 */
+  /* 正面：跟右上角那两枚小标并排；背面：钉在右下角 */
+  .item__top .item__turn, .item__top .item__edit { position: static; width: 22px; height: 22px; }
+  /* ✎ 编辑（只有馆长看得见）——Winter 2026-09-22：「我想欣赏动态的时候总是会误触到编辑」，
+     所以点卡片本身只翻面，进编辑一律要点这颗铅笔。手机上尤其别让整张卡都是编辑热区。 */
+  .item__edit {
+    display: none; border-radius: 50%; cursor: pointer; line-height: 1;
+    align-items: center; justify-content: center;
+    border: 2px solid var(--edge);
+    background: color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel));
+    color: var(--ink); font-size: calc(11px * var(--fs)); font-family: inherit;
+    opacity: .75; transition: opacity .15s ease, transform .15s ease;
+  }
+  body.is-curator .item__edit { display: inline-flex; }
+  .item__edit:hover { opacity: 1; transform: scale(1.1); }
+  .item__edit:active { transform: scale(.94); }
+  /* 清单那一条：铅笔钮挂在最右边 */
+  .row__edit {
+    display: none; flex: none; align-self: center; margin-left: 4px;
+    width: 26px; height: 26px; border-radius: 50%; cursor: pointer; line-height: 1;
+    align-items: center; justify-content: center;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 40%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 18%, var(--panel));
+    color: var(--ink); font-size: calc(12px * var(--fs)); font-family: inherit;
+  }
+  body.is-curator .row__edit { display: inline-flex; }
+  .row__edit:active { transform: scale(.94); }
+  .item__turn {
+    position: absolute; right: 7px; bottom: 7px; z-index: 3;
+    width: 24px; height: 24px; border-radius: 50%; cursor: pointer; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--edge);
+    background: color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel));
+    color: var(--ink); font-size: calc(12px * var(--fs)); font-family: inherit;
+    opacity: .75; transition: opacity .15s ease, transform .15s ease;
+  }
+  .item__turn:hover { opacity: 1; transform: scale(1.1); }
+  .item__turn:active { transform: scale(.94); }
+  /* 背面的内容 */
+  .item__back-label {
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: calc(11px * var(--fs)); letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ink-dim); margin-bottom: 8px;
+  }
+  .item__back-note {
+    flex: 1; margin: 0; font-weight: var(--fw-thin);
+    font-size: calc(13.5px * var(--fs)); line-height: 1.9; color: var(--ink-soft);
+    display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .item__back-note.is-empty { color: var(--ink-faint); font-style: italic; }
+  .item__back-meta {
+    margin-top: 8px; padding-right: 30px; font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: calc(11px * var(--fs)); letter-spacing: .4px; line-height: 1.85; color: var(--ink-dim);
+  }
+  /* 背面那道条码（碟片 / 书刊背面都有这么一块） */
+  .item__barcode {
+    display: block; height: 15px; margin-top: 8px; margin-right: 32px;
+    background: repeating-linear-gradient(90deg,
+      rgba(var(--ink-rgb),.75) 0 1px, transparent 1px 3px,
+      rgba(var(--ink-rgb),.75) 3px 5px, transparent 5px 6px,
+      rgba(var(--ink-rgb),.75) 6px 8px, transparent 8px 11px);
+    opacity: .5;
+  }
+  /* 卡牌的背面不印条码，印一层像卡背那样的菱格 */
+  .item--card .item__face--back {
+    background-image:
+      repeating-linear-gradient(45deg, rgba(var(--line-rgb),.09) 0 6px, transparent 6px 12px),
+      repeating-linear-gradient(-45deg, rgba(var(--line-rgb),.09) 0 6px, transparent 6px 12px),
+      linear-gradient(160deg, color-mix(in srgb, var(--a, var(--gold)) 16%, var(--b, var(--panel))), var(--b, var(--panel)) 68%);
+  }
+  /* 点一下＝对着光照一下（一次性扫光，扫完不留） */
+  .item.is-shine .item__face--front::before {
+    content: ""; position: absolute; inset: -40% -120%; pointer-events: none; opacity: 0; z-index: 2;
+    background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.5) 50%, transparent 62%);
+    animation: shelfSheen .95s ease-out;
+  }
+  /* ④ 架板：每张卡底下垫一块板。同一行的卡高度一样（grid 默认拉平），
+     板子左右各伸出 6px＝正好咬住 12px 的缝，一行看过去就是一条通板。 */
+  .item::after {
+    content: ""; position: absolute; left: -6px; right: -6px; bottom: -13px; height: 12px;
+    border-radius: 0 0 4px 4px; pointer-events: none;
+    background:
+      /* 木纹：几道深浅不一的竖条，斜着一点点，别太规整 */
+      repeating-linear-gradient(97deg,
+        rgba(var(--ink-rgb),.05) 0 3px, transparent 3px 9px,
+        rgba(var(--ink-rgb),.08) 9px 11px, transparent 11px 21px,
+        rgba(var(--ink-rgb),.04) 21px 24px, transparent 24px 37px),
+      /* 板面：上沿受光、往下渐暗，最下面一道是板的前缘 */
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--c-accent) 34%, var(--c-bg)) 0 2px,
+        color-mix(in srgb, var(--c-accent) 22%, var(--c-bg)) 2px 62%,
+        color-mix(in srgb, var(--c-ink) 34%, var(--c-bg)) 62% 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.22),
+      inset 0 -1px 0 rgba(0,0,0,.35),
+      0 4px 9px rgba(0,0,0,.28);
+  }
+  .grid.is-list .item::after { display: none; }
+
+  /* ② 卡牌：跟着手指歪一歪，反光跟着手指走（只有卡牌有，别的媒介不闪） */
+  .item--card.is-tilt .item__flip {
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform .08s linear;
+  }
+  .item__glare {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%),
+      rgba(255,255,255,.55), rgba(255,255,255,.2) 30%, transparent 62%);
+    transition: opacity .18s ease;
+  }
+  .item--card.is-tilt .item__glare { opacity: 1; }
+  @keyframes shelfSheen {
+    0%   { transform: translateX(-60%); opacity: 0; }
+    12%  { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { transform: translateX(60%); opacity: 0; }
+  }
+  .item__medium { position: absolute; pointer-events: none; }
+
+  /* 碟片：左边那条盒脊 */
+  .item--disc { --pad-l: 28px; }
+  .item--disc .item__face { border-radius: 8px; }
+  .item--disc .item__medium {
+    left: 0; top: 0; bottom: 0; width: 14px;
+    border-right: 2px solid var(--edge);
+    background:
+      repeating-linear-gradient(180deg, rgba(var(--line-rgb),.10) 0 2px, transparent 2px 7px),
+      linear-gradient(180deg, color-mix(in srgb, var(--a, var(--gold)) 55%, transparent),
+                              color-mix(in srgb, var(--a, var(--gold)) 22%, transparent));
+  }
+
+  /* 原声带：右上角露出半张唱片 */
+  .item--ost .item__medium {
+    right: -30px; bottom: -30px; width: 96px; height: 96px; border-radius: 50%;
+    border: 2px solid var(--edge);
+    background:
+      repeating-radial-gradient(circle, rgba(var(--line-rgb),.13) 0 1px, transparent 1px 5px),
+      radial-gradient(circle, color-mix(in srgb, var(--a, var(--gold)) 60%, transparent) 0 14%,
+                              color-mix(in srgb, var(--a, var(--gold)) 18%, transparent) 15%);
+  }
+  .item--ost .item__medium::after {
+    content: ""; position: absolute; left: 50%; top: 50%; width: 11px; height: 11px;
+    margin: -5.5px 0 0 -5.5px; border-radius: 50%;
+    background: var(--panel); border: 1px solid var(--edge);
+  }
+
+  /* 卡牌：内圈细边 + 一角虹彩（静的时候很淡，点一下才真的闪） */
+  .item--card .item__face { border-radius: 16px; }
+  .item--card .item__medium {
+    inset: 5px; border-radius: 11px;
+    border: 1px solid rgba(var(--line-rgb),.30);
+    background: linear-gradient(135deg, rgba(255,255,255,.10), transparent 32%,
+                                        transparent 68%, rgba(255,255,255,.07));
+  }
+  .item--card .item__face--front::after {
+    content: ""; position: absolute; top: -34px; right: -34px;
+    width: 96px; height: 96px; border-radius: 50%; pointer-events: none;
+    background: conic-gradient(from 200deg, #ff9db0, #ffe08a, #a8e6cf, #a0c4ff, #d3b4ff, #ff9db0);
+    opacity: .32; filter: blur(3px);
+  }
+
+  /* 书刊 / 场刊：右边书口的页脚，上边一枚装订钉 */
+  .item--book, .item--program { --pad-l: 23px; --pad-r: 19px; }
+  .item--book .item__face, .item--program .item__face { border-radius: 3px 12px 12px 3px; }
+  /* 右边：翻口那一叠页脚 */
+  .item--book .item__medium, .item--program .item__medium {
+    right: 0; top: 0; bottom: 0; width: 10px;
+    border-left: 1px solid rgba(var(--line-rgb),.22);
+    background: repeating-linear-gradient(90deg, rgba(var(--line-rgb),.16) 0 1px, transparent 1px 3px);
+  }
+  /* 左边：订口那道装订边（两条线，中间留白＝书脊） */
+  .item--book .item__face--front::after, .item--program .item__face--front::after {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 11px; pointer-events: none;
+    border-right: 1px solid rgba(var(--line-rgb),.26);
+    background:
+      linear-gradient(90deg, color-mix(in srgb, var(--a, var(--gold)) 38%, transparent) 0 4px,
+                             transparent 4px 7px,
+                             color-mix(in srgb, var(--a, var(--gold)) 22%, transparent) 7px 11px);
+  }
+
+  /* 周边：底下一道斜纹贴条 */
+  .item--goods .item__medium {
+    left: 0; right: 0; bottom: 0; height: 9px;
+    border-top: 2px solid var(--edge);
+    background: repeating-linear-gradient(45deg,
+      color-mix(in srgb, var(--a, var(--gold)) 70%, transparent) 0 7px, transparent 7px 14px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .item.is-shine .item__face--front::before { display: none; }
+    .item__flip { transition: none; }
+  }
+  .item { cursor: default; }   /* 卡面本身只是闪一下，真正能点的是 ↻ 和 ✎ */
+  .item:hover { transform: translate(-2px, -2px); }
+  .item:hover .item__face { box-shadow: 7px 7px 0 var(--shade); }
+  .item:active { transform: translate(2px, 2px); }
+  .item:active .item__face { box-shadow: 1px 1px 0 var(--shade); }
+  .item--wish .item__face { border-style: dashed; background: var(--panel); }
   .item__top { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
-  .item__emoji { font-size: 19px; line-height: 1; }
+  .item__emoji { font-size: calc(19px * var(--fs)); line-height: 1; }
   .item__type {
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-    color: color-mix(in srgb, var(--a, #cba14c) 85%, #fff);
+    font-size: calc(11px * var(--fs)); letter-spacing: 2px; text-transform: uppercase;
+    color: color-mix(in srgb, var(--a, var(--gold)) 85%, #fff);
   }
-  .item__badges { margin-left: auto; display: flex; gap: 5px; font-size: 12px; }
+  .item__badges { margin-left: auto; display: flex; gap: 5px; font-size: calc(13.5px * var(--fs)); }
   .item__name {
     font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 600;
-    font-size: 15px; line-height: 1.45; color: #f4ecdd; margin: 0 0 6px;
+    font-size: calc(15px * var(--fs)); line-height: 1.45; color: var(--ink-bright); margin: 0 0 6px;
   }
-  .item--wish .item__name { color: #c9b889; }
+  .item--wish .item__name { color: var(--ink-soft); }
   .item__spec {
     display: inline-block; margin: 0 0 7px; padding: 2px 9px;
-    border-radius: 4px; border: 1px solid rgba(255,222,180,.18);
-    font-size: 10.5px; letter-spacing: 1.5px; color: #b7a179;
+    border-radius: 4px; border: 1px solid rgba(var(--line-rgb),.18);
+    font-size: calc(12px * var(--fs)); letter-spacing: 1.5px; color: var(--ink-soft);
   }
   .item__char {
     display: inline-flex; align-items: center; gap: 6px;
     margin: 0 0 7px; padding: 3px 10px 3px 4px; border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--a, #cba14c) 45%, transparent);
-    background: color-mix(in srgb, var(--a, #cba14c) 14%, transparent);
-    font-size: 11px; letter-spacing: .5px; color: #ece1d0;
+    border: 1px solid color-mix(in srgb, var(--a, var(--gold)) 45%, transparent);
+    background: color-mix(in srgb, var(--a, var(--gold)) 14%, transparent);
+    font-size: calc(12.5px * var(--fs)); letter-spacing: .5px; color: var(--ink);
     text-decoration: none;
   }
   .item__char i {
     width: 14px; height: 14px; border-radius: 50%;
-    background: var(--a, #cba14c); font-style: normal;
+    background: var(--a, var(--gold)); font-style: normal;
   }
-  .item__char:hover { border-color: color-mix(in srgb, var(--a, #cba14c) 90%, transparent); }
+  .item__char:hover { border-color: color-mix(in srgb, var(--a, var(--gold)) 90%, transparent); }
   .item__note {
-    font-weight: 300; font-size: 12px; line-height: 1.9; color: #b8a687; margin: 2px 0 0;
+    font-weight: var(--fw-thin); font-size: calc(13.5px * var(--fs)); line-height: 1.9; color: var(--ink-soft); margin: 2px 0 0;
   }
   .item__date {
     display: block; margin-top: 8px;
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 9px; letter-spacing: 2px; color: #7a684e;
+    font-size: calc(11px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim);
   }
 
   /* 手机上卡片排两列——一列一件要滑十三屏，两列减半，也更像一排真的架子 */
   @media (max-width: 620px) {
     .grid:not(.is-list) { grid-template-columns: repeat(2, 1fr); gap: 9px; }
-    .grid:not(.is-list) .item { padding: 12px 11px 10px; }
-    .grid:not(.is-list) .item__name { font-size: 13.5px; }
-    .grid:not(.is-list) .item__spec { font-size: 9.5px; letter-spacing: .8px; padding: 2px 7px; }
-    .grid:not(.is-list) .item__char { font-size: 10px; padding: 3px 8px 3px 4px; }
-    .grid:not(.is-list) .item__note { font-size: 11.5px; line-height: 1.8; }
-    .grid:not(.is-list) .item__date { font-size: 8px; letter-spacing: 1.5px; }
+    .grid:not(.is-list) .item__face {
+      padding: 12px 11px 10px;
+      padding-left: var(--pad-l, 11px); padding-right: var(--pad-r, 11px);
+    }
+    .grid:not(.is-list) .item__name { font-size: calc(15px * var(--fs)); }
+    .grid:not(.is-list) .item__spec { font-size: calc(11.5px * var(--fs)); letter-spacing: .8px; padding: 2px 7px; }
+    .grid:not(.is-list) .item__char { font-size: calc(11.5px * var(--fs)); padding: 3px 8px 3px 4px; }
+    .grid:not(.is-list) .item__note { font-size: calc(13px * var(--fs)); line-height: 1.8; }
+    .grid:not(.is-list) .item__date { font-size: calc(10.5px * var(--fs)); letter-spacing: 1.5px; }
   }
 
   .empty {
     width: 100%; max-width: 560px; margin: 8px auto; text-align: center;
-    font-weight: 300; font-size: 13px; line-height: 2.2; color: #8a7558;
-    border: 1px dashed rgba(255,222,180,.18); border-radius: 12px;
-    padding: 28px 20px;
+    font-weight: var(--fw-thin); font-size: calc(14.5px * var(--fs)); line-height: 2.2; color: var(--ink-dim);
+    border: 2px dashed rgba(var(--line-rgb),.18); border-radius: 12px;
+    padding: 20px 18px;
   }
+  /* 空了别光说「换个条件」，也别摆一排大按钮——就说一句人话，能点的词长在句子里
+     （Winter 2026-09-23：「我也是看见他有藏品才只看他的，结果上来一看这一类是空的，
+     是不是可以有个引导」→「太生硬了，我喜欢类似于『现在 Justin Hammer 还没有他的 xx，
+     但他有 yy 和 zz，去看看？』……看全部之类的也占太多空间了」） */
+  .empty__say { margin: 0; color: var(--ink-soft); line-height: 1.95; }
+  .empty__say b { color: var(--ink); font-weight: 500; }
+  /* 能点的词就长在句子里：一条虚线下划线，不占地方 */
+  .empty__link {
+    border: 0; background: none; padding: 0 1px; cursor: pointer;
+    font-family: inherit; font-size: inherit; color: var(--gold);
+    text-decoration: underline dotted; text-underline-offset: 5px;
+    text-decoration-color: rgba(var(--gold-rgb),.6);
+  }
+  .empty__link:hover { color: var(--gold-hi); text-decoration-style: solid; }
+  /* 句子里点名的那几类＝一枚枚带 emoji 的小卡（糖纸粗描边那一套，缩到一行字里）
+     Winter 2026-09-23：「我想能不能做成卡片，带着类别的 emoji 好看一点」 */
+  .empty__kind {
+    display: inline-flex; align-items: center; gap: 5px; vertical-align: -3px;
+    margin: 0 3px; padding: 2px 10px 3px 9px;
+    border: 2px solid rgba(var(--gold-rgb),.5); border-radius: 999px;
+    background: color-mix(in srgb, var(--gold) 9%, transparent);
+    box-shadow: 2px 2px 0 rgba(var(--gold-rgb),.22);
+    font-family: inherit; font-size: calc(13.5px * var(--fs)); line-height: 1.5;
+    color: var(--ink); cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .empty__kind i { font-style: normal; font-size: 1.05em; line-height: 1; }
+  .empty__kind u { text-decoration: none; }
+  .empty__kind s { text-decoration: none; color: var(--ink-faint); font-size: .85em; }
+  .empty__kind:hover {
+    transform: translate(-1px,-1px); box-shadow: 3px 3px 0 rgba(var(--gold-rgb),.32);
+    background: color-mix(in srgb, var(--gold) 16%, transparent);
+  }
+  .empty__kind:active { transform: translate(1px,1px); box-shadow: 1px 1px 0 rgba(var(--gold-rgb),.22); }
+  /* 「还没有的」那一枚：虚线空卡，不能点 */
+  .empty__kind--none {
+    border-style: dashed; border-color: rgba(var(--line-rgb),.4);
+    background: none; box-shadow: none; color: var(--ink-dim); cursor: default;
+  }
+  .empty__kind--none i { opacity: .55; }
 
   /* ————— 分组小标题（按角色 / 类别 / 年代排列时） ————— */
+  /* ————— 一组＝一张大卡（Winter 2026-09-22：「按角色分类的应该一个角色一张卡吧！」）
+     卡片视图里，按角色排＝一人一张大卡，他的东西都摆在他这张卡里；
+     按类别、按年代同理。清单视图仍旧是一条小标题线（gline），不用大卡。 */
+  .gcard {
+    grid-column: 1 / -1;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 38%, var(--c-ink));
+    border-radius: 14px; padding: 13px 12px 16px;
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--a, var(--gold)) 13%, transparent), transparent 120px),
+      var(--panel);
+    box-shadow: 4px 4px 0 color-mix(in srgb, var(--a, var(--gold)) 55%, var(--c-ink));
+  }
+  .gcard__head {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+    padding-bottom: 10px; margin-bottom: 14px;
+    border-bottom: 2px dotted rgba(var(--line-rgb),.22);
+  }
+  .gcard__dot {
+    width: 22px; height: 22px; border-radius: 50%; flex: none;
+    background: var(--a, var(--gold));
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 40%, var(--c-ink));
+  }
+  .gcard__name {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 700;
+    font-size: calc(16px * var(--fs)); color: var(--ink-bright); letter-spacing: .5px;
+    text-decoration: none;
+  }
+  a.gcard__name:hover { color: var(--gold); }
+  .gcard__sub {
+    font-weight: var(--fw-thin); font-size: calc(12.5px * var(--fs)); color: var(--ink-dim);
+  }
+  /* 件数那枚牌子是可以点的：点一下把这一组全摊开，再点收回去
+     （Winter 2026-09-22：「点这个多少件的地方，是不是点一下可以展开当下所有的，
+     然后也可以收回」） */
+  .gcard__n {
+    margin-left: auto; padding: 2px 10px; border-radius: 999px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 5px;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 16%, transparent);
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: calc(11px * var(--fs)); letter-spacing: 1.5px; color: var(--ink);
+    transition: transform .12s ease;
+  }
+  .gcard__n:active { transform: translate(1px, 1px); }
+  .gcard__n i { font-style: normal; font-size: calc(10px * var(--fs)); transition: transform .2s ease; }
+  .gcard.is-open .gcard__n i { transform: rotate(180deg); }
+  /* 摊开之后，组头吸在屏幕顶上——不然滑到一半想收起来，还得爬回最上面
+     （Winter 2026-09-22：「展开了之后往下滑的话，我得滑到最上面才能把它折叠起来」） */
+  .gcard.is-open .gcard__head {
+    position: sticky; top: 0; z-index: 6;
+    margin: -13px -12px 14px; padding: 12px 12px 10px;
+    border-radius: 12px 12px 0 0;
+    background: var(--panel);
+    box-shadow: 0 6px 12px -8px rgba(0,0,0,.45);
+  }
+  /* 摊开的那一组末尾再放一颗「收起」，滑到底也不用往回爬 */
+  .gcard__collapse {
+    display: none; width: 100%; margin-top: 4px; cursor: pointer;
+    padding: 9px 12px; border-radius: 999px;
+    border: 2px dashed color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: none; color: var(--ink-dim);
+    font-family: inherit; font-size: calc(12.5px * var(--fs)); letter-spacing: 1.5px;
+  }
+  .gcard.is-open .gcard__collapse { display: block; }
+  .gcard__collapse:active { transform: translate(1px, 1px); }
+
+  /* 摊开：从「一条横着滑」变回「一片格栅」，一眼看全 */
+  .gcard.is-open .gcard__grid {
+    display: grid; overflow: visible;
+    grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr));
+    row-gap: 22px; mask-image: none; padding-bottom: 6px;
+  }
+  .gcard.is-open .gcard__grid > .item { flex: none; }
+  /* ————— 按角色＝一份名册（Winter 2026-09-22：「一开始出现整列表那种形式，
+     点进去之后会具体显示这个人对应了哪几个藏品；不点进去，就显示它有多少件藏品、
+     大概是什么，放个 emoji 表示一下」） ————— */
+  .croster { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; }
+  .crow--hasadd { display: flex; flex-wrap: wrap; align-items: center; }
+  .crow--hasadd .crow__head { flex: 1; min-width: 0; }
+  .crow--hasadd .crow__add { margin-right: 12px; }
+  .crow--hasadd .crow__body { flex: 1 0 100%; }
+  .crow {
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 36%, var(--c-ink));
+    border-radius: 4px 12px 12px 4px;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--a, var(--gold)) 13%, transparent), transparent 46%), var(--panel);
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--a, var(--gold)) 55%, var(--c-ink));
+    overflow: hidden;
+  }
+  .crow__head {
+    width: 100%; display: flex; align-items: center; gap: 9px;
+    padding: 10px 12px; cursor: pointer; text-align: left;
+    background: none; border: 0; color: inherit; font-family: inherit;
+  }
+  .crow__dot {
+    width: 20px; height: 20px; border-radius: 50%; flex: none;
+    background: var(--a, var(--gold));
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 40%, var(--c-ink));
+  }
+  .crow__name {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 700;
+    font-size: calc(14.5px * var(--fs)); color: var(--ink-bright); letter-spacing: .3px;
+  }
+  .crow__sub { font-weight: var(--fw-thin); font-size: calc(12px * var(--fs)); color: var(--ink-dim); }
+  .crow__kinds { margin-left: auto; font-size: calc(14px * var(--fs)); letter-spacing: 1px; white-space: nowrap; }
+  .crow__n {
+    flex: none; padding: 1px 9px; border-radius: 999px;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 16%, transparent);
+    font-family: 'Special Elite', 'Courier New', monospace;
+    font-size: calc(11px * var(--fs)); letter-spacing: 1px; color: var(--ink);
+  }
+  /* ＋：给这个人添一件（只有馆长看得见）。Winter 2026-09-22：「角色这里不能直接
+     增加了，可以加一个按钮」——名册取代大卡之后，这条路断了，补回来。 */
+  .crow__add {
+    display: none; flex: none;
+    width: 26px; height: 26px; border-radius: 50%; cursor: pointer; line-height: 1;
+    align-items: center; justify-content: center;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 18%, var(--panel));
+    color: var(--ink); font-size: calc(13px * var(--fs)); font-family: inherit;
+    transition: transform .12s ease;
+  }
+  body.is-curator .crow__add { display: inline-flex; }
+  .crow__add:active { transform: scale(.94); }
+  .crow__caret { flex: none; color: var(--ink-dim); font-size: calc(12px * var(--fs)); transition: transform .2s ease; }
+  .crow.is-open .crow__caret { transform: rotate(90deg); }
+  .crow__body { display: none; padding: 2px 0 0; }
+  .crow.is-open .crow__body { display: block; }
+  .crow__pal { display: flex; gap: 2px; flex: none; }
+  .crow__pal i {
+    display: block; width: 10px; height: 6px; border-radius: 1px;
+    border: 1px solid rgba(var(--line-rgb),.25);
+  }
+  @media (max-width: 480px) {
+    .crow__sub, .crow__pal { display: none; }   /* 手机上先保名字、件数和那几个 emoji */
+  }
+
+  .gcard__pal { display: flex; gap: 2px; }
+  .gcard__pal i {
+    display: block; width: 12px; height: 7px; border-radius: 1px;
+    border: 1px solid rgba(var(--line-rgb),.25);
+  }
+  /* 「还没有他的东西」那张——画册地图的另一半，直接并在「按角色」后面 */
+  .gcard--ghosts { border-style: dashed; box-shadow: none; }
+  .gcard--ghosts .gcard__name { color: var(--ink-soft); }
+  .gcard--ghosts .map-grid { width: auto; max-width: none; }
+
+  /* 组里的东西左右滑，不再往下堆（Winter 2026-09-22：「按类别分类应该左右滑动
+     更符合逻辑一点，不然我要把一个类别的全看完才能看另一个类别」）。
+     一组占一屏高度以内，竖着滚是换组，横着滑是看这一组里的东西。 */
+  .gcard__grid {
+    display: flex; gap: 12px; align-items: stretch;
+    overflow-x: auto; overflow-y: visible;
+    scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+    padding: 0 2px 20px;                 /* 下面那点留白是给架板的 */
+    scrollbar-width: none;
+    /* 右边渐隐，暗示还能往右滑 */
+    mask-image: linear-gradient(90deg, #000 92%, transparent);
+  }
+  .gcard__grid::-webkit-scrollbar { display: none; }
+  .gcard__grid > .item {
+    flex: 0 0 min(250px, 76%); scroll-snap-align: start;
+  }
+
   .gline {
     grid-column: 1 / -1;
     display: flex; align-items: baseline; gap: 10px;
@@ -338,61 +988,104 @@
   .grid > .gline:first-child { margin-top: 2px; }
   .gline__dot {
     width: 8px; height: 8px; border-radius: 50%; flex: none;
-    background: var(--a, #cba14c); align-self: center;
+    background: var(--a, var(--gold)); align-self: center;
   }
   .gline__name {
     font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 700;
-    font-size: 13.5px; color: #e7d5ae; letter-spacing: .5px;
+    font-size: calc(15px * var(--fs)); color: var(--ink-gold); letter-spacing: .5px;
   }
-  .gline__sub { font-weight: 300; font-size: 11.5px; color: #8a7558; }
-  .gline__rule { flex: 1; height: 1px; background: rgba(255,222,180,.1); }
+  .gline__sub { font-weight: var(--fw-thin); font-size: calc(13px * var(--fs)); color: var(--ink-dim); }
+  .gline__rule { flex: 1; height: 1px; background: rgba(var(--line-rgb),.1); }
   .gline__n {
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 9px; letter-spacing: 1.5px; color: #7a684e;
+    font-size: calc(11px * var(--fs)); letter-spacing: 1.5px; color: var(--ink-dim);
   }
 
   /* ————— 清单视图（一行一件，像档案目录） ————— */
-  .grid.is-list { grid-template-columns: 1fr; gap: 0; }
+  /* ————— 清单：一条一张票根 —————
+     Winter 2026-09-22：「清单的还是每条之间的分割不清晰。」原来是整段连在一起、
+     只靠一道 7% 的细线分，确实看不出断在哪。改成跟卡片同一套：每条各有描边、
+     圆角（左直右圆＝票根）、一点点硬投影，条与条之间留缝；最左边那道色条按媒介
+     换花纹（跟卡片上的记号对得上），扫一眼就知道这行是碟还是书。 */
+  .grid.is-list { grid-template-columns: 1fr; gap: 7px; }
   .row {
+    position: relative;
     display: flex; align-items: flex-start; gap: 11px;
-    padding: 10px 12px 10px 11px;
-    border-bottom: 1px solid rgba(255,222,180,.07);
-    border-left: 2px solid color-mix(in srgb, var(--a, #cba14c) 70%, transparent);
-    background: linear-gradient(90deg, color-mix(in srgb, var(--a, #cba14c) 7%, transparent), transparent 42%);
-    transition: background .2s ease;
+    padding: 10px 12px 10px 18px;
+    border: 1.5px solid color-mix(in srgb, var(--a, var(--gold)) 30%, var(--c-ink));
+    border-radius: 4px 11px 11px 4px;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--a, var(--gold)) 12%, transparent), transparent 46%),
+                var(--panel);
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--a, var(--gold)) 60%, var(--c-ink));
+    transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
   }
-  body.is-curator .row { cursor: pointer; }
-  .row:hover { background: linear-gradient(90deg, color-mix(in srgb, var(--a, #cba14c) 14%, transparent), rgba(255,222,180,.03) 60%); }
-  .row--wish { border-left-style: dashed; }
+  /* 最左边那道色条：按媒介换花纹 */
+  .row::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 7px;
+    border-right: 1px solid color-mix(in srgb, var(--a, var(--gold)) 35%, transparent);
+    background: color-mix(in srgb, var(--a, var(--gold)) 65%, transparent);
+  }
+  .row--disc::before {                        /* 碟片：盒脊的压纹 */
+    background:
+      repeating-linear-gradient(180deg, rgba(var(--line-rgb),.16) 0 2px, transparent 2px 6px),
+      color-mix(in srgb, var(--a, var(--gold)) 65%, transparent);
+  }
+  .row--ost::before {                         /* 原声带：一串唱片孔 */
+    background:
+      repeating-radial-gradient(circle at 50% 6px, rgba(var(--line-rgb),.3) 0 1.5px, transparent 2px 12px),
+      color-mix(in srgb, var(--a, var(--gold)) 65%, transparent);
+  }
+  .row--card::before {                        /* 卡牌：一道虹彩 */
+    background: linear-gradient(180deg, #ff9db0, #ffe08a, #a8e6cf, #a0c4ff, #d3b4ff);
+    opacity: .85;
+  }
+  .row--book::before, .row--program::before { /* 书刊 / 场刊：装订线 */
+    background:
+      linear-gradient(90deg, color-mix(in srgb, var(--a, var(--gold)) 75%, transparent) 0 2px,
+                             transparent 2px 4px,
+                             color-mix(in srgb, var(--a, var(--gold)) 45%, transparent) 4px 7px);
+  }
+  .row--goods::before {                       /* 周边：封条斜纹 */
+    background: repeating-linear-gradient(45deg,
+      color-mix(in srgb, var(--a, var(--gold)) 80%, transparent) 0 4px, transparent 4px 8px),
+      color-mix(in srgb, var(--a, var(--gold)) 22%, transparent);
+  }
+  body.is-curator .row { cursor: default; }
+  .row:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 color-mix(in srgb, var(--a, var(--gold)) 60%, var(--c-ink));
+  }
+  .row__edit:hover { opacity: 1; }
+  .row--wish { border-style: dashed; }
   .row__n {
     flex: none; min-width: 26px; padding-top: 2px;
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 9.5px; letter-spacing: 1px; color: #7a684e;
+    font-size: calc(11.5px * var(--fs)); letter-spacing: 1px; color: var(--ink-dim);
   }
   .row__body { flex: 1; min-width: 0; }
   .row__title {
     display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px;
     font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 600;
-    font-size: 13.5px; line-height: 1.5; color: #f4ecdd;
+    font-size: calc(15px * var(--fs)); line-height: 1.5; color: var(--ink-bright);
   }
-  .row--wish .row__title { color: #c9b889; }
-  .row__emoji { font-size: 13px; }
+  .row--wish .row__title { color: var(--ink-soft); }
+  .row__emoji { font-size: calc(14.5px * var(--fs)); }
   .row__spec {
     padding: 1px 7px; border-radius: 4px;
-    border: 1px solid rgba(255,222,180,.16);
-    font-family: 'Noto Serif SC', serif; font-weight: 300;
-    font-size: 10px; letter-spacing: 1px; color: #b7a179;
+    border: 1px solid rgba(var(--line-rgb),.16);
+    font-family: 'Noto Serif SC', serif; font-weight: var(--fw-thin);
+    font-size: calc(11.5px * var(--fs)); letter-spacing: 1px; color: var(--ink-soft);
   }
   .row__sub {
     display: block; margin-top: 3px;
-    font-weight: 300; font-size: 11px; line-height: 1.7; color: #98855f;
+    font-weight: var(--fw-thin); font-size: calc(12.5px * var(--fs)); line-height: 1.7; color: var(--ink-mid);
   }
-  .row__sub i { font-style: normal; color: color-mix(in srgb, var(--a, #cba14c) 80%, #fff); }
+  .row__sub i { font-style: normal; color: color-mix(in srgb, var(--a, var(--gold)) 80%, #fff); }
   .row__note {
     display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
-    margin-top: 2px; font-weight: 300; font-size: 11px; line-height: 1.7; color: #7d6c50;
+    margin-top: 2px; font-weight: var(--fw-thin); font-size: calc(12.5px * var(--fs)); line-height: 1.7; color: var(--ink-dim);
   }
-  .row__badges { flex: none; font-size: 11.5px; padding-top: 2px; letter-spacing: 2px; }
+  .row__badges { flex: none; font-size: calc(13px * var(--fs)); padding-top: 2px; letter-spacing: 2px; }
 
   /* ————— 角色联动地图 ————— */
   .map-grid {
@@ -400,50 +1093,95 @@
     display: grid; gap: 8px;
     grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
   }
+  /* 一格＝一枚胶片格子（Winter 2026-09-22：「角色列表也挺普通的，就没有突出这是不同的人」）。
+     所以每格都长成那个人自己的样子：上下两排齿孔、中间一颗他的主色圆点、
+     底下一条他那四个颜色的小色带（跟画册 / 选色器里那张卡同源）。
+     已收的那格用他自己的底色＋硬投影；还没收的是虚线空片格，颜色也压淡。 */
   .mslot {
-    position: relative; cursor: pointer; text-align: center;
-    border-radius: 6px; padding: 10px 6px 9px;
-    border: 1px dashed rgba(255,222,180,.22);
-    background: #17120c;
-    transition: transform .15s ease, box-shadow .25s ease;
+    position: relative; cursor: pointer; text-align: center; overflow: hidden;
+    border-radius: 8px; padding: 14px 7px 13px;
+    border: 2px dashed color-mix(in srgb, var(--a, var(--gold)) 38%, var(--c-ink));
+    background: var(--sheet);
+    transition: transform .14s ease, box-shadow .14s ease;
   }
-  .mslot:hover { transform: translateY(-2px); }
+  /* 上下齿孔 */
+  .mslot::before, .mslot::after {
+    content: ""; position: absolute; left: 4px; right: 4px; height: 5px; pointer-events: none;
+    background: repeating-linear-gradient(90deg,
+      rgba(var(--line-rgb),.28) 0 5px, transparent 5px 11px);
+  }
+  .mslot::before { top: 4px; }
+  .mslot::after { bottom: 4px; }
+  .mslot:hover { transform: translate(-2px, -2px); }
   .mslot--got {
     border-style: solid;
-    border-color: color-mix(in srgb, var(--a, #cba14c) 55%, transparent);
-    background: linear-gradient(160deg, color-mix(in srgb, var(--a, #cba14c) 30%, var(--b, #14100b)), var(--b, #14100b) 75%);
+    border-color: color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: linear-gradient(160deg, color-mix(in srgb, var(--a, var(--gold)) 30%, var(--b, var(--panel))), var(--b, var(--panel)) 75%);
+    box-shadow: 3px 3px 0 color-mix(in srgb, var(--a, var(--gold)) 70%, var(--c-ink));
   }
-  .mslot--got:hover { box-shadow: 0 5px 18px color-mix(in srgb, var(--a, #cba14c) 22%, transparent); }
+  .mslot--got:hover { box-shadow: 6px 6px 0 color-mix(in srgb, var(--a, var(--gold)) 70%, var(--c-ink)); }
+  /* 他的主色：圆点 */
+  .mslot__dot {
+    display: block; width: 26px; height: 26px; border-radius: 50%; margin: 2px auto 7px;
+    background: var(--a, var(--gold));
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 40%, var(--c-ink));
+  }
+  .mslot:not(.mslot--got) .mslot__dot { opacity: .45; }
+  /* 他的四个颜色：底下那条小色带 */
+  .mslot__pal {
+    display: flex; gap: 2px; justify-content: center; margin-top: 8px;
+  }
+  .mslot__pal i {
+    display: block; width: 11px; height: 6px; border-radius: 1px;
+    border: 1px solid rgba(var(--line-rgb),.25);
+  }
+  .mslot:not(.mslot--got) .mslot__pal { opacity: .4; }
   /* 正在只看谁的藏品，他的格子就框起来——滚回地图时一眼认得出 */
   .mslot--on {
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--a, #cba14c) 85%, transparent),
-                0 6px 20px color-mix(in srgb, var(--a, #cba14c) 25%, transparent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--a, var(--gold)) 85%, transparent),
+                3px 3px 0 color-mix(in srgb, var(--a, var(--gold)) 70%, var(--c-ink));
   }
   .mslot__name {
     font-family: 'Playfair Display', serif; font-weight: 700;
-    font-size: 11.5px; line-height: 1.3; color: #f4ecdd; word-break: break-word;
+    font-size: calc(13px * var(--fs)); line-height: 1.3; color: var(--ink-bright); word-break: break-word;
   }
-  .mslot:not(.mslot--got) .mslot__name { color: #b5a179; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; }
+  .mslot:not(.mslot--got) .mslot__name { color: var(--ink-soft); font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; }
   .mslot__film {
     display: block; margin-top: 3px;
-    font-weight: 300; font-size: 9.5px; letter-spacing: .5px;
-    color: #8a7558; line-height: 1.4;
+    font-weight: var(--fw-thin); font-size: calc(11.5px * var(--fs)); letter-spacing: .5px;
+    color: var(--ink-dim); line-height: 1.4;
   }
-  .mslot--got .mslot__film { color: rgba(236,225,208,.82); }
+  .mslot--got .mslot__film { color: rgba(var(--ink-rgb),.82); }
   .mslot__year {
     display: block; margin-top: 3px;
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 8px; letter-spacing: 2px; color: #857050;
+    font-size: calc(10.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-dim);
   }
+  /* ＋：只有馆长看得见，点它才是「给他添一件」 */
+  .mslot__add {
+    display: none; position: absolute; left: 7px; top: 11px; z-index: 2;
+    width: 22px; height: 22px; border-radius: 50%; cursor: pointer; line-height: 1;
+    align-items: center; justify-content: center;
+    border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 45%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 20%, var(--panel));
+    color: var(--ink); font-size: calc(12px * var(--fs)); font-family: inherit;
+    opacity: .8; transition: opacity .15s ease, transform .15s ease;
+  }
+  body.is-curator .mslot__add { display: inline-flex; }
+  .mslot__add:hover { opacity: 1; transform: scale(1.1); }
+  .mslot__add:active { transform: scale(.94); }
   .mslot__n {
-    position: absolute; top: 5px; right: 6px;
+    position: absolute; top: 11px; right: 7px;
+    min-width: 19px; padding: 1px 4px; border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--a, var(--gold)) 55%, var(--c-ink));
+    background: color-mix(in srgb, var(--a, var(--gold)) 22%, var(--panel));
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 8px; letter-spacing: 1px;
-    color: color-mix(in srgb, var(--a, #cba14c) 85%, #fff);
+    font-size: calc(10.5px * var(--fs)); letter-spacing: 1px;
+    color: var(--ink);
   }
   .map-hint {
     width: 100%; max-width: 860px; margin: 10px 0 0;
-    font-weight: 300; font-size: 11.5px; line-height: 2; color: #8a7558; text-align: center;
+    font-weight: var(--fw-thin); font-size: calc(13px * var(--fs)); line-height: 2; color: var(--ink-dim); text-align: center;
   }
   body.is-curator .map-hint__viewer { display: none; }
   body:not(.is-curator) .map-hint__curator { display: none; }
@@ -453,102 +1191,103 @@
   .cm-btns { display: flex; flex-direction: column; gap: 9px; }
   .cm-btn {
     padding: 12px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(255,222,180,.2); background: #0f0b07;
-    color: #cbb891; font-size: 13.5px; letter-spacing: 1px;
+    border: 2px solid var(--edge-soft); background: var(--field);
+    color: var(--ink-soft); font-size: calc(15px * var(--fs)); letter-spacing: 1px;
   }
-  .cm-btn:hover { border-color: rgba(255,222,180,.45); color: #ece1d0; }
+  .cm-btn:hover { border-color: rgba(var(--line-rgb),.45); color: var(--ink); }
   .cm-btn--main {
-    border-color: rgba(230,190,110,.6);
-    background: linear-gradient(160deg, rgba(203,161,76,.28), rgba(203,161,76,.08));
-    color: #f2e7d2;
+    border-color: rgba(var(--goldhi-rgb),.6);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.28), rgba(var(--gold-rgb),.08));
+    color: var(--ink-bright);
   }
-  .cm-btn--cancel { border: 0; background: none; color: #8a7558; }
-  .cm-btn--cancel:hover { color: #ece1d0; }
+  .cm-btn--cancel { border: 0; background: none; color: var(--ink-dim); }
+  .cm-btn--cancel:hover { color: var(--ink); }
   .cm-btn--danger {
-    border-color: rgba(200,90,70,.55); color: #e08a72;
+    border-color: rgba(200,90,70,.55); color: var(--warm-hi);
     background: linear-gradient(160deg, rgba(180,70,50,.22), rgba(180,70,50,.05));
   }
-  .cm-btn--danger:hover { border-color: rgba(220,110,90,.9); color: #ffb9a3; }
+  .cm-btn--danger:hover { border-color: rgba(var(--warm-rgb),.9); color: var(--warm-bright); }
   /* 确认小窗是从编辑窗里叫出来的，得压在它上面，否则按钮点不动 */
   .overlay.overlay--ask { z-index: 45; }
   .ask-text {
-    font-weight: 300; font-size: 13px; line-height: 2; color: #b8a687;
+    font-weight: var(--fw-thin); font-size: calc(14.5px * var(--fs)); line-height: 2; color: var(--ink-soft);
     text-align: center; margin: -6px 0 16px;
   }
 
   .note {
     margin-top: 34px; max-width: 560px; text-align: center;
-    font-weight: 300; font-size: 11.5px; line-height: 2.1; color: #8a7558;
+    font-weight: var(--fw-thin); font-size: calc(13px * var(--fs)); line-height: 2.1; color: var(--ink-dim);
   }
   .colophon {
     margin-top: 14px;
     font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
-    color: #8a7558; opacity: .5;
+    font-size: calc(11px * var(--fs)); letter-spacing: 3px; text-transform: uppercase;
+    color: var(--ink-dim); opacity: .5;
   }
   .loading {
     margin: 40px auto; font-family: 'Special Elite', 'Courier New', monospace;
-    font-size: 11px; letter-spacing: 3px; color: #8a7558; text-transform: uppercase;
+    font-size: calc(12.5px * var(--fs)); letter-spacing: 3px; color: var(--ink-dim); text-transform: uppercase;
   }
 
   /* ————— 馆长入口 ————— */
   .curator-door {
     margin-top: 18px;
     display: inline-flex; align-items: center; gap: 6px;
-    border: 0; background: none; cursor: pointer;
+    padding: 6px 16px; border-radius: 999px;
+    border: 2px dashed var(--edge-soft); background: none; cursor: pointer;
     font-family: 'Noto Serif SC', serif;
-    font-size: 11px; letter-spacing: 2px; color: #57492f;
+    font-size: calc(12.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-faint);
     opacity: .8;
   }
-  .curator-door:hover { color: #a8916d; }
+  .curator-door:hover { color: var(--ink-mid); }
   body.is-curator .curator-door--in { display: none; }
 
   .keypanel { display: none; width: min(520px, 100%); margin-top: 16px; text-align: left;
-    border: 1px solid rgba(230,190,110,.3); border-radius: 14px;
-    background: #14100a; padding: 20px 18px;
+    border: 2px solid var(--edge-ink); border-radius: 14px;
+    background: var(--panel); padding: 20px 18px;
   }
   .keypanel.is-on { display: block; }
   .keypanel h3 {
     font-family: 'Playfair Display', serif; font-style: italic;
-    font-size: 16px; margin: 0 0 10px; color: #ecd9a8; letter-spacing: 1px; text-align: center;
+    font-size: calc(16px * var(--fs)); margin: 0 0 10px; color: var(--ink-gold); letter-spacing: 1px; text-align: center;
   }
-  .keypanel p { font-weight: 300; font-size: 12.5px; line-height: 2.1; color: #b8a687; margin: 0 0 10px; }
+  .keypanel p { font-weight: var(--fw-thin); font-size: calc(14px * var(--fs)); line-height: 2.1; color: var(--ink-soft); margin: 0 0 10px; }
   .keypanel details {
-    margin: 12px 0; border: 1px dashed rgba(255,222,180,.2); border-radius: 10px; padding: 10px 14px;
+    margin: 12px 0; border: 1px dashed rgba(var(--line-rgb),.2); border-radius: 10px; padding: 10px 14px;
   }
   .keypanel summary {
-    cursor: pointer; font-size: 12.5px; letter-spacing: 1px; color: #cfa95c;
+    cursor: pointer; font-size: calc(14px * var(--fs)); letter-spacing: 1px; color: var(--gold-hi);
   }
   .keypanel ol { margin: 10px 0 4px; padding-left: 20px; }
-  .keypanel li { font-weight: 300; font-size: 12.5px; line-height: 2.15; color: #b8a687; margin-bottom: 6px; }
-  .keypanel li b { color: #ecd9a8; font-weight: 500; }
-  .keypanel a { color: #cfa95c; }
-  .keypanel .warn { color: #d99; font-size: 12px; }
+  .keypanel li { font-weight: var(--fw-thin); font-size: calc(14px * var(--fs)); line-height: 2.15; color: var(--ink-soft); margin-bottom: 6px; }
+  .keypanel li b { color: var(--ink-gold); font-weight: 500; }
+  .keypanel a { color: var(--gold-hi); }
+  .keypanel .warn { color: var(--danger); font-size: calc(13.5px * var(--fs)); }
   .keyrow { display: flex; gap: 8px; margin-top: 12px; }
   .keyrow input {
     flex: 1; min-width: 0; padding: 10px 12px; border-radius: 8px;
-    border: 1px solid rgba(255,222,180,.2); background: #0f0b07;
-    color: #ece1d0; font-family: monospace; font-size: 16px;
+    border: 1px solid rgba(var(--line-rgb),.2); background: var(--field);
+    color: var(--ink); font-family: monospace; font-size: calc(16px * var(--fs));
   }
-  .keyrow input:focus { outline: none; border-color: rgba(230,190,110,.6); }
+  .keyrow input:focus { outline: none; border-color: rgba(var(--goldhi-rgb),.6); }
   .keyrow button {
     padding: 10px 18px; border-radius: 8px; cursor: pointer;
-    border: 1px solid rgba(230,190,110,.6);
-    background: linear-gradient(160deg, rgba(203,161,76,.3), rgba(203,161,76,.08));
-    color: #f2e7d2; font-size: 13px; letter-spacing: 2px; white-space: nowrap;
+    border: 1px solid rgba(var(--goldhi-rgb),.6);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.3), rgba(var(--gold-rgb),.08));
+    color: var(--ink-bright); font-size: calc(14.5px * var(--fs)); letter-spacing: 2px; white-space: nowrap;
   }
-  .keymsg { margin-top: 8px; font-size: 12px; line-height: 1.9; color: #8a7558; min-height: 1em; }
-  .keymsg.is-bad { color: #e08a72; }
-  .keymsg.is-good { color: #9fce9b; }
+  .keymsg { margin-top: 8px; font-size: calc(13.5px * var(--fs)); line-height: 1.9; color: var(--ink-dim); min-height: 1em; }
+  .keymsg.is-bad { color: var(--warm-hi); }
+  .keymsg.is-good { color: var(--ok); }
 
   .curator-exit {
     display: none; margin-top: 10px;
     border: 0; background: none; cursor: pointer;
     font-family: 'Noto Serif SC', serif;
-    font-size: 11px; letter-spacing: 1.5px; color: #57492f; text-decoration: underline dotted;
+    font-size: calc(12.5px * var(--fs)); letter-spacing: 1.5px; color: var(--ink-faint); text-decoration: underline dotted;
   }
   body.is-curator .curator-exit { display: inline-block; }
-  .curator-exit:hover { color: #a8916d; }
+  .curator-exit:hover { color: var(--ink-mid); }
 
   /* ————— 添加 / 编辑弹窗 ————— */
   .overlay {
@@ -559,7 +1298,7 @@
     transform: translateY(var(--vv-top, 0px));
     z-index: 40; display: none;
     align-items: flex-end; justify-content: center;
-    background: rgba(8,6,4,.72); backdrop-filter: blur(3px);
+    background: rgba(var(--veil-rgb),.72); backdrop-filter: blur(3px);
     padding: 14px;
     padding-bottom: max(14px, env(safe-area-inset-bottom));
   }
@@ -569,99 +1308,128 @@
     width: min(480px, 100%); max-height: 100%; overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: 16px; padding: 22px 20px 18px;
-    border: 1px solid rgba(230,190,110,.35);
+    border: 2px solid var(--edge-ink);
     background:
-      radial-gradient(ellipse 90% 60% at 50% -10%, rgba(203,161,76,.1), transparent 60%),
-      #171209;
+      radial-gradient(ellipse 90% 60% at 50% -10%, rgba(var(--gold-rgb),.1), transparent 60%),
+      var(--sheet);
     box-shadow: 0 20px 60px rgba(0,0,0,.6);
   }
   .sheet h2 {
     font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
-    font-size: 19px; margin: 0 0 16px; color: #ecd9a8; letter-spacing: 1px; text-align: center;
+    font-size: calc(19px * var(--fs)); margin: 0 0 16px; color: var(--ink-gold); letter-spacing: 1px; text-align: center;
   }
   .f-label {
     display: block; margin: 14px 0 6px;
-    font-size: 11.5px; letter-spacing: 2px; color: #a8916d;
+    font-size: calc(13px * var(--fs)); letter-spacing: 2px; color: var(--ink-mid);
   }
-  .f-label small { color: #6d5f4c; letter-spacing: 1px; }
+  .f-label small { color: var(--ink-faint); letter-spacing: 1px; }
   .f-input, .f-select, .f-area {
     width: 100%; padding: 10px 12px; border-radius: 8px;
-    border: 1px solid rgba(255,222,180,.2); background: #0f0b07;
+    border: 1px solid rgba(var(--line-rgb),.2); background: var(--field);
     /* iOS Safari 对字号 < 16px 的输入框会在聚焦时自动放大整页且不回弹，恒用 16px */
-    color: #ece1d0; font-family: 'Noto Serif SC', serif; font-size: 16px;
+    color: var(--ink); font-family: 'Noto Serif SC', serif; font-size: calc(16px * var(--fs));
   }
-  .f-input:focus, .f-select:focus, .f-area:focus { outline: none; border-color: rgba(230,190,110,.6); }
+  .f-input:focus, .f-select:focus, .f-area:focus { outline: none; border-color: rgba(var(--goldhi-rgb),.6); }
   .f-area { min-height: 64px; resize: vertical; line-height: 1.8; }
   .types { display: flex; flex-wrap: wrap; gap: 7px; }
   .spec-chips { margin-bottom: 8px; }
-  .spec-chips .t-chip { padding: 6px 12px; font-size: 12px; }
+  .spec-chips .t-chip { padding: 6px 12px; font-size: calc(13.5px * var(--fs)); }
   /* 不常用的那些先收着，点「更多」才摊开 */
   .spec-chips .t-chip.is-extra { display: none; }
   .spec-chips.is-open .t-chip.is-extra { display: inline-block; }
-  .t-chip--more { border-style: dashed; color: #8a7757; letter-spacing: 0; }
+  .t-chip--more { border-style: dashed; color: var(--ink-mid); letter-spacing: 0; }
+  /* 年份下拉：长得跟旁边的圈圈一样，点开是手机自带的滚轮 */
+  .issue-pickers { display: inline-flex; gap: 7px; }
+  .t-chip--year {
+    /* 关掉系统自带的那个小三角，自己画一个，免得「月份」后面跟两个箭头 */
+    -webkit-appearance: none; appearance: none;
+    padding: 5px 26px 5px 12px; border-radius: 999px; cursor: pointer;
+    border: 2px solid var(--edge-soft);
+    background-color: var(--field);
+    background-image: var(--caret);
+    background-repeat: no-repeat; background-position: right 11px center;
+    color: var(--ink-mid); font-family: 'Noto Serif SC', serif; letter-spacing: 1px;
+    /* iOS 对字号 < 16px 的下拉同样会放大整页且不回弹，恒用 16px */
+    font-size: calc(16px * var(--fs)); line-height: 1.3;
+  }
+  .t-chip--year.is-on {
+    border-color: rgba(var(--goldhi-rgb),.7); color: var(--ink-gold);
+    background-image: var(--caret-on),
+      linear-gradient(160deg, rgba(var(--gold-rgb),.22), rgba(var(--gold-rgb),.05));
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 11px center, 0 0;
+  }
   /* 自己写的那几条规格：长相跟上面的选项一模一样，只是右边多个 × */
   .tagbox { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
   .tagbox:empty { display: none; }
   .tag {
     display: inline-flex; align-items: center; gap: 6px;
     padding: 6px 8px 6px 12px; border-radius: 999px;
-    border: 1px solid rgba(230,190,110,.7); color: #ecd9a8;
-    background: linear-gradient(160deg, rgba(203,161,76,.22), rgba(203,161,76,.05));
-    font-size: 12.5px; letter-spacing: 1px;
+    border: 1px solid rgba(var(--goldhi-rgb),.7); color: var(--ink-gold);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.22), rgba(var(--gold-rgb),.05));
+    font-size: calc(14px * var(--fs)); letter-spacing: 1px;
   }
   .tag button {
     border: 0; background: none; cursor: pointer; padding: 0;
     width: 18px; height: 18px; border-radius: 50%; line-height: 1;
-    color: #c9b078; font-size: 13px;
+    color: var(--ink-soft); font-size: calc(14.5px * var(--fs));
   }
-  .tag button:hover { background: rgba(203,161,76,.25); color: #f4ecdd; }
+  .tag button:hover { background: rgba(var(--gold-rgb),.25); color: var(--ink-bright); }
   .tagadd { display: flex; gap: 8px; align-items: stretch; }
   .tagadd .f-input { flex: 1 1 auto; }
   .tagadd__btn {
     flex: 0 0 auto; padding: 0 14px; border-radius: 8px; cursor: pointer;
-    border: 1px solid rgba(255,222,180,.2); background: #0f0b07;
-    color: #a8916d; font-family: 'Noto Serif SC', serif; font-size: 13px; letter-spacing: 1px;
+    border: 1px solid rgba(var(--line-rgb),.2); background: var(--field);
+    color: var(--ink-mid); font-family: 'Noto Serif SC', serif; font-size: calc(14.5px * var(--fs)); letter-spacing: 1px;
   }
-  .tagadd__btn:hover { border-color: rgba(230,190,110,.6); color: #ecd9a8; }
+  .tagadd__btn:hover { border-color: rgba(var(--goldhi-rgb),.6); color: var(--ink-gold); }
   .t-chip {
     padding: 7px 13px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(255,222,180,.16); background: #0f0b07;
-    color: #a8916d; font-size: 12.5px; letter-spacing: 1px;
+    border: 2px solid var(--edge-soft); background: var(--field);
+    color: var(--ink-mid); font-size: calc(14px * var(--fs)); letter-spacing: 1px;
+    transition: transform .12s ease, box-shadow .12s ease;
   }
+  .t-chip:active { transform: translate(1px, 1px); }
   .t-chip.is-on {
-    border-color: rgba(230,190,110,.7); color: #ecd9a8;
-    background: linear-gradient(160deg, rgba(203,161,76,.22), rgba(203,161,76,.05));
+    border-color: var(--gold); color: var(--ink-gold);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.22), rgba(var(--gold-rgb),.05));
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink));
   }
   .toggles { display: flex; flex-direction: column; gap: 9px; margin-top: 14px; }
   .tog {
     display: flex; align-items: center; gap: 9px; cursor: pointer;
-    font-size: 13px;
+    font-size: calc(14.5px * var(--fs));
   }
-  .tog input { width: 16px; height: 16px; accent-color: #cba14c; }
-  .tog span { color: #cbb891; }
+  .tog input { width: 16px; height: 16px; accent-color: var(--gold); }
+  .tog span { color: var(--ink-soft); }
   /* 保存/取消钉在弹窗下沿：表单一长就得滚到底才够得着，手机上尤其难点 */
   .sheet-actions {
     display: flex; gap: 10px; margin-top: 20px;
     position: sticky; bottom: -18px;              /* 抵消 .sheet 的下内边距 */
     margin-left: -20px; margin-right: -20px; padding: 12px 20px 18px;
-    background: linear-gradient(to top, #171209 74%, rgba(23,18,9,0));
+    background: linear-gradient(to top, var(--sheet) 74%, rgba(var(--sheet-rgb),0));
   }
   .btn-save {
     flex: 1; padding: 12px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(230,190,110,.6);
-    background: linear-gradient(160deg, rgba(203,161,76,.32), rgba(203,161,76,.1));
-    color: #f2e7d2; font-size: 14px; letter-spacing: 3px;
+    border: 2px solid var(--gold);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.32), rgba(var(--gold-rgb),.1));
+    color: var(--ink-bright); font-size: calc(15px * var(--fs)); letter-spacing: 3px;
+    box-shadow: 3px 3px 0 color-mix(in srgb, var(--gold) 70%, var(--c-ink));
+    transition: transform .12s ease, box-shadow .12s ease;
   }
-  .btn-save:hover { box-shadow: 0 6px 22px rgba(203,161,76,.25); }
+  .btn-save:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 color-mix(in srgb, var(--gold) 70%, var(--c-ink)); }
+  .btn-save:hover { box-shadow: 0 6px 22px rgba(var(--gold-rgb),.25); }
   .btn-save[disabled] { opacity: .5; cursor: wait; }
   .btn-cancel, .btn-del {
     padding: 12px 18px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(255,222,180,.18); background: none;
-    color: #8a7558; font-size: 13px; letter-spacing: 1px;
+    border: 2px solid var(--edge-soft); background: var(--field);
+    color: var(--ink-dim); font-size: calc(14.5px * var(--fs)); letter-spacing: 1px;
+    transition: transform .12s ease;
   }
-  .btn-cancel:hover { color: #ece1d0; }
-  .btn-del { border-color: rgba(200,90,70,.4); color: #b3705e; }
-  .btn-del:hover { border-color: rgba(200,90,70,.8); color: #e08a72; }
+  .btn-cancel:active, .btn-del:active { transform: translate(1px, 1px); }
+  .btn-cancel:hover { color: var(--ink); }
+  .btn-del { border-color: rgba(200,90,70,.4); color: var(--warm-dim); }
+  .btn-del:hover { border-color: rgba(200,90,70,.8); color: var(--warm-hi); }
 
   /* ————— 右下角常驻悬浮键（仅馆长可见）—————
      藏品越收越多，添加键和底部的画册地图都要滑很久才够得着；
@@ -676,35 +1444,36 @@
   .fab {
     width: 54px; height: 54px; border-radius: 50%; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
-    border: 1px solid rgba(230,190,110,.55);
-    background: linear-gradient(160deg, rgba(203,161,76,.34), rgba(203,161,76,.12)), #171209;
-    color: #f2e7d2; box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    border: 2px solid var(--gold);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.34), rgba(var(--gold-rgb),.12)), var(--sheet);
+    color: var(--ink-bright);
+    box-shadow: 4px 4px 0 color-mix(in srgb, var(--gold) 70%, var(--c-ink));
     transition: transform .15s ease, box-shadow .25s ease;
   }
-  .fab:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(203,161,76,.28); }
+  .fab:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(var(--gold-rgb),.28); }
   .fab:active { transform: translateY(0); }
-  .fab--add { font-size: 26px; line-height: 1; padding-bottom: 3px; }
-  .fab--map { width: 44px; height: 44px; font-size: 17px; opacity: .92; }
+  .fab--add { font-size: calc(26px * var(--fs)); line-height: 1; padding-bottom: 3px; }
+  .fab--map { width: 44px; height: 44px; font-size: calc(17px * var(--fs)); opacity: .92; }
   @media (max-width: 420px) { .fab { width: 50px; height: 50px; } .fab--map { width: 42px; height: 42px; } }
 
   /* ————— 导出清单弹窗 ————— */
   .sheet--export { width: min(620px, 100%); }
   .ex-hint {
-    font-weight: 300; font-size: 12px; line-height: 1.95; color: #8a7558;
+    font-weight: var(--fw-thin); font-size: calc(13.5px * var(--fs)); line-height: 1.95; color: var(--ink-dim);
     text-align: center; margin: -8px 0 14px;
   }
   .ex-out {
     width: 100%; height: min(46vh, 330px); margin-top: 12px;
     padding: 12px 13px; border-radius: 10px; resize: vertical;
-    border: 1px solid rgba(255,222,180,.16); background: #0d0a06;
-    color: #cbb891; font-family: 'Special Elite', 'Courier New', monospace;
+    border: 1px solid rgba(var(--line-rgb),.16); background: var(--bg);
+    color: var(--ink-soft); font-family: 'Special Elite', 'Courier New', monospace;
     /* 等宽小字看得清结构；iOS 只在聚焦输入时放大，只读框不受影响 */
-    font-size: 11.5px; line-height: 1.85; white-space: pre; overflow: auto;
+    font-size: calc(13px * var(--fs)); line-height: 1.85; white-space: pre; overflow: auto;
   }
-  .ex-out:focus { outline: none; border-color: rgba(230,190,110,.5); }
+  .ex-out:focus { outline: none; border-color: rgba(var(--goldhi-rgb),.5); }
   /* 手机上横滑只能看到左边一半，宁可折行也要看得见 */
   @media (max-width: 560px) {
-    .ex-out { white-space: pre-wrap; word-break: break-word; font-size: 11px; }
+    .ex-out { white-space: pre-wrap; word-break: break-word; font-size: calc(12.5px * var(--fs)); }
   }
   .ex-actions { display: flex; gap: 10px; margin-top: 14px; }
   .ex-actions .btn-save { letter-spacing: 2px; }
@@ -714,27 +1483,56 @@
     position: fixed; left: 50%; bottom: max(26px, env(safe-area-inset-bottom));
     transform: translateX(-50%) translateY(12px); z-index: 50;
     padding: 10px 22px; border-radius: 999px;
-    border: 1px solid rgba(230,190,110,.5);
-    background: #1c1508; color: #ecd9a8;
-    font-size: 13px; letter-spacing: 1.5px;
+    border: 2px solid var(--gold);
+    background: var(--panel-hi); color: var(--ink-gold);
+    box-shadow: 3px 3px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink));
+    font-size: calc(14.5px * var(--fs)); letter-spacing: 1.5px;
     opacity: 0; pointer-events: none;
     transition: opacity .3s ease, transform .3s ease;
     max-width: min(86vw, 480px); text-align: center;
   }
   .toast.is-on { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
+<script>
+  /* 画出来之前就把昼夜和字号穿好，免得先闪一下别的颜色。
+     wiw-theme 是全站共用的键——她在博客里切成夜里，这页打开就是夜里。
+     配色（wiw-palette）由 theme-picker.js 自己读，不用这里管。 */
+  (function () {
+    var d = document.documentElement;
+    try {
+      var t = localStorage.getItem("wiw-theme");
+      if (t === "light" || t === "dark") d.setAttribute("data-theme", t);
+      d.setAttribute("data-size", localStorage.getItem("ws-sam-shelf-size") || "md");
+    } catch (e) { d.setAttribute("data-size", "md"); }
+  })();
+</script>
 </head>
 <body>
 
 <div class="topbar">
   <a class="back" href="../">← 回 Sam 页</a>
-  <span class="progress-num" id="progress-num"></span>
+  <span class="topbar__right">
+    <button class="c-palette-trigger" type="button" id="js-palette-trigger"
+            aria-label="换个心情 · 配色主题" title="换个心情" data-baseurl="/WinterSunBlog">
+      <svg class="c-palette-trigger__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    </button>
+    <button type="button" class="iconbtn" id="mode-btn" title="白天 / 夜里" aria-label="白天或夜里"></button>
+    <button type="button" class="iconbtn" id="fs-btn" title="字大一点" aria-label="字号">A</button>
+    <span class="progress-num" id="progress-num"></span>
+  </span>
 </div>
 
 <div class="head">
+  <span class="head__eyebrow"><i></i>Kept by Winter Sun<i></i></span>
   <h1>The Collector&rsquo;s Shelf</h1>
-  <p>藏品架 · 他的东西，我一件件收</p>
-  <span class="curator-tag">🗝️ 馆长在馆 · 可以编辑</span>
+  <p>藏品架 · 他在片子里，也在我柜子里</p>
+  <span class="head__shelf" aria-hidden="true">
+    <span class="head__things" id="head-things"><span>📀</span><span>🎵</span><span>🃏</span><span>📔</span></span>
+    <span class="head__plank"></span>
+  </span>
+  <span class="curator-tag">🗝️ 馆长在馆 · ↻ 翻面 · ✎ 修改</span>
 </div>
 
 <div class="stats" id="stats"></div>
@@ -785,7 +1583,7 @@
   <h2>🎞️ 角色联动 · 画册地图</h2><span class="rule"></span><span class="count" id="map-count"></span>
 </div>
 <div class="map-grid" id="map-grid"></div>
-<p class="map-hint" id="map-hint" style="display:none">收了谁的东西，谁的格子就亮起来。<br><span class="map-hint__viewer">点亮着的格子＝只看他的藏品；点暗着的格子＝去画册看看这张脸。</span><span class="map-hint__curator">点任何格子＝直接给这个角色添一件藏品（也能筛选、去画册）。</span></p>
+<p class="map-hint" id="map-hint" style="display:none">收了谁的东西，谁的格子就亮起来。<br><span class="map-hint__viewer">点亮着的格子＝只看他的藏品；点暗着的格子＝去画册看看这张脸。</span><span class="map-hint__curator">点格子＝只看他的（还没有的就去画册）；点格子角上的 ＋＝给他添一件。</span></p>
 
 <div class="fabs" id="fabs">
   <button type="button" class="fab fab--map" id="fab-map" title="跳到画册地图（总表）" aria-label="跳到画册地图">&#127902;</button>
@@ -887,6 +1685,7 @@
     <label class="f-label" for="f-spec">版本 / 规格 <small>（可不填 · 点一下选中，再点取消 · 没有的自己写，能加好几条）</small></label>
     <div class="types spec-chips" id="f-fmt-row" style="display:none"></div>
     <div class="types spec-chips" id="f-region-row" style="display:none"></div>
+    <div class="types spec-chips" id="f-issue-row" style="display:none"></div>
     <div class="types spec-chips" id="f-sug-row"></div>
     <div class="tagbox" id="f-tagbox"></div>
     <div class="tagadd">
@@ -926,15 +1725,24 @@
   var KEY_VIEW = "ws-sam-shelf-view";
   var REPO_API = "https://api.github.com/repos/DXWinterSun/WinterSunBlog/contents/sam/shelf/data.json";
 
-  /* fmts = 这一类东西有哪些「制式」可点；有 fmts 的还会跟着出现地区行。 */
+  /* fmts = 这一类东西有哪些「制式」可点；有 fmts 的还会跟着出现地区行。
+     sugs = 这一类常写的那几条规格（碟片是铁盒 / 限量，书刊是封面 / 内页 / 专访）；
+     issue = 杂志、场刊这种按期出的，多给一排「Spring / 年份」直接点。 */
   var TYPES = [
-    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "4K UHD", "DVD"], fmtsMore: ["VCD", "LD", "录像带"] },
-    { id: "ost",     emoji: "🎵", label: "原声带", fmts: ["CD", "黑胶", "磁带"] },
-    { id: "card",    emoji: "🃏", label: "卡牌" },
-    { id: "goods",   emoji: "🧸", label: "周边" },
-    { id: "program", emoji: "📔", label: "场刊" },
-    { id: "book",    emoji: "📖", label: "书刊" },
-    { id: "other",   emoji: "🎁", label: "其他" }
+    { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "4K UHD", "DVD"], fmtsMore: ["VCD", "LD", "录像带"],
+      sugs: ["铁盒", "限量", "全新"], sugsMore: ["首刷", "初回版", "收藏版", "导演剪辑版", "二手", "未拆封"] },
+    { id: "ost",     emoji: "🎵", label: "原声带", fmts: ["CD", "黑胶", "磁带"],
+      sugs: ["限量", "全新", "未拆封"], sugsMore: ["首版", "再版", "彩胶", "二手", "带海报"] },
+    { id: "card",    emoji: "🃏", label: "卡牌",
+      sugs: ["签名卡", "编号卡", "限量"], sugsMore: ["实物卡", "全新", "二手", "已评级"] },
+    { id: "goods",   emoji: "🧸", label: "周边",
+      sugs: ["限量", "全新", "未拆封"], sugsMore: ["带原盒", "绝版", "二手"] },
+    { id: "program", emoji: "📔", label: "场刊", issue: true,
+      sugs: ["首演场", "带票根", "全新"], sugsMore: ["签名页", "有折痕", "绝版", "二手"] },
+    { id: "book",    emoji: "📖", label: "书刊", issue: true,
+      sugs: ["封面", "内页", "专访"], sugsMore: ["整本", "剪页", "全新", "未拆封", "有折痕", "带海报", "创刊号", "绝版", "二手"] },
+    { id: "other",   emoji: "🎁", label: "其他",
+      sugs: ["限量", "全新"], sugsMore: ["未拆封", "绝版", "二手"] }
   ];
   var FILTERS = [{ id: "all", label: "全部" }]
     .concat(TYPES.map(function (t) { return { id: t.id, label: t.emoji + " " + t.label }; }))
@@ -989,7 +1797,10 @@
     try { return JSON.parse(localStorage.getItem(KEY_DRAFT) || "null"); } catch (e) { return null; }
   }
   function draftSave(list) {
-    try { localStorage.setItem(KEY_DRAFT, JSON.stringify({ items: list })); } catch (e) {}
+    /* 连「这台设备上删过谁」一起存：下面合并时要靠它，不然删掉的会被接回来 */
+    var del = [];
+    try { del = Object.keys(deletedIds || {}); } catch (e) {}
+    try { localStorage.setItem(KEY_DRAFT, JSON.stringify({ items: list, deleted: del })); } catch (e) {}
   }
   function draftClear() {
     try { localStorage.removeItem(KEY_DRAFT); } catch (e) {}
@@ -1003,6 +1814,7 @@
      原因：网站重建一次要四十来分钟，刚存的东西在那份公开副本里还没出现。
      若馆长也读它，刷新后刚添的藏品会「消失」，而这时再添一件并保存，
      就会拿这份旧名单盖掉仓库里的新记录——东西是真的会没。 */
+  var deletedIds = {};              // 这台设备上删过谁（发布与合并草稿时都要看它）
   var loadedData = false, loadedChars = false;
   function fetchPublic() {
     return fetch("./data.json", { cache: "no-cache" }).then(function (r) { return r.json(); });
@@ -1023,11 +1835,29 @@
   (isCurator() ? fetchRepo().catch(fetchPublic) : fetchPublic())
     .then(function (data) {
       items = Array.isArray(data.items) ? data.items : [];
-      /* 馆长上次有没发布成功的改动 → 先展示草稿并提示重试 */
+      /* 馆长上次有没发布成功的改动 → 把草稿和线上「并起来」再显示，并提示重试。
+         ⚠️ 2026-09-23 修：这里原来是 items = draft.items，整份顶掉。
+         于是只要有一次没送出去的草稿，页面就只剩那一刻的名单，
+         线上已经有、而草稿里没有的那些就全看不见了——Winter 当场以为东西被删了
+         （「之前添加的好多都没了」「你是不是优化的时候删我东西」）。
+         数据其实一直在仓库里，是这一行把它们挡住了。现在改成合并：
+         草稿为准，线上多出来的接回来，**但这台设备上删过的不接**。 */
       var draft = isCurator() ? draftLoad() : null;
       if (draft && Array.isArray(draft.items)) {
-        items = draft.items;
+        var gone = {};
+        (draft.deleted || []).forEach(function (id) { gone[id] = 1; deletedIds[id] = 1; });
+        var inDraft = {};
+        draft.items.forEach(function (x) { if (x && x.id) inDraft[x.id] = 1; });
+        var back = items.filter(function (x) {
+          return x && x.id && !inDraft[x.id] && !gone[x.id];
+        });
+        items = back.concat(draft.items);
         $("pending").classList.add("is-on");
+        if (back.length) {
+          setTimeout(function () {
+            toast("有 " + back.length + " 件还没送到网上，已经先接回来了");
+          }, 1200);
+        }
       }
       loadedData = true; ready();
     })
@@ -1109,7 +1939,7 @@
       if (arrange === "char") {
         var c = it.charId ? charById[it.charId] : null;
         push(c ? c.id : "~none",
-          c ? { name: c.name, sub: c.filmCN || c.film, year: c.year, a: c.accent, rank: charOrder[c.id] }
+          c ? { name: c.name, sub: c.filmCN || c.film, year: c.year, a: c.accent, charId: c.id, rank: charOrder[c.id] }
             : { name: "没关联角色", sub: "", rank: 9999 }, it);
       } else if (arrange === "type") {
         var t = typeById[it.type] || typeById.other;
@@ -1135,6 +1965,192 @@
       });
     }
     return groups;
+  }
+
+  /* 一枚角色格子（画册地图和「按角色」那一屏共用同一颗，别再各写一份） */
+  function mapSlot(c, n) {
+    var d = document.createElement("div");
+    d.className = "mslot" + (n ? " mslot--got" : "") + (c.id === charFilter ? " mslot--on" : "");
+    d.setAttribute("role", "button");
+    d.setAttribute("tabindex", "0");
+    /* 没收的那格也给 --a：让每个人的颜色都露出来（只是压淡），
+       这样一眼看过去这排格子是「不同的人」，不是一排一样的空框 */
+    d.style.setProperty("--a", c.accent);
+    if (n) { d.style.setProperty("--b", c.bg); }
+    d.setAttribute("aria-label", c.name + (n ? "（有 " + n + " 件藏品，点击筛选）" : "（还没有藏品，点击去画册）"));
+    var dot = document.createElement("span"); dot.className = "mslot__dot";
+    var nm = document.createElement("span"); nm.className = "mslot__name"; nm.textContent = c.name;
+    var fm = document.createElement("span"); fm.className = "mslot__film"; fm.textContent = c.filmCN || c.film;
+    var yr = document.createElement("span"); yr.className = "mslot__year"; yr.textContent = c.year;
+    var pal = document.createElement("span"); pal.className = "mslot__pal";
+    [c.bg, c.accent, c.text, c.muted].forEach(function (col) {
+      if (!col) return;
+      var i = document.createElement("i"); i.style.background = col; pal.appendChild(i);
+    });
+    d.appendChild(dot); d.appendChild(nm); d.appendChild(fm); d.appendChild(yr); d.appendChild(pal);
+    if (n > 1) {
+      var b = document.createElement("span"); b.className = "mslot__n"; b.textContent = "×" + n;
+      d.appendChild(b);
+    }
+    /* ⚠️ 点格子＝看他的东西，不是「给他添一件」。
+       Winter 2026-09-22：「你下面这个做得真的挺好的，就应该把它做成真正的卡片，
+       而不是点击就增加东西。」——跟藏品卡同一个道理：点卡面是看，动手要点角上那颗钮。 */
+    function go() {
+      if (n) { setCharFilter(c.id); }                                  // 有东西：只看他的
+      else { location.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor); }   // 没有：去画册看这张脸
+    }
+    d.addEventListener("click", function (e) {
+      if (e.target.closest(".mslot__add")) return;
+      go();
+    });
+    d.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+    /* ＋ 只有馆长看得见：给这个角色添一件（也能从这儿筛选、去画册） */
+    var add = document.createElement("button");
+    add.type = "button"; add.className = "mslot__add"; add.textContent = "＋";
+    add.setAttribute("aria-label", "给 " + c.name + " 添一件藏品");
+    add.addEventListener("click", function (e) { e.stopPropagation(); openCharMenu(c, n); });
+    d.appendChild(add);
+    return d;
+  }
+
+  /* 名册里的一行＝一个人：不点开只说「几件、大概是什么」（emoji），
+     点开才把他的东西铺出来（左右滑）。 */
+  function charRow(g, make) {
+    var c = g.meta.charId ? charById[g.meta.charId] : null;
+    var el = document.createElement("div");
+    el.className = "crow";
+    if (g.meta.a) el.style.setProperty("--a", g.meta.a);
+
+    var head = document.createElement("button");
+    head.type = "button"; head.className = "crow__head";
+    head.setAttribute("aria-expanded", "false");
+
+    var dot = document.createElement("span"); dot.className = "crow__dot";
+    var nm = document.createElement("span"); nm.className = "crow__name"; nm.textContent = g.meta.name;
+    head.appendChild(dot); head.appendChild(nm);
+    if (g.meta.sub) {
+      var sb = document.createElement("span"); sb.className = "crow__sub";
+      sb.textContent = g.meta.sub + (g.meta.year ? " · " + g.meta.year : "");
+      head.appendChild(sb);
+    }
+    if (c) {
+      var pal = document.createElement("span"); pal.className = "crow__pal";
+      [c.bg, c.accent, c.text, c.muted].forEach(function (col) {
+        if (!col) return;
+        var i = document.createElement("i"); i.style.background = col; pal.appendChild(i);
+      });
+      head.appendChild(pal);
+    }
+    /* 大概是些什么：按类别数一数，用那一类的 emoji 说话（同类两件以上就写个数） */
+    var tally = {};
+    g.items.forEach(function (it) { tally[it.type] = (tally[it.type] || 0) + 1; });
+    var kinds = TYPES.filter(function (t) { return tally[t.id]; })
+      .map(function (t) { return t.emoji + (tally[t.id] > 1 ? tally[t.id] : ""); }).join(" ");
+    var kd = document.createElement("span"); kd.className = "crow__kinds"; kd.textContent = kinds;
+    head.appendChild(kd);
+    var n = document.createElement("span"); n.className = "crow__n";
+    n.textContent = g.items.length + " 件";
+    head.appendChild(n);
+    var ca = document.createElement("span"); ca.className = "crow__caret"; ca.textContent = "▸";
+    head.appendChild(ca);
+    el.appendChild(head);
+    /* ＋ 独立放在标题行外头：按钮不能套按钮，套了点 ＋ 会连展开一起触发 */
+    if (c) {
+      var add = document.createElement("button");
+      add.type = "button"; add.className = "crow__add"; add.textContent = "＋";
+      add.setAttribute("aria-label", "给 " + c.name + " 添一件藏品");
+      add.addEventListener("click", function (e) {
+        e.stopPropagation();
+        openCharMenu(c, g.items.length);
+      });
+      head.parentNode.insertBefore(add, head.nextSibling);
+      el.classList.add("crow--hasadd");
+    }
+
+    var body = document.createElement("div"); body.className = "crow__body";
+    var strip = document.createElement("div"); strip.className = "gcard__grid";
+    body.appendChild(strip);
+    el.appendChild(body);
+
+    var filled = false;
+    head.addEventListener("click", function () {
+      var open = el.classList.toggle("is-open");
+      head.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open && !filled) {                      // 点开才做卡片，省得一上来做六十张
+        g.items.forEach(function (it) { strip.appendChild(make(it)); });
+        filled = true;
+      }
+    });
+    return el;
+  }
+
+  /* 一组＝一张大卡：头上是这个人（或这一类、这个年代），他的东西都摆在里头 */
+  function groupCard(g, make) {
+    var el = document.createElement("section");
+    el.className = "gcard";
+    if (g.meta.a) el.style.setProperty("--a", g.meta.a);
+    var head = document.createElement("div"); head.className = "gcard__head";
+    /* 只有「这一组是某个人」时才点那颗色点；按类别 / 按年代没有专属颜色，
+       点了反而三组一个样（名字里本来就带着那一类的 emoji） */
+    if (g.meta.a) {
+      var dot = document.createElement("span"); dot.className = "gcard__dot";
+      head.appendChild(dot);
+    }
+    /* 按角色排的时候，名字点得开——跳去画册看这张脸 */
+    var c = g.meta.charId ? charById[g.meta.charId] : null;
+    var nm;
+    if (c) {
+      nm = document.createElement("a");
+      nm.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor);
+      nm.target = "_blank"; nm.rel = "noopener";
+    } else {
+      nm = document.createElement("span");
+    }
+    nm.className = "gcard__name"; nm.textContent = g.meta.name;
+    head.appendChild(nm);
+    if (g.meta.sub) {
+      var sb = document.createElement("span"); sb.className = "gcard__sub";
+      sb.textContent = g.meta.sub + (g.meta.year ? " · " + g.meta.year : "");
+      head.appendChild(sb);
+    }
+    /* 他那四个颜色——跟地图格子、画册、选色器同一份 */
+    if (c) {
+      var pal = document.createElement("span"); pal.className = "gcard__pal";
+      [c.bg, c.accent, c.text, c.muted].forEach(function (col) {
+        if (!col) return;
+        var i = document.createElement("i"); i.style.background = col; pal.appendChild(i);
+      });
+      head.appendChild(pal);
+    }
+    var n = document.createElement("button");
+    n.type = "button"; n.className = "gcard__n";
+    n.setAttribute("aria-expanded", "false");
+    n.setAttribute("aria-label", "全部摊开或收回，共 " + g.items.length + " 件");
+    n.appendChild(document.createTextNode(g.items.length + " 件"));
+    var ca = document.createElement("i"); ca.textContent = "▾";
+    n.appendChild(ca);
+    function toggle(scrollBack) {
+      var open = el.classList.toggle("is-open");
+      n.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!open) {
+        var strip = el.querySelector(".gcard__grid");
+        if (strip) strip.scrollLeft = 0;         // 收回去时把横条滑回开头，不然像卡住了
+        /* 从底下那颗收起的：收完把这一组的头带回眼前，不然会「掉」到别处 */
+        if (scrollBack) el.scrollIntoView({ block: "start", behavior: "smooth" });
+      }
+    }
+    n.addEventListener("click", function () { toggle(false); });
+    head.appendChild(n);
+    el.appendChild(head);
+    var inner = document.createElement("div"); inner.className = "gcard__grid";
+    g.items.forEach(function (it) { inner.appendChild(make(it)); });
+    el.appendChild(inner);
+    var col = document.createElement("button");
+    col.type = "button"; col.className = "gcard__collapse";
+    col.textContent = "▴ 收起 " + g.meta.name;
+    col.addEventListener("click", function () { toggle(true); });
+    el.appendChild(col);
+    return el;
   }
 
   function groupLine(g) {
@@ -1169,13 +2185,26 @@
     var c = it.charId ? charById[it.charId] : null;
     var t = typeById[it.type] || typeById.other;
     var el = document.createElement("div");
-    el.className = "item" + (it.wish ? " item--wish" : "");
-    if (isCurator()) {
-      el.setAttribute("role", "button");
-      el.setAttribute("tabindex", "0");
-      el.setAttribute("aria-label", "编辑：" + it.name);
-    }
+    el.className = "item item--" + it.type + (it.wish ? " item--wish" : "");
     if (c) { el.style.setProperty("--a", c.accent); el.style.setProperty("--b", c.bg); }
+
+    /* 卡片分两层：外壳 el 只管站位和投影，真正的卡面是 face（正面）/ back（背面），
+       两面扣在一起，翻面就是把中间那层 flip 转 180 度。 */
+    var flip = document.createElement("div"); flip.className = "item__flip";
+    var face = document.createElement("div"); face.className = "item__face item__face--front";
+    flip.appendChild(face); el.appendChild(flip);
+
+    /* 媒介记号：盒脊 / 唱片 / 内圈 / 书口 / 贴条，长什么样全交给 CSS */
+    var med = document.createElement("i");
+    med.className = "item__medium"; med.setAttribute("aria-hidden", "true");
+    face.appendChild(med);
+    /* 点一下＝拿起来对着光照一下（扫完就撤，不留在卡面上） */
+    el.addEventListener("pointerdown", function () {
+      el.classList.remove("is-shine");
+      void el.offsetWidth;
+      el.classList.add("is-shine");
+      setTimeout(function () { el.classList.remove("is-shine"); }, 1000);
+    });
 
     var top = document.createElement("div"); top.className = "item__top";
     var em = document.createElement("span"); em.className = "item__emoji"; em.textContent = t.emoji;
@@ -1186,42 +2215,122 @@
     if (it.signed) badges.push("✍️");
     bd.textContent = badges.join(" ");
     top.appendChild(em); top.appendChild(ty); top.appendChild(bd);
-    el.appendChild(top);
+    face.appendChild(top);   /* 右上角那颗翻面钮在下面 turnBtn() 定义好之后再塞进来 */
 
     var nm = document.createElement("p"); nm.className = "item__name"; nm.textContent = it.name;
-    el.appendChild(nm);
+    face.appendChild(nm);
 
     if (it.spec) {
       var sp = document.createElement("span"); sp.className = "item__spec"; sp.textContent = it.spec;
-      el.appendChild(sp); el.appendChild(document.createElement("br"));
+      face.appendChild(sp); face.appendChild(document.createElement("br"));
     }
 
-    /* 正在只看这个人时，上面那条提示已经写了他是谁，卡片里不必再挂一次 */
-    if (c && charFilter !== it.charId) {
+    /* 按角色分组（这时卡片就在他那张大卡里）、或正在只看这个人时，
+       上面已经写了他是谁，卡片里不必再挂一次 */
+    if (c && charFilter !== it.charId && !(view === "card" && arrange === "char")) {
       var ch = document.createElement("a");
       ch.className = "item__char";
       ch.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor);
       ch.innerHTML = "<i></i>";
       ch.appendChild(document.createTextNode(whoLine(it, c) + " · " + c.year));
       ch.addEventListener("click", function (e) { e.stopPropagation(); });
-      el.appendChild(ch);
+      face.appendChild(ch);
     }
 
     if (it.note) {
       var no = document.createElement("p"); no.className = "item__note"; no.textContent = it.note;
-      el.appendChild(no);
+      face.appendChild(no);
     }
     if (it.date) {
       var dt = document.createElement("span"); dt.className = "item__date";
       dt.textContent = (it.wish ? "许愿于 " : "入手于 ") + it.date;
-      el.appendChild(dt);
+      face.appendChild(dt);
     }
 
-    if (isCurator()) {
-      function open() { openSheet(it.id); }
-      el.addEventListener("click", open);
-      el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+    /* ————— 背面：像把东西翻过来看背后 ————— */
+    var back = document.createElement("div");
+    back.className = "item__face item__face--back";
+    var bl = document.createElement("span"); bl.className = "item__back-label";
+    bl.textContent = t.label + " · 背面";
+    back.appendChild(bl);
+    var bn = document.createElement("p");
+    bn.className = "item__back-note" + (it.note ? "" : " is-empty");
+    bn.textContent = it.note || "（背面没写字）";
+    back.appendChild(bn);
+    var bm = document.createElement("span"); bm.className = "item__back-meta";
+    var metaLines = [];
+    if (it.spec) metaLines.push(it.spec);
+    if (c) metaLines.push(whoLine(it, c) + " · " + c.year);
+    if (it.date) metaLines.push((it.wish ? "许愿于 " : "入手于 ") + it.date);
+    if (it.type === "disc") metaLines.push(it.nas ? "已进 NAS" : "还没进 NAS");
+    if (it.signed) metaLines.push("有他的亲笔签名");
+    bm.innerHTML = metaLines.join("<br>");
+    back.appendChild(bm);
+    /* 碟片 / 书刊 / 场刊的背面印条码；卡牌是菱格卡背（CSS 里给的），别再叠条码 */
+    if (it.type !== "card") {
+      var bc = document.createElement("span");
+      bc.className = "item__barcode"; bc.setAttribute("aria-hidden", "true");
+      back.appendChild(bc);
     }
+    flip.appendChild(back);
+
+    /* 两面都有一颗「翻面」小钮 */
+    function turnBtn() {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "item__turn";
+      b.textContent = "↻";
+      b.setAttribute("aria-label", "翻到另一面");
+      b.addEventListener("click", function (e) {
+        e.stopPropagation();                       // 别把馆长的「编辑」一起触发了
+        el.classList.toggle("is-flipped");
+        el.classList.remove("is-tilt");            // 翻过去就别再歪着
+        el.style.removeProperty("--rx");
+        el.style.removeProperty("--ry");
+      });
+      return b;
+    }
+    /* ✎ 只有馆长看得见（CSS 里控制显隐），点它才进编辑 */
+    var ed = document.createElement("button");
+    ed.type = "button"; ed.className = "item__edit"; ed.textContent = "✎";
+    ed.setAttribute("aria-label", "编辑：" + it.name);
+    ed.addEventListener("click", function (e) { e.stopPropagation(); openSheet(it.id); });
+    top.appendChild(ed);
+    top.appendChild(turnBtn());
+    back.appendChild(turnBtn());
+
+    /* ————— 卡牌：跟着手指 / 鼠标歪一歪，反光跟着走 ————— */
+    if (it.type === "card" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      var glare = document.createElement("i");
+      glare.className = "item__glare"; glare.setAttribute("aria-hidden", "true");
+      face.appendChild(glare);
+      var tilting = false;
+      function tilt(e) {
+        if (el.classList.contains("is-flipped")) return;
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width;    // 0…1
+        var y = (e.clientY - r.top) / r.height;
+        el.style.setProperty("--ry", ((x - .5) * 13).toFixed(2) + "deg");
+        el.style.setProperty("--rx", ((.5 - y) * 11).toFixed(2) + "deg");
+        el.style.setProperty("--gx", (x * 100).toFixed(1) + "%");
+        el.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
+        if (!tilting) { tilting = true; el.classList.add("is-tilt"); }
+      }
+      function untilt() {
+        tilting = false;
+        el.classList.remove("is-tilt");
+        el.style.removeProperty("--rx");
+        el.style.removeProperty("--ry");
+      }
+      el.addEventListener("pointermove", tilt);
+      el.addEventListener("pointerleave", untilt);
+      el.addEventListener("pointercancel", untilt);
+      el.addEventListener("pointerup", untilt);
+    }
+
+    /* ⚠️ 点卡面只是「闪一下光」（上面 pointerdown 那段扫光），别的什么都不做。
+       Winter 2026-09-22：「现在一点就翻页，那你放那个翻页的按钮是干什么用的？
+       难道不应该是点的时候他就闪一下？老翻来翻去的有什么意思？」——所以：
+       点卡面＝闪一下 · 点 ↻＝翻面 · 点 ✎＝编辑（只有馆长有）。三件事三个地方，不许混。 */
     return el;
   }
 
@@ -1230,13 +2339,8 @@
     var c = it.charId ? charById[it.charId] : null;
     var t = typeById[it.type] || typeById.other;
     var el = document.createElement("div");
-    el.className = "row" + (it.wish ? " row--wish" : "");
+    el.className = "row row--" + it.type + (it.wish ? " row--wish" : "");
     if (c) { el.style.setProperty("--a", c.accent); el.style.setProperty("--b", c.bg); }
-    if (isCurator()) {
-      el.setAttribute("role", "button");
-      el.setAttribute("tabindex", "0");
-      el.setAttribute("aria-label", "编辑：" + it.name);
-    }
 
     var n = document.createElement("span"); n.className = "row__n";
     n.textContent = it.wish ? "🌠" : (nums[it.id] || "");
@@ -1280,11 +2384,11 @@
     var bd = document.createElement("span"); bd.className = "row__badges"; bd.textContent = badges.join("");
     el.appendChild(bd);
 
-    if (isCurator()) {
-      function open() { openSheet(it.id); }
-      el.addEventListener("click", open);
-      el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
-    }
+    var red = document.createElement("button");
+    red.type = "button"; red.className = "row__edit"; red.textContent = "✎";
+    red.setAttribute("aria-label", "编辑：" + it.name);
+    red.addEventListener("click", function (e) { e.stopPropagation(); openSheet(it.id); });
+    el.appendChild(red);
     return el;
   }
   function esc(s) {
@@ -1294,20 +2398,200 @@
   }
 
   /* 把一批藏品（按当前排列分好组）铺进某个格栅。
-     分组小标题只在清单里出现——卡片是三列的，每个小标题都要独占一整行，
-     一人一件的组会把架子拉得又长又空；卡片视图里「排列」只管先后顺序。 */
+     清单视图：一组一条小标题线。卡片视图：一组一张大卡（一个角色 / 一类 / 一个年代
+     各占一张，他的东西都摆在里头）。「最新入手」不分组，照旧平铺。 */
   function fillGrid(grid, list) {
     var isList = view === "list";
     grid.innerHTML = "";
     grid.classList.toggle("is-list", isList);
     var make = isList ? itemRow : itemCard;
+    var roster = null;
     groupOf(list).forEach(function (g) {
-      if (g.key && isList) grid.appendChild(groupLine(g));
-      g.items.forEach(function (it) { grid.appendChild(make(it)); });
+      if (!g.key) {                                   // 不分组：直接铺
+        g.items.forEach(function (it) { grid.appendChild(make(it)); });
+        return;
+      }
+      if (isList) {
+        grid.appendChild(groupLine(g));
+        g.items.forEach(function (it) { grid.appendChild(make(it)); });
+        return;
+      }
+      if (arrange === "char") {                    // 按角色＝名册，点开才展开
+        if (!roster) {
+          roster = document.createElement("div");
+          roster.className = "croster";
+          grid.appendChild(roster);
+        }
+        roster.appendChild(charRow(g, make));
+        return;
+      }
+      grid.appendChild(groupCard(g, make));
     });
+
+    /* 「按角色」＝完整的角色视图：有东西的人在上面各占一张卡，
+       没东西的人接在后面（就是画册地图那半张），不用再往页尾找一遍。
+       （Winter 2026-09-22：「两者不就应该是合并的吗？大家想看按分类的
+       不就是能直观地看到一个角色对应哪些东西吗？」） */
+    if (!isList && arrange === "char" && grid.id === "own-grid" && !query && !charFilter && chars.length) {
+      var got = {};
+      list.forEach(function (it) { if (it.charId) got[it.charId] = 1; });
+      var missing = chars.filter(function (c) { return !got[c.id]; });
+      if (missing.length) {
+        var panel = document.createElement("section");
+        panel.className = "gcard gcard--ghosts"; panel.id = "char-ghosts";
+        var head = document.createElement("div"); head.className = "gcard__head";
+        var nm = document.createElement("span"); nm.className = "gcard__name";
+        nm.textContent = "还没有他的东西";
+        var sb = document.createElement("span"); sb.className = "gcard__sub";
+        sb.textContent = "点一下去画册看看这张脸";
+        var n2 = document.createElement("span"); n2.className = "gcard__n";
+        n2.textContent = missing.length + " 人";
+        head.appendChild(nm); head.appendChild(sb); head.appendChild(n2);
+        panel.appendChild(head);
+        var mg = document.createElement("div"); mg.className = "map-grid";
+        missing.forEach(function (c) { mg.appendChild(mapSlot(c, 0)); });
+        panel.appendChild(mg);
+        grid.appendChild(panel);
+      }
+    }
   }
 
   var nums = {};
+
+  /* 空格子里说一句人话，能点的词长在句子里（Winter 2026-09-23：「太生硬了，
+     我喜欢类似于『现在 Justin Hammer 还没有他的 xx，但他有 yy 和 zz，去看看？』
+     ……看全部之类的也占太多空间」）。别再摆一排大按钮。 */
+  function filterName() {
+    var t = typeById[filter];
+    if (t) return t.emoji + " " + t.label;
+    if (filter === "signed") return "有签名的";
+    if (filter === "nas") return "已经进 NAS 的";
+    if (filter === "nonas") return "还没进 NAS 的";
+    return "";
+  }
+  /* 「他还没有 ___」里那个空格填什么：图标 + 名字 */
+  function lackOf() {
+    var t = typeById[filter], head = query ? "叫「" + query + "」的" : "";
+    if (t) return { e: t.emoji, t: head + t.label };
+    if (filter === "signed") return { e: "✍️", t: head ? head + "签名品" : "带签名的东西" };
+    if (filter === "nas") return { e: "📡", t: head ? head + "东西" : "进了 NAS 的东西" };
+    if (filter === "nonas") return { e: "🎞️", t: head ? head + "东西" : "还没进 NAS 的东西" };
+    return { e: "🔍", t: head ? head + "东西" : "东西" };
+  }
+  /* 只留某一类（角色照旧留着） */
+  function onlyType(t) {
+    filter = t.id;
+    $("filters").querySelectorAll(".chip").forEach(function (x) {
+      x.classList.toggle("is-on", x.textContent.indexOf(t.label) >= 0);
+    });
+    if (qBox.value) { qBox.value = ""; query = ""; qWrap.classList.remove("has-q"); }
+    render();
+  }
+  function matchesType(it, f) {
+    if (f === "signed") return !!it.signed;
+    if (f === "nas") return it.type === "disc" && !!it.nas;
+    if (f === "nonas") return it.type === "disc" && !it.nas;
+    return it.type === f;
+  }
+  function fillEmpty(box, list) {
+    box.innerHTML = "";
+    var say = document.createElement("p");
+    say.className = "empty__say";
+    box.appendChild(say);
+
+    function words(text) { say.appendChild(document.createTextNode(text)); }
+    function strong(text) {
+      var b = document.createElement("b"); b.textContent = text; say.appendChild(b);
+    }
+    function link(text, fn) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "empty__link"; b.textContent = text;
+      b.addEventListener("click", fn);
+      say.appendChild(b);
+      return b;
+    }
+    /* 一枚带 emoji 的小卡：点了就只看这一类 */
+    function kindChip(t, n) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "empty__kind";
+      b.setAttribute("aria-label", t.label + "，" + n + " 件，点击只看这一类");
+      var e = document.createElement("i"); e.textContent = t.emoji;
+      var u = document.createElement("u"); u.textContent = t.label;
+      b.appendChild(e); b.appendChild(u);
+      if (n > 1) { var c = document.createElement("s"); c.textContent = n; b.appendChild(c); }
+      b.addEventListener("click", function () { onlyType(t); });
+      say.appendChild(b);
+      return b;
+    }
+    /* 「还没有的那样东西」也给一枚卡，但是虚线的空卡——一眼看出这格是空的 */
+    function lackChip() {
+      var k = lackOf();
+      var w = document.createElement("span"); w.className = "empty__kind empty__kind--none";
+      var e = document.createElement("i"); e.textContent = k.e;
+      var u = document.createElement("u"); u.textContent = k.t;
+      w.appendChild(e); w.appendChild(u);
+      say.appendChild(w);
+      return w;
+    }
+
+    var c = charFilter ? charById[charFilter] : null;
+    var own = list.filter(function (it) { return !it.wish; });
+    var his = c ? own.filter(function (it) { return it.charId === charFilter; }) : [];
+
+    /* ——— 他有东西，只是被别的条件挡住了：把他有的那几类点名说出来 ——— */
+    if (c && his.length) {
+      var kinds = TYPES.filter(function (t) {
+        return his.some(function (it) { return it.type === t.id; });
+      });
+      words("现在 "); strong(c.name); words(" 还没有"); lackChip(); words("，");
+      if (kinds.length) {
+        words("不过他有");
+        kinds.slice(0, 3).forEach(function (t, i, arr) {
+          if (i) words(i === arr.length - 1 ? "和" : "、");
+          var n = his.filter(function (it) { return it.type === t.id; }).length;
+          kindChip(t, n);
+        });
+        if (kinds.length > 3) words("这些");
+        words("，");
+      }
+      link("去看看？", function () { resetFilters({ keepChar: true }); });
+      return;
+    }
+
+    /* ——— 这个人是真的一件都还没有 ——— */
+    if (c) {
+      words("现在还没有 "); strong(c.name); words(" 的东西——");
+      link("先去画册看看这张脸？", function () {
+        location.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor);
+      });
+      if (isCurator()) {
+        words(" 或者 ");
+        link("给他添一件", function () { openSheet(null, c.id); });
+      }
+      return;
+    }
+
+    /* ——— 没有只看某人，是搜索或类别把东西筛没了 ——— */
+    if (query || filter !== "all") {
+      words("架子上还没有"); lackChip(); words("——");
+      link("看看全部 " + own.length + " 件？", function () { resetFilters({}); });
+      return;
+    }
+    words("架子还空着——第一件宝贝正在路上。");
+  }
+
+  /* 一步把条件放开（要留哪个就传哪个） */
+  function resetFilters(keep) {
+    if (!keep.keepChar) setCharFilter("");
+    if (!keep.keepFilter) {
+      filter = "all";
+      $("filters").querySelectorAll(".chip").forEach(function (x, i) {
+        x.classList.toggle("is-on", i === 0);
+      });
+    }
+    if (qBox.value) { qBox.value = ""; query = ""; qWrap.classList.remove("has-q"); }
+    render();
+  }
 
   function render() {
     nums = numberMap();
@@ -1317,10 +2601,20 @@
 
     fillGrid($("own-grid"), own);
     $("own-empty").style.display = own.length ? "none" : "block";
-    $("own-empty").textContent = (query || charFilter || filter !== "all")
-      ? "这一格是空的——换个条件找找看。"
-      : "架子还空着——第一件宝贝正在路上。";
+    if (!own.length) fillEmpty($("own-empty"), list);
     $("own-count").textContent = own.length + " ITEMS";
+
+    /* 「按角色」那一屏已经把整张地图并进去了，页尾就不必再摆一次 */
+    var mapMerged = (view !== "list" && arrange === "char" && !query && !charFilter);
+    ["map-label", "map-grid", "map-hint"].forEach(function (id) {
+      var el = $(id);
+      if (!el) return;
+      if (mapMerged) { el.dataset.wasHidden = "1"; el.style.display = "none"; }
+      else if (el.dataset.wasHidden) {
+        delete el.dataset.wasHidden;
+        el.style.display = (id === "map-grid") ? "grid" : (id === "map-hint" ? "block" : "flex");
+      }
+    });
 
     fillGrid($("wish-grid"), wish);
     $("wish-label").style.display = wish.length ? "flex" : "none";
@@ -1339,57 +2633,58 @@
 
     var stats = $("stats");
     stats.innerHTML = "";
-    [["已入手", allOwn.length + " 件"],
-     ["有签名", signed.length + " 件"],
-     ["心愿单", allWish.length + " 件"]]
-      .concat(discs.length ? [["碟片进 NAS", nasDone.length + " / " + discs.length]] : [])
-      .concat(chars.length ? [["点亮角色", covered + " / " + chars.length, 1]] : [])
+    /* 架板底下吊着的那块牌：总共多少件 */
+    var tag = document.createElement("span");
+    tag.className = "stats__tag";
+    tag.innerHTML = "<b>" + allOwn.length + "</b><i>件藏品</i>";
+    stats.appendChild(tag);
+    /* 牌下面一行小字：签名 / NAS / 点亮 / 心愿 */
+    var row = document.createElement("span");
+    row.className = "stats__row";
+    [["✍️", "签名", signed.length]]
+      .concat(discs.length ? [["📡", "NAS", nasDone.length + " / " + discs.length]] : [])
+      .concat(chars.length ? [["✦", "点亮", covered + " / " + chars.length, 1]] : [])
+      .concat([["🌠", "心愿", allWish.length]])
       .forEach(function (p) {
-        /* 「点亮角色」做成可点的——谁都能一步滑到底下那张画册地图 */
-        var s = document.createElement(p[2] ? "button" : "span");
-        s.innerHTML = p[0] + " <b>" + p[1] + "</b>";
-        if (p[2]) {
+        /* 「点亮」做成可点的——谁都能一步滑到底下那张画册地图 */
+        var s = document.createElement(p[3] ? "button" : "span");
+        s.innerHTML = p[0] + " " + p[1] + " <em>" + p[2] + "</em>";
+        if (p[3]) {
           s.type = "button";
           s.className = "stats__jump";
           s.title = "去看画册地图";
           s.addEventListener("click", jumpToMap);
         }
-        stats.appendChild(s);
+        row.appendChild(s);
       });
+    stats.appendChild(row);
     $("progress-num").textContent = "SHELF " + allOwn.length;
 
-    /* 角色地图 */
+    /* 角色地图（「按角色」那一屏也用同一颗格子，见 mapSlot） */
     if (chars.length) {
       var map = $("map-grid"); map.innerHTML = "";
       chars.forEach(function (c) {
-        var n = coveredIds[c.id] || 0;
-        var d = document.createElement("div");
-        d.className = "mslot" + (n ? " mslot--got" : "") + (c.id === charFilter ? " mslot--on" : "");
-        d.setAttribute("role", "button");
-        d.setAttribute("tabindex", "0");
-        if (n) { d.style.setProperty("--a", c.accent); d.style.setProperty("--b", c.bg); }
-        d.setAttribute("aria-label", c.name + (n ? "（有 " + n + " 件藏品，点击筛选）" : "（还没有藏品，点击去画册）"));
-        var nm = document.createElement("span"); nm.className = "mslot__name"; nm.textContent = c.name;
-        var fm = document.createElement("span"); fm.className = "mslot__film"; fm.textContent = c.filmCN || c.film;
-        var yr = document.createElement("span"); yr.className = "mslot__year"; yr.textContent = c.year;
-        d.appendChild(nm); d.appendChild(fm); d.appendChild(yr);
-        if (n > 1) {
-          var b = document.createElement("span"); b.className = "mslot__n"; b.textContent = "×" + n;
-          d.appendChild(b);
-        }
-        function go() {
-          /* 馆长点格子：优先「给这个角色添藏品」；访客保持原逻辑 */
-          if (isCurator()) { openCharMenu(c, n); }
-          else if (n) { setCharFilter(c.id); }
-          else { location.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor); }
-        }
-        d.addEventListener("click", go);
-        d.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
-        map.appendChild(d);
+        map.appendChild(mapSlot(c, coveredIds[c.id] || 0));
       });
       $("map-count").textContent = covered + " / " + chars.length + " LIT";
     }
   }
+
+  /* 标题那块架板上的小东西：点一下蹦一下（纯好玩） */
+  (function () {
+    var box = $("head-things");
+    if (!box) return;
+    box.addEventListener("click", function (e) {
+      var t = e.target;
+      if (!t || t.tagName !== "SPAN") return;
+      t.classList.remove("is-hop");
+      void t.offsetWidth;                 /* 强制重排，否则连点没反应 */
+      t.classList.add("is-hop");
+    });
+    box.addEventListener("animationend", function (e) {
+      e.target.classList && e.target.classList.remove("is-hop");
+    });
+  })();
 
   /* ————— 筛选 ————— */
   var filWrap = $("filters");
@@ -1427,19 +2722,15 @@
       arrange = a.id;
       arrWrap.querySelectorAll(".mini").forEach(function (x) { x.classList.remove("is-on"); });
       b.classList.add("is-on");
-      /* 分组要看小标题才有意义，顺手切到清单；切回「最新入手」时把卡片还给她 */
-      if (a.id !== "recent") {
-        if (view === "card") { viewBeforeGroup = "card"; setView("list"); }
-      } else if (viewBeforeGroup) {
-        setView(viewBeforeGroup); viewBeforeGroup = "";
-      }
+      /* ⚠️ 以前这里会「顺手切到清单」——那是因为当时卡片视图根本不分组。
+         现在卡片视图里一组就是一张大卡（一个角色一张），分组比清单还直观，
+         所以别再替她换视图了，她在哪个视图就留在哪个视图。 */
       prefSave(); render();
     });
     arrWrap.appendChild(b);
   });
 
   var viewSeg = $("viewseg");
-  var viewBeforeGroup = "";      // 因为分组而被临时切走的视图，切回「最新入手」时还原
   function setView(v) {
     view = v;
     viewSeg.querySelectorAll(".mini").forEach(function (x) {
@@ -1449,7 +2740,6 @@
   setView(view);
   viewSeg.querySelectorAll(".mini").forEach(function (b) {
     b.addEventListener("click", function () {
-      viewBeforeGroup = "";      // 她自己挑的视图，就别再自作主张还原了
       setView(b.dataset.view);
       prefSave(); render();
     });
@@ -1489,6 +2779,12 @@
   $("charbar-x").addEventListener("click", function () { setCharFilter(""); });
   /* 看完一个人接着看下一个：滚回底下那张画册地图 */
   function jumpToMap() {
+    /* 合并模式下地图就在「按角色」那一屏里，直接滚过去 */
+    var ghosts = $("char-ghosts");
+    if (ghosts && $("map-grid").style.display === "none") {
+      ghosts.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     var t = $("map-label").style.display === "none" ? $("map-grid") : $("map-label");
     if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -1614,6 +2910,15 @@
         return true;
       });
   }
+  /* 把失败原因说成人话——「还是没送到」查不出病因，她只能干等（2026-09-23 踩过） */
+  function whyFailed(e) {
+    var m = String(e && e.message || "");
+    if (m.indexOf("401") >= 0) return "这台设备上的钥匙过期或不对了 · 去「馆长专用门」重贴一把";
+    if (m.indexOf("403") >= 0) return "这把钥匙没有改这个仓库的权限 · 去「馆长专用门」重贴一把";
+    if (m.indexOf("404") >= 0) return "找不到要写的文件（仓库或路径不对）";
+    if (m.indexOf("409") >= 0 || m.indexOf("422") >= 0) return "网上刚好有更新，再点一次「再试一次」就好";
+    return "网络没送到 · 过会儿再点「再试一次」";
+  }
   function saveAndPublish(successMsg) {
     draftSave(items);           // 先落本机草稿，发布失败也不丢
     render();
@@ -1622,19 +2927,14 @@
       .then(function () { toast(successMsg + " · 一两分钟后大家都能看到"); })
       .catch(function (e) {
         $("pending").classList.add("is-on");
-        var s = String(e && e.message || "");
-        if (s.indexOf("401") >= 0 || s.indexOf("403") >= 0) {
-          toast("钥匙不对或过期了…改动先记在这台设备上");
-        } else {
-          toast("网络没送到…改动先记在这台设备上，可点「再试一次」");
-        }
+        toast("没送出去：" + whyFailed(e) + "（改动先记在这台设备上）");
       });
   }
   $("pending-retry").addEventListener("click", function () {
     toast("正在再送一次…");
     publish()
       .then(function () { toast("送到了 ✓ 一两分钟后大家都能看到"); })
-      .catch(function () { toast("还是没送到…过会儿再试试"); });
+      .catch(function (e) { toast("还是没送到：" + whyFailed(e)); });
   });
 
   /* ————— 馆长门 ————— */
@@ -1663,7 +2963,7 @@
         $("keypanel").classList.remove("is-on");
         applyCuratorClass();
         render();
-        toast("🗝️ 馆长在馆 · 现在可以编辑了");
+        toast("🗝️ 馆长在馆 · 点卡片上的 ✎ 就能改");
       } else {
         msg.textContent = "这把钥匙开不了门（错误 " + r.status + "）。检查一下是不是完整复制了，或者照上面的步骤重新造一把。";
         msg.className = "keymsg is-bad";
@@ -1707,9 +3007,27 @@
     var fmts = fmtsFor(id);
     if (fmts.indexOf(specFmt) < 0) specFmt = "";
     buildFmtChips(typeById[id]);
+    buildSugChips(id);
+    /* 从书刊换成别的类别：已经点好的期号别丢，收成一条普通规格 */
+    if (!issueOn(id) && composeIssue()) {
+      var keep = composeIssue();
+      specIssueWord = ""; specIssueYear = "";
+      addExtras(keep);
+    }
+    /* 换回来的时候再把它捡回期号那排，免得同一件事有两种长相 */
+    if (issueOn(id) && !composeIssue()) {
+      for (var i = 0; i < specExtras.length; i++) {
+        var back = parseIssue(specExtras[i]);
+        if (back) {
+          specIssueWord = back.word; specIssueYear = back.year;
+          specExtras.splice(i, 1); break;
+        }
+      }
+    }
     $("f-nas-row").style.display = (id === "disc") ? "flex" : "none";
     $("f-fmt-row").style.display = fmts.length ? "flex" : "none";
     $("f-region-row").style.display = fmts.length ? "flex" : "none";
+    $("f-issue-row").style.display = issueOn(id) ? "flex" : "none";
     syncSpecChips();
     updateNameHint();
   }
@@ -1744,18 +3062,54 @@
   /* 每一排都是「常见的先摆出来 ＋ 点『更多』才展开剩下的」，免得一打开一屏全是圈圈 */
   var REGIONS = ["美版", "英版", "日版", "港版", "台版"];
   var REGIONS_MORE = ["国版", "法版", "德版", "意版", "西版", "澳版", "韩版", "欧版", "加版", "俄版"];
-  /* 常写的那几条，点一下就变成一枚标签，省得每次手打 */
-  var SUGGESTS = ["铁盒", "限量", "全新"];
-  var SUGGESTS_MORE = ["首刷", "初回版", "收藏版", "导演剪辑版", "二手", "未拆封"];
+  /* 常写的那几条，点一下就变成一枚标签，省得每次手打。
+     每一类各有各的一套（写在 TYPES 里），这里是没写的那些类别的兜底。 */
+  var SUGGESTS = ["限量", "全新"];
+  var SUGGESTS_MORE = ["未拆封", "绝版", "二手"];
+  /* 杂志 / 场刊的期号：季刊按季、月刊按月，右边跟一个年份滚轮，点完就是「Spring 2011」 */
+  var SEASONS = ["Spring", "Summer", "Fall", "Winter"];
+  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var ISSUE_WORDS = SEASONS.concat(MONTHS);
+  var YEAR_FROM = 1988;                      // 他出道那几年往前一点，再早的杂志上也没有他
   /* 从前手打的长写法，认成同一枚圈圈 */
   var ALIAS = { "意大利版": "意版", "西班牙版": "西版", "加拿大版": "加版",
                 "俄罗斯版": "俄版", "法国版": "法版", "德国版": "德版", "韩国版": "韩版" };
   var ALL_REGIONS = REGIONS.concat(REGIONS_MORE);
-  var ALL_SUGGESTS = SUGGESTS.concat(SUGGESTS_MORE);
   var MAX_EXTRAS = 6;
-  var specFmt = "", specRegion = "", specExtras = [];
+  var specFmt = "", specRegion = "", specExtras = [], specIssueWord = "", specIssueYear = "";
 
-  function buildSpecChips(wrap, values, more, getter, setter) {
+  function sugsFor(type) {
+    var t = typeById[type];
+    return { on: (t && t.sugs) || SUGGESTS, more: (t && t.sugsMore) || SUGGESTS_MORE };
+  }
+  function issueOn(type) { var t = typeById[type]; return !!(t && t.issue); }
+
+  /* 「Spring 2011」「March 2003」「Mar. 2003」「2005」都认，认不出的当普通一条规格。
+     写全名的月份统一收成短名（March → Mar），免得同一本杂志两种写法。 */
+  var MONTHS_LONG = ["January", "February", "March", "April", "May", "June",
+                     "July", "August", "September", "October", "November", "December"];
+  var ISSUE_RE = new RegExp("^(?:(" + ISSUE_WORDS.concat(MONTHS_LONG, ["Autumn", "Sept"]).join("|") +
+                            ")\\.?\\s*)?((?:19|20)\\d{2})?$", "i");
+  function parseIssue(tok) {
+    var m = ISSUE_RE.exec(String(tok || "").trim());
+    if (!m || (!m[1] && !m[2])) return null;
+    var w = "";
+    if (m[1]) {
+      var low = m[1].toLowerCase().replace(".", "");
+      if (low === "autumn") low = "fall";
+      if (low === "sept") low = "sep";
+      MONTHS_LONG.forEach(function (x, i) { if (x.toLowerCase() === low) low = MONTHS[i].toLowerCase(); });
+      ISSUE_WORDS.forEach(function (x) { if (x.toLowerCase() === low) w = x; });
+      if (!w) return null;
+    }
+    return { word: w, year: m[2] || "" };
+  }
+  function composeIssue() {
+    return [specIssueWord, specIssueYear].filter(Boolean).join(" ");
+  }
+
+  function buildSpecChips(wrap, values, more, getter, setter, tail) {
     function chip(v, isMore) {
       var b = document.createElement("button");
       b.type = "button";
@@ -1770,6 +3124,7 @@
     }
     values.forEach(function (v) { chip(v, false); });
     (more || []).forEach(function (v) { chip(v, true); });
+    if (tail) wrap.appendChild(tail);          // 年份滚轮排在「更多」前面，免得被折进去
     if (more && more.length) {
       var m = document.createElement("button");
       m.type = "button";
@@ -1788,6 +3143,55 @@
     wrap.classList.remove("is-open");
     buildSpecChips(wrap, (t && t.fmts) || [], (t && t.fmtsMore) || [],
       function () { return specFmt; }, function (v) { specFmt = v; });
+  }
+  /* 常用规格那排跟着类别换：碟片是铁盒 / 限量，书刊是封面 / 内页 / 专访 */
+  function buildSugChips(type) {
+    var wrap = $("f-sug-row"), sg = sugsFor(type);
+    wrap.innerHTML = "";
+    wrap.classList.remove("is-open");
+    buildSpecChips(wrap, sg.on, sg.more,
+      function () { return ""; },
+      function (v) {
+        var at = specExtras.indexOf(v);
+        if (at >= 0) specExtras.splice(at, 1); else addExtras(v);
+      });
+  }
+  /* 期号那排：Spring / Summer / Fall / Winter 四枚圈圈（季刊多半够用），
+     月刊和年份各给一个滚轮——十二个月排成三行圈圈太吵，收起来点着也快。 */
+  function makePicker(id, label, values, getter, setter) {
+    var sel = document.createElement("select");
+    sel.className = "t-chip--year";
+    sel.id = id;
+    sel.setAttribute("aria-label", label);
+    var blank = document.createElement("option");
+    blank.value = ""; blank.textContent = label;
+    sel.appendChild(blank);
+    values.forEach(function (v) {
+      var o = document.createElement("option");
+      o.value = String(v); o.textContent = String(v);
+      sel.appendChild(o);
+    });
+    sel.addEventListener("change", function () { setter(this.value); syncSpecChips(); });
+    return sel;
+  }
+  function buildIssueChips() {
+    var wrap = $("f-issue-row");
+    wrap.innerHTML = "";
+    wrap.classList.remove("is-open");
+    var years = [];
+    for (var y = new Date().getFullYear(); y >= YEAR_FROM; y--) years.push(y);
+    var mon = makePicker("f-month", "月份", MONTHS,
+      function () { return specIssueWord; },
+      function (v) { specIssueWord = v; });                 // 选了月份，季节那枚自动灭
+    var yr = makePicker("f-year", "年份", years,
+      function () { return specIssueYear; },
+      function (v) { specIssueYear = v; });
+    var tail = document.createElement("span");
+    tail.className = "issue-pickers";
+    tail.appendChild(mon); tail.appendChild(yr);
+    buildSpecChips(wrap, SEASONS, [],
+      function () { return specIssueWord; },
+      function (v) { specIssueWord = v; }, tail);
   }
   function syncRow(rowId, isOn) {
     var wrap = $(rowId), hidden = false;
@@ -1808,6 +3212,18 @@
     syncRow("f-fmt-row", function (v) { return v === specFmt; });
     syncRow("f-region-row", function (v) { return v === specRegion; });
     syncRow("f-sug-row", function (v) { return specExtras.indexOf(v) >= 0; });
+    syncRow("f-issue-row", function (v) { return v === specIssueWord; });
+    var ysel = $("f-year");
+    if (ysel) {
+      if (ysel.value !== specIssueYear) ysel.value = specIssueYear;
+      ysel.classList.toggle("is-on", !!specIssueYear);
+    }
+    var msel = $("f-month");
+    if (msel) {
+      var m = MONTHS.indexOf(specIssueWord) >= 0 ? specIssueWord : "";
+      if (msel.value !== m) msel.value = m;
+      msel.classList.toggle("is-on", !!m);
+    }
     renderExtras();
   }
   buildSpecChips($("f-region-row"), REGIONS, REGIONS_MORE,
@@ -1831,6 +3247,14 @@
       if (ALL_REGIONS.indexOf(tok) >= 0 && fmtsFor(formType).length) {
         specRegion = tok; return;                      // 她手打了「日版」→ 直接点亮那枚圈圈
       }
+      if (issueOn(formType)) {                         // 「Spring 2011」→ 点亮期号那排
+        var iss = parseIssue(tok);
+        if (iss) {
+          if (iss.word) specIssueWord = iss.word;
+          if (iss.year) specIssueYear = iss.year;
+          added++; return;
+        }
+      }
       if (specExtras.length >= MAX_EXTRAS) return;
       if (specExtras.indexOf(tok) >= 0) return;
       if (tok === specFmt || tok === specRegion) return;   // 上面已经点过了，别重一遍
@@ -1842,7 +3266,8 @@
     var box = $("f-tagbox");
     box.innerHTML = "";
     specExtras.forEach(function (tok, i) {
-      if (ALL_SUGGESTS.indexOf(tok) >= 0) return;   // 上面那排已经点亮了，不必再挂一枚
+      var sg = sugsFor(formType);
+      if (sg.on.indexOf(tok) >= 0 || sg.more.indexOf(tok) >= 0) return;   // 上面那排已经点亮了，不必再挂一枚
       var t = document.createElement("span");
       t.className = "tag";
       t.appendChild(document.createTextNode(tok));
@@ -1858,12 +3283,7 @@
       box.appendChild(t);
     });
   }
-  buildSpecChips($("f-sug-row"), SUGGESTS, SUGGESTS_MORE,
-    function () { return ""; },
-    function (v) {
-      var at = specExtras.indexOf(v);
-      if (at >= 0) specExtras.splice(at, 1); else addExtras(v);
-    });
+  buildIssueChips();
   function commitSpecInput() {
     var box = $("f-spec");
     if (!box.value.trim()) return;
@@ -1903,6 +3323,7 @@
       if (specFmt) parts.push(specFmt);
       if (specRegion) parts.push(specRegion);
     }
+    if (issueOn(formType) && composeIssue()) parts.push(composeIssue());
     /* 存的时候统一用同一个分隔符，她手打的那条也就和点出来的长得一样了 */
     return parts.concat(specExtras).join(" · ");
   }
@@ -1926,9 +3347,16 @@
     specFmt = keepFmt ? sp.fmt : "";
     specRegion = fmtsFor(formType).length ? sp.region : "";
     specExtras = [];
+    specIssueWord = ""; specIssueYear = "";
     if (!keepFmt && sp.fmt) specExtras.push(sp.fmt);          // 换过类别的老数据，留着当一条
     if (!fmtsFor(formType).length && sp.region) specExtras.push(sp.region);
-    sp.rest.forEach(function (tok) { if (specExtras.length < MAX_EXTRAS) specExtras.push(tok); });
+    sp.rest.forEach(function (tok) {
+      if (issueOn(formType) && !composeIssue()) {             // 老数据里的「Spring 2011」拆回期号那排
+        var iss = parseIssue(tok);
+        if (iss) { specIssueWord = iss.word; specIssueYear = iss.year; return; }
+      }
+      if (specExtras.length < MAX_EXTRAS) specExtras.push(tok);
+    });
     $("f-spec").value = "";
     syncSpecChips();
     $("btn-del").style.display = it ? "block" : "none";
@@ -2242,6 +3670,57 @@
     toast("存好了 · " + a.download);
   });
 
+  /* ————— 昼夜 · 字号（配色本身交给全站的选色器 theme-picker.js） ————— */
+  function sysDark() {
+    return !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }
+  function isDarkNow() {
+    var t = document.documentElement.getAttribute("data-theme");
+    return t === "dark" || (!t && sysDark());
+  }
+  /* 太阳 / 月亮画成线条图（用 ☀ 这种字符，有的系统会渲染成花花绿绿的表情） */
+  var ICON_SUN = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.6" stroke-linecap="round" aria-hidden="true">' +
+    '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2' +
+    'M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/></svg>';
+  var ICON_MOON = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.6" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M20 14.5A8.2 8.2 0 0 1 9.5 4a8.3 8.3 0 1 0 10.5 10.5z"/></svg>';
+  function paintModeBtn() {
+    var b = $("mode-btn");
+    b.innerHTML = isDarkNow() ? ICON_MOON : ICON_SUN;
+    b.title = isDarkNow() ? "现在是夜里 · 点一下换白天" : "现在是白天 · 点一下换夜里";
+  }
+  $("mode-btn").addEventListener("click", function () {
+    var next = isDarkNow() ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("wiw-theme", next); } catch (e) {}   // 与全站同一个键
+    paintModeBtn();
+  });
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+      if (!document.documentElement.getAttribute("data-theme")) paintModeBtn();
+    });
+  }
+  paintModeBtn();
+
+  function paintFsBtn() {
+    var lg = document.documentElement.getAttribute("data-size") === "lg";
+    var b = $("fs-btn");
+    b.textContent = lg ? "A" : "A";
+    b.style.fontSize = lg ? "calc(17px * var(--fs))" : "calc(13px * var(--fs))";
+    b.classList.toggle("is-on", lg);
+    b.title = lg ? "字号：大 · 点一下还原" : "字号：标准 · 点一下放大";
+  }
+  $("fs-btn").addEventListener("click", function () {
+    var lg = document.documentElement.getAttribute("data-size") === "lg";
+    var next = lg ? "md" : "lg";
+    document.documentElement.setAttribute("data-size", next);
+    try { localStorage.setItem("ws-sam-shelf-size", next); } catch (e) {}
+    paintFsBtn();
+  });
+  paintFsBtn();
+
   function toast(msg) {
     var t = $("toast");
     t.textContent = msg;
@@ -2251,6 +3730,10 @@
   }
 })();
 </script>
+
+<!-- 全站共用的选色器：54 张角色色卡 + 随心染色，与博客、游戏厅同一套、同一份记忆 -->
+<script src="/WinterSunBlog/js/sam-themes-data.js"></script>
+<script src="/WinterSunBlog/js/theme-picker.js"></script>
 
 </body>
 </html>

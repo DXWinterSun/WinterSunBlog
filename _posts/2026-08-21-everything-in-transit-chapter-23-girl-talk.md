@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 21 · 女生悄悄话 — Everything in Transit"
+title: "Chapter 23 · 女生悄悄话 — Everything in Transit"
 date: 2026-08-21 17:08:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 絮语, 悸动]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 21
+series_order: 23
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 21
+chapter_type: Chapter 23
 summary: "你俩在一起后反而更生疏。你只好去找 Dina 取经，被一顿悄悄话愣住。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-21-girl-talk/

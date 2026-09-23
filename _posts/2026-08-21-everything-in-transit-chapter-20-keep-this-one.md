@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 18 · 这根不用还了 — Everything in Transit"
+title: "Chapter 20 · 这根不用还了 — Everything in Transit"
 date: 2026-08-21 17:05:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 安放, 缱绻]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 18
+series_order: 20
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 18
+chapter_type: Chapter 20
 summary: "他绕到你身后替你扎头发。这根腕带，他头一回说，不用还了。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-18-keep-this-one/

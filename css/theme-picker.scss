@@ -1,0 +1,29 @@
+---
+# 「换个心情」那一套样式，单独编成 /css/theme-picker.css。
+#
+# 给「不走 Jekyll layout 的独立整页」用（藏品架 sam/shelf/ 是第一个）：那些页面
+# 没法引整份 main.css（会被全站的 body / h1 样式覆盖掉自己的设计），但又想用
+# 同一个选色器。所以这里只编「配色令牌 + 选色器组件」两块，别的一概不带。
+#
+# 内容跟着 _sass/ 走，改了选色器样式两边自动一致，不要在独立页里另抄一份。
+# 改完照旧跑 bash tools/check_scss.sh（它编 main.scss，同一批 partial）。
+---
+@import '0-settings/global';
+@import '0-settings/colors';
+@import '0-settings/typography';
+@import '1-tools/mixins';
+@import '5-components/theme-picker';
+
+/* ————— 给「不走 Jekyll layout 的独立页」兜底 —————
+   这些页的 body 字体、行高各有各的（藏品架是 Noto Serif SC / 1.6），
+   浮层里没写 font-family 的地方就会继承成另一副模样，跟博客那边看着割裂
+   （Winter 2026-09-22：「换主题的栏的样式能不能和全站保持统一？现在看起来好割裂」）。
+   所以在浮层与触发钮这两棵树的根上，把全站的正文字体和行高钉死。
+   ⚠️ 这一段只设字体相关的东西，别在这儿写颜色——颜色仍旧走 --c-* 令牌。 */
+.c-palette-overlay,
+.c-palette-trigger {
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  letter-spacing: normal;
+}

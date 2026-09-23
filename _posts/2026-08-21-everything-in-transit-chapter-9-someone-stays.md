@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 7 · 有人不走了 — Everything in Transit"
+title: "Chapter 9 · 有人不走了 — Everything in Transit"
 date: 2026-08-21 16:54:45 +0800
 image: rob-cove-au.jpeg
 tags: [Rob Cove, Sam Rockwell, AU, Everything in Transit, 暗涌, 怅惘]
 categories: ["AU Story"]
 series: "Everything in Transit"
 series_title: "Everything in Transit · Rob Cove AU"
-series_order: 7
+series_order: 9
 series_status: ongoing
 series_type: Series
-chapter_type: Chapter 7
+chapter_type: Chapter 9
 summary: "她第一次在这屋里过夜。你躲去阳台，行云流水写出了《Bruised》。"
 redirect_from:
   - /2026/08/12/everything-in-transit-chapter-7-someone-stays/
