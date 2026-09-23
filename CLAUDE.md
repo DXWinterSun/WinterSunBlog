@@ -539,6 +539,28 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 少数例外记在脚本里的 `AU_NO_MF_OK`），每个 `mf_id` 都要能在 `sam_themes.yml` 里反查到 anchor。
 **所以新开一个 Sam 角色 AU、或给老系列换色之后，跑一次这个脚本就够，不用再手动去点按钮试。**
 
+### ⚠️ `auLink`（「他有 AU」这件事）也是四处同源，同一个脚本一起验
+
+给某个角色挂上 AU，不只是画册那一行。**「他有 AU」这个事实要同时写进四个文件，
+漏哪一处，那一处就当他没有 AU：**
+
+| 文件 | 字段 | 漏了会怎样 |
+|---|---|---|
+| **真源** `sam/many-faces/index.html` | `auLink`（两个 AU 的角色用 `auLinks` 数组） | 画册角色页没有「去读他的 AU」 |
+| `sam/lines.json` | `characters[].auLink`（字符串），**`pool[]` 里同一条也要跟着改** | 热线通讯录认不出他、系列首页底下那颗「打给他」不出现、放映室 / 台词墙也不认 |
+| `sam/quiz/index.html` | 记录末尾加一行 `auLink:"…"`（没 AU 的角色直接不写这个字段） | 测验结果页少一个 AU 入口 |
+| `sam/spectrum/index.html` | 记录里的 `auLink:null` 改成真链接 | 光谱页少一个 AU 入口 |
+
+2026-09-23 真翻过一次车：Gary O'Hara（Interoffice 29 章）、Jerry（I Missed You on Purpose
+27 章）、Billy Bickle（The Part Where You Live 27 章）、Eddie（Wholly Known）四个人画册里
+明明挂着 AU，`lines.json` 里却是空的，quiz / spectrum 也整批落后十来个人——热线、系列页
+「打给他」一直当他们没有 AU，而且**没有任何报错**。`check_palette_sync.py` 现在把这一条
+一起验了（以画册为真源），所以**加新 AU、或改任何角色的 auLink 之后，照旧跑那一个脚本就够**。
+
+⚠️ 另一半是人工的：`sam/hotline-replies.json` 的聊天回复库**要手写**，没写的角色热线会
+自动退回 lines.json 的 5 句台词（页面不会坏）；`tools/hotline_mine.py` 也只给写了回复库的
+角色挖 AU 语料。上面那四位目前都还没写。
+
 ## ⚠️ 新增一个 Sam 角色 = 要同步「四个彩蛋 + 计数总闸」
 
 画册（many-faces）只是 Sam 彩蛋区的**四个页面之一**，它们共用**同一批角色**。

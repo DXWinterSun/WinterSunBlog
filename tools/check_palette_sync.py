@@ -86,6 +86,37 @@ def parse_au():
     return yaml.safe_load(read("_data/au_palettes.yml"))
 
 
+# ── 「他的 AU 在哪」链路：auLink 四处同步 ──────────────────────────────────
+# 画册 many-faces 里给某个角色写了 auLink/auLinks，就等于宣布「他有 AU」。
+# 这个事实还要在三处拷贝里同样成立，否则那里就当他没有 AU：
+#   sam/quiz、sam/spectrum  → 结果页少一个「去读他的 AU」
+#   sam/lines.json          → 热线通讯录、系列页「打给他」、放映室、台词墙全认不出他
+# （2026-09 真的翻过车：Gary O'Hara / Jerry / Billy Bickle / Eddie 四个人
+#   画册里明明挂着 AU，lines.json 里却是空的。）
+def mf_au_ids(text):
+    ids = [(m.start(), m.group(1)) for m in re.finditer(r'^\s+id:\s*"([^"]+)"', text, re.M)]
+    out = set()
+    for m in re.finditer(r'^\s+auLinks?:', text, re.M):
+        before = [i for p, i in ids if p < m.start()]
+        if before:
+            out.add(before[-1])
+    return out
+
+def js_au_ids(text):
+    out = set()
+    for m in re.finditer(r'\bid:\s*"([^"]+)"', text):
+        block = text[m.start():m.start() + 3000]
+        nxt = block.find('id:"', 5)
+        if nxt < 0:
+            nxt = block.find('id: "', 5)
+        if nxt > 0:
+            block = block[:nxt]
+        am = re.search(r'auLink\s*:\s*("([^"]*)"|null)', block)
+        if am and am.group(2):
+            out.add(m.group(1))
+    return out
+
+
 def main():
     mf = parse_many_faces()
     issues = []
@@ -146,6 +177,27 @@ def main():
         for k in COLOR:
             if p.get(k) and c.get(k) and p[k].lower() != c[k].lower():
                 issues.append(f"[lines.pool] pool[{i}] {p['charId']} {k}: {p[k]} ≠ characters {c[k]}")
+
+    # ── auLink 四处同步（画册为真源）────────────────────────────────────
+    mf_au = mf_au_ids(read("sam/many-faces/index.html"))
+    for label, path in [("quiz", "sam/quiz/index.html"), ("spectrum", "sam/spectrum/index.html")]:
+        have = js_au_ids(read(path))
+        for cid in mf_au:
+            sid = JS_ALIAS.get(cid, cid)
+            if sid not in have:
+                issues.append(f"[auLink/{label}] {sid} 画册里有 AU，这里却没写 auLink")
+    lines_au = {c["id"] for c in lines["characters"] if c.get("auLink")}
+    for cid in mf_au:
+        lid = {v: k for k, v in alias.items()}.get(cid, cid)
+        if lid not in by_id:
+            lid = cid
+        if lid not in lines_au:
+            issues.append(f"[auLink/lines.json] {lid} 画册里有 AU，lines.json 里却是空的 —— "
+                          f"热线 / 系列页「打给他」会认不出他")
+    for i, p in enumerate(lines["pool"]):
+        c = by_id.get(p["charId"])
+        if c and (p.get("auLink") or None) != (c.get("auLink") or None):
+            issues.append(f"[auLink/lines.pool] pool[{i}] {p['charId']} 与 characters 不一致")
 
     # au_palettes.yml —— 只校验带 mf_id 的条目的 accent / bg / 四个色名
     au = parse_au()
