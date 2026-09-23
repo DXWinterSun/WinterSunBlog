@@ -703,8 +703,28 @@
   .empty {
     width: 100%; max-width: 560px; margin: 8px auto; text-align: center;
     font-weight: var(--fw-thin); font-size: calc(14.5px * var(--fs)); line-height: 2.2; color: var(--ink-dim);
-    border: 1px dashed rgba(var(--line-rgb),.18); border-radius: 12px;
-    padding: 28px 20px;
+    border: 2px dashed rgba(var(--line-rgb),.18); border-radius: 12px;
+    padding: 24px 20px;
+  }
+  /* 空了别光说「换个条件」——把卡住的条件摆出来，再给几条一步就能走的路
+     （Winter 2026-09-23：「我也是看见他有藏品才只看他的，结果上来一看这一类是空的，
+     是不是可以有个引导」） */
+  .empty__why { color: var(--ink-soft); }
+  .empty__why b { color: var(--ink-gold); font-weight: 500; }
+  .empty__ways { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 14px; }
+  .empty__way {
+    padding: 7px 14px; border-radius: 999px; cursor: pointer;
+    border: 2px solid var(--edge-soft); background: var(--panel);
+    color: var(--ink); font-family: inherit;
+    font-size: calc(13px * var(--fs)); letter-spacing: 1px;
+    transition: transform .12s ease, border-color .2s ease;
+  }
+  .empty__way:hover { border-color: var(--gold); }
+  .empty__way:active { transform: translate(1px, 1px); }
+  .empty__way--main {
+    border-color: var(--gold); color: var(--ink-gold);
+    background: linear-gradient(160deg, rgba(var(--gold-rgb),.22), rgba(var(--gold-rgb),.05));
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--gold) 65%, var(--c-ink));
   }
 
   /* ————— 分组小标题（按角色 / 类别 / 年代排列时） ————— */
@@ -2345,6 +2365,91 @@
 
   var nums = {};
 
+  /* 空格子里的指引：先说清是哪几个条件把东西挡住了，再给几条一步能走的路。
+     每条路都先算好「这么走还剩几件」，不会点过去又是一片空。 */
+  function fillEmpty(box, list) {
+    box.innerHTML = "";
+    var c = charFilter ? charById[charFilter] : null;
+    var t = typeById[filter];
+    var conds = [];
+    if (c) conds.push("只看 <b>" + esc(c.name) + "</b>");
+    if (t) conds.push("只看 <b>" + esc(t.label) + "</b>");
+    else if (filter === "signed") conds.push("只看 <b>有签名的</b>");
+    else if (filter === "nas") conds.push("只看 <b>已进 NAS 的</b>");
+    else if (filter === "nonas") conds.push("只看 <b>还没进 NAS 的</b>");
+    if (query) conds.push("搜「<b>" + esc(query) + "</b>」");
+
+    if (!conds.length) {                       // 架子是真的空
+      box.textContent = "架子还空着——第一件宝贝正在路上。";
+      return;
+    }
+
+    var own = list.filter(function (it) { return !it.wish; });
+    function count(f) { return own.filter(f).length; }
+    var byChar = charFilter ? count(function (it) { return it.charId === charFilter; }) : 0;
+    var byType = (filter !== "all") ? count(function (it) {
+      if (filter === "signed") return !!it.signed;
+      if (filter === "nas") return it.type === "disc" && !!it.nas;
+      if (filter === "nonas") return it.type === "disc" && !it.nas;
+      return it.type === filter;
+    }) : 0;
+
+    var why = document.createElement("p");
+    why.className = "empty__why";
+    why.style.margin = "0";
+    why.innerHTML = "这一格是空的——现在同时开着：" + conds.join(" ＋ ") + "。";
+    box.appendChild(why);
+
+    var ways = document.createElement("div");
+    ways.className = "empty__ways";
+    function way(label, main, fn) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "empty__way" + (main ? " empty__way--main" : "");
+      b.textContent = label;
+      b.addEventListener("click", fn);
+      ways.appendChild(b);
+    }
+    /* ① 他确实有东西，只是被别的条件挡住了 → 一步看他的全部 */
+    if (charFilter && byChar) {
+      way("看 " + c.name + " 的全部 " + byChar + " 件", true, function () {
+        resetFilters({ keepChar: true });
+      });
+    }
+    /* ② 这一类确实有东西，只是被「只看某人」挡住了 */
+    if (filter !== "all" && byType) {
+      var tn = t ? t.label : (filter === "signed" ? "有签名的" : filter === "nas" ? "已进 NAS 的" : "还没进 NAS 的");
+      way("看全部 " + tn + "（" + byType + " 件）", !(charFilter && byChar), function () {
+        resetFilters({ keepFilter: true });
+      });
+    }
+    /* ③ 他是真的还没有东西 → 指去画册 / 给他添一件 */
+    if (charFilter && !byChar) {
+      if (c) {
+        way("去画册看看这张脸", false, function () {
+          location.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor);
+        });
+        if (isCurator()) way("给他添一件", true, function () { openSheet(null, c.id); });
+      }
+    }
+    /* ④ 兜底：全部放开 */
+    way("看全部 " + own.length + " 件", !ways.children.length, function () { resetFilters({}); });
+    box.appendChild(ways);
+  }
+
+  /* 一步把条件放开（要留哪个就传哪个） */
+  function resetFilters(keep) {
+    if (!keep.keepChar) setCharFilter("");
+    if (!keep.keepFilter) {
+      filter = "all";
+      $("filters").querySelectorAll(".chip").forEach(function (x, i) {
+        x.classList.toggle("is-on", i === 0);
+      });
+    }
+    if (qBox.value) { qBox.value = ""; query = ""; qWrap.classList.remove("has-q"); }
+    render();
+  }
+
   function render() {
     nums = numberMap();
     var list = items.slice().sort(function (a, b) { return (b.added || 0) - (a.added || 0); });
@@ -2353,9 +2458,7 @@
 
     fillGrid($("own-grid"), own);
     $("own-empty").style.display = own.length ? "none" : "block";
-    $("own-empty").textContent = (query || charFilter || filter !== "all")
-      ? "这一格是空的——换个条件找找看。"
-      : "架子还空着——第一件宝贝正在路上。";
+    if (!own.length) fillEmpty($("own-empty"), list);
     $("own-count").textContent = own.length + " ITEMS";
 
     /* 「按角色」那一屏已经把整张地图并进去了，页尾就不必再摆一次 */
