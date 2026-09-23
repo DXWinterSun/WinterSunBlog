@@ -200,6 +200,21 @@ $(document).ready(function () {
     $('.c-categories, .c-show-images').hide().removeClass('o-opacity');
   }
 
+  // 「Winter's」是一个把三个旧分类并起来的【组】——日常 / 小说 / 歌词（外加
+  // 一篇早年的「散文」）都是 Winter 自己写的字，2026-09-23 合并成顶上一个标签。
+  // 文章自身的 categories 字段一个都没改，合并只发生在这里。
+  var FILTER_GROUPS = { 'winters': ['Daily', 'Novel', 'Lyrics', '\u6563\u6587'] };
+  // 旧链接（?cat=Daily 之类）进来时改指到组上，免得老书签落到空页面。
+  var LEGACY_CATS = { 'Daily': 'winters', 'Novel': 'winters', 'Lyrics': 'winters', '\u6563\u6587': 'winters' };
+
+  // 分区小标题上显示的名字（'winters' 是内部用的代号，别直接印出来）
+  var FILTER_TITLES = { 'winters': 'Winter\u2019s' };
+
+  function filterMatches(filter, cat) {
+    var members = FILTER_GROUPS[filter];
+    return members ? members.indexOf(cat) !== -1 : cat === filter;
+  }
+
   function applyCategoryFilter(filter) {
     var $items = $('.c-posts').find('[data-category]');
     var visible = 0;
@@ -222,7 +237,7 @@ $(document).ready(function () {
         } else {
           shouldShow = !partOfSeries;
         }
-      } else if (cat !== filter) {
+      } else if (!filterMatches(filter, cat)) {
         shouldShow = false;
       } else if (cardType === 'series') {
         shouldShow = true;
@@ -246,7 +261,7 @@ $(document).ready(function () {
     var titleEl = document.getElementById('js-section-title');
     var countEl = document.getElementById('js-post-count');
     if (titleEl) {
-      titleEl.textContent = filter === 'all' ? 'All Stories' : filter;
+      titleEl.textContent = filter === 'all' ? 'All Stories' : (FILTER_TITLES[filter] || filter);
     }
     if (countEl) {
       if (filter === 'all') {
@@ -297,10 +312,8 @@ $(document).ready(function () {
   }());
 
   var HERO_LABELS = {
-    'Daily': 'Daily',
-    'Novel': 'Novel',
+    'winters': 'Winter\u2019s',
     'AU Story': 'AU Story',
-    'Lyrics': 'Lyrics',
     'gallery': 'Gallery'
   };
 
@@ -350,6 +363,7 @@ $(document).ready(function () {
     var cat = params.get('cat');
     var view = params.get('view');
     if (cat) {
+      if (LEGACY_CATS[cat]) cat = LEGACY_CATS[cat];
       var $catItem = $('.c-nav__list > .c-item_post[data-filter="' + cat.replace(/"/g, '\\"') + '"]');
       if ($catItem.length) {
         setActiveNav($catItem);

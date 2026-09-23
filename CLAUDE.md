@@ -1666,6 +1666,82 @@ Winter：「点这个多少件的地方，是不是点一下可以展开当下�
 才展开」，自己写的每条变成一枚可删的标签，存进 `spec` 时统一用 `" · "` 拼接；
 长写法（意大利版 / 西班牙版…）在 `ALIAS` 里映射回短名（意版 / 西版）。
 
+## ❄ 2026-09-23 · 「让站里真的有冬天」那一批（导航瘦身 + 晴雪配色 + 雪）
+
+Winter 的原话：**「我觉得现在博客整体风格不够 Winter Sun！尤其是不够 winter🥺我喜欢的
+冰雪元素啊，雪人啊，可爱的东西啊之类的不够多！还有我感觉上面的 tab 太多了，很多都不怎么用」**
+——她看完方案页后拍板：导航走 B 方案、配色用「晴雪」、雪做成开关、图标用小雪人。
+
+### 1. 导航＝五个标签，`Winter's` 是一个「组」
+
+顶上固定这五个，顺序别动：**About · Winter's · AU Story · Sam · Archive**。
+`Gallery` 与 `Say Hello` 挪到了页脚（`_layouts/home.html`）。
+
+- **`Winter's` 不是一个新分类**，而是把三个旧分类并起来显示：日常 / 小说 / 歌词
+  （外加一篇早年的「散文」），因为那些都是她自己写的字，跟 AU 故事分开。
+  成员表在 `js/main.js` 的 **`FILTER_GROUPS`**，老链接（`?cat=Daily` 之类）由
+  **`LEGACY_CATS`** 翻译过去，`index.html` 顶上的内联脚本里也有一份一样的。
+- ⚠️ **各篇文章的 `categories:` 一个都没改**，以后写日常 / 小说照旧写原来的分类值，
+  自动就归到 `Winter's` 底下。要加第四类进这个组 → 只改 `FILTER_GROUPS` 一处。
+- 内部代号是 `winters`（URL 是 `?cat=winters`），**印在页面上的名字**走
+  `js/main.js` 的 `FILTER_TITLES` / `HERO_LABELS`，别把 `winters` 直接显示出来。
+- 首页的标题区（hero）也合并成了一块 `data-hero-id="winters"`（原来 Daily /
+  Novel / Lyrics 各一块），显隐规则在 `_sass/5-components/_hero.scss`。
+
+### 2. 站点默认配色＝「晴雪 Sunlit Snow」（她自己的颜色）
+
+`_sass/0-settings/_colors.scss` 里的默认浅色 / 深色就是晴雪：雪地淡蓝的纸、
+深海军蓝的字、冰蓝的主色，外加一支用得极省的冬阳金（`--c-gold` / `$gold`，
+只落在雪人的胡萝卜鼻子、色卡顶边这类点睛处）。新增的令牌：
+`--c-accent-pure`（未压暗的那支冰蓝，只做装饰、不承载文字）、`--c-gold` / `--c-gold-pure`。
+
+- **「换个心情」列表最上面那张就是它**（`js/theme-picker.js` 里的 `WINTER` / `WINTER_ID`），
+  下面才是 54 个 Sam 角色。选它＝`clearVars()`、回到站点本色，所以它**不走** Sam 色卡
+  那套以暖奶油为底的推导。没挑过任何颜色时，它自动是「当前」那张。
+- ⚠️ **改默认配色要改两处**：`_colors.scss`（真正生效的）＋ `theme-picker.js` 里
+  `WINTER` 的四个色值（只做展示）。两边不一致，卡片上的色点就跟实际页面对不上。
+- 54 张 Sam 色卡、各 AU 系列的专属配色（`_data/au_palettes.yml`）**一个都没动**，
+  `check_palette_sync.py` 照常全绿——Winter 那张是硬写在选色器里的，没有进
+  `sam_themes.yml`，所以不会被同步校验当成第 55 个角色。
+
+### 3. 雪：只在标题那块下，点一下就停
+
+`js/snow.js` ＋ `_sass/5-components/_winter.scss`。规格是 Winter 定的：
+
+- **只在 `.c-hero` 里下，而且只落在最上面 420px 那一带**（`BAND` 常量）——
+  404 页、系列首页那种很长的标题区，雪也不会飘到正文上（她：「正文不要飘雪」）。
+- **是个开关**：点标题区右上角那朵小雪花，或点标题区的空白处（链接和按钮不算），
+  雪就停；再点继续。选择存本机 `localStorage` 的 **`wiw-snow`**，
+  同时在 `<html>` 上留一个 `data-snow="on|off"`。
+- 系统开了「减少动画」就只静静落一层、不飘。
+- 雪的颜色跟着当前配色走：暗色主题用近白，浅色主题**量开关按钮渲染出来的颜色**。
+  ⚠️ **不能去读 `--rgb-accent`**——AU 系列页（`_includes/au-palette-style.html`）
+  只重定义了 `--c-accent`，没有对应的 rgb 三元组，读出来永远是站点默认的蓝，
+  于是粉色的系列页上会飘蓝雪。同理，任何要「跟着 AU 配色走」的半透明效果
+  都用 `color-mix(in srgb, #{$accent} N%, transparent)`，别用 `rgba(var(--rgb-accent), …)`。
+
+### 4. 可爱的小东西（都在 `_sass/5-components/_winter.scss`）
+
+| 东西 | 在哪 | 备注 |
+|---|---|---|
+| 小雪人 ⛄ | `_includes/snowman.html`，页脚 + 404 页 | 戳一下会抖、帽子飞起来（`js/snow.js` 的 `snowmen()`）。`size="small"｜"big"` |
+| 文章卡结霜 | `.c-post` / `.c-chapter-card` 的 `::after` | 鼠标划过左上角结一层薄霜，颜色跟当前配色走 |
+| 头像上的雪帽 | `.c-scroll-top::after` | 站头左上角那颗头像，划过去落一顶雪帽 |
+| 分隔线小雪花 | `hr` | 正文里的 `---` 从光秃秃一条线变成「细线—❄—细线」。有自己底色的容器（`c-note` / `c-decree` / `c-sam-intro`）里雪花的底色要跟着容器走 |
+| 票根雪花戳 | `.c-chapter-card.is-read` | 读过的章原来打一个「✓」，换成 ❄ |
+| 网页标签小图标 | `favicon.ico` + `images/favicon-180.png` | 由 **`python3 tools/make_snowman_favicon.py`** 生成（需要 Pillow），别手改图片 |
+
+### ⚠️ 这一批踩过的三个坑
+
+1. **`.c-hero > *:not(.c-snow)` 把雪停开关按回了文档流。** 那条选择器权重是 (0,2,0)、
+   比 `.c-snow-toggle` 的 (0,1,0) 高，于是开关的 `position: absolute` 被
+   `position: relative` 顶掉，跑到标题区最底下去了。现在写成
+   `:not(.c-snow):not(.c-snow-toggle)`。**加新的绝对定位元素进 hero 时记得也排除掉。**
+2. **手机导航的内边距是双份的。** `_header.scss` 的 900px 那段给 `li` 加了
+   `5px 11px`，而 `li > a` 自己还有一份——五个标签白占 220px，一行怎么都装不下。
+   ≤560px 那段把 `li` 的那份归零，只留 `a` 上的，五个标签才在 390px 手机上一行装下。
+3. **AU 系列页没有 `--rgb-accent`**（见上条第 3 节）。
+
 ## 其他
 
 - **⚠️ 系列卡片排序（两个页面方向相反，已翻过两次车，照抄下表别自由发挥）：**

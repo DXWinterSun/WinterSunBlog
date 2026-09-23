@@ -204,6 +204,22 @@
   }
 }
 
+/* 2026-09-23 导航瘦身到五个标签后，把字号和内边距再收一档——
+   390px 的手机上「About · Winter's · AU Story · Sam · Archive」
+   正好一行装得下，不用再横着划。 */
+@media only screen and (max-width: 560px) {
+  .c-nav__list { gap: 1px; }
+  .c-nav__item {
+    /* ⚠️ 上面 900px 那段给 li 也加了 5px 11px 的内边距，而 a 自己还有一份——
+       两份叠起来每个标签白占 44px，五个就是 220px，一行怎么都装不下。
+       这里把 li 的那份归零，只留 a 上的。 */
+    padding: 0;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    > a { padding: 6px 7px; }
+  }
+}
+
 @media only screen and (max-width: 480px) {
   .c-search {
     width: 140px;
