@@ -6,7 +6,7 @@
   "howto": [
    "下面一人一块，五句按顺序排。<strong>淡的是旧的，亮的是新的</strong>，最底下那行小字写着这句料是从哪儿挖出来的。",
    "第 ① 句叫「锚句」，它同时印在画册、光谱、测验三个地方——所以改它动静大一点。其中四位的锚句我建议换掉，都标了红牌。",
-   "你看完挑：哪几句留、哪几句不要、哪几句想换个说法。不用一条条回，把不喜欢的点出来就行。"
+   "带 🔥 的那几句是<strong>放开的</strong>——每人一句，在那件具体的东西后面把话真的说出来。你看完挑：哪几句留、哪几句不要、哪几句想换个说法。不用一条条回，把不喜欢的点出来就行。"
   ],
   "order": [
    "gary",
@@ -40,12 +40,12 @@
     ]
    },
    {
-    "h": "新句子普遍比旧的「冷」，这个方向对吗？",
-    "p": "旧句子爱直说心里话（「你是唯一」「我想变好」）；新句子多半只摆一件具体的东西，让你自己感觉到——比如 Trent 那句不说想你，只说「铺底下那个咖啡罐，最近我是按两个人算的」。",
+    "h": "放开的那八句，力道够不够？",
+    "p": "你说「有点克制了，但确实更细节更贴合角色」——所以方向留着，尺度放开：每人挑一句，在那件具体的东西后面把话真的说出来（带 🔥 小牌那几句）。原则是谁的性子放多少：Buck、Samuel、Eddie 藏不住，放到底；Trent 隐忍是他最高的一维，他的「放开」是把说不出口本身说出口；Reston 仍然不说「我爱你」——那句「我不说，我证明」本来就是他的声口。",
     "opts": [
-     "<b>A</b>　就要这个，摆东西比表白好看",
-     "<b>B</b>　太克制了，有些人（比如 Buck、Eddie）我想听他把话说出口",
-     "<b>C</b>　一半一半：每人留一两句直白的"
+     "<b>A</b>　这个力道正好",
+     "<b>B</b>　还可以再热一点，尤其 Buck / Eddie / Victor",
+     "<b>C</b>　某几个人过了（说一声是谁，我收回去）"
     ]
    }
   ],
@@ -62,9 +62,10 @@
    },
    {
     "label": "THE LAST NAME ON THE ENVELOPE",
-    "line": "Every name on that envelope has been crossed out by somebody. Mine is the last one. I'm not passing it on.",
-    "lineCN": "那只信封上的名字，一个个都被人划掉了。我的是最后一个。我不往下传了。",
-    "src": "Interoffice 母题①：缠红线绳的内部信封，面单上一格格划掉的历任收件人"
+    "line": "Every name on that envelope got crossed out by somebody who moved on. Mine is the last one, and it is staying there. I'm not going anywhere — and I want you to hear me say it out loud.",
+    "lineCN": "那只信封上的名字，一个个都被划掉了——人走了，名字就划掉。我的是最后一个，它就留在那儿。我哪儿也不去——这句话，我要你听我亲口说一遍。",
+    "src": "Interoffice 母题①：内部信封上一格格划掉的历任收件人（放开：他把「我不走」说出口）",
+    "warm": true
    },
    {
     "label": "TWO WEEKS OF DONUTS",
@@ -97,9 +98,10 @@
    },
    {
     "label": "A CUP FROM THE CUPBOARD",
-    "line": "Every house on this street leaves my cup out on the step. You took one down from the cupboard and put it in my hand.",
-    "lineCN": "这条街上每一家，都把我那只杯子搁在台阶上。你从柜子里拿了一只，放进我手里。",
-    "src": "系列母题②「两只杯子」＋ Ch1 原话「台阶上那杯是给我的」"
+    "line": "Every house on this street leaves my cup out on the step. You took one down from the cupboard and put it in my hand. I've been carrying that around for three weeks and I still don't know how to say what it did to me.",
+    "lineCN": "这条街上每一家，都把我那只杯子搁在台阶上。你从柜子里拿了一只，放进我手里。这件事我揣了三个礼拜，到现在还是不知道该怎么说它对我做了什么。",
+    "src": "系列母题②「两只杯子」＋Ch1 原话（他最高的一维是隐忍，所以他的「放开」＝把说不出口本身说出口；那三个字圣经里压着，不提前给）",
+    "warm": true
    },
    {
     "label": "THE MAN IN THE BOOTH",
@@ -150,9 +152,10 @@
    },
    {
     "label": "PULLING THE SET DOWN",
-    "line": "Everyone claps and goes home. You came up on the stage and started pulling the set down with your hands.",
-    "lineCN": "所有人鼓完掌就回家了。你却走上台来，动手把布景一块块拆了。",
-    "src": "Ch5《拆台》"
+    "line": "Everyone claps and goes home. You came up on the stage and started pulling the set down with your hands. Do it again. Take the whole thing down. I want to be standing there with nothing left to hide behind, and you still looking at me.",
+    "lineCN": "所有人鼓完掌就回家了。你却走上台来，动手把布景一块块拆了。再拆一次。全拆了。我想站在那儿，身后什么都不剩——而你还在看我。",
+    "src": "Ch5《拆台》（放开：从「你拆了」变成「再拆一次，我要你看着我」）",
+    "warm": true
    }
   ]
  },
@@ -167,9 +170,10 @@
    },
    {
     "label": "UP IN THE NEXT PANEL",
-    "line": "I read comics on my break, because in those the guy who takes the beating gets up in the next panel. You're the first thing that made me want to be the one drawing it.",
-    "lineCN": "休息的时候我看漫画——在那里面，挨揍的那个下一格就会站起来。你是第一样，让我想当那个画画的人的东西。",
-    "src": "原片给过特写的道具：Eddie 的漫画书"
+    "line": "I read comics on my break, because in those the guy who takes the beating always gets up in the next panel. I've taken plenty. For you I'd like to be the one who gets up. Say the word and I'm on my feet.",
+    "lineCN": "休息的时候我看漫画——在那里面，挨揍的那个下一格总会站起来。我挨得可不少。为了你，我想当那个站起来的。你说一句，我立刻就起来。",
+    "src": "原片给过特写的道具：Eddie 的漫画书（放开：他笨拙、直给，这句该由他说出口）",
+    "warm": true
    },
    {
     "label": "THE BELL OVER THE DOOR",
@@ -202,9 +206,10 @@
    },
    {
     "label": "NEVER OPENED ONE",
-    "line": "They think I can open anything with a steel door on it. I have never opened one in my life. You're the only person I've said that to, and you didn't leave.",
-    "lineCN": "他们以为只要是铁门我都打得开。我这辈子一扇都没打开过。这话我只跟你说过——你没走。",
-    "src": "全片的误会：被黑帮当成开保险箱高手"
+    "line": "They think I can open anything with a steel door on it. I have never opened one in my life. You're the only person I've ever said that out loud to — and you didn't leave. I've been in love with you since roughly that exact second.",
+    "lineCN": "他们以为只要是铁门我都打得开。我这辈子一扇都没打开过。这话我只对你说出口过——你没走。差不多就是从那一秒起，我一直爱着你。",
+    "src": "全片的误会：被黑帮当成开保险箱高手（放开：他傻乎乎的，该是全场说得最直白的一个）",
+    "warm": true
    },
    {
     "label": "NOT THE CUP",
@@ -255,9 +260,10 @@
    },
    {
     "label": "NOT ON THE LIST",
-    "line": "I keep a legal pad of things people should be made to answer for. Your name isn't on it and it never will be. That list is the only promise I've got to give.",
-    "lineCN": "我有一整本黄稿纸，写满了该有人出来交代的事。上面没有你的名字，永远不会有。那张单子，是我唯一拿得出手的承诺。",
-    "src": "调查记者的黄稿纸"
+    "line": "I keep a legal pad of things people should be made to answer for. Your name isn't on it and it never will be. I've spent my whole life holding people to account. You're the one person I only ever want to take at their word.",
+    "lineCN": "我有一整本黄稿纸，写满了该有人出来交代的事。上面没有你的名字，永远不会有。我一辈子都在要人交代——只有你，我只想一个字不问地信着。",
+    "src": "调查记者的黄稿纸（放开：仍然不说「我爱你」——那是他的声口——但把信任说到底）",
+    "warm": true
    }
   ]
  },
@@ -284,9 +290,10 @@
    },
    {
     "label": "WHERE'S THE REST OF IT",
-    "line": "Half a trailer, no roof over the back end, and I call it a house. You walked in and never asked where the rest of it went.",
-    "lineCN": "半截拖车，后半边连顶都没有，我管它叫房子。你走进来，没问剩下那半边去哪儿了。",
-    "src": "原片：他住的那截拖车残骸"
+    "line": "Half a trailer, no roof over the back end, and I call it a house. You walked in and never asked where the rest of it went. So stay in it. I'll build the rest around you. I don't care how long it takes.",
+    "lineCN": "半截拖车，后半边连顶都没有，我管它叫房子。你走进来，没问剩下那半边去哪儿了。那你就住下来。剩下那半边我绕着你盖——盖多久都行。",
+    "src": "原片：他住的那截拖车残骸（放开：他天真、藏不住，该是最热的一个）",
+    "warm": true
    },
    {
     "label": "EARLY TO THE CREEK",
@@ -313,9 +320,10 @@
    },
    {
     "label": "THE SHIRT AT THE OFFICE",
-    "line": "I kept a clean shirt at the office so nobody would work out I'd slept there. You're the only person who ever asked why there was a shirt.",
-    "lineCN": "我在办公室放了件干净衬衫，好让人看不出我在那儿过的夜。只有你问过一句：那件衬衫是干什么的。",
-    "src": "曼哈顿上班的那个爸爸，正在一点点垮掉"
+    "line": "I kept a clean shirt at the office so nobody would work out I'd slept there. You're the only person who ever asked why there was a shirt. Nobody's asked me a question like that in nine years. Ask me another one. Ask me anything.",
+    "lineCN": "我在办公室放了件干净衬衫，好让人看不出我在那儿过的夜。只有你问过一句：那件衬衫是干什么的。九年了，没有人这样问过我。再问我一句。问什么都行。",
+    "src": "曼哈顿上班的那个爸爸，正在一点点垮掉（放开：他不求别的，只求再被问一句）",
+    "warm": true
    },
    {
     "label": "OTHER PEOPLE'S MONEY",

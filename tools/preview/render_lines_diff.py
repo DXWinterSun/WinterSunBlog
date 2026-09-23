@@ -44,6 +44,7 @@ CSS = """
 :root{
   --paper:#f6f4ef; --paper-2:#efece4; --ink:#1a1c1a; --ink-2:#4a4e4a; --muted:#7c817a;
   --line:#dcdbd2; --line-2:#c6c5ba; --accent:#2f5d78; --old:#a8412c; --new:#3f7256;
+  --warm:#b4612a;
   --serif:"EB Garamond",Georgia,"Songti SC","Source Han Serif SC",serif;
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
 }
@@ -51,11 +52,13 @@ CSS = """
   color-scheme:dark;
   --paper:#15171a; --paper-2:#1c1f22; --ink:#e8e6df; --ink-2:#b4b2aa; --muted:#83877f;
   --line:#2b2f33; --line-2:#3a3f44; --accent:#7fb0c9; --old:#d1745c; --new:#7cae92;
+  --warm:#e0925a;
 }}
 :root[data-theme="dark"]{
   color-scheme:dark;
   --paper:#15171a; --paper-2:#1c1f22; --ink:#e8e6df; --ink-2:#b4b2aa; --muted:#83877f;
   --line:#2b2f33; --line-2:#3a3f44; --accent:#7fb0c9; --old:#d1745c; --new:#7cae92;
+  --warm:#e0925a;
 }
 body{background:var(--paper);color:var(--ink);font-family:var(--serif);
   -webkit-font-smoothing:antialiased;line-height:1.7;}
@@ -66,12 +69,13 @@ h1{font-size:clamp(1.9rem,6vw,2.7rem);font-weight:600;margin:0 0 .8rem;letter-sp
   text-wrap:balance;}
 .lede{margin:0;color:var(--ink-2);font-size:1.03rem;max-width:34em;}
 .lede b{color:var(--ink);font-weight:600;}
-.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
   border-block:1px solid var(--line);margin:2.2rem 0 0;}
 .nums div{background:var(--paper);padding:.9rem .2rem 1rem;text-align:center;}
 .nums b{display:block;font-size:1.55rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.2;}
 .nums span{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;color:var(--muted);text-transform:uppercase;}
-.nums .hot b{color:var(--old);}
+.nums .hot b{color:var(--warm);}
+@media (max-width:420px){.nums{grid-template-columns:repeat(2,1fr);}}
 .howto{margin:1.6rem 0 0;padding:.9rem 1rem;background:var(--paper-2);border-left:3px solid var(--accent);
   font-size:.92rem;color:var(--ink-2);}
 .howto p{margin:0;}
@@ -102,6 +106,9 @@ h1{font-size:clamp(1.9rem,6vw,2.7rem);font-weight:600;margin:0 0 .8rem;letter-sp
 .tag--anchor{color:var(--accent);border:1px solid var(--accent);}
 .tag--warn{color:var(--paper);background:var(--old);}
 .tag--keep{color:var(--muted);border:1px dashed var(--line-2);}
+.tag--warm{color:var(--paper);background:var(--warm);}
+.q--warm .side--new .side__t{border-left-color:var(--warm);}
+.q--warm .side--new .side__k{color:var(--warm);}
 .side{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:start;}
 .side__k{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;padding-top:.32rem;
   width:1.2rem;text-align:center;flex:none;}
@@ -181,6 +188,8 @@ def render_block(cid, cur, draft, slug2name, counts):
                 tags.append('<span class="tag tag--warn">这一句要换</span>')
         if same:
             tags.append('<span class="tag tag--keep">句子留着，只换标题</span>')
+        if w.get('warm'):
+            tags.append('<span class="tag tag--warm">🔥 这句放开了</span>')
         oldpart = '' if same else (
             '<div class="side side--old"><span class="side__k">旧</span>'
             '<div class="side__t"><p class="en">%s</p><p class="cn">%s</p></div></div>'
@@ -191,14 +200,15 @@ def render_block(cid, cur, draft, slug2name, counts):
         else:
             lab = '<span class="lab lab--new">%s</span>' % E(w['label'])
         items.append(
-            '<li class="q">\n'
+            '<li class="q%s">\n'
             '          <div class="q__top"><span class="q__n">%d</span>'
             '<div class="q__labs">%s</div>%s</div>\n'
             '          %s\n'
             '          <div class="side side--new"><span class="side__k">新</span>'
             '<div class="side__t"><p class="en">%s</p><p class="cn">%s</p></div></div>\n'
             '          <p class="src">%s</p>\n        </li>'
-            % (i + 1, lab, ''.join(tags), oldpart, E(w['line']), E(w['lineCN']), E(w.get('src', ''))))
+            % (' q--warm' if w.get('warm') else '', i + 1, lab, ''.join(tags), oldpart,
+               E(w['line']), E(w['lineCN']), E(w.get('src', ''))))
     return ('<section class="card">\n      %s\n      <ol class="qs">\n        %s\n      </ol>\n    </section>'
             % (head, '\n        '.join(items)))
 
@@ -222,6 +232,7 @@ def main():
     changed = sum(1 for c in order for i in range(5)
                   if cur_all[c]['quotes'][i]['line'].strip() != draft[c]['quotes'][i]['line'].strip())
     anchors = sum(1 for c in order if not draft[c].get('anchorKeep'))
+    warm = sum(1 for c in order for q in draft[c]['quotes'] if q.get('warm'))
 
     forks = '\n      '.join(
         '<li><span class="k">%02d</span><div>\n        <h3>%s</h3>\n        <p>%s</p>\n'
@@ -241,7 +252,8 @@ def main():
         '  <div class="nums">',
         '    <div><b>%d</b><span>个人</span></div>' % len(order),
         '    <div><b>%d</b><span>句真的换了</span></div>' % changed,
-        '    <div class="hot"><b>%d</b><span>句锚句要换</span></div>' % anchors,
+        '    <div><b>%d</b><span>句锚句要换</span></div>' % anchors,
+        '    <div class="hot"><b>%d</b><span>句放开了</span></div>' % warm,
         '  </div>',
         '  <div class="howto">%s</div>' % ''.join('<p>%s</p>' % p for p in meta.get('howto', [])),
         '',
@@ -257,7 +269,8 @@ def main():
     ]
     with open(a.out, 'w', encoding='utf-8') as f:
         f.write('\n'.join(out) + '\n')
-    print('✓ %s（%d 人 / %d 句改动 / %d 句锚句）' % (a.out, len(order), changed, anchors))
+    print('✓ %s（%d 人 / %d 句改动 / %d 句锚句 / %d 句放开）'
+          % (a.out, len(order), changed, anchors, warm))
 
 
 if __name__ == '__main__':
