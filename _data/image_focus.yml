@@ -88,6 +88,15 @@
   sq: "29% 50%"
   card: "0% 50%"
   banner: "50% 16%"
+"brad-cairn-au.jpg":
+  x: 47.1
+  y: 29.8
+  w: 1026
+  h: 763
+  score: 0.93
+  sq: "39% 50%"
+  card: "50% 0%"
+  banner: "50% 6%"
 "charley-ford-au.jpg":
   x: 49.2
   y: 41.5
