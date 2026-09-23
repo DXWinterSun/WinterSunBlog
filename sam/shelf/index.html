@@ -1684,7 +1684,10 @@
     try { return JSON.parse(localStorage.getItem(KEY_DRAFT) || "null"); } catch (e) { return null; }
   }
   function draftSave(list) {
-    try { localStorage.setItem(KEY_DRAFT, JSON.stringify({ items: list })); } catch (e) {}
+    /* 连「这台设备上删过谁」一起存：下面合并时要靠它，不然删掉的会被接回来 */
+    var del = [];
+    try { del = Object.keys(deletedIds || {}); } catch (e) {}
+    try { localStorage.setItem(KEY_DRAFT, JSON.stringify({ items: list, deleted: del })); } catch (e) {}
   }
   function draftClear() {
     try { localStorage.removeItem(KEY_DRAFT); } catch (e) {}
@@ -1698,6 +1701,7 @@
      原因：网站重建一次要四十来分钟，刚存的东西在那份公开副本里还没出现。
      若馆长也读它，刷新后刚添的藏品会「消失」，而这时再添一件并保存，
      就会拿这份旧名单盖掉仓库里的新记录——东西是真的会没。 */
+  var deletedIds = {};              // 这台设备上删过谁（发布与合并草稿时都要看它）
   var loadedData = false, loadedChars = false;
   function fetchPublic() {
     return fetch("./data.json", { cache: "no-cache" }).then(function (r) { return r.json(); });
@@ -1718,11 +1722,29 @@
   (isCurator() ? fetchRepo().catch(fetchPublic) : fetchPublic())
     .then(function (data) {
       items = Array.isArray(data.items) ? data.items : [];
-      /* 馆长上次有没发布成功的改动 → 先展示草稿并提示重试 */
+      /* 馆长上次有没发布成功的改动 → 把草稿和线上「并起来」再显示，并提示重试。
+         ⚠️ 2026-09-23 修：这里原来是 items = draft.items，整份顶掉。
+         于是只要有一次没送出去的草稿，页面就只剩那一刻的名单，
+         线上已经有、而草稿里没有的那些就全看不见了——Winter 当场以为东西被删了
+         （「之前添加的好多都没了」「你是不是优化的时候删我东西」）。
+         数据其实一直在仓库里，是这一行把它们挡住了。现在改成合并：
+         草稿为准，线上多出来的接回来，**但这台设备上删过的不接**。 */
       var draft = isCurator() ? draftLoad() : null;
       if (draft && Array.isArray(draft.items)) {
-        items = draft.items;
+        var gone = {};
+        (draft.deleted || []).forEach(function (id) { gone[id] = 1; deletedIds[id] = 1; });
+        var inDraft = {};
+        draft.items.forEach(function (x) { if (x && x.id) inDraft[x.id] = 1; });
+        var back = items.filter(function (x) {
+          return x && x.id && !inDraft[x.id] && !gone[x.id];
+        });
+        items = back.concat(draft.items);
         $("pending").classList.add("is-on");
+        if (back.length) {
+          setTimeout(function () {
+            toast("有 " + back.length + " 件还没送到网上，已经先接回来了");
+          }, 1200);
+        }
       }
       loadedData = true; ready();
     })
