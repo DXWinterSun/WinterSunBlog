@@ -320,10 +320,9 @@
    },
    {
     "label": "THE SHIRT AT THE OFFICE",
-    "line": "I kept a clean shirt at the office so nobody would work out I'd slept there. You're the only person who ever asked why there was a shirt. Nobody's asked me a question like that in nine years. Ask me another one. Ask me anything.",
-    "lineCN": "我在办公室放了件干净衬衫，好让人看不出我在那儿过的夜。只有你问过一句：那件衬衫是干什么的。九年了，没有人这样问过我。再问我一句。问什么都行。",
-    "src": "曼哈顿上班的那个爸爸，正在一点点垮掉（放开：他不求别的，只求再被问一句）",
-    "warm": true
+    "line": "I kept a clean shirt at the office so nobody would work out I'd slept there. You're the only person who ever asked why there was a shirt.",
+    "lineCN": "我在办公室放了件干净衬衫，好让人看不出我在那儿过的夜。只有你问过一句：那件衬衫是干什么的。",
+    "src": "曼哈顿上班的那个爸爸，正在一点点垮掉"
    },
    {
     "label": "OTHER PEOPLE'S MONEY",
@@ -335,7 +334,8 @@
     "label": "UP AND DOWN THE HALL",
     "line": "I walked that baby up and down the hall till four in the morning, and I'd do it again tonight. Nobody's ever walked me anywhere. You did, once. I haven't stopped thinking about it.",
     "lineCN": "我抱着那个孩子在走廊里来回走到凌晨四点，今晚再来一次我也走。可从没人这样陪我走过。你陪过一回，我到现在还在想。",
-    "src": "原片里他半夜抱女儿的那些镜头"
+    "src": "原片里他半夜抱女儿的那些镜头（放开：他累到说不出热话，这句「你陪过一回，我到现在还在想」就是他的上限——再往上就不是他了）",
+    "warm": true
    }
   ]
  }
