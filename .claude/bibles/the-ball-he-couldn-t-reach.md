@@ -45,7 +45,17 @@
   伪装成意外。
 - **公园那一幕**（⚠️ 两个关键细节，2026-09-23 Winter 提醒＋查证后补，别写错）：
   - **那句话是凑到耳边说的，只有 Brad 听得见。** Joshua 不肯交出 Lily 的奶嘴，凑近他说
-    **没有人会爱你**。围观的人只看见「一个男人突然站起来打孩子」——
+    **“Nobody will ever love you.”（没有人会爱你）**
+    ⚠️ 2026-09-23 核过原片台词：**是说给 Brad 的「你」，不是「没人爱我」**（Winter 问过一次）。
+    Ch24 他在庭上转述时要用这一句，一个字都别改。
+    同一个角色另一句同样毒、后面可用：**“You know, you don't have to love me.
+    That's not a rule or something.”（你不是非得爱我不可。那又不是什么规定。）**
+    还有一句是他的口吻标本：**“If you think about it, someone has died on pretty much
+    every inch of this planet. Dig down anywhere, and you'll find bones.”**
+    → ⚠️ **公园那场是分两截的**：Joshua 先嘲讽 → Brad 打了一下 → 他继续激 → Brad 才彻底失控。
+    这正对得上 Ch1 里他说的「三下，也可能四下，我记不清了」——**中间他停过一次，
+    而他自己不记得那个停顿了。** 这个停顿留着用（他停过一次，说明他不是一路打下去的；
+    但这既救不了他，他也不会拿它辩解）。围观的人只看见「一个男人突然站起来打孩子」——
     **目击者完全没察觉那孩子做了什么**（原片评论原话：the manipulation by Joshua went
     undetected by those who witnessed it）。
     → 所以本 AU 里：**二十七份目击陈述，没有一份写得出那孩子说了什么**，
