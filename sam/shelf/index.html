@@ -740,6 +740,12 @@
     background: color-mix(in srgb, var(--gold) 16%, transparent);
   }
   .empty__kind:active { transform: translate(1px,1px); box-shadow: 1px 1px 0 rgba(var(--gold-rgb),.22); }
+  /* 「还没有的」那一枚：虚线空卡，不能点 */
+  .empty__kind--none {
+    border-style: dashed; border-color: rgba(var(--line-rgb),.4);
+    background: none; box-shadow: none; color: var(--ink-dim); cursor: default;
+  }
+  .empty__kind--none i { opacity: .55; }
 
   /* ————— 分组小标题（按角色 / 类别 / 年代排列时） ————— */
   /* ————— 一组＝一张大卡（Winter 2026-09-22：「按角色分类的应该一个角色一张卡吧！」）
@@ -2390,14 +2396,14 @@
     if (filter === "nonas") return "还没进 NAS 的";
     return "";
   }
-  /* 「他还没有 ___」里那个空格填什么 */
-  function lackName() {
+  /* 「他还没有 ___」里那个空格填什么：图标 + 名字 */
+  function lackOf() {
     var t = typeById[filter], head = query ? "叫「" + query + "」的" : "";
-    if (t) return head + t.label;
-    if (filter === "signed") return head ? head + "签名品" : "带签名的东西";
-    if (filter === "nas") return head ? head + "东西进 NAS" : "进了 NAS 的东西";
-    if (filter === "nonas") return head ? head + "东西" : "还没进 NAS 的东西";
-    return head ? head + "东西" : "东西";
+    if (t) return { e: t.emoji, t: head + t.label };
+    if (filter === "signed") return { e: "✍️", t: head ? head + "签名品" : "带签名的东西" };
+    if (filter === "nas") return { e: "📡", t: head ? head + "东西" : "进了 NAS 的东西" };
+    if (filter === "nonas") return { e: "🎞️", t: head ? head + "东西" : "还没进 NAS 的东西" };
+    return { e: "🔍", t: head ? head + "东西" : "东西" };
   }
   /* 只留某一类（角色照旧留着） */
   function onlyType(t) {
@@ -2444,6 +2450,16 @@
       say.appendChild(b);
       return b;
     }
+    /* 「还没有的那样东西」也给一枚卡，但是虚线的空卡——一眼看出这格是空的 */
+    function lackChip() {
+      var k = lackOf();
+      var w = document.createElement("span"); w.className = "empty__kind empty__kind--none";
+      var e = document.createElement("i"); e.textContent = k.e;
+      var u = document.createElement("u"); u.textContent = k.t;
+      w.appendChild(e); w.appendChild(u);
+      say.appendChild(w);
+      return w;
+    }
 
     var c = charFilter ? charById[charFilter] : null;
     var own = list.filter(function (it) { return !it.wish; });
@@ -2454,7 +2470,7 @@
       var kinds = TYPES.filter(function (t) {
         return his.some(function (it) { return it.type === t.id; });
       });
-      words("现在 "); strong(c.name); words(" 还没有" + lackName() + "，");
+      words("现在 "); strong(c.name); words(" 还没有"); lackChip(); words("，");
       if (kinds.length) {
         words("不过他有");
         kinds.slice(0, 3).forEach(function (t, i, arr) {
@@ -2484,7 +2500,7 @@
 
     /* ——— 没有只看某人，是搜索或类别把东西筛没了 ——— */
     if (query || filter !== "all") {
-      words("架子上还没有" + lackName() + "——");
+      words("架子上还没有"); lackChip(); words("——");
       link("看看全部 " + own.length + " 件？", function () { resetFilters({}); });
       return;
     }
