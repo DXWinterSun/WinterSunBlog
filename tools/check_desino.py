@@ -111,6 +111,10 @@ FALSE_POSITIVE = {
     "娘子": ["新娘子", "新娘"],
     "老爷": ["老爷车", "老爷子"],
     "小姐": ["小姐姐"],
+    # 「蜡笔画 / 水笔画 / 钢笔画」里的「笔画」不是在说汉字笔画（2026-09-23 撞过）
+    "笔画": ["蜡笔画", "水笔画", "钢笔画", "铅笔画", "彩笔画"],
+    # 「姐姐 / 妹妹」作亲属关系陈述是正常的，只有当敬称用（叫某人姐姐）才出戏
+    "姐姐": ["我姐姐", "他姐姐", "她姐姐", "的姐姐"],
 }
 
 
@@ -148,7 +152,7 @@ def check_file(path: str) -> int:
             if word in line and not _false_positive(word, line):
                 high.append((lineno, word, fix, line.strip()))
         for word, fix in WARN_WORDS:
-            if word in line:
+            if word in line and not _false_positive(word, line):
                 warn.append((lineno, word, fix, line.strip()))
         for word, fix in IDIOM_WORDS:
             if word in line:
@@ -158,7 +162,8 @@ def check_file(path: str) -> int:
                 high.append((lineno, "中式度量", fix, line.strip()))
         if LANG_PATTERN.search(line):
             lang.append((lineno, line.strip()))
-        if HANZI_PATTERN.search(line):
+        hz = HANZI_PATTERN.search(line)
+        if hz and not _false_positive(hz.group(0), line):
             hanzi.append((lineno, line.strip()))
         # 题词/引语行与「下一章」预告行属于面向读者的导航文本，不算正文元指涉
         stripped = line.lstrip()
