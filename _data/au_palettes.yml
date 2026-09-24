@@ -774,3 +774,19 @@
   muted_cn: 中央公园雾
   muted_en: Park Fog
   # Brad Cairn · 色卡同源 sam_themes.yml id: brad
+
+"Dear Satan":               # Karl Fairhurst · 色卡同源 sam_themes.yml id: karl（系列名暂定，待 Winter 定）
+  mf_id: karl                 # → Many Faces 画册锚点 /sam/many-faces/#karl
+  accent: "#d15f82"
+  accent_ink: "#a74c68"
+  bg: "#181320"
+  text: "#f2e4ea"
+  muted: "#8a7d9c"
+  accent_cn: 烟熏眼影
+  accent_en: Smoky Kohl
+  bg_cn: 地窖绒黑
+  bg_en: Basement Velvet
+  text_cn: 舞厅粉纱
+  text_en: Disco Blush
+  muted_cn: 暮霭灰紫
+  muted_en: Mauve Haze
