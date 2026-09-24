@@ -98,6 +98,11 @@ slug: series/dear-satan/ ｜ collection_order 42 ｜ 封面 images/dear-satan.jp
    嫌 Karl 像干洗店大叔的名字，他耳朵塌；丑驯鹿围巾当牵引绳；镇上一路被问七次“这是什么狗”
    （邻居 Pruitt 先生 70 多岁、咖啡馆 Deb、邮局 Tom）；圣诞夜你对他说出 Grant“她排在前面”和
    “写了二十年一次都没轮到”，他耳朵贴平、咬着牙。
+3. **（草稿）Grant 被按进了雪堆** 像家人：他天天坐卧室门口等你，你当着他换衣服他把脸埋爪子里；
+   你上班他在门口坐一整天等你的车（Pruitt 作证）；新买黑色牵引绳；觅食=偷快递的 Hargrove 第二天
+   把十四个包裹+空气炸锅还回去；29 号 Grant 上门（Madison 没成来求复合+听 Tom 说有怪狗来看笑话），
+   Karl 闷雷低吼→你“你试试？”→Grant 摔进雪堆被舔、被坐胸口，Karl 背着他冲你眨眼；Grant 倒霉一整天
+   （车、排水沟、手机进冰水、屋檐落雪、加油喷了 Madison 新男友一车门）；你第一次让他上床“今天特批”。
 
 ## DEFERRED（压着，到点再放）
 - 锚句「谁都有个编号。你没有。」（画册 lines.json karl 第 1 句）→ 压到他最缺爱、
@@ -106,9 +111,11 @@ slug: series/dear-satan/ ｜ collection_order 42 ｜ 封面 images/dear-satan.jp
 - 圣诞老人二十年没回，撒旦第一次就回了 → 某章你自己想明白这件事。
 
 ## PINNED（已埋，待回收）
-- Ch2 他听见了 Grant 的名字和那句话，咬牙 → Grant 上门撞上遛狗那章回收。
+- ✅ Ch2 他听见了 Grant 的名字 → Ch3 回收（扑进雪堆 + 倒霉一整天）。
 - Ch2 丑驯鹿围巾当牵引绳 → 可复现（他变人后吐槽）。
-- Ch2 回信“暖床：他会的”→ 醒来被窝里是男人那章。
+- Ch2 回信“暖床：他会的”→ Ch3 结尾已上床 → Ch4 醒来被窝里是男人。
+- Ch3 他当着面看你换衣服、听你说心里话、冲 Grant 眨眼 → Ch4 变人后一笔笔算（你羞耻爆炸）。
+- Ch3 狗形时叙述一律用「它」，变人后改「他」。
 - Ch1 你想要「抱着有安全感、很暖」的大狗 → 待回收（他第一次在雪夜里把你整个裹住）。
 - Ch1 Grant 那句「她排在前面」→ 待回收（Karl 知道后的反应 / 锚句那章）。
 - Ch1 Karl 的「三号」卖了他、拿走了一枚恐龙蛋 → 待回收（地狱小弟团上门 / 蛋的下落）。
@@ -117,6 +124,7 @@ slug: series/dear-satan/ ｜ collection_order 42 ｜ 封面 images/dear-satan.jp
 ## 预览页
 - Ch1 草稿：https://claude.ai/artifact/LUf5QzqNuCHRqDPx8Hu4ET
 - Ch2 草稿：https://claude.ai/artifact/4m3xJkkpm9sYpDH452Ai2A
+- Ch3 草稿：https://claude.ai/artifact/DuxWF7N99pgxZFrJ8w5Gm1
 
 ## Winter 2026-09-24 追加
 - Ch3 走向：Grant 上门 = 两个都要（Madison 甩了他、回来求复合被拒 + 听说你养了怪狗来看笑话）；
