@@ -1,7 +1,7 @@
 # Dear Satan · 系列圣经（内部工作文件，Jekyll 不发布）
 
-series_name: Dear Satan（**暂定**，待 Winter 定；定下后同步改 `_data/au_palettes.yml` 的键）
-slug: series/dear-satan/（暂定）
+series_name: Dear Satan
+slug: series/dear-satan/ ｜ collection_order 42 ｜ 封面 images/dear-satan.jpg
 角色: Karl Fairhurst（Sam Rockwell,《保姆奇遇记》The Sitter, 2011）画册 id `karl`
 配色: 同源 sam_themes id karl —— 烟熏眼影 #d15f82 / 地窖绒黑 #181320 / 舞厅粉纱 #f2e4ea / 暮霭灰紫 #8a7d9c
 基调: 轻喜剧、甜、节日感拉满；底下有缺爱的心疼。后期有炽恋线。
@@ -89,11 +89,11 @@ slug: series/dear-satan/（暂定）
 - Grant：A —— 会找上门来，正好撞上遛狗时间，倒大霉😈。
 
 ## 已写章节流水
-1. **（Winter 已认可，待部署）** 平安夜被 Grant 分手、加班、醉着写信烧进壁炉，把 Santa 拼成 Satan；
+1. **烧给撒旦的那封信（2026-09-24 上线）** 平安夜被 Grant 分手、加班、醉着写信烧进壁炉，把 Santa 拼成 Satan；
    地狱：灰在路西法桌上拼回信，他读了好几遍；Karl 被「三号」卖了、哭着闯进来，
    强制变成黑萨摩耶；路西法看看狗、看看信。
 
-2. **（草稿）挂在项圈上的回信** 圣诞早上黑萨摩耶挠门、扑进怀里；丝绒项圈挂路西法回信（c-decree，No. 001，
+2. **挂在项圈上的回信（2026-09-24 上线）** 圣诞早上黑萨摩耶挠门、扑进怀里；丝绒项圈挂路西法回信（c-decree，No. 001，
    逐条回愿望，“暖床：他会的”“关于帅，你自己判断”“别再拼错字了”）→ 你倒带想起写成 Satan；
    嫌 Karl 像干洗店大叔的名字，他耳朵塌；丑驯鹿围巾当牵引绳；镇上一路被问七次“这是什么狗”
    （邻居 Pruitt 先生 70 多岁、咖啡馆 Deb、邮局 Tom）；圣诞夜你对他说出 Grant“她排在前面”和
@@ -117,3 +117,9 @@ slug: series/dear-satan/（暂定）
 ## 预览页
 - Ch1 草稿：https://claude.ai/artifact/LUf5QzqNuCHRqDPx8Hu4ET
 - Ch2 草稿：https://claude.ai/artifact/4m3xJkkpm9sYpDH452Ai2A
+
+## Winter 2026-09-24 追加
+- Ch3 走向：Grant 上门 = 两个都要（Madison 甩了他、回来求复合被拒 + 听说你养了怪狗来看笑话）；
+  倒霉方式 = C（先被狗扑倒压在雪里，走后一整天倒大霉，你觉得太巧）。
+- ⭐ 你和 Karl 要**特别亲密，像家人**：狗形时期你当着他换衣服、哭、说心里话都自然而然
+  （他全听得懂，这层反差是甜点和笑点，变人那章回收；狗形时期叙述照守红线，只写日常的不设防）。
