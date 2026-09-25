@@ -75,35 +75,29 @@
 
 你拿出手机，给他发了一条消息。
 
-*你说对了。是骗子。*
+那部手机是他新年第二天让小弟团送上来的，玫瑰金色的，壳上贴满了亮钻。他学会用它只花了一个下午，学会发表情只花了五分钟，从此一发不可收拾。你通讯录里给他存的名字，是你在一个加班的深夜偷偷改的。
 
 不到三秒，屏幕就亮了。
 
-那部手机是他新年第二天让小弟团送上来的，玫瑰金色的，壳上贴满了亮钻。他学会用它只花了一个下午，学会发表情只花了五分钟，从此一发不可收拾。
-
-*我就知道！！！*
-*我认识很多猫！！！*
-*[一只狗的表情]*
-*[一只狗戴墨镜的表情]*
-*[一只狗戴墨镜开跑车的表情]*
-*你今天几点回来*
-*不是催*
-*我就是问问*
-*[一只狗趴在门口的表情]*
-
-然后是一张照片。
-
-他站在你家客厅的落地镜前面，穿着那件酒红色的丝绒外套，里面没穿衬衫，只挂着那条金链子，一只手叉着腰，另一只手举着手机，冲镜头挑了挑眉毛。照片底下是一行字：
-
-*今日穿搭。你觉得怎么样。*
-
-又一张。同一个姿势，换成了豹纹那件。
-
-*还是这个。*
-
-又一张。这次他变回了狗，一大团黑毛蹲在同一面镜子前面，脖子上系着你那条丑驯鹿围巾，嘴角往上翘着。
-
-*还是这个。*
+<div class="c-chat" role="group" aria-label="手机对话">
+  <div class="c-chat__bar">Karl babe 🐾</div>
+  <div class="c-chat__msg c-chat__msg--out">你说对了。是骗子。</div>
+  <div class="c-chat__msg c-chat__msg--in">我就知道！！！</div>
+  <div class="c-chat__msg c-chat__msg--in">我认识很多猫！！！</div>
+  <div class="c-chat__msg c-chat__msg--in">🐶</div>
+  <div class="c-chat__msg c-chat__msg--in">🐶😎</div>
+  <div class="c-chat__msg c-chat__msg--in">🐶😎🏎️</div>
+  <div class="c-chat__msg c-chat__msg--in">你今天几点回来</div>
+  <div class="c-chat__msg c-chat__msg--in">不是催</div>
+  <div class="c-chat__msg c-chat__msg--in">我就是问问</div>
+  <div class="c-chat__msg c-chat__msg--in c-chat__msg--img">［照片］落地镜前，酒红丝绒外套，没穿衬衫，金链子，一只手叉腰，挑眉</div>
+  <div class="c-chat__msg c-chat__msg--in">今日穿搭。你觉得怎么样。</div>
+  <div class="c-chat__msg c-chat__msg--in c-chat__msg--img">［照片］同一面镜子，同一个姿势，豹纹那件</div>
+  <div class="c-chat__msg c-chat__msg--in">还是这个。</div>
+  <div class="c-chat__msg c-chat__msg--in c-chat__msg--img">［照片］同一面镜子前蹲着一大团黑毛，脖子上系着那条丑驯鹿围巾，嘴角往上翘</div>
+  <div class="c-chat__msg c-chat__msg--in">还是这个。</div>
+  <div class="c-chat__time">15:07</div>
+</div>
 
 你在工位上笑得趴在了桌子上。
 
