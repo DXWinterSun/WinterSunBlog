@@ -2065,8 +2065,10 @@ https://claude.ai/artifact/266oHdnhPmovqvDo53HNWK ——源码在 `tools/weight/
 - 目标（她定的）：**65 公斤 → Vision Pro，60 公斤 → 满钻短裙**；页面里可改。
 - 数据存在 Artifact 自带的数据库里（`meta/settings` 一份设置、`logs/<YYYY-MM-DD>` 一天一条），
   规则 `read/write: owner`，只有她本人能看能写。手机电脑同步，换设备不丢。
-- 「今天吃了什么」（2026-09-26 加）：拍吃之前 / 吃剩的两张照片，或口述一句，页面自己去问 Claude 估热量
-  （`sample` 能力），她可改数后记进 `meals/<自动id>`（`date`/`at`/`meal`/`what`/`kcal`）。照片不存。
-  设置里可选填每天的热量上限 `kcal`，填了显示一条进度。
-- 改页面：改源码后用 Artifact 工具带上面那个 `url` 重新发布（**省略 `capabilities`**，保留原有的 `db` 规则和 `sample`），
+- ⭐ **吃了什么 = 她在对话里说，Claude 算、Claude 记**（她 2026-09-26 定的：「不用搞这么复杂，直接在对话里跟你交流」）。
+  她发照片（吃之前 / 吃剩的）或口述零食 → 你估热量、用人话回她 → 用 ArtifactData 写进 `meals` 集合
+  （字段 `date` YYYY-MM-DD、`at` 带 +08:00 的时间、`meal` 早餐/午餐/晚餐/零食、`what` 吃了什么、`kcal` 整数）。
+  网页只显示当天清单和总数，**没有**自己算热量的入口。她在对话里报体重，也照样写进 `logs/<日期>`（`date`/`kg`/`note`/`at`）。
+  设置里可选填每天热量上限 `kcal`（在 `meta/settings`）。
+- 改页面：改源码后用 Artifact 工具带上面那个 `url` 重新发布（**省略 `capabilities`**，保留原有的 `db` 规则），
   链接不变、记录不丢。要看她的进度可用 ArtifactData 读 `logs`。
