@@ -10,7 +10,7 @@ series_name    Knox AU（内部键，别改）          slug series/knox-au/
 配色            镜绯红 #cf3550 / 可乐棕 #1b1310（au_palettes 键 "Knox AU"，mf_id eric）
 「你」          Winter。Charlie 机构里类似 Bosley 的人：协调、联络、文件整理，没有战斗训练，
                「Eric 接触到的人里最普通的那一个，也是唯一一个用普通人的眼睛看见了他的人」。
-状态            series_status: hiatus（首页）；单篇 series_order 1，番外一 series_order 2
+状态            series_status: ongoing（2026-09-27 改回）；⭐ 目录顺序：单篇 1 → Extra《他停了很久》2 → Extra《The Voice on the Phone》3 → Extra《Simon 说的才算》4（番外一的 chapter_type 已统一成 Extra）
 封面            knox-au.jpg
 ```
 
@@ -56,5 +56,5 @@ series_name    Knox AU（内部键，别改）          slug series/knox-au/
 
 | # | 菜名 | 她点的 | 备注 |
 |---|---|---|---|
-| 05 | **他停了很久**（`dish-05-he-stopped-for-a-long-time`） | 视角不对等的第一夜：他的高科技宅子，拼字游戏、甜品，你从没吻过人，他发现的那一下停住 | 你的视角为主，穿插几行**他那边**（斜体），把「不对等」做成结构 |
-| 06 | **Simon 说的才算**（`dish-06-simon-says-so`） | 养好之后两情相悦的第一夜：伤好了，回他家，同一张床；他怕碰你；Simon Says 的游戏反过来 | 他第一次说出那句话——借 Simon says 的壳 |
+| 05 | **他停了很久**（`dish-05-he-stopped-for-a-long-time`）✅ **已上线** 2026-09-27，series_order 2 | 视角不对等的第一夜：他的高科技宅子，拼字游戏、甜品，你从没吻过人，他发现的那一下停住 | 你的视角为主，穿插几行**他那边**（斜体），把「不对等」做成结构 |
+| 06 | **Simon 说的才算**（`dish-06-simon-says-so`）✅ **已上线** 2026-09-27，series_order 4 | 养好之后两情相悦的第一夜：伤好了，回他家，同一张床；他怕碰你；Simon Says 的游戏反过来 | 他第一次说出那句话——借 Simon says 的壳 |

@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "番外一 · The Voice on the Phone — Knox AU"
+title: "Extra · The Voice on the Phone — Knox AU"
 date: 2026-05-06
 image: knox-au.jpg
 tags: [Eric Knox, Sam Rockwell, AU, Knox AU, 暗涌, 悸动]
 categories: ["AU Story"]
 series: "Knox AU"
 series_title: "Simon Says · Eric Knox AU"
-series_order: 2
-chapter_type: 番外
+series_order: 3
+chapter_type: "Extra"
 chapter_kind: extra
 summary: "你本来是打算辞职的。"
 ---
