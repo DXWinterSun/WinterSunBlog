@@ -1,0 +1,108 @@
+---
+layout: home
+title: 书架 · 原著笔记
+permalink: /reading/
+nav_active: sam
+---
+{%- comment -%}
+书架（2026-09-26）：Winter 读英文原著时的划线笔记，一本书一张卡。
+零维护：遍历 _data/reading/*.yml，条数、读到第几页、生词数都从数据算；配色取 au_palettes 里 book.palette 那一套。
+每本书自己的笔记页是 reading/<slug>/index.html，由 tools/reading/render_notes.py --blog 生成（别手改）。
+入口两处：Sam 页第 11 张卡、Wintergreen 系列首页底下。工作法见 .claude/skills/winter-reading-notes/SKILL.md。
+{%- endcomment -%}
+<section class="c-hero c-hero--sam">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+  <div class="c-hero__eyebrow">Reading · Notes</div>
+  <h1 class="c-hero__title">The <em>Books</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">他演过的故事，原著里的样子</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    电影只拍了两个钟头，书里还有好几百页，一页一页读，一个词一个词记。
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
+</section>
+
+<section class="c-sam-collection">
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">Bookshelf · 书架</h3>
+    <span class="c-section-heading__meta"><a href="{{ site.baseurl }}/sam/" style="color:inherit;text-decoration:none;">&larr; 回到 Sam</a></span>
+  </div>
+
+  <div class="c-bookshelf">
+    {%- for entry in site.data.reading %}
+    {%- assign d = entry[1] -%}
+    {%- assign b = d.book -%}
+    {%- assign pal = site.data.au_palettes[b.palette] -%}
+    {%- assign n_all = 0 -%}{%- assign n_word = 0 -%}{%- assign n_quote = 0 -%}{%- assign upto = '' -%}
+    {%- for bt in d.batches -%}
+      {%- assign upto = bt.pages -%}
+      {%- for x in bt.notes -%}
+        {%- assign n_all = n_all | plus: 1 -%}
+        {%- if x.color == 'orange' -%}{%- assign n_quote = n_quote | plus: 1 -%}{%- else -%}{%- assign n_word = n_word | plus: 1 -%}{%- endif -%}
+      {%- endfor -%}
+    {%- endfor %}
+    <a class="c-book" href="{{ site.baseurl }}/reading/{{ b.slug }}/"
+       style="--bk-bg: {{ pal.bg | default: '#1d2330' }}; --bk-ac: {{ pal.accent | default: '#8fa0b0' }}; --bk-tx: {{ pal.text | default: '#e6e6e6' }};">
+      <span class="c-book__cover" aria-hidden="true">
+        <span class="c-book__cover-title">{{ b.title }}</span>
+        <span class="c-book__cover-rule"></span>
+        <span class="c-book__cover-author">{{ b.author }}</span>
+      </span>
+      <span class="c-book__body">
+        <span class="c-book__eyebrow">{{ b.author }} · {{ b.year }}</span>
+        <span class="c-book__title">{{ b.title }}</span>
+        {% if b.about %}<span class="c-book__about">{{ b.about }}</span>{% endif %}
+        <span class="c-book__stats">
+          {% if upto != '' %}<span>读到第 <b>{{ upto }}</b> 页</span>{% endif %}
+          <span><b>{{ n_word }}</b> 条词汇</span>
+          {% if n_quote > 0 %}<span><b>{{ n_quote }}</b> 句好句</span>{% endif %}
+        </span>
+        <span class="c-book__cta">翻开笔记 →</span>
+      </span>
+    </a>
+    {%- endfor %}
+  </div>
+  <p class="c-bookshelf__hint">蓝色是生词，粉色是认识但用法新鲜的词，橙色是写得好的句子。每本书的笔记页顶上都能一键复制全部生词，导进欧路词典。</p>
+</section>
+
+<style>
+.c-bookshelf { display: grid; gap: 18px; margin: 8px 0 14px; }
+.c-book {
+  display: flex; gap: 18px; align-items: stretch; padding: 16px; border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--bk-ac) 35%, transparent);
+  background: color-mix(in srgb, var(--bk-ac) 7%, transparent);
+  color: inherit; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease;
+}
+.c-book:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(0,0,0,.45); }
+.c-book__cover {
+  flex: 0 0 auto; width: 96px; min-height: 140px; padding: 14px 10px; border-radius: 3px 8px 8px 3px;
+  background: var(--bk-bg); color: var(--bk-tx);
+  box-shadow: inset 5px 0 0 color-mix(in srgb, #000 30%, transparent), 0 6px 14px -6px rgba(0,0,0,.5);
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 8px;
+}
+.c-book__cover-title { font-family: "Volkhov", Georgia, serif; font-weight: 700; font-size: 15px; line-height: 1.25; }
+.c-book__cover-rule { width: 28px; height: 1px; background: var(--bk-ac); }
+.c-book__cover-author { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
+.c-book__body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.c-book__eyebrow { font-size: 12px; letter-spacing: .12em; opacity: .7; }
+.c-book__title { font-family: "Volkhov", Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.25; }
+.c-book__about { font-size: 14px; opacity: .8; }
+.c-book__stats { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; font-size: 13px; opacity: .85; }
+.c-book__stats b { font-size: 16px; }
+.c-book__cta { margin-top: auto; padding-top: 8px; font-size: 13px; letter-spacing: .08em; }
+.c-bookshelf__hint { font-size: 13px; opacity: .7; }
+@media (max-width: 480px) {
+  .c-book { gap: 14px; padding: 14px; }
+  .c-book__cover { width: 78px; min-height: 116px; }
+  .c-book__cover-title { font-size: 13px; }
+  .c-book__title { font-size: 19px; }
+}
+</style>

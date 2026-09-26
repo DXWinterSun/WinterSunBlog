@@ -73,6 +73,10 @@ CSS = '''
  --word:#a9b8ff;--pos-bg:#d8534b;--example:#8fb0ff;--band:rgba(255,255,255,.06);--band-ink:#aab2bf;
  --tag-collo:#7fcf9d;--tag-confuse:#f0a867;
 }
+.blognav{position:absolute;top:14px;left:14px;z-index:5;display:flex;gap:.5rem;}
+.blognav a{display:inline-flex;align-items:center;min-height:34px;padding:0 .85rem;border:1px solid var(--line);
+ border-radius:99px;background:var(--surface);color:var(--accent);text-decoration:none;font-size:.85rem;letter-spacing:.06em;}
+.blognav a:hover{border-color:var(--accent);}
 .theme-btn{position:absolute;top:10px;right:10px;z-index:5;width:36px;height:36px;border-radius:50%;
  border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:17px;line-height:1;padding:0;}
 .theme-btn:hover{border-color:var(--accent);}
@@ -296,7 +300,7 @@ details.tipbox .tips{margin-top:.8rem;}
 
 @media (max-width:480px){
  body{font-size:16px;}
- .wrap{padding:3.4rem 1rem 4rem;}
+ .wrap{padding:4rem 1rem 4rem;}
  .card{padding:1rem 1rem .85rem;}
  .card__term{font-size:1.36rem;}
  .card__quote{font-size:1.1rem;}
@@ -329,7 +333,10 @@ JS = '''
   var root = document.documentElement, b = document.querySelector('.theme-btn');
   function paint() { var d = root.getAttribute('data-theme') === 'dark';
     b.textContent = d ? '🌑' : '🌕'; b.setAttribute('aria-label', d ? '现在是夜间，切到明亮' : '现在是明亮，切到夜间'); }
-  try { if (localStorage.getItem('ws-reading-theme') === 'dark') root.setAttribute('data-theme', 'dark'); } catch (e) {}
+  try {                                       // 自己记过就听自己的；没记过就跟博客那边的昼夜走
+    var mine = localStorage.getItem('ws-reading-theme');
+    if ((mine || localStorage.getItem('wiw-theme')) === 'dark') root.setAttribute('data-theme', 'dark');
+  } catch (e) {}
   paint();
   b.addEventListener('click', function () {
     var d = root.getAttribute('data-theme') === 'dark';
@@ -607,8 +614,12 @@ def demo_body(demo, book):
 def main():
     ap = argparse.ArgumentParser(description='把读书笔记数据渲染成可批注的 Artifact 网页')
     ap.add_argument('data', help='笔记数据文件，如 _data/reading/a-single-shot.yml')
-    ap.add_argument('-o', '--out', required=True, help='输出的 .html（改完用同一路径重新生成、重新发布，链接不变）')
+    ap.add_argument('-o', '--out', help='输出的 .html（改完用同一路径重新生成、重新发布，链接不变）')
+    ap.add_argument('--blog', action='store_true',
+                    help='生成博客上的那一页：写到 reading/<slug>/index.html，带回书架的链接，不带批注说明')
     a = ap.parse_args()
+    if not a.out and not a.blog:
+        ap.error('要么给 -o（给 Winter 看的 Artifact），要么 --blog（博客上的那一页）')
 
     data = yaml.safe_load(open(a.data, encoding='utf-8')) or {}
     book = data.get('book') or {}
@@ -649,7 +660,7 @@ def main():
 
     cells = []
     if last:
-        status = book.get('status') or '待你批注'
+        status = '在读' if a.blog else (book.get('status') or '待你批注')
         cells.append(f'<span><b>状态</b> · {esc(status)}</span>')
         cells.append(f'<span><b>已记</b> · {total} 条</span>')
         if last.get('pages'):
@@ -665,7 +676,7 @@ def main():
         kick += f'<br>{esc(book["about"])}'
     head = (f'{console}<p class="kicker">{kick}</p>\n'
             f'<h1 lang="en">{esc(title)}</h1>\n<p class="sub">原著笔记 · 高亮词句</p>\n<div class="rule"></div>\n'
-            f'<p class="lede">{fmt(demo["lede"])}</p>\n')
+            f'<p class="lede">{fmt(demo["blog_lede" if a.blog else "lede"])}</p>\n')
 
     if batches:
         toc = ''
@@ -677,16 +688,33 @@ def main():
         first = str(batches[0].get('pages', '')).split('–')[0].split('-')[0]
         span = f'{first}–{upto}' if last.get('pages') and first and first != upto else (upto if last.get('pages') else '')
         body = (all_words_box(allw, title, span) if allw else '') + toc + '\n'.join(batch_section(b, level, index, title) for b in batches)
-        foot = (f'<div class="foot"><p>{fmt(demo["foot"])}</p>\n'
-                f'<details class="tipbox"><summary>{esc(demo["tips"]["heading"])}</summary>'
-                f'{tips_list(demo["tips"]["items"])}</details></div>')
+        foot = (f'<div class="foot"><p>{fmt(demo["blog_foot" if a.blog else "foot"])}</p>\n'
+                + ('' if a.blog else f'<details class="tipbox"><summary>{esc(demo["tips"]["heading"])}</summary>'
+                f'{tips_list(demo["tips"]["items"])}</details>') + '</div>')
     else:
         body = demo_body(demo, book)
         foot = f'<div class="foot"><p>{fmt(demo["foot"])}</p></div>'
 
     page_title = book.get('page_title') or f'{title} 原著笔记'
-    page = (f'<title>{esc(page_title)}</title>\n{FONTS}\n<style>{css}</style>\n'
-            f'<button type="button" class="theme-btn">🌕</button>\n<div class="wrap">\n{head}{body}\n{foot}\n</div>\n<script>{JS}</script>\n')
+    inner = (f'<button type="button" class="theme-btn">🌕</button>\n<div class="wrap">\n{head}{body}\n{foot}\n</div>\n'
+             f'<script>{JS}</script>\n')
+    if a.blog:
+        # 博客上的那一页：独立整页（不走 Jekyll layout），链接一律写相对路径，站点前缀变了也不会断
+        slug = book.get('slug') or os.path.splitext(os.path.basename(a.data))[0]
+        root = os.path.dirname(os.path.dirname(HERE))
+        a.out = os.path.join(root, 'reading', slug, 'index.html')
+        os.makedirs(os.path.dirname(a.out), exist_ok=True)
+        desc = f'{title} 原著读书笔记：书上划线的生词、好句与解读。'
+        page = ('<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n'
+                '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
+                f'<title>{esc(page_title)} · Winter Sun</title>\n<meta name="description" content="{esc(desc)}">\n'
+                '<link rel="icon" href="../../favicon.ico">\n'
+                '<!-- 这一页由 tools/reading/render_notes.py --blog 生成，别手改；改 _data/reading/ 里的数据再重新生成 -->\n'
+                f'{FONTS}\n<style>{css}</style>\n</head>\n<body>\n'
+                '<nav class="blognav"><a href="../">← 书架</a><a href="../../sam/">Sam</a></nav>\n'
+                f'{inner}</body>\n</html>\n')
+    else:
+        page = f'<title>{esc(page_title)}</title>\n{FONTS}\n<style>{css}</style>\n{inner}'
     open(a.out, 'w', encoding='utf-8').write(page)
     print(f'✅ {a.out}（{len(batches)} 批 · {total} 条 · 详略 {level} · 配色 {book.get("palette") or "默认"}）')
 

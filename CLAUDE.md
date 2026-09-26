@@ -65,7 +65,8 @@ Winter 读英文原著（眼下是《A Single Shot》原著）时会发来带荧
 `_data/reading/<书>.yml` → `tools/reading/render_notes.py` 生成网页 → 发布到数据文件
 `book.artifact` 记着的**同一个链接** → 她在网页上用批注提问，你在批注里回她、把她的话收进笔记。
 ⚠️ 这里的「批注」是 **Artifact 自带的批注功能**，不是网页自己存数据（她纠正过一次）。
-放上博客等她说了再做，做之前先给她看几种形式挑。
+博客上的位置（2026-09-26 她挑定）：书架 `/reading/`（入口在 Sam 页第 11 张卡和 Wintergreen 系列页），
+一本书一页 `reading/<slug>/index.html`，由 `render_notes.py --blog` 生成、别手改；每加一页笔记，Artifact 和博客页一起重新生成。
 
 ## ⚠️ 写连载 = 每章都要「留下两样东西」：圣经 + 正文全文存档
 

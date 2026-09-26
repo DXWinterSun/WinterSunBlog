@@ -176,12 +176,22 @@ python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratc
 6. 重新生成、发布到同一个链接；回完、改完的批注串标成已解决（只能解决「发给了 Claude」的那些；
    没发给 Claude 的，告诉她哪几条还开着）。
 
-## 五、放上博客
+## 五、放上博客（2026-09-26 已上线）
 
-她说「放博客」时再做（2026-09-26 还没做）。动手前先给她看两三种形式挑，例如「一本书一页、越记越厚」
-或「每读完一批发一篇」，她挑完再做。数据已经在 `_data/reading/` 里，Jekyll 直接能读
-（`site.data.reading["a-single-shot"]`），样式照笔记网页来；上线照全站部署规矩（攒成一包推 main、
-等构建跑完）。
+她挑的是：**入口放 Sam 页 + 他的系列页**、**一本书一页、越记越厚**。
+
+| 东西 | 在哪 | 怎么更新 |
+|---|---|---|
+| 书架 `/reading/` | `reading/index.html`（Jekyll 页，`layout: home`） | 零维护：遍历 `_data/reading/*.yml` 自动出书卡，条数、读到第几页都从数据算 |
+| 每本书的笔记页 `/reading/<slug>/` | `reading/<slug>/index.html`，独立整页 | **脚本生成，别手改**：`python3 tools/reading/render_notes.py _data/reading/<slug>.yml --blog` |
+| 入口 ① | `sam/index.html` 互动彩蛋第 11 张卡「书架」 | 不用动 |
+| 入口 ② | 对应系列首页「设定档案」末尾一行链接（A Single Shot → `series/wintergreen/`） | 开新书时手加一行 |
+
+**每次整理完新的一页，两样都要重新生成**：`-o <scratchpad>/…html`（发 Artifact 给她批注）和 `--blog`（博客那页），
+一起 commit。博客那页要推 `main` 才上线——照全站部署规矩攒成一包推（一次读好几页就整批推一次），推完等构建跑完。
+
+博客版跟 Artifact 版的区别只有三处：左上角有「← 书架 / Sam」、状态写「在读」、开头说明换成 `demo.yml` 的 `blog_lede`
+（写给读者看的，第一人称是 Winter）。批注按钮在博客上自动不出现。
 
 ## 六、她定过的偏好
 
