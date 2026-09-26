@@ -1,0 +1,75 @@
+# 读书笔记页的固定文案 + 「先挑详略」样板（render_notes.py 读这个文件）
+# - lede / foot / tips：每一本书、每一次都会用到的说明文字
+# - compare / after：数据文件里还没有任何一批笔记时才显示的样板卡
+#   样板卡的例句是编的，页面上写明了「不是书里的原文」——别把它们当成真笔记搬进数据文件。
+
+lede: >-
+  你在书上划的词句，都记在这一页。每一条都能批注：点卡片右下角的「批注」，或者直接选中任何一句话；
+  想让我回答，就用「Send to Claude」发出。我在批注里回你，再把你的原话和我的回答一起收进那张卡。
+
+foot: >-
+  等你批注完、攒够一批，说一声“放博客”，我就把这些笔记连同你的批注一起排上博客。
+
+compare:
+  heading: 先挑详略
+  text: >-
+    同一个词，三种写法。喜欢哪一版，就在那张卡上点「批注」，写一句“就这版”发给我——正好试试批注能不能到我这儿。
+  levels:
+    - [lite, "A · 精简", "词、音标、意思、原句"]
+    - [standard, "B · 标准", "再加词性、整句大意、解读（我推荐）"]
+    - [full, "C · 详细", "再加英文释义、搭配、易混词"]
+  fine: 三张样板卡的例句是我编的，不是书里的原文；你的第一批照片一到，这里就换成真正的笔记。
+  note:
+    id: 样板
+    term: hollow
+    kind: 一词多义
+    ipa: /ˈhɑːloʊ/
+    pos: n.
+    cn: 山坳；两山之间的小山沟
+    en: a small valley between hills or mountains
+    sentence: "Smoke from the stovepipe drifted down into the ==hollow== and hung there like wet wool."
+    gist: 炉子烟囱冒出的烟飘进山坳，像一团湿羊毛似的悬着不散。
+    note: 平时最常见的是形容词“空心的”；这里是名词，指两山之间的小山沟。阿巴拉契亚山区的口语里常念成 holler。
+    extra:
+      - "**搭配**a wooded hollow（林子很密的山坳）· down in the hollow（在山坳底下）"
+      - "**易混**valley 多指开阔的河谷；hollow 更小更窄，夹在两道山梁中间。"
+
+# 她挑定详略之后（book.detail_picked: true），「先挑详略」换成这一节，只留她选的那一版
+picked:
+  heading: 以后都照这个样子记
+  text: 你选了「{label}」。第一批照片一到，每一条都照这张卡的样子写。
+  fine: 这张样板卡的例句是我编的，不是书里的原文；你的第一批照片一到，这里就换成真正的笔记。
+
+after:
+  heading: 批注之后长这样
+  text: >-
+    你在哪条上写了批注、问了问题，我回完就把你的原话和我的回答一起收进那张卡里；放上博客时也跟着走。
+  level: standard
+  note:
+    id: 样板
+    term: reckon
+    kind: 口语
+    ipa: /ˈrekən/
+    pos: v.
+    cn: 觉得；估摸着
+    en: to think or believe (informal)
+    sentence: "“I ==reckon== the ground’ll freeze by Sunday,” he said."
+    gist: “我估摸着，到礼拜天地就冻上了。”他说。
+    note: 口语里的“我觉得”，比 think 更随口、更土一点，美国南方和乡下人常挂在嘴边。
+    extra:
+      - "**搭配**I reckon so（我看是吧）· reckon on（指望着、盘算着）"
+      - "**易混**guess 也是随口的“我猜”，reckon 更有乡土味；它另有一个正经些的意思“计算、估算”。"
+    winter_label: Winter 的批注 · 示意
+    winter: 你在这张卡上写的批注，会原样收在这里。
+    qa:
+      - q: （你在批注里问我的问题）
+        a: （我在批注里回你的话，答完也一并收进来。）
+
+tips:
+  heading: 拍照小贴士
+  items:
+    - 一页一张，**页码要拍进去**——笔记按页码排。
+    - 光线亮一点、别太斜，字看得清就行。荧光笔什么颜色都可以，网页上的高亮我会调成跟你书上同一个颜色。
+    - 一次发几页都行，读到哪儿发到哪儿。
+    - 同一句里划了好几处，我会拆成几条；看不清的地方我会在那条上标“看不太清”，你批注告诉我就好。
+    - 只记你划的那一句，不会把整页都抄上来。
