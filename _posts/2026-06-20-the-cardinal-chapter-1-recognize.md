@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Chapter 1 · 认得那种神情 — The Cardinal"
-date: 2026-06-20
+date: 2026-06-20 22:50:00 +0800
 image: sam-rockwell-polish-guy.jpg
 tags: ['Krzysztof "Kris" Wilk', Sam Rockwell, AU, The Cardinal, 悸动, 安放]
 categories: ["AU Story"]
