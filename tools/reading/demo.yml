@@ -27,8 +27,10 @@ compare:
     pos: n.
     cn: 山坳；两山之间的小山沟
     en: a small valley between hills or mountains
-    sentence: "Smoke from the stovepipe drifted down into the ==hollow== and hung there like wet wool."
-    gist: 炉子烟囱冒出的烟飘进山坳，像一团湿羊毛似的悬着不散。
+    page: 样板
+    color: blue
+    context: "drifted down into the ==hollow== and hung there"
+    gist: 飘进山坳，悬在那里不散。
     note: 平时最常见的是形容词“空心的”；这里是名词，指两山之间的小山沟。阿巴拉契亚山区的口语里常念成 holler。
     extra:
       - "**搭配**a wooded hollow（林子很密的山坳）· down in the hollow（在山坳底下）"
@@ -53,8 +55,10 @@ after:
     pos: v.
     cn: 觉得；估摸着
     en: to think or believe (informal)
-    sentence: "“I ==reckon== the ground’ll freeze by Sunday,” he said."
-    gist: “我估摸着，到礼拜天地就冻上了。”他说。
+    page: 样板
+    color: blue
+    context: "“I ==reckon== the ground’ll freeze”"
+    gist: “我估摸着地要冻上了。”
     note: 口语里的“我觉得”，比 think 更随口、更土一点，美国南方和乡下人常挂在嘴边。
     extra:
       - "**搭配**I reckon so（我看是吧）· reckon on（指望着、盘算着）"
@@ -69,7 +73,8 @@ tips:
   heading: 拍照小贴士
   items:
     - 一页一张，**页码要拍进去**——笔记按页码排。
-    - 光线亮一点、别太斜，字看得清就行。荧光笔什么颜色都可以，网页上的高亮我会调成跟你书上同一个颜色。
-    - 一次发几页都行，读到哪儿发到哪儿。
+    - '**蓝色**划生词；**粉色**划认识、但搭配或用法值得对照的。其它颜色我不整理。'
+    - 我一次只整理一页，这页交给你再做下一页。
     - 同一句里划了好几处，我会拆成几条；看不清的地方我会在那条上标“看不太清”，你批注告诉我就好。
-    - 只记你划的那一句，不会把整页都抄上来。
+    - 只记划线那个词前后几个词，不会把整句、整页抄上来。
+    - 每一页最后有一行欧路词典导入列表，点「复制」就能整行带走。

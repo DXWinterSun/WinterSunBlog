@@ -18,6 +18,8 @@
 - 数据文件里 `batches` 为空时，页面显示「先挑详略」样板（样板内容在同目录 demo.yml）。
 - 详略按 `book.detail`（lite / standard / full）决定每张卡显示哪些栏。
 - 行内记号：`==高亮==`（荧光笔）、`**粗体**`。其余一律按纯文本转义。
+- 2026-09-26 Winter 定的规矩：蓝笔＝生词、粉笔＝值得对照的用法（每条写 color）；
+  原文只留前后几个词（context），一页一批，每批末尾附「欧路词典导入列表」。
 
 完整工作法（读照片、写笔记、回批注、放博客）见 .claude/skills/winter-reading-notes/SKILL.md。
 """
@@ -31,9 +33,15 @@ import yaml                               # noqa: E402
 
 # 每种详略显示哪些栏（词条、音标、页码、原形、看不清、Winter 批注、问答永远显示）
 LEVELS = {
-    'lite':     {'cn', 'sentence'},
-    'standard': {'pos', 'kind', 'cn', 'sentence', 'gist', 'note'},
-    'full':     {'pos', 'kind', 'cn', 'en', 'sentence', 'gist', 'note', 'extra'},
+    'lite':     {'cn', 'context'},
+    'standard': {'pos', 'kind', 'cn', 'context', 'gist', 'note'},
+    'full':     {'pos', 'kind', 'cn', 'en', 'context', 'gist', 'note', 'extra'},
+}
+
+# 两支荧光笔（Winter 2026-09-26 定的规矩）：蓝＝生词；粉＝词认识，但这个搭配 / 用法值得对照、下次再看一眼
+PENS = {
+    'blue': ('生词', '#7fd6dc'),
+    'pink': ('对照', '#f2a7c6'),
 }
 
 FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400'
@@ -42,7 +50,7 @@ FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=
 CSS = '''
 :root{
  color-scheme:dark;
- --bg:__BG__;--accent:__ACCENT__;--ink:__TEXT__;--muted:__MUTED__;--hl:__HL__;
+ --bg:__BG__;--accent:__ACCENT__;--ink:__TEXT__;--muted:__MUTED__;--hl:__HL__;--hl-pink:__HLPINK__;
  --surface:color-mix(in srgb,var(--bg) 91%,#fff);
  --line:color-mix(in srgb,var(--accent) 24%,transparent);
  --paper:#f2eadd;--paper-ink:#3b3329;
@@ -133,6 +141,40 @@ mark{color:inherit;background:transparent;padding:0 .14em;margin:0 -.04em;
  border-radius:.25em .45em .3em .5em;
  -webkit-box-decoration-break:clone;box-decoration-break:clone;}
 
+mark.pink{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-pink) 42%,transparent) 1.5% 98%,transparent 98%);}
+.card__pen{padding:0 .6rem;border-radius:99px;font-family:"Noto Serif SC","Songti SC",serif;font-size:.74rem;
+ letter-spacing:.08em;color:var(--bg);background:var(--hl);}
+.card__pen.pink{background:var(--hl-pink);}
+.card__pen+.card__kind{margin-left:0;}
+.card__meta .card__pen{margin-left:auto;}
+.card__cn .card__pos{margin-right:.5em;}
+.card__ctx{margin:0 0 .7rem;}
+.card__ctx .card__quote{margin-bottom:.3rem;}
+.card__ctx-page{display:inline-block;margin:0 0 .25rem;font-family:"EB Garamond",Georgia,serif;
+ font-size:.84rem;letter-spacing:.1em;color:var(--accent);font-variant-numeric:tabular-nums;}
+.card__ctx .card__gist{margin:0;}
+.card__later{margin:.2rem 0 .6rem;font-size:.86rem;color:var(--hl-pink);letter-spacing:.06em;}
+.card__cmp{margin:.3rem 0 .7rem;padding:.7rem .85rem;border:1px dashed color-mix(in srgb,var(--hl-pink) 60%,transparent);
+ border-radius:4px;font-size:.93rem;}
+.card__cmp-h{margin:0 0 .45rem;font-size:.78rem;letter-spacing:.14em;font-weight:600;color:var(--hl-pink);}
+.card__cmp-row{display:grid;grid-template-columns:auto 1fr;gap:.1rem .7rem;margin:0 0 .35rem;align-items:baseline;}
+.card__cmp-row span{font-family:"EB Garamond",Georgia,serif;font-size:.84rem;color:var(--muted);
+ font-variant-numeric:tabular-nums;white-space:nowrap;}
+.card__cmp-row q{quotes:none;font-family:"EB Garamond",Georgia,serif;font-size:1.05rem;}
+.card__cmp-row small{grid-column:2;color:var(--muted);font-size:.86rem;}
+.card__cmp p{margin:.45rem 0 0;}
+
+/* 欧路词典导入列表 */
+.eudic{margin:1.6rem 0 0;padding:.9rem 1rem 1rem;border:1px solid var(--line);border-radius:6px;}
+.eudic__h{display:flex;align-items:center;gap:.8rem;margin:0 0 .6rem;font-size:.95rem;font-weight:600;line-height:1.5;}
+.eudic__copy{appearance:none;flex:none;white-space:nowrap;margin-left:auto;min-height:32px;padding:.2rem .9rem;border-radius:99px;cursor:pointer;
+ border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);background:transparent;color:var(--accent);
+ font:inherit;font-size:.8rem;font-weight:400;letter-spacing:.12em;}
+.eudic__copy:hover{background:color-mix(in srgb,var(--accent) 14%,transparent);}
+.eudic pre{margin:0;padding:.7rem .85rem;border-radius:4px;background:color-mix(in srgb,var(--bg) 70%,#000);
+ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;line-height:1.6;
+ white-space:pre-wrap;word-break:break-word;user-select:all;-webkit-user-select:all;}
+
 /* Winter 的批注：一张贴在卡上的便条（同博客 c-note 的纸色） */
 .card__winter{position:relative;margin:1rem .2rem .7rem;padding:1rem 1.05rem .75rem;
  background:var(--paper);color:var(--paper-ink);border-radius:2px;transform:rotate(-.35deg);
@@ -194,6 +236,13 @@ details.tipbox .tips{margin-top:.8rem;}
 # 卡片上的「批注」按钮：打开 Artifact 自带的批注框，锚在这张卡上（页面本身什么都不存）。
 # 拿不到批注能力（旧版查看器 / 没有权限）就保持隐藏——选中文字照样能批注。
 JS = '''
+[].forEach.call(document.querySelectorAll('.eudic__copy'), function (b) {
+  b.addEventListener('click', function () {
+    var t = b.closest('.eudic').querySelector('pre').textContent;
+    function done() { var o = b.textContent; b.textContent = '已复制'; setTimeout(function () { b.textContent = o; }, 1400); }
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, function () {});
+  });
+});
 (function () {
   var btns = [].slice.call(document.querySelectorAll('.card__ask'));
   if (!btns.length || !window.claude || !window.claude.use) return;
@@ -219,10 +268,10 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
-def fmt(s):
-    """纯文本转义 + 两个行内记号：==高亮== / **粗体**。"""
+def fmt(s, pen='blue'):
+    """纯文本转义 + 两个行内记号：==高亮== / **粗体**。高亮按这条笔记的荧光笔颜色上色。"""
     s = html.escape(str(s).strip(), quote=False)
-    s = re.sub(r'==(.+?)==', r'<mark>\1</mark>', s)
+    s = re.sub(r'==(.+?)==', (r'<mark class="pink">\1</mark>' if pen == 'pink' else r'<mark>\1</mark>'), s)
     s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
     return s.replace('\n', '<br>')
 
@@ -233,13 +282,16 @@ def as_list(v):
     return v if isinstance(v, list) else [v]
 
 
-def card(n, level, cid, winter_label='Winter 的批注'):
+def card(n, level, cid, winter_label='Winter 的批注', index=None):
+    """一条笔记。顺序照 Winter 2026-09-26 定的：词＋音标 → 词性＋中文＋英文释义 →
+    原文语境（短语＋页码＋大意）→ 解读 → 搭配 / 易混。"""
     show = LEVELS[level]
+    pen = n.get('color') or 'blue'
     out = [f'<article class="card" id="{esc(cid)}" data-comment-target>']
 
     meta = [f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>']
-    if n.get('page') not in (None, ''):
-        meta.append(f'<span class="card__page">p. {esc(n["page"])}</span>')
+    if pen in PENS:
+        meta.append(f'<span class="card__pen {pen}">{PENS[pen][0]}</span>')
     if 'kind' in show and n.get('kind'):
         meta.append(f'<span class="card__kind">{esc(n["kind"])}</span>')
     out.append('<div class="card__meta">' + ''.join(meta) + '</div>')
@@ -247,20 +299,45 @@ def card(n, level, cid, winter_label='Winter 的批注'):
     head = [f'<h3 class="card__term" lang="en">{esc(n["term"])}</h3>']
     if n.get('ipa'):
         head.append(f'<span class="card__ipa">{esc(n["ipa"])}</span>')
-    if 'pos' in show and n.get('pos'):
-        head.append(f'<span class="card__pos" lang="en">{esc(n["pos"])}</span>')
     if n.get('lemma'):
         head.append(f'<span class="card__lemma">原形 <i lang="en">{esc(n["lemma"])}</i></span>')
     out.append('<div class="card__head">' + ''.join(head) + '</div>')
 
     if n.get('cn'):
-        out.append(f'<p class="card__cn">{fmt(n["cn"])}</p>')
+        pos = (f'<span class="card__pos" lang="en">{esc(n["pos"])}</span>'
+               if 'pos' in show and n.get('pos') else '')
+        out.append(f'<p class="card__cn">{pos}{fmt(n["cn"])}</p>')
     if 'en' in show and n.get('en'):
         out.append(f'<p class="card__en" lang="en">{fmt(n["en"])}</p>')
-    if n.get('sentence'):
-        out.append(f'<blockquote class="card__quote" lang="en">{fmt(n["sentence"])}</blockquote>')
-    if 'gist' in show and n.get('gist'):
-        out.append(f'<p class="card__gist">{fmt(n["gist"])}</p>')
+
+    ctx = n.get('context') or n.get('sentence')
+    if ctx:
+        page = (f'<span class="card__ctx-page">p. {esc(n["page"])}</span>'
+                if n.get('page') not in (None, '') else '')
+        gist = (f'<p class="card__gist">{fmt(n["gist"])}</p>'
+                if 'gist' in show and n.get('gist') else '')
+        out.append(f'<div class="card__ctx">{page}'
+                   f'<blockquote class="card__quote" lang="en">{fmt(ctx, pen)}</blockquote>{gist}</div>')
+
+    if n.get('compare_later'):
+        out.append('<p class="card__later">后面会对照</p>')
+    cmp = n.get('compare')
+    if cmp:
+        rows = []
+        for oid in as_list(cmp.get('with')):
+            o = (index or {}).get(str(oid))
+            if not o:
+                sys.exit(f'No. {n.get("id")} 要对照的 No. {oid} 不存在')
+            octx = o.get('context') or o.get('sentence') or o['term']
+            og = f'<small>{fmt(o["gist"])}</small>' if o.get('gist') else ''
+            rows.append(f'<div class="card__cmp-row"><span>No. {esc(oid)} · p. {esc(o.get("page", "—"))}</span>'
+                        f'<q lang="en">{fmt(octx, o.get("color") or "blue")}</q>{og}</div>')
+        og = f'<small>{fmt(n["gist"])}</small>' if n.get('gist') else ''
+        rows.append(f'<div class="card__cmp-row"><span>这一条 · p. {esc(n.get("page", "—"))}</span>'
+                    f'<q lang="en">{fmt(ctx or n["term"], pen)}</q></div>')
+        body = f'<p>{fmt(cmp["text"])}</p>' if cmp.get('text') else ''
+        out.append(f'<div class="card__cmp"><p class="card__cmp-h">放在一起对照</p>{"".join(rows)}{body}</div>')
+
     if 'note' in show and n.get('note'):
         out.append(f'<p class="card__note"><b>解读</b>{fmt(n["note"])}</p>')
     if 'extra' in show and n.get('extra'):
@@ -284,6 +361,22 @@ def card(n, level, cid, winter_label='Winter 的批注'):
     return '\n'.join(out)
 
 
+def eudic_words(notes):
+    """欧路词典导入用：一律原形；eudic 字段可手动指定（短语拆开会变成几个无关的词时用）。"""
+    words = []
+    for x in notes:
+        w = str(x.get('eudic') or x.get('lemma') or x['term']).strip()
+        if w and w not in words:
+            words.append(w)
+    return words
+
+
+def eudic_box(words, title):
+    return ('<div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（' + esc(title) + '）'
+            '<button type="button" class="eudic__copy">复制</button></p>'
+            f'<pre lang="en">{esc(" ".join(words))}</pre></div>')
+
+
 def cn_date(d):
     if isinstance(d, str):
         try:
@@ -293,22 +386,21 @@ def cn_date(d):
     return f'{d.month} 月 {d.day} 日'
 
 
-def batch_section(b, level):
+def batch_section(b, level, index, title):
     n = b['n']
-    bits = [f'第 {n} 批']
+    bits = [f'第 {b["pages"]} 页'] if b.get('pages') else [f'第 {n} 批']
     if b.get('date'):
         bits.append(cn_date(b['date']))
-    if b.get('pages'):
-        bits.append(f'第 {b["pages"]} 页')
     notes = b.get('notes') or []
     sub = [f'{len(notes)} 条']
     if b.get('photos'):
         sub.append(f'{b["photos"]} 张照片')
     if b.get('remark'):
         sub.append(esc(b['remark']))
-    cards = '\n'.join(card(x, level, f'n{x["id"]}') for x in notes)
+    cards = '\n'.join(card(x, level, f'n{x["id"]}', index=index) for x in notes)
+    box = eudic_box(eudic_words(notes), title) if notes else ''
     return (f'<section class="batch" id="b{n}">\n<h2>{" · ".join(bits)}</h2>\n'
-            f'<p class="batch__sub">{" · ".join(sub)}</p>\n{cards}\n</section>')
+            f'<p class="batch__sub">{" · ".join(sub)}</p>\n{cards}\n{box}\n</section>')
 
 
 def tips_list(items):
@@ -359,15 +451,19 @@ def main():
         sys.exit(f'book.detail 只能是 {"/".join(LEVELS)}，现在是 {level!r}')
 
     # 编号不能重复（批注锚在卡片 id 上，重号会串）
-    seen = set()
+    index = {}
     for b in batches:
         for x in b.get('notes') or []:
-            if x['id'] in seen:
+            if str(x['id']) in index:
                 sys.exit(f'笔记编号重复：{x["id"]}')
-            seen.add(x['id'])
+            if (x.get('color') or 'blue') not in PENS:
+                sys.exit(f'No. {x["id"]} 的 color 只能是 blue / pink')
+            index[str(x['id'])] = x
 
     pal = palette(book.get('palette', ''))
-    css = CSS.replace('__HL__', book.get('highlighter') or '#e9cd6a')
+    pens = book.get('highlighters') or {}
+    css = (CSS.replace('__HLPINK__', pens.get('pink') or PENS['pink'][1])
+              .replace('__HL__', pens.get('blue') or book.get('highlighter') or PENS['blue'][1]))
     for k, v in pal.items():
         css = css.replace(f'__{k.upper()}__', v)
 
@@ -377,7 +473,7 @@ def main():
 
     cells = []
     if last:
-        status = book.get('status') or '第 {} 批 · 待你批注'.format(last['n'])
+        status = book.get('status') or '待你批注'
         cells.append(f'<span><b>状态</b> · {esc(status)}</span>')
         cells.append(f'<span><b>已记</b> · {total} 条</span>')
         if last.get('pages'):
@@ -399,9 +495,9 @@ def main():
         toc = ''
         if len(batches) > 1:
             toc = '<ul class="toc">' + ''.join(
-                f'<li><a href="#b{b["n"]}">第 {b["n"]} 批'
-                + (f' · p. {esc(b["pages"])}' if b.get('pages') else '') + '</a></li>' for b in batches) + '</ul>\n'
-        body = toc + '\n'.join(batch_section(b, level) for b in batches)
+                f'<li><a href="#b{b["n"]}">'
+                + (f'p. {esc(b["pages"])}' if b.get('pages') else f'第 {b["n"]} 批') + '</a></li>' for b in batches) + '</ul>\n'
+        body = toc + '\n'.join(batch_section(b, level, index, title) for b in batches)
         foot = (f'<div class="foot"><p>{fmt(demo["foot"])}</p>\n'
                 f'<details class="tipbox"><summary>{esc(demo["tips"]["heading"])}</summary>'
                 f'{tips_list(demo["tips"]["items"])}</details></div>')

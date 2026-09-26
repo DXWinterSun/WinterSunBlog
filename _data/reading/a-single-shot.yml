@@ -12,7 +12,9 @@ book:
   year: 1996
   about: "电影《致命一击》（2013）的原著"
   palette: "Wintergreen"     # 取 _data/au_palettes.yml 里 John Moon 那套颜色，跟 Wintergreen 系列同色
-  highlighter: "#7fd6dc"     # 网页上的荧光笔颜色：跟她书上那支青绿色荧光笔同色（2026-09-26 第一批照片）
+  highlighters:              # 网页上两支荧光笔的颜色，跟她书上的笔同色
+    blue: "#7fd6dc"          # 蓝＝生词
+    pink: "#f2a7c6"          # 粉＝词认识，但搭配 / 用法值得对照
   detail: full               # 详略 lite / standard / full —— 2026-09-26 她挑了 C「详细」
   detail_picked: true        # 已挑定：样板区只留她选的那一版
   artifact: "https://claude.ai/artifact/AMf2jtPtJ16KX99RCZNuCq"   # 笔记网页（2026-09-26 首发），之后永远更新这一个
@@ -25,28 +27,31 @@ batches:
     notes:
       - id: "001"
         page: 3
+        color: blue
         term: Timberland
         kind: 名物
         ipa: /ˈtɪmbərlænd/
         pos: n.
         cn: 添柏岚（美国户外靴的牌子）
         en: an American brand of outdoor boots, best known for its tough waterproof work boots
-        sentence: "Before the sun is up, John Moon has showered, drunk two cups of coffee, and changed into his blue jeans, sweatshirt, and ==Timberland== hiking boots."
-        gist: 天还没亮，John Moon 已经冲过澡、喝了两杯咖啡，换上了蓝色牛仔裤、卫衣和 Timberland 登山靴。
+        context: "sweatshirt, and ==Timberland== hiking boots"
+        gist: 卫衣，再加一双 Timberland 登山靴。
         note: 美国新罕布什尔州的户外牌子，最出名的是那种黄褐色的防水工装靴，结实耐磨，干活、进山、打猎都穿。作者特意点出牌子，是在告诉你：他这身是要往山里去的打扮。
         extra:
           - "**搭配**Timberland boots（Timberland 靴）· Timbs（口语里的简称）"
 
       - id: "002"
         page: 3
+        color: blue
         term: 12-gauge shotgun
+        eudic: gauge shotgun     # 拆成单词导入：12-gauge 欧路查不到
         kind: 名物
         ipa: /ˌtwelv ɡeɪdʒ ˈʃɑːtɡʌn/
         pos: n.
         cn: 12 号口径的霰弹枪
         en: a shotgun with a fairly wide barrel; the most common kind in the US
-        sentence: "Before leaving the trailer by the front door, he gets his ==12-gauge shotgun== and a handful of slugs from the gun cabinet off the kitchen."
-        gist: 从前门出拖车屋之前，他从厨房旁边的枪柜里取出他那把 12 号霰弹枪和一把独头弹。
+        context: "he gets his ==12-gauge shotgun== and a handful of slugs"
+        gist: 他取出他那把 12 号霰弹枪和一把独头弹。
         note: gauge 是霰弹枪口径的老算法：拿一磅铅，做成大小刚好塞满枪管的等重铅球，能做几个就是几号。所以**数字越小，枪管越粗**。12 号是美国最常见的一种，打猎、看家都用它。顺带一句，这里的 trailer 不是挂车，而是“拖车屋”——那种能拖走的活动房屋，他就住在里面。
         extra:
           - "**搭配**a 20-gauge（20 号，更细更轻）· a double-barreled shotgun（双管霰弹枪）· gun cabinet（枪柜）"
@@ -54,6 +59,7 @@ batches:
 
       - id: "003"
         page: 3
+        color: blue
         term: slugs
         lemma: slug
         kind: 一词多义
@@ -61,8 +67,8 @@ batches:
         pos: n.
         cn: 独头弹（霰弹枪打的一整颗大弹头）
         en: a single solid piece of metal fired from a shotgun, instead of many small pellets
-        sentence: "Before leaving the trailer by the front door, he gets his 12-gauge shotgun and a handful of ==slugs== from the gun cabinet off the kitchen."
-        gist: 从前门出拖车屋之前，他从厨房旁边的枪柜里取出他那把 12 号霰弹枪和一把独头弹。
+        context: "a handful of ==slugs== from the gun cabinet"
+        gist: 从枪柜里取出一把独头弹。
         note: 霰弹枪平常装的是一把小铅丸，打出去散成一片，适合打鸟；slug 是一整颗大弹头，射得远、打得准，是用来打鹿这类大型猎物的。平时 slug 最常见的意思是“鼻涕虫、蛞蝓”，口语里还能指“一大口酒”或“狠狠一拳”，这里都不是。
         extra:
           - "**搭配**a handful of slugs（一把独头弹）· birdshot（打鸟的细铅丸）· buckshot（鹿弹，大号铅丸）"
@@ -70,6 +76,7 @@ batches:
 
       - id: "004"
         page: 3
+        color: blue
         term: converging
         lemma: converge
         kind: 单词
@@ -77,9 +84,9 @@ batches:
         pos: adj.
         cn: （几条路）汇到一处的
         en: coming together from different directions to meet at one point
-        sentence: "Gazing down at the ==converging== roads winding like miles of dusty brown carpet through the hollow below him, John sees a set of headlights descending the right fork, piercing the three-quarters dark."
-        gist: 他俯瞰脚下山坳里几条汇到一起的路，像一卷卷落满尘土的棕色地毯蜿蜒铺开；他看见一对车灯正沿着右边那条岔路往下开，刺破了还剩七八分的夜色。
-        note: 这里是动词 converge 的现在分词当形容词用。从山上往下看，几条路在谷底合拢，所以后面才说 the right fork（右边那条岔）。句里的 hollow 正是样板卡讲过的“山坳”。the three-quarters dark 是作者自己的说法：天只亮了四分之一，还有四分之三是黑的。
+        context: "gazing down at the ==converging== roads"
+        gist: 他俯瞰着那几条汇到一起的路。
+        note: 这里是动词 converge 的现在分词当形容词用。他站在山上往下看，几条路在谷底的山坳里合拢，所以同一句后面才说起右边那条岔路。这句末尾还有个作者自己造的说法 the three-quarters dark：天只亮了四分之一，还有四分之三是黑的。
         extra:
           - "**搭配**converge on（从各处汇聚到某地，人群、目光都能用）· converging lines（汇聚线）"
           - "**易混**反义是 diverge（分岔、分开）；merge 是两股并成一股，比如车道并线。"
