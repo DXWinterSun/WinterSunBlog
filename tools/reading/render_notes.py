@@ -49,19 +49,34 @@ FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=
 
 CSS = '''
 :root{
- color-scheme:dark;
- --bg:__BG__;--accent:__ACCENT__;--ink:__TEXT__;--muted:__MUTED__;--hl:__HL__;--hl-pink:__HLPINK__;
- --surface:color-mix(in srgb,var(--bg) 91%,#fff);
- --line:color-mix(in srgb,var(--accent) 24%,transparent);
- --paper:#f2eadd;--paper-ink:#3b3329;
+ /* 默认明亮（Winter 2026-09-26：「笔记默认明亮模式吧，不然不是很方便阅读」）；右上角可切回夜间 */
+ color-scheme:light;
+ --bg:color-mix(in srgb,__ACCENT__ 7%,#fbfaf6);--accent:__INK_ACCENT__;--ink:__BG__;
+ --muted:color-mix(in srgb,__BG__ 62%,#fbfaf6);--hl:__HL__;--hl-pink:__HLPINK__;
+ --surface:#fffefb;--glow:rgba(255,255,255,0);--shadow:0 1px 2px rgba(20,24,31,.06);
+ --line:color-mix(in srgb,var(--accent) 26%,transparent);
+ --code-bg:color-mix(in srgb,var(--accent) 9%,#fff);
+ --pen-ink:__BG__;--hl-mix:62%;
+ --paper:#f6eedf;--paper-ink:#3b3329;--note-shadow:0 6px 16px rgba(40,30,20,.14);
 }
+:root[data-theme="dark"]{
+ color-scheme:dark;
+ --bg:__BG__;--accent:__ACCENT__;--ink:__TEXT__;--muted:__MUTED__;
+ --surface:color-mix(in srgb,var(--bg) 91%,#fff);--glow:rgba(255,255,255,.05);--shadow:none;
+ --line:color-mix(in srgb,var(--accent) 24%,transparent);
+ --code-bg:color-mix(in srgb,var(--bg) 70%,#000);
+ --paper:#f2eadd;--note-shadow:0 8px 20px rgba(0,0,0,.34);--hl-mix:40%;
+}
+.theme-btn{position:absolute;top:10px;right:10px;z-index:5;width:36px;height:36px;border-radius:50%;
+ border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:17px;line-height:1;padding:0;}
+.theme-btn:hover{border-color:var(--accent);}
+.theme-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
  font-family:"Noto Serif SC","Songti SC",Georgia,serif;font-size:16.5px;line-height:1.9;
  -webkit-font-smoothing:antialiased;}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
- background:radial-gradient(ellipse 900px 500px at 15% -10%,rgba(255,255,255,.055),transparent 60%),
-            radial-gradient(ellipse 700px 500px at 100% 8%,rgba(255,255,255,.035),transparent 55%);}
+ background:radial-gradient(ellipse 900px 500px at 15% -10%,var(--glow),transparent 60%);}
 .wrap{position:relative;z-index:1;max-width:44rem;margin:0 auto;padding:3.2rem 1.25rem 5rem;}
 
 /* 页头：跟章节预览页同一套（状态条 / 斜体小标 / 衬线大标题） */
@@ -103,7 +118,7 @@ h2::after{content:"";flex:1;min-width:24px;height:1px;
 
 /* ── 一条笔记 ── */
 .card{position:relative;margin:0 0 1.3rem;padding:1.1rem 1.25rem .95rem;background:var(--surface);
- border:1px solid var(--line);border-radius:6px;scroll-margin-top:1.2rem;}
+ border:1px solid var(--line);border-radius:6px;scroll-margin-top:1.2rem;box-shadow:var(--shadow);}
 .card__meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .9rem;margin-bottom:.3rem;
  font-family:"EB Garamond",Georgia,serif;font-size:.84rem;letter-spacing:.1em;color:var(--muted);
  font-variant-numeric:tabular-nums;}
@@ -140,13 +155,13 @@ h2::after{content:"";flex:1;min-width:24px;height:1px;
 
 /* 荧光笔：颜色按她书上那支笔调（book.highlighter） */
 mark{color:inherit;background:transparent;padding:0 .14em;margin:0 -.04em;
- background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl) 40%,transparent) 1.5% 98%,transparent 98%);
+ background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);
  border-radius:.25em .45em .3em .5em;
  -webkit-box-decoration-break:clone;box-decoration-break:clone;}
 
-mark.pink{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-pink) 42%,transparent) 1.5% 98%,transparent 98%);}
+mark.pink{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-pink) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);}
 .card__pen{padding:0 .6rem;border-radius:99px;font-family:"Noto Serif SC","Songti SC",serif;font-size:.74rem;
- letter-spacing:.08em;color:var(--bg);background:var(--hl);}
+ letter-spacing:.08em;color:var(--pen-ink);background:var(--hl);}
 .card__pen.pink{background:var(--hl-pink);}
 .card__pen+.card__kind{margin-left:0;}
 .card__meta .card__pen{margin-left:auto;}
@@ -174,14 +189,14 @@ mark.pink{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(i
  border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);background:transparent;color:var(--accent);
  font:inherit;font-size:.8rem;font-weight:400;letter-spacing:.12em;}
 .eudic__copy:hover{background:color-mix(in srgb,var(--accent) 14%,transparent);}
-.eudic pre{margin:0;padding:.7rem .85rem;border-radius:4px;background:color-mix(in srgb,var(--bg) 70%,#000);
+.eudic pre{margin:0;padding:.7rem .85rem;border-radius:4px;background:var(--code-bg);
  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;line-height:1.6;
  white-space:pre-wrap;word-break:break-word;user-select:all;-webkit-user-select:all;}
 
 /* Winter 的批注：一张贴在卡上的便条（同博客 c-note 的纸色） */
 .card__winter{position:relative;margin:1rem .2rem .7rem;padding:1rem 1.05rem .75rem;
  background:var(--paper);color:var(--paper-ink);border-radius:2px;transform:rotate(-.35deg);
- box-shadow:0 8px 20px rgba(0,0,0,.34);line-height:1.85;}
+ box-shadow:var(--note-shadow);line-height:1.85;}
 .card__winter::before{content:"";position:absolute;top:-9px;left:50%;width:70px;height:17px;
  transform:translateX(-50%) rotate(-1.5deg);background:color-mix(in srgb,var(--accent) 45%,transparent);opacity:.8;}
 .card__winter-who{display:block;margin-bottom:.35rem;font-size:.68rem;letter-spacing:.2em;opacity:.55;}
@@ -227,7 +242,7 @@ details.tipbox .tips{margin-top:.8rem;}
 
 @media (max-width:480px){
  body{font-size:16px;}
- .wrap{padding:2.4rem 1rem 4rem;}
+ .wrap{padding:3.4rem 1rem 4rem;}
  .card{padding:1rem 1rem .85rem;}
  .card__term{font-size:1.36rem;}
  .card__quote{font-size:1.1rem;}
@@ -239,6 +254,19 @@ details.tipbox .tips{margin-top:.8rem;}
 # 卡片上的「批注」按钮：打开 Artifact 自带的批注框，锚在这张卡上（页面本身什么都不存）。
 # 拿不到批注能力（旧版查看器 / 没有权限）就保持隐藏——选中文字照样能批注。
 JS = '''
+(function () {
+  var root = document.documentElement, b = document.querySelector('.theme-btn');
+  function paint() { var d = root.getAttribute('data-theme') === 'dark';
+    b.textContent = d ? '🌑' : '🌕'; b.setAttribute('aria-label', d ? '现在是夜间，切到明亮' : '现在是明亮，切到夜间'); }
+  try { if (localStorage.getItem('ws-reading-theme') === 'dark') root.setAttribute('data-theme', 'dark'); } catch (e) {}
+  paint();
+  b.addEventListener('click', function () {
+    var d = root.getAttribute('data-theme') === 'dark';
+    if (d) root.removeAttribute('data-theme'); else root.setAttribute('data-theme', 'dark');
+    try { localStorage.setItem('ws-reading-theme', d ? 'light' : 'dark'); } catch (e) {}
+    paint();
+  });
+})();
 [].forEach.call(document.querySelectorAll('.eudic__copy'), function (b) {
   b.addEventListener('click', function () {
     var t = b.closest('.eudic').querySelector('pre').textContent;
@@ -465,8 +493,15 @@ def main():
             index[str(x['id'])] = x
 
     pal = palette(book.get('palette', ''))
+    try:                                  # 明亮模式的主色用暗一档的 accent_ink，白底上才看得清
+        au = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.dirname(HERE)), '_data', 'au_palettes.yml'),
+                                 encoding='utf-8')) or {}
+        ink_accent = (au.get(book.get('palette', '')) or {}).get('accent_ink') or pal['accent']
+    except OSError:
+        ink_accent = pal['accent']
+    css = CSS.replace('__INK_ACCENT__', ink_accent)
     pens = book.get('highlighters') or {}
-    css = (CSS.replace('__HLPINK__', pens.get('pink') or PENS['pink'][1])
+    css = (css.replace('__HLPINK__', pens.get('pink') or PENS['pink'][1])
               .replace('__HL__', pens.get('blue') or book.get('highlighter') or PENS['blue'][1]))
     for k, v in pal.items():
         css = css.replace(f'__{k.upper()}__', v)
@@ -511,7 +546,7 @@ def main():
 
     page_title = book.get('page_title') or f'{title} 原著笔记'
     page = (f'<title>{esc(page_title)}</title>\n{FONTS}\n<style>{css}</style>\n'
-            f'<div class="wrap">\n{head}{body}\n{foot}\n</div>\n<script>{JS}</script>\n')
+            f'<button type="button" class="theme-btn">🌕</button>\n<div class="wrap">\n{head}{body}\n{foot}\n</div>\n<script>{JS}</script>\n')
     open(a.out, 'w', encoding='utf-8').write(page)
     print(f'✅ {a.out}（{len(batches)} 批 · {total} 条 · 详略 {level} · 配色 {book.get("palette") or "默认"}）')
 
