@@ -263,3 +263,190 @@ batches:
         note: 他正从松林往外走，松树一年四季都是绿的，再往前就换成了到秋天会掉叶子的树。这里的 brush 不是刷子，是“灌木丛”。
         extra:
           - "**易混**反义词是 evergreen（常绿的）。"
+
+  - n: 3
+    date: 2026-09-26
+    pages: 5
+    photos: 1
+    notes:
+      - id: "015"
+        page: 5
+        color: blue
+        term: canopy
+        kind: 单词
+        ipa: /ˈkænəpi/
+        pos: n.
+        cn: （林子上方）枝叶搭成的顶
+        en: a layer of something that spreads over an area like a roof, especially branches of trees in a forest
+        en_src: 牛津 8
+        context: "the ==canopy== of pine boughs"
+        gist: 松树大枝搭成的那片顶。
+        note: 本义是床上方、座位上方挂的罩篷，这里借来说树林：高处的枝叶连成一片，像一顶盖在头上的篷子。
+        extra:
+          - "**搭配**forest canopy（林冠）· under a canopy of leaves（在一片树叶底下）"
+
+      - id: "016"
+        page: 5
+        color: blue
+        term: boughs
+        lemma: bough
+        kind: 单词
+        ipa: /baʊz/
+        pos: n.
+        cn: 大树枝
+        en: a large branch of a tree
+        en_src: 牛津 8
+        context: "the canopy of pine ==boughs=="
+        gist: 松树大枝搭成的那片顶。
+        note: 牛津标着这是书面、文学的说法。读音跟 bow（鞠躬）一样，和 cow 押韵，别念成 “bɔː”。
+        extra:
+          - "**易混**branch 是一般的树枝；twig 是细小的枝条；bough 是粗大的主枝。"
+
+      - id: "017"
+        page: 5
+        color: blue
+        term: cawing
+        lemma: caw
+        kind: 单词
+        ipa: /ˈkɔːɪŋ/
+        pos: v.
+        cn: （乌鸦）呱呱叫
+        en: to make the loud, harsh sound of a crow
+        context: "a crow starts ==cawing=="
+        gist: 一只乌鸦呱呱叫了起来。
+        note: 这是个拟声词，照着乌鸦的叫声造出来的。牛津只给了名词的释义“乌鸦那种响亮难听的叫声”，所以这张卡上的英文解释是我按动词改写的。
+        extra:
+          - "**易混**不同的鸟叫声各有专门的词：crow caw（乌鸦呱呱）、rooster crow（公鸡打鸣）、small birds chirp / tweet（小鸟啾啾）。"
+
+      - id: "018"
+        page: 5
+        color: pink
+        term: cocks
+        lemma: cock
+        kind: 枪械用语
+        ipa: /kɑːks/
+        pos: v.
+        cn: 扳起击锤，让枪处于待发状态
+        en: to raise the hammer on a gun so that it is ready to fire
+        en_src: 牛津 8
+        context: "John ==cocks== the shotgun"
+        gist: John 把霰弹枪扳到待发状态。
+        note: 名词 cock 最常见的是“公鸡”（美式多说 rooster）。当动词用在枪上，是把击锤往后扳，枪就上了膛、一扣就响，紧接着那句 The sharp click 就是这个动作的声音。同一页后面还有一个 recocks，就是打完一枪之后再扳一次。当动词用在身体上，是“竖起、歪着”，比如 cock her head（歪着头）。
+        extra:
+          - "**搭配**cock a gun（扳起击锤）· cock your head（歪头）· the dog's ears cocked（狗竖起耳朵）"
+
+      - id: "019"
+        page: 5
+        color: blue
+        term: agitation
+        kind: 单词
+        ipa: /ˌædʒɪˈteɪʃn/
+        pos: n.
+        cn: 焦躁不安
+        en: worry and anxiety that you show by behaving in a nervous way
+        en_src: 牛津 8
+        context: "increases the crows’ ==agitation=="
+        gist: 让那群乌鸦更加躁动不安。
+        note: 形容词 agitated（坐立不安的）更常见。这里拿来说乌鸦，枪声一响，它们叫得更凶、扑腾得更厉害。
+        extra:
+          - "**搭配**in a state of agitation（焦躁不安）· agitated（坐立不安的）"
+          - "**易混**anxiety 偏心里发慌；agitation 是慌到外面看得出来，动来动去、坐不住。"
+
+      - id: "020"
+        page: 5
+        color: blue
+        term: chipmunk
+        kind: 名物
+        ipa: /ˈtʃɪpmʌŋk/
+        pos: n.
+        cn: 花栗鼠
+        en: a small North American animal of the squirrel family, with light and dark marks on its back
+        en_src: 牛津 8
+        context: "a squirrel or a ==chipmunk== jumps"
+        gist: 一只松鼠，或者是花栗鼠，跳了过去。
+        note: 就是背上有深浅条纹、腮帮子能塞满坚果的那种小家伙，松鼠的近亲，比松鼠小。
+        extra:
+          - "**易混**squirrel 松鼠，尾巴大而蓬松；chipmunk 更小，背上有条纹。"
+
+      - id: "021"
+        page: 5
+        color: blue
+        term: flicks
+        lemma: flick
+        kind: 单词
+        ipa: /flɪks/
+        pos: v.
+        cn: 用手指一拨
+        en: to hit something with a sudden quick movement, especially using your finger and thumb together, or your hand
+        en_src: 牛津 8
+        context: "==flicks== off the safety"
+        gist: 一下拨开了保险。
+        note: 这里的 safety 是枪上的“保险”。flick off 是用手指快速一拨把它打开，枪就能打了，写出动作之快。同一页后面有 pushes the safety in，是把保险按回去关上。
+        extra:
+          - "**搭配**flick a switch（啪地按一下开关）· flick through a book（快速翻书）"
+
+      - id: "022"
+        page: 5
+        color: blue
+        term: thistles
+        lemma: thistle
+        kind: 名物
+        ipa: /ˈθɪslz/
+        pos: n.
+        cn: 蓟（一种带刺的野草）
+        en: a wild plant with leaves with sharp points and purple, yellow or white flowers made up of a mass of narrow petals pointing upwards
+        en_src: 牛津 8
+        context: "a patch of ==thistles=="
+        gist: 一片蓟草丛。
+        note: 叶子边上全是刺，开紫色的绒球一样的花，是苏格兰的国花。中间那个 t 不发音。
+        extra:
+          - "**搭配**a patch of thistles（一片蓟草）"
+
+      - id: "023"
+        page: 5
+        color: blue
+        term: antlers
+        lemma: antler
+        kind: 名物
+        ipa: /ˈæntlərz/
+        pos: n.
+        cn: 鹿角
+        en: one of the two horns that grow on the head of male deer
+        en_src: 牛津 8
+        context: "a large rack of ==antlers=="
+        gist: 一副很大的鹿角。
+        note: rack 是猎人说一整副鹿角的叫法。鹿角每年脱落，再重新长出来，跟牛羊那种一辈子不掉的角不一样。
+        extra:
+          - "**易混**horn 是牛、羊那种一直长着的角；antler 专指鹿角，会分叉、会每年换。"
+
+      - id: "024"
+        page: 5
+        color: blue
+        term: oblong
+        kind: 单词
+        ipa: /ˈɑːblɔːŋ/
+        pos: adj.
+        cn: 长条形的
+        en: (in North American English) used to describe any shape that is longer than it is wide
+        en_src: 牛津 8
+        context: "a large ==oblong==-shaped indentation"
+        gist: 一大块长条形的压痕。
+        note: 牛津给了两个意思：英式里是长方形；美式里只要是长比宽大的形状都可以叫 oblong，包括椭圆。这里是鹿卧过留下的印子，应该是美式那个意思。
+        extra:
+          - "**易混**rectangle 是规规矩矩的长方形；oval 是椭圆形；oblong 比这两个都宽松。"
+
+      - id: "025"
+        page: 5
+        color: blue
+        term: indentation
+        kind: 单词
+        ipa: /ˌɪndenˈteɪʃn/
+        pos: n.
+        cn: 压出来的凹痕
+        en: a cut or mark on the edge or surface of something
+        en_src: 牛津 8
+        context: "==indentation== in the pine needles"
+        gist: 松针上压出来的凹痕。
+        note: 就是鹿趴着睡过的地方，松针被压下去一块。接下来 John 摸到那里还是暖的，还看见落下的鹿毛：鹿刚刚还躺在这儿。牛津的例句正好也是印子：马蹄在泥里留下深深的蹄印。
+        extra:
+          - "**易混**同一个词在排版里指“段首缩进”（空两格）。"
