@@ -14,7 +14,8 @@ book:
   palette: "Wintergreen"     # 取 _data/au_palettes.yml 里 John Moon 那套颜色，跟 Wintergreen 系列同色
   highlighters:              # 网页上两支荧光笔的颜色，跟她书上的笔同色
     blue: "#7fd6dc"          # 蓝＝生词
-    pink: "#f5ad8e"          # 粉＝词认识，但搭配 / 用法值得对照（她那支“粉”其实偏橘，第 4、5 页照片为准）
+    pink: "#f5ad8e"          # 粉＝词认识，但搭配 / 用法值得对照
+    orange: "#f7b27c"        # 橙＝她觉得表达效果好的句子，跟学词无关（2026-09-26 第 11–13 页起）
   detail: full               # 详略 lite / standard / full —— 2026-09-26 她挑了 C「详细」
   detail_picked: true        # 已挑定：样板区只留她选的那一版
   artifact: "https://claude.ai/artifact/AMf2jtPtJ16KX99RCZNuCq"   # 笔记网页（2026-09-26 首发），之后永远更新这一个
@@ -676,3 +677,75 @@ batches:
         note: 牛津标着这是口语。一个字就把“又重又累、费老大劲”全说出来了。两百磅约合九十公斤。carcass 是动物的尸体。
         extra:
           - "**易混**carry 只是“拿着、带着”；drag 是在地上拖；lug 是不管怎么弄，反正很费劲。"
+
+  - n: 6
+    date: 2026-09-26
+    pages: 8
+    photos: 1
+    notes:
+      - id: "039"
+        page: 8
+        color: blue
+        term: buzzards
+        lemma: buzzard
+        kind: 名物
+        ipa: /ˈbʌzərdz/
+        pos: n.
+        cn: 美洲鹫（吃腐肉的大鸟）
+        en: a large American bird like a vulture that eats the flesh of animals that are already dead
+        en_src: 牛津 8
+        context: "out of sight from ==buzzards== and coyotes"
+        gist: 不让美洲鹫和郊狼看见。
+        note: 这个词英美不一样：英式里是一种鹰；美式里是吃腐肉的鹫，跟秃鹫是一类。John 想把鹿尸藏在采石场里，就是怕还没运走，就先被这些吃腐肉的鸟和野兽吃了。
+        extra:
+          - "**易混**vulture 是秃鹫；美国人口语里说的 buzzard 多半就是红头美洲鹫。"
+
+      - id: "040"
+        page: 8
+        color: blue
+        term: coyotes
+        lemma: coyote
+        kind: 名物
+        ipa: /kaɪˈoʊtiz/
+        pos: n.
+        cn: 郊狼（北美的一种野狼）
+        en: a North American wild animal of the dog family
+        en_src: 牛津 8
+        context: "buzzards and ==coyotes=="
+        gist: 美洲鹫和郊狼。
+        note: 比狼小，比狐狸大，北美的乡下到处都有，夜里常听见它们叫。美国人有两种念法，/kaɪˈoʊti/ 和 /ˈkaɪoʊt/ 都对。
+        extra:
+          - "**易混**wolf 是狼，体型大得多；fox 是狐狸；coyote 在两者之间。"
+
+      - id: "041"
+        page: 8
+        color: blue
+        term: grouse
+        kind: 一词多义
+        ipa: /ɡraʊs/
+        pos: n.
+        cn: 松鸡
+        en: a bird with a fat body and feathers on its legs, which people shoot for sport and food
+        en_src: 牛津 8
+        context: "A ==grouse== suddenly breaks cover"
+        gist: 一只松鸡突然从藏身的地方冲了出来。
+        note: break cover 是打猎的说法，指藏着的动物突然窜出来，暴露了行踪。grouse 单复数同形。在口语里它还能当动词，意思是“发牢骚”。
+        extra:
+          - "**搭配**break cover（从藏身处窜出）· grouse about sth（为某事发牢骚）"
+
+      - id: "042"
+        page: 8
+        color: blue
+        term: frantic
+        kind: 单词
+        ipa: /ˈfræntɪk/
+        pos: adj.
+        cn: 慌乱急促的
+        en: done quickly and with a lot of activity, but in a way that is not very well organized
+        en_src: 牛津 8
+        context: "the ==frantic== beating of its wings"
+        gist: 它那一阵慌慌张张的扑翅声。
+        note: 松鸡受惊，翅膀扑得又急又乱，就在他脚边，吓得 John 差点心脏病发作。frantic 另一个意思是“急疯了的”，比如 frantic with worry（急得要命）。
+        extra:
+          - "**搭配**a frantic search（发疯似的找）· frantic with worry（急得要命）"
+          - "**易混**hectic 是事情多、忙得团团转；frantic 更慌乱，带着害怕或着急。"

@@ -42,6 +42,7 @@ LEVELS = {
 PENS = {
     'blue': ('生词', '#7fd6dc'),
     'pink': ('对照', '#f2a7c6'),
+    'orange': ('好句', '#f7b27c'),   # 橙＝她觉得表达效果好的句子，跟学词无关（2026-09-26）
 }
 
 FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400'
@@ -52,7 +53,7 @@ CSS = '''
  /* 默认明亮（Winter 2026-09-26：「笔记默认明亮模式吧，不然不是很方便阅读」）；右上角可切回夜间 */
  color-scheme:light;
  --bg:color-mix(in srgb,__ACCENT__ 7%,#fbfaf6);--accent:__INK_ACCENT__;--ink:__BG__;
- --muted:color-mix(in srgb,__BG__ 62%,#fbfaf6);--hl:__HL__;--hl-pink:__HLPINK__;
+ --muted:color-mix(in srgb,__BG__ 62%,#fbfaf6);--hl:__HL__;--hl-pink:__HLPINK__;--hl-orange:__HLORANGE__;
  --surface:#fffefb;--glow:rgba(255,255,255,0);--shadow:0 1px 2px rgba(20,24,31,.06);
  --line:color-mix(in srgb,var(--accent) 26%,transparent);
  --code-bg:color-mix(in srgb,var(--accent) 9%,#fff);
@@ -159,10 +160,16 @@ mark{color:inherit;background:transparent;padding:0 .14em;margin:0 -.04em;
  border-radius:.25em .45em .3em .5em;
  -webkit-box-decoration-break:clone;box-decoration-break:clone;}
 
+mark.orange{background-image:linear-gradient(100deg,transparent 0 1%,color-mix(in srgb,var(--hl-orange) var(--hl-mix),transparent) 1% 99%,transparent 99%);}
 mark.pink{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-pink) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);}
 .card__pen{padding:0 .6rem;border-radius:99px;font-family:"Noto Serif SC","Songti SC",serif;font-size:.74rem;
  letter-spacing:.08em;color:var(--pen-ink);background:var(--hl);}
 .card__pen.pink{background:var(--hl-pink);}
+.card__pen.orange{background:var(--hl-orange);}
+/* 好句卡：没有词条、音标，只有那句话、译文和赏析 */
+.card--orange{border-left:3px solid var(--hl-orange);}
+.card--orange .card__quote{font-size:1.2rem;line-height:1.75;border-left:none;padding-left:0;}
+.card--orange .card__gist{padding-left:0;}
 .card__pen+.card__kind{margin-left:0;}
 .card__meta .card__pen{margin-left:auto;}
 .card__cn .card__pos{margin-right:.5em;}
@@ -302,7 +309,8 @@ def esc(s):
 def fmt(s, pen='blue'):
     """纯文本转义 + 两个行内记号：==高亮== / **粗体**。高亮按这条笔记的荧光笔颜色上色。"""
     s = html.escape(str(s).strip(), quote=False)
-    s = re.sub(r'==(.+?)==', (r'<mark class="pink">\1</mark>' if pen == 'pink' else r'<mark>\1</mark>'), s)
+    cls = f' class="{pen}"' if pen in ('pink', 'orange') else ''
+    s = re.sub(r'==(.+?)==', rf'<mark{cls}>\1</mark>', s)
     s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
     return s.replace('\n', '<br>')
 
@@ -318,6 +326,8 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
     原文语境（短语＋页码＋大意）→ 解读 → 搭配 / 易混。"""
     show = LEVELS[level]
     pen = n.get('color') or 'blue'
+    if pen == 'orange':
+        return quote_card(n, cid, winter_label)
     out = [f'<article class="card" id="{esc(cid)}" data-comment-target>']
 
     meta = [f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>']
@@ -393,10 +403,40 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
     return '\n'.join(out)
 
 
+def quote_card(n, cid, winter_label):
+    """橙笔好句：那句话（整句高亮）＋页码＋译文＋为什么好。不进欧路列表。"""
+    out = [f'<article class="card card--orange" id="{esc(cid)}" data-comment-target>',
+           '<div class="card__meta">'
+           f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>'
+           + (f'<span class="card__page">p. {esc(n["page"])}</span>' if n.get('page') not in (None, '') else '')
+           + '<span class="card__pen orange">好句</span></div>']
+    q = n.get('context') or n.get('sentence') or ''
+    out.append(f'<blockquote class="card__quote" lang="en">{fmt(q, "orange")}</blockquote>')
+    if n.get('gist'):
+        out.append(f'<p class="card__gist">{fmt(n["gist"])}</p>')
+    if n.get('note'):
+        out.append(f'<p class="card__note"><b>好在哪</b>{fmt(n["note"])}</p>')
+    if n.get('unsure'):
+        out.append(f'<p class="card__unsure"><b>看不太清</b>{fmt(n["unsure"])}</p>')
+    ws = as_list(n.get('winter'))
+    if ws:
+        body = ''.join(f'<p>{fmt(w)}</p>' for w in ws)
+        out.append(f'<div class="card__winter"><span class="card__winter-who">{esc(n.get("winter_label") or winter_label)}</span>{body}</div>')
+    for qa in as_list(n.get('qa')):
+        out.append('<div class="card__qa">'
+                   f'<p class="card__q"><b>问</b>{fmt(qa["q"])}</p>'
+                   f'<p class="card__a"><b>答</b>{fmt(qa["a"])}</p></div>')
+    out.append('<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>')
+    out.append('</article>')
+    return '\n'.join(out)
+
+
 def eudic_words(notes):
     """欧路词典导入用：一律原形；eudic 字段可手动指定（短语拆开会变成几个无关的词时用）。"""
     words = []
     for x in notes:
+        if x.get('color') == 'orange' or x.get('eudic') is False:   # 好句不进；前面已经导过的重复词写 eudic: false
+            continue
         w = str(x.get('eudic') or x.get('lemma') or x['term']).strip()
         if w and w not in words:
             words.append(w)
@@ -430,7 +470,8 @@ def batch_section(b, level, index, title):
     if b.get('remark'):
         sub.append(esc(b['remark']))
     cards = '\n'.join(card(x, level, f'n{x["id"]}', index=index) for x in notes)
-    box = eudic_box(eudic_words(notes), title) if notes else ''
+    words = eudic_words(notes)
+    box = eudic_box(words, title) if words else ''
     return (f'<section class="batch" id="b{n}">\n<h2>{" · ".join(bits)}</h2>\n'
             f'<p class="batch__sub">{" · ".join(sub)}</p>\n{cards}\n{box}\n</section>')
 
@@ -489,7 +530,7 @@ def main():
             if str(x['id']) in index:
                 sys.exit(f'笔记编号重复：{x["id"]}')
             if (x.get('color') or 'blue') not in PENS:
-                sys.exit(f'No. {x["id"]} 的 color 只能是 blue / pink')
+                sys.exit(f'No. {x["id"]} 的 color 只能是 blue / pink / orange')
             index[str(x['id'])] = x
 
     pal = palette(book.get('palette', ''))
@@ -502,6 +543,7 @@ def main():
     css = CSS.replace('__INK_ACCENT__', ink_accent)
     pens = book.get('highlighters') or {}
     css = (css.replace('__HLPINK__', pens.get('pink') or PENS['pink'][1])
+              .replace('__HLORANGE__', pens.get('orange') or PENS['orange'][1])
               .replace('__HL__', pens.get('blue') or book.get('highlighter') or PENS['blue'][1]))
     for k, v in pal.items():
         css = css.replace(f'__{k.upper()}__', v)
