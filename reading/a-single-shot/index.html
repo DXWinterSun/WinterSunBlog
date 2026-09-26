@@ -306,11 +306,27 @@ body{padding-bottom:4.5rem;}
 .flip button{appearance:none;border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;min-height:44px;}
 .flip__btn{width:48px;font-size:1.25rem;line-height:1;}
 .flip__btn:disabled{opacity:.3;cursor:default;}
+.flip.is-open .flip__mid{background:rgba(255,255,255,.14);}
 .flip__mid{display:flex;align-items:center;gap:.5rem;padding:0 .9rem;border-left:1px solid rgba(255,255,255,.25);
  border-right:1px solid rgba(255,255,255,.25);max-width:58vw;}
 .flip__term{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .flip__count{font-size:.75rem;opacity:.75;white-space:nowrap;font-variant-numeric:tabular-nums;}
 @media (prefers-reduced-motion:reduce){.flip{transition:none;}}
+.flip__sheet{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(66px + env(safe-area-inset-bottom,0px));z-index:21;
+ width:min(360px,calc(100vw - 24px));max-height:55vh;overflow-y:auto;overscroll-behavior:contain;border-radius:14px;
+ background:var(--surface);border:1px solid var(--line);box-shadow:0 14px 34px -10px rgba(0,0,0,.45);padding:.3rem 0 .5rem;}
+.fs__page{position:sticky;top:-.3rem;z-index:1;padding:.35rem 1rem .25rem;background:var(--band);color:var(--band-ink);
+ font-size:.76rem;letter-spacing:.12em;font-variant-numeric:tabular-nums;}
+.fs__item{appearance:none;display:flex;align-items:baseline;gap:.6rem;width:100%;padding:.45rem 1rem .45rem .8rem;border:0;
+ border-left:3px solid var(--hl);background:transparent;color:var(--ink);font:inherit;text-align:left;cursor:pointer;min-height:40px;}
+.fs__item--pink{border-left-color:var(--hl-pink);}
+.fs__item--orange{border-left-color:var(--hl-orange);}
+.fs__item--orange .fs__term{font-family:inherit;font-weight:400;color:var(--muted);}
+.fs__item:hover{background:var(--band);}
+.fs__item.is-cur{background:color-mix(in srgb,var(--word) 12%,transparent);}
+.fs__item.is-cur .fs__term::after{content:"  ← 在这儿";font-family:"Noto Serif SC",serif;font-weight:400;font-size:.75rem;color:var(--word);}
+.fs__no{width:1.8rem;flex:none;font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;}
+.fs__term{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;color:var(--word);}
 
 @media (max-width:480px){
  body{font-size:16px;}
@@ -339,7 +355,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b1">
 <h2>第 3 页 · 9 月 26 日</h2>
 <p class="batch__sub">4 条 · 1 张照片</p>
-<article class="card card--blue" id="n001" data-comment-target>
+<article class="card card--blue" id="n001" data-comment-target data-term="Timberland" data-page="3" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 001</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">Timberland</h3><span class="card__ipa"><button type="button" class="card__say" data-say="Timberland" aria-label="朗读 Timberland" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈtɪmbərlænd/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>添柏岚（美国户外靴的牌子）</p>
@@ -349,7 +365,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>Timberland boots（Timberland 靴）· Timbs（口语里的简称）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n002" data-comment-target>
+<article class="card card--blue" id="n002" data-comment-target data-term="12-gauge shotgun" data-page="3" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 002</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">12-gauge shotgun</h3><span class="card__ipa"><button type="button" class="card__say" data-say="12-gauge shotgun" aria-label="朗读 12-gauge shotgun" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˌtwelv ɡeɪdʒ ˈʃɑːtɡʌn/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>12 号口径的霰弹枪</p>
@@ -359,7 +375,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a 20-gauge（20 号，更细更轻）· a double-barreled shotgun（双管霰弹枪）· gun cabinet（枪柜）</li><li class="is-confuse"><strong>易混</strong>gauge 只管霰弹枪；步枪和手枪的口径用 caliber（如 .22 caliber），两套算法不通用。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n003" data-comment-target>
+<article class="card card--blue" id="n003" data-comment-target data-term="slugs" data-page="3" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 003</span><span class="card__pen blue">生词</span><span class="card__kind">一词多义</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">slugs</h3><span class="card__ipa"><button type="button" class="card__say" data-say="slugs" aria-label="朗读 slugs" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/slʌɡz/</span><span class="card__lemma">原形 <i lang="en">slug</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>独头弹（霰弹枪打的一整颗大弹头）</p>
@@ -369,7 +385,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a handful of slugs（一把独头弹）· birdshot（打鸟的细铅丸）· buckshot（鹿弹，大号铅丸）</li><li class="is-confuse"><strong>易混</strong>bullet 是步枪、手枪的子弹；shell 是一整发霰弹（弹壳连里面装的东西），slug 只是其中一种装法。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n004" data-comment-target>
+<article class="card card--blue" id="n004" data-comment-target data-term="converging" data-page="3" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 004</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">converging</h3><span class="card__ipa"><button type="button" class="card__say" data-say="converging" aria-label="朗读 converging" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/kənˈvɜːrdʒɪŋ/</span><span class="card__lemma">原形 <i lang="en">converge</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>（几条路）汇到一处的</p>
@@ -384,7 +400,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b2">
 <h2>第 4 页 · 9 月 26 日</h2>
 <p class="batch__sub">10 条 · 1 张照片</p>
-<article class="card card--blue" id="n005" data-comment-target>
+<article class="card card--blue" id="n005" data-comment-target data-term="poachers" data-page="4" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 005</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">poachers</h3><span class="card__ipa"><button type="button" class="card__say" data-say="poachers" aria-label="朗读 poachers" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈpoʊtʃərz/</span><span class="card__lemma">原形 <i lang="en">poacher</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>偷猎的人</p>
@@ -394,7 +410,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>poach a deer（偷猎一头鹿）· poach eggs（水煮荷包蛋，同一个 poach）</li><li class="is-confuse"><strong>易混</strong>hunter 是合法打猎的人；poacher 专指不合法的，在别人的地上、禁猎期、保护区里打。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n006" data-comment-target>
+<article class="card card--blue" id="n006" data-comment-target data-term="shrugs" data-page="4" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 006</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">shrugs</h3><span class="card__ipa"><button type="button" class="card__say" data-say="shrugs" aria-label="朗读 shrugs" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ʃrʌɡz/</span><span class="card__lemma">原形 <i lang="en">shrug</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>耸耸肩</p>
@@ -404,7 +420,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>shrug your shoulders（耸耸肩）· shrug off（不当回事，比如 shrug off the injury 不把伤当回事）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n007" data-comment-target>
+<article class="card card--blue" id="n007" data-comment-target data-term="pine needles" data-page="4" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 007</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">pine needles</h3><span class="card__ipa"><button type="button" class="card__say" data-say="pine needles" aria-label="朗读 pine needles" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈpaɪn ˌniːdlz/</span><span class="card__lemma">原形 <i lang="en">pine needle</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>松针</p>
@@ -414,7 +430,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a bed of pine needles / leaves（一层松针 / 落叶）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n008" data-comment-target>
+<article class="card card--blue" id="n008" data-comment-target data-term="ten-point buck" data-page="4" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 008</span><span class="card__pen blue">生词</span><span class="card__kind">打猎用语</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">ten-point buck</h3><span class="card__ipa"><button type="button" class="card__say" data-say="ten-point buck" aria-label="朗读 ten-point buck" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˌten pɔɪnt ˈbʌk/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>十个叉的公鹿</p>
@@ -424,7 +440,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>buck 公鹿（也指公兔）；doe 母鹿；stag 也是公鹿，多指英国那种高大的赤鹿；deer 泛指鹿，单复数同形。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n009" data-comment-target>
+<article class="card card--blue" id="n009" data-comment-target data-term="binoculars" data-page="4" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 009</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">binoculars</h3><span class="card__ipa"><button type="button" class="card__say" data-say="binoculars" aria-label="朗读 binoculars" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/bɪˈnɑːkjələrz/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>双筒望远镜</p>
@@ -434,7 +450,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a pair of binoculars（一副双筒望远镜）· through binoculars（用望远镜看）</li><li class="is-confuse"><strong>易混</strong>telescope 是单筒的望远镜，看星星那种。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n010" data-comment-target>
+<article class="card card--blue" id="n010" data-comment-target data-term="graze" data-page="4" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 010</span><span class="card__pen blue">生词</span><span class="card__kind">一词多义</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">graze</h3><span class="card__ipa"><button type="button" class="card__say" data-say="graze" aria-label="朗读 graze" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ɡreɪz/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>（牛羊鹿）吃草</p>
@@ -444,7 +460,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>graze on grass（啃草）· graze cattle（放牛）· a graze on the knee（膝盖上擦破的皮）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n011" data-comment-target>
+<article class="card card--blue" id="n011" data-comment-target data-term="loped" data-page="4" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 011</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">loped</h3><span class="card__ipa"><button type="button" class="card__say" data-say="loped" aria-label="朗读 loped" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/loʊpt/</span><span class="card__lemma">原形 <i lang="en">lope</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>轻快地大步跑</p>
@@ -454,7 +470,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>jog 慢跑；gallop 马的全速飞奔；lope 介于两者之间，步子大而从容。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--pink" id="n012" data-comment-target>
+<article class="card card--pink" id="n012" data-comment-target data-term="dressed" data-page="4" data-pen="pink">
 <div class="card__meta"><span class="card__no">No. 012</span><span class="card__pen pink">对照</span><span class="card__kind">打猎用语</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">dressed</h3><span class="card__ipa"><button type="button" class="card__say" data-say="dressed" aria-label="朗读 dressed" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/drest/</span><span class="card__lemma">原形 <i lang="en">dress</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>（猎物）宰好收拾干净的</p>
@@ -464,7 +480,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>field-dress a deer（在野外给鹿开膛去内脏）· dress a salad（给沙拉拌调料，也是这个 dress）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n013" data-comment-target>
+<article class="card card--blue" id="n013" data-comment-target data-term="venison" data-page="4" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 013</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">venison</h3><span class="card__ipa"><button type="button" class="card__say" data-say="venison" aria-label="朗读 venison" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈvenɪsən/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>鹿肉</p>
@@ -474,7 +490,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>英语里活的动物和它的肉常是两个词：deer 和 venison、cow 和 beef、pig 和 pork、sheep 和 mutton。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n014" data-comment-target>
+<article class="card card--blue" id="n014" data-comment-target data-term="deciduous" data-page="4" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 014</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">deciduous</h3><span class="card__ipa"><button type="button" class="card__say" data-say="deciduous" aria-label="朗读 deciduous" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/dɪˈsɪdʒuəs/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>落叶的（树）</p>
@@ -489,7 +505,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b3">
 <h2>第 5 页 · 9 月 26 日</h2>
 <p class="batch__sub">11 条 · 1 张照片</p>
-<article class="card card--blue" id="n015" data-comment-target>
+<article class="card card--blue" id="n015" data-comment-target data-term="canopy" data-page="5" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 015</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">canopy</h3><span class="card__ipa"><button type="button" class="card__say" data-say="canopy" aria-label="朗读 canopy" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈkænəpi/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>（林子上方）枝叶搭成的顶</p>
@@ -499,7 +515,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>forest canopy（林冠）· under a canopy of leaves（在一片树叶底下）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n016" data-comment-target>
+<article class="card card--blue" id="n016" data-comment-target data-term="boughs" data-page="5" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 016</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">boughs</h3><span class="card__ipa"><button type="button" class="card__say" data-say="boughs" aria-label="朗读 boughs" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/baʊz/</span><span class="card__lemma">原形 <i lang="en">bough</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>大树枝</p>
@@ -509,7 +525,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>branch 是一般的树枝；twig 是细小的枝条；bough 是粗大的主枝。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n017" data-comment-target>
+<article class="card card--blue" id="n017" data-comment-target data-term="cawing" data-page="5" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 017</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">cawing</h3><span class="card__ipa"><button type="button" class="card__say" data-say="cawing" aria-label="朗读 cawing" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈkɔːɪŋ/</span><span class="card__lemma">原形 <i lang="en">caw</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>（乌鸦）呱呱叫</p>
@@ -519,7 +535,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>不同的鸟叫声各有专门的词：crow caw（乌鸦呱呱）、rooster crow（公鸡打鸣）、small birds chirp / tweet（小鸟啾啾）。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--pink" id="n018" data-comment-target>
+<article class="card card--pink" id="n018" data-comment-target data-term="cocks" data-page="5" data-pen="pink">
 <div class="card__meta"><span class="card__no">No. 018</span><span class="card__pen pink">对照</span><span class="card__kind">枪械用语</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">cocks</h3><span class="card__ipa"><button type="button" class="card__say" data-say="cocks" aria-label="朗读 cocks" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/kɑːks/</span><span class="card__lemma">原形 <i lang="en">cock</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>扳起击锤，让枪处于待发状态</p>
@@ -529,7 +545,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>cock a gun（扳起击锤）· cock your head（歪头）· the dog's ears cocked（狗竖起耳朵）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n019" data-comment-target>
+<article class="card card--blue" id="n019" data-comment-target data-term="agitation" data-page="5" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 019</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">agitation</h3><span class="card__ipa"><button type="button" class="card__say" data-say="agitation" aria-label="朗读 agitation" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˌædʒɪˈteɪʃn/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>焦躁不安</p>
@@ -539,7 +555,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>in a state of agitation（焦躁不安）· agitated（坐立不安的）</li><li class="is-confuse"><strong>易混</strong>anxiety 偏心里发慌；agitation 是慌到外面看得出来，动来动去、坐不住。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n020" data-comment-target>
+<article class="card card--blue" id="n020" data-comment-target data-term="chipmunk" data-page="5" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 020</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">chipmunk</h3><span class="card__ipa"><button type="button" class="card__say" data-say="chipmunk" aria-label="朗读 chipmunk" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈtʃɪpmʌŋk/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>花栗鼠</p>
@@ -549,7 +565,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>squirrel 松鼠，尾巴大而蓬松；chipmunk 更小，背上有条纹。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n021" data-comment-target>
+<article class="card card--blue" id="n021" data-comment-target data-term="flicks" data-page="5" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 021</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">flicks</h3><span class="card__ipa"><button type="button" class="card__say" data-say="flicks" aria-label="朗读 flicks" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/flɪks/</span><span class="card__lemma">原形 <i lang="en">flick</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>用手指一拨</p>
@@ -559,7 +575,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>flick a switch（啪地按一下开关）· flick through a book（快速翻书）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n022" data-comment-target>
+<article class="card card--blue" id="n022" data-comment-target data-term="thistles" data-page="5" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 022</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">thistles</h3><span class="card__ipa"><button type="button" class="card__say" data-say="thistles" aria-label="朗读 thistles" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈθɪslz/</span><span class="card__lemma">原形 <i lang="en">thistle</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>蓟（一种带刺的野草）</p>
@@ -569,7 +585,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a patch of thistles（一片蓟草）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n023" data-comment-target>
+<article class="card card--blue" id="n023" data-comment-target data-term="antlers" data-page="5" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 023</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">antlers</h3><span class="card__ipa"><button type="button" class="card__say" data-say="antlers" aria-label="朗读 antlers" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈæntlərz/</span><span class="card__lemma">原形 <i lang="en">antler</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>鹿角</p>
@@ -579,7 +595,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>horn 是牛、羊那种一直长着的角；antler 专指鹿角，会分叉、会每年换。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n024" data-comment-target>
+<article class="card card--blue" id="n024" data-comment-target data-term="oblong" data-page="5" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 024</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">oblong</h3><span class="card__ipa"><button type="button" class="card__say" data-say="oblong" aria-label="朗读 oblong" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈɑːblɔːŋ/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>长条形的</p>
@@ -589,7 +605,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>rectangle 是规规矩矩的长方形；oval 是椭圆形；oblong 比这两个都宽松。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n025" data-comment-target>
+<article class="card card--blue" id="n025" data-comment-target data-term="indentation" data-page="5" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 025</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">indentation</h3><span class="card__ipa"><button type="button" class="card__say" data-say="indentation" aria-label="朗读 indentation" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˌɪndenˈteɪʃn/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>压出来的凹痕</p>
@@ -604,7 +620,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b4">
 <h2>第 6 页 · 9 月 26 日</h2>
 <p class="batch__sub">8 条 · 1 张照片</p>
-<article class="card card--blue" id="n026" data-comment-target>
+<article class="card card--blue" id="n026" data-comment-target data-term="pungent" data-page="6" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 026</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">pungent</h3><span class="card__ipa"><button type="button" class="card__say" data-say="pungent" aria-label="朗读 pungent" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈpʌndʒənt/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>（气味）冲鼻的</p>
@@ -614,7 +630,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a pungent smell / odour（刺鼻的气味）</li><li class="is-confuse"><strong>易混</strong>strong 只说味道重；pungent 是重到发冲、呛人。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n027" data-comment-target>
+<article class="card card--blue" id="n027" data-comment-target data-term="trots" data-page="6" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 027</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">trots</h3><span class="card__ipa"><button type="button" class="card__say" data-say="trots" aria-label="朗读 trots" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/trɑːts/</span><span class="card__lemma">原形 <i lang="en">trot</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>小步快跑</p>
@@ -624,7 +640,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>第 4 页的 lope 是大步、从容；trot 是小步、急促。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n028" data-comment-target>
+<article class="card card--blue" id="n028" data-comment-target data-term="sumac" data-page="6" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 028</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">sumac</h3><span class="card__ipa"><button type="button" class="card__say" data-say="sumac" aria-label="朗读 sumac" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈsuːmæk/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>漆树（盐肤木一类的灌木）</p>
@@ -634,7 +650,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>staghorn sumac（鹿角漆树，枝上有绒毛，最常见）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n029" data-comment-target>
+<article class="card card--blue" id="n029" data-comment-target data-term="laurel" data-page="6" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 029</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">laurel</h3><span class="card__ipa"><button type="button" class="card__say" data-say="laurel" aria-label="朗读 laurel" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈlɔːrəl/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>月桂；这里是山月桂</p>
@@ -644,7 +660,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>rest on your laurels（吃老本，满足于已有的成绩），这里 laurels 是“荣誉”的意思，来自古时候给胜利者戴的月桂冠。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n030" data-comment-target>
+<article class="card card--blue" id="n030" data-comment-target data-term="nettles" data-page="6" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 030</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">nettles</h3><span class="card__ipa"><button type="button" class="card__say" data-say="nettles" aria-label="朗读 nettles" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈnetlz/</span><span class="card__lemma">原形 <i lang="en">nettle</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>荨麻</p>
@@ -654,7 +670,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>stinging nettle（荨麻的全称）· tear at（撕扯）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n031" data-comment-target>
+<article class="card card--blue" id="n031" data-comment-target data-term="rake" data-page="6" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 031</span><span class="card__pen blue">生词</span><span class="card__kind">一词多义</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">rake</h3><span class="card__ipa"><button type="button" class="card__say" data-say="rake" aria-label="朗读 rake" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/reɪk/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>划过、刮过（皮肤）</p>
@@ -664,7 +680,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>rake leaves（耙树叶）· rake through（翻找）</li><li class="is-confuse"><strong>易混</strong>scratch 是一般的抓、挠；rake 是一道一道划过去，力气更大，面积也更大。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n032" data-comment-target>
+<article class="card card--blue" id="n032" data-comment-target data-term="interlarded" data-page="6" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 032</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">interlarded</h3><span class="card__ipa"><button type="button" class="card__say" data-say="interlarded" aria-label="朗读 interlarded" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˌɪntərˈlɑːrdɪd/</span><span class="card__lemma">原形 <i lang="en">interlard</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>夹杂着、穿插着</p>
@@ -674,7 +690,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>intersperse 意思最接近，也常见得多：be interspersed with（间或夹着）。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n033" data-comment-target>
+<article class="card card--blue" id="n033" data-comment-target data-term="sporadic" data-page="6" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 033</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">sporadic</h3><span class="card__ipa"><button type="button" class="card__say" data-say="sporadic" aria-label="朗读 sporadic" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/spəˈrædɪk/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>零零星星的、时有时无的</p>
@@ -689,7 +705,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b5">
 <h2>第 7 页 · 9 月 26 日</h2>
 <p class="batch__sub">5 条 · 1 张照片</p>
-<article class="card card--blue" id="n034" data-comment-target>
+<article class="card card--blue" id="n034" data-comment-target data-term="veered" data-page="7" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 034</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">veered</h3><span class="card__ipa"><button type="button" class="card__say" data-say="veered" aria-label="朗读 veered" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/vɪrd/</span><span class="card__lemma">原形 <i lang="en">veer</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>突然拐向</p>
@@ -699,7 +715,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>veer off the road（冲出路面）· veer away from（偏离）</li><li class="is-confuse"><strong>易混</strong>swerve 多是为了躲东西急打方向；veer 只说方向突然变了，不一定是在躲。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n035" data-comment-target>
+<article class="card card--blue" id="n035" data-comment-target data-term="heifers" data-page="7" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 035</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">heifers</h3><span class="card__ipa"><button type="button" class="card__say" data-say="heifers" aria-label="朗读 heifers" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈhefərz/</span><span class="card__lemma">原形 <i lang="en">heifer</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>还没生过小牛的小母牛</p>
@@ -709,7 +725,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>cow 母牛（一般是生过小牛的）；heifer 还没生过的小母牛；calf 小牛；bull 公牛。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n036" data-comment-target>
+<article class="card card--blue" id="n036" data-comment-target data-term="chokecherries" data-page="7" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 036</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">chokecherries</h3><span class="card__ipa"><button type="button" class="card__say" data-say="chokecherries" aria-label="朗读 chokecherries" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈtʃoʊkˌtʃeriz/</span><span class="card__lemma">原形 <i lang="en">chokecherry</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>北美稠李（一种野樱桃树）</p>
@@ -719,7 +735,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>chokecherry jelly（稠李果酱，加足了糖才能吃）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n037" data-comment-target>
+<article class="card card--blue" id="n037" data-comment-target data-term="brambles" data-page="7" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 037</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">brambles</h3><span class="card__ipa"><button type="button" class="card__say" data-say="brambles" aria-label="朗读 brambles" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈbræmblz/</span><span class="card__lemma">原形 <i lang="en">bramble</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>带刺的灌木（黑莓那一类）</p>
@@ -729,7 +745,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>thorn 是刺本身；bramble 是长满刺的那丛灌木；bush 是一般的灌木。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n038" data-comment-target>
+<article class="card card--blue" id="n038" data-comment-target data-term="lug" data-page="7" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 038</span><span class="card__pen blue">生词</span><span class="card__kind">口语</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">lug</h3><span class="card__ipa"><button type="button" class="card__say" data-say="lug" aria-label="朗读 lug" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/lʌɡ/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>吃力地拖、扛</p>
@@ -744,7 +760,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b6">
 <h2>第 8 页 · 9 月 26 日</h2>
 <p class="batch__sub">4 条 · 1 张照片</p>
-<article class="card card--blue" id="n039" data-comment-target>
+<article class="card card--blue" id="n039" data-comment-target data-term="buzzards" data-page="8" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 039</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">buzzards</h3><span class="card__ipa"><button type="button" class="card__say" data-say="buzzards" aria-label="朗读 buzzards" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈbʌzərdz/</span><span class="card__lemma">原形 <i lang="en">buzzard</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>美洲鹫（吃腐肉的大鸟）</p>
@@ -754,7 +770,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>vulture 是秃鹫；美国人口语里说的 buzzard 多半就是红头美洲鹫。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n040" data-comment-target>
+<article class="card card--blue" id="n040" data-comment-target data-term="coyotes" data-page="8" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 040</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">coyotes</h3><span class="card__ipa"><button type="button" class="card__say" data-say="coyotes" aria-label="朗读 coyotes" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/kaɪˈoʊtiz/</span><span class="card__lemma">原形 <i lang="en">coyote</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>郊狼（北美的一种野狼）</p>
@@ -764,7 +780,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>wolf 是狼，体型大得多；fox 是狐狸；coyote 在两者之间。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n041" data-comment-target>
+<article class="card card--blue" id="n041" data-comment-target data-term="grouse" data-page="8" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 041</span><span class="card__pen blue">生词</span><span class="card__kind">一词多义</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">grouse</h3><span class="card__ipa"><button type="button" class="card__say" data-say="grouse" aria-label="朗读 grouse" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ɡraʊs/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>松鸡</p>
@@ -774,7 +790,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>break cover（从藏身处窜出）· grouse about sth（为某事发牢骚）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n042" data-comment-target>
+<article class="card card--blue" id="n042" data-comment-target data-term="frantic" data-page="8" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 042</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">frantic</h3><span class="card__ipa"><button type="button" class="card__say" data-say="frantic" aria-label="朗读 frantic" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈfræntɪk/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>慌乱急促的</p>
@@ -789,7 +805,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b7">
 <h2>第 9 页 · 9 月 26 日</h2>
 <p class="batch__sub">5 条 · 1 张照片</p>
-<article class="card card--blue" id="n043" data-comment-target>
+<article class="card card--blue" id="n043" data-comment-target data-term="dislodged" data-page="9" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 043</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">dislodged</h3><span class="card__ipa"><button type="button" class="card__say" data-say="dislodged" aria-label="朗读 dislodged" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/dɪsˈlɑːdʒd/</span><span class="card__lemma">原形 <i lang="en">dislodge</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>被碰松、挪了位</p>
@@ -799,7 +815,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>dislodge sth from sth（把……从……弄下来）</li><li class="is-confuse"><strong>易混</strong>move 只是“挪动”；dislodge 是把原本卡在、嵌在某处的东西硬弄松、弄出来。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n044" data-comment-target>
+<article class="card card--blue" id="n044" data-comment-target data-term="blue jays" data-page="9" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 044</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">blue jays</h3><span class="card__ipa"><button type="button" class="card__say" data-say="blue jays" aria-label="朗读 blue jays" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈbluː dʒeɪz/</span><span class="card__lemma">原形 <i lang="en">blue jay</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>冠蓝鸦</p>
@@ -809,7 +825,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a flock of birds（一群鸟）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n045" data-comment-target>
+<article class="card card--blue" id="n045" data-comment-target data-term="squawking" data-page="9" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 045</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">squawking</h3><span class="card__ipa"><button type="button" class="card__say" data-say="squawking" aria-label="朗读 squawking" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈskwɔːkɪŋ/</span><span class="card__lemma">原形 <i lang="en">squawk</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>（鸟）尖声怪叫</p>
@@ -819,7 +835,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>第 5 页的 caw 专指乌鸦那种呱呱声；squawk 是更刺耳、更慌乱的尖叫，鹦鹉、鸡、松鸦都用它。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n046" data-comment-target>
+<article class="card card--blue" id="n046" data-comment-target data-term="spruce" data-page="9" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 046</span><span class="card__pen blue">生词</span><span class="card__kind">一词多义</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">spruce</h3><span class="card__ipa"><button type="button" class="card__say" data-say="spruce" aria-label="朗读 spruce" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/spruːs/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>云杉</p>
@@ -829,7 +845,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>spruce up（打扮、收拾）</li><li class="is-confuse"><strong>易混</strong>pine 松树的针叶是几根一束长的；spruce 云杉的针叶短，一根一根单独长在枝上。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n047" data-comment-target>
+<article class="card card--blue" id="n047" data-comment-target data-term="chassis" data-page="9" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 047</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">chassis</h3><span class="card__ipa"><button type="button" class="card__say" data-say="chassis" aria-label="朗读 chassis" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈʃæsi/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>（车的）底盘</p>
@@ -844,7 +860,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b8">
 <h2>第 10 页 · 9 月 26 日</h2>
 <p class="batch__sub">3 条 · 1 张照片</p>
-<article class="card card--blue" id="n048" data-comment-target>
+<article class="card card--blue" id="n048" data-comment-target data-term="thicket" data-page="10" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 048</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">thicket</h3><span class="card__ipa"><button type="button" class="card__say" data-say="thicket" aria-label="朗读 thicket" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈθɪkɪt/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>密密的灌木丛</p>
@@ -854,7 +870,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>bush 是单独一棵灌木；thicket 是一大片挤在一起、人钻不过去的灌木丛。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n049" data-comment-target>
+<article class="card card--blue" id="n049" data-comment-target data-term="phlegm" data-page="10" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 049</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">phlegm</h3><span class="card__ipa"><button type="button" class="card__say" data-say="phlegm" aria-label="朗读 phlegm" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/flem/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>痰；（这里是）鼻涕沫子</p>
@@ -864,7 +880,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>flared nostrils（张大的鼻孔）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n050" data-comment-target>
+<article class="card card--blue" id="n050" data-comment-target data-term="bleat" data-page="10" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 050</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">bleat</h3><span class="card__ipa"><button type="button" class="card__say" data-say="bleat" aria-label="朗读 bleat" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/bliːt/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>（羊、鹿的）一声哀叫</p>
@@ -879,14 +895,14 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b9">
 <h2>第 11 页 · 9 月 26 日</h2>
 <p class="batch__sub">7 条 · 1 张照片</p>
-<article class="card card--orange" id="n051" data-comment-target>
+<article class="card card--orange" id="n051" data-comment-target data-term="好句" data-page="11" data-pen="orange">
 <div class="card__meta"><span class="card__no">No. 051</span><span class="card__page">p. 11</span><span class="card__pen orange">好句</span></div>
 <blockquote class="card__quote" lang="en"><mark class="orange">John has the same sad feeling as he did watching his father doing likewise in a hospital bed fourteen years before.</mark></blockquote>
 <p class="card__gist">John 心里涌上的那种难过，跟十四年前看着父亲躺在病床上也这样的时候，一模一样。</p>
 <p class="card__note"><b>好在哪</b>这是书里第一次提到他父亲。doing likewise 指的是前面那头鹿的样子：一口一口往外呼、眼睛发浑，好像已经去了另一个世界。作者没有直接写“死”，只用 doing likewise 这两个词，就把一头垂死的鹿和病床上的父亲叠在了一起。一个猎人看着自己的猎物，想起的却是送走父亲的那一幕。</p>
 <div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n052" data-comment-target>
+<article class="card card--blue" id="n052" data-comment-target data-term="hoists" data-page="11" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 052</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">hoists</h3><span class="card__ipa"><button type="button" class="card__say" data-say="hoists" aria-label="朗读 hoists" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/hɔɪsts/</span><span class="card__lemma">原形 <i lang="en">hoist</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>高高举起</p>
@@ -896,14 +912,14 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>hoist a flag（升旗）· hoist sth onto your shoulder（把……扛上肩）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--orange" id="n053" data-comment-target>
+<article class="card card--orange" id="n053" data-comment-target data-term="好句" data-page="11" data-pen="orange">
 <div class="card__meta"><span class="card__no">No. 053</span><span class="card__page">p. 11</span><span class="card__pen orange">好句</span></div>
 <blockquote class="card__quote" lang="en">The buck should have died in the pines from <mark class="orange">a single shot</mark>.</blockquote>
 <p class="card__gist">那头鹿本该在松林里，一枪就了结。</p>
 <p class="card__note"><b>好在哪</b>书名第一次出现在正文里。在这里它说的就是字面上的“一枪”：他原本只想一枪打死一头鹿，结果弄成了一路追、一路流血，最后只能用枪托砸死它。书名以后还会不会有别的分量，读下去再看。</p>
 <div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n054" data-comment-target>
+<article class="card card--blue" id="n054" data-comment-target data-term="wads" data-page="11" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 054</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">wads</h3><span class="card__ipa"><button type="button" class="card__say" data-say="wads" aria-label="朗读 wads" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/wɑːdz/</span><span class="card__lemma">原形 <i lang="en">wad</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>揉成一团</p>
@@ -913,7 +929,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a wad of cash（一沓现金）· wad up（揉成团）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n055" data-comment-target>
+<article class="card card--blue" id="n055" data-comment-target data-term="puncture" data-page="11" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 055</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">puncture</h3><span class="card__ipa"><button type="button" class="card__say" data-say="puncture" aria-label="朗读 puncture" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈpʌŋktʃər/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>扎出来的伤口</p>
@@ -923,7 +939,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>puncture wound（刺伤）· a punctured tyre（扎破的轮胎）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n056" data-comment-target>
+<article class="card card--blue" id="n056" data-comment-target data-term="oozing" data-page="11" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 056</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">oozing</h3><span class="card__ipa"><button type="button" class="card__say" data-say="oozing" aria-label="朗读 oozing" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈuːzɪŋ/</span><span class="card__lemma">原形 <i lang="en">ooze</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>（稠的液体）慢慢往外渗</p>
@@ -933,7 +949,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>ooze blood（渗血）· ooze confidence / charm（浑身散发着自信 / 魅力）</li><li class="is-confuse"><strong>易混</strong>drip 是一滴一滴往下掉；ooze 是黏稠的东西慢慢冒出来。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n057" data-comment-target>
+<article class="card card--blue" id="n057" data-comment-target data-term="unwads" data-page="11" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 057</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">unwads</h3><span class="card__ipa"><button type="button" class="card__say" data-say="unwads" aria-label="朗读 unwads" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ʌnˈwɑːdz/</span><span class="card__lemma">原形 <i lang="en">unwad</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>把揉成团的东西摊开</p>
@@ -947,7 +963,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b10">
 <h2>第 12 页 · 9 月 26 日</h2>
 <p class="batch__sub">4 条 · 1 张照片</p>
-<article class="card card--blue" id="n058" data-comment-target>
+<article class="card card--blue" id="n058" data-comment-target data-term="square knot" data-page="12" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 058</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">square knot</h3><span class="card__ipa"><button type="button" class="card__say" data-say="square knot" aria-label="朗读 square knot" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˌskwer ˈnɑːt/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>平结（方结）</p>
@@ -957,7 +973,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>square knot（美）＝ reef knot（英），是同一种结。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n059" data-comment-target>
+<article class="card card--blue" id="n059" data-comment-target data-term="briars" data-page="12" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 059</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">briars</h3><span class="card__ipa"><button type="button" class="card__say" data-say="briars" aria-label="朗读 briars" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈbraɪərz/</span><span class="card__lemma">原形 <i lang="en">briar</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>带刺的野灌木（尤指野蔷薇）</p>
@@ -967,7 +983,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>第 7 页的 bramble 多指长黑莓的那种；briar 尤指野蔷薇。平时两个词常常混着用，都是“扎人的野灌木”。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n060" data-comment-target>
+<article class="card card--blue" id="n060" data-comment-target data-term="thicket" data-page="12" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 060</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">thicket</h3><span class="card__ipa"><button type="button" class="card__say" data-say="thicket" aria-label="朗读 thicket" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈθɪkɪt/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>密密的灌木丛</p>
@@ -976,7 +992,7 @@ body{padding-bottom:4.5rem;}
 <p class="card__note"><b>解读</b>第 10 页的 No. 048 记过这个词，这一处又划了一次。同一页再往下还有 the tangled thicket（缠成一团的灌木丛），说它 dense as a sponge，密得像一块海绵。欧路列表里就不重复放了。</p>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--orange" id="n061" data-comment-target>
+<article class="card card--orange" id="n061" data-comment-target data-term="好句" data-page="12" data-pen="orange">
 <div class="card__meta"><span class="card__no">No. 061</span><span class="card__page">p. 12</span><span class="card__pen orange">好句</span></div>
 <blockquote class="card__quote" lang="en"><mark class="orange">He remembers reading in a book once about how lives are begun, altered, and wiped out in a second, and something else about people only coming to know themselves through tragedy.</mark></blockquote>
 <p class="card__gist">他想起从前在一本书里读到过：人的一生，一秒钟之内就能开始、改变、被抹去；书里还说，人只有经过了悲剧，才会真正认识自己。</p>
@@ -988,7 +1004,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b11">
 <h2>第 13 页 · 9 月 26 日</h2>
 <p class="batch__sub">6 条 · 1 张照片</p>
-<article class="card card--blue" id="n062" data-comment-target>
+<article class="card card--blue" id="n062" data-comment-target data-term="protruding" data-page="13" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 062</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">protruding</h3><span class="card__ipa"><button type="button" class="card__say" data-say="protruding" aria-label="朗读 protruding" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/proʊˈtruːdɪŋ/</span><span class="card__lemma">原形 <i lang="en">protrude</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>伸出来、露出来</p>
@@ -998,7 +1014,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>stick out 是口语说法，意思一样；protrude 更书面。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n063" data-comment-target>
+<article class="card card--blue" id="n063" data-comment-target data-term="brambles" data-page="13" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 063</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">brambles</h3><span class="card__ipa"><button type="button" class="card__say" data-say="brambles" aria-label="朗读 brambles" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈbræmblz/</span><span class="card__lemma">原形 <i lang="en">bramble</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>带刺的灌木（黑莓那一类）</p>
@@ -1007,7 +1023,7 @@ body{padding-bottom:4.5rem;}
 <p class="card__note"><b>解读</b>第 7 页的 No. 037 记过这个词，这一处又划了一次，欧路列表里就不重复放了。</p>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n064" data-comment-target>
+<article class="card card--blue" id="n064" data-comment-target data-term="satchel" data-page="13" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 064</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">satchel</h3><span class="card__ipa"><button type="button" class="card__say" data-say="satchel" aria-label="朗读 satchel" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈsætʃəl/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>挎包；书包</p>
@@ -1017,7 +1033,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>backpack 是双肩背包；satchel 是一根长带子斜挎或背着的包，样子更老派。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n065" data-comment-target>
+<article class="card card--blue" id="n065" data-comment-target data-term="transposed" data-page="13" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 065</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">transposed</h3><span class="card__ipa"><button type="button" class="card__say" data-say="transposed" aria-label="朗读 transposed" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/trænsˈpoʊzd/</span><span class="card__lemma">原形 <i lang="en">transpose</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>变成（另一种样子）</p>
@@ -1027,7 +1043,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>transpose A into B（把 A 变成 B）</li><li class="is-confuse"><strong>易混</strong>在音乐里它是“移调”；在一般语境里，change 最常用，transform 强调彻底改变，transpose 多指换位置、换形式。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n066" data-comment-target>
+<article class="card card--blue" id="n066" data-comment-target data-term="incisors" data-page="13" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 066</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">incisors</h3><span class="card__ipa"><button type="button" class="card__say" data-say="incisors" aria-label="朗读 incisors" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ɪnˈsaɪzərz/</span><span class="card__lemma">原形 <i lang="en">incisor</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>门牙</p>
@@ -1037,7 +1053,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>incisor 门牙；canine 犬齿（尖牙）；molar 臼齿（大牙）。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--orange" id="n067" data-comment-target>
+<article class="card card--orange" id="n067" data-comment-target data-term="好句" data-page="13" data-pen="orange">
 <div class="card__meta"><span class="card__no">No. 067</span><span class="card__page">p. 13</span><span class="card__pen orange">好句</span></div>
 <blockquote class="card__quote" lang="en"><mark class="orange">John looks up at the sky. It looks just as it did five minutes before. He can’t figure out how that can be.</mark></blockquote>
 <p class="card__gist">John 抬头看天。天跟五分钟前一模一样。他想不通，怎么会这样。</p>
@@ -1049,7 +1065,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b12">
 <h2>第 14 页 · 9 月 26 日</h2>
 <p class="batch__sub">5 条 · 1 张照片</p>
-<article class="card card--blue" id="n068" data-comment-target>
+<article class="card card--blue" id="n068" data-comment-target data-term="slithers" data-page="14" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 068</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">slithers</h3><span class="card__ipa"><button type="button" class="card__say" data-say="slithers" aria-label="朗读 slithers" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈslɪðərz/</span><span class="card__lemma">原形 <i lang="en">slither</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>（蛇）贴着地面滑过去</p>
@@ -1059,7 +1075,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>slide 是一般的滑；slither 专指贴着地、扭着身子滑，蛇和蜥蜴最常用。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n069" data-comment-target>
+<article class="card card--blue" id="n069" data-comment-target data-term="hog snake" data-page="14" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 069</span><span class="card__pen blue">生词</span><span class="card__kind">方言</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">hog snake</h3><span class="card__ipa"><button type="button" class="card__say" data-say="hog snake" aria-label="朗读 hog snake" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈhɑːɡ sneɪk/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>猪鼻蛇（美国东部一种无毒的蛇）</p>
@@ -1069,21 +1085,21 @@ body{padding-bottom:4.5rem;}
 <p class="card__unsure"><b>看不太清</b>我是按地方叫法推断的，书里没有描写它的样子，所以只能说“多半是”猪鼻蛇。</p>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--orange" id="n070" data-comment-target>
+<article class="card card--orange" id="n070" data-comment-target data-term="好句" data-page="14" data-pen="orange">
 <div class="card__meta"><span class="card__no">No. 070</span><span class="card__page">p. 14</span><span class="card__pen orange">好句</span></div>
 <blockquote class="card__quote" lang="en">and <mark class="orange">though they fought in wars and he didn’t, he is the first among them to kill someone</mark></blockquote>
 <p class="card__gist">他们都上过战场，他没有，可偏偏是他，成了他们当中第一个杀了人的。</p>
 <p class="card__note"><b>好在哪</b>“他们”是他的父亲和祖父。两代人都打过仗，照理说杀人的该是他们；一辈子没上过战场的 John，却在一个普通的星期天早上成了家里第一个杀人的人。前半句的“打过仗”和后半句的“杀了人”对得很冷，一句话就把他跟父辈之间的那份讽刺说尽了。</p>
 <div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--orange" id="n071" data-comment-target>
+<article class="card card--orange" id="n071" data-comment-target data-term="好句" data-page="14" data-pen="orange">
 <div class="card__meta"><span class="card__no">No. 071</span><span class="card__page">p. 14</span><span class="card__pen orange">好句</span></div>
 <blockquote class="card__quote" lang="en"><mark class="orange">They might even still live with him.</mark></blockquote>
 <p class="card__gist">她们说不定到现在还跟他住在一起。</p>
 <p class="card__note"><b>好在哪</b>前一句说：要是父亲没把家里的农场弄丢，他就不必去偷猎来养活妻子和儿子。紧接着就是这一句，很短，没有一个伤心的字。读到这里才知道，妻子和儿子已经不跟他住在一起了。作者把这件事塞在一个“might even”里，轻轻带过，反而更疼。</p>
 <div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n072" data-comment-target>
+<article class="card card--blue" id="n072" data-comment-target data-term="throbs" data-page="14" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 072</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">throbs</h3><span class="card__ipa"><button type="button" class="card__say" data-say="throbs" aria-label="朗读 throbs" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/θrɑːbz/</span><span class="card__lemma">原形 <i lang="en">throb</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>一跳一跳地疼</p>
@@ -1098,7 +1114,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b13">
 <h2>第 15 页 · 9 月 26 日</h2>
 <p class="batch__sub">6 条 · 1 张照片</p>
-<article class="card card--blue" id="n073" data-comment-target>
+<article class="card card--blue" id="n073" data-comment-target data-term="congeal" data-page="15" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 073</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">congeal</h3><span class="card__ipa"><button type="button" class="card__say" data-say="congeal" aria-label="朗读 congeal" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/kənˈdʒiːl/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>（血、油）凝结变稠</p>
@@ -1108,14 +1124,14 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>congealed blood（凝固的血）· congealed fat（凝住的油）</li><li class="is-confuse"><strong>易混</strong>freeze 是冻住；clot 专指血结成块；congeal 泛指稠的液体慢慢变稠、凝住。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--orange" id="n074" data-comment-target>
+<article class="card card--orange" id="n074" data-comment-target data-term="好句" data-page="15" data-pen="orange">
 <div class="card__meta"><span class="card__no">No. 074</span><span class="card__page">p. 15</span><span class="card__pen orange">好句</span></div>
 <blockquote class="card__quote" lang="en"><mark class="orange">Blood is blood</mark>, he thinks, wiping the girl’s on his pants. <mark class="orange">And dead is dead.</mark></blockquote>
 <p class="card__gist">血就是血，他想着，把女孩的血抹在裤子上。死了就是死了。</p>
 <p class="card__note"><b>好在哪</b>她在这里划了两处，我放在一张卡上。前面一句刚说完他这辈子打过几百只动物、见过的所有血，接着就是这两句同义反复，像在说服自己：人血跟鹿血没有两样，死人跟死鹿也没有两样。可中间偏偏夹着一个动作，他把她的血在裤子上擦掉。话说得越硬，越像是他撑不住了。</p>
 <div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n075" data-comment-target>
+<article class="card card--blue" id="n075" data-comment-target data-term="torrential" data-page="15" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 075</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">torrential</h3><span class="card__ipa"><button type="button" class="card__say" data-say="torrential" aria-label="朗读 torrential" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/təˈrenʃl/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>（雨）倾盆的</p>
@@ -1125,7 +1141,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>torrential rain / downpour（倾盆大雨）· a torrent of（一连串的，如 a torrent of abuse 一连串的辱骂）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n076" data-comment-target>
+<article class="card card--blue" id="n076" data-comment-target data-term="chapped" data-page="15" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 076</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">chapped</h3><span class="card__ipa"><button type="button" class="card__say" data-say="chapped" aria-label="朗读 chapped" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/tʃæpt/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>（嘴唇、皮肤）干裂的</p>
@@ -1135,7 +1151,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>chapped lips / hands（干裂的嘴唇 / 手）· lip balm（润唇膏）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n077" data-comment-target>
+<article class="card card--blue" id="n077" data-comment-target data-term="cedar-tree" data-page="15" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 077</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">cedar-tree</h3><span class="card__ipa"><button type="button" class="card__say" data-say="cedar-tree" aria-label="朗读 cedar-tree" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈsiːdər triː/</span><span class="card__lemma">原形 <i lang="en">cedar</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>雪松</p>
@@ -1145,7 +1161,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>cedar chest（雪松木箱）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n078" data-comment-target>
+<article class="card card--blue" id="n078" data-comment-target data-term="substantiate" data-page="15" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 078</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">substantiate</h3><span class="card__ipa"><button type="button" class="card__say" data-say="substantiate" aria-label="朗读 substantiate" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/səbˈstænʃieɪt/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>证实</p>
@@ -1160,7 +1176,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b14">
 <h2>第 16 页 · 9 月 26 日</h2>
 <p class="batch__sub">7 条 · 1 张照片</p>
-<article class="card card--blue" id="n079" data-comment-target>
+<article class="card card--blue" id="n079" data-comment-target data-term="jackknife" data-page="16" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 079</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">jackknife</h3><span class="card__ipa"><button type="button" class="card__say" data-say="jackknife" aria-label="朗读 jackknife" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈdʒæknaɪf/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>大折刀</p>
@@ -1170,7 +1186,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>pocketknife / penknife 是小折刀；jackknife 个头更大。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n080" data-comment-target>
+<article class="card card--blue" id="n080" data-comment-target data-term="Kools" data-page="16" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 080</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">Kools</h3><span class="card__ipa"><button type="button" class="card__say" data-say="Kools" aria-label="朗读 Kools" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/kuːlz/</span><span class="card__lemma">原形 <i lang="en">Kool</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>酷斯（一种薄荷味香烟的牌子）</p>
@@ -1179,7 +1195,7 @@ body{padding-bottom:4.5rem;}
 <p class="card__note"><b>解读</b>美国的老牌薄荷烟，名字取 cool（清凉）的谐音。这是个牌子，词典里查不到，所以欧路列表里没放。这一串是 John 从女孩的包里翻出来的东西，一件件列出来，像在拼一个陌生人的生活。</p>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n081" data-comment-target>
+<article class="card card--blue" id="n081" data-comment-target data-term="vultures" data-page="16" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 081</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">vultures</h3><span class="card__ipa"><button type="button" class="card__say" data-say="vultures" aria-label="朗读 vultures" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈvʌltʃərz/</span><span class="card__lemma">原形 <i lang="en">vulture</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>秃鹫</p>
@@ -1189,14 +1205,14 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>vultures circling overhead（秃鹫在头顶盘旋）</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--orange" id="n082" data-comment-target>
+<article class="card card--orange" id="n082" data-comment-target data-term="好句" data-page="16" data-pen="orange">
 <div class="card__meta"><span class="card__no">No. 082</span><span class="card__page">p. 16</span><span class="card__pen orange">好句</span></div>
 <blockquote class="card__quote" lang="en">John silently screams, <mark class="orange">“Why’d you put her here today, God, of all days?”</mark></blockquote>
 <p class="card__gist">John 在心里无声地喊：“上帝，你为什么偏偏今天把她放在这儿？”</p>
 <p class="card__note"><b>好在哪</b>silently screams 本身就是矛盾的：嘴上没出声，心里在喊。of all days 是“那么多日子，偏偏是今天”，满是不甘和质问。下一句只有一行：He doesn’t get an answer. 没有人回答他。</p>
 <div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n083" data-comment-target>
+<article class="card card--blue" id="n083" data-comment-target data-term="scrawl" data-page="16" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 083</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">scrawl</h3><span class="card__ipa"><button type="button" class="card__say" data-say="scrawl" aria-label="朗读 scrawl" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/skrɔːl/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>潦草的字迹</p>
@@ -1206,7 +1222,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>scribble 意思很接近，也是乱写、潦草；scrawl 更强调字大、乱、难认。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n084" data-comment-target>
+<article class="card card--blue" id="n084" data-comment-target data-term="burly" data-page="16" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 084</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">burly</h3><span class="card__ipa"><button type="button" class="card__say" data-say="burly" aria-label="朗读 burly" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈbɜːrli/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>魁梧壮实的（男人）</p>
@@ -1216,7 +1232,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>brawny 也是壮，偏肌肉结实；burly 是又高又壮又沉。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n085" data-comment-target>
+<article class="card card--blue" id="n085" data-comment-target data-term="plumpish" data-page="16" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 085</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">plumpish</h3><span class="card__ipa"><button type="button" class="card__say" data-say="plumpish" aria-label="朗读 plumpish" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈplʌmpɪʃ/</span><span class="card__lemma">原形 <i lang="en">plump</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>有点胖乎乎的</p>
@@ -1231,7 +1247,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b15">
 <h2>第 17 页 · 9 月 26 日</h2>
 <p class="batch__sub">3 条 · 1 张照片</p>
-<article class="card card--blue" id="n086" data-comment-target>
+<article class="card card--blue" id="n086" data-comment-target data-term="grudging" data-page="17" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 086</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">grudging</h3><span class="card__ipa"><button type="button" class="card__say" data-say="grudging" aria-label="朗读 grudging" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈɡrʌdʒɪŋ/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">adj.</span>勉勉强强的</p>
@@ -1241,7 +1257,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a grudging admiration（不情愿的佩服）· grudgingly admit（勉强承认）· hold a grudge（记仇）</li><li class="is-confuse"><strong>易混</strong>reluctant 是心里不愿意；grudging 还带着一点不服气、舍不得给。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n087" data-comment-target>
+<article class="card card--blue" id="n087" data-comment-target data-term="kneading" data-page="17" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 087</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">kneading</h3><span class="card__ipa"><button type="button" class="card__say" data-say="kneading" aria-label="朗读 kneading" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈniːdɪŋ/</span><span class="card__lemma">原形 <i lang="en">knead</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>揉、捏</p>
@@ -1251,7 +1267,7 @@ body{padding-bottom:4.5rem;}
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>knead the dough（揉面）· knead the muscles（按揉肌肉）</li><li class="is-confuse"><strong>易混</strong>同音的 need（需要）；同样 k 不发音的还有 knee、knife、knock。</li></ul>
 <div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
-<article class="card card--blue" id="n088" data-comment-target>
+<article class="card card--blue" id="n088" data-comment-target data-term="cadaver" data-page="17" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 088</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">cadaver</h3><span class="card__ipa"><button type="button" class="card__say" data-say="cadaver" aria-label="朗读 cadaver" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/kəˈdævər/</span></div>
 <p class="card__cn"><span class="card__pos" lang="en">n.</span>尸体</p>
@@ -1266,7 +1282,7 @@ body{padding-bottom:4.5rem;}
 <section class="batch" id="b16">
 <h2>第 19 页 · 9 月 26 日</h2>
 <p class="batch__sub">1 条 · 1 张照片 · 第 18 页没有划线</p>
-<article class="card card--blue" id="n089" data-comment-target>
+<article class="card card--blue" id="n089" data-comment-target data-term="hobbling" data-page="19" data-pen="blue">
 <div class="card__meta"><span class="card__no">No. 089</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
 <div class="card__head"><h3 class="card__term" lang="en">hobbling</h3><span class="card__ipa"><button type="button" class="card__say" data-say="hobbling" aria-label="朗读 hobbling" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><small>美</small>/ˈhɑːblɪŋ/</span><span class="card__lemma">原形 <i lang="en">hobble</i></span></div>
 <p class="card__cn"><span class="card__pos" lang="en">v.</span>一瘸一拐地走</p>
@@ -1325,11 +1341,39 @@ body{padding-bottom:4.5rem;}
     go(top < -40 ? cur : cur - 1);
   });
   next.addEventListener('click', function () { go(cur + 1); });
-  nav.querySelector('.flip__mid').addEventListener('click', function () {
-    if (!wl) return;
-    wl.open = true; barH();
-    wl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // 点中间：就地弹出一张按读的顺序排的小词单，点哪个跳哪个（Winter：「点中间的时候就地展开，按词在文中出现的顺序」）
+  var sheet = document.createElement('div');
+  sheet.className = 'flip__sheet'; sheet.hidden = true;
+  var html = '', lastPage = null;
+  cards.forEach(function (c, i) {
+    var pg = c.getAttribute('data-page');
+    if (pg !== lastPage) { html += '<div class="fs__page">p. ' + pg + '</div>'; lastPage = pg; }
+    var pen = c.getAttribute('data-pen');
+    html += '<button type="button" class="fs__item fs__item--' + pen + '" data-i="' + i + '">' +
+      '<span class="fs__no">' + (i + 1) + '</span><span class="fs__term">' +
+      c.getAttribute('data-term').replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span></button>';
   });
+  sheet.innerHTML = html;
+  document.body.appendChild(sheet);
+  var mid = nav.querySelector('.flip__mid');
+  mid.setAttribute('aria-label', '展开词单'); mid.setAttribute('aria-expanded', 'false');
+  function openSheet(on) {
+    sheet.hidden = !on; nav.classList.toggle('is-open', on); mid.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (!on) return;
+    [].forEach.call(sheet.querySelectorAll('.fs__item'), function (b) { b.classList.toggle('is-cur', +b.getAttribute('data-i') === cur); });
+    var c = sheet.querySelector('.is-cur');
+    if (c) sheet.scrollTop = c.offsetTop - sheet.clientHeight / 2 + c.offsetHeight / 2;
+  }
+  mid.addEventListener('click', function (e) { e.stopPropagation(); openSheet(sheet.hidden); });
+  sheet.addEventListener('click', function (e) {
+    var b = e.target.closest('.fs__item'); if (!b) return;
+    openSheet(false); go(+b.getAttribute('data-i'));
+  });
+  document.addEventListener('click', function (e) {
+    if (!sheet.hidden && !sheet.contains(e.target) && !nav.contains(e.target)) openSheet(false);
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') openSheet(false); });
+  window.addEventListener('scroll', function () { if (!nav.classList.contains('is-on')) openSheet(false); }, { passive: true });
 })();
 (function () {
   var wl = document.getElementById('wordlist');

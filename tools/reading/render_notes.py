@@ -346,11 +346,27 @@ body{padding-bottom:4.5rem;}
 .flip button{appearance:none;border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;min-height:44px;}
 .flip__btn{width:48px;font-size:1.25rem;line-height:1;}
 .flip__btn:disabled{opacity:.3;cursor:default;}
+.flip.is-open .flip__mid{background:rgba(255,255,255,.14);}
 .flip__mid{display:flex;align-items:center;gap:.5rem;padding:0 .9rem;border-left:1px solid rgba(255,255,255,.25);
  border-right:1px solid rgba(255,255,255,.25);max-width:58vw;}
 .flip__term{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .flip__count{font-size:.75rem;opacity:.75;white-space:nowrap;font-variant-numeric:tabular-nums;}
 @media (prefers-reduced-motion:reduce){.flip{transition:none;}}
+.flip__sheet{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(66px + env(safe-area-inset-bottom,0px));z-index:21;
+ width:min(360px,calc(100vw - 24px));max-height:55vh;overflow-y:auto;overscroll-behavior:contain;border-radius:14px;
+ background:var(--surface);border:1px solid var(--line);box-shadow:0 14px 34px -10px rgba(0,0,0,.45);padding:.3rem 0 .5rem;}
+.fs__page{position:sticky;top:-.3rem;z-index:1;padding:.35rem 1rem .25rem;background:var(--band);color:var(--band-ink);
+ font-size:.76rem;letter-spacing:.12em;font-variant-numeric:tabular-nums;}
+.fs__item{appearance:none;display:flex;align-items:baseline;gap:.6rem;width:100%;padding:.45rem 1rem .45rem .8rem;border:0;
+ border-left:3px solid var(--hl);background:transparent;color:var(--ink);font:inherit;text-align:left;cursor:pointer;min-height:40px;}
+.fs__item--pink{border-left-color:var(--hl-pink);}
+.fs__item--orange{border-left-color:var(--hl-orange);}
+.fs__item--orange .fs__term{font-family:inherit;font-weight:400;color:var(--muted);}
+.fs__item:hover{background:var(--band);}
+.fs__item.is-cur{background:color-mix(in srgb,var(--word) 12%,transparent);}
+.fs__item.is-cur .fs__term::after{content:"  ← 在这儿";font-family:"Noto Serif SC",serif;font-weight:400;font-size:.75rem;color:var(--word);}
+.fs__no{width:1.8rem;flex:none;font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;}
+.fs__term{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;color:var(--word);}
 
 @media (max-width:480px){
  body{font-size:16px;}
@@ -408,11 +424,39 @@ JS = '''
     go(top < -40 ? cur : cur - 1);
   });
   next.addEventListener('click', function () { go(cur + 1); });
-  nav.querySelector('.flip__mid').addEventListener('click', function () {
-    if (!wl) return;
-    wl.open = true; barH();
-    wl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // 点中间：就地弹出一张按读的顺序排的小词单，点哪个跳哪个（Winter：「点中间的时候就地展开，按词在文中出现的顺序」）
+  var sheet = document.createElement('div');
+  sheet.className = 'flip__sheet'; sheet.hidden = true;
+  var html = '', lastPage = null;
+  cards.forEach(function (c, i) {
+    var pg = c.getAttribute('data-page');
+    if (pg !== lastPage) { html += '<div class="fs__page">p. ' + pg + '</div>'; lastPage = pg; }
+    var pen = c.getAttribute('data-pen');
+    html += '<button type="button" class="fs__item fs__item--' + pen + '" data-i="' + i + '">' +
+      '<span class="fs__no">' + (i + 1) + '</span><span class="fs__term">' +
+      c.getAttribute('data-term').replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span></button>';
   });
+  sheet.innerHTML = html;
+  document.body.appendChild(sheet);
+  var mid = nav.querySelector('.flip__mid');
+  mid.setAttribute('aria-label', '展开词单'); mid.setAttribute('aria-expanded', 'false');
+  function openSheet(on) {
+    sheet.hidden = !on; nav.classList.toggle('is-open', on); mid.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (!on) return;
+    [].forEach.call(sheet.querySelectorAll('.fs__item'), function (b) { b.classList.toggle('is-cur', +b.getAttribute('data-i') === cur); });
+    var c = sheet.querySelector('.is-cur');
+    if (c) sheet.scrollTop = c.offsetTop - sheet.clientHeight / 2 + c.offsetHeight / 2;
+  }
+  mid.addEventListener('click', function (e) { e.stopPropagation(); openSheet(sheet.hidden); });
+  sheet.addEventListener('click', function (e) {
+    var b = e.target.closest('.fs__item'); if (!b) return;
+    openSheet(false); go(+b.getAttribute('data-i'));
+  });
+  document.addEventListener('click', function (e) {
+    if (!sheet.hidden && !sheet.contains(e.target) && !nav.contains(e.target)) openSheet(false);
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') openSheet(false); });
+  window.addEventListener('scroll', function () { if (!nav.classList.contains('is-on')) openSheet(false); }, { passive: true });
 })();
 (function () {
   var wl = document.getElementById('wordlist');
@@ -536,7 +580,8 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
     pen = n.get('color') or 'blue'
     if pen == 'orange':
         return quote_card(n, cid, winter_label)
-    out = [f'<article class="card card--{pen}" id="{esc(cid)}" data-comment-target>']
+    out = [f'<article class="card card--{pen}" id="{esc(cid)}" data-comment-target '
+           f'data-term="{esc(n["term"])}" data-page="{esc(n.get("page", ""))}" data-pen="{pen}">']
 
     meta = [f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>']
     if pen in PENS:
@@ -619,7 +664,8 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
 
 def quote_card(n, cid, winter_label):
     """橙笔好句：那句话（整句高亮）＋页码＋译文＋为什么好。不进欧路列表。"""
-    out = [f'<article class="card card--orange" id="{esc(cid)}" data-comment-target>',
+    out = [f'<article class="card card--orange" id="{esc(cid)}" data-comment-target '
+           f'data-term="好句" data-page="{esc(n.get("page", ""))}" data-pen="orange">',
            '<div class="card__meta">'
            f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>'
            + (f'<span class="card__page">p. {esc(n["page"])}</span>' if n.get('page') not in (None, '') else '')
