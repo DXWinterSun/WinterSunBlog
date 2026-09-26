@@ -64,6 +64,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   color: $ink-soft;
+  border: 1px solid transparent;   /* 平时看不见；手机上换成淡色细边，把标签一颗颗分开 */
   border-radius: 999px;
   transition: $global-transition;
   user-select: none;
@@ -230,14 +231,37 @@
 
 
 @media only screen and (max-width: 560px) {
-  .c-nav__list { gap: 1px; }
+  /* 装得下就居中，装不下才从左边开始、照常横滑。
+     ⚠️ 用 margin: auto 而不是 justify-content: center——后者在内容溢出时
+     会把开头那几个标签顶到可滚动区域之外，划都划不回来。 */
+  /* ⚠️ 选择器要写成 .c-nav .c-nav__list：6-trumps 层的 .u-lists-reset 也写了
+     margin: 0，而 trumps 排在最后，单写 .c-nav__list 会被它顶掉、居中不生效。 */
+  .c-nav .c-nav__list {
+    gap: 5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .c-nav__item {
     /* ⚠️ 上面 900px 那段给 li 也加了 5px 11px 的内边距，而 a 自己还有一份——
        两份叠起来每个标签白占 44px，五个就是 220px，一行怎么都装不下。
        这里把 li 的那份归零，只留 a 上的。 */
     padding: 0;
     font-size: 11px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
+    /* 手机上标签挨得近，光靠间距分不开（Winter：「tab 和 tab 之间区分不明显🤔」），
+       所以每一个都套一圈淡淡的细边，看着就是一颗一颗的小药丸。 */
+    border-color: $line;
+    background-color: $paper;
+    > a { padding: 6px 9px; }
+    &.is-active { border-color: $accent; }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .c-nav__list { gap: 4px; }
+  .c-nav__item {
+    font-size: 10.5px;
+    letter-spacing: 0.01em;
     > a { padding: 6px 7px; }
   }
 }

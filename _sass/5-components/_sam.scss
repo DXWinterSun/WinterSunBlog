@@ -961,8 +961,14 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
     &:last-child { transform: none; }
   }
 }
-@media (max-width: 600px) {
+/* ⚠️ 年份彩带那个悬浮小提示要一直藏到 900px 以下（原来只藏到 600px）：
+   它是绝对定位的，最右边那一格的提示会伸到页面外头，虽然平时是透明的、
+   却照样占位，于是 Sam 页在 601–900px 宽时整页能横着滑出十几二十像素。
+   平板 / 手机本来就没有鼠标悬停，这个提示在那儿也用不上。 */
+@media (max-width: 900px) {
   .c-year-ribbon__tip { display: none; }
+}
+@media (max-width: 600px) {
   .c-year-ribbon__track { height: 28px; gap: 1px; }
 }
 
