@@ -2065,5 +2065,8 @@ https://claude.ai/artifact/266oHdnhPmovqvDo53HNWK ——源码在 `tools/weight/
 - 目标（她定的）：**65 公斤 → Vision Pro，60 公斤 → 满钻短裙**；页面里可改。
 - 数据存在 Artifact 自带的数据库里（`meta/settings` 一份设置、`logs/<YYYY-MM-DD>` 一天一条），
   规则 `read/write: owner`，只有她本人能看能写。手机电脑同步，换设备不丢。
-- 改页面：改源码后用 Artifact 工具带上面那个 `url` 重新发布（**省略 `capabilities`**，保留原规则），
+- 「今天吃了什么」（2026-09-26 加）：拍吃之前 / 吃剩的两张照片，或口述一句，页面自己去问 Claude 估热量
+  （`sample` 能力），她可改数后记进 `meals/<自动id>`（`date`/`at`/`meal`/`what`/`kcal`）。照片不存。
+  设置里可选填每天的热量上限 `kcal`，填了显示一条进度。
+- 改页面：改源码后用 Artifact 工具带上面那个 `url` 重新发布（**省略 `capabilities`**，保留原有的 `db` 规则和 `sample`），
   链接不变、记录不丢。要看她的进度可用 ArtifactData 读 `logs`。

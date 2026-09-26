@@ -103,6 +103,29 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
 .hint{font-size:12px;color:var(--muted);margin:0}
 .offline{font-size:13px;color:var(--muted);text-align:center}
 
+/* 吃了什么 */
+.food__head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.kcal-today b{font-size:24px;color:var(--ice)}
+.kcal-bar{height:6px;background:var(--ice-soft);border-radius:6px;margin-top:6px;overflow:hidden}
+.kcal-bar i{display:block;height:100%;background:var(--ice);border-radius:6px;transition:width .6s ease}
+.kcal-bar.is-over i{background:var(--gold)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.chips button{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:13px}
+.chips button[aria-checked="true"]{background:var(--ice);border-color:var(--ice);color:var(--paper)}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.shot{position:relative;aspect-ratio:4/3;max-width:100%;border:1.5px dashed var(--line);border-radius:12px;display:grid;place-items:center;cursor:pointer;overflow:hidden;background:var(--bg);text-align:center;font-size:14px;line-height:1.5}
+.shot small{color:var(--muted);font-size:11px}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shot.has-img{border-style:solid;border-color:var(--ice)}
+.shot__x{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:12px}
+.guess{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px}
+.guess__items{list-style:none;margin:0;padding:0}
+.guess__items li{display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-size:14px}
+.guess__items .k{font-family:var(--num);color:var(--muted);white-space:nowrap}
+.guess__row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end;margin-top:8px}
+.meals{margin-top:12px}
+.meals li{grid-template-columns:auto 1fr auto auto}
+
 /* 庆祝 */
 .party{position:fixed;inset:0;display:grid;place-items:center;background:rgba(15,24,38,.55);z-index:10;padding:16px}
 .party__card{background:var(--paper);border:2px solid var(--gold);border-radius:20px;padding:26px 22px;text-align:center;max-width:340px}
@@ -131,6 +154,7 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
     <div class="row2">
       <label><span class="label">现在的体重（公斤）</span><input id="s-start" type="number" inputmode="decimal" step="0.1" placeholder="比如 70.5"></label>
       <label><span class="label">身高（厘米，可不填）</span><input id="s-height" type="number" inputmode="decimal" step="1" placeholder="比如 165"></label>
+      <label style="grid-column:1/-1"><span class="label">每天想吃多少千卡以内（可不填，填了会显示一条进度）</span><input id="s-kcal" type="number" inputmode="numeric" step="50" placeholder="比如 1500"></label>
     </div>
     <div class="row2">
       <label><span class="label">第一站（公斤）</span><input id="s-g1" type="number" inputmode="decimal" step="0.1" value="65"></label>
@@ -174,6 +198,53 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
       <p class="err" id="ci-err" hidden></p>
     </section>
 
+    <!-- 吃了什么 -->
+    <section class="card" id="food">
+      <div class="food__head">
+        <div class="label">今天吃了什么</div>
+        <div class="kcal-today"><b class="num" id="kcal-sum">0</b> <span class="label" id="kcal-goal-l">千卡</span></div>
+      </div>
+      <div class="kcal-bar" id="kcal-bar" hidden><i id="kcal-fill"></i></div>
+
+      <div class="chips" id="meal-type" role="radiogroup" aria-label="哪一顿">
+        <button type="button" data-meal="早餐">🍳 早餐</button>
+        <button type="button" data-meal="午餐">🍱 午餐</button>
+        <button type="button" data-meal="晚餐">🍝 晚餐</button>
+        <button type="button" data-meal="零食">🍪 零食</button>
+      </div>
+
+      <div class="shots" id="shots">
+        <label class="shot" id="shot-before">
+          <input type="file" id="ph-before" accept="image/*" hidden>
+          <span class="shot__empty">📷<br>吃之前<br><small>拍一张</small></span>
+          <img alt="吃之前" hidden>
+          <button type="button" class="shot__x" hidden aria-label="去掉这张">✕</button>
+        </label>
+        <label class="shot" id="shot-after">
+          <input type="file" id="ph-after" accept="image/*" hidden>
+          <span class="shot__empty">🍽️<br>吃剩的<br><small>可不拍</small></span>
+          <img alt="吃剩的" hidden>
+          <button type="button" class="shot__x" hidden aria-label="去掉这张">✕</button>
+        </label>
+      </div>
+      <label style="display:block;margin-top:10px"><span class="label" id="food-say-l">或者直接说：比如“一包乐事原味薯片，吃了一半”“两块奥利奥”</span>
+        <input id="food-say" type="text" maxlength="200" placeholder="吃了什么、大概多少"></label>
+      <p style="margin:10px 0 0"><button class="btn" id="food-go">帮我算一算</button></p>
+      <p class="hint" id="food-wait" hidden>正在看……大概要十几秒</p>
+      <p class="err" id="food-err" hidden></p>
+
+      <div class="guess" id="guess" hidden>
+        <ul class="guess__items" id="guess-items"></ul>
+        <p class="hint" id="guess-note"></p>
+        <div class="guess__row">
+          <label><span class="label">这一顿一共（千卡，觉得不对可以改）</span><input class="kg-input" id="guess-kcal" type="number" inputmode="numeric" step="10"></label>
+          <button class="btn" id="guess-save">记下来</button>
+        </div>
+      </div>
+
+      <ul class="log meals" id="meals"></ul>
+    </section>
+
     <!-- 连续 -->
     <section class="card">
       <div class="streak">
@@ -212,7 +283,7 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
 <script>
 (function(){
   var $ = function(id){ return document.getElementById(id); };
-  var db = null, settings = null, logs = [];
+  var db = null, settings = null, logs = [], meals = [], sample = null;
   var ICON = {1:'🥽', 2:'👗'};
 
   function pad(n){ return (n<10?'0':'')+n; }
@@ -282,7 +353,7 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
     var td = logs.filter(function(l){ return l.date === today(); })[0];
     $('ci-title').textContent = td ? '今天已经打过卡啦（再打一次会覆盖）' : '今天的打卡';
 
-    renderStreak(); renderChart(); renderLog();
+    renderStreak(); renderChart(); renderLog(); renderMeals();
   }
 
   function esc(t){ var d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; }
@@ -347,6 +418,7 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
     var s = settings || {};
     if(s.start) $('s-start').value = s.start;
     if(s.height) $('s-height').value = s.height;
+    if(s.kcal) $('s-kcal').value = s.kcal;
     if(s.g1) $('s-g1').value = s.g1; if(s.p1) $('s-p1').value = s.p1;
     if(s.g2) $('s-g2').value = s.g2; if(s.p2) $('s-p2').value = s.p2;
   }
@@ -355,7 +427,7 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
     if(!start || !g1 || !g2){ show($('s-err'), '起点、第一站、终点三个数都要填哦。'); return; }
     if(!(start > g1 && g1 > g2)){ show($('s-err'), '要从大到小：起点 > 第一站 > 终点。'); return; }
     show($('s-err'), '');
-    var data = { start:start, g1:g1, g2:g2, p1:$('s-p1').value.trim()||'第一站的奖励', p2:$('s-p2').value.trim()||'终点的奖励', height:h||null,
+    var data = { start:start, g1:g1, g2:g2, p1:$('s-p1').value.trim()||'第一站的奖励', p2:$('s-p2').value.trim()||'终点的奖励', height:h||null, kcal:num($('s-kcal').value)||null,
       startDate: (settings && settings.startDate) || today() };
     if(!db){ show($('s-err'), '现在连不上保存的地方，稍后刷新再试。'); return; }
     $('s-save').disabled = true;
@@ -409,6 +481,109 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
   }
   $('party-ok').onclick = function(){ $('party').hidden = true; };
 
+
+  // —— 吃了什么 ——
+  var shotFiles = {before:null, after:null}, guessData = null, mealType = null;
+  function autoMeal(){ var h = new Date().getHours(); return h < 10 ? '早餐' : h < 15 ? '午餐' : (h >= 17 && h < 21) ? '晚餐' : '零食'; }
+  function pickMeal(m){ mealType = m; document.querySelectorAll('#meal-type button').forEach(function(b){ b.setAttribute('role','radio'); b.setAttribute('aria-checked', b.dataset.meal === m ? 'true' : 'false'); }); }
+  pickMeal(autoMeal());
+  $('meal-type').addEventListener('click', function(e){ var b = e.target.closest('[data-meal]'); if(b) pickMeal(b.dataset.meal); });
+
+  ['before','after'].forEach(function(k){
+    var box = $('shot-'+k), inp = $('ph-'+k), img = box.querySelector('img'), x = box.querySelector('.shot__x'), empty = box.querySelector('.shot__empty');
+    inp.addEventListener('change', function(){
+      var f = inp.files && inp.files[0]; if(!f) return;
+      shotFiles[k] = f; if(img.src) URL.revokeObjectURL(img.src);
+      img.src = URL.createObjectURL(f); img.hidden = false; x.hidden = false; empty.hidden = true; box.classList.add('has-img');
+    });
+    x.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation();
+      shotFiles[k] = null; inp.value = ''; img.hidden = true; img.removeAttribute('src'); x.hidden = true; empty.hidden = false; box.classList.remove('has-img'); });
+  });
+
+  $('food-go').onclick = function(){
+    var say = $('food-say').value.trim();
+    if(!shotFiles.before && !say){ show($('food-err'), '拍一张照片，或者写一句吃了什么，我才能算哦。'); return; }
+    if(!shotFiles.before && shotFiles.after){ show($('food-err'), '只有吃剩的照片，我不知道原来有多少。补一张吃之前的，或者写一句原来是什么。'); if(!say) return; }
+    show($('food-err'), ''); $('guess').hidden = true;
+    var imgs = [], how;
+    if(shotFiles.before){ imgs.push(shotFiles.before); if(shotFiles.after) imgs.push(shotFiles.after); }
+    if(imgs.length === 2) how = '第一张照片是吃之前的整份食物，第二张是吃完剩下的。请估计她实际吃掉的部分（吃之前减去剩下的）。';
+    else if(imgs.length === 1) how = '照片是吃之前的整份食物，按她全部吃完来估计，除非她的文字另有说明。';
+    else how = '没有照片，只根据她的文字描述估计。';
+    var prompt = '你是一位细心的营养师，帮一位正在减肥的中国女生估算这一顿（' + mealType + '）的热量。' + how +
+      (say ? '\n她的补充说明：' + say : '') +
+      '\n要求：按中国常见的份量和做法估计；包装零食按常见包装规格；拿不准时取中间值，不要故意往低估。' +
+      '\n只回复一个 JSON，格式如下，全部用简体中文：' +
+      '\n{"items":[{"name":"米饭","amount":"约一碗 150 克","kcal":175}],"total":175,"note":"一句话说明怎么估的、哪里不确定","tip":"一句温柔的小建议，可以为空"}' +
+      '\nkcal 和 total 都是整数，单位千卡，total 等于各项之和。';
+    $('food-go').disabled = true; $('food-wait').hidden = false;
+    var opts = {}; if(imgs.length) opts.images = imgs;
+    sample.json(prompt, opts).then(function(r){
+      if(!r || !Array.isArray(r.items)) throw {message:'没看明白，换个角度拍一张，或者多写一句试试。'};
+      guessData = r; showGuess(r);
+    }).catch(function(e){
+      var m = e && e.code === 'rate_limited' ? '问得有点快，歇一会儿再试。'
+            : e && e.code === 'not_granted' ? '需要先允许这个页面问 Claude，才能帮你算。'
+            : e && e.code === 'image_rejected' ? '这张照片打不开，换一张试试。'
+            : (e && e.message) || '没算出来，再试一次吧。';
+      show($('food-err'), m);
+    }).then(function(){ $('food-go').disabled = false; $('food-wait').hidden = true; });
+  };
+
+  function showGuess(r){
+    $('guess-items').innerHTML = r.items.map(function(it){
+      return '<li><span>'+esc(it.name)+(it.amount ? ' <span class="label">'+esc(it.amount)+'</span>' : '')+'</span><span class="k">'+Math.round(+it.kcal||0)+' 千卡</span></li>';
+    }).join('');
+    $('guess-note').textContent = [r.note, r.tip].filter(Boolean).join(' ');
+    var total = Math.round(+r.total || r.items.reduce(function(a,it){ return a + (+it.kcal||0); }, 0));
+    $('guess-kcal').value = total; $('guess').hidden = false;
+  }
+
+  $('guess-save').onclick = function(){
+    var kcal = Math.round(num($('guess-kcal').value) || 0);
+    if(kcal <= 0 || kcal > 5000){ show($('food-err'), '热量填一个 1 到 5000 之间的数。'); return; }
+    var names = guessData ? guessData.items.map(function(it){ return it.name; }).join('、') : $('food-say').value.trim();
+    var rec = { date: today(), at: new Date().toISOString(), meal: mealType, what: names.slice(0,80), kcal: kcal };
+    $('guess-save').disabled = true;
+    db.collection('meals').add(rec).then(function(ref){
+      rec.id = ref.id; meals.push(rec);
+      $('guess').hidden = true; guessData = null; $('food-say').value = '';
+      ['before','after'].forEach(function(k){ var x = $('shot-'+k).querySelector('.shot__x'); if(!x.hidden) x.click(); });
+      renderMeals();
+    }).catch(function(e){ show($('food-err'), '没存上：'+(e && e.message || '稍后再试')); })
+      .then(function(){ $('guess-save').disabled = false; });
+  };
+
+  function renderMeals(){
+    var sum = meals.reduce(function(a,m){ return a + (m.kcal||0); }, 0);
+    $('kcal-sum').textContent = sum;
+    var goal = settings && settings.kcal;
+    $('kcal-goal-l').textContent = goal ? '/ ' + goal + ' 千卡' : '千卡';
+    $('kcal-bar').hidden = !goal;
+    if(goal){ $('kcal-fill').style.width = Math.min(100, sum/goal*100) + '%'; $('kcal-bar').classList.toggle('is-over', sum > goal); }
+    var rows = meals.slice().sort(function(a,b){ return a.at < b.at ? -1 : 1; });
+    $('meals').innerHTML = rows.map(function(m){
+      var t = new Date(m.at), hm = pad(t.getHours())+':'+pad(t.getMinutes());
+      return '<li><span class="d">'+hm+' '+esc(m.meal||'')+'</span><span class="note">'+esc(m.what||'')+'</span><span class="k">'+m.kcal+'</span><button class="del" data-meal-del="'+esc(m.id)+'" aria-label="删掉这条">✕</button></li>';
+    }).join('');
+  }
+  $('meals').addEventListener('click', function(e){
+    var b = e.target.closest('[data-meal-del]'); if(!b) return;
+    if(b.dataset.armed){ var id = b.dataset.mealDel;
+      db.doc('meals/'+id).delete().then(function(){ meals = meals.filter(function(m){ return m.id !== id; }); renderMeals(); });
+    } else { b.dataset.armed = '1'; b.textContent = '确定删？'; setTimeout(function(){ if(b.isConnected){ delete b.dataset.armed; b.textContent = '✕'; } }, 3000); }
+  });
+
+  function bootFood(){
+    window.claude.use('sample').then(function(sm){
+      if(!sm){ $('food-go').disabled = true; show($('food-err'), '这里暂时用不了算热量的功能。'); return; }
+      sample = sm;
+      return sm.limits().catch(function(){ return null; }).then(function(c){
+        if(!c || !c.images){ $('shots').hidden = true; $('food-say-l').textContent = '直接说吃了什么：比如“一包乐事原味薯片，吃了一半”'; }
+      });
+    });
+  }
+
   // —— 启动 ——
   function boot(){
     if(!window.claude || !window.claude.use){ $('loading').textContent = '这个页面要在 Claude 里打开才能保存记录。'; return; }
@@ -418,11 +593,16 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
       return Promise.all([db.doc('meta/settings').get(), db.collection('logs').orderBy('date').get()]).then(function(r){
         settings = r[0].exists ? r[0].data() : null;
         logs = r[1].docs.map(function(x){ var v = x.data(); return {date:v.date, kg:v.kg, note:v.note}; });
+        return db.collection('meals').where('date','==',today()).get().then(function(m){
+          meals = m.docs.map(function(x){ var v = x.data(); v.id = x.id; return v; });
+        }).catch(function(){ meals = []; });
+      }).then(function(){
         $('loading').hidden = true;
         setupFill(); render();
       });
     }).catch(function(e){ $('loading').textContent = '读取失败：'+(e && e.message || '刷新一下试试'); });
   }
   boot();
+  if(window.claude && window.claude.use) bootFood();
 })();
 </script>
