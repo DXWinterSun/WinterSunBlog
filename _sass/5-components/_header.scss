@@ -88,6 +88,27 @@
   }
 }
 
+/* 标签前面那个小图标（Winter 2026-09-26 点名要的「更可爱」）。
+   ⚠️ 要点：
+   · 用 <i> 包着并 aria-hidden，读屏软件不会把它念成一个词；
+   · letter-spacing 归零——标签整体拉开了字距，不归零的话 emoji 右边
+     会多出一道空隙，跟后面的文字对不齐；
+   · font-style: normal，否则 <i> 会把它压斜；
+   · 单独走系统 emoji 字体栈，免得被 Volkhov 渲染成黑白的方块。 */
+.c-nav__emoji {
+  font-style: normal;
+  font-size: 1.05em;
+  line-height: 1;
+  letter-spacing: 0;
+  margin-right: 4px;
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+}
+
+.c-nav__item > a {
+  display: inline-flex;
+  align-items: center;
+}
+
 .c-search {
   position: relative;
   flex-shrink: 0;
@@ -214,14 +235,24 @@
    （950px 宽时溢出 63px，实测过）。 */
 @media only screen and (min-width: 901px) {
   .c-nav { gap: 0; }
-  .c-nav__list { gap: 6px; }
+  .c-nav__list { gap: 2px; }
   .c-nav__item {
-    letter-spacing: 0.09em;
-    > a { padding: 9px 14px; }
+    letter-spacing: 0.04em;
+    > a { padding: 9px 6px; }
   }
+  .c-nav__emoji { margin-right: 2px; }
 }
 
-@media only screen and (min-width: 1040px) {
+@media only screen and (min-width: 1120px) {
+  .c-nav__list { gap: 8px; }
+  .c-nav__item {
+    letter-spacing: 0.08em;
+    > a { padding: 9px 14px; }
+  }
+  .c-nav__emoji { margin-right: 4px; }
+}
+
+@media only screen and (min-width: 1320px) {
   .c-nav__list { gap: 14px; }
   .c-nav__item {
     letter-spacing: 0.11em;
@@ -230,7 +261,11 @@
 }
 
 
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 700px) {
+  .c-nav__emoji { font-size: 0.95em; margin-right: 3px; }
+}
+
+@media only screen and (max-width: 700px) {
   /* 装得下就居中，装不下才从左边开始、照常横滑。
      ⚠️ 用 margin: auto 而不是 justify-content: center——后者在内容溢出时
      会把开头那几个标签顶到可滚动区域之外，划都划不回来。 */
@@ -246,24 +281,39 @@
        两份叠起来每个标签白占 44px，五个就是 220px，一行怎么都装不下。
        这里把 li 的那份归零，只留 a 上的。 */
     padding: 0;
-    font-size: 11px;
-    letter-spacing: 0.03em;
+    font-size: 10.5px;
+    letter-spacing: 0.01em;
     /* 手机上标签挨得近，光靠间距分不开（Winter：「tab 和 tab 之间区分不明显🤔」），
        所以每一个都套一圈淡淡的细边，看着就是一颗一颗的小药丸。 */
     border-color: $line;
     background-color: $paper;
-    > a { padding: 6px 9px; }
+    > a { padding: 6px 7px; }
     &.is-active { border-color: $accent; }
   }
 }
 
+/* 加了小图标之后，五个标签在手机上一行放不下了。窄屏把「AU Story」的
+   Story 收起来，只留「📖 AU」——图标已经说明是故事，字也是她自己的叫法。 */
+@media only screen and (max-width: 460px) {
+  .c-nav__long { display: none; }
+}
+
 @media only screen and (max-width: 400px) {
-  .c-nav__list { gap: 4px; }
+  .c-nav__emoji { font-size: 0.9em; margin-right: 2px; }
+  .c-nav .c-nav__list { gap: 3px; }
   .c-nav__item {
-    font-size: 10.5px;
-    letter-spacing: 0.01em;
-    > a { padding: 6px 7px; }
+    letter-spacing: 0;
+    > a { padding: 6px 6px; }
   }
+}
+
+/* 320–360 的老窄机：再收最后一档，五个标签仍旧一行装得下。
+   ⚠️ 这段必须写在上面 400px 那段【后面】——两段选择器同权重，
+   写在前面会被后面的原样盖掉，等于没写。 */
+@media only screen and (max-width: 365px) {
+  .c-nav .c-nav__list { gap: 2px; }
+  .c-nav__item > a { padding: 6px 4px; }
+  .c-nav__emoji { font-size: 0.85em; margin-right: 1px; }
 }
 
 @media only screen and (max-width: 480px) {

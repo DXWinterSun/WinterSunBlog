@@ -20,10 +20,18 @@
       {% endif %}
     </button>
 
+    {%- comment -%}
+      每个标签前面那个小图标（Winter 2026-09-26：「每个 tab 的标题是不是可以带一个
+      emoji！更可爱🥺」）：⛄ 关于我 · ✍️ 我自己写的 · 📖 AU 故事 · 🎬 Sam · 🗓️ 存档。
+      用 <i class="c-nav__emoji"> 包着、aria-hidden，读屏软件不会把它念出来。
+      要换 emoji 直接改这五行即可，样式那边不用动。
+      「AU Story」里的 Story 包在 .c-nav__long 里：窄屏（≤460px）加了图标之后
+      一行放不下，那一段自动收起来只剩「📖 AU」，宽屏照旧显示全名。
+    {%- endcomment -%}
     <nav class="c-nav" aria-label="Primary">
       <ul class="c-nav__list u-lists-reset">
         <li class="c-nav__item c-nav__item--link{% if nav_active == 'about' %} is-active{% endif %}">
-          <a href="{{site.baseurl}}/">About</a>
+          <a href="{{site.baseurl}}/"><i class="c-nav__emoji" aria-hidden="true">⛄</i>About</a>
         </li>
         {%- comment -%}
           2026-09-23 导航瘦身（Winter 拍板的 B 方案）：
@@ -33,16 +41,16 @@
           里；各篇文章的 categories 字段一个都没动。
         {%- endcomment -%}
         <li class="c-nav__item c-item_post{% if nav_active == 'winters' %} is-active{% endif %}" data-filter="winters">
-          <a href="{{site.baseurl}}/?cat=winters">Winter&rsquo;s</a>
+          <a href="{{site.baseurl}}/?cat=winters"><i class="c-nav__emoji" aria-hidden="true">✍️</i>Winter&rsquo;s</a>
         </li>
         <li class="c-nav__item c-item_post{% if nav_active == 'AU Story' %} is-active{% endif %}" data-filter="AU Story">
-          <a href="{{site.baseurl}}/?cat=AU+Story">AU Story</a>
+          <a href="{{site.baseurl}}/?cat=AU+Story"><i class="c-nav__emoji" aria-hidden="true">📖</i>AU<span class="c-nav__long">&nbsp;Story</span></a>
         </li>
         <li class="c-nav__item c-nav__item--link{% if nav_active == 'sam' %} is-active{% endif %}">
-          <a href="{{site.baseurl}}/sam/">Sam</a>
+          <a href="{{site.baseurl}}/sam/"><i class="c-nav__emoji" aria-hidden="true">🎬</i>Sam</a>
         </li>
         <li class="c-nav__item c-nav__item--link{% if nav_active == 'archive' %} is-active{% endif %}">
-          <a href="{{site.baseurl}}/archive/">Archive</a>
+          <a href="{{site.baseurl}}/archive/"><i class="c-nav__emoji" aria-hidden="true">🗓️</i>Archive</a>
         </li>
       </ul>
     </nav>

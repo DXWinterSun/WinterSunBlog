@@ -961,6 +961,28 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
     &:last-child { transform: none; }
   }
 }
+/* 彩带两头那几格的提示不要再从页面边上伸出去：最后三格靠右对齐、
+   最前三格靠左对齐（默认是以自己为中心，边上那几个必然超出去，
+   虽然平时透明却照样占位，整页就能横着滑）。 */
+.c-year-ribbon__track > :nth-last-child(-n+3) .c-year-ribbon__tip {
+  left: auto;
+  right: 0;
+  transform: translate(0, 4px);
+}
+.c-year-ribbon__track > :nth-last-child(-n+3):hover .c-year-ribbon__tip,
+.c-year-ribbon__track > :nth-last-child(-n+3):focus-visible .c-year-ribbon__tip {
+  transform: translate(0, 0);
+}
+.c-year-ribbon__track > :nth-child(-n+3) .c-year-ribbon__tip {
+  left: 0;
+  right: auto;
+  transform: translate(0, 4px);
+}
+.c-year-ribbon__track > :nth-child(-n+3):hover .c-year-ribbon__tip,
+.c-year-ribbon__track > :nth-child(-n+3):focus-visible .c-year-ribbon__tip {
+  transform: translate(0, 0);
+}
+
 /* ⚠️ 年份彩带那个悬浮小提示要一直藏到 900px 以下（原来只藏到 600px）：
    它是绝对定位的，最右边那一格的提示会伸到页面外头，虽然平时是透明的、
    却照样占位，于是 Sam 页在 601–900px 宽时整页能横着滑出十几二十像素。
