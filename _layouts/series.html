@@ -107,6 +107,9 @@ layout: home
     {%- if ct == "Oneshot" -%}{%- assign is_main = true -%}{%- endif -%}
     {%- if is_main -%}{%- assign ckind = "main" -%}{%- else -%}{%- assign ckind = chapter.chapter_kind | default: "extra" -%}{%- endif -%}
     {%- if ckind == "pov" -%}{%- assign ckind_stub = "POV" -%}{%- else -%}{%- assign ckind_stub = "EX" -%}{%- endif -%}
+    {%- comment -%} IF 线（2026-09-26 Winter 要的）：仍算番外（chapter_kind 不新增类别、筛选照旧归番外），
+      只是 chapter_type 写成「Extra · IF」的，票根印 IF、眉头多一枚「IF 线」小牌，好跟正传的番外分开。 {%- endcomment -%}
+    {%- assign is_if = false -%}{%- if ckind != "main" and ct contains "IF" -%}{%- assign is_if = true -%}{%- assign ckind_stub = "IF" -%}{%- endif -%}
     {%- if is_main and ct_check == 0 -%}{%- assign ckind_stub = "ONE" -%}{%- endif -%}
     {%- comment -%} 有号的正篇印号码，没号的正篇（Oneshot）印 ONE，其余印 EX / POV {%- endcomment -%}
     {%- assign has_no = false -%}{%- if is_main and ct_check > 0 -%}{%- assign has_no = true -%}{%- endif -%}
@@ -120,7 +123,7 @@ layout: home
       <span class="c-chapter-card__no c-chapter-card__no--extra">{{ ckind_stub }}</span>
       {%- endif -%}
       <span class="c-chapter-card__body">
-        <span class="c-chapter-card__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if ckind == "pov" %} <em class="c-chapter-card__kind c-chapter-card__kind--pov">他视角</em>{% endif %}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}{% if chapter.story_time %}<i class="c-chapter-card__era" title="故事发生的年代">{{ chapter.story_time }}</i>{% endif %}</span>
+        <span class="c-chapter-card__eyebrow">{{ chapter.chapter_type | default: "Chapter" }}{% if ckind == "pov" %} <em class="c-chapter-card__kind c-chapter-card__kind--pov">他视角</em>{% endif %}{% if is_if %} <em class="c-chapter-card__kind c-chapter-card__kind--extra">IF 线</em>{% endif %}{% if chapter.has_art %} <span title="含手绘插画" aria-label="（含手绘插画）" style="opacity:.65;">✦</span>{% endif %}{% if chapter.story_time %}<i class="c-chapter-card__era" title="故事发生的年代">{{ chapter.story_time }}</i>{% endif %}</span>
         <span class="c-chapter-card__title">{{ disp }}</span>
         {% if chapter.summary %}<span class="c-chapter-card__summary">{{ chapter.summary }}</span>{% endif %}
         <span class="c-chapter-card__meta">
