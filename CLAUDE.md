@@ -1700,7 +1700,7 @@ Winter 的原话：**「我觉得现在博客整体风格不够 Winter Sun！尤
 - 首页的标题区（hero）也合并成了一块 `data-hero-id="winters"`（原来 Daily /
   Novel / Lyrics 各一块），显隐规则在 `_sass/5-components/_hero.scss`。
 - **每个标签前面带一个小图标**（Winter 2026-09-26：「每个 tab 的标题是不是可以带一个
-  emoji！更可爱🥺」）：`⛄ About · ✍️ Winter's · 📖 AU Story · 🎬 Sam · 🗓️ Archive`。
+  emoji！更可爱🥺」）：`⛄ About · ✍️ Winter's · 📖 AU Story · ❣️ Sam · 🗓️ Archive`。
   写在 `_includes/header.html` 里，包在 `<i class="c-nav__emoji" aria-hidden="true">`
   里（读屏软件不念它），**要换 emoji 只改那五行，样式不用动**。样式上三件事缺一不可：
   `font-style: normal`（`<i>` 会压斜）、`letter-spacing: 0`（标签整体拉开了字距，
@@ -1779,7 +1779,7 @@ Winter 的原话：**「我觉得现在博客整体风格不够 Winter Sun！尤
 | 分隔线小雪花 | `hr` | 正文里的 `---` 从光秃秃一条线变成「细线—❄—细线」。有自己底色的容器（`c-note` / `c-decree` / `c-sam-intro`）里雪花的底色要跟着容器走 |
 | 票根雪花戳 | `.c-chapter-card.is-read` | 读过的章原来打一个「✓」，换成 ❄ |
 | 网页标签小图标 | `favicon.ico` + `images/favicon-180.png` | 由 **`python3 tools/make_snowman_favicon.py`** 生成（需要 Pillow），别手改图片 |
-| 导航标签的小图标 | `_includes/header.html` 的 `.c-nav__emoji` | ⛄✍️📖🎬🗓️，见上面「导航」一节 |
+| 导航标签的小图标 | `_includes/header.html` 的 `.c-nav__emoji` | ⛄✍️📖❣️🗓️，见上面「导航」一节 |
 
 另外顺手修好的老毛病：**Sam 页年份彩带的悬浮小提示会把页面顶出横向滚动条**。
 它是绝对定位、以自己那一格为中心，最边上几格的提示必然伸到页面外，平时虽然透明
