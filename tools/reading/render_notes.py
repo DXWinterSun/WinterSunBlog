@@ -58,6 +58,9 @@ CSS = '''
  --line:color-mix(in srgb,var(--accent) 26%,transparent);
  --code-bg:color-mix(in srgb,var(--accent) 9%,#fff);
  --pen-ink:__BG__;--hl-mix:62%;
+ /* 词典风（照欧路里牛津的显示，Winter 2026-09-26：「参考这个词典的显示，做得更醒目更有区分」） */
+ --word:#27368f;--pos-bg:#c8322b;--pos-ink:#fff;--example:#2d63c8;--band:#eef0f4;--band-ink:#5b6472;
+ --tag-collo:#2f7d4f;--tag-confuse:#b35c12;
  --paper:#f6eedf;--paper-ink:#3b3329;--note-shadow:0 6px 16px rgba(40,30,20,.14);
 }
 :root[data-theme="dark"]{
@@ -67,6 +70,8 @@ CSS = '''
  --line:color-mix(in srgb,var(--accent) 24%,transparent);
  --code-bg:color-mix(in srgb,var(--bg) 70%,#000);
  --paper:#f2eadd;--note-shadow:0 8px 20px rgba(0,0,0,.34);--hl-mix:40%;
+ --word:#a9b8ff;--pos-bg:#d8534b;--example:#8fb0ff;--band:rgba(255,255,255,.06);--band-ink:#aab2bf;
+ --tag-collo:#7fcf9d;--tag-confuse:#f0a867;
 }
 .theme-btn{position:absolute;top:10px;right:10px;z-index:5;width:36px;height:36px;border-radius:50%;
  border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:17px;line-height:1;padding:0;}
@@ -247,6 +252,42 @@ details.tipbox .tips{margin-top:.8rem;}
 .foot p{margin:0 0 .5rem;}
 .foot b{color:var(--accent);font-weight:600;}
 
+/* ── 词典风卡片 ── */
+.card{border-left:4px solid var(--hl);}
+.card--pink{border-left-color:var(--hl-pink);}
+.card--orange{border-left-color:var(--hl-orange);}
+.card__term{font-family:"Helvetica Neue",Arial,ui-sans-serif,sans-serif;font-weight:700;font-size:1.9rem;
+ letter-spacing:0;color:var(--word);}
+.card__head{align-items:center;gap:.3rem .8rem;}
+.card__ipa{display:inline-flex;align-items:center;gap:.35rem;font-size:.95rem;color:var(--ink);}
+.card__ipa small{font-size:.78rem;color:var(--muted);}
+.card__say{appearance:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+ border:0;border-radius:50%;background:transparent;color:var(--example);cursor:pointer;padding:0;}
+.card__say:hover{background:var(--band);}
+.card__say svg{width:19px;height:19px;}
+.card__say.is-on{animation:say .9s ease-in-out infinite;}
+@keyframes say{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.card__say.is-on{animation:none;}}
+.card__pos{display:inline-block;font-family:ui-sans-serif,-apple-system,"Helvetica Neue",Arial,sans-serif;
+ font-style:normal;font-weight:600;font-size:.82rem;line-height:1.5;padding:0 .5rem;border-radius:5px;
+ background:var(--pos-bg);color:var(--pos-ink);vertical-align:.12em;}
+.card__cn{font-size:1.14rem;font-weight:600;margin-bottom:.35rem;}
+.card__en{margin:0 0 .9rem;font-family:"Helvetica Neue",Arial,ui-sans-serif,sans-serif;font-style:normal;
+ font-weight:600;font-size:.98rem;line-height:1.6;color:var(--ink);}
+.card__band{display:block;margin:0 -1.25rem .55rem;padding:.28rem 1.25rem;background:var(--band);
+ color:var(--band-ink);font-size:.8rem;letter-spacing:.12em;}
+.card__ctx{margin-bottom:.8rem;}
+.card__ctx .card__quote{border-left:3px solid color-mix(in srgb,var(--example) 35%,transparent);
+ color:var(--example);font-style:italic;padding-left:.8rem;}
+.card__ctx .card__gist{padding-left:.95rem;}
+.card__note b,.card__extra strong{padding:0 .45rem;border-radius:4px;letter-spacing:.08em;line-height:1.6;
+ background:var(--band);color:var(--band-ink);}
+.card__extra li.is-collo strong{background:color-mix(in srgb,var(--tag-collo) 14%,transparent);color:var(--tag-collo);}
+.card__extra li.is-confuse strong{background:color-mix(in srgb,var(--tag-confuse) 14%,transparent);color:var(--tag-confuse);}
+.card__extra li{padding-left:0;}
+.card__extra li::before{content:none;}
+@media (max-width:480px){.card__term{font-size:1.65rem;}.card__band{margin:0 -1rem .55rem;padding:.28rem 1rem;}}
+
 @media (max-width:480px){
  body{font-size:16px;}
  .wrap{padding:3.4rem 1rem 4rem;}
@@ -261,6 +302,23 @@ details.tipbox .tips{margin-top:.8rem;}
 # 卡片上的「批注」按钮：打开 Artifact 自带的批注框，锚在这张卡上（页面本身什么都不存）。
 # 拿不到批注能力（旧版查看器 / 没有权限）就保持隐藏——选中文字照样能批注。
 JS = '''
+(function () {
+  var ss = window.speechSynthesis;
+  if (!ss || !window.SpeechSynthesisUtterance) return;
+  [].forEach.call(document.querySelectorAll('.card__say'), function (b) {
+    b.hidden = false;
+    b.addEventListener('click', function () {
+      try {
+        ss.cancel();
+        var u = new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+        u.lang = 'en-US'; u.rate = 0.9;
+        b.classList.add('is-on');
+        u.onend = u.onerror = function () { b.classList.remove('is-on'); };
+        ss.speak(u);
+      } catch (e) {}
+    });
+  });
+})();
 (function () {
   var root = document.documentElement, b = document.querySelector('.theme-btn');
   function paint() { var d = root.getAttribute('data-theme') === 'dark';
@@ -302,6 +360,11 @@ JS = '''
 '''
 
 
+SPEAKER = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+           'stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/>'
+           '<path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg>')
+
+
 def esc(s):
     return html.escape(str(s), quote=True)
 
@@ -328,7 +391,7 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
     pen = n.get('color') or 'blue'
     if pen == 'orange':
         return quote_card(n, cid, winter_label)
-    out = [f'<article class="card" id="{esc(cid)}" data-comment-target>']
+    out = [f'<article class="card card--{pen}" id="{esc(cid)}" data-comment-target>']
 
     meta = [f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>']
     if pen in PENS:
@@ -339,7 +402,9 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
 
     head = [f'<h3 class="card__term" lang="en">{esc(n["term"])}</h3>']
     if n.get('ipa'):
-        head.append(f'<span class="card__ipa">{esc(n["ipa"])}</span>')
+        say = (n.get('say') or n.get('term'))
+        head.append(f'<span class="card__ipa"><button type="button" class="card__say" data-say="{esc(say)}" '
+                    f'aria-label="朗读 {esc(say)}" hidden>{SPEAKER}</button><small>美</small>{esc(n["ipa"])}</span>')
     if n.get('lemma'):
         head.append(f'<span class="card__lemma">原形 <i lang="en">{esc(n["lemma"])}</i></span>')
     out.append('<div class="card__head">' + ''.join(head) + '</div>')
@@ -354,8 +419,8 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
 
     ctx = n.get('context') or n.get('sentence')
     if ctx:
-        page = (f'<span class="card__ctx-page">p. {esc(n["page"])}</span>'
-                if n.get('page') not in (None, '') else '')
+        page = (f'<span class="card__band">原文 · p. {esc(n["page"])}</span>'
+                if n.get('page') not in (None, '') else '<span class="card__band">原文</span>')
         gist = (f'<p class="card__gist">{fmt(n["gist"])}</p>'
                 if 'gist' in show and n.get('gist') else '')
         out.append(f'<div class="card__ctx">{page}'
@@ -383,7 +448,10 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
     if 'note' in show and n.get('note'):
         out.append(f'<p class="card__note"><b>解读</b>{fmt(n["note"])}</p>')
     if 'extra' in show and n.get('extra'):
-        items = ''.join(f'<li>{fmt(x)}</li>' for x in as_list(n['extra']))
+        def cls(x):
+            x = str(x)
+            return ' class="is-collo"' if x.startswith('**搭配') else ' class="is-confuse"' if x.startswith('**易混') else ''
+        items = ''.join(f'<li{cls(x)}>{fmt(x)}</li>' for x in as_list(n['extra']))
         out.append(f'<ul class="card__extra">{items}</ul>')
     if n.get('unsure'):
         out.append(f'<p class="card__unsure"><b>看不太清</b>{fmt(n["unsure"])}</p>')
