@@ -2056,3 +2056,14 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 普通对白、歌词、每篇文首的 `> "..."` 双语题记、文末的回环式题记 / 尾声引语、
 只在叙述里被转述而没有逐字复现的信件、环境里的门牌 / 标语一类背景文字。
 拿不准时，宁可不套。
+
+## ⚖️ 雪地打卡（减肥打卡，2026-09-26）
+
+Winter 的私人称重打卡页，**不上博客**（体重是隐私）。它是一个 Artifact：
+https://claude.ai/artifact/266oHdnhPmovqvDo53HNWK ——源码在 `tools/weight/index.html`（`tools/` 不发布）。
+
+- 目标（她定的）：**65 公斤 → Vision Pro，60 公斤 → 满钻短裙**；页面里可改。
+- 数据存在 Artifact 自带的数据库里（`meta/settings` 一份设置、`logs/<YYYY-MM-DD>` 一天一条），
+  规则 `read/write: owner`，只有她本人能看能写。手机电脑同步，换设备不丢。
+- 改页面：改源码后用 Artifact 工具带上面那个 `url` 重新发布（**省略 `capabilities`**，保留原规则），
+  链接不变、记录不丢。要看她的进度可用 ArtifactData 读 `logs`。
