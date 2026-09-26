@@ -450,3 +450,140 @@ batches:
         note: 就是鹿趴着睡过的地方，松针被压下去一块。接下来 John 摸到那里还是暖的，还看见落下的鹿毛：鹿刚刚还躺在这儿。牛津的例句正好也是印子：马蹄在泥里留下深深的蹄印。
         extra:
           - "**易混**同一个词在排版里指“段首缩进”（空两格）。"
+
+  - n: 4
+    date: 2026-09-26
+    pages: 6
+    photos: 1
+    notes:
+      - id: "026"
+        page: 6
+        color: blue
+        term: pungent
+        kind: 单词
+        ipa: /ˈpʌndʒənt/
+        pos: adj.
+        cn: （气味）冲鼻的
+        en: having a strong taste or smell
+        en_src: 牛津 8
+        context: "like John’s own, ==pungent== and harsh"
+        gist: 跟 John 自己身上的一样，又冲又呛。
+        note: 他闻到的是那头鹿受惊时冒出来的气味，作者说那股味道跟 John 自己紧张时的一样。pungent 常用来说大蒜、洋葱、烧焦的东西那种直冲鼻子的味道。
+        extra:
+          - "**搭配**a pungent smell / odour（刺鼻的气味）"
+          - "**易混**strong 只说味道重；pungent 是重到发冲、呛人。"
+
+      - id: "027"
+        page: 6
+        color: blue
+        term: trots
+        lemma: trot
+        kind: 单词
+        ipa: /trɑːts/
+        pos: v.
+        cn: 小步快跑
+        en: to run or walk fast, taking short quick steps
+        en_src: 牛津 8
+        context: "he ==trots== a half circle"
+        gist: 他小步快跑，绕了半个圈。
+        note: 本来是说马的“快步”，比走快、比跑慢；用在人身上，是迈着小步颠颠地快走。
+        extra:
+          - "**易混**第 4 页的 lope 是大步、从容；trot 是小步、急促。"
+
+      - id: "028"
+        page: 6
+        color: blue
+        term: sumac
+        kind: 名物
+        ipa: /ˈsuːmæk/
+        pos: n.
+        cn: 漆树（盐肤木一类的灌木）
+        en: a bush or small tree with long leaves that turn bright red in autumn
+        context: "witch hazel, ==sumac==, mountain laurel"
+        gist: 金缕梅、漆树、山月桂。
+        note: 美国东部山里到处都是，秋天叶子红得发亮。其中有一种叫 poison sumac，碰了皮肤会起疹子。这一串全是林下的灌木，作者一口气列出来，写那片林子长得有多杂、有多难钻。
+        extra:
+          - "**搭配**staghorn sumac（鹿角漆树，枝上有绒毛，最常见）"
+
+      - id: "029"
+        page: 6
+        color: blue
+        term: laurel
+        kind: 名物
+        ipa: /ˈlɔːrəl/
+        pos: n.
+        cn: 月桂；这里是山月桂
+        en: a bush with dark smooth shiny leaves that remain on the bush and stay green through the year
+        en_src: 牛津 8
+        context: "mountain ==laurel=="
+        gist: 山月桂。
+        note: mountain laurel 是美国东部山区的一种常绿灌木，春天开粉白色的小花，长得很密，枝条又硬，人很难从中间钻过去。它跟做香料的月桂叶不是一种植物。
+        extra:
+          - "**搭配**rest on your laurels（吃老本，满足于已有的成绩），这里 laurels 是“荣誉”的意思，来自古时候给胜利者戴的月桂冠。"
+
+      - id: "030"
+        page: 6
+        color: blue
+        term: nettles
+        lemma: nettle
+        kind: 名物
+        ipa: /ˈnetlz/
+        pos: n.
+        cn: 荨麻
+        en: a wild plant with leaves that have pointed edges, are covered in fine hairs and sting if you touch them
+        en_src: 牛津 8
+        context: "==nettles== that tear at his pants"
+        gist: 扯着他裤子的荨麻。
+        note: 叶子上有细毛，碰一下皮肤就火辣辣地疼、起小包。tear at 是“一下一下地撕扯”，写他从草丛里硬闯过去。
+        extra:
+          - "**搭配**stinging nettle（荨麻的全称）· tear at（撕扯）"
+
+      - id: "031"
+        page: 6
+        color: blue
+        term: rake
+        kind: 一词多义
+        ipa: /reɪk/
+        pos: v.
+        cn: 划过、刮过（皮肤）
+        en: to scratch the surface of something with a sharp object, especially your nails
+        en_src: 牛津 8
+        context: "painfully ==rake== his face"
+        gist: 在他脸上狠狠地刮过。
+        note: 主语是前面那些荨麻和灌木。rake 最常见的是名词“耙子”，动词“用耙子耙”，树枝一道道刮过脸，就像被耙了一样。牛津里它还有个老式的意思：花花公子、浪荡子。
+        extra:
+          - "**搭配**rake leaves（耙树叶）· rake through（翻找）"
+          - "**易混**scratch 是一般的抓、挠；rake 是一道一道划过去，力气更大，面积也更大。"
+
+      - id: "032"
+        page: 6
+        color: blue
+        term: interlarded
+        lemma: interlard
+        kind: 单词
+        ipa: /ˌɪntərˈlɑːrdɪd/
+        pos: v.
+        cn: 夹杂着、穿插着
+        en: to mix something here and there with things of a different kind
+        context: "is ==interlarded== with moss-slick rocks"
+        gist: 中间夹杂着长满青苔、滑溜溜的石头。
+        note: 牛津高阶没收这个词，英文解释是我写的。lard 是猪油，这个词本来是往瘦肉里塞肥油，后来引申成“在……里面东一块西一块地掺进别的东西”，多用来说话里、文章里夹杂着什么，是很书面的词。这里借来说灌木丛里掺着石头，是作者的文笔。
+        extra:
+          - "**易混**intersperse 意思最接近，也常见得多：be interspersed with（间或夹着）。"
+
+      - id: "033"
+        page: 6
+        color: blue
+        term: sporadic
+        kind: 单词
+        ipa: /spəˈrædɪk/
+        pos: adj.
+        cn: 零零星星的、时有时无的
+        en: happening only occasionally or at intervals that are not regular
+        en_src: 牛津 8
+        context: "thin, ==sporadic== drops"
+        gist: 稀稀拉拉、隔一阵才有一滴的血。
+        note: 鹿流的血不多，也断断续续，所以 John 担心它还能跑很久才会倒下。
+        extra:
+          - "**搭配**sporadic gunfire（零星的枪声）· sporadically（偶尔地）"
+          - "**易混**occasional 只说“偶尔”；sporadic 还带着“没规律、东一下西一下”的意思。"
