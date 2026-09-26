@@ -892,3 +892,107 @@ batches:
         note: 本来是羊咩咩的叫声，这里用在鹿身上。前面它还凶得要撞人，挨了一下就只剩这么一声又弱又惨的叫，反差很大。牛津只给了动词的释义，所以这里的英文解释是我按名词写的。牛津还说它能指人“用微弱的声音抱怨”。
         extra:
           - "**搭配**let out a cry / bleat / groan（发出一声……）"
+
+  - n: 9
+    date: 2026-09-26
+    pages: 11
+    photos: 1
+    notes:
+      - id: "051"
+        page: 11
+        color: orange
+        term: 好句
+        context: "==John has the same sad feeling as he did watching his father doing likewise in a hospital bed fourteen years before.=="
+        gist: John 心里涌上的那种难过，跟十四年前看着父亲躺在病床上也这样的时候，一模一样。
+        note: 这是书里第一次提到他父亲。doing likewise 指的是前面那头鹿的样子：一口一口往外呼、眼睛发浑，好像已经去了另一个世界。作者一个“死”字都没写，就用“也这样”三个字，把一头垂死的鹿和病床上的父亲叠在了一起。一个猎人看着自己的猎物，想起的却是送走父亲的那一幕。
+
+      - id: "052"
+        page: 11
+        color: blue
+        term: hoists
+        lemma: hoist
+        kind: 单词
+        ipa: /hɔɪsts/
+        pos: v.
+        cn: 高高举起
+        en: to raise or pull something up to a higher position, often using ropes or special equipment
+        en_src: 牛津 8
+        context: "==hoists== the butt like a post-hole digger"
+        gist: 像举挖桩坑的长柄铲那样，把枪托高高举起。
+        note: 平常多用于吊起重物、升旗、升帆。post-hole digger 是挖栅栏桩坑的工具，两根长柄，双手举起来往下猛戳。butt 是枪托，他反握着枪管，拿枪托往下砸。
+        extra:
+          - "**搭配**hoist a flag（升旗）· hoist sth onto your shoulder（把……扛上肩）"
+
+      - id: "053"
+        page: 11
+        color: orange
+        term: 好句
+        context: "The buck should have died in the pines from ==a single shot==."
+        gist: 那头鹿本该在松林里，一枪就了结。
+        note: 书名第一次出现在正文里。在这里它说的就是字面上的“一枪”：他原本只想一枪打死一头鹿，结果弄成了一路追、一路流血，最后只能用枪托砸死它。书名以后还会不会有别的分量，读下去再看。
+
+      - id: "054"
+        page: 11
+        color: blue
+        term: wads
+        lemma: wad
+        kind: 单词
+        ipa: /wɑːdz/
+        pos: v.
+        cn: 揉成一团
+        en: to fold or press something into a tight wad
+        en_src: 牛津 8
+        context: "==wads== it into a ball"
+        gist: 把它揉成一团。
+        note: 名词 wad 更常见：一沓钞票（a wad of cash）、一团棉花（a wad of cotton）。牛津说动词用法尤其是美式的。他把撕破的卫衣揉成团去按伤口。
+        extra:
+          - "**搭配**a wad of cash（一沓现金）· wad up（揉成团）"
+
+      - id: "055"
+        page: 11
+        color: blue
+        term: puncture
+        kind: 单词
+        ipa: /ˈpʌŋktʃər/
+        pos: n.
+        cn: 扎出来的伤口
+        en: a small hole, especially in the skin, made by a sharp point
+        en_src: 牛津 8
+        context: "a jagged ==puncture== wound"
+        gist: 一个边缘参差的刺伤。
+        note: 被鹿角戳出来的。jagged 是“边缘坑坑洼洼、不齐的”。在英式英语里，puncture 最常见的意思是轮胎被扎破。
+        extra:
+          - "**搭配**puncture wound（刺伤）· a punctured tyre（扎破的轮胎）"
+
+      - id: "056"
+        page: 11
+        color: blue
+        term: oozing
+        lemma: ooze
+        kind: 单词
+        ipa: /ˈuːzɪŋ/
+        pos: v.
+        cn: （稠的液体）慢慢往外渗
+        en: if a thick liquid oozes from a place, or if something oozes a thick liquid, the liquid flows from the place slowly
+        en_src: 牛津 8
+        context: "==oozing== a slow, steady stream"
+        gist: 慢慢地、不停地往外渗着血。
+        note: 伤口半英寸深，大约一厘米多。ooze 还有个很常用的引申义：浑身透着某种气质，比如 ooze confidence（浑身透着自信）。
+        extra:
+          - "**搭配**ooze blood（渗血）· ooze confidence / charm（浑身散发着自信 / 魅力）"
+          - "**易混**drip 是一滴一滴往下掉；ooze 是黏稠的东西慢慢冒出来。"
+
+      - id: "057"
+        page: 11
+        color: blue
+        term: unwads
+        lemma: unwad
+        eudic: false
+        kind: 单词
+        ipa: /ʌnˈwɑːdz/
+        pos: v.
+        cn: 把揉成团的东西摊开
+        en: to open out something that has been pressed into a ball
+        context: "He ==unwads== the shirt"
+        gist: 他把那团衣服摊开。
+        note: 词典里查不到，是 un-（反过来）加上前面的 wad，作者顺手用的。前面 wads it into a ball，这里 unwads the shirt，一揉一摊，正好对上。所以欧路列表里没有放它，记住 wad 就够了。
