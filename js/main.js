@@ -607,7 +607,14 @@ $(document).ready(function () {
   (function buildArticleTOC() {
     var article = document.querySelector('.c-wrap-content');
     if (!article) return;
-    var headings = article.querySelectorAll('h2, h3');
+    // 只收真正「指事」的小标题：光是编号的（一 / II. / 3）不进目录——
+    // 那只是分节记号，放进目录等于一列数字；卡片里自带的标题（带 class）也不收。
+    var BARE_NUMBER = /^[\s.,、，。·•:：\-—–()（）第章节]*[一二三四五六七八九十百零〇两\dIVXLC]+[\s.,、，。·•:：\-—–()（）章节]*$/;
+    var headings = Array.prototype.filter.call(article.querySelectorAll('h2, h3'), function (h) {
+      if (h.className) return false;
+      var text = (h.textContent || '').trim();
+      return text && !BARE_NUMBER.test(text);
+    });
     if (headings.length < 3) return; // not worth a TOC
 
     var toc = document.createElement('nav');

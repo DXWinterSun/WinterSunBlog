@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1872
+  "count": 1885
  },
  "chars": {
   "youngsam": {
@@ -2264,6 +2264,97 @@
      "b": "daily",
      "ch": 14,
      "title": "Chapter 14 · 护短",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "你快睡着的时候，跟我说了句话。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 一个音都不差",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "你会了大概有一个月了。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 一个音都不差",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "你不用装傻，也能让我教你。",
+     "b": "tease",
+     "ch": 15,
+     "title": "Chapter 15 · 一个音都不差",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "既然你这么想上课。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 一个音都不差",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "教到你会为止。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 一个音都不差",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "你要那个音，你就得发对。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 一个音都不差",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "放松。你上个月自己念的时候，一点力都没使。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 一个音都不差",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "全世界只有一个人这么叫过我。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 一个音都不差",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "你波兰语还不够好。",
+     "b": "daily",
+     "ch": 15,
+     "title": "Chapter 15 · 一个音都不差",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "那年冬天，芝加哥，收音机整天放这一首。我一个词都听不懂，就跟着哼。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 这张我买了",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "我在这儿干了快三年。",
+     "b": "tired",
+     "ch": 16,
+     "title": "Chapter 16 · 这张我买了",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "等你波兰语再好一点。",
+     "b": "miss",
+     "ch": 16,
+     "title": "Chapter 16 · 这张我买了",
+     "series": "The Cardinal"
+    },
+    {
+     "cn": "我就是不想告诉你。",
+     "b": "daily",
+     "ch": 16,
+     "title": "Chapter 16 · 这张我买了",
      "series": "The Cardinal"
     }
    ]
