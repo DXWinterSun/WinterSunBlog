@@ -10,6 +10,7 @@ series_order: 54
 series_status: ongoing
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "2004"
 summary: "你在吃一个不存在的人的醋。——对。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 暗涌]

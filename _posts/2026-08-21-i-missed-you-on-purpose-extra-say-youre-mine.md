@@ -11,6 +11,7 @@ series_order: 16
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1985"
 summary: "逃出芝加哥的第一夜。他一遍一遍要你说，你是他的。"
 redirect_from:

@@ -11,6 +11,7 @@ series_order: 18
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "投票议题：经理谈恋爱之后，是否变得更烦人了。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-everyone-knew/

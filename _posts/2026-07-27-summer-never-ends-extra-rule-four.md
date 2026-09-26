@@ -11,6 +11,7 @@ series_order: 23
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "闭园夜，空乐园只剩你俩。他一本正经播着守则，把你据为己有。"
 redirect_from:
   - /2026/07/07/summer-never-ends-extra-rule-four/

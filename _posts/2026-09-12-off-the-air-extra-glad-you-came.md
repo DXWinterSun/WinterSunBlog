@@ -11,6 +11,7 @@ series_order: 28
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1983.6.3"
 summary: "五十四年来头一回，有人不覆纱、看着他的眼睛，把那支歌唱完。"
 easter_eggs:

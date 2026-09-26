@@ -11,6 +11,7 @@ series_order: 91
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "全世界笑他说错话。只有你知道，错的那些字才是他自己的。"
 redirect_from:
   - /2026/08/16/the-most-powerful-man-extra-bushisms/

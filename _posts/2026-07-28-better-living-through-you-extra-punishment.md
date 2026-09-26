@@ -11,6 +11,7 @@ series_order: 28
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "罪名是射得太少——其实她只想罚他，射得更多。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-punishment/

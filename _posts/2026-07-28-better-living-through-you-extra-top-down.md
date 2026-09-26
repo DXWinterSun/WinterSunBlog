@@ -11,6 +11,7 @@ series_order: 50
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他按下按钮，车篷降开，满天星灌进来——这一场，换他在上面。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-top-down/

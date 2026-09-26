@@ -10,6 +10,7 @@ series_order: 35
 series_status: ongoing
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "2004"
 summary: "水声停了。你数到六，推门进去了。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 缱绻]

@@ -70,6 +70,13 @@ exclude:
   - NEW-AU-INTAKE-TEMPLATE.md
   - README.md
   - sam/quotes-draft.md   # 台词草稿，不是页面
+  - tools                 # 维护脚本与人脸模型，不发布（以前整个目录都被传上线了）
+  - src                   # 早年的 React 草稿，没接进站
+  - package.json
+  - package-lock.json
+  - wrangler.toml
+  - sam_themes_palette_review.xlsx
+  - public                # tools/build_public.py 的产物，给 Cloudflare 用
 
 gallery_images:
   - counting-stars.png

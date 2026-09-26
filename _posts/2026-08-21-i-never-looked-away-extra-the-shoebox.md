@@ -11,6 +11,7 @@ series_order: 21
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "鞋盒里是三十七张明信片，背面全是空白。"
 easter_eggs:
   - series_order: 9

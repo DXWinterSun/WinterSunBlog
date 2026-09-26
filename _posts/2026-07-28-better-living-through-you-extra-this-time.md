@@ -11,6 +11,7 @@ series_order: 42
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "这一回没有水晶灯，只有暖阳——你卸下旧姓，笑着成了他的太太。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-this-time/

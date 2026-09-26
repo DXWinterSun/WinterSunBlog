@@ -11,6 +11,7 @@ series_order: 25
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1982–83 冬"
 summary: "一句“Barris 太太”，把两个从没敢想过的人，一起钉在原地。"
 easter_eggs:

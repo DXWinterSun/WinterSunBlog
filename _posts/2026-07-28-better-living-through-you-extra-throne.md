@@ -11,6 +11,7 @@ series_order: 34
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他从你脚尖一路吻上来，供奉他的王后——你破碎的我爱你，再没攥住。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-throne/

@@ -11,6 +11,7 @@ series_order: 55
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 23
+chapter_kind: pov
 summary: "全城收过他字字千金的短信。没人见过他草稿箱里，删掉的那些真心话。"
 easter_eggs:
   - series_order: 14

@@ -11,6 +11,7 @@ series_order: 56
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 24
+chapter_kind: extra
 summary: "你改不掉那声先生。他却艰难学会了，唤你一声‘宝贝’。"
 easter_eggs:
   - series_order: 2

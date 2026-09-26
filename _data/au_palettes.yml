@@ -757,3 +757,36 @@
   text_en: "Headlamp Frost"
   muted_cn: "警徽旧金"
   muted_en: "Badge Gold"
+
+"The Ball He Couldn't Reach":
+  mf_id: brad
+  accent: "#c9d84e"
+  accent_ink: "#646c27"   # 荧光黄太浅，按 0.5 压到浅色主题下 5.5:1，别机械 ×0.8
+  bg: "#1c2230"
+  text: "#e8eadc"
+  muted: "#7a8590"
+  accent_cn: 网球荧光黄
+  accent_en: Tennis Ball
+  bg_cn: 曼哈顿冬夜
+  bg_en: Manhattan Slate
+  text_cn: 育儿室奶白
+  text_en: Nursery White
+  muted_cn: 中央公园雾
+  muted_en: Park Fog
+  # Brad Cairn · 色卡同源 sam_themes.yml id: brad
+
+"Dear Satan":               # Karl Fairhurst · 色卡同源 sam_themes.yml id: karl
+  mf_id: karl                 # → Many Faces 画册锚点 /sam/many-faces/#karl
+  accent: "#d15f82"
+  accent_ink: "#a74c68"
+  bg: "#181320"
+  text: "#f2e4ea"
+  muted: "#8a7d9c"
+  accent_cn: 烟熏眼影
+  accent_en: Smoky Kohl
+  bg_cn: 地窖绒黑
+  bg_en: Basement Velvet
+  text_cn: 舞厅粉纱
+  text_en: Disco Blush
+  muted_cn: 暮霭灰紫
+  muted_en: Mauve Haze

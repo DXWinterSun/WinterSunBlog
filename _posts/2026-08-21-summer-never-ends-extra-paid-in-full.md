@@ -11,6 +11,7 @@ series_order: 36
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "月度考核全项不合格。她提出行贿，经理表示可以谈。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-paid-in-full/

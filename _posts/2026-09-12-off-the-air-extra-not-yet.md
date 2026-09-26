@@ -11,6 +11,7 @@ series_order: 24
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: pov
 story_time: "1969 冬"
 summary: "枪落进雪里的那一刻他就知道：完了。可他只跟自己说了句——再说吧。"
 easter_eggs:

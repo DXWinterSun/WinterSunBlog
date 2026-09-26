@@ -142,3 +142,14 @@
 .u-screen-reader-text {
   @include screen-reader();
 }
+/* ---------------------------------------------------------------------------
+   hidden 必须真的隐藏（2026-09-19）
+   normalize 里那条 [hidden]{display:none} 和组件类同权重，而组件层排在它后面，
+   所以任何自己写了 display 的组件（.c-resume-pill 的 inline-flex、.c-resume
+   的 flex…）都会把 hidden 顶掉——页面上于是留下一个点不动的空壳子。Winter 在
+   Off the Air 章节页看见的那枚小标签，就是还没填字的「上次读到 N%」药丸。
+   放在 trumps 层一次管住全站，以后新组件不必各自再写一遍。
+   --------------------------------------------------------------------------- */
+[hidden] {
+  display: none !important;
+}

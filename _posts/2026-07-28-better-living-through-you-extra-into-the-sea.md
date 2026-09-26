@@ -11,6 +11,7 @@ series_order: 45
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "月光下他只一条泳裤，你看直了眼——然后你们一起，下了海。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-into-the-sea/

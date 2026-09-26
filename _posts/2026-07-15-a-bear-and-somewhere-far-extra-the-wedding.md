@@ -11,6 +11,7 @@ series_order: 28
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他这边，本没有一个人可以来——可那天，来了。"
 redirect_from:
   - /2026/07/14/a-bear-and-somewhere-far-extra-the-wedding/

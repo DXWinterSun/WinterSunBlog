@@ -9,6 +9,7 @@ series_title: "Nickel and Dime · Jimmy Silk AU"
 series_order: 21
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你见过他四次，四次抬头，眼睛先找的都是他。"
 tags: [Jimmy Silk, Sam Rockwell, AU, Nickel and Dime, 暗涌, 安放]
 redirect_from:

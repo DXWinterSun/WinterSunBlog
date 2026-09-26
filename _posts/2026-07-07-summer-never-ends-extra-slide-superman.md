@@ -11,6 +11,7 @@ series_order: 21
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他用一个漏洞百出的荤段子，包了一句正经的情话。"
 ---
 

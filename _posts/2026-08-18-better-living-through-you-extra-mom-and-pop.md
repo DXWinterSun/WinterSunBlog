@@ -11,6 +11,7 @@ series_order: 59
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "药房的一天，你在柜台后看着你的男人——光是看他工作，都是一种享受。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-mom-and-pop/

@@ -11,6 +11,7 @@ series_order: 90
 series_status: complete
 series_type: Series
 chapter_type: "IF"
+chapter_kind: extra
 summary: "雪夜里，你们合写了一个宇宙。那里没有档案馆。"
 redirect_from:
   - /2026/08/16/the-most-powerful-man-extra-if-rain-delay/

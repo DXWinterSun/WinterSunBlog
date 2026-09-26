@@ -11,6 +11,7 @@ series_order: 22
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: pov
 summary: "他记了三年账，有一笔从来不敢入账。"
 easter_eggs:
   - series_order: 1

@@ -11,6 +11,7 @@ series_order: 18
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1985"
 summary: "你第一次问起她。他说完，又说了一句欠揍的话。"
 ---

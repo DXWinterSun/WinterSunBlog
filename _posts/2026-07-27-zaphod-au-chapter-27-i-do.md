@@ -10,6 +10,7 @@ series_order: 27
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 27 · 大结局"
+chapter_kind: extra
 summary: "他求着你把一切修好、把婚礼补上——这一次，你当他的面，说了我愿意。"
 tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 安放, 缱绻]
 redirect_from:

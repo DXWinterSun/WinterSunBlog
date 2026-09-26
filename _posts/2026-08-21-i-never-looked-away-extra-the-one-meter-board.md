@@ -11,6 +11,7 @@ series_order: 29
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他答应过教你跳水，这天他自己先站了上去。"
 easter_eggs:
   - series_order: 16

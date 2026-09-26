@@ -11,6 +11,7 @@ series_order: 29
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "那个词她一整天都说不出口。"
 redirect_from:
   - /2026/09/05/everybody-s-home-extra-fiances/

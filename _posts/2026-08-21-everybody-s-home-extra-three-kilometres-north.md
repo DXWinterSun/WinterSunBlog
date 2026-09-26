@@ -11,6 +11,7 @@ series_order: 22
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "同一个盖子，他被抱出来过两回。"
 redirect_from:
   - /2026/08/30/everybody-s-home-extra-three-kilometres-north/

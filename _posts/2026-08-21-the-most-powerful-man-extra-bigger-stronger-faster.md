@@ -11,6 +11,7 @@ series_order: 94
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他把灵魂押给那双眼睛，对方却拿尺子量他的狗。"
 redirect_from:
   - /2026/08/16/the-most-powerful-man-extra-bigger-stronger-faster/
@@ -136,7 +137,7 @@ redirect_from:
 
 同一顿晚饭，两个人各自记下的，是两笔完全不同的账。
 
-这不是他输了。这是有人根本不办「朋友」这个业务——你拿存款去人家柜台，人家只收抵押。
+这不是他输了。这是有人根本不办“朋友”这个业务——你拿存款去人家柜台，人家只收抵押。
 
 可你没法跟他说这个。这不归档案管，也没人问你。你只能做你职权范围内的事：在他被错误的度量衡量过之后，用一页无编号的纸，把度量衡改回来。
 

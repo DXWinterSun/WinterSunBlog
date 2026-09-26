@@ -11,6 +11,7 @@ series_order: 32
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "这次换她翘着腿问：这五年，你征服魔鬼峰了吗？"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-off-season-hiring/

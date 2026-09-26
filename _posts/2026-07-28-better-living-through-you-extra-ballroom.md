@@ -11,6 +11,7 @@ series_order: 38
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "满室都是配得上你的人，你却穿过舞池，把手伸给了场边的他。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-ballroom/

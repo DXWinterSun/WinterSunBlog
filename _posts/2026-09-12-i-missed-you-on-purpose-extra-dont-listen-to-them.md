@@ -10,6 +10,7 @@ series_order: 27
 series_type: "Series"
 series_status: complete
 chapter_type: "Extra"
+chapter_kind: pov
 story_time: "1981"
 summary: "一个陌生人跟他说了十分钟话，他当天夜里就回去求了婚。"
 tags: [Jerry, Sam Rockwell, AU, I Missed You on Purpose, 怅惘, 暗涌]

@@ -12,6 +12,7 @@ story_time: "2025–26"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "五张卡签的都是 Hammer。编号二那张，花押多一个吻的弯。"
 redirect_from:
   - /2026/09/13/fog-city-extra-two-of-five/

@@ -12,6 +12,7 @@ story_time: "1986 →"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "一条四十年从无例外的定律：只要你看着，他就停不下来。"
 redirect_from:
   - /2026/09/19/fog-city-extra-encore/

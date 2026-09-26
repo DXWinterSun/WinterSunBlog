@@ -11,6 +11,7 @@ series_order: 22
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "那个年年目送你离开的位置，今年他带你站了上去。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-last-saturday-of-august/

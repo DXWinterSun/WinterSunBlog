@@ -11,6 +11,7 @@ series_order: 43
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 11
+chapter_kind: extra
 summary: "婚前尽调补办。Stankas 先生的情史，当庭逐项披露。"
 ---
 

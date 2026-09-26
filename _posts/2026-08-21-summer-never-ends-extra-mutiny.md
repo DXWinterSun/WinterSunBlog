@@ -11,6 +11,7 @@ series_order: 39
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "船长下令，大副执行——然后大副哗变了。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-mutiny/

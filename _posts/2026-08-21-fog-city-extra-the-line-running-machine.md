@@ -12,6 +12,7 @@ story_time: "1999–2026"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "对词机器四十年工龄，事故记录共五起，全部结案，零追责。"
 redirect_from:
   - /2026/09/17/fog-city-extra-the-line-running-machine/

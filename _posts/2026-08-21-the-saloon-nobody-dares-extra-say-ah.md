@@ -11,6 +11,7 @@ series_order: 15
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你逗他学会了张嘴——这下轮到你，一个字都说不出。"
 redirect_from:
   - /2026/07/29/the-saloon-nobody-dares-extra-say-ah/

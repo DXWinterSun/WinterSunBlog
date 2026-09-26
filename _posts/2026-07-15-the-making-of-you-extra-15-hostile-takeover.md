@@ -11,6 +11,7 @@ series_order: 47
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 15
+chapter_kind: extra
 summary: "那晚你抽走他的钢笔，坐上他的腿——恶意收购，即刻生效。"
 ---
 

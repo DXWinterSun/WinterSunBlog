@@ -11,6 +11,7 @@ series_order: 49
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "看得见海的夜里，你翻身跨上驾驶座——那辆车，你们还没这样试过。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-in-the-car/

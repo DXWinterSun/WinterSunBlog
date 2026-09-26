@@ -11,6 +11,7 @@ series_order: 32
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他褪下你手上的旧戒，隔着当年那道柜台——这一声太太，名正言顺了。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-my-mrs/

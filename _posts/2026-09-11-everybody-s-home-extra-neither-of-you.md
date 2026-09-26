@@ -11,6 +11,7 @@ series_order: 26
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "她问你拦不拦。你按规矩答了：不拦。"
 redirect_from:
   - /2026/09/02/everybody-s-home-extra-neither-of-you/

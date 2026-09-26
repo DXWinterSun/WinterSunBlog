@@ -11,6 +11,7 @@ series_order: 15
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "有人问你屏保上是不是哪个电影明星。"
 ---
 

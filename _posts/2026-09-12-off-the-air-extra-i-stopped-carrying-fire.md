@@ -11,6 +11,7 @@ series_order: 22
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: pov
 story_time: "1981–82"
 summary: "他戒不掉的从来不是烟——是伸手向你要火。"
 easter_eggs:

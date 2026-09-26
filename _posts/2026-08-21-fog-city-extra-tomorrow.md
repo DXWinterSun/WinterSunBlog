@@ -12,6 +12,7 @@ story_time: "1986"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他问你生日。你说：明天。那盘空白磁带，原来是张欠条。"
 redirect_from:
   - /2026/09/06/fog-city-extra-tomorrow/

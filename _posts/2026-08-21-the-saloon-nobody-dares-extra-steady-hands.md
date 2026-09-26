@@ -11,6 +11,7 @@ series_order: 13
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他红着脸说，想学打枪——你握住他那双只会救人的手。"
 redirect_from:
   - /2026/07/29/the-saloon-nobody-dares-extra-steady-hands/

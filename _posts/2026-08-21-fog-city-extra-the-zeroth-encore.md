@@ -12,6 +12,7 @@ story_time: "2026"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "欠了四十年的加演，第〇届开演：观众点戏，点的是十七岁的他。"
 redirect_from:
   - /2026/09/14/fog-city-extra-the-zeroth-encore/

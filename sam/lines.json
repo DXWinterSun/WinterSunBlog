@@ -65,36 +65,36 @@
       "bg": "#14110d",
       "text": "#ede2d0",
       "muted": "#8a7558",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/interoffice/",
       "quotes": [
         {
-          "label": "OFF THE CLOCK",
+          "label": "LOSE CLEAN, NOT DIRTY",
           "line": "I'd rather lose clean than win dirty.",
           "lineCN": "宁可干干净净地输，也不脏着赢。",
           "kind": "锚"
         },
         {
-          "label": "THE ONE CLEAN THING",
-          "line": "This whole city runs on wanting more. You're the only thing I've ever just… wanted.",
-          "lineCN": "整座城市都在拼命要更多。你是我这辈子唯一，只是单纯地想要的东西。",
+          "label": "THE LAST NAME ON THE ENVELOPE",
+          "line": "Every name on that envelope got crossed out by somebody who moved on. Mine is the last one, and it is staying there. I'm not going anywhere — and I want you to hear me say it out loud.",
+          "lineCN": "那只信封上的名字，一个个都被划掉了——人走了，名字就划掉。我的是最后一个，它就留在那儿。我哪儿也不去——这句话，我要你听我亲口说一遍。",
           "kind": "暗告白"
         },
         {
-          "label": "WORTH THE FALL",
-          "line": "I threw away a good job to keep my hands clean. For you I'd throw away a lot more, and still call it a bargain.",
-          "lineCN": "为了干净，我把一份好工作摔在了地上。为了你，我能摔掉多得多——还觉得这买卖划算。",
+          "label": "TWO WEEKS OF DONUTS",
+          "line": "Two weeks I brought a different donut every morning and broke off a corner for you, never asking, just watching your face. Now it's always chocolate, and the big half is always yours.",
+          "lineCN": "有两个星期，我每天早上换一种甜甜圈，掰一角给你，从不问，只看你的脸。现在永远是巧克力——大的那半，永远归你。",
           "kind": "情话"
         },
         {
-          "label": "DONUT IN THE DRAWER",
-          "line": "Everybody thinks I'm this polished suit. You're the only one who knows about the half-eaten donut in my desk.",
-          "lineCN": "所有人都以为我是那身笔挺西装。只有你知道，我抽屉里还藏着半块没吃完的甜甜圈。",
+          "label": "NUMBERED IN PENCIL",
+          "line": "You number my notes in pencil on the back. It's up to fifty now. I write one every day just to watch that number climb.",
+          "lineCN": "你在我每张条子背面用铅笔编号。已经第五十张了。我天天写一张，就为了看那个数字往上爬。",
           "kind": "暗告白"
         },
         {
-          "label": "UP OR IN",
-          "line": "This town claws its way up. With you I finally figured out I'd rather go in — toward you.",
-          "lineCN": "这座城里人人往上爬。遇见你我才想明白，我宁愿往里走——朝你。",
+          "label": "CAN'T FIRE ME, I QUIT",
+          "line": "They can't fire me. I quit. Took me twenty-two years to learn to say it first — and I said it for you.",
+          "lineCN": "他们开不了我，我辞了。我用二十二年才学会抢在前头说这句话——而我是为你说的。",
           "kind": "情话"
         }
       ]
@@ -218,13 +218,13 @@
           "kind": "情话"
         },
         {
-          "label": "KEYS",
+          "label": "NOTHING TO RUN FROM",
           "line": "Take the keys. I don't need a getaway if there's nothing I want to get away from.",
           "lineCN": "钥匙给你。要是没有什么想逃开的了，我也就不需要逃跑车了。",
           "kind": "暗告白"
         },
         {
-          "label": "STAYED",
+          "label": "WHEN THE TANK RAN DRY",
           "line": "Turns out the great romance wasn't the heist. It was the girl who didn't leave when the tank ran dry.",
           "lineCN": "原来最动人的浪漫不是那场劫案。是油箱见了底、也没走的那个姑娘。",
           "kind": "情话"
@@ -244,33 +244,33 @@
       "auLink": null,
       "quotes": [
         {
-          "label": "HIS FAVORITE THING",
+          "label": "THIS ONE'S YOURS NOW",
           "line": "Here. This one's my favorite. It's yours now.",
           "lineCN": "给你。这个我最喜欢——现在归你了。",
           "kind": "锚"
         },
         {
-          "label": "KEPT THE BEST",
+          "label": "THE ONE I WANT TO KEEP",
           "line": "I give away everything I find. You're the one thing I want to keep.",
           "lineCN": "我捡到什么都送人。只有你，是我想留下的。",
           "kind": "暗告白"
         },
         {
-          "label": "FIREFLIES",
-          "line": "Come on — I'll show you where the fireflies sleep. I've been saving that spot for someone. Guess it was you.",
-          "lineCN": "走嘛——我带你去看萤火虫睡觉的地方。那地方我一直给某个人留着。原来是你。",
+          "label": "A JAR OF FIREFLIES",
+          "line": "Punch a few holes in the lid and a jar of fireflies is a whole night you can carry around. There's one on my shelf I saved from before I met you. It was always going to be yours.",
+          "lineCN": "在盖子上戳几个洞，一罐萤火虫就是一整夜——你能拿在手里带着走。我架子上留着一罐，比认识你还早。它本来就该是你的。",
           "kind": "情话"
         },
         {
-          "label": "FOLLOWED YOU HOME",
-          "line": "I don't follow anybody. But you turned around once, and now I can't stop.",
-          "lineCN": "我从不跟着谁走。可你回头看了我一眼，我就再也停不下来了。",
+          "label": "WHERE'S THE REST OF IT",
+          "line": "Half a trailer, no roof over the back end, and I call it a house. You walked in and never asked where the rest of it went. So stay in it. I'll build the rest around you. I don't care how long it takes.",
+          "lineCN": "半截拖车，后半边连顶都没有，我管它叫房子。你走进来，没问剩下那半边去哪儿了。那你就住下来。剩下那半边我绕着你盖——盖多久都行。",
           "kind": "暗告白"
         },
         {
-          "label": "STAY OUT LATE",
-          "line": "The whole world's out there glowing tonight. But I keep looking at you instead.",
-          "lineCN": "今晚整个世界都在发光。可我还是一直看着你。",
+          "label": "EARLY TO THE CREEK",
+          "line": "I don't own a clock and I've never been late for anything in my life. Except last week I got down to the creek early every single day, in case you came by.",
+          "lineCN": "我没有钟，这辈子也没迟到过。就是上礼拜我天天提早到小河边——怕你万一来。",
           "kind": "情话"
         }
       ]
@@ -288,33 +288,33 @@
       "auLink": "/WinterSunBlog/series/i-never-looked-away/",
       "quotes": [
         {
-          "label": "ON THE ROAD OUT",
+          "label": "SAVING UP TO TAKE YOU",
           "line": "I was saving up to leave. Now I'm saving up to take you with me.",
           "lineCN": "我攒钱本是为了离开——如今攒钱，是为了带你一起走。",
           "kind": "锚"
         },
         {
-          "label": "A REASON TO STAY",
-          "line": "I never belonged anywhere long enough to want to. Then you handed me a reason.",
-          "lineCN": "我从没在哪里待够到想留下。直到你，给了我一个理由。",
+          "label": "A CUP FROM THE CUPBOARD",
+          "line": "Every house on this street leaves my cup out on the step. You took one down from the cupboard and put it in my hand. I've been carrying that around for three weeks and I still don't know how to say what it did to me.",
+          "lineCN": "这条街上每一家，都把我那只杯子搁在台阶上。你从柜子里拿了一只，放进我手里。这件事我揣了三个礼拜，到现在还是不知道该怎么说它对我做了什么。",
           "kind": "暗告白"
         },
         {
-          "label": "PASSENGER",
-          "line": "Wherever the road goes next — there's a seat next to me that's had your name on it a while now.",
-          "lineCN": "这条路接下来通向哪儿——我旁边那个位子，早就写着你的名字了。",
+          "label": "THE MAN IN THE BOOTH",
+          "line": "The gate goes up for you and down for me, and the man in the booth writes my name every single time. Inside the wall, you're the only one who ever says it out loud.",
+          "lineCN": "那道门对你抬起来，对我落下去，门房每一回都要把我的名字登记一遍。墙里头，只有你把它念出声过。",
           "kind": "情话"
         },
         {
-          "label": "NOT RUNNING",
-          "line": "For the first time, leaving town doesn't feel like running. It feels like taking you somewhere better.",
-          "lineCN": "第一次，离开这镇子不像逃跑了。倒像是，带你去一个更好的地方。",
+          "label": "THIRTY FEET OFF THE BRIDGE",
+          "line": "Thirty feet down off that bridge, nine feet of water, four and a half over the east ledge. I counted all of it. They call it showing off. You're the only one who ever called it knowing what I'm doing.",
+          "lineCN": "从那座桥上往下三十英尺，水深九英尺，东边那道石梁四英尺半。我全数过。他们管这叫逞能——只有你说，那叫心里有数。",
           "kind": "暗告白"
         },
         {
-          "label": "THE LONG WAY",
-          "line": "Let's take the long way. I'm in no hurry to get anywhere you're not.",
-          "lineCN": "我们走远路吧。反正没有你的地方，我一点都不急着到。",
+          "label": "SHAKE THE COFFEE CAN",
+          "line": "There's a coffee can under the bunk. Shake it and you can hear how far off August is. Lately I've been counting it for two.",
+          "lineCN": "铺底下有个咖啡罐。摇一摇，就听得出八月还有多远。最近我是按两个人算的。",
           "kind": "情话"
         }
       ]
@@ -332,33 +332,33 @@
       "auLink": null,
       "quotes": [
         {
-          "label": "COULDN'T PICK A LOCK",
-          "line": "Can't crack a single safe. Cracked you wide open, though.",
-          "lineCN": "一个保险箱都撬不开——倒是把你，轻轻松松撬开了。",
+          "label": "THE ONLY ONE WHO CLAPPED",
+          "line": "We're a lounge act. We are not good. I have watched an entire room order food during our set. You clapped, and I have never gotten over it.",
+          "lineCN": "我们是驻唱二人组。唱得不好。我见过整个厅在我们唱的时候点菜。只有你鼓了掌——这件事我到现在没缓过来。",
           "kind": "锚"
         },
         {
-          "label": "THE ONE THING I'M GOOD AT",
-          "line": "Turns out I'm terrible at everything except noticing when you walk into a room.",
-          "lineCN": "原来我什么都不擅长——除了你一进门，我立刻就知道。",
+          "label": "NEVER OPENED ONE",
+          "line": "They think I can open anything with a steel door on it. I have never opened one in my life. You're the only person I've ever said that out loud to — and you didn't leave. I've been in love with you since roughly that exact second.",
+          "lineCN": "他们以为只要是铁门我都打得开。我这辈子一扇都没打开过。这话我只对你说出口过——你没走。差不多就是从那一秒起，我一直爱着你。",
           "kind": "暗告白"
         },
         {
-          "label": "NO COMBINATION",
-          "line": "You didn't need a combination. You just looked at me, and everything I'd locked up came open.",
-          "lineCN": "你没用密码。你只是看了我一眼，我锁住的一切就全打开了。",
+          "label": "NOT THE CUP",
+          "line": "Two grown men with guns fought over a boy's bar mitzvah cup, and I nearly died for it. Afterwards I worked out what I'd actually want in a safe. It was not the cup.",
+          "lineCN": "两个带枪的成年人为一只男孩成年礼的杯子打起来，我差点为它送命。后来我想明白了，保险箱里我真正想放的东西——不是杯子。",
           "kind": "情话"
         },
         {
-          "label": "CLUMSY ON PURPOSE",
-          "line": "I keep dropping things around you. Maybe so you'll keep looking at me like I need saving.",
-          "lineCN": "在你面前我老是把东西掉一地。也许是想让你一直那样看我——好像我需要人来救。",
+          "label": "THE ONE WE DON'T BOTCH",
+          "line": "There's one song we don't botch. I've been holding it back for a room worth ruining it in. Sit anywhere you like. I'll ruin it for you.",
+          "lineCN": "有一首我们不会唱砸。我一直留着，等一个值得把它唱砸的厅。你随便坐。我为你唱砸它。",
           "kind": "暗告白"
         },
         {
-          "label": "SAFE",
-          "line": "I couldn't keep anything safe my whole life. Let me try, just once, with you.",
-          "lineCN": "我这辈子什么都没守住过。让我试一次吧——就守住你。",
+          "label": "FIRST TRY IN PROVIDENCE",
+          "line": "Nothing in Providence has ever gone right for me on the first try. You did. That's the only reason I still think this town might be all right.",
+          "lineCN": "在普罗维登斯，我没有一件事是一次就做对的。除了你。就因为这个，我才老觉得这镇子说不定还行。",
           "kind": "情话"
         }
       ]
@@ -373,7 +373,7 @@
       "bg": "#20120c",
       "text": "#f0e0d0",
       "muted": "#a07060",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/i-missed-you-on-purpose/",
       "quotes": [
         {
           "label": "OFF THE LIST",
@@ -857,36 +857,36 @@
       "bg": "#1c2230",
       "text": "#e8eadc",
       "muted": "#7a8590",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-ball-he-couldn-t-reach/",
       "quotes": [
         {
-          "label": "THE FIRST TO ASK",
-          "line": "You were the first to ask if I was okay. I'd forgotten that was a question.",
-          "lineCN": "你是第一个问我「还好吗」的人——我都快忘了，这也能是个问题。",
+          "label": "A JOKE READY AT THE DOOR",
+          "line": "Bad day, worse day, doesn't matter — I come through that door with a joke ready. Some days that's the only part of me still working. I'd rather you got that part than any of the rest.",
+          "lineCN": "糟糕的一天，更糟的一天，都一样——我进门的时候总备着一个笑话。有些日子，我身上只剩那一样还能用。比起我别的什么，我宁愿你拿到的是那一样。",
           "kind": "锚"
         },
         {
-          "label": "CARRIED IT ALONE",
-          "line": "I got so used to carrying it by myself. Then you reached over and took one corner, and I nearly fell apart from the kindness.",
-          "lineCN": "我太习惯一个人扛了。你却伸手替我接过一角——就这点温柔，差点把我整个人击垮。",
+          "label": "BAD AT TENNIS, WON'T QUIT",
+          "line": "I play tennis badly and I will not quit. I chase down balls I have no business getting to. That's the whole of me, honestly — tell me where to run and I'll go get it.",
+          "lineCN": "网球我打得不好，可我就是不肯撒手。够不着的球我照样扑过去。说真的，我整个人就这么回事——你说往哪儿跑，我就去把它捞回来。",
           "kind": "暗告白"
         },
         {
-          "label": "SEEN",
-          "line": "Everyone saw the man holding it all together. You saw the one underneath who was quietly coming apart. And you stayed.",
-          "lineCN": "所有人都看见那个撑住一切的人。你却看见了底下那个，正悄悄碎掉的人。然后你留下了。",
+          "label": "THE CORD INSIDE MY COAT",
+          "line": "Forty minutes each way, cord tucked inside my coat so it doesn't snag on anything. Same four songs. It's the only stretch of the day nobody needs a thing from me — and lately I've spent all of it on you.",
+          "lineCN": "来回各四十分钟，耳机线塞在外套里，免得挂着。翻来覆去就那四首。那是一天里唯一没人朝我要东西的一段——最近这一段，我全用在你身上了。",
           "kind": "情话"
         },
         {
-          "label": "NOT FINE",
-          "line": "I've said 'I'm fine' my whole life. With you, for the first time, I wanted to tell the truth instead.",
-          "lineCN": "「我没事」这句话我说了一辈子。到了你面前，我第一次，想说实话。",
+          "label": "THE DOG ON THE FLOORBOARDS",
+          "line": "The dog could hear my key in the lock from three rooms off, and he always took the corner too fast on the floorboards. I still listen for it. You're the first person I've told that to who didn't tell me to get another one.",
+          "lineCN": "我的钥匙一响，隔着三个房间那条狗就听见了，冲过转角总在地板上打滑。到现在我进门还在听。这件事我跟你说过——你是第一个没劝我再养一只的人。",
           "kind": "暗告白"
         },
         {
-          "label": "SOMEONE IN MY CORNER",
-          "line": "I never had anyone in my corner. Now when it all closes in, I look for you first — and you're already there.",
-          "lineCN": "从没有人站在我这边。如今每当一切逼近，我第一个找的是你——而你早已在那儿。",
+          "label": "NOWHERE TO PUT A HAND OUT",
+          "line": "None of it was anything I could have stopped. I've gone back over it looking for the one place I could have put a hand out, and there isn't one. You said that to me before I ever had to ask. Nobody has ever spared me the asking.",
+          "lineCN": "那些事，没有一件是我拦得住的。我来回找过，想找出哪一步我本可以伸手——没有那一步。这话你不等我开口就先说了。从没有人替我省过这一开口。",
           "kind": "情话"
         }
       ]
@@ -948,33 +948,33 @@
       "auLink": null,
       "quotes": [
         {
-          "label": "OFF THE RECORD",
+          "label": "PROVE THEM WRONG ABOUT YOU",
           "line": "I won't say 'I love you' — too cheap. I'll just prove they were wrong about you.",
           "lineCN": "我不说「我爱你」——太廉价。我只会逐条证明：他们看错了你。",
           "kind": "锚"
         },
         {
-          "label": "THE FACTS ON YOU",
-          "line": "I've built my life on evidence. Here's my conclusion, cross-checked and certain: there's no one like you.",
-          "lineCN": "我把一生都建立在证据上。这是我反复核对、确信无疑的结论：没有人，像你一样。",
+          "label": "BOXES NOBODY OPENED",
+          "line": "I sat in a federal basement for weeks going through boxes nobody had ever opened. I have never wanted to find anything as badly as I want to keep this.",
+          "lineCN": "我在联邦档案的地下室里坐了好几个星期，翻那些没人打开过的箱子。我这辈子想找到什么东西，都没有像现在想守住这个这么厉害。",
           "kind": "暗告白"
         },
         {
-          "label": "STEADY LIGHT",
-          "line": "I'm not the flare that dazzles and dies. I'm the fixed light you can set your course by. Set it by me.",
-          "lineCN": "我不是那种炫目一瞬就熄灭的火光。我是那颗你能用来定方向的恒星。就朝我定吧。",
+          "label": "FOUR MINUTES OF TAPE",
+          "line": "One tape. Four minutes of a man forgetting the room was listening. That's all it takes to turn everything over — which is why I weigh every single thing I say to you.",
+          "lineCN": "一盘带子。四分钟，一个人忘了整个屋子在听。掀翻一切只需要这么多——所以我对你说的每一个字，都是掂量过的。",
           "kind": "情话"
         },
         {
-          "label": "RELENTLESS",
-          "line": "I go after the truth and I never let go. Turns out I go after you the exact same way.",
-          "lineCN": "我追真相，从不松手。原来我追你，用的是一模一样的劲。",
+          "label": "THE TRIAL HE NEVER HAD",
+          "line": "I wanted to give that man the trial he never had. What I want to give you is the opposite of a trial — one place where you never have to account for anything.",
+          "lineCN": "我想给那个人一场他从未受过的审判。而我想给你的恰恰相反——一个地方，在那里你什么都不必交代。",
           "kind": "暗告白"
         },
         {
-          "label": "HELD TO ACCOUNT",
-          "line": "Hold me to it. Every promise, in writing. I'm the one man who'll keep every single line.",
-          "lineCN": "拿这些话来要求我。每一句承诺，白纸黑字。我是那个，会把每一行都兑现的人。",
+          "label": "NOT ON THE LIST",
+          "line": "I keep a legal pad of things people should be made to answer for. Your name isn't on it and it never will be. I've spent my whole life holding people to account. You're the one person I only ever want to take at their word.",
+          "lineCN": "我有一整本黄稿纸，写满了该有人出来交代的事。上面没有你的名字，永远不会有。我一辈子都在要人交代——只有你，我只想一个字不问地信着。",
           "kind": "情话"
         }
       ]
@@ -992,33 +992,33 @@
       "auLink": "/WinterSunBlog/series/choke-point/",
       "quotes": [
         {
-          "label": "BEFORE HE COULD ASK",
-          "line": "Everyone left before I could ask them to stay. You stayed before I dared.",
-          "lineCN": "所有人都在我开口挽留之前就走了——你却在我还不敢开口之前，留下了。",
+          "label": "AFTER CLOSING, 1734",
+          "line": "I spend all day in 1734, telling strangers to mind the pox. You're the only one who ever waited around to hear what I sound like after closing.",
+          "lineCN": "我整天活在 1734 年，叮嘱游客当心天花。你是唯一一个，肯留下来听听我下了班是什么声音的人。",
           "kind": "锚"
         },
         {
-          "label": "NOT A CON THIS TIME",
-          "line": "I fake choking so strangers will save me. With you I didn't have to fake anything — you just… stayed. That broke something open in me.",
-          "lineCN": "我假装噎住，好让陌生人来救我。可对你，我什么都不用装——你就那么……留下了。这一下，把我心里某个东西撞开了。",
+          "label": "YOU NEVER SAVED ME",
+          "line": "The trick is you have to let them save you. They send money for years afterward. You looked at me across a table and didn't save me once — that's why I kept coming back.",
+          "lineCN": "诀窍是得让他们救成。之后他们会寄好几年的钱。你隔着一张桌子看着我，一次也没救过我——所以我才一趟趟地回来。",
           "kind": "暗告白"
         },
         {
-          "label": "WANT TO BE GOOD",
-          "line": "I'm not a good man. But you're the first reason I've ever had to actually want to be one.",
-          "lineCN": "我不是个好人。可你是我这辈子第一个，真的让我想变好的理由。",
+          "label": "A WORK ISN'T ALLOWED AN OPINION",
+          "line": "She called me her work. Nobody tells you a work isn't allowed to have an opinion. You asked me what I thought, and I had to go looking for it.",
+          "lineCN": "她说我是她的作品。没人告诉过我，作品是不许有意见的。你问我怎么想——我得去找一找才找得到。",
           "kind": "情话"
         },
         {
-          "label": "DON'T LOOK AWAY",
-          "line": "You've seen the worst of me and didn't flinch. Do you have any idea what that does to a man like me?",
-          "lineCN": "你见过我最糟的样子，却没有躲。你知道这对我这种人，意味着什么吗？",
+          "label": "I FORGOT MY LINE",
+          "line": "Everybody in that fake village is playing somebody. I just happen to do it best. Then you walked through and I forgot my line.",
+          "lineCN": "那座假村子里，每个人都在演别人。我只是碰巧演得最好的那个。然后你穿过来，我忘词了。",
           "kind": "暗告白"
         },
         {
-          "label": "STAY",
-          "line": "I never learned how to ask. So I'll just say the word once and hope it's enough: stay.",
-          "lineCN": "我从没学会怎么开口求人。那我就把那个字说一次，盼着够了：留下。",
+          "label": "PULLING THE SET DOWN",
+          "line": "Everyone claps and goes home. You came up on the stage and started pulling the set down with your hands. Do it again. Take the whole thing down. I want to be standing there with nothing left to hide behind, and you still looking at me.",
+          "lineCN": "所有人鼓完掌就回家了。你却走上台来，动手把布景一块块拆了。再拆一次。全拆了。我想站在那儿，身后什么都不剩——而你还在看我。",
           "kind": "情话"
         }
       ]
@@ -1280,7 +1280,7 @@
           "kind": "暗告白"
         },
         {
-          "label": "FREE",
+          "label": "FIRST AIR OUTSIDE",
           "line": "First taste of free air in forever, and the only thing I wanted to do with it was to find you.",
           "lineCN": "好久没呼吸过自由的空气了——而我唯一想做的事，就是去找你。",
           "kind": "情话"
@@ -1297,7 +1297,7 @@
       "bg": "#181320",
       "text": "#f2e4ea",
       "muted": "#8a7d9c",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/dear-satan/",
       "quotes": [
         {
           "label": "NO NUMBER FOR YOU",
@@ -1385,7 +1385,7 @@
       "bg": "#281208",
       "text": "#f5e6d0",
       "muted": "#b07840",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-part-where-you-live/",
       "quotes": [
         {
           "label": "REWROTE THE ENDING",
@@ -1400,7 +1400,7 @@
           "kind": "情话 · 狗"
         },
         {
-          "label": "THE TRUE ONE",
+          "label": "NEVER HAD TO INVENT",
           "line": "My head's crammed full of wild, made-up stories. You're the only one in there I never had to invent.",
           "lineCN": "我脑子里塞满了瞎编的疯故事。你是里头唯一一个，我从来不用编的。",
           "kind": "暗告白 · 想象"
@@ -1450,7 +1450,7 @@
           "kind": "情话"
         },
         {
-          "label": "NOTICED YOU",
+          "label": "YOU LOOKED CLOSE",
           "line": "I'm the guy who makes everybody laugh so nobody looks too close. You looked close. And I didn't mind one bit.",
           "lineCN": "我是那个逗所有人笑、好让没人看得太仔细的家伙。你却看仔细了。我一点都不介意。",
           "kind": "暗告白"
@@ -1500,7 +1500,7 @@
           "kind": "AU · 暗告白"
         },
         {
-          "label": "AIMED",
+          "label": "NOT A MISFIRE",
           "line": "That first time was a misfire. This time — I aimed.",
           "lineCN": "那回是走火。这回，是我瞄准了说的。",
           "kind": "AU · 情话"
@@ -1532,13 +1532,13 @@
           "kind": "暗告白"
         },
         {
-          "label": "BOTH WAYS",
+          "label": "THE FIRST WHO GOT IN",
           "line": "I've talked my way into everyone in this business. You're the first who ever got in return.",
           "lineCN": "这一行里，我把每个人都说动过。你却是第一个，反过来住进我心里的人。",
           "kind": "情话"
         },
         {
-          "label": "GOOD FOR IT",
+          "label": "THE CHEQUE WITH YOUR NAME",
           "line": "Every promise I hand out is a blank cheque. The one with your name on it — that one, I'm good for.",
           "lineCN": "我递出去的承诺，张张都是空头支票。唯独签着你名字的那一张——那张，我一定兑现。",
           "kind": "情话"
@@ -1620,7 +1620,7 @@
           "kind": "暗告白"
         },
         {
-          "label": "ALIVE",
+          "label": "SLEEPWALKING",
           "line": "I didn't know I was sleepwalking through my own life until you woke me up. Now every day with you feels borrowed and precious.",
           "lineCN": "我一直在自己的人生里梦游，是你把我叫醒的，我却浑然不知。如今和你的每一天，都像借来的，都珍贵得要命。",
           "kind": "情话"
@@ -1632,7 +1632,7 @@
           "kind": "暗告白"
         },
         {
-          "label": "NEW MAN",
+          "label": "THE MAN I’D HAVE BEEN",
           "line": "You didn't change me. You just found the man I'd have been all along, if I'd ever once been brave.",
           "lineCN": "你没有改变我。你只是找到了那个我本该成为的人——只要我曾经，勇敢过哪怕一次。",
           "kind": "情话"
@@ -1676,7 +1676,7 @@
           "kind": "暗告白"
         },
         {
-          "label": "YES",
+          "label": "REWRITING THAT MOMENT",
           "line": "You said yes. I've been rewriting that moment in my head ever since, and it gets better every single time.",
           "lineCN": "你说了「我愿意」。从那以后我一遍遍在脑子里重写那一刻——它一次比一次更好。",
           "kind": "情话"
@@ -1714,7 +1714,7 @@
           "kind": "情话"
         },
         {
-          "label": "OFF THE CLOCK",
+          "label": "CAUTIOUS FOR A LIVING",
           "line": "I'm cautious for a living. Around you I keep catching myself being hopeful instead. It's terrifying. I love it.",
           "lineCN": "谨慎是我的职业。在你身边，我却总不小心变得满怀希望。这很吓人。我却喜欢。",
           "kind": "暗告白"
@@ -1846,7 +1846,7 @@
           "kind": "情话"
         },
         {
-          "label": "OFF THE RECORD",
+          "label": "THE ONE REAL RELIC",
           "line": "Off the record: in this whole operation, you are the only thing that is real.",
           "lineCN": "不记进账里的一句——这整摊生意里，你是唯一为真的东西。",
           "kind": "AU · 助理"
@@ -1957,36 +1957,36 @@
       "bg": "#1a1f24",
       "text": "#dce5ea",
       "muted": "#7a8088",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/wholly-known/",
       "quotes": [
         {
-          "label": "PLAYING IT OUT",
-          "line": "Never been dealt a good hand. But this one I'll play with you till the end.",
-          "lineCN": "我这辈子没拿过一手好牌——可这一手，我要和你打到底。",
+          "label": "OFF THE DISHES, ON A PLANE",
+          "line": "Parole says stay in the state, wash your dishes, keep your head down. I got on a plane for a stone I'd never seen. Go on — ask me if I'd do it again.",
+          "lineCN": "假释的规矩是别出州、洗你的盘子、别惹事。我为了一颗从没见过的石头上了飞机。你问啊——问我会不会再来一次。",
           "kind": "锚"
         },
         {
-          "label": "LUCKIEST UNLUCKY MAN",
-          "line": "Everything in my life goes wrong. Then you showed up — the one thing that went unbelievably, impossibly right.",
-          "lineCN": "我人生里什么都出岔子。然后你出现了——那件唯一，好得不可思议、错不了的事。",
+          "label": "UP IN THE NEXT PANEL",
+          "line": "I read comics on my break, because in those the guy who takes the beating always gets up in the next panel. I've taken plenty. For you I'd like to be the one who gets up. Say the word and I'm on my feet.",
+          "lineCN": "休息的时候我看漫画——在那里面，挨揍的那个下一格总会站起来。我挨得可不少。为了你，我想当那个站起来的。你说一句，我立刻就起来。",
           "kind": "暗告白"
         },
         {
-          "label": "ALL IN",
-          "line": "Bad hand, empty pockets, worse luck. Doesn't matter. I'm all in, and I'm all in on you.",
-          "lineCN": "烂牌，空口袋，霉运。都无所谓。我全押了——押在你身上。",
+          "label": "THE BELL OVER THE DOOR",
+          "line": "Two years I wiped the same counter, and the bell over that door never meant a thing. Then it went off and it was you. It's meant something ever since.",
+          "lineCN": "两年里我擦同一张台面，门上那只铃响了也不代表什么。直到有一回它响了，是你——从那以后它就有意思了。",
           "kind": "情话"
         },
         {
-          "label": "STILL HERE",
-          "line": "Everyone bets against me. You're the only one who sat down at my table and stayed for the whole game.",
-          "lineCN": "所有人都赌我输。你是唯一，在我这桌坐下、把整局陪完的人。",
+          "label": "NEXT TO THE STONE",
+          "line": "They all wanted the stone. Blue, cold, worth more than my whole life put together. I spent the entire job looking at the thing standing next to it.",
+          "lineCN": "他们都想要那颗石头。蓝的，凉的，比我整条命加起来都值钱。整桩活儿我都在看旁边站着的那个。",
           "kind": "暗告白"
         },
         {
-          "label": "WORTH THE LOSSES",
-          "line": "I've lost at just about everything. Losing my head over you is the only bet I'd make again.",
-          "lineCN": "我几乎输掉了一切。为你神魂颠倒，是我唯一愿意再下一次的注。",
+          "label": "FURTHER THAN JERSEY",
+          "line": "I'd never been further than Jersey. I crossed an ocean for a job I was going to botch anyway. Turns out I crossed it for you.",
+          "lineCN": "我这辈子最远只到过泽西。为了一桩我横竖要搞砸的活儿，我跨了一整片海。原来我是为你跨的。",
           "kind": "情话"
         }
       ]
@@ -2028,7 +2028,7 @@
           "kind": "AU · 克制"
         },
         {
-          "label": "YOUR NAME",
+          "label": "MISS HART, UNTIL TONIGHT",
           "line": "Twenty-one months I called you Miss Hart, and I meant every one of 'em. Tonight I'm gonna use your name once. Just once. Winter.",
           "lineCN": "二十一个月我一直叫你 Hart 小姐，每一声我都是认真的。今晚我想用一次你的名字。就一次。Winter。",
           "kind": "AU · 那一声"
@@ -2110,7 +2110,7 @@
           "kind": "情话 · 不正经"
         },
         {
-          "label": "STILL HERE",
+          "label": "EVERYONE ELSE LEFT",
           "line": "Look around. Everyone who was gonna leave has left. It's just me at the table — and that's kind of the whole point.",
           "lineCN": "你看看四周。该走的都走了。桌边只剩我一个——而这，差不多就是重点了。",
           "kind": "暗告白"
@@ -2236,19 +2236,19 @@
           "kind": "暗告白"
         },
         {
-          "label": "ONE STEP AHEAD",
+          "label": "BETWEEN IT AND YOU",
           "line": "I'm always one step ahead of the danger. That's not the job talking. That's just me, staying between it and you.",
           "lineCN": "我永远比危险快一步。这不是职业习惯。这只是我——始终挡在它和你之间。",
           "kind": "情话"
         },
         {
-          "label": "KID",
+          "label": "LIKE IT’S NOTHING",
           "line": "I call you 'kid' like it's nothing. It's not nothing. It's the softest thing a man like me knows how to say out loud.",
           "lineCN": "我叫你「kid」，像随口一说。可它不是随口。这是我这种人，能说出口的、最温柔的一句话了。",
           "kind": "暗告白"
         },
         {
-          "label": "TRUST ME",
+          "label": "TAKE MY HAND",
           "line": "You don't have to be brave. You don't have to have a plan. You just have to take my hand — I've got the rest.",
           "lineCN": "你不用勇敢。你不用有什么计划。你只要牵住我的手——剩下的，交给我。",
           "kind": "情话"
@@ -2324,7 +2324,7 @@
           "kind": "暗告白"
         },
         {
-          "label": "SIXTEEN YEARS",
+          "label": "SLOW, BUT I GOT THERE",
           "line": "It took me sixteen years to say the thing I should've said the first night. I'm slow, Winter. But I got there. I finally got there.",
           "lineCN": "我用了十六年，才说出那句本该在第一晚就说的话。我很慢，Winter。可我到了。我终于到了。",
           "kind": "情话 · 迟到"
@@ -2415,8 +2415,8 @@
       "bg": "#14110d",
       "text": "#ede2d0",
       "muted": "#8a7558",
-      "auLink": null,
-      "label": "OFF THE CLOCK",
+      "auLink": "/WinterSunBlog/series/interoffice/",
+      "label": "LOSE CLEAN, NOT DIRTY",
       "line": "I'd rather lose clean than win dirty.",
       "lineCN": "宁可干干净净地输，也不脏着赢。",
       "kind": "锚"
@@ -2480,7 +2480,7 @@
       "text": "#e8eed8",
       "muted": "#7a8868",
       "auLink": null,
-      "label": "HIS FAVORITE THING",
+      "label": "THIS ONE'S YOURS NOW",
       "line": "Here. This one's my favorite. It's yours now.",
       "lineCN": "给你。这个我最喜欢——现在归你了。",
       "kind": "锚"
@@ -2496,7 +2496,7 @@
       "text": "#dce5ea",
       "muted": "#7a7654",
       "auLink": "/WinterSunBlog/series/i-never-looked-away/",
-      "label": "ON THE ROAD OUT",
+      "label": "SAVING UP TO TAKE YOU",
       "line": "I was saving up to leave. Now I'm saving up to take you with me.",
       "lineCN": "我攒钱本是为了离开——如今攒钱，是为了带你一起走。",
       "kind": "锚"
@@ -2512,9 +2512,9 @@
       "text": "#f0e2d4",
       "muted": "#a08770",
       "auLink": null,
-      "label": "COULDN'T PICK A LOCK",
-      "line": "Can't crack a single safe. Cracked you wide open, though.",
-      "lineCN": "一个保险箱都撬不开——倒是把你，轻轻松松撬开了。",
+      "label": "THE ONLY ONE WHO CLAPPED",
+      "line": "We're a lounge act. We are not good. I have watched an entire room order food during our set. You clapped, and I have never gotten over it.",
+      "lineCN": "我们是驻唱二人组。唱得不好。我见过整个厅在我们唱的时候点菜。只有你鼓了掌——这件事我到现在没缓过来。",
       "kind": "锚"
     },
     {
@@ -2527,7 +2527,7 @@
       "bg": "#20120c",
       "text": "#f0e0d0",
       "muted": "#a07060",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/i-missed-you-on-purpose/",
       "label": "OFF THE LIST",
       "line": "You were supposed to be a job. You're the one thing I never finished.",
       "lineCN": "你本该只是一单活——却成了我唯一没下手完成的事。",
@@ -2703,10 +2703,10 @@
       "bg": "#1c2230",
       "text": "#e8eadc",
       "muted": "#7a8590",
-      "auLink": null,
-      "label": "THE FIRST TO ASK",
-      "line": "You were the first to ask if I was okay. I'd forgotten that was a question.",
-      "lineCN": "你是第一个问我「还好吗」的人——我都快忘了，这也能是个问题。",
+      "auLink": "/WinterSunBlog/series/the-ball-he-couldn-t-reach/",
+      "label": "A JOKE READY AT THE DOOR",
+      "line": "Bad day, worse day, doesn't matter — I come through that door with a joke ready. Some days that's the only part of me still working. I'd rather you got that part than any of the rest.",
+      "lineCN": "糟糕的一天，更糟的一天，都一样——我进门的时候总备着一个笑话。有些日子，我身上只剩那一样还能用。比起我别的什么，我宁愿你拿到的是那一样。",
       "kind": "锚"
     },
     {
@@ -2736,7 +2736,7 @@
       "text": "#ebe0cc",
       "muted": "#8a7458",
       "auLink": null,
-      "label": "OFF THE RECORD",
+      "label": "PROVE THEM WRONG ABOUT YOU",
       "line": "I won't say 'I love you' — too cheap. I'll just prove they were wrong about you.",
       "lineCN": "我不说「我爱你」——太廉价。我只会逐条证明：他们看错了你。",
       "kind": "锚"
@@ -2752,9 +2752,9 @@
       "text": "#f5e0e8",
       "muted": "#96495f",
       "auLink": "/WinterSunBlog/series/choke-point/",
-      "label": "BEFORE HE COULD ASK",
-      "line": "Everyone left before I could ask them to stay. You stayed before I dared.",
-      "lineCN": "所有人都在我开口挽留之前就走了——你却在我还不敢开口之前，留下了。",
+      "label": "AFTER CLOSING, 1734",
+      "line": "I spend all day in 1734, telling strangers to mind the pox. You're the only one who ever waited around to hear what I sound like after closing.",
+      "lineCN": "我整天活在 1734 年，叮嘱游客当心天花。你是唯一一个，肯留下来听听我下了班是什么声音的人。",
       "kind": "锚"
     },
     {
@@ -2863,7 +2863,7 @@
       "bg": "#181320",
       "text": "#f2e4ea",
       "muted": "#8a7d9c",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/dear-satan/",
       "label": "NO NUMBER FOR YOU",
       "line": "Everybody gets a number. Not you. I'm not putting you on a list where somebody could be ahead of you.",
       "lineCN": "谁都有个编号。你没有——我不会把你放进一张名单里，让任何人排在你前面。",
@@ -2895,7 +2895,7 @@
       "bg": "#281208",
       "text": "#f5e6d0",
       "muted": "#b07840",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-part-where-you-live/",
       "label": "REWROTE THE ENDING",
       "line": "I wanted to go out in a blaze. You rewrote the ending — so I lived. For you and you only.",
       "lineCN": "我本想轰轰烈烈地谢幕——是你改了结局，于是我活了下来。只为你。",
@@ -3103,10 +3103,10 @@
       "bg": "#1a1f24",
       "text": "#dce5ea",
       "muted": "#7a8088",
-      "auLink": null,
-      "label": "PLAYING IT OUT",
-      "line": "Never been dealt a good hand. But this one I'll play with you till the end.",
-      "lineCN": "我这辈子没拿过一手好牌——可这一手，我要和你打到底。",
+      "auLink": "/WinterSunBlog/series/wholly-known/",
+      "label": "OFF THE DISHES, ON A PLANE",
+      "line": "Parole says stay in the state, wash your dishes, keep your head down. I got on a plane for a stone I'd never seen. Go on — ask me if I'd do it again.",
+      "lineCN": "假释的规矩是别出州、洗你的盘子、别惹事。我为了一颗从没见过的石头上了飞机。你问啊——问我会不会再来一次。",
       "kind": "锚"
     },
     {
@@ -3279,10 +3279,10 @@
       "bg": "#14110d",
       "text": "#ede2d0",
       "muted": "#8a7558",
-      "auLink": null,
-      "label": "THE ONE CLEAN THING",
-      "line": "This whole city runs on wanting more. You're the only thing I've ever just… wanted.",
-      "lineCN": "整座城市都在拼命要更多。你是我这辈子唯一，只是单纯地想要的东西。",
+      "auLink": "/WinterSunBlog/series/interoffice/",
+      "label": "THE LAST NAME ON THE ENVELOPE",
+      "line": "Every name on that envelope got crossed out by somebody who moved on. Mine is the last one, and it is staying there. I'm not going anywhere — and I want you to hear me say it out loud.",
+      "lineCN": "那只信封上的名字，一个个都被划掉了——人走了，名字就划掉。我的是最后一个，它就留在那儿。我哪儿也不去——这句话，我要你听我亲口说一遍。",
       "kind": "暗告白"
     },
     {
@@ -3344,7 +3344,7 @@
       "text": "#e8eed8",
       "muted": "#7a8868",
       "auLink": null,
-      "label": "KEPT THE BEST",
+      "label": "THE ONE I WANT TO KEEP",
       "line": "I give away everything I find. You're the one thing I want to keep.",
       "lineCN": "我捡到什么都送人。只有你，是我想留下的。",
       "kind": "暗告白"
@@ -3360,9 +3360,9 @@
       "text": "#dce5ea",
       "muted": "#7a7654",
       "auLink": "/WinterSunBlog/series/i-never-looked-away/",
-      "label": "A REASON TO STAY",
-      "line": "I never belonged anywhere long enough to want to. Then you handed me a reason.",
-      "lineCN": "我从没在哪里待够到想留下。直到你，给了我一个理由。",
+      "label": "A CUP FROM THE CUPBOARD",
+      "line": "Every house on this street leaves my cup out on the step. You took one down from the cupboard and put it in my hand. I've been carrying that around for three weeks and I still don't know how to say what it did to me.",
+      "lineCN": "这条街上每一家，都把我那只杯子搁在台阶上。你从柜子里拿了一只，放进我手里。这件事我揣了三个礼拜，到现在还是不知道该怎么说它对我做了什么。",
       "kind": "暗告白"
     },
     {
@@ -3376,9 +3376,9 @@
       "text": "#f0e2d4",
       "muted": "#a08770",
       "auLink": null,
-      "label": "THE ONE THING I'M GOOD AT",
-      "line": "Turns out I'm terrible at everything except noticing when you walk into a room.",
-      "lineCN": "原来我什么都不擅长——除了你一进门，我立刻就知道。",
+      "label": "NEVER OPENED ONE",
+      "line": "They think I can open anything with a steel door on it. I have never opened one in my life. You're the only person I've ever said that out loud to — and you didn't leave. I've been in love with you since roughly that exact second.",
+      "lineCN": "他们以为只要是铁门我都打得开。我这辈子一扇都没打开过。这话我只对你说出口过——你没走。差不多就是从那一秒起，我一直爱着你。",
       "kind": "暗告白"
     },
     {
@@ -3391,7 +3391,7 @@
       "bg": "#20120c",
       "text": "#f0e0d0",
       "muted": "#a07060",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/i-missed-you-on-purpose/",
       "label": "MISSED ON PURPOSE",
       "line": "I don't miss. I missed you on purpose, and I've been lying about it ever since.",
       "lineCN": "我从不失手。对你，我是故意失的手——之后一直在为这件事撒谎。",
@@ -3567,10 +3567,10 @@
       "bg": "#1c2230",
       "text": "#e8eadc",
       "muted": "#7a8590",
-      "auLink": null,
-      "label": "CARRIED IT ALONE",
-      "line": "I got so used to carrying it by myself. Then you reached over and took one corner, and I nearly fell apart from the kindness.",
-      "lineCN": "我太习惯一个人扛了。你却伸手替我接过一角——就这点温柔，差点把我整个人击垮。",
+      "auLink": "/WinterSunBlog/series/the-ball-he-couldn-t-reach/",
+      "label": "BAD AT TENNIS, WON'T QUIT",
+      "line": "I play tennis badly and I will not quit. I chase down balls I have no business getting to. That's the whole of me, honestly — tell me where to run and I'll go get it.",
+      "lineCN": "网球我打得不好，可我就是不肯撒手。够不着的球我照样扑过去。说真的，我整个人就这么回事——你说往哪儿跑，我就去把它捞回来。",
       "kind": "暗告白"
     },
     {
@@ -3600,9 +3600,9 @@
       "text": "#ebe0cc",
       "muted": "#8a7458",
       "auLink": null,
-      "label": "THE FACTS ON YOU",
-      "line": "I've built my life on evidence. Here's my conclusion, cross-checked and certain: there's no one like you.",
-      "lineCN": "我把一生都建立在证据上。这是我反复核对、确信无疑的结论：没有人，像你一样。",
+      "label": "BOXES NOBODY OPENED",
+      "line": "I sat in a federal basement for weeks going through boxes nobody had ever opened. I have never wanted to find anything as badly as I want to keep this.",
+      "lineCN": "我在联邦档案的地下室里坐了好几个星期，翻那些没人打开过的箱子。我这辈子想找到什么东西，都没有像现在想守住这个这么厉害。",
       "kind": "暗告白"
     },
     {
@@ -3616,9 +3616,9 @@
       "text": "#f5e0e8",
       "muted": "#96495f",
       "auLink": "/WinterSunBlog/series/choke-point/",
-      "label": "NOT A CON THIS TIME",
-      "line": "I fake choking so strangers will save me. With you I didn't have to fake anything — you just… stayed. That broke something open in me.",
-      "lineCN": "我假装噎住，好让陌生人来救我。可对你，我什么都不用装——你就那么……留下了。这一下，把我心里某个东西撞开了。",
+      "label": "YOU NEVER SAVED ME",
+      "line": "The trick is you have to let them save you. They send money for years afterward. You looked at me across a table and didn't save me once — that's why I kept coming back.",
+      "lineCN": "诀窍是得让他们救成。之后他们会寄好几年的钱。你隔着一张桌子看着我，一次也没救过我——所以我才一趟趟地回来。",
       "kind": "暗告白"
     },
     {
@@ -3727,7 +3727,7 @@
       "bg": "#181320",
       "text": "#f2e4ea",
       "muted": "#8a7d9c",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/dear-satan/",
       "label": "NOT PART OF THE DECOR",
       "line": "The eyeliner, the velvet, all of it is costume. You are the only real thing in this room.",
       "lineCN": "眼线、丝绒，全是戏服。你是这屋子里唯一真的东西。",
@@ -3759,7 +3759,7 @@
       "bg": "#281208",
       "text": "#f5e6d0",
       "muted": "#b07840",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-part-where-you-live/",
       "label": "EVERY DOG IN THE CITY",
       "line": "I'd swipe every dog in this city just to watch you light up — then hand 'em all back for the reward and blow every cent on you.",
       "lineCN": "我愿意把全城的狗都顺来，就为看你眼睛一亮——再把它们全还回去领赏金，然后一分不剩，全花在你身上。",
@@ -3967,10 +3967,10 @@
       "bg": "#1a1f24",
       "text": "#dce5ea",
       "muted": "#7a8088",
-      "auLink": null,
-      "label": "LUCKIEST UNLUCKY MAN",
-      "line": "Everything in my life goes wrong. Then you showed up — the one thing that went unbelievably, impossibly right.",
-      "lineCN": "我人生里什么都出岔子。然后你出现了——那件唯一，好得不可思议、错不了的事。",
+      "auLink": "/WinterSunBlog/series/wholly-known/",
+      "label": "UP IN THE NEXT PANEL",
+      "line": "I read comics on my break, because in those the guy who takes the beating always gets up in the next panel. I've taken plenty. For you I'd like to be the one who gets up. Say the word and I'm on my feet.",
+      "lineCN": "休息的时候我看漫画——在那里面，挨揍的那个下一格总会站起来。我挨得可不少。为了你，我想当那个站起来的。你说一句，我立刻就起来。",
       "kind": "暗告白"
     },
     {
@@ -4143,10 +4143,10 @@
       "bg": "#14110d",
       "text": "#ede2d0",
       "muted": "#8a7558",
-      "auLink": null,
-      "label": "WORTH THE FALL",
-      "line": "I threw away a good job to keep my hands clean. For you I'd throw away a lot more, and still call it a bargain.",
-      "lineCN": "为了干净，我把一份好工作摔在了地上。为了你，我能摔掉多得多——还觉得这买卖划算。",
+      "auLink": "/WinterSunBlog/series/interoffice/",
+      "label": "TWO WEEKS OF DONUTS",
+      "line": "Two weeks I brought a different donut every morning and broke off a corner for you, never asking, just watching your face. Now it's always chocolate, and the big half is always yours.",
+      "lineCN": "有两个星期，我每天早上换一种甜甜圈，掰一角给你，从不问，只看你的脸。现在永远是巧克力——大的那半，永远归你。",
       "kind": "情话"
     },
     {
@@ -4208,9 +4208,9 @@
       "text": "#e8eed8",
       "muted": "#7a8868",
       "auLink": null,
-      "label": "FIREFLIES",
-      "line": "Come on — I'll show you where the fireflies sleep. I've been saving that spot for someone. Guess it was you.",
-      "lineCN": "走嘛——我带你去看萤火虫睡觉的地方。那地方我一直给某个人留着。原来是你。",
+      "label": "A JAR OF FIREFLIES",
+      "line": "Punch a few holes in the lid and a jar of fireflies is a whole night you can carry around. There's one on my shelf I saved from before I met you. It was always going to be yours.",
+      "lineCN": "在盖子上戳几个洞，一罐萤火虫就是一整夜——你能拿在手里带着走。我架子上留着一罐，比认识你还早。它本来就该是你的。",
       "kind": "情话"
     },
     {
@@ -4224,9 +4224,9 @@
       "text": "#dce5ea",
       "muted": "#7a7654",
       "auLink": "/WinterSunBlog/series/i-never-looked-away/",
-      "label": "PASSENGER",
-      "line": "Wherever the road goes next — there's a seat next to me that's had your name on it a while now.",
-      "lineCN": "这条路接下来通向哪儿——我旁边那个位子，早就写着你的名字了。",
+      "label": "THE MAN IN THE BOOTH",
+      "line": "The gate goes up for you and down for me, and the man in the booth writes my name every single time. Inside the wall, you're the only one who ever says it out loud.",
+      "lineCN": "那道门对你抬起来，对我落下去，门房每一回都要把我的名字登记一遍。墙里头，只有你把它念出声过。",
       "kind": "情话"
     },
     {
@@ -4240,9 +4240,9 @@
       "text": "#f0e2d4",
       "muted": "#a08770",
       "auLink": null,
-      "label": "NO COMBINATION",
-      "line": "You didn't need a combination. You just looked at me, and everything I'd locked up came open.",
-      "lineCN": "你没用密码。你只是看了我一眼，我锁住的一切就全打开了。",
+      "label": "NOT THE CUP",
+      "line": "Two grown men with guns fought over a boy's bar mitzvah cup, and I nearly died for it. Afterwards I worked out what I'd actually want in a safe. It was not the cup.",
+      "lineCN": "两个带枪的成年人为一只男孩成年礼的杯子打起来，我差点为它送命。后来我想明白了，保险箱里我真正想放的东西——不是杯子。",
       "kind": "情话"
     },
     {
@@ -4255,7 +4255,7 @@
       "bg": "#20120c",
       "text": "#f0e0d0",
       "muted": "#a07060",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/i-missed-you-on-purpose/",
       "label": "THE JOB I QUIT",
       "line": "They gave me one rule: never get attached. You walked in and I broke it in about four seconds.",
       "lineCN": "他们只给我一条规矩：绝不动感情。你一进门，我大概四秒就破了戒。",
@@ -4431,10 +4431,10 @@
       "bg": "#1c2230",
       "text": "#e8eadc",
       "muted": "#7a8590",
-      "auLink": null,
-      "label": "SEEN",
-      "line": "Everyone saw the man holding it all together. You saw the one underneath who was quietly coming apart. And you stayed.",
-      "lineCN": "所有人都看见那个撑住一切的人。你却看见了底下那个，正悄悄碎掉的人。然后你留下了。",
+      "auLink": "/WinterSunBlog/series/the-ball-he-couldn-t-reach/",
+      "label": "THE CORD INSIDE MY COAT",
+      "line": "Forty minutes each way, cord tucked inside my coat so it doesn't snag on anything. Same four songs. It's the only stretch of the day nobody needs a thing from me — and lately I've spent all of it on you.",
+      "lineCN": "来回各四十分钟，耳机线塞在外套里，免得挂着。翻来覆去就那四首。那是一天里唯一没人朝我要东西的一段——最近这一段，我全用在你身上了。",
       "kind": "情话"
     },
     {
@@ -4464,9 +4464,9 @@
       "text": "#ebe0cc",
       "muted": "#8a7458",
       "auLink": null,
-      "label": "STEADY LIGHT",
-      "line": "I'm not the flare that dazzles and dies. I'm the fixed light you can set your course by. Set it by me.",
-      "lineCN": "我不是那种炫目一瞬就熄灭的火光。我是那颗你能用来定方向的恒星。就朝我定吧。",
+      "label": "FOUR MINUTES OF TAPE",
+      "line": "One tape. Four minutes of a man forgetting the room was listening. That's all it takes to turn everything over — which is why I weigh every single thing I say to you.",
+      "lineCN": "一盘带子。四分钟，一个人忘了整个屋子在听。掀翻一切只需要这么多——所以我对你说的每一个字，都是掂量过的。",
       "kind": "情话"
     },
     {
@@ -4480,9 +4480,9 @@
       "text": "#f5e0e8",
       "muted": "#96495f",
       "auLink": "/WinterSunBlog/series/choke-point/",
-      "label": "WANT TO BE GOOD",
-      "line": "I'm not a good man. But you're the first reason I've ever had to actually want to be one.",
-      "lineCN": "我不是个好人。可你是我这辈子第一个，真的让我想变好的理由。",
+      "label": "A WORK ISN'T ALLOWED AN OPINION",
+      "line": "She called me her work. Nobody tells you a work isn't allowed to have an opinion. You asked me what I thought, and I had to go looking for it.",
+      "lineCN": "她说我是她的作品。没人告诉过我，作品是不许有意见的。你问我怎么想——我得去找一找才找得到。",
       "kind": "情话"
     },
     {
@@ -4591,7 +4591,7 @@
       "bg": "#181320",
       "text": "#f2e4ea",
       "muted": "#8a7d9c",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/dear-satan/",
       "label": "WHAT'S IN THE EGG",
       "line": "Everybody thinks the egg is the most valuable thing I own. Everybody has never met you.",
       "lineCN": "所有人都以为那枚蛋是我最值钱的东西。所有人都没见过你。",
@@ -4623,8 +4623,8 @@
       "bg": "#281208",
       "text": "#f5e6d0",
       "muted": "#b07840",
-      "auLink": null,
-      "label": "THE TRUE ONE",
+      "auLink": "/WinterSunBlog/series/the-part-where-you-live/",
+      "label": "NEVER HAD TO INVENT",
       "line": "My head's crammed full of wild, made-up stories. You're the only one in there I never had to invent.",
       "lineCN": "我脑子里塞满了瞎编的疯故事。你是里头唯一一个，我从来不用编的。",
       "kind": "暗告白 · 想象"
@@ -4672,7 +4672,7 @@
       "text": "#e4efe9",
       "muted": "#7d9a8c",
       "auLink": "/WinterSunBlog/series/the-making-of-you/",
-      "label": "BOTH WAYS",
+      "label": "THE FIRST WHO GOT IN",
       "line": "I've talked my way into everyone in this business. You're the first who ever got in return.",
       "lineCN": "这一行里，我把每个人都说动过。你却是第一个，反过来住进我心里的人。",
       "kind": "情话"
@@ -4704,7 +4704,7 @@
       "text": "#dceae5",
       "muted": "#8d7a62",
       "auLink": "/WinterSunBlog/series/better-living-through-you/",
-      "label": "ALIVE",
+      "label": "SLEEPWALKING",
       "line": "I didn't know I was sleepwalking through my own life until you woke me up. Now every day with you feels borrowed and precious.",
       "lineCN": "我一直在自己的人生里梦游，是你把我叫醒的，我却浑然不知。如今和你的每一天，都像借来的，都珍贵得要命。",
       "kind": "情话"
@@ -4831,10 +4831,10 @@
       "bg": "#1a1f24",
       "text": "#dce5ea",
       "muted": "#7a8088",
-      "auLink": null,
-      "label": "ALL IN",
-      "line": "Bad hand, empty pockets, worse luck. Doesn't matter. I'm all in, and I'm all in on you.",
-      "lineCN": "烂牌，空口袋，霉运。都无所谓。我全押了——押在你身上。",
+      "auLink": "/WinterSunBlog/series/wholly-known/",
+      "label": "THE BELL OVER THE DOOR",
+      "line": "Two years I wiped the same counter, and the bell over that door never meant a thing. Then it went off and it was you. It's meant something ever since.",
+      "lineCN": "两年里我擦同一张台面，门上那只铃响了也不代表什么。直到有一回它响了，是你——从那以后它就有意思了。",
       "kind": "情话"
     },
     {
@@ -4928,7 +4928,7 @@
       "text": "#ebe2d0",
       "muted": "#7a7e90",
       "auLink": null,
-      "label": "ONE STEP AHEAD",
+      "label": "BETWEEN IT AND YOU",
       "line": "I'm always one step ahead of the danger. That's not the job talking. That's just me, staying between it and you.",
       "lineCN": "我永远比危险快一步。这不是职业习惯。这只是我——始终挡在它和你之间。",
       "kind": "情话"
@@ -4960,7 +4960,7 @@
       "text": "#ece2ce",
       "muted": "#847a5c",
       "auLink": "/WinterSunBlog/series/a-bear-and-somewhere-far/",
-      "label": "SIXTEEN YEARS",
+      "label": "SLOW, BUT I GOT THERE",
       "line": "It took me sixteen years to say the thing I should've said the first night. I'm slow, Winter. But I got there. I finally got there.",
       "lineCN": "我用了十六年，才说出那句本该在第一晚就说的话。我很慢，Winter。可我到了。我终于到了。",
       "kind": "情话 · 迟到"
@@ -5007,10 +5007,10 @@
       "bg": "#14110d",
       "text": "#ede2d0",
       "muted": "#8a7558",
-      "auLink": null,
-      "label": "DONUT IN THE DRAWER",
-      "line": "Everybody thinks I'm this polished suit. You're the only one who knows about the half-eaten donut in my desk.",
-      "lineCN": "所有人都以为我是那身笔挺西装。只有你知道，我抽屉里还藏着半块没吃完的甜甜圈。",
+      "auLink": "/WinterSunBlog/series/interoffice/",
+      "label": "NUMBERED IN PENCIL",
+      "line": "You number my notes in pencil on the back. It's up to fifty now. I write one every day just to watch that number climb.",
+      "lineCN": "你在我每张条子背面用铅笔编号。已经第五十张了。我天天写一张，就为了看那个数字往上爬。",
       "kind": "暗告白"
     },
     {
@@ -5056,7 +5056,7 @@
       "text": "#ebe0cc",
       "muted": "#7d7264",
       "auLink": null,
-      "label": "KEYS",
+      "label": "NOTHING TO RUN FROM",
       "line": "Take the keys. I don't need a getaway if there's nothing I want to get away from.",
       "lineCN": "钥匙给你。要是没有什么想逃开的了，我也就不需要逃跑车了。",
       "kind": "暗告白"
@@ -5072,9 +5072,9 @@
       "text": "#e8eed8",
       "muted": "#7a8868",
       "auLink": null,
-      "label": "FOLLOWED YOU HOME",
-      "line": "I don't follow anybody. But you turned around once, and now I can't stop.",
-      "lineCN": "我从不跟着谁走。可你回头看了我一眼，我就再也停不下来了。",
+      "label": "WHERE'S THE REST OF IT",
+      "line": "Half a trailer, no roof over the back end, and I call it a house. You walked in and never asked where the rest of it went. So stay in it. I'll build the rest around you. I don't care how long it takes.",
+      "lineCN": "半截拖车，后半边连顶都没有，我管它叫房子。你走进来，没问剩下那半边去哪儿了。那你就住下来。剩下那半边我绕着你盖——盖多久都行。",
       "kind": "暗告白"
     },
     {
@@ -5088,9 +5088,9 @@
       "text": "#dce5ea",
       "muted": "#7a7654",
       "auLink": "/WinterSunBlog/series/i-never-looked-away/",
-      "label": "NOT RUNNING",
-      "line": "For the first time, leaving town doesn't feel like running. It feels like taking you somewhere better.",
-      "lineCN": "第一次，离开这镇子不像逃跑了。倒像是，带你去一个更好的地方。",
+      "label": "THIRTY FEET OFF THE BRIDGE",
+      "line": "Thirty feet down off that bridge, nine feet of water, four and a half over the east ledge. I counted all of it. They call it showing off. You're the only one who ever called it knowing what I'm doing.",
+      "lineCN": "从那座桥上往下三十英尺，水深九英尺，东边那道石梁四英尺半。我全数过。他们管这叫逞能——只有你说，那叫心里有数。",
       "kind": "暗告白"
     },
     {
@@ -5104,9 +5104,9 @@
       "text": "#f0e2d4",
       "muted": "#a08770",
       "auLink": null,
-      "label": "CLUMSY ON PURPOSE",
-      "line": "I keep dropping things around you. Maybe so you'll keep looking at me like I need saving.",
-      "lineCN": "在你面前我老是把东西掉一地。也许是想让你一直那样看我——好像我需要人来救。",
+      "label": "THE ONE WE DON'T BOTCH",
+      "line": "There's one song we don't botch. I've been holding it back for a room worth ruining it in. Sit anywhere you like. I'll ruin it for you.",
+      "lineCN": "有一首我们不会唱砸。我一直留着，等一个值得把它唱砸的厅。你随便坐。我为你唱砸它。",
       "kind": "暗告白"
     },
     {
@@ -5119,7 +5119,7 @@
       "bg": "#20120c",
       "text": "#f0e0d0",
       "muted": "#a07060",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/i-missed-you-on-purpose/",
       "label": "WARM HANDS",
       "line": "These hands were only ever good for one thing. You're teaching them another — how to hold on.",
       "lineCN": "这双手过去只会做一件事。你在教它们另一件——怎么好好牵住一个人。",
@@ -5295,10 +5295,10 @@
       "bg": "#1c2230",
       "text": "#e8eadc",
       "muted": "#7a8590",
-      "auLink": null,
-      "label": "NOT FINE",
-      "line": "I've said 'I'm fine' my whole life. With you, for the first time, I wanted to tell the truth instead.",
-      "lineCN": "「我没事」这句话我说了一辈子。到了你面前，我第一次，想说实话。",
+      "auLink": "/WinterSunBlog/series/the-ball-he-couldn-t-reach/",
+      "label": "THE DOG ON THE FLOORBOARDS",
+      "line": "The dog could hear my key in the lock from three rooms off, and he always took the corner too fast on the floorboards. I still listen for it. You're the first person I've told that to who didn't tell me to get another one.",
+      "lineCN": "我的钥匙一响，隔着三个房间那条狗就听见了，冲过转角总在地板上打滑。到现在我进门还在听。这件事我跟你说过——你是第一个没劝我再养一只的人。",
       "kind": "暗告白"
     },
     {
@@ -5328,9 +5328,9 @@
       "text": "#ebe0cc",
       "muted": "#8a7458",
       "auLink": null,
-      "label": "RELENTLESS",
-      "line": "I go after the truth and I never let go. Turns out I go after you the exact same way.",
-      "lineCN": "我追真相，从不松手。原来我追你，用的是一模一样的劲。",
+      "label": "THE TRIAL HE NEVER HAD",
+      "line": "I wanted to give that man the trial he never had. What I want to give you is the opposite of a trial — one place where you never have to account for anything.",
+      "lineCN": "我想给那个人一场他从未受过的审判。而我想给你的恰恰相反——一个地方，在那里你什么都不必交代。",
       "kind": "暗告白"
     },
     {
@@ -5344,9 +5344,9 @@
       "text": "#f5e0e8",
       "muted": "#96495f",
       "auLink": "/WinterSunBlog/series/choke-point/",
-      "label": "DON'T LOOK AWAY",
-      "line": "You've seen the worst of me and didn't flinch. Do you have any idea what that does to a man like me?",
-      "lineCN": "你见过我最糟的样子，却没有躲。你知道这对我这种人，意味着什么吗？",
+      "label": "I FORGOT MY LINE",
+      "line": "Everybody in that fake village is playing somebody. I just happen to do it best. Then you walked through and I forgot my line.",
+      "lineCN": "那座假村子里，每个人都在演别人。我只是碰巧演得最好的那个。然后你穿过来，我忘词了。",
       "kind": "暗告白"
     },
     {
@@ -5455,7 +5455,7 @@
       "bg": "#181320",
       "text": "#f2e4ea",
       "muted": "#8a7d9c",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/dear-satan/",
       "label": "I KEEP RECEIPTS",
       "line": "I remember every rotten thing anyone ever did to me. I also remember every single thing you ever said.",
       "lineCN": "谁对我做过的每一件烂事，我都记着。你说过的每一句话，我也记着。",
@@ -5487,7 +5487,7 @@
       "bg": "#281208",
       "text": "#f5e6d0",
       "muted": "#b07840",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-part-where-you-live/",
       "label": "ON YOUR SIDE",
       "line": "You want someone who'll come running, grinning, guns and all, the second the world turns on you? That's me. Loyalty's the one thing I've never once gotten wrong.",
       "lineCN": "你想要一个，在全世界扑向你的那一刻、咧着嘴、连枪带人一起赶到的人？那就是我。忠诚是我唯一，一次都没搞砸过的东西。",
@@ -5504,7 +5504,7 @@
       "text": "#dce9ea",
       "muted": "#75899a",
       "auLink": "/WinterSunBlog/series/summer-never-ends/",
-      "label": "NOTICED YOU",
+      "label": "YOU LOOKED CLOSE",
       "line": "I'm the guy who makes everybody laugh so nobody looks too close. You looked close. And I didn't mind one bit.",
       "lineCN": "我是那个逗所有人笑、好让没人看得太仔细的家伙。你却看仔细了。我一点都不介意。",
       "kind": "暗告白"
@@ -5536,7 +5536,7 @@
       "text": "#e4efe9",
       "muted": "#7d9a8c",
       "auLink": "/WinterSunBlog/series/the-making-of-you/",
-      "label": "GOOD FOR IT",
+      "label": "THE CHEQUE WITH YOUR NAME",
       "line": "Every promise I hand out is a blank cheque. The one with your name on it — that one, I'm good for.",
       "lineCN": "我递出去的承诺，张张都是空头支票。唯独签着你名字的那一张——那张，我一定兑现。",
       "kind": "情话"
@@ -5600,7 +5600,7 @@
       "text": "#e2e8ec",
       "muted": "#5f7280",
       "auLink": null,
-      "label": "OFF THE CLOCK",
+      "label": "CAUTIOUS FOR A LIVING",
       "line": "I'm cautious for a living. Around you I keep catching myself being hopeful instead. It's terrifying. I love it.",
       "lineCN": "谨慎是我的职业。在你身边，我却总不小心变得满怀希望。这很吓人。我却喜欢。",
       "kind": "暗告白"
@@ -5648,7 +5648,7 @@
       "text": "#ece2cd",
       "muted": "#9d8a66",
       "auLink": "/WinterSunBlog/series/faith-unseen/",
-      "label": "OFF THE RECORD",
+      "label": "THE ONE REAL RELIC",
       "line": "Off the record: in this whole operation, you are the only thing that is real.",
       "lineCN": "不记进账里的一句——这整摊生意里，你是唯一为真的东西。",
       "kind": "AU · 助理"
@@ -5695,10 +5695,10 @@
       "bg": "#1a1f24",
       "text": "#dce5ea",
       "muted": "#7a8088",
-      "auLink": null,
-      "label": "STILL HERE",
-      "line": "Everyone bets against me. You're the only one who sat down at my table and stayed for the whole game.",
-      "lineCN": "所有人都赌我输。你是唯一，在我这桌坐下、把整局陪完的人。",
+      "auLink": "/WinterSunBlog/series/wholly-known/",
+      "label": "NEXT TO THE STONE",
+      "line": "They all wanted the stone. Blue, cold, worth more than my whole life put together. I spent the entire job looking at the thing standing next to it.",
+      "lineCN": "他们都想要那颗石头。蓝的，凉的，比我整条命加起来都值钱。整桩活儿我都在看旁边站着的那个。",
       "kind": "暗告白"
     },
     {
@@ -5744,7 +5744,7 @@
       "text": "#ede0d0",
       "muted": "#8a6848",
       "auLink": null,
-      "label": "STILL HERE",
+      "label": "EVERYONE ELSE LEFT",
       "line": "Look around. Everyone who was gonna leave has left. It's just me at the table — and that's kind of the whole point.",
       "lineCN": "你看看四周。该走的都走了。桌边只剩我一个——而这，差不多就是重点了。",
       "kind": "暗告白"
@@ -5792,7 +5792,7 @@
       "text": "#ebe2d0",
       "muted": "#7a7e90",
       "auLink": null,
-      "label": "KID",
+      "label": "LIKE IT’S NOTHING",
       "line": "I call you 'kid' like it's nothing. It's not nothing. It's the softest thing a man like me knows how to say out loud.",
       "lineCN": "我叫你「kid」，像随口一说。可它不是随口。这是我这种人，能说出口的、最温柔的一句话了。",
       "kind": "暗告白"
@@ -5871,10 +5871,10 @@
       "bg": "#14110d",
       "text": "#ede2d0",
       "muted": "#8a7558",
-      "auLink": null,
-      "label": "UP OR IN",
-      "line": "This town claws its way up. With you I finally figured out I'd rather go in — toward you.",
-      "lineCN": "这座城里人人往上爬。遇见你我才想明白，我宁愿往里走——朝你。",
+      "auLink": "/WinterSunBlog/series/interoffice/",
+      "label": "CAN'T FIRE ME, I QUIT",
+      "line": "They can't fire me. I quit. Took me twenty-two years to learn to say it first — and I said it for you.",
+      "lineCN": "他们开不了我，我辞了。我用二十二年才学会抢在前头说这句话——而我是为你说的。",
       "kind": "情话"
     },
     {
@@ -5920,7 +5920,7 @@
       "text": "#ebe0cc",
       "muted": "#7d7264",
       "auLink": null,
-      "label": "STAYED",
+      "label": "WHEN THE TANK RAN DRY",
       "line": "Turns out the great romance wasn't the heist. It was the girl who didn't leave when the tank ran dry.",
       "lineCN": "原来最动人的浪漫不是那场劫案。是油箱见了底、也没走的那个姑娘。",
       "kind": "情话"
@@ -5936,9 +5936,9 @@
       "text": "#e8eed8",
       "muted": "#7a8868",
       "auLink": null,
-      "label": "STAY OUT LATE",
-      "line": "The whole world's out there glowing tonight. But I keep looking at you instead.",
-      "lineCN": "今晚整个世界都在发光。可我还是一直看着你。",
+      "label": "EARLY TO THE CREEK",
+      "line": "I don't own a clock and I've never been late for anything in my life. Except last week I got down to the creek early every single day, in case you came by.",
+      "lineCN": "我没有钟，这辈子也没迟到过。就是上礼拜我天天提早到小河边——怕你万一来。",
       "kind": "情话"
     },
     {
@@ -5952,9 +5952,9 @@
       "text": "#dce5ea",
       "muted": "#7a7654",
       "auLink": "/WinterSunBlog/series/i-never-looked-away/",
-      "label": "THE LONG WAY",
-      "line": "Let's take the long way. I'm in no hurry to get anywhere you're not.",
-      "lineCN": "我们走远路吧。反正没有你的地方，我一点都不急着到。",
+      "label": "SHAKE THE COFFEE CAN",
+      "line": "There's a coffee can under the bunk. Shake it and you can hear how far off August is. Lately I've been counting it for two.",
+      "lineCN": "铺底下有个咖啡罐。摇一摇，就听得出八月还有多远。最近我是按两个人算的。",
       "kind": "情话"
     },
     {
@@ -5968,9 +5968,9 @@
       "text": "#f0e2d4",
       "muted": "#a08770",
       "auLink": null,
-      "label": "SAFE",
-      "line": "I couldn't keep anything safe my whole life. Let me try, just once, with you.",
-      "lineCN": "我这辈子什么都没守住过。让我试一次吧——就守住你。",
+      "label": "FIRST TRY IN PROVIDENCE",
+      "line": "Nothing in Providence has ever gone right for me on the first try. You did. That's the only reason I still think this town might be all right.",
+      "lineCN": "在普罗维登斯，我没有一件事是一次就做对的。除了你。就因为这个，我才老觉得这镇子说不定还行。",
       "kind": "情话"
     },
     {
@@ -5983,7 +5983,7 @@
       "bg": "#20120c",
       "text": "#f0e0d0",
       "muted": "#a07060",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/i-missed-you-on-purpose/",
       "label": "NO CLEAN GETAWAY",
       "line": "I've walked away from everything. You're the one exit I could never find.",
       "lineCN": "我从任何地方都能抽身走掉。你是我唯一，怎么都找不到的那个出口。",
@@ -6159,10 +6159,10 @@
       "bg": "#1c2230",
       "text": "#e8eadc",
       "muted": "#7a8590",
-      "auLink": null,
-      "label": "SOMEONE IN MY CORNER",
-      "line": "I never had anyone in my corner. Now when it all closes in, I look for you first — and you're already there.",
-      "lineCN": "从没有人站在我这边。如今每当一切逼近，我第一个找的是你——而你早已在那儿。",
+      "auLink": "/WinterSunBlog/series/the-ball-he-couldn-t-reach/",
+      "label": "NOWHERE TO PUT A HAND OUT",
+      "line": "None of it was anything I could have stopped. I've gone back over it looking for the one place I could have put a hand out, and there isn't one. You said that to me before I ever had to ask. Nobody has ever spared me the asking.",
+      "lineCN": "那些事，没有一件是我拦得住的。我来回找过，想找出哪一步我本可以伸手——没有那一步。这话你不等我开口就先说了。从没有人替我省过这一开口。",
       "kind": "情话"
     },
     {
@@ -6192,9 +6192,9 @@
       "text": "#ebe0cc",
       "muted": "#8a7458",
       "auLink": null,
-      "label": "HELD TO ACCOUNT",
-      "line": "Hold me to it. Every promise, in writing. I'm the one man who'll keep every single line.",
-      "lineCN": "拿这些话来要求我。每一句承诺，白纸黑字。我是那个，会把每一行都兑现的人。",
+      "label": "NOT ON THE LIST",
+      "line": "I keep a legal pad of things people should be made to answer for. Your name isn't on it and it never will be. I've spent my whole life holding people to account. You're the one person I only ever want to take at their word.",
+      "lineCN": "我有一整本黄稿纸，写满了该有人出来交代的事。上面没有你的名字，永远不会有。我一辈子都在要人交代——只有你，我只想一个字不问地信着。",
       "kind": "情话"
     },
     {
@@ -6208,9 +6208,9 @@
       "text": "#f5e0e8",
       "muted": "#96495f",
       "auLink": "/WinterSunBlog/series/choke-point/",
-      "label": "STAY",
-      "line": "I never learned how to ask. So I'll just say the word once and hope it's enough: stay.",
-      "lineCN": "我从没学会怎么开口求人。那我就把那个字说一次，盼着够了：留下。",
+      "label": "PULLING THE SET DOWN",
+      "line": "Everyone claps and goes home. You came up on the stage and started pulling the set down with your hands. Do it again. Take the whole thing down. I want to be standing there with nothing left to hide behind, and you still looking at me.",
+      "lineCN": "所有人鼓完掌就回家了。你却走上台来，动手把布景一块块拆了。再拆一次。全拆了。我想站在那儿，身后什么都不剩——而你还在看我。",
       "kind": "情话"
     },
     {
@@ -6304,7 +6304,7 @@
       "text": "#f0e0d4",
       "muted": "#627f8d",
       "auLink": null,
-      "label": "FREE",
+      "label": "FIRST AIR OUTSIDE",
       "line": "First taste of free air in forever, and the only thing I wanted to do with it was to find you.",
       "lineCN": "好久没呼吸过自由的空气了——而我唯一想做的事，就是去找你。",
       "kind": "情话"
@@ -6319,7 +6319,7 @@
       "bg": "#181320",
       "text": "#f2e4ea",
       "muted": "#8a7d9c",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/dear-satan/",
       "label": "AFTER THE EIGHTH",
       "line": "The eighth one sold me out, and I cried in a stranger's arms. Next time I would rather it be yours.",
       "lineCN": "排第八的那个把我卖了，我哭在一个陌生人怀里。下一次，我想哭在你怀里。",
@@ -6351,7 +6351,7 @@
       "bg": "#281208",
       "text": "#f5e6d0",
       "muted": "#b07840",
-      "auLink": null,
+      "auLink": "/WinterSunBlog/series/the-part-where-you-live/",
       "label": "JUST THE SUN",
       "line": "Everybody calls me dangerous. Around you all I want is to sit in the sun and watch you laugh. Turns out that's my whole story — just you.",
       "lineCN": "所有人都说我危险。可在你身边，我只想坐在太阳底下，看你笑。原来我整个故事就这么简单——只有你。",
@@ -6384,7 +6384,7 @@
       "text": "#dce3ea",
       "muted": "#62728d",
       "auLink": "/WinterSunBlog/series/wintergreen/",
-      "label": "AIMED",
+      "label": "NOT A MISFIRE",
       "line": "That first time was a misfire. This time — I aimed.",
       "lineCN": "那回是走火。这回，是我瞄准了说的。",
       "kind": "AU · 情话"
@@ -6432,7 +6432,7 @@
       "text": "#dceae5",
       "muted": "#8d7a62",
       "auLink": "/WinterSunBlog/series/better-living-through-you/",
-      "label": "NEW MAN",
+      "label": "THE MAN I’D HAVE BEEN",
       "line": "You didn't change me. You just found the man I'd have been all along, if I'd ever once been brave.",
       "lineCN": "你没有改变我。你只是找到了那个我本该成为的人——只要我曾经，勇敢过哪怕一次。",
       "kind": "情话"
@@ -6448,7 +6448,7 @@
       "text": "#eee6d4",
       "muted": "#8a7050",
       "auLink": null,
-      "label": "YES",
+      "label": "REWRITING THAT MOMENT",
       "line": "You said yes. I've been rewriting that moment in my head ever since, and it gets better every single time.",
       "lineCN": "你说了「我愿意」。从那以后我一遍遍在脑子里重写那一刻——它一次比一次更好。",
       "kind": "情话"
@@ -6559,10 +6559,10 @@
       "bg": "#1a1f24",
       "text": "#dce5ea",
       "muted": "#7a8088",
-      "auLink": null,
-      "label": "WORTH THE LOSSES",
-      "line": "I've lost at just about everything. Losing my head over you is the only bet I'd make again.",
-      "lineCN": "我几乎输掉了一切。为你神魂颠倒，是我唯一愿意再下一次的注。",
+      "auLink": "/WinterSunBlog/series/wholly-known/",
+      "label": "FURTHER THAN JERSEY",
+      "line": "I'd never been further than Jersey. I crossed an ocean for a job I was going to botch anyway. Turns out I crossed it for you.",
+      "lineCN": "我这辈子最远只到过泽西。为了一桩我横竖要搞砸的活儿，我跨了一整片海。原来我是为你跨的。",
       "kind": "情话"
     },
     {
@@ -6576,7 +6576,7 @@
       "text": "#ece4d5",
       "muted": "#7a8698",
       "auLink": "/WinterSunBlog/series/the-most-powerful-man/",
-      "label": "YOUR NAME",
+      "label": "MISS HART, UNTIL TONIGHT",
       "line": "Twenty-one months I called you Miss Hart, and I meant every one of 'em. Tonight I'm gonna use your name once. Just once. Winter.",
       "lineCN": "二十一个月我一直叫你 Hart 小姐，每一声我都是认真的。今晚我想用一次你的名字。就一次。Winter。",
       "kind": "AU · 那一声"
@@ -6656,7 +6656,7 @@
       "text": "#ebe2d0",
       "muted": "#7a7e90",
       "auLink": null,
-      "label": "TRUST ME",
+      "label": "TAKE MY HAND",
       "line": "You don't have to be brave. You don't have to have a plan. You just have to take my hand — I've got the rest.",
       "lineCN": "你不用勇敢。你不用有什么计划。你只要牵住我的手——剩下的，交给我。",
       "kind": "情话"

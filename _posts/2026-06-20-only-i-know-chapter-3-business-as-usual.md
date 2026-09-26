@@ -16,8 +16,6 @@ redirect_from:
   - /2026/06/18/only-i-know-chapter-3-business-as-usual/
 ---
 
-## 第三章　若无其事
-
 出了那么大的事，隔了两天，这间警局竟跟没事人似的，照常运转起来了——这才是最荒唐的地方。
 
 而最荒唐的那位，照例是 Dixon。

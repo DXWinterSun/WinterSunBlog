@@ -200,6 +200,21 @@ $(document).ready(function () {
     $('.c-categories, .c-show-images').hide().removeClass('o-opacity');
   }
 
+  // 「Winter's」是一个把三个旧分类并起来的【组】——日常 / 小说 / 歌词（外加
+  // 一篇早年的「散文」）都是 Winter 自己写的字，2026-09-23 合并成顶上一个标签。
+  // 文章自身的 categories 字段一个都没改，合并只发生在这里。
+  var FILTER_GROUPS = { 'winters': ['Daily', 'Novel', 'Lyrics', '\u6563\u6587'] };
+  // 旧链接（?cat=Daily 之类）进来时改指到组上，免得老书签落到空页面。
+  var LEGACY_CATS = { 'Daily': 'winters', 'Novel': 'winters', 'Lyrics': 'winters', '\u6563\u6587': 'winters' };
+
+  // 分区小标题上显示的名字（'winters' 是内部用的代号，别直接印出来）
+  var FILTER_TITLES = { 'winters': 'Winter\u2019s' };
+
+  function filterMatches(filter, cat) {
+    var members = FILTER_GROUPS[filter];
+    return members ? members.indexOf(cat) !== -1 : cat === filter;
+  }
+
   function applyCategoryFilter(filter) {
     var $items = $('.c-posts').find('[data-category]');
     var visible = 0;
@@ -222,7 +237,7 @@ $(document).ready(function () {
         } else {
           shouldShow = !partOfSeries;
         }
-      } else if (cat !== filter) {
+      } else if (!filterMatches(filter, cat)) {
         shouldShow = false;
       } else if (cardType === 'series') {
         shouldShow = true;
@@ -246,7 +261,7 @@ $(document).ready(function () {
     var titleEl = document.getElementById('js-section-title');
     var countEl = document.getElementById('js-post-count');
     if (titleEl) {
-      titleEl.textContent = filter === 'all' ? 'All Stories' : filter;
+      titleEl.textContent = filter === 'all' ? 'All Stories' : (FILTER_TITLES[filter] || filter);
     }
     if (countEl) {
       if (filter === 'all') {
@@ -297,10 +312,8 @@ $(document).ready(function () {
   }());
 
   var HERO_LABELS = {
-    'Daily': 'Daily',
-    'Novel': 'Novel',
+    'winters': 'Winter\u2019s',
     'AU Story': 'AU Story',
-    'Lyrics': 'Lyrics',
     'gallery': 'Gallery'
   };
 
@@ -350,6 +363,7 @@ $(document).ready(function () {
     var cat = params.get('cat');
     var view = params.get('view');
     if (cat) {
+      if (LEGACY_CATS[cat]) cat = LEGACY_CATS[cat];
       var $catItem = $('.c-nav__list > .c-item_post[data-filter="' + cat.replace(/"/g, '\\"') + '"]');
       if ($catItem.length) {
         setActiveNav($catItem);
@@ -409,6 +423,79 @@ $(document).ready(function () {
   });
 
   /* =======================
+  // Archive › By Day：点某一天，就在那个月历下面就地展开
+  // （2026-09-19 Winter：「每次我想点具体的哪一天就会跳到页面最下边」——
+  //   「那一天」的区块原本都堆在页面末尾，靠 :target 显示，所以一点就跳到底。
+  //   这里改成把那一块搬到被点的月历正下方再展开；没有 JS 时仍退回 :target。）
+  ======================= */
+
+  (function setupDayPanels() {
+    var panel = document.querySelector('[data-archive-panel="day"]');
+    if (!panel) return;
+    var openEl = null;
+
+    function calOf(el) { return el ? el.closest('.c-cal') : null; }
+
+    function scrollTo(el) {
+      var top = el.getBoundingClientRect().top + window.scrollY - 76;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+    }
+
+    function close(scrollBack) {
+      if (!openEl) return;
+      var cal = openEl.previousElementSibling;
+      openEl.classList.remove('is-open');
+      openEl = null;
+      if (scrollBack && cal && cal.classList.contains('c-cal')) scrollTo(cal);
+    }
+
+    function open(id, doScroll) {
+      var dayEl = document.getElementById(id);
+      if (!dayEl) return false;
+      if (dayEl === openEl) { close(true); return true; }   // 再点一次＝收起
+      if (openEl) openEl.classList.remove('is-open');
+      var cell = panel.querySelector('.c-cal__cell--on[href="#' + id + '"]');
+      var cal = calOf(cell);
+      if (cal && dayEl.previousElementSibling !== cal) cal.after(dayEl);
+      dayEl.classList.add('is-open');
+      openEl = dayEl;
+      if (doScroll) scrollTo(dayEl);
+      return true;
+    }
+
+    function remember(id) {
+      if (!(window.history && window.history.replaceState)) return;
+      window.history.replaceState(null, '', window.location.pathname + window.location.search + '#' + id);
+    }
+
+    panel.addEventListener('click', function (e) {
+      var cell = e.target.closest('.c-cal__cell--on');
+      if (cell) {
+        var id = (cell.getAttribute('href') || '').slice(1);
+        if (id && open(id, true)) { e.preventDefault(); remember(id); }
+        return;
+      }
+      var link = e.target.closest('.c-day__nav a');
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      if (href.indexOf('#d') === 0) {
+        var nid = href.slice(1);
+        if (open(nid, true)) { e.preventDefault(); remember(nid); }
+      } else if (href.indexOf('#cy') === 0) {
+        e.preventDefault();
+        close(true);
+      }
+    });
+
+    // 带 #d2026-09-13 进来（外链 / 刷新）：一样就地展开，而不是掉到页面末尾
+    var hash = window.location.hash || '';
+    if (/^#d\d{4}-\d{2}-\d{2}$/.test(hash)) {
+      setTimeout(function () { open(hash.slice(1), true); }, 60);
+    }
+  })();
+
+  /* =======================
   // Archive page: Year / Mood sub-tabs + per-tag panels
   ======================= */
 
@@ -459,9 +546,9 @@ $(document).ready(function () {
     function syncUrl() {
       if (!(window.history && window.history.replaceState)) return;
       var activeTab = document.querySelector('.c-archive-tab.is-active');
-      var view = activeTab ? activeTab.getAttribute('data-archive-view') : 'year';
+      var view = activeTab ? activeTab.getAttribute('data-archive-view') : 'day';
       var params = new URLSearchParams(window.location.search);
-      if (view === 'year') { params.delete('view'); } else { params.set('view', view); }
+      if (view === 'day') { params.delete('view'); } else { params.set('view', view); }
       var activePill = document.querySelector('.c-archive-tag-pill.is-active');
       if (view === 'mood' && activePill) {
         params.set('tag', activePill.getAttribute('data-archive-tag'));
@@ -488,7 +575,12 @@ $(document).ready(function () {
 
     // Restore the chosen view / mood from the URL on load.
     var initParams = new URLSearchParams(window.location.search);
-    if (initParams.get('view') === 'mood') {
+    var initView = initParams.get('view');
+    // 带着 #d2026-09-13 / #cy2026 这种锚点进来（日历里点的戳）→ 一定是日历那一栏
+    if (/^#(d\d{4}-\d{2}-\d{2}|cy\d{4})$/.test(window.location.hash)) initView = 'day';
+    if (initView === 'year') {
+      activateView('year');
+    } else if (initView === 'mood') {
       activateView('mood');
       var initTag = initParams.get('tag');
       if (initTag) activateTag(initTag);
@@ -515,7 +607,14 @@ $(document).ready(function () {
   (function buildArticleTOC() {
     var article = document.querySelector('.c-wrap-content');
     if (!article) return;
-    var headings = article.querySelectorAll('h2, h3');
+    // 只收真正「指事」的小标题：光是编号的（一 / II. / 3）不进目录——
+    // 那只是分节记号，放进目录等于一列数字；卡片里自带的标题（带 class）也不收。
+    var BARE_NUMBER = /^[\s.,、，。·•:：\-—–()（）第章节]*[一二三四五六七八九十百零〇两\dIVXLC]+[\s.,、，。·•:：\-—–()（）章节]*$/;
+    var headings = Array.prototype.filter.call(article.querySelectorAll('h2, h3'), function (h) {
+      if (h.className) return false;
+      var text = (h.textContent || '').trim();
+      return text && !BARE_NUMBER.test(text);
+    });
     if (headings.length < 3) return; // not worth a TOC
 
     var toc = document.createElement('nav');
@@ -672,4 +771,37 @@ $(document).ready(function () {
     buffer = (buffer + e.key.toLowerCase()).slice(-5);
     if (buffer === "fable") { buffer = ""; showToast(); }
   });
+})();
+
+/* ————— 手机上站头会让路 —————
+   ⚠️ 独立成段、不要塞回 $(document).ready 里：那个回调里前面任何一句出错
+   （例如某个插件没加载），后面的就全都不执行了，这段也会跟着哑掉。 */
+/* =======================
+// 手机上：往下滑收起站头，往上滑 / 回到顶部再放出来
+// （站头在手机上是两行、又是钉住的，一直占着一百二十多像素的「天花板」。
+//   桌面宽度不启用；搜索框正在用时也不收，免得下拉结果跟着跑掉。）
+======================= */
+(function headerAutoHide() {
+  var bar = document.querySelector('.c-topbar');
+  if (!bar) return;
+  var last = window.scrollY || 0, ticking = false;
+
+  function update() {
+    var y = window.scrollY || 0;
+    if (window.innerWidth > 900 || (document.activeElement && bar.contains(document.activeElement))) {
+      bar.classList.remove('is-tucked');
+      last = y;
+      return;
+    }
+    var h = bar.offsetHeight;
+    if (y > last + 6 && y > h + 40) bar.classList.add('is-tucked');
+    else if (y < last - 6 || y <= 4) bar.classList.remove('is-tucked');
+    last = y;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { update(); ticking = false; });
+  }, { passive: true });
 })();

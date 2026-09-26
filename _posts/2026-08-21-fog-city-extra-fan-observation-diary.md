@@ -12,6 +12,7 @@ story_time: "2026"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "情敌统计：全体人类。威胁评估：零——票只发行过一张。"
 redirect_from:
   - /2026/09/03/fog-city-extra-fan-observation-diary/

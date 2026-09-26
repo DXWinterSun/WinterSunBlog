@@ -11,6 +11,7 @@ series_order: 57
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你们去把狗接回家——他给它取名 Bishop，好天天使唤个痛快。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-bishop/

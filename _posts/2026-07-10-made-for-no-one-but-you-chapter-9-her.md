@@ -11,6 +11,7 @@ series_order: 9
 series_status: complete
 series_type: Series
 chapter_type: "Finale"
+chapter_kind: extra
 summary: "他唤你‘她’——一字之差，是被拥有与被爱。"
 redirect_from:
   - /2026/06/27/made-for-no-one-but-you-chapter-9-her/

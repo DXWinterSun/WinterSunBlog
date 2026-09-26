@@ -11,6 +11,7 @@ series_order: 63
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "给全镇配药的 Varney 先生，自己感冒了，却蔫成个黏人的病号。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-wilted/

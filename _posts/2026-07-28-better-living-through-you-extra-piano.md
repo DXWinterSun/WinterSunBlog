@@ -11,6 +11,7 @@ series_order: 29
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他把你抱上那架没人弹的钢琴——在你失神那刻，第一次说：我爱您。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-piano/

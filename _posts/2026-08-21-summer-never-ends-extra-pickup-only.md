@@ -11,6 +11,7 @@ series_order: 28
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "今年的生日包裹没有寄出——快递员说，货到自提。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-pickup-only/

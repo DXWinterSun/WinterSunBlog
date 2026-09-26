@@ -11,6 +11,7 @@ series_order: 37
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "她把他的名字，写进了一份能存一百年的档案。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-naming/

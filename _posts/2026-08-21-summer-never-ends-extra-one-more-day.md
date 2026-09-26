@@ -11,6 +11,7 @@ series_order: 33
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "乐园本该在昨天关门——今年，它多开了一天。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-one-more-day/

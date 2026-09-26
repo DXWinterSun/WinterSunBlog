@@ -11,6 +11,7 @@ series_order: 33
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你放开手，纵这头刚加冕的狮子撒个够——今夜没有笼子，也没有罪。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-unleashed/

@@ -10,6 +10,7 @@ series_order: 31
 series_status: complete
 series_type: Series
 chapter_type: "番外"
+chapter_kind: extra
 summary: "他签名签到一半一回头，看见他老婆那边的人比他还多。"
 tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 炽恋, 缱绻]
 redirect_from:

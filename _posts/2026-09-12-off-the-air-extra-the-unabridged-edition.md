@@ -11,6 +11,7 @@ series_order: 21
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1984"
 summary: "印出来的是删节版——未删节的那一个，只印一册，在你床上。"
 easter_eggs:

@@ -13,8 +13,6 @@ summary: "你没藏好眼神，他竟然向你走近了。"
 tags: [Charles II, BayBay, AU, The Invisible Light, 悸动, 暗涌]
 ---
 
-**🕯️ 《The Invisible Light》· 第十章｜你没能藏好眼神，他却走近了你**
-
 📍**时间设定**：王宫春季晚宴。你在角落处落座，低调从不引人注目——直到他出现。
 
 你比任何人都更早察觉到他的到来。

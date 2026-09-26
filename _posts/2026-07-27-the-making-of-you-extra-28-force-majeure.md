@@ -11,6 +11,7 @@ series_order: 60
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 28
+chapter_kind: extra
 summary: "一整座城的黑，是他铁腕唯一控不住的一次。灯灭了，他才敢说真话。"
 easter_eggs:
   - series_order: 56

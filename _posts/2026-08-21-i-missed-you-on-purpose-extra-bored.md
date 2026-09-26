@@ -11,6 +11,7 @@ series_order: 20
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: pov
 story_time: "1975–1984"
 summary: "他头一回吐了。到第八回，他站在那儿想中午吃什么。"
 redirect_from:

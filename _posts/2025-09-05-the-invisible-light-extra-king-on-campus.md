@@ -9,6 +9,7 @@ series_title: "The Invisible Light · Charles II AU"
 series_order: 100
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他穿宫廷礼服坐在后排，当场纠正讲师。"
 tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 絮语]
 ---

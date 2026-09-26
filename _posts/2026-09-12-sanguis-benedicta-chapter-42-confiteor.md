@@ -11,6 +11,7 @@ series_order: 42
 series_status: ongoing
 series_type: Series
 chapter_type: "B面"
+chapter_kind: pov
 story_time: "1888–1946"
 summary: "是我自己进的笼子。我进去，是因为我怕我自己。"
 redirect_from:

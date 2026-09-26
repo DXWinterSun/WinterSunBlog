@@ -11,6 +11,7 @@ series_order: 38
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 6
+chapter_kind: extra
 summary: "他的日历上有个没有名目的年度日程。今年，他带上了你。"
 ---
 

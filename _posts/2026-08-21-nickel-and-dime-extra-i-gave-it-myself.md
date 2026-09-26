@@ -9,6 +9,7 @@ series_title: "Nickel and Dime · Jimmy Silk AU"
 series_order: 19
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "以前你跪下去的时候人是不在的。这一次你在。"
 tags: [Jimmy Silk, Sam Rockwell, AU, Nickel and Dime, 炽恋, 缱绻]
 redirect_from:

@@ -10,6 +10,7 @@ series_order: 34
 series_status: complete
 series_type: Series
 chapter_type: "番外"
+chapter_kind: extra
 summary: "他不肯出来，也不肯放，只逼你说一句我不走了。"
 tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 炽恋, 缱绻]
 redirect_from:

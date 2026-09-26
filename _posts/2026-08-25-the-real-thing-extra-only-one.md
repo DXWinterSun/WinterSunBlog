@@ -10,6 +10,7 @@ series_order: 37
 series_status: ongoing
 series_type: "Series"
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "2004"
 summary: "他坐在沙发上，一只脚在半空里一晃一晃。"
 tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 炽恋, 暗涌]

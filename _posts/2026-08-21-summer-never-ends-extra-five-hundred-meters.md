@@ -11,6 +11,7 @@ series_order: 26
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "你说想他的那通电话，他是在五百米外接的。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-five-hundred-meters/

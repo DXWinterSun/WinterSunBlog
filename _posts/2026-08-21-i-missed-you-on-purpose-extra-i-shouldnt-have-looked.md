@@ -11,6 +11,7 @@ series_order: 22
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1986"
 summary: "他找螺丝刀，翻出了她的日记。他知道不该看。他看了。"
 redirect_from:

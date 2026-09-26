@@ -11,6 +11,7 @@ series_order: 17
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "蒙上眼，认对了才准你到。"
 redirect_from:
   - /2026/08/25/everybody-s-home-extra-which-one-am-i/

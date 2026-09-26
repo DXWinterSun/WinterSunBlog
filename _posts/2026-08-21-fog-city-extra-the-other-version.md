@@ -12,6 +12,7 @@ story_time: "1987"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "全世界都见过他右臂那只。另一个版本，观众一名，终身有效。"
 redirect_from:
   - /2026/09/01/fog-city-extra-the-other-version/

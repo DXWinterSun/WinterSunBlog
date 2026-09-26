@@ -11,6 +11,7 @@ series_order: 32
 series_status: complete
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 story_time: "1985"
 summary: "他这辈子只有一道答不了的题——你笑眯眯地，又出了一遍。"
 easter_eggs:

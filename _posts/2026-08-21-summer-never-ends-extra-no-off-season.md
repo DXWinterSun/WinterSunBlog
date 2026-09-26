@@ -11,6 +11,7 @@ series_order: 34
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "守则第十一条：本园全年营业，不设淡季。今晚起执行。"
 redirect_from:
   - /2026/08/01/summer-never-ends-extra-no-off-season/

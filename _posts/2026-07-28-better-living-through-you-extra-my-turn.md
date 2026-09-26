@@ -11,6 +11,7 @@ series_order: 40
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "今晚换他说了算——你嘴上求饶，身子却舍不得，他看穿了，还得意地报数。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-my-turn/

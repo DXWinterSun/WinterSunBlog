@@ -11,6 +11,7 @@ series_order: 27
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "十八年前那个加油站门口不敢开口的小伙，终于把那句话说了出来。"
 ---
 

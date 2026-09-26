@@ -11,6 +11,7 @@ series_order: 60
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他醒来硬着，忐忑地黏上来——这一回，你没像那些旧早晨那样推开他。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-morning/

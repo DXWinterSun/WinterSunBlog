@@ -11,6 +11,7 @@ series_order: 53
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 21
+chapter_kind: pov
 summary: "冷面一句‘盯我的本钱’，背地里为你推了半座城的饭局。"
 easter_eggs:
   - series_order: 11

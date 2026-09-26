@@ -10,6 +10,7 @@ series_order: 32
 series_status: complete
 series_type: Series
 chapter_type: "番外"
+chapter_kind: extra
 summary: "他发现你耳朵敏感那天，觉得两颗脑袋这辈子没白长。"
 tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 炽恋, 缱绻]
 redirect_from:

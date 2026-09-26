@@ -11,6 +11,7 @@ series_order: 54
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他红着脸提出那件你和 Ben 从没做过的事——想把自己整个交给你。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-surrender/

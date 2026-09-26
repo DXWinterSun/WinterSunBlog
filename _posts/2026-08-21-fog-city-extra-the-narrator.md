@@ -12,6 +12,7 @@ story_time: "2011"
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "二〇一一年，他的声音单独出演了一次。首播那晚你闭着眼看完。"
 redirect_from:
   - /2026/09/18/fog-city-extra-the-narrator/

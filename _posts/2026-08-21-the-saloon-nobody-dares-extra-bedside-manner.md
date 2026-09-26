@@ -11,6 +11,7 @@ series_order: 14
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他那双只会救人的手，夜里，一寸一寸地拆了你。"
 redirect_from:
   - /2026/07/29/the-saloon-nobody-dares-extra-bedside-manner/

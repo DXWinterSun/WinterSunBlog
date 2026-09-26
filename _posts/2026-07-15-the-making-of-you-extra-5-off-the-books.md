@@ -11,6 +11,7 @@ series_order: 37
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 5
+chapter_kind: pov
 summary: "二十年每一笔都入账。只有这一笔，他从第一天就没敢记。"
 easter_eggs:
   - series_order: 1

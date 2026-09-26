@@ -11,6 +11,7 @@ series_order: 58
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 26
+chapter_kind: pov
 summary: "他有一本没人见过的账，写着不敢说的话。那天他发现，你也有一本。"
 easter_eggs:
   - series_order: 55

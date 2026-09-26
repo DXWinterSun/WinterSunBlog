@@ -11,6 +11,7 @@ series_order: 30
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他张口就是我爱您，你偏不回他——于是他别扭地赌气、又不敢直问。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-three-words/

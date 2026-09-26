@@ -11,6 +11,7 @@ series_order: 51
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 19
+chapter_kind: pov
 summary: "及时止损是他的信条。那一晚，他头一回算不清，什么才算‘损’。"
 easter_eggs:
   - series_order: 8

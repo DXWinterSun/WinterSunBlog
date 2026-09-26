@@ -11,6 +11,7 @@ series_order: 41
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他末页写着办完就回来陪你——那趟路，他再没回来。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-my-beautiful-wife/

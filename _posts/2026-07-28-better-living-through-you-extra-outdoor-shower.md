@@ -11,6 +11,7 @@ series_order: 46
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "阳光底下他把你抵上湿木墙——说要给你，好好洗掉那点沙。"
 redirect_from:
   - /2026/07/27/better-living-through-you-extra-outdoor-shower/

@@ -11,6 +11,7 @@ series_order: 36
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 4
+chapter_kind: extra
 summary: "你烧到三十九度还想拍。他第一次对你发火，又红了眼眶。"
 ---
 

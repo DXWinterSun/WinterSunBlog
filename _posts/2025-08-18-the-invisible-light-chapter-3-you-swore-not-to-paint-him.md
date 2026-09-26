@@ -13,8 +13,6 @@ summary: "你发誓不再画他，笔却在黑暗里自己动了。"
 tags: [Charles II, BayBay, AU, The Invisible Light, 暗涌, 缱绻]
 ---
 
-**🕯️ 《The Invisible Light》· 第三章｜你曾说过不再画他**
-
 📍**时间设定**：几日之后，你强迫自己远离关于他的所有笔墨，却在一个雨夜，彻底崩溃。
 
 你收起了所有素描本。

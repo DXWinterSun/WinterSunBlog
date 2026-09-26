@@ -11,6 +11,7 @@ series_order: 33
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 1
+chapter_kind: extra
 summary: "他包下影院，从你的第一部看起。这次他知道，眼神是写给谁的。"
 ---
 
