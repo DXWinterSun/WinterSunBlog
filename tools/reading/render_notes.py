@@ -309,14 +309,15 @@ details.tipbox .tips{margin-top:.8rem;}
 .wl__tab{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;
  padding:.2rem .9rem;font:inherit;font-size:.85rem;cursor:pointer;min-height:32px;}
 .wl__tab.is-on{background:var(--word);border-color:transparent;color:#fff;}
-.wl__letters{display:flex;flex-wrap:wrap;gap:.15rem;padding:0 .8rem .5rem;font-family:"Helvetica Neue",Arial,sans-serif;}
+.wl__letters{display:flex;flex-wrap:wrap;gap:.15rem;padding:.45rem .8rem .5rem;font-family:"Helvetica Neue",Arial,sans-serif;
+ position:sticky;top:0;z-index:3;background:var(--surface);border-bottom:1px solid var(--line);}
 .wl__letters a,.wl__letters span{display:inline-flex;align-items:center;justify-content:center;width:1.75rem;height:1.75rem;
  border-radius:5px;font-size:.85rem;font-weight:600;text-decoration:none;}
 .wl__letters a{color:var(--word);background:var(--band);}
 .wl__letters span{color:var(--muted);opacity:.35;}
 .wl__list{list-style:none;margin:0;padding:0 0 .4rem;max-height:none;}
 .wl__letter{padding:.25rem 1rem;background:var(--band);color:var(--band-ink);font-weight:700;font-size:.85rem;
- letter-spacing:.1em;scroll-margin-top:1rem;}
+ letter-spacing:.1em;scroll-margin-top:var(--wl-bar,7.5rem);}
 .wl__row{display:grid;grid-template-columns:minmax(0,auto) auto 1fr auto;align-items:baseline;gap:.2rem .55rem;
  padding:.3rem 1rem .3rem .8rem;border-left:3px solid var(--hl);line-height:1.5;text-decoration:none;color:var(--ink);
  border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);}
@@ -334,6 +335,23 @@ details.tipbox .tips{margin-top:.8rem;}
 @keyframes cardflash{0%{box-shadow:0 0 0 6px color-mix(in srgb,var(--word) 45%,transparent)}100%{box-shadow:0 0 0 2px var(--word)}}
 @media (prefers-reduced-motion:reduce){.card:target{animation:none;}}
 
+/* 卡片之间拉开、边界更清楚 */
+.card[id^="n"]{margin-bottom:2rem;box-shadow:0 1px 2px rgba(20,24,31,.06),0 6px 18px -12px rgba(20,24,31,.35);}
+body{padding-bottom:4.5rem;}
+/* 底部翻卡条：上一个 / 当前 / 下一个 */
+.flip{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;transform:translate(-50%,160%);
+ display:flex;align-items:stretch;max-width:calc(100vw - 24px);border-radius:99px;overflow:hidden;
+ background:var(--word);color:#fff;box-shadow:0 8px 24px -8px rgba(0,0,0,.45);transition:transform .25s ease;}
+.flip.is-on{transform:translate(-50%,0);}
+.flip button{appearance:none;border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;min-height:44px;}
+.flip__btn{width:48px;font-size:1.25rem;line-height:1;}
+.flip__btn:disabled{opacity:.3;cursor:default;}
+.flip__mid{display:flex;align-items:center;gap:.5rem;padding:0 .9rem;border-left:1px solid rgba(255,255,255,.25);
+ border-right:1px solid rgba(255,255,255,.25);max-width:58vw;}
+.flip__term{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.flip__count{font-size:.75rem;opacity:.75;white-space:nowrap;font-variant-numeric:tabular-nums;}
+@media (prefers-reduced-motion:reduce){.flip{transition:none;}}
+
 @media (max-width:480px){
  body{font-size:16px;}
  .wrap{padding:4rem 1rem 4rem;}
@@ -348,6 +366,54 @@ details.tipbox .tips{margin-top:.8rem;}
 # 卡片上的「批注」按钮：打开 Artifact 自带的批注框，锚在这张卡上（页面本身什么都不存）。
 # 拿不到批注能力（旧版查看器 / 没有权限）就保持隐藏——选中文字照样能批注。
 JS = '''
+(function () {
+  // 词表：字母那一排钉在顶上；点字母时，标题别被它挡住
+  var bar = document.querySelector('.wl__letters'), wl = document.getElementById('wordlist');
+  function barH() { if (bar && wl) wl.style.setProperty('--wl-bar', (bar.offsetHeight + 8) + 'px'); }
+  if (wl) { wl.addEventListener('toggle', barH); window.addEventListener('resize', barH); }
+
+  // 底部翻卡条
+  var nav = document.querySelector('.flip');
+  var cards = [].slice.call(document.querySelectorAll('article.card[id^="n"]'));
+  if (!nav || !cards.length) return;
+  var termEl = nav.querySelector('.flip__term'), countEl = nav.querySelector('.flip__count');
+  var prev = nav.querySelector('[data-go="-1"]'), next = nav.querySelector('[data-go="1"]');
+  var cur = -1, ticking = false;
+  function name(c) {
+    var t = c.querySelector('.card__term');
+    return t ? t.textContent : '好句 · ' + ((c.querySelector('.card__page') || {}).textContent || '');
+  }
+  function update() {
+    ticking = false;
+    var y = window.innerHeight * 0.35, i = -1;
+    for (var k = 0; k < cards.length; k++) { if (cards[k].getBoundingClientRect().top <= y) i = k; else break; }
+    var last = cards[cards.length - 1].getBoundingClientRect().bottom < 0;
+    nav.classList.toggle('is-on', i >= 0 && !last);
+    if (i === cur || i < 0) return;
+    cur = i;
+    termEl.textContent = name(cards[i]);
+    countEl.textContent = (i + 1) + ' / ' + cards.length;
+    prev.disabled = i === 0; next.disabled = i === cards.length - 1;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
+  function go(i) {
+    if (i < 0 || i >= cards.length) return;
+    var smooth = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+    cards[i].scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+  }
+  prev.addEventListener('click', function () {
+    // 当前这张已经往下读了一截，就先回到它的开头；已经在开头才去上一张
+    var top = cur >= 0 ? cards[cur].getBoundingClientRect().top : 0;
+    go(top < -40 ? cur : cur - 1);
+  });
+  next.addEventListener('click', function () { go(cur + 1); });
+  nav.querySelector('.flip__mid').addEventListener('click', function () {
+    if (!wl) return;
+    wl.open = true; barH();
+    wl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
 (function () {
   var wl = document.getElementById('wordlist');
   if (!wl) return;
@@ -789,7 +855,11 @@ def main():
         foot = f'<div class="foot"><p>{fmt(demo["foot"])}</p></div>'
 
     page_title = book.get('page_title') or f'{title} 原著笔记'
-    inner = (f'<button type="button" class="theme-btn">🌕</button>\n<div class="wrap">\n{head}{body}\n{foot}\n</div>\n'
+    flip = ('<nav class="flip" aria-label="翻卡"><button type="button" class="flip__btn" data-go="-1" aria-label="上一张">‹</button>'
+            '<button type="button" class="flip__mid" aria-label="打开词表"><span class="flip__term"></span>'
+            '<span class="flip__count"></span></button>'
+            '<button type="button" class="flip__btn" data-go="1" aria-label="下一张">›</button></nav>\n') if batches else ''
+    inner = (f'<button type="button" class="theme-btn">🌕</button>\n<div class="wrap">\n{head}{body}\n{foot}\n</div>\n{flip}'
              f'<script>{JS}</script>\n')
     if a.blog:
         # 博客上的那一页：独立整页（不走 Jekyll layout），链接一律写相对路径，站点前缀变了也不会断
