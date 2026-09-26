@@ -587,3 +587,92 @@ batches:
         extra:
           - "**搭配**sporadic gunfire（零星的枪声）· sporadically（偶尔地）"
           - "**易混**occasional 只说“偶尔”；sporadic 还带着“没规律、东一下西一下”的意思。"
+
+  - n: 5
+    date: 2026-09-26
+    pages: 7
+    photos: 1
+    notes:
+      - id: "034"
+        page: 7
+        color: blue
+        term: veered
+        lemma: veer
+        kind: 单词
+        ipa: /vɪrd/
+        pos: v.
+        cn: 突然拐向
+        en: to change direction suddenly
+        en_src: 牛津 8
+        context: "where it has ==veered== right"
+        gist: 鹿在那儿猛地拐向了右边。
+        note: 牛津说这个词尤其用来说车辆突然转向，这里用在受了伤的鹿身上。他跟着血迹走，看出来鹿在这儿一下子改了方向。
+        extra:
+          - "**搭配**veer off the road（冲出路面）· veer away from（偏离）"
+          - "**易混**swerve 多是为了躲东西急打方向；veer 只说方向突然变了，不一定是在躲。"
+
+      - id: "035"
+        page: 7
+        color: blue
+        term: heifers
+        lemma: heifer
+        kind: 名物
+        ipa: /ˈhefərz/
+        pos: n.
+        cn: 还没生过小牛的小母牛
+        en: a young female cow, especially one that has not yet had a calf
+        en_src: 牛津 8
+        context: "grazed ==heifers== and sheep"
+        gist: （在这儿）放过小母牛和羊。
+        note: 注意读音，前半是 “hef”，不是 “hei”。前面那个 grazed 就是第 4 页讲过的 graze，不过这里是它的第二个意思“放牧”：老 Hollenbach 十几年前在这片山上放牛放羊，现在牧场荒了。
+        extra:
+          - "**易混**cow 母牛（一般是生过小牛的）；heifer 还没生过的小母牛；calf 小牛；bull 公牛。"
+
+      - id: "036"
+        page: 7
+        color: blue
+        term: chokecherries
+        lemma: chokecherry
+        kind: 名物
+        ipa: /ˈtʃoʊkˌtʃeriz/
+        pos: n.
+        cn: 北美稠李（一种野樱桃树）
+        en: a North American wild cherry tree with small, dark, very sour fruit
+        context: "==chokecherries==, Scotch pine, and brambles"
+        gist: 北美稠李、欧洲赤松和荆棘。
+        note: 牛津高阶没收这个词，英文解释是我写的。它是北美的一种野樱桃，果子小，颜色发黑，又酸又涩，据说名字就是因为涩得人嗓子发紧（choke 是噎住）。这一串写的是荒掉的老牧场，已经被野树野灌木占满了。
+        extra:
+          - "**搭配**chokecherry jelly（稠李果酱，加足了糖才能吃）"
+
+      - id: "037"
+        page: 7
+        color: blue
+        term: brambles
+        lemma: bramble
+        kind: 名物
+        ipa: /ˈbræmblz/
+        pos: n.
+        cn: 带刺的灌木（黑莓那一类）
+        en: a wild bush with thorns on which blackberries grow
+        en_src: 牛津 8
+        context: "Scotch pine, and ==brambles=="
+        gist: 欧洲赤松和荆棘丛。
+        note: 牛津说这个词尤其是英式说法，指长黑莓的那种带刺灌木；平时也泛指带刺、乱缠的一丛丛野灌木，覆盆子也算。
+        extra:
+          - "**易混**thorn 是刺本身；bramble 是长满刺的那丛灌木；bush 是一般的灌木。"
+
+      - id: "038"
+        page: 7
+        color: blue
+        term: lug
+        kind: 口语
+        ipa: /lʌɡ/
+        pos: v.
+        cn: 吃力地拖、扛
+        en: to carry or drag something heavy with a lot of effort
+        en_src: 牛津 8
+        context: "how he’s going to ==lug== a two-hundred-pound carcass"
+        gist: 他要怎么把一具两百磅重的鹿尸拖回去。
+        note: 牛津标着这是口语。一个字就把“又重又累、费老大劲”全说出来了。两百磅约合九十公斤。carcass 是动物的尸体。
+        extra:
+          - "**易混**carry 只是“拿着、带着”；drag 是在地上拖；lug 是不管怎么弄，反正很费劲。"
