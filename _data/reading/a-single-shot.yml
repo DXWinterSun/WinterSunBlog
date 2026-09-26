@@ -1322,3 +1322,112 @@ batches:
         extra:
           - "**搭配**substantiate a claim（证实某个说法）· unsubstantiated（没有根据的）"
           - "**易混**prove 最常用；confirm 是确认本来就有人说过的事；substantiate 是拿出证据来坐实。"
+
+  - n: 14
+    date: 2026-09-26
+    pages: 16
+    photos: 1
+    notes:
+      - id: "079"
+        page: 16
+        color: blue
+        term: jackknife
+        kind: 名物
+        ipa: /ˈdʒæknaɪf/
+        pos: n.
+        cn: 大折刀
+        en: a large knife with a folding blade
+        en_src: 牛津 8
+        context: "a nylon tan wallet, and a ==jackknife=="
+        gist: 一个棕褐色的尼龙钱包，还有一把折刀。
+        note: 复数是 jackknives。它当动词还有个很形象的意思：拖挂卡车失控时，车头和车厢折成一个 V 字，叫 jackknife。
+        extra:
+          - "**易混**pocketknife / penknife 是小折刀；jackknife 个头更大。"
+
+      - id: "080"
+        page: 16
+        color: blue
+        term: Kools
+        lemma: Kool
+        eudic: false
+        kind: 名物
+        ipa: /kuːlz/
+        pos: n.
+        cn: 酷斯（一种薄荷味香烟的牌子）
+        en: a brand of menthol cigarettes
+        context: "an open box of ==Kools=="
+        gist: 一包拆开了的酷斯烟。
+        note: 美国的老牌薄荷烟，名字取 cool（清凉）的谐音。这是个牌子，词典里查不到，所以欧路列表里没放。这一串是 John 从女孩的包里翻出来的东西，一件件列出来，像在拼一个陌生人的生活。
+
+      - id: "081"
+        page: 16
+        color: blue
+        term: vultures
+        lemma: vulture
+        kind: 名物
+        ipa: /ˈvʌltʃərz/
+        pos: n.
+        cn: 秃鹫
+        en: a large bird, usually without feathers on its head or neck, that eats the flesh of animals that are already dead
+        en_src: 牛津 8
+        context: "a large pair of turkey ==vultures== casually circle"
+        gist: 一对大个头的红头美洲鹫悠闲地盘旋着。
+        note: turkey vulture 就是第 8 页 buzzard 说的那种鸟，美国人口语里管它叫 buzzard。头是红的，没毛，像火鸡，所以叫 turkey vulture。它们在天上打转，往往是闻到了死亡的气味。casually（悠悠地）用在这里，跟 John 的惊慌正好相反。牛津还收了比喻义：趁人之危捞好处的人。
+        extra:
+          - "**搭配**vultures circling overhead（秃鹫在头顶盘旋）"
+
+      - id: "082"
+        page: 16
+        color: orange
+        term: 好句
+        context: "John silently screams, ==“Why’d you put her here today, God, of all days?”=="
+        gist: John 在心里无声地喊：“上帝，你为什么偏偏今天把她放在这儿？”
+        note: silently screams 本身就是矛盾的：嘴上没出声，心里在喊。of all days 是“那么多日子，偏偏是今天”，满是不甘和质问。下一句只有一行：He doesn’t get an answer. 没有人回答他。
+
+      - id: "083"
+        page: 16
+        color: blue
+        term: scrawl
+        kind: 单词
+        ipa: /skrɔːl/
+        pos: n.
+        cn: 潦草的字迹
+        en: a careless untidy way of writing; something written in this way
+        en_src: 牛津 8
+        context: "in a looping ==scrawl=="
+        gist: 用一笔绕来绕去的潦草字写着。
+        note: looping 是写字时笔画打着圈，像小女生那种圆圆的连笔。第 18 页开头又说那封信写在 the same awkward scrawl 里，也是这个词。
+        extra:
+          - "**易混**scribble 意思很接近，也是乱写、潦草；scrawl 更强调字大、乱、难认。"
+
+      - id: "084"
+        page: 16
+        color: blue
+        term: burly
+        kind: 单词
+        ipa: /ˈbɜːrli/
+        pos: adj.
+        cn: 魁梧壮实的（男人）
+        en: (of a man or a man's body) big, strong and heavy
+        en_src: 牛津 8
+        context: "he ==burly==, with horn-rimmed glasses"
+        gist: 男的五大三粗，戴一副牛角框眼镜。
+        note: 牛津说它一般只用来形容男人。照片上是一对五十来岁的夫妻，he 和 she 两个短句对着写，一个 burly，一个 plumpish。
+        extra:
+          - "**易混**brawny 也是壮，偏肌肉结实；burly 是又高又壮又沉。"
+
+      - id: "085"
+        page: 16
+        color: blue
+        term: plumpish
+        lemma: plump
+        kind: 单词
+        ipa: /ˈplʌmpɪʃ/
+        pos: adj.
+        cn: 有点胖乎乎的
+        en: slightly fat, with a soft, round body
+        context: "she ==plumpish== and smiling"
+        gist: 女的微胖，笑眯眯的。
+        note: plump 是“丰满、微胖”，说人时是很客气、甚至带点可爱的说法；后面加 -ish，意思是“有那么一点”，就更轻了。英文解释是按 plump 的释义改写的，欧路里用 plump 查。
+        extra:
+          - "**易混**fat 很直接，常带贬义；plump 委婉，带点圆润可爱；chubby 多说小孩的胖嘟嘟。"
