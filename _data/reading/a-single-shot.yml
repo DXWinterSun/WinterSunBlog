@@ -1,0 +1,19 @@
+# 《A Single Shot》原著笔记 —— Winter 拍书页照片（带荧光笔高亮）发来，Claude 整理成笔记。
+# 工作法与每个字段的写法：.claude/skills/winter-reading-notes/SKILL.md
+# 生成笔记网页：python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratchpad>/a-single-shot-notes.html
+#
+# ⚠️ 新的一批只往 batches 末尾追加；已有笔记的 id 永远不改（批注锚在卡片 id 上）。
+# ⚠️ 这个仓库是公开的：只录高亮所在的那一句，不整页抄书。
+
+book:
+  slug: a-single-shot
+  title: "A Single Shot"
+  author: "Matthew F. Jones"
+  year: 1996
+  about: "电影《致命一击》（2013）的原著"
+  palette: "Wintergreen"     # 取 _data/au_palettes.yml 里 John Moon 那套颜色，跟 Wintergreen 系列同色
+  highlighter: "#e9cd6a"     # 网页上的荧光笔颜色：看到她书上那支笔后改成同色
+  detail: standard           # 详略 lite / standard / full —— 2026-09-26 等她在样板页上挑，先按 standard
+  artifact: "https://claude.ai/artifact/AMf2jtPtJ16KX99RCZNuCq"   # 笔记网页（2026-09-26 首发），之后永远更新这一个
+
+batches: []
