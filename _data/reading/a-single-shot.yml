@@ -840,3 +840,55 @@ batches:
         note: 读音要注意：ch 念 “sh”，结尾的 s 不发音。复数写法不变，但读成 /ˈʃæsiz/。这一串写的是废弃采石场里堆了多年的破烂：报废的卡车底盘、被掏空的发电机、盖着塑料布的棚子。
         extra:
           - "**搭配**junked（报废的，美式口语）· a gutted generator（掏空了的发电机）"
+
+  - n: 8
+    date: 2026-09-26
+    pages: 10
+    photos: 1
+    notes:
+      - id: "048"
+        page: 10
+        color: blue
+        term: thicket
+        kind: 单词
+        ipa: /ˈθɪkɪt/
+        pos: n.
+        cn: 密密的灌木丛
+        en: a group of bushes or small trees growing closely together
+        en_src: 牛津 8
+        context: "behind a briar ==thicket=="
+        gist: 在一丛带刺的灌木后面。
+        note: 前面的 briar 是带刺的野灌木，野蔷薇那一类，第 12 页她也划了这个词。thicket 跟 thick（厚、密）同一个来源，意思就是“长得很密的那一片”。
+        extra:
+          - "**易混**bush 是单独一棵灌木；thicket 是一大片挤在一起、人钻不过去的灌木丛。"
+
+      - id: "049"
+        page: 10
+        color: blue
+        term: phlegm
+        kind: 单词
+        ipa: /flem/
+        pos: n.
+        cn: 痰；（这里是）鼻涕沫子
+        en: the thick substance that forms in the nose and throat, especially when you have a cold
+        en_src: 牛津 8
+        context: "feel the ==phlegm== flying from its flared nostrils"
+        gist: 能感到它张大的鼻孔里喷出来的黏沫。
+        note: 读音只有 “flem”，ph 念 f，g 不发音。这句写鹿冲得有多近：近到它鼻子里喷出来的东西都溅到了 John 身上。牛津还给了一个意思“沉着冷静”，形容词 phlegmatic 就是“不动声色的”。
+        extra:
+          - "**搭配**flared nostrils（张大的鼻孔）"
+
+      - id: "050"
+        page: 10
+        color: blue
+        term: bleat
+        kind: 单词
+        ipa: /bliːt/
+        pos: n.
+        cn: （羊、鹿的）一声哀叫
+        en: the sound that a sheep, goat or deer makes
+        context: "lets out a pained ==bleat=="
+        gist: 痛苦地叫了一声。
+        note: 本来是羊咩咩的叫声，这里用在鹿身上。前面它还凶得要撞人，挨了一下就只剩这么一声又弱又惨的叫，反差很大。牛津只给了动词的释义，所以这里的英文解释是我按名词写的。牛津还说它能指人“用微弱的声音抱怨”。
+        extra:
+          - "**搭配**let out a cry / bleat / groan（发出一声……）"
