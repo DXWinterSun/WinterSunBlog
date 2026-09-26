@@ -121,6 +121,9 @@ h2::after{content:"";flex:1;min-width:24px;height:1px;
 .card__cn{margin:0 0 .75rem;font-size:1.06rem;font-weight:500;}
 .card__en{margin:-.45rem 0 .8rem;font-family:"EB Garamond",Georgia,serif;font-style:italic;
  font-size:1.04rem;color:var(--muted);}
+.card__src{margin-left:.4em;padding:0 .5rem;border:1px solid var(--line);border-radius:99px;
+ font-family:"Noto Serif SC","Songti SC",serif;font-style:normal;font-size:.7rem;letter-spacing:.08em;
+ color:var(--accent);white-space:nowrap;vertical-align:.12em;}
 .card__quote{margin:0 0 .55rem;padding:.05rem 0 .05rem 1rem;border-left:2px solid var(--accent);
  font-family:"EB Garamond",Georgia,serif;font-size:1.16rem;line-height:1.62;color:var(--ink);}
 .card__gist{margin:0 0 .7rem;padding-left:1rem;color:var(--muted);font-size:.93rem;}
@@ -308,7 +311,8 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
                if 'pos' in show and n.get('pos') else '')
         out.append(f'<p class="card__cn">{pos}{fmt(n["cn"])}</p>')
     if 'en' in show and n.get('en'):
-        out.append(f'<p class="card__en" lang="en">{fmt(n["en"])}</p>')
+        src = (f' <span class="card__src" lang="zh">{esc(n["en_src"])}</span>' if n.get('en_src') else '')
+        out.append(f'<p class="card__en" lang="en">{fmt(n["en"])}{src}</p>')
 
     ctx = n.get('context') or n.get('sentence')
     if ctx:
