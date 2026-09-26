@@ -996,3 +996,65 @@ batches:
         context: "He ==unwads== the shirt"
         gist: 他把那团衣服摊开。
         note: 词典里查不到，是 un-（反过来）加上前面的 wad，作者顺手用的。前面 wads it into a ball，这里 unwads the shirt，一揉一摊，正好对上。所以欧路列表里没有放它，记住 wad 就够了。
+
+  - n: 10
+    date: 2026-09-26
+    pages: 12
+    photos: 1
+    notes:
+      - id: "058"
+        page: 12
+        color: blue
+        term: square knot
+        eudic: knot
+        kind: 名物
+        ipa: /ˌskwer ˈnɑːt/
+        pos: n.
+        cn: 平结（方结）
+        en: a type of double knot that will not come undone easily
+        en_src: 牛津 8
+        context: "binding it with a ==square knot=="
+        gist: 用一个平结把它扎紧。
+        note: 牛津说这是美式叫法，英式叫 reef knot。它是正反各绕一次打成的双结，勒紧了不容易松开，扎绷带、捆东西最常用。他把撕开的衣服一半缠在上臂止血，打的就是这个结。
+        extra:
+          - "**易混**square knot（美）＝ reef knot（英），是同一种结。"
+
+      - id: "059"
+        page: 12
+        color: blue
+        term: briars
+        lemma: briar
+        kind: 名物
+        ipa: /ˈbraɪərz/
+        pos: n.
+        cn: 带刺的野灌木（尤指野蔷薇）
+        en: a wild bush with thorns, especially a wild rose bush
+        en_src: 牛津 8
+        context: "then over at the ==briars=="
+        gist: 又朝那丛荆棘看了一眼。
+        note: 也拼作 brier。第 10 页的 briar thicket 就是一丛这种灌木。牛津还收了另一个意思：一种根很硬的灌木，拿来做烟斗，也指这种烟斗。
+        extra:
+          - "**易混**第 7 页的 bramble 多指长黑莓的那种；briar 尤指野蔷薇。平时两个词常常混着用，都是“扎人的野灌木”。"
+
+      - id: "060"
+        page: 12
+        color: blue
+        term: thicket
+        eudic: false
+        kind: 单词
+        ipa: /ˈθɪkɪt/
+        pos: n.
+        cn: 密密的灌木丛
+        en: a group of bushes or small trees growing closely together
+        en_src: 牛津 8
+        context: "the twenty-five yards over to the ==thicket=="
+        gist: 走二十五码，到那丛灌木跟前。
+        note: 第 10 页的 No. 048 记过这个词，这一处又划了一次。同一页再往下还有 the tangled thicket（缠成一团的灌木丛），说它 dense as a sponge，密得像一块海绵。欧路列表里就不重复放了。
+
+      - id: "061"
+        page: 12
+        color: orange
+        term: 好句
+        context: "==He remembers reading in a book once about how lives are begun, altered, and wiped out in a second, and something else about people only coming to know themselves through tragedy.=="
+        gist: 他想起从前在一本书里读到过：人的一生，一秒钟之内就能开始、改变、被抹去；书里还说，人只有经过了悲剧，才会真正认识自己。
+        note: begun, altered, and wiped out 三个词一口气排下来，从生到变到没，越来越快，正好压在 in a second 上。紧接着 John 自己问：“这念头是从哪儿冒出来的？”他连自己都不明白为什么会想到这个。作者把这句话放在他走向灌木丛之前，那时他还不知道后面有什么。
