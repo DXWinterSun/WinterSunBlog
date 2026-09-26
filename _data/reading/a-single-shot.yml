@@ -1226,3 +1226,99 @@ batches:
         extra:
           - "**搭配**a throbbing headache（一跳一跳的头疼）· throb with excitement（激动得心怦怦跳）"
           - "**易混**ache 是持续的钝痛；throb 是一阵一阵、有节奏地疼。"
+
+  - n: 13
+    date: 2026-09-26
+    pages: 15
+    photos: 1
+    notes:
+      - id: "073"
+        page: 15
+        color: blue
+        term: congeal
+        kind: 单词
+        ipa: /kənˈdʒiːl/
+        pos: v.
+        cn: （血、油）凝结变稠
+        en: (of blood, fat, etc.) to become thick or solid
+        en_src: 牛津 8
+        context: "wet with blood starting to ==congeal=="
+        gist: 沾满了开始凝结的血。
+        note: 牛津也收了比喻用法，例句是：苦难和眼泪凝结成了仇恨。
+        extra:
+          - "**搭配**congealed blood（凝固的血）· congealed fat（凝住的油）"
+          - "**易混**freeze 是冻住；clot 专指血结成块；congeal 泛指稠的液体慢慢变稠、凝住。"
+
+      - id: "074"
+        page: 15
+        color: orange
+        term: 好句
+        context: "==Blood is blood==, he thinks, wiping the girl’s on his pants. ==And dead is dead.=="
+        gist: 血就是血，他想着，把女孩的血抹在裤子上。死了就是死了。
+        note: 她在这里划了两处，我放在一张卡上。前面一句刚说完他这辈子打过几百只动物、见过的所有血，接着就是这两句同义反复，像在说服自己：人血跟鹿血没有两样，死人跟死鹿也没有两样。可中间偏偏夹着一个动作，他把她的血在裤子上擦掉。话说得越硬，越像是他撑不住了。
+
+      - id: "075"
+        page: 15
+        color: blue
+        term: torrential
+        kind: 单词
+        ipa: /təˈrenʃl/
+        pos: adj.
+        cn: （雨）倾盆的
+        en: (of rain) falling in large amounts
+        en_src: 牛津 8
+        context: "bitter cold, ==torrential== rain"
+        gist: 刺骨的寒冷，瓢泼的大雨。
+        note: 名词 torrent 是急流、洪流。这一句说她美，不像温室里的花，而像一朵在烈日、严寒、暴雨里长大的野玫瑰。
+        extra:
+          - "**搭配**torrential rain / downpour（倾盆大雨）· a torrent of（一连串的，如 a torrent of abuse 一连串的辱骂）"
+
+      - id: "076"
+        page: 15
+        color: blue
+        term: chapped
+        kind: 单词
+        ipa: /tʃæpt/
+        pos: adj.
+        cn: （嘴唇、皮肤）干裂的
+        en: (of the skin or lips) rough, dry and sore, especially because of wind or cold weather
+        en_src: 牛津 8
+        context: "Sun-==chapped== lips"
+        gist: 被太阳晒得干裂的嘴唇。
+        note: 牛津说一般是风吹、天冷弄的；这里是作者造的 sun-chapped，被太阳晒裂的，正接着前面“在烈日下长大”的那个比喻。
+        extra:
+          - "**搭配**chapped lips / hands（干裂的嘴唇 / 手）· lip balm（润唇膏）"
+
+      - id: "077"
+        page: 15
+        color: blue
+        term: cedar-tree
+        lemma: cedar
+        kind: 名物
+        ipa: /ˈsiːdər triː/
+        pos: n.
+        cn: 雪松
+        en: a tall evergreen tree with wide spreading branches
+        en_src: 牛津 8
+        context: "the white-pine and ==cedar-tree== forest"
+        gist: 那片白松和雪松的林子。
+        note: 这些树长在采石场顶上的石壁边缘，围成一圈。John 抬头往上看，总觉得林子里有人在看着他。雪松木是红色的，有股香味，常用来做衣柜防虫。
+        extra:
+          - "**搭配**cedar chest（雪松木箱）"
+
+      - id: "078"
+        page: 15
+        color: blue
+        term: substantiate
+        kind: 单词
+        ipa: /səbˈstænʃieɪt/
+        pos: v.
+        cn: 证实
+        en: to provide information or evidence to prove that something is true
+        en_src: 牛津 8
+        context: "He sees nothing to ==substantiate== this"
+        gist: 他看不到任何东西能证实这一点。
+        note: 牛津标着这是正式的词，常在新闻、法律里见到。“这一点”指他突然确信的念头：她不是一个人来的。可四下看看，什么证据都没有。
+        extra:
+          - "**搭配**substantiate a claim（证实某个说法）· unsubstantiated（没有根据的）"
+          - "**易混**prove 最常用；confirm 是确认本来就有人说过的事；substantiate 是拿出证据来坐实。"
