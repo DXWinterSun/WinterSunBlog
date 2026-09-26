@@ -7,7 +7,7 @@ tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 炽恋, 安放]
 categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
-series_order: 15
+series_order: 16
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 15"
@@ -240,6 +240,8 @@ Quince 那张纸真的管用——Baldi 带他去见了这条街上的铁匠，�
 “怎么了。”
 
 “我把您弄脏了。”
+
+这句话你听过。几个礼拜前，在你自己那张床上，月亮底下，他跪着说过一遍。那一次他也是这个样子。
 
 ---
 
