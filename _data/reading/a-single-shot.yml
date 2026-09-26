@@ -1058,3 +1058,100 @@ batches:
         context: "==He remembers reading in a book once about how lives are begun, altered, and wiped out in a second, and something else about people only coming to know themselves through tragedy.=="
         gist: 他想起从前在一本书里读到过：人的一生，一秒钟之内就能开始、改变、被抹去；书里还说，人只有经过了悲剧，才会真正认识自己。
         note: begun, altered, and wiped out 三个词一口气排下来，从生到变到没，越来越快，正好压在 in a second 上。紧接着 John 自己问：“这念头是从哪儿冒出来的？”他连自己都不明白为什么会想到这个。作者把这句话放在他走向灌木丛之前，那时他还不知道后面有什么。
+
+  - n: 11
+    date: 2026-09-26
+    pages: 13
+    photos: 1
+    notes:
+      - id: "062"
+        page: 13
+        color: blue
+        term: protruding
+        lemma: protrude
+        kind: 单词
+        ipa: /proʊˈtruːdɪŋ/
+        pos: v.
+        cn: 伸出来、露出来
+        en: to stick out from a place or a surface
+        en_src: 牛津 8
+        context: "hair ==protruding== from beneath a floppy brown hat"
+        gist: 一绺头发从一顶软塌塌的棕色帽子底下露了出来。
+        note: 牛津标着这是比较正式的词。最常见的搭配是 protruding teeth（龅牙）、protruding eyes（凸眼）。
+        extra:
+          - "**易混**stick out 是口语说法，意思一样；protrude 更书面。"
+
+      - id: "063"
+        page: 13
+        color: blue
+        term: brambles
+        lemma: bramble
+        eudic: false
+        kind: 名物
+        ipa: /ˈbræmblz/
+        pos: n.
+        cn: 带刺的灌木（黑莓那一类）
+        en: a wild bush with thorns on which blackberries grow
+        en_src: 牛津 8
+        context: "face-down behind the ==brambles=="
+        gist: 脸朝下趴在荆棘丛后面。
+        note: 第 7 页的 No. 037 记过这个词，这一处又划了一次，欧路列表里就不重复放了。
+
+      - id: "064"
+        page: 13
+        color: blue
+        term: satchel
+        kind: 名物
+        ipa: /ˈsætʃəl/
+        pos: n.
+        cn: 挎包；书包
+        en: a bag with a long strap, that you hang over your shoulder or wear on your back, used especially for carrying school books
+        en_src: 牛津 8
+        context: "a small denim ==satchel=="
+        gist: 一个小小的牛仔布挎包。
+        note: 牛津说它尤其指装课本的那种书包。denim 是牛仔布。同一页再往下，John 看清了她的脸，大概只有十六岁。
+        extra:
+          - "**易混**backpack 是双肩背包；satchel 是一根长带子斜挎或背着的包，样子更老派。"
+
+      - id: "065"
+        page: 13
+        color: blue
+        term: transposed
+        lemma: transpose
+        kind: 单词
+        ipa: /trænsˈpoʊzd/
+        pos: v.
+        cn: 变成（另一种样子）
+        en: to move or change something to a different place or environment or into a different form
+        en_src: 牛津 8
+        context: "will be ==transposed== into a dead deer"
+        gist: 能变成一头死鹿。
+        note: 他攥着拳头抵住脑袋、闭上眼祈祷：睁开眼时，这具尸体能变成一头死鹿、一条狗、一头熊，什么都行，只要不是人。transpose 是个很正式、很冷的词，放在他最绝望的祈祷里，反而更显得荒唐和无助。
+        extra:
+          - "**搭配**transpose A into B（把 A 变成 B）"
+          - "**易混**在音乐里它是“移调”；在一般语境里，change 最常用，transform 强调彻底改变，transpose 多指换位置、换形式。"
+
+      - id: "066"
+        page: 13
+        color: blue
+        term: incisors
+        lemma: incisor
+        kind: 名物
+        ipa: /ɪnˈsaɪzərz/
+        pos: n.
+        cn: 门牙
+        en: one of the eight sharp teeth at the front of the mouth that are used for biting
+        en_src: 牛津 8
+        context: "between her upper ==incisors=="
+        gist: 在她上排门牙之间。
+        note: 上下各四颗，一共八颗。incise 是“切、刻”，门牙就是用来切断食物的牙。
+        extra:
+          - "**易混**incisor 门牙；canine 犬齿（尖牙）；molar 臼齿（大牙）。"
+
+      - id: "067"
+        page: 13
+        color: orange
+        term: 好句
+        context: "==John looks up at the sky. It looks just as it did five minutes before. He can’t figure out how that can be.=="
+        gist: John 抬头看天。天跟五分钟前一模一样。他想不通，怎么会这样。
+        note: 三句都很短、很平，不写他怎么崩溃，只写他抬头看天。天一点都没变，可他的人生就在这五分钟里变了。这正好接上第 12 页那句“一秒钟之内开始、改变、被抹去”：前面是他想起来的一句书上的话，到这里成了真事。
