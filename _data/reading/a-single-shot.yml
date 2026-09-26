@@ -49,10 +49,11 @@ batches:
         ipa: /ˌtwelv ɡeɪdʒ ˈʃɑːtɡʌn/
         pos: n.
         cn: 12 号口径的霰弹枪
-        en: a shotgun with a fairly wide barrel; the most common kind in the US
+        en: a long gun that fires a lot of small metal bullets (called shot) and is used especially for shooting birds or animals
+        en_src: 牛津 8
         context: "he gets his ==12-gauge shotgun== and a handful of slugs"
         gist: 他取出他那把 12 号霰弹枪和一把独头弹。
-        note: gauge 是霰弹枪口径的老算法：拿一磅铅，做成大小刚好塞满枪管的等重铅球，能做几个就是几号。所以**数字越小，枪管越粗**。12 号是美国最常见的一种，打猎、看家都用它。顺带一句，这里的 trailer 不是挂车，而是“拖车屋”——那种能拖走的活动房屋，他就住在里面。
+        note: gauge 是霰弹枪口径的老算法：拿一磅铅，做成大小刚好塞满枪管的等重铅球，能做几个就是几号。所以**数字越小，枪管越粗**。12 号是美国最常见的一种，打猎、看家都用它。牛津在 gauge 这一条里讲“枪管口径”这个意思时，举的例子正好就是 a 12-gauge shotgun。顺带一句，这里的 trailer 不是挂车，而是“拖车屋”——那种能拖走的活动房屋，他就住在里面。
         extra:
           - "**搭配**a 20-gauge（20 号，更细更轻）· a double-barreled shotgun（双管霰弹枪）· gun cabinet（枪柜）"
           - "**易混**gauge 只管霰弹枪；步枪和手枪的口径用 caliber（如 .22 caliber），两套算法不通用。"
@@ -69,7 +70,7 @@ batches:
         en: a single solid piece of metal fired from a shotgun, instead of many small pellets
         context: "a handful of ==slugs== from the gun cabinet"
         gist: 从枪柜里取出一把独头弹。
-        note: 霰弹枪平常装的是一把小铅丸，打出去散成一片，适合打鸟；slug 是一整颗大弹头，射得远、打得准，是用来打鹿这类大型猎物的。平时 slug 最常见的意思是“鼻涕虫、蛞蝓”，口语里还能指“一大口酒”或“狠狠一拳”，这里都不是。
+        note: 霰弹枪平常装的是一把小铅丸，打出去散成一片，适合打鸟；slug 是一整颗大弹头，射得远、打得准，是用来打鹿这类大型猎物的。牛津里 slug 最常见的意思是“蛞蝓”（没有壳的蜗牛）；口语里还能指一小口烈酒，当动词是“狠揍”。牛津也收了“子弹”这个意思，标着口语、多见于美式，但没有单列霰弹枪的独头弹，所以这张卡上的英文解释是我自己写的。
         extra:
           - "**搭配**a handful of slugs（一把独头弹）· birdshot（打鸟的细铅丸）· buckshot（鹿弹，大号铅丸）"
           - "**易混**bullet 是步枪、手枪的子弹；shell 是一整发霰弹（弹壳连里面装的东西），slug 只是其中一种装法。"
@@ -80,10 +81,11 @@ batches:
         term: converging
         lemma: converge
         kind: 单词
-        ipa: /kənˈvɝːdʒɪŋ/
+        ipa: /kənˈvɜːrdʒɪŋ/
         pos: adj.
         cn: （几条路）汇到一处的
-        en: coming together from different directions to meet at one point
+        en: (of two or more lines, paths, etc.) to move towards each other and meet at a point
+        en_src: 牛津 8
         context: "gazing down at the ==converging== roads"
         gist: 他俯瞰着那几条汇到一起的路。
         note: 这里是动词 converge 的现在分词当形容词用。他站在山上往下看，几条路在谷底的山坳里合拢，所以同一句后面才说起右边那条岔路。这句末尾还有个作者自己造的说法 the three-quarters dark：天只亮了四分之一，还有四分之三是黑的。
