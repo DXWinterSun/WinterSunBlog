@@ -200,6 +200,12 @@ mark.pink{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(i
 .eudic__copy{appearance:none;flex:none;white-space:nowrap;margin-left:auto;min-height:32px;padding:.2rem .9rem;border-radius:99px;cursor:pointer;
  border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);background:transparent;color:var(--accent);
  font:inherit;font-size:.8rem;font-weight:400;letter-spacing:.12em;}
+.eudic--all{margin:0 0 1.2rem;border-color:color-mix(in srgb,var(--hl) 70%,transparent);
+ background:color-mix(in srgb,var(--hl) 10%,var(--surface));}
+.eudic__sub{margin:-.2rem 0 .5rem;color:var(--muted);font-size:.84rem;}
+.eudic--all details summary{cursor:pointer;color:var(--accent);font-size:.88rem;margin-bottom:.4rem;}
+.eudic__copy--big{background:var(--word);color:#fff;border-color:transparent;font-weight:600;min-height:36px;padding:.25rem 1.1rem;}
+.eudic__copy--big:hover{background:color-mix(in srgb,var(--word) 85%,#000);}
 .eudic__copy:hover{background:color-mix(in srgb,var(--accent) 14%,transparent);}
 .eudic pre{margin:0;padding:.7rem .85rem;border-radius:4px;background:var(--code-bg);
  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;line-height:1.6;
@@ -335,8 +341,19 @@ JS = '''
 [].forEach.call(document.querySelectorAll('.eudic__copy'), function (b) {
   b.addEventListener('click', function () {
     var t = b.closest('.eudic').querySelector('pre').textContent;
-    function done() { var o = b.textContent; b.textContent = '已复制'; setTimeout(function () { b.textContent = o; }, 1400); }
-    if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, function () {});
+    var label = b.getAttribute('data-label') || b.textContent;
+    b.setAttribute('data-label', label);
+    function done(ok) { b.textContent = ok ? '已复制 ✓' : '长按下面的词手动复制'; setTimeout(function () { b.textContent = label; }, 1600); }
+    function fallback() {                       // 剪贴板接口用不了时（有些内嵌页面会拦）退回老办法
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = t; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, t.length);
+        var ok = document.execCommand('copy'); document.body.removeChild(ta); done(ok);
+      } catch (e) { done(false); }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function () { done(true); }, fallback);
+    else fallback();
   });
 });
 (function () {
@@ -511,6 +528,16 @@ def eudic_words(notes):
     return words
 
 
+def all_words_box(words, title, pages):
+    """页顶那块：全书所有生词一键复制（Winter 2026-09-26：「当前所有词可以一键复制加入生词表」）。"""
+    return ('<section class="eudic eudic--all" id="all-words">'
+            '<p class="eudic__h">📋 欧路词典导入列表（' + esc(title) + '）'
+            '<button type="button" class="eudic__copy eudic__copy--big">一键复制全部</button></p>'
+            f'<p class="eudic__sub">全书目前 {len(" ".join(words).split())} 个词 · 第 {esc(pages)} 页 · 已去重，都是原形；好句和查不到的词不在里面</p>'
+            '<details><summary>看看都有哪些词</summary>'
+            f'<pre lang="en">{esc(" ".join(words))}</pre></details></section>\n')
+
+
 def eudic_box(words, title):
     return ('<div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（' + esc(title) + '）'
             '<button type="button" class="eudic__copy">复制</button></p>'
@@ -646,7 +673,10 @@ def main():
             toc = '<ul class="toc">' + ''.join(
                 f'<li><a href="#b{b["n"]}">'
                 + (f'p. {esc(b["pages"])}' if b.get('pages') else f'第 {b["n"]} 批') + '</a></li>' for b in batches) + '</ul>\n'
-        body = toc + '\n'.join(batch_section(b, level, index, title) for b in batches)
+        allw = eudic_words([x for b in batches for x in (b.get('notes') or [])])
+        first = str(batches[0].get('pages', '')).split('–')[0].split('-')[0]
+        span = f'{first}–{upto}' if last.get('pages') and first and first != upto else (upto if last.get('pages') else '')
+        body = (all_words_box(allw, title, span) if allw else '') + toc + '\n'.join(batch_section(b, level, index, title) for b in batches)
         foot = (f'<div class="foot"><p>{fmt(demo["foot"])}</p>\n'
                 f'<details class="tipbox"><summary>{esc(demo["tips"]["heading"])}</summary>'
                 f'{tips_list(demo["tips"]["items"])}</details></div>')
