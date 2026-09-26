@@ -298,6 +298,42 @@ details.tipbox .tips{margin-top:.8rem;}
 .card__extra li::before{content:none;}
 @media (max-width:480px){.card__term{font-size:1.65rem;}.card__band{margin:0 -1rem .55rem;padding:.28rem 1rem;}}
 
+/* 词表 */
+.wl{margin:0 0 1.2rem;border:1px solid var(--line);border-radius:6px;background:var(--surface);scroll-margin-top:1rem;}
+.wl summary{display:flex;align-items:baseline;gap:.8rem;padding:.8rem 1rem;cursor:pointer;font-weight:600;list-style:none;}
+.wl summary::-webkit-details-marker{display:none;}
+.wl summary::after{content:"展开 ▾";margin-left:auto;font-size:.8rem;font-weight:400;color:var(--accent);}
+.wl[open] summary::after{content:"收起 ▴";}
+.wl summary small{font-weight:400;color:var(--muted);font-size:.82rem;}
+.wl__tabs{display:flex;gap:.4rem;padding:0 1rem .6rem;}
+.wl__tab{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;
+ padding:.2rem .9rem;font:inherit;font-size:.85rem;cursor:pointer;min-height:32px;}
+.wl__tab.is-on{background:var(--word);border-color:transparent;color:#fff;}
+.wl__letters{display:flex;flex-wrap:wrap;gap:.15rem;padding:0 .8rem .5rem;font-family:"Helvetica Neue",Arial,sans-serif;}
+.wl__letters a,.wl__letters span{display:inline-flex;align-items:center;justify-content:center;width:1.75rem;height:1.75rem;
+ border-radius:5px;font-size:.85rem;font-weight:600;text-decoration:none;}
+.wl__letters a{color:var(--word);background:var(--band);}
+.wl__letters span{color:var(--muted);opacity:.35;}
+.wl__list{list-style:none;margin:0;padding:0 0 .4rem;max-height:none;}
+.wl__letter{padding:.25rem 1rem;background:var(--band);color:var(--band-ink);font-weight:700;font-size:.85rem;
+ letter-spacing:.1em;scroll-margin-top:1rem;}
+.wl__row{display:grid;grid-template-columns:minmax(0,auto) auto 1fr auto;align-items:baseline;gap:.2rem .55rem;
+ padding:.3rem 1rem .3rem .8rem;border-left:3px solid var(--hl);line-height:1.5;text-decoration:none;color:var(--ink);
+ border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);}
+.wl__row--pink{border-left-color:var(--hl-pink);}
+.wl__row:hover{background:var(--band);}
+.wl__term{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;color:var(--word);}
+.wl__pos{font-size:.7rem;font-weight:600;padding:0 .35rem;border-radius:4px;background:var(--pos-bg);color:var(--pos-ink);}
+.wl__cn{font-size:.9rem;min-width:0;}
+.wl__page{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;}
+@media (max-width:480px){.wl__row{grid-template-columns:auto auto 1fr;}.wl__cn{grid-column:1/-1;}.wl__page{grid-column:3;grid-row:1;justify-self:end;}}
+.card__foot{align-items:center;gap:.8rem;}
+.card__back{margin-right:auto;font-size:.8rem;color:var(--muted);text-decoration:none;letter-spacing:.06em;}
+.card__back:hover{color:var(--accent);}
+.card:target{box-shadow:0 0 0 2px var(--word);animation:cardflash 1.6s ease-out 1;}
+@keyframes cardflash{0%{box-shadow:0 0 0 6px color-mix(in srgb,var(--word) 45%,transparent)}100%{box-shadow:0 0 0 2px var(--word)}}
+@media (prefers-reduced-motion:reduce){.card:target{animation:none;}}
+
 @media (max-width:480px){
  body{font-size:16px;}
  .wrap{padding:4rem 1rem 4rem;}
@@ -312,6 +348,25 @@ details.tipbox .tips{margin-top:.8rem;}
 # 卡片上的「批注」按钮：打开 Artifact 自带的批注框，锚在这张卡上（页面本身什么都不存）。
 # 拿不到批注能力（旧版查看器 / 没有权限）就保持隐藏——选中文字照样能批注。
 JS = '''
+(function () {
+  var wl = document.getElementById('wordlist');
+  if (!wl) return;
+  [].forEach.call(wl.querySelectorAll('.wl__tab'), function (t) {
+    t.addEventListener('click', function () {
+      var k = t.getAttribute('data-wl');
+      [].forEach.call(wl.querySelectorAll('.wl__tab'), function (x) {
+        var on = x === t; x.classList.toggle('is-on', on); x.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      [].forEach.call(wl.querySelectorAll('.wl__pane'), function (p) { p.hidden = p.getAttribute('data-wl') !== k; });
+      try { localStorage.setItem('ws-reading-wl', k); } catch (e) {}
+    });
+  });
+  try { var k = localStorage.getItem('ws-reading-wl'); if (k === 'seq') wl.querySelector('.wl__tab[data-wl="seq"]').click(); } catch (e) {}
+  // 从卡片点「↑ 词表」回来时自动展开
+  [].forEach.call(document.querySelectorAll('a[href="#wordlist"]'), function (a) {
+    a.addEventListener('click', function () { wl.open = true; });
+  });
+})();
 (function () {
   var ss = window.speechSynthesis;
   if (!ss || !window.SpeechSynthesisUtterance) return;
@@ -490,7 +545,8 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
                    f'<p class="card__q"><b>问</b>{fmt(qa["q"])}</p>'
                    f'<p class="card__a"><b>答</b>{fmt(qa["a"])}</p></div>')
 
-    out.append('<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>')
+    out.append('<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a>'
+               '<button type="button" class="card__ask" hidden>批注</button></div>')
     out.append('</article>')
     return '\n'.join(out)
 
@@ -543,6 +599,43 @@ def all_words_box(words, title, pages):
             f'<p class="eudic__sub">全书目前 {len(" ".join(words).split())} 个词 · 第 {esc(pages)} 页 · 已去重，都是原形；好句和查不到的词不在里面</p>'
             '<details><summary>看看都有哪些词</summary>'
             f'<pre lang="en">{esc(" ".join(words))}</pre></details></section>\n')
+
+
+def wordlist_box(batches):
+    """词表：A–Z 和原顺序两种排法，点词跳到那张卡（Winter 2026-09-26）。好句不进。"""
+    rows = [x for b in batches for x in (b.get('notes') or []) if (x.get('color') or 'blue') != 'orange']
+    if not rows:
+        return ''
+
+    def row(x):
+        pen = x.get('color') or 'blue'
+        pos = f'<span class="wl__pos">{esc(x["pos"])}</span>' if x.get('pos') else ''
+        return (f'<li><a class="wl__row wl__row--{pen}" href="#n{esc(x["id"])}">'
+                f'<span class="wl__term" lang="en">{esc(x["term"])}</span>{pos}'
+                f'<span class="wl__cn">{fmt(x.get("cn", ""))}</span>'
+                f'<span class="wl__page">p.{esc(x.get("page", ""))}</span></a></li>')
+
+    def key(x):
+        return re.sub(r'^[^a-z]+', '', str(x['term']).lower()) or str(x['term']).lower()
+
+    az, groups = sorted(rows, key=lambda x: (key(x), str(x['id']))), {}
+    for x in az:
+        k = key(x)[:1].upper()
+        groups.setdefault(k if k.isalpha() else '#', []).append(x)
+    letters = ''.join(
+        f'<a href="#wl-{c}">{c}</a>' if c in groups else f'<span>{c}</span>'
+        for c in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    az_html = ''.join(f'<li class="wl__letter" id="wl-{c}">{c}</li>' + ''.join(row(x) for x in groups[c])
+                      for c in sorted(groups))
+    seq_html = ''.join(row(x) for x in rows)
+    return ('<details class="wl" id="wordlist"><summary>'
+            f'<span>📑 词表</span><small>{len(rows)} 条 · 点词跳到那张卡</small></summary>'
+            '<div class="wl__tabs" role="tablist">'
+            '<button type="button" class="wl__tab is-on" data-wl="az" role="tab" aria-selected="true">A–Z</button>'
+            '<button type="button" class="wl__tab" data-wl="seq" role="tab" aria-selected="false">按读的顺序</button></div>'
+            f'<div class="wl__pane" data-wl="az"><nav class="wl__letters">{letters}</nav><ul class="wl__list">{az_html}</ul></div>'
+            f'<div class="wl__pane" data-wl="seq" hidden><ul class="wl__list">{seq_html}</ul></div>'
+            '</details>\n')
 
 
 def eudic_box(words, title):
@@ -687,7 +780,7 @@ def main():
         allw = eudic_words([x for b in batches for x in (b.get('notes') or [])])
         first = str(batches[0].get('pages', '')).split('–')[0].split('-')[0]
         span = f'{first}–{upto}' if last.get('pages') and first and first != upto else (upto if last.get('pages') else '')
-        body = (all_words_box(allw, title, span) if allw else '') + toc + '\n'.join(batch_section(b, level, index, title) for b in batches)
+        body = (all_words_box(allw, title, span) if allw else '') + wordlist_box(batches) + toc + '\n'.join(batch_section(b, level, index, title) for b in batches)
         foot = (f'<div class="foot"><p>{fmt(demo["blog_foot" if a.blog else "foot"])}</p>\n'
                 + ('' if a.blog else f'<details class="tipbox"><summary>{esc(demo["tips"]["heading"])}</summary>'
                 f'{tips_list(demo["tips"]["items"])}</details>') + '</div>')

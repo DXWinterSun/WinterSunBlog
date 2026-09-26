@@ -258,6 +258,42 @@ details.tipbox .tips{margin-top:.8rem;}
 .card__extra li::before{content:none;}
 @media (max-width:480px){.card__term{font-size:1.65rem;}.card__band{margin:0 -1rem .55rem;padding:.28rem 1rem;}}
 
+/* 词表 */
+.wl{margin:0 0 1.2rem;border:1px solid var(--line);border-radius:6px;background:var(--surface);scroll-margin-top:1rem;}
+.wl summary{display:flex;align-items:baseline;gap:.8rem;padding:.8rem 1rem;cursor:pointer;font-weight:600;list-style:none;}
+.wl summary::-webkit-details-marker{display:none;}
+.wl summary::after{content:"展开 ▾";margin-left:auto;font-size:.8rem;font-weight:400;color:var(--accent);}
+.wl[open] summary::after{content:"收起 ▴";}
+.wl summary small{font-weight:400;color:var(--muted);font-size:.82rem;}
+.wl__tabs{display:flex;gap:.4rem;padding:0 1rem .6rem;}
+.wl__tab{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;
+ padding:.2rem .9rem;font:inherit;font-size:.85rem;cursor:pointer;min-height:32px;}
+.wl__tab.is-on{background:var(--word);border-color:transparent;color:#fff;}
+.wl__letters{display:flex;flex-wrap:wrap;gap:.15rem;padding:0 .8rem .5rem;font-family:"Helvetica Neue",Arial,sans-serif;}
+.wl__letters a,.wl__letters span{display:inline-flex;align-items:center;justify-content:center;width:1.75rem;height:1.75rem;
+ border-radius:5px;font-size:.85rem;font-weight:600;text-decoration:none;}
+.wl__letters a{color:var(--word);background:var(--band);}
+.wl__letters span{color:var(--muted);opacity:.35;}
+.wl__list{list-style:none;margin:0;padding:0 0 .4rem;max-height:none;}
+.wl__letter{padding:.25rem 1rem;background:var(--band);color:var(--band-ink);font-weight:700;font-size:.85rem;
+ letter-spacing:.1em;scroll-margin-top:1rem;}
+.wl__row{display:grid;grid-template-columns:minmax(0,auto) auto 1fr auto;align-items:baseline;gap:.2rem .55rem;
+ padding:.3rem 1rem .3rem .8rem;border-left:3px solid var(--hl);line-height:1.5;text-decoration:none;color:var(--ink);
+ border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);}
+.wl__row--pink{border-left-color:var(--hl-pink);}
+.wl__row:hover{background:var(--band);}
+.wl__term{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;color:var(--word);}
+.wl__pos{font-size:.7rem;font-weight:600;padding:0 .35rem;border-radius:4px;background:var(--pos-bg);color:var(--pos-ink);}
+.wl__cn{font-size:.9rem;min-width:0;}
+.wl__page{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;}
+@media (max-width:480px){.wl__row{grid-template-columns:auto auto 1fr;}.wl__cn{grid-column:1/-1;}.wl__page{grid-column:3;grid-row:1;justify-self:end;}}
+.card__foot{align-items:center;gap:.8rem;}
+.card__back{margin-right:auto;font-size:.8rem;color:var(--muted);text-decoration:none;letter-spacing:.06em;}
+.card__back:hover{color:var(--accent);}
+.card:target{box-shadow:0 0 0 2px var(--word);animation:cardflash 1.6s ease-out 1;}
+@keyframes cardflash{0%{box-shadow:0 0 0 6px color-mix(in srgb,var(--word) 45%,transparent)}100%{box-shadow:0 0 0 2px var(--word)}}
+@media (prefers-reduced-motion:reduce){.card:target{animation:none;}}
+
 @media (max-width:480px){
  body{font-size:16px;}
  .wrap{padding:4rem 1rem 4rem;}
@@ -280,6 +316,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="rule"></div>
 <p class="lede">读原著时拿荧光笔划的地方，都整理在这一页：<strong>蓝色</strong>是生词，<strong>粉色</strong>是认识、但用法对我来说新鲜的词，<strong>橙色</strong>是我觉得写得好的句子。 释义以牛津高阶为准，解读只谈读到的这一页，不剧透。点 🔊 能听读音；页顶那块能一键复制全部生词，导进欧路词典。</p>
 <section class="eudic eudic--all" id="all-words"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy eudic__copy--big">一键复制全部</button></p><p class="eudic__sub">全书目前 77 个词 · 第 3–19 页 · 已去重，都是原形；好句和查不到的词不在里面</p><details><summary>看看都有哪些词</summary><pre lang="en">Timberland gauge shotgun slug converge poacher shrug needle buck binoculars graze lope dress venison deciduous canopy bough caw cock agitation chipmunk flick thistle antler oblong indentation pungent trot sumac laurel nettle rake interlard sporadic veer heifer chokecherry bramble lug buzzard coyote grouse frantic dislodge bluejay squawk spruce chassis thicket phlegm bleat hoist wad puncture ooze knot briar protrude satchel transpose incisor slither throb congeal torrential chapped cedar substantiate jackknife vulture scrawl burly plump grudging knead cadaver hobble</pre></details></section>
+<details class="wl" id="wordlist"><summary><span>📑 词表</span><small>81 条 · 点词跳到那张卡</small></summary><div class="wl__tabs" role="tablist"><button type="button" class="wl__tab is-on" data-wl="az" role="tab" aria-selected="true">A–Z</button><button type="button" class="wl__tab" data-wl="seq" role="tab" aria-selected="false">按读的顺序</button></div><div class="wl__pane" data-wl="az"><nav class="wl__letters"><a href="#wl-A">A</a><a href="#wl-B">B</a><a href="#wl-C">C</a><a href="#wl-D">D</a><span>E</span><a href="#wl-F">F</a><a href="#wl-G">G</a><a href="#wl-H">H</a><a href="#wl-I">I</a><a href="#wl-J">J</a><a href="#wl-K">K</a><a href="#wl-L">L</a><span>M</span><a href="#wl-N">N</a><a href="#wl-O">O</a><a href="#wl-P">P</a><span>Q</span><a href="#wl-R">R</a><a href="#wl-S">S</a><a href="#wl-T">T</a><a href="#wl-U">U</a><a href="#wl-V">V</a><a href="#wl-W">W</a><span>X</span><span>Y</span><span>Z</span></nav><ul class="wl__list"><li class="wl__letter" id="wl-A">A</li><li><a class="wl__row wl__row--blue" href="#n019"><span class="wl__term" lang="en">agitation</span><span class="wl__pos">n.</span><span class="wl__cn">焦躁不安</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n023"><span class="wl__term" lang="en">antlers</span><span class="wl__pos">n.</span><span class="wl__cn">鹿角</span><span class="wl__page">p.5</span></a></li><li class="wl__letter" id="wl-B">B</li><li><a class="wl__row wl__row--blue" href="#n009"><span class="wl__term" lang="en">binoculars</span><span class="wl__pos">n.</span><span class="wl__cn">双筒望远镜</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n050"><span class="wl__term" lang="en">bleat</span><span class="wl__pos">n.</span><span class="wl__cn">（羊、鹿的）一声哀叫</span><span class="wl__page">p.10</span></a></li><li><a class="wl__row wl__row--blue" href="#n044"><span class="wl__term" lang="en">blue jays</span><span class="wl__pos">n.</span><span class="wl__cn">冠蓝鸦</span><span class="wl__page">p.9</span></a></li><li><a class="wl__row wl__row--blue" href="#n016"><span class="wl__term" lang="en">boughs</span><span class="wl__pos">n.</span><span class="wl__cn">大树枝</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n037"><span class="wl__term" lang="en">brambles</span><span class="wl__pos">n.</span><span class="wl__cn">带刺的灌木（黑莓那一类）</span><span class="wl__page">p.7</span></a></li><li><a class="wl__row wl__row--blue" href="#n063"><span class="wl__term" lang="en">brambles</span><span class="wl__pos">n.</span><span class="wl__cn">带刺的灌木（黑莓那一类）</span><span class="wl__page">p.13</span></a></li><li><a class="wl__row wl__row--blue" href="#n059"><span class="wl__term" lang="en">briars</span><span class="wl__pos">n.</span><span class="wl__cn">带刺的野灌木（尤指野蔷薇）</span><span class="wl__page">p.12</span></a></li><li><a class="wl__row wl__row--blue" href="#n084"><span class="wl__term" lang="en">burly</span><span class="wl__pos">adj.</span><span class="wl__cn">魁梧壮实的（男人）</span><span class="wl__page">p.16</span></a></li><li><a class="wl__row wl__row--blue" href="#n039"><span class="wl__term" lang="en">buzzards</span><span class="wl__pos">n.</span><span class="wl__cn">美洲鹫（吃腐肉的大鸟）</span><span class="wl__page">p.8</span></a></li><li class="wl__letter" id="wl-C">C</li><li><a class="wl__row wl__row--blue" href="#n088"><span class="wl__term" lang="en">cadaver</span><span class="wl__pos">n.</span><span class="wl__cn">尸体</span><span class="wl__page">p.17</span></a></li><li><a class="wl__row wl__row--blue" href="#n015"><span class="wl__term" lang="en">canopy</span><span class="wl__pos">n.</span><span class="wl__cn">（林子上方）枝叶搭成的顶</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n017"><span class="wl__term" lang="en">cawing</span><span class="wl__pos">v.</span><span class="wl__cn">（乌鸦）呱呱叫</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n077"><span class="wl__term" lang="en">cedar-tree</span><span class="wl__pos">n.</span><span class="wl__cn">雪松</span><span class="wl__page">p.15</span></a></li><li><a class="wl__row wl__row--blue" href="#n076"><span class="wl__term" lang="en">chapped</span><span class="wl__pos">adj.</span><span class="wl__cn">（嘴唇、皮肤）干裂的</span><span class="wl__page">p.15</span></a></li><li><a class="wl__row wl__row--blue" href="#n047"><span class="wl__term" lang="en">chassis</span><span class="wl__pos">n.</span><span class="wl__cn">（车的）底盘</span><span class="wl__page">p.9</span></a></li><li><a class="wl__row wl__row--blue" href="#n020"><span class="wl__term" lang="en">chipmunk</span><span class="wl__pos">n.</span><span class="wl__cn">花栗鼠</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n036"><span class="wl__term" lang="en">chokecherries</span><span class="wl__pos">n.</span><span class="wl__cn">北美稠李（一种野樱桃树）</span><span class="wl__page">p.7</span></a></li><li><a class="wl__row wl__row--pink" href="#n018"><span class="wl__term" lang="en">cocks</span><span class="wl__pos">v.</span><span class="wl__cn">扳起击锤，让枪处于待发状态</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n073"><span class="wl__term" lang="en">congeal</span><span class="wl__pos">v.</span><span class="wl__cn">（血、油）凝结变稠</span><span class="wl__page">p.15</span></a></li><li><a class="wl__row wl__row--blue" href="#n004"><span class="wl__term" lang="en">converging</span><span class="wl__pos">adj.</span><span class="wl__cn">（几条路）汇到一处的</span><span class="wl__page">p.3</span></a></li><li><a class="wl__row wl__row--blue" href="#n040"><span class="wl__term" lang="en">coyotes</span><span class="wl__pos">n.</span><span class="wl__cn">郊狼（北美的一种野狼）</span><span class="wl__page">p.8</span></a></li><li class="wl__letter" id="wl-D">D</li><li><a class="wl__row wl__row--blue" href="#n014"><span class="wl__term" lang="en">deciduous</span><span class="wl__pos">adj.</span><span class="wl__cn">落叶的（树）</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n043"><span class="wl__term" lang="en">dislodged</span><span class="wl__pos">v.</span><span class="wl__cn">被碰松、挪了位</span><span class="wl__page">p.9</span></a></li><li><a class="wl__row wl__row--pink" href="#n012"><span class="wl__term" lang="en">dressed</span><span class="wl__pos">adj.</span><span class="wl__cn">（猎物）宰好收拾干净的</span><span class="wl__page">p.4</span></a></li><li class="wl__letter" id="wl-F">F</li><li><a class="wl__row wl__row--blue" href="#n021"><span class="wl__term" lang="en">flicks</span><span class="wl__pos">v.</span><span class="wl__cn">用手指一拨</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n042"><span class="wl__term" lang="en">frantic</span><span class="wl__pos">adj.</span><span class="wl__cn">慌乱急促的</span><span class="wl__page">p.8</span></a></li><li class="wl__letter" id="wl-G">G</li><li><a class="wl__row wl__row--blue" href="#n002"><span class="wl__term" lang="en">12-gauge shotgun</span><span class="wl__pos">n.</span><span class="wl__cn">12 号口径的霰弹枪</span><span class="wl__page">p.3</span></a></li><li><a class="wl__row wl__row--blue" href="#n010"><span class="wl__term" lang="en">graze</span><span class="wl__pos">v.</span><span class="wl__cn">（牛羊鹿）吃草</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n041"><span class="wl__term" lang="en">grouse</span><span class="wl__pos">n.</span><span class="wl__cn">松鸡</span><span class="wl__page">p.8</span></a></li><li><a class="wl__row wl__row--blue" href="#n086"><span class="wl__term" lang="en">grudging</span><span class="wl__pos">adj.</span><span class="wl__cn">勉勉强强的</span><span class="wl__page">p.17</span></a></li><li class="wl__letter" id="wl-H">H</li><li><a class="wl__row wl__row--blue" href="#n035"><span class="wl__term" lang="en">heifers</span><span class="wl__pos">n.</span><span class="wl__cn">还没生过小牛的小母牛</span><span class="wl__page">p.7</span></a></li><li><a class="wl__row wl__row--blue" href="#n089"><span class="wl__term" lang="en">hobbling</span><span class="wl__pos">v.</span><span class="wl__cn">一瘸一拐地走</span><span class="wl__page">p.19</span></a></li><li><a class="wl__row wl__row--blue" href="#n069"><span class="wl__term" lang="en">hog snake</span><span class="wl__pos">n.</span><span class="wl__cn">猪鼻蛇（美国东部一种无毒的蛇）</span><span class="wl__page">p.14</span></a></li><li><a class="wl__row wl__row--blue" href="#n052"><span class="wl__term" lang="en">hoists</span><span class="wl__pos">v.</span><span class="wl__cn">高高举起</span><span class="wl__page">p.11</span></a></li><li class="wl__letter" id="wl-I">I</li><li><a class="wl__row wl__row--blue" href="#n066"><span class="wl__term" lang="en">incisors</span><span class="wl__pos">n.</span><span class="wl__cn">门牙</span><span class="wl__page">p.13</span></a></li><li><a class="wl__row wl__row--blue" href="#n025"><span class="wl__term" lang="en">indentation</span><span class="wl__pos">n.</span><span class="wl__cn">压出来的凹痕</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n032"><span class="wl__term" lang="en">interlarded</span><span class="wl__pos">v.</span><span class="wl__cn">夹杂着、穿插着</span><span class="wl__page">p.6</span></a></li><li class="wl__letter" id="wl-J">J</li><li><a class="wl__row wl__row--blue" href="#n079"><span class="wl__term" lang="en">jackknife</span><span class="wl__pos">n.</span><span class="wl__cn">大折刀</span><span class="wl__page">p.16</span></a></li><li class="wl__letter" id="wl-K">K</li><li><a class="wl__row wl__row--blue" href="#n087"><span class="wl__term" lang="en">kneading</span><span class="wl__pos">v.</span><span class="wl__cn">揉、捏</span><span class="wl__page">p.17</span></a></li><li><a class="wl__row wl__row--blue" href="#n080"><span class="wl__term" lang="en">Kools</span><span class="wl__pos">n.</span><span class="wl__cn">酷斯（一种薄荷味香烟的牌子）</span><span class="wl__page">p.16</span></a></li><li class="wl__letter" id="wl-L">L</li><li><a class="wl__row wl__row--blue" href="#n029"><span class="wl__term" lang="en">laurel</span><span class="wl__pos">n.</span><span class="wl__cn">月桂；这里是山月桂</span><span class="wl__page">p.6</span></a></li><li><a class="wl__row wl__row--blue" href="#n011"><span class="wl__term" lang="en">loped</span><span class="wl__pos">v.</span><span class="wl__cn">轻快地大步跑</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n038"><span class="wl__term" lang="en">lug</span><span class="wl__pos">v.</span><span class="wl__cn">吃力地拖、扛</span><span class="wl__page">p.7</span></a></li><li class="wl__letter" id="wl-N">N</li><li><a class="wl__row wl__row--blue" href="#n030"><span class="wl__term" lang="en">nettles</span><span class="wl__pos">n.</span><span class="wl__cn">荨麻</span><span class="wl__page">p.6</span></a></li><li class="wl__letter" id="wl-O">O</li><li><a class="wl__row wl__row--blue" href="#n024"><span class="wl__term" lang="en">oblong</span><span class="wl__pos">adj.</span><span class="wl__cn">长条形的</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n056"><span class="wl__term" lang="en">oozing</span><span class="wl__pos">v.</span><span class="wl__cn">（稠的液体）慢慢往外渗</span><span class="wl__page">p.11</span></a></li><li class="wl__letter" id="wl-P">P</li><li><a class="wl__row wl__row--blue" href="#n049"><span class="wl__term" lang="en">phlegm</span><span class="wl__pos">n.</span><span class="wl__cn">痰；（这里是）鼻涕沫子</span><span class="wl__page">p.10</span></a></li><li><a class="wl__row wl__row--blue" href="#n007"><span class="wl__term" lang="en">pine needles</span><span class="wl__pos">n.</span><span class="wl__cn">松针</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n085"><span class="wl__term" lang="en">plumpish</span><span class="wl__pos">adj.</span><span class="wl__cn">有点胖乎乎的</span><span class="wl__page">p.16</span></a></li><li><a class="wl__row wl__row--blue" href="#n005"><span class="wl__term" lang="en">poachers</span><span class="wl__pos">n.</span><span class="wl__cn">偷猎的人</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n062"><span class="wl__term" lang="en">protruding</span><span class="wl__pos">v.</span><span class="wl__cn">伸出来、露出来</span><span class="wl__page">p.13</span></a></li><li><a class="wl__row wl__row--blue" href="#n055"><span class="wl__term" lang="en">puncture</span><span class="wl__pos">n.</span><span class="wl__cn">扎出来的伤口</span><span class="wl__page">p.11</span></a></li><li><a class="wl__row wl__row--blue" href="#n026"><span class="wl__term" lang="en">pungent</span><span class="wl__pos">adj.</span><span class="wl__cn">（气味）冲鼻的</span><span class="wl__page">p.6</span></a></li><li class="wl__letter" id="wl-R">R</li><li><a class="wl__row wl__row--blue" href="#n031"><span class="wl__term" lang="en">rake</span><span class="wl__pos">v.</span><span class="wl__cn">划过、刮过（皮肤）</span><span class="wl__page">p.6</span></a></li><li class="wl__letter" id="wl-S">S</li><li><a class="wl__row wl__row--blue" href="#n064"><span class="wl__term" lang="en">satchel</span><span class="wl__pos">n.</span><span class="wl__cn">挎包；书包</span><span class="wl__page">p.13</span></a></li><li><a class="wl__row wl__row--blue" href="#n083"><span class="wl__term" lang="en">scrawl</span><span class="wl__pos">n.</span><span class="wl__cn">潦草的字迹</span><span class="wl__page">p.16</span></a></li><li><a class="wl__row wl__row--blue" href="#n006"><span class="wl__term" lang="en">shrugs</span><span class="wl__pos">v.</span><span class="wl__cn">耸耸肩</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n068"><span class="wl__term" lang="en">slithers</span><span class="wl__pos">v.</span><span class="wl__cn">（蛇）贴着地面滑过去</span><span class="wl__page">p.14</span></a></li><li><a class="wl__row wl__row--blue" href="#n003"><span class="wl__term" lang="en">slugs</span><span class="wl__pos">n.</span><span class="wl__cn">独头弹（霰弹枪打的一整颗大弹头）</span><span class="wl__page">p.3</span></a></li><li><a class="wl__row wl__row--blue" href="#n033"><span class="wl__term" lang="en">sporadic</span><span class="wl__pos">adj.</span><span class="wl__cn">零零星星的、时有时无的</span><span class="wl__page">p.6</span></a></li><li><a class="wl__row wl__row--blue" href="#n046"><span class="wl__term" lang="en">spruce</span><span class="wl__pos">n.</span><span class="wl__cn">云杉</span><span class="wl__page">p.9</span></a></li><li><a class="wl__row wl__row--blue" href="#n058"><span class="wl__term" lang="en">square knot</span><span class="wl__pos">n.</span><span class="wl__cn">平结（方结）</span><span class="wl__page">p.12</span></a></li><li><a class="wl__row wl__row--blue" href="#n045"><span class="wl__term" lang="en">squawking</span><span class="wl__pos">v.</span><span class="wl__cn">（鸟）尖声怪叫</span><span class="wl__page">p.9</span></a></li><li><a class="wl__row wl__row--blue" href="#n078"><span class="wl__term" lang="en">substantiate</span><span class="wl__pos">v.</span><span class="wl__cn">证实</span><span class="wl__page">p.15</span></a></li><li><a class="wl__row wl__row--blue" href="#n028"><span class="wl__term" lang="en">sumac</span><span class="wl__pos">n.</span><span class="wl__cn">漆树（盐肤木一类的灌木）</span><span class="wl__page">p.6</span></a></li><li class="wl__letter" id="wl-T">T</li><li><a class="wl__row wl__row--blue" href="#n008"><span class="wl__term" lang="en">ten-point buck</span><span class="wl__pos">n.</span><span class="wl__cn">十个叉的公鹿</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n048"><span class="wl__term" lang="en">thicket</span><span class="wl__pos">n.</span><span class="wl__cn">密密的灌木丛</span><span class="wl__page">p.10</span></a></li><li><a class="wl__row wl__row--blue" href="#n060"><span class="wl__term" lang="en">thicket</span><span class="wl__pos">n.</span><span class="wl__cn">密密的灌木丛</span><span class="wl__page">p.12</span></a></li><li><a class="wl__row wl__row--blue" href="#n022"><span class="wl__term" lang="en">thistles</span><span class="wl__pos">n.</span><span class="wl__cn">蓟（一种带刺的野草）</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n072"><span class="wl__term" lang="en">throbs</span><span class="wl__pos">v.</span><span class="wl__cn">一跳一跳地疼</span><span class="wl__page">p.14</span></a></li><li><a class="wl__row wl__row--blue" href="#n001"><span class="wl__term" lang="en">Timberland</span><span class="wl__pos">n.</span><span class="wl__cn">添柏岚（美国户外靴的牌子）</span><span class="wl__page">p.3</span></a></li><li><a class="wl__row wl__row--blue" href="#n075"><span class="wl__term" lang="en">torrential</span><span class="wl__pos">adj.</span><span class="wl__cn">（雨）倾盆的</span><span class="wl__page">p.15</span></a></li><li><a class="wl__row wl__row--blue" href="#n065"><span class="wl__term" lang="en">transposed</span><span class="wl__pos">v.</span><span class="wl__cn">变成（另一种样子）</span><span class="wl__page">p.13</span></a></li><li><a class="wl__row wl__row--blue" href="#n027"><span class="wl__term" lang="en">trots</span><span class="wl__pos">v.</span><span class="wl__cn">小步快跑</span><span class="wl__page">p.6</span></a></li><li class="wl__letter" id="wl-U">U</li><li><a class="wl__row wl__row--blue" href="#n057"><span class="wl__term" lang="en">unwads</span><span class="wl__pos">v.</span><span class="wl__cn">把揉成团的东西摊开</span><span class="wl__page">p.11</span></a></li><li class="wl__letter" id="wl-V">V</li><li><a class="wl__row wl__row--blue" href="#n034"><span class="wl__term" lang="en">veered</span><span class="wl__pos">v.</span><span class="wl__cn">突然拐向</span><span class="wl__page">p.7</span></a></li><li><a class="wl__row wl__row--blue" href="#n013"><span class="wl__term" lang="en">venison</span><span class="wl__pos">n.</span><span class="wl__cn">鹿肉</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n081"><span class="wl__term" lang="en">vultures</span><span class="wl__pos">n.</span><span class="wl__cn">秃鹫</span><span class="wl__page">p.16</span></a></li><li class="wl__letter" id="wl-W">W</li><li><a class="wl__row wl__row--blue" href="#n054"><span class="wl__term" lang="en">wads</span><span class="wl__pos">v.</span><span class="wl__cn">揉成一团</span><span class="wl__page">p.11</span></a></li></ul></div><div class="wl__pane" data-wl="seq" hidden><ul class="wl__list"><li><a class="wl__row wl__row--blue" href="#n001"><span class="wl__term" lang="en">Timberland</span><span class="wl__pos">n.</span><span class="wl__cn">添柏岚（美国户外靴的牌子）</span><span class="wl__page">p.3</span></a></li><li><a class="wl__row wl__row--blue" href="#n002"><span class="wl__term" lang="en">12-gauge shotgun</span><span class="wl__pos">n.</span><span class="wl__cn">12 号口径的霰弹枪</span><span class="wl__page">p.3</span></a></li><li><a class="wl__row wl__row--blue" href="#n003"><span class="wl__term" lang="en">slugs</span><span class="wl__pos">n.</span><span class="wl__cn">独头弹（霰弹枪打的一整颗大弹头）</span><span class="wl__page">p.3</span></a></li><li><a class="wl__row wl__row--blue" href="#n004"><span class="wl__term" lang="en">converging</span><span class="wl__pos">adj.</span><span class="wl__cn">（几条路）汇到一处的</span><span class="wl__page">p.3</span></a></li><li><a class="wl__row wl__row--blue" href="#n005"><span class="wl__term" lang="en">poachers</span><span class="wl__pos">n.</span><span class="wl__cn">偷猎的人</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n006"><span class="wl__term" lang="en">shrugs</span><span class="wl__pos">v.</span><span class="wl__cn">耸耸肩</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n007"><span class="wl__term" lang="en">pine needles</span><span class="wl__pos">n.</span><span class="wl__cn">松针</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n008"><span class="wl__term" lang="en">ten-point buck</span><span class="wl__pos">n.</span><span class="wl__cn">十个叉的公鹿</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n009"><span class="wl__term" lang="en">binoculars</span><span class="wl__pos">n.</span><span class="wl__cn">双筒望远镜</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n010"><span class="wl__term" lang="en">graze</span><span class="wl__pos">v.</span><span class="wl__cn">（牛羊鹿）吃草</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n011"><span class="wl__term" lang="en">loped</span><span class="wl__pos">v.</span><span class="wl__cn">轻快地大步跑</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--pink" href="#n012"><span class="wl__term" lang="en">dressed</span><span class="wl__pos">adj.</span><span class="wl__cn">（猎物）宰好收拾干净的</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n013"><span class="wl__term" lang="en">venison</span><span class="wl__pos">n.</span><span class="wl__cn">鹿肉</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n014"><span class="wl__term" lang="en">deciduous</span><span class="wl__pos">adj.</span><span class="wl__cn">落叶的（树）</span><span class="wl__page">p.4</span></a></li><li><a class="wl__row wl__row--blue" href="#n015"><span class="wl__term" lang="en">canopy</span><span class="wl__pos">n.</span><span class="wl__cn">（林子上方）枝叶搭成的顶</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n016"><span class="wl__term" lang="en">boughs</span><span class="wl__pos">n.</span><span class="wl__cn">大树枝</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n017"><span class="wl__term" lang="en">cawing</span><span class="wl__pos">v.</span><span class="wl__cn">（乌鸦）呱呱叫</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--pink" href="#n018"><span class="wl__term" lang="en">cocks</span><span class="wl__pos">v.</span><span class="wl__cn">扳起击锤，让枪处于待发状态</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n019"><span class="wl__term" lang="en">agitation</span><span class="wl__pos">n.</span><span class="wl__cn">焦躁不安</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n020"><span class="wl__term" lang="en">chipmunk</span><span class="wl__pos">n.</span><span class="wl__cn">花栗鼠</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n021"><span class="wl__term" lang="en">flicks</span><span class="wl__pos">v.</span><span class="wl__cn">用手指一拨</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n022"><span class="wl__term" lang="en">thistles</span><span class="wl__pos">n.</span><span class="wl__cn">蓟（一种带刺的野草）</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n023"><span class="wl__term" lang="en">antlers</span><span class="wl__pos">n.</span><span class="wl__cn">鹿角</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n024"><span class="wl__term" lang="en">oblong</span><span class="wl__pos">adj.</span><span class="wl__cn">长条形的</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n025"><span class="wl__term" lang="en">indentation</span><span class="wl__pos">n.</span><span class="wl__cn">压出来的凹痕</span><span class="wl__page">p.5</span></a></li><li><a class="wl__row wl__row--blue" href="#n026"><span class="wl__term" lang="en">pungent</span><span class="wl__pos">adj.</span><span class="wl__cn">（气味）冲鼻的</span><span class="wl__page">p.6</span></a></li><li><a class="wl__row wl__row--blue" href="#n027"><span class="wl__term" lang="en">trots</span><span class="wl__pos">v.</span><span class="wl__cn">小步快跑</span><span class="wl__page">p.6</span></a></li><li><a class="wl__row wl__row--blue" href="#n028"><span class="wl__term" lang="en">sumac</span><span class="wl__pos">n.</span><span class="wl__cn">漆树（盐肤木一类的灌木）</span><span class="wl__page">p.6</span></a></li><li><a class="wl__row wl__row--blue" href="#n029"><span class="wl__term" lang="en">laurel</span><span class="wl__pos">n.</span><span class="wl__cn">月桂；这里是山月桂</span><span class="wl__page">p.6</span></a></li><li><a class="wl__row wl__row--blue" href="#n030"><span class="wl__term" lang="en">nettles</span><span class="wl__pos">n.</span><span class="wl__cn">荨麻</span><span class="wl__page">p.6</span></a></li><li><a class="wl__row wl__row--blue" href="#n031"><span class="wl__term" lang="en">rake</span><span class="wl__pos">v.</span><span class="wl__cn">划过、刮过（皮肤）</span><span class="wl__page">p.6</span></a></li><li><a class="wl__row wl__row--blue" href="#n032"><span class="wl__term" lang="en">interlarded</span><span class="wl__pos">v.</span><span class="wl__cn">夹杂着、穿插着</span><span class="wl__page">p.6</span></a></li><li><a class="wl__row wl__row--blue" href="#n033"><span class="wl__term" lang="en">sporadic</span><span class="wl__pos">adj.</span><span class="wl__cn">零零星星的、时有时无的</span><span class="wl__page">p.6</span></a></li><li><a class="wl__row wl__row--blue" href="#n034"><span class="wl__term" lang="en">veered</span><span class="wl__pos">v.</span><span class="wl__cn">突然拐向</span><span class="wl__page">p.7</span></a></li><li><a class="wl__row wl__row--blue" href="#n035"><span class="wl__term" lang="en">heifers</span><span class="wl__pos">n.</span><span class="wl__cn">还没生过小牛的小母牛</span><span class="wl__page">p.7</span></a></li><li><a class="wl__row wl__row--blue" href="#n036"><span class="wl__term" lang="en">chokecherries</span><span class="wl__pos">n.</span><span class="wl__cn">北美稠李（一种野樱桃树）</span><span class="wl__page">p.7</span></a></li><li><a class="wl__row wl__row--blue" href="#n037"><span class="wl__term" lang="en">brambles</span><span class="wl__pos">n.</span><span class="wl__cn">带刺的灌木（黑莓那一类）</span><span class="wl__page">p.7</span></a></li><li><a class="wl__row wl__row--blue" href="#n038"><span class="wl__term" lang="en">lug</span><span class="wl__pos">v.</span><span class="wl__cn">吃力地拖、扛</span><span class="wl__page">p.7</span></a></li><li><a class="wl__row wl__row--blue" href="#n039"><span class="wl__term" lang="en">buzzards</span><span class="wl__pos">n.</span><span class="wl__cn">美洲鹫（吃腐肉的大鸟）</span><span class="wl__page">p.8</span></a></li><li><a class="wl__row wl__row--blue" href="#n040"><span class="wl__term" lang="en">coyotes</span><span class="wl__pos">n.</span><span class="wl__cn">郊狼（北美的一种野狼）</span><span class="wl__page">p.8</span></a></li><li><a class="wl__row wl__row--blue" href="#n041"><span class="wl__term" lang="en">grouse</span><span class="wl__pos">n.</span><span class="wl__cn">松鸡</span><span class="wl__page">p.8</span></a></li><li><a class="wl__row wl__row--blue" href="#n042"><span class="wl__term" lang="en">frantic</span><span class="wl__pos">adj.</span><span class="wl__cn">慌乱急促的</span><span class="wl__page">p.8</span></a></li><li><a class="wl__row wl__row--blue" href="#n043"><span class="wl__term" lang="en">dislodged</span><span class="wl__pos">v.</span><span class="wl__cn">被碰松、挪了位</span><span class="wl__page">p.9</span></a></li><li><a class="wl__row wl__row--blue" href="#n044"><span class="wl__term" lang="en">blue jays</span><span class="wl__pos">n.</span><span class="wl__cn">冠蓝鸦</span><span class="wl__page">p.9</span></a></li><li><a class="wl__row wl__row--blue" href="#n045"><span class="wl__term" lang="en">squawking</span><span class="wl__pos">v.</span><span class="wl__cn">（鸟）尖声怪叫</span><span class="wl__page">p.9</span></a></li><li><a class="wl__row wl__row--blue" href="#n046"><span class="wl__term" lang="en">spruce</span><span class="wl__pos">n.</span><span class="wl__cn">云杉</span><span class="wl__page">p.9</span></a></li><li><a class="wl__row wl__row--blue" href="#n047"><span class="wl__term" lang="en">chassis</span><span class="wl__pos">n.</span><span class="wl__cn">（车的）底盘</span><span class="wl__page">p.9</span></a></li><li><a class="wl__row wl__row--blue" href="#n048"><span class="wl__term" lang="en">thicket</span><span class="wl__pos">n.</span><span class="wl__cn">密密的灌木丛</span><span class="wl__page">p.10</span></a></li><li><a class="wl__row wl__row--blue" href="#n049"><span class="wl__term" lang="en">phlegm</span><span class="wl__pos">n.</span><span class="wl__cn">痰；（这里是）鼻涕沫子</span><span class="wl__page">p.10</span></a></li><li><a class="wl__row wl__row--blue" href="#n050"><span class="wl__term" lang="en">bleat</span><span class="wl__pos">n.</span><span class="wl__cn">（羊、鹿的）一声哀叫</span><span class="wl__page">p.10</span></a></li><li><a class="wl__row wl__row--blue" href="#n052"><span class="wl__term" lang="en">hoists</span><span class="wl__pos">v.</span><span class="wl__cn">高高举起</span><span class="wl__page">p.11</span></a></li><li><a class="wl__row wl__row--blue" href="#n054"><span class="wl__term" lang="en">wads</span><span class="wl__pos">v.</span><span class="wl__cn">揉成一团</span><span class="wl__page">p.11</span></a></li><li><a class="wl__row wl__row--blue" href="#n055"><span class="wl__term" lang="en">puncture</span><span class="wl__pos">n.</span><span class="wl__cn">扎出来的伤口</span><span class="wl__page">p.11</span></a></li><li><a class="wl__row wl__row--blue" href="#n056"><span class="wl__term" lang="en">oozing</span><span class="wl__pos">v.</span><span class="wl__cn">（稠的液体）慢慢往外渗</span><span class="wl__page">p.11</span></a></li><li><a class="wl__row wl__row--blue" href="#n057"><span class="wl__term" lang="en">unwads</span><span class="wl__pos">v.</span><span class="wl__cn">把揉成团的东西摊开</span><span class="wl__page">p.11</span></a></li><li><a class="wl__row wl__row--blue" href="#n058"><span class="wl__term" lang="en">square knot</span><span class="wl__pos">n.</span><span class="wl__cn">平结（方结）</span><span class="wl__page">p.12</span></a></li><li><a class="wl__row wl__row--blue" href="#n059"><span class="wl__term" lang="en">briars</span><span class="wl__pos">n.</span><span class="wl__cn">带刺的野灌木（尤指野蔷薇）</span><span class="wl__page">p.12</span></a></li><li><a class="wl__row wl__row--blue" href="#n060"><span class="wl__term" lang="en">thicket</span><span class="wl__pos">n.</span><span class="wl__cn">密密的灌木丛</span><span class="wl__page">p.12</span></a></li><li><a class="wl__row wl__row--blue" href="#n062"><span class="wl__term" lang="en">protruding</span><span class="wl__pos">v.</span><span class="wl__cn">伸出来、露出来</span><span class="wl__page">p.13</span></a></li><li><a class="wl__row wl__row--blue" href="#n063"><span class="wl__term" lang="en">brambles</span><span class="wl__pos">n.</span><span class="wl__cn">带刺的灌木（黑莓那一类）</span><span class="wl__page">p.13</span></a></li><li><a class="wl__row wl__row--blue" href="#n064"><span class="wl__term" lang="en">satchel</span><span class="wl__pos">n.</span><span class="wl__cn">挎包；书包</span><span class="wl__page">p.13</span></a></li><li><a class="wl__row wl__row--blue" href="#n065"><span class="wl__term" lang="en">transposed</span><span class="wl__pos">v.</span><span class="wl__cn">变成（另一种样子）</span><span class="wl__page">p.13</span></a></li><li><a class="wl__row wl__row--blue" href="#n066"><span class="wl__term" lang="en">incisors</span><span class="wl__pos">n.</span><span class="wl__cn">门牙</span><span class="wl__page">p.13</span></a></li><li><a class="wl__row wl__row--blue" href="#n068"><span class="wl__term" lang="en">slithers</span><span class="wl__pos">v.</span><span class="wl__cn">（蛇）贴着地面滑过去</span><span class="wl__page">p.14</span></a></li><li><a class="wl__row wl__row--blue" href="#n069"><span class="wl__term" lang="en">hog snake</span><span class="wl__pos">n.</span><span class="wl__cn">猪鼻蛇（美国东部一种无毒的蛇）</span><span class="wl__page">p.14</span></a></li><li><a class="wl__row wl__row--blue" href="#n072"><span class="wl__term" lang="en">throbs</span><span class="wl__pos">v.</span><span class="wl__cn">一跳一跳地疼</span><span class="wl__page">p.14</span></a></li><li><a class="wl__row wl__row--blue" href="#n073"><span class="wl__term" lang="en">congeal</span><span class="wl__pos">v.</span><span class="wl__cn">（血、油）凝结变稠</span><span class="wl__page">p.15</span></a></li><li><a class="wl__row wl__row--blue" href="#n075"><span class="wl__term" lang="en">torrential</span><span class="wl__pos">adj.</span><span class="wl__cn">（雨）倾盆的</span><span class="wl__page">p.15</span></a></li><li><a class="wl__row wl__row--blue" href="#n076"><span class="wl__term" lang="en">chapped</span><span class="wl__pos">adj.</span><span class="wl__cn">（嘴唇、皮肤）干裂的</span><span class="wl__page">p.15</span></a></li><li><a class="wl__row wl__row--blue" href="#n077"><span class="wl__term" lang="en">cedar-tree</span><span class="wl__pos">n.</span><span class="wl__cn">雪松</span><span class="wl__page">p.15</span></a></li><li><a class="wl__row wl__row--blue" href="#n078"><span class="wl__term" lang="en">substantiate</span><span class="wl__pos">v.</span><span class="wl__cn">证实</span><span class="wl__page">p.15</span></a></li><li><a class="wl__row wl__row--blue" href="#n079"><span class="wl__term" lang="en">jackknife</span><span class="wl__pos">n.</span><span class="wl__cn">大折刀</span><span class="wl__page">p.16</span></a></li><li><a class="wl__row wl__row--blue" href="#n080"><span class="wl__term" lang="en">Kools</span><span class="wl__pos">n.</span><span class="wl__cn">酷斯（一种薄荷味香烟的牌子）</span><span class="wl__page">p.16</span></a></li><li><a class="wl__row wl__row--blue" href="#n081"><span class="wl__term" lang="en">vultures</span><span class="wl__pos">n.</span><span class="wl__cn">秃鹫</span><span class="wl__page">p.16</span></a></li><li><a class="wl__row wl__row--blue" href="#n083"><span class="wl__term" lang="en">scrawl</span><span class="wl__pos">n.</span><span class="wl__cn">潦草的字迹</span><span class="wl__page">p.16</span></a></li><li><a class="wl__row wl__row--blue" href="#n084"><span class="wl__term" lang="en">burly</span><span class="wl__pos">adj.</span><span class="wl__cn">魁梧壮实的（男人）</span><span class="wl__page">p.16</span></a></li><li><a class="wl__row wl__row--blue" href="#n085"><span class="wl__term" lang="en">plumpish</span><span class="wl__pos">adj.</span><span class="wl__cn">有点胖乎乎的</span><span class="wl__page">p.16</span></a></li><li><a class="wl__row wl__row--blue" href="#n086"><span class="wl__term" lang="en">grudging</span><span class="wl__pos">adj.</span><span class="wl__cn">勉勉强强的</span><span class="wl__page">p.17</span></a></li><li><a class="wl__row wl__row--blue" href="#n087"><span class="wl__term" lang="en">kneading</span><span class="wl__pos">v.</span><span class="wl__cn">揉、捏</span><span class="wl__page">p.17</span></a></li><li><a class="wl__row wl__row--blue" href="#n088"><span class="wl__term" lang="en">cadaver</span><span class="wl__pos">n.</span><span class="wl__cn">尸体</span><span class="wl__page">p.17</span></a></li><li><a class="wl__row wl__row--blue" href="#n089"><span class="wl__term" lang="en">hobbling</span><span class="wl__pos">v.</span><span class="wl__cn">一瘸一拐地走</span><span class="wl__page">p.19</span></a></li></ul></div></details>
 <ul class="toc"><li><a href="#b1">p. 3</a></li><li><a href="#b2">p. 4</a></li><li><a href="#b3">p. 5</a></li><li><a href="#b4">p. 6</a></li><li><a href="#b5">p. 7</a></li><li><a href="#b6">p. 8</a></li><li><a href="#b7">p. 9</a></li><li><a href="#b8">p. 10</a></li><li><a href="#b9">p. 11</a></li><li><a href="#b10">p. 12</a></li><li><a href="#b11">p. 13</a></li><li><a href="#b12">p. 14</a></li><li><a href="#b13">p. 15</a></li><li><a href="#b14">p. 16</a></li><li><a href="#b15">p. 17</a></li><li><a href="#b16">p. 19</a></li></ul>
 <section class="batch" id="b1">
 <h2>第 3 页 · 9 月 26 日</h2>
@@ -292,7 +329,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 3</span><blockquote class="card__quote" lang="en">sweatshirt, and <mark>Timberland</mark> hiking boots</blockquote><p class="card__gist">卫衣，再加一双 Timberland 登山靴。</p></div>
 <p class="card__note"><b>解读</b>美国新罕布什尔州的户外牌子，最出名的是那种黄褐色的防水工装靴，结实耐磨，干活、进山、打猎都穿。作者特意点出牌子，是在告诉你：他这身是要往山里去的打扮。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>Timberland boots（Timberland 靴）· Timbs（口语里的简称）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n002" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 002</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -302,7 +339,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 3</span><blockquote class="card__quote" lang="en">he gets his <mark>12-gauge shotgun</mark> and a handful of slugs</blockquote><p class="card__gist">他取出他那把 12 号霰弹枪和一把独头弹。</p></div>
 <p class="card__note"><b>解读</b>gauge 是霰弹枪口径的老算法：拿一磅铅，做成大小刚好塞满枪管的等重铅球，能做几个就是几号。所以<strong>数字越小，枪管越粗</strong>。12 号是美国最常见的一种，打猎、看家都用它。牛津在 gauge 这一条里讲“枪管口径”这个意思时，举的例子正好就是 a 12-gauge shotgun。顺带一句，这里的 trailer 不是挂车，而是“拖车屋”——那种能拖走的活动房屋，他就住在里面。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a 20-gauge（20 号，更细更轻）· a double-barreled shotgun（双管霰弹枪）· gun cabinet（枪柜）</li><li class="is-confuse"><strong>易混</strong>gauge 只管霰弹枪；步枪和手枪的口径用 caliber（如 .22 caliber），两套算法不通用。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n003" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 003</span><span class="card__pen blue">生词</span><span class="card__kind">一词多义</span></div>
@@ -312,7 +349,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 3</span><blockquote class="card__quote" lang="en">a handful of <mark>slugs</mark> from the gun cabinet</blockquote><p class="card__gist">从枪柜里取出一把独头弹。</p></div>
 <p class="card__note"><b>解读</b>霰弹枪平常装的是一把小铅丸，打出去散成一片，适合打鸟；slug 是一整颗大弹头，射得远、打得准，是用来打鹿这类大型猎物的。牛津里 slug 最常见的意思是“蛞蝓”（没有壳的蜗牛）；口语里还能指一小口烈酒，当动词是“狠揍”。牛津也收了“子弹”这个意思，标着口语、多见于美式，但没有单列霰弹枪的独头弹，所以这张卡上的英文解释是我自己写的。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a handful of slugs（一把独头弹）· birdshot（打鸟的细铅丸）· buckshot（鹿弹，大号铅丸）</li><li class="is-confuse"><strong>易混</strong>bullet 是步枪、手枪的子弹；shell 是一整发霰弹（弹壳连里面装的东西），slug 只是其中一种装法。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n004" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 004</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -322,7 +359,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 3</span><blockquote class="card__quote" lang="en">gazing down at the <mark>converging</mark> roads</blockquote><p class="card__gist">他俯瞰着那几条汇到一起的路。</p></div>
 <p class="card__note"><b>解读</b>这里是动词 converge 的现在分词当形容词用。他站在山上往下看，几条路在谷底的山坳里合拢，所以同一句后面才说起右边那条岔路。这句末尾还有个作者自己造的说法 the three-quarters dark：天只亮了四分之一，还有四分之三是黑的。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>converge on（从各处汇聚到某地，人群、目光都能用）· converging lines（汇聚线）</li><li class="is-confuse"><strong>易混</strong>反义是 diverge（分岔、分开）；merge 是两股并成一股，比如车道并线。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">Timberland gauge shotgun slug converge</pre></div>
 </section>
@@ -337,7 +374,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 4</span><blockquote class="card__quote" lang="en">to search for would-be <mark>poachers</mark></blockquote><p class="card__gist">去搜查那些想来偷猎的人。</p></div>
 <p class="card__note"><b>解读</b>would-be 是“想要当……的、打算做……的”。这句前面的 green cap 指戴绿帽子的野生动物保护官，也就是管打猎的执法人员。John 在心里宽自己的心：那种人不会天不亮就出来抓偷猎的。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>poach a deer（偷猎一头鹿）· poach eggs（水煮荷包蛋，同一个 poach）</li><li class="is-confuse"><strong>易混</strong>hunter 是合法打猎的人；poacher 专指不合法的，在别人的地上、禁猎期、保护区里打。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n006" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 006</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -347,7 +384,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 4</span><blockquote class="card__quote" lang="en">John <mark>shrugs</mark>, then starts walking</blockquote><p class="card__gist">John 耸耸肩，接着往山上走。</p></div>
 <p class="card__note"><b>解读</b>这本书整本用现在时讲故事，所以是 shrugs，不是 shrugged。耸肩在这里是“算了，不想了”的意思：他把那辆车的事放下了。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>shrug your shoulders（耸耸肩）· shrug off（不当回事，比如 shrug off the injury 不把伤当回事）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n007" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 007</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -357,7 +394,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 4</span><blockquote class="card__quote" lang="en">a soft bed of <mark>pine needles</mark></blockquote><p class="card__gist">厚厚一层软软的松针。</p></div>
 <p class="card__note"><b>解读</b>needle 本义是“针”，松树的叶子又细又尖，所以叫松针。这里的 bed 不是床，是“铺了一层的底”。后半句说他走在松针上，脚步声在耳朵里响得像踩在雪上，形容林子里静得出奇。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a bed of pine needles / leaves（一层松针 / 落叶）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n008" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 008</span><span class="card__pen blue">生词</span><span class="card__kind">打猎用语</span></div>
@@ -367,7 +404,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 4</span><blockquote class="card__quote" lang="en">looking for a <mark>ten-point buck</mark></blockquote><p class="card__gist">他在找一头鹿角长了十个叉的公鹿。</p></div>
 <p class="card__note"><b>解读</b>美国猎人习惯数鹿角上有几个尖来说一头公鹿有多大，美国东部是两边加起来数。叉越多，鹿越大越老，十个叉已经是很像样的猎物了。buck 在口语里最常见的意思是“一美元”，牛津把这个意思排在第一；这里是第二个意思“公鹿”。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>buck 公鹿（也指公兔）；doe 母鹿；stag 也是公鹿，多指英国那种高大的赤鹿；deer 泛指鹿，单复数同形。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n009" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 009</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -377,7 +414,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 4</span><blockquote class="card__quote" lang="en">through <mark>binoculars</mark>, he watched it</blockquote><p class="card__gist">他用双筒望远镜看着它。</p></div>
 <p class="card__note"><b>解读</b>这个词永远是复数形式，说一副要讲 a pair of binoculars。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a pair of binoculars（一副双筒望远镜）· through binoculars（用望远镜看）</li><li class="is-confuse"><strong>易混</strong>telescope 是单筒的望远镜，看星星那种。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n010" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 010</span><span class="card__pen blue">生词</span><span class="card__kind">一词多义</span></div>
@@ -387,7 +424,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 4</span><blockquote class="card__quote" lang="en">he watched it <mark>graze</mark> for several minutes</blockquote><p class="card__gist">他看着它在林子边上吃了好几分钟草。</p></div>
 <p class="card__note"><b>解读</b>watch sb do sth，看着某个动作从头到尾，所以 graze 用原形。graze 还常指“擦破皮、擦过”，牛津的例子是 The bullet grazed his cheek（子弹擦过他的脸颊）。在打猎的书里，这个意思说不定也会碰到。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>graze on grass（啃草）· graze cattle（放牛）· a graze on the knee（膝盖上擦破的皮）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n011" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 011</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -397,7 +434,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 4</span><blockquote class="card__quote" lang="en">before it <mark>loped</mark> into the pines</blockquote><p class="card__gist">然后它轻轻松松地大步跑进了松林。</p></div>
 <p class="card__note"><b>解读</b>重点在“不慌不忙”：步子大，但一点都不急。一头没被惊动的鹿就是这么走的。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>jog 慢跑；gallop 马的全速飞奔；lope 介于两者之间，步子大而从容。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--pink" id="n012" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 012</span><span class="card__pen pink">对照</span><span class="card__kind">打猎用语</span></div>
@@ -407,7 +444,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 4</span><blockquote class="card__quote" lang="en">a hundred fifty pounds of <mark class="pink">dressed</mark> venison</blockquote><p class="card__gist">一百五十磅收拾干净的鹿肉。</p></div>
 <p class="card__note"><b>解读</b>平时 dressed 是“穿好衣服的”。牛津在 dress 下面另有一个意思“烹调前处理食物”，例子是 to dress a chicken，就是给鸡去毛开膛。猎人说 field-dress a deer，指打到鹿后当场开膛、掏掉内脏；dressed 重量就是去掉内脏以后的净重。一百五十磅约合六十八公斤。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>field-dress a deer（在野外给鹿开膛去内脏）· dress a salad（给沙拉拌调料，也是这个 dress）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n013" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 013</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -417,7 +454,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 4</span><blockquote class="card__quote" lang="en">dressed <mark>venison</mark> versus the thousand dollars</blockquote><p class="card__gist">鹿肉对上一千美元（的罚款）。</p></div>
 <p class="card__note"><b>解读</b>这一句是 John 在心里算账：一边是一百五十磅鹿肉，一边是上千美元罚款，外加可能蹲两个月牢，因为在州立保护区里、又不是打猎季节打鹿，是违法的。他算完，觉得值得冒这个险。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>英语里活的动物和它的肉常是两个词：deer 和 venison、cow 和 beef、pig 和 pork、sheep 和 mutton。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n014" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 014</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -427,7 +464,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 4</span><blockquote class="card__quote" lang="en">denser with <mark>deciduous</mark> trees and brush</blockquote><p class="card__gist">落叶树和灌木越来越密。</p></div>
 <p class="card__note"><b>解读</b>他正从松林往外走，松树一年四季都是绿的，再往前就换成了到秋天会掉叶子的树。这里的 brush 不是刷子，是“灌木丛”。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>反义词是 evergreen（常绿的）。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">poacher shrug needle buck binoculars graze lope dress venison deciduous</pre></div>
 </section>
@@ -442,7 +479,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en">the <mark>canopy</mark> of pine boughs</blockquote><p class="card__gist">松树大枝搭成的那片顶。</p></div>
 <p class="card__note"><b>解读</b>本义是床上方、座位上方挂的罩篷，这里借来说树林：高处的枝叶连成一片，像一顶盖在头上的篷子。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>forest canopy（林冠）· under a canopy of leaves（在一片树叶底下）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n016" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 016</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -452,7 +489,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en">the canopy of pine <mark>boughs</mark></blockquote><p class="card__gist">松树大枝搭成的那片顶。</p></div>
 <p class="card__note"><b>解读</b>牛津标着这是书面、文学的说法。读音跟 bow（鞠躬）一样，和 cow 押韵，别念成 “bɔː”。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>branch 是一般的树枝；twig 是细小的枝条；bough 是粗大的主枝。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n017" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 017</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -462,7 +499,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en">a crow starts <mark>cawing</mark></blockquote><p class="card__gist">一只乌鸦呱呱叫了起来。</p></div>
 <p class="card__note"><b>解读</b>这是个拟声词，照着乌鸦的叫声造出来的。牛津只给了名词的释义“乌鸦那种响亮难听的叫声”，所以这张卡上的英文解释是我按动词改写的。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>不同的鸟叫声各有专门的词：crow caw（乌鸦呱呱）、rooster crow（公鸡打鸣）、small birds chirp / tweet（小鸟啾啾）。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--pink" id="n018" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 018</span><span class="card__pen pink">对照</span><span class="card__kind">枪械用语</span></div>
@@ -472,7 +509,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en">John <mark class="pink">cocks</mark> the shotgun</blockquote><p class="card__gist">John 把霰弹枪扳到待发状态。</p></div>
 <p class="card__note"><b>解读</b>名词 cock 最常见的是“公鸡”（美式多说 rooster）。当动词用在枪上，是把击锤往后扳，枪就上了膛、一扣就响，紧接着那句 The sharp click 就是这个动作的声音。同一页后面还有一个 recocks，就是打完一枪之后再扳一次。当动词用在身体上，是“竖起、歪着”，比如 cock her head（歪着头）。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>cock a gun（扳起击锤）· cock your head（歪头）· the dog's ears cocked（狗竖起耳朵）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n019" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 019</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -482,7 +519,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en">increases the crows’ <mark>agitation</mark></blockquote><p class="card__gist">让那群乌鸦更加躁动不安。</p></div>
 <p class="card__note"><b>解读</b>形容词 agitated（坐立不安的）更常见。这里拿来说乌鸦，枪声一响，它们叫得更凶、扑腾得更厉害。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>in a state of agitation（焦躁不安）· agitated（坐立不安的）</li><li class="is-confuse"><strong>易混</strong>anxiety 偏心里发慌；agitation 是慌到外面看得出来，动来动去、坐不住。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n020" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 020</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -492,7 +529,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en">a squirrel or a <mark>chipmunk</mark> jumps</blockquote><p class="card__gist">一只松鼠，或者是花栗鼠，跳了过去。</p></div>
 <p class="card__note"><b>解读</b>就是背上有深浅条纹、腮帮子能塞满坚果的那种小家伙，松鼠的近亲，比松鼠小。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>squirrel 松鼠，尾巴大而蓬松；chipmunk 更小，背上有条纹。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n021" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 021</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -502,7 +539,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en"><mark>flicks</mark> off the safety</blockquote><p class="card__gist">一下拨开了保险。</p></div>
 <p class="card__note"><b>解读</b>这里的 safety 是枪上的“保险”。flick off 是用手指快速一拨把它打开，枪就能打了，写出动作之快。同一页后面有 pushes the safety in，是把保险按回去关上。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>flick a switch（啪地按一下开关）· flick through a book（快速翻书）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n022" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 022</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -512,7 +549,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en">a patch of <mark>thistles</mark></blockquote><p class="card__gist">一片蓟草丛。</p></div>
 <p class="card__note"><b>解读</b>叶子边上全是刺，开紫色的绒球一样的花，是苏格兰的国花。中间那个 t 不发音。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a patch of thistles（一片蓟草）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n023" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 023</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -522,7 +559,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en">a large rack of <mark>antlers</mark></blockquote><p class="card__gist">一副很大的鹿角。</p></div>
 <p class="card__note"><b>解读</b>rack 是猎人说一整副鹿角的叫法。鹿角每年脱落，再重新长出来，跟牛羊那种一辈子不掉的角不一样。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>horn 是牛、羊那种一直长着的角；antler 专指鹿角，会分叉、会每年换。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n024" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 024</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -532,7 +569,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en">a large <mark>oblong</mark>-shaped indentation</blockquote><p class="card__gist">一大块长条形的压痕。</p></div>
 <p class="card__note"><b>解读</b>牛津给了两个意思：英式里是长方形；美式里只要是长比宽大的形状都可以叫 oblong，包括椭圆。这里是鹿卧过留下的印子，应该是美式那个意思。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>rectangle 是规规矩矩的长方形；oval 是椭圆形；oblong 比这两个都宽松。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n025" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 025</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -542,7 +579,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 5</span><blockquote class="card__quote" lang="en"><mark>indentation</mark> in the pine needles</blockquote><p class="card__gist">松针上压出来的凹痕。</p></div>
 <p class="card__note"><b>解读</b>就是鹿趴着睡过的地方，松针被压下去一块。接下来 John 摸到那里还是暖的，还看见落下的鹿毛：鹿刚刚还躺在这儿。牛津的例句正好也是印子：马蹄在泥里留下深深的蹄印。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>同一个词在排版里指“段首缩进”（空两格）。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">canopy bough caw cock agitation chipmunk flick thistle antler oblong indentation</pre></div>
 </section>
@@ -557,7 +594,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 6</span><blockquote class="card__quote" lang="en">like John’s own, <mark>pungent</mark> and harsh</blockquote><p class="card__gist">跟 John 自己身上的一样，又冲又呛。</p></div>
 <p class="card__note"><b>解读</b>他闻到的是那头鹿受惊时冒出来的气味，作者说那股味道跟 John 自己紧张时的一样。pungent 常用来说大蒜、洋葱、烧焦的东西那种直冲鼻子的味道。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a pungent smell / odour（刺鼻的气味）</li><li class="is-confuse"><strong>易混</strong>strong 只说味道重；pungent 是重到发冲、呛人。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n027" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 027</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -567,7 +604,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 6</span><blockquote class="card__quote" lang="en">he <mark>trots</mark> a half circle</blockquote><p class="card__gist">他小步快跑，绕了半个圈。</p></div>
 <p class="card__note"><b>解读</b>本来是说马的“快步”，比走快、比跑慢；用在人身上，是迈着小步颠颠地快走。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>第 4 页的 lope 是大步、从容；trot 是小步、急促。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n028" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 028</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -577,7 +614,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 6</span><blockquote class="card__quote" lang="en">witch hazel, <mark>sumac</mark>, mountain laurel</blockquote><p class="card__gist">金缕梅、漆树、山月桂。</p></div>
 <p class="card__note"><b>解读</b>美国东部山里到处都是，秋天叶子红得发亮。其中有一种叫 poison sumac，碰了皮肤会起疹子。这一串全是林下的灌木，作者一口气列出来，写那片林子长得有多杂、有多难钻。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>staghorn sumac（鹿角漆树，枝上有绒毛，最常见）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n029" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 029</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -587,7 +624,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 6</span><blockquote class="card__quote" lang="en">mountain <mark>laurel</mark></blockquote><p class="card__gist">山月桂。</p></div>
 <p class="card__note"><b>解读</b>mountain laurel 是美国东部山区的一种常绿灌木，春天开粉白色的小花，长得很密，枝条又硬，人很难从中间钻过去。它跟做香料的月桂叶不是一种植物。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>rest on your laurels（吃老本，满足于已有的成绩），这里 laurels 是“荣誉”的意思，来自古时候给胜利者戴的月桂冠。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n030" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 030</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -597,7 +634,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 6</span><blockquote class="card__quote" lang="en"><mark>nettles</mark> that tear at his pants</blockquote><p class="card__gist">扯着他裤子的荨麻。</p></div>
 <p class="card__note"><b>解读</b>叶子上有细毛，碰一下皮肤就火辣辣地疼、起小包。tear at 是“一下一下地撕扯”，写他从草丛里硬闯过去。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>stinging nettle（荨麻的全称）· tear at（撕扯）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n031" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 031</span><span class="card__pen blue">生词</span><span class="card__kind">一词多义</span></div>
@@ -607,7 +644,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 6</span><blockquote class="card__quote" lang="en">painfully <mark>rake</mark> his face</blockquote><p class="card__gist">在他脸上狠狠地刮过。</p></div>
 <p class="card__note"><b>解读</b>主语是前面那些荨麻和灌木。rake 最常见的是名词“耙子”，动词“用耙子耙”，树枝一道道刮过脸，就像被耙了一样。牛津里它还有个老式的意思：花花公子、浪荡子。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>rake leaves（耙树叶）· rake through（翻找）</li><li class="is-confuse"><strong>易混</strong>scratch 是一般的抓、挠；rake 是一道一道划过去，力气更大，面积也更大。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n032" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 032</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -617,7 +654,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 6</span><blockquote class="card__quote" lang="en">is <mark>interlarded</mark> with moss-slick rocks</blockquote><p class="card__gist">中间夹杂着长满青苔、滑溜溜的石头。</p></div>
 <p class="card__note"><b>解读</b>牛津高阶没收这个词，英文解释是我写的。lard 是猪油，这个词本来是往瘦肉里塞肥油，后来引申成“在……里面东一块西一块地掺进别的东西”，多用来说话里、文章里夹杂着什么，是很书面的词。这里借来说灌木丛里掺着石头，是作者的文笔。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>intersperse 意思最接近，也常见得多：be interspersed with（间或夹着）。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n033" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 033</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -627,7 +664,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 6</span><blockquote class="card__quote" lang="en">thin, <mark>sporadic</mark> drops</blockquote><p class="card__gist">稀稀拉拉、隔一阵才有一滴的血。</p></div>
 <p class="card__note"><b>解读</b>鹿流的血不多，也断断续续，所以 John 担心它还能跑很久才会倒下。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>sporadic gunfire（零星的枪声）· sporadically（偶尔地）</li><li class="is-confuse"><strong>易混</strong>occasional 只说“偶尔”；sporadic 还带着“没规律、东一下西一下”的意思。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">pungent trot sumac laurel nettle rake interlard sporadic</pre></div>
 </section>
@@ -642,7 +679,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 7</span><blockquote class="card__quote" lang="en">where it has <mark>veered</mark> right</blockquote><p class="card__gist">鹿在那儿猛地拐向了右边。</p></div>
 <p class="card__note"><b>解读</b>牛津说这个词尤其用来说车辆突然转向，这里用在受了伤的鹿身上。他跟着血迹走，看出来鹿在这儿一下子改了方向。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>veer off the road（冲出路面）· veer away from（偏离）</li><li class="is-confuse"><strong>易混</strong>swerve 多是为了躲东西急打方向；veer 只说方向突然变了，不一定是在躲。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n035" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 035</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -652,7 +689,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 7</span><blockquote class="card__quote" lang="en">grazed <mark>heifers</mark> and sheep</blockquote><p class="card__gist">（在这儿）放过小母牛和羊。</p></div>
 <p class="card__note"><b>解读</b>注意读音，前半是 “hef”，不是 “hei”。前面那个 grazed 就是第 4 页讲过的 graze，不过这里是它的第二个意思“放牧”：老 Hollenbach 十几年前在这片山上放牛放羊，现在牧场荒了。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>cow 母牛（一般是生过小牛的）；heifer 还没生过的小母牛；calf 小牛；bull 公牛。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n036" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 036</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -662,7 +699,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 7</span><blockquote class="card__quote" lang="en"><mark>chokecherries</mark>, Scotch pine, and brambles</blockquote><p class="card__gist">北美稠李、欧洲赤松和荆棘。</p></div>
 <p class="card__note"><b>解读</b>牛津高阶没收这个词，英文解释是我写的。它是北美的一种野樱桃，果子小，颜色发黑，又酸又涩，据说名字就是因为涩得人嗓子发紧（choke 是噎住）。这一串写的是荒掉的老牧场，已经被野树野灌木占满了。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>chokecherry jelly（稠李果酱，加足了糖才能吃）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n037" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 037</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -672,7 +709,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 7</span><blockquote class="card__quote" lang="en">Scotch pine, and <mark>brambles</mark></blockquote><p class="card__gist">欧洲赤松和荆棘丛。</p></div>
 <p class="card__note"><b>解读</b>牛津说这个词尤其是英式说法，指长黑莓的那种带刺灌木；平时也泛指带刺、乱缠的一丛丛野灌木，覆盆子也算。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>thorn 是刺本身；bramble 是长满刺的那丛灌木；bush 是一般的灌木。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n038" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 038</span><span class="card__pen blue">生词</span><span class="card__kind">口语</span></div>
@@ -682,7 +719,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 7</span><blockquote class="card__quote" lang="en">how he’s going to <mark>lug</mark> a two-hundred-pound carcass</blockquote><p class="card__gist">他要怎么把一具两百磅重的鹿尸拖回去。</p></div>
 <p class="card__note"><b>解读</b>牛津标着这是口语。一个词就把“又重又累、费老大劲”全说出来了。两百磅约合九十公斤。carcass 是动物的尸体。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>carry 只是“拿着、带着”；drag 是在地上拖；lug 是不管怎么弄，反正很费劲。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">veer heifer chokecherry bramble lug</pre></div>
 </section>
@@ -697,7 +734,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 8</span><blockquote class="card__quote" lang="en">out of sight from <mark>buzzards</mark> and coyotes</blockquote><p class="card__gist">不让美洲鹫和郊狼看见。</p></div>
 <p class="card__note"><b>解读</b>这个词英美不一样：英式里是一种鹰；美式里是吃腐肉的鹫，跟秃鹫是一类。John 想把鹿尸藏在采石场里，就是怕还没运走，就先被这些吃腐肉的鸟和野兽吃了。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>vulture 是秃鹫；美国人口语里说的 buzzard 多半就是红头美洲鹫。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n040" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 040</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -707,7 +744,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 8</span><blockquote class="card__quote" lang="en">buzzards and <mark>coyotes</mark></blockquote><p class="card__gist">美洲鹫和郊狼。</p></div>
 <p class="card__note"><b>解读</b>比狼小，比狐狸大，北美的乡下到处都有，夜里常听见它们叫。美国人有两种念法，/kaɪˈoʊti/ 和 /ˈkaɪoʊt/ 都对。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>wolf 是狼，体型大得多；fox 是狐狸；coyote 在两者之间。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n041" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 041</span><span class="card__pen blue">生词</span><span class="card__kind">一词多义</span></div>
@@ -717,7 +754,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 8</span><blockquote class="card__quote" lang="en">A <mark>grouse</mark> suddenly breaks cover</blockquote><p class="card__gist">一只松鸡突然从藏身的地方冲了出来。</p></div>
 <p class="card__note"><b>解读</b>break cover 是打猎的说法，指藏着的动物突然窜出来，暴露了行踪。grouse 单复数同形。在口语里它还能当动词，意思是“发牢骚”。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>break cover（从藏身处窜出）· grouse about sth（为某事发牢骚）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n042" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 042</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -727,7 +764,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 8</span><blockquote class="card__quote" lang="en">the <mark>frantic</mark> beating of its wings</blockquote><p class="card__gist">它那一阵慌慌张张的扑翅声。</p></div>
 <p class="card__note"><b>解读</b>松鸡受惊，翅膀扑得又急又乱，就在他脚边，吓得 John 差点心脏病发作。frantic 另一个意思是“急疯了的”，比如 frantic with worry（急得要命）。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a frantic search（发疯似的找）· frantic with worry（急得要命）</li><li class="is-confuse"><strong>易混</strong>hectic 是事情多、忙得团团转；frantic 更慌乱，带着害怕或着急。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">buzzard coyote grouse frantic</pre></div>
 </section>
@@ -742,7 +779,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 9</span><blockquote class="card__quote" lang="en">smaller rocks freshly <mark>dislodged</mark></blockquote><p class="card__gist">一些小石子像是刚被碰得挪了位。</p></div>
 <p class="card__note"><b>解读</b>牛津标着这是比较正式的词。John 蹲下细看，想弄清这条土路是刚有车开过，还是两天前那场冰雹砸的。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>dislodge sth from sth（把……从……弄下来）</li><li class="is-confuse"><strong>易混</strong>move 只是“挪动”；dislodge 是把原本卡在、嵌在某处的东西硬弄松、弄出来。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n044" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 044</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -752,7 +789,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 9</span><blockquote class="card__quote" lang="en">A flock of <mark>blue jays</mark> suddenly flies up</blockquote><p class="card__gist">一群冠蓝鸦突然从采石场里飞了起来。</p></div>
 <p class="card__note"><b>解读</b>背上是亮蓝色，头顶一撮竖起来的毛，叫声又尖又吵。它们一炸窝，往往说明底下有什么东西惊动了它们。牛津把它写成一个词 bluejay，书里分开写，两种都有人用。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a flock of birds（一群鸟）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n045" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 045</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -762,7 +799,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 9</span><blockquote class="card__quote" lang="en">starts <mark>squawking</mark>, flat out scaring John</blockquote><p class="card__gist">开始嘎嘎尖叫，把 John 结结实实吓了一跳。</p></div>
 <p class="card__note"><b>解读</b>flat out 是美国口语“完完全全、结结实实”，叙述在这里带上了 John 自己的口气。squawk 用在人身上，是气急了、吓着了的尖声嚷嚷。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>第 5 页的 caw 专指乌鸦那种呱呱声；squawk 是更刺耳、更慌乱的尖叫，鹦鹉、鸡、松鸦都用它。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n046" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 046</span><span class="card__pen blue">生词</span><span class="card__kind">一词多义</span></div>
@@ -772,7 +809,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 9</span><blockquote class="card__quote" lang="en">He smells <mark>spruce</mark></blockquote><p class="card__gist">他闻到了云杉的气味。</p></div>
 <p class="card__note"><b>解读</b>路两边种的都是云杉。它还有两个跟树毫无关系的意思：形容词 spruce 是“整洁利落的”，spruce up 是“打扮一番、收拾一新”。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>spruce up（打扮、收拾）</li><li class="is-confuse"><strong>易混</strong>pine 松树的针叶是几根一束长的；spruce 云杉的针叶短，一根一根单独长在枝上。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n047" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 047</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -782,7 +819,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 9</span><blockquote class="card__quote" lang="en">junked truck <mark>chassis</mark></blockquote><p class="card__gist">报废卡车的底盘。</p></div>
 <p class="card__note"><b>解读</b>读音要注意：ch 念 “sh”，结尾的 s 不发音。复数写法不变，但读成 /ˈʃæsiz/。这一串写的是废弃采石场里堆了多年的破烂：报废的卡车底盘、被掏空的发电机、盖着塑料布的棚子。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>junked（报废的，美式口语）· a gutted generator（掏空了的发电机）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">dislodge bluejay squawk spruce chassis</pre></div>
 </section>
@@ -797,7 +834,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 10</span><blockquote class="card__quote" lang="en">behind a briar <mark>thicket</mark></blockquote><p class="card__gist">在一丛带刺的灌木后面。</p></div>
 <p class="card__note"><b>解读</b>前面的 briar 是带刺的野灌木，野蔷薇那一类，第 12 页她也划了这个词。thicket 跟 thick（厚、密）同一个来源，意思就是“长得很密的那一片”。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>bush 是单独一棵灌木；thicket 是一大片挤在一起、人钻不过去的灌木丛。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n049" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 049</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -807,7 +844,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 10</span><blockquote class="card__quote" lang="en">feel the <mark>phlegm</mark> flying from its flared nostrils</blockquote><p class="card__gist">能感到它张大的鼻孔里喷出来的黏沫。</p></div>
 <p class="card__note"><b>解读</b>读音只有 “flem”，ph 念 f，g 不发音。这句写鹿冲得有多近：近到它鼻子里喷出来的东西都溅到了 John 身上。牛津还给了一个意思“沉着冷静”，形容词 phlegmatic 就是“不动声色的”。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>flared nostrils（张大的鼻孔）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n050" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 050</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -817,7 +854,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 10</span><blockquote class="card__quote" lang="en">lets out a pained <mark>bleat</mark></blockquote><p class="card__gist">痛苦地叫了一声。</p></div>
 <p class="card__note"><b>解读</b>本来是羊咩咩的叫声，这里用在鹿身上。前面它还凶得要撞人，挨了一下就只剩这么一声又弱又惨的叫，反差很大。牛津只给了动词的释义，所以这里的英文解释是我按名词写的。牛津还说它能指人“用微弱的声音抱怨”。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>let out a cry / bleat / groan（发出一声……）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">thicket phlegm bleat</pre></div>
 </section>
@@ -839,7 +876,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 11</span><blockquote class="card__quote" lang="en"><mark>hoists</mark> the butt like a post-hole digger</blockquote><p class="card__gist">像举挖桩坑的长柄铲那样，把枪托高高举起。</p></div>
 <p class="card__note"><b>解读</b>平常多用于吊起重物、升旗、升帆。post-hole digger 是挖栅栏桩坑的工具，两根长柄，双手举起来往下猛戳。butt 是枪托，他反握着枪管，拿枪托往下砸。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>hoist a flag（升旗）· hoist sth onto your shoulder（把……扛上肩）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--orange" id="n053" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 053</span><span class="card__page">p. 11</span><span class="card__pen orange">好句</span></div>
@@ -856,7 +893,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 11</span><blockquote class="card__quote" lang="en"><mark>wads</mark> it into a ball</blockquote><p class="card__gist">把它揉成一团。</p></div>
 <p class="card__note"><b>解读</b>名词 wad 更常见：一沓钞票（a wad of cash）、一团棉花（a wad of cotton）。牛津说动词用法尤其是美式的。他把撕破的卫衣揉成团去按伤口。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a wad of cash（一沓现金）· wad up（揉成团）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n055" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 055</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -866,7 +903,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 11</span><blockquote class="card__quote" lang="en">a jagged <mark>puncture</mark> wound</blockquote><p class="card__gist">一个边缘参差的刺伤。</p></div>
 <p class="card__note"><b>解读</b>被鹿角戳出来的。jagged 是“边缘坑坑洼洼、不齐的”。在英式英语里，puncture 最常见的意思是轮胎被扎破。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>puncture wound（刺伤）· a punctured tyre（扎破的轮胎）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n056" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 056</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -876,7 +913,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 11</span><blockquote class="card__quote" lang="en"><mark>oozing</mark> a slow, steady stream</blockquote><p class="card__gist">慢慢地、不停地往外渗着血。</p></div>
 <p class="card__note"><b>解读</b>伤口半英寸深，大约一厘米多。ooze 还有个很常用的引申义：浑身透着某种气质，比如 ooze confidence（浑身透着自信）。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>ooze blood（渗血）· ooze confidence / charm（浑身散发着自信 / 魅力）</li><li class="is-confuse"><strong>易混</strong>drip 是一滴一滴往下掉；ooze 是黏稠的东西慢慢冒出来。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n057" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 057</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -885,7 +922,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <p class="card__en" lang="en">to open out something that has been pressed into a ball</p>
 <div class="card__ctx"><span class="card__band">原文 · p. 11</span><blockquote class="card__quote" lang="en">He <mark>unwads</mark> the shirt</blockquote><p class="card__gist">他把那团衣服摊开。</p></div>
 <p class="card__note"><b>解读</b>词典里查不到，是 un-（反过来）加上前面的 wad，作者顺手用的。前面 wads it into a ball，这里 unwads the shirt，一揉一摊，正好对上。所以欧路列表里没有放它，记住 wad 就够了。</p>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">hoist wad puncture ooze</pre></div>
 </section>
@@ -900,7 +937,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 12</span><blockquote class="card__quote" lang="en">binding it with a <mark>square knot</mark></blockquote><p class="card__gist">用一个平结把它扎紧。</p></div>
 <p class="card__note"><b>解读</b>牛津说这是美式叫法，英式叫 reef knot。它是正反各绕一次打成的双结，勒紧了不容易松开，扎绷带、捆东西最常用。他把撕开的衣服一半缠在上臂止血，打的就是这个结。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>square knot（美）＝ reef knot（英），是同一种结。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n059" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 059</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -910,7 +947,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 12</span><blockquote class="card__quote" lang="en">then over at the <mark>briars</mark></blockquote><p class="card__gist">又朝那丛荆棘看了一眼。</p></div>
 <p class="card__note"><b>解读</b>也拼作 brier。第 10 页的 briar thicket 就是一丛这种灌木。牛津还收了另一个意思：一种根很硬的灌木，拿来做烟斗，也指这种烟斗。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>第 7 页的 bramble 多指长黑莓的那种；briar 尤指野蔷薇。平时两个词常常混着用，都是“扎人的野灌木”。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n060" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 060</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -919,7 +956,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <p class="card__en" lang="en">a group of bushes or small trees growing closely together <span class="card__src" lang="zh">牛津 8</span></p>
 <div class="card__ctx"><span class="card__band">原文 · p. 12</span><blockquote class="card__quote" lang="en">the twenty-five yards over to the <mark>thicket</mark></blockquote><p class="card__gist">走二十五码，到那丛灌木跟前。</p></div>
 <p class="card__note"><b>解读</b>第 10 页的 No. 048 记过这个词，这一处又划了一次。同一页再往下还有 the tangled thicket（缠成一团的灌木丛），说它 dense as a sponge，密得像一块海绵。欧路列表里就不重复放了。</p>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--orange" id="n061" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 061</span><span class="card__page">p. 12</span><span class="card__pen orange">好句</span></div>
@@ -941,7 +978,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 13</span><blockquote class="card__quote" lang="en">hair <mark>protruding</mark> from beneath a floppy brown hat</blockquote><p class="card__gist">一绺头发从一顶软塌塌的棕色帽子底下露了出来。</p></div>
 <p class="card__note"><b>解读</b>牛津标着这是比较正式的词。最常见的搭配是 protruding teeth（龅牙）、protruding eyes（凸眼）。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>stick out 是口语说法，意思一样；protrude 更书面。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n063" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 063</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -950,7 +987,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <p class="card__en" lang="en">a wild bush with thorns on which blackberries grow <span class="card__src" lang="zh">牛津 8</span></p>
 <div class="card__ctx"><span class="card__band">原文 · p. 13</span><blockquote class="card__quote" lang="en">face-down behind the <mark>brambles</mark></blockquote><p class="card__gist">脸朝下趴在荆棘丛后面。</p></div>
 <p class="card__note"><b>解读</b>第 7 页的 No. 037 记过这个词，这一处又划了一次，欧路列表里就不重复放了。</p>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n064" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 064</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -960,7 +997,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 13</span><blockquote class="card__quote" lang="en">a small denim <mark>satchel</mark></blockquote><p class="card__gist">一个小小的牛仔布挎包。</p></div>
 <p class="card__note"><b>解读</b>牛津说它尤其指装课本的那种书包。denim 是牛仔布。同一页再往下，John 看清了她的脸，大概只有十六岁。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>backpack 是双肩背包；satchel 是一根长带子斜挎或背着的包，样子更老派。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n065" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 065</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -970,7 +1007,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 13</span><blockquote class="card__quote" lang="en">will be <mark>transposed</mark> into a dead deer</blockquote><p class="card__gist">能变成一头死鹿。</p></div>
 <p class="card__note"><b>解读</b>他攥着拳头抵住脑袋、闭上眼祈祷：睁开眼时，这具尸体能变成一头死鹿、一条狗、一头熊，什么都行，只要不是人。transpose 是个很正式、很冷的词，放在他最绝望的祈祷里，反而更显得荒唐和无助。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>transpose A into B（把 A 变成 B）</li><li class="is-confuse"><strong>易混</strong>在音乐里它是“移调”；在一般语境里，change 最常用，transform 强调彻底改变，transpose 多指换位置、换形式。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n066" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 066</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -980,7 +1017,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 13</span><blockquote class="card__quote" lang="en">between her upper <mark>incisors</mark></blockquote><p class="card__gist">在她上排门牙之间。</p></div>
 <p class="card__note"><b>解读</b>上下各四颗，一共八颗。incise 是“切、刻”，门牙就是用来切断食物的牙。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>incisor 门牙；canine 犬齿（尖牙）；molar 臼齿（大牙）。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--orange" id="n067" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 067</span><span class="card__page">p. 13</span><span class="card__pen orange">好句</span></div>
@@ -1002,7 +1039,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 14</span><blockquote class="card__quote" lang="en"><mark>slithers</mark> over the dead girl’s feet</blockquote><p class="card__gist">从死去女孩的脚上滑了过去。</p></div>
 <p class="card__note"><b>解读</b>牛津的例句就是蛇：The snake slithered away。这个词的 sl- 开头本身就带着“滑溜”的感觉，slide、slip、slither 都是。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>slide 是一般的滑；slither 专指贴着地、扭着身子滑，蛇和蜥蜴最常用。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n069" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 069</span><span class="card__pen blue">生词</span><span class="card__kind">方言</span></div>
@@ -1012,7 +1049,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 14</span><blockquote class="card__quote" lang="en">A <mark>hog snake</mark> slithers over</blockquote><p class="card__gist">一条猪鼻蛇滑了过去。</p></div>
 <p class="card__note"><b>解读</b>牛津查不到，这是乡下的叫法，正式名称是 eastern hognose snake。它的鼻头往上翘，像猪鼻子，所以得了这个名字。这种蛇没有毒，受惊时会装死。欧路里很可能也查不到，所以列表里没放。</p>
 <p class="card__unsure"><b>看不太清</b>我是按地方叫法推断的，书里没有描写它的样子，所以只能说“多半是”猪鼻蛇。</p>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--orange" id="n070" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 070</span><span class="card__page">p. 14</span><span class="card__pen orange">好句</span></div>
@@ -1036,7 +1073,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 14</span><blockquote class="card__quote" lang="en">His left shoulder <mark>throbs</mark></blockquote><p class="card__gist">他的左肩一跳一跳地疼。</p></div>
 <p class="card__note"><b>解读</b>就是那种跟着心跳一下一下抽着疼的感觉，被鹿角扎的伤口就是这样。throb 也能说心脏、音乐、发动机有节奏地跳动。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a throbbing headache（一跳一跳的头疼）· throb with excitement（激动得心怦怦跳）</li><li class="is-confuse"><strong>易混</strong>ache 是持续的钝痛；throb 是一阵一阵、有节奏地疼。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">slither throb</pre></div>
 </section>
@@ -1051,7 +1088,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 15</span><blockquote class="card__quote" lang="en">wet with blood starting to <mark>congeal</mark></blockquote><p class="card__gist">沾满了开始凝结的血。</p></div>
 <p class="card__note"><b>解读</b>牛津也收了比喻用法，例句是：苦难和眼泪凝结成了仇恨。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>congealed blood（凝固的血）· congealed fat（凝住的油）</li><li class="is-confuse"><strong>易混</strong>freeze 是冻住；clot 专指血结成块；congeal 泛指稠的液体慢慢变稠、凝住。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--orange" id="n074" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 074</span><span class="card__page">p. 15</span><span class="card__pen orange">好句</span></div>
@@ -1068,7 +1105,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 15</span><blockquote class="card__quote" lang="en">bitter cold, <mark>torrential</mark> rain</blockquote><p class="card__gist">刺骨的寒冷，瓢泼的大雨。</p></div>
 <p class="card__note"><b>解读</b>名词 torrent 是急流、洪流。这一句说她美，不像温室里的花，而像一朵在烈日、严寒、暴雨里长大的野玫瑰。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>torrential rain / downpour（倾盆大雨）· a torrent of（一连串的，如 a torrent of abuse 一连串的辱骂）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n076" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 076</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -1078,7 +1115,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 15</span><blockquote class="card__quote" lang="en">Sun-<mark>chapped</mark> lips</blockquote><p class="card__gist">被太阳晒得干裂的嘴唇。</p></div>
 <p class="card__note"><b>解读</b>牛津说一般是风吹、天冷弄的；这里是作者造的 sun-chapped，被太阳晒裂的，正接着前面“在烈日下长大”的那个比喻。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>chapped lips / hands（干裂的嘴唇 / 手）· lip balm（润唇膏）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n077" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 077</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -1088,7 +1125,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 15</span><blockquote class="card__quote" lang="en">the white-pine and <mark>cedar-tree</mark> forest</blockquote><p class="card__gist">那片白松和雪松的林子。</p></div>
 <p class="card__note"><b>解读</b>这些树长在采石场顶上的石壁边缘，围成一圈。John 抬头往上看，总觉得林子里有人在看着他。雪松木是红色的，有股香味，常用来做衣柜防虫。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>cedar chest（雪松木箱）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n078" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 078</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -1098,7 +1135,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 15</span><blockquote class="card__quote" lang="en">He sees nothing to <mark>substantiate</mark> this</blockquote><p class="card__gist">他看不到任何东西能证实这一点。</p></div>
 <p class="card__note"><b>解读</b>牛津标着这是正式的词，常在新闻、法律里见到。“这一点”指他突然确信的念头：她不是一个人来的。可四下看看，什么证据都没有。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>substantiate a claim（证实某个说法）· unsubstantiated（没有根据的）</li><li class="is-confuse"><strong>易混</strong>prove 最常用；confirm 是确认本来就有人说过的事；substantiate 是拿出证据来坐实。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">congeal torrential chapped cedar substantiate</pre></div>
 </section>
@@ -1113,7 +1150,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 16</span><blockquote class="card__quote" lang="en">a nylon tan wallet, and a <mark>jackknife</mark></blockquote><p class="card__gist">一个棕褐色的尼龙钱包，还有一把折刀。</p></div>
 <p class="card__note"><b>解读</b>复数是 jackknives。它当动词还有个很形象的意思：拖挂卡车失控时，车头和车厢折成一个 V 字，叫 jackknife。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>pocketknife / penknife 是小折刀；jackknife 个头更大。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n080" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 080</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -1122,7 +1159,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <p class="card__en" lang="en">a brand of menthol cigarettes</p>
 <div class="card__ctx"><span class="card__band">原文 · p. 16</span><blockquote class="card__quote" lang="en">an open box of <mark>Kools</mark></blockquote><p class="card__gist">一包拆开了的酷斯烟。</p></div>
 <p class="card__note"><b>解读</b>美国的老牌薄荷烟，名字取 cool（清凉）的谐音。这是个牌子，词典里查不到，所以欧路列表里没放。这一串是 John 从女孩的包里翻出来的东西，一件件列出来，像在拼一个陌生人的生活。</p>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n081" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 081</span><span class="card__pen blue">生词</span><span class="card__kind">名物</span></div>
@@ -1132,7 +1169,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 16</span><blockquote class="card__quote" lang="en">a large pair of turkey <mark>vultures</mark> casually circle</blockquote><p class="card__gist">一对大个头的红头美洲鹫悠闲地盘旋着。</p></div>
 <p class="card__note"><b>解读</b>turkey vulture 就是第 8 页 buzzard 说的那种鸟，美国人口语里管它叫 buzzard。头是红的，没毛，像火鸡，所以叫 turkey vulture。它们在天上打转，往往是闻到了死亡的气味。casually（悠悠地）用在这里，跟 John 的惊慌正好相反。牛津还收了比喻义：趁人之危捞好处的人。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>vultures circling overhead（秃鹫在头顶盘旋）</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--orange" id="n082" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 082</span><span class="card__page">p. 16</span><span class="card__pen orange">好句</span></div>
@@ -1149,7 +1186,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 16</span><blockquote class="card__quote" lang="en">in a looping <mark>scrawl</mark></blockquote><p class="card__gist">用一笔绕来绕去的潦草字写着。</p></div>
 <p class="card__note"><b>解读</b>looping 是写字时笔画打着圈，像小女生那种圆圆的连笔。第 18 页开头又说那封信写在 the same awkward scrawl 里，也是这个词。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>scribble 意思很接近，也是乱写、潦草；scrawl 更强调字大、乱、难认。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n084" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 084</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -1159,7 +1196,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 16</span><blockquote class="card__quote" lang="en">he <mark>burly</mark>, with horn-rimmed glasses</blockquote><p class="card__gist">男的五大三粗，戴一副牛角框眼镜。</p></div>
 <p class="card__note"><b>解读</b>牛津说它一般只用来形容男人。照片上是一对五十来岁的夫妻，he 和 she 两个短句对着写，一个 burly，一个 plumpish。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>brawny 也是壮，偏肌肉结实；burly 是又高又壮又沉。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n085" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 085</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -1169,7 +1206,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 16</span><blockquote class="card__quote" lang="en">she <mark>plumpish</mark> and smiling</blockquote><p class="card__gist">女的微胖，笑眯眯的。</p></div>
 <p class="card__note"><b>解读</b>plump 是“丰满、微胖”，说人时是很客气、甚至带点可爱的说法；后面加 -ish，意思是“有那么一点”，就更轻了。英文解释是按 plump 的释义改写的，欧路里用 plump 查。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>fat 很直接，常带贬义；plump 委婉，带点圆润可爱；chubby 多说小孩的胖嘟嘟。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">jackknife vulture scrawl burly plump</pre></div>
 </section>
@@ -1184,7 +1221,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 17</span><blockquote class="card__quote" lang="en">curled upward at the corners in a <mark>grudging</mark> half smile</blockquote><p class="card__gist">嘴角往上一撇，勉强挤出半个笑。</p></div>
 <p class="card__note"><b>解读</b>照片上那个跟她挽着胳膊的男人，二十八九或三十出头，黑头发梳得油亮。一个 grudging half smile，就是不情不愿、只肯笑一半的那种笑。名词 grudge 是“怨恨、不满”，hold a grudge 是记仇。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>a grudging admiration（不情愿的佩服）· grudgingly admit（勉强承认）· hold a grudge（记仇）</li><li class="is-confuse"><strong>易混</strong>reluctant 是心里不愿意；grudging 还带着一点不服气、舍不得给。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n087" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 087</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -1194,7 +1231,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 17</span><blockquote class="card__quote" lang="en">his fingers <mark>kneading</mark> a thigh</blockquote><p class="card__gist">他的手指捏到了一截大腿。</p></div>
 <p class="card__note"><b>解读</b>k 不发音，读音跟 need 一样。最常用来说揉面团，也能说按摩时揉捏肌肉。这里他想摸她裤兜，结果口袋没了，手直接按在了腿上。温热、柔软得像活人，吓得他赶紧缩手。</p>
 <ul class="card__extra"><li class="is-collo"><strong>搭配</strong>knead the dough（揉面）· knead the muscles（按揉肌肉）</li><li class="is-confuse"><strong>易混</strong>同音的 need（需要）；同样 k 不发音的还有 knee、knife、knock。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <article class="card card--blue" id="n088" data-comment-target>
 <div class="card__meta"><span class="card__no">No. 088</span><span class="card__pen blue">生词</span><span class="card__kind">单词</span></div>
@@ -1204,7 +1241,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 17</span><blockquote class="card__quote" lang="en">rolls the <mark>cadaver</mark> toward him</blockquote><p class="card__gist">把尸体朝自己这边翻过来。</p></div>
 <p class="card__note"><b>解读</b>牛津标着这是专业用语，多用在医学、法医里，医学院上解剖课用的遗体就叫 cadaver。几页里作者换着用 body、corpse、cadaver，这里用最冷的一个词：前一刻他还在跟她道歉，这一刻只能把她当成一具需要处理的尸体。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>body 最常用；corpse 是一般说法的尸体；cadaver 是医学上的正式说法，听起来最冷。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">grudging knead cadaver</pre></div>
 </section>
@@ -1219,7 +1256,7 @@ details.tipbox .tips{margin-top:.8rem;}
 <div class="card__ctx"><span class="card__band">原文 · p. 19</span><blockquote class="card__quote" lang="en">what just come <mark>hobbling</mark> in here with me</blockquote><p class="card__gist">刚刚有个什么一瘸一拐地走了进来，到了我这儿。</p></div>
 <p class="card__note"><b>解读</b>这是女孩那封没写完的信的最后几行。她写的是 come，不是 came，信里还有 couldn’t take it no more、there weren’t no time 这样的说法，都是乡下口语，不合语法，但就是她说话的样子。她写到这里就停住了。牛津另外还有两个意思：把马的两条腿绑在一起防它跑掉；阻碍、拖后腿。</p>
 <ul class="card__extra"><li class="is-confuse"><strong>易混</strong>limp 也是瘸着走，多指一条腿有伤；hobble 更显得费劲、步子小、走不稳。</li></ul>
-<div class="card__foot"><button type="button" class="card__ask" hidden>批注</button></div>
+<div class="card__foot"><a class="card__back" href="#wordlist">↑ 词表</a><button type="button" class="card__ask" hidden>批注</button></div>
 </article>
 <div class="eudic"><p class="eudic__h">📋 欧路词典导入列表（A Single Shot）<button type="button" class="eudic__copy">复制</button></p><pre lang="en">hobble</pre></div>
 </section>
@@ -1227,6 +1264,25 @@ details.tipbox .tips{margin-top:.8rem;}
 </div>
 </div>
 <script>
+(function () {
+  var wl = document.getElementById('wordlist');
+  if (!wl) return;
+  [].forEach.call(wl.querySelectorAll('.wl__tab'), function (t) {
+    t.addEventListener('click', function () {
+      var k = t.getAttribute('data-wl');
+      [].forEach.call(wl.querySelectorAll('.wl__tab'), function (x) {
+        var on = x === t; x.classList.toggle('is-on', on); x.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      [].forEach.call(wl.querySelectorAll('.wl__pane'), function (p) { p.hidden = p.getAttribute('data-wl') !== k; });
+      try { localStorage.setItem('ws-reading-wl', k); } catch (e) {}
+    });
+  });
+  try { var k = localStorage.getItem('ws-reading-wl'); if (k === 'seq') wl.querySelector('.wl__tab[data-wl="seq"]').click(); } catch (e) {}
+  // 从卡片点「↑ 词表」回来时自动展开
+  [].forEach.call(document.querySelectorAll('a[href="#wordlist"]'), function (a) {
+    a.addEventListener('click', function () { wl.open = true; });
+  });
+})();
 (function () {
   var ss = window.speechSynthesis;
   if (!ss || !window.SpeechSynthesisUtterance) return;
