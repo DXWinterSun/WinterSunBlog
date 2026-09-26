@@ -14,7 +14,7 @@ book:
   palette: "Wintergreen"     # 取 _data/au_palettes.yml 里 John Moon 那套颜色，跟 Wintergreen 系列同色
   highlighters:              # 网页上两支荧光笔的颜色，跟她书上的笔同色
     blue: "#7fd6dc"          # 蓝＝生词
-    pink: "#f5ad8e"          # 粉＝词认识，但搭配 / 用法值得对照
+    pink: "#f2a7c6"          # 粉＝词认识，但用法对她来说新颖、值得对照（第 4、5 页 dressed、cocks 她确认是粉）
     orange: "#f7b27c"        # 橙＝她觉得表达效果好的句子，跟学词无关（2026-09-26 第 11–13 页起）
   detail: full               # 详略 lite / standard / full —— 2026-09-26 她挑了 C「详细」
   detail_picked: true        # 已挑定：样板区只留她选的那一版
@@ -1155,3 +1155,74 @@ batches:
         context: "==John looks up at the sky. It looks just as it did five minutes before. He can’t figure out how that can be.=="
         gist: John 抬头看天。天跟五分钟前一模一样。他想不通，怎么会这样。
         note: 三句都很短、很平，不写他怎么崩溃，只写他抬头看天。天一点都没变，可他的人生就在这五分钟里变了。这正好接上第 12 页那句“一秒钟之内开始、改变、被抹去”：前面是他想起来的一句书上的话，到这里成了真事。
+
+  - n: 12
+    date: 2026-09-26
+    pages: 14
+    photos: 1
+    notes:
+      - id: "068"
+        page: 14
+        color: blue
+        term: slithers
+        lemma: slither
+        kind: 单词
+        ipa: /ˈslɪðərz/
+        pos: v.
+        cn: （蛇）贴着地面滑过去
+        en: to move somewhere in a smooth, controlled way, often close to the ground
+        en_src: 牛津 8
+        context: "==slithers== over the dead girl’s feet"
+        gist: 从死去女孩的脚上滑了过去。
+        note: 牛津的例句就是蛇：The snake slithered away。这个词的 sl- 开头本身就带着“滑溜”的感觉，slide、slip、slither 都是。
+        extra:
+          - "**易混**slide 是一般的滑；slither 专指贴着地、扭着身子滑，蛇和蜥蜴最常用。"
+
+      - id: "069"
+        page: 14
+        color: blue
+        term: hog snake
+        eudic: false
+        kind: 方言
+        ipa: /ˈhɑːɡ sneɪk/
+        pos: n.
+        cn: 猪鼻蛇（美国东部一种无毒的蛇）
+        en: a harmless snake of the eastern US with an upturned snout, usually called a hognose snake
+        context: "A ==hog snake== slithers over"
+        gist: 一条猪鼻蛇滑了过去。
+        note: 牛津查不到，这是乡下的叫法，正式名称是 eastern hognose snake。它的鼻头往上翘，像猪鼻子，所以得了这个名字。这种蛇没有毒，受惊时会装死。欧路里很可能也查不到，所以列表里没放。
+        unsure: 我是按地方叫法推断的，书里没有描写它的样子，所以只能说“多半是”猪鼻蛇。
+
+      - id: "070"
+        page: 14
+        color: orange
+        term: 好句
+        context: "and ==though they fought in wars and he didn’t, he is the first among them to kill someone=="
+        gist: 他们都上过战场，他没有，可偏偏是他，成了他们当中第一个杀了人的。
+        note: “他们”是他的父亲和祖父。两代人都打过仗，照理说杀人的该是他们；一辈子没上过战场的 John，却在一个普通的星期天早上成了家里第一个杀人的人。前半句的“打过仗”和后半句的“杀了人”对得很冷，一句话就把他跟父辈之间的那份讽刺说尽了。
+
+      - id: "071"
+        page: 14
+        color: orange
+        term: 好句
+        context: "==They might even still live with him.=="
+        gist: 她们说不定到现在还跟他住在一起。
+        note: 前一句说：要是父亲没把家里的农场弄丢，他就不必去偷猎来养活妻子和儿子。紧接着就是这一句，很短，没有一个伤心的字。读到这里才知道，妻子和儿子已经不跟他住在一起了。作者把这件事塞在一个“might even”里，轻轻带过，反而更疼。
+
+      - id: "072"
+        page: 14
+        color: blue
+        term: throbs
+        lemma: throb
+        kind: 单词
+        ipa: /θrɑːbz/
+        pos: v.
+        cn: 一跳一跳地疼
+        en: (of a part of the body) to feel a series of regular painful movements
+        en_src: 牛津 8
+        context: "His left shoulder ==throbs=="
+        gist: 他的左肩一跳一跳地疼。
+        note: 就是那种跟着心跳一下一下抽着疼的感觉，被鹿角扎的伤口就是这样。throb 也能说心脏、音乐、发动机有节奏地跳动。
+        extra:
+          - "**搭配**a throbbing headache（一跳一跳的头疼）· throb with excitement（激动得心怦怦跳）"
+          - "**易混**ache 是持续的钝痛；throb 是一阵一阵、有节奏地疼。"
