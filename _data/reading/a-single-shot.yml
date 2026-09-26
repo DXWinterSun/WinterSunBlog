@@ -749,3 +749,94 @@ batches:
         extra:
           - "**搭配**a frantic search（发疯似的找）· frantic with worry（急得要命）"
           - "**易混**hectic 是事情多、忙得团团转；frantic 更慌乱，带着害怕或着急。"
+
+  - n: 7
+    date: 2026-09-26
+    pages: 9
+    photos: 1
+    notes:
+      - id: "043"
+        page: 9
+        color: blue
+        term: dislodged
+        lemma: dislodge
+        kind: 单词
+        ipa: /dɪsˈlɑːdʒd/
+        pos: v.
+        cn: 被碰松、挪了位
+        en: to force or knock something out of its position
+        en_src: 牛津 8
+        context: "smaller rocks freshly ==dislodged=="
+        gist: 一些小石子像是刚被碰得挪了位。
+        note: 牛津标着这是比较正式的词。John 蹲下细看，想弄清这条土路是刚有车开过，还是两天前那场冰雹砸的。
+        extra:
+          - "**搭配**dislodge sth from sth（把……从……弄下来）"
+          - "**易混**move 只是“挪动”；dislodge 是把原本卡在、嵌在某处的东西硬弄松、弄出来。"
+
+      - id: "044"
+        page: 9
+        color: blue
+        term: blue jays
+        lemma: blue jay
+        eudic: bluejay
+        kind: 名物
+        ipa: /ˈbluː dʒeɪz/
+        pos: n.
+        cn: 冠蓝鸦
+        en: a large North American bird with blue feathers on its back and a row of feathers (called a crest) standing up on its head
+        en_src: 牛津 8
+        context: "A flock of ==blue jays== suddenly flies up"
+        gist: 一群冠蓝鸦突然从采石场里飞了起来。
+        note: 背上是亮蓝色，头顶一撮竖起来的毛，叫声又尖又吵。它们一炸窝，往往说明底下有什么东西惊动了它们。牛津把它写成一个词 bluejay，书里分开写，两种都有人用。
+        extra:
+          - "**搭配**a flock of birds（一群鸟）"
+
+      - id: "045"
+        page: 9
+        color: blue
+        term: squawking
+        lemma: squawk
+        kind: 单词
+        ipa: /ˈskwɔːkɪŋ/
+        pos: v.
+        cn: （鸟）尖声怪叫
+        en: (of birds) to make a loud sharp sound
+        en_src: 牛津 8
+        context: "starts ==squawking==, flat out scaring John"
+        gist: 开始嘎嘎尖叫，把 John 结结实实吓了一跳。
+        note: flat out 是美国口语“完完全全、结结实实”，叙述在这里带上了 John 自己的口气。squawk 用在人身上，是气急了、吓着了的尖声嚷嚷。
+        extra:
+          - "**易混**第 5 页的 caw 专指乌鸦那种呱呱声；squawk 是更刺耳、更慌乱的尖叫，鹦鹉、鸡、松鸦都用它。"
+
+      - id: "046"
+        page: 9
+        color: blue
+        term: spruce
+        kind: 一词多义
+        ipa: /spruːs/
+        pos: n.
+        cn: 云杉
+        en: an evergreen forest tree with leaves like needles
+        en_src: 牛津 8
+        context: "He smells ==spruce=="
+        gist: 他闻到了云杉的气味。
+        note: 路两边种的都是云杉。它还有两个跟树毫无关系的意思：形容词 spruce 是“整洁利落的”，spruce up 是“打扮一番、收拾一新”。
+        extra:
+          - "**搭配**spruce up（打扮、收拾）"
+          - "**易混**pine 松树的针叶是几根一束长的；spruce 云杉的针叶短，一根一根单独长在枝上。"
+
+      - id: "047"
+        page: 9
+        color: blue
+        term: chassis
+        kind: 名物
+        ipa: /ˈʃæsi/
+        pos: n.
+        cn: （车的）底盘
+        en: the frame that a vehicle is built on
+        en_src: 牛津 8
+        context: "junked truck ==chassis=="
+        gist: 报废卡车的底盘。
+        note: 读音要注意：ch 念 “sh”，结尾的 s 不发音。复数写法不变，但读成 /ˈʃæsiz/。这一串写的是废弃采石场里堆了多年的破烂：报废的卡车底盘、被掏空的发电机、盖着塑料布的棚子。
+        extra:
+          - "**搭配**junked（报废的，美式口语）· a gutted generator（掏空了的发电机）"
