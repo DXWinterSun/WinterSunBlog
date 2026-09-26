@@ -34,6 +34,12 @@ compare:
       - "**搭配**a wooded hollow（林子很密的山坳）· down in the hollow（在山坳底下）"
       - "**易混**valley 多指开阔的河谷；hollow 更小更窄，夹在两道山梁中间。"
 
+# 她挑定详略之后（book.detail_picked: true），「先挑详略」换成这一节，只留她选的那一版
+picked:
+  heading: 以后都照这个样子记
+  text: 你选了「{label}」。第一批照片一到，每一条都照这张卡的样子写。
+  fine: 这张样板卡的例句是我编的，不是书里的原文；你的第一批照片一到，这里就换成真正的笔记。
+
 after:
   heading: 批注之后长这样
   text: >-
@@ -46,9 +52,13 @@ after:
     ipa: /ˈrekən/
     pos: v.
     cn: 觉得；估摸着
+    en: to think or believe (informal)
     sentence: "“I ==reckon== the ground’ll freeze by Sunday,” he said."
     gist: “我估摸着，到礼拜天地就冻上了。”他说。
     note: 口语里的“我觉得”，比 think 更随口、更土一点，美国南方和乡下人常挂在嘴边。
+    extra:
+      - "**搭配**I reckon so（我看是吧）· reckon on（指望着、盘算着）"
+      - "**易混**guess 也是随口的“我猜”，reckon 更有乡土味；它另有一个正经些的意思“计算、估算”。"
     winter_label: Winter 的批注 · 示意
     winter: 你在这张卡上写的批注，会原样收在这里。
     qa:

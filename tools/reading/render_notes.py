@@ -315,21 +315,32 @@ def tips_list(items):
     return '<ol class="tips">' + ''.join(f'<li>{fmt(t)}</li>' for t in items) + '</ol>'
 
 
-def demo_body(demo):
-    c = demo['compare']
-    picks = []
-    for i, (lvl, label, note) in enumerate(c['levels']):
-        small = f'<small>{esc(note)}</small>' if note else ''
-        picks.append(f'<div class="pick"><span class="pick__label">{esc(label)}{small}</span>\n'
-                     + card(c['note'], lvl, f'demo-{lvl}') + '</div>')
-    a = demo['after']
-    t = demo['tips']
-    return (f'<section id="pick">\n<h2>{esc(c["heading"])}</h2>\n'
-            f'<p class="section-text">{fmt(c["text"])}</p>\n' + '\n'.join(picks)
-            + f'\n<p class="fine">{fmt(c["fine"])}</p>\n</section>\n'
-            f'<section id="after">\n<h2>{esc(a["heading"])}</h2>\n'
+def demo_body(demo, book):
+    c, a, t = demo['compare'], demo['after'], demo['tips']
+    level = book.get('detail') or 'standard'
+    if book.get('detail_picked'):
+        # 她已经挑定详略：只留她选的那一版
+        p = demo['picked']
+        label = next((lab for lv, lab, _ in c['levels'] if lv == level), level)
+        first = (f'<section id="pick">\n<h2>{esc(p["heading"])}</h2>\n'
+                 f'<p class="section-text">{fmt(p["text"].replace("{label}", label))}</p>\n'
+                 + card(c['note'], level, f'demo-{level}')
+                 + f'\n<p class="fine">{fmt(p["fine"])}</p>\n</section>\n')
+        after_level = level
+    else:
+        picks = []
+        for lvl, label, note in c['levels']:
+            small = f'<small>{esc(note)}</small>' if note else ''
+            picks.append(f'<div class="pick"><span class="pick__label">{esc(label)}{small}</span>\n'
+                         + card(c['note'], lvl, f'demo-{lvl}') + '</div>')
+        first = (f'<section id="pick">\n<h2>{esc(c["heading"])}</h2>\n'
+                 f'<p class="section-text">{fmt(c["text"])}</p>\n' + '\n'.join(picks)
+                 + f'\n<p class="fine">{fmt(c["fine"])}</p>\n</section>\n')
+        after_level = a.get('level', 'standard')
+    return (first
+            + f'<section id="after">\n<h2>{esc(a["heading"])}</h2>\n'
             f'<p class="section-text">{fmt(a["text"])}</p>\n'
-            + card(a['note'], a.get('level', 'standard'), 'demo-after') + '\n</section>\n'
+            + card(a['note'], after_level, 'demo-after') + '\n</section>\n'
             f'<section id="tips">\n<h2>{esc(t["heading"])}</h2>\n{tips_list(t["items"])}\n</section>')
 
 
@@ -395,7 +406,7 @@ def main():
                 f'<details class="tipbox"><summary>{esc(demo["tips"]["heading"])}</summary>'
                 f'{tips_list(demo["tips"]["items"])}</details></div>')
     else:
-        body = demo_body(demo)
+        body = demo_body(demo, book)
         foot = f'<div class="foot"><p>{fmt(demo["foot"])}</p></div>'
 
     page_title = book.get('page_title') or f'{title} 原著笔记'
