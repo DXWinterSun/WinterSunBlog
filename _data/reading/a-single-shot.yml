@@ -1487,3 +1487,26 @@ batches:
         note: 牛津标着这是专业用语，多用在医学、法医里，医学院上解剖课用的遗体就叫 cadaver。几页里作者换着用 body、corpse、cadaver，这里用最冷的一个词：前一刻他还在跟她道歉，这一刻只能把她当成一具需要处理的尸体。
         extra:
           - "**易混**body 最常用；corpse 是一般说法的尸体；cadaver 是医学上的正式说法，听起来最冷。"
+
+  - n: 16
+    date: 2026-09-26
+    pages: 19
+    photos: 1
+    remark: 第 18 页没有划线
+    notes:
+      - id: "089"
+        page: 19
+        color: blue
+        term: hobbling
+        lemma: hobble
+        kind: 单词
+        ipa: /ˈhɑːblɪŋ/
+        pos: v.
+        cn: 一瘸一拐地走
+        en: to walk with difficulty, especially because your feet or legs hurt
+        en_src: 牛津 8
+        context: "what just come ==hobbling== in here with me"
+        gist: 刚刚有个什么一瘸一拐地走了进来，到了我这儿。
+        note: 这是女孩那封没写完的信的最后几行。她写的是 come，不是 came，信里还有 couldn’t take it no more、there weren’t no time 这样的说法，都是乡下口语，不合语法，但就是她说话的样子。她写到这里就停住了。牛津另外还有两个意思：把马的两条腿绑在一起防它跑掉；阻碍、拖后腿。
+        extra:
+          - "**易混**limp 也是瘸着走，多指一条腿有伤；hobble 更显得费劲、步子小、走不稳。"
