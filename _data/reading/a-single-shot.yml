@@ -1431,3 +1431,59 @@ batches:
         note: plump 是“丰满、微胖”，说人时是很客气、甚至带点可爱的说法；后面加 -ish，意思是“有那么一点”，就更轻了。英文解释是按 plump 的释义改写的，欧路里用 plump 查。
         extra:
           - "**易混**fat 很直接，常带贬义；plump 委婉，带点圆润可爱；chubby 多说小孩的胖嘟嘟。"
+
+  - n: 15
+    date: 2026-09-26
+    pages: 17
+    photos: 1
+    notes:
+      - id: "086"
+        page: 17
+        color: blue
+        term: grudging
+        kind: 单词
+        ipa: /ˈɡrʌdʒɪŋ/
+        pos: adj.
+        cn: 勉勉强强的
+        en: given or done unwillingly
+        en_src: 牛津 8
+        context: "curled upward at the corners in a ==grudging== half smile"
+        gist: 嘴角往上一撇，勉强挤出半个笑。
+        note: 照片上那个跟她挽着胳膊的男人，二十八九或三十出头，黑头发梳得油亮。一个 grudging half smile，就是不情不愿、只肯笑一半的那种笑。名词 grudge 是“怨恨、不满”，hold a grudge 是记仇。
+        extra:
+          - "**搭配**a grudging admiration（不情愿的佩服）· grudgingly admit（勉强承认）· hold a grudge（记仇）"
+          - "**易混**reluctant 是心里不愿意；grudging 还带着一点不服气、舍不得给。"
+
+      - id: "087"
+        page: 17
+        color: blue
+        term: kneading
+        lemma: knead
+        kind: 单词
+        ipa: /ˈniːdɪŋ/
+        pos: v.
+        cn: 揉、捏
+        en: to press and stretch dough, wet clay, etc. with your hands to make it ready to use
+        en_src: 牛津 8
+        context: "his fingers ==kneading== a thigh"
+        gist: 他的手指捏到了一截大腿。
+        note: k 不发音，读音跟 need 一样。最常用来说揉面团，也能说按摩时揉捏肌肉。这里他想摸她裤兜，结果口袋没了，手直接按在了腿上。温热、柔软得像活人，吓得他赶紧缩手。
+        extra:
+          - "**搭配**knead the dough（揉面）· knead the muscles（按揉肌肉）"
+          - "**易混**同音的 need（需要）；同样 k 不发音的还有 knee、knife、knock。"
+
+      - id: "088"
+        page: 17
+        color: blue
+        term: cadaver
+        kind: 单词
+        ipa: /kəˈdævər/
+        pos: n.
+        cn: 尸体
+        en: a dead human body
+        en_src: 牛津 8
+        context: "rolls the ==cadaver== toward him"
+        gist: 把尸体朝自己这边翻过来。
+        note: 牛津标着这是专业用语，多用在医学、法医里，医学院上解剖课用的遗体就叫 cadaver。几页里作者换着用 body、corpse、cadaver，这里用最冷的一个词：前一刻他还在跟她道歉，这一刻只能把她当成一具需要处理的尸体。
+        extra:
+          - "**易混**body 最常用；corpse 是一般说法的尸体；cadaver 是医学上的正式说法，听起来最冷。"
