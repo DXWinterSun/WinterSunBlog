@@ -14,7 +14,7 @@ book:
   palette: "Wintergreen"     # 取 _data/au_palettes.yml 里 John Moon 那套颜色，跟 Wintergreen 系列同色
   highlighters:              # 网页上两支荧光笔的颜色，跟她书上的笔同色
     blue: "#7fd6dc"          # 蓝＝生词
-    pink: "#f2a7c6"          # 粉＝词认识，但搭配 / 用法值得对照
+    pink: "#f5ad8e"          # 粉＝词认识，但搭配 / 用法值得对照（她那支“粉”其实偏橘，第 4、5 页照片为准）
   detail: full               # 详略 lite / standard / full —— 2026-09-26 她挑了 C「详细」
   detail_picked: true        # 已挑定：样板区只留她选的那一版
   artifact: "https://claude.ai/artifact/AMf2jtPtJ16KX99RCZNuCq"   # 笔记网页（2026-09-26 首发），之后永远更新这一个
@@ -92,3 +92,174 @@ batches:
         extra:
           - "**搭配**converge on（从各处汇聚到某地，人群、目光都能用）· converging lines（汇聚线）"
           - "**易混**反义是 diverge（分岔、分开）；merge 是两股并成一股，比如车道并线。"
+
+  - n: 2
+    date: 2026-09-26
+    pages: 4
+    photos: 1
+    notes:
+      - id: "005"
+        page: 4
+        color: blue
+        term: poachers
+        lemma: poacher
+        kind: 单词
+        ipa: /ˈpoʊtʃərz/
+        pos: n.
+        cn: 偷猎的人
+        en: a person who illegally hunts birds, animals or fish on somebody else's property
+        en_src: 牛津 8
+        context: "to search for would-be ==poachers=="
+        gist: 去搜查那些想来偷猎的人。
+        note: would-be 是“想要当……的、打算做……的”。这句前面的 green cap 指戴绿帽子的野生动物保护官，也就是管打猎的执法人员。John 在心里宽自己的心：那种人不会天不亮就出来抓偷猎的。
+        extra:
+          - "**搭配**poach a deer（偷猎一头鹿）· poach eggs（水煮荷包蛋，同一个 poach）"
+          - "**易混**hunter 是合法打猎的人；poacher 专指不合法的，在别人的地上、禁猎期、保护区里打。"
+
+      - id: "006"
+        page: 4
+        color: blue
+        term: shrugs
+        lemma: shrug
+        kind: 单词
+        ipa: /ʃrʌɡz/
+        pos: v.
+        cn: 耸耸肩
+        en: to raise your shoulders and then drop them to show that you do not know or care about something
+        en_src: 牛津 8
+        context: "John ==shrugs==, then starts walking"
+        gist: John 耸耸肩，接着往山上走。
+        note: 这本书整本用现在时讲故事，所以是 shrugs，不是 shrugged。耸肩在这里是“算了，不想了”的意思：他把那辆车的事放下了。
+        extra:
+          - "**搭配**shrug your shoulders（耸耸肩）· shrug off（不当回事，比如 shrug off the injury 不把伤当回事）"
+
+      - id: "007"
+        page: 4
+        color: blue
+        term: pine needles
+        lemma: pine needle
+        eudic: needle
+        kind: 名物
+        ipa: /ˈpaɪn ˌniːdlz/
+        pos: n.
+        cn: 松针
+        en: the thin, pointed leaves of a pine tree
+        context: "a soft bed of ==pine needles=="
+        gist: 厚厚一层软软的松针。
+        note: needle 本义是“针”，松树的叶子又细又尖，所以叫松针。这里的 bed 不是床，是“铺了一层的底”。后半句说他走在松针上，脚步声在耳朵里响得像踩在雪上，形容林子里静得出奇。
+        extra:
+          - "**搭配**a bed of pine needles / leaves（一层松针 / 落叶）"
+
+      - id: "008"
+        page: 4
+        color: blue
+        term: ten-point buck
+        eudic: buck
+        kind: 打猎用语
+        ipa: /ˌten pɔɪnt ˈbʌk/
+        pos: n.
+        cn: 十个叉的公鹿
+        en: a male deer whose antlers have ten points in all
+        context: "looking for a ==ten-point buck=="
+        gist: 他在找一头鹿角长了十个叉的公鹿。
+        note: 美国猎人习惯数鹿角上有几个尖来说一头公鹿有多大，美国东部是两边加起来数。叉越多，鹿越大越老，十个叉已经是很像样的猎物了。buck 在口语里最常见的意思是“一美元”，牛津把这个意思排在第一；这里是第二个意思“公鹿”。
+        extra:
+          - "**易混**buck 公鹿（也指公兔）；doe 母鹿；stag 也是公鹿，多指英国那种高大的赤鹿；deer 泛指鹿，单复数同形。"
+
+      - id: "009"
+        page: 4
+        color: blue
+        term: binoculars
+        kind: 单词
+        ipa: /bɪˈnɑːkjələrz/
+        pos: n.
+        cn: 双筒望远镜
+        en: an instrument, like two small telescopes fixed together, that makes objects that are far away seem nearer
+        en_src: 牛津 8
+        context: "through ==binoculars==, he watched it"
+        gist: 他用双筒望远镜看着它。
+        note: 这个词永远是复数形式，说一副要讲 a pair of binoculars。
+        extra:
+          - "**搭配**a pair of binoculars（一副双筒望远镜）· through binoculars（用望远镜看）"
+          - "**易混**telescope 是单筒的望远镜，看星星那种。"
+
+      - id: "010"
+        page: 4
+        color: blue
+        term: graze
+        kind: 一词多义
+        ipa: /ɡreɪz/
+        pos: v.
+        cn: （牛羊鹿）吃草
+        en: (of cows, sheep, etc.) to eat grass that is growing in a field
+        en_src: 牛津 8
+        context: "he watched it ==graze== for several minutes"
+        gist: 他看着它在林子边上吃了好几分钟草。
+        note: watch sb do sth，看着某个动作从头到尾，所以 graze 用原形。graze 还常指“擦破皮、擦过”，牛津的例子是 The bullet grazed his cheek（子弹擦过他的脸颊）。在打猎的书里，这个意思说不定也会碰到。
+        extra:
+          - "**搭配**graze on grass（啃草）· graze cattle（放牛）· a graze on the knee（膝盖上擦破的皮）"
+
+      - id: "011"
+        page: 4
+        color: blue
+        term: loped
+        lemma: lope
+        kind: 单词
+        ipa: /loʊpt/
+        pos: v.
+        cn: 轻快地大步跑
+        en: to run taking long relaxed steps
+        en_src: 牛津 8
+        context: "before it ==loped== into the pines"
+        gist: 然后它轻轻松松地大步跑进了松林。
+        note: 重点在“不慌不忙”：步子大，但一点都不急。一头没被惊动的鹿就是这么走的。
+        extra:
+          - "**易混**jog 慢跑；gallop 马的全速飞奔；lope 介于两者之间，步子大而从容。"
+
+      - id: "012"
+        page: 4
+        color: pink
+        term: dressed
+        lemma: dress
+        kind: 打猎用语
+        ipa: /drest/
+        pos: adj.
+        cn: （猎物）宰好收拾干净的
+        en: (of meat) prepared for cooking by removing the parts you cannot eat
+        context: "a hundred fifty pounds of ==dressed== venison"
+        gist: 一百五十磅收拾干净的鹿肉。
+        note: 平时 dressed 是“穿好衣服的”。牛津在 dress 下面另有一个意思“烹调前处理食物”，例子是 to dress a chicken，就是给鸡去毛开膛。猎人说 field-dress a deer，指打到鹿后当场开膛、掏掉内脏；dressed 重量就是去掉内脏以后的净重。一百五十磅约合六十八公斤。
+        extra:
+          - "**搭配**field-dress a deer（在野外给鹿开膛去内脏）· dress a salad（给沙拉拌调料，也是这个 dress）"
+
+      - id: "013"
+        page: 4
+        color: blue
+        term: venison
+        kind: 名物
+        ipa: /ˈvenɪsən/
+        pos: n.
+        cn: 鹿肉
+        en: meat from a deer
+        en_src: 牛津 8
+        context: "dressed ==venison== versus the thousand dollars"
+        gist: 鹿肉对上一千美元（的罚款）。
+        note: 这一句是 John 在心里算账：一边是一百五十磅鹿肉，一边是上千美元罚款，外加可能蹲两个月牢，因为在州立保护区里、又不是打猎季节打鹿，是违法的。他算完，觉得值得冒这个险。
+        extra:
+          - "**易混**英语里活的动物和它的肉常是两个词：deer 和 venison、cow 和 beef、pig 和 pork、sheep 和 mutton。"
+
+      - id: "014"
+        page: 4
+        color: blue
+        term: deciduous
+        kind: 单词
+        ipa: /dɪˈsɪdʒuəs/
+        pos: adj.
+        cn: 落叶的（树）
+        en: (of a tree, bush, etc.) that loses its leaves every year
+        en_src: 牛津 8
+        context: "denser with ==deciduous== trees and brush"
+        gist: 落叶树和灌木越来越密。
+        note: 他正从松林往外走，松树一年四季都是绿的，再往前就换成了到秋天会掉叶子的树。这里的 brush 不是刷子，是“灌木丛”。
+        extra:
+          - "**易混**反义词是 evergreen（常绿的）。"
