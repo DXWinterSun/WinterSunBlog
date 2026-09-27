@@ -2035,7 +2035,7 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 - `c-comm__gap` 那行渲染成一道虚线，本身不占编号；`c-comm__last` 让最后一条发亮。
 - `c-comm__wait` 是底部那个一直闪的光标 + 一句没人回的状态词。
 
-### 4. `c-cassette` / `c-fridge`——章首「小物件」（卡带标签 / 冰箱门便利贴）
+### 4. `c-cassette` / `c-fridge` / `c-flyer` / `c-polaroid`——章首「小物件」
 
 2026-09-27 为 Everything in Transit 改版做的（Winter：「小物件放！作出样式就更好玩了」），全站可用。
 放在文首题词之后、第一个小节之前，当这一章的「纪念物」。手写字体只在正文用到这两个组件时才加载
@@ -2068,6 +2068,23 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 
 卡带标签上的字是实物上的字，按语言规则可以写英文原文；便利贴写中文（译文口径）即可。
 
+同批还有两种（字体同样按需加载）：
+
+```html
+<div class="c-flyer" role="group" aria-label="演出传单">   <!-- 复印店的演出传单，底下一排可撕的小条 -->
+  <p class="c-flyer__kicker">一行手写小字</p>
+  <p class="c-flyer__head">大标题</p>
+  <p class="c-flyer__sub">LIVE · 地点 · 日期</p>
+  <p class="c-flyer__body">两三行手写<br>第二行</p>
+  <div class="c-flyer__tabs"><span>撕条</span><span>撕条</span><span>撕条</span><span>撕条</span><span>撕条</span></div>
+</div>
+
+<div class="c-polaroid" role="group" aria-label="拍立得">  <!-- 没有真照片：画框里用一两句中文写画面 -->
+  <div class="c-polaroid__shot">一两句写照片里的画面。</div>
+  <span class="c-polaroid__caption">底下手写一行</span>
+</div>
+```
+
 ### 三种卡片怎么选
 
 | 内容 | 用哪个 |
@@ -2076,7 +2093,7 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 | 官方 / 盖章：公文、声明、判决、证书 | `c-decree` |
 | 科技设备屏幕上的消息串：飞船通讯板、终端、控制台 | `c-comm` |
 | 诺基亚时代按键机的单色屏短信（固定复古配色，不吃 AU 令牌） | `c-sms` |
-| 章首纪念物：一盘卡带 / 一扇贴满便利贴的冰箱门 | `c-cassette` / `c-fridge` |
+| 章首纪念物：卡带 / 冰箱门便利贴 / 演出传单 / 拍立得 | `c-cassette` / `c-fridge` / `c-flyer` / `c-polaroid` |
 
 ### 判断 formal 还是 note
 

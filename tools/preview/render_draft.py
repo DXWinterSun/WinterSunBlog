@@ -388,6 +388,113 @@ blockquote p:last-child{margin-bottom:0}
   .c-cassette__title { font-size: 15px; }
   .c-cassette__line { font-size: 17px; }
 }
+/* c-flyer 演出传单 / c-polaroid 拍立得 */
+.c-flyer {
+  position: relative;
+  max-width: 360px;
+  margin: 34px auto 30px;
+  padding: 22px 22px 18px;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,.035) 0 1px, transparent 1px 3px),
+    #f4f1ea;
+  color: #151311;
+  text-align: center;
+  box-shadow: 0 12px 26px rgba(0,0,0,.3);
+  transform: rotate(1.4deg);
+}
+.c-flyer::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 26px;
+  height: 4px;
+  margin-left: -13px;
+  border-radius: 1px;
+  background: linear-gradient(180deg, #d9d6cf, #8f8b83);
+}
+.c-flyer__kicker {
+  margin: 6px 0 4px;
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  font-size: 20px;
+  line-height: 1.1;
+  color: color-mix(in srgb, var(--accent) 75%, #000);
+}
+.c-flyer__head {
+  margin: 0;
+  font-family: 'Permanent Marker', 'Marker Felt', 'Comic Sans MS', cursive;
+  font-size: 30px;
+  line-height: 1.05;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.c-flyer__sub {
+  margin: 8px 0 12px;
+  padding: 4px 0;
+  border-top: 2px solid #151311;
+  border-bottom: 2px solid #151311;
+  font-family: 'Permanent Marker', 'Marker Felt', 'Comic Sans MS', cursive;
+  font-size: 15px;
+  letter-spacing: .06em;
+}
+.c-flyer__body {
+  margin: 0;
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  font-size: 20px;
+  line-height: 1.25;
+}
+.c-flyer__tabs {
+  display: flex;
+  gap: 4px;
+  margin: 14px -22px -18px;
+  padding: 0 6px;
+  border-top: 1px dashed #8b857a;
+}
+.c-flyer__tabs span {
+  flex: 1;
+  padding: 6px 0 8px;
+  border-right: 1px dashed #8b857a;
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  font-size: 13px;
+  line-height: 1.1;
+  writing-mode: vertical-rl;
+  margin-inline: auto;
+  height: 64px;
+}
+.c-flyer__tabs span:last-child { border-right: 0; }
+.c-polaroid {
+  max-width: 300px;
+  margin: 34px auto 30px;
+  padding: 14px 14px 0;
+  background: #fbfaf6;
+  color: #2b2722;
+  box-shadow: 0 12px 26px rgba(0,0,0,.3);
+  transform: rotate(-2deg);
+}
+.c-polaroid__shot {
+  display: flex;
+  align-items: flex-end;
+  min-height: 190px;
+  padding: 14px;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255,236,190,.55), transparent 60%),
+    linear-gradient(160deg, color-mix(in srgb, var(--accent) 55%, #3b2f2a), #1f2a33);
+  color: rgba(255,250,240,.88);
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.7;
+  text-align: left;
+}
+.c-polaroid__caption {
+  display: block;
+  padding: 12px 4px 16px;
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  font-size: 22px;
+  line-height: 1.15;
+  text-align: center;
+}
+.c-flyer p,.c-polaroid p{text-align:center}
+.c-polaroid__shot{text-align:left !important}
 /* c-comm —— 设备屏幕上的通讯记录（飞船通讯板 / 终端）。屏幕恒为暗，不随主题翻转。*/
 .c-comm{max-width:29rem;margin:2.6rem auto;border-radius:10px;overflow:hidden;
  border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);
