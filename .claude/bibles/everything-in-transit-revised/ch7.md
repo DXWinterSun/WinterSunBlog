@@ -373,3 +373,30 @@ Rob 走在前面，粉缎衬衫外面又套回了那件佩斯利外套，两只�
 > 那天晚上，你成了 D，他成了 C。  
 > 一盘带子搁在电视柜上，标签朝外。  
 > 你睡得很香，脚后跟上还有沙子。
+
+<aside class="c-song" role="group" aria-label="本章曲目">
+  <div class="c-song__eyebrow">本章曲目 · Song</div>
+  <div class="c-song__head">
+    <div class="c-song__art"><img src="{{ site.baseurl }}/images/everything-in-transit-album.jpeg" alt="Everything in Transit 专辑封面" loading="lazy"></div>
+    <div class="c-song__meta">
+      <h3 class="c-song__title">Holiday from Real</h3>
+      <p class="c-song__artist">Jack&rsquo;s Mannequin</p>
+      <p class="c-song__credit"><strong>词曲</strong> Andrew McMahon &nbsp;·&nbsp; <strong>收录于</strong>《Everything in Transit》(2005)</p>
+    </div>
+  </div>
+  <div class="c-song__lyrics">
+    <p>
+      <span class="c-song__en">But if you left it up to me</span>
+      <span class="c-song__cn">可要是由着我</span>
+      <span class="c-song__en">Every day would be a holiday from real</span>
+      <span class="c-song__cn">每一天，都会是一场逃离现实的假期</span>
+      <span class="c-song__en">We&rsquo;d waste our weeks beneath the sun</span>
+      <span class="c-song__cn">我们把一个个星期，虚度在太阳底下</span>
+      <span class="c-song__en">We&rsquo;d fry our brains and say it&rsquo;s so much fun out here</span>
+      <span class="c-song__cn">把脑子晒得发昏，嘴上却说这儿真快活</span>
+      <span class="c-song__en">But when it&rsquo;s all over, I&rsquo;ll come back for another year</span>
+      <span class="c-song__cn">可等一切结束，我还会回来，再过上一年</span>
+    </p>
+  </div>
+  <p class="c-song__note">本系列为非商业同人创作，歌曲版权归原作者与版权方所有。</p>
+</aside>
