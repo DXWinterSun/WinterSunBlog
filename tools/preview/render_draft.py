@@ -142,7 +142,7 @@ def to_html(src):
     return '\n'.join(out)
 
 
-CSS = '''<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;500;600;700&family=EB+Garamond:ital@0;1&display=swap">
+CSS = '''<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;500;600;700&family=EB+Garamond:ital@0;1&family=Caveat:wght@500&family=Permanent+Marker&display=swap">
 <style>
 :root{--bg:__BG__;--accent:__ACCENT__;--ink:__TEXT__;--muted:__MUTED__;}
 *{box-sizing:border-box}
@@ -212,6 +212,182 @@ blockquote p:last-child{margin-bottom:0}
 .c-chat__msg--img{font-style:italic;font-size:.82rem;color:var(--muted);border-style:dashed;}
 .c-chat__time{margin-top:4px;text-align:center;font-size:.66rem;letter-spacing:.12em;color:var(--muted);opacity:.8;}
 .c-note__sign{display:block;text-align:right;margin-top:1.1rem;opacity:.72;}
+/* c-cassette 卡带标签 / c-fridge 冰箱便利贴 —— 章首小物件，与 _extras.scss 同源 */
+.c-cassette {
+  max-width: 400px;
+  margin: 34px auto 30px;
+  text-align: center;
+}
+.c-cassette__shell {
+  position: relative;
+  padding: 16px 16px 38px;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 12px 12px, #6b645c 0 3px, transparent 3.5px),
+    radial-gradient(circle at calc(100% - 12px) 12px, #6b645c 0 3px, transparent 3.5px),
+    radial-gradient(circle at 12px calc(100% - 12px), #6b645c 0 3px, transparent 3.5px),
+    radial-gradient(circle at calc(100% - 12px) calc(100% - 12px), #6b645c 0 3px, transparent 3.5px),
+    linear-gradient(160deg, #3a342e 0%, #25211d 60%, #1c1916 100%);
+  box-shadow: 0 14px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.12);
+  transform: rotate(-1.2deg);
+}
+.c-cassette__shell::after {
+  content: "";
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  bottom: 0;
+  height: 26px;
+  background:
+    radial-gradient(circle at 30% 55%, #0f0d0b 0 4px, transparent 4.5px),
+    radial-gradient(circle at 70% 55%, #0f0d0b 0 4px, transparent 4.5px),
+    #2f2a25;
+  clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.c-cassette__label {
+  position: relative;
+  padding: 10px 14px 12px;
+  border-radius: 5px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 85%, #000) 0 7px, transparent 7px),
+    repeating-linear-gradient(180deg, transparent 0 21px, rgba(60,50,40,.13) 21px 22px),
+    #f3ead6;
+  color: #2c2620;
+  text-align: left;
+}
+.c-cassette__side {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: 'Permanent Marker', 'Marker Felt', 'Comic Sans MS', cursive;
+  font-size: 22px;
+  line-height: 1;
+  color: color-mix(in srgb, var(--accent) 80%, #000);
+}
+.c-cassette__title {
+  margin: 4px 0 6px 28px;
+  font-family: 'Permanent Marker', 'Marker Felt', 'Comic Sans MS', cursive;
+  font-size: 17px;
+  line-height: 1.3;
+  letter-spacing: .02em;
+}
+.c-cassette__window {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px auto 8px;
+  width: 64%;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 17px;
+  background: linear-gradient(180deg, #2a241f, #3d352e);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,.6);
+}
+.c-cassette__window i {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #f3ead6 0 4px, transparent 4.5px),
+    repeating-conic-gradient(#8a7a68 0 20deg, #5e5146 20deg 60deg);
+  box-shadow: 0 0 0 3px #4a3c30;
+}
+.c-cassette__line {
+  margin: 0;
+  text-align: left;
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  font-size: 19px;
+  line-height: 22px;
+}
+.c-cassette__date {
+  display: block;
+  margin-top: 4px;
+  text-align: right;
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  font-size: 17px;
+  color: #6d5f50;
+}
+.c-cassette__caption,
+.c-fridge__caption {
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: .04em;
+  color: var(--muted);
+  text-align: center;
+}
+.c-fridge {
+  max-width: 460px;
+  margin: 34px auto 30px;
+}
+.c-fridge__door {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 12px;
+  padding: 22px 30px 22px 18px;
+  border-radius: 14px;
+  background:
+    linear-gradient(90deg, transparent calc(100% - 22px), rgba(0,0,0,.06) calc(100% - 22px) calc(100% - 20px), transparent calc(100% - 20px)),
+    linear-gradient(160deg, #f1eee7, #dcd8cf);
+  box-shadow: 0 14px 30px rgba(0,0,0,.28), inset 0 1px 0 #fff;
+}
+.c-fridge__door::after {
+  content: "";
+  position: absolute;
+  top: 18%;
+  right: 8px;
+  width: 6px;
+  height: 64%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #b8b3a9, #efece6, #aaa59b);
+}
+.c-fridge__note {
+  position: relative;
+  flex: 0 1 150px;
+  min-height: 92px;
+  padding: 16px 12px 10px;
+  background: #f7e58f;
+  color: #2d2a24;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+  box-shadow: 0 5px 10px rgba(0,0,0,.16);
+  transform: rotate(-2deg);
+}
+.c-fridge__note:nth-child(2n) { transform: rotate(2.4deg); background: #f5c6d0; }
+.c-fridge__note:nth-child(3n) { transform: rotate(-.8deg); background: #c3e1ee; }
+.c-fridge__note:nth-child(5n) { transform: rotate(1.3deg); background: #d3e9bd; }
+.c-fridge__note::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.7) 0 2px, transparent 3px), var(--accent);
+  box-shadow: 0 2px 3px rgba(0,0,0,.3);
+}
+.c-fridge__note p { margin: 0; text-align: left; }
+.c-fridge__by {
+  display: block;
+  margin-top: 4px;
+  text-align: right;
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  font-size: 18px;
+  line-height: 1.1;
+  color: #5a5045;
+}
+@media (max-width: 480px) {
+  .c-fridge__door { padding: 20px 26px 18px 12px; gap: 12px 8px; }
+  .c-fridge__note { flex-basis: 128px; font-size: 13px; }
+  .c-cassette__title { font-size: 15px; }
+  .c-cassette__line { font-size: 17px; }
+}
 /* c-comm —— 设备屏幕上的通讯记录（飞船通讯板 / 终端）。屏幕恒为暗，不随主题翻转。*/
 .c-comm{max-width:29rem;margin:2.6rem auto;border-radius:10px;overflow:hidden;
  border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);

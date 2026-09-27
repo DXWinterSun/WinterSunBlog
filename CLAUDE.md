@@ -2035,6 +2035,39 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 - `c-comm__gap` 那行渲染成一道虚线，本身不占编号；`c-comm__last` 让最后一条发亮。
 - `c-comm__wait` 是底部那个一直闪的光标 + 一句没人回的状态词。
 
+### 4. `c-cassette` / `c-fridge`——章首「小物件」（卡带标签 / 冰箱门便利贴）
+
+2026-09-27 为 Everything in Transit 改版做的（Winter：「小物件放！作出样式就更好玩了」），全站可用。
+放在文首题词之后、第一个小节之前，当这一章的「纪念物」。手写字体只在正文用到这两个组件时才加载
+（`_includes/head.html` 里的条件判断），预览脚本 `tools/preview/render_draft.py` 里有同一份样式。
+⚠️ 别叫 `c-tape`——那个名字已经被存档页的「磁带架」占了。
+
+```html
+<div class="c-cassette" role="group" aria-label="卡带标签">
+  <div class="c-cassette__shell">
+    <div class="c-cassette__label">
+      <span class="c-cassette__side">A</span>
+      <p class="c-cassette__title">EL RANCHO · BACKYARD</p>
+      <div class="c-cassette__window" aria-hidden="true"><i></i><i></i></div>
+      <p class="c-cassette__line">side A — …</p>
+      <p class="c-cassette__line">side B — …</p>
+      <span class="c-cassette__date">9 · 30 · 94 — Slosh</span>
+    </div>
+  </div>
+  <p class="c-cassette__caption">一句中文说明，可选</p>
+</div>
+
+<div class="c-fridge" role="group" aria-label="冰箱门">
+  <div class="c-fridge__door">
+    <div class="c-fridge__note"><p>便利贴上的字</p><span class="c-fridge__by">— 署名</span></div>
+    <!-- 3–5 张为宜，颜色和歪斜角度按顺序自动轮换 -->
+  </div>
+  <p class="c-fridge__caption">一句中文说明，可选</p>
+</div>
+```
+
+卡带标签上的字是实物上的字，按语言规则可以写英文原文；便利贴写中文（译文口径）即可。
+
 ### 三种卡片怎么选
 
 | 内容 | 用哪个 |
@@ -2043,6 +2076,7 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 | 官方 / 盖章：公文、声明、判决、证书 | `c-decree` |
 | 科技设备屏幕上的消息串：飞船通讯板、终端、控制台 | `c-comm` |
 | 诺基亚时代按键机的单色屏短信（固定复古配色，不吃 AU 令牌） | `c-sms` |
+| 章首纪念物：一盘卡带 / 一扇贴满便利贴的冰箱门 | `c-cassette` / `c-fridge` |
 
 ### 判断 formal 还是 note
 
