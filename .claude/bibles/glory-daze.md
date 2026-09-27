@@ -294,7 +294,7 @@ up right
 | Mickey | Vinnie DeRamus | 害羞的连环漫画作者，暗恋 Chelsea；结局在一起 |
 | **Joanie** | Megan Ward | **你的好姐妹**、Rob 女友（你牵的线）；AU 里要有情有义地收梢 |
 | Chelsea | Alyssa Milano | Mickey 暗恋对象，终成眷属 |
-| Dina | Kristin Bauer van Straten | 结局带新男友出现在餐厅 |
+| Dina | Kristin Bauer van Straten | ⚠️金色长发大美女、身材凹凸有致（Winter 2026-09-27）；AU 里和 Jack 一直在一起 |
 | 客串彩蛋 | — | Matt Damon（被嫌的前室友）、Matthew McConaughey（酒鬼租车员）、Mary Woronov（Joanie 她妈=Rob 怵的丈母娘）、Brendan Fraser、Leah Remini、Spalding Gray（Jack 的爸）|
 
 > ⚠️ 除 Jack Freeman 外，原片室友（含 Rob）**没有记录在案的姓**——Cove 是 AU 赐给 Rob 的姓。
