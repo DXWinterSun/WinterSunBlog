@@ -2001,4 +2001,150 @@ batches:
         term: 好句
         context: "==Burial has a ring of finality to it he can’t yet bear.=="
         gist: 下葬这件事，带着一种终结的意味，他还承受不起。
-        note: a ring of 是“听起来有……的味道”，像敲钟的余音。他连挖个坑把她埋了都做不到，因为一埋，就真的结束了，再也没有回头的余地。yet（还）两个字母很轻，却说明他知道总有一天得面对。
+        note: a ring of 是“听起来有……的味道”，像敲钟的余音。他连挖个坑把她埋了都做不到，因为一埋，就真的结束了，再也没有回头的余地。yet（还）这个小词很轻，却说明他知道总有一天得面对。
+
+  - n: 22
+    date: 2026-09-28
+    pages: 25
+    photos: 1
+    notes:
+      - id: "121"
+        page: 25
+        color: blue
+        term: poised
+        kind: 单词
+        ipa: /pɔɪzd/
+        pos: adj.
+        cn: 摆好架势、随时要动的
+        en: in a position that is completely still but is ready to move at any moment
+        en_src: 牛津 8
+        context: "the pick ==poised== in front of him like a spear"
+        gist: 镐头架在身前，像端着一杆长矛。
+        note: 纹丝不动，但随时能出手。牛津的例句是猫伏在草里 poised to jump（准备扑）。poised 另一个常见意思是“（人）沉着优雅的”。
+        extra:
+          - "**搭配**poised to do sth（准备好要做某事）· poised over（悬在……上方）"
+
+      - id: "122"
+        page: 25
+        color: blue
+        term: duck-walks
+        lemma: duck-walk
+        eudic: false
+        kind: 口语
+        ipa: /ˈdʌk wɔːks/
+        pos: v.
+        cn: 蹲着往前挪（鸭子步）
+        en: to walk in a low squatting position, like a duck
+        context: "he ==duck-walks== into the cave"
+        gist: 他蹲着身子，一步一步挪进洞里。
+        note: 牛津查不到，英文解释是我写的。就是半蹲着、屁股压低往前走，看着像鸭子。因为洞只有四英尺高，站不直，后面也说他进去以后只能“站起四分之三”，脑袋顶着参差的石头顶。
+
+      - id: "123"
+        page: 25
+        color: blue
+        term: telltale
+        kind: 单词
+        ipa: /ˈtelteɪl/
+        pos: adj.
+        cn: 露出迹象的、泄露实情的
+        en: showing that something exists or has happened
+        en_src: 牛津 8
+        context: "listening for ==telltale== rattles"
+        gist: 竖着耳朵听，有没有那种一听就知道的嘎啦声。
+        note: 字面是“讲（tell）出故事（tale）”，一听就知道底下有响尾蛇。他知道一条蛇住的地方，往往还有别的蛇。牛津的例句是 The telltale smell of cigarettes（一闻就知道有人抽过烟）。当名词是“爱打小报告的小孩”。
+        extra:
+          - "**搭配**telltale signs / marks（明显的迹象 / 痕迹）"
+
+      - id: "124"
+        page: 25
+        color: blue
+        term: ominous
+        kind: 单词
+        ipa: /ˈɑːmɪnəs/
+        pos: adj.
+        cn: 不祥的
+        en: suggesting that something bad is going to happen in the future
+        en_src: 牛津 8
+        context: "The silence starts an ==ominous== hum in his ears"
+        gist: 四下一片寂静，耳朵里却嗡嗡响起来，让人心里发毛。
+        note: 牛津的例句是 an ominous silence（不祥的沉默），这里反过来，安静得耳朵里起了一种不祥的嗡嗡声。名词 omen 是“预兆”。
+        extra:
+          - "**搭配**ominous clouds / silence（不祥的乌云 / 沉默）· ominously（不祥地）"
+
+      - id: "125"
+        page: 25
+        color: blue
+        term: precariousness
+        lemma: precarious
+        kind: 单词
+        ipa: /prɪˈkeriəsnəs/
+        pos: n.
+        cn: 岌岌可危
+        en: the state of being unsafe and likely to fall or go wrong
+        context: "the ==precariousness== of his position"
+        gist: 他此刻处境有多危险。
+        note: 牛津只收了形容词 precarious：“（情况）不安全、不稳定的；摇摇欲坠的”。他把自己想成一颗蹲在大象屁股底下的鸡蛋，头顶上压着几千吨土石，随时会被压碎。粗俗，但很好笑。
+        extra:
+          - "**搭配**a precarious position / living（危险的处境 / 朝不保夕的日子）"
+
+      - id: "126"
+        page: 25
+        color: blue
+        term: Crouched
+        lemma: crouch
+        kind: 单词
+        ipa: /kraʊtʃt/
+        pos: adj.
+        cn: 蹲着的
+        en: (crouch) to put your body close to the ground by bending your legs under you
+        en_src: 牛津 8
+        context: "==Crouched== near the center of the cave"
+        gist: 他蹲在洞中央附近。
+        note: 第 26 页她又划了 crouches，是同一个词。第 6 页写他 squats down，也是蹲，意思几乎一样。
+        extra:
+          - "**易混**squat 是蹲下（常指屁股几乎挨着脚跟）；crouch 是弯腿压低身子，常带着要躲、要扑的紧张感。"
+
+      - id: "127"
+        page: 25
+        color: blue
+        term: oblong
+        eudic: false
+        kind: 单词
+        ipa: /ˈɑːblɔːŋ/
+        pos: adj.
+        cn: 长条形的
+        en: (in North American English) used to describe any shape that is longer than it is wide
+        en_src: 牛津 8
+        context: "the ==oblong== interior"
+        gist: 长条形的洞里。
+        note: 第 5 页的 No. 024 记过这个词（那里是鹿卧过的长条形压痕），这里又划了一次，欧路列表里就不重复放了。
+
+      - id: "128"
+        page: 25
+        color: blue
+        term: Luger
+        eudic: false
+        kind: 名物
+        ipa: /ˈluːɡər/
+        pos: n.
+        cn: 鲁格手枪
+        en: a German semi-automatic pistol, first made in the early 1900s
+        context: "with a pick, shovel, and ==Luger=="
+        gist: 带着一把镐、一把铲和一支鲁格枪。
+        note: 第 23 页的 No. 112 记过。这里他在琢磨那个带着镐、铲和手枪爬进蛇窝去挖一箱钱的男人，到底是什么人。
+
+      - id: "129"
+        page: 25
+        color: blue
+        term: cacophonous
+        lemma: cacophony
+        kind: 单词
+        ipa: /kəˈkɑːfənəs/
+        pos: adj.
+        cn: 刺耳嘈杂的
+        en: making a loud, unpleasant mixture of sounds
+        context: "a tail rapidly vibrating its ==cacophonous== clatter"
+        gist: 尾巴飞快地抖着，发出刺耳的嘎啦嘎啦声。
+        note: 牛津收的是名词 cacophony：“（正式）一片刺耳的嘈杂声”，形容词只挂在下面。caco- 是“坏的”，-phony 是“声音”，跟 telephone、symphony 里的 phone 同源。反义词是 euphony（悦耳的声音）。
+        extra:
+          - "**搭配**a cacophony of horns / voices（一片喇叭声 / 人声）"
