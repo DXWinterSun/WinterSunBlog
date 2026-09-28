@@ -2334,3 +2334,88 @@ batches:
         note: 开头的 g 不发音。牛津说它本来形容老树枝干扭曲、长满节瘤，也能说老人的手因年老而弯曲变形。这里拿来说老鹿的身子，一身硬骨头和筋肉，下一页接着说它“一辈子打架、过日子”练出来的。
         extra:
           - "**搭配**a gnarled oak / gnarled hands（多节瘤的老橡树 / 粗糙变形的手）"
+
+  - n: 25
+    date: 2026-09-28
+    pages: 28
+    photos: 1
+    notes:
+      - id: "141"
+        page: 28
+        color: blue
+        term: parched
+        kind: 单词
+        ipa: /pɑːrtʃt/
+        pos: adj.
+        cn: 干得冒烟的
+        en: very dry, especially because the weather is hot
+        en_src: 牛津 8
+        context: "his mouth is ==parched=="
+        gist: 他嘴里干得冒烟。
+        note: 牛津的第一个意思是土地被晒得焦干，例句有 She licked her parched lips（舔了舔干裂的嘴唇）；口语里也直接说人“渴死了”，I’m parched。他从天亮一直忙到快下午三点，浑身是汗和血，又饿又渴。
+        extra:
+          - "**搭配**parched land / lips（焦干的土地 / 干裂的嘴唇）· I’m parched（我快渴死了）"
+
+      - id: "142"
+        page: 28
+        color: blue
+        term: potholed
+        lemma: pothole
+        kind: 单词
+        ipa: /ˈpɑːthoʊld/
+        pos: adj.
+        cn: 坑坑洼洼的
+        en: full of large rough holes in the surface, formed by traffic and bad weather
+        context: "winding up the steep, ==potholed== road"
+        gist: 顺着那条又陡又坑坑洼洼的路开上来。
+        note: 牛津收的是名词 pothole：“路面上被车轧、被天气弄出来的大坑”，形容词是我照着改的。他在算：Waylon 要是开车回来，得是四驱车，沿着这条烂路上来，他能提前十分钟听见。
+        extra:
+          - "**搭配**hit a pothole（压到坑）"
+
+      - id: "143"
+        page: 28
+        color: blue
+        term: algae-black
+        lemma: algae
+        kind: 单词
+        ipa: /ˈældʒiː blæk/
+        pos: adj.
+        cn: 长满藻、黑乎乎的
+        en: (of water) dark or black because it is full of algae
+        context: "the pond of ==algae-black== water"
+        gist: 那个长满水藻、水黑乎乎的池塘。
+        note: 牛津收的是 algae（藻类），复数形式，单数是 alga。algae-black 是作者拼出来的，水里全是藻，颜色发黑。英文解释是我写的。
+        extra:
+          - "**搭配**algae bloom（水华，藻类暴发）"
+
+      - id: "144"
+        page: 28
+        color: blue
+        term: tepid
+        kind: 一词多义
+        ipa: /ˈtepɪd/
+        pos: adj.
+        cn: 温吞吞的
+        en: slightly warm, sometimes in a way that is not pleasant
+        en_src: 牛津 8
+        context: "walks into the ==tepid== water"
+        gist: 走进温吞吞的水里。
+        note: 热天晒了一天的池水，不凉也不热，泡着并不舒服。牛津的第二个意思是“不热情的”，比如 tepid applause（稀稀拉拉的掌声）。
+        extra:
+          - "**易混**lukewarm 跟它意思几乎一样；warm 是舒服的温暖；tepid 带一点“温吞、不够劲”的味道。"
+
+      - id: "145"
+        page: 28
+        color: blue
+        term: rock-laden
+        lemma: laden
+        kind: 单词
+        ipa: /ˈrɑːk leɪdn/
+        pos: adj.
+        cn: 塞满了石头的
+        en: heavily loaded with rocks
+        context: "retrieve the ==rock-laden== torso"
+        gist: 把那具塞满石头的躯干拖回来。
+        note: laden 是“装满、载满的”，牛津的例句有 The trees were laden with apples（树上挂满了苹果）；它还有个文学用法，“充满（不好的东西）”，比如 laden with threat（满是威胁）。rock-laden 是拼起来的：他往鹿身子里塞了几磅石头，好让它沉到池底。
+        extra:
+          - "**搭配**laden with（装满、挂满）· heavily laden（满载的）"
