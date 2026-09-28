@@ -2419,3 +2419,56 @@ batches:
         note: laden 是“装满、载满的”，牛津的例句有 The trees were laden with apples（树上挂满了苹果）；它还有个文学用法，“充满（不好的东西）”，比如 laden with threat（满是威胁）。rock-laden 是拼起来的：他往鹿身子里塞了几磅石头，好让它沉到池底。
         extra:
           - "**搭配**laden with（装满、挂满）· heavily laden（满载的）"
+
+  - n: 26
+    date: 2026-09-28
+    pages: 29
+    photos: 1
+    notes:
+      - id: "146"
+        page: 29
+        color: blue
+        term: dungarees
+        eudic: false
+        kind: 名物
+        ipa: /ˌdʌŋɡəˈriːz/
+        pos: n.
+        cn: 粗布工装裤
+        en: (in North American English) heavy cotton trousers for working in, usually made of denim
+        en_src: 牛津 8
+        context: "the snake-and-tongue-filled ==dungarees=="
+        gist: 那条裹着蛇和鹿舌头的工装裤。
+        note: 第 27 页的 No. 138 记过这个词，这里又划了一次，欧路列表里就不重复放了。
+
+      - id: "147"
+        page: 29
+        color: blue
+        term: dank
+        eudic: false
+        kind: 单词
+        ipa: /dæŋk/
+        pos: adj.
+        cn: 阴冷潮湿的
+        en: (especially of a place) damp, cold and unpleasant
+        en_src: 牛津 8
+        context: "in her ==dank== tomb"
+        gist: 在她那阴冷潮湿的墓穴里。
+        note: 第 21 页的 No. 095 记过名词 dankness，这里是它的形容词原形，欧路列表里已经有 dank 了。他累得趴在棚子底下动不了，想象她也这样躺在那个湿冷的洞里。
+
+      - id: "148"
+        page: 29
+        color: blue
+        term: orchestrated
+        lemma: orchestrate
+        kind: 一词多义
+        ipa: /ˈɔːrkɪstreɪtɪd/
+        pos: v.
+        cn: 被暗中安排好的
+        en: to organize a complicated plan or event very carefully or secretly
+        en_src: 牛津 8
+        context: "events are being ==orchestrated== by some higher force"
+        gist: 这一切都是被某种更高的力量安排好的。
+        note: 本义是把乐曲编配给管弦乐队（orchestra）演奏，引申成“精心策划、幕后操纵”。他觉得自己像笼子里的老鼠，是某个古怪实验的对象。
+        extra:
+          - "**搭配**a carefully orchestrated campaign（精心策划的一场运动）"
+          - "**易混**arrange 是一般的安排；orchestrate 强调复杂、周密，常带点暗中操纵的意味。"
