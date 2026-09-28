@@ -2566,3 +2566,97 @@ batches:
         note: 牛津收的 aerate 是“让空气进到土里、水里”和“往饮料里充气”，aerated water 就是汽水。这里说的是带小孔、能透气的绷带，英文解释是我按这个意思写的。
         extra:
           - "**搭配**aerated water（汽水）· aerate the soil（给土壤松土透气）"
+
+  - n: 28
+    date: 2026-09-28
+    pages: 31
+    photos: 1
+    remark: 第一章 SUNDAY 读完
+    notes:
+      - id: "155"
+        page: 31
+        color: orange
+        term: 好句
+        context: "==he lies down naked on his bed== and tries unsuccessfully to convince himself that it is the morning of the same day"
+        gist: 他赤条条地躺到床上，想说服自己现在还是同一天的早上，却怎么也做不到。
+        note: 她划的是前半句，但它的分量要连着后面读。拉上窗帘挡住最后一点天光，脱得一丝不挂躺下，像要把这一整天从身上剥掉；接着他想骗自己：现在还是今天早上，他刚醒，什么都还没发生。unsuccessfully 一个词就把这点念想打碎了。
+
+      - id: "156"
+        page: 31
+        color: orange
+        term: 好句
+        context: "and ==he remembers his wife’s departing words to the effect that she doesn’t want the boy to grow up, like his father,== thinking there is no life beyond a small patch of mountain"
+        gist: 他想起妻子临走时说的话，大意是：她不想让儿子长大以后像他父亲一样，以为这一小片山地之外就没有别的活法。
+        note: departing words 是“临走时撂下的话”，to the effect that 是“大意是”，所以这不是原话，是 John 记住的意思。like his father 夹在中间，指的就是 John 自己：在妻子眼里，他守着祖上最后这一小块山，守成了一辈子的局限。她带走儿子，就是不想让孩子也被这座山困住。
+
+      - id: "157"
+        page: 31
+        color: blue
+        term: vestige
+        kind: 单词
+        ipa: /ˈvestɪdʒ/
+        pos: n.
+        cn: 残存的一点、最后的遗迹
+        en: a small part of something that still exists after the rest of it has stopped existing
+        en_src: 牛津 8
+        context: "the last ==vestige== of his ancestors’ homestead"
+        gist: 祖上那片家业留下的最后一点。
+        note: 牛津标着这是正式的词。Moon 家原来的农场第 23 页就被银行收走了，第 30 页说 Cecil Nobie 十四年前从银行拍卖会上买下了它。John 如今住的这一小片山坡上的拖车屋，就是祖业仅剩的一点残余。homestead 是“宅地、家园连着田地”。牛津的第二个意思用在否定句里：not a vestige of truth（没有一丝真实）。
+        extra:
+          - "**搭配**the last vestiges of（……最后的残余）· not a vestige of（一丝……都没有）"
+
+      - id: "158"
+        page: 31
+        color: blue
+        term: stuporous
+        lemma: stupor
+        kind: 单词
+        ipa: /ˈstuːpərəs/
+        pos: adj.
+        cn: 昏昏沉沉的
+        en: in a state in which you cannot think or hear clearly, often because of shock or tiredness
+        context: "in a ==stuporous== half sleep"
+        gist: 在昏昏沉沉的半睡半醒中。
+        note: 牛津只收了名词 stupor：“（尤其因为醉酒、吸毒或受了惊吓）神志不清、恍惚”，例句有 a drunken stupor（烂醉）。形容词是我照着改的。他就在这种迷糊里反反复复念：钱和死，钱和死，像数羊一样。
+        extra:
+          - "**搭配**in a drunken stupor（醉得不省人事）· drink yourself into a stupor（把自己喝到不省人事）"
+
+      - id: "159"
+        page: 31
+        color: blue
+        term: pied
+        kind: 习语
+        ipa: /paɪd/
+        pos: adj.
+        cn: 花斑的；（Pied Piper）花衣吹笛人
+        en: (especially of birds) of two or more different colours, especially black and white
+        en_src: 牛津 8
+        context: "like a dying ==pied== piper"
+        gist: 像一个垂死的花衣吹笛人。
+        note: 出自德国的老故事《哈默尔恩的花衣吹笛人》：吹笛人用笛声先引走了全城的老鼠，后来又引走了全城的孩子。牛津也收了 Pied Piper，意思是“能让一大群人跟着走的人”。梦里那头受伤的公鹿就像这个吹笛人，一路把他引进林子、引进那个山谷，而进去的东西，没有一样能原样出来。
+        extra:
+          - "**搭配**the Pied Piper of Hamelin（花衣吹笛人的故事）"
+
+      - id: "160"
+        page: 31
+        color: orange
+        term: 好句
+        context: "he sits for several minutes on the front deck ==with an open beer that he doesn’t drink==, and, by the star-filled sky, ==is reminded of the insignificance of all earthly acts, including his own.=="
+        gist: 他在门前的平台上坐了几分钟，手里一罐打开了却没喝的啤酒；满天的星星让他想到，人世间的一切作为都微不足道，他自己的也一样。
+        note: 她在这一句里划了两段橙色，中间那段是粉色（下一张卡），我把整句放在一起看。开了却不喝的啤酒，下一句他把它倒在栏杆外，想借点什么，又什么都借不上。星空底下，所有的事都渺小，包括他杀了人这件事；这既像安慰，又比什么都空。第一章，那个星期天，就收在这里。
+
+      - id: "161"
+        page: 31
+        color: pink
+        term: the star-filled sky
+        eudic: false
+        kind: 语法
+        ipa: /ˌstɑːr fɪld ˈskaɪ/
+        pos: phr.
+        cn: 满天星斗的夜空
+        en: a sky full of stars
+        context: "and, by ==the star-filled sky==, is reminded of"
+        gist: 满天的星星让他想到……
+        note: 两个地方值得看。一是 star-filled 这种拼法：名词加 -filled，就是“装满了……的”，比如 smoke-filled room（烟雾弥漫的屋子），第 22 页就有 the smoke-filled air。二是句子的顺序：正常语序是 is reminded of … by the star-filled sky（被星空提醒了……），作者把 by 这一段提到前面、用逗号隔开，读的人先抬头看见星空，再听见他想了什么。都是认识的词，没有生词，所以不放进欧路列表。
+        extra:
+          - "**搭配**be reminded of sth by sth（被某物勾起对某事的念头）· tear-filled eyes（含泪的眼睛）"
