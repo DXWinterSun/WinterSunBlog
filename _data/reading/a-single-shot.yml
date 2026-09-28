@@ -1796,3 +1796,122 @@ batches:
         note: 本义是尸体腐烂的臭味。这里的“臭”其实是棚子里大麻烟、啤酒和汗混在一起的气味，用这个词是在夸张，也跟他此刻满脑子死亡的心境对上了。
         extra:
           - "**易混**smelly 只是有味儿；putrid 是腐烂发臭、让人作呕。"
+
+  - n: 20
+    date: 2026-09-28
+    pages: 23
+    photos: 1
+    notes:
+      - id: "107"
+        page: 23
+        color: orange
+        term: 好句
+        context: "and ==what it would feel like for the kid to learn when he grows up that his father had killed a young girl, then killed himself=="
+        gist: 还有，等孩子长大了，得知自己的父亲杀了一个年轻姑娘、又杀了自己，那会是什么滋味。
+        note: 上一页结尾他刚想过拿枪了结自己，这里他想的却不是自己，而是儿子 Nolan 长大以后要怎么面对这件事。两个 killed 一前一后，一个杀了别人，一个杀了自己，对得很冷。拦住他的，是那个还在城里长大、将来要替父亲背这个名声的孩子。
+
+      - id: "108"
+        page: 23
+        color: blue
+        term: uncontested
+        kind: 单词
+        ipa: /ˌʌnkənˈtestɪd/
+        pos: adj.
+        cn: 没有争议的（这里指协议离婚）
+        en: without any opposition or argument
+        en_src: 牛津 8
+        context: "child support and an ==uncontested== divorce"
+        gist: 抚养费，外加一纸没有争议的离婚。
+        note: 牛津的例子正好就是 an uncontested divorce：双方对离婚条件都没意见，不用上法庭打官司。这句是说他妻子对他别无所求，只要孩子的抚养费和痛痛快快地离婚。contest 当动词是“对……提出异议”。
+        extra:
+          - "**搭配**child support（孩子的抚养费）· contest a will（对遗嘱提出异议）"
+
+      - id: "109"
+        page: 23
+        color: blue
+        term: bemoans
+        lemma: bemoan
+        kind: 单词
+        ipa: /bɪˈmoʊnz/
+        pos: v.
+        cn: 暗自哀叹、抱怨
+        en: to complain or say that you are not happy about something
+        en_src: 牛津 8
+        context: "he mentally ==bemoans== all he has lost"
+        gist: 他在心里哀叹自己失去的一切。
+        note: 牛津标着这是正式的词。moan 是“呻吟、发牢骚”，be- 加在前面，变成“对着某件事哀叹”。mentally 是“在心里”，他没说出口。前面那句的 self-pity 是“自怜”。
+        extra:
+          - "**易混**complain 是一般的抱怨；bemoan 更文、更哀怨，常是对着已经失去的东西叹气。"
+
+      - id: "110"
+        page: 23
+        color: blue
+        term: foreclose
+        kind: 单词
+        ipa: /fɔːrˈkloʊz/
+        pos: v.
+        cn: （银行）收走抵押的房产、田产
+        en: (especially of a bank) to take control of somebody's property because they have not paid back money that they borrowed to buy it
+        en_src: 牛津 8
+        context: "when the banks were starting to ==foreclose=="
+        gist: 那时候银行开始要收走农场了。
+        note: 这就是第 14 页说的“父亲把 Moon 家的农场弄丢了”：借了银行的钱还不上，银行就把抵押的农场收走。名词是 foreclosure。牛津还有一个正式的意思“排除某种可能”。
+        extra:
+          - "**搭配**foreclose on a farm / house（收回农场 / 房子）· foreclosure（止赎、收回抵押品）"
+
+      - id: "111"
+        page: 23
+        color: orange
+        term: 好句
+        context: "==John thinks he wouldn’t mind dying, but he doesn’t want to be a ghost in the mind of a son who never knew him.=="
+        gist: John 想，死他倒不在乎，可他不想变成儿子心里的一个鬼影，一个儿子从来不认识的人。
+        note: ghost 接着上一句：他记得父亲最后那段日子一天比一天瘦、一天比一天淡，在十六岁的他眼里“像鬼一样消失了，好像从来没存在过”。这一句把这个“鬼”转到了自己身上：他怕的不是死，是像父亲那样，在儿子心里只剩一个模糊的影子。
+
+      - id: "112"
+        page: 23
+        color: blue
+        term: Luger pistol
+        eudic: Luger
+        kind: 名物
+        ipa: /ˈluːɡər ˈpɪstl/
+        pos: n.
+        cn: 鲁格手枪
+        en: a German semi-automatic pistol, first made in the early 1900s
+        context: "a carton of 9-millimeter shells, and a ==Luger pistol=="
+        gist: 一盒 9 毫米子弹，还有一把鲁格手枪。
+        note: 牛津查不到，这是枪的牌子。鲁格是二十世纪初德国造的半自动手枪，用的正是 9 毫米子弹。John 马上想到：这东西可不是拿来打响尾蛇的。
+        extra:
+          - "**搭配**shells（子弹；前面讲过霰弹枪的 shell）· 9-millimeter（9 毫米口径）"
+
+      - id: "113"
+        page: 23
+        color: blue
+        term: hefting
+        lemma: heft
+        kind: 单词
+        ipa: /ˈheftɪŋ/
+        pos: v.
+        cn: 掂掂分量
+        en: to lift or hold something in order to estimate its weight
+        en_src: 牛津 8
+        context: "picking the pistol up and ==hefting== it in his hand"
+        gist: 把枪拿起来，在手里掂了掂。
+        note: 牛津的例句几乎一样：Anna took the old sword and hefted it in her hands（掂了掂那把古剑）。heft 另一个意思是“费力地搬起重物”。
+        extra:
+          - "**易混**lift 只是举起；heft 多了一层“感受一下有多重”。"
+
+      - id: "114"
+        page: 23
+        color: blue
+        term: ruefully
+        lemma: rueful
+        kind: 单词
+        ipa: /ˈruːfəli/
+        pos: adv.
+        cn: 懊悔地、苦涩地
+        en: in a way that shows you are sad or sorry about something
+        context: "He ==ruefully== wonders"
+        gist: 他苦涩地想，
+        note: 牛津收的是形容词 rueful，“（显得）难过或后悔的”，例子是 a rueful smile（苦笑）。他想的是：她当时往这边跑，会不会就是要来拿这把枪。那一枪是他开的，所以是“苦涩地”想。动词 rue 是“懊悔”。
+        extra:
+          - "**搭配**a rueful smile（苦笑）· rue the day（后悔那一天）"
