@@ -2472,3 +2472,97 @@ batches:
         extra:
           - "**搭配**a carefully orchestrated campaign（精心策划的一场运动）"
           - "**易混**arrange 是一般的安排；orchestrate 强调复杂、周密，常带点暗中操纵的意味。"
+
+  - n: 27
+    date: 2026-09-28
+    pages: 30
+    photos: 1
+    notes:
+      - id: "149"
+        page: 30
+        color: blue
+        term: foliage
+        kind: 单词
+        ipa: /ˈfoʊliɪdʒ/
+        pos: n.
+        cn: （一片）枝叶
+        en: the leaves of a tree or plant; leaves and branches together
+        en_src: 牛津 8
+        context: "when the ==foliage== blocks"
+        gist: 当枝叶挡住（视线）的时候。
+        note: 不可数，说的是一整片叶子，不是一片一片的。一年里有半年，树叶把林子遮得严严实实，从山下飘上来的喊声，听着真像 Robert Moon（John 的父亲）的鬼魂。
+        extra:
+          - "**搭配**dense / autumn foliage（茂密的枝叶 / 秋叶）"
+          - "**易混**leaf / leaves 是一片片的叶子；foliage 是整棵树、整片林子的叶子连枝带叶地算。"
+
+      - id: "150"
+        page: 30
+        color: orange
+        term: 好句
+        context: "==It’s important, he thinks, for him to act and appear normal to the world.=="
+        gist: 他想，重要的是，在旁人眼里他得表现得一切如常，看上去也一切如常。
+        note: 上一段他还在惊讶：怎么会有人照旧过日子，好像昨天的世界一点都没变。到这里轮到他自己了：第二天照常去上工，装作什么都没发生。act and appear 两个词，一个是做给人看，一个是被人看见，他得两头都顾到。he thinks 插在句子中间，像他一边想一边给自己下命令。
+
+      - id: "151"
+        page: 30
+        color: pink
+        term: steels himself against
+        lemma: steel oneself against
+        eudic: steel
+        kind: 短语
+        ipa: /stiːlz hɪmˈself əˈɡenst/
+        pos: phr. v.
+        cn: 咬紧牙关硬扛着
+        en: (steel yourself) to prepare yourself to deal with something unpleasant
+        en_src: 牛津 8
+        context: "he ==steels== himself ==against== a coarse blast of freezing water"
+        gist: 他咬着牙，硬扛着一阵刺骨的冷水猛冲下来。
+        note: steel 最常见的是名词“钢”，这里当动词：把自己“炼成钢”，硬起来准备挨一下。后面接 against（顶住某样东西）或 for（为某件事做好准备）。他站在淋浴下面挨冷水冲，冷水像是在洗掉这一天，也像是在惩罚自己。
+        extra:
+          - "**搭配**steel yourself for bad news（做好听坏消息的心理准备）· steel yourself to do sth（硬着头皮去做某事）"
+
+      - id: "152"
+        page: 30
+        color: pink
+        term: Subsequently
+        kind: 单词
+        ipa: /ˈsʌbsɪkwəntli/
+        pos: adv.
+        cn: 随后、接着
+        en: afterwards; later; after something else has happened
+        en_src: 牛津 8
+        context: "==Subsequently==, he cleans his shoulder wound"
+        gist: 接着，他清洗了肩上的伤口。
+        note: 牛津标着这是正式的词，常见于报告、新闻，例句正是这样放在句首、后面跟逗号。小说里拿它来接“洗完冷水澡”和“处理伤口”，口气冷冷的，像在写一份报告，跟他此刻麻木、按部就班的状态很配。
+        extra:
+          - "**易混**then / afterwards 是口语里的“然后”；subsequently 更书面；consequently 是“因此”，讲的是因果，别弄混。"
+
+      - id: "153"
+        page: 30
+        color: blue
+        term: peroxide
+        kind: 名物
+        ipa: /pəˈrɑːksaɪd/
+        pos: n.
+        cn: 双氧水（过氧化氢）
+        en: a clear liquid used to kill bacteria and to bleach hair
+        en_src: 牛津 8
+        context: "cleans his shoulder wound with ==peroxide=="
+        gist: 用双氧水清洗肩上的伤口。
+        note: 全称 hydrogen peroxide，美国家里常备的消毒水，倒在伤口上会冒白沫。牛津还提到它能漂白头发，a peroxide blonde 就是“漂出来的金发女郎”。
+
+      - id: "154"
+        page: 30
+        color: blue
+        term: aerated
+        lemma: aerate
+        kind: 单词
+        ipa: /ˈereɪtɪd/
+        pos: adj.
+        cn: 透气的（有小孔的）
+        en: having small holes that let air through
+        context: "wraps it in an ==aerated== bandage"
+        gist: 用透气绷带包好。
+        note: 牛津收的 aerate 是“让空气进到土里、水里”和“往饮料里充气”，aerated water 就是汽水。这里说的是带小孔、能透气的绷带，英文解释是我按这个意思写的。
+        extra:
+          - "**搭配**aerated water（汽水）· aerate the soil（给土壤松土透气）"
