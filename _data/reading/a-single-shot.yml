@@ -1662,3 +1662,137 @@ batches:
         note: 牛津只收了 rattlesnake，意思是“产于美洲、生气或害怕时尾巴会发出拨浪鼓声的毒蛇”，口语里简称 rattler；diamondback 查不到，英文解释是我合起来写的。diamondback 指背上一个接一个的菱形花纹。书里说它粗得像拳头，头大半被打掉了。
         extra:
           - "**搭配**rattler（响尾蛇的口语叫法，第 25 页会出现）· rattle（拨浪鼓；嘎啦嘎啦响）"
+
+  - n: 19
+    date: 2026-09-28
+    pages: 22
+    photos: 1
+    notes:
+      - id: "099"
+        page: 22
+        color: blue
+        term: lean-to
+        kind: 名物
+        ipa: /ˈliːn tuː/
+        pos: n.
+        cn: 靠墙搭的披棚
+        en: a small building with its roof leaning against the side of a large building, wall or fence
+        en_src: 牛津 8
+        context: "back across the quarry toward the ==lean-to=="
+        gist: 穿过采石场往那个披棚跑回去。
+        note: 字面就是“靠（lean）在……上（to）”，一面坡的小棚子，顶斜搭在墙上。第 9 页采石场里那个“盖着塑料布的棚子”（plastic-covered lean-to）就是它。复数是 lean-tos。
+        extra:
+          - "**易混**shed 是独立的小木棚；lean-to 是借着一面墙搭出来的。"
+
+      - id: "100"
+        page: 22
+        color: blue
+        term: traverses
+        lemma: traverse
+        kind: 单词
+        ipa: /trəˈvɜːrsɪz/
+        pos: v.
+        cn: 走过、穿过（一片地方）
+        en: to cross an area of land or water
+        en_src: 牛津 8
+        context: "as he ==traverses== the gruesome trail"
+        gist: 他走过那条触目惊心的血路时。
+        note: 牛津标着是正式或专业用语。gruesome 是“血腥可怕的”，这条路就是他一路拖着尸体留下的痕迹。他边走边意识到：自打翻了她的口袋，他做的每件事都让自己更说不清了。
+        extra:
+          - "**易混**cross 最常用；traverse 更正式，常带着“一路走过一大片”的意思。"
+
+      - id: "101"
+        page: 22
+        color: blue
+        term: plunges
+        lemma: plunge
+        kind: 单词
+        ipa: /ˈplʌndʒɪz/
+        pos: v.
+        cn: 一头扎进去
+        en: to move or make somebody/something move suddenly forwards and/or downwards
+        en_src: 牛津 8
+        context: "==plunges== inside"
+        gist: 一头钻了进去。
+        note: 他掀开挡在棚子前面的塑料布，不带犹豫地冲进去。plunge 也常说价格、气温“暴跌”，或者“投身于”某件事。
+        extra:
+          - "**搭配**plunge into the water（跳进水里）· prices plunged（价格暴跌）"
+
+      - id: "102"
+        page: 22
+        color: blue
+        term: recliner
+        kind: 名物
+        ipa: /rɪˈklaɪnər/
+        pos: n.
+        cn: （可以往后放倒的）躺椅
+        en: a soft comfortable chair with a back that can be pushed back at an angle so that you can lean back in it
+        en_src: 牛津 8
+        context: "moth-eaten ==recliner=="
+        gist: 被虫蛀了的躺椅。
+        note: 美国家里客厅常见的那种软沙发椅，靠背能往后放。动词 recline 是“斜躺”。moth-eaten 是“被蛀虫咬坏的”，这棚子里全是没人要的旧东西。
+
+      - id: "103"
+        page: 22
+        color: blue
+        term: despondent
+        kind: 单词
+        ipa: /dɪˈspɑːndənt/
+        pos: adj.
+        cn: 灰心绝望的
+        en: sad, without much hope
+        en_src: 牛津 8
+        context: "causes in him a ==despondent== pain"
+        gist: 让他感到一阵绝望的痛。
+        note: 他看见睡袋里探出一只毛绒大狮子的头，意识到这玩具的主人是谁。那一下的难受，比刚发现她死了的时候还厉害。
+        extra:
+          - "**易混**sad 只是难过；despondent 是难过到看不到希望、提不起劲。"
+
+      - id: "104"
+        page: 22
+        color: blue
+        term: nestled
+        lemma: nestle
+        kind: 单词
+        ipa: /ˈnesld/
+        pos: v.
+        cn: 舒舒服服地窝着、依偎着
+        en: to sit or lie down in a warm or soft place
+        en_src: 牛津 8
+        context: "her ==nestled== comfortably in the sleeping bag"
+        gist: 她舒舒服服地窝在睡袋里。
+        note: 来自 nest（鸟窝），像小鸟窝在巢里。同一句紧接着就用了第二次：像 John 自己的儿子窝在婴儿床的被子底下。他把她和自己的孩子想到了一处。
+        extra:
+          - "**搭配**nestle against sb（依偎着某人）· a village nestled in the hills（藏在山里的小村子）"
+
+      - id: "105"
+        page: 22
+        color: blue
+        term: jowl
+        kind: 习语
+        ipa: /dʒaʊl/
+        pos: n.
+        cn: 下巴底下的肉；（这里）脸贴着脸
+        en: the lower part of somebody's cheek when it is fat and hangs down below their chin
+        en_src: 牛津 8
+        context: "cheek to ==jowl== with the lion"
+        gist: 脸颊挨着那只狮子。
+        note: 常说的习语是 cheek by jowl，牛津的解释是“紧挨着”。作者改成 cheek to jowl，她的脸蛋贴着狮子的下巴，画面更软、更亲，像小孩抱着玩具睡觉。
+        extra:
+          - "**搭配**cheek by jowl（紧挨着、挤在一起）"
+
+      - id: "106"
+        page: 22
+        color: blue
+        term: putrid
+        kind: 单词
+        ipa: /ˈpjuːtrɪd/
+        pos: adj.
+        cn: 腐臭的
+        en: (of dead animals or plants) decaying and therefore smelling very bad
+        en_src: 牛津 8
+        context: "breathing in that ==putrid== air"
+        gist: 吸着那股腐臭的空气。
+        note: 本义是尸体腐烂的臭味。这里的“臭”其实是棚子里大麻烟、啤酒和汗混在一起的气味，用这个词是在夸张，也跟他此刻满脑子死亡的心境对上了。
+        extra:
+          - "**易混**smelly 只是有味儿；putrid 是腐烂发臭、让人作呕。"
