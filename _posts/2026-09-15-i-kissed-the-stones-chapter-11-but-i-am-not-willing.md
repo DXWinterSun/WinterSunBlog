@@ -7,7 +7,7 @@ tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 怅惘, 暗涌]
 categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
-series_order: 11
+series_order: 12
 series_status: complete
 series_type: Series
 chapter_type: "Chapter 11"

@@ -747,7 +747,7 @@
       "type": "disc",
       "spec": "蓝光 · 澳版",
       "charId": "doc",
-      "date": "",
+      "date": "2026-08-05",
       "note": "",
       "nas": 0,
       "signed": 0,
@@ -780,6 +780,45 @@
       "wish": 0,
       "id": "msg8aay8-4obb6",
       "added": 1785942892016
+    },
+    {
+      "name": "看电影",
+      "type": "book",
+      "spec": "Oct 2014 · Issue 617/2014年第29期",
+      "charId": "craig",
+      "date": "2026-09-26",
+      "note": "非常可爱的大头照！还有Sam的圣丹斯之旅🥺",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muie2m8h-1m2b6",
+      "added": 1790427108113
+    },
+    {
+      "name": "看电影",
+      "type": "book",
+      "spec": "Feb 2018 · Issue 757/2018年第4期",
+      "charId": "dixon",
+      "date": "2026-09-26",
+      "note": "特别可爱的Dixon剧照一张！",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muie502l-2yt8x",
+      "added": 1790427219357
+    },
+    {
+      "name": "《霹雳娇娃》",
+      "type": "disc",
+      "spec": "蓝光 · 国版",
+      "charId": "eric",
+      "date": "2026-09-25",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muijh5fn-r5ik6",
+      "added": 1790436184259
     }
   ]
 }
