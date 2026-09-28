@@ -1,14 +1,19 @@
-# Finders Keepers · Buck "The Kid" AU — 系列圣经（开坑中 · 等 Winter 挑初见）
+# Finders Keepers · Buck "The Kid" AU — 系列圣经
 
 > 2026-09-28 开本。Winter：「想吃小狗！！！Buck the Kid 我们一直没写 AU！真的好需要贴贴小狗啊啊啊！」
-> 系列名已定 Finders Keepers → slug `series/finders-keepers/`。开写第一章时把本文件改名成 `finders-keepers.md`，
-> 正文存档放 `.claude/bibles/finders-keepers-revised/`。
+> 系列名 Finders Keepers → slug `series/finders-keepers/`。正文全文存档在 `.claude/bibles/finders-keepers-revised/`。
 
 ## 状态
 
-**设定已定（2026-09-28 第一轮），初见还在挑。** 提案页：https://claude.ai/artifact/JtqSwQCmTzKGQgyDcbaYSW
-（数据在 `.claude/pitches/buck-the-kid.json`，用 `tools/preview/render_pitch.py` 生成；改完重发同一链接）。
-她挑完 → 把结果填进下面「待定」一节 → 写第一章草稿预览页 + 前几章路线图。
+**第一章已成稿，等 Winter 过目**（2026-09-28）。还没有任何东西上线。
+- 第一章草稿预览：https://claude.ai/artifact/P1pLjrpTYSc5z3kzWFodq3（`render_draft.py`，改稿重发同一路径）
+- 路线图（17 章 / 3 幕 / 3 岔路）：https://claude.ai/artifact/4vjhcegvtqQZWQXdmNZ6Nc（数据 `.claude/roadmaps/finders-keepers.json`）
+- 开坑提案页（已挑完）：https://claude.ai/artifact/JtqSwQCmTzKGQgyDcbaYSW（数据 `.claude/pitches/buck-the-kid.json`）
+- 配色已加进 `_data/au_palettes.yml`（`"Finders Keepers"`，mf_id: buck，accent_ink `#5c643c`）——只在工作分支，随系列首页一起上线。
+- 上线时还要做：系列首页 `series/finders-keepers/index.html`（sam_collection、collection_order 取当时最大 +1、
+  byline「Buck "The Kid" · Box of Moonlight · Sam Rockwell · ongoing」）、封面图（等 Winter 传）、
+  画册 / lines.json / quiz / spectrum 的 auLink 四处同步（`check_palette_sync.py` 会验）。
+- 部署节奏：三章一部署。
 
 ## 原片口径（2026-09-28 查证）
 
@@ -58,7 +63,7 @@
   口头禅 **「分我一点嘛？」**——刚把东西大方送出去，转头就歪着脑袋讨一点回来（水潭、MoonPie…）。
   声音一下子软下来、没等你答应就当你答应了。可做成全系列的复现口头禅。
 
-## 初见（第二轮，等她挑）
+## 初见（第二轮）——✅ Winter 选 A，并补了细节（见章节流水第 1 章）
 
 提案页同一链接已换成「初见试映」三场（数据 `.claude/pitches/buck-the-kid.json`，第一轮岔路存在 `_round1_forks`）：
 - **A 只剩一顶帽子（推荐，她自己提的）**：你找到他的水潭 → 他说 Finders keepers，水潭归你 → 马上撒娇「那……分我一点嘛？」→
@@ -92,10 +97,42 @@
 5. 甜度：**全程糖（推荐）** / 糖里藏一根刺
 6. 系列名：**Finders Keepers（推荐）** / Everything I Found / The Rest of It
 
+## 发动机（路线图口径，2026-09-28）
+
+外婆丢的**七个摆件**都在他营地，洗干净、修好、起了名字。他答应**一个礼拜还一个**（“它们在我这儿住惯了，得一个一个慢慢回去”）
+→ 每还一个就能多来一趟，七个正好一个夏天 → 第 14 章还完最后一个 → 第 15 章他两手空空来：“我没有东西还你了……那我能不能就来看看你？”
+→ 第 17 章那一盒月光 + 锚句。三幕：认门 / 赖着不走 / 现在归你了。详见路线图 JSON。
+
+路线图上三道岔路（等她挑）：① 外婆知不知道偷东西的是他（A 早知道、留饼干、旧本子 / B 以为是浣熊 / C 不知道）；
+② 你搬来做什么（A 镇上小学新老师 / B 在家画插画 / C 还没想好）；③ 要不要辣章（A 纯糖 / B 第二幕后段有）。
+
 ## 章节流水
 
-（还没开写）
+1. **只剩一顶帽子**（成稿待过目）——搬进外婆老房子第四天，RC 可乐 + MoonPie 找到水潭 → 他钻出来“Finders keepers”，
+   水潭归你 →「那……分我一点嘛？浅的那边就行，我不占地方」→ 没等你答应就脱光、只剩浣熊帽跳下去 →
+   献宝小龙虾，好心办坏事把你的鞋扒拉进水里、潜下去捞回来「找着了！」→ 上岸光着坐你旁边晒太阳；你别过脸递裤子：
+   「……你想让我穿吗？」「对。」「那好！」笑得特别灿烂 →「所以你真的不觉得有什么问题吗？」「有什么问题？」「……当我没说。」
+   → 盯着 MoonPie「我今天就吃了一把奥利奥，还是早上的」「分我一点嘛？」→ 两半都给了他 →「你就是 Moonpie」
+   「我有名字的」「那你叫什么？」Winter Tate / 「我是 Buck。镇上的人都叫我 Kid，你想叫哪个都行」「Buck。」→
+   「不过我还是叫你 Moonpie……现在是七月……一点都不像冬天」→ 送你回去（啄木鸟洞、萤火虫空地、脾气坏的火鸡、
+   偷接的电线「是借，电又不会少」、礼拜六早上的摔跤）→ 停在最后一棵树下不踩草坪 →「你家那只小鹿有一条腿是歪的」
+   「这附近所有的鹿我都认识」「明天你还来吗？」「可能吧。」「那我提早去。」→ 半夜手电筒照见他抱着小鹿、一只脚踩在花坛里：
+   「嘿，Moonpie。」「怎么又是你？」「它腿歪了，我拿回去帮它修修。」
+   Winter 在提案页批注里点名要的：璞真不设防、上岸不穿你递衣服「你想让我穿吗？那好！」、「有什么问题 / 当我没说」、
+   看见 MoonPie 就小狗讨食、互报名字但照叫 Moonpie——全部落实。
 
-## PINNED / DEFERRED
+## PINNED（已埋，待回收）
 
-（还没开写）
+- 小鹿那条歪腿 → Ch2 他真的修好（缠胶布 / 削木片垫）
+- 他送你到林子边就停、不踩草坪 → Ch2 揭原因（候选：答应过外婆白天不踩她的草坪 / 对门太太有猎枪——看岔路①定）
+- 外婆丢的摆件（Ch1 只写「少了好几个」，Ch2 定为七个）→ 一礼拜还一个，Ch14 还完
+- 「我今天就吃了一把奥利奥」→ 狗食盆 Ch2 / Ch7 露面
+- 「明天你还来吗 / 那我提早去」→ 画册台词「天天提早到小河边等你」
+- 偷接的电线「是借，电又不会少」→ Ch8 警长为电线拎走他
+- 你的一只鞋泡过潭水（小道具，可回收可不回收）
+
+## DEFERRED（压着，到点再放）
+
+- 那一盒月光 → 结局 Ch17，锚句
+- 他第一次害羞（Winter 灵感）→ 第二幕后段 Ch11
+- 他把浣熊帽扣到你头上 → 位置待定

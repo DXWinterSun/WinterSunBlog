@@ -664,6 +664,22 @@
   muted_cn: "木篱旧褐"
   muted_en: "Fence-Post Brown"
 
+"Finders Keepers":          # Buck "The Kid" · Box of Moonlight · Sam Rockwell · 色卡同源画册 id: buck
+  mf_id: buck                # → Many Faces 画册锚点 /sam/many-faces/#buck
+  accent: "#b8c878"
+  accent_ink: "#5c643c"        # accent 偏浅，额外压暗到 ×0.5，浅色主题下对比度 ≈5.9:1
+  bg: "#1a2418"
+  text: "#e8eed8"
+  muted: "#7a8868"
+  accent_cn: "林间苔绿"
+  accent_en: "Forest Moss"
+  bg_cn: "月光银白"
+  bg_en: "Moonlight Silver"
+  text_cn: "萤火浅碧"
+  text_en: "Firefly Pale"
+  muted_cn: "鹿皮青灰"
+  muted_en: "Buckskin Sage"
+
 "I Missed You on Purpose":   # Jerry · Jerry and Tom · Sam Rockwell · 色卡同源画册 id: jerry
   mf_id: jerry                # → Many Faces 画册锚点 /sam/many-faces/#jerry
   accent: "#e08f2e"
