@@ -2250,3 +2250,87 @@ batches:
         extra:
           - "**搭配**a forlorn hope（渺茫的希望）· look forlorn（看着孤零零的）"
           - "**易混**lonely 只说孤单；forlorn 是孤单再加上一点被抛下的可怜样。"
+
+  - n: 24
+    date: 2026-09-28
+    pages: 27
+    photos: 1
+    notes:
+      - id: "136"
+        page: 27
+        color: blue
+        term: buzzards
+        lemma: buzzard
+        eudic: false
+        kind: 名物
+        ipa: /ˈbʌzərdz/
+        pos: n.
+        cn: 美洲鹫（吃腐肉的大鸟）
+        en: a large American bird like a vulture that eats the flesh of animals that are already dead
+        en_src: 牛津 8
+        context: "The ==buzzards== are on the deer carcass again"
+        gist: 那几只鹫又落到了死鹿身上。
+        note: 第 8 页的 No. 039 记过这个词，就是第 16、20 页那两只红头美洲鹫。欧路列表里就不重复放了。
+
+      - id: "137"
+        page: 27
+        color: blue
+        term: slag heap
+        eudic: slag
+        kind: 名物
+        ipa: /ˈslæɡ hiːp/
+        pos: n.
+        cn: 矿渣堆
+        en: a large pile of slag from a mine
+        en_src: 牛津 8
+        context: "beneath a ==slag heap=="
+        gist: （把蛇埋）在一堆矿渣底下。
+        note: slag 是开矿、炼铁剩下的废石渣。这是座废弃的采石场，第 9、10 页就写过那里有好几堆 slag heaps，只是当时没划。牛津提醒：英国俚语里 slag 是骂女人的脏话，别乱用。
+
+      - id: "138"
+        page: 27
+        color: blue
+        term: dungarees
+        kind: 名物
+        ipa: /ˌdʌŋɡəˈriːz/
+        pos: n.
+        cn: 粗布工装裤
+        en: (in North American English) heavy cotton trousers for working in, usually made of denim
+        en_src: 牛津 8
+        context: "a pair of men’s ==dungarees=="
+        gist: 一条男人穿的粗布工装裤。
+        note: 英式里 dungarees 是背带裤；美式里是干活穿的粗布裤子，多半是牛仔布。牛津两个意思都收了，这里是美式那个。永远是复数，说一条要讲 a pair of dungarees。他舍不得浪费鹿肉，拿这条裤子把肉包了起来。第 29 页她又划了一次。
+        extra:
+          - "**易混**overalls（美）才是背带工装裤；jeans 是一般的牛仔裤。"
+
+      - id: "139"
+        page: 27
+        color: blue
+        term: serrated
+        kind: 单词
+        ipa: /səˈreɪtɪd/
+        pos: adj.
+        cn: 锯齿状的
+        en: having a series of sharp points on the edge like a saw
+        en_src: 牛津 8
+        context: "with its ==serrated== edge starts sawing"
+        gist: 用它带锯齿的刀刃开始锯。
+        note: 牛津的例子就是 a knife with a serrated edge（带锯齿刃的刀）。面包刀就是这种刃。后面的 sawing（锯）正好接上。
+        extra:
+          - "**搭配**a serrated knife / edge（锯齿刀 / 锯齿刃）"
+
+      - id: "140"
+        page: 27
+        color: blue
+        term: gnarled
+        kind: 单词
+        ipa: /nɑːrld/
+        pos: adj.
+        cn: 疙疙瘩瘩、扭结的
+        en: twisted and rough; covered with hard lumps
+        en_src: 牛津 8
+        context: "The torso is hard-boned, ==gnarled=="
+        gist: 那躯干骨头硬，疙疙瘩瘩的。
+        note: 开头的 g 不发音。牛津说它本来形容老树枝干扭曲、长满节瘤，也能说老人的手因年老而弯曲变形。这里拿来说老鹿的身子，一身硬骨头和筋肉，下一页接着说它“一辈子打架、过日子”练出来的。
+        extra:
+          - "**搭配**a gnarled oak / gnarled hands（多节瘤的老橡树 / 粗糙变形的手）"
