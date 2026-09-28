@@ -1562,3 +1562,103 @@ batches:
         note: 很少见的书面词，牛津高阶没收，英文解释是我写的。它的形容词 sibilant 牛津收了：发出 s、sh 那种咝咝声的。这里写 John 冲过去，一边挥手一边发出嘘嘘的声音轰那两只鸟。
         extra:
           - "**易混**hiss 是最常用的“嘶嘶”，蛇、猫、漏气都用它；sibilate 意思差不多，但很书面，平时几乎不用。"
+
+  - n: 18
+    date: 2026-09-28
+    pages: 21
+    photos: 1
+    notes:
+      - id: "093"
+        page: 21
+        color: blue
+        term: duffel
+        kind: 名物
+        ipa: /ˈdʌfl/
+        pos: n.
+        cn: 帆布包；旅行袋
+        en: (duffel bag) a large bag made of strong cloth or soft leather, used when you are travelling for carrying clothes, etc.
+        en_src: 牛津 8
+        context: "the Kools in her ==duffel=="
+        gist: 她包里的那包酷斯烟。
+        note: 牛津收的是 duffel bag，这里省掉了 bag。说的就是第 13 页那个牛仔布挎包（satchel），作者换了个说法。duffel 本来是一种厚实的粗呢布。
+        extra:
+          - "**易混**duffel bag 是软塌塌、能塞衣服的大袋子；satchel 是一根长带子斜挎的书包式挎包。"
+
+      - id: "094"
+        page: 21
+        color: blue
+        term: chipped
+        lemma: chip
+        kind: 一词多义
+        ipa: /tʃɪpt/
+        pos: adj.
+        cn: 崩了个小口的
+        en: damaged by having a small piece broken off
+        context: "shiny and ==chipped=="
+        gist: 又亮又崩了口。
+        note: 来自动词 chip，牛津的意思是“把东西碰掉一小块”。那把铲子通身是锈，只有铲尖发亮、还崩了口，说明最近有人拿它挖过东西，所以 John 才纳闷谁会跑到洞里来挖。chip 最常见的意思是薯条、芯片，这里都不是。
+        extra:
+          - "**搭配**a chipped mug（缺了口的杯子）· chip a tooth（磕掉一小块牙）"
+
+      - id: "095"
+        page: 21
+        color: blue
+        term: dankness
+        lemma: dank
+        kind: 单词
+        ipa: /ˈdæŋknəs/
+        pos: n.
+        cn: 阴冷潮湿
+        en: the quality of being damp, cold and unpleasant
+        context: "Along with the ==dankness=="
+        gist: 除了那股阴冷潮湿的气息，
+        note: 牛津只在形容词 dank 下面带了一句名词 dankness。dank 的解释是“（尤指地方）又湿又冷、让人不舒服”，例句正好是 a dark dank cave（又黑又潮的洞）。第 29 页她又划了 dank。
+        extra:
+          - "**易混**damp 只是潮；dank 是潮加上冷、加上一股霉味，让人很不舒服。"
+
+      - id: "096"
+        page: 21
+        color: blue
+        term: slither
+        eudic: false
+        kind: 单词
+        ipa: /ˈslɪðər/
+        pos: v.
+        cn: （蛇）贴着地面滑过去
+        en: to move somewhere in a smooth, controlled way, often close to the ground
+        en_src: 牛津 8
+        context: "will instantly strike or ==slither== away"
+        gist: 会立刻扑咬，或者溜走。
+        note: 第 14 页的 No. 068 记过这个词，这里又划了一次，欧路列表里就不重复放了。前面的 strike 用在蛇身上是“扑咬”。
+
+      - id: "097"
+        page: 21
+        color: blue
+        term: gingerly
+        kind: 单词
+        ipa: /ˈdʒɪndʒərli/
+        pos: adv.
+        cn: 小心翼翼地
+        en: in a careful way, because you are afraid of being hurt, of making a noise, etc.
+        en_src: 牛津 8
+        context: "==gingerly== picks the thing up"
+        gist: 小心翼翼地把那东西拿了起来。
+        note: 跟姜（ginger）没有关系，只是长得像。它虽然以 -ly 结尾，却是个副词，也能当形容词用，比如 a gingerly step（小心的一步）。
+        extra:
+          - "**易混**carefully 是一般的小心；gingerly 带着怕疼、怕惊动什么的那种战战兢兢。"
+
+      - id: "098"
+        page: 21
+        color: blue
+        term: diamondback rattlesnake
+        eudic: rattlesnake
+        kind: 名物
+        ipa: /ˈdaɪəmənbæk ˈrætlsneɪk/
+        pos: n.
+        cn: 菱斑响尾蛇
+        en: a large poisonous American rattlesnake with diamond-shaped markings on its back
+        context: "sees a ==diamondback rattlesnake=="
+        gist: 看见一条菱斑响尾蛇。
+        note: 牛津只收了 rattlesnake，意思是“产于美洲、生气或害怕时尾巴会发出拨浪鼓声的毒蛇”，口语里简称 rattler；diamondback 查不到，英文解释是我合起来写的。diamondback 指背上一个接一个的菱形花纹。书里说它粗得像拳头，头大半被打掉了。
+        extra:
+          - "**搭配**rattler（响尾蛇的口语叫法，第 25 页会出现）· rattle（拨浪鼓；嘎啦嘎啦响）"
