@@ -160,6 +160,15 @@
   sq: "50% 100%"
   card: "50% 100%"
   banner: "50% 100%"
+"finders-keepers.jpg":
+  x: 37.9
+  y: 48.6
+  w: 1600
+  h: 900
+  score: 0.94
+  sq: "22% 50%"
+  card: "0% 50%"
+  banner: "50% 45%"
 "fog-city-au.jpg":
   x: 48.4
   y: 45.0
