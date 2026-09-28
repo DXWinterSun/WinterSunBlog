@@ -1510,3 +1510,55 @@ batches:
         note: 这是女孩那封没写完的信的最后几行。她写的是 come，不是 came，信里还有 couldn’t take it no more、there weren’t no time 这样的说法，都是乡下口语，不合语法，但就是她说话的样子。她写到这里就停住了。牛津另外还有两个意思：把马的两条腿绑在一起防它跑掉；阻碍、拖后腿。
         extra:
           - "**易混**limp 也是瘸着走，多指一条腿有伤；hobble 更显得费劲、步子小、走不稳。"
+
+  - n: 17
+    date: 2026-09-28
+    pages: 20
+    photos: 1
+    notes:
+      - id: "090"
+        page: 20
+        color: blue
+        term: yelp
+        kind: 单词
+        ipa: /jelp/
+        pos: n.
+        cn: 一声短促的尖叫
+        en: a sudden short cry, usually of pain or surprise
+        context: "With a startled ==yelp==, he drops the cadaver"
+        gist: 他吓得叫了一声，手里的尸体掉在了地上。
+        note: 牛津只收了动词“（因为疼等）突然尖叫一声”，名词的英文解释是我照着改的。最常用来说狗被踩到时那一声“嗷”，人被吓一跳时也能用。
+        extra:
+          - "**搭配**give / let out a yelp（叫一声）· a yelp of pain / surprise（疼得 / 吓得叫一声）"
+          - "**易混**scream 是长而响的尖叫；yelp 短、急，一下就完。"
+
+      - id: "091"
+        page: 20
+        color: blue
+        term: wattles
+        lemma: wattle
+        kind: 名物
+        ipa: /ˈwɑːtlz/
+        pos: n.
+        cn: （火鸡等鸟脖子下的）红色肉垂
+        en: a piece of red skin that hangs down from the throat of a bird such as a turkey
+        en_src: 牛津 8
+        context: "red ==wattles== trembling"
+        gist: 红色的肉垂一颤一颤。
+        note: 就是火鸡下巴底下垂着的那片红肉。这里说的是那两只红头美洲鹫，第 16 页的 turkey vultures，扇着大翅膀悬在死鹿上方。牛津还收了 wattle 另外两个意思：编篱笆用的枝条，以及澳洲的金合欢树。
+
+      - id: "092"
+        page: 20
+        color: blue
+        term: sibilating
+        lemma: sibilate
+        kind: 单词
+        ipa: /ˈsɪbɪleɪtɪŋ/
+        pos: v.
+        cn: 发出嘶嘶声
+        en: to make a hissing sound, like "s" or "sh"
+        context: "waving his arms and ==sibilating=="
+        gist: 挥着胳膊、嘴里嘘嘘地赶它们。
+        note: 很少见的书面词，牛津高阶没收，英文解释是我写的。它的形容词 sibilant 牛津收了：发出 s、sh 那种咝咝声的。这里写 John 冲过去，一边挥手一边发出嘘嘘的声音轰那两只鸟。
+        extra:
+          - "**易混**hiss 是最常用的“嘶嘶”，蛇、猫、漏气都用它；sibilate 意思差不多，但很书面，平时几乎不用。"
