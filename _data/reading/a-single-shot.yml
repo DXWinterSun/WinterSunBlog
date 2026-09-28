@@ -2148,3 +2148,105 @@ batches:
         note: 牛津收的是名词 cacophony：“（正式）一片刺耳的嘈杂声”，形容词只挂在下面。caco- 是“坏的”，-phony 是“声音”，跟 telephone、symphony 里的 phone 同源。反义词是 euphony（悦耳的声音）。
         extra:
           - "**搭配**a cacophony of horns / voices（一片喇叭声 / 人声）"
+
+  - n: 23
+    date: 2026-09-28
+    pages: 26
+    photos: 1
+    notes:
+      - id: "130"
+        page: 26
+        color: blue
+        term: pent-up
+        kind: 单词
+        ipa: /ˌpent ˈʌp/
+        pos: adj.
+        cn: 憋在心里的
+        en: (of feelings, energy, etc.) that cannot be expressed or released
+        en_src: 牛津 8
+        context: "his ==pent-up== emotions from the previous hours"
+        gist: 他这几个钟头憋着的情绪。
+        note: pent 是老动词 pen（关进围栏）的过去分词，情绪被关起来、憋住了。一见到那条蛇和被困在洞里的她，这些憋着的东西一下子全冲了出来。
+        extra:
+          - "**搭配**pent-up anger / energy / frustration（憋着的火 / 劲儿 / 委屈）"
+
+      - id: "131"
+        page: 26
+        color: blue
+        term: coalesce
+        kind: 单词
+        ipa: /ˌkoʊəˈles/
+        pos: v.
+        cn: 汇到一起、凝成一团
+        en: to come together to form one larger group, substance, etc.
+        en_src: 牛津 8
+        context: "==coalesce== in blind rage"
+        gist: 汇成了一股不管不顾的怒火。
+        note: 牛津标着是正式的词，例句是水洼汇成一条小溪。这里是几个钟头里的害怕、愧疚、委屈汇到一处，变成了 blind rage（气昏了头的暴怒），所以他才用镐和脚跟把那条蛇碾死。
+        extra:
+          - "**搭配**coalesce into（汇成）"
+          - "**易混**merge 是两样东西并成一样；coalesce 是许多零散的东西慢慢聚成一团。"
+
+      - id: "132"
+        page: 26
+        color: blue
+        term: cadaver
+        eudic: false
+        kind: 单词
+        ipa: /kəˈdævər/
+        pos: n.
+        cn: 尸体
+        en: a dead human body
+        en_src: 牛津 8
+        context: "he grabs the ==cadaver== by the shoulders"
+        gist: 他抓住尸体的肩膀。
+        note: 第 17 页的 No. 088 记过这个词，这里又划了一次，欧路列表里就不重复放了。
+
+      - id: "133"
+        page: 26
+        color: blue
+        term: crouches
+        lemma: crouch
+        eudic: false
+        kind: 单词
+        ipa: /ˈkraʊtʃɪz/
+        pos: v.
+        cn: 蹲着
+        en: to put your body close to the ground by bending your legs under you
+        en_src: 牛津 8
+        context: "he ==crouches== there, studying the girl’s body"
+        gist: 他蹲在那儿，端详着女孩的身体。
+        note: 第 25 页的 No. 126 记过 crouched，是同一个词，欧路列表里就不重复放了。
+
+      - id: "134"
+        page: 26
+        color: blue
+        term: cherubic
+        lemma: cherub
+        kind: 单词
+        ipa: /tʃəˈruːbɪk/
+        pos: adj.
+        cn: 圆嘟嘟、天真的（娃娃脸）
+        en: looking round and innocent, like a small child's face
+        context: "her ==cherubic== face"
+        gist: 她那张天真的娃娃脸。
+        note: 牛津在 cherub 下面给了这个形容词，例子就是 a cherubic face。cherub 是画里那种长着翅膀、胖乎乎的小天使。作者在这里提醒你：她还只是个孩子。
+        extra:
+          - "**搭配**a cherubic smile / face（天真无邪的笑 / 娃娃脸）"
+
+      - id: "135"
+        page: 26
+        color: blue
+        term: forlorn
+        kind: 单词
+        ipa: /fərˈlɔːrn/
+        pos: adj.
+        cn: 孤零零、可怜巴巴的
+        en: (of a person) appearing lonely and unhappy
+        en_src: 牛津 8
+        context: "a child’s peeved, ==forlorn== expression"
+        gist: 一个小孩那种又委屈又孤单的神情。
+        note: peeved 是“有点不高兴、赌气的”。两个词放一起，就是小孩被冷落时撅着嘴、可怜兮兮的样子。forlorn 还能形容地方荒凉，或者希望渺茫，比如 a forlorn hope。
+        extra:
+          - "**搭配**a forlorn hope（渺茫的希望）· look forlorn（看着孤零零的）"
+          - "**易混**lonely 只说孤单；forlorn 是孤单再加上一点被抛下的可怜样。"
