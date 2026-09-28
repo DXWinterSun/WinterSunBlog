@@ -1915,3 +1915,90 @@ batches:
         note: 牛津收的是形容词 rueful，“（显得）难过或后悔的”，例子是 a rueful smile（苦笑）。他想的是：她当时往这边跑，会不会就是要来拿这把枪。那一枪是他开的，所以是“苦涩地”想。动词 rue 是“懊悔”。
         extra:
           - "**搭配**a rueful smile（苦笑）· rue the day（后悔那一天）"
+
+  - n: 21
+    date: 2026-09-28
+    pages: 24
+    photos: 1
+    notes:
+      - id: "115"
+        page: 24
+        color: blue
+        term: fathom
+        kind: 一词多义
+        ipa: /ˈfæðəm/
+        pos: v.
+        cn: 弄明白、想得通
+        en: to understand or find an explanation for something
+        en_src: 牛津 8
+        context: "he can’t ==fathom== it"
+        gist: 他怎么也想不通。
+        note: 他想不通的是：那个孩子气的姑娘，抱着毛绒狮子、写着没写完的信，怎么会跟一把手枪扯上关系。fathom 当名词是“英寻”，一种量水深的单位，约 1.8 米，所以“探到底”引申成了“弄明白”。多用在否定句里。第 25 页又用了一次：He tries to fathom the man who……
+        extra:
+          - "**搭配**can’t fathom why / how（想不通为什么 / 怎么）· unfathomable（深不可测的；无法理解的）"
+
+      - id: "116"
+        page: 24
+        color: orange
+        term: 好句
+        context: "==Feeling like a tumbleweed caught in a tornado whose eye is his own tragic act==, John bends down"
+        gist: 他觉得自己像一团被卷进龙卷风的风滚草，而那风暴的正中心，就是他自己犯下的那桩惨事。
+        note: tumbleweed 是美国荒原上枯了以后被风吹着满地滚的草团，身不由己。tornado 的 eye 是风眼，龙卷风正中那一小块反而是静的。整场风暴围着“他那一枪”转，他被卷在外圈打转，停不下来。前一句“像一个从楼梯上摔下去、停不住的人”，也是同一个意思。
+
+      - id: "117"
+        page: 24
+        color: blue
+        term: latch
+        kind: 名物
+        ipa: /lætʃ/
+        pos: n.
+        cn: 搭扣、插销
+        en: a small metal bar that is used to fasten a door or a gate
+        en_src: 牛津 8
+        context: "to open the rusted ==latch=="
+        gist: 去开那个生了锈的搭扣。
+        note: 牛津说的是门上的插销，这里是那只铁箱子上扣住盖子的搭扣。同一句里他脑子里有个声音说：每个人的一生都有一个决定性的时刻，现在轮到你了。
+        extra:
+          - "**搭配**lift the latch（拉起门闩）· latch onto（紧紧抓住、缠上）"
+
+      - id: "118"
+        page: 24
+        color: blue
+        term: denominations
+        lemma: denomination
+        kind: 一词多义
+        ipa: /dɪˌnɑːmɪˈneɪʃnz/
+        pos: n.
+        cn: （钱的）面额
+        en: a unit of value, especially of money
+        en_src: 牛津 8
+        context: "stacked bills in various ==denominations=="
+        gist: 一摞摞各种面额的钞票。
+        note: bills 在美式英语里是纸币。牛津把“面额”排在第二个意思，第一个是基督教的“教派”，完全不相干。haphazardly 是“乱七八糟地”。
+        extra:
+          - "**搭配**bills of small denominations（小面额钞票）"
+          - "**易混**bill（美式）= note（英式），都是纸币。"
+
+      - id: "119"
+        page: 24
+        color: blue
+        term: bog
+        kind: 名物
+        ipa: /bɑːɡ/
+        pos: n.
+        cn: 沼泽
+        en: (an area of) wet soft ground, formed of decaying plants
+        en_src: 牛津 8
+        context: "drop her in a deep ==bog=="
+        gist: 把她扔进一片深沼泽里。
+        note: 他脑子里有个“冷静又实际的声音”，叫他把她拖到连猎人都不去的 Quentin 家那片沼泽，拿石头坠着，沉进泥沼。他做不到。牛津提醒：英国俚语里 bog 还是“厕所”。
+        extra:
+          - "**易混**swamp 是长着树、积着水的沼泽；bog 是烂植物堆成的软泥地，一踩就陷；marsh 是长草的湿地。"
+
+      - id: "120"
+        page: 24
+        color: orange
+        term: 好句
+        context: "==Burial has a ring of finality to it he can’t yet bear.=="
+        gist: 下葬这件事，带着一种终结的意味，他还承受不起。
+        note: a ring of 是“听起来有……的味道”，像敲钟的余音。他连挖个坑把她埋了都做不到，因为一埋，就真的结束了，再也没有回头的余地。yet（还）两个字母很轻，却说明他知道总有一天得面对。
