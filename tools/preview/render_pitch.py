@@ -17,6 +17,7 @@ JSON 结构（样板见 .claude/pitches/）：
   motifs:  {title, note, items[]}               每章带一两样的复现母题
   forks:   [{id, q, hint, options[{id, name, hook, lines[{k,v}], sample, rec}]}]
            sample 用空行分段；rec=true 显示「我推荐」小牌
+           fork 加 "multi": true → 这一道可以多选（勾选框），页底把勾的几项用「＋」连起来
 
 字符串里可以直接写 <b> <i> 这类行内 HTML（内容是自己写的，不转义）。
 单一深色设计（跟路线图页一致），不跟随读者的明暗主题；配色取该角色画册四色。
@@ -107,6 +108,7 @@ section{margin-top:3.2rem;}
 .opt__k{font-family:var(--mono);font-size:.72rem;width:1.55rem;height:1.55rem;border-radius:50%%;
   display:inline-grid;place-items:center;border:1px solid var(--accent);color:var(--accent);flex:none;}
 .opt:has(input:checked) .opt__k{background:var(--accent);color:var(--bg);}
+.opt:has(input[type=checkbox]) .opt__k{border-radius:3px;}
 .opt__name{font-size:1.08rem;font-weight:600;margin:0;}
 .rec{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;color:var(--bg);background:var(--accent);
   border-radius:2px;padding:.1rem .35rem;}
@@ -149,8 +151,9 @@ JS = """
   function picks(){
     var out = [];
     forks.forEach(function(f){
-      var c = f.querySelector('input:checked');
-      if (c) out.push(f.getAttribute('data-short') + ' ' + c.getAttribute('data-short'));
+      var cs = [].slice.call(f.querySelectorAll('input:checked'));
+      if (cs.length) out.push(f.getAttribute('data-short') + ' ' +
+        cs.map(function(c){ return c.getAttribute('data-short'); }).join('＋'));
     });
     return out;
   }
@@ -161,13 +164,18 @@ JS = """
     btn.disabled = !p.length;
     try {
       var s = {};
-      forks.forEach(function(f){ var c = f.querySelector('input:checked'); if (c) s[f.id] = c.id; });
+      forks.forEach(function(f){
+        var cs = [].slice.call(f.querySelectorAll('input:checked'));
+        if (cs.length) s[f.id] = cs.map(function(c){ return c.id; });
+      });
       localStorage.setItem(KEY, JSON.stringify(s));
     } catch(e) {}
   }
   try {
     var s = JSON.parse(localStorage.getItem(KEY) || '{}');
-    Object.keys(s).forEach(function(k){ var el = document.getElementById(s[k]); if (el) el.checked = true; });
+    Object.keys(s).forEach(function(k){
+      [].concat(s[k]).forEach(function(id){ var el = document.getElementById(id); if (el) el.checked = true; });
+    });
   } catch(e) {}
   document.addEventListener('change', paint);
   btn.addEventListener('click', function(){
@@ -229,18 +237,20 @@ def main():
             sample = ('<div class="sample"><span class="sample__label">样章一小段</span>%s</div>' % paras(o['sample'])
                       if o.get('sample') else '')
             opts.append(
-                '<label class="opt" for="%s"><input type="radio" name="%s" id="%s" data-short="%s">'
+                '<label class="opt" for="%s"><input type="%s" name="%s" id="%s" data-short="%s">'
                 '<div class="opt__head"><span class="opt__k">%s</span><h3 class="opt__name">%s</h3>%s</div>'
                 '%s%s%s</label>'
-                % (oid, f['id'], oid, E(o.get('short', o['name'])), chr(65 + i), o['name'],
+                % (oid, 'checkbox' if f.get('multi') else 'radio', f['id'], oid, E(o.get('short', o['name'])),
+                   chr(65 + i), o['name'],
                    '<span class="rec">我推荐</span>' if o.get('rec') else '',
                    '<p class="opt__hook">%s</p>' % o['hook'] if o.get('hook') else '',
                    '<dl class="opt__lines">%s</dl>' % lines if lines else '', sample))
         grid = ' opts--grid' if not any(o.get('sample') for o in f['options']) else ''
         out.append(
-            '<section class="fork" id="%s" data-short="%s"><div class="fork__q"><span class="fork__n">岔路 %d</span>'
-            '<h2>%s</h2></div><p class="fork__hint">%s</p><div class="opts%s" role="radiogroup">%s</div></section>'
-            % (f['id'], E(f.get('short', '')), n, f['q'], f.get('hint', ''), grid, ''.join(opts)))
+            '<section class="fork" id="%s" data-short="%s"><div class="fork__q"><span class="fork__n">%s</span>'
+            '<h2>%s</h2></div><p class="fork__hint">%s</p><div class="opts%s" role="group">%s</div></section>'
+            % (f['id'], E(f.get('short', '')), ('岔路 %d · 可多选' if f.get('multi') else '岔路 %d') % n,
+               f['q'], f.get('hint', ''), grid, ''.join(opts)))
 
     if m.get('next'):
         out.append('<p class="next">%s</p>' % m['next'])

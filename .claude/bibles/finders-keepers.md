@@ -10,9 +10,18 @@
   画册 / lines.json / quiz / spectrum 已挂 auLink。首页文案（hero 引言、logline、关于、设定档案）是上线时照已定设定写的，她还没单独过目，
   她想改就改。
 - 第六章草稿预览：https://claude.ai/artifact/1WWycqhtqPA64LCrFN47KJ（成稿待过目，Winter 说「继续写吧」后写的）
-- 路线图第三轮岔路（等她挑）：① 那一下咯噔他会不会发现（A 不知道、压到 Ch10 / B 他自己察觉、笨拙地改——见了 Floatie 只挥手不抱 /
-  C 你忍不住问“你跟谁都这样吗？”）；② Ch8 警长为什么拎走他（A 偷电 / B 为你打架——原片酒吧打架 / C 番茄主人报警）三章齐了——她点头后连同系列首页一起部署（首页文案也要先给她过目；封面图等她传）。
-- 第一章草稿预览：https://claude.ai/artifact/P1pLjrpTYSc5z3kzWFodq3（`render_draft.py`，改稿重发同一路径）
+- 路线图第三轮岔路 ①，✅ Winter 2026-09-28：**先别发现**——原话：「想写小狗早就认了主人，但小狗没有立刻宣告，导致主人自己都不知道，
+  还以为自己和其他人一样呢🤭 但小狗感觉到危机是因为有另一个人靠近我！那种正常的体面人 / Buck吃醋危机感的方式会特别Buck🥺」
+  → **新的一段（Ch7 起）**：他早就认了主，从没宣告；你以为自己在他那儿跟 Floatie、店员、Beasley 太太一样。读者看得出的暗号：
+  只在你门廊上等到天亮 / 七张像钉在车里正对床 / 只在你家摘过帽子 / 「你看着我的时候跟别人不一样」只对你说过。
+  危机 = 一个**正常的体面人**（好人，不是反派）靠近你。
+- 第二段选项页（等她挑）：https://claude.ai/artifact/Vujg7xZxdHck3hVkskknoR（数据 `.claude/pitches/finders-keepers-jealousy.json`）
+  ① 体面人：A 律师 Daniel Crenshaw（外婆遗产）/ **B 兽医 Dr. Owen Pryce（推荐，“你身上有一股兽医的味道”）** / C 纽约编辑 Nathan Price；
+  ② Buck 怎么吃醋（多选）：挤进中间 / 把门廊堆满宝贝 / **学他体面（推荐：湿梳头、借来的短衬衫、没戴帽子=没尾巴的 Buck，你把帽子给他戴回去）** /
+  「这里不舒服，像吃了一个没熟的柿子」/ 好心办坏事用潭里泥水给人洗车 / 「他也会叫你 Moonpie 吗？」；
+  ③ 宣告：**A 当着体面人的面，把规矩反过来用「Finders keepers——是她先找到我的」（他归你，推荐）** / B 留到结局月光盒 / C 全镇面前；
+  ④ Ch8 警长：A 偷电 / B 吃醋闯祸（半夜去铺子借衬衫被逮）/ C 为你打架（原片酒吧打架）。
+  ⚠️ 起名避撞：Ashworth、Julian 已被 Some Steps Only We Know 用掉；Whitaker 在 TMPM 旧稿里出现过。
   第一章 Winter 已批注过一处（他皮肤白、特别好看、像林中仙子），已改。
 - 第二章草稿预览：https://claude.ai/artifact/Y9z7EKqYQNq5g3y5kiMmdm
 - 第三章草稿预览：https://claude.ai/artifact/MnhTghKHKSrBTbyEjjsC4o
