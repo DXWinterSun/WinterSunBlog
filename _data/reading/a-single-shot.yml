@@ -1510,3 +1510,1153 @@ batches:
         note: 这是女孩那封没写完的信的最后几行。她写的是 come，不是 came，信里还有 couldn’t take it no more、there weren’t no time 这样的说法，都是乡下口语，不合语法，但就是她说话的样子。她写到这里就停住了。牛津另外还有两个意思：把马的两条腿绑在一起防它跑掉；阻碍、拖后腿。
         extra:
           - "**易混**limp 也是瘸着走，多指一条腿有伤；hobble 更显得费劲、步子小、走不稳。"
+
+  - n: 17
+    date: 2026-09-28
+    pages: 20
+    photos: 1
+    notes:
+      - id: "090"
+        page: 20
+        color: blue
+        term: yelp
+        kind: 单词
+        ipa: /jelp/
+        pos: n.
+        cn: 一声短促的尖叫
+        en: a sudden short cry, usually of pain or surprise
+        context: "With a startled ==yelp==, he drops the cadaver"
+        gist: 他吓得叫了一声，手里的尸体掉在了地上。
+        note: 牛津只收了动词“（因为疼等）突然尖叫一声”，名词的英文解释是我照着改的。最常用来说狗被踩到时那一声“嗷”，人被吓一跳时也能用。
+        extra:
+          - "**搭配**give / let out a yelp（叫一声）· a yelp of pain / surprise（疼得 / 吓得叫一声）"
+          - "**易混**scream 是长而响的尖叫；yelp 短、急，一下就完。"
+
+      - id: "091"
+        page: 20
+        color: blue
+        term: wattles
+        lemma: wattle
+        kind: 名物
+        ipa: /ˈwɑːtlz/
+        pos: n.
+        cn: （火鸡等鸟脖子下的）红色肉垂
+        en: a piece of red skin that hangs down from the throat of a bird such as a turkey
+        en_src: 牛津 8
+        context: "red ==wattles== trembling"
+        gist: 红色的肉垂一颤一颤。
+        note: 就是火鸡下巴底下垂着的那片红肉。这里说的是那两只红头美洲鹫，第 16 页的 turkey vultures，扇着大翅膀悬在死鹿上方。牛津还收了 wattle 另外两个意思：编篱笆用的枝条，以及澳洲的金合欢树。
+
+      - id: "092"
+        page: 20
+        color: blue
+        term: sibilating
+        lemma: sibilate
+        kind: 单词
+        ipa: /ˈsɪbɪleɪtɪŋ/
+        pos: v.
+        cn: 发出嘶嘶声
+        en: to make a hissing sound, like "s" or "sh"
+        context: "waving his arms and ==sibilating=="
+        gist: 挥着胳膊、嘴里嘘嘘地赶它们。
+        note: 很少见的书面词，牛津高阶没收，英文解释是我写的。它的形容词 sibilant 牛津收了：发出 s、sh 那种咝咝声的。这里写 John 冲过去，一边挥手一边发出嘘嘘的声音轰那两只鸟。
+        extra:
+          - "**易混**hiss 是最常用的“嘶嘶”，蛇、猫、漏气都用它；sibilate 意思差不多，但很书面，平时几乎不用。"
+
+  - n: 18
+    date: 2026-09-28
+    pages: 21
+    photos: 1
+    notes:
+      - id: "093"
+        page: 21
+        color: blue
+        term: duffel
+        kind: 名物
+        ipa: /ˈdʌfl/
+        pos: n.
+        cn: 帆布包；旅行袋
+        en: (duffel bag) a large bag made of strong cloth or soft leather, used when you are travelling for carrying clothes, etc.
+        en_src: 牛津 8
+        context: "the Kools in her ==duffel=="
+        gist: 她包里的那包酷斯烟。
+        note: 牛津收的是 duffel bag，这里省掉了 bag。说的就是第 13 页那个牛仔布挎包（satchel），作者换了个说法。duffel 本来是一种厚实的粗呢布。
+        extra:
+          - "**易混**duffel bag 是软塌塌、能塞衣服的大袋子；satchel 是一根长带子斜挎的书包式挎包。"
+
+      - id: "094"
+        page: 21
+        color: blue
+        term: chipped
+        lemma: chip
+        kind: 一词多义
+        ipa: /tʃɪpt/
+        pos: adj.
+        cn: 崩了个小口的
+        en: damaged by having a small piece broken off
+        context: "shiny and ==chipped=="
+        gist: 又亮又崩了口。
+        note: 来自动词 chip，牛津的意思是“把东西碰掉一小块”。那把铲子通身是锈，只有铲尖发亮、还崩了口，说明最近有人拿它挖过东西，所以 John 才纳闷谁会跑到洞里来挖。chip 最常见的意思是薯条、芯片，这里都不是。
+        extra:
+          - "**搭配**a chipped mug（缺了口的杯子）· chip a tooth（磕掉一小块牙）"
+
+      - id: "095"
+        page: 21
+        color: blue
+        term: dankness
+        lemma: dank
+        kind: 单词
+        ipa: /ˈdæŋknəs/
+        pos: n.
+        cn: 阴冷潮湿
+        en: the quality of being damp, cold and unpleasant
+        context: "Along with the ==dankness=="
+        gist: 除了那股阴冷潮湿的气息，
+        note: 牛津只在形容词 dank 下面带了一句名词 dankness。dank 的解释是“（尤指地方）又湿又冷、让人不舒服”，例句正好是 a dark dank cave（又黑又潮的洞）。第 29 页她又划了 dank。
+        extra:
+          - "**易混**damp 只是潮；dank 是潮加上冷、加上一股霉味，让人很不舒服。"
+
+      - id: "096"
+        page: 21
+        color: blue
+        term: slither
+        eudic: false
+        kind: 单词
+        ipa: /ˈslɪðər/
+        pos: v.
+        cn: （蛇）贴着地面滑过去
+        en: to move somewhere in a smooth, controlled way, often close to the ground
+        en_src: 牛津 8
+        context: "will instantly strike or ==slither== away"
+        gist: 会立刻扑咬，或者溜走。
+        note: 第 14 页的 No. 068 记过这个词，这里又划了一次，欧路列表里就不重复放了。前面的 strike 用在蛇身上是“扑咬”。
+
+      - id: "097"
+        page: 21
+        color: blue
+        term: gingerly
+        kind: 单词
+        ipa: /ˈdʒɪndʒərli/
+        pos: adv.
+        cn: 小心翼翼地
+        en: in a careful way, because you are afraid of being hurt, of making a noise, etc.
+        en_src: 牛津 8
+        context: "==gingerly== picks the thing up"
+        gist: 小心翼翼地把那东西拿了起来。
+        note: 跟姜（ginger）没有关系，只是长得像。它虽然以 -ly 结尾，却是个副词，也能当形容词用，比如 a gingerly step（小心的一步）。
+        extra:
+          - "**易混**carefully 是一般的小心；gingerly 带着怕疼、怕惊动什么的那种战战兢兢。"
+
+      - id: "098"
+        page: 21
+        color: blue
+        term: diamondback rattlesnake
+        eudic: rattlesnake
+        kind: 名物
+        ipa: /ˈdaɪəmənbæk ˈrætlsneɪk/
+        pos: n.
+        cn: 菱斑响尾蛇
+        en: a large poisonous American rattlesnake with diamond-shaped markings on its back
+        context: "sees a ==diamondback rattlesnake=="
+        gist: 看见一条菱斑响尾蛇。
+        note: 牛津只收了 rattlesnake，意思是“产于美洲、生气或害怕时尾巴会发出拨浪鼓声的毒蛇”，口语里简称 rattler；diamondback 查不到，英文解释是我合起来写的。diamondback 指背上一个接一个的菱形花纹。书里说它粗得像拳头，头大半被打掉了。
+        extra:
+          - "**搭配**rattler（响尾蛇的口语叫法，第 25 页会出现）· rattle（拨浪鼓；嘎啦嘎啦响）"
+
+  - n: 19
+    date: 2026-09-28
+    pages: 22
+    photos: 1
+    notes:
+      - id: "099"
+        page: 22
+        color: blue
+        term: lean-to
+        kind: 名物
+        ipa: /ˈliːn tuː/
+        pos: n.
+        cn: 靠墙搭的披棚
+        en: a small building with its roof leaning against the side of a large building, wall or fence
+        en_src: 牛津 8
+        context: "back across the quarry toward the ==lean-to=="
+        gist: 穿过采石场往那个披棚跑回去。
+        note: 字面就是“靠（lean）在……上（to）”，一面坡的小棚子，顶斜搭在墙上。第 9 页采石场里那个“盖着塑料布的棚子”（plastic-covered lean-to）就是它。复数是 lean-tos。
+        extra:
+          - "**易混**shed 是独立的小木棚；lean-to 是借着一面墙搭出来的。"
+
+      - id: "100"
+        page: 22
+        color: blue
+        term: traverses
+        lemma: traverse
+        kind: 单词
+        ipa: /trəˈvɜːrsɪz/
+        pos: v.
+        cn: 走过、穿过（一片地方）
+        en: to cross an area of land or water
+        en_src: 牛津 8
+        context: "as he ==traverses== the gruesome trail"
+        gist: 他走过那条触目惊心的血路时。
+        note: 牛津标着是正式或专业用语。gruesome 是“血腥可怕的”，这条路就是他一路拖着尸体留下的痕迹。他边走边意识到：自打翻了她的口袋，他做的每件事都让自己更说不清了。
+        extra:
+          - "**易混**cross 最常用；traverse 更正式，常带着“一路走过一大片”的意思。"
+
+      - id: "101"
+        page: 22
+        color: blue
+        term: plunges
+        lemma: plunge
+        kind: 单词
+        ipa: /ˈplʌndʒɪz/
+        pos: v.
+        cn: 一头扎进去
+        en: to move or make somebody/something move suddenly forwards and/or downwards
+        en_src: 牛津 8
+        context: "==plunges== inside"
+        gist: 一头钻了进去。
+        note: 他掀开挡在棚子前面的塑料布，不带犹豫地冲进去。plunge 也常说价格、气温“暴跌”，或者“投身于”某件事。
+        extra:
+          - "**搭配**plunge into the water（跳进水里）· prices plunged（价格暴跌）"
+
+      - id: "102"
+        page: 22
+        color: blue
+        term: recliner
+        kind: 名物
+        ipa: /rɪˈklaɪnər/
+        pos: n.
+        cn: （可以往后放倒的）躺椅
+        en: a soft comfortable chair with a back that can be pushed back at an angle so that you can lean back in it
+        en_src: 牛津 8
+        context: "moth-eaten ==recliner=="
+        gist: 被虫蛀了的躺椅。
+        note: 美国家里客厅常见的那种软沙发椅，靠背能往后放。动词 recline 是“斜躺”。moth-eaten 是“被蛀虫咬坏的”，这棚子里全是没人要的旧东西。
+
+      - id: "103"
+        page: 22
+        color: blue
+        term: despondent
+        kind: 单词
+        ipa: /dɪˈspɑːndənt/
+        pos: adj.
+        cn: 灰心绝望的
+        en: sad, without much hope
+        en_src: 牛津 8
+        context: "causes in him a ==despondent== pain"
+        gist: 让他感到一阵绝望的痛。
+        note: 他看见睡袋里探出一只毛绒大狮子的头，意识到这玩具的主人是谁。那一下的难受，比刚发现她死了的时候还厉害。
+        extra:
+          - "**易混**sad 只是难过；despondent 是难过到看不到希望、提不起劲。"
+
+      - id: "104"
+        page: 22
+        color: blue
+        term: nestled
+        lemma: nestle
+        kind: 单词
+        ipa: /ˈnesld/
+        pos: v.
+        cn: 舒舒服服地窝着、依偎着
+        en: to sit or lie down in a warm or soft place
+        en_src: 牛津 8
+        context: "her ==nestled== comfortably in the sleeping bag"
+        gist: 她舒舒服服地窝在睡袋里。
+        note: 来自 nest（鸟窝），像小鸟窝在巢里。同一句紧接着就用了第二次：像 John 自己的儿子窝在婴儿床的被子底下。他把她和自己的孩子想到了一处。
+        extra:
+          - "**搭配**nestle against sb（依偎着某人）· a village nestled in the hills（藏在山里的小村子）"
+
+      - id: "105"
+        page: 22
+        color: blue
+        term: jowl
+        kind: 习语
+        ipa: /dʒaʊl/
+        pos: n.
+        cn: 下巴底下的肉；（这里）脸贴着脸
+        en: the lower part of somebody's cheek when it is fat and hangs down below their chin
+        en_src: 牛津 8
+        context: "cheek to ==jowl== with the lion"
+        gist: 脸颊挨着那只狮子。
+        note: 常说的习语是 cheek by jowl，牛津的解释是“紧挨着”。作者改成 cheek to jowl，她的脸蛋贴着狮子的下巴，画面更软、更亲，像小孩抱着玩具睡觉。
+        extra:
+          - "**搭配**cheek by jowl（紧挨着、挤在一起）"
+
+      - id: "106"
+        page: 22
+        color: blue
+        term: putrid
+        kind: 单词
+        ipa: /ˈpjuːtrɪd/
+        pos: adj.
+        cn: 腐臭的
+        en: (of dead animals or plants) decaying and therefore smelling very bad
+        en_src: 牛津 8
+        context: "breathing in that ==putrid== air"
+        gist: 吸着那股腐臭的空气。
+        note: 本义是尸体腐烂的臭味。这里的“臭”其实是棚子里大麻烟、啤酒和汗混在一起的气味，用这个词是在夸张，也跟他此刻满脑子死亡的心境对上了。
+        extra:
+          - "**易混**smelly 只是有味儿；putrid 是腐烂发臭、让人作呕。"
+
+  - n: 20
+    date: 2026-09-28
+    pages: 23
+    photos: 1
+    notes:
+      - id: "107"
+        page: 23
+        color: orange
+        term: 好句
+        context: "and ==what it would feel like for the kid to learn when he grows up that his father had killed a young girl, then killed himself=="
+        gist: 还有，等孩子长大了，得知自己的父亲杀了一个年轻姑娘、又杀了自己，那会是什么滋味。
+        note: 上一页结尾他刚想过拿枪了结自己，这里他想的却不是自己，而是儿子 Nolan 长大以后要怎么面对这件事。两个 killed 一前一后，一个杀了别人，一个杀了自己，对得很冷。拦住他的，是那个还在城里长大、将来要替父亲背这个名声的孩子。
+
+      - id: "108"
+        page: 23
+        color: blue
+        term: uncontested
+        kind: 单词
+        ipa: /ˌʌnkənˈtestɪd/
+        pos: adj.
+        cn: 没有争议的（这里指协议离婚）
+        en: without any opposition or argument
+        en_src: 牛津 8
+        context: "child support and an ==uncontested== divorce"
+        gist: 抚养费，外加一纸没有争议的离婚。
+        note: 牛津的例子正好就是 an uncontested divorce：双方对离婚条件都没意见，不用上法庭打官司。这句是说他妻子对他别无所求，只要孩子的抚养费和痛痛快快地离婚。contest 当动词是“对……提出异议”。
+        extra:
+          - "**搭配**child support（孩子的抚养费）· contest a will（对遗嘱提出异议）"
+
+      - id: "109"
+        page: 23
+        color: blue
+        term: bemoans
+        lemma: bemoan
+        kind: 单词
+        ipa: /bɪˈmoʊnz/
+        pos: v.
+        cn: 暗自哀叹、抱怨
+        en: to complain or say that you are not happy about something
+        en_src: 牛津 8
+        context: "he mentally ==bemoans== all he has lost"
+        gist: 他在心里哀叹自己失去的一切。
+        note: 牛津标着这是正式的词。moan 是“呻吟、发牢骚”，be- 加在前面，变成“对着某件事哀叹”。mentally 是“在心里”，他没说出口。前面那句的 self-pity 是“自怜”。
+        extra:
+          - "**易混**complain 是一般的抱怨；bemoan 更文、更哀怨，常是对着已经失去的东西叹气。"
+
+      - id: "110"
+        page: 23
+        color: blue
+        term: foreclose
+        kind: 单词
+        ipa: /fɔːrˈkloʊz/
+        pos: v.
+        cn: （银行）收走抵押的房产、田产
+        en: (especially of a bank) to take control of somebody's property because they have not paid back money that they borrowed to buy it
+        en_src: 牛津 8
+        context: "when the banks were starting to ==foreclose=="
+        gist: 那时候银行开始要收走农场了。
+        note: 这就是第 14 页说的“父亲把 Moon 家的农场弄丢了”：借了银行的钱还不上，银行就把抵押的农场收走。名词是 foreclosure。牛津还有一个正式的意思“排除某种可能”。
+        extra:
+          - "**搭配**foreclose on a farm / house（收回农场 / 房子）· foreclosure（止赎、收回抵押品）"
+
+      - id: "111"
+        page: 23
+        color: orange
+        term: 好句
+        context: "==John thinks he wouldn’t mind dying, but he doesn’t want to be a ghost in the mind of a son who never knew him.=="
+        gist: John 想，死他倒不在乎，可他不想变成儿子心里的一个鬼影，一个儿子从来不认识的人。
+        note: ghost 接着上一句：他记得父亲最后那段日子一天比一天瘦、一天比一天淡，在十六岁的他眼里“像鬼一样消失了，好像从来没存在过”。这一句把这个“鬼”转到了自己身上：他怕的不是死，是像父亲那样，在儿子心里只剩一个模糊的影子。
+
+      - id: "112"
+        page: 23
+        color: blue
+        term: Luger pistol
+        eudic: Luger
+        kind: 名物
+        ipa: /ˈluːɡər ˈpɪstl/
+        pos: n.
+        cn: 鲁格手枪
+        en: a German semi-automatic pistol, first made in the early 1900s
+        context: "a carton of 9-millimeter shells, and a ==Luger pistol=="
+        gist: 一盒 9 毫米子弹，还有一把鲁格手枪。
+        note: 牛津查不到，这是枪的牌子。鲁格是二十世纪初德国造的半自动手枪，用的正是 9 毫米子弹。John 马上想到：这东西可不是拿来打响尾蛇的。
+        extra:
+          - "**搭配**shells（子弹；前面讲过霰弹枪的 shell）· 9-millimeter（9 毫米口径）"
+
+      - id: "113"
+        page: 23
+        color: blue
+        term: hefting
+        lemma: heft
+        kind: 单词
+        ipa: /ˈheftɪŋ/
+        pos: v.
+        cn: 掂掂分量
+        en: to lift or hold something in order to estimate its weight
+        en_src: 牛津 8
+        context: "picking the pistol up and ==hefting== it in his hand"
+        gist: 把枪拿起来，在手里掂了掂。
+        note: 牛津的例句几乎一样：Anna took the old sword and hefted it in her hands（掂了掂那把古剑）。heft 另一个意思是“费力地搬起重物”。
+        extra:
+          - "**易混**lift 只是举起；heft 多了一层“感受一下有多重”。"
+
+      - id: "114"
+        page: 23
+        color: blue
+        term: ruefully
+        lemma: rueful
+        kind: 单词
+        ipa: /ˈruːfəli/
+        pos: adv.
+        cn: 懊悔地、苦涩地
+        en: in a way that shows you are sad or sorry about something
+        context: "He ==ruefully== wonders"
+        gist: 他苦涩地想，
+        note: 牛津收的是形容词 rueful，“（显得）难过或后悔的”，例子是 a rueful smile（苦笑）。他想的是：她当时往这边跑，会不会就是要来拿这把枪。那一枪是他开的，所以是“苦涩地”想。动词 rue 是“懊悔”。
+        extra:
+          - "**搭配**a rueful smile（苦笑）· rue the day（后悔那一天）"
+
+  - n: 21
+    date: 2026-09-28
+    pages: 24
+    photos: 1
+    notes:
+      - id: "115"
+        page: 24
+        color: blue
+        term: fathom
+        kind: 一词多义
+        ipa: /ˈfæðəm/
+        pos: v.
+        cn: 弄明白、想得通
+        en: to understand or find an explanation for something
+        en_src: 牛津 8
+        context: "he can’t ==fathom== it"
+        gist: 他怎么也想不通。
+        note: 他想不通的是：那个孩子气的姑娘，抱着毛绒狮子、写着没写完的信，怎么会跟一把手枪扯上关系。fathom 当名词是“英寻”，一种量水深的单位，约 1.8 米，所以“探到底”引申成了“弄明白”。多用在否定句里。第 25 页又用了一次：He tries to fathom the man who……
+        extra:
+          - "**搭配**can’t fathom why / how（想不通为什么 / 怎么）· unfathomable（深不可测的；无法理解的）"
+
+      - id: "116"
+        page: 24
+        color: orange
+        term: 好句
+        context: "==Feeling like a tumbleweed caught in a tornado whose eye is his own tragic act==, John bends down"
+        gist: 他觉得自己像一团被卷进龙卷风的风滚草，而那风暴的正中心，就是他自己犯下的那桩惨事。
+        note: tumbleweed 是美国荒原上枯了以后被风吹着满地滚的草团，身不由己。tornado 的 eye 是风眼，龙卷风正中那一小块反而是静的。整场风暴围着“他那一枪”转，他被卷在外圈打转，停不下来。前一句“像一个从楼梯上摔下去、停不住的人”，也是同一个意思。
+
+      - id: "117"
+        page: 24
+        color: blue
+        term: latch
+        kind: 名物
+        ipa: /lætʃ/
+        pos: n.
+        cn: 搭扣、插销
+        en: a small metal bar that is used to fasten a door or a gate
+        en_src: 牛津 8
+        context: "to open the rusted ==latch=="
+        gist: 去开那个生了锈的搭扣。
+        note: 牛津说的是门上的插销，这里是那只铁箱子上扣住盖子的搭扣。同一句里他脑子里有个声音说：每个人的一生都有一个决定性的时刻，现在轮到你了。
+        extra:
+          - "**搭配**lift the latch（拉起门闩）· latch onto（紧紧抓住、缠上）"
+
+      - id: "118"
+        page: 24
+        color: blue
+        term: denominations
+        lemma: denomination
+        kind: 一词多义
+        ipa: /dɪˌnɑːmɪˈneɪʃnz/
+        pos: n.
+        cn: （钱的）面额
+        en: a unit of value, especially of money
+        en_src: 牛津 8
+        context: "stacked bills in various ==denominations=="
+        gist: 一摞摞各种面额的钞票。
+        note: bills 在美式英语里是纸币。牛津把“面额”排在第二个意思，第一个是基督教的“教派”，完全不相干。haphazardly 是“乱七八糟地”。
+        extra:
+          - "**搭配**bills of small denominations（小面额钞票）"
+          - "**易混**bill（美式）= note（英式），都是纸币。"
+
+      - id: "119"
+        page: 24
+        color: blue
+        term: bog
+        kind: 名物
+        ipa: /bɑːɡ/
+        pos: n.
+        cn: 沼泽
+        en: (an area of) wet soft ground, formed of decaying plants
+        en_src: 牛津 8
+        context: "drop her in a deep ==bog=="
+        gist: 把她扔进一片深沼泽里。
+        note: 他脑子里有个“冷静又实际的声音”，叫他把她拖到连猎人都不去的 Quentin 家那片沼泽，拿石头坠着，沉进泥沼。他做不到。牛津提醒：英国俚语里 bog 还是“厕所”。
+        extra:
+          - "**易混**swamp 是长着树、积着水的沼泽；bog 是烂植物堆成的软泥地，一踩就陷；marsh 是长草的湿地。"
+
+      - id: "120"
+        page: 24
+        color: orange
+        term: 好句
+        context: "==Burial has a ring of finality to it he can’t yet bear.=="
+        gist: 下葬这件事，带着一种终结的意味，他还承受不起。
+        note: a ring of 是“听起来有……的味道”，像敲钟的余音。他连挖个坑把她埋了都做不到，因为一埋，就真的结束了，再也没有回头的余地。yet（还）这个小词很轻，却说明他知道总有一天得面对。
+
+  - n: 22
+    date: 2026-09-28
+    pages: 25
+    photos: 1
+    notes:
+      - id: "121"
+        page: 25
+        color: blue
+        term: poised
+        kind: 单词
+        ipa: /pɔɪzd/
+        pos: adj.
+        cn: 摆好架势、随时要动的
+        en: in a position that is completely still but is ready to move at any moment
+        en_src: 牛津 8
+        context: "the pick ==poised== in front of him like a spear"
+        gist: 镐头架在身前，像端着一杆长矛。
+        note: 纹丝不动，但随时能出手。牛津的例句是猫伏在草里 poised to jump（准备扑）。poised 另一个常见意思是“（人）沉着优雅的”。
+        extra:
+          - "**搭配**poised to do sth（准备好要做某事）· poised over（悬在……上方）"
+
+      - id: "122"
+        page: 25
+        color: blue
+        term: duck-walks
+        lemma: duck-walk
+        eudic: false
+        kind: 口语
+        ipa: /ˈdʌk wɔːks/
+        pos: v.
+        cn: 蹲着往前挪（鸭子步）
+        en: to walk in a low squatting position, like a duck
+        context: "he ==duck-walks== into the cave"
+        gist: 他蹲着身子，一步一步挪进洞里。
+        note: 牛津查不到，英文解释是我写的。就是半蹲着、屁股压低往前走，看着像鸭子。因为洞只有四英尺高，站不直，后面也说他进去以后只能“站起四分之三”，脑袋顶着参差的石头顶。
+
+      - id: "123"
+        page: 25
+        color: blue
+        term: telltale
+        kind: 单词
+        ipa: /ˈtelteɪl/
+        pos: adj.
+        cn: 露出迹象的、泄露实情的
+        en: showing that something exists or has happened
+        en_src: 牛津 8
+        context: "listening for ==telltale== rattles"
+        gist: 竖着耳朵听，有没有那种一听就知道的嘎啦声。
+        note: 字面是“讲（tell）出故事（tale）”，一听就知道底下有响尾蛇。他知道一条蛇住的地方，往往还有别的蛇。牛津的例句是 The telltale smell of cigarettes（一闻就知道有人抽过烟）。当名词是“爱打小报告的小孩”。
+        extra:
+          - "**搭配**telltale signs / marks（明显的迹象 / 痕迹）"
+
+      - id: "124"
+        page: 25
+        color: blue
+        term: ominous
+        kind: 单词
+        ipa: /ˈɑːmɪnəs/
+        pos: adj.
+        cn: 不祥的
+        en: suggesting that something bad is going to happen in the future
+        en_src: 牛津 8
+        context: "The silence starts an ==ominous== hum in his ears"
+        gist: 四下一片寂静，耳朵里却嗡嗡响起来，让人心里发毛。
+        note: 牛津的例句是 an ominous silence（不祥的沉默），这里反过来，安静得耳朵里起了一种不祥的嗡嗡声。名词 omen 是“预兆”。
+        extra:
+          - "**搭配**ominous clouds / silence（不祥的乌云 / 沉默）· ominously（不祥地）"
+
+      - id: "125"
+        page: 25
+        color: blue
+        term: precariousness
+        lemma: precarious
+        kind: 单词
+        ipa: /prɪˈkeriəsnəs/
+        pos: n.
+        cn: 岌岌可危
+        en: the state of being unsafe and likely to fall or go wrong
+        context: "the ==precariousness== of his position"
+        gist: 他此刻处境有多危险。
+        note: 牛津只收了形容词 precarious：“（情况）不安全、不稳定的；摇摇欲坠的”。他把自己想成一颗蹲在大象屁股底下的鸡蛋，头顶上压着几千吨土石，随时会被压碎。粗俗，但很好笑。
+        extra:
+          - "**搭配**a precarious position / living（危险的处境 / 朝不保夕的日子）"
+
+      - id: "126"
+        page: 25
+        color: blue
+        term: Crouched
+        lemma: crouch
+        kind: 单词
+        ipa: /kraʊtʃt/
+        pos: adj.
+        cn: 蹲着的
+        en: (crouch) to put your body close to the ground by bending your legs under you
+        en_src: 牛津 8
+        context: "==Crouched== near the center of the cave"
+        gist: 他蹲在洞中央附近。
+        note: 第 26 页她又划了 crouches，是同一个词。第 6 页写他 squats down，也是蹲，意思几乎一样。
+        extra:
+          - "**易混**squat 是蹲下（常指屁股几乎挨着脚跟）；crouch 是弯腿压低身子，常带着要躲、要扑的紧张感。"
+
+      - id: "127"
+        page: 25
+        color: blue
+        term: oblong
+        eudic: false
+        kind: 单词
+        ipa: /ˈɑːblɔːŋ/
+        pos: adj.
+        cn: 长条形的
+        en: (in North American English) used to describe any shape that is longer than it is wide
+        en_src: 牛津 8
+        context: "the ==oblong== interior"
+        gist: 长条形的洞里。
+        note: 第 5 页的 No. 024 记过这个词（那里是鹿卧过的长条形压痕），这里又划了一次，欧路列表里就不重复放了。
+
+      - id: "128"
+        page: 25
+        color: blue
+        term: Luger
+        eudic: false
+        kind: 名物
+        ipa: /ˈluːɡər/
+        pos: n.
+        cn: 鲁格手枪
+        en: a German semi-automatic pistol, first made in the early 1900s
+        context: "with a pick, shovel, and ==Luger=="
+        gist: 带着一把镐、一把铲和一支鲁格枪。
+        note: 第 23 页的 No. 112 记过。这里他在琢磨那个带着镐、铲和手枪爬进蛇窝去挖一箱钱的男人，到底是什么人。
+
+      - id: "129"
+        page: 25
+        color: blue
+        term: cacophonous
+        lemma: cacophony
+        kind: 单词
+        ipa: /kəˈkɑːfənəs/
+        pos: adj.
+        cn: 刺耳嘈杂的
+        en: making a loud, unpleasant mixture of sounds
+        context: "a tail rapidly vibrating its ==cacophonous== clatter"
+        gist: 尾巴飞快地抖着，发出刺耳的嘎啦嘎啦声。
+        note: 牛津收的是名词 cacophony：“（正式）一片刺耳的嘈杂声”，形容词只挂在下面。caco- 是“坏的”，-phony 是“声音”，跟 telephone、symphony 里的 phone 同源。反义词是 euphony（悦耳的声音）。
+        extra:
+          - "**搭配**a cacophony of horns / voices（一片喇叭声 / 人声）"
+
+  - n: 23
+    date: 2026-09-28
+    pages: 26
+    photos: 1
+    notes:
+      - id: "130"
+        page: 26
+        color: blue
+        term: pent-up
+        kind: 单词
+        ipa: /ˌpent ˈʌp/
+        pos: adj.
+        cn: 憋在心里的
+        en: (of feelings, energy, etc.) that cannot be expressed or released
+        en_src: 牛津 8
+        context: "his ==pent-up== emotions from the previous hours"
+        gist: 他这几个钟头憋着的情绪。
+        note: pent 是老动词 pen（关进围栏）的过去分词，情绪被关起来、憋住了。一见到那条蛇和被困在洞里的她，这些憋着的东西一下子全冲了出来。
+        extra:
+          - "**搭配**pent-up anger / energy / frustration（憋着的火 / 劲儿 / 委屈）"
+
+      - id: "131"
+        page: 26
+        color: blue
+        term: coalesce
+        kind: 单词
+        ipa: /ˌkoʊəˈles/
+        pos: v.
+        cn: 汇到一起、凝成一团
+        en: to come together to form one larger group, substance, etc.
+        en_src: 牛津 8
+        context: "==coalesce== in blind rage"
+        gist: 汇成了一股不管不顾的怒火。
+        note: 牛津标着是正式的词，例句是水洼汇成一条小溪。这里是几个钟头里的害怕、愧疚、委屈汇到一处，变成了 blind rage（气昏了头的暴怒），所以他才用镐和脚跟把那条蛇碾死。
+        extra:
+          - "**搭配**coalesce into（汇成）"
+          - "**易混**merge 是两样东西并成一样；coalesce 是许多零散的东西慢慢聚成一团。"
+
+      - id: "132"
+        page: 26
+        color: blue
+        term: cadaver
+        eudic: false
+        kind: 单词
+        ipa: /kəˈdævər/
+        pos: n.
+        cn: 尸体
+        en: a dead human body
+        en_src: 牛津 8
+        context: "he grabs the ==cadaver== by the shoulders"
+        gist: 他抓住尸体的肩膀。
+        note: 第 17 页的 No. 088 记过这个词，这里又划了一次，欧路列表里就不重复放了。
+
+      - id: "133"
+        page: 26
+        color: blue
+        term: crouches
+        lemma: crouch
+        eudic: false
+        kind: 单词
+        ipa: /ˈkraʊtʃɪz/
+        pos: v.
+        cn: 蹲着
+        en: to put your body close to the ground by bending your legs under you
+        en_src: 牛津 8
+        context: "he ==crouches== there, studying the girl’s body"
+        gist: 他蹲在那儿，端详着女孩的身体。
+        note: 第 25 页的 No. 126 记过 crouched，是同一个词，欧路列表里就不重复放了。
+
+      - id: "134"
+        page: 26
+        color: blue
+        term: cherubic
+        lemma: cherub
+        kind: 单词
+        ipa: /tʃəˈruːbɪk/
+        pos: adj.
+        cn: 圆嘟嘟、天真的（娃娃脸）
+        en: looking round and innocent, like a small child's face
+        context: "her ==cherubic== face"
+        gist: 她那张天真的娃娃脸。
+        note: 牛津在 cherub 下面给了这个形容词，例子就是 a cherubic face。cherub 是画里那种长着翅膀、胖乎乎的小天使。作者在这里提醒你：她还只是个孩子。
+        extra:
+          - "**搭配**a cherubic smile / face（天真无邪的笑 / 娃娃脸）"
+
+      - id: "135"
+        page: 26
+        color: blue
+        term: forlorn
+        kind: 单词
+        ipa: /fərˈlɔːrn/
+        pos: adj.
+        cn: 孤零零、可怜巴巴的
+        en: (of a person) appearing lonely and unhappy
+        en_src: 牛津 8
+        context: "a child’s peeved, ==forlorn== expression"
+        gist: 一个小孩那种又委屈又孤单的神情。
+        note: peeved 是“有点不高兴、赌气的”。两个词放一起，就是小孩被冷落时撅着嘴、可怜兮兮的样子。forlorn 还能形容地方荒凉，或者希望渺茫，比如 a forlorn hope。
+        extra:
+          - "**搭配**a forlorn hope（渺茫的希望）· look forlorn（看着孤零零的）"
+          - "**易混**lonely 只说孤单；forlorn 是孤单再加上一点被抛下的可怜样。"
+
+  - n: 24
+    date: 2026-09-28
+    pages: 27
+    photos: 1
+    notes:
+      - id: "136"
+        page: 27
+        color: blue
+        term: buzzards
+        lemma: buzzard
+        eudic: false
+        kind: 名物
+        ipa: /ˈbʌzərdz/
+        pos: n.
+        cn: 美洲鹫（吃腐肉的大鸟）
+        en: a large American bird like a vulture that eats the flesh of animals that are already dead
+        en_src: 牛津 8
+        context: "The ==buzzards== are on the deer carcass again"
+        gist: 那几只鹫又落到了死鹿身上。
+        note: 第 8 页的 No. 039 记过这个词，就是第 16、20 页那两只红头美洲鹫。欧路列表里就不重复放了。
+
+      - id: "137"
+        page: 27
+        color: blue
+        term: slag heap
+        eudic: slag
+        kind: 名物
+        ipa: /ˈslæɡ hiːp/
+        pos: n.
+        cn: 矿渣堆
+        en: a large pile of slag from a mine
+        en_src: 牛津 8
+        context: "beneath a ==slag heap=="
+        gist: （把蛇埋）在一堆矿渣底下。
+        note: slag 是开矿、炼铁剩下的废石渣。这是座废弃的采石场，第 9、10 页就写过那里有好几堆 slag heaps，只是当时没划。牛津提醒：英国俚语里 slag 是骂女人的脏话，别乱用。
+
+      - id: "138"
+        page: 27
+        color: blue
+        term: dungarees
+        kind: 名物
+        ipa: /ˌdʌŋɡəˈriːz/
+        pos: n.
+        cn: 粗布工装裤
+        en: (in North American English) heavy cotton trousers for working in, usually made of denim
+        en_src: 牛津 8
+        context: "a pair of men’s ==dungarees=="
+        gist: 一条男人穿的粗布工装裤。
+        note: 英式里 dungarees 是背带裤；美式里是干活穿的粗布裤子，多半是牛仔布。牛津两个意思都收了，这里是美式那个。永远是复数，说一条要讲 a pair of dungarees。他舍不得浪费鹿肉，拿这条裤子把肉包了起来。第 29 页她又划了一次。
+        extra:
+          - "**易混**overalls（美）才是背带工装裤；jeans 是一般的牛仔裤。"
+
+      - id: "139"
+        page: 27
+        color: blue
+        term: serrated
+        kind: 单词
+        ipa: /səˈreɪtɪd/
+        pos: adj.
+        cn: 锯齿状的
+        en: having a series of sharp points on the edge like a saw
+        en_src: 牛津 8
+        context: "with its ==serrated== edge starts sawing"
+        gist: 用它带锯齿的刀刃开始锯。
+        note: 牛津的例子就是 a knife with a serrated edge（带锯齿刃的刀）。面包刀就是这种刃。后面的 sawing（锯）正好接上。
+        extra:
+          - "**搭配**a serrated knife / edge（锯齿刀 / 锯齿刃）"
+
+      - id: "140"
+        page: 27
+        color: blue
+        term: gnarled
+        kind: 单词
+        ipa: /nɑːrld/
+        pos: adj.
+        cn: 疙疙瘩瘩、扭结的
+        en: twisted and rough; covered with hard lumps
+        en_src: 牛津 8
+        context: "The torso is hard-boned, ==gnarled=="
+        gist: 那躯干骨头硬，疙疙瘩瘩的。
+        note: 开头的 g 不发音。牛津说它本来形容老树枝干扭曲、长满节瘤，也能说老人的手因年老而弯曲变形。这里拿来说老鹿的身子，一身硬骨头和筋肉，下一页接着说它“一辈子打架、过日子”练出来的。
+        extra:
+          - "**搭配**a gnarled oak / gnarled hands（多节瘤的老橡树 / 粗糙变形的手）"
+
+  - n: 25
+    date: 2026-09-28
+    pages: 28
+    photos: 1
+    notes:
+      - id: "141"
+        page: 28
+        color: blue
+        term: parched
+        kind: 单词
+        ipa: /pɑːrtʃt/
+        pos: adj.
+        cn: 干得冒烟的
+        en: very dry, especially because the weather is hot
+        en_src: 牛津 8
+        context: "his mouth is ==parched=="
+        gist: 他嘴里干得冒烟。
+        note: 牛津的第一个意思是土地被晒得焦干，例句有 She licked her parched lips（舔了舔干裂的嘴唇）；口语里也直接说人“渴死了”，I’m parched。他从天亮一直忙到快下午三点，浑身是汗和血，又饿又渴。
+        extra:
+          - "**搭配**parched land / lips（焦干的土地 / 干裂的嘴唇）· I’m parched（我快渴死了）"
+
+      - id: "142"
+        page: 28
+        color: blue
+        term: potholed
+        lemma: pothole
+        kind: 单词
+        ipa: /ˈpɑːthoʊld/
+        pos: adj.
+        cn: 坑坑洼洼的
+        en: full of large rough holes in the surface, formed by traffic and bad weather
+        context: "winding up the steep, ==potholed== road"
+        gist: 顺着那条又陡又坑坑洼洼的路开上来。
+        note: 牛津收的是名词 pothole：“路面上被车轧、被天气弄出来的大坑”，形容词是我照着改的。他在算：Waylon 要是开车回来，得是四驱车，沿着这条烂路上来，他能提前十分钟听见。
+        extra:
+          - "**搭配**hit a pothole（压到坑）"
+
+      - id: "143"
+        page: 28
+        color: blue
+        term: algae-black
+        lemma: algae
+        kind: 单词
+        ipa: /ˈældʒiː blæk/
+        pos: adj.
+        cn: 长满藻、黑乎乎的
+        en: (of water) dark or black because it is full of algae
+        context: "the pond of ==algae-black== water"
+        gist: 那个长满水藻、水黑乎乎的池塘。
+        note: 牛津收的是 algae（藻类），复数形式，单数是 alga。algae-black 是作者拼出来的，水里全是藻，颜色发黑。英文解释是我写的。
+        extra:
+          - "**搭配**algae bloom（水华，藻类暴发）"
+
+      - id: "144"
+        page: 28
+        color: blue
+        term: tepid
+        kind: 一词多义
+        ipa: /ˈtepɪd/
+        pos: adj.
+        cn: 温吞吞的
+        en: slightly warm, sometimes in a way that is not pleasant
+        en_src: 牛津 8
+        context: "walks into the ==tepid== water"
+        gist: 走进温吞吞的水里。
+        note: 热天晒了一天的池水，不凉也不热，泡着并不舒服。牛津的第二个意思是“不热情的”，比如 tepid applause（稀稀拉拉的掌声）。
+        extra:
+          - "**易混**lukewarm 跟它意思几乎一样；warm 是舒服的温暖；tepid 带一点“温吞、不够劲”的味道。"
+
+      - id: "145"
+        page: 28
+        color: blue
+        term: rock-laden
+        lemma: laden
+        kind: 单词
+        ipa: /ˈrɑːk leɪdn/
+        pos: adj.
+        cn: 塞满了石头的
+        en: heavily loaded with rocks
+        context: "retrieve the ==rock-laden== torso"
+        gist: 把那具塞满石头的躯干拖回来。
+        note: laden 是“装满、载满的”，牛津的例句有 The trees were laden with apples（树上挂满了苹果）；它还有个文学用法，“充满（不好的东西）”，比如 laden with threat（满是威胁）。rock-laden 是拼起来的：他往鹿身子里塞了几磅石头，好让它沉到池底。
+        extra:
+          - "**搭配**laden with（装满、挂满）· heavily laden（满载的）"
+
+  - n: 26
+    date: 2026-09-28
+    pages: 29
+    photos: 1
+    notes:
+      - id: "146"
+        page: 29
+        color: blue
+        term: dungarees
+        eudic: false
+        kind: 名物
+        ipa: /ˌdʌŋɡəˈriːz/
+        pos: n.
+        cn: 粗布工装裤
+        en: (in North American English) heavy cotton trousers for working in, usually made of denim
+        en_src: 牛津 8
+        context: "the snake-and-tongue-filled ==dungarees=="
+        gist: 那条裹着蛇和鹿舌头的工装裤。
+        note: 第 27 页的 No. 138 记过这个词，这里又划了一次，欧路列表里就不重复放了。
+
+      - id: "147"
+        page: 29
+        color: blue
+        term: dank
+        eudic: false
+        kind: 单词
+        ipa: /dæŋk/
+        pos: adj.
+        cn: 阴冷潮湿的
+        en: (especially of a place) damp, cold and unpleasant
+        en_src: 牛津 8
+        context: "in her ==dank== tomb"
+        gist: 在她那阴冷潮湿的墓穴里。
+        note: 第 21 页的 No. 095 记过名词 dankness，这里是它的形容词原形，欧路列表里已经有 dank 了。他累得趴在棚子底下动不了，想象她也这样躺在那个湿冷的洞里。
+
+      - id: "148"
+        page: 29
+        color: blue
+        term: orchestrated
+        lemma: orchestrate
+        kind: 一词多义
+        ipa: /ˈɔːrkɪstreɪtɪd/
+        pos: v.
+        cn: 被暗中安排好的
+        en: to organize a complicated plan or event very carefully or secretly
+        en_src: 牛津 8
+        context: "events are being ==orchestrated== by some higher force"
+        gist: 这一切都是被某种更高的力量安排好的。
+        note: 本义是把乐曲编配给管弦乐队（orchestra）演奏，引申成“精心策划、幕后操纵”。他觉得自己像笼子里的老鼠，是某个古怪实验的对象。
+        extra:
+          - "**搭配**a carefully orchestrated campaign（精心策划的一场运动）"
+          - "**易混**arrange 是一般的安排；orchestrate 强调复杂、周密，常带点暗中操纵的意味。"
+
+  - n: 27
+    date: 2026-09-28
+    pages: 30
+    photos: 1
+    notes:
+      - id: "149"
+        page: 30
+        color: blue
+        term: foliage
+        kind: 单词
+        ipa: /ˈfoʊliɪdʒ/
+        pos: n.
+        cn: （一片）枝叶
+        en: the leaves of a tree or plant; leaves and branches together
+        en_src: 牛津 8
+        context: "when the ==foliage== blocks"
+        gist: 当枝叶挡住（视线）的时候。
+        note: 不可数，说的是一整片叶子，不是一片一片的。一年里有半年，树叶把林子遮得严严实实，从山下飘上来的喊声，听着真像 Robert Moon（John 的父亲）的鬼魂。
+        extra:
+          - "**搭配**dense / autumn foliage（茂密的枝叶 / 秋叶）"
+          - "**易混**leaf / leaves 是一片片的叶子；foliage 是整棵树、整片林子的叶子连枝带叶地算。"
+
+      - id: "150"
+        page: 30
+        color: orange
+        term: 好句
+        context: "==It’s important, he thinks, for him to act and appear normal to the world.=="
+        gist: 他想，重要的是，在旁人眼里他得表现得一切如常，看上去也一切如常。
+        note: 上一段他还在惊讶：怎么会有人照旧过日子，好像昨天的世界一点都没变。到这里轮到他自己了：第二天照常去上工，装作什么都没发生。act and appear 两个词，一个是做给人看，一个是被人看见，他得两头都顾到。he thinks 插在句子中间，像他一边想一边给自己下命令。
+
+      - id: "151"
+        page: 30
+        color: pink
+        term: steels himself against
+        lemma: steel oneself against
+        eudic: steel
+        kind: 短语
+        ipa: /stiːlz hɪmˈself əˈɡenst/
+        pos: phr. v.
+        cn: 咬紧牙关硬扛着
+        en: (steel yourself) to prepare yourself to deal with something unpleasant
+        en_src: 牛津 8
+        context: "he ==steels== himself ==against== a coarse blast of freezing water"
+        gist: 他咬着牙，硬扛着一阵刺骨的冷水猛冲下来。
+        note: steel 最常见的是名词“钢”，这里当动词：把自己“炼成钢”，硬起来准备挨一下。后面接 against（顶住某样东西）或 for（为某件事做好准备）。他站在淋浴下面挨冷水冲，冷水像是在洗掉这一天，也像是在惩罚自己。
+        extra:
+          - "**搭配**steel yourself for bad news（做好听坏消息的心理准备）· steel yourself to do sth（硬着头皮去做某事）"
+
+      - id: "152"
+        page: 30
+        color: pink
+        term: Subsequently
+        kind: 单词
+        ipa: /ˈsʌbsɪkwəntli/
+        pos: adv.
+        cn: 随后、接着
+        en: afterwards; later; after something else has happened
+        en_src: 牛津 8
+        context: "==Subsequently==, he cleans his shoulder wound"
+        gist: 接着，他清洗了肩上的伤口。
+        note: 牛津标着这是正式的词，常见于报告、新闻，例句正是这样放在句首、后面跟逗号。小说里拿它来接“洗完冷水澡”和“处理伤口”，口气冷冷的，像在写一份报告，跟他此刻麻木、按部就班的状态很配。
+        extra:
+          - "**易混**then / afterwards 是口语里的“然后”；subsequently 更书面；consequently 是“因此”，讲的是因果，别弄混。"
+
+      - id: "153"
+        page: 30
+        color: blue
+        term: peroxide
+        kind: 名物
+        ipa: /pəˈrɑːksaɪd/
+        pos: n.
+        cn: 双氧水（过氧化氢）
+        en: a clear liquid used to kill bacteria and to bleach hair
+        en_src: 牛津 8
+        context: "cleans his shoulder wound with ==peroxide=="
+        gist: 用双氧水清洗肩上的伤口。
+        note: 全称 hydrogen peroxide，美国家里常备的消毒水，倒在伤口上会冒白沫。牛津还提到它能漂白头发，a peroxide blonde 就是“漂出来的金发女郎”。
+
+      - id: "154"
+        page: 30
+        color: blue
+        term: aerated
+        lemma: aerate
+        kind: 单词
+        ipa: /ˈereɪtɪd/
+        pos: adj.
+        cn: 透气的（有小孔的）
+        en: having small holes that let air through
+        context: "wraps it in an ==aerated== bandage"
+        gist: 用透气绷带包好。
+        note: 牛津收的 aerate 是“让空气进到土里、水里”和“往饮料里充气”，aerated water 就是汽水。这里说的是带小孔、能透气的绷带，英文解释是我按这个意思写的。
+        extra:
+          - "**搭配**aerated water（汽水）· aerate the soil（给土壤松土透气）"
+
+  - n: 28
+    date: 2026-09-28
+    pages: 31
+    photos: 1
+    remark: 第一章 SUNDAY 读完
+    notes:
+      - id: "155"
+        page: 31
+        color: orange
+        term: 好句
+        context: "==he lies down naked on his bed== and tries unsuccessfully to convince himself that it is the morning of the same day"
+        gist: 他赤条条地躺到床上，想说服自己现在还是同一天的早上，却怎么也做不到。
+        note: 她划的是前半句，但它的分量要连着后面读。拉上窗帘挡住最后一点天光，脱得一丝不挂躺下，像要把这一整天从身上剥掉；接着他想骗自己：现在还是今天早上，他刚醒，什么都还没发生。unsuccessfully 一个词就把这点念想打碎了。
+
+      - id: "156"
+        page: 31
+        color: orange
+        term: 好句
+        context: "and ==he remembers his wife’s departing words to the effect that she doesn’t want the boy to grow up, like his father,== thinking there is no life beyond a small patch of mountain"
+        gist: 他想起妻子临走时说的话，大意是：她不想让儿子长大以后像他父亲一样，以为这一小片山地之外就没有别的活法。
+        note: departing words 是“临走时撂下的话”，to the effect that 是“大意是”，所以这不是原话，是 John 记住的意思。like his father 夹在中间，指的就是 John 自己：在妻子眼里，他守着祖上最后这一小块山，守成了一辈子的局限。她带走儿子，就是不想让孩子也被这座山困住。
+
+      - id: "157"
+        page: 31
+        color: blue
+        term: vestige
+        kind: 单词
+        ipa: /ˈvestɪdʒ/
+        pos: n.
+        cn: 残存的一点、最后的遗迹
+        en: a small part of something that still exists after the rest of it has stopped existing
+        en_src: 牛津 8
+        context: "the last ==vestige== of his ancestors’ homestead"
+        gist: 祖上那片家业留下的最后一点。
+        note: 牛津标着这是正式的词。Moon 家原来的农场第 23 页就被银行收走了，第 30 页说 Cecil Nobie 十四年前从银行拍卖会上买下了它。John 如今住的这一小片山坡上的拖车屋，就是祖业仅剩的一点残余。homestead 是“宅地、家园连着田地”。牛津的第二个意思用在否定句里：not a vestige of truth（没有一丝真实）。
+        extra:
+          - "**搭配**the last vestiges of（……最后的残余）· not a vestige of（一丝……都没有）"
+
+      - id: "158"
+        page: 31
+        color: blue
+        term: stuporous
+        lemma: stupor
+        kind: 单词
+        ipa: /ˈstuːpərəs/
+        pos: adj.
+        cn: 昏昏沉沉的
+        en: in a state in which you cannot think or hear clearly, often because of shock or tiredness
+        context: "in a ==stuporous== half sleep"
+        gist: 在昏昏沉沉的半睡半醒中。
+        note: 牛津只收了名词 stupor：“（尤其因为醉酒、吸毒或受了惊吓）神志不清、恍惚”，例句有 a drunken stupor（烂醉）。形容词是我照着改的。他就在这种迷糊里反反复复念：钱和死，钱和死，像数羊一样。
+        extra:
+          - "**搭配**in a drunken stupor（醉得不省人事）· drink yourself into a stupor（把自己喝到不省人事）"
+
+      - id: "159"
+        page: 31
+        color: blue
+        term: pied
+        kind: 习语
+        ipa: /paɪd/
+        pos: adj.
+        cn: 花斑的；（Pied Piper）花衣吹笛人
+        en: (especially of birds) of two or more different colours, especially black and white
+        en_src: 牛津 8
+        context: "like a dying ==pied== piper"
+        gist: 像一个垂死的花衣吹笛人。
+        note: 出自德国的老故事《哈默尔恩的花衣吹笛人》：吹笛人用笛声先引走了全城的老鼠，后来又引走了全城的孩子。牛津也收了 Pied Piper，意思是“能让一大群人跟着走的人”。梦里那头受伤的公鹿就像这个吹笛人，一路把他引进林子、引进那个山谷，而进去的东西，没有一样能原样出来。
+        extra:
+          - "**搭配**the Pied Piper of Hamelin（花衣吹笛人的故事）"
+
+      - id: "160"
+        page: 31
+        color: orange
+        term: 好句
+        context: "he sits for several minutes on the front deck ==with an open beer that he doesn’t drink==, and, by the star-filled sky, ==is reminded of the insignificance of all earthly acts, including his own.=="
+        gist: 他在门前的平台上坐了几分钟，手里一罐打开了却没喝的啤酒；满天的星星让他想到，人世间的一切作为都微不足道，他自己的也一样。
+        note: 她在这一句里划了两段橙色，中间那段是粉色（下一张卡），我把整句放在一起看。开了却不喝的啤酒，下一句他把它倒在栏杆外，想借点什么，又什么都借不上。星空底下，所有的事都渺小，包括他杀了人这件事；这既像安慰，又比什么都空。第一章，那个星期天，就收在这里。
+
+      - id: "161"
+        page: 31
+        color: pink
+        term: the star-filled sky
+        eudic: false
+        kind: 语法
+        ipa: /ˌstɑːr fɪld ˈskaɪ/
+        pos: phr.
+        cn: 满天星斗的夜空
+        en: a sky full of stars
+        context: "and, by ==the star-filled sky==, is reminded of"
+        gist: 满天的星星让他想到……
+        note: 两个地方值得看。一是 star-filled 这种拼法：名词加 -filled，就是“装满了……的”，比如 smoke-filled room（烟雾弥漫的屋子），第 22 页就有 the smoke-filled air。二是句子的顺序：正常语序是 is reminded of … by the star-filled sky（被星空提醒了……），作者把 by 这一段提到前面、用逗号隔开，读的人先抬头看见星空，再听见他想了什么。都是认识的词，没有生词，所以不放进欧路列表。
+        extra:
+          - "**搭配**be reminded of sth by sth（被某物勾起对某事的念头）· tear-filled eyes（含泪的眼睛）"
