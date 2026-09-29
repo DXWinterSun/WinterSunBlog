@@ -92,7 +92,7 @@ slug: **oh-may**（待建）｜ 画册 id: **matty**（已在画册，卡片文�
 
 | 章 | 暂定名 | 状态 | 干了什么 |
 |---|---|---|---|
-| 1 | 夹进圣经的那张传单 | ✅ Winter 认可（“好喜欢”）；预览 https://claude.ai/artifact/Jvu9xxCwEzRZHno1CvgWRh | 6/27 地下演出初遇；他只说一句“主日学校的”；你撕传单夹进《雅歌》 |
+| 1 | No Refunds, No Cops, No Crying | ✅ Winter 认可（“好喜欢”）；预览 https://claude.ai/artifact/Jvu9xxCwEzRZHno1CvgWRh | 6/27 地下演出初遇；他只说一句“主日学校的”；你撕传单夹进《雅歌》 |
 
 ## PINNED / DEFERRED
 
@@ -103,14 +103,21 @@ slug: **oh-may**（待建）｜ 画册 id: **matty**（已在画册，卡片文�
 - PINNED（Ch1）传单在《雅歌》里
 
 （章节流水续）
-| 2 | 修车单上的那个姓 | ✅ 认可（重写后“这才是 Matty”）；预览 https://claude.ai/artifact/SobvJXLhARrpMWJhAhfxM2 | 巧合（老 Hanley 手术）→ 别克拖进他的铺子；车底滑出；第一声 May；哼半首歌；临走漏出“主日学校的” |
+| 2 | Help You? | ✅ 认可（重写后“这才是 Matty”）；预览 https://claude.ai/artifact/SobvJXLhARrpMWJhAhfxM2 | 巧合（老 Hanley 手术）→ 别克拖进他的铺子；车底滑出；第一声 May；哼半首歌；临走漏出“主日学校的” |
 
 - ✅ 回收（Ch2）“主日学校的”破绽
 - PINNED（Ch2）铺子里的波兰老头（叫他 Mateusz）与他的关系；“别告诉我，我自己猜，留着”；手背上的机油指印（你没擦）
 - 设定补：你父亲 Richard May，家住帕萨迪纳 Orange Grove 大道；别克开了九年；铺子招牌 …AUTO & CYCLE
-| 3 | 他在楼下猜你的名字 | 草稿待过目；预览 https://claude.ai/artifact/6DX2Ddemem5r4bB7g5Cfcq | 热浪夜小石子；按修车单地址找来；猜十个名字全错；你问他的姓怎么念 → 露馅（你那天在）；教你念 Rez-nick；“下来”；你拨开插销 |
+| 3 | Come Down | ✅ 认可（“好甜好喜欢”）；预览 https://claude.ai/artifact/6DX2Ddemem5r4bB7g5Cfcq | 热浪夜小石子；按修车单地址找来；猜十个名字全错；你问他的姓怎么念 → 露馅（你那天在）；教你念 Rez-nick；“下来”；你拨开插销 |
 
 - ✅ 回收（Ch3）念不出的姓 → 他教 Rez-nick；“我自己猜” → 开猜
 - PINNED（Ch3）他背得出圣人名（辅祭过去露一角）；“我奶奶念得不一样，你学不会的，我也学不会了”；“猜到九月，猜不到就去你大学门口猜”；外号 Immaculata May
 - 🔜 Ch4 开场：最后那截铁梯“哐当”一声放下去——第一次翻窗、第一次坐他的摩托
 - 📦 Ch1–3 攒满一批，Winter 认可后部署（系列首页、配色、画册卡片都还没建）
+| 4 | My May | 草稿待过目；预览 https://claude.ai/artifact/7cY1EAfaAqYASYRjcuCg54 | 第一次翻窗（白睡裙+开衫+红鞋，他接住你，“我记得鞋，不记得人”）；第一次坐摩托；通宵餐馆 Rosie's（霓虹少个 s）；乐队 Leon/Dutch + Roxy；他当众说“我的 May”，你没反驳，他整晚笑得压不下去；樱桃全挑给你；四点半送回，铁梯被他无声推回 |
+
+- ⭐ **章节名一律用英文，九十年代曲目单感**（Winter 2026-09-29 批注定）。Ch1–4：No Refunds, No Cops, No Crying / Help You? / Come Down / My May。
+  仍要过“遗忘测试”（看名字就知道这章写了什么）。
+- ✅ 回收（Ch4）红鞋（“我记得鞋”）；黑网袜女孩 = **Roxy**；会哐当响的铁梯
+- PINNED（Ch4）Roxy 隔着烟看了你一整晚——她和他的关系未交代；“反正现在是我的了，叫什么都一样”；樱桃给你
+- 设定补：翻窗程序——你放梯子、他无声推回；父亲闹钟五点半；Rosie's 是他们的据点；只有一顶头盔（给你）
