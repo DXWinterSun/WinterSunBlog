@@ -177,7 +177,7 @@ slug: **oh-may**（待建）｜ 画册 id: **matty**（已在画册，卡片文�
 - 🔒 DEFERRED（Ch11）“结婚还是逃走”被唱出、无人回答；整首 Slide 写完第一个唱给你听
 - PINNED（Ch11）你还没问过他为什么进少管所；红指甲掉色待补；你对家里连续谎称去 Dana 家
 - 设定补：他那层楼共用走廊尽头的卫生间；大堂白天是嚼口香糖的年轻女人
-- ⚠️ 歌词纪律：正文只用过真实歌词两处极短引用（Oh, May / Do you want to get married, or run away?），其余歌词不要照抄原曲
+- ⚠️ 歌词纪律：正文只用真实歌词的零星短句（已用：Oh, May / Do you want to get married, or run away? / I wanna wake up where you are / And what you are is beautiful——Ch12 按 Winter 批注加入），其余化成叙述；不要整段照抄副歌（版权）
 | 12 | Sung Once, Never Taped | 草稿待过目；预览 https://claude.ai/artifact/1sEeLNWkSDrV9dNYy3t7Vu | 开学 LMU（父亲接送）；卫生室小册子夹进圣经后面；逃课去诊所对面站一小时没过马路；他：“你想去我陪你去……这回我不跑”；他父亲六岁时开走家里唯一的车，他十四岁偷第一辆车是想去找他；你撕碎小册子撒下消防梯：“我不去”，他跪下脸埋你小腹；凌晨三点他在消防梯上唱完整首 Slide，录音机在窗台没按“这一遍不录”；“我还没资格问，等有资格了我不唱，当面问你”；Roxy 表哥=唱片公司挑人的，下礼拜来听；被摆布的难受 vs 知道是好事；你给他补红指甲“去吧，刚才那一遍是我的就够了” |
 
 - ⭐ Winter 定（2026-09-29）：**你的生日 = 11 月 6 日**（1998 年满 19）。Slide 在你生日前后爆火，“像生日礼物”。Ch1 红鞋是“去年生日”买的——对上。
