@@ -571,6 +571,14 @@ python3 tools/check_palette_sync.py    # 全绿 exit 0；有 desync 会逐条列
 自动退回 lines.json 的 5 句台词（页面不会坏）；`tools/hotline_mine.py` 也只给写了回复库的
 角色挖 AU 语料。上面那四位目前都还没写。
 
+### ⚠️ 片名（`film` / `filmCN` / `year`）也是四处同源，同一个脚本一起验
+
+画册改了某个角色的片名，quiz / spectrum / lines.json（含 `pool`）要**同一次提交里一起改**。
+2026-09-29 查出来的：Box of Moonlight 画册早改成《盒光之夜》，另外三处还停在《月光宝盒》——
+测验、光谱、台词墙上的片名跟画册对不上，也没有任何报错。当次 Winter 顺带定了
+Blue Iguana =《蓝蜥蜴俱乐部》。`check_palette_sync.py` 现在连片名一起比对（画册为真源），
+**改片名后照旧跑那一个脚本就够**。（`.claude/lines-rewrite/` 是当年的审校存档，里面的旧片名不用改。）
+
 ## ⚠️ 新增一个 Sam 角色 = 要同步「四个彩蛋 + 计数总闸」
 
 画册（many-faces）只是 Sam 彩蛋区的**四个页面之一**，它们共用**同一批角色**。
