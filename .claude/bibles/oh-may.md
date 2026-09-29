@@ -82,7 +82,7 @@ slug: **oh-may**（待建）｜ 画册 id: **matty**（已在画册，卡片文�
 
 | 章 | 暂定名 | 状态 | 干了什么 |
 |---|---|---|---|
-| 1 | 夹进圣经的那张传单 | 草稿待过目（预览 https://claude.ai/artifact/Jvu9xxCwEzRZHno1CvgWRh） | 6/27 地下演出初遇；他只说一句“主日学校的”；你撕传单夹进《雅歌》 |
+| 1 | 夹进圣经的那张传单 | ✅ Winter 认可（“好喜欢”）；预览 https://claude.ai/artifact/Jvu9xxCwEzRZHno1CvgWRh | 6/27 地下演出初遇；他只说一句“主日学校的”；你撕传单夹进《雅歌》 |
 
 ## PINNED / DEFERRED
 
@@ -91,3 +91,10 @@ slug: **oh-may**（待建）｜ 画册 id: **matty**（已在画册，卡片文�
 - PINNED（Ch1）R-z 你念不出 → 等他亲口教你怎么念
 - PINNED（Ch1）挂在他胳膊上的黑网袜女孩 → 身份未定
 - PINNED（Ch1）传单在《雅歌》里
+
+（章节流水续）
+| 2 | 修车单上的那个姓 | 草稿待过目；预览 https://claude.ai/artifact/SobvJXLhARrpMWJhAhfxM2 | 巧合（老 Hanley 手术）→ 别克拖进他的铺子；车底滑出；第一声 May；哼半首歌；临走漏出“主日学校的” |
+
+- ✅ 回收（Ch2）“主日学校的”破绽
+- PINNED（Ch2）铺子里的波兰老头（叫他 Mateusz）与他的关系；你想说名字被他打断；数钱时手没碰到你
+- 设定补：你父亲 Richard May，家住帕萨迪纳 Orange Grove 大道；别克开了九年；铺子招牌 …AUTO & CYCLE
