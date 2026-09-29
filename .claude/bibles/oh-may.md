@@ -158,3 +158,8 @@ slug: **oh-may**（待建）｜ 画册 id: **matty**（已在画册，卡片文�
 - ✅ 回收（Ch9）磁带；Ch7“完了就完了”→“我好像完了”；Ch1 白裙+红鞋
 - 设定补：他住 Spring Street 老旅馆四楼（门牌掉了一个数字），窗外消防梯“比你家那架锈得更厉害”，对面楼顶霓虹；床垫直接铺地上；“上回之后买了一整盒”
 - 🔒 DEFERRED（Ch9）怀孕（八月底知道）；“写完了第一个唱给我听”
+
+## 🚀 部署记录
+- 2026-09-29 首发：系列首页 series/oh-may/（collection_order 44，封面 images/oh-may.jpg = Mercy 里红夹克打电话那张，Winter 选的，之后她看完全片会换更好的）+ Ch1–9（date 2026-09-29 20:11–20:19 +0800）。
+  配色暂用画册 matty 原色卡（凌晨地铁月台 / 旧电话亭荧光），accent_ink #2f7a55。画册/quiz/spectrum/lines.json 已挂 auLink。
+- ⚠️ 待办：画册 Matty 卡片（tagline / desc / inscription）仍是旧版“1995 皇后区餐馆”草设，要按 Oh, May 重写（属创作文字，先给 Winter 看）；配色可按录影带（冷蓝/红毛衣/白裙/红鞋）另做一版给她挑；热线回复库未写。
