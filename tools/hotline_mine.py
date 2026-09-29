@@ -32,7 +32,7 @@ MANUAL = {
   'eric': 'Knox AU', 'bowen': 'This House Is Clean',
   'greaves': {'eyes-on-me': 'Eyes on Me', 'no-one-walks-off': 'No One Walks Off'},
   'jim': {'some-steps': 'Some Steps Only We Know', 'the-one-i-kept': 'The One I Kept'},
-  'pero': 'The Serbian Tornado',
+  'pero': 'The Serbian Tornado', 'matty': 'Oh, May',
 }
 
 def series_table():

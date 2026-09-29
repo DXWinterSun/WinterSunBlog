@@ -676,7 +676,7 @@ sweetheart / 天使小姐…）与**声口**；② 遵守全站语言规则—�
 不能让人物「中英各说一遍」；③ 每桶 2–3 条，一人 ~21–24 条；④ 守各系列自己的红线。
 **没写回复库的角色自动退回 lines.json 的 5 句台词**，页面不会坏。
 
-**已配齐**：画册里带 `auLink` 的 **29 个有 AU 的角色全部写完**（651 条）。Bill Greaves 与
+**已配齐**：画册里带 `auLink` 的 **30 个有 AU 的角色全部写完**（672 条；2026-09-29 补 Matty · Oh, May）。Bill Greaves 与
 Jim Crocker 各有两个 AU，条目改用 `aus` 数组（每项 `{key,label,labelCN,register,pet,buckets}`），
 聊天室顶部出现切换条、两边各存各的对话。**新写／改写回复库要先给 Winter 过目再上线**（属创作文字）。
 

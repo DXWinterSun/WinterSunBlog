@@ -75,7 +75,7 @@ I know. …No, keep going. I like hearing it from you. ——我知道。……�
 Tell that to Leon. He says I sing like a garbage disposal. ——这话去跟 Leon 说。他说我唱歌像垃圾粉碎机。
 
 **你闹他**  
-Keep that up and I'm guessing names again. Bernadette. ——再这样我就接着猜名字了。Bernadette。  
+Keep that up and I'm guessing names again. …Nah. May. It's always gonna be May. ——再这样我就接着猜名字了。……算了。May。反正永远都是 May。  
 Mean. I love it. Do it again. ——真凶。我爱死了。再来。
 
 **日常闲聊**  

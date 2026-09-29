@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。",
-  "count": 1885
+  "count": 1931
  },
  "chars": {
   "youngsam": {
@@ -13320,6 +13320,332 @@
      "ch": 19,
      "title": "Extra · 不一样的不是她",
      "series": "The One I Kept"
+    }
+   ]
+  },
+  "matty": {
+   "default": [
+    {
+     "cn": "别告诉我。我自己猜。",
+     "b": "daily",
+     "ch": 2,
+     "title": "'Chapter 2 · Help You?",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "零件一点钟送到，装上半小时。你等，或者明天再来——明天我也在。",
+     "b": "daily",
+     "ch": 2,
+     "title": "'Chapter 2 · Help You?",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "挺好看的。就是太乖了。",
+     "b": "praise",
+     "ch": 2,
+     "title": "'Chapter 2 · Help You?",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你爸心真大。这条街上个月有人被抢了表。",
+     "b": "daily",
+     "ch": 2,
+     "title": "'Chapter 2 · Help You?",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我在这儿呢。",
+     "b": "tired",
+     "ch": 2,
+     "title": "'Chapter 2 · Help You?",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "零件加工时。给你打个折，贵宾席不收钱。",
+     "b": "daily",
+     "ch": 2,
+     "title": "'Chapter 2 · Help You?",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "再说了，你窗户开着。这不就是请我的意思？",
+     "b": "daily",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你的名字。你说到一半，被我拦下了。我得还给你。",
+     "b": "daily",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "对，所以我得自己找回来。",
+     "b": "miss",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我猜。猜对了你点头。",
+     "b": "daily",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你以为就你一个人跪过长椅？",
+     "b": "love",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "那就给你用。",
+     "b": "daily",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "那我每天晚上来猜一个。",
+     "b": "daily",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "猜到九月。九月猜不到，我就去你那个大学门口猜。",
+     "b": "daily",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你一看就是要念大学的。",
+     "b": "daily",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "所以你是在哪儿看见的？",
+     "b": "daily",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我好像只说了‘有事’。",
+     "b": "daily",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我奶奶念得不一样。你学不会的，我也学不会了。",
+     "b": "daily",
+     "ch": 3,
+     "title": "'Chapter 3 · Come Down",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "再响一点，全回声公园都来给你鼓掌。",
+     "b": "daily",
+     "ch": 4,
+     "title": "'Chapter 4 · My May",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "反正现在是我的了。叫什么都一样。",
+     "b": "daily",
+     "ch": 4,
+     "title": "'Chapter 4 · My May",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "一会儿就还给你。",
+     "b": "daily",
+     "ch": 5,
+     "title": "'Chapter 5 · Song of Songs",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你枕着圣经睡？",
+     "b": "daily",
+     "ch": 5,
+     "title": "'Chapter 5 · Song of Songs",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我现在要亲你了。",
+     "b": "love",
+     "ch": 5,
+     "title": "'Chapter 5 · Song of Songs",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你要是不想，就告诉我你叫什么。你一说，我就停。",
+     "b": "daily",
+     "ch": 5,
+     "title": "'Chapter 5 · Song of Songs",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你那颗心画歪了。",
+     "b": "daily",
+     "ch": 5,
+     "title": "'Chapter 5 · Song of Songs",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "或者等我来，我教你。",
+     "b": "daily",
+     "ch": 5,
+     "title": "'Chapter 5 · Song of Songs",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你书桌上有一整罐，少一支你都没发现。",
+     "b": "daily",
+     "ch": 6,
+     "title": "'Chapter 6 · Draw It Straight",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你攥得跟要拿它捅人似的。",
+     "b": "daily",
+     "ch": 6,
+     "title": "'Chapter 6 · Draw It Straight",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "一样的。你左边总画太胖，是因为你手一紧就往外跑。别紧张。我在呢。",
+     "b": "tired",
+     "ch": 6,
+     "title": "'Chapter 6 · Draw It Straight",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你要是想让我走，现在说。",
+     "b": "daily",
+     "ch": 6,
+     "title": "'Chapter 6 · Draw It Straight",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "你爸就在走廊那头。",
+     "b": "daily",
+     "ch": 6,
+     "title": "'Chapter 6 · Draw It Straight",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "疼就掐我。掐哪儿都行。",
+     "b": "daily",
+     "ch": 6,
+     "title": "'Chapter 6 · Draw It Straight",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "慢慢来。你说了算。",
+     "b": "daily",
+     "ch": 6,
+     "title": "'Chapter 6 · Draw It Straight",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我教会主日学校的画心了。",
+     "b": "daily",
+     "ch": 6,
+     "title": "'Chapter 6 · Draw It Straight",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我跟一帮傻子装酷，装给一帮傻子看。这是我的毛病。我从十四岁就这样，改不了。",
+     "b": "tease",
+     "ch": 7,
+     "title": "'Chapter 7 · Just a Summer Thing",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "主日学校的，你还会买这个？",
+     "b": "daily",
+     "ch": 7,
+     "title": "'Chapter 7 · Just a Summer Thing",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我知道这是指甲油。",
+     "b": "daily",
+     "ch": 8,
+     "title": "'Chapter 8 · It''s Dana''s",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我问的是，它为什么在你的口袋里。",
+     "b": "daily",
+     "ch": 8,
+     "title": "'Chapter 8 · It''s Dana''s",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我给中央图书馆打过电话。我想让你顺路帮我取一份税表。",
+     "b": "daily",
+     "ch": 8,
+     "title": "'Chapter 8 · It''s Dana''s",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我也不打算现在就知道。你十八岁了，九月就要去念大学了。我能管你的日子，也就剩这几个星期。",
+     "b": "daily",
+     "ch": 8,
+     "title": "'Chapter 8 · It''s Dana''s",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "从今天起，除了去教堂，你哪儿也不去。晚上九点，我去你房间看一眼那扇窗户。",
+     "b": "daily",
+     "ch": 8,
+     "title": "'Chapter 8 · It''s Dana''s",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "词还没写好。你先凑合听。反正你也就只听得懂这一句。",
+     "b": "daily",
+     "ch": 9,
+     "title": "'Chapter 9 · Slide",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "主日学校的，你不知道你让我多乐观。",
+     "b": "daily",
+     "ch": 9,
+     "title": "'Chapter 9 · Slide",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "别闭眼。我要看着你。",
+     "b": "night",
+     "ch": 9,
+     "title": "'Chapter 9 · Slide",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "我这辈子从来没这么倒霉过。",
+     "b": "daily",
+     "ch": 9,
+     "title": "'Chapter 9 · Slide",
+     "series": "Oh, May"
+    },
+    {
+     "cn": "等我把词写完，这就是第一段。",
+     "b": "daily",
+     "ch": 9,
+     "title": "'Chapter 9 · Slide",
+     "series": "Oh, May"
     }
    ]
   }

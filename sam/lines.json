@@ -200,33 +200,33 @@
       "auLink": "/WinterSunBlog/series/oh-may/",
       "quotes": [
         {
-          "label": "THE NEXT ONE",
-          "line": "I always thought the next one'd be better — I never thought you'd stay.",
-          "lineCN": "我一直以为「下一个」会更好——没想到你真的肯留下来。",
+          "label": "YOU CAME DOWN THE LADDER",
+          "line": "You came down that ladder on your own. That's the song. That's what it's called.",
+          "lineCN": "那架梯子，是你自己滑下来的。那就是这首歌。它就叫这个。",
           "kind": "锚"
         },
         {
-          "label": "NOT THE CAR",
-          "line": "Everybody who ever climbed in wanted the car, the run, the getaway. You just wanted to stay in the passenger seat. With me.",
-          "lineCN": "以前上我车的人，要的是车、是亡命、是逃跑。你只是想留在副驾。陪着我。",
-          "kind": "暗告白"
-        },
-        {
-          "label": "DONE CHASING",
-          "line": "I spent my whole life chasing the next thing. You're the first one that made me want to stop the car.",
-          "lineCN": "我这辈子都在追下一样东西。你是第一个，让我想把车停下来的人。",
+          "label": "THE WORK ORDER",
+          "line": "Says R. May on the work order. Good enough for me. I'll get the rest one guess at a time.",
+          "lineCN": "修车单上写着 R. May。对我来说够了。剩下的，我一次猜一个。",
           "kind": "情话"
         },
         {
-          "label": "NOTHING TO RUN FROM",
-          "line": "Take the keys. I don't need a getaway if there's nothing I want to get away from.",
-          "lineCN": "钥匙给你。要是没有什么想逃开的了，我也就不需要逃跑车了。",
+          "label": "NOBODY TOUCHES THIS NAIL",
+          "line": "Nobody touches this nail but you. I'd sooner lose the hand.",
+          "lineCN": "这根指甲，除了你谁都不许碰。我宁可不要这只手。",
           "kind": "暗告白"
         },
         {
-          "label": "WHEN THE TANK RAN DRY",
-          "line": "Turns out the great romance wasn't the heist. It was the girl who didn't leave when the tank ran dry.",
-          "lineCN": "原来最动人的浪漫不是那场劫案。是油箱见了底、也没走的那个姑娘。",
+          "label": "FORGOT TO HIT STOP",
+          "line": "Yeah, I heard the tape too. I meant every word. I just didn't mean for you to hear it.",
+          "lineCN": "嗯，那盘磁带我也听了。每个字都是真的。我只是没打算让你听见。",
+          "kind": "暗告白"
+        },
+        {
+          "label": "BEFORE FIVE-THIRTY",
+          "line": "Up the ladder, May. Your old man's alarm goes at five-thirty and I'm not done looking at you.",
+          "lineCN": "上去吧，May。你爸的闹钟五点半响，我还没看够你呢。",
           "kind": "情话"
         }
       ]
@@ -2464,9 +2464,9 @@
       "text": "#efe4cf",
       "muted": "#809c8a",
       "auLink": "/WinterSunBlog/series/oh-may/",
-      "label": "THE NEXT ONE",
-      "line": "I always thought the next one'd be better — I never thought you'd stay.",
-      "lineCN": "我一直以为「下一个」会更好——没想到你真的肯留下来。",
+      "label": "YOU CAME DOWN THE LADDER",
+      "line": "You came down that ladder on your own. That's the song. That's what it's called.",
+      "lineCN": "那架梯子，是你自己滑下来的。那就是这首歌。它就叫这个。",
       "kind": "锚"
     },
     {
@@ -3328,10 +3328,10 @@
       "text": "#efe4cf",
       "muted": "#809c8a",
       "auLink": "/WinterSunBlog/series/oh-may/",
-      "label": "NOT THE CAR",
-      "line": "Everybody who ever climbed in wanted the car, the run, the getaway. You just wanted to stay in the passenger seat. With me.",
-      "lineCN": "以前上我车的人，要的是车、是亡命、是逃跑。你只是想留在副驾。陪着我。",
-      "kind": "暗告白"
+      "label": "THE WORK ORDER",
+      "line": "Says R. May on the work order. Good enough for me. I'll get the rest one guess at a time.",
+      "lineCN": "修车单上写着 R. May。对我来说够了。剩下的，我一次猜一个。",
+      "kind": "情话"
     },
     {
       "charId": "buck",
@@ -4192,10 +4192,10 @@
       "text": "#efe4cf",
       "muted": "#809c8a",
       "auLink": "/WinterSunBlog/series/oh-may/",
-      "label": "DONE CHASING",
-      "line": "I spent my whole life chasing the next thing. You're the first one that made me want to stop the car.",
-      "lineCN": "我这辈子都在追下一样东西。你是第一个，让我想把车停下来的人。",
-      "kind": "情话"
+      "label": "NOBODY TOUCHES THIS NAIL",
+      "line": "Nobody touches this nail but you. I'd sooner lose the hand.",
+      "lineCN": "这根指甲，除了你谁都不许碰。我宁可不要这只手。",
+      "kind": "暗告白"
     },
     {
       "charId": "buck",
@@ -5056,9 +5056,9 @@
       "text": "#efe4cf",
       "muted": "#809c8a",
       "auLink": "/WinterSunBlog/series/oh-may/",
-      "label": "NOTHING TO RUN FROM",
-      "line": "Take the keys. I don't need a getaway if there's nothing I want to get away from.",
-      "lineCN": "钥匙给你。要是没有什么想逃开的了，我也就不需要逃跑车了。",
+      "label": "FORGOT TO HIT STOP",
+      "line": "Yeah, I heard the tape too. I meant every word. I just didn't mean for you to hear it.",
+      "lineCN": "嗯，那盘磁带我也听了。每个字都是真的。我只是没打算让你听见。",
       "kind": "暗告白"
     },
     {
@@ -5920,9 +5920,9 @@
       "text": "#efe4cf",
       "muted": "#809c8a",
       "auLink": "/WinterSunBlog/series/oh-may/",
-      "label": "WHEN THE TANK RAN DRY",
-      "line": "Turns out the great romance wasn't the heist. It was the girl who didn't leave when the tank ran dry.",
-      "lineCN": "原来最动人的浪漫不是那场劫案。是油箱见了底、也没走的那个姑娘。",
+      "label": "BEFORE FIVE-THIRTY",
+      "line": "Up the ladder, May. Your old man's alarm goes at five-thirty and I'm not done looking at you.",
+      "lineCN": "上去吧，May。你爸的闹钟五点半响，我还没看够你呢。",
       "kind": "情话"
     },
     {
