@@ -806,3 +806,19 @@
   text_en: Disco Blush
   muted_cn: 暮霭灰紫
   muted_en: Mauve Haze
+
+"Oh, May":  # Matty Rzeznik · Mercy · 色卡同源画册 id: matty（凌晨地铁月台 / 旧电话亭荧光）
+  mf_id: matty                # → Many Faces 画册锚点 /sam/many-faces/#matty
+  accent: "#7ec9a0"
+  accent_ink: "#2f7a55"        # accent 偏浅，额外压暗到浅色主题下对比度 ≥4.5:1
+  bg: "#171d24"
+  text: "#ebe0cc"
+  muted: "#7d7264"
+  accent_cn: "旧电话亭荧光"
+  accent_en: "Booth Fluorescent"
+  bg_cn: "凌晨地铁月台"
+  bg_en: "Pre-Dawn Subway"
+  text_cn: "晨报头版纸白"
+  text_en: "Front-Page White"
+  muted_cn: "铁轨枕木灰褐"
+  muted_en: "Rail-Tie Grey"
