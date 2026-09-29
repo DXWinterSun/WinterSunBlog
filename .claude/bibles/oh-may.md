@@ -165,3 +165,9 @@ slug: **oh-may**（待建）｜ 画册 id: **matty**（已在画册，卡片文�
 - ⚠️ 待办：画册 Matty 卡片（tagline / desc / inscription）仍是旧版“1995 皇后区餐馆”草设，要按 Oh, May 重写（属创作文字，先给 Winter 看）；配色可按录影带（冷蓝/红毛衣/白裙/红鞋）另做一版给她挑；热线回复库未写。
 - 画册卡片 + 五句台词 + 热线回复库草稿：.claude/bibles/oh-may-extras/card-and-hotline-draft.md（预览 https://claude.ai/artifact/2XWaDLkJA5anS64cuoR7jG），待 Winter 过目后落库。
 - ✅ 2026-09-29 画册卡片/五句台词/热线回复库（21 句，🔧🎸🍒🪜）已上线；猜名字那句按 Winter 要求落在 May，不出现别的名字。
+| 10 | Sav-on, 1 A.M. | 草稿待过目；预览 https://claude.ai/artifact/6pu4CK85eGKjSHa9LXWH2Y | Dana 登场（弥撒后借人，Rosie's 连环考：红的/怕炖牛肉/不知道中间名→“你知道她叫什么吗？”“May。”→“她叫 Wi——”被踢；拿刹车片贿赂失败，“猜到九月”；餐巾纸眼线笔留言他不肯说）；八月末数圣人日历，27 号没来；31 号樱桃没吃，“晚了，四天”；他翻窗走了——38 分钟后拎 Sav-on 袋回来，两个牌子的验孕棒；“碰上事只会跑，今天跑到 Sav-on 去了”；他坐地板握你的手到天亮前 |
+
+- ✅ 回收（Ch10）Dana 的“完整解释”；安全套破了
+- 🔒 DEFERRED（Ch10）验孕结果（第二天早上父亲出门后，他在楼下等）
+- PINNED（Ch10）Dana 写在餐巾纸上的那句话；他知道你名字以 Wi 开头了；答应给 Dana 本田换刹车片；“碰上事只会跑”（前科二度露角）
+- 已上线：Ch1–9（2026-09-29）。Ch10 起待攒批。
