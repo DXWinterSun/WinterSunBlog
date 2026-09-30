@@ -57,6 +57,8 @@ Winter 的原话：「Winter's tab 现在都是堆在一起的，我想能不能
 | The Fighter | The Fray | Scars & Stories（2012） | 小说《宿命》开篇题记——她写作「冲突乐队《斗士》」（The Fray 直译，歌名直译），**Winter 确认过就是这首** |
 | 1961 | The Fray | Scars & Stories（2012，第 6 首） | 小说《二十八又二十八年》：「我只是受了一首歌的启发而已」，小记里抄了整首歌词 |
 | Our Last Days | The Fray | Helios（2014，第 7 首） | 小说《我们最后的日子》：结尾两句就是这首的副歌，小记里抄了整首歌词 |
+| Name | Goo Goo Dolls | A Boy Named Goo（1995） | 2026-09-30 她发来的 YouTube Music 歌词卡（也贴在 09-28 换的手机壁纸上）：“But if you could hide beside me / Maybe for a while”，中文留空 |
+| Slide | Goo Goo Dolls | Dizzy Up the Girl（1998） | Oh, May 系列的灵感来源，第一章题记（顺手挂的，Winter 不要就摘） |
 
 - 后四首是 2026-09-30 上线前又翻了一遍文章找到的，专辑都查证过。
 - Junior Doctor 那张的年份没查死（有 2012 年 4 月的发行记录，但亚马逊上还有更早的一版），**先空着**。

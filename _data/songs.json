@@ -10,6 +10,47 @@
   ],
   "albums": [
     {
+      "id": "a-boy-named-goo",
+      "album": "A Boy Named Goo",
+      "artist": "Goo Goo Dolls",
+      "year": 1995,
+      "color": "#8a3b3b",
+      "label": "#dfe6c8",
+      "songs": [
+        {
+          "id": "name",
+          "title": "Name",
+          "items": [
+            {
+              "kind": "lines",
+              "note": "YouTube Music 歌词卡 · 2026-09-28 换的手机壁纸上贴着的那张",
+              "lines": [
+                ["But if you could hide beside me", ""],
+                ["Maybe for a while", ""]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dizzy-up-the-girl",
+      "album": "Dizzy Up the Girl",
+      "artist": "Goo Goo Dolls",
+      "year": 1998,
+      "color": "#4a6f7c",
+      "label": "#f0d78a",
+      "songs": [
+        {
+          "id": "slide",
+          "title": "Slide",
+          "items": [
+            { "kind": "au", "post": "_posts/2026-09-29-oh-may-chapter-1-no-refunds-no-cops-no-crying.md", "sub": "整个系列的灵感来源 · 第一章题记" }
+          ]
+        }
+      ]
+    },
+    {
       "id": "everything-in-transit",
       "album": "Everything in Transit",
       "artist": "Jack's Mannequin",
