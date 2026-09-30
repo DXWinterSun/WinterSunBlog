@@ -71,3 +71,16 @@ python3 tools/preview/render_draft.py _posts/2026-10-02-zaphod-au-extra-a-tour-o
     -o /tmp/t.html --series "Zaphod AU" --title "雪的巡游"
 # 期望：7 张内嵌图、5 个小节、3 个引用块、5 处硬换行
 ```
+
+## 开新坑：`render_pitch.py`（开坑提案页）
+
+开新 AU 时，设定不要在聊天里一条条问，排成一张**可以点着挑的选项页**：
+
+```bash
+python3 tools/preview/render_pitch.py .claude/pitches/<slug>.json -o /tmp/.../提案.html
+```
+
+页面依次是：原片里查证过的东西 → 已定、不用挑的 → 小狗清单那样的复现母题 → 几道岔路。
+开篇方向那一道**每个选项附一小段样章**，她读到手感再挑。每道岔路的选项是可点的卡片，
+页底一条选择栏把她点的拼成一句话，点「复制」贴回聊天。样板：`.claude/pitches/buck-the-kid.json`。
+她挑完以后，把结果写进 `.claude/bibles/<slug>.md`，提案 JSON 留着当记录。

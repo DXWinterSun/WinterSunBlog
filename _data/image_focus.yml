@@ -160,6 +160,15 @@
   sq: "50% 100%"
   card: "50% 100%"
   banner: "50% 100%"
+"finders-keepers.jpg":
+  x: 37.9
+  y: 48.6
+  w: 1600
+  h: 900
+  score: 0.94
+  sq: "22% 50%"
+  card: "0% 50%"
+  banner: "50% 45%"
 "fog-city-au.jpg":
   x: 48.4
   y: 45.0
@@ -295,6 +304,15 @@
   sq: "0% 50%"
   card: "0% 50%"
   banner: "50% 0%"
+"oh-may.jpg":
+  x: 39.5
+  y: 42.3
+  w: 2576
+  h: 1734
+  score: 0.91
+  sq: "18% 50%"
+  card: "50% 0%"
+  banner: "50% 31%"
 "pero-mahlovic-au.jpg":
   x: 25.6
   y: 44.0

@@ -5,6 +5,8 @@ date: 2020-10-13
 image: summer-field.webp
 tags: [缱绻, 安放]
 categories: Daily
+winters: [love]
+form: 随笔
 summary: "那个夏天不会回来，但属于我们的金秋，已经来了。"
 ---
 “I like me better when I'm with you.”     

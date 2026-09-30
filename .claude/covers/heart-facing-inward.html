@@ -1,0 +1,88 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#0e0c09}</style></head><body>
+<svg id="c" xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+    <stop offset="0" stop-color="#2e2519"/><stop offset=".45" stop-color="#1a1610"/><stop offset="1" stop-color="#0b0907"/>
+  </radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f3dca0"/><stop offset=".35" stop-color="#d6b066"/><stop offset=".7" stop-color="#b08a45"/><stop offset="1" stop-color="#7a5b2b"/>
+  </linearGradient>
+  <linearGradient id="goldDark" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#a88340"/><stop offset="1" stop-color="#5e4520"/>
+  </linearGradient>
+  <linearGradient id="heartG" x1=".2" y1="0" x2=".8" y2="1">
+    <stop offset="0" stop-color="#f6e2ad"/><stop offset=".45" stop-color="#d8b268"/><stop offset="1" stop-color="#8c6a31"/>
+  </linearGradient>
+  <linearGradient id="pill" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fbf1c8"/><stop offset=".55" stop-color="#e8d690"/><stop offset="1" stop-color="#b9a45c"/>
+  </linearGradient>
+  <linearGradient id="fadeRefl" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <mask id="reflMask"><rect x="0" y="690" width="1600" height="310" fill="url(#fadeRefl)"/></mask>
+  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="14" result="b"/><feColorMatrix in="b" type="matrix" values="1 0 0 0 0.25  0 1 0 0 0.18  0 0 1 0 0.05  0 0 0 .55 0"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+  <filter id="bokeh"><feGaussianBlur stdDeviation="2.2"/></filter>
+  <g id="hand">
+    <!-- left hand: cuff + cupped palm hugging the heart's lower-left -->
+    <path d="M122,268 L152,262 L156,322 L126,330 Z" fill="url(#goldDark)"/>
+    <path d="M152,262 C 188,250 214,258 226,282 C 236,300 250,322 272,340 C 284,350 292,362 286,370 C 276,378 258,372 244,362 C 222,352 190,340 156,322 Z" fill="url(#gold)"/>
+    <path d="M226,300 C 240,316 252,330 268,342" stroke="#6b4f24" stroke-width="2.4" fill="none" opacity=".75"/>
+    <path d="M214,314 C 228,330 242,344 258,354" stroke="#6b4f24" stroke-width="2.4" fill="none" opacity=".75"/>
+    <path d="M200,324 C 214,338 228,352 244,362" stroke="#6b4f24" stroke-width="2.4" fill="none" opacity=".6"/>
+    <path d="M160,268 C 186,262 206,268 218,284" stroke="#fbeabd" stroke-width="2" fill="none" opacity=".7"/>
+  </g>
+</defs>
+<rect width="1600" height="1000" fill="url(#bg)"/>
+<!-- window mullions -->
+<g stroke="#c9a25a" stroke-opacity=".07" stroke-width="2">
+  <line x1="300" y1="0" x2="300" y2="690"/><line x1="1300" y1="0" x2="1300" y2="690"/>
+  <line x1="0" y1="150" x2="1600" y2="150"/>
+</g>
+<!-- city lights -->
+<g id="lights" filter="url(#bokeh)"></g>
+<!-- surface line -->
+<rect x="0" y="690" width="1600" height="310" fill="#0a0806" opacity=".55"/>
+<line x1="120" y1="690" x2="1480" y2="690" stroke="#c9a25a" stroke-opacity=".18" stroke-width="1.5"/>
+<!-- motif -->
+<g id="motif" transform="translate(800,532) scale(1.55) translate(-300,-300)" filter="url(#glow)">
+  <ellipse cx="300" cy="300" rx="172" ry="46" fill="none" stroke="url(#goldDark)" stroke-width="15"/>
+  <ellipse cx="300" cy="300" rx="172" ry="46" fill="none" stroke="#f3dca0" stroke-opacity=".35" stroke-width="2" transform="translate(0,-5)"/>
+  <path d="M300,398 C 250,358 203,322 203,276 C 203,245 227,224 255,224 C 275,224 292,236 300,252 C 308,236 325,224 345,224 C 373,224 397,245 397,276 C 397,322 350,358 300,398 Z" fill="url(#heartG)"/>
+  <path d="M232,262 C 238,244 252,236 268,238" stroke="#fff6dc" stroke-width="4" stroke-linecap="round" fill="none" opacity=".75"/>
+  <use href="#hand"/>
+  <use href="#hand" transform="translate(600,0) scale(-1,1)"/>
+  <path d="M252,224 L258,178 L279,203 L300,164 L321,203 L342,178 L348,224 Z" fill="url(#gold)"/>
+  <rect x="248" y="214" width="104" height="13" rx="3" fill="url(#goldDark)"/>
+  <circle cx="258" cy="175" r="6" fill="#f3dca0"/><circle cx="300" cy="160" r="7" fill="#f6e2ad"/><circle cx="342" cy="175" r="6" fill="#f3dca0"/>
+</g>
+<!-- reflection -->
+<g mask="url(#reflMask)" opacity=".5">
+  <g transform="translate(0,1380) scale(1,-1)">
+    <use href="#motif"/>
+  </g>
+</g>
+<!-- the pill -->
+<g transform="translate(1090,679) rotate(-14)">
+  <ellipse cx="0" cy="18" rx="40" ry="7" fill="#000" opacity=".45" filter="url(#soft)"/>
+  <rect x="-34" y="-11" width="68" height="22" rx="11" fill="url(#pill)"/>
+  <rect x="-26" y="-7" width="30" height="4" rx="2" fill="#fffbe8" opacity=".75"/>
+</g>
+<!-- vignette -->
+<radialGradient id="vig" cx="50%" cy="48%" r="70%"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient>
+<rect width="1600" height="1000" fill="url(#vig)"/>
+</svg>
+<script>
+  // deterministic city lights
+  let s=7; const r=()=>{s=(s*16807)%2147483647;return s/2147483647};
+  const g=document.getElementById('lights'), NS='http://www.w3.org/2000/svg';
+  for(let i=0;i<150;i++){const c=document.createElementNS(NS,'circle');
+    const x=r()*1600, y=40+Math.pow(r(),1.4)*560; const rad=1.5+r()*r()*11;
+    c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',rad);
+    c.setAttribute('fill', r()<.8?'#e8c27a':'#f4ead4');
+    c.setAttribute('opacity', (0.05+r()*0.22)*(Math.abs(x-800)<330&&y>220?0.35:1));g.appendChild(c);}
+</script>
+</body></html>
