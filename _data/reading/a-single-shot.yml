@@ -2945,3 +2945,92 @@ batches:
         note: 是那种胸口带着哨音的喘，哮喘、气管不好的人会这样。Daggard Pitt 身上没有一处是体面的，可正是这样，John 竟开始可怜起他来。
         extra:
           - "**易混**pant 是跑累了大口喘；gasp 是猛地倒吸一口气；wheeze 是喘的时候带着嘶嘶的哨音。"
+
+  - n: 34
+    date: 2026-10-01
+    pages: 38
+    photos: 1
+    notes:
+      - id: "178"
+        page: 38
+        color: blue
+        term: foreclosed
+        lemma: foreclose
+        kind: 名物
+        ipa: /fɔːrˈkloʊzd/
+        pos: v.
+        cn: （银行）收走抵押的房产或土地
+        en: (especially of a bank) to take control of sb's property because they have not paid back money that they borrowed to buy it
+        en_src: 牛津 8
+        context: "represented the bank when it ==foreclosed=="
+        gist: 银行收走抵押的时候，我是银行那边的律师。
+        note: 这是贷款的说法：借钱买地买房，用地或房子做抵押，还不上，银行就把它收走。律师在说的是 John 父亲那片农场。
+        extra:
+          - "**搭配**foreclose on sb/sth（收走某人的抵押物）· foreclosure（名词：收回抵押）"
+
+      - id: "179"
+        page: 38
+        color: blue
+        term: overextended
+        lemma: overextend
+        kind: 单词
+        ipa: /ˌoʊvərɪkˈstendɪd/
+        pos: v.
+        cn: （摊子铺得太大）借钱借过了头
+        en: to spend more money or take on more work than you can manage
+        context: "his having ==overextended== himself"
+        gist: 加上他自己把摊子铺得太大。
+        note: 牛津收的是形容词 overextended（负担过重、开支过大）和动词用法 overextend yourself，这里正是动词。英文解释是我按牛津的意思改成动词写的。over-（过度）+ extend（伸展）：手伸得太长，够不着了。
+        extra:
+          - "**搭配**overextend yourself（把自己弄得力不从心）"
+
+      - id: "180"
+        page: 38
+        color: blue
+        term: emaciated
+        kind: 单词
+        ipa: /ɪˈmeɪʃieɪtɪd/
+        pos: adj.
+        cn: 消瘦的；皮包骨的
+        en: thin and weak, usually because of illness or lack of food
+        en_src: 牛津 8
+        context: "grasps the ==emaciated== midpoint of his bum leg"
+        gist: 一把抓住他那条瘸腿细得只剩骨头的中段。
+        note: bum leg 是口语里的“瘸腿、坏腿”。他话说到一半停下，伸手攥住自己那条腿，好像要确认它还在，脸上都是疼。
+        extra:
+          - "**易混**thin 是一般的瘦；skinny 是瘦得难看；emaciated 是病了饿了、瘦到脱了形。"
+
+      - id: "181"
+        page: 38
+        color: blue
+        term: mangled
+        lemma: mangle
+        kind: 单词
+        ipa: /ˈmæŋɡld/
+        pos: adj.
+        cn: 弄得稀烂的；残缺变形的
+        en: to crush or twist sth so that it is badly damaged
+        en_src: 牛津 8
+        context: "How’d you get yourself all ==mangled== up?"
+        gist: 你怎么把自己弄成这副残样的？
+        note: 牛津标着这个动词通常用被动。John 问得很直，没有一点客气，这正是他说话的样子。all … up 是口语里的加强，“弄得一塌糊涂”。
+        extra:
+          - "**搭配**mangled bodies（面目全非的尸体）· mangle a song（把一首歌唱得不成样子）"
+
+      - id: "182"
+        page: 38
+        color: blue
+        term: sardonically
+        lemma: sardonic
+        kind: 单词
+        ipa: /sɑːrˈdɑːnɪkli/
+        pos: adv.
+        cn: 带着嘲弄地；冷笑着
+        en: showing that you think that you are better than other people and do not take them seriously
+        en_src: 牛津 8
+        context: "Daggard Pitt frowns ==sardonically=="
+        gist: Daggard Pitt 带着几分嘲弄皱了皱眉。
+        note: 英文释义是牛津给形容词 sardonic 的，欧路列表里放的是原形 sardonic。他接着回的那句 ’Twas the hand I was dealt 是打牌的说法：“生来就发到这一手牌。”’Twas 是 it was 的老式缩写，说出来有点自嘲。
+        extra:
+          - "**搭配**a sardonic smile（讥讽的笑）"
+          - "**易混**sarcastic 是话里带刺；sardonic 更偏神情和态度，冷冷的、带点瞧不上。"
