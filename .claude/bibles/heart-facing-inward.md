@@ -62,7 +62,7 @@ series_name: Heart Facing Inward ｜ slug: series/heart-facing-inward/（尚未�
 
 - `.claude/roadmaps/heart-facing-inward.json`（三幕 22 章：金笼子 / 心尖朝外 / I've got you）
 - 第一场写满的辣章：**Winter 自己定了——第二章，就是第一章卧室镜子那场接着写满**（2026-09-30）。
-  章节顺延：3 多聊了五分钟（慈善晚宴）/ 4 Margot 还好？/ 5 起不变。
+  章节顺延：3 你给了他一个家（倒叙，Winter 定）/ 4 多聊了五分钟 / 5 Margot 还好？/ 6 起不变。
 - 还剩两个岔路等她挑：① 他为什么非要看着你咽下去（母亲 / 他自己 / 永远不解释）；
   ② 谁第一个让你看清（Margot / 记事本 / 你母亲）
 
@@ -89,6 +89,7 @@ series_name: Heart Facing Inward ｜ slug: series/heart-facing-inward/（尚未�
   （源文件 `.claude/pitches/heart-facing-inward.json`，用 `tools/preview/render_pitch.py` 生成）
 - 第一章草稿预览：https://claude.ai/artifact/T9FZg8eg6aayMnfaQp4ZWr
 - 第二章草稿预览：https://claude.ai/artifact/KYjepprCKbP4MjRYpf6ZQq
+- 第三章草稿预览：https://claude.ai/artifact/9kDkdWJwnbHsU5NVw11Xvu
   （`render_draft.py … --series "Heart Facing Inward" --title "今天是我的" --subtitle "Chapter 1"`）
 - 路线图：https://claude.ai/artifact/W76o2FYEW9wP158os14y6q（`render_roadmap.py`）
 
@@ -96,7 +97,10 @@ series_name: Heart Facing Inward ｜ slug: series/heart-facing-inward/（尚未�
 
 - **Margot**：你大学时最好的朋友，唯一一直问“你还好吗”的人（第一章：发来“我有话想——”，被他扣住手机；没被请）
 - **Jess**：大学朋友之一（第一章只提名字）
-- **Theo Lassiter**：大学艺术史研讨课同学，现在在切尔西开画廊（第三章）
+- **Theo Lassiter**：大学艺术史研讨课同学，现在在切尔西开画廊（第四章）
+- **你父亲**：话少、会看人，用动作表态（洗手碗）；替他写过俱乐部推荐信，被原样退回，笑了一声“这小子”
+- **Carter 家的小儿子**：你母亲当年给你安排的帆船少爷
+- **斯文的 Declan**：酒馆里被你坐错的那位，认出 Byrne 就溜了
 - **Hollis**：他的助理，管你的日程，每月初发一份给你
 - **Paolo**（发型师）、**June**（化妆师）：上东区八卦的传声筒；去年赌你们撑不过一个冬天
 - **你母亲**：见上「声口备忘」
@@ -114,12 +118,25 @@ series_name: Heart Facing Inward ｜ slug: series/heart-facing-inward/（尚未�
    （“明天你得穿高领的”），贴耳下令“别躲／看着她”，咬耳后，“现在”；口袋巾擦手指；
    只解皮带和拉链，“看着我”“谁的？”“你的，Dec”；事后热毛巾和一杯温水；你知道自己上瘾了；
    半夜他替你把戒指转回朝里（从第一章挪来）。mood 炽恋 · 暗涌。
+3. **你给了他一个家**（倒叙，成稿待过目；`ch3.md`）——Winter 要的方向：「倒叙写我们怎么开始的，我为什么被他吸引，
+   我记得的相信的我们的故事的版本是什么，我认为的他为什么娶我」。她挑：初遇＝以为他是司机；她信的版本＝
+   你给了他一个家；裂缝只在最后一句。框在第二章次日早上（高领毛衣、“今天别出门了”）。前年十二月广场饭店侧门、
+   烟、“多半是替我自己”、锡纸约会；东村酒馆两个 Declan、“我替自己开车”、第一次叫 Dec；一月洗手碗、父亲那句；
+   推荐信退回；十一个房间只有水和橙子、“搬过十一次家，每一处都只有一扇窗”；四月厨房求婚、四页讲稿没念。
+   收束：宾客名单上没有他，你从来没问过他在后门等的是谁。mood 怀旧 · 悸动。
 
 ## PINNED（已埋，待回收）
 
+- ⭐ **宾客名单上没有他的名字，他在广场饭店后门等的是谁**（Ch3 收束）→ 全系列级的暗线，见路线图新岔路
+- 烟盒锡纸“Kavanagh's, Avenue A. / Thursday. 8. / — D.”夹在你日记本里（Ch3）
+- 求婚那四页讲稿，他念了两句你就说好，“以后念给我听”，他到现在也没念过（Ch3）→ 结局或他缴械那一章
+- 你父亲：“他看你的样子，像一个人在看他这辈子头一回有的东西，生怕有人来收回去。”（Ch3）
+- “你想要什么？”“那就慢慢找，不急。”（Ch3）→ 第三幕她终于答得出来
+- 他十六岁前搬过十一次家，每一处都只有一扇窗（Ch3）→ 接他母亲的往事
+
 - 脖子上的印子，“明天你得穿高领的”（Ch2）→ 之后某个白天的场合（慈善晚宴 / 午餐会）被人看见或被你遮着
 
-- Margot 那条没看完的消息“我有话想——”（Ch1）→ 第四章午饭时说出来
+- Margot 那条没看完的消息“我有话想——”（Ch1）→ 第五章午饭时说出来
 - “穿着西装来敲门、劝他母亲在一张纸上签字的人”（Ch1）→ 第七章露一角，第十八章揭底
 - 《秘密花园》：四面是墙、门上一把锁、钥匙埋在土里；扉页 “so there's always a garden for you to go to.”（Ch1）→ 贯穿，结局回收
 - 首饰盒里那颗“大得有点新”的求婚钻石（Ch1）→ 位置待定
