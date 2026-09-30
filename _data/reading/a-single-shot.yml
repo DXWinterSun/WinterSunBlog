@@ -2660,3 +2660,74 @@ batches:
         note: 两个地方值得看。一是 star-filled 这种拼法：名词加 -filled，就是“装满了……的”，比如 smoke-filled room（烟雾弥漫的屋子），第 22 页就有 the smoke-filled air。二是句子的顺序：正常语序是 is reminded of … by the star-filled sky（被星空提醒了……），作者把 by 这一段提到前面、用逗号隔开，读的人先抬头看见星空，再听见他想了什么。都是认识的词，没有生词，所以不放进欧路列表。
         extra:
           - "**搭配**be reminded of sth by sth（被某物勾起对某事的念头）· tear-filled eyes（含泪的眼睛）"
+
+  - n: 29
+    date: 2026-10-01
+    pages: 33
+    photos: 1
+    remark: 第二章 MONDAY 开始
+    notes:
+      - id: "162"
+        page: 33
+        color: blue
+        term: apprehensive
+        kind: 单词
+        ipa: /ˌæprɪˈhensɪv/
+        pos: adj.
+        cn: 忧虑的；惴惴不安的
+        en: worried or frightened that sth unpleasant may happen
+        en_src: 牛津 8
+        context: "by an ==apprehensive== feeling that someone is watching"
+        gist: 还有一种惴惴不安的感觉，好像有人在盯着他。
+        note: 书上这个词在行尾被拆成两半（appre- / hensive），她两截都划了，是同一个词。让他干活更难熬的有两样：一是肩膀的伤，二是这种总觉得有人在看、在评判他的不安。昨天那件事之后，他心里有鬼。
+        extra:
+          - "**搭配**be apprehensive about/of sth（对某事感到担忧）"
+          - "**易混**anxious 是一般的焦虑；apprehensive 专指担心“有坏事要来”，带着一点提心吊胆。"
+
+      - id: "163"
+        page: 33
+        color: blue
+        term: mammoth
+        kind: 一词多义
+        ipa: /ˈmæməθ/
+        pos: adj.
+        cn: 庞大的；巨大的
+        en: extremely large
+        en_src: 牛津 8
+        context: "the former’s ==mammoth==, jiggly upper torso"
+        gist: 前者那硕大、一身肥肉乱颤的上半身。
+        note: 名词是“猛犸象”，当形容词用就是“大得像猛犸一样”。the former 是“前者”，指前面先提到的 Dean。作者拿两个人的身体对比：Dean 又大又肥、晒得通红，John 矮小结实、晒得黝黑。
+        extra:
+          - "**搭配**a mammoth task（艰巨的任务）· of mammoth proportions（规模巨大的）"
+
+      - id: "164"
+        page: 33
+        color: blue
+        term: jiggly
+        lemma: jiggle
+        kind: 口语
+        ipa: /ˈdʒɪɡli/
+        pos: adj.
+        cn: （肉）一晃一晃的、乱颤的
+        en: moving up and down or from side to side in a soft, loose way
+        context: "mammoth, ==jiggly== upper torso sun-pink"
+        gist: 硕大的、肉一颤一颤的上半身，晒得粉红。
+        note: 牛津没收 jiggly，只收了动词 jiggle（上下左右地快速抖动），加 -y 就是“会抖的、一动就晃的”，英文解释是我按这个写的。欧路列表里放的是原形 jiggle。用来形容肥肉，画面感很强。
+        extra:
+          - "**易混**jiggle 是小幅度、快速地抖；wiggle 是扭来扭去；wobble 是摇摇晃晃、站不稳。"
+
+      - id: "165"
+        page: 33
+        color: blue
+        term: gauze
+        kind: 名物
+        ipa: /ɡɔːz/
+        pos: n.
+        cn: 纱布
+        en: a type of thin cotton cloth used for covering and protecting wounds
+        en_src: 牛津 8
+        context: "but for his ==gauze==-covered shoulder"
+        gist: 除了那只缠着纱布的肩膀。
+        note: 她划的是 gauze，后面连着 -covered，合起来就是“盖着纱布的”。but for 在这里是“除了……之外”：他全身都晒得很黑，只有包着纱布的肩膀那一块没晒到。
+        extra:
+          - "**搭配**a gauze dressing（纱布敷料）· 名词 + -covered：snow-covered（积雪覆盖的）"
