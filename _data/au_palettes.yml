@@ -806,3 +806,19 @@
   text_en: Disco Blush
   muted_cn: 暮霭灰紫
   muted_en: Mauve Haze
+
+"Oh, May":  # Matty Rzeznik · Mercy · 色卡同源画册 id: matty（2026-09-29 Winter 选 A：红夹克 / 凌晨地铁 / 传单纸白 / 消防梯墨绿）
+  mf_id: matty                # → Many Faces 画册锚点 /sam/many-faces/#matty
+  accent: "#d2503e"
+  accent_ink: "#a8392a"        # accent 偏浅，额外压暗到浅色主题下对比度 ≥4.5:1
+  bg: "#171d24"
+  text: "#efe4cf"
+  muted: "#809c8a"
+  accent_cn: "红夹克褪漆红"
+  accent_en: "Faded Jacket Red"
+  bg_cn: "凌晨地铁月台"
+  bg_en: "Pre-Dawn Subway"
+  text_cn: "传单复印纸白"
+  text_en: "Flyer Photocopy"
+  muted_cn: "消防梯墨绿漆"
+  muted_en: "Fire Escape Green"

@@ -5,6 +5,8 @@ date: 2016-08-28
 image: daydream.jpg
 tags: [絮语, 怅惘]
 categories: Daily
+winters: [self, young]
+form: 随笔
 summary: "掠影浮光中，我迷失了方向，不知归途何方。"
 ---
 夏天随着手机上的屏幕显示、日历页的翻动与人们易波动的心情一同飞逝着，浮光掠影般，转瞬即逝。    

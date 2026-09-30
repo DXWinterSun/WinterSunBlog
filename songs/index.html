@@ -1,0 +1,284 @@
+---
+layout: home
+title: 冬的歌单
+nav_active: winters
+permalink: /songs/
+description: "冬的歌单：一面唱片墙，挂着我存的歌词、翻译过的歌，和文章、故事里提到的歌。"
+---
+{%- comment -%}
+  冬的歌单 · 唱片墙（2026-09-30，Winter 在样稿批注里一条条定下来的）
+  · 一首歌只待在一个地方；以专辑为单位，一张专辑一张唱片。
+  · 一张专辑收了不止一首 → 默认合上，点一下展开，再点具体那首进去。
+  · 点进一首歌 = 这首歌的全部：摘录、翻译、文章、小说、它在哪章 AU 里当过「本章曲目」。
+  · 右上角「句子」：把所有摘录一句句摊开（Winter 选了留着）。
+  资料全在 _data/songs.json，这一页和首页 Winter's 那一行共用；页面本身不用改。
+  地址栏：#a-<专辑 id> 打开那张专辑，#s-<歌 id> 直接进那首歌（首页那一行就是这么链过来的）。
+{%- endcomment -%}
+{%- assign albums = site.data.songs.albums -%}
+{%- assign song_n = 0 -%}
+{%- for a in albums -%}{%- assign song_n = song_n | plus: a.songs.size -%}{%- endfor -%}
+
+<section class="c-songs" id="js-songs">
+  <header class="c-songs__head">
+    <a class="c-songs__back" href="{{ site.baseurl }}/?cat=winters">‹ Winter&rsquo;s</a>
+    <div class="c-songs__eyebrow">Winter&rsquo;s Playlist</div>
+    <h1 class="c-songs__title">冬的歌单</h1>
+    <p class="c-songs__meta">{{ albums.size }} 张唱片 · {{ song_n }} 首歌 · 点唱片进去</p>
+    <div class="c-songs__seg" role="group" aria-label="怎么看">
+      <button type="button" data-view="wall" aria-pressed="true">💿 唱片</button>
+      <button type="button" data-view="lines" aria-pressed="false">💬 句子</button>
+    </div>
+  </header>
+
+  {%- comment -%} 唱片墙 {%- endcomment -%}
+  <div class="c-songs__wall" id="js-song-wall">
+    {%- for a in albums -%}
+      {%- if a.songs.size > 1 %}
+    <a class="c-sleeve is-multi" href="#a-{{ a.id }}" data-album="{{ a.id }}" aria-expanded="false" aria-controls="album-{{ a.id }}" style="--c: {{ a.color }}; --lab: {{ a.label }}">{% include song-sleeve.html album=a %}</a>
+      {%- else %}
+    <a class="c-sleeve" href="#s-{{ a.songs[0].id }}" data-song="{{ a.songs[0].id }}" style="--c: {{ a.color }}; --lab: {{ a.label }}">{% include song-sleeve.html album=a %}</a>
+      {%- endif -%}
+    {%- endfor %}
+  </div>
+
+  {%- comment -%} 收了好几首的专辑：点开后，这一格会被挪到那一排唱片的下面 {%- endcomment -%}
+  <div class="c-songs__folds" hidden>
+    {%- for a in albums -%}
+      {%- if a.songs.size > 1 %}
+    <div class="c-song-fold" id="album-{{ a.id }}" data-album="{{ a.id }}" style="--c: {{ a.color }}; --lab: {{ a.label }}">
+      <div class="c-song-fold__title"><b>{{ a.album | escape }}</b> · {{ a.artist | escape }}{% if a.year %} · {{ a.year }}{% endif %} · {{ a.songs.size }} 首</div>
+      <div class="c-song-fold__songs">
+        {%- for s in a.songs %}
+        <a class="c-song-fold__song" href="#s-{{ s.id }}" data-song="{{ s.id }}"><span class="c-song-fold__disc" aria-hidden="true"></span><span>{{ s.title | escape }}</span></a>
+        {%- endfor %}
+      </div>
+    </div>
+      {%- endif -%}
+    {%- endfor %}
+  </div>
+
+  {%- comment -%} 句子：所有摘录一句句摊开 {%- endcomment -%}
+  <div class="c-songs__lines" id="js-song-lines" hidden>
+    {%- for a in albums -%}
+      {%- for s in a.songs -%}
+        {%- for it in s.items -%}
+          {%- if it.kind == 'lines' %}
+    <a class="c-song-quote" href="#s-{{ s.id }}" data-song="{{ s.id }}" style="--c: {{ a.color }}; --lab: {{ a.label }}">
+      <span class="c-song-quote__text">
+        {%- for l in it.lines -%}
+          {%- if l[0] != '' %}<span class="c-song-quote__en">{{ l[0] | escape }}</span>{% else %}<span class="c-song-quote__cn">{{ l[1] | escape }}</span>{% endif -%}
+        {%- endfor -%}
+      </span>
+      <small>{{ s.title | escape }} · {{ a.artist | escape }}</small>
+    </a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- endfor %}
+  </div>
+
+  {%- comment -%} 每首歌自己的一页 {%- endcomment -%}
+  {%- for a in albums -%}
+    {%- for s in a.songs %}
+  <article class="c-song-page" id="song-{{ s.id }}" data-song="{{ s.id }}" data-album="{{ a.id }}" data-multi="{% if a.songs.size > 1 %}1{% endif %}" style="--c: {{ a.color }}; --lab: {{ a.label }}" hidden>
+    <a class="c-song-page__back" href="{% if a.songs.size > 1 %}#a-{{ a.id }}{% else %}#{% endif %}">‹ 唱片墙</a>
+    <header class="c-song-page__head">
+      <div class="c-song-page__cover">{% include song-sleeve.html album=a media_only=true %}</div>
+      <div class="c-song-page__who">
+        <h2 class="c-song-page__title">{{ s.title | escape }}</h2>
+        <p class="c-song-page__artist">{{ a.artist | escape }}</p>
+        <p class="c-song-page__album">{% if a.single %}单曲{% if a.year %}（{{ a.year }}）{% endif %}{% else %}收录于《{{ a.album | escape }}》{% if a.year %}（{{ a.year }}）{% endif %}{% endif %}</p>
+      </div>
+    </header>
+    {%- assign has_lines = false -%}{%- assign has_links = false -%}
+    {%- for it in s.items -%}{%- if it.kind == 'lines' -%}{%- assign has_lines = true -%}{%- else -%}{%- assign has_links = true -%}{%- endif -%}{%- endfor -%}
+    {%- if has_lines %}
+    <section class="c-song-page__sec">
+      <h3>摘录 · Excerpts</h3>
+      {%- for it in s.items -%}
+        {%- if it.kind == 'lines' -%}
+          {%- if it.post -%}{%- assign p = site.posts | where: "path", it.post | first -%}{%- else -%}{%- assign p = nil -%}{%- endif %}
+      <figure class="c-song-excerpt">
+        <blockquote class="c-song-excerpt__lines">
+          {%- for l in it.lines %}
+          <p>{% if l[0] != '' %}<span class="c-song-excerpt__en">{{ l[0] | escape }}</span>{% endif %}{% if l[1] != '' %}<span class="c-song-excerpt__cn">{{ l[1] | escape }}</span>{% endif %}</p>
+          {%- endfor %}
+        </blockquote>
+        <figcaption class="c-song-excerpt__meta">
+          {%- if it.note %}<span class="c-song-excerpt__note">{{ it.note | escape }}</span>{% endif -%}
+          {%- if p %}<a href="{{ p.url | prepend: site.baseurl }}">摘自《{{ p.title }}》</a><time>{{ p.date | date: '%Y.%m.%d' }}</time>{% elsif it.date %}<time>{{ it.date | date: '%Y.%m.%d' }}</time>{% endif -%}
+        </figcaption>
+      </figure>
+        {%- endif -%}
+      {%- endfor %}
+    </section>
+    {%- endif -%}
+    {%- if has_links %}
+    <section class="c-song-page__sec">
+      <h3>这首歌的其他东西</h3>
+      {%- for it in s.items -%}
+        {%- if it.kind != 'lines' -%}
+          {%- assign p = site.posts | where: "path", it.post | first -%}
+          {%- if p -%}
+            {%- case it.kind -%}
+              {%- when 'au' -%}{%- assign icon = '📖' -%}{%- assign label = '在 AU 里' -%}
+              {%- when 'tr' -%}{%- assign icon = '📝' -%}{%- assign label = '翻译' -%}
+              {%- when 'story' -%}{%- assign icon = '🖋️' -%}{%- assign label = '小说' -%}
+              {%- else -%}{%- assign icon = '✍️' -%}{%- assign label = '文章' -%}
+            {%- endcase %}
+      <a class="c-song-link" href="{{ p.url | prepend: site.baseurl }}">
+        <i aria-hidden="true">{{ icon }}</i>
+        <span class="c-song-link__txt">
+          <span class="c-song-link__title"><b>{{ label }}</b> · {{ p.title }}</span>
+          <small>{% if it.sub %}{{ it.sub | escape }} · {% endif %}{{ p.date | date: '%Y.%m.%d' }}</small>
+        </span>
+      </a>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor %}
+    </section>
+    {%- endif %}
+  </article>
+    {%- endfor -%}
+  {%- endfor %}
+</section>
+
+<script>
+/* 冬的歌单的小动作：多首的专辑点开 / 合上 · 进一首歌 · 唱片 / 句子两种看法。
+   地址栏跟着变（#a-专辑、#s-歌），所以手机上的「返回」也能从一首歌退回唱片墙。 */
+(function () {
+  var root = document.getElementById('js-songs');
+  if (!root) return;
+  var wall = document.getElementById('js-song-wall');
+  var lines = document.getElementById('js-song-lines');
+  var foldsHome = root.querySelector('.c-songs__folds');
+  var head = root.querySelector('.c-songs__head');
+  var seg = root.querySelector('.c-songs__seg');
+  var pages = Array.prototype.slice.call(root.querySelectorAll('.c-song-page'));
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var view = 'wall';
+  var openAlbum = null;
+  var wallY = 0;
+
+  function cols() {
+    var t = getComputedStyle(wall).gridTemplateColumns || '';
+    return Math.max(1, t.split(' ').filter(Boolean).length);
+  }
+
+  /* 把那一格曲目挪到被点那张唱片所在那一排的下面 */
+  function placeFold() {
+    var fold = openAlbum && document.getElementById('album-' + openAlbum);
+    if (!fold) return;
+    var sleeves = Array.prototype.slice.call(wall.querySelectorAll('.c-sleeve'));
+    var i = sleeves.findIndex(function (s) { return s.getAttribute('data-album') === openAlbum; });
+    if (i < 0) return;
+    var c = cols();
+    var end = Math.min(sleeves.length - 1, i - (i % c) + c - 1);
+    sleeves[end].after(fold);
+  }
+  function closeFold() {
+    if (!openAlbum) return;
+    var fold = document.getElementById('album-' + openAlbum);
+    if (fold) foldsHome.appendChild(fold);
+    var s = wall.querySelector('.c-sleeve[data-album="' + openAlbum + '"]');
+    if (s) s.setAttribute('aria-expanded', 'false');
+    openAlbum = null;
+  }
+  function openFold(id) {
+    if (openAlbum === id) return;
+    closeFold();
+    var s = wall.querySelector('.c-sleeve[data-album="' + id + '"]');
+    if (!s) return;
+    openAlbum = id;
+    s.setAttribute('aria-expanded', 'true');
+    placeFold();
+  }
+
+  function setView(v) {
+    view = v;
+    seg.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-view') === v ? 'true' : 'false'); });
+  }
+
+  /* 按地址栏画页面 */
+  function render(scroll) {
+    var h = decodeURIComponent((location.hash || '').slice(1));
+    var song = h.indexOf('s-') === 0 ? h.slice(2) : null;
+    var album = h.indexOf('a-') === 0 ? h.slice(2) : null;
+    var page = song && document.getElementById('song-' + song);
+
+    pages.forEach(function (p) { p.hidden = p !== page; });
+    if (page) {
+      head.hidden = true; wall.hidden = true; lines.hidden = true;
+      window.scrollTo({ top: Math.max(0, root.getBoundingClientRect().top + window.pageYOffset - 90), behavior: 'auto' });
+      /* 点进来的才把焦点挪到「‹ 唱片墙」上（给用键盘的人）；直接打开链接时不挪，免得一进来就框着一圈 */
+      var back = page.querySelector('.c-song-page__back');
+      if (back && !booting) back.focus({ preventScroll: true });
+      return;
+    }
+    head.hidden = false;
+    wall.hidden = view !== 'wall';
+    lines.hidden = view !== 'lines';
+    if (album) {
+      if (view !== 'wall') { setView('wall'); wall.hidden = false; lines.hidden = true; }
+      openFold(album);
+      var s = wall.querySelector('.c-sleeve[data-album="' + album + '"]');
+      if (s && scroll === true) s.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' });
+    } else {
+      closeFold();
+    }
+    if (scroll === 'restore') window.scrollTo(0, wallY);
+  }
+
+  function go(hash, push) {
+    var url = location.pathname + location.search + hash;
+    if (push) history.pushState({ fromWall: true }, '', url);
+    else history.replaceState(history.state, '', url);
+  }
+
+  root.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    var album = a.classList.contains('c-sleeve') && a.getAttribute('data-album');
+    var song = a.getAttribute('data-song');
+    if (a.classList.contains('c-song-page__back')) {
+      e.preventDefault();
+      if (history.state && history.state.fromWall) { history.back(); return; }
+      go(a.getAttribute('href') === '#' ? '' : a.getAttribute('href'), false);
+      render('restore');
+      return;
+    }
+    if (album) {
+      e.preventDefault();
+      if (openAlbum === album) { closeFold(); go('', false); }
+      else { go('#a-' + album, false); render(false); }
+      return;
+    }
+    if (song) {
+      e.preventDefault();
+      wallY = window.pageYOffset;
+      go('#s-' + song, true);
+      render(true);
+    }
+  });
+
+  seg.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    setView(b.getAttribute('data-view'));
+    closeFold();
+    go('', false);
+    render(false);
+  });
+
+  /* 返回 / 前进：popstate 先到，紧跟着的 hashchange 就不再重画一遍（否则会把刚恢复的位置又滚走） */
+  var lastPop = 0;
+  window.addEventListener('popstate', function () { lastPop = Date.now(); render('restore'); });
+  window.addEventListener('hashchange', function () { if (Date.now() - lastPop > 150) render(true); });
+  var t;
+  window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(placeFold, 120); });
+
+  var booting = true;
+  render(true);
+  booting = false;
+})();
+</script>

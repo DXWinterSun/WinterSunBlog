@@ -58,10 +58,11 @@ layout: home
   </a>
   {% endif %}
   <div class="c-hero__eyebrow">Winter&rsquo;s</div>
-  <h1 class="c-hero__title">In My Own <em>Hand</em></h1>
+  {%- comment -%} 大标题 Winter 2026-09-30 从八个候选里挑的：像信末的署名，「爱你的，冬」。 {%- endcomment -%}
+  <h1 class="c-hero__title">Love, <em>Winter</em></h1>
   <div class="c-hero__byline">
     <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">日常、小说、歌词——这些是我自己写下的字</span>
+    <span class="c-hero__byline-text">冬的爱人、冬她自己、冬的故事……都是我自己写下的字</span>
     <span class="c-hero__byline-rule"></span>
   </div>
 </section>
@@ -115,6 +116,8 @@ layout: home
     <span class="c-hero__byline-rule"></span>
   </div>
 </section>
+
+{% include winters-shelves.html %}
 
 <div class="c-posts o-opacity">
   {% if site.posts.size > 0 %}

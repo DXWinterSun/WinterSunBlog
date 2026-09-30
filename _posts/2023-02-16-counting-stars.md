@@ -5,6 +5,8 @@ date: 2023-02-16
 image: counting-stars-through-window.jpg
 tags: [思念]
 categories: Lyrics
+winters: []            # 不上书架，只挂在唱片墙（_data/songs.json）
+form: 翻译
 summary: "我会整夜不睡，数着星星，等你回家。"
 ---
 

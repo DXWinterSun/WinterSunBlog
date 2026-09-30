@@ -5,6 +5,8 @@ date: 2022-11-30
 image: marguerite.jpg
 tags: [缱绻]
 categories: Daily
+winters: [love]
+form: 书信
 summary: "Hello, Deer. Hello, dear."
 ---
 **目录 / Contents**
