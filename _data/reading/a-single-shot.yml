@@ -3034,3 +3034,24 @@ batches:
         extra:
           - "**搭配**a sardonic smile（讥讽的笑）"
           - "**易混**sarcastic 是话里带刺；sardonic 更偏神情和态度，冷冷的、带点瞧不上。"
+
+  - n: 35
+    date: 2026-10-01
+    pages: 39
+    photos: 1
+    notes:
+      - id: "183"
+        page: 39
+        color: blue
+        term: retainer
+        kind: 一词多义
+        ipa: /rɪˈteɪnər/
+        pos: n.
+        cn: （请律师的）预付聘金
+        en: a sum of money that is paid to sb to make sure they will be available to do work when they are needed
+        en_src: 牛津 8
+        context: "There’s for your ==retainer==,"
+        gist: 这是给你的聘金。
+        note: 他把五张一百块拍在律师桌上，是早上从枕套里拿的。前面他问“别收我超过半千”，half grand 就是五百块，grand 是口语里的“一千块”。retainer 还有别的意思：美国人说牙齿矫正后戴的“保持器”也是它。
+        extra:
+          - "**搭配**pay sb a retainer（付给某人聘金）· on a retainer（按月领聘用金）"
