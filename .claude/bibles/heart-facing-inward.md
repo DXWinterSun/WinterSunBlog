@@ -238,6 +238,7 @@ Winter 写到第三章时说：「写到现在我都感觉他就是个绝世好�
 - 第十七到十九章连读预览（收束）：https://claude.ai/artifact/UWZJRGm129sZdHLoCJXbpF
 - 番外 1 预览：https://claude.ai/artifact/8dNSFg5EZ5xdHbzDMRPVHF
 - 番外 2 预览：https://claude.ai/artifact/BA1SMKCmBGrPgAEhXFe9Hk
+- 番外 3 预览：https://claude.ai/artifact/Ge6HLDFCyeVxWepzWDJU2P
 - 路线图：https://claude.ai/artifact/W76o2FYEW9wP158os14y6q（`render_roadmap.py`）
 
 ## 配角
@@ -368,6 +369,9 @@ Winter 写到第三章时说：「写到现在我都感觉他就是个绝世好�
   **替他扣衬衫、扣大衣**；那把扶手椅；你跪下：“别动。”；他一遍遍说“是你的。早就是了。一直都是……一直会是”；想推开你、推了一下推不下去；
   ⭐ 缴械时 **“I love you.”——全系列唯一一次**；你咽下去，他看着你的喉咙；“明天接着念。门开了。她走进去了。”mood 炽恋 · 安放。
   ⚠️ 声口铁律的唯一例外：**他这辈子只说过这一次“I love you”**，以后番外不要再让他说。
+- **番外 3 · 我先生等我呢**（他视角，待过目；`extra3.md`）——Winter：「他不再监控我了，但我主动跟他分享，还会说‘我先生等我呢’……他不习惯，但他每天都在感激」。
+  他删了定位；半夜手悬在黑里，你梦里说“我在呢”；你的消息（c-comm）不问自来；他坐在 Margot 家那七级台阶上等，听见你说“不了，我先生等我呢”，**天还没黑门就开了**；
+  他开始说谢谢；本子后面只写“她告诉我的——谢谢”，你添一行“他说：谢谢。——不客气。明天接着说。”mood 安放 · 絮语。
 
 ## PINNED（已埋，待回收）
 
