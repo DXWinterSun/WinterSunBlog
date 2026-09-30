@@ -2876,3 +2876,72 @@ batches:
         note: 这是整页最妙的一个比喻：他坐在律师面前，觉得自己像一堵渗水的墙，心里的罪恶感像汗一样，从每个小孔里往外渗。porous 原本说的是石头、材料透水透气，用在人身上，就是“藏不住”。
         extra:
           - "**搭配**porous rock（多孔的岩石）· a porous border（管不住的边境）"
+
+  - n: 33
+    date: 2026-10-01
+    pages: 37
+    photos: 1
+    notes:
+      - id: "174"
+        page: 37
+        color: blue
+        term: slumping
+        lemma: slump
+        kind: 一词多义
+        ipa: /ˈslʌmpɪŋ/
+        pos: v.
+        cn: 重重地坐下；瘫坐
+        en: to sit or fall down heavily
+        en_src: 牛津 8
+        context: "says Daggard Pitt, ==slumping== in his chair"
+        gist: Daggard Pitt 说着，往椅子里一瘫。
+        note: 她划的只是 slump 那一段，这里是它的第二个意思。slump 最常见的是说价格、销量“暴跌”，经济上的 the slump 是“萧条”。这里是人像泄了气一样塌进椅子里。
+        extra:
+          - "**搭配**slump down in a chair（瘫坐在椅子里）· sales slumped（销量暴跌）"
+
+      - id: "175"
+        page: 37
+        color: blue
+        term: Lilliputian
+        kind: 典故
+        ipa: /ˌlɪlɪˈpjuːʃn/
+        pos: adj.
+        cn: 极小的；小矮人似的
+        en: extremely small
+        en_src: 牛津 8
+        context: "imagine the ==Lilliputian== Daggard Pitt"
+        gist: 想象那个小矮人似的 Daggard Pitt。
+        note: 出自《格列佛游记》里的小人国 Lilliput，那里的人只有十五厘米高。牛津标着正式。John 把自己矮小的律师和对方那个当过大学橄榄球队员的律师摆在一起想，心一下子沉下去了。
+
+      - id: "176"
+        page: 37
+        color: blue
+        term: hangdog
+        kind: 单词
+        ipa: /ˈhæŋdɔːɡ/
+        pos: adj.
+        cn: 垂头丧气的；一脸愧疚的
+        en: if a person has a hangdog look, they look sad or ashamed
+        en_src: 牛津 8
+        context: "with his ==hangdog== look and shriveled limbs"
+        gist: 一副垂头丧气的样子，四肢干瘪。
+        note: 字面是 hang（吊）加 dog（狗），像挨了打、耷拉着脑袋的狗。牛津说它只放在名词前面，最常见的就是 a hangdog look / expression。
+        extra:
+          - "**搭配**a hangdog expression（一脸愧色）"
+
+      - id: "177"
+        page: 37
+        color: blue
+        term: wheezes
+        lemma: wheeze
+        kind: 单词
+        ipa: /ˈwiːzɪz/
+        pos: v.
+        cn: 喘；呼哧呼哧地喘气
+        en: to breathe noisily and with difficulty
+        en_src: 牛津 8
+        context: "the way he ==wheezes== and makes funny"
+        gist: 他那样呼哧呼哧地喘，还自己发出些古怪的小声音。
+        note: 是那种胸口带着哨音的喘，哮喘、气管不好的人会这样。Daggard Pitt 身上没有一处是体面的，可正是这样，John 竟开始可怜起他来。
+        extra:
+          - "**易混**pant 是跑累了大口喘；gasp 是猛地倒吸一口气；wheeze 是喘的时候带着嘶嘶的哨音。"
