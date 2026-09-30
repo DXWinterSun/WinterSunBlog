@@ -2731,3 +2731,57 @@ batches:
         note: 她划的是 gauze，后面连着 -covered，合起来就是“盖着纱布的”。but for 在这里是“除了……之外”：他全身都晒得很黑，只有包着纱布的肩膀那一块没晒到。
         extra:
           - "**搭配**a gauze dressing（纱布敷料）· 名词 + -covered：snow-covered（积雪覆盖的）"
+
+  - n: 30
+    date: 2026-10-01
+    pages: 34
+    photos: 1
+    notes:
+      - id: "166"
+        page: 34
+        color: blue
+        term: speck
+        kind: 单词
+        ipa: /spek/
+        pos: n.
+        cn: 小斑点；一丁点儿
+        en: a very small spot; a small piece of dirt, etc.
+        en_src: 牛津 8
+        context: "Is there an evil ==speck== on his soul"
+        gist: 他的灵魂上，是不是有一个邪恶的小黑点？
+        note: 他在问自己：是不是心里早就藏着一点坏东西，是它预见了这桩命案、把他推了过去。speck 本来是灰尘、污渍那样小小的一点，用在灵魂上，就像一块洗不掉的斑。
+        extra:
+          - "**搭配**a speck of dust（一粒灰尘）· a speck in the distance（远处的一个小点）"
+          - "**易混**spot 是一般的点、斑；speck 更小，小到几乎看不见；stain 是染上去的污迹。"
+
+      - id: "167"
+        page: 34
+        color: blue
+        term: undertaker
+        kind: 单词
+        ipa: /ˈʌndərteɪkər/
+        pos: n.
+        cn: 殡葬承办人；开殡仪馆的
+        en: a person whose job is to prepare the bodies of dead people to be buried or cremated, and to arrange funerals
+        en_src: 牛津 8
+        context: "This goddamn ==undertaker==’s got an airstrip"
+        gist: 这该死的殡仪馆老板，车道长得跟飞机跑道似的。
+        note: 他们这天上午就是在给殡仪馆老板家的车道铺石子。字面上 undertake 是“承担、着手做”，undertaker 却专指操办丧事的人。美国也常说 funeral director 或 mortician。
+        extra:
+          - "**易混**undertake（承担、着手）≠ undertaker（殡葬承办人），别望文生义。"
+
+      - id: "168"
+        page: 34
+        color: blue
+        term: airstrip
+        kind: 名物
+        ipa: /ˈerstrɪp/
+        pos: n.
+        cn: 简易跑道；简易机场
+        en: a narrow piece of cleared land that an aircraft can land on
+        en_src: 牛津 8
+        context: "got an ==airstrip== for a driveway"
+        gist: 拿一条飞机跑道当车道。
+        note: Dean 嫌车道太长，损了一句“他家车道是条飞机跑道”，接着又补刀：“准是用飞机往这儿运尸体。”殡仪馆、尸体、飞机，一连串的粗俗笑话，正是 Dean 的嘴。
+        extra:
+          - "**搭配**landing strip（同义，也指简易跑道）"
