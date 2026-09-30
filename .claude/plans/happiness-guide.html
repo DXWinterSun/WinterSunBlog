@@ -1,0 +1,333 @@
+<title>Happiness 上架路线</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Ma+Shan+Zheng&display=swap">
+<style>
+/* 版式：一栏窄版心，顶上一张「一日三事」拍立得 + 四段路的路线条；下面按阶段排清单，开工口令是唯一的重块 */
+:root {
+  --paper: #f6f4f8;
+  --card: #ffffff;
+  --ink: #23273a;
+  --muted: #676a7d;
+  --line: rgba(35, 39, 58, 0.13);
+  --gold: #9a6d2e;
+  --gold-soft: #c9a16b;
+  --dusk: #3f4a63;
+  --wash: #efe7da;
+  --done: #3f7a5a;
+  --hand: "Caveat", "Ma Shan Zheng", cursive;
+  --hand-cn: "Ma Shan Zheng", "Caveat", cursive;
+  --body: -apple-system, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #171a26; --card: #1f2333; --ink: #ece7f2; --muted: #a3a2b6;
+    --line: rgba(236, 231, 242, 0.14); --gold: #dcb57c; --gold-soft: #c9a16b;
+    --dusk: #9aa6c8; --wash: #2a2a36; --done: #7cc49b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #171a26; --card: #1f2333; --ink: #ece7f2; --muted: #a3a2b6;
+  --line: rgba(236, 231, 242, 0.14); --gold: #dcb57c; --gold-soft: #c9a16b;
+  --dusk: #9aa6c8; --wash: #2a2a36; --done: #7cc49b; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: 16px; line-height: 1.75;
+}
+.wrap { max-width: 42rem; margin: 0 auto; padding-inline: 16px; padding-block: 28px 56px; }
+
+/* —— 顶部：拍立得 + 标题 —— */
+.top { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; }
+.pol {
+  width: 150px; background: #fbfaf7; padding: 9px 9px 0; border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 10px 26px rgba(20,16,36,.18);
+  transform: rotate(-4deg);
+}
+.pol__photo {
+  display: block; height: 104px; border-radius: 1px; overflow: hidden;
+  background: linear-gradient(145deg, #c9a16b 0%, #6b5e7a 55%, #3f4a63 100%);
+}
+.pol__photo svg { display: block; width: 100%; height: 100%; }
+.pol__cap { display: block; padding: 6px 2px 9px; text-align: center; color: #2b2620; line-height: 1.1; }
+.pol__cap b { display: block; font-family: var(--hand); font-weight: 600; font-size: 25px; }
+.pol__cap i { display: block; font-style: normal; font-family: var(--hand-cn); font-size: 14px; color: #847a6d; margin-top: 2px; }
+h1 { margin: 0; font-size: 26px; line-height: 1.3; letter-spacing: .01em; text-wrap: balance; }
+h1 span { font-family: var(--hand); font-weight: 600; font-size: 36px; color: var(--gold); margin-right: 6px; }
+.lede { margin: 8px 0 0; color: var(--muted); font-size: 15px; }
+
+/* —— 四段路 —— */
+.road { list-style: none; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.road li { border-top: 3px solid var(--line); padding-top: 8px; min-width: 0; }
+.road li.is-now { border-top-color: var(--gold-soft); }
+.road b { display: block; font-size: 14px; line-height: 1.4; }
+.road small { display: block; color: var(--muted); font-size: 12px; line-height: 1.45; margin-top: 2px; }
+.road .n { font-family: var(--hand); font-size: 22px; color: var(--gold); line-height: 1; }
+
+/* —— 小节 —— */
+h2 { font-size: 19px; margin: 44px 0 4px; line-height: 1.4; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+h2 .n { font-family: var(--hand); font-size: 28px; color: var(--gold); font-weight: 600; }
+.who { font-size: 12px; font-weight: 500; color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 0 9px; letter-spacing: .02em; }
+.sec-note { margin: 0 0 14px; color: var(--muted); font-size: 14.5px; }
+
+/* 先知道的三件事 */
+.know { margin: 36px 0 0; padding: 18px 20px; background: var(--wash); border-radius: 10px; }
+.know h3 { margin: 0 0 8px; font-size: 15px; letter-spacing: .04em; color: var(--gold); }
+.know ul { margin: 0; padding-left: 1.1em; }
+.know li + li { margin-top: 8px; }
+
+/* 清单 */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.step { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; grid-template-columns: 26px 1fr; gap: 12px; }
+.step input { width: 20px; height: 20px; margin: 4px 0 0; accent-color: var(--done); cursor: pointer; }
+.step > div { min-width: 0; }
+.step label { font-weight: 600; cursor: pointer; display: block; line-height: 1.5; }
+.step p { margin: 4px 0 0; font-size: 15px; }
+.step .tip { color: var(--muted); font-size: 14px; }
+.step.is-done { opacity: .6; }
+.step.is-done label { text-decoration: line-through; text-decoration-color: var(--done); }
+.key { font-family: var(--body); font-size: 13.5px; font-weight: 600; background: var(--wash); border: 1px solid var(--line); border-radius: 5px; padding: 0 6px; white-space: nowrap; }
+.url { font-family: var(--mono); font-size: 13.5px; word-break: break-all; }
+
+/* 开工口令 */
+.order { margin-top: 14px; border: 1.5px solid var(--gold-soft); border-radius: 12px; background: var(--card); overflow: hidden; }
+.order__bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.order__bar span { font-size: 13px; color: var(--muted); }
+.copy {
+  font: inherit; font-size: 15px; font-weight: 600; cursor: pointer;
+  background: var(--dusk); color: var(--paper); border: 0; border-radius: 99px; padding: 7px 18px;
+}
+.copy:focus-visible, .step input:focus-visible, .reset:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.copy.is-ok { background: var(--done); }
+.order pre {
+  margin: 0; padding: 14px 16px; max-height: 300px; overflow: auto;
+  white-space: pre-wrap; word-break: break-word; font-family: var(--body); font-size: 13.5px; line-height: 1.7; color: var(--ink);
+}
+
+/* 后面两段：预告 */
+.later { background: var(--card); border: 1px dashed var(--line); border-radius: 10px; padding: 14px 18px; }
+.later p { margin: 0; font-size: 15px; }
+.later p + p { margin-top: 8px; }
+.ask { margin-top: 12px; padding-left: 12px; border-left: 3px solid var(--gold-soft); font-size: 15px; }
+
+.help { margin-top: 44px; text-align: center; color: var(--muted); font-size: 14.5px; }
+.help b { color: var(--ink); }
+.reset { font: inherit; font-size: 13px; color: var(--muted); background: none; border: 0; text-decoration: underline; cursor: pointer; margin-top: 6px; }
+
+@media (max-width: 520px) {
+  .top { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .pol { width: 136px; }
+  .pol__photo { height: 92px; }
+  .road { grid-template-columns: repeat(2, 1fr); row-gap: 14px; }
+  .step { padding: 12px 13px; gap: 10px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pol { transition: transform .35s ease; }
+  .pol:hover { transform: rotate(-1deg) translateY(-3px); }
+}
+</style>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="pol" aria-hidden="true">
+      <span class="pol__photo">
+        <svg viewBox="0 0 160 96" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="g1" cx="50%" cy="16%" r="62%"><stop offset="0%" stop-color="#ffe9b0" stop-opacity="0.55"/><stop offset="100%" stop-color="#ffe9b0" stop-opacity="0"/></radialGradient>
+            <radialGradient id="g2" cx="50%" cy="42%" r="80%"><stop offset="55%" stop-color="#1a1024" stop-opacity="0"/><stop offset="100%" stop-color="#1a1024" stop-opacity="0.4"/></radialGradient>
+          </defs>
+          <rect x="0" y="0" width="160" height="96" fill="url(#g1)"/>
+          <g stroke="#ffd373" stroke-width="1.4" stroke-linecap="round" fill="none">
+            <line x1="40" y1="8" x2="36" y2="20" opacity="0.85"/><line x1="66" y1="4" x2="61" y2="18" opacity="0.7"/>
+            <line x1="92" y1="10" x2="88" y2="24" opacity="0.8"/><line x1="116" y1="6" x2="112" y2="19" opacity="0.6"/>
+            <line x1="78" y1="22" x2="75" y2="33" opacity="0.5"/><line x1="52" y1="26" x2="49" y2="36" opacity="0.45"/>
+          </g>
+          <g fill="#ffe7a8">
+            <circle cx="36" cy="22" r="1.3" opacity="0.9"/><circle cx="61" cy="20" r="1.1" opacity="0.8"/>
+            <circle cx="88" cy="26" r="1.4" opacity="0.9"/><circle cx="112" cy="21" r="1" opacity="0.7"/>
+            <circle cx="75" cy="35" r="1" opacity="0.6"/><circle cx="128" cy="34" r="1.2" opacity="0.7"/>
+          </g>
+          <path d="M104 50 l1.8 5 5 1.8 -5 1.8 -1.8 5 -1.8 -5 -5 -1.8 5 -1.8 z" fill="#fff3d0" opacity="0.95"/>
+          <rect x="0" y="0" width="160" height="96" fill="url(#g2)"/>
+        </svg>
+      </span>
+      <span class="pol__cap"><b>Happiness</b><i>一日三事</i></span>
+    </div>
+    <div>
+      <h1><span>Happiness</span>上架路线</h1>
+      <p class="lede">从你的 Mac 到 App Store，一共四段路。这一页一直有效，做到哪儿、打勾到哪儿，下次回来接着看。</p>
+    </div>
+  </header>
+
+  <ol class="road" aria-label="四段路">
+    <li class="is-now"><span class="n">1</span><b>装好工具</b><small>你自己，主要是等下载</small></li>
+    <li class="is-now"><span class="n">2</span><b>开工看样子</b><small>Mac 上的 Claude 来做</small></li>
+    <li><span class="n">3</span><b>装进你手机</b><small>要 Jack 在场十分钟</small></li>
+    <li><span class="n">4</span><b>提交上架</b><small>我们一起，审核一两天</small></li>
+  </ol>
+
+  <section class="know" aria-label="先知道的三件事">
+    <h3>动手之前，先知道三件事</h3>
+    <ul>
+      <li><b>名字。</b>手机主屏幕上，图标底下就写 Happiness。但商店里的名字全世界只能有一个，Happiness 这种常见词基本肯定被人占了，到第 4 步要给它加个小尾巴，到时候我给你几版挑。</li>
+      <li><b>Jack。</b>用他的开发者账号的话，商店页面上“开发者”那一栏会写他的名字（如果他是公司账号，就写公司名）。第 1、2 步完全不用他，第 3 步要他在你 Mac 旁边待十分钟。</li>
+      <li><b>歌词。</b>博客卡片上那句 The Fray 的歌词不会印进应用里：上架的应用印歌词有版权风险，审核可能会被退回。Happiness 这个名字本身，就是在向那首歌致意。</li>
+    </ul>
+  </section>
+
+  <h2><span class="n">1</span>装好工具 <span class="who">你自己来</span></h2>
+  <p class="sec-note">这一段主要是等下载。可以先开始下，去做别的事。</p>
+  <ol class="steps">
+    <li class="step"><input type="checkbox" id="s1"><div>
+      <label for="s1">装 Xcode</label>
+      <p>Mac 上打开 <span class="key">App Store</span>，搜“Xcode”，点 <span class="key">获取</span>。以前装过的话，看看有没有 <span class="key">更新</span>，有就点。</p>
+      <p class="tip">它有十几个 G，可能要下一两个小时。插上电、连着网，让它慢慢下。</p>
+    </div></li>
+    <li class="step"><input type="checkbox" id="s2"><div>
+      <label for="s2">第一次打开 Xcode</label>
+      <p>先弹出一个同意条款的窗口，点 <span class="key">Agree</span>，再输入你的 Mac 开机密码。接着它会问要装哪些平台，勾上 <span class="key">iOS</span>，点下载，再等一会儿。</p>
+      <p class="tip">装完就可以把 Xcode 关掉，以后不用你亲手碰它。</p>
+    </div></li>
+    <li class="step"><input type="checkbox" id="s3"><div>
+      <label for="s3">装 Claude 桌面应用</label>
+      <p>在 Mac 的浏览器里打开 <span class="url">claude.ai/download</span>，下载 Mac 版。打开下载好的文件，把 Claude 图标拖进 <span class="key">应用程序</span>，然后打开它，用你现在这个账号登录。</p>
+      <p class="tip">已经装过的话，这一步直接打勾。</p>
+    </div></li>
+  </ol>
+
+  <h2><span class="n">2</span>开工看样子 <span class="who">你点几下，Mac 上的 Claude 来写</span></h2>
+  <p class="sec-note">这一段不需要 Jack，也不花钱。做出来的应用先在电脑里一台模拟的 iPhone 上跑给你看。按钮上的字要是跟这里对不上（应用更新时常改名字），截图发我。</p>
+  <ol class="steps">
+    <li class="step"><input type="checkbox" id="s4"><div>
+      <label for="s4">建一个文件夹</label>
+      <p>打开 <span class="key">访达</span>，点左边的 <span class="key">文稿</span>，在右边空白处点右键（触控板两指轻点），选 <span class="key">新建文件夹</span>，取名 <b>Happiness</b>。</p>
+      <p class="tip">应用的所有东西以后都放在这里，别删它。</p>
+    </div></li>
+    <li class="step"><input type="checkbox" id="s5"><div>
+      <label for="s5">在 Claude 里开一个“本地”的对话</label>
+      <p>Claude 应用顶上有几个标签，点 <span class="key">Code</span>。再点 <span class="key">Select folder</span>，选“文稿”里刚建的 Happiness。如果让你在 <span class="key">Local</span> 和 <span class="key">Cloud</span> 之间选，选 <b>Local</b>。</p>
+      <p class="tip">Local 就是在你这台 Mac 上干活。Cloud 是在云端，跟现在跟你说话的我一样，碰不到你的电脑。</p>
+    </div></li>
+    <li class="step"><input type="checkbox" id="s6"><div>
+      <label for="s6">选一个省心的权限</label>
+      <p>输入框旁边有个选权限的小菜单，选 <span class="key">Accept edits</span>。这样它改代码时不用每次都问你。</p>
+      <p>它要运行东西的时候（比如打开模拟的 iPhone），还是会弹窗问你，点允许就行。如果有“以后都允许”这类选项，就点那个，省得一直点。</p>
+      <p class="tip">弹窗里出现“删除”“rm”“sudo”这类字，或者你心里没底，就先别点，截图发给我。</p>
+    </div></li>
+    <li class="step"><input type="checkbox" id="s7"><div>
+      <label for="s7">把开工口令发给它</label>
+      <p>点下面的 <span class="key">复制开工口令</span>，粘贴进输入框，按回车。它会先读完说明，存好备忘，再开始写。</p>
+    </div></li>
+  </ol>
+
+  <div class="order">
+    <div class="order__bar">
+      <span>开工口令 · 发给 Mac 上的 Claude</span>
+      <button class="copy" type="button" id="copy">复制开工口令</button>
+    </div>
+<pre id="order">你好！我是冬璇（Winter），完全不懂编程。请在这个文件夹里帮我从零做一个 iPhone 应用，最后要上架 App Store。请先读完下面的说明再动手。
+
+【第一件事】把这整段说明原样存成本文件夹里的 CLAUDE.md（以后开新对话也接得上），再开始干活。
+
+【怎么跟我说话】
+- 我看不懂技术：技术上的事你自己拿主意，别让我选；跟我说话用简单的中文，只说效果，别贴命令行。
+- 只问我能凭喜好判断的事（颜色、字、样子），而且要在模拟器里做出来给我看，让我挑。
+- 小步走：每做好一步，就在模拟器里打开给我看。
+- 需要我自己动手点什么，就一步一步说清楚点哪里。
+- 如果发现 Xcode 还没装好，或者没有 iPhone 模拟器，先停下来告诉我怎么装。
+
+【这是什么应用】
+- 名字叫 Happiness，手机主屏幕上就显示 Happiness。
+- 第一版只做一个功能：一日三事，每天写下三件幸运、开心的小事。
+- 它来自我博客左下角那叠拍立得里的第一张「每天三件幸运小事」。源码可以参考：https://github.com/DXWinterSun/WinterSunBlog/blob/main/js/polaroid-notes.js（fortunes 那一本；打不开就跳过）。气质要延续：拍立得相纸、暖金色的火花、从暖金到暮色蓝紫的渐变（#c9a16b → #6b5e7a → #3f4a63）、手写的字。
+- 商店里同类的「三件好事」应用很多，苹果会退回太简陋的应用，所以要做得完整、精致。
+
+【第一版要有】
+1. 今天：一打开就是今天这一页。三行，编号「一、二、三」，边写边自动保存。页顶日期写成 “Tuesday · 30 September 2026” 这样。
+2. 翻日子：能往前翻看过去的日子，不能翻到未来。
+3. 回看：一个能看到过去所有日子的地方（日历，或者一叠拍立得，做两版给我挑）。
+4. 从博客搬家：能读入博客「底片匣」导出的 .json 文件，把我以前写的三件事导进来（格式见下）。
+5. 备份：能导出一个备份文件，也能再导回来。
+6. 所有内容只存在手机里：不注册、不登录、不联网、不收集任何数据。
+
+【博客导出文件的格式】
+{"app":"wiw-polaroid-notes","v":3,"journals":{"fortunes":{"2026-09-30":{"items":["第一件","第二件","第三件"],"ts":1790000000000}}}}
+- 只读 journals.fortunes：键是日期，items 固定三条（可能有空的），ts 是毫秒时间戳。
+- 更老的文件可能写成 {"lucky":{…}}，意思一样，也要认。
+- 同一天两边都有内容时，留 ts 更新的那份。
+- 文件里其它部分（notes、marks、别的 journals）跟这个应用无关，忽略。
+
+【技术上照这样来】
+- SwiftUI，支持 iOS 17 及以上，只做 iPhone 竖屏。
+- 字体：英文用 Caveat，中文用马善政（Ma Shan Zheng），都是开源字体，打包进应用，不在线加载。
+- 不要把任何歌词印进应用（有版权风险，审核会退回）。
+- 用 git 记录每一步，改坏了能退回去。
+- 签名和上架要用我朋友 Jack 的苹果开发者账号，他还没登录。在那之前只用模拟器。Bundle ID 先用 com.wintersun.happiness 占位。
+
+【先别做】
+- 没有我明确说“上传”或“提交”，就不上传、不提交审核。
+- 其它功能（吐槽窗、写给自己的信、每日提醒、面容锁、iCloud 同步）以后再说，你可以列成建议给我。
+
+现在请：存好 CLAUDE.md → 建项目 → 做出「今天」这一页 → 在模拟器里打开给我看。</pre>
+  </div>
+
+  <ol class="steps" style="margin-top:10px">
+    <li class="step"><input type="checkbox" id="s8"><div>
+      <label for="s8">看模拟的 iPhone，说喜好</label>
+      <p>它写一阵之后，会打开一台模拟的 iPhone，里面就是 Happiness。喜欢什么、不喜欢什么，直接在那边跟它说，就像跟我说话一样。</p>
+      <p class="tip">拿不准怎么说，就截图发回我这边，我帮你翻译成它听得懂的话。</p>
+    </div></li>
+  </ol>
+
+  <h2><span class="n">3</span>装进你手机 <span class="who">要 Jack 十分钟</span></h2>
+  <div class="later">
+    <p>Jack 在你 Mac 旁边，打开 Xcode 的设置，登录他的苹果账号，他手机上会收到一个验证码。他再把你的 Apple ID 加进他的开发者后台。</p>
+    <p>然后 Mac 上的 Claude 把应用传上去。你在 iPhone 上装一个苹果官方的 <b>TestFlight</b>，就能装上你自己的 Happiness，每天用着试。不用插线，也不用改手机设置。</p>
+    <p class="ask">现在可以先问 Jack 一句：<b>他的开发者账号是“个人”还是“公司”的？</b>答案发我就行，我来决定第 3 步具体怎么走。</p>
+  </div>
+
+  <h2><span class="n">4</span>提交上架 <span class="who">我们一起</span></h2>
+  <div class="later">
+    <p>商店页面要准备这些：商店名（带小尾巴的那个）、几张截图、一段介绍、一个隐私说明网页。截图让 Mac 上的 Claude 在模拟器里拍，隐私说明我在你博客上做好。</p>
+    <p>交上去以后，苹果审核一般一两天。第一次被退回一两轮很正常，按意见改完再交就是了。</p>
+  </div>
+
+  <p class="help"><b>卡住了就截图，发回这个对话。</b><br>我看着图告诉你下一步点哪里。<br><button class="reset" type="button" id="reset">清掉所有勾，重新开始</button></p>
+
+</div>
+
+<script>
+(function () {
+  var KEY = "happiness-guide-v1";
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+  function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
+  var state = load();
+  var boxes = document.querySelectorAll(".step input[type=checkbox]");
+  function paint(b) { b.closest(".step").classList.toggle("is-done", b.checked); }
+  boxes.forEach(function (b) {
+    b.checked = !!state[b.id]; paint(b);
+    b.addEventListener("change", function () { state[b.id] = b.checked; save(state); paint(b); });
+  });
+  document.getElementById("reset").addEventListener("click", function () {
+    state = {}; save(state); boxes.forEach(function (b) { b.checked = false; paint(b); });
+  });
+
+  var btn = document.getElementById("copy"), pre = document.getElementById("order");
+  function ok() { btn.textContent = "已复制 ✓"; btn.classList.add("is-ok"); setTimeout(function () { btn.textContent = "复制开工口令"; btn.classList.remove("is-ok"); }, 2200); }
+  function selectIt() {
+    var r = document.createRange(); r.selectNodeContents(pre);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    btn.textContent = "已选中，按 ⌘C 复制";
+  }
+  btn.addEventListener("click", function () {
+    var text = pre.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(ok, selectIt);
+    } else { selectIt(); }
+  });
+})();
+</script>
