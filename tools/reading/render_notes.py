@@ -194,7 +194,7 @@ mark.pink{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(i
 .card__cmp-row{display:grid;grid-template-columns:auto 1fr;gap:.1rem .7rem;margin:0 0 .35rem;align-items:baseline;}
 .card__cmp-row span{font-family:"EB Garamond",Georgia,serif;font-size:.84rem;color:var(--muted);
  font-variant-numeric:tabular-nums;white-space:nowrap;}
-.card__cmp-row q{quotes:none;font-family:"EB Garamond",Georgia,serif;font-size:1.05rem;}
+.card__cmp-row q{quotes:none;font-family:"EB Garamond",Georgia,serif;font-style:italic;color:var(--example);font-size:1.1rem;line-height:1.55;}
 .card__cmp-row small{grid-column:2;color:var(--muted);font-size:.86rem;}
 .card__cmp p{margin:.45rem 0 0;}
 
@@ -377,7 +377,7 @@ a.rep__row:hover{background:var(--band);}
 .rep__k{font-size:.78rem;color:var(--muted);letter-spacing:.06em;white-space:nowrap;}
 .rep__pg{font-family:"EB Garamond",Georgia,serif;font-size:.86rem;letter-spacing:.08em;color:var(--accent);
  font-variant-numeric:tabular-nums;white-space:nowrap;}
-.rep__q{flex:1 1 100%;font-style:italic;color:var(--example);quotes:none;}
+.rep__q{flex:1 1 100%;quotes:none;font-family:"EB Garamond",Georgia,serif;font-style:italic;color:var(--example);font-size:1.1rem;line-height:1.55;}
 .rep__here{font-size:.78rem;color:var(--word);white-space:nowrap;}
 .rep__go{margin-left:auto;color:var(--word);font-size:.8rem;white-space:nowrap;}
 .rep__list li+li .rep__row{border-top:1px solid color-mix(in srgb,var(--line) 60%,transparent);}
