@@ -1,0 +1,292 @@
+{
+  "_readme": [
+    "冬的歌单 · 唱片墙的资料（/songs/ 与 Winter's 首页那一行都读它）。改这里，两处一起变。",
+    "规矩（Winter 2026-09-30）：一张专辑一张唱片；每首歌出现前都要核对专辑官方名称与年份，查证了再写。",
+    "单曲写 single: true；先出单曲、后来收进专辑的，写那张专辑。拿不准的年份宁可空着（year 留 null）。",
+    "albums 的先后 = 墙上的先后：新挂上来的放最前面。",
+    "items 里 kind 取值：lines 摘录 / essay 文章 / story 小说 / tr 翻译 / au AU 章节。",
+    "post 写文章的仓库路径（_posts/…md），标题、日期、网址在构建时自动取；lines 每行是 [英文原句, 中文]，没有就留空字符串。",
+    "note 只写来源或她自己说过的话，别替她编感受。"
+  ],
+  "albums": [
+    {
+      "id": "everything-in-transit",
+      "album": "Everything in Transit",
+      "artist": "Jack's Mannequin",
+      "year": 2005,
+      "cover": "everything-in-transit-album.jpeg",
+      "color": "#2f6a8a",
+      "label": "#f3e2b0",
+      "songs": [
+        {
+          "id": "holiday-from-real",
+          "title": "Holiday from Real",
+          "items": [
+            { "kind": "au", "post": "_posts/2026-08-21-everything-in-transit-chapter-6-the-beach-show.md", "sub": "本章曲目" }
+          ]
+        },
+        {
+          "id": "bruised",
+          "title": "Bruised",
+          "items": [
+            { "kind": "au", "post": "_posts/2026-08-21-everything-in-transit-chapter-9-someone-stays.md", "sub": "本章曲目" }
+          ]
+        },
+        {
+          "id": "miss-delaney",
+          "title": "Miss Delaney",
+          "items": [
+            { "kind": "au", "post": "_posts/2026-08-21-everything-in-transit-chapter-18-sing-it-to-you-first.md", "sub": "本章曲目" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-fray",
+      "album": "The Fray",
+      "artist": "The Fray",
+      "year": 2009,
+      "color": "#3d4a5c",
+      "label": "#d9d2c2",
+      "songs": [
+        {
+          "id": "where-the-story-ends",
+          "title": "Where the Story Ends",
+          "items": [
+            {
+              "kind": "lines",
+              "post": "_posts/2023-06-20-where-the-story-ends.md",
+              "lines": [
+                ["But this is how the story ends", "可这便是故事终结之处"],
+                ["Or have we just begun?", "又或者，一切才刚开始？"]
+              ]
+            },
+            { "kind": "essay", "post": "_posts/2023-06-20-where-the-story-ends.md", "sub": "献给 The Fray 的十年，里面有整首歌词的翻译" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "augustana",
+      "album": "Augustana",
+      "artist": "Augustana",
+      "year": 2011,
+      "color": "#1e2944",
+      "label": "#e9c86b",
+      "songs": [
+        {
+          "id": "counting-stars",
+          "title": "Counting Stars",
+          "items": [
+            {
+              "kind": "lines",
+              "post": "_posts/2023-02-16-counting-stars.md",
+              "lines": [
+                ["'til you're back in my arms", "这思念不会停歇，直至你回到我怀抱"],
+                ["I'll be waiting up counting the stars", "我将整夜不睡，数着星星等你回家"]
+              ]
+            },
+            { "kind": "tr", "post": "_posts/2023-02-16-counting-stars.md", "sub": "整首歌词的翻译" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clumsy-words",
+      "album": "Clumsy Words and Bad Pickup Lines",
+      "artist": "Junior Doctor",
+      "year": null,
+      "color": "#a4513a",
+      "label": "#f5dcc0",
+      "songs": [
+        {
+          "id": "uh-oh",
+          "title": "Uh Oh",
+          "items": [
+            {
+              "kind": "lines",
+              "post": "_posts/2022-11-27-thanks-gc.md",
+              "lines": [
+                ["And uh oh, uh oh", ""],
+                ["I get that feeling and I don't know, don't know", ""],
+                ["How she keeps stealing all the air from my lungs", ""],
+                ["And leaving all the words stuck on my tongue", ""]
+              ]
+            },
+            { "kind": "essay", "post": "_posts/2022-11-27-thanks-gc.md", "sub": "“一个旋律奇迹地抓住了我”" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shijie",
+      "album": "世界",
+      "artist": "逃跑计划",
+      "year": 2012,
+      "cover": "escape-plan-world.jpg",
+      "cover_pos": "50% 52%",
+      "color": "#34506e",
+      "label": "#e6d3a3",
+      "songs": [
+        {
+          "id": "where-is-your-hug",
+          "title": "哪里是你的拥抱",
+          "items": [
+            { "kind": "story", "post": "_posts/2022-07-10-where-is-your-hug.md", "sub": "“灵感来源：逃跑计划2012年《世界》专辑第8首歌曲”" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "simple-times",
+      "album": "Simple Times",
+      "artist": "Joshua Radin",
+      "year": 2008,
+      "color": "#3d6068",
+      "label": "#d3e6e5",
+      "songs": [
+        {
+          "id": "id-rather-be-with-you",
+          "title": "I'd Rather Be with You",
+          "items": [
+            {
+              "kind": "lines",
+              "post": "_posts/2022-06-29-i'd-rather-be-with-you.md",
+              "lines": [
+                ["Yeah, I'd rather be with you", "千真万确，我只愿同你一道"],
+                ["Say you want the same thing too", "告诉我，你也想的，对吗"]
+              ]
+            },
+            { "kind": "tr", "post": "_posts/2022-06-29-i'd-rather-be-with-you.md", "sub": "整首歌词的翻译" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nali-dou-shi-ni",
+      "album": "哪里都是你",
+      "artist": "队长",
+      "year": 2017,
+      "single": true,
+      "color": "#6b3a4a",
+      "label": "#f0c9c9",
+      "songs": [
+        {
+          "id": "nali-dou-shi-ni",
+          "title": "哪里都是你",
+          "items": [
+            { "kind": "essay", "post": "_posts/2022-04-29-i-wish-sad-love-songs-never-break-us.md", "sub": "Daisy 发来的那首" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daylight",
+      "album": "Daylight",
+      "artist": "Ron Pope",
+      "year": 2008,
+      "color": "#7a5230",
+      "label": "#f4dcae",
+      "songs": [
+        {
+          "id": "fireflies",
+          "title": "Fireflies",
+          "items": [
+            {
+              "kind": "lines",
+              "post": "_posts/2022-04-29-i-wish-sad-love-songs-never-break-us.md",
+              "lines": [
+                ["Wherever she goes, all that I know about us is that beautiful things never last.", ""],
+                ["That's why fireflies flash.", ""]
+              ],
+              "note": "“我说像萤火虫的光芒刹那便熄灭一般，美好的向来转瞬即逝。”"
+            },
+            { "kind": "essay", "post": "_posts/2022-04-29-i-wish-sad-love-songs-never-break-us.md", "sub": "发给 Daisy 的那句歌词" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-met-you-when-i-was-18",
+      "album": "I met you when I was 18. (the playlist)",
+      "artist": "Lauv",
+      "year": 2018,
+      "color": "#6d8fb3",
+      "label": "#f3e7c9",
+      "songs": [
+        {
+          "id": "i-like-me-better",
+          "title": "I Like Me Better",
+          "items": [
+            {
+              "kind": "lines",
+              "post": "_posts/2020-10-13-i-like-me-better-when-i'm-with-you.md",
+              "lines": [
+                ["I like me better when I'm with you.", ""]
+              ]
+            },
+            { "kind": "essay", "post": "_posts/2020-10-13-i-like-me-better-when-i'm-with-you.md", "sub": "标题就是这首歌里的一句" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scars-and-stories",
+      "album": "Scars & Stories",
+      "artist": "The Fray",
+      "year": 2012,
+      "color": "#5b3f35",
+      "label": "#e8c9a0",
+      "songs": [
+        {
+          "id": "the-fighter",
+          "title": "The Fighter",
+          "items": [
+            {
+              "kind": "lines",
+              "post": "_posts/2016-11-02-the-destiny.md",
+              "lines": [
+                ["", "也许孤独乃是你我的宿命。也许我们注定要分开。"]
+              ],
+              "note": "《宿命》开篇的题记，出处写作“冲突乐队《斗士》”"
+            },
+            { "kind": "story", "post": "_posts/2016-11-02-the-destiny.md", "sub": "开篇题记引的就是这首歌" }
+          ]
+        },
+        {
+          "id": "1961",
+          "title": "1961",
+          "items": [
+            { "kind": "story", "post": "_posts/2017-02-18-28-and-28-years.md", "sub": "“我只是受了一首歌的启发而已。”小记里抄了整首歌词" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "helios",
+      "album": "Helios",
+      "artist": "The Fray",
+      "year": 2014,
+      "color": "#a8742c",
+      "label": "#fbe6b0",
+      "songs": [
+        {
+          "id": "our-last-days",
+          "title": "Our Last Days",
+          "items": [
+            {
+              "kind": "lines",
+              "post": "_posts/2017-02-01-our-last-days.md",
+              "lines": [
+                ["This love will stand, now and always", "彼此的爱会于此留驻，现在乃至永久"],
+                ["These hearts will burn 'til our last days", "你我的心会于此燃烧，直到我们最后的日子"]
+              ],
+              "note": "小说最后那两句，是这首歌的副歌"
+            },
+            { "kind": "story", "post": "_posts/2017-02-01-our-last-days.md", "sub": "“这篇文章的灵感也来自The Fray”" }
+          ]
+        }
+      ]
+    }
+  ]
+}

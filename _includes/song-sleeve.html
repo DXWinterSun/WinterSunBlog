@@ -1,0 +1,25 @@
+{%- comment -%}
+  一张唱片的封面 + 封面下的两行字（冬的歌单 /songs/ 与首页 Winter's 那一行共用）。
+  用法：{% include song-sleeve.html album=a %}，外面那层元素（链接或按钮）由调用处自己写，
+  并在外层 style 里给 --c（封套主色）与 --lab（唱片标签色）。
+  只要封面、不要下面两行字：{% include song-sleeve.html album=a media_only=true %}
+
+  Winter 2026-09-30 定的规矩：
+  · 封面印专辑名；她传了专辑图（放 images/，写进 songs.json 的 cover）就用专辑图。
+  · 封面下面写「歌名 ＋ 艺人」；一张专辑收了好几首时改写「专辑名 ＋ 艺人」，点开才是曲目。
+  ⚠️ include 里 assign 的变量会漏到外面（Jekyll 的 include 不隔离作用域），所以这里一律用 sl_ 开头的名字，
+  别用 a / n 这种调用处也在用的名字——曾把首页「冬的歌单」的首数盖成了 1。
+{%- endcomment -%}
+{%- assign sl_a = include.album -%}
+{%- assign sl_n = sl_a.songs | size -%}
+<span class="c-sleeve__media">
+  <span class="c-sleeve__disc" aria-hidden="true"></span>
+  <span class="c-sleeve__art{% if sl_a.cover %} has-img{% endif %}"{% if sl_a.cover %} data-bg="{{ '/images/' | prepend: site.baseurl | append: sl_a.cover }}"{% if sl_a.cover_pos %} style="background-position: {{ sl_a.cover_pos }}"{% endif %}{% endif %}>
+    {%- if sl_n > 1 and include.media_only == nil %}<span class="c-sleeve__badge">{{ sl_n }} 首 ▾</span>{% endif -%}
+    {%- unless sl_a.cover %}<i class="c-sleeve__print">{{ sl_a.album | escape }}</i>{% endunless -%}
+  </span>
+</span>
+{%- unless include.media_only %}
+<span class="c-sleeve__name">{% if sl_n > 1 %}{{ sl_a.album | escape }}{% else %}{{ sl_a.songs[0].title | escape }}{% endif %}</span>
+<span class="c-sleeve__artist">{{ sl_a.artist | escape }}</span>
+{%- endunless -%}

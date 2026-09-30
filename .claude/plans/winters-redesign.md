@@ -1,4 +1,4 @@
-# Winter's 改版 ＋ 冬的歌单（2026-09-30 起，进行中）
+# Winter's 改版 ＋ 冬的歌单（2026-09-30，第一批已上线）
 
 Winter 的原话：「Winter's tab 现在都是堆在一起的，我想能不能分一些模块」。
 她在样稿上用批注一条条拍板，**以下是已定的**。接手的对话先读完这页再动手。
@@ -52,14 +52,39 @@ Winter 的原话：「Winter's tab 现在都是堆在一起的，我想能不能
 | Uh Oh | Junior Doctor | Clumsy Words and Bad Pickup Lines | 文章《Thanks, GC》里摘过几句 |
 | 哪里都是你 | 队长 | 单曲（2017） | 文章《我愿悲伤的情歌再也不能揪住我们软肋》 |
 | I Like Me Better | Lauv | I met you when I was 18. (the playlist)（2018；单曲 2017 年先出） | 文章《I like me better when I'm with you.》的标题 |
+| Fireflies | Ron Pope | Daylight（2008，第 7 首） | 文章《我愿悲伤的情歌再也不能揪住我们软肋》里发给 Daisy 的那句 |
+| The Fighter | The Fray | Scars & Stories（2012） | 小说《宿命》开篇题记——她写作「冲突乐队《斗士》」（The Fray 直译，歌名直译），歌词对得上 |
+| 1961 | The Fray | Scars & Stories（2012，第 6 首） | 小说《二十八又二十八年》：「我只是受了一首歌的启发而已」，小记里抄了整首歌词 |
+| Our Last Days | The Fray | Helios（2014，第 7 首） | 小说《我们最后的日子》：结尾两句就是这首的副歌，小记里抄了整首歌词 |
 
-## 还没定（等 Winter 在样稿里挑）
+- 后四首是 2026-09-30 上线前又翻了一遍文章找到的，专辑都查证过。
+- Junior Doctor 那张的年份没查死（有 2012 年 4 月的发行记录，但亚马逊上还有更早的一版），**先空着**。
 
-- Winter's 的大标题：现在是 In My Own Hand；候选有 Love, Winter / Yours, Winter / Things Winter Keeps / Written in Snow / Notes from Winter / The Winter Papers / Winter, Unsent
-- 唱片墙右上角「句子」看法（把所有摘录一句句摊开的歌词墙）留不留
-- 「冬还年少」的标题要不要用手写字
+## 后来定下的（2026-09-30 同一天）
 
-## 当前的归类（28 篇，允许重叠；以样稿为准，Winter 随时会挪）
+- Winter's 的大标题：**Love, <em>Winter</em>**（像信末的署名，「爱你的，冬」）
+- 唱片墙右上角「句子」看法：**留着**
+- 「冬还年少」：**不用手写字**，只铺横格周记本纸
+
+## 做到哪了
+
+**第一批（已上线）**：Winter's 五个书架 ＋ 唱片墙（只读）。东西在哪：
+
+| 东西 | 在哪 |
+|---|---|
+| 五个书架的名字 / 说明 / 排序 | `_data/winters.yml` |
+| 一篇文章上哪几个书架、卡片小标签 | 文章 front matter 的 `winters: [love, self]` 与 `form: 书信` |
+| 书架页面 | `_includes/winters-shelves.html`（首页 `?cat=winters` 才显示），样式 `_sass/5-components/_winters.scss` |
+| 唱片墙资料 | `_data/songs.json`（首页那一行和 `/songs/` 共用） |
+| 唱片墙页面 | `songs/index.html`，唱片封面 `_includes/song-sleeve.html`，样式 `_sass/5-components/_songs.scss` |
+
+**还没做**：
+- 网页上自己点「＋」加歌（照藏品架 `sam/shelf/` 的馆长模式做：贴令牌 → 浏览器把 `_data/songs.json` 提交回 main）。
+- 她发 YouTube Music 歌词图来 → 认字、配中文、挂进 `_data/songs.json` 对应那首歌（新歌先核专辑）。
+- 《Thanks, GC》里摘的四句 Uh Oh 原文只有英文，墙上也只放了英文；要不要补中文等她说。
+- 顺手问她：《宿命》题记的「冲突乐队《斗士》」认成 The Fray 的 The Fighter，对不对。
+
+## 当前的归类（28 篇，允许重叠；写在各篇的 winters: 里，Winter 随时会挪）
 
 - 冬的爱人：I like me better… / 忘记、希望和拯救 / 在满地鸡毛里翩翩起舞 / 关于“爱” / 我会爱你，直到你再也见不到我 / 关于他 / 我愿悲伤的情歌再也不能揪住我们软肋 / Thanks, GC / Hello, Deer / 滤镜 / 非教科书式满分 / 故事终结之处 / To Mendel / Sam Rockwell 对 56 件事的看法
 - 冬她自己：Fleeting Moments（私密页）/ 滤镜 / 关于“爱” / 忘记、希望和拯救 / 43@365：与零散的过去重逢 / 掠影浮光 / 结局，抑或开端？
