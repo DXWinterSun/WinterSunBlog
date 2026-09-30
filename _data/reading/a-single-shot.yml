@@ -2837,3 +2837,42 @@ batches:
         note: 这是打猎的行话。jack a deer，也说 jacklight，是夜里拿手电或车灯照鹿的眼睛，鹿被照得发呆不动，就好打了。这种打法在美国是违法的，算偷猎。牛津只收了 jack 的“偷、顺手拿走”这个俚语意思，没收打猎这一层，英文解释是我写的。前面第 4 页他怕碰上的，正是管偷猎的人。
         extra:
           - "**搭配**jacklighting（夜里打灯猎鹿）· a jacked deer（打灯打到的鹿）"
+
+  - n: 32
+    date: 2026-10-01
+    pages: 36
+    photos: 1
+    notes:
+      - id: "172"
+        page: 36
+        color: blue
+        term: shriveled
+        lemma: shrivel
+        kind: 单词
+        ipa: /ˈʃrɪvld/
+        pos: adj.
+        cn: 干瘪萎缩的
+        en: dry and wrinkled as a result of heat, cold or being old
+        en_src: 牛津 8
+        context: "who drags one ==shriveled== leg like a tail"
+        gist: 拖着一条萎缩的腿，像拖着一条尾巴。
+        note: 原形是动词 shrivel（枯萎、皱缩），本来多用在叶子、葡萄这类东西上，这里用在人的腿上。美式拼写是一个 l（shriveled），英式是两个 l（shrivelled）。同一页往下还有 his shrunken leg（萎缩的腿），意思差不多。
+        extra:
+          - "**搭配**shrivel up（蔫掉、缩成一团）"
+          - "**易混**shrink 是整体变小；shrivel 是干了、皱了、缩成一团。"
+
+      - id: "173"
+        page: 36
+        color: blue
+        term: porous
+        kind: 单词
+        ipa: /ˈpɔːrəs/
+        pos: adj.
+        cn: 多孔的；会渗漏的
+        en: having many small holes that allow water or air to pass through slowly
+        en_src: 牛津 8
+        context: "imagining himself a ==porous== wall through which"
+        gist: 想象自己是一堵满是细孔的墙。
+        note: 这是整页最妙的一个比喻：他坐在律师面前，觉得自己像一堵渗水的墙，心里的罪恶感像汗一样，从每个小孔里往外渗。porous 原本说的是石头、材料透水透气，用在人身上，就是“藏不住”。
+        extra:
+          - "**搭配**porous rock（多孔的岩石）· a porous border（管不住的边境）"
