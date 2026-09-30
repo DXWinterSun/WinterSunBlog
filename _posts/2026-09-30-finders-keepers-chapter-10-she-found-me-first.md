@@ -1,12 +1,14 @@
 ---
 layout: post
 title: "Chapter 10 · 是她先找到我的 — Finders Keepers"
-date: 待定（上线当天）
+date: 2026-09-30 23:10:00 +0800
+image: finders-keepers.jpg
 tags: ['Buck "The Kid"', Sam Rockwell, AU, Finders Keepers, 安放, 悸动]
 categories: ["AU Story"]
 series: "Finders Keepers"
 series_title: 'Finders Keepers · Buck "The Kid" AU'
 series_order: 10
+series_status: ongoing
 series_type: "Series"
 chapter_type: "Chapter 10"
 summary: "你说不去了。他一下子亮了起来：是她先找到我的。"
