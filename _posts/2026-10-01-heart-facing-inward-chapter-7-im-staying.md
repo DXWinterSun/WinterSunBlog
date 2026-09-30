@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 7
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 7"
 summary: "他说累了吧，love。你光着脚，第一次说：我不走。"

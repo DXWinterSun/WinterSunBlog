@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 12
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 12"
 summary: "试伴娘裙的四十分钟里，你一个人把那一粒送去了化验。"

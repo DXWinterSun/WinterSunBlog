@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 11
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 11"
 summary: "一个普通的早上，你第一次把那粒药压在了舌头底下。"

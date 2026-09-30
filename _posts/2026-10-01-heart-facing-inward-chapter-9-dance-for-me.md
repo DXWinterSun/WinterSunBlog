@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 9
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 9"
 summary: "大西洋边的石头房子里，他说：那天你怎么跳的，跳给我看。"

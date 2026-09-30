@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 1
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "结婚一周年，他看着你咽下那粒药，然后说：今天是我的。"

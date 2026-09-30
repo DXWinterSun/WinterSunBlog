@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 2
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "他西装一件没脱，按着你站在镜子前：看着，看清你是谁的。"

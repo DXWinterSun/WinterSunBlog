@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 5
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 5"
 summary: "Margot 问你多久没一个人出过门了。你想了想，想不起来。"

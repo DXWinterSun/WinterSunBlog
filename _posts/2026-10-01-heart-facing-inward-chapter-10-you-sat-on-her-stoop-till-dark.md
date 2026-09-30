@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 10
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 10"
 summary: "Margot 不接电话。你去布鲁克林，在她家门口坐到了天黑。"

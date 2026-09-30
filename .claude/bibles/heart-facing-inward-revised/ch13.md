@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 13
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 13"
 summary: "你一个人坐地铁下了城。不到一个钟头，他就站在了你身后。"

@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 3
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 3"
 summary: "广场饭店后门，你以为那个抽烟的男人是谁家的司机。"

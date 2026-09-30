@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 14
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 14"
 summary: "化验单上写着：补铁片。他说，你吃了三天就忘了。"

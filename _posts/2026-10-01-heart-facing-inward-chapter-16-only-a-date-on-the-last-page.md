@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 16 · 最后一页只有一个日期 — Heart Facing Inward"
 categories: ["AU Story"]
-date: （上线那天再填）
+date: 2026-10-01 03:31:09 +0800
 image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"

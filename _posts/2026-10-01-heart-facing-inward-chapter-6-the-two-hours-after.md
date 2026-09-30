@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 6
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 6"
 summary: "他知道你跟谁吃的午饭。他问的，是后面那两个钟头。"

@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 8
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 8"
 summary: "他在墓园墙外的酒馆里喝醉了，说：我母亲在墙那边。"

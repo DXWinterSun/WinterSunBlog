@@ -7,7 +7,7 @@ image: heart-facing-inward.webp
 series: "Heart Facing Inward"
 series_title: "Heart Facing Inward · Declan Byrne AU"
 series_order: 4
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 4"
 summary: "你跟老同学多笑了五分钟，腰上就多了一只手。"
