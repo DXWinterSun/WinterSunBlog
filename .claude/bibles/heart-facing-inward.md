@@ -236,6 +236,7 @@ Winter 写到第三章时说：「写到现在我都感觉他就是个绝世好�
 - 第十二到十四章连读预览：https://claude.ai/artifact/QmigEcUQNx6Rr4reqzP2wW
 - 第十五、十六章连读预览（改顺序后同一链接）：https://claude.ai/artifact/Ep4CVyv5EoocmnujDysR2Q
 - 第十七到十九章连读预览（收束）：https://claude.ai/artifact/UWZJRGm129sZdHLoCJXbpF
+- 番外 1 预览：https://claude.ai/artifact/8dNSFg5EZ5xdHbzDMRPVHF
 - 路线图：https://claude.ai/artifact/W76o2FYEW9wP158os14y6q（`render_roadmap.py`）
 
 ## 配角
@@ -356,6 +357,10 @@ Winter 写到第三章时说：「写到现在我都感觉他就是个绝世好�
    “可以吗？”（第一次问）；用嘴，“现在”是你说的；“我是你的。”；你替他擦脸、试水温、看他咽下去；戒指你自己转出去又转回来；本子空白第一页你写：
    “4/24 她把心尖转过去，又自己转了回来。——没走。”mood 炽恋 · 缱绻。
 - （`held-confession.md` 已并入第十九章，仅存档）
+- **番外 1 · 我松开了栏杆**（他视角，待过目；`extra1.md`）——Winter 挑：旋转楼梯 / 放手两层 / 他的视角。**第一人称“我”＝他，对“你”说话**（守 Winter“女主称你”的偏好）。
+  完结后一年多的第一场雪，第十一级你袜子一滑往后倒，**他松开栏杆、半空翻身垫在你底下**，后脑勺撞地，“你没事……然后天就黑了”；
+  医院：“你为什么要松手？”“我不知道。我没想。”——你比他先明白；**你把药倒进他手心、试水温、看他咽下去**；他说“你想去哪儿都行，我不拦了”，
+  你回家一趟，他不看定位只等，一个钟头零十分你带着本子回来；**他左手写下 Winter 的原句**；你的戒指蹭歪了他没去转，你梦里自己转回朝里。mood 缱绻 · 安放。
 
 ## PINNED（已埋，待回收）
 
