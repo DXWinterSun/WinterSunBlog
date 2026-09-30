@@ -6,7 +6,8 @@
 > ⚠️ 本 AU 只借录影带的**气质**（温柔的控制、上流社会、那粒药和那杯水），**不照搬剧情**：
 > Winter 选了「没有前妻」「灰色地带」，他从没下过毒。
 
-series_name: Heart Facing Inward ｜ slug: series/heart-facing-inward/（尚未建）
+series_name: Heart Facing Inward ｜ slug: series/heart-facing-inward/（2026-10-01 建）
+封面: images/heart-facing-inward.webp（Claude 自制矢量图：暗金夜色、克拉达戒指立在台面上、倒影、一粒药；源文件 .claude/covers/heart-facing-inward.html，改完用 Playwright 截图再转 WebP）
 角色: Declan Byrne（原创名；形象 = Colin Farrell 在《Patient Zero》音乐录影带里的丈夫，
       录影带里该角色没有名字）｜ 演员: Colin Farrell ｜ 非 Sam 角色 → 不加 sam_collection
 配色: **A 克拉达金**（她挑的）——bg 顶层夜色 #17140f / accent 克拉达金 #c9a25a / text 珍珠米白 #f1e9dc / muted 驼绒大衣 #8a7d6a；
@@ -116,6 +117,11 @@ Winter 写到第三章时说：「写到现在我都感觉他就是个绝世好�
 - **Hollis**：他的助理，管你的日程，每月初发一份给你
 - **Paolo**（发型师）、**June**（化妆师）：上东区八卦的传声筒；去年赌你们撑不过一个冬天
 - **你母亲**：见上「声口备忘」
+
+## 上线记录
+
+- 2026-10-01：第 1–3 章 + 系列首页 + 封面上线（Winter：“上线吧🥺封面你按照氛围做一个”）。
+  文件 `_posts/2026-10-01-heart-facing-inward-chapter-{1-today-is-mine,2-watch-whose-you-are,3-you-gave-him-a-home}.md`。
 
 ## 已写章节流水
 
