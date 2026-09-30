@@ -142,9 +142,12 @@ layout: home
       创建时间 = collection_order（编号即开坑先后）。本页取其【倒序】。
       非 Sam 的系列（tumblr 搬运的 Hector / Leonard / BayBay 等）统一垫底，
       内部同样「新 → 老」（按第一篇章节日期）。不按「最近更新」排。
+      2026-10-01 起：**新开的非 Sam 系列**只要在系列首页写了 collection_order（接着编号往下排），
+      就跟 Sam 系列一起按开坑先后排，不再垫底；不写 sam_collection，所以照样不进 Sam 页。
+      （Heart Facing Inward 开坑当天被排到最底下，Winter 以为系列没显示。）
     {%- endcomment -%}
     {% assign all_series = "" | split: "" %}
-    {% assign sam_pages = site.pages | where_exp: "p", "p.sam_collection" | sort: "collection_order" | reverse %}
+    {% assign sam_pages = site.pages | where_exp: "p", "p.collection_order" | sort: "collection_order" | reverse %}
     {% for sp in sam_pages %}
       {% if sp.series_name %}
         {% assign sp_count = site.posts | where: "series", sp.series_name | size %}

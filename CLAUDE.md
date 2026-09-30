@@ -1866,6 +1866,9 @@ form: 随笔               # 卡片上的小标签：随笔 / 书信 / 小说 / 
   | Sam 页 The Collection（`sam/index.html`） | 创建时间**老 → 新** | `collection_order` **升序** |
 
   两页都是「非 Sam 系列统一垫底」（首页里非 Sam 内部也是新→老，按第一章日期）。
+  ⚠️ 2026-10-01 补：**新开的非 Sam 系列**（如 Heart Facing Inward · Colin Farrell）在系列首页写上
+  `collection_order`（现有最大值 +1），首页 AU 栏就跟 Sam 系列一起按开坑先后排，不再垫底；
+  不加 `sam_collection`，所以照样不进 Sam 页。垫底的只剩 tumblr 搬运来的老系列。
   **永远不按「最近更新」排**（曾短暂改过，Winter 不要）。创建时间 = `collection_order`
   编号（编号即开坑先后）。改动任何一页排序前，先对照本表。
 - 工作分支：`claude/redesign-blog-homepage-RSiJO`（首页改版相关）。
