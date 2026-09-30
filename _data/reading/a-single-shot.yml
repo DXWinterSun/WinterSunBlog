@@ -2785,3 +2785,55 @@ batches:
         note: Dean 嫌车道太长，损了一句“他家车道是条飞机跑道”，接着又补刀：“准是用飞机往这儿运尸体。”殡仪馆、尸体、飞机，一连串的粗俗笑话，正是 Dean 的嘴。
         extra:
           - "**搭配**landing strip（同义，也指简易跑道）"
+
+  - n: 31
+    date: 2026-10-01
+    pages: 35
+    photos: 1
+    notes:
+      - id: "169"
+        page: 35
+        color: blue
+        term: french-fuck
+        eudic: false
+        kind: 俚语
+        ipa: /ˈfrentʃ fʌk/
+        pos: v.
+        cn: （粗话）指一种性行为
+        en: a crude slang expression for a sex act
+        context: "Did she ==french-fuck== your tits, Dean?"
+        gist: 她是不是还拿你那两坨奶子……，Dean？
+        note: 很粗的俚语，牛津查不到，英文解释是我写的。老一辈美国人的粗话里，French 常被拿来指“花样多的性事”。这句是 Howard 在挖苦 Dean：前面刚说他上半身又肥又晃，这里就干脆把他的胸说成女人的。这几个人在工地上满嘴荤话，一个比一个下流。不放进欧路列表。
+
+      - id: "170"
+        page: 35
+        color: blue
+        term: holes up
+        lemma: hole up
+        kind: 短语
+        ipa: /hoʊlz ˈʌp/
+        pos: phr. v.
+        cn: 躲起来；窝着不出来
+        en: to hide in a place
+        en_src: 牛津 8
+        context: "that goddamn mountain he ==holes up== on"
+        gist: 他窝着不下来的那座破山。
+        note: hole 是“洞”，hole up 就像动物钻进洞里不出来。牛津标着非正式。Howard 的意思是：他要么老老实实来干活挣钱，要么回山上窝着，接着拿偷来的鹿肉喂老婆孩子。
+        extra:
+          - "**搭配**be holed up in/at（躲在某处）：We believe the gang are holed up in the mountains."
+
+      - id: "171"
+        page: 35
+        color: blue
+        term: jacked
+        lemma: jack
+        kind: 打猎用语
+        ipa: /dʒækt/
+        pos: adj.
+        cn: 夜里打灯偷猎来的
+        en: (of a deer) killed illegally at night after being blinded with a light
+        context: "feeding his wife and kid with ==jacked== deer meat"
+        gist: 拿夜里偷猎来的鹿肉喂老婆孩子。
+        note: 这是打猎的行话。jack a deer，也说 jacklight，是夜里拿手电或车灯照鹿的眼睛，鹿被照得发呆不动，就好打了。这种打法在美国是违法的，算偷猎。牛津只收了 jack 的“偷、顺手拿走”这个俚语意思，没收打猎这一层，英文解释是我写的。前面第 4 页他怕碰上的，正是管偷猎的人。
+        extra:
+          - "**搭配**jacklighting（夜里打灯猎鹿）· a jacked deer（打灯打到的鹿）"
