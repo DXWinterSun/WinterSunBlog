@@ -16,7 +16,7 @@ CLAUDE.md 第 7 条：**每写完一章（以及开新坑时）先给下一段�
 JSON 结构见 .claude/roadmaps/ 里的样板：
   _meta: title / eyebrow / sub / lede / accent,bg,text,muted / acts[] / motifs[] / debts[] / forks[]
          可选 ask_title / ask_note：页尾岔路区的标题和一句说明（默认「三个岔路等你挑 / 挑完我写第一章」）
-  chapters: [{n, act(0..2), t 标题, w 这章干什么, key(1|2 关键度), pin(埋钩子), blank(空章)}]
+  chapters: [{n（整数；番外可写字符串如 "EX"）, act(0..2), t 标题, w 这章干什么, key(1|2 关键度), pin(埋钩子), blank(空章)}]
 """
 import json, html, argparse, os
 
@@ -130,9 +130,11 @@ def main():
             cls += ' ch--k1'
         pin = '<span class="pin">埋钩子</span>' if c.get('pin') else ''
         title = E(c['t']) if c['t'] else '还没定'
-        return ('<li class="%s"><span class="ch__n">%02d</span><div>'
+        n = c['n']
+        n = '%02d' % n if isinstance(n, int) else E(str(n))   # 番外可写 "EX"
+        return ('<li class="%s"><span class="ch__n">%s</span><div>'
                 '<h3 class="ch__t">%s%s</h3><p class="ch__w">%s</p></div></li>'
-                % (cls, c['n'], title, pin, E(c['w'])))
+                % (cls, n, title, pin, E(c['w'])))
 
     acts = []
     for i, act in enumerate(m['acts']):
