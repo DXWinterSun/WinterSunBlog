@@ -1,0 +1,126 @@
+# 波兰语笔记本 —— Winter 学波兰语（主要在多邻国）时做错的、看不懂的地方。
+# 她在对话里问 → Claude 讲清楚 → 收进这里一条 → 生成网页、发布到同一个链接。
+# 工作法与每个字段的写法：.claude/skills/winter-polish-notes/SKILL.md
+#
+#   查档（她问过没有）：python3 tools/polish/find.py <关键词…>
+#   查变格变位：        python3 tools/polish/forms.py <单词>
+#   生成网页：          python3 tools/polish/render_polish.py -o <scratchpad>/polish-notes.html
+#                       python3 tools/polish/render_polish.py --blog
+#
+# ⚠️ 新的一条只往 notes 末尾追加；编号永远不改、不复用（批注锚在卡片编号上，问过几次也靠它记）。
+# ⚠️ 分类只能用下面 areas 里有的知识点；都不合适就先在这里加一个，别在笔记里随手写新名字。
+
+meta:
+  title: "Notatnik"                 # 波兰语「笔记本」
+  sub: "波兰语笔记本 · 错过的、问过的"
+  kicker: "Polski · 冬璇学波兰语"
+  palette: "The Cardinal"           # 借 Kris 的颜色（余烬绯红 + 华沙墨蓝），_data/au_palettes.yml
+  artifact: "https://claude.ai/artifact/P4aMzMXidM1yQfewcPf6KR"   # 笔记网页（2026-10-01 首发），之后永远更新这一个
+
+# ── 分类：大类 → 知识点。网页按这个顺序排；没有笔记的知识点不显示。──
+# 笔记里写 point: noun.gen 这样的「大类.知识点」。
+areas:
+  - key: sound
+    icon: "🔤"
+    name: 发音与拼写
+    pl: wymowa i pisownia
+    points:
+      - {key: letters,  name: 字母和读音,       hint: "ó 读 u、rz 读 ż、ch 读 h 这类"}
+      - {key: nasal,    name: 鼻音 ą 和 ę}
+      - {key: soft,     name: 软音,             hint: "ś ć ź ń 和 si ci zi ni"}
+      - {key: sandhi,   name: 重音与连读,       hint: "重音在哪、清浊变化、词尾怎么念"}
+      - {key: spelling, name: 拼写,             hint: "大小写、附加符号、连写分写"}
+
+  - key: noun
+    icon: "📦"
+    name: 名词：性、数和七个格
+    pl: rzeczownik i przypadki
+    points:
+      - {key: gender, name: 名词的性,           hint: "阳性、阴性、中性怎么看"}
+      - {key: plural, name: 复数,               hint: "含男性人称复数"}
+      - {key: nom,    name: 主格（第一格）,     hint: "mianownik · 谁、什么"}
+      - {key: gen,    name: 生格（第二格）,     hint: "dopełniacz · 谁的、没有什么"}
+      - {key: dat,    name: 与格（第三格）,     hint: "celownik · 给谁"}
+      - {key: acc,    name: 宾格（第四格）,     hint: "biernik · 看见谁、要什么"}
+      - {key: ins,    name: 工具格（第五格）,   hint: "narzędnik · 跟谁、用什么、是什么"}
+      - {key: loc,    name: 方位格（第六格）,   hint: "miejscownik · 在哪、关于什么"}
+      - {key: voc,    name: 呼格（第七格）,     hint: "wołacz · 叫人的时候"}
+
+  - key: adj
+    icon: "🎨"
+    name: 形容词与副词
+    pl: przymiotnik i przysłówek
+    points:
+      - {key: agree,   name: 跟着名词变,        hint: "性、数、格一致"}
+      - {key: compare, name: 比较级和最高级}
+      - {key: adverb,  name: 副词,              hint: "dobry 和 dobrze 这类"}
+
+  - key: pron
+    icon: "👤"
+    name: 代词
+    pl: zaimek
+    points:
+      - {key: personal, name: 人称代词的各种样子, hint: "go、jego、niego 这类"}
+      - {key: possess,  name: 物主代词,           hint: "mój、twój、swój"}
+      - {key: demo,     name: 指示词和疑问词,     hint: "ten、ta、to；kto、co、jaki"}
+      - {key: sie,      name: się,                hint: "反身、位置"}
+
+  - key: verb
+    icon: "🏃"
+    name: 动词
+    pl: czasownik
+    points:
+      - {key: present, name: 现在时变位}
+      - {key: past,    name: 过去时}
+      - {key: future,  name: 将来时}
+      - {key: aspect,  name: 完成体和未完成体}
+      - {key: motion,  name: 走、去、坐车,       hint: "iść、chodzić、jechać、jeździć"}
+      - {key: modal,   name: 想、能、必须、喜欢, hint: "后面跟动词原形"}
+      - {key: imper,   name: 命令式,             hint: "让别人做事"}
+
+  - key: prep
+    icon: "📍"
+    name: 介词
+    pl: przyimek
+    points:
+      - {key: case,  name: 介词后面跟什么格}
+      - {key: place, name: 在哪儿、去哪儿,     hint: "w、na、do 的区别"}
+
+  - key: num
+    icon: "🔢"
+    name: 数字、时间和日期
+    pl: liczebnik i czas
+    points:
+      - {key: count, name: 数字后面的名词,     hint: "2–4 和 5 以上不一样"}
+      - {key: clock, name: 钟点、日期、星期}
+
+  - key: syntax
+    icon: "🧩"
+    name: 句子怎么排
+    pl: składnia
+    points:
+      - {key: order,    name: 语序}
+      - {key: neg,      name: 否定,             hint: "nie 放哪儿、否定以后要变格"}
+      - {key: question, name: 疑问句,           hint: "czy 和疑问词"}
+      - {key: clause,   name: 连词和从句,       hint: "że、bo、który"}
+
+  - key: words
+    icon: "💬"
+    name: 词义和说法
+    pl: słownictwo
+    points:
+      - {key: pair,    name: 长得像、意思近的词, hint: "wiedzieć 和 znać 这类"}
+      - {key: polite,  name: 称呼和礼貌,         hint: "pan、pani、ty"}
+      - {key: phrase,  name: 固定说法}
+      - {key: meaning, name: 一个词的意思和用法}
+
+  - key: duo
+    icon: "🦉"
+    name: 多邻国的坑
+    pl: Duolingo
+    points:
+      - {key: english, name: 题面英语带来的误会, hint: "you 是一个人还是一群人……"}
+      - {key: accept,  name: 判错有没有道理,     hint: "答案为什么不收"}
+
+# ── 笔记：一题一条，按时间往末尾追加 ──
+notes: []

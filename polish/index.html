@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>波兰语笔记本 · Winter Sun</title>
+<meta name="description" content="学波兰语时做错的、看不懂的地方，一题一张卡，按知识点分好类。">
+<link rel="icon" href="../favicon.ico">
+<!-- 这一页由 tools/polish/render_polish.py --blog 生成，别手改；改 _data/polish/notes.yml 再重新生成 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+ color-scheme:light;
+ --bg:color-mix(in srgb,#bc4d3a 6%,#fbfaf6);--accent:#963e2e;--ink:#11161c;
+ --muted:color-mix(in srgb,#11161c 60%,#fbfaf6);
+ --surface:#fffefb;--glow:rgba(255,255,255,0);
+ --line:color-mix(in srgb,var(--accent) 24%,transparent);
+ --band:#eef0f4;--band-ink:#5b6472;--code-bg:color-mix(in srgb,var(--accent) 8%,#fff);
+ --pl:#27368f;--example:#2d63c8;
+ --wrong:#c8322b;--right:#2f7d4f;--ask:#2d63c8;
+ --hl-wrong:#f6b4ac;--hl-right:#a8deb9;--hl:color-mix(in srgb,#bc4d3a 32%,#fff3c4);--hl-mix:70%;
+ --paper:#f6eedf;--paper-ink:#3b3329;--note-shadow:0 6px 16px rgba(40,30,20,.14);
+ --shadow:0 1px 2px rgba(20,24,31,.06),0 6px 18px -12px rgba(20,24,31,.35);
+}
+:root[data-theme="dark"]{
+ color-scheme:dark;
+ --bg:#11161c;--accent:#bc4d3a;--ink:#ece0d2;--muted:#62768d;
+ --surface:color-mix(in srgb,var(--bg) 91%,#fff);--glow:rgba(255,255,255,.05);
+ --line:color-mix(in srgb,var(--accent) 26%,transparent);
+ --band:rgba(255,255,255,.06);--band-ink:#aab2bf;--code-bg:color-mix(in srgb,var(--bg) 70%,#000);
+ --pl:#a9b8ff;--example:#8fb0ff;--wrong:#ef7a70;--right:#7fcf9d;--ask:#8fb0ff;
+ --hl-wrong:#b34a40;--hl-right:#3f8a5c;--hl:color-mix(in srgb,#bc4d3a 55%,transparent);--hl-mix:55%;
+ --paper:#f2eadd;--note-shadow:0 8px 20px rgba(0,0,0,.34);--shadow:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font-family:"Noto Serif SC","Songti SC",Georgia,serif;font-size:16.5px;line-height:1.9;
+ -webkit-font-smoothing:antialiased;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+ background:radial-gradient(ellipse 900px 500px at 15% -10%,var(--glow),transparent 60%);}
+.wrap{position:relative;z-index:1;max-width:44rem;margin:0 auto;padding:3.2rem 1.25rem 5rem;}
+[hidden]{display:none!important}
+.blognav{position:absolute;top:14px;left:14px;z-index:5;display:flex;gap:.5rem;}
+.blognav a{display:inline-flex;align-items:center;min-height:34px;padding:0 .85rem;border:1px solid var(--line);
+ border-radius:99px;background:var(--surface);color:var(--accent);text-decoration:none;font-size:.85rem;letter-spacing:.06em;}
+.theme-btn{position:absolute;top:10px;right:10px;z-index:5;width:36px;height:36px;border-radius:50%;
+ border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:17px;line-height:1;padding:0;}
+.theme-btn:hover{border-color:var(--accent);}
+
+/* 页头：跟读书笔记 / 章节预览同一套 */
+.console{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:13px 18px;
+ border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);border-radius:4px;
+ background:color-mix(in srgb,var(--accent) 8%,transparent);font-family:"EB Garamond",Georgia,serif;
+ font-size:13px;letter-spacing:.06em;color:var(--muted);margin-bottom:2.4rem;}
+.console b{color:var(--accent);font-weight:600;}
+.console .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;
+ box-shadow:0 0 6px var(--accent);flex:none;}
+.console>span+span::before{content:"|";opacity:.38;margin-right:16px;}
+.console>span.dot+span::before{content:none;}
+.kicker{font-family:"Volkhov",Georgia,serif;font-style:italic;color:var(--muted);font-size:15px;
+ text-align:center;margin:0 0 .6rem;}
+h1{font-family:"Volkhov","Noto Serif SC",Georgia,serif;font-weight:700;font-size:clamp(32px,7vw,46px);
+ text-align:center;margin:0 0 .45rem;line-height:1.2;letter-spacing:.02em;}
+.sub{text-align:center;color:var(--accent);font-size:1rem;letter-spacing:.12em;margin:0;}
+.rule{width:60px;height:1px;background:var(--accent);opacity:.6;margin:2.2rem auto;}
+.lede{margin:0 0 1rem;color:var(--muted);font-size:.95rem;line-height:1.95;}
+.lede b{color:var(--ink);font-weight:600;}
+.demo-intro{margin:0 0 1.4rem;padding:.8rem 1rem;border:1px dashed var(--accent);border-radius:6px;
+ font-size:.93rem;background:color-mix(in srgb,var(--accent) 5%,transparent);}
+.demo-intro b{color:var(--accent);}
+
+/* 搜索 */
+.find{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;margin:0 -1.25rem 1rem;padding:.6rem 1.25rem;
+ background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+.find label{display:flex;align-items:center;gap:.6rem;padding:0 .9rem;min-height:44px;border:1px solid var(--line);
+ border-radius:99px;background:var(--surface);}
+.find label:focus-within{border-color:var(--accent);}
+.find input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;font-size:1rem;outline:none;}
+.find input::placeholder{color:var(--muted);}
+.find__n{font-size:.8rem;color:var(--muted);white-space:nowrap;}
+.find__none{margin:.4rem 0 1rem;padding:.8rem 1rem;border-radius:6px;background:var(--band);font-size:.93rem;}
+
+/* 目录 */
+.toc{margin:0 0 1.6rem;border:1px solid var(--line);border-radius:6px;background:var(--surface);scroll-margin-top:4.5rem;}
+.toc summary{display:flex;align-items:baseline;gap:.8rem;padding:.8rem 1rem;cursor:pointer;font-weight:600;list-style:none;}
+.toc summary::-webkit-details-marker{display:none;}
+.toc summary::after{content:"展开 ▾";margin-left:auto;font-size:.8rem;font-weight:400;color:var(--accent);}
+.toc[open] summary::after{content:"收起 ▴";}
+.toc summary small{font-weight:400;color:var(--muted);font-size:.82rem;}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;padding:0 1rem .7rem;}
+.tab{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;
+ padding:.2rem .9rem;font:inherit;font-size:.85rem;cursor:pointer;min-height:34px;}
+.tab.is-on{background:var(--accent);border-color:transparent;color:#fff;}
+.pane{padding:0 0 .6rem;}
+.pane h4{margin:.4rem 0 0;padding:.25rem 1rem;background:var(--band);color:var(--band-ink);font-size:.82rem;
+ font-weight:600;letter-spacing:.08em;}
+.pane ul{list-style:none;margin:0;padding:0;}
+.pane li a{display:flex;align-items:baseline;gap:.6rem;padding:.35rem 1rem;color:var(--ink);text-decoration:none;
+ border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);line-height:1.55;}
+.pane li a:hover{background:var(--band);}
+.pane .no{font-family:"EB Garamond",Georgia,serif;font-size:.86rem;color:var(--accent);
+ font-variant-numeric:tabular-nums;white-space:nowrap;}
+.pane .t{flex:1;min-width:0;font-size:.93rem;}
+.pane .pt{padding:.3rem 1rem 0;font-size:.8rem;color:var(--muted);letter-spacing:.06em;}
+.pane .x{font-size:.75rem;font-weight:600;padding:0 .45rem;border-radius:4px;background:var(--band);color:var(--accent);white-space:nowrap;}
+.pane .w{font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:1.08rem;color:var(--pl);white-space:nowrap;}
+.pane .wt{font-size:.72rem;padding:0 .4rem;border-radius:4px;background:var(--band);color:var(--band-ink);white-space:nowrap;}
+.pane .wz{flex:1;min-width:0;font-size:.9rem;}
+.letters{display:flex;flex-wrap:wrap;gap:.15rem;padding:.2rem .8rem .5rem;}
+.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:1.75rem;height:1.75rem;
+ border-radius:5px;font-family:"EB Garamond",Georgia,serif;font-weight:600;text-decoration:none;
+ color:var(--pl);background:var(--band);}
+.copyline{display:flex;align-items:center;gap:.6rem;padding:.2rem 1rem .6rem;font-size:.84rem;color:var(--muted);}
+.copy{appearance:none;flex:none;margin-left:auto;min-height:32px;padding:.2rem .9rem;border-radius:99px;cursor:pointer;
+ border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);background:transparent;color:var(--accent);
+ font:inherit;font-size:.8rem;letter-spacing:.06em;white-space:nowrap;}
+.copy:hover{background:color-mix(in srgb,var(--accent) 12%,transparent);}
+
+/* 分类标题 */
+.area{scroll-margin-top:4.5rem;}
+h2{font-family:"Noto Serif SC",Georgia,serif;font-weight:600;margin:3rem 0 .2rem;font-size:1.22rem;
+ color:var(--accent);display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;}
+h2 .ico{font-size:1.1rem;}
+h2 i{font-family:"EB Garamond",Georgia,serif;font-weight:400;font-size:.95rem;color:var(--muted);}
+h2 .cnt{margin-left:auto;font-size:.8rem;font-weight:400;color:var(--muted);}
+.point{margin:1.6rem 0 .8rem;padding-bottom:.25rem;border-bottom:1px solid var(--line);font-size:1rem;font-weight:600;
+ display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;scroll-margin-top:4.5rem;}
+.point small{font-weight:400;font-size:.8rem;color:var(--muted);}
+.xref{display:block;margin:0 0 1rem;padding:.5rem .9rem;border:1px dashed var(--line);border-radius:6px;
+ color:var(--ink);text-decoration:none;font-size:.9rem;}
+.xref:hover{border-color:var(--accent);}
+.xref b{color:var(--accent);font-weight:600;font-family:"EB Garamond",Georgia,serif;}
+.xref small{color:var(--muted);}
+
+/* ── 一张卡 ── */
+.card{position:relative;margin:0 0 1.8rem;padding:1.05rem 1.25rem .9rem;background:var(--surface);
+ border:1px solid var(--line);border-left:4px solid var(--ask);border-radius:6px;box-shadow:var(--shadow);
+ scroll-margin-top:4.5rem;}
+.card.is-wrong{border-left-color:var(--wrong);}
+.card:target{box-shadow:0 0 0 2px var(--accent);animation:flash 1.6s ease-out 1;}
+@keyframes flash{0%{box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 40%,transparent)}100%{box-shadow:0 0 0 2px var(--accent)}}
+@media (prefers-reduced-motion:reduce){.card:target{animation:none;}}
+.card__meta{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .7rem;margin-bottom:.35rem;
+ font-family:"EB Garamond",Georgia,serif;font-size:.86rem;letter-spacing:.08em;color:var(--muted);
+ font-variant-numeric:tabular-nums;}
+.card__no{color:var(--accent);font-weight:600;}
+.pill{display:inline-flex;align-items:center;padding:0 .6rem;border-radius:99px;font-family:"Noto Serif SC",serif;
+ font-size:.74rem;letter-spacing:.06em;line-height:1.7;white-space:nowrap;}
+.pill--wrong{background:color-mix(in srgb,var(--wrong) 14%,transparent);color:var(--wrong);}
+.pill--ask{background:color-mix(in srgb,var(--ask) 14%,transparent);color:var(--ask);}
+.pill--times{background:var(--accent);color:#fff;}
+.pill--new{border:1px solid var(--accent);color:var(--accent);}
+.pill--demo{border:1px dashed var(--muted);color:var(--muted);}
+.card__meta .pill:first-of-type{margin-left:auto;}
+.card__title{margin:0 0 .3rem;font-size:1.25rem;font-weight:700;line-height:1.5;}
+.crumb{margin:0 0 .8rem;font-size:.8rem;color:var(--muted);letter-spacing:.04em;}
+.crumb a{color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;}
+.crumb a:hover{color:var(--accent);}
+.crumb .also{display:inline-block;}
+.band{display:block;margin:.4rem -1.25rem .5rem;padding:.25rem 1.25rem;background:var(--band);color:var(--band-ink);
+ font-size:.78rem;letter-spacing:.12em;}
+.ask{margin:0 0 .5rem;font-size:.98rem;}
+.pl{display:flex;align-items:flex-start;gap:.35rem;margin:0 0 .15rem;font-family:"EB Garamond",Georgia,serif;
+ font-size:1.42rem;line-height:1.45;color:var(--pl);overflow-wrap:anywhere;}
+.pl>span{padding-top:.05rem;}
+.en{margin:0 0 .1rem;font-family:"EB Garamond",Georgia,serif;font-style:italic;font-size:1.02rem;color:var(--muted);}
+.en::before{content:"题面 ";font-family:"Noto Serif SC",serif;font-style:normal;font-size:.72rem;letter-spacing:.1em;}
+.zh{margin:0 0 .6rem;font-size:.97rem;}
+.diff{display:grid;gap:.35rem;margin:.2rem 0 .7rem;}
+.diff>div{display:flex;align-items:flex-start;gap:.6rem;margin:0;padding:.4rem .7rem;border-radius:5px;}
+.diff b{flex:none;font-size:.78rem;letter-spacing:.08em;padding-top:.45rem;white-space:nowrap;}
+.diff .is-mine{background:color-mix(in srgb,var(--wrong) 7%,transparent);}
+.diff .is-mine b{color:var(--wrong);}
+.diff .is-right{background:color-mix(in srgb,var(--right) 8%,transparent);}
+.diff .is-right b{color:var(--right);}
+.diff .pl{font-size:1.25rem;margin:0;}
+.why p{margin:0 0 .55rem;font-size:.97rem;}
+.memo{margin:.4rem 0 .8rem;padding:.6rem .9rem;border-radius:5px;background:color-mix(in srgb,var(--accent) 9%,transparent);
+ border-left:3px solid var(--accent);font-weight:600;}
+.memo b{display:inline-block;margin-right:.6em;font-size:.76rem;letter-spacing:.14em;color:var(--accent);}
+.tbl{overflow-x:auto;margin:.2rem 0 .8rem;-webkit-overflow-scrolling:touch;}
+.tbl table{width:100%;border-collapse:collapse;font-size:.92rem;}
+.tbl th,.tbl td{padding:.35rem .6rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+.tbl th{font-size:.78rem;font-weight:600;color:var(--band-ink);background:var(--band);letter-spacing:.06em;white-space:nowrap;}
+.tbl td{font-family:"EB Garamond","Noto Serif SC",Georgia,serif;font-size:1.06rem;color:var(--pl);}
+.tbl td:first-child{font-family:"Noto Serif SC",serif;font-size:.86rem;color:var(--ink);white-space:nowrap;}
+.extra{list-style:none;margin:0 0 .6rem;padding:0;font-size:.93rem;}
+.extra li{margin:0 0 .35rem;}
+.extra strong{display:inline-block;margin-right:.5em;padding:0 .45rem;border-radius:4px;background:var(--band);
+ color:var(--band-ink);font-size:.76rem;letter-spacing:.08em;}
+.ex{list-style:none;margin:0 0 .6rem;padding:0;}
+.ex li{display:flex;align-items:flex-start;gap:.35rem;padding:.15rem 0;}
+.ex .pl{display:block;font-size:1.15rem;margin:0;font-style:italic;color:var(--example);}
+.ex small{display:block;font-family:"Noto Serif SC",serif;font-style:normal;font-size:.86rem;color:var(--muted);}
+.words{list-style:none;margin:0 0 .6rem;padding:0;display:grid;gap:.1rem;}
+.words li{display:flex;align-items:center;flex-wrap:wrap;gap:.1rem .55rem;padding:.2rem 0;
+ border-bottom:1px solid color-mix(in srgb,var(--line) 55%,transparent);}
+.words .w{font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:1.12rem;color:var(--pl);}
+.words .wt{font-size:.72rem;padding:0 .4rem;border-radius:4px;background:var(--band);color:var(--band-ink);}
+.words .wz{font-size:.92rem;}
+.words .look{margin-left:auto;font-size:.78rem;color:var(--accent);text-decoration:none;white-space:nowrap;}
+.words .look:hover{text-decoration:underline;}
+.see{margin:.2rem 0 .6rem;font-size:.9rem;}
+.see a{color:var(--accent);}
+mark{color:inherit;background:transparent;padding:0 .12em;margin:0 -.03em;border-radius:.25em .45em .3em .5em;
+ background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);
+ -webkit-box-decoration-break:clone;box-decoration-break:clone;}
+mark.wrong{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-wrong) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);}
+mark.right{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-right) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);}
+
+/* 听 */
+.say{appearance:none;flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+ margin-top:.15rem;border:0;border-radius:50%;background:transparent;color:var(--example);cursor:pointer;padding:0;}
+.say:hover{background:var(--band);}
+.say svg{width:18px;height:18px;}
+.say.is-on{animation:say .9s ease-in-out infinite;}
+@keyframes say{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.say.is-on{animation:none;}}
+
+/* 她的批注、问答 */
+.winter{position:relative;margin:1rem .2rem .7rem;padding:1rem 1.05rem .75rem;background:var(--paper);color:var(--paper-ink);
+ border-radius:2px;transform:rotate(-.35deg);box-shadow:var(--note-shadow);line-height:1.85;}
+.winter::before{content:"";position:absolute;top:-9px;left:50%;width:70px;height:17px;transform:translateX(-50%) rotate(-1.5deg);
+ background:color-mix(in srgb,var(--accent) 45%,transparent);opacity:.8;}
+.winter span{display:block;margin-bottom:.35rem;font-size:.68rem;letter-spacing:.2em;opacity:.55;}
+.winter p{margin:0 0 .3rem;}
+.qa{margin:.7rem 0 .4rem;padding:.65rem .85rem;border-radius:4px;background:color-mix(in srgb,var(--accent) 7%,transparent);font-size:.93rem;}
+.qa p{margin:0;}
+.qa p+p{margin-top:.35rem;}
+.qa b{display:inline-block;margin-right:.6em;font-size:.78rem;letter-spacing:.14em;font-weight:600;color:var(--accent);}
+.times{margin:.4rem 0 .5rem;font-size:.84rem;color:var(--muted);}
+
+.card__foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:.5rem .7rem;margin-top:.6rem;}
+.card__back{margin-right:auto;font-size:.8rem;color:var(--muted);text-decoration:none;letter-spacing:.06em;}
+.card__back:hover{color:var(--accent);}
+.card__ask{appearance:none;min-height:34px;padding:.25rem 1rem;border-radius:99px;cursor:pointer;
+ border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);background:transparent;color:var(--accent);
+ font:inherit;font-size:.82rem;letter-spacing:.16em;}
+.card__ask:hover{background:color-mix(in srgb,var(--accent) 12%,transparent);}
+
+.foot{margin-top:3.6rem;padding-top:1.4rem;border-top:1px solid color-mix(in srgb,var(--accent) 55%,transparent);
+ color:var(--muted);font-size:.86rem;line-height:1.9;}
+.foot p{margin:0 0 .5rem;}
+details.tipbox{margin-top:1rem;}
+details.tipbox summary{cursor:pointer;color:var(--accent);font-size:.9rem;letter-spacing:.08em;}
+.tips{margin:.8rem 0 0;padding:0;list-style:none;counter-reset:tip;}
+.tips li{position:relative;margin:0 0 .55rem;padding-left:2rem;font-size:.93rem;color:var(--ink);}
+.tips li::before{counter-increment:tip;content:counter(tip);position:absolute;left:0;top:.2em;width:1.35rem;height:1.35rem;
+ border:1px solid var(--line);border-radius:50%;text-align:center;font-family:"EB Garamond",Georgia,serif;font-size:.8rem;
+ line-height:1.3rem;color:var(--accent);}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translate(-50%,calc(100% + 40px));z-index:30;
+ visibility:hidden;
+ max-width:calc(100vw - 32px);padding:.55rem 1rem;border-radius:12px;background:var(--ink);color:var(--surface);
+ font-size:.88rem;box-shadow:0 8px 24px -8px rgba(0,0,0,.45);transition:transform .25s ease;}
+.toast.is-on{transform:translate(-50%,0);visibility:visible;}
+@media (max-width:480px){
+ .wrap{padding:3.2rem 1rem 5rem;}
+ .find{margin:0 -1rem 1rem;padding:.6rem 1rem;}
+ .card{padding:1rem 1rem .85rem;}
+ .band{margin:.4rem -1rem .5rem;padding:.25rem 1rem;}
+ .pl{font-size:1.3rem;}
+}
+</style>
+</head>
+<body>
+<nav class="blognav"><a href="../?view=gallery">← Gallery</a><a href="../polski.html">变格表</a></nav>
+<button type="button" class="theme-btn">🌕</button>
+<div class="wrap">
+<div class="console"><span class="dot"></span><span><b>状态</b> · 等你的第一题</span><span><b>已记</b> · 0 条</span></div>
+<p class="kicker">Polski · 冬璇学波兰语</p>
+<h1 lang="pl">Notatnik</h1>
+<p class="sub">波兰语笔记本 · 错过的、问过的</p>
+<div class="rule"></div>
+<p class="lede">在多邻国上做错的、看不懂的，我都拿去问了 Claude，讲明白以后收在这里，按知识点分好类。 问过不止一次的，卡上记着「问过 N 次」——那是我最该多看两眼的地方。</p>
+<p class="demo-intro"><strong>这是样板。</strong>下面两张是编的例子，一张「做错了」、一张「有疑问」，先让你看看一条笔记长什么样。 等你的第一题来了，样板就自动撤掉。</p>
+<div class="find"><label><span aria-hidden="true">🔍</span><input type="search" placeholder="搜一个词、一个格、一句中文……" aria-label="搜笔记" autocomplete="off" autocapitalize="off" spellcheck="false"><span class="find__n"></span></label></div>
+<p class="find__none" hidden>没找到。可能还没问过——直接来对话里问我就行。</p>
+<details class="toc" id="toc" open><summary>📑 目录 <small>2 条 · 2 个知识点</small></summary><div class="tabs" role="tablist"><button type="button" class="tab is-on" role="tab" aria-selected="true" aria-controls="pane-point">按知识点</button><button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pane-time">按时间</button><button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pane-words">生词 6</button><button type="button" class="tab" role="tab" aria-selected="false" aria-controls="pane-again">🔁 问过不止一次 1</button></div><div class="pane" id="pane-point" role="tabpanel"><h4>📦 名词：性、数和七个格</h4><p class="pt">生格（第二格）</p><ul><li><a href="#n001"><span class="no">No. 001</span><span class="t">否定句里，宾语要换成生格</span></a></li></ul><h4>💬 词义和说法</h4><p class="pt">称呼和礼貌</p><ul><li><a href="#n002"><span class="no">No. 002</span><span class="t">Dziękuję 是“谢谢您”，Dzięki 是“谢啦”</span></a></li></ul></div><div class="pane" id="pane-time" role="tabpanel" hidden><h4>10月1日</h4><ul><li><a href="#n002"><span class="no">No. 002</span><span class="t">Dziękuję 是“谢谢您”，Dzięki 是“谢啦”</span></a></li><li><a href="#n001"><span class="no">No. 001</span><span class="t">否定句里，宾语要换成生格</span><span class="x">又问</span></a></li></ul></div><div class="pane" id="pane-words" role="tabpanel" hidden><div class="copyline">按波兰语字母顺序排。<button type="button" class="copy" data-copy="bardzo.
+czas.
+dziękować.
+kawa.
+pić.
+pomoc.">复制全部生词去听</button></div><div class="letters"><a href="#wl-B">B</a><a href="#wl-C">C</a><a href="#wl-D">D</a><a href="#wl-K">K</a><a href="#wl-P">P</a></div><h4 id="wl-B">B</h4><ul><li><a href="#n002"><span class="w" lang="pl">bardzo</span><span class="wz">非常</span><span class="no">No. 002</span></a></li></ul><h4 id="wl-C">C</h4><ul><li><a href="#n001"><span class="w" lang="pl">czas</span><span class="wt">阳</span><span class="wz">时间</span><span class="no">No. 001</span></a></li></ul><h4 id="wl-D">D</h4><ul><li><a href="#n002"><span class="w" lang="pl">dziękować</span><span class="wt">未完成体</span><span class="wz">感谢</span><span class="no">No. 002</span></a></li></ul><h4 id="wl-K">K</h4><ul><li><a href="#n001"><span class="w" lang="pl">kawa</span><span class="wt">阴</span><span class="wz">咖啡</span><span class="no">No. 001</span></a></li></ul><h4 id="wl-P">P</h4><ul><li><a href="#n001"><span class="w" lang="pl">pić</span><span class="wt">未完成体</span><span class="wz">喝</span><span class="no">No. 001</span></a></li><li><a href="#n002"><span class="w" lang="pl">pomoc</span><span class="wt">阴</span><span class="wz">帮助</span><span class="no">No. 002</span></a></li></ul></div><div class="pane" id="pane-again" role="tabpanel" hidden><ul><li><a href="#n001"><span class="no">No. 001</span><span class="t">否定句里，宾语要换成生格</span><span class="x">2 次</span></a></li></ul></div></details>
+<section class="area" id="a-noun"><h2><span class="ico">📦</span>名词：性、数和七个格<i lang="pl">rzeczownik i przypadki</i><span class="cnt">1 条</span></h2>
+<h3 class="point" id="p-noun.gen">生格（第二格）<small>dopełniacz · 谁的、没有什么</small></h3>
+<article class="card is-wrong" id="n001" data-comment-target data-comment-label="No. 001 否定句里，宾语要换成生格" data-s="否定句里，宾语要换成生格 nie pije kawy. i do not drink coffee. 我不喝咖啡。 nie pije kawe. 肯定句里，“喝什么”的那样东西用宾格：pije kawe.（我喝咖啡。）kawa 变成了 kawe。
+可前面一加 nie，这个宾语就得换成生格：kawa 变成 kawy。你把肯定句里的样子原封不动搬进了否定句，所以判错。
+可以这么记：生格常带着“一点儿也没有”的味道——“不喝咖啡”，就是一点咖啡也没喝到。 有 nie，宾语就从宾格换成生格。 名词：性、数和七个格 生格（第二格） dopelniacz · 谁的、没有什么 多邻国 no. 001 001 nie pije kawy. 例外只管本来该用宾格的宾语。像 byc（是）后面本来就用工具格，加了 nie 也不变：jestem studentka. → nie jestem studentka. 否定 nie mam czasu. 我没时间。 nie lubie zupy. 我不喜欢喝汤。 kawa 咖啡 阴 pic 喝 未完成体 czas 时间 阳 kawa 咖啡 pije kawe. nie pije kawy. herbata 茶 pije herbate. nie pije herbaty. mleko 牛奶 pije mleko. nie pije mleka. sok 果汁 pije sok. nie pije soku.">
+<div class="card__meta"><span class="card__no">No. 001</span><span>9月24日 · 多邻国</span><span class="pill pill--wrong">做错了</span><span class="pill pill--times">🔁 问过 2 次</span><span class="pill pill--new">新</span><span class="pill pill--demo">样板 · 编的例子</span></div>
+<h3 class="card__title">否定句里，宾语要换成生格</h3>
+<p class="crumb">📦 <a href="#a-noun">名词：性、数和七个格</a> › <a href="#p-noun.gen">生格（第二格）</a>　<span class="also">也沾边：<a href="#p-syntax.neg">否定</a></span></p>
+<span class="band">题目</span>
+<p class="pl" lang="pl"><button type="button" class="say" data-say="Nie piję kawy." aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span>Nie piję <mark class="right">kawy</mark>.</span></p>
+<p class="en" lang="en">I do not drink coffee.</p>
+<p class="zh">我不喝咖啡。</p>
+<div class="diff"><div class="is-mine"><b>✗ 我写的</b><p class="pl" lang="pl"><button type="button" class="say" data-say="Nie piję kawę." aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span>Nie piję <mark class="wrong">kawę</mark>.</span></p></div><div class="is-right"><b>✓ 正确</b><p class="pl" lang="pl"><button type="button" class="say" data-say="Nie piję kawy." aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span>Nie piję <mark class="right">kawy</mark>.</span></p></div></div>
+<span class="band">为什么</span><div class="why"><p>肯定句里，“喝什么”的那样东西用宾格：Piję kawę.（我喝咖啡。）kawa 变成了 kawę。</p><p>可前面一加 nie，这个宾语就得换成生格：kawa 变成 kawy。你把肯定句里的样子原封不动搬进了否定句，所以判错。</p><p>可以这么记：生格常带着“一点儿也没有”的味道——“不喝咖啡”，就是一点咖啡也没喝到。</p></div>
+<p class="memo"><b>记住</b>有 nie，宾语就从宾格换成生格。</p>
+<div class="tbl"><table><thead><tr><th></th><th>肯定 · 宾格</th><th>否定 · 生格</th></tr></thead><tbody><tr><td>kawa 咖啡</td><td lang=pl>Piję <mark>kawę</mark>.</td><td lang=pl>Nie piję <mark>kawy</mark>.</td></tr><tr><td>herbata 茶</td><td lang=pl>Piję <mark>herbatę</mark>.</td><td lang=pl>Nie piję <mark>herbaty</mark>.</td></tr><tr><td>mleko 牛奶</td><td lang=pl>Piję <mark>mleko</mark>.</td><td lang=pl>Nie piję <mark>mleka</mark>.</td></tr><tr><td>sok 果汁</td><td lang=pl>Piję <mark>sok</mark>.</td><td lang=pl>Nie piję <mark>soku</mark>.</td></tr></tbody></table></div>
+<ul class="extra"><li><strong>例外</strong>只管本来该用宾格的宾语。像 być（是）后面本来就用工具格，加了 nie 也不变：Jestem studentką. → Nie jestem studentką.</li></ul>
+<span class="band">再看几句</span><ul class="ex"><li lang="pl"><button type="button" class="say" data-say="Nie mam czasu." aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span class="pl">Nie mam <mark>czasu</mark>.<small lang="zh-CN">我没时间。</small></span></li><li lang="pl"><button type="button" class="say" data-say="Nie lubię zupy." aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span class="pl">Nie lubię <mark>zupy</mark>.<small lang="zh-CN">我不喜欢喝汤。</small></span></li></ul>
+<span class="band">生词</span><ul class="words"><li><button type="button" class="say" data-say="kawa" aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span class="w" lang="pl">kawa</span><span class="wt">阴</span><span class="wz">咖啡</span><a class="look" href="../polski.html?q=kawa" target="_blank" rel="noopener">查变格 ↗</a></li><li><button type="button" class="say" data-say="pić" aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span class="w" lang="pl">pić</span><span class="wt">未完成体</span><span class="wz">喝</span><a class="look" href="../polski.html?q=pić" target="_blank" rel="noopener">查变格 ↗</a></li><li><button type="button" class="say" data-say="czas" aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span class="w" lang="pl">czas</span><span class="wt">阳</span><span class="wz">时间</span><a class="look" href="../polski.html?q=czas" target="_blank" rel="noopener">查变格 ↗</a></li></ul>
+<p class="times">问过的日子：9月24日、10月1日</p>
+<div class="card__foot"><a class="card__back" href="#toc">↑ 目录</a><button type="button" class="copy" data-copy="Nie piję kawy.
+
+Nie mam czasu.
+Nie lubię zupy.
+
+kawa.
+pić.
+czas.">复制去 Google 翻译听</button></div>
+</article></section>
+<section class="area" id="a-prep"><h2><span class="ico">📍</span>介词<i lang="pl">przyimek</i><span class="cnt">相关 1 条</span></h2>
+<h3 class="point" id="p-prep.case">介词后面跟什么格</h3>
+<a class="xref" href="#n002"><b>No. 002</b> Dziękuję 是“谢谢您”，Dzięki 是“谢啦” <small>→ 这张卡放在「称呼和礼貌」那里</small></a></section>
+<section class="area" id="a-syntax"><h2><span class="ico">🧩</span>句子怎么排<i lang="pl">składnia</i><span class="cnt">相关 1 条</span></h2>
+<h3 class="point" id="p-syntax.neg">否定<small>nie 放哪儿、否定以后要变格</small></h3>
+<a class="xref" href="#n001"><b>No. 001</b> 否定句里，宾语要换成生格 <small>→ 这张卡放在「生格（第二格）」那里</small></a></section>
+<section class="area" id="a-words"><h2><span class="ico">💬</span>词义和说法<i lang="pl">słownictwo</i><span class="cnt">1 条</span></h2>
+<h3 class="point" id="p-words.polite">称呼和礼貌<small>pan、pani、ty</small></h3>
+<article class="card" id="n002" data-comment-target data-comment-label="No. 002 Dziękuję 是“谢谢您”，Dzięki 是“谢啦”" data-s="dziekuje 是“谢谢您”，dzieki 是“谢啦” dziekuje 和 dzieki 都是“谢谢”，有什么不一样？ dziekuje bardzo. 非常感谢。 dziekuje 是动词 dziekowac（感谢）“我”的那个样子，字面就是“我感谢（你）”。对谁说都不失礼：店员、老师、陌生人、长辈，一律可以用。
+dzieki 是口语里的短说法，像中文的“谢啦”，跟朋友、同学、家里人说正合适；对长辈、不熟的人说，就显得随便了。
+要谢某件事，两个后面都接 za，再跟宾格：dziekuje za pomoc.（谢谢你帮忙。）dzieki za kawe!（谢谢你的咖啡！） 拿不准就说 dziekuje，在哪儿都不出错。 词义和说法 称呼和礼貌 pan、pani、ty 多邻国 no. 002 002 也是介词dzieki 还能当“多亏、幸亏”讲，后面跟与格：dzieki tobie zdalam egzamin.（多亏了你，我考过了。） 介词后面跟什么格 dziekuje za pomoc. 谢谢你帮忙。 dzieki za kawe! 谢谢你的咖啡！ dziekowac 感谢 未完成体 pomoc 帮助 阴 bardzo 非常">
+<div class="card__meta"><span class="card__no">No. 002</span><span>10月1日 · 多邻国</span><span class="pill pill--ask">有疑问</span><span class="pill pill--new">新</span><span class="pill pill--demo">样板 · 编的例子</span></div>
+<h3 class="card__title">Dziękuję 是“谢谢您”，Dzięki 是“谢啦”</h3>
+<p class="crumb">💬 <a href="#a-words">词义和说法</a> › <a href="#p-words.polite">称呼和礼貌</a>　<span class="also">也沾边：<a href="#p-prep.case">介词后面跟什么格</a></span></p>
+<span class="band">题目</span>
+<p class="ask">❓ Dziękuję 和 Dzięki 都是“谢谢”，有什么不一样？</p>
+<p class="pl" lang="pl"><button type="button" class="say" data-say="Dziękuję bardzo." aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span><mark>Dziękuję</mark> bardzo.</span></p>
+<p class="zh">非常感谢。</p>
+<span class="band">为什么</span><div class="why"><p>Dziękuję 是动词 dziękować（感谢）“我”的那个样子，字面就是“我感谢（你）”。对谁说都不失礼：店员、老师、陌生人、长辈，一律可以用。</p><p>Dzięki 是口语里的短说法，像中文的“谢啦”，跟朋友、同学、家里人说正合适；对长辈、不熟的人说，就显得随便了。</p><p>要谢某件事，两个后面都接 za，再跟宾格：Dziękuję za pomoc.（谢谢你帮忙。）Dzięki za kawę!（谢谢你的咖啡！）</p></div>
+<p class="memo"><b>记住</b>拿不准就说 Dziękuję，在哪儿都不出错。</p>
+<ul class="extra"><li><strong>也是介词</strong>dzięki 还能当“多亏、幸亏”讲，后面跟与格：Dzięki tobie zdałam egzamin.（多亏了你，我考过了。）</li></ul>
+<span class="band">再看几句</span><ul class="ex"><li lang="pl"><button type="button" class="say" data-say="Dziękuję za pomoc." aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span class="pl">Dziękuję za <mark>pomoc</mark>.<small lang="zh-CN">谢谢你帮忙。</small></span></li><li lang="pl"><button type="button" class="say" data-say="Dzięki za kawę!" aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span class="pl">Dzięki za <mark>kawę</mark>!<small lang="zh-CN">谢谢你的咖啡！</small></span></li></ul>
+<span class="band">生词</span><ul class="words"><li><button type="button" class="say" data-say="dziękować" aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span class="w" lang="pl">dziękować</span><span class="wt">未完成体</span><span class="wz">感谢</span><a class="look" href="../polski.html?q=dziękować" target="_blank" rel="noopener">查变格 ↗</a></li><li><button type="button" class="say" data-say="pomoc" aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span class="w" lang="pl">pomoc</span><span class="wt">阴</span><span class="wz">帮助</span><a class="look" href="../polski.html?q=pomoc" target="_blank" rel="noopener">查变格 ↗</a></li><li><button type="button" class="say" data-say="bardzo" aria-label="听" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg></button><span class="w" lang="pl">bardzo</span><span class="wz">非常</span><a class="look" href="../polski.html?q=bardzo" target="_blank" rel="noopener">查变格 ↗</a></li></ul>
+<div class="card__foot"><a class="card__back" href="#toc">↑ 目录</a><button type="button" class="copy" data-copy="Dziękuję bardzo.
+
+Dziękuję za pomoc.
+Dzięki za kawę!
+
+dziękować.
+pomoc.
+bardzo.">复制去 Google 翻译听</button></div>
+</article></section>
+<div class="foot"><p>一题一张卡，编号永远不变。点卡上的 🔊 可以听波兰语；生词旁边的「查变格」会打开站里的波兰语变格表。</p></div>
+</div>
+<div class="toast" role="status" aria-live="polite"></div>
+<script>
+(function () {
+  var root = document.documentElement, b = document.querySelector('.theme-btn');
+  function paint() { var d = root.getAttribute('data-theme') === 'dark';
+    b.textContent = d ? '🌑' : '🌕'; b.setAttribute('aria-label', d ? '现在是夜间，切到明亮' : '现在是明亮，切到夜间'); }
+  try { var mine = localStorage.getItem('ws-polish-theme');
+    if ((mine || localStorage.getItem('wiw-theme')) === 'dark') root.setAttribute('data-theme', 'dark'); } catch (e) {}
+  paint();
+  b.addEventListener('click', function () {
+    var d = root.getAttribute('data-theme') === 'dark';
+    if (d) root.removeAttribute('data-theme'); else root.setAttribute('data-theme', 'dark');
+    try { localStorage.setItem('ws-polish-theme', d ? 'light' : 'dark'); } catch (e) {}
+    paint();
+  });
+})();
+var toastEl = document.querySelector('.toast'), toastT = null;
+function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('is-on');
+  clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove('is-on'); }, 2600); }
+(function () {   // 🔊 用设备自带的波兰语语音（iPhone 上是 Zosia）
+  var ss = window.speechSynthesis;
+  if (!ss || !window.SpeechSynthesisUtterance) return;
+  var voices = [];
+  function load() { try { voices = ss.getVoices() || []; } catch (e) { voices = []; } }
+  load(); if ('onvoiceschanged' in ss) ss.onvoiceschanged = load;
+  function plVoice() { for (var i = 0; i < voices.length; i++) if (/^pl/i.test(voices[i].lang || '')) return voices[i]; return null; }
+  var warned = false;
+  [].forEach.call(document.querySelectorAll('.say'), function (btn) {
+    btn.hidden = false;
+    btn.addEventListener('click', function () {
+      if (!voices.length) load();
+      var v = plVoice();
+      if (!v && voices.length && !warned) { warned = true;
+        toast('这台设备好像没装波兰语语音，读出来可能不准。可以点卡片底下的「复制去 Google 翻译听」。'); }
+      try {
+        ss.cancel();
+        var u = new SpeechSynthesisUtterance(btn.getAttribute('data-say'));
+        u.lang = 'pl-PL'; if (v) u.voice = v; u.rate = 0.85;
+        btn.classList.add('is-on');
+        u.onend = u.onerror = function () { btn.classList.remove('is-on'); };
+        ss.speak(u);
+      } catch (e) {}
+    });
+  });
+})();
+[].forEach.call(document.querySelectorAll('.copy'), function (btn) {
+  btn.addEventListener('click', function () {
+    var t = btn.getAttribute('data-copy');
+    var label = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', label);
+    function done(ok) { btn.textContent = ok ? '已复制 ✓' : '复制不了，长按文字手动复制'; setTimeout(function () { btn.textContent = label; }, 1600); }
+    function fallback() {
+      try { var ta = document.createElement('textarea'); ta.value = t; ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, t.length);
+        var ok = document.execCommand('copy'); document.body.removeChild(ta); done(ok); } catch (e) { done(false); }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function () { done(true); }, fallback);
+    else fallback();
+  });
+});
+(function () {   // 目录的页签
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) { var on = x === t; x.classList.toggle('is-on', on); x.setAttribute('aria-selected', on);
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+    });
+  });
+})();
+(function () {   // 搜索：不用打字母上的小符号，空格分开的几个词要全部对上
+  var input = document.querySelector('.find input'); if (!input) return;
+  var n = document.querySelector('.find__n'), none = document.querySelector('.find__none');
+  var cards = [].slice.call(document.querySelectorAll('.card[data-s]'));
+  var blocks = [].slice.call(document.querySelectorAll('.area, .point, .xref, .toc'));
+  function fold(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l'); }
+  input.addEventListener('input', function () {
+    var q = fold(input.value).split(/\s+/).filter(Boolean);
+    if (!q.length) { cards.forEach(function (c) { c.hidden = false; }); blocks.forEach(function (x) { x.hidden = false; });
+      n.textContent = ''; none.hidden = true; return; }
+    var hit = 0;
+    cards.forEach(function (c) { var s = c.getAttribute('data-s');
+      var ok = q.every(function (w) { return s.indexOf(w) >= 0; }); c.hidden = !ok; if (ok) hit++; });
+    blocks.forEach(function (x) {
+      if (x.classList.contains('xref') || x.classList.contains('toc')) { x.hidden = true; return; }
+      x.hidden = !x.querySelector('.card[data-s]:not([hidden])') && !(x.classList.contains('point') && pointHas(x));
+    });
+    n.textContent = '找到 ' + hit + ' 条'; none.hidden = hit > 0;
+  });
+  function pointHas(h) {   // 知识点小标题后面跟着的卡片，有没有露出来的
+    for (var el = h.nextElementSibling; el && !el.classList.contains('point'); el = el.nextElementSibling)
+      if (el.classList.contains('card') && !el.hidden) return true;
+    return false;
+  }
+})();
+(function () {
+  var btns = [].slice.call(document.querySelectorAll('.card__ask'));
+  if (!btns.length || !window.claude || !window.claude.use) return;
+  window.claude.use('comments').then(function (c) {
+    if (!c) return;
+    function off() { btns.forEach(function (x) { x.hidden = true; }); }
+    btns.forEach(function (b) {
+      b.hidden = false;
+      b.addEventListener('click', function () {
+        c.openComposer({ element: b.closest('.card') }).catch(function (e) {
+          var code = e && e.code;
+          if (code === 'unavailable' || code === 'not_granted' || code === 'capability_disabled' || code === 'capability_removed') off();
+        });
+      });
+    });
+  }).catch(function () {});
+})();
+</script>
+</body>
+</html>

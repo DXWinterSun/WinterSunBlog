@@ -1,0 +1,88 @@
+# 波兰语笔记本页上的固定文字 + 还没有任何笔记时显示的两张「样板卡」。
+# 样板是编的例子（一张「做错了」、一张「有疑问」），notes 里有了第一条就自动撤掉。
+
+lede: >-
+  在多邻国上做错的、看不懂的，拿到对话里来问——讲明白以后收进这里，按知识点分好类。
+  **同一个地方问了第二遍，卡上会记一笔「问过 2 次」**，那就是最该多看两眼的地方。
+
+blog_lede: >-
+  在多邻国上做错的、看不懂的，我都拿去问了 Claude，讲明白以后收在这里，按知识点分好类。
+  问过不止一次的，卡上记着「问过 N 次」——那是我最该多看两眼的地方。
+
+demo_intro: >-
+  **这是样板。**下面两张是编的例子，一张「做错了」、一张「有疑问」，先让你看看一条笔记长什么样。
+  等你的第一题来了，样板就自动撤掉。
+
+foot: 一题一张卡，编号永远不变。卡片底下的「批注」可以接着问，我在批注里回你，再把答案补进这张卡。
+
+blog_foot: 一题一张卡，编号永远不变。点卡上的 🔊 可以听波兰语；生词旁边的「查变格」会打开站里的波兰语变格表。
+
+tips:
+  heading: 怎么用这本笔记
+  items:
+    - 在多邻国做错了、看不懂了，截个图（或者把那句话打出来）丢进对话里问就行，不用特意说“记进笔记”。
+    - 我在对话里讲清楚，顺手收进这里：一题一张卡，按知识点归好类。
+    - 以前问过的，我会先告诉你“这个你几月几号问过，是第几条”，再换个说法讲一遍；卡上会多记一笔“问过 N 次”。
+    - 卡上的 🔊 可以直接听；也可以点“复制去 Google 翻译听”，每句后面都带着句号，粘过去会一句一句停。
+    - 上面的搜索框不用打字母上的小符号：搜 zolw 也能找到 żółw。
+
+notes:
+  - id: "001"
+    demo: true
+    date: 2026-09-24
+    asked: [2026-10-01]
+    source: 多邻国
+    point: noun.gen
+    also: [syntax.neg]
+    title: 否定句里，宾语要换成生格
+    en: "I do not drink coffee."
+    pl: "Nie piję ==kawy==."
+    zh: 我不喝咖啡。
+    mine: "Nie piję ==kawę==."
+    right: ["Nie piję ==kawy==."]
+    why: |
+      肯定句里，“喝什么”的那样东西用宾格：Piję kawę.（我喝咖啡。）kawa 变成了 kawę。
+      可前面一加 nie，这个宾语就得换成生格：kawa 变成 kawy。你把肯定句里的样子原封不动搬进了否定句，所以判错。
+      可以这么记：生格常带着“一点儿也没有”的味道——“不喝咖啡”，就是一点咖啡也没喝到。
+    rule: 有 nie，宾语就从宾格换成生格。
+    table:
+      head: ["", "肯定 · 宾格", "否定 · 生格"]
+      rows:
+        - ["kawa 咖啡", "Piję ==kawę==.", "Nie piję ==kawy==."]
+        - ["herbata 茶", "Piję ==herbatę==.", "Nie piję ==herbaty==."]
+        - ["mleko 牛奶", "Piję ==mleko==.", "Nie piję ==mleka==."]
+        - ["sok 果汁", "Piję ==sok==.", "Nie piję ==soku==."]
+    extra:
+      - "**例外**只管本来该用宾格的宾语。像 być（是）后面本来就用工具格，加了 nie 也不变：Jestem studentką. → Nie jestem studentką."
+    examples:
+      - {pl: "Nie mam ==czasu==.", zh: 我没时间。}
+      - {pl: "Nie lubię ==zupy==.", zh: 我不喜欢喝汤。}
+    words:
+      - {pl: kawa, zh: 咖啡, tag: 阴}
+      - {pl: pić, zh: 喝, tag: 未完成体}
+      - {pl: czas, zh: 时间, tag: 阳}
+
+  - id: "002"
+    demo: true
+    date: 2026-10-01
+    source: 多邻国
+    point: words.polite
+    also: [prep.case]
+    title: Dziękuję 是“谢谢您”，Dzięki 是“谢啦”
+    ask: Dziękuję 和 Dzięki 都是“谢谢”，有什么不一样？
+    pl: "==Dziękuję== bardzo."
+    zh: 非常感谢。
+    why: |
+      Dziękuję 是动词 dziękować（感谢）“我”的那个样子，字面就是“我感谢（你）”。对谁说都不失礼：店员、老师、陌生人、长辈，一律可以用。
+      Dzięki 是口语里的短说法，像中文的“谢啦”，跟朋友、同学、家里人说正合适；对长辈、不熟的人说，就显得随便了。
+      要谢某件事，两个后面都接 za，再跟宾格：Dziękuję za pomoc.（谢谢你帮忙。）Dzięki za kawę!（谢谢你的咖啡！）
+    rule: 拿不准就说 Dziękuję，在哪儿都不出错。
+    extra:
+      - "**也是介词**dzięki 还能当“多亏、幸亏”讲，后面跟与格：Dzięki tobie zdałam egzamin.（多亏了你，我考过了。）"
+    examples:
+      - {pl: "Dziękuję za ==pomoc==.", zh: 谢谢你帮忙。}
+      - {pl: "Dzięki za ==kawę==!", zh: 谢谢你的咖啡！}
+    words:
+      - {pl: dziękować, zh: 感谢, tag: 未完成体}
+      - {pl: pomoc, zh: 帮助, tag: 阴}
+      - {pl: bardzo, zh: 非常}

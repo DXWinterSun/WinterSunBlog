@@ -334,6 +334,9 @@
 
   go.addEventListener("click",lookup);
   q.addEventListener("keydown",function(e){ if(e.key==="Enter") lookup(); });
+
+  /* ?q=kawa —— 从波兰语笔记本（polish/）生词旁的「查变格」点进来时直接查 */
+  try{ var m=/[?&]q=([^&#]+)/.exec(location.search); if(m){ q.value=decodeURIComponent(m[1].replace(/\+/g," ")); lookup(); } }catch(e){}
 })();
 </script>
 </body>
