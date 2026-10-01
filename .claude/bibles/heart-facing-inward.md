@@ -241,6 +241,7 @@ Winter 写到第三章时说：「写到现在我都感觉他就是个绝世好�
 - 番外 2 预览：https://claude.ai/artifact/BA1SMKCmBGrPgAEhXFe9Hk
 - 番外 3 预览：https://claude.ai/artifact/Ge6HLDFCyeVxWepzWDJU2P
 - 番外 4 预览：https://claude.ai/artifact/91GdbKr1MtKdf6p5wL1TMf
+- 番外 5 预览：https://claude.ai/artifact/BCG1b8yACFdrALnofHbjNz
 - 路线图：https://claude.ai/artifact/W76o2FYEW9wP158os14y6q（`render_roadmap.py`）
 
 ## 配角
@@ -380,6 +381,9 @@ Winter 写到第三章时说：「写到现在我都感觉他就是个绝世好�
   Poppy Vance（出资人 Graham 的小女儿，二十三，光着脚）；“我只会被她拉着跳”；香槟洒衬衫“她问我就说，她不问我也说”；餐巾纸号码撕成八半；
   两次“我知道”（太太不会知道——我知道）；电梯上下四趟说你有什么好，“你有病。”“嗯。没得治。”；“查过账了，没有余额，全记在我太太名下”；没屏蔽她；
   车站接你“我喜欢等你了”；“想你了”；“你笑了，先笑的右边嘴角”。mood 絮语 · 缱绻。
+- **番外 5 · 你笑了四十秒**（你的视角，炽恋·惩戒，待过目；`extra5.md`）——Winter 挑：契机“他吃醋了”＋味道“两样都要”。一百只蓝杯子新展，前言是你写的（署 Winter Whitmore Byrne）；
+  Theo 抱你转一圈你笑弯了腰、没回头；他整晚一句没拦；扶手椅：“我没拦你。现在，轮到你数了。”“我数了。四十秒。”→ 膝上二十下（数错从头来）→ 镜前领带、五次“还不行，不对”
+  → “我没有回头看你。”“嗯。”→“谁的？”“你的。”“看着说。”→“下回 Theo 再抱你你还是可以笑。”“那你呢？”“我回家罚你。”“下回我回头看你。”“看几次？”“四十次。”mood 炽恋 · 缱绻。
 
 ## PINNED（已埋，待回收）
 
