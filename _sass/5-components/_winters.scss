@@ -352,6 +352,65 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
 }
 .c-shelf--songs .c-sleeve { flex: 0 0 136px; }
 
+/* ── 冬的笔记：一本一本的笔记本封面（2026-10-01）。左边一道书脊加一串线圈，中间一块贴纸标签 ── */
+.c-wn-notebook {
+  --nb-bg: #fbfaf6;
+  --nb-spine: #b51a32;
+  --nb-ink: #ffffff;
+  position: relative;
+  flex: 0 0 236px;
+  min-height: 236px;
+  display: grid;
+  align-content: space-between;
+  gap: 12px;
+  padding: 18px 16px 16px 34px;
+  border-radius: 6px 14px 14px 6px;
+  color: var(--nb-ink);
+  text-decoration: none;
+  background: var(--nb-bg);
+  box-shadow: inset 14px 0 0 var(--nb-spine), 0 8px 20px rgba(var(--rgb-shadow), 0.16);
+  transition: transform .2s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 12px;
+    bottom: 12px;
+    width: 12px;
+    background: radial-gradient(circle at 6px 9px, transparent 3px, rgba(255, 255, 255, 0.85) 3px, rgba(255, 255, 255, 0.85) 4.5px, transparent 4.5px) 0 0 / 12px 18px repeat-y;
+  }
+  &:hover { transform: translateY(-3px) rotate(-0.6deg); }
+  &:focus-visible { outline: 3px solid $accent; outline-offset: 2px; }
+}
+/* 波兰语那本：上白下红，跟波兰国旗一样 */
+.c-wn-notebook--pl {
+  background: linear-gradient(180deg, #fbfaf6 0, #fbfaf6 64%, #d4213d 64%);
+}
+.c-wn-notebook__label {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #fffdf7;
+  color: #2f2a24;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  small {
+    font-family: $heading-font-family;
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    opacity: .7;
+  }
+  b { font-family: $wn-cn; font-size: 20px; font-weight: 600; line-height: 1.3; }
+  span { font-family: $wn-cn; font-size: 12.5px; line-height: 1.5; opacity: .75; }
+}
+.c-wn-notebook__meta {
+  font-family: $wn-cn;
+  font-size: 13px;
+  line-height: 1.6;
+  b { font-size: 16px; }
+}
+
 /* ── 冬还年少：一页横格周记本纸（左边一道红色页边线） ── */
 .c-shelf--paper {
   --note: #fbf6ea;
@@ -451,8 +510,8 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   .c-shelf__desc { grid-column: 1 / -1; margin-top: 6px; font-size: 13px; line-height: 1.6; }
   .c-shelf__count { font-size: 12.5px; padding: 4px 10px; }
   .c-shelf__row { gap: 11px; }
-  .c-wn-card, .c-wn-songbook { flex-basis: min(210px, 70%); }
-  .c-wn-songbook { min-height: 210px; }
+  .c-wn-card, .c-wn-songbook, .c-wn-notebook { flex-basis: min(210px, 70%); }
+  .c-wn-songbook, .c-wn-notebook { min-height: 210px; }
   .c-wn-page { flex-basis: min(196px, 66%); }
   .c-shelf--songs .c-sleeve { flex-basis: 116px; }
   .c-shelf.is-open .c-shelf__row { grid-template-columns: 1fr 1fr; }
@@ -463,5 +522,5 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .c-winters__bar, .c-wn-card, .c-wn-songbook, .c-wn-songbook__vinyl, .c-wn-page { transition: none; }
+  .c-winters__bar, .c-wn-card, .c-wn-songbook, .c-wn-songbook__vinyl, .c-wn-page, .c-wn-notebook { transition: none; }
 }

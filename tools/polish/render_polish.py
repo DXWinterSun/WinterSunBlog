@@ -881,7 +881,7 @@ def main():
                 '<link rel="icon" href="../favicon.ico">\n'
                 '<!-- 这一页由 tools/polish/render_polish.py --blog 生成，别手改；改 _data/polish/notes.yml 再重新生成 -->\n'
                 f'{FONTS}\n<style>{CSS}</style>\n</head>\n<body>\n'
-                '<nav class="blognav"><a class="chunk" href="../?view=gallery">← Gallery</a><a class="chunk" href="../polski.html">变格表</a></nav>\n'
+                '<nav class="blognav"><a class="chunk" href="../?cat=winters">← 冬的笔记</a><a class="chunk" href="../polski.html">变格表</a></nav>\n'
                 f'{inner}</body>\n</html>\n')
     else:
         page = f'<title>{title}</title>\n{FONTS}\n<style>{CSS}</style>\n{inner}'
