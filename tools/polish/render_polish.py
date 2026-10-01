@@ -164,6 +164,15 @@ button{font-family:var(--font);}
 .xref b{color:var(--faint);font-weight:900;}
 .xref small{color:var(--muted);font-weight:700;}
 
+/* 日子分组 */
+.day{scroll-margin-top:5rem;}
+.day__head{display:flex;align-items:center;gap:.8rem;margin:2rem 0 1rem;font-size:1rem;font-weight:900;color:var(--muted);}
+.day__head::after{content:"";flex:1;height:2px;background:var(--line);}
+.day__head small{order:3;font-size:.8rem;font-weight:800;color:var(--faint);}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:.2rem 0 0;}
+.chip{display:inline-flex;align-items:center;gap:.25rem;padding:.05rem .6rem;border:2px solid var(--line);border-radius:10px;
+ font-size:.76rem;font-weight:800;color:var(--muted);}
+
 /* ── 一张卡 ── */
 .card{position:relative;margin:0 0 2rem;background:var(--surface);border:2px solid var(--line);border-bottom-width:4px;
  border-radius:20px;scroll-margin-top:5rem;overflow:hidden;}
@@ -399,7 +408,7 @@ function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('is-on');
   var input = document.querySelector('.find input'); if (!input) return;
   var n = document.querySelector('.find__n'), none = document.querySelector('.find__none');
   var cards = [].slice.call(document.querySelectorAll('.card[data-s]'));
-  var blocks = [].slice.call(document.querySelectorAll('.area, .point, .xref, .toc'));
+  var blocks = [].slice.call(document.querySelectorAll('.day, .toc'));
   function fold(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l'); }
   input.addEventListener('input', function () {
     var q = fold(input.value).split(/\s+/).filter(Boolean);
@@ -409,16 +418,10 @@ function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('is-on');
     cards.forEach(function (c) { var s = c.getAttribute('data-s');
       var ok = q.every(function (w) { return s.indexOf(w) >= 0; }); c.hidden = !ok; if (ok) hit++; });
     blocks.forEach(function (x) {
-      if (x.classList.contains('xref') || x.classList.contains('toc')) { x.hidden = true; return; }
-      x.hidden = !x.querySelector('.card[data-s]:not([hidden])') && !(x.classList.contains('point') && pointHas(x));
+      x.hidden = x.classList.contains('toc') || !x.querySelector('.card[data-s]:not([hidden])');
     });
-    n.textContent = '找到 ' + hit + ' 条'; none.hidden = hit > 0;
+    n.textContent = '找到 ' + hit + ' 句'; none.hidden = hit > 0;
   });
-  function pointHas(h) {   // 知识点分隔线后面跟着的卡片，有没有露出来的
-    for (var el = h.nextElementSibling; el && !el.classList.contains('point'); el = el.nextElementSibling)
-      if (el.classList.contains('card') && !el.hidden) return true;
-    return false;
-  }
 })();
 (function () {
   var btns = [].slice.call(document.querySelectorAll('.card__ask'));
@@ -572,7 +575,7 @@ def kind_of(x):
 def search_text(x, points):
     a, p = points[x['point']]
     bits = [x.get('title'), x.get('ask'), x.get('pl'), x.get('en'), x.get('zh'), x.get('mine'),
-            x.get('why'), x.get('rule'), a['name'], p['name'], p.get('hint'), x.get('source'), f'no. {x["id"]}', x['id'],
+            x.get('why'), ' '.join(as_list(x.get('rule'))), a['name'], p['name'], p.get('hint'), x.get('source'), f'no. {x["id"]}', x['id'],
             TASKS.get(x.get('task'), '')]
     bits += as_list(x.get('right')) + as_list(x.get('extra')) + as_list(x.get('winter'))
     bits += [points[k][1]['name'] for k in as_list(x.get('also'))]
@@ -582,8 +585,9 @@ def search_text(x, points):
         bits += [w.get('pl'), w.get('zh'), w.get('tag')]
     for q in as_list(x.get('qa')):
         bits += [q.get('q'), q.get('a')]
-    for row in (x.get('table') or {}).get('rows') or []:
-        bits += row
+    for t in as_list(x.get('table')):
+        for row in t.get('rows') or []:
+            bits += row
     return fold(' '.join(plain(b) for b in bits if b))
 
 
@@ -662,7 +666,7 @@ def card(x, ctx):
     a, p = ctx['points'][x['point']]
     kind, lang, n = kind_of(x), x.get('lang') or 'pl', times(x)
     meta = [f'<span>No. {esc(x["id"])}</span>',
-            f'<span>{cn_date(x["date"], ctx["year"])}{" · " + esc(x["source"]) if x.get("source") else ""}</span>',
+            f'<span>{esc(x.get("source") or "")}</span>',          # 日子已经在分组标题上，卡上不再重复
             f'<span class="pill pill--{kind}">{ {"wrong": "做错了", "typo": "差一点", "ok": "答对了", "ask": "有疑问"}[kind] }</span>']
     if n > 1:
         meta.append(f'<span class="pill pill--times">🔁 问过 {n} 次</span>')
@@ -671,24 +675,20 @@ def card(x, ctx):
     if x.get('demo'):
         meta.append('<span class="pill pill--demo">样板 · 编的例子</span>')
 
-    crumb = f'{a["icon"]} <a href="#a-{a["key"]}">{esc(a["name"])}</a> › <a href="#p-{esc(x["point"])}">{esc(p["name"])}</a>'
-    also = as_list(x.get('also'))
-    if also:
-        crumb += '　<span class="also">也沾边：' + '、'.join(
-            f'<a href="#p-{esc(k)}">{esc(ctx["points"][k][1]["name"])}</a>' for k in also) + '</span>'
+    crumb = ''.join(f'<span class="chip">{ctx["points"][k][0]["icon"]} {esc(ctx["points"][k][1]["name"])}</span>'
+                    for k in [x['point']] + as_list(x.get('also')))
 
     out = [f'<article class="card is-{kind}" id="n{esc(x["id"])}" style="--hue:{AREA_HUE.get(a["key"], "#1899d6")}" data-comment-target '
            f'data-comment-label="No. {esc(x["id"])} {esc(plain(x["title"]))}" data-s="{esc(search_text(x, ctx["points"]))}">',
            f'<div class="card__top"><div class="card__meta">{"".join(meta)}</div>',
-           f'<h3 class="card__title">{fmt(x["title"])}</h3><p class="crumb">{crumb}</p></div>',
+           f'<h3 class="card__title">{fmt(x["title"])}</h3><p class="chips">{crumb}</p></div>',
            exercise(x, kind, lang)]
 
     tip = [f'<h4>💡 为什么</h4><div class="why">'
            + ''.join(f'<p>{fmt(par)}</p>' for par in str(x['why']).strip().split('\n') if par.strip()) + '</div>']
-    if x.get('rule'):
-        tip.append(f'<p class="key"><span aria-hidden="true">📌</span>{fmt(x["rule"])}</p>')
-    t = x.get('table')
-    if t:
+    for r in as_list(x.get('rule')):
+        tip.append(f'<p class="key"><span aria-hidden="true">📌</span>{fmt(r)}</p>')
+    for t in as_list(x.get('table')):
         head = ''.join(f'<th>{fmt(h)}</th>' for h in t.get('head') or [])
         plc = set(t.get('pl') or range(1, 99))          # 哪几列是波兰语（默认第一列以外都是）
         rows = ''.join('<tr>' + ''.join(f'<td{f" lang={lang}" if i in plc else " class=zh"}>{fmt(c)}</td>'
@@ -734,7 +734,8 @@ def card(x, ctx):
 def toc(areas, points, notes, ctx):
     used = {}
     for x in notes:
-        used.setdefault(x['point'], []).append(x)
+        for k in [x['point']] + as_list(x.get('also')):
+            used.setdefault(k, []).append(x)
 
     def link(x, extra=''):
         return (f'<li><a href="#n{esc(x["id"])}"><span class="no">No. {esc(x["id"])}</span>'
@@ -749,16 +750,6 @@ def toc(areas, points, notes, ctx):
                 rows.append(f'<p class="pt">{esc(p["name"])}</p><ul>' + ''.join(link(x) for x in used[k]) + '</ul>')
         if rows:
             by_point.append(f'<h4>{a["icon"]} {esc(a["name"])}</h4>' + ''.join(rows))
-
-    by_time, cur = [], None
-    for x in sorted(notes, key=lambda x: (last_date(x), x['id']), reverse=True):
-        d = last_date(x)
-        if d != cur:
-            by_time.append(('</ul>' if cur else '') + f'<h4>{cn_date(d, ctx["year"])}</h4><ul>')
-            cur = d
-        by_time.append(link(x, '<span class="x">又问</span>' if as_date(x['date']) != d else ''))
-    if cur:
-        by_time.append('</ul>')
 
     words = {}
     for x in notes:
@@ -785,8 +776,7 @@ def toc(areas, points, notes, ctx):
 
     reps = sorted([x for x in notes if times(x) > 1], key=lambda x: (-times(x), x['id']))
 
-    panes = [('point', '按知识点', ''.join(by_point)),
-             ('time', '按时间', ''.join(by_time))]
+    panes = [('point', '按知识点', ''.join(by_point))]
     if wl:
         panes.append(('words', f'生词 {len(wl)}',
                       f'<div class="copyline">按波兰语字母顺序排。<button type="button" class="chunk chunk--blue copy" data-copy="{esc(word_copy)}">'
@@ -798,40 +788,20 @@ def toc(areas, points, notes, ctx):
                    f'aria-controls="pane-{k}">{esc(lbl)}</button>' for i, (k, lbl, _) in enumerate(panes))
     body = ''.join(f'<div class="pane" id="pane-{k}" role="tabpanel"{"" if i == 0 else " hidden"}>{c}</div>'
                    for i, (k, _, c) in enumerate(panes))
-    return (f'<details class="toc" id="toc" open><summary>📑 目录 <small>{len(notes)} 条 · '
-            f'{len(used)} 个知识点</small></summary><div class="tabs" role="tablist">{tabs}</div>{body}</details>\n')
+    return (f'<details class="toc" id="toc"><summary>📑 目录 <small>按知识点找 · 生词表</small></summary><div class="tabs" role="tablist">{tabs}</div>{body}</details>\n')
 
 
-def body(areas, points, notes, ctx):
-    main, alsos = {}, {}
+def body(notes, ctx):
+    """Winter 2026-10-01：「列得太复杂了，不能一个句子分一个吗」——正文就是一句一张卡，按日子排，
+    分类只留在目录里（「按知识点」那一页）。"""
+    days = {}
     for x in notes:
-        main.setdefault(x['point'], []).append(x)
-        for k in as_list(x.get('also')):
-            alsos.setdefault(k, []).append(x)
-    out, no = [], 0
-    for a in areas:
-        parts, cnt, rel = [], 0, 0
-        for p in a.get('points') or []:
-            k = f'{a["key"]}.{p["key"]}'
-            if k not in main and k not in alsos:
-                continue
-            hint = f'<small>{esc(p["hint"])}</small>' if p.get('hint') else ''
-            parts.append(f'<h3 class="point" id="p-{esc(k)}"><span>{esc(p["name"])}{hint}</span></h3>')
-            for x in main.get(k, []):
-                parts.append(card(x, ctx))
-                cnt += 1
-            for x in alsos.get(k, []):
-                rel += 1
-                mp = points[x['point']][1]['name']
-                parts.append(f'<a class="xref" href="#n{esc(x["id"])}"><b>No. {esc(x["id"])}</b> {fmt(x["title"])}'
-                             f' <small>→ 这张卡放在「{esc(mp)}」那里</small></a>')
-        if parts:
-            no += 1
-            hue = AREA_HUE.get(a['key'], '#1899d6')
-            out.append(f'<section class="area" id="a-{a["key"]}" style="--hue:{hue}"><div class="area__head">'
-                       f'<span class="ico" aria-hidden="true">{a["icon"]}</span><div><small lang="pl">第 {no} 类 · {esc(a.get("pl", ""))}</small>'
-                       f'<h2>{esc(a["name"])}</h2></div><span class="cnt">{f"{cnt} 条" if cnt else f"相关 {rel}"}</span></div>\n'
-                       + '\n'.join(parts) + '</section>')
+        days.setdefault(as_date(x['date']), []).append(x)
+    out = []
+    for d in sorted(days, reverse=True):
+        xs = sorted(days[d], key=lambda x: x['id'])
+        out.append(f'<section class="day" id="d{d.isoformat()}"><h2 class="day__head"><span>{cn_date(d, ctx["year"])}</span>'
+                   f'<small>{len(xs)} 句</small></h2>\n' + '\n'.join(card(x, ctx) for x in xs) + '</section>')
     return '\n'.join(out)
 
 
@@ -852,15 +822,15 @@ def main():
            'show_new': sum(1 for x in notes if last_date(x) == newest) < len(notes),
            'polski': '../polski.html' if a.blog else f'{SITE}/polski.html'}
 
-    used = {x['point'] for x in notes}
+    used = {k for x in notes for k in [x['point']] + as_list(x.get('also'))}
     reps = sum(1 for x in notes if times(x) > 1)
     wrong = sum(1 for x in notes if kind_of(x) in ('wrong', 'typo'))
     if is_demo:
         stats = ['<li>📒 等你的第一题</li>']
     else:
-        stats = [f'<li>📒 <b>{len(notes)}</b> 条</li>', f'<li>🧩 <b>{len(used)}</b> 个知识点</li>',
-                 f'<li>✗ <b>{wrong}</b> 道错题</li>', f'<li>🔁 <b>{reps}</b> 问过不止一次</li>',
-                 f'<li>🗓 最近 <b>{cn_date(newest)}</b></li>']
+        stats = [f'<li>📒 <b>{len(notes)}</b> 句</li>', f'<li>✗ <b>{wrong}</b> 道错题</li>']
+        if reps:
+            stats.append(f'<li>🔁 <b>{reps}</b> 句问过不止一次</li>')
     head = (f'<div class="top">{SNOWMAN}<div><h1 lang="pl">{esc(meta.get("title", "Notatnik"))}</h1>'
             f'<p>{esc(meta.get("sub", ""))}</p></div></div>\n'
             f'<ul class="stats">{"".join(stats)}</ul>\n<p class="lede">{fmt(demo["blog_lede" if a.blog else "lede"])}</p>\n')
@@ -874,7 +844,7 @@ def main():
             + ''.join(f'<li>{fmt(t)}</li>' for t in demo['tips']['items']) + '</ol></details>')
     foot = f'<div class="foot"><p>{fmt(demo["blog_foot" if a.blog else "foot"])}</p>{tips}</div>'
     inner = (f'<button type="button" class="chunk theme-btn">🌕</button>\n<div class="wrap">\n{head}{find}'
-             f'{toc(areas, points, notes, ctx)}{body(areas, points, notes, ctx)}\n{foot}\n</div>\n'
+             f'{toc(areas, points, notes, ctx)}{body(notes, ctx)}\n{foot}\n</div>\n'
              f'<div class="toast" role="status" aria-live="polite"></div>\n<script>{JS}</script>\n')
 
     title = '波兰语笔记本'
@@ -893,7 +863,7 @@ def main():
     else:
         page = f'<title>{title}</title>\n{FONTS}\n<style>{CSS}</style>\n{inner}'
     open(a.out, 'w', encoding='utf-8').write(page)
-    print(f'✅ {a.out}（{"样板 " if is_demo else ""}{len(notes)} 条 · {len(used)} 个知识点）')
+    print(f'✅ {a.out}（{"样板 " if is_demo else ""}{len(notes)} 句 · {len(used)} 个知识点）')
 
 
 if __name__ == '__main__':

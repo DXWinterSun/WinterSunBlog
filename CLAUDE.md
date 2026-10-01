@@ -74,7 +74,7 @@ Winter 在学波兰语（零基础，多邻国 + 李金涛课本）。**她发�
 「怎么读」「是不是问过」时——不用她交代，直接照 `.claude/skills/winter-polish-notes/SKILL.md` 办：**
 先 `python3 tools/polish/find.py <词>` 查她以前问过没有（问过就先指路「这个你几月几号问过，是第几条」、
 再换个更简单的讲法，并在那条记一笔「又问了」）→ 用大白话讲清楚 → 收进 `_data/polish/notes.yml`
-（一题一张卡，按知识点分类）→ `tools/polish/render_polish.py` 生成网页，发布到 `meta.artifact` 那**同一个链接**
+（多邻国的一句话＝一张卡，这句牵扯的知识点都写进同一张，别拆）→ `tools/polish/render_polish.py` 生成网页，发布到 `meta.artifact` 那**同一个链接**
 ＋ `--blog` 重新生成博客 `polish/` → **每轮都推 `main`**（不在 `main` 上，下一个对话就查不到存档）。
 她原话：「不管我开不开新的对话，你都能知道我想让你干什么，我不想每次都解释一遍。」
 

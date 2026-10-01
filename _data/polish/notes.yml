@@ -131,12 +131,15 @@ areas:
       - {key: consonant, name: 辅音}
 
 # ── 笔记：一题一条，按时间往末尾追加 ──
+# ── 笔记：多邻国的一句话＝一张卡（这句里牵扯到的知识点都写进同一张卡），按时间往末尾追加 ──
+# 2026-10-01 她说「列得太复杂了，不能一个句子分一个吗」——当天把第一批从 21 张并成一句一张，编号也重排了一次（那时还没有任何批注）。
 notes:
-  # ── 2026-10-01 第一批：她在另一个对话里问过的十道多邻国题，那边整理成总结发来，这里逐条核对后收进来 ──
+  # ── 2026-10-01：她在另一个对话里问过的十道多邻国题（那边整理成总结发来，这里逐条核对）＋ 她发来的截图 ──
   - id: "001"
     date: 2026-10-01
     source: 多邻国
     point: noun.gen
+    also: [noun.plural]
     title: 碗、杯、瓶后面的东西，用生格
     pl: "Duża miska ==wody==."
     zh: 一大碗水。
@@ -146,18 +149,29 @@ notes:
       “一碗什么”“一杯什么”，后面那样东西要用生格（也叫属格），相当于英语的 of：一大碗的水。woda 的生格是 wody。
       你写的 wodę 是宾格，那是“喝水、买水、拿水”时用的：Piję wodę.（我喝水。）同一个“水”：被动作直接拿去用，是宾格 wodę；前面有碗、杯、瓶、一点儿，是生格 wody。
       听力上还有个坑：词尾的 ę 平时说话基本念成 e，所以 wodę 听着像 wode，跟 wody 只差最后一个音。
-    rule: 前面有“一碗、一杯、一瓶、一点儿”，后面就用生格。
+      再多记一层：wody 也可能是“好几份水”。以 -a 结尾、词干是硬辅音的阴性名词，单数生格和复数主格长得一模一样，只能看上下文：filiżanka kawy 一杯咖啡，是单数生格；dwie kawy 两杯咖啡，是复数。不是所有阴性名词都这样，比如 ulica（街）就分开：单数生格 ulicy，复数 ulice。
+    rule:
+      - 前面有“一碗、一杯、一瓶、一点儿”，后面就用生格。
+      - 看见 wody 先看前面：有量词是“水的”，有数字是“好几份”。
     table:
-      head: ["", "原形", "一杯……"]
-      rows:
-        - ["水", "woda", "szklanka ==wody=="]
-        - ["咖啡", "kawa", "filiżanka ==kawy=="]
-        - ["茶", "herbata", "kubek ==herbaty=="]
+      - head: ["", "原形", "一杯……"]
+        rows:
+          - ["水", "woda", "szklanka ==wody=="]
+          - ["咖啡", "kawa", "filiżanka ==kawy=="]
+          - ["茶", "herbata", "kubek ==herbaty=="]
+      - head: ["", "单数生格", "复数主格", "复数生格"]
+        rows:
+          - ["水", "wody", "wody", "wód"]
+          - ["咖啡", "kawy", "kawy", "kaw"]
+          - ["碗", "miski", "miski", "misek"]
+          - ["街", "ulicy", "==ulice==", "ulic"]
     extra:
       - "**三种杯子**szklanka 是玻璃杯，filiżanka 是带把的小瓷杯，kubek 是马克杯。"
+      - "**k、g 后面写 i**波兰语里 k、g 后面不写 y、改写 i，所以 miska 的单数生格和复数都是 miski。"
     examples:
       - {pl: "Piję ==wodę==.", zh: 我喝水。（宾格）}
       - {pl: "Szklanka ==wody==, proszę.", zh: 请给我一杯水。（生格）}
+      - {pl: "Dwie ==kawy==, proszę.", zh: 请来两杯咖啡。（复数）}
     words:
       - {pl: miska, zh: 碗, tag: 阴}
       - {pl: woda, zh: 水, tag: 阴}
@@ -165,41 +179,14 @@ notes:
       - {pl: szklanka, zh: 玻璃杯, tag: 阴}
       - {pl: filiżanka, zh: 带把的小瓷杯, tag: 阴}
       - {pl: kubek, zh: 马克杯, tag: 阳}
-    see: ["002"]
+      - {pl: ulica, zh: 街, tag: 阴}
 
   - id: "002"
     date: 2026-10-01
     source: 多邻国
-    point: noun.plural
-    also: [noun.gen]
-    title: wody 既是“水的”，也是“好几份水”
-    why: |
-      以 -a 结尾、词干是硬辅音的阴性名词，单数生格和复数主格长得一模一样，只能靠上下文分：filiżanka kawy 一杯咖啡，是单数生格；dwie kawy 两杯咖啡，是复数。
-      k、g 后面波兰语不写 y、改写 i，所以 miska 的单数生格和复数也一样，都是 miski。
-      不是所有阴性名词都这样：词干以 c、cz、sz、rz、ż 或软音结尾的，两边会分开，比如 ulica（街）：单数生格 ulicy，复数 ulice。
-      复数的生格又是另一个样子：woda → wód，kawa → kaw。
-    rule: 看见 wody 先看前面：有量词是“水的”，有数字是“好几份”。
-    table:
-      head: ["", "单数生格", "复数主格", "复数生格"]
-      rows:
-        - ["水", "wody", "wody", "wód"]
-        - ["咖啡", "kawy", "kawy", "kaw"]
-        - ["碗", "miski", "miski", "misek"]
-        - ["街", "ulicy", "==ulice==", "ulic"]
-    examples:
-      - {pl: "Filiżanka ==kawy==.", zh: 一杯咖啡。}
-      - {pl: "Dwie ==kawy==, proszę.", zh: 请来两杯咖啡。}
-    words:
-      - {pl: ulica, zh: 街, tag: 阴}
-      - {pl: dwie, zh: 两（配阴性名词）}
-    see: ["001", "014"]
-
-  - id: "003"
-    date: 2026-10-01
-    source: 多邻国
     task: listen
     point: sound.letters
-    also: [sound.sandhi]
+    also: [sound.sandhi, syntax.neg]
     title: r 是舌尖弹一下，l 是舌尖贴住不动
     pl: "Dlaczego nie nosisz ==okularów==?"
     zh: 你为什么不戴眼镜？
@@ -207,16 +194,42 @@ notes:
     right: ["Dlaczego nie nosisz ==okularów==?"]
     why: |
       先说好消息：词尾你其实听对了。ó 和 u 读音一样，词尾的 w 要念成清的 f，所以 okularów 实际就念 okularuf。你写的 -of 只是拼法没对上念法。
-      卡住的是中间那个 r。r 夹在两个元音中间时，舌尖往往只弹一下，非常短，很容易被听成 l。
-      l：舌尖贴住上牙床不动，声音连续、平滑。r：舌尖快速弹一下就离开，听起来更“脆”，有点像一个很轻的 d。
-    rule: 听着“脆”、像舌尖轻轻碰了一下的是 r；平平滑过去的是 l。
+      卡住的是中间那个 r。r 夹在两个元音中间时，舌尖往往只弹一下，非常短，很容易被听成 l。l：舌尖贴住上牙床不动，声音连续、平滑。r：舌尖快速弹一下就离开，听起来更“脆”，有点像一个很轻的 d。
+      顺带记一条规律：波兰语的词一到结尾，浊辅音就念成清的——b 念 p，d 念 t，g 念 k，w 念 f，z 念 s，ż 和 rz 念 sz。所以 chleb（面包）念 chlep。听写时要反过来想：听见词尾是 p、f、t，写下来可能是 b、w、d。
+    rule:
+      - 听着“脆”、像舌尖轻轻碰了一下的是 r；平平滑过去的是 l。
+      - 听见词尾是清音，写下来可能是浊音字母。
     extra:
-      - "**为什么是 okularów**okulary（眼镜）只有复数。肯定句用宾格：Nosisz okulary.（你戴眼镜。）一加 nie，宾语换成生格：Nie nosisz okularów. 详见第 4 条。"
+      - "**为什么是 okularów**okulary（眼镜）只有复数。肯定句用宾格：Nosisz okulary.（你戴眼镜。）一加 nie，宾语换成生格：Nie nosisz okularów. 跟第 4 条一个道理。"
     words:
       - {pl: okulary, zh: 眼镜, tag: 只有复数}
       - {pl: nosić, zh: 穿、戴（经常穿戴）, tag: 未完成体}
       - {pl: dlaczego, zh: 为什么}
-    see: ["004", "013"]
+      - {pl: chleb, zh: 面包, tag: 阳}
+    see: ["004"]
+
+  - id: "003"
+    date: 2026-10-01
+    source: 多邻国
+    task: listen
+    point: sound.letters
+    title: 波兰语的 k 和 g 靠喉咙振不振，不靠送不送气
+    pl: "Niebieska czy zielona ==golarka==?"
+    zh: 蓝色的还是绿色的剃须刀？
+    mine: "==kolarka=="
+    right: ["Niebieska czy zielona ==golarka==?"]
+    why: |
+      普通话的 g 和 k 靠送不送气区分：k 带一股气，g 不带，但两个都不振动声带。
+      波兰语的 g 和 k 靠声带振不振动区分：g 振动，k 不振动，而且 k 不送气。所以波兰语的 k 听起来就像普通话的 g——中国人习惯用来分辨的那股气，在这里根本不存在。p 和 b、t 和 d 也是同一回事。
+      怎么听：g 在爆破之前喉咙会先“嗡”一下，整个音更闷、更厚；k 干干净净，没有那一下。手指搭在喉咙上念 zzzz 会震、念 ssss 不震——s 和 z 能拉长，好听出来；g 和 k 的振动只在爆破前几十毫秒，一闪而过，所以难。
+    rule: 先“嗡”一下再爆开的是 g，干干脆脆直接爆开的是 k。
+    extra:
+      - "**小插曲**kolarka 也是个真词，意思是女自行车手。golarka 来自动词 golić（刮胡子）。"
+    words:
+      - {pl: golarka, zh: 剃须刀, tag: 阴}
+      - {pl: niebieski, zh: 蓝色的, tag: 形容词}
+      - {pl: zielony, zh: 绿色的, tag: 形容词}
+      - {pl: czy, zh: 还是（二选一）；是不是（疑问句开头）}
 
   - id: "004"
     date: 2026-10-01
@@ -230,51 +243,35 @@ notes:
     mine: "==gąbka=="
     right: ["Oni nie sprzedają ==gąbek==."]
     why: |
-      这题是两件事叠在一起。第一件：一加 nie，本来该用宾格的宾语就要换成生格。
-      第二件：题面英语是复数 sponges，所以要用复数的生格。
-      变化路线：gąbka（一块海绵，原形）→ Sprzedają gąbki.（他们卖海绵，复数宾格）→ Nie sprzedają gąbek.（他们不卖海绵，复数生格）。gąbek 是怎么变出来的，见第 5 条。
-    rule: 有 nie，宾语就从宾格换成生格。
+      这题是两件事叠在一起。第一件：一加 nie，本来该用宾格的宾语就要换成生格。第二件：题面英语是复数 sponges，所以要用复数的生格。
+      变化路线：gąbka（一块海绵，原形）→ Sprzedają gąbki.（他们卖海绵，复数宾格）→ Nie sprzedają gąbek.（他们不卖海绵，复数生格）。
+      gąbek 是怎么来的：以 -a 结尾的阴性名词，复数生格是把词尾的 -a 去掉（woda → wód，kawa → kaw）。gąbka 去掉 -a 剩下 gąbk，结尾两个辅音挤在一起念不顺，中间就冒出一个 e：gąbek。这个 e 不是硬塞的：古代斯拉夫语里这个位置本来就有一个很弱的元音，在别的形式里都消失了，只在复数生格这种位置上留了下来。
+    rule:
+      - 有 nie，宾语就从宾格换成生格。
+      - -ka 结尾的阴性名词，复数生格基本都是 -ek。
     table:
-      head: ["", "肯定 · 宾格", "否定 · 生格"]
-      rows:
-        - ["眼镜", "Nosisz ==okulary==.", "Nie nosisz ==okularów==."]
-        - ["海绵（复数）", "Sprzedają ==gąbki==.", "Nie sprzedają ==gąbek==."]
-        - ["水", "Piję ==wodę==.", "Nie piję ==wody==."]
+      - head: ["", "肯定 · 宾格", "否定 · 生格"]
+        rows:
+          - ["眼镜", "Nosisz ==okulary==.", "Nie nosisz ==okularów==."]
+          - ["海绵（复数）", "Sprzedają ==gąbki==.", "Nie sprzedają ==gąbek==."]
+          - ["水", "Piję ==wodę==.", "Nie piję ==wody==."]
+      - head: ["", "原形", "复数生格"]
+        rows:
+          - ["海绵", "gąbka", "==gąbek=="]
+          - ["勺子", "łyżka", "==łyżek=="]
+          - ["书", "książka", "==książek=="]
+          - ["牙刷", "szczoteczka", "==szczoteczek=="]
     extra:
       - "**例外**只管本来该用宾格的宾语。być（是）后面用工具格，加了 nie 也不变：Jestem nauczycielką. → Nie jestem nauczycielką."
+      - "**会跑的 e**反过来也有：widelec（叉子）一加词尾，e 就不见了，变成 widelcem。见第 10 条。"
     words:
       - {pl: gąbka, zh: 海绵, tag: 阴}
       - {pl: sprzedawać, zh: 卖, tag: 未完成体}
-    see: ["003", "005"]
-
-  - id: "005"
-    date: 2026-10-01
-    source: 多邻国
-    point: noun.gen
-    title: -ka 结尾的阴性名词，复数生格是 -ek
-    ask: gąbka 怎么变成了 gąbek？
-    pl: "Nie sprzedają ==gąbek==."
-    zh: 他们不卖海绵。
-    why: |
-      以 -a 结尾的阴性名词，复数生格是把词尾的 -a 去掉：woda → wód，kawa → kaw。
-      gąbka 去掉 -a 剩下 gąbk，结尾 b、k 两个辅音挤在一起念不顺，中间就冒出一个 e：gąbek。
-      这个 e 不是后来硬塞的：古代斯拉夫语里这个位置本来就有一个很弱的元音，在别的形式里都消失了，只在复数生格这种位置上留了下来，变成 e。
-    rule: -ka 的复数生格，基本都是 -ek。
-    table:
-      head: ["", "原形", "复数生格"]
-      rows:
-        - ["海绵", "gąbka", "==gąbek=="]
-        - ["勺子", "łyżka", "==łyżek=="]
-        - ["书", "książka", "==książek=="]
-        - ["牙刷", "szczoteczka", "==szczoteczek=="]
-    extra:
-      - "**会跑的 e**反过来也有：widelec（叉子）一加词尾，e 就不见了，变成 widelcem。见第 11 条。"
-    words:
       - {pl: łyżka, zh: 勺子, tag: 阴}
       - {pl: książka, zh: 书, tag: 阴}
-    see: ["004", "011"]
+    see: ["002", "010"]
 
-  - id: "006"
+  - id: "005"
     date: 2026-10-01
     source: 多邻国
     point: noun.gen
@@ -284,7 +281,7 @@ notes:
     zh: 你需要一块海绵和水。
     why: |
       有些动词天生就要生格，不管肯定还是否定。potrzebować（需要）就是一个，所以 gąbki 和 wody 都是生格。
-      gąbki 在这里是单数生格（题面是一块海绵），只是刚好跟复数长得一样，见第 2 条。
+      gąbki 在这里是单数生格（题面是一块海绵），只是刚好跟复数长得一样，见第 1 条。
     rule: 需要、寻找、听、使用、学、害怕——这几个动词后面直接用生格。
     table:
       head: ["", "动词", "例子"]
@@ -303,9 +300,9 @@ notes:
       - {pl: słuchać, zh: 听, tag: 未完成体}
       - {pl: używać, zh: 使用, tag: 未完成体}
       - {pl: bać się, zh: 害怕, tag: 未完成体, look: bać}
-    see: ["002", "001"]
+    see: ["001"]
 
-  - id: "007"
+  - id: "006"
     date: 2026-10-01
     source: 多邻国
     task: listen
@@ -333,9 +330,9 @@ notes:
       - {pl: szczoteczka do zębów, zh: 牙刷, tag: 阴, look: szczotka}
       - {pl: dostawać, zh: 得到、收到, tag: 未完成体}
       - {pl: ząb, zh: 牙, tag: 阳}
-    see: ["008"]
+    see: ["007", "011"]
 
-  - id: "008"
+  - id: "007"
     date: 2026-10-01
     source: 多邻国
     ok: true
@@ -345,16 +342,16 @@ notes:
     zh: 你在买一把牙刷。
     why: |
       szczoteczkę 是单数宾格：以 -a 结尾的阴性名词，单数宾格把 -a 换成 -ę。
-      对比第 7 条：Dostajemy nowe szczoteczki——szczoteczki 是复数宾格。kupować（买）和 dostawać（得到）后面都用宾格。
+      对比第 6 条：Dostajemy nowe szczoteczki——szczoteczki 是复数宾格。kupować（买）和 dostawać（得到）后面都用宾格。
     rule: 一把是 -ę；好几把，跟复数主格一样。
     examples:
       - {pl: "Kupuję ==kawę==.", zh: 我买咖啡。}
       - {pl: "Kupuję ==gąbki==.", zh: 我买（几块）海绵。}
     words:
       - {pl: kupować, zh: 买, tag: 未完成体}
-    see: ["007"]
+    see: ["006"]
 
-  - id: "009"
+  - id: "008"
     date: 2026-10-01
     source: 多邻国
     task: fill
@@ -370,16 +367,34 @@ notes:
     why: |
       这两个音本来就挨得很近：波兰语 y 的实际读音比课本上说的要低一点，往 e 那边靠（维基词典给 trzy 标的音是 /ˈtʂɘ/）。听感上，y 像英语 bit 里的 i，嘴更闭、舌头更高；e 像 bed 里的 e，嘴张得更开。多邻国这次只判了“拼写错误”，算你过了。
       耳朵分不清时，用语法来定。① 先看是不是复数：这句有 są、twoje，肯定是复数。② 再看名词去掉 -a 后最后一个辅音：ściana 剩下 ścian，最后是 n（前面的 ś 不管）。③ n 是硬音，硬音后面的复数一律是 -y，所以是 ściany。
-    rule: 复数 + 硬音结尾 → -y。整张复数词尾表见第 14 条。
+      顺手把复数的词尾一次记全：除了指男人的，基本就三类——硬辅音结尾的是 -y（k、g 后面写成 -i，其实是同一个），软辅音和 c、cz、sz、rz、ż、j、l 结尾的是 -e，中性名词是 -a。指男性的人另有一套。
+    rule:
+      - 复数 + 硬音结尾 → -y。
+      - 除了指男人的，复数就三类：-y／-i、-e、-a。
+    table:
+      pl: [1]
+      head: ["词尾", "例子", "什么时候"]
+      rows:
+        - ["-y", "kot → ==koty==、ściana → ==ściany==", "硬辅音结尾的阴性、阳性"]
+        - ["-i", "gąbka → ==gąbki==、ptak → ==ptaki==", "k、g 结尾"]
+        - ["-e", "ulica → ==ulice==、klucz → ==klucze==", "软辅音，c、cz、sz、rz、ż、j、l 结尾"]
+        - ["-a", "okno → ==okna==、jabłko → ==jabłka==", "中性名词"]
+        - ["另一套", "student → ==studenci==、pan → ==panowie==", "指男性的人"]
     extra:
       - "**顺带一个生格**Jakiego koloru 字面是“什么颜色的”，本身就是生格（kolor → koloru）。问颜色，波兰语就这么问。"
+      - "**也有不守规矩的**比如 ręka（手）的复数是 ręce。"
     words:
       - {pl: ściana, zh: 墙, tag: 阴}
       - {pl: kolor, zh: 颜色, tag: 阳}
       - {pl: twój, zh: 你的}
-    see: ["014"]
+      - {pl: kot, zh: 猫, tag: 阳 · 有生}
+      - {pl: ptak, zh: 鸟, tag: 阳 · 有生}
+      - {pl: klucz, zh: 钥匙, tag: 阳}
+      - {pl: okno, zh: 窗户, tag: 中}
+      - {pl: jabłko, zh: 苹果, tag: 中}
+    see: ["011"]
 
-  - id: "010"
+  - id: "009"
     date: 2026-10-01
     source: 多邻国
     ok: true
@@ -404,9 +419,9 @@ notes:
       - {pl: krzesło, zh: 椅子, tag: 中}
       - {pl: trzy, zh: 三}
       - {pl: rzeźnik, zh: 屠夫, tag: 阳 · 有生}
-    see: ["013"]
+    see: ["011"]
 
-  - id: "011"
+  - id: "010"
     date: 2026-10-01
     source: 多邻国
     ok: true
@@ -439,83 +454,39 @@ notes:
       - {pl: zupa, zh: 汤, tag: 阴}
       - {pl: jeść, zh: 吃, tag: 未完成体}
       - {pl: nauczycielka, zh: 女老师, tag: 阴}
-    see: ["005"]
+    see: ["004"]
+
+  - id: "011"
+    date: 2026-10-01
+    source: 多邻国
+    ok: true
+    task: translate
+    point: pron.possess
+    also: [duo.english]
+    title: 英语一个 your，波兰语要分“你的”和“你们的”
+    pl: "Jakiego koloru jest ==wasze== prześcieradło?"
+    en: "What color is your bedsheet?"
+    zh: 你们的床单是什么颜色的？
+    mine: "What color is your bedsheet"
+    why: |
+      英语只有一个 your，分不出是“你的”还是“你们的”。波兰语分开：对一个人说 twój（你的），对好几个人说 wasz（你们的）。这句是 wasze，其实是在问“你们”，比如问一对住在一起的人。
+      wasze 为什么是 -e：物主词也要跟着名词变，跟第 6 条的 nowe 一个道理。prześcieradło（床单）是中性单数，所以用 wasze。第 8 条的 twoje ściany 也是 -e，那是因为 ściany 是复数。
+      jest 和 są 也跟着名词走：一条床单用 jest，好几面墙用 są。
+    rule: 中性单数、复数（不是指男人），物主词都用 -e 那个样子：twoje、wasze。
+    table:
+      head: ["", "阳 · 单", "阴 · 单", "中 · 单", "复 · 不是男人", "复 · 男人"]
+      rows:
+        - ["你的", "twój", "twoja", "==twoje==", "==twoje==", "twoi"]
+        - ["你们的", "wasz", "wasza", "==wasze==", "==wasze==", "wasi"]
+    extra:
+      - "**听起来**prześcieradło 开头的 prz 念 psz，跟第 9 条的 przedmiot 一样。"
+    words:
+      - {pl: prześcieradło, zh: 床单, tag: 中}
+      - {pl: wasz, zh: 你们的}
+      - {pl: twój, zh: 你的}
+    see: ["008", "006", "009"]
 
   - id: "012"
-    date: 2026-10-01
-    source: 多邻国
-    task: listen
-    point: sound.letters
-    title: 波兰语的 k 和 g 靠喉咙振不振，不靠送不送气
-    pl: "Niebieska czy zielona ==golarka==?"
-    zh: 蓝色的还是绿色的剃须刀？
-    mine: "==kolarka=="
-    right: ["Niebieska czy zielona ==golarka==?"]
-    why: |
-      普通话的 g 和 k 靠送不送气区分：k 带一股气，g 不带，但两个都不振动声带。
-      波兰语的 g 和 k 靠声带振不振动区分：g 振动，k 不振动，而且 k 不送气。所以波兰语的 k 听起来就像普通话的 g——中国人习惯用来分辨的那股气，在这里根本不存在。p 和 b、t 和 d 也是同一回事。
-      怎么听：g 在爆破之前喉咙会先“嗡”一下，整个音更闷、更厚；k 干干净净，没有那一下。手指搭在喉咙上念 zzzz 会震、念 ssss 不震——s 和 z 能拉长，好听出来；g 和 k 的振动只在爆破前几十毫秒，一闪而过，所以难。
-    rule: 先“嗡”一下再爆开的是 g，干干脆脆直接爆开的是 k。
-    extra:
-      - "**小插曲**kolarka 也是个真词，意思是女自行车手。golarka 来自动词 golić（刮胡子）。"
-    words:
-      - {pl: golarka, zh: 剃须刀, tag: 阴}
-      - {pl: niebieski, zh: 蓝色的, tag: 形容词}
-      - {pl: zielony, zh: 绿色的, tag: 形容词}
-      - {pl: czy, zh: 还是（二选一）；是不是（疑问句开头）}
-    see: ["013"]
-
-  - id: "013"
-    date: 2026-10-01
-    source: 多邻国
-    point: sound.sandhi
-    title: 词尾的浊辅音要念成清的：chleb 念 chlep
-    pl: "Lubię ==chleb==."
-    zh: 我喜欢面包。
-    why: |
-      波兰语的词一到结尾，浊辅音就念成对应的清辅音：b → p，d → t，g → k，w → f，z → s，ż、rz → sz。
-      所以 chleb（面包）念 chlep，okularów 词尾念 uf（ó 跟 u 同音）。
-      拼写不变，只是念法变。所以听写时要反过来想：听见词尾是 p、f、t，写下来可能是 b、w、d。
-    rule: 听见词尾是清音，写下来可能是浊音字母。
-    extra:
-      - "**还有两条一起记**ó 和 u 读音完全一样；词尾的 ę 平时说话基本念成 e（wodę 听着像 wode）。"
-    examples:
-      - {pl: "Nie nosisz ==okularów==.", zh: 你不戴眼镜。}
-    words:
-      - {pl: chleb, zh: 面包, tag: 阳}
-      - {pl: lubić, zh: 喜欢, tag: 未完成体}
-    see: ["003", "010"]
-
-  - id: "014"
-    date: 2026-10-01
-    source: 多邻国
-    point: noun.plural
-    title: 名词复数就三条路：-y／-i、-e、-a，指男人的另算
-    why: |
-      复数（主格）的词尾，看名词最后那个辅音和性别。
-      -y：词干是硬辅音（n、t、d、r、w、m、b、p、ł、s、z、f 等）的阴性、阳性名词。-i：词干以 k、g 结尾。这两个其实是同一个词尾，只是波兰语拼写里 k、g 后面不写 y、只能写 i。
-      -e：词干以软辅音或 c、cz、sz、rz、ż、j、l 结尾。-a：中性名词。指男性的人，另有一套。
-    rule: 除了指男人的，基本就三类：-y／-i、-e、-a。
-    table:
-      pl: [1]
-      head: ["词尾", "例子", "什么时候"]
-      rows:
-        - ["-y", "kot → ==koty==、ściana → ==ściany==", "硬辅音结尾的阴性、阳性"]
-        - ["-i", "gąbka → ==gąbki==、ptak → ==ptaki==", "k、g 结尾"]
-        - ["-e", "ulica → ==ulice==、klucz → ==klucze==", "软辅音，c、cz、sz、rz、ż、j、l 结尾"]
-        - ["-a", "okno → ==okna==、jabłko → ==jabłka==", "中性名词"]
-        - ["另一套", "student → ==studenci==、pan → ==panowie==", "指男性的人"]
-    extra:
-      - "**也有不守规矩的**比如 ręka（手）的复数是 ręce。"
-    words:
-      - {pl: kot, zh: 猫, tag: 阳 · 有生}
-      - {pl: ptak, zh: 鸟, tag: 阳 · 有生}
-      - {pl: klucz, zh: 钥匙, tag: 阳}
-      - {pl: okno, zh: 窗户, tag: 中}
-      - {pl: jabłko, zh: 苹果, tag: 中}
-    see: ["009", "002"]
-
-  - id: "015"
     date: 2026-10-01
     source: 多邻国
     point: words.phrase
@@ -530,7 +501,7 @@ notes:
       - {pl: kciuk, zh: 大拇指, tag: 阳}
       - {pl: trzymać, zh: 握着、拿着, tag: 未完成体}
 
-  - id: "016"
+  - id: "013"
     date: 2026-10-01
     source: 多邻国
     point: words.meaning
@@ -545,7 +516,7 @@ notes:
       - {pl: Wigilia, zh: 平安夜（晚餐）, tag: 阴}
       - {pl: grudzień, zh: 十二月, tag: 阳}
 
-  - id: "017"
+  - id: "014"
     date: 2026-10-01
     source: 顺带聊到
     lang: en
@@ -564,9 +535,9 @@ notes:
       - {pl: "color, collar.", zh: 同上}
     extra:
       - "**为什么中国人和波兰人都觉得难**英语有一大堆成对的松紧元音，波兰语和普通话都没有这种区分。波兰语除了 ą、ę 只有 a、e、i、o、u、y 六个元音，不分长短，也没有 bad 里的 /æ/ 和 bus 里的 /ʌ/；普通话同样没有。顺带一提，sun 和 son 本来就同音，都念 /sʌn/。"
-    see: ["019"]
+    see: ["016"]
 
-  - id: "018"
+  - id: "015"
     date: 2026-10-01
     source: 顺带聊到
     lang: en
@@ -584,67 +555,22 @@ notes:
       - {pl: "back, bag.", zh: 同上}
     extra:
       - "**拖长音不会被听错**听的人判断的是相对比例，还有尾音爆破、上下文等好几条线索，所以拖长音表示强调、撒娇不会造成误会。"
-    see: ["012"]
+    see: ["003"]
 
-  - id: "019"
+  - id: "016"
     date: 2026-10-01
     source: 顺带聊到
     lang: en
     point: en.accent
-    title: 波兰口音的英语：词尾变清、-ing 念 -ink、th 发不出
-    ask: 波兰人说英语有什么特点？
+    title: 波兰人、斯拉夫人说英语：词尾变清、th 发不出、r 弹舌
+    ask: 波兰人说英语有什么特点？别的斯拉夫人呢？
     why: |
-      词尾浊音变清音：bad 念得像 bat，dog 像 dok。这正是波兰语自己的规矩，带进了英语（见第 13 条）。
-      -ing 念成 -ink：going 听起来像 goink。th 发不出来：think 变成 tink 或 fink，this 变成 dis。
-      不分长短元音：ship 和 sheep、full 和 fool 听起来一样，bad 和 bed 也容易混。r 是弹舌的；每个音节都念得很饱满，英语里该弱读的也念得清清楚楚。
-    rule: 波兰人说英语的毛病，大多是把波兰语的规矩带了过去。
+      波兰口音：词尾浊音变清音，bad 念得像 bat，dog 像 dok——这正是波兰语自己的规矩（见第 2 条）。-ing 念成 -ink，going 听起来像 goink。th 发不出来，think 变成 tink 或 fink，this 变成 dis。不分长短元音，ship 和 sheep、full 和 fool 听起来一样，bad 和 bed 也容易混。r 是弹舌的；每个音节都念得很饱满，英语里该弱读的也念得清清楚楚。
+      斯拉夫人的共同点：th 换成 t、d 或 f、v；r 都弹舌；元音不怎么弱化，节奏比英语平均；大部分斯拉夫语没有冠词，说英语时容易漏掉 a 和 the（保加利亚语和马其顿语例外，它们有定冠词）。
+      不同点：俄语没有 w 这个音，wine 常被念成 vine，捷克语里的 w 也念 v；波兰人不太有这个问题，因为波兰语 ł 现在的念法就跟英语的 w 一样。重音位置也不同：波兰语大多在倒数第二个音节，捷克语几乎总在第一个，俄语不固定。捷克语本身分长短元音；俄语不重读的元音会变含糊，o 常念成接近 a 的音。
+    rule: 波兰人说英语的毛病，大多是把波兰语的规矩带了过去；分得清 w 和 v，多亏了 ł。
     examples:
       - {pl: "bad, bat.", zh: 波兰口音里容易念成一样}
       - {pl: "ship, sheep.", zh: 同上}
       - {pl: "think, this.", zh: th 会换成 t、f 或 d}
-    see: ["013", "020"]
-
-  - id: "020"
-    date: 2026-10-01
-    source: 顺带聊到
-    lang: en
-    point: en.accent
-    title: 斯拉夫人说英语：哪些一样，哪些不一样
-    ask: 别的斯拉夫语国家的人说英语，跟波兰人像吗？
-    why: |
-      共同点：th 发不出来，换成 t、d 或 f、v；r 都是弹舌的；每个音节念得饱满，元音不怎么弱化，节奏比英语平均；大部分斯拉夫语没有冠词，说英语时容易漏掉 a 和 the（保加利亚语和马其顿语例外，它们有定冠词）。
-      不同点之一，w 和 v：俄语没有 w 这个音，wine 常被念成 vine；捷克语里的 w 也念 v。波兰人不太有这个问题，因为波兰语 ł 现在的念法就跟英语的 w 一样。
-      不同点之二：重音位置——波兰语大多落在倒数第二个音节，捷克语几乎总在第一个音节，俄语不固定。捷克语本身分长短元音；俄语不重读的元音会变含糊，o 常念成接近 a 的音。
-    rule: 波兰人分得清 w 和 v，多亏了 ł。
-    see: ["019"]
-
-  # ── 2026-10-01 她发来的四张多邻国截图里，只有这一题是笔记本里还没有的 ──
-  - id: "021"
-    date: 2026-10-01
-    source: 多邻国
-    ok: true
-    task: translate
-    point: pron.possess
-    also: [duo.english]
-    title: 英语一个 your，波兰语要分“你的”和“你们的”
-    pl: "Jakiego koloru jest ==wasze== prześcieradło?"
-    en: "What color is your bedsheet?"
-    zh: 你们的床单是什么颜色的？
-    mine: "What color is your bedsheet"
-    why: |
-      英语只有一个 your，分不出是“你的”还是“你们的”。波兰语分开：对一个人说 twój（你的），对好几个人说 wasz（你们的）。这句是 wasze，其实是在问“你们”，比如问一对住在一起的人。
-      wasze 为什么是 -e：物主词也要跟着名词变，跟第 7 条的 nowe 一个道理。prześcieradło（床单）是中性单数，所以用 wasze。第 9 条的 twoje ściany 也是 -e，那是因为 ściany 是复数。
-      jest 和 są 也跟着名词走：一条床单用 jest，好几面墙用 są。
-    rule: 中性单数、复数（不是指男人），物主词都用 -e 那个样子：twoje、wasze。
-    table:
-      head: ["", "阳 · 单", "阴 · 单", "中 · 单", "复 · 不是男人", "复 · 男人"]
-      rows:
-        - ["你的", "twój", "twoja", "==twoje==", "==twoje==", "twoi"]
-        - ["你们的", "wasz", "wasza", "==wasze==", "==wasze==", "wasi"]
-    extra:
-      - "**听起来**prześcieradło 开头的 prz 念 psz，跟第 10 条的 przedmiot 一样。"
-    words:
-      - {pl: prześcieradło, zh: 床单, tag: 中}
-      - {pl: wasz, zh: 你们的}
-      - {pl: twój, zh: 你的}
-    see: ["009", "007", "010"]
+    see: ["002", "014"]
