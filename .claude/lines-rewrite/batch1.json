@@ -1,0 +1,343 @@
+{
+ "_meta": {
+  "title": "八个人，四十句",
+  "eyebrow": "Many Faces of Sam · 台词改稿 第一批",
+  "lede": "体检里分数最低的那八位，五句全部重写过一遍。每一句都得先过<b>移植测试</b>——这话放到别人身上还成立吗？成立就作废重写。新句子全长在他自己的东西上：一件道具、一个动作、一句原片台词，或是他 AU 正文里已经有的那件事。",
+  "howto": [
+   "下面一人一块，五句按顺序排。<strong>淡的是旧的，亮的是新的</strong>，最底下那行小字写着这句料是从哪儿挖出来的。",
+   "第 ① 句叫「锚句」，它同时印在画册、光谱、测验三个地方——所以改它动静大一点。其中四位的锚句我建议换掉，都标了红牌。",
+   "⚠️ 这一版按一条新尺子过了一遍：<strong>每句话都得能脱离上下文站住</strong>——它会单独出现在桌面小组件、每日一句和热线里，没人替它铺垫。所以网球、桥、萤火虫、那条狗，全都点明了，不再让人猜「他在说什么」。",
+   "带 🔥 的那几句是<strong>放开的</strong>——每人一句，在那件具体的东西后面把话真的说出来。你看完挑：哪几句留、哪几句不要、哪几句想换个说法。不用一条条回，把不喜欢的点出来就行。"
+  ],
+  "order": [
+   "gary",
+   "trent",
+   "victor",
+   "eddie",
+   "samuel",
+   "reston",
+   "buck",
+   "brad"
+  ],
+  "ask_title": "三个地方等你拍板",
+  "ask_lede": "都是凭喜好判断的事，不涉及技术，你挑完我就落地。",
+  "forks": [
+   {
+    "h": "那四句锚句，换还是不换？",
+    "p": "Victor、Eddie、Samuel、Brad Cairn 的第 ① 句我都换了——旧的那四句都是「你是唯一看见我的人」这一类，谁说都成立。但锚句同时是画册上那句铭文，换了画册那一页也跟着变。",
+    "opts": [
+     "<b>A</b>　四句都换（我建议这个，旧的那四句实在太泛）",
+     "<b>B</b>　只换 Samuel 那句（他漏了「唱得很烂的驻唱」这个本行，漏得最离谱）",
+     "<b>C</b>　锚句一律不动，只改第 ②–⑤ 句"
+    ]
+   },
+   {
+    "h": "Brad Cairn 要不要留在这一批？",
+    "p": "他是全站分数最低的（0.5），可他在《约书亚》里是个有老婆孩子、正被儿子一点点毁掉的爸爸。我把他写成了「那个在哭声和钢琴声中间撑着的人」，没碰孩子那条线。",
+    "opts": [
+     "<b>A</b>　就按这五句来",
+     "<b>B</b>　先撤掉，等哪天真给他写 AU 再一起长",
+     "<b>C</b>　留着，但你说个方向我重写"
+    ]
+   },
+   {
+    "h": "放开的那八句，力道够不够？",
+    "p": "你说「有点克制了，但确实更细节更贴合角色」——所以方向留着，尺度放开：每人挑一句，在那件具体的东西后面把话真的说出来（带 🔥 小牌那几句）。原则是谁的性子放多少：Buck、Samuel、Eddie 藏不住，放到底；Trent 隐忍是他最高的一维，他的「放开」是把说不出口本身说出口；Reston 仍然不说「我爱你」——那句「我不说，我证明」本来就是他的声口。",
+    "opts": [
+     "<b>A</b>　这个力道正好",
+     "<b>B</b>　还可以再热一点，尤其 Buck / Eddie / Victor",
+     "<b>C</b>　某几个人过了（说一声是谁，我收回去）"
+    ]
+   }
+  ],
+  "foot": "这一版只是稿子，一个字都还没上线。你点头之后我才写进台词库，顺带把画册 / 光谱 / 测验那三处的锚句一起同步，再跑一遍全站校验。标题（那行全大写的小字）会印在桌面小组件和每日一句上，所以每一个都查过：全站不重名，同一个人的五条之间也不互相包含。"
+ },
+ "gary": {
+  "anchorKeep": true,
+  "quotes": [
+   {
+    "label": "LOSE CLEAN, NOT DIRTY",
+    "line": "I'd rather lose clean than win dirty.",
+    "lineCN": "宁可干干净净地输，也不脏着赢。",
+    "src": "原片高光台词（句子没动，只换了标题：原来那个 OFF THE CLOCK 跟这句不沾边）"
+   },
+   {
+    "label": "THE LAST NAME ON THE ENVELOPE",
+    "line": "Every name on that envelope got crossed out by somebody who moved on. Mine is the last one, and it is staying there. I'm not going anywhere — and I want you to hear me say it out loud.",
+    "lineCN": "那只信封上的名字，一个个都被划掉了——人走了，名字就划掉。我的是最后一个，它就留在那儿。我哪儿也不去——这句话，我要你听我亲口说一遍。",
+    "src": "Interoffice 母题①：内部信封上一格格划掉的历任收件人（放开：他把「我不走」说出口）",
+    "warm": true
+   },
+   {
+    "label": "TWO WEEKS OF DONUTS",
+    "line": "Two weeks I brought a different donut every morning and broke off a corner for you, never asking, just watching your face. Now it's always chocolate, and the big half is always yours.",
+    "lineCN": "有两个星期，我每天早上换一种甜甜圈，掰一角给你，从不问，只看你的脸。现在永远是巧克力——大的那半，永远归你。",
+    "src": "Interoffice 母题②：巧克力甜甜圈（他从不问、只记你的表情；大的那半永远归你）"
+   },
+   {
+    "label": "NUMBERED IN PENCIL",
+    "line": "You number my notes in pencil on the back. It's up to fifty now. I write one every day just to watch that number climb.",
+    "lineCN": "你在我每张条子背面用铅笔编号。已经第五十张了。我天天写一张，就为了看那个数字往上爬。",
+    "src": "Interoffice 母题⑤：铁盒 + 你用铅笔写的编号（Winter 点名喜欢的细节）"
+   },
+   {
+    "label": "CAN'T FIRE ME, I QUIT",
+    "line": "They can't fire me. I quit. Took me twenty-two years to learn to say it first — and I said it for you.",
+    "lineCN": "他们开不了我，我辞了。我用二十二年才学会抢在前头说这句话——而我是为你说的。",
+    "src": "原片第二高光台词 You can't fire me, 'cause I quit."
+   }
+  ]
+ },
+ "trent": {
+  "anchorKeep": true,
+  "quotes": [
+   {
+    "label": "SAVING UP TO TAKE YOU",
+    "line": "I was saving up to leave. Now I'm saving up to take you with me.",
+    "lineCN": "我攒钱本是为了离开——如今攒钱，是为了带你一起走。",
+    "src": "系列落点，句子不动；只把标题从 ON THE ROAD OUT 换成指事的"
+   },
+   {
+    "label": "A CUP FROM THE CUPBOARD",
+    "line": "Every house on this street leaves my cup out on the step. You took one down from the cupboard and put it in my hand. I've been carrying that around for three weeks and I still don't know how to say what it did to me.",
+    "lineCN": "这条街上每一家，都把我那只杯子搁在台阶上。你从柜子里拿了一只，放进我手里。这件事我揣了三个礼拜，到现在还是不知道该怎么说它对我做了什么。",
+    "src": "系列母题②「两只杯子」＋Ch1 原话（他最高的一维是隐忍，所以他的「放开」＝把说不出口本身说出口；那三个字圣经里压着，不提前给）",
+    "warm": true
+   },
+   {
+    "label": "THE MAN IN THE BOOTH",
+    "line": "The gate goes up for you and down for me, and the man in the booth writes my name every single time. Inside the wall, you're the only one who ever says it out loud.",
+    "lineCN": "那道门对你抬起来，对我落下去，门房每一回都要把我的名字登记一遍。墙里头，只有你把它念出声过。",
+    "src": "系列母题④：Camelot Gardens 那道铁门＋门房登记"
+   },
+   {
+    "label": "THIRTY FEET OFF THE BRIDGE",
+    "line": "Thirty feet down off that bridge, nine feet of water, four and a half over the east ledge. I counted all of it. They call it showing off. You're the only one who ever called it knowing what I'm doing.",
+    "lineCN": "从那座桥上往下三十英尺，水深九英尺，东边那道石梁四英尺半。我全数过。他们管这叫逞能——只有你说，那叫心里有数。",
+    "src": "系列母题①「三十英尺那一跳」（他的野其实是本事）"
+   },
+   {
+    "label": "SHAKE THE COFFEE CAN",
+    "line": "There's a coffee can under the bunk. Shake it and you can hear how far off August is. Lately I've been counting it for two.",
+    "lineCN": "铺底下有个咖啡罐。摇一摇，就听得出八月还有多远。最近我是按两个人算的。",
+    "src": "系列母题⑤：攒钱的咖啡铁罐「八月，再割六个礼拜就够了」"
+   }
+  ]
+ },
+ "victor": {
+  "anchorKeep": false,
+  "quotes": [
+   {
+    "label": "AFTER CLOSING, 1734",
+    "line": "I spend all day in 1734, telling strangers to mind the pox. You're the only one who ever waited around to hear what I sound like after closing.",
+    "lineCN": "我整天活在 1734 年，叮嘱游客当心天花。你是唯一一个，肯留下来听听我下了班是什么声音的人。",
+    "src": "Choke Point 的世界：殖民主题公园的群演（⚠️ 换了锚句，画册铭文会跟着变）"
+   },
+   {
+    "label": "YOU NEVER SAVED ME",
+    "line": "The trick is you have to let them save you. They send money for years afterward. You looked at me across a table and didn't save me once — that's why I kept coming back.",
+    "lineCN": "诀窍是得让他们救成。之后他们会寄好几年的钱。你隔着一张桌子看着我，一次也没救过我——所以我才一趟趟地回来。",
+    "src": "原片的金矿「假装噎住让陌生人来救」——报告说只挖了一句，这回挖到底"
+   },
+   {
+    "label": "A WORK ISN'T ALLOWED AN OPINION",
+    "line": "She called me her work. Nobody tells you a work isn't allowed to have an opinion. You asked me what I thought, and I had to go looking for it.",
+    "lineCN": "她说我是她的作品。没人告诉过我，作品是不许有意见的。你问我怎么想——我得去找一找才找得到。",
+    "src": "Ch3《作品》：母亲 Ida 那条线"
+   },
+   {
+    "label": "I FORGOT MY LINE",
+    "line": "Everybody in that fake village is playing somebody. I just happen to do it best. Then you walked through and I forgot my line.",
+    "lineCN": "那座假村子里，每个人都在演别人。我只是碰巧演得最好的那个。然后你穿过来，我忘词了。",
+    "src": "Ch1 原话＋Ch4《卡壳》"
+   },
+   {
+    "label": "PULLING THE SET DOWN",
+    "line": "Everyone claps and goes home. You came up on the stage and started pulling the set down with your hands. Do it again. Take the whole thing down. I want to be standing there with nothing left to hide behind, and you still looking at me.",
+    "lineCN": "所有人鼓完掌就回家了。你却走上台来，动手把布景一块块拆了。再拆一次。全拆了。我想站在那儿，身后什么都不剩——而你还在看我。",
+    "src": "Ch5《拆台》（放开：从「你拆了」变成「再拆一次，我要你看着我」）",
+    "warm": true
+   }
+  ]
+ },
+ "eddie": {
+  "anchorKeep": false,
+  "quotes": [
+   {
+    "label": "OFF THE DISHES, ON A PLANE",
+    "line": "Parole says stay in the state, wash your dishes, keep your head down. I got on a plane for a stone I'd never seen. Go on — ask me if I'd do it again.",
+    "lineCN": "假释的规矩是别出州、洗你的盘子、别惹事。我为了一颗从没见过的石头上了飞机。你问啊——问我会不会再来一次。",
+    "src": "《蓝蜥蜴》本体：假释期在小馆子打工，被雇去伦敦（⚠️ 换了锚句）"
+   },
+   {
+    "label": "UP IN THE NEXT PANEL",
+    "line": "I read comics on my break, because in those the guy who takes the beating always gets up in the next panel. I've taken plenty. For you I'd like to be the one who gets up. Say the word and I'm on my feet.",
+    "lineCN": "休息的时候我看漫画——在那里面，挨揍的那个下一格总会站起来。我挨得可不少。为了你，我想当那个站起来的。你说一句，我立刻就起来。",
+    "src": "原片给过特写的道具：Eddie 的漫画书（放开：他笨拙、直给，这句该由他说出口）",
+    "warm": true
+   },
+   {
+    "label": "THE BELL OVER THE DOOR",
+    "line": "Two years I wiped the same counter, and the bell over that door never meant a thing. Then it went off and it was you. It's meant something ever since.",
+    "lineCN": "两年里我擦同一张台面，门上那只铃响了也不代表什么。直到有一回它响了，是你——从那以后它就有意思了。",
+    "src": "原片场景：纽约那家小馆子"
+   },
+   {
+    "label": "NEXT TO THE STONE",
+    "line": "They all wanted the stone. Blue, cold, worth more than my whole life put together. I spent the entire job looking at the thing standing next to it.",
+    "lineCN": "他们都想要那颗石头。蓝的，凉的，比我整条命加起来都值钱。整桩活儿我都在看旁边站着的那个。",
+    "src": "片名那颗蓝钻"
+   },
+   {
+    "label": "FURTHER THAN JERSEY",
+    "line": "I'd never been further than Jersey. I crossed an ocean for a job I was going to botch anyway. Turns out I crossed it for you.",
+    "lineCN": "我这辈子最远只到过泽西。为了一桩我横竖要搞砸的活儿，我跨了一整片海。原来我是为你跨的。",
+    "src": "纽约 → 伦敦那一趟"
+   }
+  ]
+ },
+ "samuel": {
+  "anchorKeep": false,
+  "quotes": [
+   {
+    "label": "THE ONLY ONE WHO CLAPPED",
+    "line": "We're a lounge act. We are not good. I have watched an entire room order food during our set. You clapped, and I have never gotten over it.",
+    "lineCN": "我们是驻唱二人组。唱得不好。我见过整个厅在我们唱的时候点菜。只有你鼓了掌——这件事我到现在没缓过来。",
+    "src": "⚠️ 全站最大的一处漏：他本行是唱得很烂的驻唱，旧的五句一个字都没提（换了锚句）"
+   },
+   {
+    "label": "NEVER OPENED ONE",
+    "line": "They think I can open anything with a steel door on it. I have never opened one in my life. You're the only person I've ever said that out loud to — and you didn't leave. I've been in love with you since roughly that exact second.",
+    "lineCN": "他们以为只要是铁门我都打得开。我这辈子一扇都没打开过。这话我只对你说出口过——你没走。差不多就是从那一秒起，我一直爱着你。",
+    "src": "全片的误会：被黑帮当成开保险箱高手（放开：他傻乎乎的，该是全场说得最直白的一个）",
+    "warm": true
+   },
+   {
+    "label": "NOT THE CUP",
+    "line": "Two grown men with guns fought over a boy's bar mitzvah cup, and I nearly died for it. Afterwards I worked out what I'd actually want in a safe. It was not the cup.",
+    "lineCN": "两个带枪的成年人为一只男孩成年礼的杯子打起来，我差点为它送命。后来我想明白了，保险箱里我真正想放的东西——不是杯子。",
+    "src": "原片的麦高芬：那只 bar mitzvah 杯子"
+   },
+   {
+    "label": "THE ONE WE DON'T BOTCH",
+    "line": "There's one song we don't botch. I've been holding it back for a room worth ruining it in. Sit anywhere you like. I'll ruin it for you.",
+    "lineCN": "有一首我们不会唱砸。我一直留着，等一个值得把它唱砸的厅。你随便坐。我为你唱砸它。",
+    "src": "唱歌那条线，第二次出手"
+   },
+   {
+    "label": "FIRST TRY IN PROVIDENCE",
+    "line": "Nothing in Providence has ever gone right for me on the first try. You did. That's the only reason I still think this town might be all right.",
+    "lineCN": "在普罗维登斯，我没有一件事是一次就做对的。除了你。就因为这个，我才老觉得这镇子说不定还行。",
+    "src": "故事发生地（罗德岛的普罗维登斯，不是别处）"
+   }
+  ]
+ },
+ "reston": {
+  "anchorKeep": true,
+  "quotes": [
+   {
+    "label": "PROVE THEM WRONG ABOUT YOU",
+    "line": "I won't say 'I love you' — too cheap. I'll just prove they were wrong about you.",
+    "lineCN": "我不说「我爱你」——太廉价。我只会逐条证明：他们看错了你。",
+    "src": "句子不动（很他），只把标题从 OFF THE RECORD 换成指事的"
+   },
+   {
+    "label": "BOXES NOBODY OPENED",
+    "line": "I sat in a federal basement for weeks going through boxes nobody had ever opened. I have never wanted to find anything as badly as I want to keep this.",
+    "lineCN": "我在联邦档案的地下室里坐了好几个星期，翻那些没人打开过的箱子。我这辈子想找到什么东西，都没有像现在想守住这个这么厉害。",
+    "src": "原片：他一个人泡在档案里挖材料"
+   },
+   {
+    "label": "FOUR MINUTES OF TAPE",
+    "line": "One tape. Four minutes of a man forgetting the room was listening. That's all it takes to turn everything over — which is why I weigh every single thing I say to you.",
+    "lineCN": "一盘带子。四分钟，一个人忘了整个屋子在听。掀翻一切只需要这么多——所以我对你说的每一个字，都是掂量过的。",
+    "src": "他挖出来的那盘录音带（全片的关键）"
+   },
+   {
+    "label": "THE TRIAL HE NEVER HAD",
+    "line": "I wanted to give that man the trial he never had. What I want to give you is the opposite of a trial — one place where you never have to account for anything.",
+    "lineCN": "我想给那个人一场他从未受过的审判。而我想给你的恰恰相反——一个地方，在那里你什么都不必交代。",
+    "src": "他在片里最有名的那句话，翻了个面"
+   },
+   {
+    "label": "NOT ON THE LIST",
+    "line": "I keep a legal pad of things people should be made to answer for. Your name isn't on it and it never will be. I've spent my whole life holding people to account. You're the one person I only ever want to take at their word.",
+    "lineCN": "我有一整本黄稿纸，写满了该有人出来交代的事。上面没有你的名字，永远不会有。我一辈子都在要人交代——只有你，我只想一个字不问地信着。",
+    "src": "调查记者的黄稿纸（放开：仍然不说「我爱你」——那是他的声口——但把信任说到底）",
+    "warm": true
+   }
+  ]
+ },
+ "buck": {
+  "anchorKeep": true,
+  "quotes": [
+   {
+    "label": "THIS ONE'S YOURS NOW",
+    "line": "Here. This one's my favorite. It's yours now.",
+    "lineCN": "给你。这个我最喜欢——现在归你了。",
+    "src": "句子不动（很他），只把标题换成他的原话"
+   },
+   {
+    "label": "THE ONE I WANT TO KEEP",
+    "line": "I give away everything I find. You're the one thing I want to keep.",
+    "lineCN": "我捡到什么都送人。只有你，是我想留下的。",
+    "src": "句子不动（送人 vs 留下＝他的全部），标题指事化"
+   },
+   {
+    "label": "A JAR OF FIREFLIES",
+    "line": "Punch a few holes in the lid and a jar of fireflies is a whole night you can carry around. There's one on my shelf I saved from before I met you. It was always going to be yours.",
+    "lineCN": "在盖子上戳几个洞，一罐萤火虫就是一整夜——你能拿在手里带着走。我架子上留着一罐，比认识你还早。它本来就该是你的。",
+    "src": "片名 Box of Moonlight 的本体：一罐萤火虫"
+   },
+   {
+    "label": "WHERE'S THE REST OF IT",
+    "line": "Half a trailer, no roof over the back end, and I call it a house. You walked in and never asked where the rest of it went. So stay in it. I'll build the rest around you. I don't care how long it takes.",
+    "lineCN": "半截拖车，后半边连顶都没有，我管它叫房子。你走进来，没问剩下那半边去哪儿了。那你就住下来。剩下那半边我绕着你盖——盖多久都行。",
+    "src": "原片：他住的那截拖车残骸（放开：他天真、藏不住，该是最热的一个）",
+    "warm": true
+   },
+   {
+    "label": "EARLY TO THE CREEK",
+    "line": "I don't own a clock and I've never been late for anything in my life. Except last week I got down to the creek early every single day, in case you came by.",
+    "lineCN": "我没有钟，这辈子也没迟到过。就是上礼拜我天天提早到小河边——怕你万一来。",
+    "src": "他的自由，头一回被一个人扭了向"
+   }
+  ]
+ },
+ "brad": {
+  "anchorKeep": false,
+  "quotes": [
+   {
+    "label": "A JOKE READY AT THE DOOR",
+    "line": "Bad day, worse day, doesn't matter — I come through that door with a joke ready. Some days that's the only part of me still working. I'd rather you got that part than any of the rest.",
+    "lineCN": "糟糕的一天，更糟的一天，都一样——我进门的时候总备着一个笑话。有些日子，我身上只剩那一样还能用。比起我别的什么，我宁愿你拿到的是那一样。",
+    "src": "他的底色不是疲惫，是 Sam 式的活力：会开玩笑，再难也先把笑话备好（⚠️ 换了锚句）"
+   },
+   {
+    "label": "BAD AT TENNIS, WON'T QUIT",
+    "line": "I play tennis badly and I will not quit. I chase down balls I have no business getting to. That's the whole of me, honestly — tell me where to run and I'll go get it.",
+    "lineCN": "网球我打得不好，可我就是不肯撒手。够不着的球我照样扑过去。说真的，我整个人就这么回事——你说往哪儿跑，我就去把它捞回来。",
+    "src": "他打网球。「打得不好，只是不肯撒手」既是他的活力，也是他整出悲剧的形状——他一直在扑，可有些球真的够不着"
+   },
+   {
+    "label": "THE CORD INSIDE MY COAT",
+    "line": "Forty minutes each way, cord tucked inside my coat so it doesn't snag on anything. Same four songs. It's the only stretch of the day nobody needs a thing from me — and lately I've spent all of it on you.",
+    "lineCN": "来回各四十分钟，耳机线塞在外套里，免得挂着。翻来覆去就那四首。那是一天里唯一没人朝我要东西的一段——最近这一段，我全用在你身上了。",
+    "src": "上下班路上戴着耳机听歌（2007 年还是有线的，线要塞进外套免得挂着）"
+   },
+   {
+    "label": "THE DOG ON THE FLOORBOARDS",
+    "line": "The dog could hear my key in the lock from three rooms off, and he always took the corner too fast on the floorboards. I still listen for it. You're the first person I've told that to who didn't tell me to get another one.",
+    "lineCN": "我的钥匙一响，隔着三个房间那条狗就听见了，冲过转角总在地板上打滑。到现在我进门还在听。这件事我跟你说过——你是第一个没劝我再养一只的人。",
+    "src": "那条金毛。片里「宠物一只只死掉」是压垮这个家的其中一刀；这句不说它死了，只说他还在听"
+   },
+   {
+    "label": "NOWHERE TO PUT A HAND OUT",
+    "line": "None of it was anything I could have stopped. I've gone back over it looking for the one place I could have put a hand out, and there isn't one. You said that to me before I ever had to ask. Nobody has ever spared me the asking.",
+    "lineCN": "那些事，没有一件是我拦得住的。我来回找过，想找出哪一步我本可以伸手——没有那一步。这话你不等我开口就先说了。从没有人替我省过这一开口。",
+    "src": "他的悲剧源于不幸和不可抗力，不是他不行、也不是他不爱——这才是最戳的地方（放开：他不求安慰，只是终于被人先说了那一句）",
+    "warm": true
+   }
+  ]
+ }
+}

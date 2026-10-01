@@ -27,10 +27,6 @@ layout: home
         {% if post.summary %}<p class="c-post__summary">{{ post.summary }}</p>{% endif %}
         <div class="c-post__meta">
           <span>{{ post.date | date: '%Y, %b %d' }}</span>
-          {% capture words %}{{ post.content | number_of_words }}{% endcapture %}
-          {% unless words contains "-" %}
-          <span>{{ words | plus: 250 | divided_by: 250 | append: " min read" }}</span>
-          {% endunless %}
         </div>
       </div>
     </a>

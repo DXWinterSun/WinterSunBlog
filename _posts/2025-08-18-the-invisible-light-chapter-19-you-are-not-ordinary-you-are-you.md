@@ -13,8 +13,6 @@ summary: "他说：你不是普通人——你就是你。"
 tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻, 安放]
 ---
 
-**🕯️ 《The Invisible Light》· 第十九章｜“你不是普通人——你是你。”**
-
 📍**时间设定**：你刚刚听见他亲口说“我喜欢你”。你被幸福打得晕乎乎，低下头慌乱地喃喃自语，仿佛这一切根本不属于你。
 
 你怔住了。

@@ -13,8 +13,8 @@
    "tease",
    "daily"
   ],
-  "chars_count": 29,
-  "lines_count": 651,
+  "chars_count": 30,
+  "lines_count": 672,
   "extras_count": 76,
   "note_v2": "2026-09 FakeTalk 化补层：asks（他问你，含 yes/no 接话）/ short（嗯·没·不知道·哦）/ back（隔了多久回来他先开口，day·days·long·late）/ recall（记得上次的主题）/ repeat（同一句发两遍）/ emoji（只发表情）/ ack（他问了你答别的）。模板里 {pet} = 该角色的称呼，没称呼的自动删掉；{n} = 隔的天数；{cn}/{en} = 上次主题名。"
  },
@@ -3558,6 +3558,117 @@
      "register": "smooth"
     }
    ]
+  },
+  "matty": {
+   "greet": [
+    {
+     "line": "Well, well. Sunday school's up past curfew.",
+     "cn": "哟。主日学校的，过了门禁还没睡。"
+    },
+    {
+     "line": "Hey, May. Grease on my hands, phone on my shoulder. Talk.",
+     "cn": "嘿，May。手上全是机油，电话夹在肩膀上。说吧。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Yeah? Then open the window. I'm three blocks out.",
+     "cn": "是吗？那把窗户打开。我离你三条街。"
+    },
+    {
+     "line": "I've played that tape more than you have, probably. Don't tell anybody.",
+     "cn": "那盘磁带我放的次数大概比你还多。别告诉别人。"
+    }
+   ],
+   "tired": [
+    {
+     "line": "C'mere. Fire escape, you and me, nobody talks. Let the city do the talking.",
+     "cn": "过来。消防梯上，就你和我，谁都不说话。让这座城说。"
+    },
+    {
+     "line": "Who did it? Give me a name. …Kidding. Mostly. Sit down, I'll play you something dumb.",
+     "cn": "谁干的？给我个名字。……开玩笑。大半是。坐下，我弹点傻歌给你听。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Me neither. Neon across the street's been winking at me since two.",
+     "cn": "我也睡不着。对面那块霓虹从两点起就一直冲我眨眼。"
+    },
+    {
+     "line": "Put the tape on. Side A. You get to the end and you're still up, I'm coming to throw a rock.",
+     "cn": "把磁带放上。A 面。放到头你还醒着，我就来丢石子。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night, May. Latch the window. Or don't. Your call.",
+     "cn": "晚安，May。插销拨上。或者别拨。你说了算。"
+    },
+    {
+     "line": "Go to sleep before your old man's alarm does it for you.",
+     "cn": "快睡，别等你爸的闹钟替你决定。"
+    }
+   ],
+   "love": [
+    {
+     "line": "…Say that again. Slower. I'm writing it down.",
+     "cn": "……再说一遍。慢点。我在记。"
+    },
+    {
+     "line": "Careful, Sunday school. Girl says that to me, I start thinking about rings.",
+     "cn": "小心点，主日学校的。女孩跟我说这个，我会开始想戒指的事。"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Rosie's. One a.m. I'll save you the cherries.",
+     "cn": "Rosie's。凌晨一点。樱桃给你留着。"
+    },
+    {
+     "line": "Kick the ladder down. I'll catch you. When haven't I?",
+     "cn": "把梯子踹下来。我接着。我哪回没接住你。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "I know. …No, keep going. I like hearing it from you.",
+     "cn": "我知道。……不，你接着说。我爱听你说。"
+    },
+    {
+     "line": "Tell that to Leon. He says I sing like a garbage disposal.",
+     "cn": "这话去跟 Leon 说。他说我唱歌像垃圾粉碎机。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Keep that up and I'm guessing names again. …Nah. May. It's always gonna be May.",
+     "cn": "再这样我就接着猜名字了。……算了。May。反正永远都是 May。"
+    },
+    {
+     "line": "Mean. I love it. Do it again.",
+     "cn": "真凶。我爱死了。再来。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Pulled a transmission today. Hands still smell like it. Wish you were here to complain.",
+     "cn": "今天拆了个变速箱。手上现在还是那股味。真希望你在这儿嫌我。"
+    },
+    {
+     "line": "Leon broke a string, Dutch broke a stick, I broke nothing. Big day.",
+     "cn": "Leon 断了根弦，Dutch 断了根鼓槌，我什么都没弄断。大日子。"
+    },
+    {
+     "line": "The old man asked who I'm always calling. I told him the Pope.",
+     "cn": "老头问我老给谁打电话。我说教皇。"
+    }
+   ],
+   "register": "playful",
+   "pet": {
+    "en": "May",
+    "cn": "May"
+   }
   }
  },
  "actions": {
@@ -5101,6 +5212,12 @@
     "🥊",
     "🍎",
     "🍬"
+   ],
+   "matty": [
+    "🔧",
+    "🎸",
+    "🍒",
+    "🪜"
    ]
   }
  }

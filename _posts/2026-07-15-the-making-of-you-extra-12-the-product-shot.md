@@ -11,6 +11,7 @@ series_order: 44
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 12
+chapter_kind: extra
 summary: "小号这次挖到的图，你存不下手了——他和她，郎才女貌。"
 ---
 

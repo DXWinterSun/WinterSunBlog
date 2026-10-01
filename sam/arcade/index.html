@@ -1,0 +1,1020 @@
+---
+layout: home
+title: 游戏厅
+nav_active: sam
+description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册。五十四个 Sam 都在里面。"
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
+<style>
+/* ──────────────────────────────────────────────────────────────
+   Sam Arcade · 页面专属样式
+   皮肤：糖纸粗描边（Winter 2026-09-20 选定）——网点底、两道描边、硬阴影。
+   描边色取自当前主题的 --c-ink，所以浅色是黑描边、暗色是奶白描边，
+   主色仍然跟着「换个心情」走，不会跟站头站尾打架。
+   ────────────────────────────────────────────────────────────── */
+.c-arc {
+  --a-ink:   var(--c-ink);
+  --a-dot:   rgba(23, 19, 16, .10);
+  --a-sans:  "Archivo Black", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --a-body:  "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --a-shadow: 6px;
+  position: relative;
+  margin: 1rem auto 4rem;
+  padding: 1.4rem 1.2rem 2.4rem;
+  border-radius: 18px;
+  font-family: var(--a-body);
+  background-color: var(--c-bg-soft);
+  background-image: radial-gradient(var(--a-dot) 1.5px, transparent 1.6px);
+  background-size: 11px 11px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .c-arc { --a-dot: rgba(255,255,255,.085); } }
+:root[data-theme="dark"] .c-arc { --a-dot: rgba(255,255,255,.085); }
+
+.c-arc__head { text-align: center; padding: 1.6rem 0 1.4rem; }
+.c-arc__eyebrow {
+  font-family: var(--a-sans); letter-spacing: .24em; text-transform: uppercase;
+  font-size: .72rem; color: var(--a-ink); opacity: .55;
+}
+.c-arc__title {
+  font-family: var(--a-sans); font-weight: 900; margin: .5rem 0 .6rem;
+  font-size: 2.9rem; line-height: 1.05; color: var(--c-ink); letter-spacing: -.01em;
+  text-shadow: 4px 4px 0 var(--c-accent);
+}
+.c-arc__lede { color: var(--c-muted); font-size: .94rem; margin: 0 auto; max-width: 30em; font-weight: 500; }
+.c-arc__wallet {
+  display: inline-flex; align-items: center; gap: .5rem; margin-top: 1.2rem;
+  padding: .45rem 1rem; border: 2px solid var(--a-ink); border-radius: 999px;
+  background: var(--c-paper); font-size: .85rem; color: var(--c-ink); font-weight: 700;
+  box-shadow: 4px 4px 0 var(--a-ink);
+}
+.c-arc__wallet b { font-family: ui-monospace, Menlo, monospace; color: var(--c-accent); font-size: 1.05rem; }
+.c-arc__wallet.is-bump { animation: arcBump .45s cubic-bezier(.3,1.5,.5,1); }
+
+/* ── 机器选单 ── */
+.c-arc__menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; margin-top: 1.6rem; }
+.c-arc-machine {
+  position: relative; text-align: left; padding: 1.6rem 1.25rem 1.25rem; overflow: hidden;
+  background: var(--c-paper); border: 2px solid var(--a-ink); border-radius: 12px;
+  box-shadow: var(--a-shadow) var(--a-shadow) 0 var(--a-ink); cursor: pointer;
+  transition: transform .14s ease, box-shadow .14s ease;
+  font: inherit; color: inherit; width: 100%;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+}
+.c-arc-machine::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 9px;
+  background: var(--c-accent); border-bottom: 2px solid var(--a-ink); border-radius: 10px 10px 0 0;
+}
+.c-arc-machine:hover, .c-arc-machine:focus-visible {
+  transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--c-accent);
+}
+.c-arc-machine:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--a-ink); }
+.c-arc-machine__num { font-family: var(--a-sans); font-size: .62rem; letter-spacing: .14em; color: var(--c-ink); opacity: .42; }
+.c-arc-machine__title { font-size: 1.28rem; font-weight: 900; color: var(--c-ink); margin: .35rem 0 .5rem; letter-spacing: .01em; }
+.c-arc-machine__desc { font-size: .86rem; color: var(--c-muted); line-height: 1.7; margin: 0; }
+.c-arc-machine__meta { margin-top: .85rem; font-size: .76rem; color: var(--c-accent); font-weight: 700; letter-spacing: .02em; }
+.c-arc-machine.is-dark { opacity: .55; cursor: default; }
+.c-arc-machine.is-dark::before { background: var(--c-muted-soft); }
+.c-arc-machine.is-dark:hover { transform: none; box-shadow: var(--a-shadow) var(--a-shadow) 0 var(--a-ink); }
+
+/* ── 舞台通用 ── */
+.c-arc__stage { margin-top: 1.5rem; }
+.c-arc-panel {
+  position: relative; background: var(--c-paper); border: 2px solid var(--a-ink);
+  border-radius: 14px; box-shadow: 8px 8px 0 var(--a-ink); padding: 1.5rem 1.35rem 1.7rem;
+}
+.c-arc-panel::after {
+  content: ""; position: absolute; inset: -2px; border-radius: 14px; pointer-events: none;
+  opacity: 0; background: currentColor;
+}
+.c-arc-panel.is-right::after { animation: arcFlash .5s ease; color: var(--c-status-green); }
+.c-arc-panel.is-wrong::after { animation: arcFlash .5s ease; color: var(--c-status-red); }
+.c-arc-panel.is-shake { animation: arcShake .42s cubic-bezier(.36,.07,.19,.97); }
+.c-arc-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.1rem; }
+.c-arc-bar__left { display: flex; align-items: baseline; gap: .8rem; flex-wrap: wrap; }
+.c-arc-bar__name { font-size: 1.12rem; font-weight: 900; color: var(--c-ink); }
+.c-arc-bar__stat { font-size: .8rem; color: var(--c-muted); font-weight: 600; }
+.c-arc-bar__stat b { font-family: ui-monospace, Menlo, monospace; color: var(--c-accent); font-size: 1rem; display: inline-block; }
+.c-arc-bar__stat b.is-bump { animation: arcBump .4s cubic-bezier(.3,1.6,.5,1); }
+.c-arc-bar__coins { margin-left: auto; }
+.c-arc-bar__coins.is-bump { animation: arcBump .45s cubic-bezier(.3,1.5,.5,1); }
+.c-arc-btn {
+  font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; padding: .48rem 1.1rem;
+  border-radius: 999px; border: 2px solid var(--a-ink); background: var(--c-paper); color: var(--c-ink);
+  box-shadow: 3px 3px 0 var(--a-ink); transition: transform .12s ease, box-shadow .12s ease;
+}
+.c-arc-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--a-ink); color: var(--c-ink); }
+.c-arc-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--a-ink); }
+.c-arc-btn--primary { background: var(--c-accent); color: var(--c-ink); }
+.c-arc-btn[disabled] { opacity: .4; cursor: not-allowed; transform: none; box-shadow: 3px 3px 0 var(--a-ink); }
+.c-arc-actions { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.4rem; }
+
+/* ── ① 猜台词 ── */
+.c-arc-quiz__timer { height: 8px; border: 2px solid var(--a-ink); border-radius: 999px; overflow: hidden; margin-bottom: 1.5rem; background: var(--c-bg-soft); }
+.c-arc-quiz__timer i { display: block; height: 100%; width: 100%; background: var(--c-accent); transform-origin: left center; }
+.c-arc-quiz__line {
+  font-family: var(--a-body); font-weight: 900; font-size: 1.5rem; line-height: 1.45;
+  color: var(--c-ink); text-align: center; margin: .4rem auto 0; max-width: 22em;
+}
+.c-arc-quiz__cn { text-align: center; color: var(--c-muted); font-size: .95rem; margin: .8rem auto 1.5rem; max-width: 26em; font-weight: 500; }
+.c-arc-quiz__opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .8rem; }
+.c-arc-opt {
+  font: inherit; text-align: left; cursor: pointer; padding: .8rem .95rem;
+  background: var(--c-paper); border: 2px solid var(--a-ink); border-radius: 10px;
+  box-shadow: 3px 3px 0 var(--a-ink); color: var(--c-ink);
+  transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+  display: flex; align-items: center; gap: .6rem;
+}
+.c-arc-opt:hover:not([disabled]) { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--c-accent); }
+.c-arc-opt__dot { width: 12px; height: 12px; border-radius: 50%; flex: none; border: 2px solid var(--a-ink); }
+.c-arc-opt__key {
+  font-family: ui-monospace, Menlo, monospace; font-size: .6rem; font-style: normal; font-weight: 700;
+  color: var(--c-ink); border: 2px solid var(--a-ink); border-radius: 4px;
+  padding: 0 .28rem; flex: none; line-height: 1.5; opacity: .6;
+}
+.c-arc-opt__name { font-weight: 900; font-size: .96rem; display: block; }
+.c-arc-opt__film { font-size: .74rem; color: var(--c-muted); display: block; margin-top: .14rem; font-weight: 500; }
+.c-arc-opt.is-right { background: var(--c-status-green); color: #fff; box-shadow: 3px 3px 0 var(--a-ink); animation: arcStamp .4s cubic-bezier(.3,1.5,.5,1); }
+.c-arc-opt.is-right .c-arc-opt__film { color: rgba(255,255,255,.82); }
+.c-arc-opt.is-wrong { background: var(--c-status-red); color: #fff; opacity: .9; }
+.c-arc-opt.is-wrong .c-arc-opt__film { color: rgba(255,255,255,.8); }
+.c-arc-opt[disabled] { cursor: default; transform: none; }
+.c-arc-quiz__reveal { margin-top: 1.3rem; text-align: center; font-size: .88rem; color: var(--c-muted); min-height: 2.6em; font-weight: 600; }
+.c-arc-quiz__reveal b { color: var(--c-ink); }
+.c-arc-quiz__reveal a { color: var(--c-accent); border-bottom: 2px solid var(--c-accent); white-space: nowrap; }
+.c-arc-pop {
+  display: inline-block; font-family: ui-monospace, Menlo, monospace; color: var(--c-accent);
+  font-size: 1.05rem; font-weight: 700; animation: arcPop .55s cubic-bezier(.2,1.4,.4,1);
+}
+
+/* ── ② 翻牌 ── */
+.c-arc-grid { display: grid; gap: .5rem; grid-template-columns: repeat(4, 1fr); }
+@media (min-width: 680px) { .c-arc-grid { gap: .6rem; grid-template-columns: repeat(5, 1fr); } }
+.c-arc-card { perspective: 800px; aspect-ratio: 3 / 4; border: 0; background: none; padding: 0; cursor: pointer; }
+.c-arc-card__in { position: relative; width: 100%; height: 100%; transition: transform .45s cubic-bezier(.3,.8,.4,1); transform-style: preserve-3d; }
+.c-arc-card.is-open .c-arc-card__in, .c-arc-card.is-done .c-arc-card__in { transform: rotateY(180deg); }
+.c-arc-card.is-done { cursor: default; }
+/* ⚠️ 变淡要加在 .c-arc-card 上，不能加在 .c-arc-card__in 上：
+   那一层带着 transform-style: preserve-3d，一旦 opacity != 1 就会被压平，
+   backface-visibility 失效，配对成功的牌会露出翻转的牌背。*/
+.c-arc-card.is-done { opacity: .72; }
+.c-arc-card.is-hit { animation: arcBump .45s cubic-bezier(.3,1.5,.5,1); }
+.c-arc-card.is-miss { animation: arcShake .4s cubic-bezier(.36,.07,.19,.97); }
+.c-arc-card__face {
+  position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border: 2px solid var(--a-ink); border-radius: 8px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: .4rem; text-align: center; overflow: hidden;
+}
+.c-arc-card__back { background: var(--c-paper); color: var(--c-ink); font-family: var(--a-sans); font-size: .6rem; letter-spacing: .12em; }
+.c-arc-card__back span { border: 2px solid currentColor; border-radius: 4px; padding: .1rem .3rem; opacity: .5; }
+.c-arc-card__front { transform: rotateY(180deg); background: var(--c-paper); }
+.c-arc-card__nm { font-weight: 900; font-size: .86rem; line-height: 1.25; }
+.c-arc-card__yr { font-family: ui-monospace, Menlo, monospace; font-size: .6rem; opacity: .75; margin-top: .25rem; letter-spacing: .08em; }
+.c-arc-card__qt { font-size: .72rem; line-height: 1.5; color: var(--c-ink-soft); font-weight: 600; }
+.c-arc-card__lb { font-family: var(--a-sans); font-size: .6rem; line-height: 1.4; letter-spacing: .03em; color: var(--c-ink); }
+/* 四色色卡牌面：他的 bg / accent / text / muted 排成 2×2（别给它 position，
+   那会顶掉 .c-arc-card__face 的 absolute，整张牌塌成 0 高）*/
+.c-arc-card__front.is-swatch { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+.c-arc-card__front.is-swatch i { display: block; width: 100%; height: 100%; }
+.c-arc-card__nameplate {
+  position: absolute; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.74); color: #fff;
+  font-family: var(--a-body); font-weight: 900; font-size: .62rem; line-height: 1.25;
+  padding: .28rem .15rem; animation: arcPop .4s ease;
+}
+.c-arc-diff { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.c-arc-modes { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin: .6rem 0 1rem; }
+.c-arc-mode { font: inherit; font-size: .8rem; font-weight: 700; cursor: pointer; padding: .4rem .85rem;
+  border: 2px solid var(--a-ink); border-radius: 999px; background: var(--c-paper); color: var(--c-ink);
+  box-shadow: 3px 3px 0 var(--a-ink); transition: transform .12s ease, box-shadow .12s ease; }
+.c-arc-mode:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--a-ink); }
+.c-arc-mode.is-on { background: var(--c-accent); }
+.c-arc-label { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--c-muted);
+  font-weight: 700; text-align: center; margin: 1.2rem 0 0; }
+
+/* ── ③ 扭蛋 / 集卡册 ── */
+.c-arc-gacha { text-align: center; }
+.c-arc-cap { margin: .5rem auto 1.3rem; max-width: 340px; }
+.c-arc-bigcard {
+  position: relative; overflow: hidden;
+  border: 2px solid var(--a-ink); border-radius: 12px; box-shadow: 7px 7px 0 var(--a-ink);
+  padding: 1.6rem 1.2rem; text-align: center; min-height: 250px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+  animation: arcDrop .6s cubic-bezier(.2,.9,.3,1.3);
+}
+/* 抽到新角色时那道扫光：⚠️ 底色必须 opacity: 0、且关键帧自己收尾把它淡掉。
+   只写 transform 的话，动画一结束属性就回到初始值，那道光会停在卡面正中不走
+   （Winter 2026-09-20：「反光的质感一直留着，看起来有点假」）。*/
+.c-arc-bigcard.is-new::before,
+.c-arc-bigcard.is-shine::before {
+  content: ""; position: absolute; inset: -40% -120%; pointer-events: none; opacity: 0;
+  background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.55) 50%, transparent 62%);
+  animation: arcSheen 1s .35s ease-out;
+}
+/* 点一下卡片＝把它拿起来对着光照一下（Winter 2026-09-20 提的） */
+.c-arc-bigcard[data-shine] { cursor: pointer; }
+.c-arc-bigcard.is-shine { animation: arcLift .9s ease; }
+.c-arc-bigcard__yr { font-family: ui-monospace, Menlo, monospace; font-size: .68rem; letter-spacing: .2em; opacity: .8; }
+.c-arc-bigcard__nm { font-family: var(--a-sans); font-size: 1.5rem; line-height: 1.2; }
+.c-arc-bigcard__fm { font-size: .8rem; opacity: .85; font-weight: 600; }
+.c-arc-bigcard__qt { font-family: "EB Garamond", Georgia, serif; font-style: italic; font-size: .98rem; line-height: 1.55; margin-top: .6rem; max-width: 22em; }
+.c-arc-bigcard__cn { font-size: .8rem; opacity: .85; max-width: 22em; }
+.c-arc-bigcard__dup { font-family: ui-monospace, Menlo, monospace; font-size: .7rem; letter-spacing: .1em; opacity: .85; margin-top: .5rem; }
+.c-arc-album { display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: .45rem; margin-top: 1.5rem; }
+.c-arc-slot {
+  aspect-ratio: 3 / 4; border-radius: 7px; border: 2px solid var(--a-ink); background: var(--c-bg-soft);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; padding: .2rem;
+  font-family: ui-monospace, Menlo, monospace; font-size: .55rem; color: var(--c-muted-soft);
+  cursor: default; overflow: hidden; text-align: center;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.c-arc-slot.is-got { cursor: pointer; box-shadow: 3px 3px 0 var(--a-ink); }
+.c-arc-slot.is-got:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--a-ink); }
+.c-arc-slot.is-fresh { animation: arcBump .5s cubic-bezier(.3,1.5,.5,1); }
+.c-arc-slot__nm { font-family: var(--a-body); font-weight: 900; font-size: .5rem; line-height: 1.18; padding: 0 .15rem; word-break: break-word; }
+.c-arc-progress { font-family: ui-monospace, Menlo, monospace; font-size: .82rem; color: var(--c-muted); margin-top: 1.5rem; }
+.c-arc-progress b { color: var(--c-accent); font-size: 1rem; }
+.c-arc-note { font-size: .84rem; color: var(--c-muted); line-height: 1.8; margin: .9rem auto 0; max-width: 34em; font-weight: 500; }
+.c-arc-hidden {
+  margin-top: 1.5rem; padding: 1.4rem; border: 2px dashed var(--c-accent); border-radius: 12px;
+  font-family: "EB Garamond", Georgia, serif; font-size: 1.04rem; line-height: 1.85; color: var(--c-ink);
+}
+
+/* ── 结算 ── */
+.c-arc-result { text-align: center; padding: 1rem 0 .5rem; }
+.c-arc-result__score {
+  font-family: var(--a-sans); font-size: 3.6rem; color: var(--c-accent); line-height: 1;
+  text-shadow: 3px 3px 0 var(--a-ink); animation: arcStamp .5s cubic-bezier(.3,1.4,.5,1);
+}
+.c-arc-result__label { font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; color: var(--c-muted); margin-top: .7rem; font-weight: 700; }
+.c-arc-result__rows { margin: 1.5rem auto 0; max-width: 24em; font-size: .88rem; color: var(--c-ink-soft); font-weight: 600; }
+.c-arc-result__row { display: flex; justify-content: space-between; padding: .45rem 0; border-bottom: 2px dotted var(--c-line-strong); }
+.c-arc-result__row span:last-child { font-family: ui-monospace, Menlo, monospace; color: var(--c-accent); }
+.c-arc-misses { margin-top: 1.3rem; font-size: .84rem; color: var(--c-muted); line-height: 1.9; font-weight: 600; }
+.c-arc-misses a { color: var(--c-accent); border-bottom: 2px solid var(--c-accent); }
+.c-arc-loading { text-align: center; color: var(--c-muted); padding: 3rem 0; font-size: .9rem; }
+
+/* ── 动效 ── */
+@keyframes arcPop   { from { opacity: 0; transform: translateY(10px) scale(.85); } to { opacity: 1; transform: none; } }
+@keyframes arcBump  { 0% { transform: scale(1); } 45% { transform: scale(1.14); } 100% { transform: scale(1); } }
+@keyframes arcStamp { 0% { transform: scale(1.35); opacity: 0; } 60% { transform: scale(.96); opacity: 1; } 100% { transform: scale(1); } }
+@keyframes arcFlash { 0% { opacity: 0; } 25% { opacity: .22; } 100% { opacity: 0; } }
+@keyframes arcShake { 10%, 90% { transform: translateX(-2px); } 20%, 80% { transform: translateX(4px); } 30%, 50%, 70% { transform: translateX(-7px); } 40%, 60% { transform: translateX(7px); } }
+@keyframes arcDrop  { from { opacity: 0; transform: translateY(-22px) rotate(-4deg) scale(.88); } to { opacity: 1; transform: none; } }
+@keyframes arcLift {
+  0%   { transform: none; }
+  28%  { transform: translateY(-5px) rotate(-.8deg) scale(1.025); }
+  100% { transform: none; }
+}
+@keyframes arcSheen {
+  0%   { transform: translateX(-60%); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translateX(60%); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-arc-panel.is-shake, .c-arc-card.is-miss, .c-arc-card.is-hit,
+  .c-arc-result__score, .c-arc-bigcard, .c-arc-opt.is-right, .c-arc-slot.is-fresh { animation: none !important; }
+  .c-arc-bigcard.is-new::before, .c-arc-bigcard.is-shine::before { display: none; }
+  .c-arc-bigcard.is-shine { animation: none !important; }
+}
+
+/* ── 手机（≤640px）：少留白、牌放长、字微调 ──────────────────
+   ⚠️ 必须写在整份样式的最后：下面这些选择器跟前面的基础规则同权重，
+   写在前面会被后面的原样盖掉（改了半天没反应就是这个原因）。 */
+/* 手机上少留一点白——外面的容器已经收到 16px 了，这里再厚就没地方摆牌 */
+@media (max-width: 640px) {
+  /* 纵向也收：手机屏本来就矮，站头 + 浏览器工具条已经吃掉一截 */
+  .c-arc { padding: .7rem .5rem 1.4rem; border-radius: 12px; margin-top: .4rem; }
+  .c-arc-panel { padding: 1rem .7rem 1.2rem; }
+  .c-arc__head { padding: 1rem 0 .9rem; }
+  .c-arc__title { font-size: 2.3rem; margin: .35rem 0 .45rem; }
+  .c-arc__wallet { margin-top: .8rem; }
+  .c-arc__menu { gap: .8rem; margin-top: 1.1rem; }
+  .c-arc-machine { padding: 1.3rem 1rem 1rem; }
+  .c-arc-modes { gap: .4rem; margin: .35rem 0 .7rem; }
+  .c-arc-mode { font-size: .76rem; padding: .34rem .72rem; }
+  .c-arc-label { margin-top: .8rem; }
+  .c-arc-diff { gap: .45rem; margin-bottom: .9rem; }
+  .c-arc-actions { gap: .5rem; margin-top: 1rem; }
+  .c-arc-note { line-height: 1.7; margin-top: .6rem; }
+  .c-arc-bar { margin-bottom: .8rem; }
+  .c-arc-quiz__line { font-size: 1.26rem; line-height: 1.4; }
+  .c-arc-quiz__cn { font-size: .9rem; margin: .7rem auto 1.1rem; }
+  .c-arc-quiz__opts { gap: .6rem; }
+  .c-arc-opt { padding: .68rem .8rem; }
+  /* 一行四张牌时每张只有 70 出头，牌要长一点、字要小一点，
+     否则名字和台词标题会被挤掉——那正是 Winter 最烦的毛病 */
+  .c-arc-grid { gap: .42rem; }
+  .c-arc-card { aspect-ratio: 5 / 7.4; }
+  .c-arc-card__nm { font-size: .7rem; line-height: 1.2; }
+  .c-arc-card__lb { font-size: .52rem; line-height: 1.3; }
+  .c-arc-card__qt { font-size: .6rem; line-height: 1.35; }
+  .c-arc-card__yr { font-size: .54rem; margin-top: .18rem; }
+  .c-arc-card__face { padding: .25rem .15rem; }
+}
+</style>
+
+<section class="c-arc">
+  <header class="c-arc__head" id="arc-head">
+    <div class="c-arc__eyebrow">Sam Arcade</div>
+    <h1 class="c-arc__title">游戏厅</h1>
+    <p class="c-arc__lede">五十四个人全在这儿了。挑一台机器，投币不要钱。</p>
+    <div class="c-arc__wallet" id="arc-wallet">🎞 胶片币 <b id="arc-coins">0</b></div>
+  </header>
+
+  <div class="c-arc__menu" id="arc-menu"></div>
+  <div class="c-arc__stage" id="arc-stage" hidden></div>
+</section>
+
+<script>
+(function () {
+  // ⚠️ 别用 window.SITE_BASEURL：它在页面底部的 javascripts.html 里才赋值，
+  // 而本段脚本在正文里、跑得更早，读到的永远是 undefined（线上就是这么
+  // 白屏「没能把台词库读进来」的）。直接用 Liquid 把 baseurl 印进来。
+  var BASE  = '{{ site.baseurl }}';
+  var KEY   = 'ws-arcade-v1';
+  var menu  = document.getElementById('arc-menu');
+  var stage = document.getElementById('arc-stage');
+  var coinEl = document.getElementById('arc-coins');
+  var walletEl = document.getElementById('arc-wallet');
+  var headEl = document.getElementById('arc-head');
+  var CHARS = [];
+
+  /* ── 本机存档 ────────────────────────────────────────────── */
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; }
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+  var S = load();
+  S.coins = S.coins || 0;
+  S.album = S.album || {};
+  S.best  = S.best  || {};
+  S.daily = S.daily || {};
+  S.free  = S.free  || {};
+  S.matchMode = S.matchMode || 'twin';
+
+  function addCoins(n) { S.coins = Math.max(0, S.coins + n); save(); paintCoins(true); }
+  function paintCoins(bump) {
+    coinEl.textContent = S.coins;
+    // 开局时头部收起来了，币数改由面板里那枚小筹码显示
+    var chip = stage.querySelector('#arc-coins-chip');
+    if (chip) chip.textContent = S.coins;
+    if (bump) { replay(walletEl, 'is-bump'); if (chip) replay(chip.parentNode, 'is-bump'); }
+  }
+  function replay(el, cls) {
+    if (!el) return;
+    el.classList.remove(cls);
+    void el.offsetWidth;
+    el.classList.add(cls);
+  }
+
+  function today() {
+    var d = new Date();
+    return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+  }
+
+  /* ── 随机数（可播种，用来做「今日十题」） ───────────────── */
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      var t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function seedFrom(str) {
+    var h = 2166136261;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  }
+  function shuffle(arr, rand) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(rand() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  function shortName(n) { return String(n).replace(/\s*"[^"]*"\s*/g, ' ').trim(); }
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function auHref(c) { return BASE.replace(/\/$/, '') + c.auLink.replace(/^\/WinterSunBlog/, ''); }
+
+  // 分数从旧值滚到新值
+  function countTo(el, from, to, ms) {
+    if (!el) return;
+    var t0 = null;
+    function step(t) {
+      if (t0 === null) t0 = t;
+      var k = Math.min(1, (t - t0) / ms);
+      el.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(step);
+    }
+    replay(el, 'is-bump');
+    requestAnimationFrame(step);
+  }
+
+  /* ── 机器选单 ────────────────────────────────────────────── */
+  var MACHINES = [
+    { id: 'quiz',  num: '01', title: '这句是谁说的',  desc: '屏幕上弹一句他说过的话，四个人里挑一个。有倒计时，连着答对分数翻倍。', meta: '十题一局 · 每答对一题得一枚币' },
+    { id: 'match', num: '02', title: '翻牌对上号',    desc: '牌全扣着，翻两张配成一对。配颜色、颜色配人、人配电影、人配台词，四种玩法随你挑。', meta: '四种玩法 × 三种难度 · 通关得币' },
+    { id: 'gacha', num: '03', title: '扭蛋集卡册',    desc: '拿币换一次扭蛋，抽到谁就收进册子。五十四格，集满了有东西等着你。', meta: '每天两次免费 · 之后三枚币一次' },
+    { id: 'story', num: '04', title: '文字小剧场',    desc: '这台还没通电——剧情和台词得你来写。想写了随时叫我，我把机器装好。', meta: '敬请期待', dark: true }
+  ];
+
+  function renderMenu() {
+    menu.innerHTML = MACHINES.map(function (m) {
+      return '<button class="c-arc-machine' + (m.dark ? ' is-dark' : '') + '" data-game="' + m.id + '"' + (m.dark ? ' disabled' : '') + '>' +
+        '<div class="c-arc-machine__num">MACHINE ' + m.num + '</div>' +
+        '<div class="c-arc-machine__title">' + m.title + '</div>' +
+        '<p class="c-arc-machine__desc">' + m.desc + '</p>' +
+        '<div class="c-arc-machine__meta">' + m.meta + '</div>' +
+      '</button>';
+    }).join('');
+  }
+
+  menu.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-game]');
+    if (!btn || btn.disabled) return;
+    var g = btn.getAttribute('data-game');
+    if (g === 'quiz')  openQuizIntro();
+    if (g === 'match') openMatchIntro();
+    if (g === 'gacha') openGacha();
+  });
+
+  function showStage(html) {
+    stage.hidden = false;
+    stage.innerHTML = '<div class="c-arc-panel">' + html + '</div>';
+    // 手机屏就那么高：进了游戏就把大标题和四张机器卡收起来，别让人每次都先划过一屏半
+    headEl.hidden = true;
+    menu.hidden = true;
+    // 币数跟着挪进面板那一行
+    var left = stage.querySelector('.c-arc-bar__left');
+    if (left && !left.querySelector('#arc-coins-chip')) {
+      left.insertAdjacentHTML('beforeend',
+        '<span class="c-arc-bar__stat c-arc-bar__coins">🎞 <b id="arc-coins-chip">' + S.coins + '</b></span>');
+    }
+    var y = stage.getBoundingClientRect().top + window.pageYOffset - 70;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+  function panel() { return stage.querySelector('.c-arc-panel'); }
+  function closeStage() {
+    stage.hidden = true; stage.innerHTML = '';
+    headEl.hidden = false;
+    menu.hidden = false;
+    window.scrollTo({ top: menu.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     ① 这句是谁说的
+     ══════════════════════════════════════════════════════════ */
+  var Q = null;
+
+  function openQuizIntro() {
+    var d = S.daily.quiz || {};
+    var doneToday = d.date === today();
+    showStage(
+      '<div class="c-arc-bar">' +
+        '<div class="c-arc-bar__left"><span class="c-arc-bar__name">这句是谁说的</span>' +
+        '<span class="c-arc-bar__stat">历史最好 <b>' + (S.best.quiz || 0) + '</b> 分</span></div>' +
+        '<button class="c-arc-btn" data-act="close">回选单</button>' +
+      '</div>' +
+      '<p class="c-arc-note" style="text-align:center">' +
+        '屏幕上会弹出一句他说过的话——猜猜是哪个角色说的。十题一局，每题十五秒，' +
+        '连着答对分数会往上翻。答错也没关系，会告诉你这句出自哪儿。</p>' +
+      '<div class="c-arc-actions">' +
+        '<button class="c-arc-btn c-arc-btn--primary" data-act="q-daily">' +
+          (doneToday ? '今日十题 · 已玩过（' + d.score + ' 分）' : '今日十题') + '</button>' +
+        '<button class="c-arc-btn" data-act="q-free">随便玩一局</button>' +
+      '</div>' +
+      (doneToday ? '<p class="c-arc-note" style="text-align:center">今天这十题你已经玩过了，再玩不再计入纪录——但照样得币。</p>' : '')
+    );
+  }
+
+  function pickQuestions(rand, n) {
+    var pool = shuffle(CHARS, rand).slice(0, n);
+    return pool.map(function (c) {
+      var q = c.quotes[Math.floor(rand() * c.quotes.length)];
+      var others = shuffle(CHARS.filter(function (x) { return x.id !== c.id; }), rand).slice(0, 3);
+      return { char: c, quote: q, opts: shuffle(others.concat([c]), rand) };
+    });
+  }
+
+  function startQuiz(mode) {
+    var rand = mode === 'daily' ? mulberry32(seedFrom('quiz' + today())) : mulberry32(Math.floor(Math.random() * 1e9));
+    Q = { mode: mode, qs: pickQuestions(rand, 10), i: 0, score: 0, right: 0, streak: 0, bestStreak: 0, misses: [], timer: null };
+    paintQuestion();
+  }
+
+  function paintQuestion() {
+    var q = Q.qs[Q.i];
+    showStage(
+      '<div class="c-arc-bar">' +
+        '<div class="c-arc-bar__left">' +
+          '<span class="c-arc-bar__name">第 ' + (Q.i + 1) + ' / 10 题</span>' +
+          '<span class="c-arc-bar__stat">得分 <b id="q-score">' + Q.score + '</b></span>' +
+          '<span class="c-arc-bar__stat" id="q-streak">' + (Q.streak > 1 ? '连对 ' + Q.streak + ' 题' : '') + '</span>' +
+        '</div>' +
+        '<button class="c-arc-btn" data-act="q-quit">不玩了</button>' +
+      '</div>' +
+      '<div class="c-arc-quiz__timer"><i id="q-bar"></i></div>' +
+      '<p class="c-arc-quiz__line">' + esc(q.quote.line) + '</p>' +
+      '<p class="c-arc-quiz__cn">' + esc(q.quote.lineCN) + '</p>' +
+      '<div class="c-arc-quiz__opts" id="q-opts">' +
+        q.opts.map(function (o, k) {
+          return '<button class="c-arc-opt" data-pick="' + k + '">' +
+            '<i class="c-arc-opt__dot" style="background:' + o.accent + '"></i>' +
+            '<i class="c-arc-opt__key" aria-hidden="true">' + (k + 1) + '</i>' +
+            '<span><span class="c-arc-opt__name">' + esc(o.name) + '</span>' +
+            '<span class="c-arc-opt__film">' + esc(o.filmCN || o.film) + ' · ' + esc(o.year) + '</span></span>' +
+          '</button>';
+        }).join('') +
+      '</div>' +
+      '<div class="c-arc-quiz__reveal" id="q-reveal"></div>'
+    );
+    runTimer();
+  }
+
+  function runTimer() {
+    var bar = document.getElementById('q-bar');
+    var total = 15000, start = Date.now();
+    bar.style.transition = 'transform ' + (total / 1000) + 's linear';
+    requestAnimationFrame(function () { bar.style.transform = 'scaleX(0)'; });
+    Q.deadline = start + total;
+    Q.timer = setTimeout(function () { answer(-1); }, total);
+  }
+
+  function answer(k) {
+    if (!Q || Q.answered) return;
+    Q.answered = true;
+    clearTimeout(Q.timer);
+    var bar = document.getElementById('q-bar');
+    if (bar) { bar.style.transition = 'none'; bar.style.transform = getComputedStyle(bar).transform; }
+    var q = Q.qs[Q.i];
+    var left = Math.max(0, Q.deadline - Date.now()) / 1000;
+    var right = k >= 0 && q.opts[k].id === q.char.id;
+    var gained = 0, before = Q.score;
+
+    if (right) {
+      Q.streak++; Q.right++;
+      Q.bestStreak = Math.max(Q.bestStreak, Q.streak);
+      gained = 100 + Math.round(left * 10) + (Q.streak - 1) * 25;
+      Q.score += gained;
+      addCoins(1);
+    } else {
+      Q.streak = 0;
+      Q.misses.push(q.char);
+    }
+
+    var pnl = panel();
+    replay(pnl, right ? 'is-right' : 'is-wrong');
+    if (!right) replay(pnl, 'is-shake');
+
+    var opts = document.querySelectorAll('#q-opts .c-arc-opt');
+    Array.prototype.forEach.call(opts, function (btn, idx) {
+      btn.disabled = true;
+      if (q.opts[idx].id === q.char.id) btn.classList.add('is-right');
+      else if (idx === k) btn.classList.add('is-wrong');
+    });
+
+    var c = q.char;
+    var reveal = document.getElementById('q-reveal');
+    var link = c.auLink ? ' · <a href="' + auHref(c) + '">去看他的 AU</a>' : '';
+    reveal.innerHTML =
+      (right ? '<span class="c-arc-pop">+' + gained + '　' + (Q.streak > 1 ? '连对 ' + Q.streak + ' 题' : '答对了') + '</span><br>' : '') +
+      '是 <b>' + esc(c.name) + '</b> · ' + esc(c.filmCN || c.film) + '（' + esc(c.year) + '）' + link;
+
+    countTo(document.getElementById('q-score'), before, Q.score, 520);
+    var st = document.getElementById('q-streak'); if (st) st.textContent = Q.streak > 1 ? '连对 ' + Q.streak + ' 题' : '';
+
+    setTimeout(function () {
+      if (!Q) return;
+      Q.answered = false;
+      Q.i++;
+      if (Q.i >= Q.qs.length) finishQuiz(); else paintQuestion();
+    }, right ? 1900 : 2900);
+  }
+
+  function finishQuiz() {
+    var perfect = Q.right === Q.qs.length;
+    if (perfect) addCoins(5);
+    var isRecord = Q.score > (S.best.quiz || 0);
+    if (isRecord) { S.best.quiz = Q.score; }
+    if (Q.mode === 'daily' && (S.daily.quiz || {}).date !== today()) {
+      S.daily.quiz = { date: today(), score: Q.score };
+    }
+    save();
+
+    var misses = Q.misses.filter(function (c, i, a) { return a.indexOf(c) === i; });
+    var final = Q.score;
+    showStage(
+      '<div class="c-arc-result">' +
+        '<div class="c-arc-result__score" id="r-score">0</div>' +
+        '<div class="c-arc-result__label">' + (isRecord ? '新纪录' : '本局得分') + '</div>' +
+        '<div class="c-arc-result__rows">' +
+          '<div class="c-arc-result__row"><span>答对</span><span>' + Q.right + ' / ' + Q.qs.length + '</span></div>' +
+          '<div class="c-arc-result__row"><span>最长连对</span><span>' + Q.bestStreak + ' 题</span></div>' +
+          '<div class="c-arc-result__row"><span>赚到胶片币</span><span>+' + (Q.right + (perfect ? 5 : 0)) + '</span></div>' +
+          '<div class="c-arc-result__row"><span>历史最好</span><span>' + (S.best.quiz || 0) + ' 分</span></div>' +
+        '</div>' +
+        (misses.length ? '<p class="c-arc-misses">这几位你还不太熟：' +
+          misses.map(function (c) {
+            return c.auLink ? '<a href="' + auHref(c) + '">' + esc(c.name) + '</a>' : esc(c.name);
+          }).join('、') + '。</p>' : '<p class="c-arc-misses">一题没错。他们全都被你认出来了。</p>') +
+        '<div class="c-arc-actions">' +
+          '<button class="c-arc-btn c-arc-btn--primary" data-act="q-free">再来一局</button>' +
+          '<button class="c-arc-btn" data-act="gacha">拿币去扭蛋</button>' +
+          '<button class="c-arc-btn" data-act="close">回选单</button>' +
+        '</div>' +
+      '</div>'
+    );
+    countTo(document.getElementById('r-score'), 0, final, 900);
+    Q = null;
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     ② 翻牌对上号
+     ══════════════════════════════════════════════════════════ */
+  var M = null;
+  // 四种玩法（Winter 2026-09-20 定：翻牌保留，但配对方式要「一眼能对上」，
+  // 原来的「整句台词 ↔ 角色」字太多、又得想，节奏断）
+  var PAIRS = [
+    { key: 'twin',  name: '配颜色',   tip: '翻开两张颜色一模一样就是一对。配上了才告诉你这是谁。' },
+    { key: 'color', name: '颜色配人', tip: '一半是他的四色色卡，一半是他的名字。把颜色和人对上。' },
+    { key: 'film',  name: '人配电影', tip: '一半是角色名，一半是电影。把人和他演的那部片对上。' },
+    { key: 'label', name: '人配台词', tip: '一半是角色名，一半是他那句话的小标题。' }
+  ];
+  var DIFFS = [
+    { n: 6,  label: '六对 · 热身', coin: 3 },
+    { n: 8,  label: '八对 · 正常', coin: 5 },
+    { n: 12, label: '十二对 · 要命', coin: 8 }
+  ];
+
+  function curPair() {
+    return PAIRS.filter(function (p) { return p.key === S.matchMode; })[0] || PAIRS[0];
+  }
+
+  function openMatchIntro() {
+    var pm = curPair();
+    showStage(
+      '<div class="c-arc-bar">' +
+        '<div class="c-arc-bar__left"><span class="c-arc-bar__name">翻牌对上号</span></div>' +
+        '<button class="c-arc-btn" data-act="close">回选单</button>' +
+      '</div>' +
+      '<p class="c-arc-label">玩哪种</p>' +
+      '<div class="c-arc-modes">' +
+        PAIRS.map(function (p) {
+          return '<button class="c-arc-mode' + (p.key === pm.key ? ' is-on' : '') + '" data-pmode="' + p.key + '">' + p.name + '</button>';
+        }).join('') +
+      '</div>' +
+      '<p class="c-arc-note" style="text-align:center">' + pm.tip + '<br>配错了牌会翻回去——记住它在哪儿。</p>' +
+      '<p class="c-arc-label">几对</p>' +
+      '<div class="c-arc-diff" style="margin-top:.6rem">' +
+        DIFFS.map(function (d) {
+          var b = (S.best.match || {})[pm.key + d.n];
+          return '<button class="c-arc-btn" data-diff="' + d.n + '">' + d.label +
+            (b ? '　<span style="opacity:.6">最好 ' + b + ' 步</span>' : '') + '</button>';
+        }).join('') +
+      '</div>'
+    );
+  }
+
+  function hex2rgb(h) {
+    var v = parseInt(String(h).replace('#', ''), 16);
+    return [(v >> 16) & 255, (v >> 8) & 255, v & 255];
+  }
+  function rgbDist(a, b) {
+    var x = hex2rgb(a), y = hex2rgb(b);
+    return Math.sqrt(Math.pow(x[0]-y[0],2) + Math.pow(x[1]-y[1],2) + Math.pow(x[2]-y[2],2));
+  }
+  // 两个人的配色有多「像」——靠颜色认人的两种玩法要避开撞色，
+  // 不然满屏深蓝配钢灰，看花眼不是记性差
+  function palDist(a, b) {
+    return rgbDist(a.accent, b.accent) * 1.6 + rgbDist(a.bg, b.bg) + rgbDist(a.muted, b.muted) * 0.6;
+  }
+  function pickDistinct(rand, n) {
+    var pool = shuffle(CHARS, rand), chosen = [pool[0]];
+    while (chosen.length < n && chosen.length < pool.length) {
+      var best = null, bestD = -1;
+      for (var i = 0; i < pool.length; i++) {
+        var c = pool[i];
+        if (chosen.indexOf(c) >= 0) continue;
+        var d = Infinity;
+        for (var j = 0; j < chosen.length; j++) d = Math.min(d, palDist(c, chosen[j]));
+        if (d > bestD) { bestD = d; best = c; }
+      }
+      chosen.push(best);
+    }
+    return chosen;
+  }
+
+  function startMatch(n) {
+    var rand = mulberry32(Math.floor(Math.random() * 1e9));
+    var mode = curPair().key;
+    var byColor = mode === 'twin' || mode === 'color';
+    var picked = byColor ? pickDistinct(rand, n) : shuffle(CHARS, rand).slice(0, n);
+    var cards = [];
+    picked.forEach(function (c, i) {
+      var q = c.quotes[Math.floor(rand() * c.quotes.length)];
+      cards.push({ pid: i, kind: 'a', c: c, q: q });
+      cards.push({ pid: i, kind: 'b', c: c, q: q });
+    });
+    M = { n: n, mode: mode, cards: shuffle(cards, rand), open: [], moves: 0, done: 0, lock: false, start: Date.now() };
+    paintMatch();
+  }
+
+  // 一张牌的正面长什么样，取决于玩法
+  function cardFront(card, mode) {
+    var c = card.c;
+    var swatch = '<div class="c-arc-card__face c-arc-card__front is-swatch">' +
+      '<i style="background:' + c.bg + '"></i><i style="background:' + c.accent + '"></i>' +
+      '<i style="background:' + c.text + '"></i><i style="background:' + c.muted + '"></i></div>';
+    var nameOnHis = '<div class="c-arc-card__face c-arc-card__front" style="background:' + c.bg + ';color:' + c.accent + '">' +
+      '<div class="c-arc-card__nm">' + esc(shortName(c.name)) + '</div>' +
+      '<div class="c-arc-card__yr">' + esc(c.year) + '</div></div>';
+    var namePlain = '<div class="c-arc-card__face c-arc-card__front">' +
+      '<div class="c-arc-card__nm">' + esc(shortName(c.name)) + '</div></div>';
+
+    if (mode === 'twin')  return swatch;
+    if (mode === 'color') return card.kind === 'a' ? swatch : namePlain;
+    if (mode === 'film')  return card.kind === 'a' ? nameOnHis
+      : '<div class="c-arc-card__face c-arc-card__front">' +
+          '<div class="c-arc-card__qt">' + esc(c.filmCN || c.film) + '</div></div>';
+    return card.kind === 'a' ? nameOnHis
+      : '<div class="c-arc-card__face c-arc-card__front">' +
+          '<div class="c-arc-card__lb">' + esc(card.q.label) + '</div></div>';
+  }
+
+  function paintMatch() {
+    showStage(
+      '<div class="c-arc-bar">' +
+        '<div class="c-arc-bar__left">' +
+          '<span class="c-arc-bar__name">' + curPair().name + ' · ' + M.n + ' 对</span>' +
+          '<span class="c-arc-bar__stat">步数 <b id="m-moves">0</b></span>' +
+          '<span class="c-arc-bar__stat">已配对 <b id="m-done">0</b> / ' + M.n + '</span>' +
+        '</div>' +
+        '<button class="c-arc-btn" data-act="m-quit">不玩了</button>' +
+      '</div>' +
+      '<div class="c-arc-grid" id="m-grid">' +
+        M.cards.map(function (card, i) {
+          var front = cardFront(card, M.mode);
+          return '<button class="c-arc-card" data-card="' + i + '" aria-label="扣着的牌">' +
+            '<div class="c-arc-card__in">' +
+              '<div class="c-arc-card__face c-arc-card__back"><span>SAM</span></div>' + front +
+            '</div></button>';
+        }).join('') +
+      '</div>'
+    );
+  }
+
+  function flip(i) {
+    if (!M || M.lock) return;
+    var el = stage.querySelector('[data-card="' + i + '"]');
+    if (!el || el.classList.contains('is-done') || el.classList.contains('is-open')) return;
+    el.classList.add('is-open');
+    M.open.push(i);
+    if (M.open.length < 2) return;
+
+    M.moves++;
+    countTo(document.getElementById('m-moves'), M.moves - 1, M.moves, 200);
+    var a = M.cards[M.open[0]], b = M.cards[M.open[1]];
+    if (a.pid === b.pid) {
+      var ids = M.open.slice(); M.open = []; M.done++;
+      countTo(document.getElementById('m-done'), M.done - 1, M.done, 220);
+      ids.forEach(function (k) {
+        var e = stage.querySelector('[data-card="' + k + '"]');
+        e.classList.remove('is-open'); e.classList.add('is-done');
+        replay(e, 'is-hit');
+        if (M.mode === 'twin') {
+          var f = e.querySelector('.c-arc-card__front');
+          if (f && !f.querySelector('.c-arc-card__nameplate')) {
+            f.insertAdjacentHTML('beforeend',
+              '<span class="c-arc-card__nameplate">' + esc(shortName(M.cards[k].c.name)) + '</span>');
+          }
+        }
+      });
+      if (M.done === M.n) setTimeout(finishMatch, 700);
+    } else {
+      M.lock = true;
+      var ids2 = M.open.slice(); M.open = [];
+      ids2.forEach(function (k) { replay(stage.querySelector('[data-card="' + k + '"]'), 'is-miss'); });
+      setTimeout(function () {
+        ids2.forEach(function (k) {
+          var e = stage.querySelector('[data-card="' + k + '"]');
+          if (e) { e.classList.remove('is-open'); e.classList.remove('is-miss'); }
+        });
+        M.lock = false;
+      }, 900);
+    }
+  }
+
+  function finishMatch() {
+    var secs = Math.round((Date.now() - M.start) / 1000);
+    var diff = DIFFS.filter(function (d) { return d.n === M.n; })[0];
+    S.best.match = S.best.match || {};
+    var rk = M.mode + M.n;                 // 纪录按「玩法 + 几对」分开记
+    var prev = S.best.match[rk];
+    var isRecord = !prev || M.moves < prev;
+    if (isRecord) S.best.match[rk] = M.moves;
+    save();
+    var coins = diff.coin + (isRecord ? 3 : 0);
+    addCoins(coins);
+    var moves = M.moves, n = M.n, best = S.best.match[rk], pname = curPair().name;
+
+    showStage(
+      '<div class="c-arc-result">' +
+        '<div class="c-arc-result__score" id="r-score">0</div>' +
+        '<div class="c-arc-result__label">' + (isRecord ? '新纪录 · 步' : '步') + '</div>' +
+        '<div class="c-arc-result__rows">' +
+          '<div class="c-arc-result__row"><span>用时</span><span>' + Math.floor(secs / 60) + ' 分 ' + (secs % 60) + ' 秒</span></div>' +
+          '<div class="c-arc-result__row"><span>理论最少</span><span>' + n + ' 步</span></div>' +
+          '<div class="c-arc-result__row"><span>赚到胶片币</span><span>+' + coins + '</span></div>' +
+          '<div class="c-arc-result__row"><span>' + pname + ' · ' + n + ' 对最好</span><span>' + best + ' 步</span></div>' +
+        '</div>' +
+        '<div class="c-arc-actions">' +
+          '<button class="c-arc-btn c-arc-btn--primary" data-diff="' + n + '">再来一局</button>' +
+          '<button class="c-arc-btn" data-act="match">换个难度</button>' +
+          '<button class="c-arc-btn" data-act="close">回选单</button>' +
+        '</div>' +
+      '</div>'
+    );
+    countTo(document.getElementById('r-score'), 0, moves, 700);
+    M = null;
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     ③ 扭蛋集卡册
+     ══════════════════════════════════════════════════════════ */
+  var COST = 3, FREE_PER_DAY = 2;
+
+  function freeLeft() {
+    if (S.free.date !== today()) { S.free = { date: today(), used: 0 }; save(); }
+    return Math.max(0, FREE_PER_DAY - S.free.used);
+  }
+  function got() { return Object.keys(S.album).length; }
+  function dupCount() {
+    return Object.keys(S.album).reduce(function (n, k) { return n + Math.max(0, S.album[k] - 1); }, 0);
+  }
+
+  function openGacha(drawn) {
+    var fl = freeLeft();
+    var canDraw = fl > 0 || S.coins >= COST;
+    var full = got() >= CHARS.length;
+    var fresh = drawn && !drawn.view && !drawn.dup;
+
+    var capsule = drawn
+      ? '<div class="c-arc-bigcard' + (fresh ? ' is-new' : '') + '" data-shine tabindex="0" role="button"' +
+          ' aria-label="拿起这张卡片照一下光" title="拿起来照一下"' +
+          ' style="background:' + drawn.c.bg + ';color:' + drawn.c.text + '">' +
+          '<div class="c-arc-bigcard__yr" style="color:' + drawn.c.accent + '">' + esc(drawn.c.year) + '</div>' +
+          '<div class="c-arc-bigcard__nm" style="color:' + drawn.c.accent + '">' + esc(drawn.c.name) + '</div>' +
+          '<div class="c-arc-bigcard__fm">' + esc(drawn.c.filmCN || drawn.c.film) + '</div>' +
+          '<div class="c-arc-bigcard__qt">' + esc(drawn.c.quotes[0].line) + '</div>' +
+          '<div class="c-arc-bigcard__cn">' + esc(drawn.c.quotes[0].lineCN) + '</div>' +
+          (drawn.view ? '<div class="c-arc-bigcard__dup">已收藏 · 第 ' + (CHARS.indexOf(drawn.c) + 1) + ' 号</div>'
+            : drawn.dup ? '<div class="c-arc-bigcard__dup">重复 · 已有 ' + S.album[drawn.c.id] + ' 张</div>'
+                        : '<div class="c-arc-bigcard__dup">新收 · 第 ' + got() + ' 个</div>') +
+        '</div>'
+      : '<div class="c-arc-bigcard" style="background:var(--c-bg-soft);color:var(--c-muted)">' +
+          '<div class="c-arc-bigcard__qt" style="font-style:normal">投一枚币，看看今天是谁掉出来。</div></div>';
+
+    showStage(
+      '<div class="c-arc-bar">' +
+        '<div class="c-arc-bar__left"><span class="c-arc-bar__name">扭蛋集卡册</span>' +
+          '<span class="c-arc-bar__stat">今日免费 <b>' + fl + '</b> 次</span>' +
+          '<span class="c-arc-bar__stat">重复 <b>' + dupCount() + '</b> 张</span></div>' +
+        '<button class="c-arc-btn" data-act="close">回选单</button>' +
+      '</div>' +
+      '<div class="c-arc-gacha">' +
+        '<div class="c-arc-cap">' + capsule + '</div>' +
+        '<div class="c-arc-actions">' +
+          '<button class="c-arc-btn c-arc-btn--primary" data-act="draw"' + (canDraw ? '' : ' disabled') + '>' +
+            (fl > 0 ? '免费扭一次' : '扭一次（' + COST + ' 枚币）') + '</button>' +
+          (dupCount() ? '<button class="c-arc-btn" data-act="recycle">把重复的化成币（+' + dupCount() + '）</button>' : '') +
+        '</div>' +
+        (canDraw ? '' : '<p class="c-arc-note">币不够了——去玩前面两台机器赚一点回来。</p>') +
+        '<div class="c-arc-progress">已收 <b>' + got() + '</b> / ' + CHARS.length + ' 人</div>' +
+        '<div class="c-arc-album">' +
+          CHARS.map(function (c) {
+            var n = S.album[c.id];
+            var isNew = drawn && drawn.c.id === c.id;
+            return n
+              ? '<div class="c-arc-slot is-got' + (isNew ? ' is-fresh' : '') + '" data-slot="' + c.id + '" title="' + esc(c.name) + '" style="background:' + c.bg + ';color:' + c.accent + '">' +
+                  '<div class="c-arc-slot__nm">' + esc(shortName(c.name)) + '</div>' +
+                  (n > 1 ? '<div style="font-size:.5rem;opacity:.75">×' + n + '</div>' : '') +
+                '</div>'
+              : '<div class="c-arc-slot">' + esc(c.year) + '</div>';
+          }).join('') +
+        '</div>' +
+        (full ? '<div class="c-arc-hidden">五十四个人，一个不落，全在你的册子里了。<br>' +
+          '从 1986 年那个看不清台下的年轻人，到今天还在往你这边看的这个——' +
+          '他演了一辈子别人，你把他们一个一个认了回来。<br>' +
+          '<a href="' + BASE + '/sam/projector/" style="color:var(--c-accent)">去放映室再看他们一遍 ›</a></div>' : '') +
+      '</div>'
+    );
+  }
+
+  function draw() {
+    var fl = freeLeft();
+    if (fl > 0) { S.free.used++; save(); }
+    else if (S.coins >= COST) addCoins(-COST);
+    else return;
+
+    var weights = CHARS.map(function (c) { return S.album[c.id] ? 1 : 4; });
+    var total = weights.reduce(function (a, b) { return a + b; }, 0);
+    var r = Math.random() * total, acc = 0, pick = CHARS[0];
+    for (var i = 0; i < CHARS.length; i++) {
+      acc += weights[i];
+      if (r <= acc) { pick = CHARS[i]; break; }
+    }
+    var dup = !!S.album[pick.id];
+    S.album[pick.id] = (S.album[pick.id] || 0) + 1;
+    save();
+    openGacha({ c: pick, dup: dup });
+  }
+
+  function recycle() {
+    var n = dupCount();
+    if (!n) return;
+    Object.keys(S.album).forEach(function (k) { if (S.album[k] > 1) S.album[k] = 1; });
+    save(); addCoins(n);
+    openGacha();
+  }
+
+  function showCard(id) {
+    var c = CHARS.filter(function (x) { return x.id === id; })[0];
+    if (!c) return;
+    openGacha({ c: c, view: true });
+  }
+
+  /* ── 事件总线 ────────────────────────────────────────────── */
+  function shine(card) {
+    if (!card) return;
+    card.classList.remove('is-new', 'is-shine');
+    void card.offsetWidth;                 // 强制重排，动画才会重新开始
+    card.classList.add('is-shine');
+  }
+
+  stage.addEventListener('click', function (e) {
+    var lit = e.target.closest('[data-shine]');
+    if (lit) return shine(lit);
+    var el = e.target.closest('[data-act],[data-diff],[data-pmode],[data-pick],[data-card],[data-slot]');
+    if (!el) return;
+    var act = el.getAttribute('data-act');
+    if (act === 'close')    return closeStage();
+    if (act === 'q-daily')  return startQuiz('daily');
+    if (act === 'q-free')   return startQuiz('free');
+    if (act === 'q-quit')   { clearTimeout(Q && Q.timer); Q = null; return openQuizIntro(); }
+    if (act === 'match')    return openMatchIntro();
+    if (act === 'm-quit')   { M = null; return openMatchIntro(); }
+    if (act === 'gacha')    return openGacha();
+    if (act === 'draw')     return draw();
+    if (act === 'recycle')  return recycle();
+    if (el.hasAttribute('data-pmode')) { S.matchMode = el.getAttribute('data-pmode'); save(); return openMatchIntro(); }
+    if (el.hasAttribute('data-diff'))  return startMatch(+el.getAttribute('data-diff'));
+    if (el.hasAttribute('data-pick'))  return answer(+el.getAttribute('data-pick'));
+    if (el.hasAttribute('data-card'))  return flip(+el.getAttribute('data-card'));
+    if (el.hasAttribute('data-slot'))  return showCard(el.getAttribute('data-slot'));
+  });
+
+  stage.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var lit = e.target.closest && e.target.closest('[data-shine]');
+    if (lit) { e.preventDefault(); shine(lit); }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (!Q || Q.answered) return;
+    if (e.key >= '1' && e.key <= '4') {
+      var btn = stage.querySelector('[data-pick="' + (+e.key - 1) + '"]');
+      if (btn && !btn.disabled) answer(+e.key - 1);
+    }
+  });
+
+  /* ── 开门 ────────────────────────────────────────────────── */
+  paintCoins();
+  menu.innerHTML = '<div class="c-arc-loading">正在把五十四个人请进来……</div>';
+
+  function getLines() {
+    return fetch(BASE + '/sam/lines.json')
+      .then(function (r) { if (!r.ok) throw new Error('404'); return r.json(); })
+      .catch(function () {   // 兜底：相对路径，不依赖 baseurl 写得对不对
+        return fetch('../lines.json').then(function (r) { return r.json(); });
+      });
+  }
+
+  getLines()
+    .then(function (d) {
+      CHARS = (d.characters || []).filter(function (c) { return c.quotes && c.quotes.length; });
+      // 册子按电影年份排成一条时间线（lines.json 末尾偶有后补的条目）
+      CHARS.sort(function (a, b) { return (a.year || 0) - (b.year || 0); });
+      renderMenu();
+    })
+    .catch(function () {
+      menu.innerHTML = '<div class="c-arc-loading">没能把台词库读进来——刷新一下试试？</div>';
+    });
+})();
+</script>

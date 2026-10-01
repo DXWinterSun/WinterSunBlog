@@ -5,6 +5,8 @@ date: 2017-02-01
 image: our-last-days.jpg
 tags: [缱绻, 怅惘]
 categories: Novel
+winters: [story, young]
+form: 小说
 summary: "唯有爱永恒，直到我们最后的日子。"
 ---
 晴天，乡下的道路仿佛闪着光。我站在这里，看着它伸向远方。蔚蓝的天宇在目所及处与道路交汇，好像可以一路走到天上。    

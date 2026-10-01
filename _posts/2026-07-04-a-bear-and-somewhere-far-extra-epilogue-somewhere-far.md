@@ -11,6 +11,7 @@ series_order: 25
 series_status: ongoing
 series_type: Series
 chapter_type: "Extra"
+chapter_kind: extra
 summary: "他人生第一张机票——飞往那个他以为到不了的远方。"
 ---
 

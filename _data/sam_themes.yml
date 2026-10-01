@@ -53,18 +53,18 @@
   year: 1995
   name: "Matty"
   anchor: matty
-  cn: 旧电话亭荧光
-  en: Booth Fluorescent
+  cn: 红夹克褪漆红
+  en: Faded Jacket Red
   bg_cn: 凌晨地铁月台
   bg_en: Pre-Dawn Subway
-  text_cn: 晨报头版纸白
-  text_en: Front-Page White
-  muted_cn: 铁轨枕木灰褐
-  muted_en: Rail-Tie Grey
-  accent: "#7ec9a0"
+  text_cn: 传单复印纸白
+  text_en: Flyer Photocopy
+  muted_cn: 消防梯墨绿漆
+  muted_en: Fire Escape Green
+  accent: "#d2503e"
   bg: "#171d24"
-  text: "#ebe0cc"
-  muted: "#7d7264"
+  text: "#efe4cf"
+  muted: "#809c8a"
 
 - id: buck
   year: 1996

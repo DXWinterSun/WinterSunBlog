@@ -29,6 +29,28 @@
   // ── Theme definitions — loaded from _data/sam_themes.yml via sam-themes-data.js
   var THEMES = window.__SAM_THEMES || [];
 
+  // ── Winter 自己的那张色卡（2026-09-23）────────────────────────────────────
+  // 列表最上面那张＝站点默认色「晴雪」，下面才是 54 个 Sam 角色。它不走
+  // lightVars/darkVars 那套推导（那套以暖奶油为底、是给角色色卡用的），
+  // 选它＝把所有覆盖清掉、回到 _sass/0-settings/_colors.scss 里的站点本色。
+  // ⚠️ 所以改默认配色只改那个 scss 文件，这里的四色只是「展示用」，改色时
+  // 两处一起改（值不一致的话，卡片上的点和实际页面颜色就对不上了）。
+  var WINTER_ID = '__winter';
+  var WINTER = {
+    id: WINTER_ID,
+    name: 'Winter Sun',
+    cn: '晴空冰蓝', en: 'Sunlit Blue',
+    bg_cn: '雪地薄影', bg_en: 'Snowfield',
+    text_cn: '窗上凝霜', text_en: 'Frosted Pane',
+    muted_cn: '远山灰青', muted_en: 'Far Ridge',
+    accent: '#3f9ecb', bg: '#0d161f', text: '#e9f1f7', muted: '#7d8fa0'
+  };
+
+  // 没挑过任何颜色时，最上面那张就是「当前」——站点本来就是这个色。
+  function isWinterState(s) {
+    return !s || (s.type === 'preset' && s.id === WINTER_ID);
+  }
+
   // ── Color derivation — mirrors au-palette-style.html exactly ─────────────
 
   var LB   = '#f6f2ea';
@@ -118,6 +140,7 @@
   function applyState(state) {
     if (!state) { clearVars(); return; }
     if (state.type === 'preset') {
+      if (state.id === WINTER_ID) { clearVars(); return; }   // 回到 Winter 自己的颜色
       var t = THEMES.filter(function (x) { return x.id === state.id; })[0];
       if (!t) { clearVars(); return; }
       applyVars(buildVars(t));
@@ -233,7 +256,36 @@
     overlay.id = 'js-palette-overlay';
     overlay.setAttribute('aria-hidden', 'true');
 
-    var cards = '';
+    // Winter 自己那张排在最前面：底色用雪地浅蓝而不是角色的深底，
+    // 右下角那行小字写「你自己的颜色」而不是角色名。
+    var cards =
+      '<button class="c-palette-card c-palette-card--winter" data-theme-id="' + WINTER_ID + '"' +
+        ' aria-label="' + WINTER.cn + ' \u00b7 ' + WINTER.name + '"' +
+        ' style="--card-bg:' + WINTER.bg + ';--card-ac:' + WINTER.accent + '">' +
+        '<span class="c-palette-card__perfs">' + PERFS + '</span>' +
+        '<span class="c-palette-card__body">' +
+          '<span class="c-palette-card__dot"></span>' +
+          '<span class="c-palette-card__cn">' + WINTER.cn + '</span>' +
+          '<span class="c-palette-card__en">' + WINTER.en + '</span>' +
+          '<span class="c-palette-card__sep"></span>' +
+          '<span class="c-palette-card__bg-cn">' + WINTER.bg_cn + '</span>' +
+          '<span class="c-palette-card__bg-en">' + WINTER.bg_en + '</span>' +
+          '<span class="c-palette-card__minis">' +
+            '<span class="c-palette-card__mini">' +
+              '<i style="background:' + WINTER.text + '"></i>' +
+              '<span class="c-palette-card__mini-cn">' + WINTER.text_cn + '</span>' +
+              '<span class="c-palette-card__mini-en">' + WINTER.text_en + '</span>' +
+            '</span>' +
+            '<span class="c-palette-card__mini">' +
+              '<i style="background:' + WINTER.muted + '"></i>' +
+              '<span class="c-palette-card__mini-cn">' + WINTER.muted_cn + '</span>' +
+              '<span class="c-palette-card__mini-en">' + WINTER.muted_en + '</span>' +
+            '</span>' +
+          '</span>' +
+          '<span class="c-palette-card__char c-palette-card__char--winter">\u6674\u96ea \u00b7 Winter\u2019s own</span>' +
+        '</span>' +
+        '<span class="c-palette-card__perfs">' + PERFS + '</span>' +
+      '</button>';
     THEMES.forEach(function (t) {
       var charHref = baseurl + '/sam/many-faces/#' + (t.anchor || t.id);
       cards +=
@@ -316,6 +368,14 @@
   // Custom-hue / AU-direct / default have no named halves, so show one.
   function currentSwatches() {
     var s = currentState;
+    if (isWinterState(s)) {
+      return [
+        { color: WINTER.accent, name: WINTER.cn    + ' \u00b7 ' + WINTER.en },
+        { color: WINTER.bg,     name: WINTER.bg_cn + ' \u00b7 ' + WINTER.bg_en },
+        { color: WINTER.text,   name: WINTER.text_cn  + ' \u00b7 ' + WINTER.text_en },
+        { color: WINTER.muted,  name: WINTER.muted_cn + ' \u00b7 ' + WINTER.muted_en }
+      ];
+    }
     if (s && s.type === 'preset') {
       var t = THEMES.filter(function (x) { return x.id === s.id; })[0];
       if (t) {
@@ -358,7 +418,10 @@
 
   function updateSwatchStates() {
     document.querySelectorAll('[data-theme-id]').forEach(function (sw) {
-      var active = !!(currentState && currentState.type === 'preset' && currentState.id === sw.getAttribute('data-theme-id'));
+      var id = sw.getAttribute('data-theme-id');
+      var active = id === WINTER_ID
+        ? isWinterState(currentState)
+        : !!(currentState && currentState.type === 'preset' && currentState.id === id);
       sw.classList.toggle('is-active', active);
     });
     updateCurrentIndicator();

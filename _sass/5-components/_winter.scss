@@ -1,0 +1,272 @@
+/* ===============================================================
+   WINTER ❄ —— 2026-09-23 那批「让站里真的有冬天」的东西
+   ---------------------------------------------------------------
+   Winter 的原话：「我觉得现在博客整体风格不够 Winter Sun！尤其是
+   不够 winter🥺我喜欢的冰雪元素啊，雪人啊，可爱的东西啊之类的不够多！」
+   这一份收着：标题区的雪与雪停开关、页脚/404 的小雪人、文章卡结霜、
+   头像上的雪帽、当分隔线用的小雪花、票根上的雪花戳。
+
+   ⚠️ 线上 Sass 是很老的 ruby-sass 3.7.4，别用 @layer / @supports
+   selector() 之类的新写法（会让整站构建挂掉）。改完跑
+   bash tools/check_scss.sh。
+   =============================================================== */
+
+/* ---------- 标题区的雪 ---------- */
+
+.c-hero {
+  position: relative;
+}
+
+.c-snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;   /* 实际高度由 js/snow.js 按「标题带」量出来后写死 */
+  pointer-events: none;   // 雪不挡点击，正文和链接照常
+  z-index: 0;
+}
+
+/* 标题区里的内容都浮在雪上面。
+   ⚠️ 必须把开关排除在外：它自己要 position: absolute，而这条选择器
+   权重更高（0,2,0 对 0,1,0），不排除的话会把它按回文档流里、掉到最底下。 */
+.c-hero > *:not(.c-snow):not(.c-snow-toggle) {
+  position: relative;
+  z-index: 1;
+}
+
+/* 右上角那朵小雪花＝雪停开关 */
+.c-snow-toggle {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  color: $accent;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity .25s ease, transform .5s ease, border-color .25s ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+
+  &:hover {
+    opacity: 1;
+    border-color: color-mix(in srgb, #{$accent} 28%, transparent);
+    transform: rotate(60deg);
+  }
+
+  &:focus-visible {
+    opacity: 1;
+    outline: 2px solid $accent;
+    outline-offset: 2px;
+  }
+
+  /* 雪停了：雪花自己也淡下去、歪一点，像挂住不动了 */
+  &[aria-pressed="false"] {
+    opacity: 0.22;
+    color: $muted;
+    transform: rotate(-18deg);
+    &:hover { opacity: .7; transform: rotate(-18deg) scale(1.08); }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .c-snow-toggle { top: 8px; right: 8px; width: 26px; height: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-snow-toggle { transition: opacity .25s ease; }
+  .c-snow-toggle:hover { transform: none; }
+}
+
+/* ---------- 小雪人 ⛄ ---------- */
+
+.c-snowman {
+  display: block;
+  margin: 0 auto 18px;
+  padding: 0;
+  background: none;
+  border: 0;
+  line-height: 0;
+  cursor: pointer;
+  color: $ink;
+
+  svg {
+    display: block;
+    width: 44px;
+    height: 54px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+}
+
+.c-snowman--big svg { width: 76px; height: 92px; }
+
+.c-snowman__ball {
+  fill: $paper;
+  stroke: $line-strong;
+  stroke-width: 1.2;
+}
+.c-snowman__band  { fill: $accent; }
+.c-snowman__nose  { fill: $gold; }
+.c-snowman__button{ fill: $accent; }
+.c-snowman__hat   { transform-origin: 50% 30%; }
+
+@keyframes ws-snowman-wobble {
+  0%, 100% { transform: rotate(0) translateY(0); }
+  18%      { transform: rotate(-7deg) translateY(-3px); }
+  42%      { transform: rotate(6deg); }
+  68%      { transform: rotate(-4deg); }
+  86%      { transform: rotate(2deg); }
+}
+
+@keyframes ws-snowman-hat {
+  0%   { transform: translateY(0) rotate(0); }
+  28%  { transform: translateY(-11px) rotate(-18deg); }
+  60%  { transform: translateY(-3px) rotate(6deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+.c-snowman.is-poked svg { animation: ws-snowman-wobble .66s ease-in-out; }
+.c-snowman.is-poked .c-snowman__hat { animation: ws-snowman-hat .66s ease-in-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-snowman.is-poked svg,
+  .c-snowman.is-poked .c-snowman__hat { animation: none; }
+}
+
+/* ---------- 文章卡结霜 ---------- */
+/* 鼠标划过文章卡，左上和右下角结一层薄霜。手机上没有 hover，
+   靠既有的按下反馈就够，不另加东西。 */
+
+.c-post,
+.c-chapter-card {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 58px;
+    height: 58px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .38s ease;
+    background-image:
+      radial-gradient(circle at 0 0,
+        color-mix(in srgb, #{$accent} 30%, transparent) 0,
+        color-mix(in srgb, #{$accent} 30%, transparent) 1.4px,
+        transparent 2px),
+      linear-gradient(135deg, color-mix(in srgb, #{$accent} 13%, transparent), transparent 62%);
+    background-size: 9px 9px, 100% 100%;
+  }
+
+  &:hover::after,
+  &:focus-visible::after { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-post::after,
+  .c-chapter-card::after { transition: none; }
+}
+
+/* ---------- 站头那颗头像戴一顶雪帽 ---------- */
+
+.c-scroll-top {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    height: 42%;
+    pointer-events: none;
+    background: $white-color;
+    border-radius: 999px 999px 46% 54% / 999px 999px 100% 100%;
+    box-shadow: 0 1px 0 rgba(var(--rgb-shadow), .06);
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity .3s ease, transform .35s cubic-bezier(.22,.9,.3,1.2);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    opacity: .95;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-scroll-top::after { transition: opacity .2s ease; transform: none; }
+}
+
+/* ---------- 分隔线 = 一朵小雪花 ---------- */
+/* 正文里的 <hr> 从一条光秃秃的横线换成「细线—雪花—细线」。 */
+
+hr {
+  position: relative;
+  height: 0;
+  margin: 42px 0;
+  border: 0;
+  background: none;
+  text-align: center;
+  overflow: visible;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 1px;
+    background: $line;
+  }
+
+  &::after {
+    content: "\2744";           // ❄
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 14px;
+    font-size: 13px;
+    line-height: 1;
+    color: $accent-soft;
+    background: $cream;
+  }
+}
+
+/* 卡片、便条这类有自己底色的容器里，雪花的底色要跟着容器走，
+   不然会露出一块页面底色的方块。 */
+.c-note hr::after,
+.c-decree hr::after,
+.c-sam-intro hr::after { background: $paper; }
+
+/* ---------- 读过的章：票根上盖一枚雪花戳 ---------- */
+/* 原来是一个「✓」，换成雪花；颜色跟主色走，像落了一片在票根上。 */
+
+.c-chapter-card.is-read .c-chapter-card__no::after {
+  content: "\2744";
+  font-family: inherit;
+  font-style: normal;
+  font-size: 10px;
+  color: $accent;
+  opacity: 0.75;
+}

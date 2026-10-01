@@ -7,17 +7,17 @@ layout: home
   window.TOTAL_POSTS = {{ site.posts.size }};
   try {
     var p = new URLSearchParams(window.location.search);
+    // 旧链接（?cat=Daily / Novel / Lyrics / 散文）统一归到合并后的 Winter's
+    var LEGACY = { 'Daily': 'winters', 'Novel': 'winters', 'Lyrics': 'winters', '\u6563\u6587': 'winters' };
     var active = 'all';
-    if (p.get('cat')) active = p.get('cat');
+    if (p.get('cat')) active = LEGACY[p.get('cat')] || p.get('cat');
     else if (p.get('view') === 'gallery') active = 'gallery';
     document.documentElement.setAttribute('data-hero-active', active);
 
     // Reflect the active filter in the browser tab title
     var labels = {
-      'Daily': 'Daily',
-      'Novel': 'Novel',
+      'winters': 'Winter\u2019s',
       'AU Story': 'AU Story',
-      'Lyrics': 'Lyrics',
       'gallery': 'Gallery'
     };
     if (labels[active]) {
@@ -51,32 +51,18 @@ layout: home
   <div class="c-hero__role">{{ site.author-job }}</div>
 </section>
 
-<section class="c-hero c-hero--filter" data-hero-id="Daily">
+<section class="c-hero c-hero--filter" data-hero-id="winters">
   {% if site.author-image %}
   <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
     <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
   </a>
   {% endif %}
-  <div class="c-hero__eyebrow">Daily</div>
-  <h1 class="c-hero__title">Slow <em>Days</em></h1>
+  <div class="c-hero__eyebrow">Winter&rsquo;s</div>
+  {%- comment -%} 大标题 Winter 2026-09-30 从八个候选里挑的：像信末的署名，「爱你的，冬」。 {%- endcomment -%}
+  <h1 class="c-hero__title">Love, <em>Winter</em></h1>
   <div class="c-hero__byline">
     <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">平凡日子里的感想、心情，和那些值得停留的片刻</span>
-    <span class="c-hero__byline-rule"></span>
-  </div>
-</section>
-
-<section class="c-hero c-hero--filter" data-hero-id="Novel">
-  {% if site.author-image %}
-  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
-    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-  </a>
-  {% endif %}
-  <div class="c-hero__eyebrow">Novel</div>
-  <h1 class="c-hero__title">These <em>Stories</em></h1>
-  <div class="c-hero__byline">
-    <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">我写过的故事——关于爱、错过、和重逢</span>
+    <span class="c-hero__byline-text">冬的爱人、冬她自己、冬的故事……都是我自己写下的字</span>
     <span class="c-hero__byline-rule"></span>
   </div>
 </section>
@@ -116,21 +102,6 @@ layout: home
   </a>
 </section>
 
-<section class="c-hero c-hero--filter" data-hero-id="Lyrics">
-  {% if site.author-image %}
-  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
-    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-  </a>
-  {% endif %}
-  <div class="c-hero__eyebrow">Lyrics</div>
-  <h1 class="c-hero__title">Borrowed <em>Songs</em></h1>
-  <div class="c-hero__byline">
-    <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">译过的词，每一句都是来不及说出口的话</span>
-    <span class="c-hero__byline-rule"></span>
-  </div>
-</section>
-
 <section class="c-hero c-hero--filter" data-hero-id="gallery">
   {% if site.author-image %}
   <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
@@ -145,6 +116,8 @@ layout: home
     <span class="c-hero__byline-rule"></span>
   </div>
 </section>
+
+{% include winters-shelves.html %}
 
 <div class="c-posts o-opacity">
   {% if site.posts.size > 0 %}
@@ -169,9 +142,12 @@ layout: home
       创建时间 = collection_order（编号即开坑先后）。本页取其【倒序】。
       非 Sam 的系列（tumblr 搬运的 Hector / Leonard / BayBay 等）统一垫底，
       内部同样「新 → 老」（按第一篇章节日期）。不按「最近更新」排。
+      2026-10-01 起：**新开的非 Sam 系列**只要在系列首页写了 collection_order（接着编号往下排），
+      就跟 Sam 系列一起按开坑先后排，不再垫底；不写 sam_collection，所以照样不进 Sam 页。
+      （Heart Facing Inward 开坑当天被排到最底下，Winter 以为系列没显示。）
     {%- endcomment -%}
     {% assign all_series = "" | split: "" %}
-    {% assign sam_pages = site.pages | where_exp: "p", "p.sam_collection" | sort: "collection_order" | reverse %}
+    {% assign sam_pages = site.pages | where_exp: "p", "p.collection_order" | sort: "collection_order" | reverse %}
     {% for sp in sam_pages %}
       {% if sp.series_name %}
         {% assign sp_count = site.posts | where: "series", sp.series_name | size %}
@@ -201,10 +177,13 @@ layout: home
       {% assign series_cat = series_first.categories | first %}
       {% assign series_count = series_posts | size %}
       {% assign series_slug = series_name | slugify %}
+      {% comment %} 状态以系列首页 front matter 的 series_status 为准（第一章上的那份早就不更新了） {% endcomment %}
+      {% assign series_page = site.pages | where: "series_name", series_name | first %}
+      {% assign series_status = series_page.series_status | default: series_first.series_status | default: "ongoing" %}
     <a class="c-post c-post--series" href="{{ site.baseurl }}/series/{{ series_slug }}/" data-category="{{ series_cat }}" data-card-type="series" target="_blank" rel="noopener">
       <div class="c-post__image-wrap">
         {% if series_first.image %}
-        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: series_first.image }}')"></div>
+        <div class="c-post__image" data-bg="{{ "/images/" | prepend: site.baseurl | append: series_first.image }}"></div>
         {% else %}
         <div class="c-post__placeholder">{{ series_cat | default: "Series" }}</div>
         {% endif %}
@@ -212,17 +191,23 @@ layout: home
       <div class="c-post__body">
         <div class="c-post__eyebrow">{{ series_cat }} · {{ series_first.series_type | default: "Series" }}</div>
         <h3 class="c-post__title">{{ series_first.series_title | default: series_name }}</h3>
-        <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · {{ series_first.series_status | default: "ongoing" }}</p>
+        <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · {% include series-status.html status=series_status %}</p>
       </div>
     </a>
     {% endfor %}
 
-    {% for post in site.posts %}
+    {%- comment -%}
+      2026-09-18 瘦身：系列章节在首页任何视图里都不单独显示（系列卡片代表它们），
+      以前却把 1100 多张章节卡全部渲染进 HTML 再用 is-hidden 藏起来——首页 1.2 MB 的来源。
+      现在只渲染不属于系列的文章。
+    {%- endcomment -%}
+    {% assign standalone_posts = site.posts | where_exp: "p", "p.series == nil" %}
+    {% for post in standalone_posts %}
     {% assign post_cat = post.categories | first %}
-    <a class="c-post{% if post.series %} is-hidden{% endif %}" href="{% if post.external_url %}{{ post.external_url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}" data-category="{{ post_cat }}" data-card-type="chapter"{% if post.series %} data-series="{{ post.series }}"{% endif %}{% if post.external_url or post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
+    <a class="c-post" href="{% if post.external_url %}{{ post.external_url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}" data-category="{{ post_cat }}" data-card-type="chapter"{% if post.series %} data-series="{{ post.series }}"{% endif %}{% if post.external_url or post_cat == 'AU Story' %} target="_blank" rel="noopener"{% endif %}>
       <div class="c-post__image-wrap">
         {% if post.image %}
-        <div class="c-post__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: post.image }}')"></div>
+        <div class="c-post__image" data-bg="{{ "/images/" | prepend: site.baseurl | append: post.image }}"></div>
         {% else %}
         <div class="c-post__placeholder">{{ post.categories | first | default: "Story" }}</div>
         {% endif %}
@@ -235,10 +220,6 @@ layout: home
         {% if post.summary %}<p class="c-post__summary">{{ post.summary }}</p>{% endif %}
         <div class="c-post__meta">
           <span>{{ post.date | date: '%Y, %b %d' }}</span>
-          {% capture chars %}{{ post.content | strip_html | strip | size }}{% endcapture %}
-          {% assign mins = chars | divided_by: 500 %}
-          {% if mins < 1 %}{% assign mins = 1 %}{% endif %}
-          <span>{{ mins }} min read</span>
         </div>
       </div>
     </a>

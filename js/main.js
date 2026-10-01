@@ -6,15 +6,171 @@ $(document).ready(function () {
   // Simple Search Settings
   ======================= */
 
-  if (document.getElementById('js-search-input')) {
-    SimpleJekyllSearch({
-      searchInput: document.getElementById('js-search-input'),
-      resultsContainer: document.getElementById('js-results-container'),
-      json: (window.SITE_BASEURL || '') + '/search.json',
-      searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-      noResultsText: '<li><a>No results</a></li>'
+  // 索引只在第一次点进搜索框时才下载（以前每一页一打开就拉 9 MB 的全文索引）
+  var searchInput = document.getElementById('js-search-input');
+  if (searchInput) {
+    var searchReady = false;
+    var initSearch = function () {
+      if (searchReady) return;
+      searchReady = true;
+      SimpleJekyllSearch({
+        searchInput: searchInput,
+        resultsContainer: document.getElementById('js-results-container'),
+        json: (window.SITE_BASEURL || '') + '/search.json',
+        searchResultTemplate: '<li><a href="{url}"><span class="c-search-result__title">{title}</span><span class="c-search-result__meta">{series} {chapter}</span></a></li>',
+        noResultsText: '<li><a>No results</a></li>',
+        limit: 12,
+        // 索引下载完成时，用户多半已经打了字：补搜一次，不然要再敲一下才出结果
+        success: function () {
+          if (searchInput.value) {
+            var ev = document.createEvent('Event'); ev.initEvent('keyup', true, true); searchInput.dispatchEvent(ev);
+          }
+        }
+      });
+    };
+    searchInput.addEventListener('focus', initSearch, { once: true });
+    searchInput.addEventListener('input', initSearch, { once: true });
+    // 库只听 keyup；中文输入法、粘贴、手机键盘有时只发 input —— 补一个转发
+    searchInput.addEventListener('input', function () {
+      var ev = document.createEvent('Event'); ev.initEvent('keyup', true, true); searchInput.dispatchEvent(ev);
     });
   }
+
+  /* =======================
+  // 封面图懒加载：模板只写 data-bg="图片地址"，滚到视野附近才真正加载
+  // （Sam 页 39 张 AU 封面以前一打开就全下载，合计 7 MB 多）
+  ======================= */
+
+  (function lazyBackgrounds() {
+    var els = document.querySelectorAll('[data-bg]');
+    if (!els.length) return;
+    function load(el) {
+      var url = el.getAttribute('data-bg');
+      if (!url) return;
+      el.style.backgroundImage = "url('" + url + "')";
+      el.removeAttribute('data-bg');
+    }
+    if (!('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(els, load);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { load(en.target); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '600px 0px' });
+    Array.prototype.forEach.call(els, function (el) { io.observe(el); });
+  })();
+
+  /* =======================
+  // 阅读记忆（2026-09-18，Winter 选的 A+B）：
+  //  · 章节页：记下「这个系列读到哪一章、读到百分之几」（本机 localStorage 键 wiw-read）
+  //  · 系列页：目录顶上的存根显示「继续读 · No.N」，读过的票根打勾，上次那张盖个戳；
+  //    另有「倒序」按钮。纯本机，不上传任何东西。
+  ======================= */
+
+  (function readingMemory() {
+    var KEY = 'wiw-read';
+    function loadAll() { try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; } }
+    function saveAll(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) { /* ignore */ } }
+    function norm(p) { return (p || '').replace(/index\.html$/, '').replace(/\/+$/, '') + '/'; }
+    function chapterNo(label) {
+      var m = /Chapter\s+(\d+)/.exec(label || '');
+      return m ? (m[1].length < 2 ? '0' + m[1] : m[1]) : 'EX';
+    }
+
+    // —— 章节页：记录 ——
+    var article = document.querySelector('.c-article[data-series]');
+    if (article) {
+      var series = article.getAttribute('data-series');
+      var path = norm(window.location.pathname);
+      var all = loadAll();
+      var rec = all[series] || { read: {} };
+      var prev = (rec.last && norm(rec.last.path) === path) ? rec.last : null;
+      var pct = prev ? (prev.pct || 0) : 0;   // 重开同一章不把进度清零，只往前记
+      function measure() {
+        var doc = document.documentElement;
+        var max = (doc.scrollHeight - window.innerHeight) || 1;
+        var p = Math.round(Math.min(100, Math.max(0, (window.scrollY / max) * 100)));
+        if (p > pct) pct = p;
+      }
+      function commit() {
+        var d = loadAll();
+        var r = d[series] || { read: {} };
+        r.read = r.read || {};
+        r.read[path] = Date.now();
+        r.last = { path: path, no: article.getAttribute('data-chapter-no') || '', title: article.getAttribute('data-chapter-title') || '', pct: pct, ts: Date.now() };
+        d[series] = r;
+        saveAll(d);
+      }
+      measure(); commit();
+      var t = null;
+      window.addEventListener('scroll', function () {
+        if (t) return;
+        t = setTimeout(function () { t = null; measure(); commit(); }, 800);
+      }, { passive: true });
+      window.addEventListener('pagehide', function () { measure(); commit(); });
+
+      // 上次读到 N%，跳过去
+      var pill = document.getElementById('js-resume-pill');
+      if (pill && prev && prev.pct >= 8 && prev.pct <= 95) {
+        pill.textContent = '上次读到 ' + prev.pct + '%，跳过去 ↓';
+        pill.hidden = false;
+        pill.addEventListener('click', function () {
+          var doc = document.documentElement;
+          var max = (doc.scrollHeight - window.innerHeight) || 1;
+          window.scrollTo({ top: max * prev.pct / 100, behavior: 'smooth' });
+          pill.hidden = true;
+        });
+      }
+    }
+
+    // —— 系列页：存根 + 票根标记 + 倒序 ——
+    var list = document.querySelector('.c-chapter-list[data-series]');
+    if (list) {
+      var sname = list.getAttribute('data-series');
+      var data = loadAll()[sname];
+      var cards = Array.prototype.slice.call(list.querySelectorAll('.c-chapter-card'));
+      var resume = document.getElementById('js-resume');
+      var count = resume ? parseInt(resume.getAttribute('data-count'), 10) || 0 : 0;
+      if (data && data.last) {
+        var lastPath = norm(data.last.path);
+        cards.forEach(function (c) {
+          var p = norm(c.pathname);
+          if (data.read && data.read[p]) c.classList.add('is-read');
+          if (p === lastPath) {
+            c.classList.add('is-last-read');
+            var tag = document.createElement('span');
+            tag.className = 'c-chapter-card__lastread';
+            tag.textContent = '上次读到这里';
+            c.appendChild(tag);
+          }
+        });
+        if (resume) {
+          var readCount = data.read ? Object.keys(data.read).length : 0;
+          resume.href = data.last.path;
+          document.getElementById('js-resume-no').textContent = chapterNo(data.last.no);
+          document.getElementById('js-resume-title').textContent = data.last.title || data.last.no;
+          document.getElementById('js-resume-meta').textContent =
+            (data.last.pct >= 95 ? '这章读完了 · ' : '读到 ' + data.last.pct + '% · ') + '已读 ' + readCount + ' / ' + count + ' 章';
+          resume.hidden = false;
+        }
+      } else if (resume && count >= 8) {
+        resume.href = resume.getAttribute('data-first-url');
+        document.getElementById('js-resume-eyebrow').textContent = '还没开始';
+        document.getElementById('js-resume-title').textContent = '从 No.01 开始';
+        document.getElementById('js-resume-meta').textContent = '读过的章会在这里记着（只存在你自己的手机里）';
+        resume.hidden = false;
+      }
+      var rev = document.getElementById('js-chapter-reverse');
+      if (rev) {
+        rev.addEventListener('click', function () {
+          var on = list.classList.toggle('is-reversed');
+          rev.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      }
+    }
+  })();
 
   /* =======================
   // Responsive videos
@@ -44,6 +200,21 @@ $(document).ready(function () {
     $('.c-categories, .c-show-images').hide().removeClass('o-opacity');
   }
 
+  // 「Winter's」是一个把三个旧分类并起来的【组】——日常 / 小说 / 歌词（外加
+  // 一篇早年的「散文」）都是 Winter 自己写的字，2026-09-23 合并成顶上一个标签。
+  // 文章自身的 categories 字段一个都没改，合并只发生在这里。
+  var FILTER_GROUPS = { 'winters': ['Daily', 'Novel', 'Lyrics', '\u6563\u6587'] };
+  // 旧链接（?cat=Daily 之类）进来时改指到组上，免得老书签落到空页面。
+  var LEGACY_CATS = { 'Daily': 'winters', 'Novel': 'winters', 'Lyrics': 'winters', '\u6563\u6587': 'winters' };
+
+  // 分区小标题上显示的名字（'winters' 是内部用的代号，别直接印出来）
+  var FILTER_TITLES = { 'winters': 'Winter\u2019s' };
+
+  function filterMatches(filter, cat) {
+    var members = FILTER_GROUPS[filter];
+    return members ? members.indexOf(cat) !== -1 : cat === filter;
+  }
+
   function applyCategoryFilter(filter) {
     var $items = $('.c-posts').find('[data-category]');
     var visible = 0;
@@ -66,7 +237,7 @@ $(document).ready(function () {
         } else {
           shouldShow = !partOfSeries;
         }
-      } else if (cat !== filter) {
+      } else if (!filterMatches(filter, cat)) {
         shouldShow = false;
       } else if (cardType === 'series') {
         shouldShow = true;
@@ -90,7 +261,7 @@ $(document).ready(function () {
     var titleEl = document.getElementById('js-section-title');
     var countEl = document.getElementById('js-post-count');
     if (titleEl) {
-      titleEl.textContent = filter === 'all' ? 'All Stories' : filter;
+      titleEl.textContent = filter === 'all' ? 'All Stories' : (FILTER_TITLES[filter] || filter);
     }
     if (countEl) {
       if (filter === 'all') {
@@ -141,10 +312,8 @@ $(document).ready(function () {
   }());
 
   var HERO_LABELS = {
-    'Daily': 'Daily',
-    'Novel': 'Novel',
+    'winters': 'Winter\u2019s',
     'AU Story': 'AU Story',
-    'Lyrics': 'Lyrics',
     'gallery': 'Gallery'
   };
 
@@ -194,6 +363,7 @@ $(document).ready(function () {
     var cat = params.get('cat');
     var view = params.get('view');
     if (cat) {
+      if (LEGACY_CATS[cat]) cat = LEGACY_CATS[cat];
       var $catItem = $('.c-nav__list > .c-item_post[data-filter="' + cat.replace(/"/g, '\\"') + '"]');
       if ($catItem.length) {
         setActiveNav($catItem);
@@ -253,6 +423,79 @@ $(document).ready(function () {
   });
 
   /* =======================
+  // Archive › By Day：点某一天，就在那个月历下面就地展开
+  // （2026-09-19 Winter：「每次我想点具体的哪一天就会跳到页面最下边」——
+  //   「那一天」的区块原本都堆在页面末尾，靠 :target 显示，所以一点就跳到底。
+  //   这里改成把那一块搬到被点的月历正下方再展开；没有 JS 时仍退回 :target。）
+  ======================= */
+
+  (function setupDayPanels() {
+    var panel = document.querySelector('[data-archive-panel="day"]');
+    if (!panel) return;
+    var openEl = null;
+
+    function calOf(el) { return el ? el.closest('.c-cal') : null; }
+
+    function scrollTo(el) {
+      var top = el.getBoundingClientRect().top + window.scrollY - 76;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+    }
+
+    function close(scrollBack) {
+      if (!openEl) return;
+      var cal = openEl.previousElementSibling;
+      openEl.classList.remove('is-open');
+      openEl = null;
+      if (scrollBack && cal && cal.classList.contains('c-cal')) scrollTo(cal);
+    }
+
+    function open(id, doScroll) {
+      var dayEl = document.getElementById(id);
+      if (!dayEl) return false;
+      if (dayEl === openEl) { close(true); return true; }   // 再点一次＝收起
+      if (openEl) openEl.classList.remove('is-open');
+      var cell = panel.querySelector('.c-cal__cell--on[href="#' + id + '"]');
+      var cal = calOf(cell);
+      if (cal && dayEl.previousElementSibling !== cal) cal.after(dayEl);
+      dayEl.classList.add('is-open');
+      openEl = dayEl;
+      if (doScroll) scrollTo(dayEl);
+      return true;
+    }
+
+    function remember(id) {
+      if (!(window.history && window.history.replaceState)) return;
+      window.history.replaceState(null, '', window.location.pathname + window.location.search + '#' + id);
+    }
+
+    panel.addEventListener('click', function (e) {
+      var cell = e.target.closest('.c-cal__cell--on');
+      if (cell) {
+        var id = (cell.getAttribute('href') || '').slice(1);
+        if (id && open(id, true)) { e.preventDefault(); remember(id); }
+        return;
+      }
+      var link = e.target.closest('.c-day__nav a');
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      if (href.indexOf('#d') === 0) {
+        var nid = href.slice(1);
+        if (open(nid, true)) { e.preventDefault(); remember(nid); }
+      } else if (href.indexOf('#cy') === 0) {
+        e.preventDefault();
+        close(true);
+      }
+    });
+
+    // 带 #d2026-09-13 进来（外链 / 刷新）：一样就地展开，而不是掉到页面末尾
+    var hash = window.location.hash || '';
+    if (/^#d\d{4}-\d{2}-\d{2}$/.test(hash)) {
+      setTimeout(function () { open(hash.slice(1), true); }, 60);
+    }
+  })();
+
+  /* =======================
   // Archive page: Year / Mood sub-tabs + per-tag panels
   ======================= */
 
@@ -303,9 +546,9 @@ $(document).ready(function () {
     function syncUrl() {
       if (!(window.history && window.history.replaceState)) return;
       var activeTab = document.querySelector('.c-archive-tab.is-active');
-      var view = activeTab ? activeTab.getAttribute('data-archive-view') : 'year';
+      var view = activeTab ? activeTab.getAttribute('data-archive-view') : 'day';
       var params = new URLSearchParams(window.location.search);
-      if (view === 'year') { params.delete('view'); } else { params.set('view', view); }
+      if (view === 'day') { params.delete('view'); } else { params.set('view', view); }
       var activePill = document.querySelector('.c-archive-tag-pill.is-active');
       if (view === 'mood' && activePill) {
         params.set('tag', activePill.getAttribute('data-archive-tag'));
@@ -332,7 +575,12 @@ $(document).ready(function () {
 
     // Restore the chosen view / mood from the URL on load.
     var initParams = new URLSearchParams(window.location.search);
-    if (initParams.get('view') === 'mood') {
+    var initView = initParams.get('view');
+    // 带着 #d2026-09-13 / #cy2026 这种锚点进来（日历里点的戳）→ 一定是日历那一栏
+    if (/^#(d\d{4}-\d{2}-\d{2}|cy\d{4})$/.test(window.location.hash)) initView = 'day';
+    if (initView === 'year') {
+      activateView('year');
+    } else if (initView === 'mood') {
       activateView('mood');
       var initTag = initParams.get('tag');
       if (initTag) activateTag(initTag);
@@ -359,7 +607,14 @@ $(document).ready(function () {
   (function buildArticleTOC() {
     var article = document.querySelector('.c-wrap-content');
     if (!article) return;
-    var headings = article.querySelectorAll('h2, h3');
+    // 只收真正「指事」的小标题：光是编号的（一 / II. / 3）不进目录——
+    // 那只是分节记号，放进目录等于一列数字；卡片里自带的标题（带 class）也不收。
+    var BARE_NUMBER = /^[\s.,、，。·•:：\-—–()（）第章节]*[一二三四五六七八九十百零〇两\dIVXLC]+[\s.,、，。·•:：\-—–()（）章节]*$/;
+    var headings = Array.prototype.filter.call(article.querySelectorAll('h2, h3'), function (h) {
+      if (h.className) return false;
+      var text = (h.textContent || '').trim();
+      return text && !BARE_NUMBER.test(text);
+    });
     if (headings.length < 3) return; // not worth a TOC
 
     var toc = document.createElement('nav');
@@ -516,4 +771,37 @@ $(document).ready(function () {
     buffer = (buffer + e.key.toLowerCase()).slice(-5);
     if (buffer === "fable") { buffer = ""; showToast(); }
   });
+})();
+
+/* ————— 手机上站头会让路 —————
+   ⚠️ 独立成段、不要塞回 $(document).ready 里：那个回调里前面任何一句出错
+   （例如某个插件没加载），后面的就全都不执行了，这段也会跟着哑掉。 */
+/* =======================
+// 手机上：往下滑收起站头，往上滑 / 回到顶部再放出来
+// （站头在手机上是两行、又是钉住的，一直占着一百二十多像素的「天花板」。
+//   桌面宽度不启用；搜索框正在用时也不收，免得下拉结果跟着跑掉。）
+======================= */
+(function headerAutoHide() {
+  var bar = document.querySelector('.c-topbar');
+  if (!bar) return;
+  var last = window.scrollY || 0, ticking = false;
+
+  function update() {
+    var y = window.scrollY || 0;
+    if (window.innerWidth > 900 || (document.activeElement && bar.contains(document.activeElement))) {
+      bar.classList.remove('is-tucked');
+      last = y;
+      return;
+    }
+    var h = bar.offsetHeight;
+    if (y > last + 6 && y > h + 40) bar.classList.add('is-tucked');
+    else if (y < last - 6 || y <= 4) bar.classList.remove('is-tucked');
+    last = y;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { update(); ticking = false; });
+  }, { passive: true });
 })();

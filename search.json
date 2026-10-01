@@ -1,15 +1,22 @@
 ---
 layout: null
 ---
+{%- comment -%}
+搜索索引（右上角搜索框用）。2026-09-18 瘦身：以前把 1100 多篇的全文都塞进来，
+生成 9 MB、且每一页一打开就下载；现在只留标题 / 系列 / 章节 / 引言 / 标签，
+约 300 KB，并且改成点进搜索框才加载（js/main.js）。
+{%- endcomment -%}
 [
   {% for post in site.posts %}
     {
-      "title"    : {{ post.title | jsonify }},
+      "title"    : {{ post.title | split: " — " | first | jsonify }},
+      "series"   : {{ post.series | default: "" | jsonify }},
+      "chapter"  : {{ post.chapter_type | default: "" | jsonify }},
       "category" : {{ post.categories | join: ", " | jsonify }},
       "tags"     : {{ post.tags | join: ", " | jsonify }},
+      "summary"  : {{ post.summary | default: "" | jsonify }},
       "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date }}",
-      "content"  : {{ post.content | strip_html | strip_newlines | jsonify }}
+      "date"     : "{{ post.date | date: '%Y-%m-%d' }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

@@ -1,14 +1,15 @@
 ---
 layout: post
-title: "番外一 · The Voice on the Phone — Knox AU"
+title: "Extra · The Voice on the Phone — Knox AU"
 date: 2026-05-06
 image: knox-au.jpg
 tags: [Eric Knox, Sam Rockwell, AU, Knox AU, 暗涌, 悸动]
 categories: ["AU Story"]
 series: "Knox AU"
 series_title: "Simon Says · Eric Knox AU"
-series_order: 2
-chapter_type: 番外
+series_order: 3
+chapter_type: "Extra"
+chapter_kind: extra
 summary: "你本来是打算辞职的。"
 ---
 
@@ -62,7 +63,7 @@ Charlie通晓一切，这句话的含金量还在增加。
 
 从牢房里的挑逗，到那个病房的夜晚，他坐在椅子上等你醒来。
 
-从那句"说完了再死也不迟"，到那声”傻子“。
+从那句"说完了再死也不迟"，到那声“傻姑娘”。
 
 ——你就知道这个人是你认定了的，无论酷暑严寒，无谓极乐炼狱。
 

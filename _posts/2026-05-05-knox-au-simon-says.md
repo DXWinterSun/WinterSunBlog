@@ -11,6 +11,7 @@ series_order: 1
 series_status: complete
 series_type: Oneshot
 summary: "那首歌你第一次听见，是在他宣布他是谁的那个下午。"
+chapter_type: Oneshot
 ---
 
 > 这是一个 AU oneshot。来源是 Sam Rockwell 主演的《Charlie's Angels》（2000）——Eric Knox，前半段蓬头 tech boy，后半段红镜片墨镜与"Simon Says"的节拍。
@@ -317,9 +318,9 @@ Angels的来电惊醒你的睡梦，你还沉浸在昨夜春宵的甜蜜梦幻�
 
 然后他把视线移开了，看向别处，可你看见他耳根有一点红，那种红他大概以为你看不见，或者他以为他可以控制，可他没有控制住。
 
-"……傻子。"他说，声音很轻，轻到几乎不像是在骂你。
+"……傻姑娘。"他说，声音很轻，轻到几乎不像是在骂你。
 
-"嗯，"你说，"你的傻子。"
+"嗯，"你说，"你的傻姑娘。"
 
 他没有反驳。
 

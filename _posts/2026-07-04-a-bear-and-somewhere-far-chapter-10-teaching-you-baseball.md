@@ -14,8 +14,6 @@ chapter_type: "Chapter 10"
 summary: "我们 Winter 最厉害。可这样的傍晚不多了。"
 ---
 
-## 第十章 · 教你打棒球
-
 > 我们 Winter 最厉害。可这样的傍晚不多了。
 
 那年秋天，Clay 真的抽空，教你打棒球了。

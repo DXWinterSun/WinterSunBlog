@@ -7,6 +7,23 @@
   margin: 20px 0;
 }
 
+/* ⚠️ 「读的那一栏」的宽度（Winter 2026-09-21 拍板：一行约 40 个汉字）
+   ——以前正文跟着 1180 的容器走，桌面上一行 60 个字，眼睛要大幅来回扫；
+   她拿聊天里的预览页做对照（44rem / 17px ≈ 40 字）说那个读着舒服，就照它收。
+   只收「读的东西」：封面、色卡条、标题头、正文、章节导航。
+   文末「你可能还喜欢」那排图卡不收——它是图墙，宽一点才好看。 */
+$reading-measure: 48rem;
+
+.c-article__image,
+.c-chapter-palette,
+.c-article__header,
+.c-wrap-content,
+.c-chapter-nav {
+  max-width: $reading-measure;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .c-wrap-content {
   padding: 20px;
   background-color: $paper;
@@ -264,9 +281,16 @@
   }
 }
 
+@media only screen and (max-width: 640px) {
+  // 手机上正文左右各留 12px 就够——外面容器已经有 16px 了
+  .c-wrap-content {
+    padding: 20px 12px;
+  }
+}
+
 @media only screen and (max-width: 480px) {
   .c-wrap-content {
-    padding: 15px;
+    padding: 15px 10px;
   }
   .c-article__header {
     margin-bottom: 5px;

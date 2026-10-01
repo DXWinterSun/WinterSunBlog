@@ -11,6 +11,7 @@ series_order: 45
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 13
+chapter_kind: extra
 summary: "全网发现他从没夸过你。他试了三次，废纸篓里躺着三份草稿。"
 ---
 

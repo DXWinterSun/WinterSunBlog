@@ -13,8 +13,6 @@ summary: "他说：别哭了，来亲我。"
 tags: [Charles II, BayBay, AU, The Invisible Light, 缱绻]
 ---
 
-**🕯️ 《The Invisible Light》· 第十七章｜“别哭了，来亲我。”**
-
 📍**时间设定**：吻已经开始。你终于以泪相吻，而他——那风流的王陛下——一边吻你嘴唇，一边细细吻去你脸上的每一滴泪。
 
 你吻他的时候，眼泪没有停下。

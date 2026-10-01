@@ -13,8 +13,6 @@ summary: "他说：若早知你这样看我……"
 tags: [Charles II, BayBay, AU, The Invisible Light, 怅惘, 缱绻]
 ---
 
-**🕯️ 《The Invisible Light》· 第十四章｜“如果我早知道你看我的眼神是这样……”**
-
 📍**时间设定**：国王书房，你为他画像。他突然温柔出击，而你只想逃走，却被他一步步逼近真相。
 
 你心跳如擂鼓。

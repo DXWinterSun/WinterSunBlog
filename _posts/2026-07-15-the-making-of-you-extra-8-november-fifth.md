@@ -11,6 +11,7 @@ series_order: 40
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 8
+chapter_kind: extra
 summary: "档案上的生日是假的。真的那个，和一句话一起，被他收了三十年。"
 ---
 

@@ -11,6 +11,7 @@ series_order: 42
 series_status: ongoing
 series_type: Series
 chapter_type: Extra 10
+chapter_kind: pov
 summary: "那本从来不存在的账，他后来真的开了一本。每天，记一笔。"
 easter_eggs:
   - series_order: 25

@@ -72,7 +72,7 @@ WARN_WORDS = [
 # 度量单位（带数字/汉字数量词才算命中，降低误报）
 UNIT_PATTERNS = [
     (r"[0-9一二两三四五六七八九十百千]+\s*里[地路]?(?![面头边程])", "英里/公里"),
-    (r"[0-9一二两三四五六七八九十百千]+\s*[斤两](?![只个人样件秒分天年月周步句声眼下口回次趟遍道条块排头本张边])", "磅/盎司"),
+    (r"[0-9一二两三四五六七八九十百千]+\s*[斤两](?![只个人样件秒分天年月周步句声眼下口回次趟遍道条块排头本张边点刻])", "磅/盎司"),
     (r"[0-9一二两三四五六七八九十]+\s*丈", "英尺/米"),
     (r"[一二三四五]更[天时]?", "后半夜/凌晨 X 点"),
 ]
@@ -110,7 +110,15 @@ META_PATTERN = re.compile(r"上一章|这一章|前文所述|第[一二三四五
 FALSE_POSITIVE = {
     "娘子": ["新娘子", "新娘"],
     "老爷": ["老爷车", "老爷子"],
+    # 「换句话说 / 也就是说」不是章回说书腔（2026-09-23 撞过）
+    "话说，": ["换句话说", "反过来说", "也就是说", "不用说"],
+    # 「而且说实话 / 并且说」不是说书腔的「且说」（2026-09-23 撞过）
+    "且说": ["而且说", "并且说", "况且说", "姑且说"],
     "小姐": ["小姐姐"],
+    # 「蜡笔画 / 水笔画 / 钢笔画」里的「笔画」不是在说汉字笔画（2026-09-23 撞过）
+    "笔画": ["蜡笔画", "水笔画", "钢笔画", "铅笔画", "彩笔画"],
+    # 「姐姐 / 妹妹」作亲属关系陈述是正常的，只有当敬称用（叫某人姐姐）才出戏
+    "姐姐": ["我姐姐", "他姐姐", "她姐姐", "的姐姐"],
 }
 
 
@@ -148,7 +156,7 @@ def check_file(path: str) -> int:
             if word in line and not _false_positive(word, line):
                 high.append((lineno, word, fix, line.strip()))
         for word, fix in WARN_WORDS:
-            if word in line:
+            if word in line and not _false_positive(word, line):
                 warn.append((lineno, word, fix, line.strip()))
         for word, fix in IDIOM_WORDS:
             if word in line:
@@ -158,7 +166,8 @@ def check_file(path: str) -> int:
                 high.append((lineno, "中式度量", fix, line.strip()))
         if LANG_PATTERN.search(line):
             lang.append((lineno, line.strip()))
-        if HANZI_PATTERN.search(line):
+        hz = HANZI_PATTERN.search(line)
+        if hz and not _false_positive(hz.group(0), line):
             hanzi.append((lineno, line.strip()))
         # 题词/引语行与「下一章」预告行属于面向读者的导航文本，不算正文元指涉
         stripped = line.lstrip()
