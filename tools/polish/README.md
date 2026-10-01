@@ -12,8 +12,8 @@ python3 tools/polish/render_polish.py --blog                            # 博客
 
 | 文件 | 作用 |
 |---|---|
-| `_data/polish/notes.yml` | 唯一真源：`meta`（链接、配色）、`areas`（分类表）、`notes`（笔记） |
-| `render_polish.py` | 数据 → 网页。配色复用 `tools/preview/render_draft.py` 的 `palette()` |
+| `_data/polish/notes.yml` | 唯一真源：`meta`（链接、页名）、`areas`（分类表）、`notes`（笔记） |
+| `render_polish.py` | 数据 → 网页。每张卡照多邻国做题页的样子排（只借样子，不用它的名字、标志、角色） |
 | `find.py` | 查档：不分大小写、不管附加符号；对不上会去掉词尾再试，标「可能相关」 |
 | `forms.py` | 查词形：读根目录的 `polish-data.json`（站里 `polski.html` 变格小工具的词库） |
 | `demo.yml` | 页面固定文字 + 还没有笔记时显示的两张样板卡 |

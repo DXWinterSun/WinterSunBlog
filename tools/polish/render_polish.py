@@ -6,6 +6,8 @@
 2026-10-01 Winter：「我之后能做成我在多邻国遇到错的或者有疑问的地方的时候，我就来对话里给你并且问你，
 你给我解释清楚之后，顺便整理到波兰语学习的笔记里，你可以进行更好的分类以便我学习……
 如果我之后还问之前问过的，你有存档可以查就可以给我指路，也会加深我的记忆。」
+同一天她又说：「能不能做成更多邻国的形式？」——所以每张卡照多邻国做题的样子排：题型标题、
+说话的角色（我们用站里的小雪人，不用多邻国的角色）和气泡、她写的答案、底下绿 / 红结果条，讲解放在下面。
 
     python3 tools/polish/render_polish.py -o <scratchpad>/polish-notes.html   # 给她看的 Artifact
     python3 tools/polish/render_polish.py --blog                              # 博客上那一页 polish/index.html
@@ -14,15 +16,14 @@
 - 第一次发布 Artifact 要带 capabilities={"comments": {"composer_only": true}}（卡片上的「批注」按钮靠它）。
   之后发布到同一个链接（记在 meta.artifact），不再传 capabilities。
 - 行内记号：`==高亮==`、`**粗体**`；其余一律当纯文本转义。
+- ⚠️ 只借多邻国的「样子」：不放它的名字、标志、角色和专用字体。
 
 完整工作法（查档、讲解、归类、发布）见 .claude/skills/winter-polish-notes/SKILL.md。
 """
-import argparse, datetime, html, json, os, re, sys, unicodedata
+import argparse, datetime, html, os, re, sys, unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'preview'))
-from render_draft import palette          # noqa: E402  跟章节预览页、读书笔记同一套 AU 配色
 
 import yaml                               # noqa: E402
 
@@ -30,265 +31,298 @@ DATA = os.environ.get('POLISH_NOTES') or os.path.join(ROOT, '_data', 'polish', '
 SITE = 'https://dxwintersun.github.io/WinterSunBlog'
 PL_ORDER = 'aąbcćdeęfghijklłmnńoóprsśtuvwxyzźż'   # 波兰语字母表顺序（生词表按它排）
 
-FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400'
-         '&family=Noto+Serif+SC:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">')
+# 多邻国的题型 → 卡上那行大标题
+TASKS = {'listen': '听到什么写什么', 'fill': '补上缺的词', 'translate': '翻译这句话',
+         'choose': '选出正确的意思', 'speak': '把这句念出来', 'match': '配成对'}
+# 答对时那句话（按编号轮着用，像多邻国每次夸法不一样）
+CHEERS = ['答对了！', '写得漂亮！', '太棒了！', '完全正确！']
+# 每个大类一个颜色（单元横幅）
+AREA_HUE = {'sound': '#a568f0', 'noun': '#1899d6', 'adj': '#ff9600', 'pron': '#e463b8', 'verb': '#4fb400',
+            'prep': '#2b70c9', 'num': '#e0a800', 'syntax': '#00b8a0', 'words': '#ea4b4b', 'duo': '#4fb400',
+            'en': '#7a8a94'}
+
+FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900'
+         '&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">')
 
 CSS = '''
+/* 照多邻国做题页的样子：白底、灰色粗描边、底边加厚的「实体按钮」、绿 / 红结果条；说话的是站里的小雪人 */
 :root{
  color-scheme:light;
- --bg:color-mix(in srgb,__ACCENT__ 6%,#fbfaf6);--accent:__INK_ACCENT__;--ink:__BG__;
- --muted:color-mix(in srgb,__BG__ 60%,#fbfaf6);
- --surface:#fffefb;--glow:rgba(255,255,255,0);
- --line:color-mix(in srgb,var(--accent) 24%,transparent);
- --band:#eef0f4;--band-ink:#5b6472;--code-bg:color-mix(in srgb,var(--accent) 8%,#fff);
- --pl:#27368f;--example:#2d63c8;
- --wrong:#c8322b;--right:#2f7d4f;--ask:#2d63c8;
- --hl-wrong:#f6b4ac;--hl-right:#a8deb9;--hl:color-mix(in srgb,__ACCENT__ 32%,#fff3c4);--hl-mix:70%;
- --paper:#f6eedf;--paper-ink:#3b3329;--note-shadow:0 6px 16px rgba(40,30,20,.14);
- --shadow:0 1px 2px rgba(20,24,31,.06),0 6px 18px -12px rgba(20,24,31,.35);
+ --bg:#ffffff;--surface:#ffffff;--soft:#f7f7f7;--ink:#3c3c3c;--text:#4b4b4b;--muted:#777777;--faint:#afafaf;
+ --line:#e5e5e5;--line-deep:#d6d6d6;
+ --blue:#1899d6;--blue-soft:#ddf4ff;--blue-line:#84d8ff;
+ --green:#58a700;--green-btn:#58cc02;--green-bg:#d7ffb8;--green-line:#a5ed6e;
+ --red:#ea2b2b;--red-bg:#ffdfe0;--red-line:#ffb2b2;
+ --amber:#cc7a00;--amber-bg:#fff2d6;--key-bg:#fff7dd;--key-line:#ffd75e;
+ --snow:#ffffff;--snow-line:#c9d6de;--hat:#3c3c3c;--nose:#ff9600;
+ --font:"Nunito","PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
 }
 :root[data-theme="dark"]{
  color-scheme:dark;
- --bg:__BG__;--accent:__ACCENT__;--ink:__TEXT__;--muted:__MUTED__;
- --surface:color-mix(in srgb,var(--bg) 91%,#fff);--glow:rgba(255,255,255,.05);
- --line:color-mix(in srgb,var(--accent) 26%,transparent);
- --band:rgba(255,255,255,.06);--band-ink:#aab2bf;--code-bg:color-mix(in srgb,var(--bg) 70%,#000);
- --pl:#a9b8ff;--example:#8fb0ff;--wrong:#ef7a70;--right:#7fcf9d;--ask:#8fb0ff;
- --hl-wrong:#b34a40;--hl-right:#3f8a5c;--hl:color-mix(in srgb,__ACCENT__ 55%,transparent);--hl-mix:55%;
- --paper:#f2eadd;--note-shadow:0 8px 20px rgba(0,0,0,.34);--shadow:none;
+ --bg:#131f24;--surface:#131f24;--soft:#1b2a31;--ink:#f1f7fb;--text:#dce6ec;--muted:#8fa3ad;--faint:#5c707a;
+ --line:#37464f;--line-deep:#2b3940;
+ --blue:#49c0f8;--blue-soft:#1b3442;--blue-line:#2f6a86;
+ --green:#79d634;--green-btn:#58cc02;--green-bg:#1f3524;--green-line:#3f6b2a;
+ --red:#ff7878;--red-bg:#3b2226;--red-line:#7a3a3f;
+ --amber:#ffb84d;--amber-bg:#3a2e17;--key-bg:#2c2a1a;--key-line:#6b5a1f;
+ --snow:#eaf2f6;--snow-line:#8fa3ad;--hat:#0d161a;--nose:#ff9600;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);
- font-family:"Noto Serif SC","Songti SC",Georgia,serif;font-size:16.5px;line-height:1.9;
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.75;
  -webkit-font-smoothing:antialiased;}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
- background:radial-gradient(ellipse 900px 500px at 15% -10%,var(--glow),transparent 60%);}
-.wrap{position:relative;z-index:1;max-width:44rem;margin:0 auto;padding:3.2rem 1.25rem 5rem;}
+.wrap{max-width:42rem;margin:0 auto;padding:3.4rem 1.25rem 5rem;}
 [hidden]{display:none!important}
-.blognav{position:absolute;top:14px;left:14px;z-index:5;display:flex;gap:.5rem;}
-.blognav a{display:inline-flex;align-items:center;min-height:34px;padding:0 .85rem;border:1px solid var(--line);
- border-radius:99px;background:var(--surface);color:var(--accent);text-decoration:none;font-size:.85rem;letter-spacing:.06em;}
-.theme-btn{position:absolute;top:10px;right:10px;z-index:5;width:36px;height:36px;border-radius:50%;
- border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:17px;line-height:1;padding:0;}
-.theme-btn:hover{border-color:var(--accent);}
+a{color:var(--blue);}
+button{font-family:var(--font);}
+:focus-visible{outline:3px solid var(--blue-line);outline-offset:2px;}
 
-/* 页头：跟读书笔记 / 章节预览同一套 */
-.console{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:13px 18px;
- border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);border-radius:4px;
- background:color-mix(in srgb,var(--accent) 8%,transparent);font-family:"EB Garamond",Georgia,serif;
- font-size:13px;letter-spacing:.06em;color:var(--muted);margin-bottom:2.4rem;}
-.console b{color:var(--accent);font-weight:600;}
-.console .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;
- box-shadow:0 0 6px var(--accent);flex:none;}
-.console>span+span::before{content:"|";opacity:.38;margin-right:16px;}
-.console>span.dot+span::before{content:none;}
-.kicker{font-family:"Volkhov",Georgia,serif;font-style:italic;color:var(--muted);font-size:15px;
- text-align:center;margin:0 0 .6rem;}
-h1{font-family:"Volkhov","Noto Serif SC",Georgia,serif;font-weight:700;font-size:clamp(32px,7vw,46px);
- text-align:center;margin:0 0 .45rem;line-height:1.2;letter-spacing:.02em;}
-.sub{text-align:center;color:var(--accent);font-size:1rem;letter-spacing:.12em;margin:0;}
-.rule{width:60px;height:1px;background:var(--accent);opacity:.6;margin:2.2rem auto;}
-.lede{margin:0 0 1rem;color:var(--muted);font-size:.95rem;line-height:1.95;}
-.lede b{color:var(--ink);font-weight:600;}
-.demo-intro{margin:0 0 1.4rem;padding:.8rem 1rem;border:1px dashed var(--accent);border-radius:6px;
- font-size:.93rem;background:color-mix(in srgb,var(--accent) 5%,transparent);}
-.demo-intro b{color:var(--accent);}
+/* 实体按钮：2px 描边 + 底边加厚，按下去会「沉」一下 */
+.chunk{appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:40px;
+ padding:.25rem 1rem;border:2px solid var(--line);border-bottom-width:4px;border-radius:14px;background:var(--surface);
+ color:var(--text);font:inherit;font-weight:800;font-size:.9rem;cursor:pointer;text-decoration:none;
+ transition:transform .05s ease,border-bottom-width .05s ease;}
+.chunk:hover{background:var(--soft);}
+.chunk:active{transform:translateY(2px);border-bottom-width:2px;}
+.chunk--blue{color:var(--blue);}
+
+.blognav{position:absolute;top:12px;left:12px;z-index:5;display:flex;gap:.5rem;}
+.blognav a{min-height:36px;padding:0 .8rem;font-size:.82rem;}
+.theme-btn{position:absolute;top:10px;right:10px;z-index:5;width:40px;height:40px;min-height:40px;padding:0;
+ border-radius:50%;font-size:18px;}
+
+/* ── 页头 ── */
+.top{display:flex;align-items:center;gap:.9rem;margin:0 0 .4rem;}
+.top .snowman{width:58px;height:70px;flex:none;}
+.top h1{margin:0;font-weight:900;font-size:clamp(34px,8vw,44px);line-height:1.05;color:var(--ink);letter-spacing:.01em;}
+.top p{margin:.15rem 0 0;font-weight:800;color:var(--muted);font-size:.95rem;}
+.stats{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0 1rem;padding:0;list-style:none;}
+.stats li{display:flex;align-items:center;gap:.35rem;padding:.25rem .8rem;border:2px solid var(--line);border-radius:12px;
+ font-weight:800;font-size:.88rem;color:var(--muted);}
+.stats b{font-size:1rem;color:var(--ink);font-variant-numeric:tabular-nums;}
+.lede{margin:0 0 1rem;color:var(--muted);font-size:.95rem;}
+.lede b{color:var(--ink);}
+.demo-intro{margin:0 0 1.2rem;padding:.8rem 1rem;border:2px dashed var(--blue-line);border-radius:14px;background:var(--blue-soft);font-size:.93rem;}
 
 /* 搜索 */
 .find{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;margin:0 -1.25rem 1rem;padding:.6rem 1.25rem;
- background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
-.find label{display:flex;align-items:center;gap:.6rem;padding:0 .9rem;min-height:44px;border:1px solid var(--line);
- border-radius:99px;background:var(--surface);}
-.find label:focus-within{border-color:var(--accent);}
-.find input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;font-size:1rem;outline:none;}
-.find input::placeholder{color:var(--muted);}
-.find__n{font-size:.8rem;color:var(--muted);white-space:nowrap;}
-.find__none{margin:.4rem 0 1rem;padding:.8rem 1rem;border-radius:6px;background:var(--band);font-size:.93rem;}
+ background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+.find label{display:flex;align-items:center;gap:.6rem;padding:0 1rem;min-height:48px;border:2px solid var(--line);
+ border-radius:16px;background:var(--soft);}
+.find label:focus-within{border-color:var(--blue-line);background:var(--surface);}
+.find input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:700;font-size:1rem;outline:none;}
+.find input::placeholder{color:var(--faint);font-weight:700;}
+.find__n{font-size:.8rem;font-weight:800;color:var(--muted);white-space:nowrap;}
+.find__none{margin:.4rem 0 1rem;padding:.8rem 1rem;border-radius:14px;background:var(--soft);font-weight:700;}
 
 /* 目录 */
-.toc{margin:0 0 1.6rem;border:1px solid var(--line);border-radius:6px;background:var(--surface);scroll-margin-top:4.5rem;}
-.toc summary{display:flex;align-items:baseline;gap:.8rem;padding:.8rem 1rem;cursor:pointer;font-weight:600;list-style:none;}
+.toc{margin:0 0 1.8rem;border:2px solid var(--line);border-radius:16px;background:var(--surface);scroll-margin-top:5rem;overflow:hidden;}
+.toc summary{display:flex;align-items:baseline;gap:.7rem;padding:.85rem 1rem;cursor:pointer;font-weight:900;font-size:1.05rem;
+ color:var(--ink);list-style:none;}
 .toc summary::-webkit-details-marker{display:none;}
-.toc summary::after{content:"展开 ▾";margin-left:auto;font-size:.8rem;font-weight:400;color:var(--accent);}
-.toc[open] summary::after{content:"收起 ▴";}
-.toc summary small{font-weight:400;color:var(--muted);font-size:.82rem;}
-.tabs{display:flex;flex-wrap:wrap;gap:.4rem;padding:0 1rem .7rem;}
-.tab{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;
- padding:.2rem .9rem;font:inherit;font-size:.85rem;cursor:pointer;min-height:34px;}
-.tab.is-on{background:var(--accent);border-color:transparent;color:#fff;}
-.pane{padding:0 0 .6rem;}
-.pane h4{margin:.4rem 0 0;padding:.25rem 1rem;background:var(--band);color:var(--band-ink);font-size:.82rem;
- font-weight:600;letter-spacing:.08em;}
+.toc summary::after{content:"展开";margin-left:auto;font-size:.8rem;font-weight:800;color:var(--blue);}
+.toc[open] summary::after{content:"收起";}
+.toc summary small{font-weight:700;color:var(--muted);font-size:.82rem;}
+.tabs{display:flex;flex-wrap:wrap;gap:.45rem;padding:0 1rem .8rem;}
+.tab.is-on{background:var(--blue-soft);border-color:var(--blue-line);color:var(--blue);}
+.pane{padding:0 0 .5rem;}
+.pane h4{margin:.5rem 0 0;padding:.3rem 1rem;background:var(--soft);color:var(--muted);font-size:.8rem;font-weight:900;letter-spacing:.06em;}
 .pane ul{list-style:none;margin:0;padding:0;}
-.pane li a{display:flex;align-items:baseline;gap:.6rem;padding:.35rem 1rem;color:var(--ink);text-decoration:none;
- border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);line-height:1.55;}
-.pane li a:hover{background:var(--band);}
-.pane .no{font-family:"EB Garamond",Georgia,serif;font-size:.86rem;color:var(--accent);
- font-variant-numeric:tabular-nums;white-space:nowrap;}
-.pane .t{flex:1;min-width:0;font-size:.93rem;}
-.pane .pt{padding:.3rem 1rem 0;font-size:.8rem;color:var(--muted);letter-spacing:.06em;}
-.pane .x{font-size:.75rem;font-weight:600;padding:0 .45rem;border-radius:4px;background:var(--band);color:var(--accent);white-space:nowrap;}
-.pane .w{font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:1.08rem;color:var(--pl);white-space:nowrap;}
-.pane .wt{font-size:.72rem;padding:0 .4rem;border-radius:4px;background:var(--band);color:var(--band-ink);white-space:nowrap;}
+.pane li a{display:flex;align-items:baseline;gap:.6rem;padding:.4rem 1rem;color:var(--text);text-decoration:none;
+ border-bottom:2px solid var(--soft);line-height:1.5;}
+.pane li a:hover{background:var(--soft);}
+.pane .no{font-weight:800;font-size:.8rem;color:var(--faint);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.pane .t{flex:1;min-width:0;font-size:.93rem;font-weight:700;}
+.pane .pt{padding:.35rem 1rem 0;font-size:.8rem;font-weight:800;color:var(--muted);}
+.pane .x{font-size:.72rem;font-weight:900;padding:0 .5rem;border-radius:8px;background:var(--blue-soft);color:var(--blue);white-space:nowrap;}
+.pane .w{font-weight:900;font-size:1.02rem;color:var(--ink);white-space:nowrap;}
+.pane .wt{font-size:.72rem;font-weight:800;padding:0 .45rem;border-radius:8px;background:var(--soft);color:var(--muted);white-space:nowrap;}
 .pane .wz{flex:1;min-width:0;font-size:.9rem;}
-.letters{display:flex;flex-wrap:wrap;gap:.15rem;padding:.2rem .8rem .5rem;}
-.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:1.75rem;height:1.75rem;
- border-radius:5px;font-family:"EB Garamond",Georgia,serif;font-weight:600;text-decoration:none;
- color:var(--pl);background:var(--band);}
-.copyline{display:flex;align-items:center;gap:.6rem;padding:.2rem 1rem .6rem;font-size:.84rem;color:var(--muted);}
-.copy{appearance:none;flex:none;margin-left:auto;min-height:32px;padding:.2rem .9rem;border-radius:99px;cursor:pointer;
- border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);background:transparent;color:var(--accent);
- font:inherit;font-size:.8rem;letter-spacing:.06em;white-space:nowrap;}
-.copy:hover{background:color-mix(in srgb,var(--accent) 12%,transparent);}
+.letters{display:flex;flex-wrap:wrap;gap:.3rem;padding:.2rem 1rem .5rem;}
+.letters a{min-width:2.1rem;min-height:2.1rem;padding:0 .4rem;font-size:.9rem;}
+.copyline{display:flex;align-items:center;gap:.6rem;padding:.2rem 1rem .6rem;font-size:.84rem;font-weight:700;color:var(--muted);}
+.copyline .chunk{margin-left:auto;}
 
-/* 分类标题 */
-.area{scroll-margin-top:4.5rem;}
-h2{font-family:"Noto Serif SC",Georgia,serif;font-weight:600;margin:3rem 0 .2rem;font-size:1.22rem;
- color:var(--accent);display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;}
-h2 .ico{font-size:1.1rem;}
-h2 i{font-family:"EB Garamond",Georgia,serif;font-weight:400;font-size:.95rem;color:var(--muted);}
-h2 .cnt{margin-left:auto;font-size:.8rem;font-weight:400;color:var(--muted);}
-.point{margin:1.6rem 0 .8rem;padding-bottom:.25rem;border-bottom:1px solid var(--line);font-size:1rem;font-weight:600;
- display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;scroll-margin-top:4.5rem;}
-.point small{font-weight:400;font-size:.8rem;color:var(--muted);}
-.xref{display:block;margin:0 0 1rem;padding:.5rem .9rem;border:1px dashed var(--line);border-radius:6px;
- color:var(--ink);text-decoration:none;font-size:.9rem;}
-.xref:hover{border-color:var(--accent);}
-.xref b{color:var(--accent);font-weight:600;font-family:"EB Garamond",Georgia,serif;}
-.xref small{color:var(--muted);}
+/* ── 单元横幅（大类）与知识点分隔线 ── */
+.area{scroll-margin-top:5rem;}
+.area__head{display:flex;align-items:center;gap:.8rem;margin:2.6rem 0 1rem;padding:.9rem 1.1rem;border-radius:16px;
+ background:var(--hue);border-bottom:4px solid color-mix(in srgb,var(--hue) 72%,#000);color:#fff;}
+.area__head .ico{font-size:1.6rem;line-height:1;}
+.area__head div{flex:1;min-width:0;}
+.area__head small{display:block;font-size:.76rem;font-weight:800;letter-spacing:.08em;opacity:.85;}
+.area__head h2{margin:0;font-size:1.2rem;font-weight:900;line-height:1.35;}
+.area__head .cnt{flex:none;padding:.15rem .7rem;border-radius:10px;background:rgba(255,255,255,.22);font-weight:900;font-size:.85rem;}
+.point{display:flex;align-items:center;gap:.8rem;margin:1.8rem 0 1rem;font-size:.95rem;font-weight:900;color:var(--muted);
+ scroll-margin-top:5rem;}
+.point::before,.point::after{content:"";flex:1;height:2px;background:var(--line);}
+.point span{text-align:center;max-width:80%;}
+.point small{display:block;font-size:.76rem;font-weight:700;color:var(--faint);}
+.xref{display:flex;align-items:baseline;flex-wrap:wrap;gap:.2rem .6rem;margin:0 0 1rem;padding:.6rem 1rem;border:2px dashed var(--line);
+ border-radius:14px;color:var(--text);text-decoration:none;font-size:.9rem;font-weight:700;}
+.xref:hover{border-color:var(--blue-line);}
+.xref b{color:var(--faint);font-weight:900;}
+.xref small{color:var(--muted);font-weight:700;}
 
 /* ── 一张卡 ── */
-.card{position:relative;margin:0 0 1.8rem;padding:1.05rem 1.25rem .9rem;background:var(--surface);
- border:1px solid var(--line);border-left:4px solid var(--ask);border-radius:6px;box-shadow:var(--shadow);
- scroll-margin-top:4.5rem;}
-.card.is-wrong{border-left-color:var(--wrong);}
-.card.is-ok{border-left-color:var(--right);}
-.card:target{box-shadow:0 0 0 2px var(--accent);animation:flash 1.6s ease-out 1;}
-@keyframes flash{0%{box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 40%,transparent)}100%{box-shadow:0 0 0 2px var(--accent)}}
-@media (prefers-reduced-motion:reduce){.card:target{animation:none;}}
-.card__meta{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .7rem;margin-bottom:.35rem;
- font-family:"EB Garamond",Georgia,serif;font-size:.86rem;letter-spacing:.08em;color:var(--muted);
+.card{position:relative;margin:0 0 2rem;background:var(--surface);border:2px solid var(--line);border-bottom-width:4px;
+ border-radius:20px;scroll-margin-top:5rem;overflow:hidden;}
+.card:target{border-color:var(--blue-line);box-shadow:0 0 0 4px var(--blue-soft);}
+.card__top{padding:1rem 1.2rem .2rem;}
+.card__meta{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem .6rem;font-weight:800;font-size:.82rem;color:var(--faint);
  font-variant-numeric:tabular-nums;}
-.card__no{color:var(--accent);font-weight:600;}
-.pill{display:inline-flex;align-items:center;padding:0 .6rem;border-radius:99px;font-family:"Noto Serif SC",serif;
- font-size:.74rem;letter-spacing:.06em;line-height:1.7;white-space:nowrap;}
-.pill--wrong{background:color-mix(in srgb,var(--wrong) 14%,transparent);color:var(--wrong);}
-.pill--ask{background:color-mix(in srgb,var(--ask) 14%,transparent);color:var(--ask);}
-.pill--ok{background:color-mix(in srgb,var(--right) 14%,transparent);color:var(--right);}
-.pill--times{background:var(--accent);color:#fff;}
-.pill--new{border:1px solid var(--accent);color:var(--accent);}
-.pill--demo{border:1px dashed var(--muted);color:var(--muted);}
+.pill{display:inline-flex;align-items:center;padding:0 .6rem;border-radius:10px;font-size:.75rem;font-weight:900;line-height:1.8;white-space:nowrap;}
+.pill--wrong{background:var(--red-bg);color:var(--red);}
+.pill--ok{background:var(--green-bg);color:var(--green);}
+.pill--typo{background:var(--amber-bg);color:var(--amber);}
+.pill--ask{background:var(--blue-soft);color:var(--blue);}
+.pill--times{background:var(--blue);color:#fff;}
+.pill--new{border:2px solid var(--blue-line);color:var(--blue);line-height:1.6;}
+.pill--demo{border:2px dashed var(--faint);color:var(--muted);line-height:1.6;}
 .card__meta .pill:first-of-type{margin-left:auto;}
-.card__title{margin:0 0 .3rem;font-size:1.25rem;font-weight:700;line-height:1.5;}
-.crumb{margin:0 0 .8rem;font-size:.8rem;color:var(--muted);letter-spacing:.04em;}
-.crumb a{color:inherit;text-decoration:none;border-bottom:1px dotted currentColor;}
-.crumb a:hover{color:var(--accent);}
+.card__title{margin:.35rem 0 .2rem;font-size:1.22rem;font-weight:900;line-height:1.45;color:var(--ink);}
+.crumb{margin:0;font-size:.8rem;font-weight:700;color:var(--muted);}
+.crumb a{color:inherit;text-decoration:none;border-bottom:2px dotted var(--line-deep);}
+.crumb a:hover{color:var(--blue);}
 .crumb .also{display:inline-block;}
-.band{display:block;margin:.4rem -1.25rem .5rem;padding:.25rem 1.25rem;background:var(--band);color:var(--band-ink);
- font-size:.78rem;letter-spacing:.12em;}
-.ask{margin:0 0 .5rem;font-size:.98rem;}
-.pl{display:flex;align-items:flex-start;gap:.35rem;margin:0 0 .15rem;font-family:"EB Garamond",Georgia,serif;
- font-size:1.42rem;line-height:1.45;color:var(--pl);overflow-wrap:anywhere;}
-.pl>span{padding-top:.05rem;}
-.en{margin:0 0 .1rem;font-family:"EB Garamond",Georgia,serif;font-style:italic;font-size:1.02rem;color:var(--muted);}
-.en::before{content:"题面 ";font-family:"Noto Serif SC",serif;font-style:normal;font-size:.72rem;letter-spacing:.1em;}
-.zh{margin:0 0 .6rem;font-size:.97rem;}
-.diff{display:grid;gap:.35rem;margin:.2rem 0 .7rem;}
-.diff>div{display:flex;align-items:flex-start;gap:.6rem;margin:0;padding:.4rem .7rem;border-radius:5px;}
-.diff b{flex:none;font-size:.78rem;letter-spacing:.08em;padding-top:.45rem;white-space:nowrap;}
-.diff .is-mine{background:color-mix(in srgb,var(--wrong) 7%,transparent);}
-.diff .is-mine b{color:var(--wrong);}
-.diff .is-right{background:color-mix(in srgb,var(--right) 8%,transparent);}
-.diff .is-right b{color:var(--right);}
-.diff .pl{font-size:1.25rem;margin:0;}
-.why p{margin:0 0 .55rem;font-size:.97rem;}
-.memo{margin:.4rem 0 .8rem;padding:.6rem .9rem;border-radius:5px;background:color-mix(in srgb,var(--accent) 9%,transparent);
- border-left:3px solid var(--accent);font-weight:600;}
-.memo b{display:inline-block;margin-right:.6em;font-size:.76rem;letter-spacing:.14em;color:var(--accent);}
-.tbl{overflow-x:auto;margin:.2rem 0 .8rem;-webkit-overflow-scrolling:touch;}
-.tbl table{width:100%;border-collapse:collapse;font-size:.92rem;}
-.tbl th,.tbl td{padding:.35rem .6rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
-.tbl th{font-size:.78rem;font-weight:600;color:var(--band-ink);background:var(--band);letter-spacing:.06em;white-space:nowrap;}
-.tbl td{font-family:"EB Garamond","Noto Serif SC",Georgia,serif;font-size:1.06rem;color:var(--pl);}
-.tbl td.zh{font-family:"Noto Serif SC",serif;font-size:.86rem;color:var(--ink);}
-.tbl td:first-child{white-space:nowrap;}
-.extra{list-style:none;margin:0 0 .6rem;padding:0;font-size:.93rem;}
-.extra li{margin:0 0 .35rem;}
-.extra strong{display:inline-block;margin-right:.5em;padding:0 .45rem;border-radius:4px;background:var(--band);
- color:var(--band-ink);font-size:.76rem;letter-spacing:.08em;}
-.ex{list-style:none;margin:0 0 .6rem;padding:0;}
-.ex li{display:flex;align-items:flex-start;gap:.35rem;padding:.15rem 0;}
-.ex .pl{display:block;font-size:1.15rem;margin:0;font-style:italic;color:var(--example);}
-.ex small{display:block;font-family:"Noto Serif SC",serif;font-style:normal;font-size:.86rem;color:var(--muted);}
-.words{list-style:none;margin:0 0 .6rem;padding:0;display:grid;gap:.1rem;}
-.words li{display:flex;align-items:center;flex-wrap:wrap;gap:.1rem .55rem;padding:.2rem 0;
- border-bottom:1px solid color-mix(in srgb,var(--line) 55%,transparent);}
-.words .w{font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:1.12rem;color:var(--pl);}
-.words .wt{font-size:.72rem;padding:0 .4rem;border-radius:4px;background:var(--band);color:var(--band-ink);}
-.words .wz{font-size:.92rem;}
-.words .look{margin-left:auto;font-size:.78rem;color:var(--accent);text-decoration:none;white-space:nowrap;}
-.words .look:hover{text-decoration:underline;}
-.see{margin:.2rem 0 .6rem;font-size:.9rem;}
-.see a{color:var(--accent);}
-mark{color:inherit;background:transparent;padding:0 .12em;margin:0 -.03em;border-radius:.25em .45em .3em .5em;
- background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);
- -webkit-box-decoration-break:clone;box-decoration-break:clone;}
-mark.wrong{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-wrong) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);}
-mark.right{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-right) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);}
 
-/* 听 */
-.say{appearance:none;flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
- margin-top:.15rem;border:0;border-radius:50%;background:transparent;color:var(--example);cursor:pointer;padding:0;}
-.say:hover{background:var(--band);}
-.say svg{width:18px;height:18px;}
+/* 做题区 */
+.ex{padding:.8rem 1.2rem 0;}
+.ex__task{margin:0 0 .7rem;font-size:1.3rem;font-weight:900;color:var(--ink);line-height:1.3;}
+.stage{display:flex;align-items:flex-end;gap:.7rem;margin:0 0 .9rem;}
+.stage .snowman{width:62px;height:76px;flex:none;}
+.bubble{position:relative;min-width:0;padding:.65rem .9rem;border:2px solid var(--line);border-radius:16px;background:var(--surface);}
+.bubble::before{content:"";position:absolute;left:-10px;bottom:18px;width:16px;height:16px;background:var(--surface);
+ border-left:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(45deg);}
+.bubble__line{display:flex;align-items:flex-start;gap:.45rem;margin:0;font-weight:700;font-size:1.18rem;line-height:1.5;color:var(--ink);overflow-wrap:anywhere;}
+.bubble__zh{margin:.25rem 0 0;font-size:.88rem;font-weight:700;color:var(--muted);}
+.audio{display:flex;border:2px solid var(--line);border-bottom-width:4px;border-radius:16px;overflow:hidden;}
+.audio .say{width:74px;height:58px;border-radius:0;}
+.audio .say+.say{border-left:2px solid var(--line);}
+.audio .say svg{width:30px;height:30px;}
+.audio .say .turtle{font-size:1.6rem;line-height:1;}
+.answer{margin:0 0 .9rem;padding:.75rem 1rem;min-height:3.2rem;border:2px solid var(--line);border-radius:16px;background:var(--soft);
+ font-weight:700;font-size:1.12rem;color:var(--ink);overflow-wrap:anywhere;}
+.answer.is-ok,.answer.is-typo{background:var(--green-bg);border-color:var(--green-line);color:var(--green);}
+.answer.is-wrong{background:var(--red-bg);border-color:var(--red-line);color:var(--red);}
+.answer .blank{border-bottom:2px solid currentColor;padding:0 .2em;}
+.answer mark{background:none;color:inherit;border-bottom:2px solid currentColor;padding:0 .1em;}
+.tiles{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 .9rem;padding:.6rem 0;border-top:2px solid var(--line);border-bottom:2px solid var(--line);}
+.tile{display:inline-flex;align-items:center;min-height:44px;padding:.2rem .85rem;border:2px solid var(--line);border-bottom-width:4px;
+ border-radius:14px;background:var(--surface);font-weight:700;font-size:1.05rem;color:var(--ink);}
+.tiles.is-ok .tile{background:var(--green-bg);border-color:var(--green-line);color:var(--green);}
+.tiles.is-wrong .tile{background:var(--red-bg);border-color:var(--red-line);color:var(--red);}
+/* 底下那条结果 */
+.result{margin:0 -1.2rem;padding:.9rem 1.2rem 1rem;background:var(--green-bg);color:var(--green);}
+.result.is-wrong{background:var(--red-bg);color:var(--red);}
+.result__verdict{display:flex;align-items:center;gap:.6rem;margin:0 0 .35rem;font-size:1.3rem;font-weight:900;}
+.result__icon{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;border-radius:50%;
+ background:var(--surface);font-size:1.05rem;}
+.result p{margin:0;}
+.result__label{margin-top:.35rem!important;font-weight:900;font-size:.95rem;}
+.result__sol{display:flex;align-items:flex-start;gap:.4rem;font-weight:700;font-size:1.1rem;}
+.result__sol mark{background:none;color:inherit;border-bottom:2px solid currentColor;}
+.result__mean{font-weight:700;}
+.result__mean+.result__mean{font-size:.92rem;opacity:.85;}
+.result .say{color:inherit;}
+/* 她问的：右边一个聊天气泡 */
+.chat{display:flex;justify-content:flex-end;margin:0 0 .9rem;}
+.chat p{margin:0;max-width:85%;padding:.6rem .95rem;border-radius:18px 18px 4px 18px;background:var(--blue-soft);
+ border:2px solid var(--blue-line);color:var(--ink);font-weight:700;}
+.chat small{display:block;font-size:.72rem;font-weight:900;color:var(--blue);letter-spacing:.06em;}
+
+/* ── 讲解（像多邻国的「小贴士」） ── */
+.tip{padding:1rem 1.2rem .4rem;border-top:2px solid var(--line);}
+.tip h4{display:flex;align-items:center;gap:.4rem;margin:1rem 0 .45rem;font-size:.95rem;font-weight:900;color:var(--ink);}
+.tip h4:first-child{margin-top:0;}
+.why p{margin:0 0 .6rem;font-size:.97rem;}
+.key{display:flex;gap:.6rem;align-items:flex-start;margin:.3rem 0 .9rem;padding:.75rem .95rem;border:2px solid var(--key-line);
+ border-radius:16px;background:var(--key-bg);color:var(--ink);font-weight:800;}
+.key span{flex:none;font-size:1.1rem;line-height:1.5;}
+.tbl{overflow-x:auto;margin:.2rem 0 .9rem;border:2px solid var(--line);border-radius:14px;-webkit-overflow-scrolling:touch;}
+.tbl table{width:100%;border-collapse:collapse;font-size:.92rem;}
+.tbl th,.tbl td{padding:.45rem .7rem;text-align:left;vertical-align:top;}
+.tbl th{background:var(--soft);color:var(--muted);font-size:.78rem;font-weight:900;white-space:nowrap;}
+.tbl tr+tr td{border-top:2px solid var(--soft);}
+.tbl td{font-weight:800;color:var(--ink);}
+.tbl td.zh{font-weight:700;font-size:.86rem;color:var(--muted);}
+.tbl td:first-child{white-space:nowrap;}
+mark{color:inherit;background:transparent;border-radius:.3em;padding:0 .12em;
+ background:color-mix(in srgb,var(--blue-line) 45%,transparent);-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+mark.wrong{background:color-mix(in srgb,var(--red-line) 60%,transparent);}
+mark.right{background:color-mix(in srgb,var(--green-line) 70%,transparent);}
+.extra{list-style:none;margin:0 0 .7rem;padding:0;font-size:.93rem;}
+.extra li{margin:0 0 .45rem;}
+.extra strong{display:inline-block;margin-right:.5em;padding:0 .5rem;border-radius:8px;background:var(--soft);color:var(--muted);
+ font-size:.76rem;font-weight:900;}
+.phr{list-style:none;margin:0 0 .7rem;padding:0;}
+.phr li{display:flex;align-items:flex-start;gap:.6rem;padding:.35rem 0;}
+.phr .say{width:36px;height:36px;border-radius:50%;background:var(--blue-soft);color:var(--blue);}
+.phr .say svg{width:18px;height:18px;}
+.phr .pl{font-weight:800;font-size:1.06rem;color:var(--ink);}
+.phr small{display:block;font-weight:700;font-size:.86rem;color:var(--muted);}
+.words{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 .8rem;padding:0;list-style:none;}
+.words li{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;}
+.words .tile{gap:.4rem;cursor:pointer;}
+.words .tile:active{transform:translateY(2px);border-bottom-width:2px;}
+.words .tile .wt{font-size:.7rem;font-weight:900;padding:0 .4rem;border-radius:7px;background:var(--soft);color:var(--muted);}
+.words .wz{font-size:.82rem;font-weight:700;color:var(--muted);padding-left:.3rem;}
+.words .look{font-size:.74rem;font-weight:800;text-decoration:none;padding-left:.3rem;}
+.see{margin:.2rem 0 .7rem;font-size:.9rem;font-weight:700;}
+.times{margin:.4rem 0 .6rem;font-size:.84rem;font-weight:700;color:var(--muted);}
+.winter{display:flex;justify-content:flex-end;margin:.6rem 0;}
+.winter div{max-width:88%;padding:.6rem .95rem;border-radius:18px 18px 4px 18px;background:var(--blue-soft);border:2px solid var(--blue-line);}
+.winter span{display:block;font-size:.72rem;font-weight:900;color:var(--blue);}
+.winter p{margin:0;}
+.qa{margin:.6rem 0;}
+.qa p{margin:0 0 .4rem;padding:.55rem .9rem;border-radius:16px;font-size:.93rem;}
+.qa .q{margin-left:auto;max-width:88%;width:fit-content;background:var(--blue-soft);}
+.qa .a{max-width:92%;background:var(--soft);}
+.qa b{margin-right:.5em;font-size:.76rem;font-weight:900;color:var(--blue);}
+
+/* 听：按钮 */
+.say{appearance:none;flex:none;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;
+ border:0;border-radius:10px;background:transparent;color:var(--blue);cursor:pointer;padding:0;}
+.say:hover{background:var(--blue-soft);}
+.say svg{width:24px;height:24px;}
 .say.is-on{animation:say .9s ease-in-out infinite;}
 @keyframes say{50%{opacity:.35}}
 @media (prefers-reduced-motion:reduce){.say.is-on{animation:none;}}
+.tile.say{width:auto;height:auto;color:var(--ink);}
 
-/* 她的批注、问答 */
-.winter{position:relative;margin:1rem .2rem .7rem;padding:1rem 1.05rem .75rem;background:var(--paper);color:var(--paper-ink);
- border-radius:2px;transform:rotate(-.35deg);box-shadow:var(--note-shadow);line-height:1.85;}
-.winter::before{content:"";position:absolute;top:-9px;left:50%;width:70px;height:17px;transform:translateX(-50%) rotate(-1.5deg);
- background:color-mix(in srgb,var(--accent) 45%,transparent);opacity:.8;}
-.winter span{display:block;margin-bottom:.35rem;font-size:.68rem;letter-spacing:.2em;opacity:.55;}
-.winter p{margin:0 0 .3rem;}
-.qa{margin:.7rem 0 .4rem;padding:.65rem .85rem;border-radius:4px;background:color-mix(in srgb,var(--accent) 7%,transparent);font-size:.93rem;}
-.qa p{margin:0;}
-.qa p+p{margin-top:.35rem;}
-.qa b{display:inline-block;margin-right:.6em;font-size:.78rem;letter-spacing:.14em;font-weight:600;color:var(--accent);}
-.times{margin:.4rem 0 .5rem;font-size:.84rem;color:var(--muted);}
+.card__foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:.5rem .6rem;padding:.6rem 1.2rem 1rem;}
+.card__back{margin-right:auto;font-size:.82rem;font-weight:800;color:var(--muted);text-decoration:none;}
+.card__back:hover{color:var(--blue);}
 
-.card__foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:.5rem .7rem;margin-top:.6rem;}
-.card__back{margin-right:auto;font-size:.8rem;color:var(--muted);text-decoration:none;letter-spacing:.06em;}
-.card__back:hover{color:var(--accent);}
-.card__ask{appearance:none;min-height:34px;padding:.25rem 1rem;border-radius:99px;cursor:pointer;
- border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);background:transparent;color:var(--accent);
- font:inherit;font-size:.82rem;letter-spacing:.16em;}
-.card__ask:hover{background:color-mix(in srgb,var(--accent) 12%,transparent);}
+/* 小雪人（站里的吉祥物，代替多邻国的角色） */
+.snowman .ball{fill:var(--snow);stroke:var(--snow-line);stroke-width:1.4;}
+.snowman .hat{fill:var(--hat);}
+.snowman .band{fill:var(--hue,#1899d6);}
+.snowman .nose{fill:var(--nose);}
+.snowman .ink{fill:var(--hat);}
+.snowman .line{stroke:var(--hat);}
 
-.foot{margin-top:3.6rem;padding-top:1.4rem;border-top:1px solid color-mix(in srgb,var(--accent) 55%,transparent);
- color:var(--muted);font-size:.86rem;line-height:1.9;}
+.foot{margin-top:3rem;padding-top:1.2rem;border-top:2px solid var(--line);color:var(--muted);font-size:.88rem;font-weight:700;}
 .foot p{margin:0 0 .5rem;}
 details.tipbox{margin-top:1rem;}
-details.tipbox summary{cursor:pointer;color:var(--accent);font-size:.9rem;letter-spacing:.08em;}
+details.tipbox summary{cursor:pointer;color:var(--blue);font-weight:900;}
 .tips{margin:.8rem 0 0;padding:0;list-style:none;counter-reset:tip;}
-.tips li{position:relative;margin:0 0 .55rem;padding-left:2rem;font-size:.93rem;color:var(--ink);}
-.tips li::before{counter-increment:tip;content:counter(tip);position:absolute;left:0;top:.2em;width:1.35rem;height:1.35rem;
- border:1px solid var(--line);border-radius:50%;text-align:center;font-family:"EB Garamond",Georgia,serif;font-size:.8rem;
- line-height:1.3rem;color:var(--accent);}
+.tips li{position:relative;margin:0 0 .55rem;padding-left:2.1rem;color:var(--text);}
+.tips li::before{counter-increment:tip;content:counter(tip);position:absolute;left:0;top:.1em;width:1.5rem;height:1.5rem;
+ border:2px solid var(--line);border-radius:50%;text-align:center;font-size:.8rem;font-weight:900;line-height:1.3rem;color:var(--blue);}
 .toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translate(-50%,calc(100% + 40px));z-index:30;
- visibility:hidden;
- max-width:calc(100vw - 32px);padding:.55rem 1rem;border-radius:12px;background:var(--ink);color:var(--surface);
- font-size:.88rem;box-shadow:0 8px 24px -8px rgba(0,0,0,.45);transition:transform .25s ease;}
+ visibility:hidden;max-width:calc(100vw - 32px);padding:.6rem 1rem;border-radius:14px;background:var(--ink);color:var(--bg);
+ font-weight:700;font-size:.88rem;box-shadow:0 8px 24px -8px rgba(0,0,0,.45);transition:transform .25s ease;}
 .toast.is-on{transform:translate(-50%,0);visibility:visible;}
 @media (max-width:480px){
- .wrap{padding:3.2rem 1rem 5rem;}
+ .wrap{padding:3.4rem 1rem 5rem;}
  .find{margin:0 -1rem 1rem;padding:.6rem 1rem;}
- .card{padding:1rem 1rem .85rem;}
- .band{margin:.4rem -1rem .5rem;padding:.25rem 1rem;}
- .pl{font-size:1.3rem;}
+ .card__top{padding:.9rem 1rem .2rem;}
+ .ex,.tip{padding-left:1rem;padding-right:1rem;}
+ .result{margin:0 -1rem;padding-left:1rem;padding-right:1rem;}
+ .card__foot{padding:.6rem 1rem 1rem;}
+ .stage .snowman{width:52px;height:64px;}
+ .ex__task{font-size:1.18rem;}
 }
 '''
 
@@ -310,7 +344,7 @@ JS = r'''
 var toastEl = document.querySelector('.toast'), toastT = null;
 function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('is-on');
   clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove('is-on'); }, 2600); }
-(function () {   // 🔊 用设备自带的波兰语语音（iPhone 上是 Zosia）
+(function () {   // 🔊 用设备自带的语音（iPhone 上的波兰语是 Zosia）；🐢 是慢速
   var ss = window.speechSynthesis;
   if (!ss || !window.SpeechSynthesisUtterance) return;
   var voices = [];
@@ -329,7 +363,7 @@ function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('is-on');
       try {
         ss.cancel();
         var u = new SpeechSynthesisUtterance(btn.getAttribute('data-say'));
-        u.lang = lang; if (v) u.voice = v; u.rate = 0.85;
+        u.lang = lang; if (v) u.voice = v; u.rate = parseFloat(btn.getAttribute('data-rate') || '0.9');
         btn.classList.add('is-on');
         u.onend = u.onerror = function () { btn.classList.remove('is-on'); };
         ss.speak(u);
@@ -380,7 +414,7 @@ function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('is-on');
     });
     n.textContent = '找到 ' + hit + ' 条'; none.hidden = hit > 0;
   });
-  function pointHas(h) {   // 知识点小标题后面跟着的卡片，有没有露出来的
+  function pointHas(h) {   // 知识点分隔线后面跟着的卡片，有没有露出来的
     for (var el = h.nextElementSibling; el && !el.classList.contains('point'); el = el.nextElementSibling)
       if (el.classList.contains('card') && !el.hidden) return true;
     return false;
@@ -405,9 +439,23 @@ function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('is-on');
 })();
 '''
 
-SPEAKER = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
-           'stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/>'
-           '<path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg>')
+SPEAKER = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9.5v5a1 1 0 0 0 1 1h3.2l4.3 3.6a.9.9 0 0 0 1.5-.7V5.6'
+           'a.9.9 0 0 0-1.5-.7L7.2 8.5H4a1 1 0 0 0-1 1z"/><path d="M15.6 8.6a5 5 0 0 1 0 6.8" fill="none" stroke="currentColor" '
+           'stroke-width="2.2" stroke-linecap="round"/><path d="M18.4 5.9a9 9 0 0 1 0 12.2" fill="none" stroke="currentColor" '
+           'stroke-width="2.2" stroke-linecap="round"/></svg>')
+
+# 站里的小雪人（_includes/snowman.html 同一只），帽带颜色跟着这一类的颜色走
+SNOWMAN = ('<svg class="snowman" viewBox="0 0 66 80" aria-hidden="true" focusable="false">'
+           '<path class="hat" d="M23 21h20v-9a2 2 0 0 0-2-2H25a2 2 0 0 0-2 2z"/>'
+           '<rect class="hat" x="17" y="20" width="32" height="4" rx="2"/>'
+           '<rect class="band" x="23" y="15" width="20" height="3"/>'
+           '<circle class="ball" cx="33" cy="59" r="17"/><circle class="ball" cx="33" cy="35" r="13"/>'
+           '<circle class="ink" cx="28.5" cy="33" r="1.9"/><circle class="ink" cx="37.5" cy="33" r="1.9"/>'
+           '<path class="nose" d="M33 36l8 2.5-8 2z"/>'
+           '<path class="line" d="M28 41.5q5 3.5 10 0" fill="none" stroke-width="1.3" stroke-linecap="round"/>'
+           '<path class="line" d="M19 55l-11-7M47 55l11-7" fill="none" stroke-width="1.5" stroke-linecap="round"/>'
+           '<circle class="ink" cx="33" cy="54" r="1.7"/><circle class="ink" cx="33" cy="61" r="1.7"/>'
+           '<circle class="ink" cx="33" cy="68" r="1.7"/></svg>')
 
 
 # ── 小工具 ──
@@ -461,13 +509,10 @@ def cn_date(d, year=None):
     return (f'{d.year}年' if year and d.year != year else '') + f'{d.month}月{d.day}日'
 
 
-def say_btn(text, lang='pl'):
-    return (f'<button type="button" class="say" data-say="{esc(plain(text))}" data-lang="{"en-US" if lang == "en" else "pl-PL"}" '
-            f'aria-label="听" hidden>{SPEAKER}</button>')
-
-
-def pl_line(text, mark='', cls='pl', lang='pl'):
-    return f'<p class="{cls}" lang="{lang}">{say_btn(text, lang)}<span>{fmt(text, mark)}</span></p>'
+def say_btn(text, lang='pl', cls='say', inner=None, rate=None, label='听'):
+    r = f' data-rate="{rate}"' if rate else ''
+    return (f'<button type="button" class="{cls}" data-say="{esc(plain(text))}" data-lang="{"en-US" if lang == "en" else "pl-PL"}"{r} '
+            f'aria-label="{label}" hidden>{SPEAKER if inner is None else inner}</button>')
 
 
 # ── 数据 ──
@@ -497,6 +542,8 @@ def load(demo):
         for p in [x['point']] + as_list(x.get('also')):
             if p not in points:
                 sys.exit(f'No. {xid} 的知识点 {p!r} 不在 areas 里（写成「大类.知识点」，如 noun.gen；都不合适就先去 areas 里加）')
+        if x.get('task') and x['task'] not in TASKS:
+            sys.exit(f'No. {xid} 的 task 只能是 {"/".join(TASKS)}')
         index[xid] = x
     for x in notes:
         for s in as_list(x.get('see')):
@@ -513,10 +560,20 @@ def last_date(x):
     return max([as_date(x['date'])] + [as_date(d) for d in as_list(x.get('asked'))])
 
 
+def kind_of(x):
+    """做错了 / 差一点（多邻国判「拼写错误」）/ 答对了 / 有疑问"""
+    if x.get('ok'):
+        return 'ok'
+    if x.get('typo'):
+        return 'typo'
+    return 'wrong' if x.get('mine') else 'ask'
+
+
 def search_text(x, points):
     a, p = points[x['point']]
     bits = [x.get('title'), x.get('ask'), x.get('pl'), x.get('en'), x.get('zh'), x.get('mine'),
-            x.get('why'), x.get('rule'), a['name'], p['name'], p.get('hint'), x.get('source'), f'no. {x["id"]}', x['id']]
+            x.get('why'), x.get('rule'), a['name'], p['name'], p.get('hint'), x.get('source'), f'no. {x["id"]}', x['id'],
+            TASKS.get(x.get('task'), '')]
     bits += as_list(x.get('right')) + as_list(x.get('extra')) + as_list(x.get('winter'))
     bits += [points[k][1]['name'] for k in as_list(x.get('also'))]
     for e in as_list(x.get('examples')):
@@ -532,6 +589,8 @@ def search_text(x, points):
 
 def copy_text(x):
     """这一张卡里所有的波兰语，一行一句、句末带标点，给 Google 翻译听。"""
+    if (x.get('lang') or 'pl') != 'pl':
+        return ''
     lines = []
     for s in [x.get('pl')] + as_list(x.get('right')):
         if s and stop(s) not in lines:
@@ -541,16 +600,70 @@ def copy_text(x):
     return '\n\n'.join('\n'.join(g) for g in (lines, ex, ws) if g)
 
 
-# ── 一张卡 ──
+# ── 一张卡：上半截照多邻国做题的样子，下半截是讲解 ──
+def exercise(x, kind, lang):
+    task = x.get('task')
+    pl, solution = x.get('pl'), (as_list(x.get('right')) or [x.get('pl')])[0]
+    to_en = task == 'translate' and (x.get('to') or 'en') == 'en'
+    out = []
+    if not (pl or x.get('ask')):
+        return ''
+    head = TASKS.get(task) or ('我问的' if kind == 'ask' else '这道题')
+    out.append(f'<p class="ex__task">{head}</p>')
+    if x.get('ask'):
+        out.append(f'<div class="chat"><p><small>我问</small>{fmt(x["ask"])}</p></div>')
+    if pl:
+        if task in ('listen', 'fill'):       # 听力题：气泡里只有两个喇叭，跟多邻国一样
+            say = solution if lang == 'pl' else pl
+            bubble = ('<div class="audio">' + say_btn(say, lang, 'say', label='听')
+                      + say_btn(say, lang, 'say', '<span class="turtle" aria-hidden="true">🐢</span>', 0.5, '慢一点') + '</div>')
+        else:
+            zh = f'<p class="bubble__zh">{fmt(x["zh"])}</p>' if x.get('zh') and kind == 'ask' else ''
+            bubble = (f'<div class="bubble"><p class="bubble__line" lang="{lang}">{say_btn(pl, lang)}<span>{fmt(pl)}</span></p>{zh}</div>')
+        out.append(f'<div class="stage">{SNOWMAN}{bubble}</div>')
+    if x.get('mine'):
+        state = {'ok': 'is-ok', 'typo': 'is-typo', 'wrong': 'is-wrong'}.get(kind, '')
+        if to_en:
+            words = plain(x['mine']).split()
+            out.append(f'<div class="tiles {state}" lang="en">' + ''.join(f'<span class="tile">{esc(w)}</span>' for w in words) + '</div>')
+        else:
+            out.append(f'<div class="answer {state}" lang="{lang}">{fmt(x["mine"])}</div>')
+    if kind in ('ok', 'typo', 'wrong'):
+        out.append(result(x, kind, lang, solution, to_en))
+    return '<section class="ex">' + ''.join(out) + '</section>'
+
+
+def result(x, kind, lang, solution, to_en):
+    if kind == 'ok':
+        verdict = CHEERS[int(x['id']) % len(CHEERS)]
+        icon = '✓'
+    elif kind == 'typo':
+        verdict, icon = '有个小拼写错误', '✓'
+    else:
+        verdict, icon = '不对哦', '✗'
+    out = [f'<div class="result{" is-wrong" if kind == "wrong" else ""}">',
+           f'<p class="result__verdict"><span class="result__icon" aria-hidden="true">{icon}</span>{verdict}</p>']
+    if kind in ('wrong', 'typo') and solution:
+        out.append(f'<p class="result__label">{"正确答案：" if kind == "wrong" else "应该是："}</p>')
+        for s in as_list(x.get('right')) or [solution]:
+            out.append(f'<p class="result__sol" lang="{lang}">{say_btn(s, lang)}<span>{fmt(s)}</span></p>')
+    means = []
+    if x.get('en') and not to_en:
+        means.append(f'<p class="result__mean" lang="en">{fmt(x["en"])}</p>')
+    if x.get('zh'):
+        means.append(f'<p class="result__mean">{fmt(x["zh"])}</p>')
+    if means:
+        out.append('<p class="result__label">意思：</p>' + ''.join(means))
+    out.append('</div>')
+    return ''.join(out)
+
+
 def card(x, ctx):
     a, p = ctx['points'][x['point']]
-    wrong = bool(x.get('mine'))
-    kind = 'wrong' if wrong else 'ok' if x.get('ok') else 'ask'
-    lang = x.get('lang') or 'pl'
-    n = times(x)
-    meta = [f'<span class="card__no">No. {esc(x["id"])}</span>',
-            f'<span>{cn_date(x["date"], ctx["year"])}{" · " + esc(x["source"]) if x.get("source") else ""}</span>']
-    meta.append(f'<span class="pill pill--{kind}">{ {"wrong": "做错了", "ok": "答对了", "ask": "有疑问"}[kind] }</span>')
+    kind, lang, n = kind_of(x), x.get('lang') or 'pl', times(x)
+    meta = [f'<span>No. {esc(x["id"])}</span>',
+            f'<span>{cn_date(x["date"], ctx["year"])}{" · " + esc(x["source"]) if x.get("source") else ""}</span>',
+            f'<span class="pill pill--{kind}">{ {"wrong": "做错了", "typo": "差一点", "ok": "答对了", "ask": "有疑问"}[kind] }</span>']
     if n > 1:
         meta.append(f'<span class="pill pill--times">🔁 问过 {n} 次</span>')
     if ctx['show_new'] and last_date(x) == ctx['newest']:          # 全本都是同一天的就不标「新」，标了也没意义
@@ -564,70 +677,55 @@ def card(x, ctx):
         crumb += '　<span class="also">也沾边：' + '、'.join(
             f'<a href="#p-{esc(k)}">{esc(ctx["points"][k][1]["name"])}</a>' for k in also) + '</span>'
 
-    out = [f'<article class="card is-{kind}" id="n{esc(x["id"])}" data-comment-target '
+    out = [f'<article class="card is-{kind}" id="n{esc(x["id"])}" style="--hue:{AREA_HUE.get(a["key"], "#1899d6")}" data-comment-target '
            f'data-comment-label="No. {esc(x["id"])} {esc(plain(x["title"]))}" data-s="{esc(search_text(x, ctx["points"]))}">',
-           f'<div class="card__meta">{"".join(meta)}</div>',
-           f'<h3 class="card__title">{fmt(x["title"])}</h3>',
-           f'<p class="crumb">{crumb}</p>']
+           f'<div class="card__top"><div class="card__meta">{"".join(meta)}</div>',
+           f'<h3 class="card__title">{fmt(x["title"])}</h3><p class="crumb">{crumb}</p></div>',
+           exercise(x, kind, lang)]
 
-    if x.get('ask') or x.get('pl'):
-        out.append(f'<span class="band">{"题目" if x.get("pl") else "我问的"}</span>')
-        if x.get('ask'):
-            out.append(f'<p class="ask">❓ {fmt(x["ask"])}</p>')
-        if x.get('pl'):
-            out.append(pl_line(x['pl'], 'right' if wrong else '', lang=lang))
-            if x.get('en'):
-                out.append(f'<p class="en" lang="en">{fmt(x["en"])}</p>')
-            if x.get('zh'):
-                out.append(f'<p class="zh">{fmt(x["zh"])}</p>')
-    if wrong:
-        out.append('<div class="diff">'
-                   f'<div class="is-mine"><b>✗ 我写的</b>{pl_line(x["mine"], "wrong", lang=lang)}</div>'
-                   + ''.join(f'<div class="is-right"><b>✓ 正确</b>{pl_line(r, "right", lang=lang)}</div>' for r in as_list(x.get('right')))
-                   + '</div>')
-
-    out.append('<span class="band">为什么</span><div class="why">'
-               + ''.join(f'<p>{fmt(par)}</p>' for par in str(x['why']).strip().split('\n') if par.strip()) + '</div>')
+    tip = [f'<h4>💡 为什么</h4><div class="why">'
+           + ''.join(f'<p>{fmt(par)}</p>' for par in str(x['why']).strip().split('\n') if par.strip()) + '</div>']
     if x.get('rule'):
-        out.append(f'<p class="memo"><b>记住</b>{fmt(x["rule"])}</p>')
+        tip.append(f'<p class="key"><span aria-hidden="true">📌</span>{fmt(x["rule"])}</p>')
     t = x.get('table')
     if t:
         head = ''.join(f'<th>{fmt(h)}</th>' for h in t.get('head') or [])
         plc = set(t.get('pl') or range(1, 99))          # 哪几列是波兰语（默认第一列以外都是）
         rows = ''.join('<tr>' + ''.join(f'<td{f" lang={lang}" if i in plc else " class=zh"}>{fmt(c)}</td>'
                                         for i, c in enumerate(r)) + '</tr>' for r in t.get('rows') or [])
-        out.append(f'<div class="tbl"><table>{"<thead><tr>" + head + "</tr></thead>" if head else ""}<tbody>{rows}</tbody></table></div>')
+        tip.append(f'<div class="tbl"><table>{"<thead><tr>" + head + "</tr></thead>" if head else ""}<tbody>{rows}</tbody></table></div>')
     if x.get('extra'):
-        out.append('<ul class="extra">' + ''.join(f'<li>{fmt(e)}</li>' for e in as_list(x['extra'])) + '</ul>')
+        tip.append('<ul class="extra">' + ''.join(f'<li>{fmt(e)}</li>' for e in as_list(x['extra'])) + '</ul>')
     if x.get('examples'):
-        out.append('<span class="band">再看几句</span><ul class="ex">' + ''.join(
-            f'<li lang="{lang}">{say_btn(e["pl"], lang)}<span class="pl">{fmt(e["pl"])}'
-            f'<small lang="zh-CN">{fmt(e.get("zh", ""))}</small></span></li>'
-            for e in as_list(x['examples'])) + '</ul>')
+        tip.append('<h4>🗣 再看几句</h4><ul class="phr">' + ''.join(
+            f'<li>{say_btn(e["pl"], lang)}<span><span class="pl" lang="{lang}">{fmt(e["pl"])}</span>'
+            f'<small>{fmt(e.get("zh", ""))}</small></span></li>' for e in as_list(x['examples'])) + '</ul>')
     if x.get('words'):
         rows = []
         for w in as_list(x['words']):
             q = w.get('look', w['pl'] if lang == 'pl' else False)   # 词组写 look: 要查的那个词；look: false 不挂链接
-            rows.append(f'<li>{say_btn(w["pl"], lang)}<span class="w" lang="{lang}">{esc(w["pl"])}</span>'
-                        + (f'<span class="wt">{esc(w["tag"])}</span>' if w.get('tag') else '')
+            tag = f'<span class="wt">{esc(w["tag"])}</span>' if w.get('tag') else ''
+            rows.append('<li>' + say_btn(w['pl'], lang, 'tile say', f'<span lang="{lang}">{esc(w["pl"])}</span>{tag}', label=f'听 {plain(w["pl"])}')
                         + f'<span class="wz">{fmt(w.get("zh", ""))}</span>'
                         + (f'<a class="look" href="{ctx["polski"]}?q={esc(q)}" target="_blank" rel="noopener">查变格 ↗</a>' if q else '')
                         + '</li>')
-        out.append('<span class="band">生词</span><ul class="words">' + ''.join(rows) + '</ul>')
+        tip.append('<h4>🧩 生词 <small style="font-weight:700;color:var(--muted)">点一下听</small></h4><ul class="words">' + ''.join(rows) + '</ul>')
     if x.get('see'):
-        out.append('<p class="see">相关：' + '　'.join(
+        tip.append('<p class="see">🔗 ' + '　'.join(
             f'<a href="#n{esc(s)}">No. {esc(s)} {fmt(ctx["index"][str(s)]["title"])}</a>' for s in as_list(x['see'])) + '</p>')
     if n > 1:
-        out.append('<p class="times">问过的日子：' + '、'.join(
+        tip.append('<p class="times">问过的日子：' + '、'.join(
             cn_date(d, ctx['year']) for d in [x['date']] + as_list(x.get('asked'))) + '</p>')
     if x.get('winter'):
-        out.append('<div class="winter"><span>WINTER 写的</span>' + ''.join(f'<p>{fmt(w)}</p>' for w in as_list(x['winter'])) + '</div>')
+        tip.append('<div class="winter"><div><span>我写的</span>' + ''.join(f'<p>{fmt(w)}</p>' for w in as_list(x['winter'])) + '</div></div>')
     if x.get('qa'):
-        out.append('<div class="qa">' + ''.join(f'<p><b>问</b>{fmt(q["q"])}</p><p><b>答</b>{fmt(q["a"])}</p>'
+        tip.append('<div class="qa">' + ''.join(f'<p class="q"><b>问</b>{fmt(q["q"])}</p><p class="a"><b>答</b>{fmt(q["a"])}</p>'
                                                 for q in as_list(x['qa'])) + '</div>')
+    out.append('<section class="tip">' + ''.join(tip) + '</section>')
+    ct = copy_text(x)
     out.append('<div class="card__foot"><a class="card__back" href="#toc">↑ 目录</a>'
-               f'<button type="button" class="copy" data-copy="{esc(copy_text(x))}">复制去 Google 翻译听</button>'
-               + ('' if ctx['blog'] else '<button type="button" class="card__ask" hidden>批注</button>') + '</div>')
+               + (f'<button type="button" class="chunk chunk--blue copy" data-copy="{esc(ct)}">复制去 Google 翻译听</button>' if ct else '')
+               + ('' if ctx['blog'] else '<button type="button" class="chunk chunk--blue card__ask" hidden>批注</button>') + '</div>')
     out.append('</article>')
     return '\n'.join(out)
 
@@ -664,6 +762,8 @@ def toc(areas, points, notes, ctx):
 
     words = {}
     for x in notes:
+        if (x.get('lang') or 'pl') != 'pl':
+            continue
         for w in as_list(x.get('words')):
             words.setdefault(w['pl'].lower(), (w, x))
     wl = sorted(words.values(), key=lambda t: pl_key(t[0]['pl']))
@@ -674,7 +774,7 @@ def toc(areas, points, notes, ctx):
             if cur:
                 wrows.append('</ul>')
             wrows.append(f'<h4 id="wl-{esc(L)}">{esc(L)}</h4><ul>')
-            letters.append(f'<a href="#wl-{esc(L)}">{esc(L)}</a>')
+            letters.append(f'<a class="chunk" href="#wl-{esc(L)}">{esc(L)}</a>')
             cur = L
         wrows.append(f'<li><a href="#n{esc(x["id"])}"><span class="w" lang="pl">{esc(w["pl"])}</span>'
                      + (f'<span class="wt">{esc(w["tag"])}</span>' if w.get('tag') else '')
@@ -689,12 +789,12 @@ def toc(areas, points, notes, ctx):
              ('time', '按时间', ''.join(by_time))]
     if wl:
         panes.append(('words', f'生词 {len(wl)}',
-                      f'<div class="copyline">按波兰语字母顺序排。<button type="button" class="copy" data-copy="{esc(word_copy)}">'
+                      f'<div class="copyline">按波兰语字母顺序排。<button type="button" class="chunk chunk--blue copy" data-copy="{esc(word_copy)}">'
                       f'复制全部生词去听</button></div><div class="letters">{"".join(letters)}</div>' + ''.join(wrows)))
     if reps:
         panes.append(('again', f'🔁 问过不止一次 {len(reps)}',
                       '<ul>' + ''.join(link(x, f'<span class="x">{times(x)} 次</span>') for x in reps) + '</ul>'))
-    tabs = ''.join(f'<button type="button" class="tab{" is-on" if i == 0 else ""}" role="tab" aria-selected="{"true" if i == 0 else "false"}" '
+    tabs = ''.join(f'<button type="button" class="chunk tab{" is-on" if i == 0 else ""}" role="tab" aria-selected="{"true" if i == 0 else "false"}" '
                    f'aria-controls="pane-{k}">{esc(lbl)}</button>' for i, (k, lbl, _) in enumerate(panes))
     body = ''.join(f'<div class="pane" id="pane-{k}" role="tabpanel"{"" if i == 0 else " hidden"}>{c}</div>'
                    for i, (k, _, c) in enumerate(panes))
@@ -708,7 +808,7 @@ def body(areas, points, notes, ctx):
         main.setdefault(x['point'], []).append(x)
         for k in as_list(x.get('also')):
             alsos.setdefault(k, []).append(x)
-    out = []
+    out, no = [], 0
     for a in areas:
         parts, cnt, rel = [], 0, 0
         for p in a.get('points') or []:
@@ -716,7 +816,7 @@ def body(areas, points, notes, ctx):
             if k not in main and k not in alsos:
                 continue
             hint = f'<small>{esc(p["hint"])}</small>' if p.get('hint') else ''
-            parts.append(f'<h3 class="point" id="p-{esc(k)}">{esc(p["name"])}{hint}</h3>')
+            parts.append(f'<h3 class="point" id="p-{esc(k)}"><span>{esc(p["name"])}{hint}</span></h3>')
             for x in main.get(k, []):
                 parts.append(card(x, ctx))
                 cnt += 1
@@ -726,8 +826,11 @@ def body(areas, points, notes, ctx):
                 parts.append(f'<a class="xref" href="#n{esc(x["id"])}"><b>No. {esc(x["id"])}</b> {fmt(x["title"])}'
                              f' <small>→ 这张卡放在「{esc(mp)}」那里</small></a>')
         if parts:
-            out.append(f'<section class="area" id="a-{a["key"]}"><h2><span class="ico">{a["icon"]}</span>{esc(a["name"])}'
-                       f'<i lang="pl">{esc(a.get("pl", ""))}</i><span class="cnt">{f"{cnt} 条" if cnt else f"相关 {rel} 条"}</span></h2>\n'
+            no += 1
+            hue = AREA_HUE.get(a['key'], '#1899d6')
+            out.append(f'<section class="area" id="a-{a["key"]}" style="--hue:{hue}"><div class="area__head">'
+                       f'<span class="ico" aria-hidden="true">{a["icon"]}</span><div><small lang="pl">第 {no} 类 · {esc(a.get("pl", ""))}</small>'
+                       f'<h2>{esc(a["name"])}</h2></div><span class="cnt">{f"{cnt} 条" if cnt else f"相关 {rel}"}</span></div>\n'
                        + '\n'.join(parts) + '</section>')
     return '\n'.join(out)
 
@@ -743,16 +846,6 @@ def main():
     demo = yaml.safe_load(open(os.path.join(HERE, 'demo.yml'), encoding='utf-8'))
     meta, areas, points, notes, index, is_demo = load(demo)
 
-    pal = palette(meta.get('palette', ''))
-    try:
-        au = yaml.safe_load(open(os.path.join(ROOT, '_data', 'au_palettes.yml'), encoding='utf-8')) or {}
-        ink_accent = (au.get(meta.get('palette', '')) or {}).get('accent_ink') or pal['accent']
-    except OSError:
-        ink_accent = pal['accent']
-    css = CSS.replace('__INK_ACCENT__', ink_accent)
-    for k, v in pal.items():
-        css = css.replace(f'__{k.upper()}__', v)
-
     newest = max((last_date(x) for x in notes), default=None)
     ctx = {'points': points, 'index': index, 'blog': a.blog, 'newest': newest,
            'year': newest.year if newest else None,
@@ -761,27 +854,26 @@ def main():
 
     used = {x['point'] for x in notes}
     reps = sum(1 for x in notes if times(x) > 1)
+    wrong = sum(1 for x in notes if kind_of(x) in ('wrong', 'typo'))
     if is_demo:
-        cells = ['<span><b>状态</b> · 等你的第一题</span>', '<span><b>已记</b> · 0 条</span>']
+        stats = ['<li>📒 等你的第一题</li>']
     else:
-        cells = [f'<span><b>已记</b> · {len(notes)} 条</span>', f'<span><b>知识点</b> · {len(used)} 个</span>',
-                 f'<span><b>最近</b> · {cn_date(newest)}</span>']
-        if reps:
-            cells.append(f'<span><b>问过不止一次</b> · {reps} 条</span>')
-    head = ('<div class="console"><span class="dot"></span>' + ''.join(cells) + '</div>\n'
-            f'<p class="kicker">{esc(meta.get("kicker", ""))}</p>\n'
-            f'<h1 lang="pl">{esc(meta.get("title", "Notatnik"))}</h1>\n<p class="sub">{esc(meta.get("sub", ""))}</p>\n'
-            f'<div class="rule"></div>\n<p class="lede">{fmt(demo["blog_lede" if a.blog else "lede"])}</p>\n')
+        stats = [f'<li>📒 <b>{len(notes)}</b> 条</li>', f'<li>🧩 <b>{len(used)}</b> 个知识点</li>',
+                 f'<li>✗ <b>{wrong}</b> 道错题</li>', f'<li>🔁 <b>{reps}</b> 问过不止一次</li>',
+                 f'<li>🗓 最近 <b>{cn_date(newest)}</b></li>']
+    head = (f'<div class="top">{SNOWMAN}<div><h1 lang="pl">{esc(meta.get("title", "Notatnik"))}</h1>'
+            f'<p>{esc(meta.get("sub", ""))}</p></div></div>\n'
+            f'<ul class="stats">{"".join(stats)}</ul>\n<p class="lede">{fmt(demo["blog_lede" if a.blog else "lede"])}</p>\n')
     if is_demo:
         head += f'<p class="demo-intro">{fmt(demo["demo_intro"])}</p>\n'
     find = ('<div class="find"><label><span aria-hidden="true">🔍</span>'
-            '<input type="search" placeholder="搜一个词、一个格、一句中文……" aria-label="搜笔记" autocomplete="off" '
+            '<input type="search" id="find" placeholder="搜一个词、一个格、一句中文……" aria-label="搜笔记" autocomplete="off" '
             'autocapitalize="off" spellcheck="false"><span class="find__n"></span></label></div>\n'
             '<p class="find__none" hidden>没找到。可能还没问过——直接来对话里问我就行。</p>\n')
     tips = ('' if a.blog else f'<details class="tipbox"><summary>{esc(demo["tips"]["heading"])}</summary><ol class="tips">'
             + ''.join(f'<li>{fmt(t)}</li>' for t in demo['tips']['items']) + '</ol></details>')
     foot = f'<div class="foot"><p>{fmt(demo["blog_foot" if a.blog else "foot"])}</p>{tips}</div>'
-    inner = (f'<button type="button" class="theme-btn">🌕</button>\n<div class="wrap">\n{head}{find}'
+    inner = (f'<button type="button" class="chunk theme-btn">🌕</button>\n<div class="wrap">\n{head}{find}'
              f'{toc(areas, points, notes, ctx)}{body(areas, points, notes, ctx)}\n{foot}\n</div>\n'
              f'<div class="toast" role="status" aria-live="polite"></div>\n<script>{JS}</script>\n')
 
@@ -795,13 +887,13 @@ def main():
                 '<meta name="description" content="学波兰语时做错的、看不懂的地方，一题一张卡，按知识点分好类。">\n'
                 '<link rel="icon" href="../favicon.ico">\n'
                 '<!-- 这一页由 tools/polish/render_polish.py --blog 生成，别手改；改 _data/polish/notes.yml 再重新生成 -->\n'
-                f'{FONTS}\n<style>{css}</style>\n</head>\n<body>\n'
-                '<nav class="blognav"><a href="../?view=gallery">← Gallery</a><a href="../polski.html">变格表</a></nav>\n'
+                f'{FONTS}\n<style>{CSS}</style>\n</head>\n<body>\n'
+                '<nav class="blognav"><a class="chunk" href="../?view=gallery">← Gallery</a><a class="chunk" href="../polski.html">变格表</a></nav>\n'
                 f'{inner}</body>\n</html>\n')
     else:
-        page = f'<title>{title}</title>\n{FONTS}\n<style>{css}</style>\n{inner}'
+        page = f'<title>{title}</title>\n{FONTS}\n<style>{CSS}</style>\n{inner}'
     open(a.out, 'w', encoding='utf-8').write(page)
-    print(f'✅ {a.out}（{"样板 " if is_demo else ""}{len(notes)} 条 · {len(used)} 个知识点 · 配色 {meta.get("palette") or "默认"}）')
+    print(f'✅ {a.out}（{"样板 " if is_demo else ""}{len(notes)} 条 · {len(used)} 个知识点）')
 
 
 if __name__ == '__main__':
