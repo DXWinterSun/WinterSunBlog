@@ -164,6 +164,7 @@ h2 .cnt{margin-left:auto;font-size:.8rem;font-weight:400;color:var(--muted);}
  border:1px solid var(--line);border-left:4px solid var(--ask);border-radius:6px;box-shadow:var(--shadow);
  scroll-margin-top:4.5rem;}
 .card.is-wrong{border-left-color:var(--wrong);}
+.card.is-ok{border-left-color:var(--right);}
 .card:target{box-shadow:0 0 0 2px var(--accent);animation:flash 1.6s ease-out 1;}
 @keyframes flash{0%{box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 40%,transparent)}100%{box-shadow:0 0 0 2px var(--accent)}}
 @media (prefers-reduced-motion:reduce){.card:target{animation:none;}}
@@ -175,6 +176,7 @@ h2 .cnt{margin-left:auto;font-size:.8rem;font-weight:400;color:var(--muted);}
  font-size:.74rem;letter-spacing:.06em;line-height:1.7;white-space:nowrap;}
 .pill--wrong{background:color-mix(in srgb,var(--wrong) 14%,transparent);color:var(--wrong);}
 .pill--ask{background:color-mix(in srgb,var(--ask) 14%,transparent);color:var(--ask);}
+.pill--ok{background:color-mix(in srgb,var(--right) 14%,transparent);color:var(--right);}
 .pill--times{background:var(--accent);color:#fff;}
 .pill--new{border:1px solid var(--accent);color:var(--accent);}
 .pill--demo{border:1px dashed var(--muted);color:var(--muted);}
@@ -210,7 +212,8 @@ h2 .cnt{margin-left:auto;font-size:.8rem;font-weight:400;color:var(--muted);}
 .tbl th,.tbl td{padding:.35rem .6rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
 .tbl th{font-size:.78rem;font-weight:600;color:var(--band-ink);background:var(--band);letter-spacing:.06em;white-space:nowrap;}
 .tbl td{font-family:"EB Garamond","Noto Serif SC",Georgia,serif;font-size:1.06rem;color:var(--pl);}
-.tbl td:first-child{font-family:"Noto Serif SC",serif;font-size:.86rem;color:var(--ink);white-space:nowrap;}
+.tbl td.zh{font-family:"Noto Serif SC",serif;font-size:.86rem;color:var(--ink);}
+.tbl td:first-child{white-space:nowrap;}
 .extra{list-style:none;margin:0 0 .6rem;padding:0;font-size:.93rem;}
 .extra li{margin:0 0 .35rem;}
 .extra strong{display:inline-block;margin-right:.5em;padding:0 .45rem;border-radius:4px;background:var(--band);
@@ -313,19 +316,20 @@ function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('is-on');
   var voices = [];
   function load() { try { voices = ss.getVoices() || []; } catch (e) { voices = []; } }
   load(); if ('onvoiceschanged' in ss) ss.onvoiceschanged = load;
-  function plVoice() { for (var i = 0; i < voices.length; i++) if (/^pl/i.test(voices[i].lang || '')) return voices[i]; return null; }
+  function voiceFor(lang) { var p = new RegExp('^' + lang.slice(0, 2), 'i');
+    for (var i = 0; i < voices.length; i++) if (p.test(voices[i].lang || '')) return voices[i]; return null; }
   var warned = false;
   [].forEach.call(document.querySelectorAll('.say'), function (btn) {
     btn.hidden = false;
     btn.addEventListener('click', function () {
       if (!voices.length) load();
-      var v = plVoice();
-      if (!v && voices.length && !warned) { warned = true;
+      var lang = btn.getAttribute('data-lang') || 'pl-PL', v = voiceFor(lang);
+      if (!v && voices.length && !warned && lang === 'pl-PL') { warned = true;
         toast('这台设备好像没装波兰语语音，读出来可能不准。可以点卡片底下的「复制去 Google 翻译听」。'); }
       try {
         ss.cancel();
         var u = new SpeechSynthesisUtterance(btn.getAttribute('data-say'));
-        u.lang = 'pl-PL'; if (v) u.voice = v; u.rate = 0.85;
+        u.lang = lang; if (v) u.voice = v; u.rate = 0.85;
         btn.classList.add('is-on');
         u.onend = u.onerror = function () { btn.classList.remove('is-on'); };
         ss.speak(u);
@@ -457,12 +461,13 @@ def cn_date(d, year=None):
     return (f'{d.year}年' if year and d.year != year else '') + f'{d.month}月{d.day}日'
 
 
-def say_btn(text):
-    return f'<button type="button" class="say" data-say="{esc(plain(text))}" aria-label="听" hidden>{SPEAKER}</button>'
+def say_btn(text, lang='pl'):
+    return (f'<button type="button" class="say" data-say="{esc(plain(text))}" data-lang="{"en-US" if lang == "en" else "pl-PL"}" '
+            f'aria-label="听" hidden>{SPEAKER}</button>')
 
 
-def pl_line(text, mark='', cls='pl'):
-    return f'<p class="{cls}" lang="pl">{say_btn(text)}<span>{fmt(text, mark)}</span></p>'
+def pl_line(text, mark='', cls='pl', lang='pl'):
+    return f'<p class="{cls}" lang="{lang}">{say_btn(text, lang)}<span>{fmt(text, mark)}</span></p>'
 
 
 # ── 数据 ──
@@ -540,13 +545,15 @@ def copy_text(x):
 def card(x, ctx):
     a, p = ctx['points'][x['point']]
     wrong = bool(x.get('mine'))
+    kind = 'wrong' if wrong else 'ok' if x.get('ok') else 'ask'
+    lang = x.get('lang') or 'pl'
     n = times(x)
     meta = [f'<span class="card__no">No. {esc(x["id"])}</span>',
             f'<span>{cn_date(x["date"], ctx["year"])}{" · " + esc(x["source"]) if x.get("source") else ""}</span>']
-    meta.append(f'<span class="pill pill--{"wrong" if wrong else "ask"}">{"做错了" if wrong else "有疑问"}</span>')
+    meta.append(f'<span class="pill pill--{kind}">{ {"wrong": "做错了", "ok": "答对了", "ask": "有疑问"}[kind] }</span>')
     if n > 1:
         meta.append(f'<span class="pill pill--times">🔁 问过 {n} 次</span>')
-    if last_date(x) == ctx['newest']:
+    if ctx['show_new'] and last_date(x) == ctx['newest']:          # 全本都是同一天的就不标「新」，标了也没意义
         meta.append('<span class="pill pill--new">新</span>')
     if x.get('demo'):
         meta.append('<span class="pill pill--demo">样板 · 编的例子</span>')
@@ -557,7 +564,7 @@ def card(x, ctx):
         crumb += '　<span class="also">也沾边：' + '、'.join(
             f'<a href="#p-{esc(k)}">{esc(ctx["points"][k][1]["name"])}</a>' for k in also) + '</span>'
 
-    out = [f'<article class="card{" is-wrong" if wrong else ""}" id="n{esc(x["id"])}" data-comment-target '
+    out = [f'<article class="card is-{kind}" id="n{esc(x["id"])}" data-comment-target '
            f'data-comment-label="No. {esc(x["id"])} {esc(plain(x["title"]))}" data-s="{esc(search_text(x, ctx["points"]))}">',
            f'<div class="card__meta">{"".join(meta)}</div>',
            f'<h3 class="card__title">{fmt(x["title"])}</h3>',
@@ -568,15 +575,15 @@ def card(x, ctx):
         if x.get('ask'):
             out.append(f'<p class="ask">❓ {fmt(x["ask"])}</p>')
         if x.get('pl'):
-            out.append(pl_line(x['pl'], 'right' if wrong else ''))
+            out.append(pl_line(x['pl'], 'right' if wrong else '', lang=lang))
             if x.get('en'):
                 out.append(f'<p class="en" lang="en">{fmt(x["en"])}</p>')
             if x.get('zh'):
                 out.append(f'<p class="zh">{fmt(x["zh"])}</p>')
     if wrong:
         out.append('<div class="diff">'
-                   f'<div class="is-mine"><b>✗ 我写的</b>{pl_line(x["mine"], "wrong")}</div>'
-                   + ''.join(f'<div class="is-right"><b>✓ 正确</b>{pl_line(r, "right")}</div>' for r in as_list(x.get('right')))
+                   f'<div class="is-mine"><b>✗ 我写的</b>{pl_line(x["mine"], "wrong", lang=lang)}</div>'
+                   + ''.join(f'<div class="is-right"><b>✓ 正确</b>{pl_line(r, "right", lang=lang)}</div>' for r in as_list(x.get('right')))
                    + '</div>')
 
     out.append('<span class="band">为什么</span><div class="why">'
@@ -586,24 +593,26 @@ def card(x, ctx):
     t = x.get('table')
     if t:
         head = ''.join(f'<th>{fmt(h)}</th>' for h in t.get('head') or [])
-        rows = ''.join('<tr>' + ''.join(f'<td{" lang=pl" if i else ""}>{fmt(c)}</td>' for i, c in enumerate(r)) + '</tr>'
-                       for r in t.get('rows') or [])
+        plc = set(t.get('pl') or range(1, 99))          # 哪几列是波兰语（默认第一列以外都是）
+        rows = ''.join('<tr>' + ''.join(f'<td{f" lang={lang}" if i in plc else " class=zh"}>{fmt(c)}</td>'
+                                        for i, c in enumerate(r)) + '</tr>' for r in t.get('rows') or [])
         out.append(f'<div class="tbl"><table>{"<thead><tr>" + head + "</tr></thead>" if head else ""}<tbody>{rows}</tbody></table></div>')
     if x.get('extra'):
         out.append('<ul class="extra">' + ''.join(f'<li>{fmt(e)}</li>' for e in as_list(x['extra'])) + '</ul>')
     if x.get('examples'):
         out.append('<span class="band">再看几句</span><ul class="ex">' + ''.join(
-            f'<li lang="pl">{say_btn(e["pl"])}<span class="pl">{fmt(e["pl"])}'
+            f'<li lang="{lang}">{say_btn(e["pl"], lang)}<span class="pl">{fmt(e["pl"])}'
             f'<small lang="zh-CN">{fmt(e.get("zh", ""))}</small></span></li>'
             for e in as_list(x['examples'])) + '</ul>')
     if x.get('words'):
         rows = []
         for w in as_list(x['words']):
-            look = f'{ctx["polski"]}?q={esc(w["pl"])}'
-            rows.append(f'<li>{say_btn(w["pl"])}<span class="w" lang="pl">{esc(w["pl"])}</span>'
+            q = w.get('look', w['pl'] if lang == 'pl' else False)   # 词组写 look: 要查的那个词；look: false 不挂链接
+            rows.append(f'<li>{say_btn(w["pl"], lang)}<span class="w" lang="{lang}">{esc(w["pl"])}</span>'
                         + (f'<span class="wt">{esc(w["tag"])}</span>' if w.get('tag') else '')
                         + f'<span class="wz">{fmt(w.get("zh", ""))}</span>'
-                        + f'<a class="look" href="{look}" target="_blank" rel="noopener">查变格 ↗</a></li>')
+                        + (f'<a class="look" href="{ctx["polski"]}?q={esc(q)}" target="_blank" rel="noopener">查变格 ↗</a>' if q else '')
+                        + '</li>')
         out.append('<span class="band">生词</span><ul class="words">' + ''.join(rows) + '</ul>')
     if x.get('see'):
         out.append('<p class="see">相关：' + '　'.join(
@@ -747,6 +756,7 @@ def main():
     newest = max((last_date(x) for x in notes), default=None)
     ctx = {'points': points, 'index': index, 'blog': a.blog, 'newest': newest,
            'year': newest.year if newest else None,
+           'show_new': sum(1 for x in notes if last_date(x) == newest) < len(notes),
            'polski': '../polski.html' if a.blog else f'{SITE}/polski.html'}
 
     used = {x['point'] for x in notes}
