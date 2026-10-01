@@ -2660,3 +2660,398 @@ batches:
         note: 两个地方值得看。一是 star-filled 这种拼法：名词加 -filled，就是“装满了……的”，比如 smoke-filled room（烟雾弥漫的屋子），第 22 页就有 the smoke-filled air。二是句子的顺序：正常语序是 is reminded of … by the star-filled sky（被星空提醒了……），作者把 by 这一段提到前面、用逗号隔开，读的人先抬头看见星空，再听见他想了什么。都是认识的词，没有生词，所以不放进欧路列表。
         extra:
           - "**搭配**be reminded of sth by sth（被某物勾起对某事的念头）· tear-filled eyes（含泪的眼睛）"
+
+  - n: 29
+    date: 2026-10-01
+    pages: 33
+    photos: 1
+    remark: 第二章 MONDAY 开始
+    notes:
+      - id: "162"
+        page: 33
+        color: blue
+        term: apprehensive
+        kind: 单词
+        ipa: /ˌæprɪˈhensɪv/
+        pos: adj.
+        cn: 忧虑的；惴惴不安的
+        en: worried or frightened that sth unpleasant may happen
+        en_src: 牛津 8
+        context: "by an ==apprehensive== feeling that someone is watching"
+        gist: 还有一种惴惴不安的感觉，好像有人在盯着他。
+        note: 书上这个词在行尾被拆成两半（appre- / hensive），她两截都划了，是同一个词。让他干活更难熬的有两样：一是肩膀的伤，二是这种总觉得有人在看、在评判他的不安。昨天那件事之后，他心里有鬼。
+        extra:
+          - "**搭配**be apprehensive about/of sth（对某事感到担忧）"
+          - "**易混**anxious 是一般的焦虑；apprehensive 专指担心“有坏事要来”，带着一点提心吊胆。"
+
+      - id: "163"
+        page: 33
+        color: blue
+        term: mammoth
+        kind: 一词多义
+        ipa: /ˈmæməθ/
+        pos: adj.
+        cn: 庞大的；巨大的
+        en: extremely large
+        en_src: 牛津 8
+        context: "the former’s ==mammoth==, jiggly upper torso"
+        gist: 前者那硕大、一身肥肉乱颤的上半身。
+        note: 名词是“猛犸象”，当形容词用就是“大得像猛犸一样”。the former 是“前者”，指前面先提到的 Dean。作者拿两个人的身体对比：Dean 又大又肥、晒得通红，John 矮小结实、晒得黝黑。
+        extra:
+          - "**搭配**a mammoth task（艰巨的任务）· of mammoth proportions（规模巨大的）"
+
+      - id: "164"
+        page: 33
+        color: blue
+        term: jiggly
+        lemma: jiggle
+        kind: 口语
+        ipa: /ˈdʒɪɡli/
+        pos: adj.
+        cn: （肉）一晃一晃的、乱颤的
+        en: moving up and down or from side to side in a soft, loose way
+        context: "mammoth, ==jiggly== upper torso sun-pink"
+        gist: 硕大的、肉一颤一颤的上半身，晒得粉红。
+        note: 牛津没收 jiggly，只收了动词 jiggle（上下左右地快速抖动），加 -y 就是“会抖的、一动就晃的”，英文解释是我按这个写的。欧路列表里放的是原形 jiggle。用来形容肥肉，画面感很强。
+        extra:
+          - "**易混**jiggle 是小幅度、快速地抖；wiggle 是扭来扭去；wobble 是摇摇晃晃、站不稳。"
+
+      - id: "165"
+        page: 33
+        color: blue
+        term: gauze
+        kind: 名物
+        ipa: /ɡɔːz/
+        pos: n.
+        cn: 纱布
+        en: a type of thin cotton cloth used for covering and protecting wounds
+        en_src: 牛津 8
+        context: "but for his ==gauze==-covered shoulder"
+        gist: 除了那只缠着纱布的肩膀。
+        note: 她划的是 gauze，后面连着 -covered，合起来就是“盖着纱布的”。but for 在这里是“除了……之外”：他全身都晒得很黑，只有包着纱布的肩膀那一块没晒到。
+        extra:
+          - "**搭配**a gauze dressing（纱布敷料）· 名词 + -covered：snow-covered（积雪覆盖的）"
+
+  - n: 30
+    date: 2026-10-01
+    pages: 34
+    photos: 1
+    notes:
+      - id: "166"
+        page: 34
+        color: blue
+        term: speck
+        kind: 单词
+        ipa: /spek/
+        pos: n.
+        cn: 小斑点；一丁点儿
+        en: a very small spot; a small piece of dirt, etc.
+        en_src: 牛津 8
+        context: "Is there an evil ==speck== on his soul"
+        gist: 他的灵魂上，是不是有一个邪恶的小黑点？
+        note: 他在问自己：是不是心里早就藏着一点坏东西，是它预见了这桩命案、把他推了过去。speck 本来是灰尘、污渍那样小小的一点，用在灵魂上，就像一块洗不掉的斑。
+        extra:
+          - "**搭配**a speck of dust（一粒灰尘）· a speck in the distance（远处的一个小点）"
+          - "**易混**spot 是一般的点、斑；speck 更小，小到几乎看不见；stain 是染上去的污迹。"
+
+      - id: "167"
+        page: 34
+        color: blue
+        term: undertaker
+        kind: 单词
+        ipa: /ˈʌndərteɪkər/
+        pos: n.
+        cn: 殡葬承办人；开殡仪馆的
+        en: a person whose job is to prepare the bodies of dead people to be buried or cremated, and to arrange funerals
+        en_src: 牛津 8
+        context: "This goddamn ==undertaker==’s got an airstrip"
+        gist: 这该死的殡仪馆老板，车道长得跟飞机跑道似的。
+        note: 他们这天上午就是在给殡仪馆老板家的车道铺石子。字面上 undertake 是“承担、着手做”，undertaker 却专指操办丧事的人。美国也常说 funeral director 或 mortician。
+        extra:
+          - "**易混**undertake（承担、着手）≠ undertaker（殡葬承办人），别望文生义。"
+
+      - id: "168"
+        page: 34
+        color: blue
+        term: airstrip
+        kind: 名物
+        ipa: /ˈerstrɪp/
+        pos: n.
+        cn: 简易跑道；简易机场
+        en: a narrow piece of cleared land that an aircraft can land on
+        en_src: 牛津 8
+        context: "got an ==airstrip== for a driveway"
+        gist: 拿一条飞机跑道当车道。
+        note: Dean 嫌车道太长，损了一句“他家车道是条飞机跑道”，接着又补刀：“准是用飞机往这儿运尸体。”殡仪馆、尸体、飞机，一连串的粗俗笑话，正是 Dean 的嘴。
+        extra:
+          - "**搭配**landing strip（同义，也指简易跑道）"
+
+  - n: 31
+    date: 2026-10-01
+    pages: 35
+    photos: 1
+    notes:
+      - id: "169"
+        page: 35
+        color: blue
+        term: french-fuck
+        eudic: false
+        kind: 俚语
+        ipa: /ˈfrentʃ fʌk/
+        pos: v.
+        cn: （粗话）指一种性行为
+        en: a crude slang expression for a sex act
+        context: "Did she ==french-fuck== your tits, Dean?"
+        gist: 她是不是还拿你那对胸……，Dean？
+        note: 很粗的俚语，牛津查不到，英文解释是我写的。老一辈美国人的粗话里，French 常被拿来指“花样多的性事”。这句是 Howard 在挖苦 Dean：前面刚说他上半身又肥又晃，这里就干脆把他的胸说成女人的。这几个人在工地上满嘴荤话，一个比一个下流。不放进欧路列表。
+
+      - id: "170"
+        page: 35
+        color: blue
+        term: holes up
+        lemma: hole up
+        kind: 短语
+        ipa: /hoʊlz ˈʌp/
+        pos: phr. v.
+        cn: 躲起来；窝着不出来
+        en: to hide in a place
+        en_src: 牛津 8
+        context: "that goddamn mountain he ==holes up== on"
+        gist: 他窝着不下来的那座破山。
+        note: hole 是“洞”，hole up 就像动物钻进洞里不出来。牛津标着非正式。Howard 的意思是：他要么老老实实来干活挣钱，要么回山上窝着，接着拿偷来的鹿肉喂老婆孩子。
+        extra:
+          - "**搭配**be holed up in/at（躲在某处）：We believe the gang are holed up in the mountains."
+
+      - id: "171"
+        page: 35
+        color: blue
+        term: jacked
+        lemma: jack
+        kind: 打猎用语
+        ipa: /dʒækt/
+        pos: adj.
+        cn: 夜里打灯偷猎来的
+        en: (of a deer) killed illegally at night after being blinded with a light
+        context: "feeding his wife and kid with ==jacked== deer meat"
+        gist: 拿夜里偷猎来的鹿肉喂老婆孩子。
+        note: 这是打猎的行话。jack a deer，也说 jacklight，是夜里拿手电或车灯照鹿的眼睛，鹿被照得发呆不动，就好打了。这种打法在美国是违法的，算偷猎。牛津只收了 jack 的“偷、顺手拿走”这个俚语意思，没收打猎这一层，英文解释是我写的。前面第 4 页他怕碰上的，正是管偷猎的人。
+        extra:
+          - "**搭配**jacklighting（夜里打灯猎鹿）· a jacked deer（打灯打到的鹿）"
+
+  - n: 32
+    date: 2026-10-01
+    pages: 36
+    photos: 1
+    notes:
+      - id: "172"
+        page: 36
+        color: blue
+        term: shriveled
+        lemma: shrivel
+        kind: 单词
+        ipa: /ˈʃrɪvld/
+        pos: adj.
+        cn: 干瘪萎缩的
+        en: dry and wrinkled as a result of heat, cold or being old
+        en_src: 牛津 8
+        context: "who drags one ==shriveled== leg like a tail"
+        gist: 拖着一条萎缩的腿，像拖着一条尾巴。
+        note: 原形是动词 shrivel（枯萎、皱缩），本来多用在叶子、葡萄这类东西上，这里用在人的腿上。美式拼写是一个 l（shriveled），英式是两个 l（shrivelled）。同一页往下还有 his shrunken leg（萎缩的腿），意思差不多。
+        extra:
+          - "**搭配**shrivel up（蔫掉、缩成一团）"
+          - "**易混**shrink 是整体变小；shrivel 是干了、皱了、缩成一团。"
+
+      - id: "173"
+        page: 36
+        color: blue
+        term: porous
+        kind: 单词
+        ipa: /ˈpɔːrəs/
+        pos: adj.
+        cn: 多孔的；会渗漏的
+        en: having many small holes that allow water or air to pass through slowly
+        en_src: 牛津 8
+        context: "imagining himself a ==porous== wall through which"
+        gist: 想象自己是一堵满是细孔的墙。
+        note: 这是整页最妙的一个比喻：他坐在律师面前，觉得自己像一堵渗水的墙，心里的罪恶感像汗一样，从每个小孔里往外渗。porous 原本说的是石头、材料透水透气，用在人身上，就是“藏不住”。
+        extra:
+          - "**搭配**porous rock（多孔的岩石）· a porous border（管不住的边境）"
+
+  - n: 33
+    date: 2026-10-01
+    pages: 37
+    photos: 1
+    notes:
+      - id: "174"
+        page: 37
+        color: blue
+        term: slumping
+        lemma: slump
+        kind: 一词多义
+        ipa: /ˈslʌmpɪŋ/
+        pos: v.
+        cn: 重重地坐下；瘫坐
+        en: to sit or fall down heavily
+        en_src: 牛津 8
+        context: "says Daggard Pitt, ==slumping== in his chair"
+        gist: Daggard Pitt 说着，往椅子里一瘫。
+        note: 她划的只是 slump 那一段，这里是它的第二个意思。slump 最常见的是说价格、销量“暴跌”，经济上的 the slump 是“萧条”。这里是人像泄了气一样塌进椅子里。
+        extra:
+          - "**搭配**slump down in a chair（瘫坐在椅子里）· sales slumped（销量暴跌）"
+
+      - id: "175"
+        page: 37
+        color: blue
+        term: Lilliputian
+        kind: 典故
+        ipa: /ˌlɪlɪˈpjuːʃn/
+        pos: adj.
+        cn: 极小的；小矮人似的
+        en: extremely small
+        en_src: 牛津 8
+        context: "imagine the ==Lilliputian== Daggard Pitt"
+        gist: 想象那个小矮人似的 Daggard Pitt。
+        note: 出自《格列佛游记》里的小人国 Lilliput，那里的人只有十五厘米高。牛津标着正式。John 把自己矮小的律师和对方那个当过大学橄榄球队员的律师摆在一起想，心一下子沉下去了。
+
+      - id: "176"
+        page: 37
+        color: blue
+        term: hangdog
+        kind: 单词
+        ipa: /ˈhæŋdɔːɡ/
+        pos: adj.
+        cn: 垂头丧气的；一脸愧疚的
+        en: if a person has a hangdog look, they look sad or ashamed
+        en_src: 牛津 8
+        context: "with his ==hangdog== look and shriveled limbs"
+        gist: 一副垂头丧气的样子，四肢干瘪。
+        note: 字面是 hang（吊）加 dog（狗），像挨了打、耷拉着脑袋的狗。牛津说它只放在名词前面，最常见的就是 a hangdog look / expression。
+        extra:
+          - "**搭配**a hangdog expression（一脸愧色）"
+
+      - id: "177"
+        page: 37
+        color: blue
+        term: wheezes
+        lemma: wheeze
+        kind: 单词
+        ipa: /ˈwiːzɪz/
+        pos: v.
+        cn: 喘；呼哧呼哧地喘气
+        en: to breathe noisily and with difficulty
+        en_src: 牛津 8
+        context: "the way he ==wheezes== and makes funny"
+        gist: 他那样呼哧呼哧地喘，还自己发出些古怪的小声音。
+        note: 是那种胸口带着哨音的喘，哮喘、气管不好的人会这样。Daggard Pitt 身上没有一处是体面的，可正是这样，John 竟开始可怜起他来。
+        extra:
+          - "**易混**pant 是跑累了大口喘；gasp 是猛地倒吸一口气；wheeze 是喘的时候带着嘶嘶的哨音。"
+
+  - n: 34
+    date: 2026-10-01
+    pages: 38
+    photos: 1
+    notes:
+      - id: "178"
+        page: 38
+        color: blue
+        term: foreclosed
+        lemma: foreclose
+        kind: 名物
+        ipa: /fɔːrˈkloʊzd/
+        pos: v.
+        cn: （银行）收走抵押的房产或土地
+        en: (especially of a bank) to take control of sb's property because they have not paid back money that they borrowed to buy it
+        en_src: 牛津 8
+        context: "represented the bank when it ==foreclosed=="
+        gist: 银行收走抵押的时候，我是银行那边的律师。
+        note: 这是贷款的说法：借钱买地买房，用地或房子做抵押，还不上，银行就把它收走。律师在说的是 John 父亲那片农场。
+        extra:
+          - "**搭配**foreclose on sb/sth（收走某人的抵押物）· foreclosure（名词：收回抵押）"
+
+      - id: "179"
+        page: 38
+        color: blue
+        term: overextended
+        lemma: overextend
+        kind: 单词
+        ipa: /ˌoʊvərɪkˈstendɪd/
+        pos: v.
+        cn: （摊子铺得太大）借钱借过了头
+        en: to spend more money or take on more work than you can manage
+        context: "his having ==overextended== himself"
+        gist: 加上他自己把摊子铺得太大。
+        note: 牛津收的是形容词 overextended（负担过重、开支过大）和动词用法 overextend yourself，这里正是动词。英文解释是我按牛津的意思改成动词写的。over-（过度）+ extend（伸展）：手伸得太长，够不着了。
+        extra:
+          - "**搭配**overextend yourself（把自己弄得力不从心）"
+
+      - id: "180"
+        page: 38
+        color: blue
+        term: emaciated
+        kind: 单词
+        ipa: /ɪˈmeɪʃieɪtɪd/
+        pos: adj.
+        cn: 消瘦的；皮包骨的
+        en: thin and weak, usually because of illness or lack of food
+        en_src: 牛津 8
+        context: "grasps the ==emaciated== midpoint of his bum leg"
+        gist: 一把抓住他那条瘸腿细得只剩骨头的中段。
+        note: bum leg 是口语里的“瘸腿、坏腿”。他话说到一半停下，伸手攥住自己那条腿，好像要确认它还在，脸上都是疼。
+        extra:
+          - "**易混**thin 是一般的瘦；skinny 是瘦得难看；emaciated 是病了饿了、瘦到脱了形。"
+
+      - id: "181"
+        page: 38
+        color: blue
+        term: mangled
+        lemma: mangle
+        kind: 单词
+        ipa: /ˈmæŋɡld/
+        pos: adj.
+        cn: 弄得稀烂的；残缺变形的
+        en: to crush or twist sth so that it is badly damaged
+        en_src: 牛津 8
+        context: "How’d you get yourself all ==mangled== up?"
+        gist: 你怎么把自己弄成这副残样的？
+        note: 牛津标着这个动词通常用被动。John 问得很直，没有一点客气，这正是他说话的样子。all … up 是口语里的加强，“弄得一塌糊涂”。
+        extra:
+          - "**搭配**mangled bodies（面目全非的尸体）· mangle a song（把一首歌唱得不成样子）"
+
+      - id: "182"
+        page: 38
+        color: blue
+        term: sardonically
+        lemma: sardonic
+        kind: 单词
+        ipa: /sɑːrˈdɑːnɪkli/
+        pos: adv.
+        cn: 带着嘲弄地；冷笑着
+        en: showing that you think that you are better than other people and do not take them seriously
+        en_src: 牛津 8
+        context: "Daggard Pitt frowns ==sardonically=="
+        gist: Daggard Pitt 带着几分嘲弄皱了皱眉。
+        note: 英文释义是牛津给形容词 sardonic 的，欧路列表里放的是原形 sardonic。他接着回的那句 ’Twas the hand I was dealt 是打牌的说法：“生来就发到这一手牌。”’Twas 是 it was 的老式缩写，说出来有点自嘲。
+        extra:
+          - "**搭配**a sardonic smile（讥讽的笑）"
+          - "**易混**sarcastic 是话里带刺；sardonic 更偏神情和态度，冷冷的、带点瞧不上。"
+
+  - n: 35
+    date: 2026-10-01
+    pages: 39
+    photos: 1
+    notes:
+      - id: "183"
+        page: 39
+        color: blue
+        term: retainer
+        kind: 一词多义
+        ipa: /rɪˈteɪnər/
+        pos: n.
+        cn: （请律师的）预付聘金
+        en: a sum of money that is paid to sb to make sure they will be available to do work when they are needed
+        en_src: 牛津 8
+        context: "There’s for your ==retainer==,"
+        gist: 这是给你的聘金。
+        note: 他把五张一百块拍在律师桌上，是早上从枕套里拿的。前面他问“别收我超过半千”，half grand 就是五百块，grand 是口语里的“一千块”。retainer 还有别的意思：美国人说牙齿矫正后戴的“保持器”也是它。
+        extra:
+          - "**搭配**pay sb a retainer（付给某人聘金）· on a retainer（按月领聘用金）"
