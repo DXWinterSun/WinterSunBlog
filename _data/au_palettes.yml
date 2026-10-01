@@ -823,6 +823,22 @@
   muted_cn: "消防梯墨绿漆"
   muted_en: "Fire Escape Green"
 
+"Kid, Marry Me":  # Wayne · Loitering with Intent · 色卡同源画册 id: wayne（2026-10-01 开坑，直接用画册那张）
+  mf_id: wayne                # → Many Faces 画册锚点 /sam/many-faces/#wayne
+  accent: "#3f7a52"
+  accent_ink: "#2f5c3e"        # accent 暗一档，浅色主题下对比度 ≥4.5:1
+  bg: "#2a1810"
+  text: "#eee6d4"
+  muted: "#8a7050"
+  accent_cn: "敞篷车绿"
+  accent_en: "Racing Green"
+  bg_cn: "别墅夏夜"
+  bg_en: "Villa Summer Night"
+  text_cn: "凉台月色"
+  text_en: "Veranda Moon"
+  muted_cn: "波本琥珀"
+  muted_en: "Bourbon Amber"
+
 "Heart Facing Inward":      # Declan Byrne · Patient Zero 音乐录影带 · Colin Farrell · 独立设计（非 Sam 角色，无 mf_id）
   accent: "#c9a25a"          # 克拉达金：他母亲那枚旧金戒指
   accent_ink: "#7c6437"      # accent 偏浅，压暗到 ×0.62，浅色主题下对比度 ≈5.1:1
