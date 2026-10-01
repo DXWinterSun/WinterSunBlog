@@ -32,14 +32,7 @@ SITE = 'https://dxwintersun.github.io/WinterSunBlog'
 PL_ORDER = 'aąbcćdeęfghijklłmnńoóprsśtuvwxyzźż'   # 波兰语字母表顺序（生词表按它排）
 
 # 多邻国的题型 → 卡上那行大标题
-TASKS = {'listen': '听到什么写什么', 'fill': '补上缺的词', 'translate': '翻译这句话',
-         'choose': '选出正确的意思', 'speak': '把这句念出来', 'match': '配成对'}
-# 答对时那句话（按编号轮着用，像多邻国每次夸法不一样）
-CHEERS = ['答对了！', '写得漂亮！', '太棒了！', '完全正确！']
-# 每个大类一个颜色（单元横幅）
-AREA_HUE = {'sound': '#a568f0', 'noun': '#1899d6', 'adj': '#ff9600', 'pron': '#e463b8', 'verb': '#4fb400',
-            'prep': '#2b70c9', 'num': '#e0a800', 'syntax': '#00b8a0', 'words': '#ea4b4b', 'duo': '#4fb400',
-            'en': '#7a8a94'}
+TASKS = {'listen': '听写', 'fill': '补词', 'translate': '翻译', 'choose': '选意思', 'speak': '跟读', 'match': '配对'}
 
 FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900'
          '&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">')
@@ -172,6 +165,36 @@ button{font-family:var(--font);}
 .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:.2rem 0 0;}
 .chip{display:inline-flex;align-items:center;gap:.25rem;padding:.05rem .6rem;border:2px solid var(--line);border-radius:10px;
  font-size:.76rem;font-weight:800;color:var(--muted);}
+
+/* ── 一张卡＝一句话：句子打头 → 意思 → 你写的 / 答案 → 卡点 → 讲解 ── */
+.card{padding:1rem 1.2rem .2rem;}
+.card__no{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 .4rem;border-radius:10px;
+ background:var(--ink);color:var(--bg);font-size:.95rem;font-weight:900;font-variant-numeric:tabular-nums;}
+.sent{display:flex;align-items:flex-start;gap:.15rem;margin:.7rem 0 .2rem;}
+.sent h3{margin:0 0 0 .3rem;font-size:1.45rem;font-weight:900;line-height:1.35;color:var(--ink);overflow-wrap:anywhere;}
+.sent .say{margin-top:.1rem;}
+.say--slow{font-size:1.15rem;}
+.sent--q h3{margin:0;font-size:1.2rem;}
+.mean{margin:0 0 .1rem;font-weight:700;color:var(--muted);}
+.mean[lang="en"]{font-size:.9rem;color:var(--faint);}
+.answers{display:grid;gap:.45rem;margin:.8rem 0 .2rem;}
+.ans{display:flex;align-items:baseline;flex-wrap:wrap;gap:.2rem .7rem;padding:.55rem .9rem;border:2px solid var(--line);border-radius:14px;}
+.ans b{flex:none;font-size:.82rem;font-weight:900;}
+.ans p{margin:0;min-width:0;font-weight:800;font-size:1.08rem;overflow-wrap:anywhere;}
+.ans.is-ok,.ans.is-typo{background:var(--green-bg);border-color:var(--green-line);color:var(--green);}
+.ans.is-wrong{background:var(--red-bg);border-color:var(--red-line);color:var(--red);}
+.ans mark{background:none;color:inherit;border-bottom:2px solid currentColor;border-radius:0;padding:0 .05em;}
+.ans .tiles{border:0;margin:0;padding:.1rem 0;}
+.ans .tile{min-height:38px;font-size:.98rem;background:var(--surface);border-color:var(--green-line);color:var(--green);}
+.stuck{margin:.6rem 0 0;font-weight:700;color:var(--text);}
+.stuck b{display:inline-block;margin-right:.6em;padding:0 .5rem;border-radius:8px;background:var(--amber-bg);color:var(--amber);font-size:.78rem;font-weight:900;}
+.tip{margin:1rem -1.2rem 0;}
+.tip__h{margin:0 0 .5rem;font-size:.78rem;font-weight:900;letter-spacing:.12em;color:var(--faint);}
+.lesson{margin:0 0 .5rem;font-size:1.05rem;font-weight:900;color:var(--ink);}
+.sub{margin:.9rem 0 .4rem;font-size:.92rem;font-weight:900;color:var(--ink);}
+.sub small{font-weight:700;color:var(--muted);}
+.card__foot{margin:0 -1.2rem;}
+.pane .t small{display:block;font-size:.8rem;font-weight:700;color:var(--muted);}
 
 /* ── 一张卡 ── */
 .card{position:relative;margin:0 0 2rem;background:var(--surface);border:2px solid var(--line);border-bottom-width:4px;
@@ -326,7 +349,9 @@ details.tipbox summary{cursor:pointer;color:var(--blue);font-weight:900;}
 @media (max-width:480px){
  .wrap{padding:3.4rem 1rem 5rem;}
  .find{margin:0 -1rem 1rem;padding:.6rem 1rem;}
- .card__top{padding:.9rem 1rem .2rem;}
+ .card{padding:.9rem 1rem .2rem;}
+ .tip,.card__foot{margin-left:-1rem;margin-right:-1rem;}
+ .sent h3{font-size:1.3rem;}
  .ex,.tip{padding-left:1rem;padding-right:1rem;}
  .result{margin:0 -1rem;padding-left:1rem;padding-right:1rem;}
  .card__foot{padding:.6rem 1rem 1rem;}
@@ -604,70 +629,43 @@ def copy_text(x):
     return '\n\n'.join('\n'.join(g) for g in (lines, ex, ws) if g)
 
 
-# ── 一张卡：上半截照多邻国做题的样子，下半截是讲解 ──
-def exercise(x, kind, lang):
-    task = x.get('task')
-    pl, solution = x.get('pl'), (as_list(x.get('right')) or [x.get('pl')])[0]
-    to_en = task == 'translate' and (x.get('to') or 'en') == 'en'
+# ── 一张卡＝多邻国的一句话 ──
+# Winter 2026-10-01：「你还是按知识点而不是句子来的，这样太乱了」——所以卡片打头就是那句波兰语，
+# 下面照她那份总结的顺序：意思 → 你写的 / 答案 → 卡点 → 讲解。知识点不上卡，只留在目录和搜索里。
+SECTIONS = [('sentence', '多邻国的句子'), ('vocab', '零碎词汇'), ('en', '顺带聊到的英语')]
+
+
+def section_of(x):
+    return x.get('section') or ('en' if (x.get('lang') or 'pl') == 'en' else 'sentence')
+
+
+def answer_block(x, kind, lang):
+    """你写的 / 答案：多邻国那种绿框、红框。"""
+    to_en = x.get('task') == 'translate' and (x.get('to') or 'en') == 'en'
     out = []
-    if not (pl or x.get('ask')):
-        return ''
-    head = TASKS.get(task) or ('我问的' if kind == 'ask' else '这道题')
-    out.append(f'<p class="ex__task">{head}</p>')
-    if x.get('ask'):
-        out.append(f'<div class="chat"><p><small>我问</small>{fmt(x["ask"])}</p></div>')
-    if pl:
-        if task in ('listen', 'fill'):       # 听力题：气泡里只有两个喇叭，跟多邻国一样
-            say = solution if lang == 'pl' else pl
-            bubble = ('<div class="audio">' + say_btn(say, lang, 'say', label='听')
-                      + say_btn(say, lang, 'say', '<span class="turtle" aria-hidden="true">🐢</span>', 0.5, '慢一点') + '</div>')
-        else:
-            zh = f'<p class="bubble__zh">{fmt(x["zh"])}</p>' if x.get('zh') and kind == 'ask' else ''
-            bubble = (f'<div class="bubble"><p class="bubble__line" lang="{lang}">{say_btn(pl, lang)}<span>{fmt(pl)}</span></p>{zh}</div>')
-        out.append(f'<div class="stage">{SNOWMAN}{bubble}</div>')
     if x.get('mine'):
-        state = {'ok': 'is-ok', 'typo': 'is-typo', 'wrong': 'is-wrong'}.get(kind, '')
+        state = {'ok': 'is-ok', 'typo': 'is-typo', 'wrong': 'is-wrong'}[kind]
+        mark = '✓' if kind in ('ok', 'typo') else '✗'
         if to_en:
-            words = plain(x['mine']).split()
-            out.append(f'<div class="tiles {state}" lang="en">' + ''.join(f'<span class="tile">{esc(w)}</span>' for w in words) + '</div>')
+            mine = ''.join(f'<span class="tile">{esc(w)}</span>' for w in plain(x['mine']).split())
+            out.append(f'<div class="ans {state}"><b>{mark} 你写的</b><div class="tiles" lang="en">{mine}</div></div>')
         else:
-            out.append(f'<div class="answer {state}" lang="{lang}">{fmt(x["mine"])}</div>')
-    if kind in ('ok', 'typo', 'wrong'):
-        out.append(result(x, kind, lang, solution, to_en))
-    return '<section class="ex">' + ''.join(out) + '</section>'
-
-
-def result(x, kind, lang, solution, to_en):
-    if kind == 'ok':
-        verdict = CHEERS[int(x['id']) % len(CHEERS)]
-        icon = '✓'
-    elif kind == 'typo':
-        verdict, icon = '有个小拼写错误', '✓'
-    else:
-        verdict, icon = '不对哦', '✗'
-    out = [f'<div class="result{" is-wrong" if kind == "wrong" else ""}">',
-           f'<p class="result__verdict"><span class="result__icon" aria-hidden="true">{icon}</span>{verdict}</p>']
-    if kind in ('wrong', 'typo') and solution:
-        out.append(f'<p class="result__label">{"正确答案：" if kind == "wrong" else "应该是："}</p>')
-        for s in as_list(x.get('right')) or [solution]:
-            out.append(f'<p class="result__sol" lang="{lang}">{say_btn(s, lang)}<span>{fmt(s)}</span></p>')
-    means = []
-    if x.get('en') and not to_en:
-        means.append(f'<p class="result__mean" lang="en">{fmt(x["en"])}</p>')
-    if x.get('zh'):
-        means.append(f'<p class="result__mean">{fmt(x["zh"])}</p>')
-    if means:
-        out.append('<p class="result__label">意思：</p>' + ''.join(means))
-    out.append('</div>')
-    return ''.join(out)
+            out.append(f'<div class="ans {state}"><b>{mark} 你写的</b><p lang="{lang}">{fmt(x["mine"], "wrong" if kind == "wrong" else "")}</p></div>')
+    if kind in ('wrong', 'typo'):
+        for r in as_list(x.get('right')) or [x.get('pl')]:
+            out.append(f'<div class="ans is-ok"><b>✓ {"答案" if kind == "wrong" else "应该是"}</b>'
+                       f'<p lang="{lang}">{fmt(r, "right")}</p></div>')
+    return '<div class="answers">' + ''.join(out) + '</div>' if out else ''
 
 
 def card(x, ctx):
-    a, p = ctx['points'][x['point']]
     kind, lang, n = kind_of(x), x.get('lang') or 'pl', times(x)
-    meta = [f'<span>No. {esc(x["id"])}</span>',
-            f'<span>{esc(x.get("source") or "")}</span>',          # 日子已经在分组标题上，卡上不再重复
-            f'<span class="pill pill--{kind}">{ {"wrong": "做错了", "typo": "差一点", "ok": "答对了", "ask": "有疑问"}[kind] }</span>']
+    sec = section_of(x)
+    meta = [f'<span class="card__no">{int(x["id"])}</span>']
+    if x.get('task'):
+        meta.append(f'<span class="chip">{TASKS[x["task"]]}</span>')
+    if sec == 'sentence' or kind != 'ask':
+        meta.append(f'<span class="pill pill--{kind}">{ {"wrong": "做错了", "typo": "差一点", "ok": "答对了", "ask": "有疑问"}[kind] }</span>')
     if n > 1:
         meta.append(f'<span class="pill pill--times">🔁 问过 {n} 次</span>')
     if ctx['show_new'] and last_date(x) == ctx['newest']:          # 全本都是同一天的就不标「新」，标了也没意义
@@ -675,16 +673,26 @@ def card(x, ctx):
     if x.get('demo'):
         meta.append('<span class="pill pill--demo">样板 · 编的例子</span>')
 
-    crumb = ''.join(f'<span class="chip">{ctx["points"][k][0]["icon"]} {esc(ctx["points"][k][1]["name"])}</span>'
-                    for k in [x['point']] + as_list(x.get('also')))
+    out = [f'<article class="card is-{kind}" id="n{esc(x["id"])}" data-comment-target '
+           f'data-comment-label="{int(x["id"])}. {esc(plain(x.get("pl") or x["title"]))}" data-s="{esc(search_text(x, ctx["points"]))}">',
+           f'<div class="card__meta">{"".join(meta)}</div>']
+    # 打头：那句话（没有句子的提问，打头就是那个问题）
+    if x.get('pl'):
+        out.append(f'<div class="sent" lang="{lang}">{say_btn(x["pl"], lang)}'
+                   + (say_btn(x['pl'], lang, 'say say--slow', '<span aria-hidden="true">🐢</span>', 0.5, '慢一点') if lang == 'pl' else '')
+                   + f'<h3>{fmt(x["pl"])}</h3></div>')
+        mean = ''.join(f'<p class="mean"{" lang=en" if k == "en" else ""}>{fmt(x[k])}</p>'
+                       for k in ('zh', 'en') if x.get(k) and not (k == 'en' and x.get('task') == 'translate'))
+        out.append(mean)
+    else:
+        out.append(f'<div class="sent sent--q"><h3>{fmt(x.get("ask") or x["title"])}</h3></div>')
+    out.append(answer_block(x, kind, lang))
+    if x.get('stuck'):
+        out.append(f'<p class="stuck"><b>卡点</b>{fmt(x["stuck"])}</p>')
+    if x.get('ask') and x.get('pl'):
+        out.append(f'<p class="stuck"><b>疑问</b>{fmt(x["ask"])}</p>')
 
-    out = [f'<article class="card is-{kind}" id="n{esc(x["id"])}" style="--hue:{AREA_HUE.get(a["key"], "#1899d6")}" data-comment-target '
-           f'data-comment-label="No. {esc(x["id"])} {esc(plain(x["title"]))}" data-s="{esc(search_text(x, ctx["points"]))}">',
-           f'<div class="card__top"><div class="card__meta">{"".join(meta)}</div>',
-           f'<h3 class="card__title">{fmt(x["title"])}</h3><p class="chips">{crumb}</p></div>',
-           exercise(x, kind, lang)]
-
-    tip = [f'<h4>💡 为什么</h4><div class="why">'
+    tip = [f'<p class="lesson">💡 {fmt(x["title"])}</p><div class="why">'
            + ''.join(f'<p>{fmt(par)}</p>' for par in str(x['why']).strip().split('\n') if par.strip()) + '</div>']
     for r in as_list(x.get('rule')):
         tip.append(f'<p class="key"><span aria-hidden="true">📌</span>{fmt(r)}</p>')
@@ -697,7 +705,7 @@ def card(x, ctx):
     if x.get('extra'):
         tip.append('<ul class="extra">' + ''.join(f'<li>{fmt(e)}</li>' for e in as_list(x['extra'])) + '</ul>')
     if x.get('examples'):
-        tip.append('<h4>🗣 再看几句</h4><ul class="phr">' + ''.join(
+        tip.append('<p class="sub">再看几句</p><ul class="phr">' + ''.join(
             f'<li>{say_btn(e["pl"], lang)}<span><span class="pl" lang="{lang}">{fmt(e["pl"])}</span>'
             f'<small>{fmt(e.get("zh", ""))}</small></span></li>' for e in as_list(x['examples'])) + '</ul>')
     if x.get('words'):
@@ -709,10 +717,12 @@ def card(x, ctx):
                         + f'<span class="wz">{fmt(w.get("zh", ""))}</span>'
                         + (f'<a class="look" href="{ctx["polski"]}?q={esc(q)}" target="_blank" rel="noopener">查变格 ↗</a>' if q else '')
                         + '</li>')
-        tip.append('<h4>🧩 生词 <small style="font-weight:700;color:var(--muted)">点一下听</small></h4><ul class="words">' + ''.join(rows) + '</ul>')
+        tip.append('<p class="sub">生词 <small>点一下听</small></p><ul class="words">' + ''.join(rows) + '</ul>')
     if x.get('see'):
-        tip.append('<p class="see">🔗 ' + '　'.join(
-            f'<a href="#n{esc(s)}">No. {esc(s)} {fmt(ctx["index"][str(s)]["title"])}</a>' for s in as_list(x['see'])) + '</p>')
+        def short(s):
+            y = ctx['index'][str(s)]
+            return fmt(y.get('pl') or y['title'])
+        tip.append('<p class="see">🔗 ' + '　'.join(f'<a href="#n{esc(s)}">{int(s)}. {short(s)}</a>' for s in as_list(x['see'])) + '</p>')
     if n > 1:
         tip.append('<p class="times">问过的日子：' + '、'.join(
             cn_date(d, ctx['year']) for d in [x['date']] + as_list(x.get('asked'))) + '</p>')
@@ -721,7 +731,7 @@ def card(x, ctx):
     if x.get('qa'):
         tip.append('<div class="qa">' + ''.join(f'<p class="q"><b>问</b>{fmt(q["q"])}</p><p class="a"><b>答</b>{fmt(q["a"])}</p>'
                                                 for q in as_list(x['qa'])) + '</div>')
-    out.append('<section class="tip">' + ''.join(tip) + '</section>')
+    out.append('<section class="tip"><p class="tip__h">讲解</p>' + ''.join(tip) + '</section>')
     ct = copy_text(x)
     out.append('<div class="card__foot"><a class="card__back" href="#toc">↑ 目录</a>'
                + (f'<button type="button" class="chunk chunk--blue copy" data-copy="{esc(ct)}">复制去 Google 翻译听</button>' if ct else '')
@@ -730,17 +740,24 @@ def card(x, ctx):
     return '\n'.join(out)
 
 
-# ── 目录 ──
+# ── 目录：句子一览（默认）· 生词 · 按知识点 ──
 def toc(areas, points, notes, ctx):
+    def link(x, extra=''):
+        head = fmt(x.get('pl') or x['title'])
+        return (f'<li><a href="#n{esc(x["id"])}"><span class="no">{int(x["id"])}</span>'
+                f'<span class="t"><span{" lang=pl" if x.get("pl") else ""}>{head}</span>'
+                + (f'<small>{fmt(x["zh"])}</small>' if x.get('zh') else '') + f'</span>{extra}</a></li>')
+
+    by_sent = []
+    for key, name in SECTIONS:
+        xs = [x for x in notes if section_of(x) == key]
+        if xs:
+            by_sent.append(f'<h4>{esc(name)}</h4><ul>' + ''.join(link(x) for x in xs) + '</ul>')
+
     used = {}
     for x in notes:
         for k in [x['point']] + as_list(x.get('also')):
             used.setdefault(k, []).append(x)
-
-    def link(x, extra=''):
-        return (f'<li><a href="#n{esc(x["id"])}"><span class="no">No. {esc(x["id"])}</span>'
-                f'<span class="t">{fmt(x["title"])}</span>{extra}</a></li>')
-
     by_point = []
     for a in areas:
         rows = []
@@ -769,14 +786,13 @@ def toc(areas, points, notes, ctx):
             cur = L
         wrows.append(f'<li><a href="#n{esc(x["id"])}"><span class="w" lang="pl">{esc(w["pl"])}</span>'
                      + (f'<span class="wt">{esc(w["tag"])}</span>' if w.get('tag') else '')
-                     + f'<span class="wz">{fmt(w.get("zh", ""))}</span><span class="no">No. {esc(x["id"])}</span></a></li>')
+                     + f'<span class="wz">{fmt(w.get("zh", ""))}</span><span class="no">{int(x["id"])}</span></a></li>')
     if cur:
         wrows.append('</ul>')
     word_copy = '\n'.join(stop(w['pl']) for w, _ in wl)
 
     reps = sorted([x for x in notes if times(x) > 1], key=lambda x: (-times(x), x['id']))
-
-    panes = [('point', '按知识点', ''.join(by_point))]
+    panes = [('sent', '全部句子', ''.join(by_sent))]
     if wl:
         panes.append(('words', f'生词 {len(wl)}',
                       f'<div class="copyline">按波兰语字母顺序排。<button type="button" class="chunk chunk--blue copy" data-copy="{esc(word_copy)}">'
@@ -784,24 +800,31 @@ def toc(areas, points, notes, ctx):
     if reps:
         panes.append(('again', f'🔁 问过不止一次 {len(reps)}',
                       '<ul>' + ''.join(link(x, f'<span class="x">{times(x)} 次</span>') for x in reps) + '</ul>'))
+    panes.append(('point', '按知识点', ''.join(by_point)))
     tabs = ''.join(f'<button type="button" class="chunk tab{" is-on" if i == 0 else ""}" role="tab" aria-selected="{"true" if i == 0 else "false"}" '
                    f'aria-controls="pane-{k}">{esc(lbl)}</button>' for i, (k, lbl, _) in enumerate(panes))
     body = ''.join(f'<div class="pane" id="pane-{k}" role="tabpanel"{"" if i == 0 else " hidden"}>{c}</div>'
                    for i, (k, _, c) in enumerate(panes))
-    return (f'<details class="toc" id="toc"><summary>📑 目录 <small>按知识点找 · 生词表</small></summary><div class="tabs" role="tablist">{tabs}</div>{body}</details>\n')
+    return (f'<details class="toc" id="toc"><summary>📑 目录 <small>全部句子 · 生词表</small></summary>'
+            f'<div class="tabs" role="tablist">{tabs}</div>{body}</details>\n')
 
 
 def body(notes, ctx):
-    """Winter 2026-10-01：「列得太复杂了，不能一个句子分一个吗」——正文就是一句一张卡，按日子排，
-    分类只留在目录里（「按知识点」那一页）。"""
-    days = {}
-    for x in notes:
-        days.setdefault(as_date(x['date']), []).append(x)
+    """正文：先是多邻国的句子（按日子分组，最新的日子在上面），再是零碎词汇、顺带聊到的英语。"""
     out = []
+    sents = [x for x in notes if section_of(x) == 'sentence']
+    days = {}
+    for x in sents:
+        days.setdefault(as_date(x['date']), []).append(x)
     for d in sorted(days, reverse=True):
         xs = sorted(days[d], key=lambda x: x['id'])
         out.append(f'<section class="day" id="d{d.isoformat()}"><h2 class="day__head"><span>{cn_date(d, ctx["year"])}</span>'
                    f'<small>{len(xs)} 句</small></h2>\n' + '\n'.join(card(x, ctx) for x in xs) + '</section>')
+    for key, name in SECTIONS[1:]:
+        xs = [x for x in notes if section_of(x) == key]
+        if xs:
+            out.append(f'<section class="day" id="s-{key}"><h2 class="day__head"><span>{esc(name)}</span>'
+                       f'<small>{len(xs)} 条</small></h2>\n' + '\n'.join(card(x, ctx) for x in xs) + '</section>')
     return '\n'.join(out)
 
 
@@ -828,7 +851,7 @@ def main():
     if is_demo:
         stats = ['<li>📒 等你的第一题</li>']
     else:
-        stats = [f'<li>📒 <b>{len(notes)}</b> 句</li>', f'<li>✗ <b>{wrong}</b> 道错题</li>']
+        stats = [f'<li>📒 <b>{sum(1 for x in notes if section_of(x) == "sentence")}</b> 句</li>', f'<li>✗ <b>{wrong}</b> 道错题</li>']
         if reps:
             stats.append(f'<li>🔁 <b>{reps}</b> 句问过不止一次</li>')
     head = (f'<div class="top">{SNOWMAN}<div><h1 lang="pl">{esc(meta.get("title", "Notatnik"))}</h1>'

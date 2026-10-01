@@ -136,6 +136,7 @@ areas:
 notes:
   # ── 2026-10-01：她在另一个对话里问过的十道多邻国题（那边整理成总结发来，这里逐条核对）＋ 她发来的截图 ──
   - id: "001"
+    stuck: 分不清该用哪个格
     date: 2026-10-01
     source: 多邻国
     point: noun.gen
@@ -182,6 +183,7 @@ notes:
       - {pl: ulica, zh: 街, tag: 阴}
 
   - id: "002"
+    stuck: l 和 r 听不出区别
     date: 2026-10-01
     source: 多邻国
     task: listen
@@ -209,6 +211,7 @@ notes:
     see: ["004"]
 
   - id: "003"
+    stuck: k 和 g 分不清
     date: 2026-10-01
     source: 多邻国
     task: listen
@@ -303,6 +306,7 @@ notes:
     see: ["001"]
 
   - id: "006"
+    stuck: 听的时候 nowy 和 nowe 纠结了半天
     date: 2026-10-01
     source: 多邻国
     task: listen
@@ -352,6 +356,7 @@ notes:
     see: ["006"]
 
   - id: "008"
+    stuck: e 和 y 分不清，经常靠猜
     date: 2026-10-01
     source: 多邻国
     task: fill
@@ -395,6 +400,7 @@ notes:
     see: ["011"]
 
   - id: "009"
+    stuck: 一开始写成 szedmiu，觉得不像个词，靠输入法联想才拼出 przedmiot
     date: 2026-10-01
     source: 多邻国
     ok: true
@@ -406,7 +412,7 @@ notes:
     zh: 这个物品是一本书。
     mine: "ten przedmiot to książka"
     why: |
-      你一开始写成 szedmiu，靠输入法联想才拼出 przedmiot——其实不是瞎写：prz 里的 rz 跟在清辅音 p 后面会变清，念成 sz，所以 przedmiot 实际念 pszedmiot。耳朵抓住的 sz 是真的，只是开头那个很轻的 p 被吞掉了。
+      szedmiu 其实不是瞎写：prz 里的 rz 跟在清辅音 p 后面会变清，念成 sz，所以 przedmiot 实际念 pszedmiot。耳朵抓住的 sz 是真的，只是开头那个很轻的 p 被吞掉了。
       同样的事：przepraszam（对不起）念 pszepraszam，krzesło（椅子）念 kszesło，Krzysztof 念 Kszysztof。
       trzy（三）是 t + sz + y，听起来很像 czy。细分的话，trzy 里的 t 和 sz 是先后两个音，cz 是一整个音，语速一快差别就很小了。注意不是 szy：开头的 t 还在。
     rule: p、t、k、ch 后面的 rz，念 sz。
@@ -487,6 +493,7 @@ notes:
     see: ["008", "006", "009"]
 
   - id: "012"
+    section: vocab
     date: 2026-10-01
     source: 多邻国
     point: words.phrase
@@ -502,6 +509,7 @@ notes:
       - {pl: trzymać, zh: 握着、拿着, tag: 未完成体}
 
   - id: "013"
+    section: vocab
     date: 2026-10-01
     source: 多邻国
     point: words.meaning
