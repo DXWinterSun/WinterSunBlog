@@ -12,6 +12,7 @@
 > 续写前先读本圣经；写完回来更新「章节流水 / 伏笔账」，随正文一起 commit/push。
 
 series_name: **The Real Thing** ｜ slug `series/the-real-thing/` ｜ collection_order 8
+路线图（2026-10-01）：https://claude.ai/artifact/Y56nqULpVgktrpZ1btyBh1（数据 `.claude/roadmaps/the-real-thing.json`，`render_roadmap.py` 生成；三个岔路等 Winter 挑：极光现在看不看 / 2005-06-12 怎么过 / 小心眼下一个对象）
 角色: **Frank Mercer**（Sam Rockwell,《火柴人》Matchstick Men, 2003）画册 id `frank`
 配色: 紫雾榛眸 `#9a7ba0` / 焦黑火柴 `#1a1410`（au_palettes mf_id: frank）
 进度: **v2 已上线 Ch1–20**（2026-08-25 首批部署；目标正传 24–28 章，四幕；番外后补）
