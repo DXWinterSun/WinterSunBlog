@@ -20,7 +20,7 @@ Winter 2026-09-17：**「1！按顺序🥺记得写他心里涌动的感情」**
 > 我原本以为我站在亮处她就能看见我——她是能看见的，她一直能看见我。是我看不见她。
 > **亮着的那个人什么也看不见。**
 
-⚠️ 所以他不是「没有找」，是**明明记住了位置、还是找不到**。Ch6 与 Ch17（「这一次你在上头，
+⚠️ 所以他不是「没有找」，是**明明记住了位置、还是找不到**。Ch6 与 Ch18（「这一次你在上头，
 他在你手边」）的回收力度因此翻倍。
 
 ## ⭐⭐⭐ Winter 点名要的「心里涌动的感情」怎么落地（⚠️ 关键技巧）
@@ -104,7 +104,7 @@ https://claude.ai/artifact/RCQdAparYk4EY4cm2gJxWm
 ## 发布信息（等 Winter 认可后用）
 
 - 文件名：`_posts/2026-10-30-i-kissed-the-stones-extra-i-said-it-to-her-his-pov.md`
-- `chapter_type: "Extra"`／`series_order: 24`／`series_status: complete`
+- `chapter_type: "Extra"`／`series_order: 25`／`series_status: complete`
 - `title: "Extra · 我念的是给她听的（他视角） — I Kissed the Stones"`
 - `tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 怅惘, 悸动]`
 - `summary`（≤35 字）候选：「他数过位置。灯一亮，台下就全黑了。」（17 字）
