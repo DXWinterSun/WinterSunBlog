@@ -5,7 +5,7 @@
     {
       "name": "《光荣的迷惑》",
       "type": "disc",
-      "spec": "DVD · 美版",
+      "spec": "DVD · 美版 · 全新",
       "charId": "rob",
       "date": "2026-08-21",
       "note": "",
@@ -18,7 +18,7 @@
     {
       "name": "《窒色》",
       "type": "disc",
-      "spec": "DVD · 美版",
+      "spec": "DVD · 美版 · 全新",
       "charId": "victor",
       "date": "2026-08-21",
       "note": "",
@@ -31,7 +31,7 @@
     {
       "name": "《毒醉心迷》",
       "type": "disc",
-      "spec": "蓝光 · 美版",
+      "spec": "蓝光 · 美版 · 全新",
       "charId": "doug",
       "date": "2026-08-21",
       "note": "",
@@ -44,7 +44,7 @@
     {
       "name": "《副总统》",
       "type": "disc",
-      "spec": "蓝光 · 港版",
+      "spec": "蓝光 · 港版 · 全新",
       "charId": "bush",
       "date": "2026-08-06",
       "note": "",
@@ -70,7 +70,7 @@
     {
       "name": "《师徒杀手闯江湖》",
       "type": "disc",
-      "spec": "DVD · 美版",
+      "spec": "DVD · 美版 · 全新",
       "charId": "jerry",
       "date": "2026-08-29",
       "note": "40美金值了！",
@@ -83,7 +83,7 @@
     {
       "name": "《花花公子吉米》",
       "type": "disc",
-      "spec": "DVD · 法版",
+      "spec": "DVD · 法版 · 全新",
       "charId": "jim",
       "date": "2026-08-28",
       "note": "",
@@ -96,7 +96,7 @@
     {
       "name": "《致命一击》",
       "type": "disc",
-      "spec": "蓝光 · 美版",
+      "spec": "蓝光 · 美版 · 全新",
       "charId": "johnmoon",
       "date": "2026-08-29",
       "note": "",
@@ -135,7 +135,7 @@
     {
       "name": "《福斯特对话尼克松》",
       "type": "disc",
-      "spec": "蓝光",
+      "spec": "蓝光 · 英版 · 全新",
       "charId": "reston",
       "date": "",
       "note": "",
@@ -148,7 +148,7 @@
     {
       "name": "《神枪手之死》",
       "type": "disc",
-      "spec": "蓝光",
+      "spec": "蓝光 · 英版 · 全新",
       "charId": "charley",
       "date": "",
       "note": "",
@@ -161,7 +161,7 @@
     {
       "name": "《迷途知返》",
       "type": "disc",
-      "spec": "蓝光 · 日版",
+      "spec": "蓝光 · 日版 · 全新",
       "charId": "owen",
       "date": "",
       "note": "",
@@ -408,7 +408,7 @@
     {
       "name": "《各怀鬼胎》",
       "type": "disc",
-      "spec": "DVD · 港版",
+      "spec": "DVD · 港版 · 三区 · 中英字幕",
       "charId": "silk",
       "date": "2026-09-13",
       "note": "",
@@ -460,7 +460,7 @@
     {
       "name": "《绿里奇迹》",
       "type": "disc",
-      "spec": "铁盒 · 意大利版",
+      "spec": "铁盒 · 意大利版 · 全新",
       "charId": "wildbill",
       "date": "2026-09-15",
       "note": "",
@@ -551,7 +551,7 @@
       "id": "seed-mercy",
       "name": "《Mercy》DVD",
       "type": "disc",
-      "spec": "DVD",
+      "spec": "DVD · 美版 · 全新",
       "charId": "matty",
       "date": "",
       "signed": 0,
@@ -563,7 +563,7 @@
     {
       "name": "Mr. Right蓝光美版",
       "type": "disc",
-      "spec": "蓝光",
+      "spec": "蓝光 · 美版 · 全新",
       "charId": "francis",
       "date": "2026-06-04",
       "note": "第一批Amazon海淘！",
@@ -576,7 +576,7 @@
     {
       "name": "《冒牌高手》",
       "type": "disc",
-      "spec": "蓝光 · 美版",
+      "spec": "蓝光 · 美版 · 全新",
       "charId": "samuel",
       "date": "",
       "note": "",
@@ -602,7 +602,7 @@
     {
       "name": "《惊爆银河系》",
       "type": "disc",
-      "spec": "4K UHD · 法版",
+      "spec": "4K UHD · 法版 · 全新",
       "charId": "guy",
       "date": "",
       "note": "",
@@ -615,7 +615,7 @@
     {
       "name": "《月球》",
       "type": "disc",
-      "spec": "4K UHD · 美版",
+      "spec": "4K UHD · 美版 · 全新",
       "charId": "sambell",
       "date": "",
       "note": "",
@@ -628,7 +628,7 @@
     {
       "name": "《月球》",
       "type": "disc",
-      "spec": "铁盒482/700",
+      "spec": "铁盒482/700 · 全新",
       "charId": "sambell",
       "date": "",
       "note": "有艺术画册和明信片。好看死了我的Sam Bell",
@@ -654,7 +654,7 @@
     {
       "name": "《七个神经病》",
       "type": "disc",
-      "spec": "蓝光 · 德版铁盒",
+      "spec": "蓝光 · 德版铁盒 · 全新",
       "charId": "billy",
       "date": "",
       "note": "",
@@ -667,7 +667,7 @@
     {
       "name": "《七个神经病》",
       "type": "disc",
-      "spec": "蓝光 · 铁盒",
+      "spec": "蓝光 · 英版铁盒",
       "charId": "billy",
       "date": "",
       "note": "",
@@ -680,7 +680,7 @@
     {
       "name": "《三块广告牌》",
       "type": "disc",
-      "spec": "4K UHD · 台版",
+      "spec": "4K UHD · 台版 · 全新",
       "charId": "dixon",
       "date": "",
       "note": "我的第一张",
@@ -693,7 +693,7 @@
     {
       "name": "《三块广告牌》",
       "type": "disc",
-      "spec": "蓝光 · 美版",
+      "spec": "蓝光 · 美版 · 全新",
       "charId": "dixon",
       "date": "",
       "note": "",
@@ -706,7 +706,7 @@
     {
       "name": "《乔乔的异想世界》",
       "type": "disc",
-      "spec": "4K UHD · 日版",
+      "spec": "4K UHD · 日版 · 全新",
       "charId": "klenz",
       "date": "",
       "note": "",
@@ -732,7 +732,7 @@
     {
       "name": "《理查德·朱维尔的哀歌》",
       "type": "disc",
-      "spec": "蓝光 · 港版",
+      "spec": "蓝光 · 港版 · 全新",
       "charId": "watson",
       "date": "",
       "note": "",
@@ -745,7 +745,7 @@
     {
       "name": "《牛仔与外星人》",
       "type": "disc",
-      "spec": "蓝光 · 澳版",
+      "spec": "蓝光 · 澳版 · 全新",
       "charId": "doc",
       "date": "2026-08-05",
       "note": "",
@@ -771,7 +771,7 @@
     {
       "name": "《团战之夜》",
       "type": "disc",
-      "spec": "4K UHD · 美版",
+      "spec": "4K UHD · 美版 · 全新",
       "charId": "manfromfuture",
       "date": "",
       "note": "",
@@ -810,7 +810,7 @@
     {
       "name": "《霹雳娇娃》",
       "type": "disc",
-      "spec": "蓝光 · 国版",
+      "spec": "蓝光 · 国版 · 全新",
       "charId": "eric",
       "date": "2026-09-25",
       "note": "",

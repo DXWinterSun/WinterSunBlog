@@ -1,11 +1,12 @@
 {%- comment -%}
-  Winter's 的五个书架（2026-09-30 改版，Winter 在样稿里拍板的「A 横着滑」）。
+  Winter's 的书架（2026-09-30 改版，Winter 在样稿里拍板的「A 横着滑」；2026-10-01 加了第六格「冬的笔记」）。
   只在首页 ?cat=winters 时显示（_sass/5-components/_winters.scss 里按 data-hero-active 切换），
   这时下面那张通用的文章卡片网格整个藏起来。
 
   · 书架是哪几个、叫什么、怎么排：_data/winters.yml
   · 一篇文章上哪几个书架：文章自己 front matter 的 winters: [love, self]，卡片小标签是 form:
   · 冬的歌单那一行：_data/songs.json（与 /songs/ 唱片墙同一份资料）
+  · 冬的笔记那一行：一本本笔记本封面——波兰语笔记本读 _data/polish/notes.yml，原著笔记读 _data/reading/*.yml
 
   顶上一排小标签，点一下跳到那一类；每一类一行，横着滑看这一类，竖着滚换下一类；
   点右边的篇数，这一类摊开成格栅一眼看全，再点收回（跟藏品架 sam/shelf/ 的分组用法一样）。
@@ -28,6 +29,34 @@
       {%- for a in wn_albums -%}
         {%- if a.songs.size > 1 -%}{%- assign href = '#a-' | append: a.id -%}{%- else -%}{%- assign href = '#s-' | append: a.songs[0].id -%}{%- endif %}
       <a class="c-sleeve{% if a.songs.size > 1 %} is-multi{% endif %}" href="{{ site.baseurl }}/songs/{{ href }}" style="--c: {{ a.color }}; --lab: {{ a.label }}">{% include song-sleeve.html album=a %}</a>
+      {%- endfor -%}
+    {%- endcapture -%}
+  {%- elsif sh.key == 'notes' -%}
+    {%- comment -%} 冬的笔记：波兰语笔记本 ＋ 每本原著笔记，各一本封面 {%- endcomment -%}
+    {%- assign pn = site.data.polish.notes.notes -%}
+    {%- assign pn_sent = 0 -%}{%- assign pn_wrong = 0 -%}
+    {%- for x in pn -%}
+      {%- if x.section == nil and x.lang == nil -%}{%- assign pn_sent = pn_sent | plus: 1 -%}{%- endif -%}
+      {%- if x.mine and x.ok != true -%}{%- assign pn_wrong = pn_wrong | plus: 1 -%}{%- endif -%}
+    {%- endfor -%}
+    {%- assign n = 0 -%}
+    {%- capture row -%}
+      {%- if pn and pn.size > 0 -%}{%- assign n = n | plus: 1 %}
+      <a class="c-wn-notebook c-wn-notebook--pl" href="{{ site.baseurl }}/polish/">
+        <span class="c-wn-notebook__label"><small lang="pl">Notatnik</small><b>波兰语笔记本</b><span>多邻国上做错的、看不懂的</span></span>
+        <span class="c-wn-notebook__meta"><b>{{ pn_sent }}</b> 句{% if pn_wrong > 0 %} · <b>{{ pn_wrong }}</b> 道错题{% endif %}</span>
+      </a>
+      {%- endif -%}
+      {%- for entry in site.data.reading -%}
+        {%- assign d = entry[1] -%}{%- assign b = d.book -%}
+        {%- assign pal = site.data.au_palettes[b.palette] -%}
+        {%- assign rn = 0 -%}{%- assign upto = '' -%}
+        {%- for bt in d.batches -%}{%- assign upto = bt.pages -%}{%- assign rn = rn | plus: bt.notes.size -%}{%- endfor -%}
+        {%- assign n = n | plus: 1 %}
+      <a class="c-wn-notebook" href="{{ site.baseurl }}/reading/{{ b.slug }}/" style="--nb-bg: {{ pal.bg | default: '#1d2330' }}; --nb-spine: {{ pal.accent | default: '#8fa0b0' }}; --nb-ink: {{ pal.text | default: '#e6e6e6' }};">
+        <span class="c-wn-notebook__label"><small>原著笔记</small><b lang="en">{{ b.title }}</b><span>{{ b.author }}</span></span>
+        <span class="c-wn-notebook__meta">{% if upto != '' %}读到第 <b>{{ upto }}</b> 页 · {% endif %}<b>{{ rn }}</b> 条</span>
+      </a>
       {%- endfor -%}
     {%- endcapture -%}
   {%- else -%}
@@ -87,6 +116,8 @@
       <h2 class="c-shelf__name" id="wn-{{ sh.key }}-name">{{ sh.name }}</h2>
       {%- if sh.key == 'songs' %}
       <a class="c-shelf__count" href="{{ site.baseurl }}/songs/">{{ n }} 首 ›</a>
+      {%- elsif sh.key == 'notes' %}
+      <span class="c-shelf__count is-static">{{ n }} 本</span>
       {%- elsif n > 1 %}
       <button class="c-shelf__count" type="button" aria-expanded="false" aria-controls="wn-{{ sh.key }}-row" data-n="{{ n }}">{{ n }} 篇 ▸</button>
       {%- else %}
@@ -103,7 +134,7 @@
       </div>
       <button class="c-shelf__nav c-shelf__nav--next" type="button" aria-label="往右看" tabindex="-1" hidden>›</button>
     </div>
-    {%- unless sh.key == 'songs' %}
+    {%- unless sh.key == 'songs' or sh.key == 'notes' %}
     <button class="c-shelf__collapse" type="button" hidden>▴ 收起{{ sh.name }}</button>
     {%- endunless %}
     {%- endif %}
