@@ -26,6 +26,22 @@
     <span class="c-feature-card__cta">Open in new tab →</span>
   </a>
 
+  {%- comment -%} 波兰语笔记本（2026-10-01）：有了第一条真笔记才出现；页面由 tools/polish/render_polish.py --blog 生成 {%- endcomment -%}
+  {%- assign pl_notes = site.data.polish.notes.notes -%}
+  {%- if pl_notes and pl_notes.size > 0 %}
+  <a class="c-feature-card" href="{{site.baseurl}}/polish/" target="_blank" rel="noopener">
+    <div class="c-feature-card__eyebrow">
+      <span>Special · Notes</span>
+      <span class="c-feature-card__tab">↗</span>
+    </div>
+    <h3 class="c-feature-card__title">波兰语笔记本 <em>Notatnik</em></h3>
+    <p class="c-feature-card__desc">
+      学波兰语时做错的、看不懂的地方，一题一张卡，按知识点分好类。已记 {{ pl_notes.size }} 条。
+    </p>
+    <span class="c-feature-card__cta">Open in new tab →</span>
+  </a>
+  {%- endif %}
+
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">Illustrations</h3>
     <span class="c-section-heading__meta">{{ site.gallery_images.size }} pieces</span>

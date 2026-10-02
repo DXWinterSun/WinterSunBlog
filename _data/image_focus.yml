@@ -179,14 +179,14 @@
   card: "34% 50%"
   banner: "50% 32%"
 "francis-flute-au.jpg":
-  x: 21.4
-  y: 34.3
-  w: 522
-  h: 391
+  x: 41.4
+  y: 26.9
+  w: 1920
+  h: 800
   score: 0.91
-  sq: "0% 50%"
-  card: "50% 0%"
-  banner: "50% 16%"
+  sq: "35% 50%"
+  card: "24% 50%"
+  banner: "50% 50%"
 "gary-ohara-au.jpg":
   x: 60.1
   y: 43.2

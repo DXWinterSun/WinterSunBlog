@@ -192,6 +192,7 @@ python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratc
 | 每本书的笔记页 `/reading/<slug>/` | `reading/<slug>/index.html`，独立整页 | **脚本生成，别手改**：`python3 tools/reading/render_notes.py _data/reading/<slug>.yml --blog` |
 | 入口 ① | `sam/index.html` 互动彩蛋第 11 张卡「书架」 | 不用动 |
 | 入口 ② | 对应系列首页「设定档案」末尾一行链接（A Single Shot → `series/wintergreen/`） | 开新书时手加一行 |
+| 入口 ③ | Winter's 第六格书架「冬的笔记」（2026-10-01 起），一本书一张笔记本封面 | 不用动：遍历 `_data/reading/*.yml` 自动出 |
 
 **每次整理完新的一页，两样都要重新生成**：`-o <scratchpad>/…html`（发 Artifact 给她批注）和 `--blog`（博客那页），
 一起 commit。博客那页要推 `main` 才上线——照全站部署规矩攒成一包推（一次读好几页就整批推一次），推完等构建跑完。
