@@ -285,19 +285,25 @@ Delaney 探员走在最后。
 
 ---
 
-名片是白的，印着联邦调查局洛杉矶外勤办公室的徽章、地址、一个电话号码，还有一行凸起来的字：特别探员 J. Delaney。
+名片是白的，纸很厚，字是凸起来的，指头一摸就摸得出来。印得很像。你见过真的，真的就长这样。
 
-印得很像。你见过真的，真的就长这样。
+你把它翻了过来。背面用蓝色圆珠笔写着另一个号码，字往右斜，写得很急，底下还有一行。
 
-你把它翻了过来。
-
-背面用蓝色圆珠笔写着另一个号码，字往右斜，写得很急。底下还有一行：
-
-<div class="c-note" role="group" aria-label="名片背面">
-  <span class="c-note__label">名片 · 背面</span>
-  <div class="c-note__body">
-    <p>(818) 555-0142</p>
-    <p>This one's real.</p>
+<div class="c-bizcard" role="group" aria-label="名片的正面与背面">
+  <div class="c-bizcard__side c-bizcard__front">
+    <span class="c-bizcard__tag">正面</span>
+    <span class="c-bizcard__seal" aria-hidden="true">★</span>
+    <p class="c-bizcard__org">Federal Bureau of Investigation</p>
+    <p class="c-bizcard__unit">Los Angeles Field Office</p>
+    <p class="c-bizcard__name">J. Delaney</p>
+    <p class="c-bizcard__title">Special Agent</p>
+    <p class="c-bizcard__line">11000 Wilshire Blvd. · Los Angeles, CA 90024</p>
+    <p class="c-bizcard__line">(310) 555-0118</p>
+  </div>
+  <div class="c-bizcard__side c-bizcard__back">
+    <span class="c-bizcard__tag">背面</span>
+    <p class="c-bizcard__hand">(818) 555-0142</p>
+    <p class="c-bizcard__hand">This one's real.</p>
   </div>
 </div>
 
@@ -317,7 +323,7 @@ Delaney 探员走在最后。
 
 “划掉，buddy。”Frank 说。
 
-他把那对太亮的袖扣摘下来揣进兜里，领带也扯松了，整个人往座椅里一瘫。窗外的山谷区白得晃眼：加油站、甜甜圈店、一家挨一家的汽车旅馆。
+他把那对太亮的袖扣摘下来揣进兜里，又往领口一捏，把领带整条摘了下来——是夹上去的，他的领带全是夹上去的——团成一团塞进另一个兜里，整个人往座椅里一瘫。窗外的山谷区白得晃眼：加油站、甜甜圈店、一家挨一家的汽车旅馆。
 
 那通电话的事，他没跟 Roy 提过。
 

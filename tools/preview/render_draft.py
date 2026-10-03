@@ -495,6 +495,113 @@ blockquote p:last-child{margin-bottom:0}
 }
 .c-flyer p,.c-polaroid p{text-align:center}
 .c-polaroid__shot{text-align:left !important}
+/* c-bizcard 名片：正面印刷体 ＋ 背面手写（与 _extras.scss 同一份） */.c-bizcard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px 28px;
+  max-width: 640px;
+  margin: 40px auto 34px;
+}
+.c-bizcard__side {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  max-width: 100%;
+  aspect-ratio: 1.75;
+  padding: 16px 18px 14px;
+  border-radius: 4px;
+  background: #f7f4ec;
+  color: #1d2638;
+  box-shadow: 0 10px 22px rgba(0,0,0,.28), inset 0 0 0 1px rgba(0,0,0,.05);
+  text-align: left;
+}
+.c-bizcard__front { transform: rotate(-1.5deg); }
+.c-bizcard__back {
+  justify-content: center;
+  align-items: center;
+  background: #f3efe4;
+  transform: rotate(2deg);
+}
+.c-bizcard p {
+  margin: 0;
+  text-indent: 0;
+  text-align: left;
+  line-height: 1.35;
+}
+.c-bizcard__tag {
+  position: absolute;
+  top: -20px;
+  left: 2px;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: .24em;
+  line-height: 1;
+  color: var(--muted);
+}
+.c-bizcard__seal {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid #9a7a35;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px #f7f4ec, inset 0 0 0 4px #9a7a35;
+  color: #9a7a35;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+}
+.c-bizcard .c-bizcard__org {
+  padding-right: 40px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.c-bizcard .c-bizcard__unit {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 10px;
+  font-style: italic;
+  color: #5b6475;
+}
+.c-bizcard .c-bizcard__name {
+  margin-top: auto;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 19px;
+  letter-spacing: .05em;
+  font-variant: small-caps;
+  text-shadow: 0 1px 0 rgba(255,255,255,.95), 0 -1px 0 rgba(0,0,0,.14);
+}
+.c-bizcard .c-bizcard__title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #7a5b1e;
+}
+.c-bizcard .c-bizcard__line {
+  margin-top: 7px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 9.5px;
+  letter-spacing: .04em;
+  color: #3b4456;
+}
+.c-bizcard .c-bizcard__line + .c-bizcard__line { margin-top: 0; }
+.c-bizcard .c-bizcard__hand {
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  font-size: 27px;
+  line-height: 1.15;
+  color: #23409a;
+  transform: rotate(-4deg);
+}
+.c-bizcard .c-bizcard__hand + .c-bizcard__hand {
+  margin-top: 4px;
+  font-size: 24px;
+}
 /* c-comm —— 设备屏幕上的通讯记录（飞船通讯板 / 终端）。屏幕恒为暗，不随主题翻转。*/
 .c-comm{max-width:29rem;margin:2.6rem auto;border-radius:10px;overflow:hidden;
  border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);

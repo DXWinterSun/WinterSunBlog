@@ -2238,6 +2238,33 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 </div>
 ```
 
+### 5. `c-bizcard`——名片：正面印刷体 ＋ 背面手写（2026-10-03）
+
+为 Frank IF 线那张假探员名片做的（Winter 批注：「背面换手写体更真实，正面用印刷体，两个都写出来」），全站可用。
+卡纸是实物、固定色，不吃 AU 令牌；电脑上两面并排、手机上下叠，各自微微歪一点。背面手写用 Caveat
+（`_includes/head.html` 用到 `c-bizcard` 时才加载）；预览脚本 `render_draft.py` 里有同一份样式。
+名片上的字是实物上的字，可以写英文原文。
+
+```html
+<div class="c-bizcard" role="group" aria-label="名片的正面与背面">
+  <div class="c-bizcard__side c-bizcard__front">
+    <span class="c-bizcard__tag">正面</span>
+    <span class="c-bizcard__seal" aria-hidden="true">★</span>   <!-- 右上角小圆徽，可选 -->
+    <p class="c-bizcard__org">机构名</p>
+    <p class="c-bizcard__unit">部门 / 分支，可选</p>
+    <p class="c-bizcard__name">名字</p>
+    <p class="c-bizcard__title">头衔</p>
+    <p class="c-bizcard__line">地址</p>
+    <p class="c-bizcard__line">电话</p>
+  </div>
+  <div class="c-bizcard__side c-bizcard__back">
+    <span class="c-bizcard__tag">背面</span>
+    <p class="c-bizcard__hand">手写第一行</p>
+    <p class="c-bizcard__hand">手写第二行</p>
+  </div>
+</div>
+```
+
 ### 三种卡片怎么选
 
 | 内容 | 用哪个 |
@@ -2247,6 +2274,7 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 | 科技设备屏幕上的消息串：飞船通讯板、终端、控制台 | `c-comm` |
 | 诺基亚时代按键机的单色屏短信（固定复古配色，不吃 AU 令牌） | `c-sms` |
 | 章首纪念物：卡带 / 冰箱门便利贴 / 演出传单 / 拍立得 | `c-cassette` / `c-fridge` / `c-flyer` / `c-polaroid` |
+| 名片（正面印的、背面手写的，两面都给读者看） | `c-bizcard` |
 
 ### 判断 formal 还是 note
 
