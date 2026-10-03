@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文筛出、再经 tools/hotline_review.json 人审过的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 这句接得上的情境（可多个）。新章节上线后重跑脚本即可，不要手改。",
-  "count": 219
+  "count": 214
  },
  "chars": {
   "youngsam": {
@@ -1978,55 +1978,6 @@
      ],
      "ch": 48,
      "title": "Chapter 48 · 镜头后面",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "瞧你这没出息样。这就折腾散架了？",
-     "b": [
-      "tired"
-     ],
-     "ch": 53,
-     "title": "Chapter 53 · 一支冰淇淋",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "得，我们家小祖宗这是委屈上了。",
-     "b": [
-      "tired",
-      "tease"
-     ],
-     "ch": 53,
-     "title": "Chapter 53 · 一支冰淇淋",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "说好的亲亲呢。",
-     "b": [
-      "love",
-      "night"
-     ],
-     "ch": 58,
-     "title": "Chapter 58 · 赖床",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "我这张嘴，除了训人骂人，说不出那玩意儿。",
-     "b": [
-      "love"
-     ],
-     "ch": 58,
-     "title": "Chapter 58 · 赖床",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "睡吧。有我呢。",
-     "b": [
-      "night",
-      "sleepless",
-      "tired"
-     ],
-     "ch": 58,
-     "title": "Chapter 58 · 赖床",
      "series": "No One Walks Off"
     }
    ]
