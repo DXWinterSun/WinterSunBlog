@@ -2265,6 +2265,31 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 </div>
 ```
 
+### 6. `c-check`——外卖单 / 点菜单 / 收据：印刷表格 ＋ 圆珠笔手写（2026-10-03）
+
+为 Frank IF 线那张泰国馆子外卖单做的（Winter 批注：「尽可能做得真实一点，尤其是印刷的东西跟手写的东西要区分得开」），全站可用。
+淡绿复写纸、顶边撕口、订书钉；**印的**：店名橡皮章（紫、歪着盖）、流水号（红、打字机体）、表格小字（绿）；
+**手写的**：其余一律蓝圆珠笔（Caveat）。`c-check__stain` 是一块油渍，底下的字洇开看不清。固定色，不吃 AU 令牌。
+
+```html
+<div class="c-check" role="group" aria-label="外卖单">
+  <div class="c-check__top">
+    <span class="c-check__stamp">店名<br>第二行</span>
+    <span class="c-check__no">No. 004871</span>
+  </div>
+  <p class="c-check__form">Guest Check · Delivery</p>
+  <p class="c-check__row"><span class="c-check__label">Date</span><span class="c-check__hand">5/18</span></p>
+  <p class="c-check__row"><span class="c-check__label">Deliver to</span><span class="c-check__hand">6<span class="c-check__stain">831</span> Kester Ave.</span></p>
+  <p class="c-check__row"><span class="c-check__hand">2 · 菜名</span><span class="c-check__hand c-check__amt">13.90</span></p>
+  <p class="c-check__row c-check__total"><span class="c-check__label">Total</span><span class="c-check__hand c-check__amt">21.43</span></p>
+  <p class="c-check__note">手写的大字备注</p>
+  <p class="c-check__foot">Thank you · Call again</p>
+</div>
+```
+
+⭐ **通用原则（Winter 两次批注定下的）：凡是「实物」卡片，印刷的部分用印刷体、手写的部分用手写体，分得开才像真的。**
+做新的实物卡片时先想清楚：这件东西上哪些字是印好的、哪些是人拿笔写上去的。
+
 ### 三种卡片怎么选
 
 | 内容 | 用哪个 |
@@ -2275,6 +2300,7 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 | 诺基亚时代按键机的单色屏短信（固定复古配色，不吃 AU 令牌） | `c-sms` |
 | 章首纪念物：卡带 / 冰箱门便利贴 / 演出传单 / 拍立得 | `c-cassette` / `c-fridge` / `c-flyer` / `c-polaroid` |
 | 名片（正面印的、背面手写的，两面都给读者看） | `c-bizcard` |
+| 外卖单 / 点菜单 / 收据（印好的表格上手写了菜名和价钱） | `c-check` |
 
 ### 判断 formal 还是 note
 

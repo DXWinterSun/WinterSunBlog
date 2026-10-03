@@ -602,6 +602,136 @@ blockquote p:last-child{margin-bottom:0}
   margin-top: 4px;
   font-size: 24px;
 }
+/* c-check 外卖单 / 点菜单：印刷表格 ＋ 圆珠笔手写（与 _extras.scss 同一份） */
+.c-check {
+  position: relative;
+  box-sizing: border-box;
+  width: 300px;
+  max-width: 100%;
+  margin: 40px auto 34px;
+  padding: 26px 20px 16px;
+  background: #e8f0e1;
+  color: #1f2a24;
+  box-shadow: 0 10px 22px rgba(0,0,0,.3);
+  transform: rotate(-1.2deg);
+  text-align: left;
+}
+.c-check::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: radial-gradient(circle at 5px 0, transparent 4.5px, #e8f0e1 5px) 0 5px / 10px 10px repeat-x;
+}
+.c-check::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  width: 34px;
+  height: 4px;
+  margin-left: -17px;
+  border-radius: 1px;
+  background: linear-gradient(#c9ccd1, #8b9096);
+  box-shadow: 0 1px 1px rgba(0,0,0,.35);
+}
+.c-check p {
+  margin: 0;
+  text-indent: 0;
+  text-align: left;
+}
+.c-check__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.c-check .c-check__stamp {
+  display: inline-block;
+  padding: 3px 7px;
+  border: 2px double rgba(91,63,138,.75);
+  border-radius: 3px;
+  color: rgba(91,63,138,.82);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+}
+.c-check .c-check__no {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #b23a2e;
+  white-space: nowrap;
+}
+.c-check .c-check__form {
+  margin-bottom: 6px;
+  font-family: 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 9.5px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #2f6b4f;
+}
+.c-check .c-check__row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-height: 28px;
+  border-bottom: 1px solid rgba(47,107,79,.24);
+}
+.c-check__label {
+  flex: 0 0 auto;
+  font-family: 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #2f6b4f;
+}
+.c-check__hand {
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  font-size: 21px;
+  line-height: 1.1;
+  color: #23409a;
+}
+.c-check__amt {
+  margin-left: auto;
+  font-size: 19px;
+}
+.c-check__stain {
+  padding: 0 3px;
+  border-radius: 45% 55% 50% 40%;
+  background: radial-gradient(ellipse at 50% 55%, rgba(196,150,60,.38), rgba(196,150,60,.16) 60%, transparent 75%);
+  color: transparent;
+  text-shadow: 0 0 5px rgba(35,64,154,.75);
+}
+.c-check .c-check__note {
+  margin: 8px 0 4px;
+  font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  font-size: 25px;
+  line-height: 1.15;
+  color: #23409a;
+  transform: rotate(-3deg);
+  text-decoration: underline;
+  text-decoration-style: double;
+}
+.c-check .c-check__total {
+  border-top: 1.5px solid rgba(47,107,79,.55);
+}
+.c-check .c-check__foot {
+  margin-top: 10px;
+  font-family: 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 8.5px;
+  letter-spacing: .24em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #2f6b4f;
+}
 /* c-comm —— 设备屏幕上的通讯记录（飞船通讯板 / 终端）。屏幕恒为暗，不随主题翻转。*/
 .c-comm{max-width:29rem;margin:2.6rem auto;border-radius:10px;overflow:hidden;
  border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);

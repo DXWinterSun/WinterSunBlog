@@ -133,14 +133,21 @@ tags: [Frank Mercer, Sam Rockwell, AU, The Real Thing, 絮语, 悸动]
 
 是一张外卖单，订在纸袋上的那一联，被人随手撕下来，当书签夹了进去。
 
-<div class="c-note" role="group" aria-label="外卖单">
-  <span class="c-note__label">外卖单 · 订在纸袋上的那一联</span>
-  <div class="c-note__body">
-    <p>SIAM GARDEN · Thai Kitchen</p>
-    <p>DELIVERY — 6▒▒▒ Kester Ave., Apt 2C</p>
-    <p>Pad See Ew ×2 · Spring Roll ×1 · Thai Iced Tea</p>
-    <p>NOTE: KNOCK LOUD. TV.</p>
+<div class="c-check" role="group" aria-label="外卖单，订在纸袋上的那一联">
+  <div class="c-check__top">
+    <span class="c-check__stamp">Siam Garden<br>Thai Kitchen</span>
+    <span class="c-check__no">No. 004871</span>
   </div>
+  <p class="c-check__form">Guest Check · Delivery</p>
+  <p class="c-check__row"><span class="c-check__label">Date</span><span class="c-check__hand">5/18</span><span class="c-check__label">Server</span><span class="c-check__hand">Nok</span></p>
+  <p class="c-check__row"><span class="c-check__label">Deliver to</span><span class="c-check__hand">6<span class="c-check__stain">831</span> Kester Ave. #2C</span></p>
+  <p class="c-check__row"><span class="c-check__hand">2 · Pad See Ew</span><span class="c-check__hand c-check__amt">13.90</span></p>
+  <p class="c-check__row"><span class="c-check__hand">1 · Spring Roll</span><span class="c-check__hand c-check__amt">3.95</span></p>
+  <p class="c-check__row"><span class="c-check__hand">1 · Thai Iced Tea</span><span class="c-check__hand c-check__amt">1.95</span></p>
+  <p class="c-check__row"><span class="c-check__label">Tax</span><span class="c-check__hand c-check__amt">1.63</span></p>
+  <p class="c-check__row c-check__total"><span class="c-check__label">Total</span><span class="c-check__hand c-check__amt">21.43</span></p>
+  <p class="c-check__note">KNOCK LOUD — TV!!</p>
+  <p class="c-check__foot">Thank you · Call again</p>
 </div>
 
 门牌号那一块正好被一圈油渍洇透了，只认得出打头的一个 6。
