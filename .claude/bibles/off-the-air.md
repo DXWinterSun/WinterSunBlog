@@ -352,4 +352,7 @@ touchstone 是逃跑计划《梦中的你》，尤其 **“而你永远是你 / 
   - C 1967 · 你是派来盯他的人（赫尔辛基，Patricia 的位置；先认识夜里的他）
   - 另三道：篇幅 / 改不改得了他 / 第一篇炽恋与否
 - ⚠️ 称呼：IF 里也守「你只叫他 Chuck」；「Barris 先生」仍是正片 Ch5 的唯一破例，IF 里别用。
-- 等 Winter 挑完再写第一篇，草稿存 `.claude/bibles/off-the-air-if/`（chN.md + chN-notes.md）。
+- **Winter 2026-10-03 回复**：不要长线，就要「美丽的 Chuck」＋甜＋炽恋（“Confessions 整部电影都是颜值鉴赏片”）；另挑了**暗房**（你是给他拍宣传照的摄影师）＋**六十年代**的他。提案页上的 A/B/C 三个都没用，留作以后的备选。
+- **IF 1 · 他最好看的一张**（1966 春，炽恋·悸动，草稿待过目）：电视周刊专访配图，你用哈苏拍他；“冰箱”摆拍→脱外套解领带揉乱头发→跳舞→换后背时偷拍到他什么都没挂的那张（Roll 2, frame 1, Not for sale）；礼拜四暗房红灯、头顶晾着一排湿的他，门不能开；称呼 sweetheart→Winter→baby（baby 在最后那一下脱口而出），你头一回叫他 Chuck；冰箱那张泡黑了，他裱起来挂办公室墙上：“我最好看的一张，暗房里拍的”。眼睛四色：窗口金／阴影灰绿／红灯看不清／火柴光暖。
+  草稿 `off-the-air-if/if1-darkroom.md` + `-notes.md`；预览 https://claude.ai/artifact/TozJ1Sp23AiuQGjsPrNVcJ
+  拟：title `IF · 他最好看的一张 — Off the Air`、`chapter_type: "Extra · IF"`、`series_order: 35`、`story_time: "1966 春"`、summary「杂志要一张他的宣传照；他最好看的那张，拍在暗房里，一片漆黑。」
