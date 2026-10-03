@@ -1,6 +1,6 @@
 ---
 name: winter-memo
-description: Winter 的「冬的备忘本」——分页的备忘（💡灵感 / ❣️Sam / 💼工作 / 🏠生活），网页 /memo/ 上能改，iPhone 桌面上有同步的 Scriptable 小组件，对话里也能直接替她记、替她划掉。当 Winter 说「记一下」「帮我记」「加到备忘」「备忘本」「待办」「灵感」「这个想法先存着」「……做完了 / 划掉」「我备忘里有什么」「最近要做什么」，或提到桌面小组件上的备忘、想换小组件样子、加一页 / 改页名时，必须用本 skill。即使她只是随口甩来一句「明天要交课件」「突然想拍一期 XX」，没说记哪儿，只要落点是「存下来以后要看 / 要做」，就按本 skill 记进备忘本，记完告诉她记在哪一页。注意区分：AU 连载的伏笔账、圣经用 winter-au-writing；波兰语错题用 winter-polish-notes；原著划线用 winter-reading-notes。
+description: Winter 的「冬的备忘本」——三页备忘（💼生活所迫 / ❣️喜欢的事 / 🎞️日更素材），每一条都能带备注（讨论定下来的东西）和一笔笔带日期的进度；网页 /memo/ 上能改，iPhone 桌面上有同步的 Scriptable 小组件（只露摘要），对话里能直接替她记、替她续进度、替她查。当 Winter 说「记一下」「帮我记」「加到备忘」「备忘本」「待办」「这个想法先存着」「……做完了 / 划掉」「……做到哪了」「我之前说的那个视频 / 项目是什么来着」「我备忘里有什么」「最近要做什么」，或提到桌面小组件上的备忘、想换小组件样子、加一页 / 改页名时，必须用本 skill。⭐ 跟她聊出一个想做的东西（一个 Sam 视频、一个企划、一个系列点子）、讨论有了结论时，也要用本 skill 把结论记进那一条的备注——她要的是「在一个对话里聊过，换个对话还能问到」。即使她只是随口甩来一句「明天要交课件」「突然想拍一期 XX」，没说记哪儿，只要落点是「存下来以后要看 / 要做」，就记进备忘本，记完告诉她记在哪一页。注意区分：AU 连载的伏笔账、圣经用 winter-au-writing；波兰语错题用 winter-polish-notes；原著划线用 winter-reading-notes。
 ---
 
 # 冬的备忘本：她说一句，就记进去；做完了，就划掉
@@ -11,6 +11,21 @@ description: Winter 的「冬的备忘本」——分页的备忘（💡灵感 /
 工作上的事情，生活上的事情，我觉得他们分开会比较好。」**
 
 所以：**她说「记一下 X」，直接记，不用问「要不要记」；只在真分不清放哪一页时问一句（给选项）。**
+
+2026-10-03 她看完第一版又补了一句，**这是这本备忘最要紧的用处**：
+**「其实这个东西我感觉更关键是我能和你多地点同步，比如我和你在 code 对话里面可能会说我想做的一个 Sam 的视频，
+然后你和我讨论并且记录在博客里，以后如果我自己忘记了，我也能随时在任何一个对话里问你，你能调取并且告诉我🤔
+桌面是摘要，真要同步项目进度还得是点进页面或者在对话里问你。」**
+
+同日她定的三页（页名、说明都可以她自己在网页⚙里改）：
+
+| 页 | id | 放什么 |
+|---|---|---|
+| 💼 生活所迫 | `chore` | 日常琐事、工作（上课、课件、申报、取快递……） |
+| ❣️ 喜欢的事 | `love` | Sam 的长期计划、灵感项目（想做的视频 / 企划 / 系列点子） |
+| 🎞️ 日更素材 | `daily` | 日更和近期素材（这几天要发的、要上线的、手头的素材） |
+
+小组件样子她选了**晴雪**（`snow`）；**−1 屏不放**（她说的）。
 
 ## 东西都在哪
 
@@ -28,39 +43,72 @@ memo 分支不触发 Pages 构建，网页和小组件直接从 GitHub API 读�
 ⚠️ 仓库是公开的，`memo` 分支谁特意去翻都看得见（网页本身要钥匙才打开）。这件事 2026-10-03 已经跟她说过。
 真正私密的东西（密码、身份证号、银行卡）**别往里记**，她要记的话提醒一句。
 
+## 一条备忘长什么样
+
+| 部分 | 字段 | 给谁看 |
+|---|---|---|
+| 标题 | `text` | 桌面小组件只露这一句，所以要短（七八个字） |
+| 备注 | `note` | 想法、讨论定下来的东西、链接、素材出处——网页点开才看得到 |
+| 进度 | `log[]`，每笔 `{id, at, text}` | 一笔一笔带日期，网页上新的在上面 |
+| 到期 / 置顶 | `due` / `pin` | 小组件上今天到期、过期的标红 |
+
+## ⭐ 聊出一个项目 → 记下来；她问起 → 调出来
+
+**记**（不用她开口说「记一下」）：跟她聊一个想做的东西，聊出了结论——定了做什么、怎么做、下一步是什么——
+就在那个自然的停顿处记进去，然后用一句话告诉她「记进 ❣️ 喜欢的事 了」：
+
+1. 先 `find` 一下有没有这条了（她以前提过就续在那条上，别开第二条）。
+2. 没有 → `add <页> "<短标题>" --note "<结论>"`；有 → `note <编号> "<这次新定的>"` 往后续一段。
+3. 备注写**结论，不写聊天记录**：定了什么、为什么、还悬着什么、下一步。每段开头带日期（`10/3：`），
+   日后能看出是哪次聊的。她自己的原话、她挑中的选项，照原样写进去。
+4. 有实际推进（剪完了、发了、交了）→ `log <编号> "<做到哪>"`。
+
+**调**：她问「我之前说的那个 Sam 视频是什么来着」「XX 做到哪了」「最近要做什么」——
+先 `find <关键词>`（连做完的、备注、进度一起搜），找到了用 `show <编号>` 看全，再用人话讲给她：
+是什么、定过什么、做到哪、下一步。**别贴命令输出。** 搜不到就换个说法再搜，还没有就直说没记过、问要不要现在记。
+
+⚠️ 这一套只在 **Claude Code 的对话**里灵（这边能看到博客仓库，开新对话也一样）。
+普通聊天窗口看不到仓库，她在那边问不到——她问起的话照实说。
+
 ## 对话里怎么改（照抄就行）
 
 先拉最新的工具（main 上）：`git fetch origin main && git checkout origin/main -- tools/memo/memo.py`（工作区就在 main 上时不用）。
 
 ```bash
-python3 tools/memo/memo.py ls                       # 看全部（含 6 位编号）——动手前先看一眼
-python3 tools/memo/memo.py add 灵感 "剪一期采访切片"   # 一次可以给好几条
-python3 tools/memo/memo.py add 工作 "交 Unit 5 课件" --due 10-15 --note "要带听力答案"
+python3 tools/memo/memo.py ls                       # 看全部（含 6 位编号、有没有备注 / 进度）
+python3 tools/memo/memo.py find 采访 Sam             # 连做完的、备注、进度一起搜，几个词要同时出现
+python3 tools/memo/memo.py show k3f9a2               # 一条的全部：备注 + 每一笔进度
+python3 tools/memo/memo.py add 喜欢的事 "Sam 采访合集" --note "10/3：三分钟以内，配中英字幕"
+python3 tools/memo/memo.py add 生活所迫 "交 Unit 5 课件" --due 10-15
+python3 tools/memo/memo.py note 采访 "10/5：结尾放他笑场那段"   # 往备注后面续一段（不覆盖）
+python3 tools/memo/memo.py log 采访 "粗剪完了，字幕还差一半"      # 记一笔进度（今天的日期；补记旧的加 --date 10-01）
 python3 tools/memo/memo.py done 课件                 # 编号、或原文里的一段都行
 python3 tools/memo/memo.py undone 课件
-python3 tools/memo/memo.py edit k3f9a2 --page 生活 --due none --pin
+python3 tools/memo/memo.py edit k3f9a2 --page 日更 --due none --pin   # --note 是整段替换，续写用 note
 python3 tools/memo/memo.py rm k3f9a2
 python3 tools/memo/memo.py top k3f9a2                # 挪到这一页最前面
-python3 tools/memo/memo.py clear-done 工作           # 清掉做完的（不可恢复，先问她）
+python3 tools/memo/memo.py clear-done 生活所迫        # 清掉做完的（不可恢复，先问她）
 python3 tools/memo/memo.py pages                     # 看有哪几页
 python3 tools/memo/memo.py page-add 读书 📚 --hint "想读的书"
-python3 tools/memo/memo.py page-rename 生活 --name 日常 --emoji 🌿
+python3 tools/memo/memo.py page-rename 日更 --name 近期 --emoji 🗓️
+python3 tools/memo/memo.py style snow                # 小组件样子：paper 便笺 / native 提醒 / snow 晴雪
 ```
 
-- 页面名认口语：灵感 / 点子 / 视频 / 帖子 → 💡灵感；Sam / 山姆 → ❣️Sam；工作 / 上班 / 学校 / 教学 → 💼工作；
-  生活 / 日常 / 家里 → 🏠生活。她新加的页按名字认。
+- 页面名认口语：生活 / 琐事 / 工作 / 上班 / 学校 → 💼生活所迫；喜欢 / Sam / 灵感 / 项目 / 计划 → ❣️喜欢的事；
+  日更 / 素材 / 近期 → 🎞️日更素材。她新加的页按名字认（别名表在 `memo.py` 头上的 `ALIASES`，页改名后顺手补）。
 - 日期：`10-15`、`2026-10-15`、`今天 / 明天 / 后天`，`none` 清掉。她说「下周五」之类，自己算成日期再填。
 - 每个改动都加 `--trailer` 把会话要求的署名行带上（会话提示里给的那两行，原样一行一个 `--trailer`）。
 - 想先看效果不推：加 `--dry-run`。
 
 ## 记的时候怎么判断
 
-1. **放哪一页**：她说了就照说的；没说就按内容判——想拍的视频 / 想发的帖子 / 选题 → 灵感；
-   跟 Sam 本人、他的片子、他的 AU、画册、藏品有关 → Sam；上课、课件、学生、单位、申报 → 工作；
-   取快递、买东西、看病、家里的事 → 生活。**真两可时**给她两个选项挑，别闷头猜。
+1. **放哪一页**：她说了就照说的；没说就按内容判——上课、课件、学生、单位、申报、取快递、买东西、看病 → 生活所迫；
+   跟 Sam 有关的长期计划、想做但还没排上日程的视频 / 企划 / 系列点子 → 喜欢的事；
+   这几天要发的、要上线的、日更要用的素材 → 日更素材。**一个点子从「想做」变成「这周就发」**，用 `edit --page 日更` 挪过去。
+   **真两可时**给她两个选项挑，别闷头猜。
 2. **一条写短**：桌面小号一行只放得下七八个字。长的拆成「标题 + 备注」：标题进正文，细节进 `--note`
    （网页上看得见，小组件上不显示）。例：她说「我想做一期 Sam 讲第一次试镜的采访切片，最好三分钟以内
-   配中英字幕」→ `add 灵感 "采访切片：第一次试镜" --note "三分钟以内，配中英字幕"`。
+   配中英字幕」→ `add 喜欢的事 "采访切片：第一次试镜" --note "10/3：三分钟以内，配中英字幕"`。
 3. **用她的说法**，别改写成书面语；别替她加她没说的事。
 4. **到期日**只在她提到时间时才填。
 5. 她说「X 做完了」→ `done`，不是 `rm`（做完的留在网页的「做完的」里，她自己清）。说「删掉 / 不要了」才 `rm`。
@@ -69,22 +117,22 @@ python3 tools/memo/memo.py page-rename 生活 --name 日常 --emoji 🌿
 
 用人话说结果，别贴命令输出：
 
-> 记好了：💼 工作 多了一条「交 Unit 5 课件」，10 月 15 号，备注写了要带听力答案。
+> 记好了：💼 生活所迫 多了一条「交 Unit 5 课件」，10 月 15 号，备注写了要带听力答案。
 > 桌面上那块等它自己刷新（十几分钟内），点开就能看到。
 
 她问「我备忘里有什么 / 最近要做什么」→ `ls` 之后按页用几行话列给她（只列没做完的；有到期的标出来）。
 
 ## 改小组件的样子
 
-样子在数据里（`settings.style`：`paper` 便笺 / `native` 提醒 / `snow` 晴雪），她在网页⚙设置里自己能换。
+样子在数据里（`settings.style`：`paper` 便笺 / `native` 提醒 / `snow` 晴雪，她选的是晴雪），她在网页⚙设置里自己能换。
 要改脚本本身的画法：改 `memo/widget/winter-memo.js` → 用模拟器出图给她看（下面）→ 她点头再推 main
 （脚本改了，她得在 Scriptable 里重新粘一次代码，说明页的代码块会自动更新）。
 
 ```bash
 export NODE_PATH=/opt/node22/lib/node_modules     # 全局装的 playwright
 git show origin/memo:memo.json > /tmp/m.json
-node tools/widget-sim/sim.js memo/widget/winter-memo.js --family small --param 工作 --data /tmp/m.json -o /tmp/w.html
+node tools/widget-sim/sim.js memo/widget/winter-memo.js --family small --param 生活所迫 --data /tmp/m.json -o /tmp/w.html
 node tools/widget-sim/shot.js /tmp/w.html /tmp/w.png 3
 # 贴到她发来的桌面截图上（坐标是截图像素；她那台 iPhone 1206 宽、3 倍屏，右侧中间那格小组件在 638,871）
-python3 tools/widget-sim/compose.py 桌面.png 效果.jpg --clear 636 869 1129 1362 --put /tmp/w.png 638 871 --label Scriptable 1404 --dots 4 0
+python3 tools/widget-sim/compose.py 桌面.png 效果.jpg --clear 636 869 1129 1362 --put /tmp/w.png 638 871 --label Scriptable 1404 --dots 3 0
 ```

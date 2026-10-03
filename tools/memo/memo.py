@@ -9,9 +9,13 @@
 推不上（她刚在手机上改过）就重新取一遍、把这次的改动重放一遍再推，最多四次。
 
     python3 tools/memo/memo.py ls                 # 全部列出来（含短编号）
-    python3 tools/memo/memo.py ls 工作             # 只看一页
-    python3 tools/memo/memo.py add 灵感 "做一期采访切片" "Sam 新片路透整理"
-    python3 tools/memo/memo.py add 工作 "申报中邮" --due 10-15 --pin
+    python3 tools/memo/memo.py ls 生活所迫          # 只看一页
+    python3 tools/memo/memo.py find 采访            # 连做完的、备注、进度一起搜（「我之前说的那个……」）
+    python3 tools/memo/memo.py show k3f9a2         # 一条的全部：备注 + 进度记录
+    python3 tools/memo/memo.py add 喜欢的事 "Sam 采访合集" --note "想法……"
+    python3 tools/memo/memo.py add 生活所迫 "申报中邮" --due 10-15 --pin
+    python3 tools/memo/memo.py note 采访 "10/3 讨论：先剪三分钟版……"   # 往备注后面续一段
+    python3 tools/memo/memo.py log 采访 "粗剪完了，字幕还差一半"         # 记一笔进度（带日期）
     python3 tools/memo/memo.py done 中邮           # 编号或一段原文都行
     python3 tools/memo/memo.py undone 中邮
     python3 tools/memo/memo.py edit k3f9a2 --text "新的说法" --page 生活 --due none
@@ -20,6 +24,7 @@
     python3 tools/memo/memo.py clear-done [页]      # 清掉已完成的
     python3 tools/memo/memo.py pages               # 看有哪几页
     python3 tools/memo/memo.py page-add 读书 📚     # 加一页（page-rename / page-rm 同理）
+    python3 tools/memo/memo.py style snow          # 小组件样子：paper 便笺 / native 提醒 / snow 晴雪
 
 所有改动类命令都可以加 --dry-run（只打印、不推）和 --trailer "..."（给提交说明补尾行，
 可重复；会话要求在提交里署名时用）。
@@ -41,10 +46,9 @@ TZ = dt.timezone(dt.timedelta(hours=8))   # Winter 在国内，时间一律按�
 
 # 页面名的口语叫法 → 页面 id（她在对话里怎么说都能认出来）
 ALIASES = {
-    "idea": ["灵感", "点子", "想法", "视频", "帖子", "选题", "创作", "idea", "ideas", "💡"],
-    "sam": ["sam", "山姆", "他", "❣️", "❣"],
-    "work": ["工作", "上班", "学校", "教学", "work", "💼"],
-    "life": ["生活", "日常", "家里", "life", "🏠"],
+    "chore": ["生活所迫", "生活", "琐事", "日常琐事", "杂事", "工作", "上班", "学校", "教学", "待办", "chore", "💼"],
+    "love": ["喜欢的事", "喜欢", "sam", "山姆", "长期", "长期计划", "计划", "灵感", "项目", "点子", "想法", "love", "❣️", "❣"],
+    "daily": ["日更", "日更素材", "素材", "近期", "近期素材", "daily", "🎞️", "🎞"],
 }
 
 
@@ -194,7 +198,11 @@ def show(data, only=None):
             if i.get("due"):
                 extra.append("到期 " + i["due"])
             if i.get("note"):
-                extra.append("备注：" + i["note"].replace("\n", " / "))
+                n = i["note"].replace("\n", " / ")
+                extra.append("备注：" + (n[:40] + "…" if len(n) > 40 else n))
+            if i.get("log"):
+                last = i["log"][-1]
+                extra.append(f"进度 {len(i['log'])} 条，最近 {last['at'][:10]}：{last['text'][:24]}")
             out.append(f"   {i['id']}  ○ {i['text']}" + (f"   〔{'；'.join(extra)}〕" if extra else ""))
         for i in done:
             out.append(f"   {i['id']}  ✓ {i['text']}")
@@ -202,6 +210,78 @@ def show(data, only=None):
 
 
 # ————— 各个动作：都写成「拿到最新数据 → 改 → 返回提交说明」，推不上时可原样重放 —————
+
+def show_item(data, it):
+    p = next((x for x in data["settings"]["pages"] if x["id"] == it["page"]), {"emoji": "", "name": it["page"]})
+    lines = [f"{p['emoji']} {p['name']} · {it['id']}" + ("（已做完 " + it.get("doneAt", "")[:10] + "）" if it.get("done") else ""),
+             f"  {it['text']}"]
+    meta = [f"记于 {it.get('created', '')[:10]}"]
+    if it.get("due"):
+        meta.append("到期 " + it["due"])
+    if it.get("pin"):
+        meta.append("置顶")
+    lines.append("  " + " · ".join(meta))
+    if it.get("note"):
+        lines.append("  备注：")
+        lines += ["    " + ln for ln in it["note"].splitlines()]
+    if it.get("log"):
+        lines.append("  进度：")
+        lines += [f"    {e['at'][:10]}  {e['text']}" for e in it["log"]]
+    print("\n".join(lines))
+
+
+def find_all(data, words):
+    hits = []
+    for it in data["items"]:
+        hay = " ".join([it["text"], it.get("note", "")] + [e["text"] for e in it.get("log", [])]).lower()
+        if all(w.lower() in hay for w in words):
+            hits.append(it)
+    return hits
+
+
+def op_note(a):
+    def run(data):
+        it = find_item(data, a.key)
+        add = a.text.strip()
+        if not add:
+            raise SystemExit("没有要写的备注。")
+        it["note"] = (it.get("note", "").rstrip() + "\n\n" + add).strip() if it.get("note") else add
+        it["updated"] = now_iso()
+        return f"备忘：给「{it['text']}」续了一段备注"
+    return run
+
+
+def op_log(a):
+    def run(data):
+        it = find_item(data, a.key)
+        text = a.text.strip()
+        if not text:
+            raise SystemExit("没有要记的进度。")
+        stamp = now_iso()
+        if a.date:
+            d = parse_due(a.date)
+            stamp = d + stamp[10:] if d else stamp
+        taken = {e.get("id") for e in it.get("log", [])} | set(data.get("gone", {}))
+        it.setdefault("log", []).append({"id": new_id(taken), "at": stamp, "text": text})
+        it["log"].sort(key=lambda e: e["at"])
+        it["updated"] = now_iso()
+        return f"备忘：「{it['text']}」记一笔进度"
+    return run
+
+
+def op_style(a):
+    names = {"paper": "便笺", "native": "提醒", "snow": "晴雪"}
+    alias = {"便笺": "paper", "提醒": "native", "晴雪": "snow"}
+
+    def run(data):
+        st = alias.get(a.style, a.style)
+        if st not in names:
+            raise SystemExit("样子只有：paper 便笺 / native 提醒 / snow 晴雪")
+        data["settings"]["style"] = st
+        data["settings"]["updated"] = now_iso()
+        return f"备忘：小组件换成「{names[st]}」"
+    return run
+
 
 def op_add(a):
     def run(data):
@@ -402,6 +482,20 @@ def main():
     s = sub.add_parser("ls")
     s.add_argument("page", nargs="?")
     sub.add_parser("pages")
+    s = sub.add_parser("show")
+    s.add_argument("key")
+    s = sub.add_parser("find")
+    s.add_argument("words", nargs="+")
+
+    s = change("note")
+    s.add_argument("key")
+    s.add_argument("text")
+    s = change("log")
+    s.add_argument("key")
+    s.add_argument("text")
+    s.add_argument("--date", help="不是今天的进度：写 10-01 / 2026-10-01")
+    s = change("style")
+    s.add_argument("style")
 
     s = change("add")
     s.add_argument("page")
@@ -444,9 +538,21 @@ def main():
     s.add_argument("--force", action="store_true")
 
     a = ap.parse_args()
-    if a.cmd in ("ls", "pages"):
+    if a.cmd in ("ls", "pages", "show", "find"):
         fetch()
         data = load()
+        if a.cmd == "show":
+            show_item(data, find_item(data, a.key))
+            return
+        if a.cmd == "find":
+            hits = find_all(data, a.words)
+            if not hits:
+                print("没搜到。换个说法，或者 ls 看看全部。")
+            for k, it in enumerate(hits):
+                if k:
+                    print()
+                show_item(data, it)
+            return
         if a.cmd == "pages":
             for p in data["settings"]["pages"]:
                 n = len(page_items(data, p["id"]))
@@ -466,6 +572,9 @@ def main():
         "page-add": op_page_add(a) if a.cmd == "page-add" else None,
         "page-rename": op_page_rename(a) if a.cmd == "page-rename" else None,
         "page-rm": op_page_rm(a) if a.cmd == "page-rm" else None,
+        "note": op_note(a) if a.cmd == "note" else None,
+        "log": op_log(a) if a.cmd == "log" else None,
+        "style": op_style(a) if a.cmd == "style" else None,
     }
     apply(ops[a.cmd], a)
 

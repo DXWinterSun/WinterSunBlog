@@ -160,6 +160,8 @@
   .chip--hot { background: color-mix(in srgb, var(--c-status-red) 14%, transparent); color: var(--c-status-red); }
   .chip--pin { background: color-mix(in srgb, var(--page) 15%, transparent); color: var(--c-ink-soft); }
   .it__note { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+  .it__peek { flex-basis: 100%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--c-ink-soft); }
+  .it__peek time { color: var(--c-muted); margin-right: 5px; font-variant-numeric: tabular-nums; }
   .it.is-leaving { animation: leave .38s ease forwards .3s; }
   @keyframes leave { to { opacity: 0; transform: translateX(14px); } }
 
@@ -203,13 +205,28 @@
   .sheet__grip { width: 38px; height: 5px; border-radius: 3px; background: var(--c-line-strong); margin: 0 auto 12px; }
   .sheet h2 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 600; font-size: 17px; margin: 0 0 12px; }
   .sheet h3 { font-size: 12.5px; font-weight: 500; color: var(--c-muted); letter-spacing: 1px; margin: 18px 0 8px; }
+  .sheet h3 small { font-size: 11.5px; letter-spacing: 0; color: var(--c-muted-soft); font-weight: 400; margin-left: 4px; }
+  .ed-crumb { font-size: 12.5px; color: var(--c-muted); margin: 0 0 8px; }
+  .field--title { font-size: 17px; font-weight: 600; }
+  .logadd { display: flex; gap: 8px; }
+  .logadd input { flex: 1; min-width: 0; border: 1px solid var(--c-line); background: var(--c-bg-soft); border-radius: 12px; padding: 10px 12px; font-size: 16px; outline: none; }
+  .logadd input:focus { border-color: var(--c-accent); background: var(--c-paper); }
+  .logadd button { border: 0; border-radius: 12px; padding: 0 16px; background: var(--c-accent); color: #fff; font-size: 14.5px; }
+  .log { list-style: none; margin: 10px 0 0; padding: 0 0 0 14px; border-left: 2px solid var(--c-line); display: grid; gap: 10px; }
+  .log:empty { display: none; }
+  .log li { position: relative; display: flex; gap: 10px; align-items: baseline; font-size: 14.5px; line-height: 1.55; color: var(--c-ink-soft); }
+  .log li::before { content: ""; position: absolute; left: -20px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--c-paper); border: 2px solid var(--c-accent); }
+  .log li:first-child::before { background: var(--c-accent); }
+  .log time { flex: 0 0 auto; font-size: 12px; color: var(--c-muted); font-variant-numeric: tabular-nums; min-width: 34px; }
+  .log span { flex: 1; min-width: 0; word-break: break-word; }
+  .log button { flex: 0 0 auto; border: 0; background: none; color: var(--c-muted-soft); padding: 0 2px; font-size: 13px; }
   .field {
     display: block; width: 100%; border: 1px solid var(--c-line); background: var(--c-bg-soft);
     border-radius: 12px; padding: 11px 13px; font-size: 16px; outline: none; resize: none; line-height: 1.5;
   }
   .field:focus { border-color: var(--c-accent); background: var(--c-paper); }
   textarea.field { min-height: 52px; }
-  .field--note { margin-top: 8px; font-size: 15px; min-height: 70px; }
+  .field--note { font-size: 15px; min-height: 96px; }
   .pills { display: flex; flex-wrap: wrap; gap: 6px; }
   .pill {
     border: 1px solid var(--c-line); background: var(--c-bg-soft); border-radius: 999px;
@@ -343,10 +360,18 @@
 
 <!-- 改一条 -->
 <div class="veil" id="veil" hidden></div>
-<div class="sheet" id="edit" role="dialog" aria-modal="true" aria-label="改一条" hidden>
+<div class="sheet" id="edit" role="dialog" aria-modal="true" aria-label="这一条" hidden>
   <div class="sheet__grip"></div>
-  <textarea class="field" id="ed-text" rows="2" placeholder="要记的事"></textarea>
-  <textarea class="field field--note" id="ed-note" rows="3" placeholder="备注（想得更细的写这儿，桌面上不显示）"></textarea>
+  <div class="ed-crumb" id="ed-crumb"></div>
+  <textarea class="field field--title" id="ed-text" rows="1" placeholder="要记的事"></textarea>
+  <h3>备注 <small>想法、跟 Claude 讨论定下来的东西、链接（桌面上不显示）</small></h3>
+  <textarea class="field field--note" id="ed-note" rows="4" placeholder="比如：想做成三分钟以内，配中英字幕；素材先从 2008 年那场采访里挑……"></textarea>
+  <h3>进度 <small id="ed-logn"></small></h3>
+  <form class="logadd" id="ed-logform" autocomplete="off">
+    <input type="text" id="ed-loginput" placeholder="今天做到哪了……" enterkeyhint="done">
+    <button type="submit">记下</button>
+  </form>
+  <ol class="log" id="ed-log"></ol>
   <h3>放在哪一页</h3>
   <div class="pills" id="ed-pages"></div>
   <h3>哪天要办（可以不填）</h3>
@@ -361,8 +386,8 @@
   <div class="sheet__actions">
     <button type="button" class="btn btn--danger" id="ed-del">删掉</button>
     <span style="flex:1"></span>
-    <button type="button" class="btn btn--soft" id="ed-cancel">取消</button>
-    <button type="button" class="btn btn--main" id="ed-ok" style="flex:0 0 96px">好</button>
+    <button type="button" class="btn btn--soft" id="ed-cancel">不改了</button>
+    <button type="button" class="btn btn--main" id="ed-ok" style="flex:0 0 96px">存好</button>
   </div>
 </div>
 
@@ -373,15 +398,15 @@
   <h3>桌面小组件的样子</h3>
   <div class="styles" id="styles">
     <button type="button" class="stycard" data-style="paper">
-      <span class="stycard__w sw--paper"><span class="sw-h">💡 灵感<em>3</em></span><span class="sw-r"><i></i>路透整理成图鉴</span><span class="sw-r"><i></i>采访切片</span><span class="sw-r"><i></i>初雪拍个 vlog</span></span>
+      <span class="stycard__w sw--paper"><span class="sw-h">❣️ 喜欢的事<em>3</em></span><span class="sw-r"><i></i>Sam 采访合集</span><span class="sw-r"><i></i>初雪拍个 vlog</span><span class="sw-r"><i></i>冬日歌单封面</span></span>
       便笺
     </button>
     <button type="button" class="stycard" data-style="native">
-      <span class="stycard__w sw--native"><span class="sw-h">💡 灵感<em>3</em></span><span class="sw-r"><i></i>路透整理成图鉴</span><span class="sw-r"><i></i>采访切片</span><span class="sw-r"><i></i>初雪拍个 vlog</span></span>
+      <span class="stycard__w sw--native"><span class="sw-h">❣️ 喜欢的事<em>3</em></span><span class="sw-r"><i></i>Sam 采访合集</span><span class="sw-r"><i></i>初雪拍个 vlog</span><span class="sw-r"><i></i>冬日歌单封面</span></span>
       提醒
     </button>
     <button type="button" class="stycard" data-style="snow">
-      <span class="stycard__w sw--snow"><span class="sw-h">❄ 灵感<em>3</em></span><span class="sw-r"><i></i>路透整理成图鉴</span><span class="sw-r"><i></i>采访切片</span><span class="sw-r"><i></i>初雪拍个 vlog</span></span>
+      <span class="stycard__w sw--snow"><span class="sw-h">❄ 喜欢的事<em>3</em></span><span class="sw-r"><i></i>Sam 采访合集</span><span class="sw-r"><i></i>初雪拍个 vlog</span><span class="sw-r"><i></i>冬日歌单封面</span></span>
       晴雪
     </button>
   </div>
@@ -487,12 +512,13 @@
     var out = clone(a);
     var gone = Object.assign({}, a.gone || {});
     Object.keys(b.gone || {}).forEach(function (k) { if (!gone[k] || t(b.gone[k]) > t(gone[k])) gone[k] = b.gone[k]; });
-    var map = {}, order = [];
+    var map = {}, other = {}, order = [];
     (a.items || []).forEach(function (i) { map[i.id] = i; order.push(i.id); });
     (b.items || []).forEach(function (i) {
       var x = map[i.id];
       if (!x) { map[i.id] = i; order.push(i.id); }
-      else if (t(i.updated) > t(x.updated)) map[i.id] = i;
+      else if (t(i.updated) > t(x.updated)) { other[i.id] = x; map[i.id] = i; }
+      else other[i.id] = i;
     });
     var sa = a.settings || {}, sb = b.settings || {};
     out.settings = clone(t(sb.updated) > t(sa.updated) ? sb : sa);
@@ -502,6 +528,14 @@
     out.items = order.filter(function (id) { return !gone[id]; }).map(function (id) {
       var i = clone(map[id]);
       if (!pageIds[i.page] && first) i.page = first;
+      // 进度一笔一笔都有编号：两边各记了几笔，一笔都不丢（删掉的那笔记在 gone 里）
+      var logs = {};
+      (i.log || []).concat(other[id] && other[id].log || []).forEach(function (e) {
+        if (e && !gone[e.id]) logs[e.id || (e.at + e.text)] = e;
+      });
+      var merged = Object.keys(logs).map(function (k) { return clone(logs[k]); })
+        .sort(function (p, q) { return t(p.at) - t(q.at); });
+      if (merged.length) i.log = merged; else delete i.log;
       return i;
     });
     var cutoff = Date.now() - 90 * 864e5;
@@ -636,13 +670,20 @@
   function findItem(id) { return (doc.items || []).filter(function (i) { return i.id === id; })[0]; }
   function takenIds() {
     var m = {};
-    (doc.items || []).forEach(function (i) { m[i.id] = 1; });
+    (doc.items || []).forEach(function (i) {
+      m[i.id] = 1;
+      (i.log || []).forEach(function (e) { if (e.id) m[e.id] = 1; });
+    });
     Object.keys(doc.gone || {}).forEach(function (k) { m[k] = 1; });
     pages().forEach(function (p) { m[p.id] = 1; });
     return m;
   }
   function short(s) { s = String(s); return s.length > 14 ? s.slice(0, 13) + "…" : s; }
 
+  function md(iso) {
+    var d = new Date(t(iso));
+    return isNaN(d) ? "" : (d.getMonth() + 1) + "/" + d.getDate();
+  }
   function ymd(d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
   function dueInfo(due) {
     var m = String(due || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
@@ -785,7 +826,14 @@
       var d = dueInfo(i.due);
       if (d) meta.appendChild(el("span", "chip" + (d.hot ? " chip--hot" : ""), d.text));
     }
-    if (i.note) meta.appendChild(el("span", "it__note", "✎ " + i.note.replace(/\s+/g, " ")));
+    var lastLog = (i.log || [])[i.log ? i.log.length - 1 : 0];
+    if (lastLog) {
+      if (!isDone) meta.appendChild(el("span", "chip", "进度 " + i.log.length));
+      var pk = el("span", "it__peek");
+      pk.appendChild(el("time", null, md(lastLog.at)));
+      pk.appendChild(document.createTextNode(lastLog.text));
+      meta.appendChild(pk);
+    } else if (i.note) meta.appendChild(el("span", "it__note", "✎ " + i.note.replace(/\s+/g, " ")));
     m.appendChild(meta);
     m.onclick = function () { openEdit(i.id); };
     li.appendChild(c);
@@ -894,7 +942,12 @@
     $("ed-text").value = it.text;
     $("ed-note").value = it.note || "";
     $("ed-due").value = edit.due;
+    $("ed-loginput").value = "";
+    var pg = pageById(it.page) || {};
+    $("ed-crumb").textContent = (pg.emoji ? pg.emoji + " " : "") + (pg.name || "") + " · " + md(it.created) + " 记的" +
+      (it.done ? " · " + md(it.doneAt || it.updated) + " 做完" : "");
     paintEdit();
+    paintLog();
     openSheet("edit");
     autoGrow($("ed-text"));
     autoGrow($("ed-note"));
@@ -929,6 +982,47 @@
   $("ed-due").onchange = function () { edit.due = this.value || ""; paintEdit(); };
   $("ed-pin").onclick = function () { edit.pin = !edit.pin; paintEdit(); };
   $("ed-top").onclick = function () { edit.top = !edit.top; paintEdit(); };
+  function paintLog() {
+    var it = findItem(editingId), box = $("ed-log");
+    box.innerHTML = "";
+    var log = (it && it.log) || [];
+    $("ed-logn").textContent = log.length ? log.length + " 笔，新的在上面" : "还没记过——做到哪了就写一笔，带日期存着";
+    log.slice().reverse().forEach(function (e) {
+      var li = el("li");
+      li.appendChild(el("time", null, md(e.at)));
+      li.appendChild(el("span", null, e.text));
+      var x = el("button", null, "✕");
+      x.type = "button";
+      x.setAttribute("aria-label", "删掉这一笔");
+      x.onclick = function () {
+        if (!confirm("删掉这一笔进度？")) return;
+        var cur = findItem(editingId);
+        if (!cur) return;
+        cur.log = (cur.log || []).filter(function (y) { return y.id !== e.id; });
+        if (!cur.log.length) delete cur.log;
+        doc.gone = doc.gone || {};
+        if (e.id) doc.gone[e.id] = nowIso();
+        cur.updated = nowIso();
+        touch("「" + short(cur.text) + "」删一笔进度");
+        paintLog();
+      };
+      li.appendChild(x);
+      box.appendChild(li);
+    });
+  }
+  $("ed-logform").onsubmit = function (e) {
+    e.preventDefault();
+    var v = $("ed-loginput").value.trim(), it = findItem(editingId);
+    if (!v || !it) return;
+    var stamp = nowIso();
+    it.log = it.log || [];
+    it.log.push({ id: uid(takenIds()), at: stamp, text: v });
+    it.updated = stamp;
+    $("ed-loginput").value = "";
+    touch("「" + short(it.text) + "」记一笔进度");
+    paintLog();
+    toast("记下了 · 进度存好了");
+  };
   $("ed-cancel").onclick = closeSheets;
   $("ed-ok").onclick = function () {
     var it = findItem(editingId);

@@ -7,8 +7,8 @@
 //  这个小组件显示哪几页，由小组件的「参数」决定
 //  （长按小组件 → 编辑小组件 → Parameter）：
 //    （空着）      → 总览：每页一行
-//    工作          → 只显示「工作」这一页（填页名，或 idea / sam / work / life）
-//    工作,生活      → 中号、大号里并排显示这两页
+//    生活所迫       → 只显示这一页（填页名就行，「生活」「喜欢」「日更」这种简称也认）
+//    生活所迫,日更   → 中号、大号里并排显示这两页
 //  想「翻页」：几个同样大小的小组件叠成一摞（拖一个到另一个上面松手），
 //  每个填一页，往上一滑就是下一页。
 //  样式（便笺 / 提醒 / 晴雪）在备忘本网页的「设置」里换，不用改这里。
@@ -112,10 +112,9 @@ async function loadMemo() {
 
 // ── 整理：哪几页、每页哪些条目 ─────────────────────────────────
 const ALIASES = {
-  idea: ["灵感", "点子", "想法", "视频", "帖子", "idea"],
-  sam: ["sam", "山姆"],
-  work: ["工作", "上班", "work"],
-  life: ["生活", "日常", "life"],
+  chore: ["生活所迫", "生活", "琐事", "工作", "chore"],
+  love: ["喜欢的事", "喜欢", "sam", "山姆", "灵感", "项目", "love"],
+  daily: ["日更", "日更素材", "素材", "近期", "daily"],
 };
 
 function findPage(pages, word) {
@@ -245,7 +244,9 @@ function addItemRow(parent, st, page, item, f, showDue) {
   t.lineLimit = 1;
   t.minimumScaleFactor = 0.85;   // 长一点的先缩小一丁点，实在放不下再截成「…」
   r.addSpacer();
-  const due = showDue ? dueLabel(item.due) : null;
+  // 小号放不下日期，只把今天到期 / 已经过期的红字露出来
+  const lab = dueLabel(item.due);
+  const due = (showDue === true || (showDue === "hot" && lab && lab.hot)) ? lab : null;
   if (due) {
     r.addSpacer(4);
     const d = r.addText(due.text);
@@ -400,7 +401,7 @@ function buildSmall(w, st, data, pages, stale) {
     w.url = pageUrl(p);
     addBand(w, st, p);
     const b = body(w, st, st.band ? [10, 14, 12, 14] : [14, 15, 13, 15]);
-    addPageBlock(b, st, data, p, f, st.rows.small, { stale: stale, bigEmpty: true });
+    addPageBlock(b, st, data, p, f, st.rows.small, { stale: stale, bigEmpty: true, due: "hot" });
     b.addSpacer();
   } else {
     w.url = pageUrl(null);
