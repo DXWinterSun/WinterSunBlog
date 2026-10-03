@@ -432,7 +432,7 @@ up right
 - 第一章「结梁子」起手。
 - **谁先破功**：现定「他先（埋着）」,你若想调再说。
 
-## ✅ v2 全系列改版稿（2026-09-27 完成，待 Winter 点头上线）
+## ✅ v2 全系列改版（2026-09-27 完成，**2026-10-03 Winter「发吧」已上线**，下表即线上编号）
 
 Winter 授权「其余章节都一起重做，可以拆可以合，适当发挥，最后给结论报告」。结论报告 + 全 32 章预览：
 https://claude.ai/artifact/WyvMPFk3ETdmMDVM7MVHY6 。总表 `everything-in-transit-revised/PLAN.md`；每章正文 `chN.md`，
