@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 10 · 我希望你得到他 — I Kissed the Stones"
+title: "Chapter 11 · 我希望你得到他 — I Kissed the Stones"
 date: 2026-09-15 22:32:31 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 怅惘, 缱绻]
@@ -10,7 +10,7 @@ series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 11
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 10"
+chapter_type: "Chapter 11"
 summary: "她留着一个空盒子。你什么也不能说，你也藏着一样。"
 redirect_from:
   - /2026/10/16/i-kissed-the-stones-chapter-10-i-hope-you-get-him/

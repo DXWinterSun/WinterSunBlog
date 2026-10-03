@@ -41,12 +41,21 @@ EXTS = (".jpg", ".jpeg", ".png", ".webp")
 SHAPES = {
     "sq": 1.0,          # 正方形：「那一天」页面里的系列小图
     "card": 16 / 10,    # 首页 / 相关文章卡片
-    "banner": 16 / 6.5,  # 系列首页的宽封面
+    "banner": 2 / 1,    # 系列首页的大封面 · 电脑（_layouts/series.html → --pos）
+    "banner_m": 3 / 2,  # 系列首页的大封面 · 手机（≤600px → --pos-m）
 }
+
+# 系列大封面要「整个头」都在框里，不只是脸：人脸框只到额头，头发 / 帽子还在上面。
+# 所以这两种形状不按「脸摆正中」算，而用 head_pos()：先保住头顶，再保住下巴。
+# （2026-10-03 Winter 嫌 Finders Keepers 那顶浣熊皮帽被切了、Oh, May 只剩半个脑袋。）
+HEAD_SHAPES = ("banner", "banner_m")
+HEADROOM = 0.6   # 头顶留多少：人脸框高度的 0.6 倍（头发 / 帽子）
+CHINROOM = 0.15  # 下巴底下至少留多少：人脸框高度的 0.15 倍
 
 
 def crop_pos(fx, fy, img_w, img_h, box_ar):
-    """算出 background-size: cover 时，要把脸摆到正中该用的 background-position。
+    """算出 background-size: cover（或 object-fit: cover）时，要把脸摆到正中
+    该用的 background-position / object-position。两者的百分比算法一模一样。
 
     fx / fy 是脸中心在图上的位置（0–1）。box_ar 是容器的宽高比。
     推导：图按 cover 放进容器后会有一个方向溢出；设溢出方向上
@@ -66,6 +75,28 @@ def crop_pos(fx, fy, img_w, img_h, box_ar):
     s = box_ar / img_ar                      # 图更高 → 上下溢出，只能纵向挪
     p = (fy * s - 0.5) / (s - 1)
     return "50%% %.0f%%" % (max(0.0, min(1.0, p)) * 100)
+
+
+def head_pos(fx, ftop, fbot, img_w, img_h, box_ar):
+    """系列大封面用：上下溢出时，让「头顶 + 下巴」都留在框里。
+
+    ftop / fbot 是人脸框上下沿在图上的位置（0–1）。
+    框能露出图高的 v；露出的那一段从 T 开始，T 的合法范围是
+        下限 = 下巴 + 下巴余量 - v      （再往上挪，下巴就出框了）
+        上限 = 额头 - 头顶余量          （再往下挪，头顶就出框了）
+    两头都够得着就取中间；够不着（框太扁）就先保头顶、但不许切到下巴。
+    左右溢出时照旧把脸摆在正中（crop_pos 那一套）。
+    """
+    img_ar = img_w / img_h
+    if img_ar >= box_ar / 1.05:              # 图比框宽或差不多：上下不溢出
+        return crop_pos(fx, (ftop + fbot) / 2, img_w, img_h, box_ar)
+    v = img_ar / box_ar                       # 框里能露出的图高比例
+    fh = fbot - ftop
+    lo = fbot + CHINROOM * fh - v
+    hi = ftop - HEADROOM * fh
+    t = (lo + hi) / 2 if lo <= hi else max(hi, fbot - v)
+    t = max(0.0, min(1 - v, t))
+    return "50%% %.0f%%" % (t / (1 - v) * 100)
 
 
 def load_existing():
@@ -114,7 +145,10 @@ def detect_all():
             "score": round(float(f[-1]), 2),
         }
         for key, ar in SHAPES.items():
-            rec[key] = crop_pos(fx, fy, w, h, ar)
+            if key in HEAD_SHAPES:
+                rec[key] = head_pos(fx, y / H, (y + fh) / H, w, h, ar)
+            else:
+                rec[key] = crop_pos(fx, fy, w, h, ar)
         found[name] = rec
     return found, missed
 
@@ -124,17 +158,18 @@ def render(data):
         "# 封面「对脸」锚点 —— 由 tools/face_focus.py 自动生成，别手改整份文件。",
         "#",
         "# 每一条：x / y 是脸中心在图上的位置（%），w / h 是原图尺寸，",
-        "# sq / card / banner 是三种容器形状下该用的 background-position（已按裁切数学算好）。",
+        "# sq / card / banner / banner_m 是四种容器形状下该用的锚点（已按裁切数学算好）：",
+        "#   sq 正方形小图 · card 16:10 卡片 · banner 系列大封面·电脑 2:1 · banner_m 系列大封面·手机 3:2",
         "# 模板用法：{{ site.data.image_focus[文件名].sq | default: '50% 30%' }}",
         "#",
-        "# 想手动微调某一张：改掉它的 sq / card / banner，并加一行 manual: true，",
+        "# 想手动微调某一张：改掉它的 sq / card / banner / banner_m，并加一行 manual: true，",
         "# 下次重跑脚本会原样保留这一条。没认出脸的图不在这里，模板自动回退到居中偏上。",
         "",
     ]
     for name in sorted(data):
         rec = data[name]
         lines.append('"%s":' % name.replace('"', '\\"'))
-        for key in ("x", "y", "w", "h", "score", "sq", "card", "banner", "manual", "note"):
+        for key in ("x", "y", "w", "h", "score", "sq", "card", "banner", "banner_m", "manual", "note"):
             if key not in rec:
                 continue
             val = rec[key]

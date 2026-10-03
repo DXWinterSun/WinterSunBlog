@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 19 · 两个人一起来 — I Kissed the Stones"
+title: "Chapter 20 · 两个人一起来 — I Kissed the Stones"
 date: 2026-09-16 23:51:28 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 暗涌, 怅惘]
@@ -10,7 +10,7 @@ series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 20
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 19"
+chapter_type: "Chapter 20"
 summary: "有人拿着皮夹子来问，你是哪儿来的。"
 redirect_from:
   - /2026/10/25/i-kissed-the-stones-chapter-19-both-of-you-come/

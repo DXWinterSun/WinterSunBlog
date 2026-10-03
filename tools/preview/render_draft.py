@@ -535,7 +535,7 @@ blockquote p:last-child{margin-bottom:0}
 .c-decree{position:relative;max-width:34rem;margin:2.8rem auto;padding:2.4rem 2rem 2rem;
  background:#f4efe4;color:#332c22;border:1px solid rgba(0,0,0,.14);
  box-shadow:0 12px 34px rgba(0,0,0,.38);line-height:1.9;}
-.c-decree__seal{position:absolute;top:1.4rem;right:1.4rem;width:76px;height:76px;border-radius:50%;
+.c-decree__seal{position:absolute;top:-20px;right:16px;width:76px;height:76px;background:#f4efe4;border-radius:50%;
  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
  border:2px solid color-mix(in srgb,var(--accent) 70%,#000);color:color-mix(in srgb,var(--accent) 70%,#000);
  font-family:system-ui,sans-serif;font-size:.5rem;letter-spacing:.08em;opacity:.8;transform:rotate(-8deg);}

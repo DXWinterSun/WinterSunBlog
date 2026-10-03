@@ -60,7 +60,7 @@ CSS = '''
  --pen-ink:__BG__;--hl-mix:62%;
  /* 词典风（照欧路里牛津的显示，Winter 2026-09-26：「参考这个词典的显示，做得更醒目更有区分」） */
  --word:#27368f;--pos-bg:#c8322b;--pos-ink:#fff;--example:#2d63c8;--band:#eef0f4;--band-ink:#5b6472;
- --tag-collo:#2f7d4f;--tag-confuse:#b35c12;
+ --tag-collo:#2f7d4f;--tag-confuse:#b35c12;--star:#1f9a55;
  --paper:#f6eedf;--paper-ink:#3b3329;--note-shadow:0 6px 16px rgba(40,30,20,.14);
 }
 :root[data-theme="dark"]{
@@ -71,7 +71,7 @@ CSS = '''
  --code-bg:color-mix(in srgb,var(--bg) 70%,#000);
  --paper:#f2eadd;--note-shadow:0 8px 20px rgba(0,0,0,.34);--hl-mix:40%;
  --word:#a9b8ff;--pos-bg:#d8534b;--example:#8fb0ff;--band:rgba(255,255,255,.06);--band-ink:#aab2bf;
- --tag-collo:#7fcf9d;--tag-confuse:#f0a867;
+ --tag-collo:#7fcf9d;--tag-confuse:#f0a867;--star:#4cc684;
 }
 .blognav{position:absolute;top:14px;left:14px;z-index:5;display:flex;gap:.5rem;}
 .blognav a{display:inline-flex;align-items:center;min-height:34px;padding:0 .85rem;border:1px solid var(--line);
@@ -194,7 +194,7 @@ mark.pink{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(i
 .card__cmp-row{display:grid;grid-template-columns:auto 1fr;gap:.1rem .7rem;margin:0 0 .35rem;align-items:baseline;}
 .card__cmp-row span{font-family:"EB Garamond",Georgia,serif;font-size:.84rem;color:var(--muted);
  font-variant-numeric:tabular-nums;white-space:nowrap;}
-.card__cmp-row q{quotes:none;font-family:"EB Garamond",Georgia,serif;font-size:1.05rem;}
+.card__cmp-row q{quotes:none;font-family:"EB Garamond",Georgia,serif;font-style:italic;color:var(--example);font-size:1.1rem;line-height:1.55;}
 .card__cmp-row small{grid-column:2;color:var(--muted);font-size:.86rem;}
 .card__cmp p{margin:.45rem 0 0;}
 
@@ -335,6 +335,66 @@ details.tipbox .tips{margin-top:.8rem;}
 @keyframes cardflash{0%{box-shadow:0 0 0 6px color-mix(in srgb,var(--word) 45%,transparent)}100%{box-shadow:0 0 0 2px var(--word)}}
 @media (prefers-reduced-motion:reduce){.card:target{animation:none;}}
 
+/* 收藏（Winter 2026-09-28：「收藏某一些词……记住了的可以随时删除」） */
+.card__fav{appearance:none;margin-left:auto;align-self:center;width:40px;height:40px;border-radius:50%;
+ border:1px solid var(--line);background:transparent;color:var(--muted);font-size:1.25rem;line-height:1;cursor:pointer;
+ transition:transform .15s ease,color .15s ease,background .15s ease;}
+.card__fav:hover{color:var(--star);border-color:var(--star);}
+.card__fav[aria-pressed="true"]{color:#fff;background:var(--star);border-color:var(--star);}
+.card__fav.is-pop{animation:favpop .35s ease-out 1;}
+@keyframes favpop{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.card__fav.is-pop{animation:none;}}
+.card.is-fav{border-color:color-mix(in srgb,var(--star) 55%,var(--line));}
+.wl__tab--fav.is-on{background:var(--star);}
+.wl li.is-fav .wl__term::after{content:" ★";color:var(--star);font-size:.8em;}
+.fav__list li{display:flex;align-items:stretch;}
+.fav__list li .wl__row{flex:1;min-width:0;}
+.fav__list li.is-fav .wl__term::after{content:none;}
+.fav__del{appearance:none;flex:none;width:44px;border:0;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);
+ background:transparent;color:var(--muted);font-size:1rem;cursor:pointer;}
+.fav__del:hover{color:var(--ink);background:var(--band);}
+.fav__bar{display:flex;align-items:center;gap:.6rem;padding:0 1rem .5rem;min-height:32px;}
+.fav__sync{font-size:.78rem;color:var(--muted);}
+.fav__copy{appearance:none;margin-left:auto;border:0;border-radius:99px;padding:.3rem .95rem;background:var(--star);color:#fff;
+ font:inherit;font-size:.82rem;cursor:pointer;min-height:32px;white-space:nowrap;}
+.fav__empty{margin:0;padding:.4rem 1rem 1rem;font-size:.9rem;color:var(--muted);}
+.fav__undo{position:fixed;left:50%;bottom:calc(70px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:22;
+ display:flex;align-items:center;gap:.8rem;padding:.5rem .6rem .5rem 1rem;border-radius:99px;background:var(--ink);color:var(--surface);
+ font-size:.88rem;box-shadow:0 8px 24px -8px rgba(0,0,0,.45);}
+.fav__undo button{appearance:none;border:0;border-radius:99px;padding:.25rem .8rem;background:var(--star);color:#fff;font:inherit;cursor:pointer;min-height:32px;}
+
+/* 同一个词划过好几次（Winter 2026-09-30：「每一处都给出这个词画过的全部位置……画过几次也标出来」） */
+.card__times{padding:0 .55rem;border-radius:99px;background:var(--band);color:var(--word);
+ font-family:"Noto Serif SC","Songti SC",serif;font-size:.76rem;letter-spacing:.06em;}
+.card__rep{margin:0 0 .8rem;}
+.rep__list{list-style:none;margin:0;padding:0;}
+.rep__list li{padding-left:0;}
+.rep__list li::before{content:none;}
+.rep__row{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem .6rem;padding:.4rem .9rem .4rem .8rem;
+ border-left:3px solid var(--line);text-decoration:none;color:var(--ink);line-height:1.55;}
+a.rep__row:hover{background:var(--band);}
+.is-here .rep__row{border-left-color:var(--word);background:color-mix(in srgb,var(--word) 7%,transparent);}
+.rep__k{font-size:.78rem;color:var(--muted);letter-spacing:.06em;white-space:nowrap;}
+.rep__pg{font-family:"EB Garamond",Georgia,serif;font-size:.86rem;letter-spacing:.08em;color:var(--accent);
+ font-variant-numeric:tabular-nums;white-space:nowrap;}
+.rep__q{flex:1 1 100%;quotes:none;font-family:"EB Garamond",Georgia,serif;font-style:italic;color:var(--example);font-size:1.1rem;line-height:1.55;}
+.rep__here{font-size:.78rem;color:var(--word);white-space:nowrap;}
+.rep__go{margin-left:auto;color:var(--word);font-size:.8rem;white-space:nowrap;}
+.rep__list li+li .rep__row{border-top:1px solid color-mix(in srgb,var(--line) 60%,transparent);}
+.rep__all{list-style:none;margin:0;padding:0 0 .4rem;}
+.rep__all li{display:grid;grid-template-columns:auto auto 1fr auto;align-items:baseline;gap:.2rem .55rem;padding:.4rem 1rem .4rem .8rem;
+ border-left:3px solid var(--hl);border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);}
+.rep__all li::before{content:none;}
+.rep__word{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;color:var(--word);}
+.rep__x{font-size:.78rem;font-weight:700;padding:0 .4rem;border-radius:4px;background:var(--band);color:var(--word);}
+.rep__cn{font-size:.88rem;min-width:0;}
+.rep__pgs{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:flex-end;}
+.rep__pgs a{display:inline-flex;align-items:center;min-height:30px;padding:0 .6rem;border-radius:99px;border:1px solid var(--line);
+ color:var(--accent);text-decoration:none;font-size:.82rem;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.rep__pgs a:hover{border-color:var(--accent);}
+@media (max-width:480px){.rep__all li{grid-template-columns:auto auto 1fr;}.rep__cn{grid-column:1/-1;grid-row:2;}
+ .rep__pgs{grid-column:3;grid-row:1;}}
+
 /* 卡片之间拉开、边界更清楚 */
 .card[id^="n"]{margin-bottom:2rem;box-shadow:0 1px 2px rgba(20,24,31,.06),0 6px 18px -12px rgba(20,24,31,.35);}
 body{padding-bottom:4.5rem;}
@@ -471,11 +531,131 @@ JS = '''
       try { localStorage.setItem('ws-reading-wl', k); } catch (e) {}
     });
   });
-  try { var k = localStorage.getItem('ws-reading-wl'); if (k === 'seq') wl.querySelector('.wl__tab[data-wl="seq"]').click(); } catch (e) {}
+  try { var k = localStorage.getItem('ws-reading-wl'); if (k === 'seq' || k === 'fav') wl.querySelector('.wl__tab[data-wl="' + k + '"]').click(); } catch (e) {}
   // 从卡片点「↑ 词表」回来时自动展开
   [].forEach.call(document.querySelectorAll('a[href="#wordlist"]'), function (a) {
     a.addEventListener('click', function () { wl.open = true; });
   });
+})();
+// 收藏：词卡右上角的 ☆。先记在这台设备上；在 Claude 里打开时再存进这页自己的小数据库，手机电脑同一份。
+(function () {
+  var wrap = document.querySelector('.wrap[data-book]'), wl = document.getElementById('wordlist');
+  var stars = [].slice.call(document.querySelectorAll('.card__fav'));
+  if (!wrap || !wl || !stars.length) return;
+  var book = wrap.getAttribute('data-book'), KEY = 'ws-reading-fav:' + book;
+  var pane = wl.querySelector('.wl__pane[data-wl="fav"]'), list = pane.querySelector('.fav__list');
+  var empty = pane.querySelector('.fav__empty'), copyBtn = pane.querySelector('.fav__copy');
+  var syncEl = pane.querySelector('.fav__sync'), nEl = wl.querySelector('.fav-n');
+  var seqRows = [].slice.call(wl.querySelectorAll('.wl__pane[data-wl="seq"] li[data-id]'));
+  var order = seqRows.map(function (li) { return li.getAttribute('data-id'); });
+  var favs = [], ref = null, writing = Promise.resolve(), timer = null;
+  function clean(a) {
+    var seen = {};
+    return (Array.isArray(a) ? a : []).map(String).filter(function (id) {
+      if (seen[id] || order.indexOf(id) < 0) return false; seen[id] = 1; return true;
+    });
+  }
+  try { favs = clean(JSON.parse(localStorage.getItem(KEY) || '[]')); } catch (e) {}
+  function paint() {
+    var on = {}; favs.forEach(function (id) { on[id] = 1; });
+    stars.forEach(function (b) {
+      var f = !!on[b.getAttribute('data-fav')];
+      b.setAttribute('aria-pressed', f ? 'true' : 'false'); b.textContent = f ? '★' : '☆';
+      b.title = f ? '已收藏，再点一下取消' : '收藏';
+      var c = b.closest('.card'); if (c) c.classList.toggle('is-fav', f);
+    });
+    [].forEach.call(wl.querySelectorAll('.wl__pane:not([data-wl="fav"]) li[data-id]'), function (li) {
+      li.classList.toggle('is-fav', !!on[li.getAttribute('data-id')]);
+    });
+    list.innerHTML = '';
+    seqRows.forEach(function (li) {             // 按读的顺序排
+      if (!on[li.getAttribute('data-id')]) return;
+      var c = li.cloneNode(true);
+      var x = document.createElement('button');
+      x.type = 'button'; x.className = 'fav__del'; x.textContent = '✕';
+      x.setAttribute('aria-label', '记住了，从收藏里拿掉');
+      c.appendChild(x); list.appendChild(c);
+    });
+    nEl.textContent = favs.length;
+    empty.hidden = favs.length > 0; copyBtn.hidden = favs.length === 0;
+  }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(favs)); } catch (e) {}
+    if (!ref) return;
+    clearTimeout(timer);                        // 连点好几个，停下来再一起存
+    timer = setTimeout(function () {
+      var body = { ids: favs.slice(), at: Date.now() };
+      writing = writing.then(function () { return ref.set(body); }).catch(function () {
+        syncEl.textContent = '这次没存进 Claude，先记在这台设备上';
+      });
+    }, 500);
+  }
+  function toggle(id, pop) {
+    var i = favs.indexOf(id);
+    if (i >= 0) favs.splice(i, 1); else favs.push(id);
+    paint(); save();
+    if (pop) { pop.classList.remove('is-pop'); void pop.offsetWidth; pop.classList.add('is-pop'); }
+  }
+  stars.forEach(function (b) {
+    b.addEventListener('click', function () { toggle(b.getAttribute('data-fav'), b); });
+  });
+  // 在收藏夹里点 ✕：拿掉，底下给一个「撤销」，免得手滑
+  var undo = null, undoTimer = null;
+  list.addEventListener('click', function (e) {
+    var x = e.target.closest('.fav__del'); if (!x) return;
+    e.preventDefault();
+    var li = x.closest('li'), id = li.getAttribute('data-id');
+    var term = (li.querySelector('.wl__term') || {}).textContent || '';
+    toggle(id);
+    if (!undo) {
+      undo = document.createElement('div'); undo.className = 'fav__undo'; undo.setAttribute('role', 'status');
+      undo.innerHTML = '<span></span><button type="button">撤销</button>';
+      document.body.appendChild(undo);
+      undo.querySelector('button').addEventListener('click', function () {
+        var back = undo.getAttribute('data-id');
+        if (back && favs.indexOf(back) < 0) toggle(back);
+        undo.hidden = true;
+      });
+    }
+    undo.setAttribute('data-id', id);
+    undo.querySelector('span').textContent = '已拿掉 ' + term;
+    undo.hidden = false;
+    clearTimeout(undoTimer); undoTimer = setTimeout(function () { undo.hidden = true; }, 4000);
+  });
+  copyBtn.addEventListener('click', function () {
+    var words = [];
+    [].forEach.call(list.querySelectorAll('li[data-eudic]'), function (li) {
+      var w = li.getAttribute('data-eudic'); if (w && words.indexOf(w) < 0) words.push(w);
+    });
+    var t = words.join(' '), label = '复制收藏的词';
+    function done(ok) { copyBtn.textContent = ok ? '已复制 ' + words.length + ' 个 ✓' : '复制不了，换个浏览器试试'; setTimeout(function () { copyBtn.textContent = label; }, 1600); }
+    function fallback() {
+      try {
+        var ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); var ok = document.execCommand('copy'); document.body.removeChild(ta); done(ok);
+      } catch (e) { done(false); }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function () { done(true); }, fallback);
+    else fallback();
+  });
+  paint();
+  syncEl.textContent = '记在这台设备上';
+  if (!window.claude || !window.claude.use) return;
+  window.claude.use('db').then(function (db) {
+    if (!db) return;
+    ref = db.doc('favs/' + book);
+    var first = true;
+    ref.onSnapshot(function (snap) {
+      if (snap.exists) {
+        var d = snap.data() || {};
+        if (!snap.metadata.hasPendingWrites) { favs = clean(d.ids); paint(); try { localStorage.setItem(KEY, JSON.stringify(favs)); } catch (e) {} }
+      } else if (first && favs.length && !snap.metadata.fromCache) {
+        save();                                 // 云上还没有：把这台设备上的先传上去
+      }
+      if (!snap.metadata.fromCache) first = false;
+      syncEl.textContent = '手机电脑同一份 ✓';
+    }, function () { ref = null; syncEl.textContent = '记在这台设备上'; });
+  }).catch(function () {});
 })();
 (function () {
   var ss = window.speechSynthesis;
@@ -584,6 +764,9 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
            f'data-term="{esc(n["term"])}" data-page="{esc(n.get("page", ""))}" data-pen="{pen}">']
 
     meta = [f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>']
+    rg = REPEATS.get(str(n.get('id')))
+    if rg:
+        meta.append(f'<span class="card__times">🔁 画过 {len(rg)} 次</span>')
     if pen in PENS:
         meta.append(f'<span class="card__pen {pen}">{PENS[pen][0]}</span>')
     if 'kind' in show and n.get('kind'):
@@ -597,6 +780,8 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
                     f'aria-label="朗读 {esc(say)}" hidden>{SPEAKER}</button><small>美</small>{esc(n["ipa"])}</span>')
     if n.get('lemma'):
         head.append(f'<span class="card__lemma">原形 <i lang="en">{esc(n["lemma"])}</i></span>')
+    head.append(f'<button type="button" class="card__fav" data-fav="{esc(n.get("id", ""))}" aria-pressed="false" '
+                f'aria-label="收藏 {esc(n["term"])}" title="收藏">☆</button>')
     out.append('<div class="card__head">' + ''.join(head) + '</div>')
 
     if n.get('cn'):
@@ -616,6 +801,7 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
         out.append(f'<div class="card__ctx">{page}'
                    f'<blockquote class="card__quote" lang="en">{fmt(ctx, pen)}</blockquote>{gist}</div>')
 
+    out.append(repeat_block(n))
     if n.get('compare_later'):
         out.append('<p class="card__later">后面会对照</p>')
     cmp = n.get('compare')
@@ -691,6 +877,70 @@ def quote_card(n, cid, winter_label):
     return '\n'.join(out)
 
 
+REPEATS = {}      # 笔记编号 → 同一个词的所有笔记（按读的顺序），只收划过不止一次的；main() 里填
+
+
+def word_key(x, index=None, depth=0):
+    """认「是不是同一个词」：先看 same_as（手动指到另一条），再看欧路原形 / lemma / 词本身，不分大小写。"""
+    if x.get('same_as') and index and depth < 5:
+        o = index.get(str(x['same_as']))
+        if not o:
+            sys.exit(f'No. {x.get("id")} 的 same_as 指向的 No. {x["same_as"]} 不存在')
+        return word_key(o, index, depth + 1)
+    e = x.get('eudic')
+    return str(e if isinstance(e, str) else (x.get('lemma') or x['term'])).strip().lower()
+
+
+def word_base(x):
+    e = x.get('eudic')
+    return str(e if isinstance(e, str) else (x.get('lemma') or x['term'])).strip()
+
+
+def find_repeats(batches, index):
+    groups = {}
+    for b in batches:
+        for x in b.get('notes') or []:
+            if (x.get('color') or 'blue') == 'orange':
+                continue
+            groups.setdefault(word_key(x, index), []).append(x)
+    return [g for g in groups.values() if len(g) > 1]
+
+
+def repeat_block(n):
+    """词卡里那一块：这个词画过的每一处（第几次、页码、原文短语），点一下跳过去。"""
+    g = REPEATS.get(str(n.get('id')))
+    if not g:
+        return ''
+    rows = []
+    for k, o in enumerate(g, 1):
+        ctx = o.get('context') or o.get('sentence') or o['term']
+        head = f'<span class="rep__k">第 {k} 次</span><span class="rep__pg">p. {esc(o.get("page", "—"))}</span>'
+        if o is n:                      # 这一处的原文上面刚写过，这里只标一下位置
+            rows.append(f'<li class="is-here"><span class="rep__row">{head}<span class="rep__here">就是上面这一处</span></span></li>')
+        else:
+            rows.append(f'<li><a class="rep__row" href="#n{esc(o["id"])}">{head}'
+                        f'<span class="rep__go">去看 ›</span>'
+                        f'<q class="rep__q" lang="en">{fmt(ctx, o.get("color") or "blue")}</q></a></li>')
+    return (f'<div class="card__rep"><span class="card__band">画过 {len(g)} 次 · 点一下跳过去</span>'
+            f'<ol class="rep__list">{"".join(rows)}</ol></div>')
+
+
+def repeats_box(groups):
+    """页顶：画过不止一次的词（Winter 2026-09-30）。次数多的在前，同样次数按第一次出现的先后。"""
+    if not groups:
+        return ''
+    rows = []
+    for g in sorted(groups, key=lambda g: -len(g)):
+        pgs = ''.join(f'<a href="#n{esc(o["id"])}">p.{esc(o.get("page", ""))}</a>' for o in g)
+        rows.append(f'<li><span class="rep__word" lang="en">{esc(word_base(g[0]))}</span>'
+                    f'<span class="rep__x">×{len(g)}</span>'
+                    f'<span class="rep__cn">{fmt(g[0].get("cn", ""))}</span>'
+                    f'<span class="rep__pgs">{pgs}</span></li>')
+    return ('<details class="wl rep" id="repeats"><summary>'
+            f'<span>🔁 重复划过的词</span><small>{len(groups)} 个 · 点页码跳过去</small></summary>'
+            f'<ul class="rep__all">{"".join(rows)}</ul></details>\n')
+
+
 def eudic_words(notes):
     """欧路词典导入用：一律原形；eudic 字段可手动指定（短语拆开会变成几个无关的词时用）。"""
     words = []
@@ -722,7 +972,9 @@ def wordlist_box(batches):
     def row(x):
         pen = x.get('color') or 'blue'
         pos = f'<span class="wl__pos">{esc(x["pos"])}</span>' if x.get('pos') else ''
-        return (f'<li><a class="wl__row wl__row--{pen}" href="#n{esc(x["id"])}">'
+        ew = x.get('eudic') if isinstance(x.get('eudic'), str) else (x.get('lemma') or x['term'])
+        return (f'<li data-id="{esc(x["id"])}" data-eudic="{esc(str(ew).strip())}">'
+                f'<a class="wl__row wl__row--{pen}" href="#n{esc(x["id"])}">'
                 f'<span class="wl__term" lang="en">{esc(x["term"])}</span>{pos}'
                 f'<span class="wl__cn">{fmt(x.get("cn", ""))}</span>'
                 f'<span class="wl__page">p.{esc(x.get("page", ""))}</span></a></li>')
@@ -744,9 +996,15 @@ def wordlist_box(batches):
             f'<span>📑 词表</span><small>{len(rows)} 条 · 点词跳到那张卡</small></summary>'
             '<div class="wl__tabs" role="tablist">'
             '<button type="button" class="wl__tab is-on" data-wl="az" role="tab" aria-selected="true">A–Z</button>'
-            '<button type="button" class="wl__tab" data-wl="seq" role="tab" aria-selected="false">按读的顺序</button></div>'
+            '<button type="button" class="wl__tab" data-wl="seq" role="tab" aria-selected="false">按读的顺序</button>'
+            '<button type="button" class="wl__tab wl__tab--fav" data-wl="fav" role="tab" aria-selected="false">★ 收藏 <span class="fav-n">0</span></button></div>'
             f'<div class="wl__pane" data-wl="az"><nav class="wl__letters">{letters}</nav><ul class="wl__list">{az_html}</ul></div>'
             f'<div class="wl__pane" data-wl="seq" hidden><ul class="wl__list">{seq_html}</ul></div>'
+            '<div class="wl__pane" data-wl="fav" hidden>'
+            '<div class="fav__bar"><span class="fav__sync"></span>'
+            '<button type="button" class="fav__copy" hidden>复制收藏的词</button></div>'
+            '<p class="fav__empty">还没有收藏。看到想回头再看的词，点词卡右上角的 ☆ 就收进来了；记住了，在这里点 ✕ 拿掉。</p>'
+            '<ul class="wl__list fav__list"></ul></div>'
             '</details>\n')
 
 
@@ -844,6 +1102,11 @@ def main():
                 sys.exit(f'No. {x["id"]} 的 color 只能是 blue / pink / orange')
             index[str(x['id'])] = x
 
+    groups = find_repeats(batches, index)
+    for g in groups:
+        for x in g:
+            REPEATS[str(x['id'])] = g
+
     pal = palette(book.get('palette', ''))
     try:                                  # 明亮模式的主色用暗一档的 accent_ink，白底上才看得清
         au = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.dirname(HERE)), '_data', 'au_palettes.yml'),
@@ -892,7 +1155,7 @@ def main():
         allw = eudic_words([x for b in batches for x in (b.get('notes') or [])])
         first = str(batches[0].get('pages', '')).split('–')[0].split('-')[0]
         span = f'{first}–{upto}' if last.get('pages') and first and first != upto else (upto if last.get('pages') else '')
-        body = (all_words_box(allw, title, span) if allw else '') + wordlist_box(batches) + toc + '\n'.join(batch_section(b, level, index, title) for b in batches)
+        body = (all_words_box(allw, title, span) if allw else '') + wordlist_box(batches) + repeats_box(groups) + toc + '\n'.join(batch_section(b, level, index, title) for b in batches)
         foot = (f'<div class="foot"><p>{fmt(demo["blog_foot" if a.blog else "foot"])}</p>\n'
                 + ('' if a.blog else f'<details class="tipbox"><summary>{esc(demo["tips"]["heading"])}</summary>'
                 f'{tips_list(demo["tips"]["items"])}</details>') + '</div>')
@@ -905,7 +1168,8 @@ def main():
             '<button type="button" class="flip__mid" aria-label="打开词表"><span class="flip__term"></span>'
             '<span class="flip__count"></span></button>'
             '<button type="button" class="flip__btn" data-go="1" aria-label="下一张">›</button></nav>\n') if batches else ''
-    inner = (f'<button type="button" class="theme-btn">🌕</button>\n<div class="wrap">\n{head}{body}\n{foot}\n</div>\n{flip}'
+    slug = book.get('slug') or os.path.splitext(os.path.basename(a.data))[0]
+    inner = (f'<button type="button" class="theme-btn">🌕</button>\n<div class="wrap" data-book="{esc(slug)}">\n{head}{body}\n{foot}\n</div>\n{flip}'
              f'<script>{JS}</script>\n')
     if a.blog:
         # 博客上的那一页：独立整页（不走 Jekyll layout），链接一律写相对路径，站点前缀变了也不会断
@@ -920,7 +1184,7 @@ def main():
                 '<link rel="icon" href="../../favicon.ico">\n'
                 '<!-- 这一页由 tools/reading/render_notes.py --blog 生成，别手改；改 _data/reading/ 里的数据再重新生成 -->\n'
                 f'{FONTS}\n<style>{css}</style>\n</head>\n<body>\n'
-                '<nav class="blognav"><a href="../">← 书架</a><a href="../../sam/">Sam</a></nav>\n'
+                '<nav class="blognav"><a href="../">← 书架</a><a href="../../notes/">笔记</a></nav>\n'
                 f'{inner}</body>\n</html>\n')
     else:
         page = f'<title>{esc(page_title)}</title>\n{FONTS}\n<style>{css}</style>\n{inner}'

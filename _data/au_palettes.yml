@@ -664,6 +664,22 @@
   muted_cn: "木篱旧褐"
   muted_en: "Fence-Post Brown"
 
+"Finders Keepers":          # Buck "The Kid" · Box of Moonlight · Sam Rockwell · 色卡同源画册 id: buck
+  mf_id: buck                # → Many Faces 画册锚点 /sam/many-faces/#buck
+  accent: "#b8c878"
+  accent_ink: "#5c643c"        # accent 偏浅，额外压暗到 ×0.5，浅色主题下对比度 ≈5.9:1
+  bg: "#1a2418"
+  text: "#e8eed8"
+  muted: "#7a8868"
+  accent_cn: "林间苔绿"
+  accent_en: "Forest Moss"
+  bg_cn: "月光银白"
+  bg_en: "Moonlight Silver"
+  text_cn: "萤火浅碧"
+  text_en: "Firefly Pale"
+  muted_cn: "鹿皮青灰"
+  muted_en: "Buckskin Sage"
+
 "I Missed You on Purpose":   # Jerry · Jerry and Tom · Sam Rockwell · 色卡同源画册 id: jerry
   mf_id: jerry                # → Many Faces 画册锚点 /sam/many-faces/#jerry
   accent: "#e08f2e"
@@ -790,3 +806,34 @@
   text_en: Disco Blush
   muted_cn: 暮霭灰紫
   muted_en: Mauve Haze
+
+"Oh, May":  # Matty Rzeznik · Mercy · 色卡同源画册 id: matty（2026-09-29 Winter 选 A：红夹克 / 凌晨地铁 / 传单纸白 / 消防梯墨绿）
+  mf_id: matty                # → Many Faces 画册锚点 /sam/many-faces/#matty
+  accent: "#d2503e"
+  accent_ink: "#a8392a"        # accent 偏浅，额外压暗到浅色主题下对比度 ≥4.5:1
+  bg: "#171d24"
+  text: "#efe4cf"
+  muted: "#809c8a"
+  accent_cn: "红夹克褪漆红"
+  accent_en: "Faded Jacket Red"
+  bg_cn: "凌晨地铁月台"
+  bg_en: "Pre-Dawn Subway"
+  text_cn: "传单复印纸白"
+  text_en: "Flyer Photocopy"
+  muted_cn: "消防梯墨绿漆"
+  muted_en: "Fire Escape Green"
+
+"Heart Facing Inward":      # Declan Byrne · Patient Zero 音乐录影带 · Colin Farrell · 独立设计（非 Sam 角色，无 mf_id）
+  accent: "#c9a25a"          # 克拉达金：他母亲那枚旧金戒指
+  accent_ink: "#7c6437"      # accent 偏浅，压暗到 ×0.62，浅色主题下对比度 ≈5.1:1
+  bg: "#17140f"
+  text: "#f1e9dc"
+  muted: "#8a7d6a"
+  accent_cn: "克拉达金"
+  accent_en: "Claddagh Gold"
+  bg_cn: "顶层夜色"
+  bg_en: "Penthouse Night"
+  text_cn: "珍珠米白"
+  text_en: "Pearl Cream"
+  muted_cn: "驼绒大衣"
+  muted_en: "Camel Coat"

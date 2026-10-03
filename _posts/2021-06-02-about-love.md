@@ -5,6 +5,8 @@ date: 2021-06-02
 image: house.jpg
 tags: [缱绻, 絮语]
 categories: Daily
+winters: [love, self]
+form: 随笔
 summary: "如果是我的爱情，平淡也是与他一起铸就的热烈。"
 ---
 

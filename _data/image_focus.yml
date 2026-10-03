@@ -1,10 +1,11 @@
 # 封面「对脸」锚点 —— 由 tools/face_focus.py 自动生成，别手改整份文件。
 #
 # 每一条：x / y 是脸中心在图上的位置（%），w / h 是原图尺寸，
-# sq / card / banner 是三种容器形状下该用的 background-position（已按裁切数学算好）。
+# sq / card / banner / banner_m 是四种容器形状下该用的锚点（已按裁切数学算好）：
+#   sq 正方形小图 · card 16:10 卡片 · banner 系列大封面·电脑 2:1 · banner_m 系列大封面·手机 3:2
 # 模板用法：{{ site.data.image_focus[文件名].sq | default: '50% 30%' }}
 #
-# 想手动微调某一张：改掉它的 sq / card / banner，并加一行 manual: true，
+# 想手动微调某一张：改掉它的 sq / card / banner / banner_m，并加一行 manual: true，
 # 下次重跑脚本会原样保留这一条。没认出脸的图不在这里，模板自动回退到居中偏上。
 
 "3-billboards-au.JPG":
@@ -16,6 +17,7 @@
   sq: "22% 50%"
   card: "0% 50%"
   banner: "50% 0%"
+  banner_m: "0% 50%"
 "7-psychopaths.jpg":
   x: 18.7
   y: 60.3
@@ -24,7 +26,8 @@
   score: 0.8
   sq: "0% 50%"
   card: "0% 50%"
-  banner: "50% 50%"
+  banner: "0% 50%"
+  banner_m: "0% 50%"
 "Don-Verdean.jpg":
   x: 44.0
   y: 27.6
@@ -34,6 +37,7 @@
   sq: "36% 50%"
   card: "0% 50%"
   banner: "50% 0%"
+  banner_m: "12% 50%"
 "See How They Run(8).jpg":
   x: 38.4
   y: 40.1
@@ -42,7 +46,8 @@
   score: 0.88
   sq: "25% 50%"
   card: "0% 50%"
-  banner: "50% 10%"
+  banner: "50% 0%"
+  banner_m: "0% 50%"
 "The Winning Season(15).jpg":
   x: 43.5
   y: 36.5
@@ -51,7 +56,8 @@
   score: 0.94
   sq: "35% 50%"
   card: "0% 50%"
-  banner: "50% 1%"
+  banner: "50% 0%"
+  banner_m: "9% 50%"
 "The Winning Season(5).jpg":
   x: 22.1
   y: 25.4
@@ -61,6 +67,7 @@
   sq: "0% 50%"
   card: "0% 50%"
   banner: "50% 0%"
+  banner_m: "0% 50%"
 "a-single-shot-au.jpg":
   x: 66.7
   y: 41.8
@@ -69,7 +76,8 @@
   score: 0.92
   sq: "88% 50%"
   card: "100% 50%"
-  banner: "50% 21%"
+  banner: "50% 0%"
+  banner_m: "100% 50%"
 "aldo-stankas.jpg":
   x: 40.2
   y: 35.0
@@ -78,7 +86,8 @@
   score: 0.94
   sq: "33% 50%"
   card: "20% 50%"
-  banner: "50% 50%"
+  banner: "0% 50%"
+  banner_m: "23% 50%"
 "better-living-through-chemistry.jpg":
   x: 40.8
   y: 40.4
@@ -87,7 +96,8 @@
   score: 0.88
   sq: "29% 50%"
   card: "0% 50%"
-  banner: "50% 16%"
+  banner: "50% 0%"
+  banner_m: "0% 50%"
 "brad-cairn-au.jpg":
   x: 47.1
   y: 29.8
@@ -96,7 +106,8 @@
   score: 0.93
   sq: "39% 50%"
   card: "50% 0%"
-  banner: "50% 6%"
+  banner: "50% 0%"
+  banner_m: "50% 0%"
 "charley-ford-au.jpg":
   x: 49.2
   y: 41.5
@@ -105,7 +116,8 @@
   score: 0.94
   sq: "48% 50%"
   card: "42% 50%"
-  banner: "50% 19%"
+  banner: "50% 0%"
+  banner_m: "45% 50%"
 "chuck-barris-au.jpg":
   x: 73.8
   y: 39.5
@@ -114,7 +126,8 @@
   score: 0.9
   sq: "90% 50%"
   card: "100% 50%"
-  banner: "50% 50%"
+  banner: "100% 50%"
+  banner_m: "100% 50%"
 "clay.JPG":
   x: 44.5
   y: 50.6
@@ -123,7 +136,8 @@
   score: 0.91
   sq: "38% 50%"
   card: "0% 50%"
-  banner: "50% 52%"
+  banner: "50% 0%"
+  banner_m: "15% 50%"
 "dear-satan.jpg":
   x: 50.9
   y: 42.0
@@ -132,7 +146,8 @@
   score: 0.94
   sq: "53% 50%"
   card: "50% 0%"
-  banner: "50% 31%"
+  banner: "50% 0%"
+  banner_m: "50% 0%"
 "doc-au.jpg":
   x: 40.2
   y: 19.5
@@ -141,7 +156,8 @@
   score: 0.92
   sq: "33% 50%"
   card: "21% 50%"
-  banner: "50% 50%"
+  banner: "0% 50%"
+  banner_m: "24% 50%"
 "eric-bowen.JPG":
   x: 53.7
   y: 33.9
@@ -151,6 +167,7 @@
   sq: "58% 50%"
   card: "86% 50%"
   banner: "50% 0%"
+  banner_m: "73% 50%"
 "escape-plan-world.jpg":
   x: 16.2
   y: 86.0
@@ -160,6 +177,17 @@
   sq: "50% 100%"
   card: "50% 100%"
   banner: "50% 100%"
+  banner_m: "50% 100%"
+"finders-keepers.jpg":
+  x: 37.9
+  y: 48.6
+  w: 1600
+  h: 900
+  score: 0.94
+  sq: "22% 50%"
+  card: "0% 50%"
+  banner: "50% 0%"
+  banner_m: "0% 50%"
 "fog-city-au.jpg":
   x: 48.4
   y: 45.0
@@ -168,16 +196,18 @@
   score: 0.93
   sq: "46% 50%"
   card: "34% 50%"
-  banner: "50% 32%"
+  banner: "50% 0%"
+  banner_m: "40% 50%"
 "francis-flute-au.jpg":
-  x: 21.4
-  y: 34.3
-  w: 522
-  h: 391
+  x: 41.4
+  y: 26.9
+  w: 1920
+  h: 800
   score: 0.91
-  sq: "0% 50%"
-  card: "50% 0%"
-  banner: "50% 16%"
+  sq: "35% 50%"
+  card: "24% 50%"
+  banner: "0% 50%"
+  banner_m: "27% 50%"
 "gary-ohara-au.jpg":
   x: 60.1
   y: 43.2
@@ -186,7 +216,8 @@
   score: 0.94
   sq: "73% 50%"
   card: "100% 50%"
-  banner: "50% 25%"
+  banner: "50% 0%"
+  banner_m: "100% 50%"
 "gary-petrosino-au.jpg":
   x: 51.2
   y: 42.6
@@ -195,7 +226,8 @@
   score: 0.93
   sq: "54% 50%"
   card: "50% 0%"
-  banner: "50% 31%"
+  banner: "50% 0%"
+  banner_m: "50% 50%"
 "heading-normal.jpg":
   x: 41.4
   y: 34.6
@@ -204,7 +236,8 @@
   score: 0.76
   sq: "50% 50%"
   card: "50% 9%"
-  banner: "50% 24%"
+  banner: "50% 4%"
+  banner_m: "50% 0%"
 "heading-rabbit.png":
   x: 43.2
   y: 49.4
@@ -213,7 +246,8 @@
   score: 0.63
   sq: "50% 50%"
   card: "50% 48%"
-  banner: "50% 49%"
+  banner: "50% 37%"
+  banner_m: "50% 21%"
 "i-never-looked-away.jpg":
   x: 58.3
   y: 42.0
@@ -222,7 +256,8 @@
   score: 0.88
   sq: "83% 50%"
   card: "50% 0%"
-  banner: "50% 32%"
+  banner: "50% 15%"
+  banner_m: "50% 0%"
 "isaac-reply-1.png":
   x: 10.9
   y: 9.6
@@ -231,7 +266,8 @@
   score: 0.8
   sq: "50% 0%"
   card: "50% 1%"
-  banner: "50% 4%"
+  banner: "50% 2%"
+  banner_m: "50% 0%"
 "isaac-reply-2.jpeg":
   x: 12.4
   y: 32.9
@@ -240,7 +276,8 @@
   score: 0.9
   sq: "50% 21%"
   card: "50% 27%"
-  banner: "50% 30%"
+  banner: "50% 28%"
+  banner_m: "50% 25%"
 "jerry-and-tom-au.jpg":
   x: 51.0
   y: 36.8
@@ -249,7 +286,8 @@
   score: 0.94
   sq: "52% 50%"
   card: "60% 50%"
-  banner: "50% 3%"
+  banner: "50% 0%"
+  banner_m: "57% 50%"
 "jimmy-silk-au.jpg":
   x: 69.8
   y: 36.6
@@ -258,7 +296,8 @@
   score: 0.95
   sq: "95% 50%"
   card: "100% 50%"
-  banner: "50% 2%"
+  banner: "50% 0%"
+  banner_m: "100% 50%"
 "justin-hammer-au.webp":
   x: 41.7
   y: 25.5
@@ -267,7 +306,8 @@
   score: 0.91
   sq: "35% 50%"
   card: "24% 50%"
-  banner: "50% 50%"
+  banner: "0% 50%"
+  banner_m: "27% 50%"
 "knox-au.jpg":
   x: 50.4
   y: 35.7
@@ -277,6 +317,7 @@
   sq: "51% 50%"
   card: "54% 50%"
   banner: "50% 0%"
+  banner_m: "52% 50%"
 "leonard-shelby-au.jpg":
   x: 56.9
   y: 45.1
@@ -285,7 +326,8 @@
   score: 0.86
   sq: "71% 50%"
   card: "50% 0%"
-  banner: "50% 38%"
+  banner: "50% 21%"
+  banner_m: "50% 50%"
 "my-psychopath.png":
   x: 16.0
   y: 16.7
@@ -295,6 +337,17 @@
   sq: "0% 50%"
   card: "0% 50%"
   banner: "50% 0%"
+  banner_m: "0% 50%"
+"oh-may.jpg":
+  x: 39.5
+  y: 42.3
+  w: 2576
+  h: 1734
+  score: 0.91
+  sq: "18% 50%"
+  card: "50% 0%"
+  banner: "50% 0%"
+  banner_m: "50% 50%"
 "pero-mahlovic-au.jpg":
   x: 25.6
   y: 44.0
@@ -303,7 +356,8 @@
   score: 0.86
   sq: "0% 50%"
   card: "50% 50%"
-  banner: "50% 32%"
+  banner: "50% 0%"
+  banner_m: "0% 50%"
 "rob-cove-au.jpeg":
   x: 51.6
   y: 30.7
@@ -312,7 +366,8 @@
   score: 0.91
   sq: "56% 50%"
   card: "50% 0%"
-  banner: "50% 8%"
+  banner: "50% 0%"
+  banner_m: "50% 0%"
 "sam-bell-5.jpeg":
   x: 56.3
   y: 45.6
@@ -321,7 +376,8 @@
   score: 0.75
   sq: "61% 50%"
   card: "69% 50%"
-  banner: "50% 50%"
+  banner: "88% 50%"
+  banner_m: "67% 50%"
 "sam-bell-au.jpg":
   x: 49.7
   y: 25.3
@@ -331,6 +387,7 @@
   sq: "49% 50%"
   card: "50% 50%"
   banner: "50% 0%"
+  banner_m: "47% 50%"
 "sam-rockwell-matchstick-men.jpg":
   x: 60.6
   y: 35.9
@@ -339,7 +396,8 @@
   score: 0.92
   sq: "70% 50%"
   card: "96% 50%"
-  banner: "50% 0%"
+  banner: "50% 50%"
+  banner_m: "88% 50%"
 "sam-rockwell-polish-guy.jpg":
   x: 50.2
   y: 46.5
@@ -348,7 +406,8 @@
   score: 0.92
   sq: "51% 50%"
   card: "50% 26%"
-  banner: "50% 42%"
+  banner: "50% 17%"
+  banner_m: "50% 0%"
 "silas-groves.jpg":
   x: 40.8
   y: 38.4
@@ -357,7 +416,8 @@
   score: 0.94
   sq: "34% 50%"
   card: "22% 50%"
-  banner: "50% 50%"
+  banner: "0% 50%"
+  banner_m: "25% 50%"
 "snow-angels.png.webp":
   x: 32.7
   y: 32.7
@@ -366,7 +426,8 @@
   score: 0.93
   sq: "0% 50%"
   card: "50% 0%"
-  banner: "50% 6%"
+  banner: "50% 0%"
+  banner_m: "50% 50%"
 "some-steps-only-we-know.jpg":
   x: 54.6
   y: 30.0
@@ -376,6 +437,7 @@
   sq: "61% 50%"
   card: "97% 50%"
   banner: "50% 0%"
+  banner_m: "80% 50%"
 "the-most-powerful-man.jpeg":
   x: 83.4
   y: 28.9
@@ -385,6 +447,7 @@
   sq: "100% 50%"
   card: "100% 50%"
   banner: "50% 0%"
+  banner_m: "100% 50%"
 "the-near-side.png":
   x: 47.5
   y: 38.8
@@ -393,7 +456,8 @@
   score: 0.89
   sq: "45% 50%"
   card: "40% 50%"
-  banner: "50% 0%"
+  banner: "10% 50%"
+  banner_m: "42% 50%"
 "the-one-i-kept.jpg":
   x: 63.4
   y: 45.8
@@ -402,7 +466,8 @@
   score: 0.94
   sq: "81% 50%"
   card: "100% 50%"
-  banner: "50% 35%"
+  banner: "50% 0%"
+  banner_m: "100% 50%"
 "the-real-thing.webp":
   x: 43.2
   y: 37.7
@@ -411,7 +476,8 @@
   score: 0.93
   sq: "30% 50%"
   card: "50% 50%"
-  banner: "50% 17%"
+  banner: "50% 0%"
+  banner_m: "50% 50%"
 "the-way-way-back.JPG":
   x: 55.3
   y: 35.1
@@ -420,7 +486,8 @@
   score: 0.94
   sq: "66% 50%"
   card: "50% 0%"
-  banner: "50% 12%"
+  banner: "50% 0%"
+  banner_m: "50% 50%"
 "victor-mancini.jpg":
   x: 36.1
   y: 52.3
@@ -429,7 +496,8 @@
   score: 0.89
   sq: "20% 50%"
   card: "0% 50%"
-  banner: "50% 59%"
+  banner: "50% 0%"
+  banner_m: "0% 50%"
 "wild-bill.jpg.jpeg":
   x: 49.4
   y: 33.2
@@ -439,6 +507,7 @@
   sq: "49% 50%"
   card: "45% 50%"
   banner: "50% 0%"
+  banner_m: "46% 50%"
 "william-wharton-au.jpeg":
   x: 62.1
   y: 43.6
@@ -447,7 +516,8 @@
   score: 0.92
   sq: "83% 50%"
   card: "50% 50%"
-  banner: "50% 32%"
+  banner: "50% 0%"
+  banner_m: "50% 50%"
 "you-are-my-fact.jpg":
   x: 39.8
   y: 48.4
@@ -456,7 +526,8 @@
   score: 0.89
   sq: "32% 50%"
   card: "18% 50%"
-  banner: "50% 50%"
+  banner: "0% 50%"
+  banner_m: "22% 50%"
 "zaphod-au.jpg":
   x: 60.8
   y: 29.9
@@ -466,3 +537,4 @@
   sq: "75% 50%"
   card: "100% 50%"
   banner: "50% 0%"
+  banner_m: "100% 50%"

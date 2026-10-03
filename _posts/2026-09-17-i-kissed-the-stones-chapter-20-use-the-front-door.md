@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 20 · 下回走前门 — I Kissed the Stones"
+title: "Chapter 21 · 下回走前门 — I Kissed the Stones"
 date: 2026-09-17 13:00:30 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 安放, 缱绻]
@@ -10,7 +10,7 @@ series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 21
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 20"
+chapter_type: "Chapter 21"
 summary: "那八只风箱好好的，一道缝都没开。"
 redirect_from:
   - /2026/10/26/i-kissed-the-stones-chapter-20-use-the-front-door/

@@ -18,6 +18,10 @@ Sam 每个角色的配色（bg / accent / text / muted + 四个中英色名）�
    不算 desync —— 本脚本对 au_palettes 只校验 accent / bg / 四个色名（不校验 text/muted）。
    accent_ink 是 accent 手动暗一档派生的，也不校验。
 
+另外两条同源链路也在这里一起验（同样以画册为真源）：
+  · auLink —— 「他有 AU」这件事，quiz / spectrum / lines.json 都要知道；
+  · 片名 film / filmCN / year —— quiz / spectrum / lines.json（含 pool）要与画册一字不差。
+
 用法：  python3 tools/check_palette_sync.py
 返回：  全部一致 → exit 0；发现 desync → 打印差异并 exit 1。
 """
@@ -269,15 +273,53 @@ def main():
             issues.append(f"[穿上他的颜色] Sam 角色系列 '{key}' 缺 mf_id —— "
                           f"「穿上他的颜色」会显示成「AU 专属配色」，且没有「在 Many Faces 里找他」链接")
 
+    # ── 片名同源：film / filmCN / year（画册为真源）──────────────────────────
+    # 2026-09-29 翻过车：Box of Moonlight 画册早改成《盒光之夜》，quiz / spectrum /
+    # lines.json 还停在《月光宝盒》——测验、光谱、台词墙上的片名跟画册对不上，没有任何报错。
+    TITLE = ["film", "filmCN", "year"]
+    def title_fields(text):
+        ids = [(m.start(), m.group(1)) for m in re.finditer(r'\bid\s*:\s*"([^"]+)"', text)]
+        out = {}
+        for i, (pos, cid) in enumerate(ids):
+            end = ids[i + 1][0] if i + 1 < len(ids) else len(text)
+            rec = {k: _field(text[pos:end], k) for k in TITLE}
+            if rec["filmCN"]:
+                out[cid] = rec
+        return out
+    mf_titles = title_fields(read("sam/many-faces/index.html"))
+    for label, path in [("quiz", "sam/quiz/index.html"), ("spectrum", "sam/spectrum/index.html")]:
+        src = title_fields(read(path))
+        for cid, ref in mf_titles.items():
+            other = src.get(JS_ALIAS.get(cid, cid))
+            if not other:
+                continue   # 缺角色的情况上面已经报过
+            for k in TITLE:
+                if ref[k] and other[k] and ref[k] != other[k]:
+                    issues.append(f"[片名/{label}] {cid} {k}: 画册={ref[k]} vs {other[k]}")
+    for lid, c in by_id.items():
+        ref = mf_titles.get(alias.get(lid, lid))
+        if not ref:
+            continue
+        for k in TITLE:
+            if ref[k] and c.get(k) and ref[k] != str(c[k]):
+                issues.append(f"[片名/lines.characters] {lid} {k}: 画册={ref[k]} vs {c[k]}")
+    for i, p in enumerate(lines["pool"]):
+        c = by_id.get(p["charId"])
+        if not c:
+            continue
+        for k in TITLE:
+            if p.get(k) and c.get(k) and str(p[k]) != str(c[k]):
+                issues.append(f"[片名/lines.pool] pool[{i}] {p['charId']} {k}: {p[k]} ≠ characters {c[k]}")
+
     if issues:
-        print(f"✗ 发现 {len(issues)} 处色卡未同步（画册为真源）：\n")
+        print(f"✗ 发现 {len(issues)} 处未同步（画册为真源）：\n")
         for i in issues:
             print("  " + i)
         print("\n改法：以画册 sam/many-faces/index.html 为准，把上述各处改回一致。")
         print("au_palettes 的 text/muted 不在校验范围（各系列有意微调）。")
         return 1
 
-    print(f"✓ 色卡全站同步：{len(mf)} 个角色 × (quiz / spectrum / sam_themes / lines.json / au_palettes) 全部一致。")
+    print(f"✓ 色卡 / 片名 / auLink 全站同步：{len(mf)} 个角色 × (quiz / spectrum / sam_themes / lines.json / au_palettes) 全部一致。")
     return 0
 
 

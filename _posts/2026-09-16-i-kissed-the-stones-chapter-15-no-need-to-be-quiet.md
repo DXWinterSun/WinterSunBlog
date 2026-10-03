@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 15 · 不用压着声音 — I Kissed the Stones"
+title: "Chapter 16 · 不用压着声音 — I Kissed the Stones"
 date: 2026-09-16 00:17:45 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 炽恋, 安放]
@@ -10,7 +10,7 @@ series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 16
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 15"
+chapter_type: "Chapter 16"
 summary: "第十一夜，你忘了压着声音。"
 redirect_from:
   - /2026/10/21/i-kissed-the-stones-chapter-15-no-need-to-be-quiet/

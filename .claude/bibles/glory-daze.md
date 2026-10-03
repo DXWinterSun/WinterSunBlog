@@ -274,7 +274,14 @@ up right
 - **时间**：主线可从**大一**写起（结梁子）一路到**毕业散场**；canon 主体发生在毕业前最后两三天。
 - **乐队**：✅ canon（他们把乐队重新组起来）。核心阵容（AU 排的）：**Jack、Rob、Slosh + 你**；
   Mickey 害羞在外围画海报/封面，Dennis 忙着读第三个学位偶尔串场。
-  幕后花絮（可当彩蛋）：原片乐队演奏其实是真乐队 Epoxy 顶的，真主唱恰是演 Mickey 的 Vinnie DeRamus。
+  幕后花絮（可当彩蛋，2026-09-29 查证改正——旧版写「乐队全是 Epoxy 顶的、真主唱是 Vinnie」，只对了一半）：
+  派对上乐队演的两首是演员**亲口唱**的。Rob 那首《Dudes of Steel Theme》是 **Sam 本人**主唱，片尾署名
+  「Performed by John Connor, Daniel Rey, Sam Rockwell, Roger Murdock」；词曲署名 Richard Meyers（大概率就是
+  朋克元老 Richard Hell：本名相同，版权公司 Automatic Music 也是他的），© 1994。伴奏三人（Daniel Rey 吉他、
+  John Connor 贝斯、Roger Murdock 鼓）1996 年给 Joey Ramone 当过伴奏乐队。另一首翻唱《Now We Are Twenty-One》
+  是 Slosh（Vien Hong）唱。Epoxy 只管《Sports Pack》那首（Vinnie DeRamus 唱、导演 Rich Wilkes 打鼓），也是
+  片中乐队唯一进了原声带的一首；**Sam 那首从未单独发行**，只存在于电影里（Winter 有美版 DVD）。
+  → 对 AU 的意义：「Rob 是乐队主唱」有原片撑腰，他是真开口唱的那个。
 - **分级**：原片 R（脏话 + 一场性场面），100 分钟。
 - **canon 结局**：全员亲手砸掉 El Rancho 的回忆当散场仪式；**Rob 跟 Joanie 一起去 LA**；Mickey
   和 Chelsea 在一起；Slosh 把 El Rancho 招牌传给新一批学生；Jack 开车离开，在餐厅玻璃上写下

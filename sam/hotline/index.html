@@ -537,7 +537,7 @@
     if (/好帅|真帅|帅|好看|美|演得|演技|厉害|好棒|真好|迷人|喜欢看你|✨|😍/i.test(s)) return 'praise';
     if (/讨厌|坏|笨|傻|幼稚|不理|理我|哼|烦人|欠揍|臭|骗子|😤|😏/i.test(s)) return 'tease';
     /* 打招呼只认「短句」——「你会一直在吗」这种别被「在吗」两个字劫走 */
-    if (s.length <= 8 && /在吗|你好|嗨|喂|在不在|忙吗|hello|hi|hey|👋/i.test(s)) return 'greet';
+    if (s.length <= 8 && !/一直|还在|会在|永远/.test(s) && /在吗|你好|嗨|喂|在不在|忙吗|hello|hi|hey|👋/i.test(s)) return 'greet';
     return 'daily';
   }
   /* ————— 「像活的」那三招（学 2010 年代那批对话应用的老路数）—————
@@ -709,22 +709,33 @@
     return en.replace(/(^|[.!?…]["')\]]?\s*)([a-z])/g, function (m, head, ch) { return head + ch.toUpperCase(); });
   }
 
+  /* 「问句先答」那几句模板全是「嗯 / 是」——只能接「你想我吗」「你会一直在吗」这种问你我之间的是非题。
+     2026-10-01 Winter 问「你在干嘛？」，他答「是。夸张的、丢人的、彻头彻尾的是。」：
+     问什么 / 干嘛 / 怎么 / 哪儿的、问吃饭天气这类正事的，一律不走这一层。 */
   function isQuestion(text) {
-    return /[？?]\s*$|吗[？?]?\s*$|好不好|行不行|可以吗|是不是|会不会|有没有|对不对/.test(text);
+    var t = String(text || '');
+    if (/什么|啥|干嘛|干什么|怎么|怎样|为什么|为啥|哪|谁|几|多少|多久|多大|如何/.test(t)) return false;
+    if (!/[？?]\s*$|吗[？?]?\s*$|么[？?]?\s*$|好不好|行不行|可以吗|是不是|会不会|有没有|对不对|能不能|要不要/.test(t)) return false;
+    return /想我|爱我|喜欢我|在乎我|记得我|记得吗|一直在|会在|陪我|陪着我|等我|要我|离开我|不走|会走|走吗|骗我|真的|认真的|只有我|我一个|最喜欢|还喜欢|还爱|想不想|爱不爱|喜不喜欢|要不要我|你也是|你也想|你也爱|你呢/.test(t);
   }
   function questionReply() {
     var t = pickTpl(EXTRA.question && (EXTRA.question[reg()] || EXTRA.question.warm));
     return t ? { line: t.line, lineCN: t.cn } : null;
   }
 
-  /* 从 AU 正文里筛出来的他说过的话：按情境桶取（daily = 任意），避开最近说过的，
-     气泡上戳一枚出处「Wintergreen · Ch.7」——他在那一章真的这么说过 */
+  /* 从 AU 正文里筛出来的他说过的话，气泡上戳一枚出处「Wintergreen · Ch.7」——他在那一章真的这么说过。
+     ⚠️ 每一句都是人审过的（tools/hotline_review.json），b = 这句真接得上的情境（可多个）。
+     只取 b 里有这个情境的；daily 也一样，只取审成「随口日常也接得住」的那几句，
+     不再拿整本语料兜底——2026-10-01 Winter 说“想你了”，他回“你拍回来的。”，就是兜底兜出来的。 */
   function minedReply(c, bucket) {
     var pool = MINED[c.id] && MINED[c.id][(au && au.key) || 'default'];
     if (!pool || !pool.length) return null;
     var recent = history(histKey(c)).filter(function (m) { return m.w === 'h' && m.line; })
       .slice(-12).map(function (m) { return m.line; });
-    var arr = pool.filter(function (l) { return (bucket === 'daily' || l.b === bucket) && recent.indexOf(l.cn) === -1; });
+    var arr = pool.filter(function (l) {
+      var fits = typeof l.b === 'string' ? l.b === bucket : (l.b || []).indexOf(bucket) !== -1;
+      return fits && recent.indexOf(l.cn) === -1;
+    });
     if (!arr.length) return null;
     var l = arr[Math.floor(Math.random() * arr.length)];
     return { line: l.cn, lineCN: '', label: l.series + ' · Ch.' + l.ch };
@@ -919,10 +930,12 @@
   }
   function refreshStatus() { if (current) $('cstatus').textContent = statusLine(); }
   function ventParts(charId) {
-    /* 取「上一次他开口之后」你连着说的所有话，合起来定情绪 */
+    /* 取「上一次他开口之后」你连着说的所有话，合起来定情绪。
+       他主动开口的那一句（第一次拨通的锚句 / 隔夜回来那句，op）不算「回了你」：
+       你趁他打开场白时发的话，开场白落在你后面，照样要接——2026-10-01 以前这句话会被他漏听 */
     var past = history(charId), out = [];
     for (var i = past.length - 1; i >= 0; i--) {
-      if (past[i].w !== 'm') break;
+      if (past[i].w !== 'm') { if (past[i].op) continue; break; }
       out.unshift(past[i].x || '');
     }
     return out;
@@ -975,6 +988,11 @@
      → 动作 → 接话 → 主题回声 → 情境桶 → 问句 → 他问过你、你答了别的（先接住）
      → 有时候换他问你一句（40%）→ daily 兜底 → 5 句台词 */
   function composeReply(c, prefs, intent, text, parts) {
+    /* 第一次拨通：他开口就是锚句。以前这里会往下掉进「40% 换他问你一句」，一半以上的人开场没说锚句 */
+    if (!text && !intent && prefs && prefs[0] === 'anchor') {
+      var a = pickReply(c, prefs);
+      return { label: a.label, line: a.line, lineCN: a.lineCN };
+    }
     parts = parts || [];
     var trailCount = parts.length;
     var key = histKey(c);
@@ -1002,12 +1020,16 @@
         }
       }
     }
-    /* 情境桶与 AU 语料对半混：一半是写给热线的回复，一半是他在正文里真说过的话 */
+    /* 情境桶与 AU 语料对半混：一半是写给热线的回复，一半是他在正文里真说过的（审过、对得上题的）话；
+       随口日常那一档语料少，只三成机会用它，免得同一句反复冒出来 */
+    /* 你在问他（你在干嘛？你吃了吗？）：他就答，不反问你「昨晚睡了没」，也不甩一句正文里的旧话——
+       日常回复库里那些「我刚在干嘛」的句子才接得住 */
+    var asked = !!text && /[？?]\s*$|[吗呢么][？?]?\s*$/.test(text);
     q = q || (intent && intent !== 'daily' ? ((chance(.5) && minedReply(c, intent)) || pickFromReplies(c, intent)) : null)
           || (hasLib && text && isQuestion(text) ? questionReply() : null)
           || (hasLib && pend ? tplReply('ack') : null)
-          || (hasLib && chance(.4) ? askReply(key) : null)
-          || (chance(.5) ? minedReply(c, 'daily') : null)
+          || (hasLib && !asked && chance(.4) ? askReply(key) : null)
+          || (!asked && chance(.3) ? minedReply(c, 'daily') : null)
           || (intent ? pickFromReplies(c, intent) : null)
           || pickReply(c, prefs);
     var out = { label: q.label, line: fillPet(q.line, 'en'), lineCN: fillPet(q.lineCN, 'cn') };
@@ -1042,7 +1064,7 @@
     var typed = PREPARED.lineCN ? ln.length * 105 : ln.length * 260;
     return 800 + Math.random() * 700 + Math.min(11000, typed);
   }
-  function himReplies(c, prefs, extraDelay, intent, text, forced, parts) {
+  function himReplies(c, prefs, extraDelay, intent, text, forced, parts, opener) {
     var log = $('log');
     Array.prototype.forEach.call(log.querySelectorAll('.typing'), function (t) { t.remove(); });
     var typing = mkTyping();
@@ -1060,6 +1082,7 @@
         var msg = { w: 'h', t: Date.now(), label: q.label, line: q.line, lineCN: q.lineCN };
         if (q.re) msg.re = q.re;
         if (q.ask) msg.ask = q.ask;
+        if (opener) msg.op = 1;
         saveMsg(histKey(c), msg);
         log.appendChild(bubbleHim(msg)); scrollLog();
         setBusy(false);
@@ -1124,13 +1147,13 @@
     setBusy(false);
     scrollLog();
     /* 第一次拨通（这一个 AU 的第一次）：他先开口，说他的锚句 */
-    if (!past.length) { himReplies(current, ['anchor'], 300); return; }
+    if (!past.length) { himReplies(current, ['anchor'], 300, null, null, null, null, true); return; }
     /* 隔了六个钟头以上再回来：他先开口一句（记得上次的事就问那件事）——每次回来只一句 */
     var key = histKey(current), last = past[past.length - 1], gap = Date.now() - (last.t || 0);
     var meta = getMeta(key);
     if (au && au.buckets && gap >= 6 * 3600e3 && !(meta.lastBack && meta.lastBack > (last.t || 0))) {
       var b = backReply(key, gap);
-      if (b) { setMeta(key, { lastBack: Date.now() }); himReplies(current, ['any'], 400, 'daily', '', b); }
+      if (b) { setMeta(key, { lastBack: Date.now() }); himReplies(current, ['any'], 400, 'daily', '', b, null, true); }
     }
   }
 

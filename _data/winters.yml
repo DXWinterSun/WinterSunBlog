@@ -1,0 +1,41 @@
+# Winter's 的五个书架（2026-09-30 Winter 在样稿里一条条拍板：按「写给谁」分，名字都是她起的）
+#
+# 文章放上哪个书架，写在文章自己的 front matter 里：
+#   winters: [love, self]     # 可以同时在好几个书架上（Winter：「不同类别允许重叠」）
+#   form: 书信                 # 卡片上那枚小标签：随笔 / 书信 / 小说 / 翻译
+# 没写 winters 的文章按分类兜底：Novel → story，其余 → self（保证不会从 Winter's 里消失）。
+# winters: [] 表示不上任何书架（只挂在唱片墙上的歌词翻译就是这样）。
+# 冬还年少收的是中学周记本里的字——以后补上来的旧文，别忘了写 young。
+#
+# order: asc = 按时间正着排（冬的爱人要能从 2020 年一路读下来）；不写 = 新的在前。
+# songs 这一格不收文章，放的是唱片墙（资料在 _data/songs.json）。
+
+- key: love
+  emoji: 💞
+  name: 冬的爱人
+  desc: 写给我爱的人：他、朋友、陪我长大的乐队和偶像，还有一位一百多年前的科学家。按时间正着排，能一路读下去。
+  order: asc
+
+- key: self
+  emoji: 🪞
+  name: 冬她自己
+  desc: 写给自己的话：回忆、长大、想不通又想通的事。
+
+- key: songs
+  emoji: 🎧
+  name: 冬的歌单
+  desc: 整面唱片墙：我存的歌词、翻译过的歌、文章和故事里提到的歌。
+
+- key: story
+  emoji: 📖
+  name: 冬的故事
+  desc: 我编的故事，从中学写到现在。
+
+- key: young
+  emoji: 📒
+  name: 冬还年少
+  desc: 2016—2017，中学时写在周记本里的字，后来一篇篇搬上博客。
+  paper: true
+
+# 「冬的笔记」（2026-10-01 加的第六格）已在 2026-10-03 全站新排法时搬出去，单独成了顶上的 📝 Notes 一格：
+# 封面在 _includes/notebooks.html，页面 _pages/notes/index.html。别再把笔记本加回这里。

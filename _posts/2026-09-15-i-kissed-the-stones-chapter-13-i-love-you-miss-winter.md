@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 13 · 我爱您，Winter 小姐 — I Kissed the Stones"
+title: "Chapter 14 · 我爱您，Winter 小姐 — I Kissed the Stones"
 date: 2026-09-15 23:19:51 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 怅惘, 思念]
@@ -10,7 +10,7 @@ series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 14
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 13"
+chapter_type: "Chapter 14"
 summary: "他把你的名字写下来了，还是没有叫出口。所以你翻了窗。"
 redirect_from:
   - /2026/10/19/i-kissed-the-stones-chapter-13-i-love-you-miss-winter/

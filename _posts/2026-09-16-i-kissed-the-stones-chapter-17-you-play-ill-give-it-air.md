@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 17 · 您弹您的，气我来 — I Kissed the Stones"
+title: "Chapter 18 · 您弹您的，气我来 — I Kissed the Stones"
 date: 2026-09-16 12:07:36 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 悸动, 安放]
@@ -10,7 +10,7 @@ series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 18
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 17"
+chapter_type: "Chapter 18"
 summary: "神父，这个镇子上有一个人会弹这台琴。"
 redirect_from:
   - /2026/10/23/i-kissed-the-stones-chapter-17-you-play-ill-give-it-air/
