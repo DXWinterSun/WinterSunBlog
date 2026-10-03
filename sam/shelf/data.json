@@ -819,6 +819,45 @@
       "wish": 0,
       "id": "muijh5fn-r5ik6",
       "added": 1790436184259
+    },
+    {
+      "name": "《致命一击》原著",
+      "type": "book",
+      "spec": "精装 · FSG 1996 · 初版首刷",
+      "charId": "johnmoon",
+      "date": "2026-04-04",
+      "note": "孔夫子收的，当时只是觉得封面好看，结果是初版首刷！高铁上带着读，荧光笔划满了生词",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muslf99z-cyast",
+      "added": 1791044116919
+    },
+    {
+      "name": "《雪天使》原著",
+      "type": "book",
+      "spec": "平装 · Picador 2008 · 电影海报封面 · 全新",
+      "charId": "glenn",
+      "date": "2026-04-04",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muslf9a0-qmovt",
+      "added": 1791044116920
+    },
+    {
+      "name": "《三块广告牌》剧本",
+      "type": "book",
+      "spec": "平装 · Faber 2017 · 全新",
+      "charId": "dixon",
+      "date": "2026-04-04",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muslf9a1-g4ovt",
+      "added": 1791044116921
     }
   ]
 }
