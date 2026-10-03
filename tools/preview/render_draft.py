@@ -732,6 +732,94 @@ blockquote p:last-child{margin-bottom:0}
   text-transform: uppercase;
   color: #2f6b4f;
 }
+/* 粉红留言便笺 c-check--memo（While You Were Out）—— 2026-10-03 Frank IF 线第三篇。
+   办公室接电话用的那种：粉纸、红字印的表格和勾选框，其余蓝圆珠笔手写。顶上是便笺本的胶边，没有订书钉。
+   勾选框 .c-check__box，勾上的加 .is-on（勾是笔画出来的）；.c-check__push 把同一行后半截推到右边。 */
+.c-check--memo {
+  width: 296px;
+  padding: 16px 18px 14px;
+  background: #f8d7dd;
+  color: #3a1f25;
+  transform: rotate(1.4deg);
+}
+.c-check--memo::before {
+  top: 0;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, rgba(150,40,62,.28) 0 2px, transparent 2px 5px);
+}
+.c-check--memo::after {
+  display: none;
+}
+.c-check--memo .c-check__form,
+.c-check--memo .c-check__label {
+  color: #a3243b;
+}
+.c-check--memo .c-check__form {
+  margin: 8px 0 2px;
+  text-align: left;
+}
+.c-check--memo .c-check__form:first-child {
+  margin: 0;
+  text-align: center;
+}
+.c-check--memo .c-check__title {
+  margin: 0 0 6px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #a3243b;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  color: #a3243b;
+}
+.c-check--memo .c-check__row {
+  border-bottom-color: rgba(163,36,59,.3);
+}
+.c-check--memo .c-check__hand {
+  font-size: 20px;
+}
+.c-check__push {
+  margin-left: auto;
+}
+.c-check__boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 10px;
+  margin: 9px 0 2px;
+}
+.c-check__box {
+  position: relative;
+  padding-left: 16px;
+  font-family: 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 8.5px;
+  letter-spacing: .1em;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: #a3243b;
+}
+.c-check__box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #a3243b;
+}
+.c-check__box.is-on::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: -3px;
+  width: 5px;
+  height: 12px;
+  border: solid #23409a;
+  border-width: 0 2.4px 2.4px 0;
+  border-radius: 0 0 2px 0;
+  transform: rotate(38deg);
+}
 /* c-comm —— 设备屏幕上的通讯记录（飞船通讯板 / 终端）。屏幕恒为暗，不随主题翻转。*/
 .c-comm{max-width:29rem;margin:2.6rem auto;border-radius:10px;overflow:hidden;
  border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);

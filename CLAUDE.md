@@ -2287,6 +2287,10 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 </div>
 ```
 
+**粉红留言便笺变体 `c-check--memo`**（2026-10-03，IF 线第三篇）：办公室接电话用的 While You Were Out 便笺——粉纸、红字印的表格，没有订书钉、顶上一道便笺本胶边。
+多两样零件：`c-check__title`（印的大抬头）、`c-check__boxes` 里一排 `c-check__box` 勾选框（勾上的加 `is-on`，勾是笔画的）；`c-check__push` 把同一行后半截推到右边（Date … Time）。
+写法照 `.claude/bibles/the-real-thing-revised/if-roy-years-ch3.md` 里那张抄。
+
 ⭐ **通用原则（Winter 两次批注定下的）：凡是「实物」卡片，印刷的部分用印刷体、手写的部分用手写体，分得开才像真的。**
 做新的实物卡片时先想清楚：这件东西上哪些字是印好的、哪些是人拿笔写上去的。
 
@@ -2301,6 +2305,7 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 | 章首纪念物：卡带 / 冰箱门便利贴 / 演出传单 / 拍立得 | `c-cassette` / `c-fridge` / `c-flyer` / `c-polaroid` |
 | 名片（正面印的、背面手写的，两面都给读者看） | `c-bizcard` |
 | 外卖单 / 点菜单 / 收据（印好的表格上手写了菜名和价钱） | `c-check` |
+| 电话留言便笺（While You Were Out，粉纸红字＋勾选框） | `c-check c-check--memo` |
 
 ### 判断 formal 还是 note
 
