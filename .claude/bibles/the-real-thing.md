@@ -1820,7 +1820,7 @@ Winter 一眼驳回：「谁看到这个标题能知道这篇写的是什么啊�
 **第二轮岔路**（同一个提案页链接，等她挑）：第二篇写哪场（⭐A 你偏要去他的黑屋子 / B Musso & Frank 开屏 / C 他扛着真滤水器来换）·
 外婆（⭐A 他的同伙，背着你通风报信 / B 专拆他的台 / C 点到为止）· 你的工作（⭐A 录像带出租店 / B 银行柜员 / C 通宵餐馆服务生）。
 
-**原片可用的料**（已核实）：短局＝打电话说中了大奖（雪佛兰、巴黎），先买一台贵得离谱的滤水器；收尾假扮联邦探员上门「追回损失」、拿到银行账户。
+**原片可用的料**（已核实）：短局＝打电话说中了大奖（雪佛兰、巴黎），先买一台滤水器（片中报价「三百九十八块整」，有位太太被骗了七百；五金店里只值五十块上下——Winter 核过：**四十九块九**，IF 1 照此写）；收尾假扮联邦探员上门「追回损失」、拿到银行账户。
 「You got money. You can retire. I got car payments, man.」「I'd just like to, you know, take a girl out somewhere nice once in a while.」
 「Chicks dig it.」（那顶卷边帽）；片子后半那条大鱼是他在 Spearmint Rhino 撞见的（「Watched him drop a couple G's there」）。
 Roy：强迫症＋抽动、地毯、开门数三下、怕阳光直射、吃药。
