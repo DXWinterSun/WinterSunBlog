@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>冬的备忘本 · Winter Sun</title>
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Winter 自己的备忘本：灵感、Sam、工作、生活，分页记着，桌面小组件同步显示。">
+<meta name="description" content="Winter 的备忘本：生活所迫、喜欢的事、日更素材，三页；每一条带备注和一笔笔进度。">
 <meta name="theme-color" content="#eff6fb">
 <meta name="apple-mobile-web-app-title" content="备忘本">
 <link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
@@ -16,19 +15,19 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Special+Elite&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/WinterSunBlog/css/theme-picker.css">
 <style>
-  /* ————— 冬的备忘本 · Winter's Memo —————
-     数据：仓库 memo 分支上的 memo.json（不在 main 上——放 main 的话每改一条都要整站重建）。
-     读写都走 GitHub contents API，钥匙存本机 localStorage：先找 ws-memo-key，
-     没有就借藏品架那把 ws-sam-shelf-key（同一个网站，她在手机上早就贴过）。
-     改动先落本机（ws-memo-draft），1 秒后自动送出；送出前总是先取最新的一份、
-     按条目合并（谁的 updated 新听谁的、gone 里记着删掉的），所以她在手机上改、
-     Claude 在对话里改（tools/memo/memo.py），两边不会互相盖掉。
-     桌面小组件：memo/widget/winter-memo.js（Scriptable），读的是同一份。
+  /* ————— 冬的备忘本 · Winter's Memo（只读）—————
+     2026-10-03 Winter：「线上就别编辑了，我想只能从你这改，这样不涉及 token 之类的」。
+     所以这一页只看不改：没有钥匙、没有输入框。要加、要改、要划掉，都在 Claude Code 的
+     对话里跟 Claude 说，由 tools/memo/memo.py 写进仓库 memo 分支上的 memo.json。
+     这页从 GitHub 的公开接口直接读那一份（不用登录），读不到就先显示本机上次存下的
+     （localStorage 键 ws-memo-cache）。入口在 Winter's › 冬的笔记 那一格的笔记本封面。
+     桌面小组件 memo/widget/winter-memo.js 读的也是同一份，点一下小组件就开到这一页。
      配色跟全站「换个心情」走（theme-picker），各页自己的颜色只用在圆圈和数字上。 */
   :root {
     --page: #3D80C2;
     --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
     --serif: 'EB Garamond', Georgia, 'Times New Roman', 'Noto Serif SC', 'Songti SC', serif;
+    --cnserif: 'Noto Serif SC', 'Songti SC', serif;
     --shadow: 0 1px 2px rgba(var(--rgb-shadow), .06), 0 8px 24px -12px rgba(var(--rgb-shadow), .18);
   }
   html, body { margin: 0; padding: 0; }
@@ -43,12 +42,11 @@
     -webkit-tap-highlight-color: transparent;
     padding: max(14px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom));
   }
-  button, input, textarea { font: inherit; color: inherit; }
-  button { cursor: pointer; }
+  button { font: inherit; color: inherit; cursor: pointer; }
   a { color: inherit; }
   .wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
 
-  /* 顶栏：回博客 · 设置 · 换心情 · 昼夜（跟全站站头那几颗一模一样的小圆钮） */
+  /* 顶栏：回 Winter's · 换心情 · 昼夜（跟全站站头那两颗一模一样的小圆钮） */
   .topbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .back { font-family: var(--serif); font-size: 14px; color: var(--c-muted); text-decoration: none; letter-spacing: .5px; }
   .back:hover { color: var(--c-ink); }
@@ -58,13 +56,10 @@
     display: inline-flex; align-items: center; justify-content: center;
     border: 1px solid var(--c-line); border-radius: 999px; background: transparent;
     color: var(--c-ink-soft); line-height: 1; font-size: 16px;
-    transition: border-color .25s ease, color .25s ease, background-color .25s ease, transform .25s ease;
+    transition: border-color .25s ease, background-color .25s ease, transform .25s ease;
   }
-  .iconbtn:hover { border-color: color-mix(in srgb, var(--c-accent) 55%, transparent); color: var(--c-accent); background-color: rgba(var(--rgb-accent), .06); }
-  .iconbtn--moon:hover, .iconbtn--gear:hover { transform: rotate(20deg); }
-  .iconbtn svg { width: 17px; height: 17px; }
+  .iconbtn:hover { border-color: color-mix(in srgb, var(--c-accent) 55%, transparent); background-color: rgba(var(--rgb-accent), .06); transform: rotate(20deg); }
 
-  /* 抬头 */
   .head { text-align: center; margin: 26px 0 18px; }
   .head__eyebrow {
     display: flex; align-items: center; justify-content: center; gap: 9px;
@@ -76,14 +71,11 @@
     margin: 0; font-family: var(--serif); font-weight: 500; font-style: italic;
     font-size: clamp(34px, 9vw, 46px); letter-spacing: .5px; line-height: 1.05;
   }
-  .head h1 b { font-style: normal; font-weight: 500; font-family: 'Noto Serif SC', 'Songti SC', serif; font-size: .5em; letter-spacing: 4px; display: block; margin-top: 8px; color: var(--c-ink-soft); }
+  .head h1 b { font-style: normal; font-weight: 500; font-family: var(--cnserif); font-size: .5em; letter-spacing: 4px; display: block; margin-top: 8px; color: var(--c-ink-soft); }
   .status { margin-top: 12px; font-size: 12.5px; color: var(--c-muted); min-height: 18px; }
   .status i { font-style: normal; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--c-muted-soft); margin-right: 6px; vertical-align: 1px; }
   .status.is-ok i { background: var(--c-status-green); }
-  .status.is-saving i { background: var(--c-accent); animation: blink 1s ease-in-out infinite; }
   .status.is-off i { background: var(--c-status-red); }
-  .status button { border: 0; background: none; padding: 0 0 0 6px; color: var(--c-accent); text-decoration: underline dotted; text-underline-offset: 3px; }
-  @keyframes blink { 50% { opacity: .25; } }
 
   /* 页签：一页一颗，带条数；跟下面左右滑动的页面联动 */
   .tabs {
@@ -98,7 +90,7 @@
     flex: 1 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 5px;
     padding: 8px 9px; border-radius: 999px; border: 1px solid var(--c-line);
     background: var(--c-paper); color: var(--c-ink-soft); font-size: 14px; white-space: nowrap;
-    transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .15s ease;
+    transition: border-color .2s ease, color .2s ease, transform .15s ease;
   }
   .tab:active { transform: scale(.96); }
   .tab__n { font-family: var(--serif); font-size: 15px; color: var(--tab-c); min-width: 9px; }
@@ -108,194 +100,79 @@
   .pager {
     display: flex; overflow-x: auto; overflow-y: hidden;
     scroll-snap-type: x mandatory; scrollbar-width: none;
-    margin: 4px -16px 0; overscroll-behavior-x: contain;
-    align-items: flex-start;
+    margin: 4px -16px 0; overscroll-behavior-x: contain; align-items: flex-start;
   }
   .pager::-webkit-scrollbar { display: none; }
   .panel { flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; padding: 6px 16px 10px; min-width: 0; }
-  .sheetcard {
-    background: var(--c-paper); border: 1px solid var(--c-line); border-radius: 18px;
-    box-shadow: var(--shadow); overflow: hidden;
-  }
-  .sheetcard__band { height: 6px; background: var(--page); }
-  .sheetcard__in { padding: 14px 16px 10px; }
-  .panel__head { display: flex; align-items: baseline; gap: 8px; }
-  .panel__title { font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 600; font-size: 19px; }
+  .card { background: var(--c-paper); border: 1px solid var(--c-line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; }
+  .card__band { height: 6px; background: var(--page); }
+  .card__in { padding: 14px 16px 8px; }
+  .panel__head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+  .panel__title { font-family: var(--cnserif); font-weight: 600; font-size: 19px; white-space: nowrap; }
   .panel__hint { font-size: 12.5px; color: var(--c-muted); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .panel__n { font-family: var(--serif); font-size: 26px; color: var(--page); line-height: 1; }
 
-  .add { display: flex; gap: 8px; margin: 12px 0 4px; }
-  .add input {
-    flex: 1; min-width: 0; border: 1px solid var(--c-line); background: var(--c-bg-soft);
-    border-radius: 12px; padding: 11px 13px; font-size: 16px; outline: none;
-    transition: border-color .2s ease, background-color .2s ease;
-  }
-  .add input:focus { border-color: var(--page); background: var(--c-paper); }
-  .add input::placeholder { color: var(--c-muted-soft); }
-  .add button {
-    flex: 0 0 44px; border: 0; border-radius: 12px; background: var(--page); color: #fff;
-    font-size: 22px; line-height: 1; transition: transform .15s ease, opacity .2s ease;
-  }
-  .add button:active { transform: scale(.92); }
-
   .list { list-style: none; margin: 0; padding: 0; }
-  .it { display: flex; align-items: flex-start; gap: 10px; padding: 11px 0; border-top: 1px solid var(--c-line); }
+  .it { border-top: 1px solid var(--c-line); }
   .it:first-child { border-top: 0; }
-  .it__check {
-    flex: 0 0 26px; width: 26px; height: 26px; margin-top: -1px; padding: 0; border: 0; background: none;
-    display: inline-flex; align-items: center; justify-content: center; color: var(--page);
+  .it > button {
+    display: flex; align-items: flex-start; gap: 10px; width: 100%;
+    padding: 12px 0; border: 0; background: none; text-align: left;
   }
-  .it__check svg { width: 22px; height: 22px; overflow: visible; }
-  .it__check .ring { fill: none; stroke: currentColor; stroke-width: 1.6; opacity: .75; transition: opacity .2s ease; }
-  .it__check .fill { fill: currentColor; transform-origin: 12px 12px; transform: scale(0); transition: transform .25s cubic-bezier(.3,1.6,.5,1); }
-  .it__check .tick { fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 14; stroke-dashoffset: 14; transition: stroke-dashoffset .25s ease .12s; }
-  .it.is-done .it__check .fill { transform: scale(1); }
-  .it.is-done .it__check .tick { stroke-dashoffset: 0; }
-  .it__main { flex: 1; min-width: 0; padding: 1px 0 0; border: 0; background: none; text-align: left; }
-  .it__text { display: block; font-size: 16px; line-height: 1.45; word-break: break-word; transition: color .25s ease; }
+  .it__dot { flex: 0 0 18px; width: 18px; height: 18px; margin-top: 2px; border-radius: 50%; border: 1.6px solid var(--page); opacity: .8; position: relative; }
+  .it.is-pin .it__dot { border: 0; opacity: 1; }
+  .it.is-pin .it__dot::before { content: "★"; position: absolute; inset: -3px 0 0; text-align: center; font-size: 17px; line-height: 1; color: var(--c-gold); }
+  .it.is-done .it__dot { background: var(--page); opacity: .55; }
+  .it.is-done .it__dot::after { content: ""; position: absolute; left: 5px; top: 2px; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  .it__main { flex: 1; min-width: 0; }
+  .it__text { display: block; font-size: 16px; line-height: 1.45; word-break: break-word; }
   .it.is-done .it__text { color: var(--c-muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--page) 70%, transparent); }
   .it__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 3px; font-size: 12px; color: var(--c-muted); }
   .it__meta:empty { display: none; }
+  .it__more { flex: 0 0 auto; align-self: center; color: var(--c-muted-soft); font-size: 15px; }
   .chip { display: inline-flex; align-items: center; gap: 3px; padding: 1px 7px; border-radius: 999px; background: rgba(var(--rgb-accent), .08); color: var(--c-ink-soft); }
   .chip--hot { background: color-mix(in srgb, var(--c-status-red) 14%, transparent); color: var(--c-status-red); }
-  .chip--pin { background: color-mix(in srgb, var(--page) 15%, transparent); color: var(--c-ink-soft); }
-  .it__note { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
-  .it__peek { flex-basis: 100%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--c-ink-soft); }
-  .it__peek time { color: var(--c-muted); margin-right: 5px; font-variant-numeric: tabular-nums; }
-  .it.is-leaving { animation: leave .38s ease forwards .3s; }
-  @keyframes leave { to { opacity: 0; transform: translateX(14px); } }
+  .peek { flex-basis: 100%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--c-ink-soft); }
+  .peek time { color: var(--c-muted); margin-right: 5px; font-variant-numeric: tabular-nums; }
 
-  .empty { text-align: center; padding: 22px 0 18px; color: var(--c-muted); font-size: 13.5px; line-height: 1.8; }
+  .empty { list-style: none; text-align: center; padding: 22px 0 18px; color: var(--c-muted); font-size: 13.5px; line-height: 1.8; }
   .empty b { display: block; font-size: 26px; margin-bottom: 2px; font-weight: 400; }
-
-  .donebar { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; padding: 10px 0 2px; border-top: 1px dashed var(--c-line-strong); }
+  .donebar { margin-top: 2px; padding: 8px 0 4px; border-top: 1px dashed var(--c-line-strong); }
   .donebar button { border: 0; background: none; padding: 4px 0; font-size: 13px; color: var(--c-muted); }
-  .donebar .clear { color: var(--c-status-red); opacity: .8; }
-  .donelist .it { padding: 8px 0; }
+  .donelist .it > button { padding: 8px 0; }
   .donelist .it__text { font-size: 14.5px; }
 
   .foot { text-align: center; margin: 26px 0 0; font-size: 13px; color: var(--c-muted); line-height: 2; }
   .foot a { color: var(--c-accent); text-decoration: none; border-bottom: 1px dotted currentColor; }
   .foot small { display: block; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--c-muted-soft); margin-top: 18px; }
 
-  /* 上锁的时候 */
-  .lock { margin: 10px auto 0; max-width: 420px; text-align: center; padding: 26px 22px 22px; }
-  .lock__icon { font-size: 34px; }
-  .lock p { color: var(--c-ink-soft); font-size: 14.5px; line-height: 1.75; margin: 10px 0 16px; }
-  .lock p small { display: block; color: var(--c-muted); font-size: 12.5px; margin-top: 6px; }
-  .lock form { display: flex; gap: 8px; }
-  .lock input { flex: 1; min-width: 0; border: 1px solid var(--c-line); background: var(--c-bg-soft); border-radius: 12px; padding: 11px 13px; font-size: 15px; outline: none; }
-  .lock input:focus { border-color: var(--c-accent); }
-  .lock button { border: 0; border-radius: 12px; padding: 0 18px; background: var(--c-accent); color: #fff; }
-  .lock__err { color: var(--c-status-red); font-size: 13px; min-height: 20px; margin-top: 10px; }
-
-  /* 底部弹出的表单（改一条 / 设置） */
+  /* 点开一条：从底下升起来的一张纸，只看 */
   .veil { position: fixed; inset: 0; z-index: 40; background: rgba(var(--rgb-shadow), .32); opacity: 0; transition: opacity .25s ease; }
   .veil.is-on { opacity: 1; }
   .sheet {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 41;
-    max-height: 88dvh; overflow-y: auto; overscroll-behavior: contain;
+    max-height: 86dvh; overflow-y: auto; overscroll-behavior: contain;
     background: var(--c-paper); border-radius: 22px 22px 0 0;
-    padding: 10px 18px max(20px, env(safe-area-inset-bottom));
+    padding: 10px 20px max(22px, env(safe-area-inset-bottom));
     box-shadow: 0 -10px 40px -10px rgba(var(--rgb-shadow), .35);
     transform: translateY(105%); transition: transform .3s cubic-bezier(.2,.9,.3,1);
     max-width: 640px; margin: 0 auto;
   }
   .sheet.is-on { transform: translateY(0); }
-  .sheet__grip { width: 38px; height: 5px; border-radius: 3px; background: var(--c-line-strong); margin: 0 auto 12px; }
-  .sheet h2 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 600; font-size: 17px; margin: 0 0 12px; }
-  .sheet h3 { font-size: 12.5px; font-weight: 500; color: var(--c-muted); letter-spacing: 1px; margin: 18px 0 8px; }
-  .sheet h3 small { font-size: 11.5px; letter-spacing: 0; color: var(--c-muted-soft); font-weight: 400; margin-left: 4px; }
-  .ed-crumb { font-size: 12.5px; color: var(--c-muted); margin: 0 0 8px; }
-  .field--title { font-size: 17px; font-weight: 600; }
-  .logadd { display: flex; gap: 8px; }
-  .logadd input { flex: 1; min-width: 0; border: 1px solid var(--c-line); background: var(--c-bg-soft); border-radius: 12px; padding: 10px 12px; font-size: 16px; outline: none; }
-  .logadd input:focus { border-color: var(--c-accent); background: var(--c-paper); }
-  .logadd button { border: 0; border-radius: 12px; padding: 0 16px; background: var(--c-accent); color: #fff; font-size: 14.5px; }
-  .log { list-style: none; margin: 10px 0 0; padding: 0 0 0 14px; border-left: 2px solid var(--c-line); display: grid; gap: 10px; }
-  .log:empty { display: none; }
-  .log li { position: relative; display: flex; gap: 10px; align-items: baseline; font-size: 14.5px; line-height: 1.55; color: var(--c-ink-soft); }
+  .sheet__grip { width: 38px; height: 5px; border-radius: 3px; background: var(--c-line-strong); margin: 0 auto 14px; }
+  .d-crumb { font-size: 12.5px; color: var(--c-muted); }
+  .d-title { font-family: var(--cnserif); font-weight: 600; font-size: 20px; line-height: 1.45; margin: 6px 0 4px; word-break: break-word; }
+  .d-chips { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12.5px; }
+  .sheet h3 { font-size: 12.5px; font-weight: 500; color: var(--c-muted); letter-spacing: 1px; margin: 20px 0 8px; }
+  .d-note { margin: 0; font-size: 15px; line-height: 1.85; color: var(--c-ink-soft); white-space: pre-wrap; word-break: break-word; }
+  .log { list-style: none; margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--c-line); display: grid; gap: 10px; }
+  .log li { position: relative; display: flex; gap: 10px; align-items: baseline; font-size: 14.5px; line-height: 1.6; color: var(--c-ink-soft); }
   .log li::before { content: ""; position: absolute; left: -20px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--c-paper); border: 2px solid var(--c-accent); }
   .log li:first-child::before { background: var(--c-accent); }
   .log time { flex: 0 0 auto; font-size: 12px; color: var(--c-muted); font-variant-numeric: tabular-nums; min-width: 34px; }
   .log span { flex: 1; min-width: 0; word-break: break-word; }
-  .log button { flex: 0 0 auto; border: 0; background: none; color: var(--c-muted-soft); padding: 0 2px; font-size: 13px; }
-  .field {
-    display: block; width: 100%; border: 1px solid var(--c-line); background: var(--c-bg-soft);
-    border-radius: 12px; padding: 11px 13px; font-size: 16px; outline: none; resize: none; line-height: 1.5;
-  }
-  .field:focus { border-color: var(--c-accent); background: var(--c-paper); }
-  textarea.field { min-height: 52px; }
-  .field--note { font-size: 15px; min-height: 96px; }
-  .pills { display: flex; flex-wrap: wrap; gap: 6px; }
-  .pill {
-    border: 1px solid var(--c-line); background: var(--c-bg-soft); border-radius: 999px;
-    padding: 7px 12px; font-size: 14px; color: var(--c-ink-soft);
-  }
-  .pill.is-on { border-color: var(--pill-c, var(--c-accent)); box-shadow: inset 0 0 0 1px var(--pill-c, var(--c-accent)); color: var(--c-ink); background: var(--c-paper); }
-  .duerow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-  .duerow input[type=date] { border: 1px solid var(--c-line); background: var(--c-bg-soft); border-radius: 999px; padding: 6px 12px; font-size: 14px; min-height: 36px; }
-  .sheet__actions { display: flex; gap: 10px; margin-top: 22px; align-items: center; }
-  .btn { border: 0; border-radius: 12px; padding: 12px 18px; font-size: 15px; }
-  .btn--main { background: var(--c-accent); color: #fff; flex: 1; }
-  .btn--soft { background: var(--c-bg-soft); border: 1px solid var(--c-line); }
-  .btn--danger { background: none; color: var(--c-status-red); padding-left: 4px; padding-right: 4px; }
-
-  /* 设置里的样式卡：三张小组件缩样 */
-  .styles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .stycard { border: 0; background: none; padding: 0; text-align: center; font-size: 13px; color: var(--c-ink-soft); }
-  .stycard__w {
-    display: block; aspect-ratio: 1; border-radius: 18px; padding: 10px 10px 8px; text-align: left;
-    box-shadow: 0 0 0 1px rgba(var(--rgb-shadow), .08), 0 6px 16px -10px rgba(var(--rgb-shadow), .4);
-    position: relative; overflow: hidden; margin-bottom: 7px; transition: transform .15s ease, box-shadow .2s ease;
-  }
-  .stycard.is-on .stycard__w { box-shadow: 0 0 0 2.5px var(--c-accent), 0 6px 16px -10px rgba(var(--rgb-shadow), .4); }
-  .stycard.is-on { color: var(--c-ink); font-weight: 600; }
-  .stycard:active .stycard__w { transform: scale(.96); }
-  .sw-h { display: flex; justify-content: space-between; align-items: baseline; font-size: 10px; font-weight: 600; margin-bottom: 5px; }
-  .sw-h em { font-style: normal; font-family: Georgia, serif; font-weight: 400; font-size: 14px; }
-  .sw-r { display: flex; align-items: center; gap: 4px; font-size: 8.5px; line-height: 1; padding: 3.5px 0; white-space: nowrap; overflow: hidden; }
-  .sw-r i { flex: 0 0 7px; height: 7px; border-radius: 50%; border: 1.2px solid currentColor; }
-  .sw--paper { background: #FBF7EF; color: #3A2F27; padding-top: 14px; }
-  .sw--paper::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: #D9962E; }
-  .sw--paper .sw-h em, .sw--paper .sw-r i { color: #D9962E; }
-  .sw--paper .sw-r { border-top: 1px solid #ECE3D3; }
-  .sw--native { background: #fff; color: #000; }
-  .sw--native .sw-h { color: #D9962E; font-size: 11px; }
-  .sw--native .sw-h em { color: #000; font-family: inherit; font-weight: 700; font-size: 15px; }
-  .sw--native .sw-r { font-size: 9.5px; padding: 4.5px 0; }
-  .sw--native .sw-r i { flex-basis: 10px; height: 10px; color: #C7C7CC; }
-  .sw--snow { background: #EAF3FA; color: #14212E; }
-  .sw--snow .sw-h em, .sw--snow .sw-r i { color: #3F9ECB; }
-
-  .pagerow { display: flex; align-items: center; gap: 6px; padding: 7px 0; border-top: 1px solid var(--c-line); }
-  .pagerow:first-child { border-top: 0; }
-  .pagerow input { border: 1px solid var(--c-line); background: var(--c-bg-soft); border-radius: 10px; padding: 8px 9px; font-size: 15px; outline: none; min-width: 0; }
-  .pagerow input:focus { border-color: var(--c-accent); }
-  .pagerow .emo { width: 46px; text-align: center; flex: 0 0 46px; }
-  .pagerow .nm { flex: 1; }
-  .pagerow .dotbtn { flex: 0 0 26px; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--c-paper); box-shadow: 0 0 0 1px var(--c-line-strong); padding: 0; }
-  .pagerow .mini { flex: 0 0 30px; height: 30px; border: 1px solid var(--c-line); border-radius: 9px; background: none; padding: 0; color: var(--c-muted); font-size: 13px; }
-  .pagerow .mini:disabled { opacity: .3; }
-  .colors { display: flex; gap: 8px; flex-wrap: wrap; padding: 6px 0 4px 52px; }
-  .colors button { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--c-paper); box-shadow: 0 0 0 1px var(--c-line-strong); padding: 0; }
-  .colors button.is-on { box-shadow: 0 0 0 2px var(--c-ink); }
-  .addpage { margin-top: 8px; border: 1px dashed var(--c-line-strong); background: none; border-radius: 12px; padding: 10px; width: 100%; color: var(--c-muted); font-size: 14px; }
-  .keyinfo { font-size: 13.5px; color: var(--c-ink-soft); line-height: 1.7; }
-  .keyinfo button { border: 0; background: none; padding: 0; color: var(--c-accent); text-decoration: underline dotted; text-underline-offset: 3px; margin-right: 12px; }
-  .setnote { font-size: 12.5px; color: var(--c-muted); line-height: 1.7; margin: 8px 0 0; }
-
-  .toast {
-    position: fixed; left: 50%; bottom: max(22px, env(safe-area-inset-bottom)); z-index: 60;
-    transform: translateX(-50%) translateY(16px); opacity: 0; pointer-events: none;
-    background: var(--c-ink); color: var(--c-bg); border-radius: 999px; padding: 10px 16px;
-    font-size: 14px; display: flex; align-items: center; gap: 12px; white-space: nowrap;
-    max-width: calc(100vw - 32px); transition: opacity .25s ease, transform .25s ease;
-    box-shadow: 0 10px 30px -10px rgba(var(--rgb-shadow), .5);
-  }
-  .toast.is-on { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
-  .toast span { overflow: hidden; text-overflow: ellipsis; }
-  .toast button { border: 0; background: none; color: var(--c-accent-soft); font-weight: 600; padding: 0; flex: 0 0 auto; }
+  .d-blank { margin: 18px 0 0; font-size: 13.5px; color: var(--c-muted); line-height: 1.8; }
+  .d-close { display: block; width: 100%; margin-top: 24px; border: 1px solid var(--c-line); background: var(--c-bg-soft); border-radius: 12px; padding: 12px; font-size: 15px; }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -315,376 +192,125 @@
 <div class="wrap">
 
   <div class="topbar">
-    <a class="back" href="/WinterSunBlog/">← 回博客</a>
+    <a class="back" href="/WinterSunBlog/?cat=winters#wn-notes">← 回 Winter&rsquo;s</a>
     <span class="topbar__right">
-      <button type="button" class="iconbtn iconbtn--gear" id="set-btn" title="设置" aria-label="设置" hidden>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-      </button>
       <button class="c-palette-trigger" type="button" id="js-palette-trigger"
               aria-label="换个心情 · 配色主题" title="换个心情" data-baseurl="/WinterSunBlog">
         <svg class="c-palette-trigger__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
         </svg>
       </button>
-      <button type="button" class="iconbtn iconbtn--moon" id="mode-btn" title="白天 / 夜里" aria-label="白天或夜里"></button>
+      <button type="button" class="iconbtn" id="mode-btn" title="白天 / 夜里" aria-label="白天或夜里"></button>
     </span>
   </div>
 
   <div class="head">
     <span class="head__eyebrow"><i></i>Kept by Winter Sun<i></i></span>
     <h1>Winter&rsquo;s Memo<b>冬的备忘本</b></h1>
-    <div class="status" id="status"></div>
+    <div class="status" id="status"><i></i>正在取……</div>
   </div>
 
-  <div id="lock" class="sheetcard lock" hidden>
-    <div class="lock__icon">🔒</div>
-    <p id="lock-msg">这本备忘本是上了锁的。<small>把 GitHub 钥匙贴在下面就能打开——藏品架用的那把就行。钥匙只存在这台手机上。</small></p>
-    <form id="lock-form" autocomplete="off">
-      <input id="lock-input" type="password" placeholder="github_pat_……" autocomplete="off" spellcheck="false">
-      <button type="submit">打开</button>
-    </form>
-    <div class="lock__err" id="lock-err"></div>
-  </div>
+  <nav class="tabs" id="tabs" aria-label="页"></nav>
+  <div class="pager" id="pager"></div>
 
-  <div id="app" hidden>
-    <nav class="tabs" id="tabs" aria-label="页"></nav>
-    <div class="pager" id="pager"></div>
-    <div class="foot">
-      <a href="/WinterSunBlog/memo/widget/">桌面小组件怎么装 →</a><br>
-      在对话里跟 Claude 说「记一下……」也能直接写进来
-      <small>a small notebook, kept by 冬璇</small>
-    </div>
+  <div class="foot">
+    想加、想改、想划掉：在 Claude Code 的对话里说一声就行<br>
+    <a href="/WinterSunBlog/memo/widget/">桌面小组件怎么装 →</a>
+    <small>a small notebook, kept by 冬璇</small>
   </div>
 
 </div>
 
-<!-- 改一条 -->
 <div class="veil" id="veil" hidden></div>
-<div class="sheet" id="edit" role="dialog" aria-modal="true" aria-label="这一条" hidden>
+<div class="sheet" id="detail" role="dialog" aria-modal="true" aria-labelledby="d-title" hidden>
   <div class="sheet__grip"></div>
-  <div class="ed-crumb" id="ed-crumb"></div>
-  <textarea class="field field--title" id="ed-text" rows="1" placeholder="要记的事"></textarea>
-  <h3>备注 <small>想法、跟 Claude 讨论定下来的东西、链接（桌面上不显示）</small></h3>
-  <textarea class="field field--note" id="ed-note" rows="4" placeholder="比如：想做成三分钟以内，配中英字幕；素材先从 2008 年那场采访里挑……"></textarea>
-  <h3>进度 <small id="ed-logn"></small></h3>
-  <form class="logadd" id="ed-logform" autocomplete="off">
-    <input type="text" id="ed-loginput" placeholder="今天做到哪了……" enterkeyhint="done">
-    <button type="submit">记下</button>
-  </form>
-  <ol class="log" id="ed-log"></ol>
-  <h3>放在哪一页</h3>
-  <div class="pills" id="ed-pages"></div>
-  <h3>哪天要办（可以不填）</h3>
-  <div class="duerow">
-    <input type="date" id="ed-due">
-    <button type="button" class="pill" data-due="0">今天</button>
-    <button type="button" class="pill" data-due="1">明天</button>
-    <button type="button" class="pill" data-due="">不设</button>
-  </div>
-  <h3>排在最上面</h3>
-  <div class="pills"><button type="button" class="pill" id="ed-pin">★ 置顶</button><button type="button" class="pill" id="ed-top">挪到这一页最前面</button></div>
-  <div class="sheet__actions">
-    <button type="button" class="btn btn--danger" id="ed-del">删掉</button>
-    <span style="flex:1"></span>
-    <button type="button" class="btn btn--soft" id="ed-cancel">不改了</button>
-    <button type="button" class="btn btn--main" id="ed-ok" style="flex:0 0 96px">存好</button>
-  </div>
+  <div class="d-crumb" id="d-crumb"></div>
+  <div class="d-title" id="d-title"></div>
+  <div class="d-chips" id="d-chips"></div>
+  <div id="d-body"></div>
+  <button type="button" class="d-close" id="d-close">关上</button>
 </div>
-
-<!-- 设置 -->
-<div class="sheet" id="settings" role="dialog" aria-modal="true" aria-label="设置" hidden>
-  <div class="sheet__grip"></div>
-  <h2>设置</h2>
-  <h3>桌面小组件的样子</h3>
-  <div class="styles" id="styles">
-    <button type="button" class="stycard" data-style="paper">
-      <span class="stycard__w sw--paper"><span class="sw-h">❣️ 喜欢的事<em>3</em></span><span class="sw-r"><i></i>Sam 采访合集</span><span class="sw-r"><i></i>初雪拍个 vlog</span><span class="sw-r"><i></i>冬日歌单封面</span></span>
-      便笺
-    </button>
-    <button type="button" class="stycard" data-style="native">
-      <span class="stycard__w sw--native"><span class="sw-h">❣️ 喜欢的事<em>3</em></span><span class="sw-r"><i></i>Sam 采访合集</span><span class="sw-r"><i></i>初雪拍个 vlog</span><span class="sw-r"><i></i>冬日歌单封面</span></span>
-      提醒
-    </button>
-    <button type="button" class="stycard" data-style="snow">
-      <span class="stycard__w sw--snow"><span class="sw-h">❄ 喜欢的事<em>3</em></span><span class="sw-r"><i></i>Sam 采访合集</span><span class="sw-r"><i></i>初雪拍个 vlog</span><span class="sw-r"><i></i>冬日歌单封面</span></span>
-      晴雪
-    </button>
-  </div>
-  <p class="setnote">换了之后，桌面上的小组件下次刷新就换样子（iPhone 自己决定什么时候刷新，一般十几分钟内）。</p>
-  <h3>分几页</h3>
-  <div id="pagelist"></div>
-  <button type="button" class="addpage" id="addpage">＋ 再加一页</button>
-  <h3>钥匙</h3>
-  <div class="keyinfo" id="keyinfo"></div>
-  <div class="sheet__actions">
-    <button type="button" class="btn btn--main" id="set-done">好了</button>
-  </div>
-</div>
-
-<div class="toast" id="toast" role="status"><span id="toast-text"></span><button type="button" id="toast-btn" hidden>撤销</button></div>
 
 <script>
 (function () {
   "use strict";
   var $ = function (id) { return document.getElementById(id); };
-  var API = "https://api.github.com/repos/DXWinterSun/WinterSunBlog/contents/memo.json";
-  var BRANCH = "memo";
-  var KEY_TOKEN = "ws-memo-key";          // 在这页贴进来的钥匙
-  var KEY_SHELF = "ws-sam-shelf-key";     // 藏品架那把（同一个网站，借来用）
-  var KEY_CACHE = "ws-memo-cache";        // 上次从仓库拿到的整份，没网时先显示它
-  var KEY_DRAFT = "ws-memo-draft";        // 还没送出去的改动
-  var COLORS = ["#D9962E", "#CF5F78", "#3D80C2", "#55966B", "#8C6BC2", "#2E9AA0", "#B5734A", "#7C8592"];
-
-  var token = "", tokenFrom = "";
-  var doc = null, dirty = false, seq = 0, log = [];
-  var saving = false, saveTimer = null, retryTimer = null;
-  var cur = 0, panels = {}, panelKey = "", openDone = {};
-  var editingId = null, edit = null;
+  var API = "https://api.github.com/repos/DXWinterSun/WinterSunBlog/contents/memo.json?ref=memo";
+  var KEY_CACHE = "ws-memo-cache";        // 上次读到的整份，读不到时先显示它
+  var COLORS = ["#3D80C2", "#CF5F78", "#D9962E", "#55966B", "#8C6BC2", "#2E9AA0"];
+  var doc = null, cur = 0, panelKey = "", openDone = {};
 
   function ls(k, v) {
     try {
       if (v === undefined) return localStorage.getItem(k);
-      if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v);
+      localStorage.setItem(k, v);
     } catch (e) {}
     return null;
   }
-  function readToken() {
-    var own = ls(KEY_TOKEN), shelf = ls(KEY_SHELF);
-    if (own) { token = own; tokenFrom = "own"; }
-    else if (shelf) { token = shelf; tokenFrom = "shelf"; }
-    else { token = ""; tokenFrom = ""; }
-  }
-  function nowIso() { return new Date().toISOString(); }
   function t(s) { var n = Date.parse(s || ""); return isNaN(n) ? 0 : n; }
-  function uid(taken) {
-    var s;
-    do { s = Math.random().toString(36).slice(2, 8); } while (s.length < 6 || taken[s]);
-    return s;
-  }
-  function clone(x) { return JSON.parse(JSON.stringify(x)); }
   function el(tag, cls, text) {
     var e = document.createElement(tag);
     if (cls) e.className = cls;
     if (text != null) e.textContent = text;
     return e;
   }
+  function md(iso) {
+    var d = new Date(t(iso));
+    return t(iso) ? (d.getMonth() + 1) + "/" + d.getDate() : "";
+  }
+  function hm(iso) {
+    var d = new Date(t(iso));
+    return ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+  }
 
-  /* ————— GitHub ————— */
-  function b64utf8(s) {
-    var bytes = new TextEncoder().encode(s), bin = "";
-    for (var i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
-    return btoa(bin);
-  }
-  function unb64utf8(s) {
-    var bin = atob(String(s).replace(/\s+/g, "")), bytes = new Uint8Array(bin.length);
-    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-    return new TextDecoder().decode(bytes);
-  }
-  function headers() {
-    return { "Authorization": "Bearer " + token, "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" };
-  }
-  function ghGet() {
-    return fetch(API + "?ref=" + BRANCH + "&_=" + Date.now(), { headers: headers(), cache: "no-store" })
-      .then(function (r) {
-        if (r.status === 401) throw { auth: true };
-        if (!r.ok) throw new Error("read " + r.status);
-        return r.json();
-      })
-      .then(function (j) { return { data: JSON.parse(unb64utf8(j.content)), sha: j.sha }; });
-  }
-  function ghPut(data, sha, message) {
-    return fetch(API, {
-      method: "PUT", headers: headers(),
-      body: JSON.stringify({ message: message, content: b64utf8(JSON.stringify(data, null, 2) + "\n"), sha: sha, branch: BRANCH })
+  /* ————— 读：公开接口，不用钥匙 ————— */
+  function load() {
+    return fetch(API + "&_=" + Date.now(), {
+      headers: { "Accept": "application/vnd.github.raw", "X-GitHub-Api-Version": "2022-11-28" },
+      cache: "no-store"
     }).then(function (r) {
-      if (r.status === 401) throw { auth: true };
-      if (r.status === 403 || r.status === 404) throw { perm: true };
-      if (r.status === 409 || r.status === 422) throw { conflict: true };
-      if (!r.ok) throw new Error("write " + r.status);
+      if (!r.ok) throw new Error("read " + r.status);
       return r.json();
     });
   }
-
-  /* ————— 合并：远端那份 + 这台手机上的那份 —————
-     条目按 id 对上，谁的 updated 新听谁的；gone 里记着删掉的 id，两边的并起来，删掉的不复活。
-     页面设置整份比 settings.updated。不认识的页（别处删了页、这边刚往里加了一条）归到第一页。 */
-  function merge(a, b) {
-    var out = clone(a);
-    var gone = Object.assign({}, a.gone || {});
-    Object.keys(b.gone || {}).forEach(function (k) { if (!gone[k] || t(b.gone[k]) > t(gone[k])) gone[k] = b.gone[k]; });
-    var map = {}, other = {}, order = [];
-    (a.items || []).forEach(function (i) { map[i.id] = i; order.push(i.id); });
-    (b.items || []).forEach(function (i) {
-      var x = map[i.id];
-      if (!x) { map[i.id] = i; order.push(i.id); }
-      else if (t(i.updated) > t(x.updated)) { other[i.id] = x; map[i.id] = i; }
-      else other[i.id] = i;
-    });
-    var sa = a.settings || {}, sb = b.settings || {};
-    out.settings = clone(t(sb.updated) > t(sa.updated) ? sb : sa);
-    var pageIds = {};
-    (out.settings.pages || []).forEach(function (p) { pageIds[p.id] = 1; });
-    var first = (out.settings.pages && out.settings.pages[0] || {}).id;
-    out.items = order.filter(function (id) { return !gone[id]; }).map(function (id) {
-      var i = clone(map[id]);
-      if (!pageIds[i.page] && first) i.page = first;
-      // 进度一笔一笔都有编号：两边各记了几笔，一笔都不丢（删掉的那笔记在 gone 里）
-      var logs = {};
-      (i.log || []).concat(other[id] && other[id].log || []).forEach(function (e) {
-        if (e && !gone[e.id]) logs[e.id || (e.at + e.text)] = e;
-      });
-      var merged = Object.keys(logs).map(function (k) { return clone(logs[k]); })
-        .sort(function (p, q) { return t(p.at) - t(q.at); });
-      if (merged.length) i.log = merged; else delete i.log;
-      return i;
-    });
-    var cutoff = Date.now() - 90 * 864e5;
-    Object.keys(gone).forEach(function (k) { if (t(gone[k]) < cutoff) delete gone[k]; });
-    out.gone = gone;
-    return out;
-  }
-
-  /* ————— 存：先落本机，一秒后送出 ————— */
-  function touch(desc) {
-    seq++;
-    dirty = true;
-    if (desc) log.push(desc);
-    ls(KEY_DRAFT, JSON.stringify({ doc: doc, log: log }));
-    render();
-    schedule(1100);
-  }
-  function schedule(ms) {
-    clearTimeout(saveTimer);
-    saveTimer = setTimeout(save, ms);
-  }
-  function commitMsg(lines) {
-    if (!lines.length) return "备忘（网页）：整理";
-    var s = lines.slice(0, 4).join("；");
-    if (lines.length > 4) s += " 等 " + lines.length + " 处";
-    return "备忘（网页）：" + s;
-  }
-  function save() {
-    if (!dirty || !token) return;
-    if (saving) { schedule(600); return; }
-    saving = true;
-    setStatus("saving");
-    var startSeq = seq, sent = log.slice(), tries = 0;
-    function attempt() {
-      return ghGet().then(function (remote) {
-        var merged = merge(remote.data, doc);
-        merged.updated = nowIso();
-        return ghPut(merged, remote.sha, commitMsg(sent)).then(function () { return merged; });
-      }).catch(function (e) {
-        if (e && e.conflict && tries++ < 3) return attempt();
-        throw e;
-      });
-    }
-    attempt().then(function (merged) {
-      saving = false;
-      ls(KEY_CACHE, JSON.stringify(merged));
-      doc = merge(merged, doc);          // 送出途中又改的那几处留着
-      log = log.slice(sent.length);
-      if (seq === startSeq) {
-        dirty = false;
-        ls(KEY_DRAFT, null);
-        setStatus("ok");
-      } else {
-        ls(KEY_DRAFT, JSON.stringify({ doc: doc, log: log }));
-        schedule(300);
-      }
-      render();
-    }, function (e) {
-      saving = false;
-      if (e && e.auth) { setStatus("auth"); showLock("钥匙好像不能用了（过期了？），换一把就好。改动都还在这台手机上。"); return; }
-      if (e && e.perm) { setStatus("perm"); return; }
-      setStatus("off");
-      clearTimeout(retryTimer);
-      retryTimer = setTimeout(save, 20000);
-    });
-  }
-  window.addEventListener("online", function () { if (dirty) schedule(300); });
-
-  /* 从别处回到这页（比如点了桌面小组件）：没有没送出的改动就悄悄取一次最新的 */
-  function refresh() {
-    if (!token || saving || dirty) return;
-    ghGet().then(function (remote) {
-      if (dirty || saving) return;
-      doc = remote.data;
-      ls(KEY_CACHE, JSON.stringify(doc));
-      setStatus("ok");
-      render();
-    }, function () {});
-  }
-  document.addEventListener("visibilitychange", function () {
-    if (document.visibilityState === "visible") { refresh(); if (dirty) schedule(200); }
-  });
-
-  var lastOk = null;
-  function setStatus(kind) {
+  function setStatus(ok, msg) {
     var s = $("status");
-    s.className = "status";
+    s.className = "status " + (ok ? "is-ok" : "is-off");
     s.innerHTML = "";
-    var dot = el("i");
-    s.appendChild(dot);
-    if (kind === "loading") s.appendChild(document.createTextNode("正在取……"));
-    else if (kind === "saving") { s.classList.add("is-saving"); s.appendChild(document.createTextNode("保存中……")); }
-    else if (kind === "ok") {
-      lastOk = new Date();
-      s.classList.add("is-ok");
-      var hh = ("0" + lastOk.getHours()).slice(-2), mm = ("0" + lastOk.getMinutes()).slice(-2);
-      s.appendChild(document.createTextNode("已同步 · " + hh + ":" + mm));
-    } else if (kind === "off") {
-      s.classList.add("is-off");
-      s.appendChild(document.createTextNode("没连上 · 改动先存在这台手机上"));
-      var b = el("button", null, "再试一次");
-      b.type = "button";
-      b.onclick = function () { schedule(0); };
-      s.appendChild(b);
-    } else if (kind === "perm") {
-      s.classList.add("is-off");
-      s.appendChild(document.createTextNode("这把钥匙只能看、不能写 · 改动先存在这台手机上"));
-    } else if (kind === "auth") {
-      s.classList.add("is-off");
-      s.appendChild(document.createTextNode("钥匙不能用了"));
-    }
+    s.appendChild(el("i"));
+    s.appendChild(document.createTextNode(msg));
+  }
+  function stamp() {
+    var u = doc && doc.updated;
+    return u ? "最近一次更新 · " + md(u) + " " + hm(u) : "已取到";
+  }
+  function refresh(first) {
+    load().then(function (data) {
+      doc = data;
+      ls(KEY_CACHE, JSON.stringify(data));
+      setStatus(true, stamp());
+      render(first);
+    }, function () {
+      if (doc) { setStatus(false, "这会儿没连上，先给你看上次的 · " + md(doc.updated)); render(first); return; }
+      setStatus(false, "这会儿连不上 GitHub，等一下刷新试试");
+    });
   }
 
   /* ————— 整理 ————— */
   function pages() { return (doc && doc.settings && doc.settings.pages) || []; }
   function pageById(id) { return pages().filter(function (p) { return p.id === id; })[0]; }
-  function sortItems(a, b) {
+  function colorOf(p, k) { return (p && p.color) || COLORS[(k || 0) % COLORS.length]; }
+  function sortOpen(a, b) {
     var pa = a.pin ? 0 : 1, pb = b.pin ? 0 : 1;
     if (pa !== pb) return pa - pb;
     if ((a.order || 0) !== (b.order || 0)) return (a.order || 0) - (b.order || 0);
     return String(a.created || "").localeCompare(String(b.created || ""));
   }
   function itemsOf(pid, done) {
-    return (doc.items || []).filter(function (i) { return i.page === pid && !!i.done === !!done; })
-      .sort(done ? function (a, b) { return t(b.doneAt || b.updated) - t(a.doneAt || a.updated); } : sortItems);
+    return ((doc && doc.items) || []).filter(function (i) { return i.page === pid && !!i.done === !!done; })
+      .sort(done ? function (a, b) { return t(b.doneAt || b.updated) - t(a.doneAt || a.updated); } : sortOpen);
   }
-  function topOrder(pid) {
-    var m = 0, any = false;
-    (doc.items || []).forEach(function (i) { if (i.page === pid) { if (!any || (i.order || 0) < m) m = i.order || 0; any = true; } });
-    return any ? m - 1 : 0;
-  }
-  function findItem(id) { return (doc.items || []).filter(function (i) { return i.id === id; })[0]; }
-  function takenIds() {
-    var m = {};
-    (doc.items || []).forEach(function (i) {
-      m[i.id] = 1;
-      (i.log || []).forEach(function (e) { if (e.id) m[e.id] = 1; });
-    });
-    Object.keys(doc.gone || {}).forEach(function (k) { m[k] = 1; });
-    pages().forEach(function (p) { m[p.id] = 1; });
-    return m;
-  }
-  function short(s) { s = String(s); return s.length > 14 ? s.slice(0, 13) + "…" : s; }
-
-  function md(iso) {
-    var d = new Date(t(iso));
-    return isNaN(d) ? "" : (d.getMonth() + 1) + "/" + d.getDate();
-  }
-  function ymd(d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
+  function findItem(id) { return ((doc && doc.items) || []).filter(function (i) { return i.id === id; })[0]; }
   function dueInfo(due) {
     var m = String(due || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
     if (!m) return null;
@@ -698,11 +324,14 @@
   }
 
   /* ————— 画 ————— */
-  function render() {
+  function render(first) {
     if (!doc) return;
-    $("app").hidden = false;
-    $("set-btn").hidden = false;
     var ps = pages();
+    if (first) {
+      var want = decodeURIComponent((location.hash || "").slice(1));
+      var k = ps.map(function (p) { return p.id; }).indexOf(want);
+      if (k >= 0) cur = k;
+    }
     if (cur >= ps.length) cur = Math.max(0, ps.length - 1);
     renderTabs();
     var key = ps.map(function (p) { return p.id; }).join("|");
@@ -716,7 +345,7 @@
     pages().forEach(function (p, k) {
       var b = el("button", "tab" + (k === cur ? " is-on" : ""));
       b.type = "button";
-      b.style.setProperty("--tab-c", p.color || COLORS[k % COLORS.length]);
+      b.style.setProperty("--tab-c", colorOf(p, k));
       b.appendChild(el("span", null, (p.emoji ? p.emoji + " " : "") + p.name));
       b.appendChild(el("span", "tab__n", String(itemsOf(p.id).length)));
       b.onclick = function () { go(k, true); };
@@ -724,44 +353,25 @@
     });
   }
 
+  var panels = {};
   function buildPanels() {
     var pager = $("pager");
     pager.innerHTML = "";
     panels = {};
     pages().forEach(function (p) {
       var panel = el("section", "panel");
-      var card = el("div", "sheetcard");
-      card.appendChild(el("div", "sheetcard__band"));
-      var inner = el("div", "sheetcard__in");
+      var card = el("div", "card");
+      card.appendChild(el("div", "card__band"));
+      var inner = el("div", "card__in");
       var head = el("div", "panel__head");
-      var title = el("span", "panel__title");
-      var hint = el("span", "panel__hint");
-      var n = el("span", "panel__n");
+      var title = el("span", "panel__title"), hint = el("span", "panel__hint"), n = el("span", "panel__n");
       head.appendChild(title); head.appendChild(hint); head.appendChild(n);
-      var form = el("form", "add");
-      form.setAttribute("autocomplete", "off");
-      var input = el("input");
-      input.type = "text";
-      input.setAttribute("enterkeyhint", "done");
-      var btn = el("button", null, "＋");
-      btn.type = "submit";
-      btn.setAttribute("aria-label", "记下");
-      form.appendChild(input); form.appendChild(btn);
-      form.onsubmit = function (e) {
-        e.preventDefault();
-        var v = input.value.trim();
-        if (!v) { input.focus(); return; }
-        addItem(p.id, v);
-        input.value = "";
-        input.focus();
-      };
-      var list = el("ul", "list");
-      var done = el("div");
-      inner.appendChild(head); inner.appendChild(form); inner.appendChild(list); inner.appendChild(done);
+      var list = el("ul", "list"), done = el("div");
+      inner.appendChild(head); inner.appendChild(list); inner.appendChild(done);
       card.appendChild(inner);
       panel.appendChild(card);
       pager.appendChild(panel);
-      panels[p.id] = { panel: panel, title: title, hint: hint, n: n, input: input, list: list, done: done };
+      panels[p.id] = { panel: panel, title: title, hint: hint, n: n, list: list, done: done };
     });
     panelKey = pages().map(function (p) { return p.id; }).join("|");
     requestAnimationFrame(function () { go(cur, false); });
@@ -770,21 +380,19 @@
   function fillPanel(p, k) {
     var P = panels[p.id];
     if (!P) return;
-    var color = p.color || COLORS[k % COLORS.length];
-    P.panel.style.setProperty("--page", color);
+    P.panel.style.setProperty("--page", colorOf(p, k));
     P.title.textContent = (p.emoji ? p.emoji + " " : "") + p.name;
     P.hint.textContent = p.hint || "";
     var open = itemsOf(p.id), done = itemsOf(p.id, true);
     P.n.textContent = String(open.length);
-    P.input.placeholder = "记一笔……";
     P.list.innerHTML = "";
     if (!open.length) {
       var e = el("li", "empty");
       e.appendChild(el("b", null, done.length ? "✓" : "❄"));
-      e.appendChild(document.createTextNode(done.length ? "这一页的都做完了" : "这一页还空着，想到什么就记一笔"));
+      e.appendChild(document.createTextNode(done.length ? "这一页的都做完了" : "这一页还空着"));
       P.list.appendChild(e);
     }
-    open.forEach(function (i) { P.list.appendChild(itemRow(i, false)); });
+    open.forEach(function (i) { P.list.appendChild(row(i, false)); });
     P.done.innerHTML = "";
     if (done.length) {
       var bar = el("div", "donebar");
@@ -792,52 +400,42 @@
       tog.type = "button";
       tog.onclick = function () { openDone[p.id] = !openDone[p.id]; fillPanel(p, k); };
       bar.appendChild(tog);
-      if (openDone[p.id]) {
-        var clr = el("button", "clear", "清掉做完的");
-        clr.type = "button";
-        clr.onclick = function () { clearDone(p); };
-        bar.appendChild(clr);
-      }
       P.done.appendChild(bar);
       if (openDone[p.id]) {
         var dl = el("ul", "list donelist");
-        done.forEach(function (i) { dl.appendChild(itemRow(i, true)); });
+        done.forEach(function (i) { dl.appendChild(row(i, true)); });
         P.done.appendChild(dl);
       }
     }
   }
 
-  var CHECK_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle class="ring" cx="12" cy="12" r="9.5"/><circle class="fill" cx="12" cy="12" r="10.3"/><path class="tick" d="M7.6 12.4l3 3 5.8-6.4"/></svg>';
-
-  function itemRow(i, isDone) {
-    var li = el("li", "it" + (isDone ? " is-done" : ""));
-    li.dataset.id = i.id;
-    var c = el("button", "it__check");
-    c.type = "button";
-    c.innerHTML = CHECK_SVG;
-    c.setAttribute("aria-label", isDone ? "改回没做" : "做完了");
-    c.onclick = function () { isDone ? setDone(i.id, false) : setDone(i.id, true, li); };
-    var m = el("button", "it__main");
-    m.type = "button";
+  function row(i, isDone) {
+    var li = el("li", "it" + (isDone ? " is-done" : "") + (i.pin && !isDone ? " is-pin" : ""));
+    var b = el("button");
+    b.type = "button";
+    b.appendChild(el("span", "it__dot"));
+    var m = el("span", "it__main");
     m.appendChild(el("span", "it__text", i.text));
     var meta = el("span", "it__meta");
     if (!isDone) {
-      if (i.pin) meta.appendChild(el("span", "chip chip--pin", "★ 置顶"));
       var d = dueInfo(i.due);
       if (d) meta.appendChild(el("span", "chip" + (d.hot ? " chip--hot" : ""), d.text));
     }
-    var lastLog = (i.log || [])[i.log ? i.log.length - 1 : 0];
-    if (lastLog) {
-      if (!isDone) meta.appendChild(el("span", "chip", "进度 " + i.log.length));
-      var pk = el("span", "it__peek");
-      pk.appendChild(el("time", null, md(lastLog.at)));
-      pk.appendChild(document.createTextNode(lastLog.text));
+    var last = i.log && i.log.length ? i.log[i.log.length - 1] : null;
+    if (last) {
+      meta.appendChild(el("span", "chip", "进度 " + i.log.length));
+      var pk = el("span", "peek");
+      pk.appendChild(el("time", null, md(last.at)));
+      pk.appendChild(document.createTextNode(last.text));
       meta.appendChild(pk);
-    } else if (i.note) meta.appendChild(el("span", "it__note", "✎ " + i.note.replace(/\s+/g, " ")));
+    } else if (i.note) {
+      meta.appendChild(el("span", "peek", "✎ " + i.note.replace(/\s+/g, " ")));
+    }
     m.appendChild(meta);
-    m.onclick = function () { openEdit(i.id); };
-    li.appendChild(c);
-    li.appendChild(m);
+    b.appendChild(m);
+    if (i.note || last) b.appendChild(el("span", "it__more", "›"));
+    b.onclick = function () { openDetail(i.id); };
+    li.appendChild(b);
     return li;
   }
 
@@ -850,13 +448,10 @@
     pager.scrollTo({ left: cur * pager.clientWidth, behavior: smooth ? "smooth" : "auto" });
     markTabs();
     try { history.replaceState(null, "", "#" + ps[cur].id); } catch (e) {}
-    var top = pager.getBoundingClientRect().top;
-    if (smooth && top < 0) window.scrollBy({ top: top - 60, behavior: "smooth" });
   }
   function markTabs() {
     var tabs = $("tabs").children;
     for (var k = 0; k < tabs.length; k++) tabs[k].classList.toggle("is-on", k === cur);
-    if (tabs[cur] && tabs[cur].scrollIntoView) tabs[cur].scrollIntoView({ block: "nearest", inline: "nearest" });
   }
   var scrollT = null;
   $("pager").addEventListener("scroll", function () {
@@ -864,7 +459,7 @@
     scrollT = setTimeout(function () {
       var pager = $("pager");
       var k = Math.round(pager.scrollLeft / Math.max(1, pager.clientWidth));
-      if (k !== cur) {
+      if (k !== cur && pages()[k]) {
         cur = k;
         markTabs();
         try { history.replaceState(null, "", "#" + pages()[cur].id); } catch (e) {}
@@ -872,405 +467,57 @@
     }, 90);
   });
   window.addEventListener("resize", function () { go(cur, false); });
-
-  /* ————— 改 ————— */
-  function addItem(pid, text) {
-    var stamp = nowIso();
-    doc.items.push({ id: uid(takenIds()), page: pid, text: text, done: false, order: topOrder(pid), created: stamp, updated: stamp });
-    touch("+「" + short(text) + "」");
-  }
-
-  var pendingDone = {};
-  function setDone(id, value, li) {
-    var it = findItem(id);
-    if (!it) return;
-    var text = it.text;
-    var apply = function () {
-      delete pendingDone[id];
-      var x = findItem(id);            // 每次同步完 doc 会换成新的一份，所以按编号重新找
-      if (!x || !!x.done === value) return;
-      x.done = value;
-      x.updated = nowIso();
-      if (value) x.doneAt = x.updated;
-      else { delete x.doneAt; x.order = topOrder(x.page); }
-      touch((value ? "✓「" : "↺「") + short(x.text) + "」");
-    };
-    if (value && li) {
-      li.classList.add("is-done", "is-leaving");
-      pendingDone[id] = setTimeout(apply, 650);
-      toast("做完了 ·「" + short(text) + "」", "撤销", function () {
-        if (pendingDone[id]) { clearTimeout(pendingDone[id]); delete pendingDone[id]; render(); }
-        else setDone(id, false);
-      });
-    } else apply();
-  }
-
-  function clearDone(p) {
-    var done = itemsOf(p.id, true);
-    if (!done.length || !confirm("把「" + p.name + "」里做完的 " + done.length + " 条清掉？清掉就找不回来了。")) return;
-    var stamp = nowIso(), ids = {};
-    doc.gone = doc.gone || {};
-    done.forEach(function (i) { ids[i.id] = 1; doc.gone[i.id] = stamp; });
-    doc.items = doc.items.filter(function (i) { return !ids[i.id]; });
-    openDone[p.id] = false;
-    touch("清掉「" + p.name + "」做完的 " + done.length + " 条");
-  }
-
-  /* 改一条：底部弹出 */
-  function openSheet(id) {
-    $("veil").hidden = false;
-    $(id).hidden = false;
-    requestAnimationFrame(function () { $("veil").classList.add("is-on"); $(id).classList.add("is-on"); });
-  }
-  function closeSheets() {
-    ["edit", "settings"].forEach(function (id) { $(id).classList.remove("is-on"); });
-    $("veil").classList.remove("is-on");
-    setTimeout(function () {
-      ["edit", "settings"].forEach(function (id) { $(id).hidden = true; });
-      $("veil").hidden = true;
-    }, 300);
-    editingId = null;
-  }
-  $("veil").onclick = closeSheets;
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSheets(); });
-
-  function openEdit(id) {
-    var it = findItem(id);
-    if (!it) return;
-    editingId = id;
-    edit = { page: it.page, pin: !!it.pin, top: false, due: it.due || "" };
-    $("ed-text").value = it.text;
-    $("ed-note").value = it.note || "";
-    $("ed-due").value = edit.due;
-    $("ed-loginput").value = "";
-    var pg = pageById(it.page) || {};
-    $("ed-crumb").textContent = (pg.emoji ? pg.emoji + " " : "") + (pg.name || "") + " · " + md(it.created) + " 记的" +
-      (it.done ? " · " + md(it.doneAt || it.updated) + " 做完" : "");
-    paintEdit();
-    paintLog();
-    openSheet("edit");
-    autoGrow($("ed-text"));
-    autoGrow($("ed-note"));
-  }
-  function paintEdit() {
-    var box = $("ed-pages");
-    box.innerHTML = "";
-    pages().forEach(function (p, k) {
-      var b = el("button", "pill" + (p.id === edit.page ? " is-on" : ""), (p.emoji ? p.emoji + " " : "") + p.name);
-      b.type = "button";
-      b.style.setProperty("--pill-c", p.color || COLORS[k % COLORS.length]);
-      b.onclick = function () { edit.page = p.id; paintEdit(); };
-      box.appendChild(b);
-    });
-    $("ed-pin").classList.toggle("is-on", edit.pin);
-    $("ed-top").classList.toggle("is-on", edit.top);
-    var today = ymd(new Date()), tmr = ymd(new Date(Date.now() + 864e5));
-    document.querySelectorAll("#edit [data-due]").forEach(function (b) {
-      var v = b.getAttribute("data-due");
-      var target = v === "" ? "" : (v === "0" ? today : tmr);
-      b.classList.toggle("is-on", edit.due === target);
-    });
-  }
-  document.querySelectorAll("#edit [data-due]").forEach(function (b) {
-    b.onclick = function () {
-      var v = b.getAttribute("data-due");
-      edit.due = v === "" ? "" : ymd(new Date(Date.now() + (+v) * 864e5));
-      $("ed-due").value = edit.due;
-      paintEdit();
-    };
-  });
-  $("ed-due").onchange = function () { edit.due = this.value || ""; paintEdit(); };
-  $("ed-pin").onclick = function () { edit.pin = !edit.pin; paintEdit(); };
-  $("ed-top").onclick = function () { edit.top = !edit.top; paintEdit(); };
-  function paintLog() {
-    var it = findItem(editingId), box = $("ed-log");
-    box.innerHTML = "";
-    var log = (it && it.log) || [];
-    $("ed-logn").textContent = log.length ? log.length + " 笔，新的在上面" : "还没记过——做到哪了就写一笔，带日期存着";
-    log.slice().reverse().forEach(function (e) {
-      var li = el("li");
-      li.appendChild(el("time", null, md(e.at)));
-      li.appendChild(el("span", null, e.text));
-      var x = el("button", null, "✕");
-      x.type = "button";
-      x.setAttribute("aria-label", "删掉这一笔");
-      x.onclick = function () {
-        if (!confirm("删掉这一笔进度？")) return;
-        var cur = findItem(editingId);
-        if (!cur) return;
-        cur.log = (cur.log || []).filter(function (y) { return y.id !== e.id; });
-        if (!cur.log.length) delete cur.log;
-        doc.gone = doc.gone || {};
-        if (e.id) doc.gone[e.id] = nowIso();
-        cur.updated = nowIso();
-        touch("「" + short(cur.text) + "」删一笔进度");
-        paintLog();
-      };
-      li.appendChild(x);
-      box.appendChild(li);
-    });
-  }
-  $("ed-logform").onsubmit = function (e) {
-    e.preventDefault();
-    var v = $("ed-loginput").value.trim(), it = findItem(editingId);
-    if (!v || !it) return;
-    var stamp = nowIso();
-    it.log = it.log || [];
-    it.log.push({ id: uid(takenIds()), at: stamp, text: v });
-    it.updated = stamp;
-    $("ed-loginput").value = "";
-    touch("「" + short(it.text) + "」记一笔进度");
-    paintLog();
-    toast("记下了 · 进度存好了");
-  };
-  $("ed-cancel").onclick = closeSheets;
-  $("ed-ok").onclick = function () {
-    var it = findItem(editingId);
-    if (!it) { closeSheets(); return; }
-    var text = $("ed-text").value.trim();
-    if (!text) { $("ed-text").focus(); return; }
-    var note = $("ed-note").value.trim();
-    var changed = text !== it.text || note !== (it.note || "") || edit.page !== it.page ||
-      edit.pin !== !!it.pin || edit.due !== (it.due || "") || edit.top;
-    if (changed) {
-      var moved = edit.page !== it.page;
-      it.text = text;
-      if (note) it.note = note; else delete it.note;
-      if (edit.due) it.due = edit.due; else delete it.due;
-      if (edit.pin) it.pin = true; else delete it.pin;
-      it.page = edit.page;
-      if (moved || edit.top) it.order = topOrder(it.page);
-      it.updated = nowIso();
-      touch("改「" + short(text) + "」");
-      if (moved) {
-        var k = pages().map(function (p) { return p.id; }).indexOf(it.page);
-        toast("挪到「" + pageById(it.page).name + "」了", "去看看", function () { go(k, true); });
-      }
-    }
-    closeSheets();
-  };
-  $("ed-del").onclick = function () {
-    var it = findItem(editingId);
-    if (!it) { closeSheets(); return; }
-    var snapshot = clone(it);
-    doc.items = doc.items.filter(function (i) { return i.id !== it.id; });
-    doc.gone = doc.gone || {};
-    doc.gone[it.id] = nowIso();
-    touch("删「" + short(it.text) + "」");
-    closeSheets();
-    toast("删掉了 ·「" + short(it.text) + "」", "撤销", function () {
-      // 换个新编号放回去（旧编号已经记进 gone，别处不会让它复活）
-      snapshot.id = uid(takenIds());
-      snapshot.updated = nowIso();
-      doc.items.push(snapshot);
-      touch("放回「" + short(snapshot.text) + "」");
-    });
-  };
-  function autoGrow(ta) {
-    ta.style.height = "auto";
-    ta.style.height = Math.min(ta.scrollHeight + 2, 240) + "px";
-  }
-  ["ed-text", "ed-note"].forEach(function (id) { $(id).addEventListener("input", function () { autoGrow(this); }); });
-
-  /* ————— 设置 ————— */
-  $("set-btn").onclick = function () { paintSettings(); openSheet("settings"); };
-  $("set-done").onclick = closeSheets;
-  function settingsTouched(desc) {
-    doc.settings.updated = nowIso();
-    touch(desc);
-  }
-  document.querySelectorAll("#styles [data-style]").forEach(function (b) {
-    b.onclick = function () {
-      var s = b.getAttribute("data-style");
-      if (doc.settings.style === s) return;
-      doc.settings.style = s;
-      settingsTouched("小组件换成「" + b.textContent.trim() + "」");
-      paintSettings();
-    };
-  });
-  var colorOpen = null;
-  function paintSettings() {
-    var style = doc.settings.style || "paper";
-    document.querySelectorAll("#styles [data-style]").forEach(function (b) {
-      b.classList.toggle("is-on", b.getAttribute("data-style") === style);
-    });
-    var box = $("pagelist");
-    box.innerHTML = "";
-    var ps = pages();
-    ps.forEach(function (p, k) {
-      var row = el("div", "pagerow");
-      var emo = el("input", "emo");
-      emo.value = p.emoji || "";
-      emo.maxLength = 8;
-      emo.setAttribute("aria-label", "图标");
-      emo.onchange = function () { var q = pageById(p.id); if (!q) return; q.emoji = emo.value.trim(); settingsTouched("改页面图标"); };
-      var nm = el("input", "nm");
-      nm.value = p.name;
-      nm.setAttribute("aria-label", "页名");
-      nm.onchange = function () {
-        var v = nm.value.trim();
-        var q = pageById(p.id);
-        if (!v || !q) { nm.value = p.name; return; }
-        q.name = v;
-        settingsTouched("页面改名「" + v + "」");
-      };
-      var dot = el("button", "dotbtn");
-      dot.type = "button";
-      dot.style.background = p.color || COLORS[k % COLORS.length];
-      dot.setAttribute("aria-label", "换颜色");
-      dot.onclick = function () { colorOpen = colorOpen === p.id ? null : p.id; paintSettings(); };
-      var up = el("button", "mini", "↑");
-      up.type = "button"; up.disabled = k === 0; up.setAttribute("aria-label", "往前挪");
-      up.onclick = function () {
-        var all = pages(), at = all.map(function (x) { return x.id; }).indexOf(p.id);
-        if (at < 1) return;
-        var moving = all.splice(at, 1)[0];
-        all.splice(at - 1, 0, moving);
-        settingsTouched("调页面顺序");
-        paintSettings();
-      };
-      var rm = el("button", "mini", "✕");
-      rm.type = "button"; rm.disabled = ps.length === 1; rm.setAttribute("aria-label", "删掉这一页");
-      rm.onclick = function () { removePage(p); };
-      row.appendChild(emo); row.appendChild(nm); row.appendChild(dot); row.appendChild(up); row.appendChild(rm);
-      box.appendChild(row);
-      if (colorOpen === p.id) {
-        var cs = el("div", "colors");
-        COLORS.forEach(function (c) {
-          var b = el("button", c.toLowerCase() === String(p.color).toLowerCase() ? "is-on" : "");
-          b.type = "button";
-          b.style.background = c;
-          b.onclick = function () { var q = pageById(p.id); if (q) q.color = c; colorOpen = null; settingsTouched("换页面颜色"); paintSettings(); };
-          cs.appendChild(b);
-        });
-        box.appendChild(cs);
-      }
-    });
-    var ki = $("keyinfo");
-    ki.innerHTML = "";
-    ki.appendChild(document.createTextNode(tokenFrom === "shelf"
-      ? "正在用藏品架那把钥匙。" : "正在用你在这页贴进来的钥匙。"));
-    ki.appendChild(el("br"));
-    var swap = el("button", null, "换一把");
-    swap.type = "button";
-    swap.onclick = function () { closeSheets(); showLock("把新钥匙贴进来就好。"); };
-    var forget = el("button", null, "在这台设备上忘掉它");
-    forget.type = "button";
-    forget.onclick = function () {
-      if (!confirm("忘掉之后这台设备就打不开备忘本了，要再贴一次钥匙。确定？")) return;
-      ls(KEY_TOKEN, null);
-      if (tokenFrom === "shelf") ls(KEY_SHELF, null);
-      readToken();
-      closeSheets();
-      if (!token) showLock();
-    };
-    ki.appendChild(swap);
-    ki.appendChild(forget);
-    if (tokenFrom === "shelf") ki.appendChild(el("div", "setnote", "（忘掉的话，藏品架那边也要重新贴。）"));
-  }
-  $("addpage").onclick = function () {
-    var name = prompt("新的一页叫什么？", "");
-    if (!name || !name.trim()) return;
-    var ps = pages();
-    ps.push({ id: uid(takenIds()), name: name.trim(), emoji: "📝", color: COLORS[ps.length % COLORS.length], hint: "" });
-    settingsTouched("加一页「" + name.trim() + "」");
-    paintSettings();
-  };
-  function removePage(p) {
-    var left = (doc.items || []).filter(function (i) { return i.page === p.id; });
-    var msg = left.length ? "「" + p.name + "」里还有 " + left.length + " 条，会一起删掉。确定？" : "删掉「" + p.name + "」这一页？";
-    if (!confirm(msg)) return;
-    var stamp = nowIso();
-    doc.gone = doc.gone || {};
-    left.forEach(function (i) { doc.gone[i.id] = stamp; });
-    doc.items = doc.items.filter(function (i) { return i.page !== p.id; });
-    doc.settings.pages = pages().filter(function (x) { return x.id !== p.id; });
-    settingsTouched("删掉一页「" + p.name + "」");
-    paintSettings();
-  }
-
-  /* ————— 小提示（带撤销） ————— */
-  var toastT = null;
-  function toast(msg, action, fn) {
-    var box = $("toast"), btn = $("toast-btn");
-    $("toast-text").textContent = msg;
-    btn.hidden = !action;
-    if (action) {
-      btn.textContent = action;
-      btn.onclick = function () { box.classList.remove("is-on"); fn(); };
-    }
-    box.classList.add("is-on");
-    clearTimeout(toastT);
-    toastT = setTimeout(function () { box.classList.remove("is-on"); }, 4200);
-  }
-
-  /* ————— 锁 ————— */
-  function showLock(msg) {
-    $("lock").hidden = false;
-    $("app").hidden = true;
-    $("set-btn").hidden = true;
-    if (msg) $("lock-msg").firstChild.textContent = msg;
-    $("lock-err").textContent = "";
-  }
-  $("lock-form").onsubmit = function (e) {
-    e.preventDefault();
-    var v = $("lock-input").value.trim();
-    if (!v) return;
-    var old = token;
-    token = v;
-    $("lock-err").textContent = "试一下……";
-    ghGet().then(function (remote) {
-      ls(KEY_TOKEN, v);
-      readToken();
-      $("lock-input").value = "";
-      $("lock").hidden = true;
-      if (dirty && doc) { doc = merge(remote.data, doc); schedule(200); }
-      else doc = remote.data;
-      ls(KEY_CACHE, JSON.stringify(remote.data));
-      setStatus(dirty ? "saving" : "ok");
-      render();
-    }, function (err) {
-      token = old;
-      $("lock-err").textContent = err && err.auth ? "这把钥匙打不开，检查一下是不是复制全了。" : "没连上，等一下再试。";
-    });
-  };
-
-  /* ————— 开场 ————— */
-  function boot() {
-    readToken();
-    var want = decodeURIComponent((location.hash || "").slice(1));
-    var draft = null, cached = null;
-    try { draft = JSON.parse(ls(KEY_DRAFT) || "null"); } catch (e) {}
-    try { cached = JSON.parse(ls(KEY_CACHE) || "null"); } catch (e) {}
-    if (draft && draft.doc) { doc = draft.doc; dirty = true; log = draft.log || []; }
-    else if (cached) doc = cached;
-    function pickPage() {
-      var k = pages().map(function (p) { return p.id; }).indexOf(want);
-      if (k >= 0) cur = k;
-    }
-    if (!token) { showLock(); return; }
-    if (doc) { pickPage(); render(); }
-    setStatus(dirty ? "saving" : "loading");
-    ghGet().then(function (remote) {
-      ls(KEY_CACHE, JSON.stringify(remote.data));
-      if (dirty && doc) { doc = merge(remote.data, doc); schedule(150); }
-      else { doc = remote.data; setStatus("ok"); }
-      pickPage();
-      render();
-    }, function (e) {
-      if (e && e.auth) { showLock("钥匙好像不能用了（过期了？），换一把就好。"); return; }
-      setStatus("off");
-      if (!doc) {
-        $("app").hidden = false;
-        $("pager").innerHTML = '<div class="panel"><div class="sheetcard"><div class="sheetcard__in empty"><b>☁</b>这会儿连不上 GitHub，等一下刷新试试。</div></div></div>';
-      }
-      if (dirty) { clearTimeout(retryTimer); retryTimer = setTimeout(save, 20000); }
-    });
-  }
   window.addEventListener("hashchange", function () {
     var k = pages().map(function (p) { return p.id; }).indexOf(decodeURIComponent(location.hash.slice(1)));
     if (k >= 0 && k !== cur) go(k, true);
   });
+
+  /* ————— 点开一条：备注 + 进度，只看 ————— */
+  function openDetail(id) {
+    var it = findItem(id);
+    if (!it) return;
+    var pg = pageById(it.page) || {};
+    $("d-crumb").textContent = (pg.emoji ? pg.emoji + " " : "") + (pg.name || "") + " · " + md(it.created) + " 记的" +
+      (it.done ? " · " + md(it.doneAt || it.updated) + " 做完" : "");
+    $("d-title").textContent = it.text;
+    var chips = $("d-chips");
+    chips.innerHTML = "";
+    if (it.pin && !it.done) chips.appendChild(el("span", "chip", "★ 置顶"));
+    var d = it.done ? null : dueInfo(it.due);
+    if (d) chips.appendChild(el("span", "chip" + (d.hot ? " chip--hot" : ""), "到期 " + d.text));
+    var body = $("d-body");
+    body.innerHTML = "";
+    if (it.note) {
+      body.appendChild(el("h3", null, "备注"));
+      body.appendChild(el("p", "d-note", it.note));
+    }
+    if (it.log && it.log.length) {
+      body.appendChild(el("h3", null, "进度 · " + it.log.length + " 笔，新的在上面"));
+      var ol = el("ol", "log");
+      it.log.slice().reverse().forEach(function (e) {
+        var li = el("li");
+        li.appendChild(el("time", null, md(e.at)));
+        li.appendChild(el("span", null, e.text));
+        ol.appendChild(li);
+      });
+      body.appendChild(ol);
+    }
+    if (!it.note && !(it.log && it.log.length)) {
+      body.appendChild(el("p", "d-blank", "还没有备注和进度。在对话里聊出结论、做到哪一步，Claude 会记在这里。"));
+    }
+    $("veil").hidden = false;
+    $("detail").hidden = false;
+    $("detail").scrollTop = 0;
+    requestAnimationFrame(function () { $("veil").classList.add("is-on"); $("detail").classList.add("is-on"); });
+  }
+  function closeDetail() {
+    $("detail").classList.remove("is-on");
+    $("veil").classList.remove("is-on");
+    setTimeout(function () { $("detail").hidden = true; $("veil").hidden = true; }, 300);
+  }
+  $("veil").onclick = closeDetail;
+  $("d-close").onclick = closeDetail;
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDetail(); });
 
   /* ————— 昼夜（配色交给全站的选色器） ————— */
   function isDarkNow() {
@@ -1290,7 +537,13 @@
   };
   paintModeBtn();
 
-  boot();
+  /* ————— 开场：先摆上次存下的，再去取最新的；从别处切回来也再取一次 ————— */
+  try { doc = JSON.parse(ls(KEY_CACHE) || "null"); } catch (e) { doc = null; }
+  if (doc) render(true);
+  refresh(true);
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") refresh(false);
+  });
 })();
 </script>
 

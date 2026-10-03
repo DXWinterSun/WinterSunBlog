@@ -90,8 +90,10 @@ Winter 说「记一下 / 加到备忘 / ……做完了 / ……做到哪了 / �
   `memo.py note` / `add --note` 记进那一条；她问起就 `memo.py find` → `show`，用人话讲给她。
 - ⚠️ **数据只在 `memo` 分支的 `memo.json`，不在 main**（放 main 每改一条就整站重建一次）。`memo.py` 自己取最新、
   提交、推 memo 分支，不碰工作区；别手改那份 json。
-- 网页 `/memo/`（她在手机上改，钥匙借藏品架那把）；桌面小组件 `memo/widget/winter-memo.js`（Scriptable，
-  晴雪样式，一页一个小号叠成一摞、往上滑翻页，只露摘要），安装说明 `/memo/widget/`。−1 屏她不放。
+- ⚠️ **只在对话里改，网页只看**（她 2026-10-03 定的：「线上就别编辑了，我想只能从你这改，这样不涉及 token 之类的」）。
+  网页 `/memo/` 只读、不要钥匙，入口在 **Winter's › 冬的笔记** 那一格的第一本封面；别再往网页上加编辑功能。
+- 桌面小组件 `memo/widget/winter-memo.js`（Scriptable，晴雪样式，一页一个小号叠成一摞、往上滑翻页，只露摘要），
+  安装说明 `/memo/widget/`。−1 屏她不放。
 - 改小组件画法前，用 `tools/widget-sim/`（Scriptable 模拟器）出效果图给她看，见那里的 README。
 
 ## ⚠️ 写连载 = 每章都要「留下两样东西」：圣经 + 正文全文存档
