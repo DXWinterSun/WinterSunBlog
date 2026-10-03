@@ -1,62 +1,31 @@
 {
-  "_readme": "冬的备忘本：网页 /memo/ 和桌面小组件读的都是这一份。在对话里改请用 main 上的 tools/memo/memo.py，别手改。",
+  "_readme": "冬的灵感本：网页 /memo/ 读的就是这一份（只读）。在对话里改请用 main 上的 tools/memo/memo.py，别手改。",
   "version": 1,
-  "updated": "2026-10-03T11:52:57+08:00",
+  "updated": "2026-10-03T12:59:01+08:00",
   "settings": {
     "style": "snow",
-    "updated": "2026-10-03T11:52:57+08:00",
+    "updated": "2026-10-03T12:59:01+08:00",
     "pages": [
       {
-        "id": "chore",
-        "name": "生活所迫",
-        "emoji": "💼",
-        "color": "#3D80C2",
-        "hint": "日常琐事、工作"
-      },
-      {
-        "id": "love",
-        "name": "喜欢的事",
-        "emoji": "❣️",
-        "color": "#CF5F78",
-        "hint": "Sam 的长期计划、灵感项目"
-      },
-      {
-        "id": "daily",
-        "name": "日更素材",
-        "emoji": "🎞️",
+        "id": "now",
+        "name": "当下的灵感",
+        "emoji": "✨",
         "color": "#D9962E",
-        "hint": "日更和近期素材"
+        "hint": "刚冒出来的点子，先记下"
+      },
+      {
+        "id": "long",
+        "name": "长期的计划",
+        "emoji": "🌳",
+        "color": "#3D80C2",
+        "hint": "要慢慢做的项目，记着进度"
       }
     ]
   },
-  "items": [
-    {
-      "id": "au7cvr",
-      "page": "daily",
-      "text": "au 封面优化",
-      "done": false,
-      "order": -1,
-      "created": "2026-10-03T11:18:11+08:00",
-      "updated": "2026-10-03T11:52:57+08:00"
-    },
-    {
-      "id": "hpns01",
-      "page": "daily",
-      "text": "happiness 上线",
-      "done": false,
-      "order": 1,
-      "created": "2026-10-03T11:18:11+08:00",
-      "updated": "2026-10-03T11:52:57+08:00"
-    },
-    {
-      "id": "zyapl1",
-      "page": "chore",
-      "text": "申报中邮",
-      "done": false,
-      "order": 0,
-      "created": "2026-10-03T11:18:11+08:00",
-      "updated": "2026-10-03T11:52:57+08:00"
-    }
-  ],
-  "gone": {}
+  "items": [],
+  "gone": {
+    "au7cvr": "2026-10-03T12:59:01+08:00",
+    "hpns01": "2026-10-03T12:59:01+08:00",
+    "zyapl1": "2026-10-03T12:59:01+08:00"
+  }
 }
