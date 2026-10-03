@@ -28,32 +28,10 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
 .c-lobby__block { display: grid; gap: 14px; min-width: 0; }
 .c-lobby__block[hidden] { display: none; }
 
-.c-lobby__head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid $line;
-}
-.c-lobby__title {
-  margin: 0;
-  font-family: $lb-cn;
-  font-size: 20px;
-  font-weight: 600;
-  color: $ink;
-  letter-spacing: .02em;
-}
-.c-lobby__hint,
-.c-lobby__more {
-  font-family: $lb-cn;
-  font-size: 13.5px;
-  color: $muted;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.c-lobby__more { color: $accent; }
-.c-lobby__more:hover { text-decoration: underline; }
+/* 四个小标题借用 Winter's 书架的头（_winters.scss 的 .c-shelf__head：圆章 · 名字 · 右边小药丸 · 底下一行说明），
+   全站「冬的什么」长一个样子（2026-10-03 Winter：「副标题不够显眼……分类尽可能都用冬的 xx」） */
+.c-lobby .c-shelf__head { margin: 0; }
+.c-lobby .c-shelf__count { text-decoration: none; }
 
 /* ── 接着读：一张横着的拍立得 ── */
 .c-lobby-resume {
@@ -276,7 +254,6 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
 @media only screen and (max-width: 560px) {
   .c-lobby { gap: 28px; }
   .c-lobby__main, .c-lobby__side { gap: 28px; }
-  .c-lobby__title { font-size: 18.5px; }
   .c-lobby-resume { grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 7px; }
   .c-lobby-resume__chapter { font-size: 15.5px; }
   .c-lobby-upd__day { grid-template-columns: 56px minmax(0, 1fr); gap: 10px; }

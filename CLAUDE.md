@@ -1879,6 +1879,8 @@ Winter 的原话：**「我觉得现在博客整体风格不够 Winter Sun！尤
 
 ## 🧭 2026-10-03 · 全站新排法（门厅 / 笔记一格 / 真的「关于我」/ 小拍立得）
 
+⭐ **起名规矩（同日 Winter 定的）**：Winter 中文就是「冬」，站里的中文分类、小标题**尽量都叫「冬的什么」**（冬的爱人 / 冬的书签 / 冬的口袋 / 冬的地图 / 冬的笔记……），新加一块东西起名时先往这上面靠，再给她几版挑。
+
 Winter：**「我感觉这个 tab 排得好乱，常用的笔记什么的都堆在底下……现在连 contact 之类的都没有了，about 页面也形同虚设。
 你好好检查一下，我难受很久了。」** 体检量出来：「About」点进去是 54 张系列大卡 + 29 篇文章的大杂烩（手机 48 屏），
 关于她只有一句话；写信页被挪到页脚最底下一行小字；笔记在 Winter's 第 6 排；同一堆系列卡站里出现三遍（AU 页 32 屏）。
@@ -1887,9 +1889,9 @@ Winter：**「我感觉这个 tab 排得好乱，常用的笔记什么的都堆�
 | 东西 | 在哪 | 备忘 |
 |---|---|---|
 | **顶上五格** | `_includes/header.html` | `⛄ Home · ✍️ Winter's · 📖 AU Story · ❣️ Sam · 📝 Notes`。Archive 不再占标签。`nav_active` 新值：`home`（首页、/about/、/contact、/archive/）、`notes`（/notes/、/reading/） |
-| **⛄ Home 门厅** | `_includes/lobby.html` ＋ `_sass/5-components/_lobby.scss` | 首页「全部」视图只放四样：**接着读**（读本机 `wiw-read`，没读过就整块不出现）/ **最近更新**（最近 4 天，同一天同系列合成一行，日期邮戳点去日历那一天）/ **常去的地方**（日历、歌单、今日一句、热线、星图、磁带、游戏厅、Gallery 八格）/ **关于我**小卡（写信按钮）。这个视图里通用文章网格整个藏起来（`!important`，原因同 Winter's）。要加一格「常去的地方」直接在 lobby.html 里加一行 |
+| **⛄ Home 门厅** | `_includes/lobby.html` ＋ `_sass/5-components/_lobby.scss` | 首页「全部」视图只放四样：**🔖 冬的书签**（接着读，读本机 `wiw-read`，没读过就整块不出现）/ **🗞️ 冬的更新**（最近 4 天，同一天同系列合成一行，日期邮戳点去日历那一天）/ **🎒 冬的口袋**（八格，一律两个字：日历 · 歌单 · 语录 · 热线 · 星图 · 磁带 · 街机 · 画廊）/ **💌 冬的名片**（写信按钮）。四个小标题借用 Winter's 书架的头（`c-shelf__head`），名字是她三版里挑的；⚠️ **「日更」专指她的小红书**，站里别拿来起名。这个视图里通用文章网格整个藏起来（`!important`，原因同 Winter's）。要加一格「常去的地方」直接在 lobby.html 里加一行 |
 | **📝 Notes** | `_pages/notes/index.html` ＋ `_includes/notebooks.html` | 灵感本 / 波兰语笔记本 / 每本原著笔记 / 波兰语变格表，一本本封面，手机两本一行。**以后新开的笔记本往 notebooks.html 加一张封面。** Winter's 的「冬的笔记」格和 Gallery 里的波兰语卡都已拿掉，别再加回去 |
-| **关于我 · 写信** | `_pages/about/index.html` | 「这里有什么」六格（数字自动算）→ 小红书 / 微博 / B 站 → 写信表单（`#letter`）。⚠️ 自我介绍那段**她要自己慢慢想**（2026-10-03：「这种介绍本身就比较 personal，要改我得慢慢想」）——别再主动拟稿、别催，她给了再放进来。旧 `/contact/` 是一个跳到 `/about/#letter` 的小页；寄信后的 `/contact/thanks/` 还在（表单的 redirect 指着它） |
+| **关于我 · 写信** | `_pages/about/index.html` | 冬的地图（六格，数字自动算）→ 冬在别处（小红书 / 微博 / B 站）→ 给冬写信（表单，`#letter`）。⚠️ 自我介绍那段**她要自己慢慢想**（2026-10-03：「这种介绍本身就比较 personal，要改我得慢慢想」）——别再主动拟稿、别催，她给了再放进来。旧 `/contact/` 是一个跳到 `/about/#letter` 的小页；寄信后的 `/contact/thanks/` 还在（表单的 redirect 指着它） |
 | **页脚** | `_layouts/home.html` | About · Say Hello · Archive · Gallery · 微博 · B 站 · 小红书 |
 | **小拍立得** | `index.html` 的 `c-post-grid--small` ＋ `_index-post.scss` 末尾 | AU Story 系列卡：手机两张 / 平板三张 / 电脑四张一行，白边相纸不变；标题拆成「故事名」＋ 斜体小字「角色名」（`c-post__who`，按 `series_title` 最后一个 ` · ` 拆） |
 | **Sam 页的 AU 卡** | `sam/index.html` ＋ `_sam.scss` 末尾 | 电脑三张、手机两张一行；手机上只留封面、四个色点、故事名＋角色名、章数（配色名字和简介收起） |

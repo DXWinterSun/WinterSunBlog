@@ -8,7 +8,7 @@ nav_active: home
   关于我 · 写信（2026-10-03 全站新排法）。
   以前 /about/ 只是一个跳回首页的空壳，「Say Hello」写信页又被挪到页脚最底下一行小字——
   Winter：「现在连 contact 之类的都没有了，about 页面也形同虚设」。现在两样并成这一页：
-  关于我 → 这里有什么（数字都从数据自动算）→ 在别处找到我 → 写一封信（#letter）。
+  冬的地图（数字都从数据自动算）→ 冬在别处 → 给冬写信（#letter）。小标题 2026-10-03 她定的「冬的什么」。
   入口：门厅最下面的「关于我」小卡、页脚。旧的 /contact/ 会跳到这页的 #letter。
   ⚠️ 「关于我」那段自我介绍属于创作文字，要 Winter 过目认可后才能写进来（写在 .c-about__bio 里）。
 {%- endcomment -%}
@@ -46,7 +46,7 @@ nav_active: home
 <section class="c-hello c-about">
 
   <div class="c-section-heading">
-    <h3 class="c-section-heading__title">这里有什么</h3>
+    <h3 class="c-section-heading__title">冬的地图</h3>
     <span class="c-section-heading__meta">since {{ ab_since.date | date: '%Y' }}</span>
   </div>
   <ul class="c-about__here">
@@ -59,7 +59,7 @@ nav_active: home
   </ul>
 
   <div class="c-section-heading">
-    <h3 class="c-section-heading__title">在别处找到我</h3>
+    <h3 class="c-section-heading__title">冬在别处</h3>
     <span class="c-section-heading__meta">elsewhere</span>
   </div>
   <ul class="c-hello__channels c-about__channels">
@@ -96,7 +96,7 @@ nav_active: home
   <form id="letter" class="c-hello__form" action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="{{site.web3forms-key}}">
     <div class="c-section-heading">
-      <h3 class="c-section-heading__title">写一封信</h3>
+      <h3 class="c-section-heading__title">给冬写信</h3>
       <span class="c-section-heading__meta">straight to my inbox</span>
     </div>
     <p class="c-about__letter-lede">随时来这里坐坐，留几个字也好。</p>

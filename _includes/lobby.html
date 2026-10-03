@@ -1,7 +1,10 @@
 {%- comment -%}
   ⛄ Home 门厅（2026-10-03 全站新排法，Winter 选的 A 方案）。
   以前第一格叫「About」，点进去却是 54 张系列大卡 + 29 篇文章的大杂烩，手机上要划 48 屏，
-  关于她的只有一句话。现在第一格只放四样：接着读 / 最近更新 / 常去的地方 / 关于我。
+  关于她的只有一句话。现在第一格只放四样：🔖 冬的书签 / 🗞️ 冬的更新 / 🎒 冬的口袋 / 💌 冬的名片。
+  四个小标题跟 Winter's 书架同一个样子（c-shelf__head：圆章 · 名字 · 右边小药丸 · 底下一行说明），
+  名字是她在三版里挑的「冬的 + 随身的小东西」（2026-10-03）；「日更」专指她的小红书，别拿来当标题。
+  口袋里八格一律两个字（她挑的）：日历 · 歌单 · 语录 · 热线 · 星图 · 磁带 · 街机 · 画廊。
   全部故事去 AU Story 和 Winter's 各自看；日历（Archive）不再占标签，入口在这里和 AU 页顶上。
 
   · 只在首页「全部」视图出现（_sass/5-components/_lobby.scss 按 data-hero-active 切换），
@@ -15,7 +18,7 @@
   <div class="c-lobby__main">
 
     <div class="c-lobby__block" id="js-lobby-continue" hidden>
-      <div class="c-lobby__head"><h2 class="c-lobby__title">接着读</h2><span class="c-lobby__hint">上次停在这</span></div>
+      <div class="c-shelf__head"><span class="c-shelf__badge" aria-hidden="true">🔖</span><h2 class="c-shelf__name">冬的书签</h2><p class="c-shelf__desc">上次读到这儿，点一下接着读</p></div>
       <a class="c-lobby-resume" id="js-lobby-resume" href="{{ site.baseurl }}/?cat=AU+Story">
         <span class="c-lobby-resume__img" id="js-lobby-resume-img"></span>
         <span class="c-lobby-resume__body">
@@ -29,7 +32,7 @@
     </div>
 
     <div class="c-lobby__block">
-      <div class="c-lobby__head"><h2 class="c-lobby__title">最近更新</h2><a class="c-lobby__more" href="{{ site.baseurl }}/archive/">翻日历 →</a></div>
+      <div class="c-shelf__head"><span class="c-shelf__badge" aria-hidden="true">🗞️</span><h2 class="c-shelf__name">冬的更新</h2><a class="c-shelf__count" href="{{ site.baseurl }}/archive/">翻日历 ›</a><p class="c-shelf__desc">最近四天写了什么</p></div>
       {%- assign lb_recent = site.posts | slice: 0, 80 -%}
       {%- assign lb_days = lb_recent | group_by_exp: "p", "p.date | date: '%Y-%m-%d'" %}
       <ol class="c-lobby-upd">
@@ -62,21 +65,21 @@
   <div class="c-lobby__side">
 
     <div class="c-lobby__block">
-      <div class="c-lobby__head"><h2 class="c-lobby__title">常去的地方</h2></div>
-      <nav class="c-lobby-tiles" aria-label="常去的地方">
+      <div class="c-shelf__head"><span class="c-shelf__badge" aria-hidden="true">🎒</span><h2 class="c-shelf__name">冬的口袋</h2><p class="c-shelf__desc">常去的几个地方，揣在身上</p></div>
+      <nav class="c-lobby-tiles" aria-label="冬的口袋">
         <a href="{{ site.baseurl }}/archive/"><i aria-hidden="true">🗓️</i>日历</a>
-        <a href="{{ site.baseurl }}/songs/"><i aria-hidden="true">🎧</i>冬的歌单</a>
-        <a href="{{ site.baseurl }}/sam/today/"><i aria-hidden="true">☀️</i>今日一句</a>
-        <a href="{{ site.baseurl }}/sam/hotline/"><i aria-hidden="true">☎️</i>深夜热线</a>
-        <a href="{{ site.baseurl }}/sky/"><i aria-hidden="true">✨</i>AU 星图</a>
-        <a href="{{ site.baseurl }}/jukebox/"><i aria-hidden="true">📼</i>情绪磁带</a>
-        <a href="{{ site.baseurl }}/sam/arcade/"><i aria-hidden="true">🕹️</i>游戏厅</a>
-        <a href="{{ site.baseurl }}/?view=gallery"><i aria-hidden="true">🖼️</i>Gallery</a>
+        <a href="{{ site.baseurl }}/songs/"><i aria-hidden="true">🎧</i>歌单</a>
+        <a href="{{ site.baseurl }}/sam/today/"><i aria-hidden="true">☀️</i>语录</a>
+        <a href="{{ site.baseurl }}/sam/hotline/"><i aria-hidden="true">☎️</i>热线</a>
+        <a href="{{ site.baseurl }}/sky/"><i aria-hidden="true">✨</i>星图</a>
+        <a href="{{ site.baseurl }}/jukebox/"><i aria-hidden="true">📼</i>磁带</a>
+        <a href="{{ site.baseurl }}/sam/arcade/"><i aria-hidden="true">🕹️</i>街机</a>
+        <a href="{{ site.baseurl }}/?view=gallery"><i aria-hidden="true">🖼️</i>画廊</a>
       </nav>
     </div>
 
     <div class="c-lobby__block">
-      <div class="c-lobby__head"><h2 class="c-lobby__title">关于我</h2><a class="c-lobby__more" href="{{ site.baseurl }}/about/">更多 →</a></div>
+      <div class="c-shelf__head"><span class="c-shelf__badge" aria-hidden="true">💌</span><h2 class="c-shelf__name">冬的名片</h2><a class="c-shelf__count" href="{{ site.baseurl }}/about/">更多 ›</a><p class="c-shelf__desc">我是谁，在哪儿能找到我</p></div>
       <div class="c-lobby-me">
         <a class="c-lobby-me__who" href="{{ site.baseurl }}/about/">
           {%- if site.author-image %}<img src="{{ site.baseurl }}/images/{{ site.author-image }}" alt="" loading="lazy">{% endif %}
