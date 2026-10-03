@@ -1893,6 +1893,7 @@ Winter：**「我感觉这个 tab 排得好乱，常用的笔记什么的都堆�
 | **📝 Notes** | `_pages/notes/index.html` ＋ `_includes/notebooks.html` | 灵感本 / 波兰语笔记本 / 每本原著笔记 / 波兰语变格表，一本本封面，手机两本一行。**以后新开的笔记本往 notebooks.html 加一张封面。** Winter's 的「冬的笔记」格和 Gallery 里的波兰语卡都已拿掉，别再加回去 |
 | **关于我 · 写信** | `_pages/about/index.html` | 冬的地图（六格，数字自动算）→ 冬在别处（小红书 / 微博 / B 站）→ 给冬写信（表单，`#letter`）。⚠️ 自我介绍那段**她要自己慢慢想**（2026-10-03：「这种介绍本身就比较 personal，要改我得慢慢想」）——别再主动拟稿、别催，她给了再放进来。旧 `/contact/` 是一个跳到 `/about/#letter` 的小页；寄信后的 `/contact/thanks/` 还在（表单的 redirect 指着它） |
 | **页脚** | `_layouts/home.html` | About · Say Hello · Archive · Gallery · 微博 · B 站 · 小红书 |
+| **✍️ Winter's** | `_includes/winters-shelves.html` 等 | 五本书的封面，点进去 `/winters/<格>/` 看全部，详见下面「冬的歌单 ＋ Winter's」一节 |
 | **小拍立得** | `index.html` 的 `c-post-grid--small` ＋ `_index-post.scss` 末尾 | AU Story 系列卡：手机两张 / 平板三张 / 电脑四张一行，白边相纸不变；标题拆成「故事名」＋ 斜体小字「角色名」（`c-post__who`，按 `series_title` 最后一个 ` · ` 拆） |
 | **Sam 页的 AU 卡** | `sam/index.html` ＋ `_sam.scss` 末尾 | 电脑三张、手机两张一行；手机上只留封面、四个色点、故事名＋角色名、章数（配色名字和简介收起） |
 | **日历入口** | `index.html` AU hero 的 `c-egg-card--cal` | 星图旁边一张「按日子翻」；门厅「最近更新」右上角也有「翻日历 →」 |
@@ -1904,10 +1905,21 @@ Winter 在样稿批注里一条条拍板了 Winter's 的新分法（冬的爱人
 文章允许同时在几类里）和「冬的歌单」唱片墙。**完整决定、归类表、还没做的事都在
 `.claude/plans/winters-redesign.md`，动 Winter's 或歌单之前先读它。**
 
-首页 `?cat=winters` 现在不再是一张文章网格，而是五个书架（2026-10-01 加过第六格「冬的笔记」，2026-10-03 已搬出去成了顶上的 📝 Notes）（大标题 Love, Winter；顶上一排小标签；
-每类排成跟 AU 页一样的**小拍立得格子**、收着只露前几张，点篇数或底下「展开全部」摊开；「冬还年少」铺横格周记本纸）。
-⚠️ **2026-10-03 起不再横着滑**（Winter：「winter's 的文章都不是拍立得了，都没办法反面写字😂」「横滑……在手机上一不留神就会滑到最右边然后进入其他页面」）：
-文章卡就是 `.c-post` 拍立得（长按 / 右键能翻背面写字），行上挂着 `c-post-grid c-post-grid--small`；唱片排成小方格（手机 3 个、电脑 6 个一排）。别再改回横滑。**写新文章时要做的只有一件事：**
+首页 `?cat=winters`（大标题 Love, Winter）现在是**五本「书」的封面**，点一本进那一格自己的页，看全部（2026-10-03，
+Winter：「我觉得你可以做成默认是列表，点进去展示所有的……每一个分类还可以有点封面设计，发挥你的画图特长」）：
+
+| 东西 | 在哪 | 备忘 |
+|---|---|---|
+| 五本封面 | `_includes/winters-shelves.html` | 电脑上五本立在一块搁板上、书下写名字和说明；手机上一行一本（左封面、右字、右边一个 ›）。冬的歌单那本点进 `/songs/` |
+| 一本书的样子 | `_includes/wn-cover.html` | 上面一块正方形插画，下面一块名牌（英文名 ＋ 篇数），左边书脊折痕，右边露一点书页。颜色读 `_data/winters.yml` 的 `cover`（`bg` 底色 / `spine` 名牌和书脊 / `ink` 名牌上的字），英文名是 `cover_en` |
+| 五张插画 | `_includes/wn-cover-art.html` | 一叠信和心形火漆 / 映着雪花的手镜 / 半露出封套的唱片 / 立起一座雪屋的立体书 / 2016 周记本和铅笔。颜色写死在图里（封面是实物，不随「换个心情」变）。改图只改这一个文件 |
+| 每一格的页 | `/winters/love/`、`/self/`、`/story/`、`/young/`（`_pages/winters/*.html` 只有一行 include → `_includes/winters-shelf-page.html`） | 大封面 ＋ 名字 / 英文名 / 篇数和年份 / 说明；下面是**全部**文章的小拍立得（`.c-post`，长按 / 右键能翻背面写字）；冬还年少的铺在横格周记本纸上（`.c-wn-paper`），日期写成「2017 年 3 月」；页尾一排「别的几格」小封面 |
+| 一格有哪几篇 | `_includes/wn-shelf-posts.html` | 封面上的篇数和每格的页共用这一份，别各写一套。文章卡是 `_includes/wn-post-card.html` |
+
+⚠️ **别改回去的两版**：一格一行横着滑（2026-09-30 ～ 10-03；Winter：「winter's 的文章都不是拍立得了，都没办法反面写字😂」
+「横滑……在手机上一不留神就会滑到最右边然后进入其他页面」）、首页每格先露几张再点开全部（同日被她改成现在这样）。
+以后要加第六格 = `_data/winters.yml` 加一条（含 `cover_en` / `cover`）＋ `wn-cover-art.html` 画一张 ＋ `_pages/winters/` 加一页。
+**写新文章时要做的只有一件事：**
 
 ```yaml
 winters: [love, self]   # 上哪几个书架：love 冬的爱人 / self 冬她自己 / story 冬的故事 / young 冬还年少
@@ -1917,12 +1929,12 @@ form: 随笔               # 卡片上的小标签：随笔 / 书信 / 小说 / 
 - 可以同时上好几个书架；`winters: []` = 哪个书架都不上（只挂在唱片墙的歌词翻译就是这样）。
 - 漏写 `winters` 也不会丢：`Novel` 分类自动进「冬的故事」，其余自动进「冬她自己」。
 - 周记本里补上来的旧文记得写 `young`（按日期猜不出来——日期是上线那天）。
-- 书架的名字 / 说明 / 排序在 `_data/winters.yml`；页面在 `_includes/winters-shelves.html`。
+- 书架的名字 / 说明 / 排序 / 封面颜色在 `_data/winters.yml`；文章写好了不用动任何页面，封面上的篇数和那一格的页自己会多一篇。
 
 **加歌只走聊天**（Winter 2026-09-30：「添加歌曲的话比较麻烦，我感觉经过你比较好。先不做网页添加了」）：
 她发歌名或 YouTube Music 歌词图 → 核专辑 → 认字 → 挂进 `_data/songs.json`。**别做藏品架那种网页上的「＋」**，除非她自己再提。
 
-**唱片墙**：资料全在 `_data/songs.json`（首页那一行和 `/songs/` 共用，改这一个文件两处一起变），
+**唱片墙**：资料全在 `_data/songs.json`（`/songs/` 和 Winter's 歌单封面上的首数共用，改这一个文件就够），
 文件开头的 `_readme` 写了每个字段怎么填。新挂一首歌 = 在 `albums` 最前面加一张专辑（或往已有专辑的
 `songs` 里加一首）；`items` 里挂摘录（`lines`）和文章（`essay` / `story` / `tr` / `au`，写 `_posts/` 路径即可，
 标题日期网址构建时自动取）。**`note` 只写来源或她自己原话，别替她编感受；她没翻译过的句子中文留空。**

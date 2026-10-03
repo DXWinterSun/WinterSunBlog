@@ -77,8 +77,8 @@ Winter 的原话：「Winter's tab 现在都是堆在一起的，我想能不能
 |---|---|
 | 五个书架的名字 / 说明 / 排序 | `_data/winters.yml` |
 | 一篇文章上哪几个书架、卡片小标签 | 文章 front matter 的 `winters: [love, self]` 与 `form: 书信` |
-| 书架页面 | `_includes/winters-shelves.html`（首页 `?cat=winters` 才显示），样式 `_sass/5-components/_winters.scss` |
-| 唱片墙资料 | `_data/songs.json`（首页那一行和 `/songs/` 共用） |
+| 书架页面 | 2026-10-03 起：首页 `?cat=winters` 是五本书的封面（`_includes/winters-shelves.html`、`wn-cover.html`、插画 `wn-cover-art.html`），点进 `/winters/<格>/` 看全部（`_includes/winters-shelf-page.html`），样式 `_sass/5-components/_winters.scss`。详见 CLAUDE.md |
+| 唱片墙资料 | `_data/songs.json`（`/songs/` 用；Winter's 歌单封面上的首数也从这里算） |
 | 唱片墙页面 | `songs/index.html`，唱片封面 `_includes/song-sleeve.html`，样式 `_sass/5-components/_songs.scss` |
 
 **以后怎么加歌**：她发歌名 / YouTube Music 歌词图来 → 先核专辑（官方名称与年份）→ 认字 → 挂进

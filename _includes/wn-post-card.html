@@ -1,0 +1,28 @@
+{%- comment -%}
+  Winter's 的一篇文章＝一张小拍立得（跟 AU 页同一种 .c-post，长按 / 右键能翻到背面写字，js/polaroid-notes.js 认 .c-post）。
+  用法：{% include wn-post-card.html p=post paper=true %}；paper=true 时日期写成「2017 年 3 月」（冬还年少）。
+{%- endcomment -%}
+{%- assign wc_p = include.p -%}
+{%- assign wc_cat = wc_p.categories | first -%}
+{%- if wc_p.form -%}{%- assign wc_form = wc_p.form -%}
+{%- elsif wc_cat == 'Novel' -%}{%- assign wc_form = '小说' -%}
+{%- elsif wc_cat == 'Lyrics' -%}{%- assign wc_form = '翻译' -%}
+{%- else -%}{%- assign wc_form = '随笔' -%}{%- endif -%}
+{%- if wc_p.external_url -%}{%- assign wc_url = wc_p.external_url -%}{%- else -%}{%- assign wc_url = wc_p.url | prepend: site.baseurl -%}{%- endif -%}
+{%- assign wc_focus = site.data.image_focus[wc_p.image] %}
+<a class="c-post" href="{{ wc_url }}"{% if wc_p.external_url %} target="_blank" rel="noopener"{% endif %}>
+  <div class="c-post__image-wrap">
+    {%- if wc_p.image %}
+    <div class="c-post__image" data-bg="{{ '/images/' | prepend: site.baseurl | append: wc_p.image }}" style="background-position: {{ wc_focus.card | default: '50% 35%' }}"></div>
+    {%- else %}
+    <div class="c-post__placeholder">Winter Sun</div>
+    {%- endif %}
+    {%- if wc_p.external_url %}<span class="c-wn-lock">🔒 私密</span>{% endif %}
+  </div>
+  <div class="c-post__body">
+    <div class="c-post__eyebrow">{{ wc_form }}</div>
+    <h3 class="c-post__title">{{ wc_p.title }}</h3>
+    {%- if wc_p.summary %}<p class="c-post__summary">{{ wc_p.summary }}</p>{% endif %}
+    <div class="c-post__meta"><span>{% if include.paper %}{{ wc_p.date | date: '%Y' }} 年 {{ wc_p.date | date: '%-m' }} 月{% else %}{{ wc_p.date | date: '%Y.%m.%d' }}{% endif %}</span></div>
+  </div>
+</a>
