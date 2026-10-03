@@ -1,0 +1,69 @@
+{
+  "_readme": "冬的备忘本：网页 /memo/ 和桌面小组件读的都是这一份。在对话里改请用 main 上的 tools/memo/memo.py，别手改。",
+  "version": 1,
+  "updated": "2026-10-03T11:18:11+08:00",
+  "settings": {
+    "style": "paper",
+    "updated": "2026-10-03T11:18:11+08:00",
+    "pages": [
+      {
+        "id": "idea",
+        "name": "灵感",
+        "emoji": "💡",
+        "color": "#D9962E",
+        "hint": "想拍的视频、想发的帖子"
+      },
+      {
+        "id": "sam",
+        "name": "Sam",
+        "emoji": "❣️",
+        "color": "#CF5F78",
+        "hint": "和他有关的"
+      },
+      {
+        "id": "work",
+        "name": "工作",
+        "emoji": "💼",
+        "color": "#3D80C2",
+        "hint": "最近要做 · 工作"
+      },
+      {
+        "id": "life",
+        "name": "生活",
+        "emoji": "🏠",
+        "color": "#55966B",
+        "hint": "最近要做 · 生活"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "au7cvr",
+      "page": "sam",
+      "text": "au 封面优化",
+      "done": false,
+      "order": 0,
+      "created": "2026-10-03T11:18:11+08:00",
+      "updated": "2026-10-03T11:18:11+08:00"
+    },
+    {
+      "id": "hpns01",
+      "page": "sam",
+      "text": "happiness 上线",
+      "done": false,
+      "order": 1,
+      "created": "2026-10-03T11:18:11+08:00",
+      "updated": "2026-10-03T11:18:11+08:00"
+    },
+    {
+      "id": "zyapl1",
+      "page": "work",
+      "text": "申报中邮",
+      "done": false,
+      "order": 0,
+      "created": "2026-10-03T11:18:11+08:00",
+      "updated": "2026-10-03T11:18:11+08:00"
+    }
+  ],
+  "gone": {}
+}
