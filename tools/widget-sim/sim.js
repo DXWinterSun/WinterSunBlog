@@ -2,7 +2,7 @@
 /* ============================================================
    Scriptable 小组件模拟器：不用 iPhone，也能看见桌面小组件长什么样
    ------------------------------------------------------------
-   把一份 Scriptable 脚本（memo/widget/winter-memo.js、sam/widget/sam-today.js …）
+   把一份 Scriptable 脚本（比如 sam/widget/sam-today.js）
    放进一个「假的 Scriptable」里跑一遍，把它搭出来的 ListWidget / 各层 stack
    原样记下来，再翻译成一张 HTML（flex 布局近似 SwiftUI 的排法）。配
    shot.js 截成 PNG，就是给 Winter 看的效果图。

@@ -1,30 +1,29 @@
 #!/usr/bin/env python3
-"""冬的备忘本 · 在对话里替 Winter 改备忘用的小工具。
+"""冬的灵感本 · 在对话里替 Winter 记灵感、续进度、查东西用的小工具。
 
-备忘数据只有一份：仓库 `memo` 分支上的 `memo.json`（不在 main 上——
-放 main 的话她每改一条就要整站重建一次，还会掐掉正在跑的正文部署）。
-网页 /memo/ 和桌面小组件（memo/widget/winter-memo.js）读的都是这一份。
+数据只有一份：仓库 `memo` 分支上的 `memo.json`（不在 main 上——
+放 main 的话每记一条就要整站重建一次，还会掐掉正在跑的正文部署）。
+网页 /memo/（只读，入口在 Winter's › 冬的笔记）读的就是这一份；只有这个工具能改它。
 
 本工具不碰工作区：直接用 git 底层命令在 origin/memo 上做一次提交再推上去，
 推不上（她刚在手机上改过）就重新取一遍、把这次的改动重放一遍再推，最多四次。
 
     python3 tools/memo/memo.py ls                 # 全部列出来（含短编号）
-    python3 tools/memo/memo.py ls 生活所迫          # 只看一页
+    python3 tools/memo/memo.py ls 长期              # 只看一页
     python3 tools/memo/memo.py find 采访            # 连做完的、备注、进度一起搜（「我之前说的那个……」）
     python3 tools/memo/memo.py show k3f9a2         # 一条的全部：备注 + 进度记录
-    python3 tools/memo/memo.py add 喜欢的事 "Sam 采访合集" --note "想法……"
-    python3 tools/memo/memo.py add 生活所迫 "申报中邮" --due 10-15 --pin
+    python3 tools/memo/memo.py add 当下 "Sam 采访合集" --note "10/3：三分钟以内，配中英字幕"
+    python3 tools/memo/memo.py edit 采访 --page 长期      # 点子定下来要慢慢做了，挪到长期
     python3 tools/memo/memo.py note 采访 "10/3 讨论：先剪三分钟版……"   # 往备注后面续一段
     python3 tools/memo/memo.py log 采访 "粗剪完了，字幕还差一半"         # 记一笔进度（带日期）
-    python3 tools/memo/memo.py done 中邮           # 编号或一段原文都行
-    python3 tools/memo/memo.py undone 中邮
-    python3 tools/memo/memo.py edit k3f9a2 --text "新的说法" --page 生活 --due none
+    python3 tools/memo/memo.py done 采访           # 做成了（编号或一段原文都行）
+    python3 tools/memo/memo.py undone 采访
+    python3 tools/memo/memo.py edit k3f9a2 --text "新的说法" --page 长期 --due none
     python3 tools/memo/memo.py rm k3f9a2
     python3 tools/memo/memo.py top k3f9a2          # 挪到这一页最前面
     python3 tools/memo/memo.py clear-done [页]      # 清掉已完成的
     python3 tools/memo/memo.py pages               # 看有哪几页
     python3 tools/memo/memo.py page-add 读书 📚     # 加一页（page-rename / page-rm 同理）
-    python3 tools/memo/memo.py style snow          # 小组件样子：paper 便笺 / native 提醒 / snow 晴雪
 
 所有改动类命令都可以加 --dry-run（只打印、不推）和 --trailer "..."（给提交说明补尾行，
 可重复；会话要求在提交里署名时用）。
@@ -46,9 +45,8 @@ TZ = dt.timezone(dt.timedelta(hours=8))   # Winter 在国内，时间一律按�
 
 # 页面名的口语叫法 → 页面 id（她在对话里怎么说都能认出来）
 ALIASES = {
-    "chore": ["生活所迫", "生活", "琐事", "日常琐事", "杂事", "工作", "上班", "学校", "教学", "待办", "chore", "💼"],
-    "love": ["喜欢的事", "喜欢", "sam", "山姆", "长期", "长期计划", "计划", "灵感", "项目", "点子", "想法", "love", "❣️", "❣"],
-    "daily": ["日更", "日更素材", "素材", "近期", "近期素材", "daily", "🎞️", "🎞"],
+    "now": ["当下", "当下的灵感", "灵感", "点子", "想法", "刚想到", "突然想到", "now", "✨"],
+    "long": ["长期", "长期的计划", "计划", "项目", "企划", "慢慢做", "long", "🌳"],
 }
 
 
@@ -190,7 +188,7 @@ def show(data, only=None):
         if only and p["id"] != only["id"]:
             continue
         todo, done = page_items(data, p["id"]), page_items(data, p["id"], True)
-        out.append(f"{p['emoji']} {p['name']}（{len(todo)} 条没做，{len(done)} 条做完）")
+        out.append(f"{p['emoji']} {p['name']}（{len(todo)} 个进行中，{len(done)} 个做成了）")
         for i in todo:
             extra = []
             if i.get("pin"):
@@ -213,7 +211,7 @@ def show(data, only=None):
 
 def show_item(data, it):
     p = next((x for x in data["settings"]["pages"] if x["id"] == it["page"]), {"emoji": "", "name": it["page"]})
-    lines = [f"{p['emoji']} {p['name']} · {it['id']}" + ("（已做完 " + it.get("doneAt", "")[:10] + "）" if it.get("done") else ""),
+    lines = [f"{p['emoji']} {p['name']} · {it['id']}" + ("（已做成 " + it.get("doneAt", "")[:10] + "）" if it.get("done") else ""),
              f"  {it['text']}"]
     meta = [f"记于 {it.get('created', '')[:10]}"]
     if it.get("due"):
@@ -247,7 +245,7 @@ def op_note(a):
             raise SystemExit("没有要写的备注。")
         it["note"] = (it.get("note", "").rstrip() + "\n\n" + add).strip() if it.get("note") else add
         it["updated"] = now_iso()
-        return f"备忘：给「{it['text']}」续了一段备注"
+        return f"灵感本：给「{it['text']}」续了一段备注"
     return run
 
 
@@ -265,7 +263,7 @@ def op_log(a):
         it.setdefault("log", []).append({"id": new_id(taken), "at": stamp, "text": text})
         it["log"].sort(key=lambda e: e["at"])
         it["updated"] = now_iso()
-        return f"备忘：「{it['text']}」记一笔进度"
+        return f"灵感本：「{it['text']}」记一笔进度"
     return run
 
 
@@ -279,7 +277,7 @@ def op_style(a):
             raise SystemExit("样子只有：paper 便笺 / native 提醒 / snow 晴雪")
         data["settings"]["style"] = st
         data["settings"]["updated"] = now_iso()
-        return f"备忘：小组件换成「{names[st]}」"
+        return f"灵感本：小组件换成「{names[st]}」"
     return run
 
 
@@ -306,7 +304,7 @@ def op_add(a):
             if a.pin:
                 item["pin"] = True
             data["items"].append(item)
-        return f"备忘：{p['emoji']}{p['name']} + " + "、".join(f"「{t}」" for t in texts)
+        return f"灵感本：{p['emoji']}{p['name']} + " + "、".join(f"「{t}」" for t in texts)
     return run
 
 
@@ -320,7 +318,7 @@ def op_done(a, value):
         else:
             it.pop("doneAt", None)
             it["order"] = top_order(data, it["page"])
-        return f"备忘：{'✓ 做完' if value else '↺ 改回没做'}「{it['text']}」"
+        return f"灵感本：{'✓ 做成了' if value else '↺ 改回进行中'}「{it['text']}」"
     return run
 
 
@@ -329,7 +327,7 @@ def op_rm(a):
         it = find_item(data, a.key)
         data["items"] = [i for i in data["items"] if i["id"] != it["id"]]
         data.setdefault("gone", {})[it["id"]] = now_iso()
-        return f"备忘：删掉「{it['text']}」"
+        return f"灵感本：删掉「{it['text']}」"
     return run
 
 
@@ -368,7 +366,7 @@ def op_edit(a):
         if not changed:
             raise SystemExit("没说要改什么。")
         it["updated"] = now_iso()
-        return f"备忘：改「{it['text']}」（{'、'.join(changed)}）"
+        return f"灵感本：改「{it['text']}」（{'、'.join(changed)}）"
     return run
 
 
@@ -377,7 +375,7 @@ def op_top(a):
         it = find_item(data, a.key, include_done=False)
         it["order"] = top_order(data, it["page"])
         it["updated"] = now_iso()
-        return f"备忘：「{it['text']}」挪到最前"
+        return f"灵感本：「{it['text']}」挪到最前"
     return run
 
 
@@ -392,7 +390,7 @@ def op_clear_done(a):
             data.setdefault("gone", {})[i["id"]] = stamp
         ids = {i["id"] for i in gone}
         data["items"] = [i for i in data["items"] if i["id"] not in ids]
-        return f"备忘：清掉 {len(gone)} 条做完的" + (f"（{p['name']}）" if p else "")
+        return f"灵感本：清掉 {len(gone)} 条做完的" + (f"（{p['name']}）" if p else "")
     return run
 
 
@@ -406,7 +404,7 @@ def op_page_add(a):
         pages.append({"id": pid, "name": a.name, "emoji": a.emoji or "📝",
                       "color": a.color or "#8C7BB8", "hint": a.hint or ""})
         data["settings"]["updated"] = now_iso()
-        return f"备忘：加一页 {a.emoji or '📝'}{a.name}"
+        return f"灵感本：加一页 {a.emoji or '📝'}{a.name}"
     return run
 
 
@@ -423,7 +421,7 @@ def op_page_rename(a):
         if a.color:
             p["color"] = a.color
         data["settings"]["updated"] = now_iso()
-        return f"备忘：{old} → {p['emoji']}{p['name']}"
+        return f"灵感本：{old} → {p['emoji']}{p['name']}"
     return run
 
 
@@ -443,7 +441,7 @@ def op_page_rm(a):
         data["items"] = [i for i in data["items"] if i["page"] != p["id"]]
         data["settings"]["pages"] = [x for x in pages if x["id"] != p["id"]]
         data["settings"]["updated"] = stamp
-        return f"备忘：删掉一页 {p['emoji']}{p['name']}"
+        return f"灵感本：删掉一页 {p['emoji']}{p['name']}"
     return run
 
 
@@ -470,7 +468,7 @@ def apply(op, a):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="冬的备忘本")
+    ap = argparse.ArgumentParser(description="冬的灵感本")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     def change(name, **kw):

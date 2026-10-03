@@ -6,7 +6,7 @@
   · 书架是哪几个、叫什么、怎么排：_data/winters.yml
   · 一篇文章上哪几个书架：文章自己 front matter 的 winters: [love, self]，卡片小标签是 form:
   · 冬的歌单那一行：_data/songs.json（与 /songs/ 唱片墙同一份资料）
-  · 冬的笔记那一行：一本本笔记本封面——备忘本（/memo/，数据在仓库 memo 分支，这里只放封面不读数据）、
+  · 冬的笔记那一行：一本本笔记本封面——灵感本（/memo/，数据在仓库 memo 分支，这里只放封面不读数据）、
     波兰语笔记本读 _data/polish/notes.yml，原著笔记读 _data/reading/*.yml
 
   顶上一排小标签，点一下跳到那一类；每一类一行，横着滑看这一类，竖着滚换下一类；
@@ -42,10 +42,10 @@
     {%- endfor -%}
     {%- assign n = 1 -%}
     {%- capture row -%}
-      {%- comment -%} 冬的备忘本（2026-10-03）：只读页，只在对话里改；内容在 memo 分支，构建时读不到，所以封面不报数 {%- endcomment %}
+      {%- comment -%} 冬的灵感本（2026-10-03）：只读页，只在对话里记；内容在 memo 分支，构建时读不到，所以封面不报数 {%- endcomment %}
       <a class="c-wn-notebook c-wn-notebook--memo" href="{{ site.baseurl }}/memo/">
-        <span class="c-wn-notebook__label"><small>Winter's Memo</small><b>冬的备忘本</b><span>要做的、想做的，和做到哪了</span></span>
-        <span class="c-wn-notebook__meta">💼 生活所迫 · ❣️ 喜欢的事<br>🎞️ 日更素材</span>
+        <span class="c-wn-notebook__label"><small>Winter's Ideas</small><b>冬的灵感本</b><span>想做的事，和做到哪了</span></span>
+        <span class="c-wn-notebook__meta">✨ 当下的灵感<br>🌳 长期的计划</span>
       </a>
       {%- if pn and pn.size > 0 -%}{%- assign n = n | plus: 1 %}
       <a class="c-wn-notebook c-wn-notebook--pl" href="{{ site.baseurl }}/polish/">
