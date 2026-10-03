@@ -340,3 +340,16 @@ touchstone 是逃跑计划《梦中的你》，尤其 **“而你永远是你 / 
 - ~~《约会游戏》重录~~ → 已写（Extra 23）。
 - 婚后的普通礼拜二：甜宠日常，逃了一辈子婚的男人学着过日子。
 - 书里没有你·他视角：为什么把你从卖给全世界的版本里摘出去（Extra 22 已带到一半，可再深挖）。
+
+## IF 线（2026-10-03 起 · 正片之外的“如果”，正片以后不引用）
+
+做法同全站 IF 线（灵感本 4gyc1r）：先出提案页让 Winter 挑，再写；成品挂在本系列番外里，
+`chapter_type: "Extra · IF"`、`chapter_kind: extra`，标题 `IF · 中文名 — Off the Air`，开头一段 `> **IF 线。** …` 写明不在正传时间里。
+
+- **提案页**：`.claude/pitches/off-the-air-if.json` → `render_pitch.py` → https://claude.ai/artifact/PbEXY7rMBUyxGr3dEKgNcm
+  - A 1961 · 那一晚，先找到他的是你（费城，他 32 岁被扔出酒吧、Byrd 的车停在街对面——“身边没有亲近的人”这条件被你打破）【我推荐】
+  - B 1965 · 你是审他题的那个人（ABC 审查员；他自己在费城干过这行）
+  - C 1967 · 你是派来盯他的人（赫尔辛基，Patricia 的位置；先认识夜里的他）
+  - 另三道：篇幅 / 改不改得了他 / 第一篇炽恋与否
+- ⚠️ 称呼：IF 里也守「你只叫他 Chuck」；「Barris 先生」仍是正片 Ch5 的唯一破例，IF 里别用。
+- 等 Winter 挑完再写第一篇，草稿存 `.claude/bibles/off-the-air-if/`（chN.md + chN-notes.md）。
