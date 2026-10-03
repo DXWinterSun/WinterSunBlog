@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>备忘本小组件 · Winter Sun</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="把冬的备忘本放到 iPhone 桌面：一页一个小组件，叠成一摞，往上一滑就翻页。">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Special+Elite&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/WinterSunBlog/css/theme-picker.css">
+<style>
+  /* 备忘本小组件的安装说明。代码块实时取自 ./winter-memo.js（唯一来源，这页不另存副本）。
+     配色跟全站「换个心情」走，跟备忘本那页同一套。 */
+  :root {
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+    --serif: 'EB Garamond', Georgia, 'Times New Roman', 'Noto Serif SC', 'Songti SC', serif;
+  }
+  html, body { margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    background: var(--c-bg); color: var(--c-ink); font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    padding: max(14px, env(safe-area-inset-top)) 0 max(50px, env(safe-area-inset-bottom));
+  }
+  a { color: var(--c-accent); }
+  .wrap { max-width: 660px; margin: 0 auto; padding: 0 16px; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; }
+  .back { font-family: var(--serif); font-size: 14px; color: var(--c-muted); text-decoration: none; }
+  .topbar__right { display: flex; gap: 8px; }
+  .iconbtn {
+    width: 36px; height: 36px; padding: 0; display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--c-line); border-radius: 999px; background: transparent; font-size: 16px; cursor: pointer;
+  }
+  .head { text-align: center; margin: 26px 0 8px; }
+  .eyebrow { font-family: 'Special Elite', 'Courier New', monospace; font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--c-muted-soft); }
+  h1 { margin: 8px 0 0; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(32px, 8.5vw, 44px); line-height: 1.05; }
+  h1 b { display: block; font-style: normal; font-weight: 500; font-family: 'Noto Serif SC', 'Songti SC', serif; font-size: .46em; letter-spacing: 4px; margin-top: 8px; color: var(--c-ink-soft); }
+  .lede { text-align: center; color: var(--c-ink-soft); font-size: 15px; line-height: 1.85; margin: 16px auto 0; max-width: 30em; }
+  .pic { display: block; width: 230px; max-width: 70%; height: auto; margin: 18px auto 0; }
+
+  .steps { list-style: none; counter-reset: s; padding: 0; margin: 30px 0 0; }
+  .steps > li { position: relative; padding: 0 0 24px 46px; border-left: 1px solid var(--c-line); margin-left: 15px; }
+  .steps > li:last-child { border-left-color: transparent; }
+  .steps > li::before {
+    counter-increment: s; content: counter(s);
+    position: absolute; left: -15px; top: -3px; width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--c-accent); color: #fff; border-radius: 50%;
+    font-family: var(--serif); font-size: 16px;
+  }
+  .steps h3 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 600; font-size: 16.5px; margin: 1px 0 6px; }
+  .steps p { margin: 0 0 6px; font-size: 14.5px; line-height: 1.85; color: var(--c-ink-soft); }
+  .steps b { color: var(--c-ink); }
+  kbd {
+    font-family: inherit; font-size: .92em; padding: 1px 7px; border-radius: 6px;
+    background: var(--c-paper); border: 1px solid var(--c-line); white-space: nowrap;
+  }
+  .table { margin: 8px 0 0; border: 1px solid var(--c-line); border-radius: 12px; overflow: hidden; background: var(--c-paper); }
+  .table div { display: flex; gap: 12px; padding: 9px 12px; border-top: 1px solid var(--c-line); font-size: 14px; line-height: 1.6; }
+  .table div:first-child { border-top: 0; }
+  .table span:first-child { flex: 0 0 7.5em; color: var(--c-ink); }
+  .table span:last-child { color: var(--c-ink-soft); }
+
+  .codewrap { margin-top: 10px; border: 1px solid var(--c-line); border-radius: 14px; overflow: hidden; background: var(--c-paper); }
+  .codebar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid var(--c-line); }
+  .codebar span { font-family: 'Special Elite', monospace; font-size: 11px; letter-spacing: 2px; color: var(--c-muted); text-transform: uppercase; }
+  .copy { font: inherit; font-size: 13.5px; color: #fff; background: var(--c-accent); border: 0; border-radius: 999px; padding: 8px 18px; cursor: pointer; }
+  pre { margin: 0; padding: 14px; max-height: 260px; overflow: auto; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11.5px; line-height: 1.55; color: var(--c-ink-soft); -webkit-overflow-scrolling: touch; }
+  .note { margin-top: 26px; padding: 14px 16px; border-radius: 14px; background: rgba(var(--rgb-accent), .07); font-size: 14px; line-height: 1.85; color: var(--c-ink-soft); }
+  .foot { text-align: center; margin-top: 40px; font-family: var(--serif); font-style: italic; color: var(--c-muted-soft); }
+</style>
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("wiw-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="/WinterSunBlog/memo/">← 回备忘本</a>
+    <span class="topbar__right">
+      <button class="c-palette-trigger" type="button" id="js-palette-trigger" aria-label="换个心情 · 配色主题" title="换个心情" data-baseurl="/WinterSunBlog">
+        <svg class="c-palette-trigger__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+      <button type="button" class="iconbtn" id="mode-btn" title="白天 / 夜里" aria-label="白天或夜里"></button>
+    </span>
+  </div>
+
+  <div class="head">
+    <div class="eyebrow">Memo Widget</div>
+    <h1>On the Home Screen<b>备忘本 · 桌面小组件</b></h1>
+  </div>
+  <p class="lede">一页一个小组件，叠成一摞放在桌面上，<br>往上一滑就翻页；点一下，就去备忘本里改。</p>
+  <img class="pic" src="stack.webp" alt="四页叠成一摞的小组件，最上面是「灵感」" width="476" height="466">
+
+  <ol class="steps">
+    <li>
+      <h3>Scriptable 已经有了</h3>
+      <p>每日语录用的就是它，不用再装。（换新手机的话：App Store 搜 <a href="https://apps.apple.com/app/scriptable/id1405459188" target="_blank" rel="noopener">Scriptable</a>，免费。）</p>
+    </li>
+    <li>
+      <h3>新建一个脚本，把代码粘进去</h3>
+      <p>点下面的<b>「复制代码」</b>→ 打开 Scriptable → 右上角 <kbd>＋</kbd> → 粘贴 → 点左上角的标题，改名叫<b>「冬的备忘本」</b>→ <kbd>Done</kbd>。</p>
+      <div class="codewrap">
+        <div class="codebar"><span>winter-memo.js</span><button class="copy" id="copy" type="button">复制代码</button></div>
+        <pre id="code">正在取回脚本……</pre>
+      </div>
+    </li>
+    <li>
+      <h3>放到原来「提醒事项」那个位置</h3>
+      <p>长按桌面上的提醒事项小组件 → <b>移除小组件</b>。再长按空白处 → 左上角 <kbd>编辑</kbd> → <kbd>添加小组件</kbd> → 搜 <b>Scriptable</b> → 选<b>小号</b>（左右滑到最小的那个）→ 添加，拖到刚空出来的位置。</p>
+    </li>
+    <li>
+      <h3>告诉它显示哪一页</h3>
+      <p>长按刚放好的小组件 → <kbd>编辑小组件</kbd>：<b>Script</b> 选「冬的备忘本」，<b>Parameter</b> 填<b>「工作」</b>。其余不用管。</p>
+    </li>
+    <li>
+      <h3>叠成一摞，就能翻页</h3>
+      <p>照第 3、4 步再加一个小号，Parameter 填<b>「灵感」</b>，然后<b>按住它拖到第一个上面</b>，松手——两个就叠在一起了。再照样加<b>「Sam」</b>和<b>「生活」</b>。以后在那个位置<b>往上一滑</b>就是下一页。</p>
+      <p>想让它老老实实停在你翻到的那页：长按这一摞 → <kbd>编辑叠放</kbd> → 把<b>「智能轮换」</b>和<b>「小组件建议」</b>都关掉。</p>
+    </li>
+    <li>
+      <h3>别的摆法（随你）</h3>
+      <div class="table">
+        <div><span>Parameter 空着</span><span>总览：每页一行，各显示头一条和条数</span></div>
+        <div><span>填一页的名字</span><span>只显示这一页（小号最多四条，中号能分两栏放八条）</span></div>
+        <div><span>中号填「工作,生活」</span><span>两页并排</span></div>
+        <div><span>大号空着</span><span>四页一起看——放在 −1 屏正合适</span></div>
+      </div>
+    </li>
+  </ol>
+
+  <div class="note">
+    ✎ 样子（便笺 / 提醒 / 晴雪）在备忘本右上角的⚙「设置」里换，不用动这里的代码。<br>
+    ⏱ 改完之后小组件不是马上变：什么时候刷新由 iPhone 决定，一般十几分钟到半小时。点开小组件去备忘本里看，永远是最新的。<br>
+    💬 在对话里跟 Claude 说「记一下……」「……做完了」，也会直接写进同一本。
+  </div>
+
+  <div class="foot">a small notebook, kept by 冬璇</div>
+</div>
+
+<script>
+  (function () {
+    var pre = document.getElementById('code');
+    fetch('/WinterSunBlog/memo/widget/winter-memo.js', { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+      .then(function (t) { pre.textContent = t; })
+      .catch(function () { pre.textContent = '脚本没能取回来，刷新一下再试。'; });
+    document.getElementById('copy').addEventListener('click', function () {
+      var btn = this, code = pre.textContent;
+      navigator.clipboard.writeText(code).then(function () {
+        btn.textContent = '已复制 ✓';
+        setTimeout(function () { btn.textContent = '复制代码'; }, 1800);
+      }).catch(function () {
+        var r = document.createRange(); r.selectNodeContents(pre);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = '已选中，长按复制';
+      });
+    });
+    function isDark() {
+      var a = document.documentElement.getAttribute('data-theme');
+      return a === 'dark' || (!a && !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches));
+    }
+    var mb = document.getElementById('mode-btn');
+    function paint() { mb.textContent = isDark() ? '🌑' : '🌕'; }
+    mb.onclick = function () {
+      var next = isDark() ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('wiw-theme', next); } catch (e) {}
+      paint();
+    };
+    paint();
+  })();
+</script>
+<script src="/WinterSunBlog/js/sam-themes-data.js"></script>
+<script src="/WinterSunBlog/js/theme-picker.js"></script>
+</body>
+</html>
