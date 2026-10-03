@@ -1,0 +1,155 @@
+{%- comment -%}
+  ⛄ Home 门厅（2026-10-03 全站新排法，Winter 选的 A 方案）。
+  以前第一格叫「About」，点进去却是 54 张系列大卡 + 29 篇文章的大杂烩，手机上要划 48 屏，
+  关于她的只有一句话。现在第一格只放四样：接着读 / 最近更新 / 常去的地方 / 关于我。
+  全部故事去 AU Story 和 Winter's 各自看；日历（Archive）不再占标签，入口在这里和 AU 页顶上。
+
+  · 只在首页「全部」视图出现（_sass/5-components/_lobby.scss 按 data-hero-active 切换），
+    这时下面那张通用文章网格整个藏起来。
+  · 「接着读」读本机 localStorage 的 wiw-read（章节页记的阅读进度，见 js/main.js readingMemory），
+    系列名 → 标题 / 封面 / 目录地址的对照表在下面那段 JSON 里，构建时生成；没读过任何系列就整块不出现。
+  · 「最近更新」按真实上线日期分天，最近 4 天；同一天同一系列发了好几章就合成一行，点日期去日历那一天。
+{%- endcomment -%}
+{%- assign lb_series_pages = site.pages | where: "layout", "series" -%}
+<section class="c-lobby" aria-label="门厅">
+  <div class="c-lobby__main">
+
+    <div class="c-lobby__block" id="js-lobby-continue" hidden>
+      <div class="c-lobby__head"><h2 class="c-lobby__title">接着读</h2><span class="c-lobby__hint">上次停在这</span></div>
+      <a class="c-lobby-resume" id="js-lobby-resume" href="{{ site.baseurl }}/?cat=AU+Story">
+        <span class="c-lobby-resume__img" id="js-lobby-resume-img"></span>
+        <span class="c-lobby-resume__body">
+          <span class="c-lobby-resume__series" id="js-lobby-resume-series"></span>
+          <span class="c-lobby-resume__chapter" id="js-lobby-resume-chapter"></span>
+          <span class="c-lobby-resume__bar"><i id="js-lobby-resume-bar"></i></span>
+          <span class="c-lobby-resume__meta" id="js-lobby-resume-meta"></span>
+        </span>
+      </a>
+      <p class="c-lobby__also" id="js-lobby-also" hidden></p>
+    </div>
+
+    <div class="c-lobby__block">
+      <div class="c-lobby__head"><h2 class="c-lobby__title">最近更新</h2><a class="c-lobby__more" href="{{ site.baseurl }}/archive/">翻日历 →</a></div>
+      {%- assign lb_recent = site.posts | slice: 0, 80 -%}
+      {%- assign lb_days = lb_recent | group_by_exp: "p", "p.date | date: '%Y-%m-%d'" %}
+      <ol class="c-lobby-upd">
+        {%- for d in lb_days limit: 4 %}
+        <li class="c-lobby-upd__day">
+          <a class="c-lobby-upd__stamp" href="{{ site.baseurl }}/archive/#d{{ d.name }}" aria-label="{{ d.name }} 那一天">{{ d.name | date: '%m.%d' }}</a>
+          <ul class="c-lobby-upd__list">
+            {%- assign lb_groups = d.items | group_by: "series" -%}
+            {%- for g in lb_groups -%}
+              {%- if g.name == nil or g.name == "" -%}
+                {%- for p in g.items %}
+            <li><a href="{% if p.external_url %}{{ p.external_url }}{% else %}{{ p.url | prepend: site.baseurl }}{% endif %}"><b>Winter&rsquo;s</b><span>{{ p.title }}</span></a></li>
+                {%- endfor -%}
+              {%- else -%}
+                {%- assign lb_new = g.items | first -%}{%- assign lb_old = g.items | last -%}
+                {%- if g.items.size == 1 %}
+            <li><a href="{{ lb_new.url | prepend: site.baseurl }}"><b>{{ g.name }}</b><span>{{ lb_new.title | split: ' — ' | first }}</span></a></li>
+                {%- else %}
+            <li><a href="{{ site.baseurl }}/archive/#d{{ d.name }}"><b>{{ g.name }}</b><span>{{ g.items.size }} 篇：{{ lb_old.chapter_type | default: '第一篇' }} 到 {{ lb_new.chapter_type | default: '最新一篇' }}</span></a></li>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor %}
+          </ul>
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
+
+  </div>
+  <div class="c-lobby__side">
+
+    <div class="c-lobby__block">
+      <div class="c-lobby__head"><h2 class="c-lobby__title">常去的地方</h2></div>
+      <nav class="c-lobby-tiles" aria-label="常去的地方">
+        <a href="{{ site.baseurl }}/archive/"><i aria-hidden="true">🗓️</i>日历</a>
+        <a href="{{ site.baseurl }}/songs/"><i aria-hidden="true">🎧</i>冬的歌单</a>
+        <a href="{{ site.baseurl }}/sam/today/"><i aria-hidden="true">☀️</i>今日一句</a>
+        <a href="{{ site.baseurl }}/sam/hotline/"><i aria-hidden="true">☎️</i>深夜热线</a>
+        <a href="{{ site.baseurl }}/sky/"><i aria-hidden="true">✨</i>AU 星图</a>
+        <a href="{{ site.baseurl }}/jukebox/"><i aria-hidden="true">📼</i>情绪磁带</a>
+        <a href="{{ site.baseurl }}/sam/arcade/"><i aria-hidden="true">🕹️</i>游戏厅</a>
+        <a href="{{ site.baseurl }}/?view=gallery"><i aria-hidden="true">🖼️</i>Gallery</a>
+      </nav>
+    </div>
+
+    <div class="c-lobby__block">
+      <div class="c-lobby__head"><h2 class="c-lobby__title">关于我</h2><a class="c-lobby__more" href="{{ site.baseurl }}/about/">更多 →</a></div>
+      <div class="c-lobby-me">
+        <a class="c-lobby-me__who" href="{{ site.baseurl }}/about/">
+          {%- if site.author-image %}<img src="{{ site.baseurl }}/images/{{ site.author-image }}" alt="" loading="lazy">{% endif %}
+          <span><b>冬璇 · {{ site.author-name }}</b><span>随时来这里坐坐，留几个字也好。</span></span>
+        </a>
+        <div class="c-lobby-me__links">
+          <a class="is-main" href="{{ site.baseurl }}/about/#letter">✉ 写信给我</a>
+          {%- if site.author-redbook %}<a href="{{ site.author-redbook }}" target="_blank" rel="noopener">小红书</a>{% endif %}
+          {%- if site.author-weibo %}<a href="{{ site.author-weibo }}" target="_blank" rel="noopener">微博</a>{% endif %}
+          {%- if site.author-bilibili %}<a href="{{ site.author-bilibili }}" target="_blank" rel="noopener">B 站</a>{% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="application/json" id="js-lobby-series">{
+    {%- for sp in lb_series_pages -%}
+      {%- if sp.series_name -%}
+        {%- assign lb_first = site.posts | where: "series", sp.series_name | sort: "series_order" | first -%}
+        {%- assign lb_img = '' -%}{%- assign lb_pos = '50% 30%' -%}
+        {%- if lb_first.image -%}
+          {%- assign lb_img = '/images/' | prepend: site.baseurl | append: lb_first.image -%}
+          {%- assign lb_f = site.data.image_focus[lb_first.image] -%}
+          {%- if lb_f.sq -%}{%- assign lb_pos = lb_f.sq -%}{%- endif -%}
+        {%- endif -%}
+        {{ sp.series_name | jsonify }}: {"u": {{ sp.url | prepend: site.baseurl | jsonify }}, "img": {{ lb_img | jsonify }}, "pos": {{ lb_pos | jsonify }}}{% unless forloop.last %},{% endunless %}
+      {%- endif -%}
+    {%- endfor -%}
+  }</script>
+  <script>
+  /* 接着读：从本机的阅读记忆（wiw-read）里挑最近读的那个系列。纯本机，不上传。 */
+  (function () {
+    var box = document.getElementById('js-lobby-continue');
+    if (!box) return;
+    var read = {}, map = {};
+    try { read = JSON.parse(localStorage.getItem('wiw-read') || '{}') || {}; } catch (e) { return; }
+    try { map = JSON.parse(document.getElementById('js-lobby-series').textContent); } catch (e) { map = {}; }
+    var list = Object.keys(read).filter(function (k) { return read[k] && read[k].last && map[k]; })
+      .sort(function (a, b) { return (read[b].last.ts || 0) - (read[a].last.ts || 0); });
+    if (!list.length) return;
+    function label(no, title) {
+      var m;
+      if ((m = /Chapter\s+(\d+)/i.exec(no || ''))) no = '第 ' + m[1] + ' 章';
+      else if ((m = /Extra\s+(\d+)/i.exec(no || ''))) no = '番外 ' + m[1];
+      else if ((m = /Episode\s+(\d+)/i.exec(no || ''))) no = '第 ' + m[1] + ' 集';
+      return [no, title].filter(Boolean).join(' · ');
+    }
+    var k = list[0], last = read[k].last, s = map[k];
+    var done = (last.pct || 0) >= 95;
+    var a = document.getElementById('js-lobby-resume');
+    a.href = done ? s.u + '#chapters' : last.path;
+    document.getElementById('js-lobby-resume-series').textContent = k;
+    document.getElementById('js-lobby-resume-chapter').textContent = label(last.no, last.title);
+    document.getElementById('js-lobby-resume-bar').style.width = Math.max(4, Math.min(100, last.pct || 0)) + '%';
+    document.getElementById('js-lobby-resume-meta').textContent = done ? '这章读完了，去目录看下一章 →' : '读到 ' + (last.pct || 0) + '%，接着读 →';
+    var img = document.getElementById('js-lobby-resume-img');
+    if (s.img) { img.style.backgroundImage = 'url("' + s.img + '")'; img.style.backgroundPosition = s.pos; }
+    else img.classList.add('is-blank');
+    var others = list.slice(1, 3);
+    if (others.length) {
+      var p = document.getElementById('js-lobby-also');
+      p.appendChild(document.createTextNode('也在读：'));
+      others.forEach(function (o, i) {
+        if (i) p.appendChild(document.createTextNode(' · '));
+        var l = document.createElement('a');
+        l.href = (read[o].last.pct || 0) >= 95 ? map[o].u + '#chapters' : read[o].last.path;
+        l.textContent = o;
+        p.appendChild(l);
+      });
+      p.hidden = false;
+    }
+    box.hidden = false;
+  })();
+  </script>
+</section>

@@ -1,7 +1,9 @@
 <header class="c-topbar">
   <div class="o-container c-topbar__inner">
     {% comment %}
-      About is now the home page; HOME tab removed.
+      2026-10-03 全站新排法（Winter 选的 A 方案）：第一格「⛄ Home」是门厅（index.html 的 c-lobby），
+      Archive 不再占标签（入口在门厅「翻日历」、AU 页顶上、页脚），最后一格换成「📝 Notes」笔记页。
+      About 变成真的一页 /about/（关于我 + 写信），从门厅最下面和页脚进。
       Pages can override the active tab by setting `nav_active` in their
       front matter — e.g. a series landing page declares its category so
       the corresponding filter tab lights up instead of Sam getting a
@@ -10,8 +12,8 @@
     {% assign nav_active = '' %}
     {% if page.nav_active %}{% assign nav_active = page.nav_active %}
     {% elsif page.url contains '/sam/' %}{% assign nav_active = 'sam' %}
-    {% elsif page.url contains '/contact' %}{% assign nav_active = 'hello' %}
-    {% elsif page.url == '/' or page.url == '/index.html' or page.url == '/about/' %}{% assign nav_active = 'about' %}
+    {% elsif page.url contains '/notes/' or page.url contains '/reading/' %}{% assign nav_active = 'notes' %}
+    {% elsif page.url == '/' or page.url == '/index.html' or page.url contains '/about/' or page.url contains '/contact' or page.url contains '/archive/' %}{% assign nav_active = 'home' %}
     {% endif %}
 
     <button class="c-scroll-top" type="button" id="js-scroll-top" aria-label="Scroll to top — click again to go home" title="Top of page (click again to go home)">
@@ -22,7 +24,7 @@
 
     {%- comment -%}
       每个标签前面那个小图标（Winter 2026-09-26：「每个 tab 的标题是不是可以带一个
-      emoji！更可爱🥺」）：⛄ 关于我 · ✍️ 我自己写的 · 📖 AU 故事 · ❣️ Sam · 🗓️ 存档。
+      emoji！更可爱🥺」）：⛄ 门厅 · ✍️ 我自己写的 · 📖 AU 故事 · ❣️ Sam · 📝 笔记。
       用 <i class="c-nav__emoji"> 包着、aria-hidden，读屏软件不会把它念出来。
       要换 emoji 直接改这五行即可，样式那边不用动。
       「AU Story」里的 Story 包在 .c-nav__long 里：窄屏（≤460px）加了图标之后
@@ -30,8 +32,8 @@
     {%- endcomment -%}
     <nav class="c-nav" aria-label="Primary">
       <ul class="c-nav__list u-lists-reset">
-        <li class="c-nav__item c-nav__item--link{% if nav_active == 'about' %} is-active{% endif %}">
-          <a href="{{site.baseurl}}/"><i class="c-nav__emoji" aria-hidden="true">⛄</i>About</a>
+        <li class="c-nav__item c-nav__item--link{% if nav_active == 'home' %} is-active{% endif %}">
+          <a href="{{site.baseurl}}/"><i class="c-nav__emoji" aria-hidden="true">⛄</i>Home</a>
         </li>
         {%- comment -%}
           2026-09-23 导航瘦身（Winter 拍板的 B 方案）：
@@ -49,8 +51,8 @@
         <li class="c-nav__item c-nav__item--link{% if nav_active == 'sam' %} is-active{% endif %}">
           <a href="{{site.baseurl}}/sam/"><i class="c-nav__emoji" aria-hidden="true">❣️</i>Sam</a>
         </li>
-        <li class="c-nav__item c-nav__item--link{% if nav_active == 'archive' %} is-active{% endif %}">
-          <a href="{{site.baseurl}}/archive/"><i class="c-nav__emoji" aria-hidden="true">🗓️</i>Archive</a>
+        <li class="c-nav__item c-nav__item--link{% if nav_active == 'notes' %} is-active{% endif %}">
+          <a href="{{site.baseurl}}/notes/"><i class="c-nav__emoji" aria-hidden="true">📝</i>Notes</a>
         </li>
       </ul>
     </nav>

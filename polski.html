@@ -26,6 +26,8 @@
   header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px}
   .brand h1{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:1.5rem;font-weight:600;margin:0;letter-spacing:.2px}
   .brand p{margin:2px 0 0;font-size:.82rem;color:var(--mute)}
+  .brand .back{display:inline-block;margin-bottom:6px;font-size:.8rem;color:var(--mute);text-decoration:none}
+  .brand .back:hover{color:var(--gold)}
   .hbtns{display:flex;gap:8px;flex:0 0 auto}
   .moon-toggle{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:inherit;font-size:1.2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s ease,border-color .25s ease,transform .2s ease}
   .moon-toggle:active{transform:scale(.92)}
@@ -88,7 +90,7 @@
 
 <div class="wrap" id="mainWrap">
   <header>
-    <div class="brand"><h1>Polski · Odmiana</h1><p>Offline Polish declension &amp; conjugation</p></div>
+    <div class="brand"><a class="back" href="notes/" lang="zh-CN">← 笔记</a><h1>Polski · Odmiana</h1><p>Offline Polish declension &amp; conjugation</p></div>
     <div class="hbtns">
       <button class="moon-toggle" id="modeBtn" aria-label="Switch light / dark">🌑</button>
     </div>

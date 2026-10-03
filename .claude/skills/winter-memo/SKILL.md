@@ -1,6 +1,6 @@
 ---
 name: winter-memo
-description: Winter 的「冬的灵感本」——两页（✨当下的灵感 / 🌳长期的计划），每一条带备注（讨论定下来的东西）和一笔笔带日期的进度；网页 /memo/ 只读、入口在博客 Winter's › 冬的笔记，所有记录和修改都只在对话里由 Claude 用 tools/memo/memo.py 做。当 Winter 说「记一下这个想法」「这个点子先存着」「我想做一个……」「帮我记下来」「灵感本」「……做到哪了」「……做成了」「我之前说的那个视频 / 点子 / 计划是什么来着」「我都有哪些灵感 / 计划」时，必须用本 skill。⭐ 跟她聊出一个想做的东西（一个 Sam 视频、一个帖子、一个企划、一个系列点子）、讨论有了结论时，不用她开口也要用本 skill 把它和结论记下来——她要的是「我问你的时候，你能快速地告诉我；我自己点进来也能看见」。注意：日常待办她用苹果备忘录，不往这里记（她明确要求记也照记）；AU 连载的伏笔账、圣经用 winter-au-writing；波兰语错题用 winter-polish-notes；原著划线用 winter-reading-notes。
+description: Winter 的「冬的灵感本」——两页（✨当下的灵感 / 🌳长期的计划），每一条带备注（讨论定下来的东西）和一笔笔带日期的进度；网页 /memo/ 只读、入口在博客顶上 📝 Notes 那一格，所有记录和修改都只在对话里由 Claude 用 tools/memo/memo.py 做。当 Winter 说「记一下这个想法」「这个点子先存着」「我想做一个……」「帮我记下来」「灵感本」「……做到哪了」「……做成了」「我之前说的那个视频 / 点子 / 计划是什么来着」「我都有哪些灵感 / 计划」时，必须用本 skill。⭐ 跟她聊出一个想做的东西（一个 Sam 视频、一个帖子、一个企划、一个系列点子）、讨论有了结论时，不用她开口也要用本 skill 把它和结论记下来——她要的是「我问你的时候，你能快速地告诉我；我自己点进来也能看见」。注意：日常待办她用苹果备忘录，不往这里记（她明确要求记也照记）；AU 连载的伏笔账、圣经用 winter-au-writing；波兰语错题用 winter-polish-notes；原著划线用 winter-reading-notes。
 ---
 
 # 冬的灵感本：聊出来的点子记下来，她一问就能答
@@ -26,7 +26,7 @@ description: Winter 的「冬的灵感本」——两页（✨当下的灵感 / 
 |---|---|---|
 | 数据（唯一一份） | 仓库 **`memo` 分支**上的 `memo.json` | ⚠️ 不在 main 上：放 main 的话每记一条都要整站重建一次。别手改，只用下面的工具 |
 | 记、改、查的工具 | main 上的 `tools/memo/memo.py` | 不碰工作区：自己取最新、提交、推 memo 分支；推不上会重放重试 |
-| 看的网页（只读） | `memo/index.html` → https://dxwintersun.github.io/WinterSunBlog/memo/ | 不要钥匙，从 GitHub 公开接口直接读，改完一分钟内就看得到；入口是 Winter's › 冬的笔记 那一格的第一本封面（`_includes/winters-shelves.html`） |
+| 看的网页（只读） | `memo/index.html` → https://dxwintersun.github.io/WinterSunBlog/memo/ | 不要钥匙，从 GitHub 公开接口直接读，改完一分钟内就看得到；入口是顶上 📝 Notes 那一格的第一本封面（`_includes/notebooks.html`，2026-10-03 起） |
 
 ⚠️ 网页挂在博客上、不要钥匙，**谁逛到都看得见**（仓库本身也是公开的），这件事已经跟她说过。太私密的别往里记。
 

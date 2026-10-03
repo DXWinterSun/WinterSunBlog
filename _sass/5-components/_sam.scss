@@ -1474,3 +1474,47 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   .c-sam-card__title { font-size: 21px; }
   .c-sam-card__desc { -webkit-line-clamp: 3; }
 }
+
+/* ===============
+	小一号的 AU 卡（2026-10-03 全站新排法）：Sam 页底下 43 张系列卡以前手机上一行一张，
+	互动彩蛋之后还要再划 30 屏。现在电脑一行三张、手机一行两张；手机上只留封面、四个色点、
+	故事名 + 角色名、章数，配色的中英名字和简介收起来（点进系列页都看得到）。
+=============== */
+.c-sam-card__who {
+  display: block;
+  margin-top: 4px;
+  font-family: $base-font-family;
+  font-size: 0.74em;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.3;
+  color: $ink-soft;
+}
+@media only screen and (min-width: 1000px) {
+  .c-sam-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .c-sam-grid .c-sam-card__body { padding: 20px 20px 20px; }
+  .c-sam-grid .c-sam-card__title { font-size: 20px; }
+  .c-sam-grid .c-sam-card__desc { font-size: 14px; }
+  .c-sam-grid .c-sam-card__pcols { gap: 7px 12px; }
+}
+@media only screen and (max-width: 720px) {
+  .c-sam-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .c-sam-grid .c-sam-card__body { padding: 10px 10px 12px; }
+  .c-sam-grid .c-sam-card__palette {
+    margin: -26px 0 9px;
+    padding: 6px 8px;
+    border-radius: 999px;
+    gap: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  }
+  .c-sam-grid .c-sam-card__pcap,
+  .c-sam-grid .c-sam-card__pname,
+  .c-sam-grid .c-sam-card__psig,
+  .c-sam-grid .c-sam-card__eyebrow,
+  .c-sam-grid .c-sam-card__desc,
+  .c-sam-grid .c-sam-card__cta { display: none; }
+  .c-sam-grid .c-sam-card__pcols { display: flex; gap: 5px; }
+  .c-sam-grid .c-sam-card__pcol i { width: 12px; height: 12px; }
+  .c-sam-grid .c-sam-card__title { font-size: 14.5px; line-height: 1.25; margin-bottom: 8px; }
+  .c-sam-grid .c-sam-card__count { font-size: 11px; }
+}

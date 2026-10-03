@@ -37,10 +37,5 @@
   desc: 2016—2017，中学时写在周记本里的字，后来一篇篇搬上博客。
   paper: true
 
-# 冬的笔记（2026-10-01 她起的名字）：不收文章，摆的是一本本笔记本——
-# 灵感本（/memo/，2026-10-03 她说「放在 winter's tab 吧」，只读、只在对话里记）、
-# 波兰语笔记本（_data/polish/notes.yml → /polish/）和原著笔记（_data/reading/*.yml → /reading/<slug>/），数据都是自动读的。
-- key: notes
-  emoji: 📝
-  name: 冬的笔记
-  desc: 想做的事，和学东西时记下的：灵感本、多邻国上弄错的波兰语、读原著时划下的词句。
+# 「冬的笔记」（2026-10-01 加的第六格）已在 2026-10-03 全站新排法时搬出去，单独成了顶上的 📝 Notes 一格：
+# 封面在 _includes/notebooks.html，页面 _pages/notes/index.html。别再把笔记本加回这里。

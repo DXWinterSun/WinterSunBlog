@@ -1,0 +1,33 @@
+---
+layout: home
+title: Notes
+permalink: /notes/
+nav_active: notes
+---
+{%- comment -%}
+  📝 Notes（2026-10-03 全站新排法，Winter 选的 A 方案）：顶上第五格。
+  以前这些笔记本排在 Winter's 第六排、要先划过五排书架才看得到（她：「常用的笔记什么的都堆在底下」），
+  现在单独一格，从任何一页点一下就到。封面由 _includes/notebooks.html 生成，数字都从数据自动算。
+{%- endcomment -%}
+
+<section class="c-hero c-hero--filter">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+  <div class="c-hero__eyebrow">Notes</div>
+  <h1 class="c-hero__title">Still <em>Learning</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">想做的事，和学东西时记下的</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-notes">
+  <div class="c-notes__grid">
+    {% include notebooks.html %}
+  </div>
+  <p class="c-notes__foot">以后新开的笔记本，都摆在这一格。</p>
+</section>

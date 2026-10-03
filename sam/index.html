@@ -786,7 +786,15 @@ title: Sam
         </div>
         {%- endif %}
         <div class="c-sam-card__eyebrow">{{ s.collection_eyebrow | default: "AU Story · Series" }} <span class="c-sam-card__tab">↗</span></div>
-        <h4 class="c-sam-card__title">{{ s.collection_title | default: s.title }}</h4>
+        {%- assign sc_full = s.collection_title | default: s.title -%}
+        {%- assign sc_parts = sc_full | split: ' · ' -%}
+        {%- if sc_parts.size > 1 -%}
+          {%- assign sc_who = sc_parts | last -%}
+          {%- assign sc_tail = ' · ' | append: sc_who -%}
+        <h4 class="c-sam-card__title">{{ sc_full | replace_first: sc_tail, '' }}<span class="c-sam-card__who">{{ sc_who }}</span></h4>
+        {%- else %}
+        <h4 class="c-sam-card__title">{{ sc_full }}</h4>
+        {%- endif %}
         {%- assign card_desc = s.collection_desc | default: s.logline -%}
         {% if card_desc %}<p class="c-sam-card__desc">{{ card_desc }}</p>{% endif %}
         <div class="c-sam-card__foot">

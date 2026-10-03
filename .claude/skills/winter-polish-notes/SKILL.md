@@ -35,7 +35,7 @@ description: Winter 学波兰语（主要在多邻国 Duolingo 上）时，把�
 | 生成网页 | `tools/polish/render_polish.py -o <scratchpad>/polish-notes.html`（Artifact）／`--blog`（博客 `polish/index.html`） |
 | 页面上的固定文字、样板卡 | `tools/polish/demo.yml` |
 | 网页链接 | `meta.artifact`（永远更新这一个） |
-| 博客上的位置 | `/polish/`；入口是 Winter's 第六格书架「冬的笔记」里那本白上红下的封面（2026-10-01 她挑的），Gallery 里「波兰语变格」旁边也有一张 |
+| 博客上的位置 | `/polish/`；入口是顶上 📝 Notes 那一格里那本白上红下的封面（2026-10-03 全站新排法起；以前在 Winter's 第六格「冬的笔记」和 Gallery），变格表 `polski.html` 也摆在那一格 |
 
 ---
 

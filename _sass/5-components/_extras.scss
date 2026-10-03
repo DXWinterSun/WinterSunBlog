@@ -2874,3 +2874,26 @@ h3:has(> .c-logstamp__when) {
   .c-comm__log > li::before { width: 26px; }
   .c-comm__gap { padding-left: 36px !important; }
 }
+
+/* 日历款（2026-10-03）：Archive 不再占标签后，AU 页顶上「按日子翻」的入口。
+   雪地纸色 + 一页小挂历，邮戳跟日历那页一样向右歪 6 度、颜色跟着「换个心情」走 */
+.c-egg-card--cal {
+  background: $paper;
+  color: $ink;
+  box-shadow: 0 10px 26px rgba(var(--rgb-shadow), 0.14), inset 0 0 0 1px var(--c-line);
+  .c-egg-card__art { background: $paper-warm; }
+  .c-egg-card__eyebrow { color: $accent; opacity: .9; }
+  .c-egg-card__arrow { color: $accent; }
+  .cal-page { fill: $paper; stroke: $line-strong; stroke-width: 1; }
+  .cal-top { fill: $accent; opacity: .85; }
+  .cal-dots circle { fill: $muted-soft; }
+  .cal-stamp { fill: none; stroke: $accent; stroke-width: 1.6; }
+  .cal-num { fill: $accent; font-family: $heading-font-family; font-size: 9px; font-weight: 700; }
+  &:hover { box-shadow: 0 14px 32px rgba(var(--rgb-shadow), 0.2), inset 0 0 0 1px var(--c-line); }
+}
+.c-egg-card + .c-egg-card { margin-left: 12px; }
+@media only screen and (max-width: 860px) {
+  /* 手机上两张上下叠着，宽度对齐成一样（不然一张宽一张窄，看着歪） */
+  [data-hero-id="AU Story"] .c-egg-card { display: flex; width: min(400px, 94%); margin: 12px auto 0; }
+  [data-hero-id="AU Story"] .c-egg-card .c-egg-card__body { flex: 1 1 auto; }
+}

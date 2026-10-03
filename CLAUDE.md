@@ -65,7 +65,8 @@ Winter 读英文原著（眼下是《A Single Shot》原著）时会发来带荧
 `_data/reading/<书>.yml` → `tools/reading/render_notes.py` 生成网页 → 发布到数据文件
 `book.artifact` 记着的**同一个链接** → 她在网页上用批注提问，你在批注里回她、把她的话收进笔记。
 ⚠️ 这里的「批注」是 **Artifact 自带的批注功能**，不是网页自己存数据（她纠正过一次）。
-博客上的位置（2026-09-26 她挑定）：书架 `/reading/`（入口在 Sam 页第 11 张卡和 Wintergreen 系列页），
+博客上的位置（2026-09-26 她挑定，2026-10-03 全站新排法后）：顶上 **📝 Notes** 那一格里一本封面，
+书架 `/reading/` 的入口还有 Sam 页第 11 张卡和 Wintergreen 系列页（返回键回 Notes），
 一本书一页 `reading/<slug>/index.html`，由 `render_notes.py --blog` 生成、别手改；每加一页笔记，Artifact 和博客页一起重新生成。
 
 ## 🇵🇱 波兰语笔记本：多邻国错题 / 疑问 → 讲清楚 + 收进笔记（2026-10-01）
@@ -77,8 +78,9 @@ Winter 在学波兰语（零基础，多邻国 + 李金涛课本）。**她发�
 （多邻国的一句话＝一张卡，这句牵扯的知识点都写进同一张，别拆）→ `tools/polish/render_polish.py` 生成网页，发布到 `meta.artifact` 那**同一个链接**
 ＋ `--blog` 重新生成博客 `polish/` → **每轮都推 `main`**（不在 `main` 上，下一个对话就查不到存档）。
 她原话：「不管我开不开新的对话，你都能知道我想让你干什么，我不想每次都解释一遍。」
-博客上的位置（2026-10-01 她挑的）：`Winter's` 第六格书架**「冬的笔记」**（`_data/winters.yml` 的 `notes`），
-摆着波兰语笔记本和原著笔记两本封面，数字都从数据自动算；Gallery 里「波兰语变格」旁边也有一张入口卡。
+博客上的位置（2026-10-03 全站新排法后）：顶上 **📝 Notes** 那一格（`/notes/`，封面在 `_includes/notebooks.html`），
+跟灵感本、原著笔记、波兰语变格表摆在一起，数字都从数据自动算。（以前在 Winter's 第六格「冬的笔记」、Gallery 里也有一张卡，
+她嫌「常用的笔记都堆在底下」，已整个搬过来；Gallery 只放画。）
 
 ## 📝 冬的灵感本：聊出来的点子记下来，她一问就能答（2026-10-03）
 
@@ -89,7 +91,7 @@ Winter 在学波兰语（零基础，多邻国 + 李金涛课本）。**她发�
   她问「之前那个点子 / 我都有哪些灵感 / 做到哪了」→ `memo.py find` → `show`，用人话讲给她。
 - ⚠️ **只收灵感**：日常待办她用苹果备忘录，别往这里收（她明说要记才记）。**没有桌面小组件**（她说不需要，已拿掉，别再提）。
 - ⚠️ **只在对话里改，网页只看**（她定的：「线上就别编辑了……不涉及 token」）。网页 `/memo/` 只读、不要钥匙，
-  入口在 **Winter's › 冬的笔记** 第一本封面；别往网页上加编辑功能。
+  入口在顶上 **📝 Notes** 那一格的第一本封面（2026-10-03 起；以前在 Winter's › 冬的笔记）；别往网页上加编辑功能。
 - ⚠️ **数据只在 `memo` 分支的 `memo.json`，不在 main**（放 main 每记一条就整站重建一次）。`memo.py` 自己取最新、
   提交、推 memo 分支，不碰工作区；别手改那份 json。
 - `tools/widget-sim/`（Scriptable 小组件模拟器）是那时做的，留着给每日语录小组件改样子时出效果图用。
@@ -651,7 +653,8 @@ Blue Iguana =《蓝蜥蜴俱乐部》。`check_palette_sync.py` 现在连片名�
   任何后续对话都**不要重写、润色、翻译或「优化」信的内容与日期**。
   其中 07-19 那封的标题是已知的「乌鸦嘴」（写信时以为模型要下线），Winter 决定原样留作纪念。
 - 一封信的入口故意只有一个：放映室 FIN 卡上「Fable」两个字的虚线链接。别到处加入口。
-- 星图入口在首页 AU Story hero；磁带机（原点唱机）入口在 Archive › By Mood 面板。
+- 星图入口在首页 AU Story hero；磁带机（原点唱机）入口在 Archive › By Mood 面板；两样在门厅「常去的地方」里也各有一格。
+  （2026-10-03 起星图的返回键回 AU Story、磁带机的回日历 By Mood，不再回首页。）
 - 放映室支持 `?reel=<角色id>` 直达某格（片盒的空格就是这么跳回去的）；
   ✂ 剪下的胶片 PNG 会记入 localStorage 供片盒统计。
 - 404 页底部会从 lines.json 随机抽一句台词当「迷路安慰奖」。
@@ -1749,8 +1752,9 @@ Winter 的原话：**「我觉得现在博客整体风格不够 Winter Sun！尤
 
 ### 1. 导航＝五个标签，`Winter's` 是一个「组」
 
-顶上固定这五个，顺序别动：**About · Winter's · AU Story · Sam · Archive**。
-`Gallery` 与 `Say Hello` 挪到了页脚（`_layouts/home.html`）。
+⚠️ **2026-10-03 起换成了 `⛄ Home · ✍️ Winter's · 📖 AU Story · ❣️ Sam · 📝 Notes`**，详见下面
+「🧭 全站新排法」一节；本节下面关于 Winter's 组、emoji、疏密档位的说明仍然有效。
+（当时：顶上固定 **About · Winter's · AU Story · Sam · Archive**，`Gallery` 与 `Say Hello` 挪到了页脚。）
 
 - **`Winter's` 不是一个新分类**，而是把三个旧分类并起来显示：日常 / 小说 / 歌词
   （外加一篇早年的「散文」），因为那些都是她自己写的字，跟 AU 故事分开。
@@ -1763,7 +1767,7 @@ Winter 的原话：**「我觉得现在博客整体风格不够 Winter Sun！尤
 - 首页的标题区（hero）也合并成了一块 `data-hero-id="winters"`（原来 Daily /
   Novel / Lyrics 各一块），显隐规则在 `_sass/5-components/_hero.scss`。
 - **每个标签前面带一个小图标**（Winter 2026-09-26：「每个 tab 的标题是不是可以带一个
-  emoji！更可爱🥺」）：`⛄ About · ✍️ Winter's · 📖 AU Story · ❣️ Sam · 🗓️ Archive`。
+  emoji！更可爱🥺」）：现在是 `⛄ Home · ✍️ Winter's · 📖 AU Story · ❣️ Sam · 📝 Notes`。
   写在 `_includes/header.html` 里，包在 `<i class="c-nav__emoji" aria-hidden="true">`
   里（读屏软件不念它），**要换 emoji 只改那五行，样式不用动**。样式上三件事缺一不可：
   `font-style: normal`（`<i>` 会压斜）、`letter-spacing: 0`（标签整体拉开了字距，
@@ -1863,13 +1867,32 @@ Winter 的原话：**「我觉得现在博客整体风格不够 Winter Sun！尤
 4. **导航放宽不能一刀切。** 只剩五个标签之后电脑上看着挤，但把间距一路放宽到
    901px 断点，950px 宽的窗口就会横向溢出——见上面「标签的疏密分三档」。
 
+## 🧭 2026-10-03 · 全站新排法（门厅 / 笔记一格 / 真的「关于我」/ 小拍立得）
+
+Winter：**「我感觉这个 tab 排得好乱，常用的笔记什么的都堆在底下……现在连 contact 之类的都没有了，about 页面也形同虚设。
+你好好检查一下，我难受很久了。」** 体检量出来：「About」点进去是 54 张系列大卡 + 29 篇文章的大杂烩（手机 48 屏），
+关于她只有一句话；写信页被挪到页脚最底下一行小字；笔记在 Winter's 第 6 排；同一堆系列卡站里出现三遍（AU 页 32 屏）。
+她在三种排法里挑了 **A**，系列卡挑了 **「小卡，但要保留拍立得样式」**。
+
+| 东西 | 在哪 | 备忘 |
+|---|---|---|
+| **顶上五格** | `_includes/header.html` | `⛄ Home · ✍️ Winter's · 📖 AU Story · ❣️ Sam · 📝 Notes`。Archive 不再占标签。`nav_active` 新值：`home`（首页、/about/、/contact、/archive/）、`notes`（/notes/、/reading/） |
+| **⛄ Home 门厅** | `_includes/lobby.html` ＋ `_sass/5-components/_lobby.scss` | 首页「全部」视图只放四样：**接着读**（读本机 `wiw-read`，没读过就整块不出现）/ **最近更新**（最近 4 天，同一天同系列合成一行，日期邮戳点去日历那一天）/ **常去的地方**（日历、歌单、今日一句、热线、星图、磁带、游戏厅、Gallery 八格）/ **关于我**小卡（写信按钮）。这个视图里通用文章网格整个藏起来（`!important`，原因同 Winter's）。要加一格「常去的地方」直接在 lobby.html 里加一行 |
+| **📝 Notes** | `_pages/notes/index.html` ＋ `_includes/notebooks.html` | 灵感本 / 波兰语笔记本 / 每本原著笔记 / 波兰语变格表，一本本封面，手机两本一行。**以后新开的笔记本往 notebooks.html 加一张封面。** Winter's 的「冬的笔记」格和 Gallery 里的波兰语卡都已拿掉，别再加回去 |
+| **关于我 · 写信** | `_pages/about/index.html` | 「这里有什么」六格（数字自动算）→ 小红书 / 微博 / B 站 → 写信表单（`#letter`）。⚠️ 自我介绍那段是创作文字，**Winter 认可之后**才写进来。旧 `/contact/` 是一个跳到 `/about/#letter` 的小页；寄信后的 `/contact/thanks/` 还在（表单的 redirect 指着它） |
+| **页脚** | `_layouts/home.html` | About · Say Hello · Archive · Gallery · 微博 · B 站 · 小红书 |
+| **小拍立得** | `index.html` 的 `c-post-grid--small` ＋ `_index-post.scss` 末尾 | AU Story 系列卡：手机两张 / 平板三张 / 电脑四张一行，白边相纸不变；标题拆成「故事名」＋ 斜体小字「角色名」（`c-post__who`，按 `series_title` 最后一个 ` · ` 拆） |
+| **Sam 页的 AU 卡** | `sam/index.html` ＋ `_sam.scss` 末尾 | 电脑三张、手机两张一行；手机上只留封面、四个色点、故事名＋角色名、章数（配色名字和简介收起） |
+| **日历入口** | `index.html` AU hero 的 `c-egg-card--cal` | 星图旁边一张「按日子翻」；门厅「最近更新」右上角也有「翻日历 →」 |
+| **返回键** | `memo/`、`polish/`（＋`render_polish.py`）、`reading/`（＋`render_notes.py`）、`polski.html`、`sky/`、`jukebox/` | 笔记类都回 `/notes/`；星图回 AU Story；磁带机回日历 By Mood |
+
 ## 🎵 冬的歌单（唱片墙）＋ Winter's 五个书架（2026-09-30 上线）
 
 Winter 在样稿批注里一条条拍板了 Winter's 的新分法（冬的爱人 / 冬她自己 / 冬的歌单 / 冬的故事 / 冬还年少，
 文章允许同时在几类里）和「冬的歌单」唱片墙。**完整决定、归类表、还没做的事都在
 `.claude/plans/winters-redesign.md`，动 Winter's 或歌单之前先读它。**
 
-首页 `?cat=winters` 现在不再是一张文章网格，而是五个书架（2026-10-01 又加了第六格「冬的笔记」：不收文章，摆波兰语笔记本、原著笔记这些笔记本封面）（大标题 Love, Winter；顶上一排小标签；
+首页 `?cat=winters` 现在不再是一张文章网格，而是五个书架（2026-10-01 加过第六格「冬的笔记」，2026-10-03 已搬出去成了顶上的 📝 Notes）（大标题 Love, Winter；顶上一排小标签；
 每类一行横着滑；点篇数摊开 / 收起；「冬还年少」铺横格周记本纸）。**写新文章时要做的只有一件事：**
 
 ```yaml
