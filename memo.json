@@ -1,7 +1,7 @@
 {
   "_readme": "冬的备忘本：网页 /memo/ 和桌面小组件读的都是这一份。在对话里改请用 main 上的 tools/memo/memo.py，别手改。",
   "version": 1,
-  "updated": "2026-10-03T11:18:11+08:00",
+  "updated": "2026-10-03T11:36:56+08:00",
   "settings": {
     "style": "paper",
     "updated": "2026-10-03T11:18:11+08:00",
@@ -42,9 +42,9 @@
       "page": "sam",
       "text": "au 封面优化",
       "done": false,
-      "order": 0,
+      "order": -1,
       "created": "2026-10-03T11:18:11+08:00",
-      "updated": "2026-10-03T11:18:11+08:00"
+      "updated": "2026-10-03T11:36:56+08:00"
     },
     {
       "id": "hpns01",
