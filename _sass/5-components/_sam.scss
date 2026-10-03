@@ -640,11 +640,19 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   margin: 4px auto 44px;
   padding: 0 8px;
 }
+/* 封面是真正的 <img>（不是背景图）+ object-fit：Safari 画大背景图会只画出左上角、
+   放大发糊（2026-10-03 Oh, May 翻车）。锚点由模板按脸的位置写进 --pos / --pos-m。
+   电脑从 16:6.5 放宽到 2:1——太扁的框会把 16:9 剧照的头顶和下巴一起切掉。 */
 .c-series-cover__image {
-  aspect-ratio: 16 / 6.5;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: 50% 30%;
+  object-position: var(--pos, 50% 30%);
+  background-color: $line;
   border-radius: 6px;
-  background-size: cover;
-  background-position: center 30%;
   border: 1px solid $line;
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.10);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
@@ -656,8 +664,14 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
 
 @media (max-width: 600px) {
   .c-series-cover { margin: 0 auto 32px; }
-  .c-series-cover__image { aspect-ratio: 3 / 2; }
+  .c-series-cover__image {
+    aspect-ratio: 3 / 2;
+    object-position: var(--pos-m, 50% 30%);
+  }
 }
+
+/* ⚠️ 下面这几条 [style*="文件名"] 只管「背景图」那些地方（章节卡 / 首页卡 / 文章头图）。
+   系列首页的大封面 2026-10-03 起是 <img>，锚点直接来自 _data/image_focus.yml，不吃这几条。 */
 
 /* ----- The Part Where You Live · Billy Bickle AU · 封面从左裁剪 -----
    封面 7-psychopaths.jpg 里 Billy 的脸在画面左侧；默认的水平居中裁剪
