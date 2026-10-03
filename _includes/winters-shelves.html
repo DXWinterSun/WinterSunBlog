@@ -9,8 +9,9 @@
   · 一篇文章上哪几个书架：文章自己 front matter 的 winters: [love, self]，卡片小标签是 form:
   · 冬的歌单那一行：_data/songs.json（与 /songs/ 唱片墙同一份资料）
 
-  顶上一排小标签，点一下跳到那一类；每一类一行，横着滑看这一类，竖着滚换下一类；
-  点右边的篇数，这一类摊开成格栅一眼看全，再点收回（跟藏品架 sam/shelf/ 的分组用法一样）。
+  顶上一排小标签，点一下跳到那一类。每一类排成跟 AU 页一样的小拍立得格子（2026-10-03 Winter：
+  「winter's 的文章都不是拍立得了，都没办法反面写字」「横滑……在手机上一不留神就会滑到最右边然后进入其他页面」），
+  收着的时候只露前几张，点篇数或底下那颗「展开全部」摊开，再点收回。⚠️ 别再改回横着滑。
 {%- endcomment -%}
 {%- assign wn_cats = "Daily|Novel|Lyrics|散文" | split: "|" -%}
 {%- assign wn_pool = site.posts | where_exp: "p", "p.series == nil" -%}
@@ -53,26 +54,23 @@
         {%- else -%}{%- assign form = '随笔' -%}{%- endif -%}
         {%- if p.external_url -%}{%- assign url = p.external_url -%}{%- else -%}{%- assign url = p.url | prepend: site.baseurl -%}{%- endif -%}
         {%- assign focus = site.data.image_focus[p.image] -%}
-        {%- if sh.paper %}
-      <a class="c-wn-page" href="{{ url }}"{% if p.external_url %} target="_blank" rel="noopener"{% endif %}>
-        {%- if p.image %}<span class="c-wn-page__img" data-bg="{{ '/images/' | prepend: site.baseurl | append: p.image }}" style="background-position: {{ focus.card | default: '50% 35%' }}"></span>{% endif %}
-        <span class="c-wn-page__date">{{ p.date | date: '%Y' }} 年 {{ p.date | date: '%-m' }} 月 · {{ form }}</span>
-        <span class="c-wn-page__title">{{ p.title }}</span>
-        {%- if p.summary %}<span class="c-wn-page__sum">{{ p.summary }}</span>{% endif %}
+        {%- comment -%} 2026-10-03：跟 AU 页一样的小拍立得（.c-post），这样长按 / 右键也能翻到背面写字（js/polaroid-notes.js 认 .c-post） {%- endcomment %}
+      <a class="c-post" href="{{ url }}"{% if p.external_url %} target="_blank" rel="noopener"{% endif %}>
+        <div class="c-post__image-wrap">
+          {%- if p.image %}
+          <div class="c-post__image" data-bg="{{ '/images/' | prepend: site.baseurl | append: p.image }}" style="background-position: {{ focus.card | default: '50% 35%' }}"></div>
+          {%- else %}
+          <div class="c-post__placeholder">Winter Sun</div>
+          {%- endif %}
+          {%- if p.external_url %}<span class="c-wn-lock">🔒 私密</span>{% endif %}
+        </div>
+        <div class="c-post__body">
+          <div class="c-post__eyebrow">{{ form }}</div>
+          <h3 class="c-post__title">{{ p.title }}</h3>
+          {%- if p.summary %}<p class="c-post__summary">{{ p.summary }}</p>{% endif %}
+          <div class="c-post__meta"><span>{% if sh.paper %}{{ p.date | date: '%Y' }} 年 {{ p.date | date: '%-m' }} 月{% else %}{{ p.date | date: '%Y.%m.%d' }}{% endif %}</span></div>
+        </div>
       </a>
-        {%- else %}
-      <a class="c-wn-card" href="{{ url }}"{% if p.external_url %} target="_blank" rel="noopener"{% endif %}>
-        <span class="c-wn-card__img{% unless p.image %} is-blank{% endunless %}"{% if p.image %} data-bg="{{ '/images/' | prepend: site.baseurl | append: p.image }}" style="background-position: {{ focus.card | default: '50% 35%' }}"{% endif %}>
-          {%- unless p.image %}<i>Winter Sun</i>{% endunless -%}
-          {%- if p.external_url %}<span class="c-wn-card__lock">🔒 私密</span>{% endif -%}
-        </span>
-        <span class="c-wn-card__body">
-          <span class="c-wn-card__title"><span class="c-wn-card__tag">{{ form }}</span>{{ p.title }}</span>
-          {%- if p.summary %}<span class="c-wn-card__sum">{{ p.summary }}</span>{% endif %}
-          <span class="c-wn-card__date">{{ p.date | date: '%Y.%m.%d' }}</span>
-        </span>
-      </a>
-        {%- endif -%}
       {%- endfor -%}
     {%- endcapture -%}
   {%- endif -%}
@@ -89,8 +87,8 @@
       <h2 class="c-shelf__name" id="wn-{{ sh.key }}-name">{{ sh.name }}</h2>
       {%- if sh.key == 'songs' %}
       <a class="c-shelf__count" href="{{ site.baseurl }}/songs/">{{ n }} 首 ›</a>
-      {%- elsif n > 1 %}
-      <button class="c-shelf__count" type="button" aria-expanded="false" aria-controls="wn-{{ sh.key }}-row" data-n="{{ n }}">{{ n }} 篇 ▸</button>
+      {%- elsif n > 4 %}
+      <button class="c-shelf__count" type="button" aria-expanded="false" aria-controls="wn-{{ sh.key }}-row" data-n="{{ n }}">{{ n }} 篇 ▾</button>
       {%- else %}
       <span class="c-shelf__count is-static">{{ n }} 篇</span>
       {%- endif %}
@@ -99,15 +97,13 @@
     {%- if n == 0 %}
     <p class="c-shelf__empty">这一格还空着。</p>
     {%- else %}
-    <div class="c-shelf__viewport">
-      <button class="c-shelf__nav c-shelf__nav--prev" type="button" aria-label="往左看" tabindex="-1" hidden>‹</button>
-      <div class="c-shelf__row" id="wn-{{ sh.key }}-row">{{ row }}
-      </div>
-      <button class="c-shelf__nav c-shelf__nav--next" type="button" aria-label="往右看" tabindex="-1" hidden>›</button>
+    {%- if sh.key == 'songs' -%}{%- assign more_n = wn_albums.size -%}{%- assign more_unit = '张唱片' -%}{%- assign more_cap = 6 -%}
+    {%- else -%}{%- assign more_n = n -%}{%- assign more_unit = '篇' -%}{%- assign more_cap = 4 -%}{%- endif %}
+    <div class="c-shelf__row{% if sh.key == 'songs' %} c-shelf__row--songs{% else %} c-post-grid c-post-grid--small{% endif %}" id="wn-{{ sh.key }}-row">{{ row }}
     </div>
-    {%- unless sh.key == 'songs' %}
-    <button class="c-shelf__collapse" type="button" hidden>▴ 收起{{ sh.name }}</button>
-    {%- endunless %}
+    {%- if more_n > more_cap %}
+    <button class="c-shelf__more" type="button" aria-expanded="false" aria-controls="wn-{{ sh.key }}-row" data-more="展开全部 {{ more_n }} {{ more_unit }} ▾" data-less="▴ 收起{{ sh.name }}">展开全部 {{ more_n }} {{ more_unit }} ▾</button>
+    {%- endif %}
     {%- endif %}
   </section>
   {%- endcapture -%}
@@ -120,7 +116,7 @@
 </div>
 
 <script>
-/* Winter's 书架的小动作：标签条跟着站头让位 · 点标签跳过去 · 篇数摊开 / 收起 · 电脑上的左右箭头。
+/* Winter's 书架的小动作：标签条跟着站头让位 · 点标签跳过去 · 篇数摊开 / 收起。
    纯本页、不存任何东西。 */
 (function () {
   var root = document.getElementById('js-winters');
@@ -178,57 +174,34 @@
     root.querySelectorAll('.c-shelf').forEach(function (s) { io.observe(s); });
   }
 
-  /* 4. 篇数：摊开成格栅一眼看全，再点收回；摊开后末尾多一颗「收起」，收起时把这一格的头带回眼前 */
+  /* 4. 摊开 / 收起：右上角的篇数和底下那颗「展开全部」是同一个开关；从底下收起时把这一格的头带回眼前 */
   function setOpen(sec, open) {
     var btn = sec.querySelector('.c-shelf__count[data-n]');
-    var row = sec.querySelector('.c-shelf__row');
-    var bottom = sec.querySelector('.c-shelf__collapse');
+    var more = sec.querySelector('.c-shelf__more');
     sec.classList.toggle('is-open', open);
     if (btn) {
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.textContent = open ? '收起 ▴' : btn.getAttribute('data-n') + ' 篇 ▸';
+      btn.textContent = open ? '收起 ▴' : btn.getAttribute('data-n') + ' 篇 ▾';
     }
-    if (bottom) bottom.hidden = !open;
-    if (!open && row) row.scrollLeft = 0;
-    arrows(sec);
+    if (more) {
+      more.setAttribute('aria-expanded', open ? 'true' : 'false');
+      more.textContent = more.getAttribute(open ? 'data-less' : 'data-more');
+    }
   }
   root.addEventListener('click', function (e) {
     var btn = e.target.closest('.c-shelf__count[data-n]');
     if (btn) { var s1 = btn.closest('.c-shelf'); setOpen(s1, !s1.classList.contains('is-open')); return; }
-    var bottom = e.target.closest('.c-shelf__collapse');
-    if (bottom) { var s2 = bottom.closest('.c-shelf'); setOpen(s2, false); goTo(s2); return; }
-    var nav = e.target.closest('.c-shelf__nav');
-    if (nav) {
-      var row = nav.parentNode.querySelector('.c-shelf__row');
-      var dir = nav.classList.contains('c-shelf__nav--prev') ? -1 : 1;
-      row.scrollBy({ left: dir * row.clientWidth * 0.8, behavior: reduce ? 'auto' : 'smooth' });
+    var more = e.target.closest('.c-shelf__more');
+    if (more) {
+      var s2 = more.closest('.c-shelf');
+      var wasOpen = s2.classList.contains('is-open');
+      setOpen(s2, !wasOpen);
+      if (wasOpen) goTo(s2);
     }
   });
-
-  /* 5. 电脑（有鼠标）上：横排两头各一颗箭头，滑到头的那一边自动藏起来 */
-  var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  function arrows(sec) {
-    var row = sec.querySelector('.c-shelf__row');
-    var prev = sec.querySelector('.c-shelf__nav--prev');
-    var next = sec.querySelector('.c-shelf__nav--next');
-    if (!row || !prev || !next) return;
-    var can = fine && !sec.classList.contains('is-open') && row.scrollWidth > row.clientWidth + 4;
-    prev.hidden = !can || row.scrollLeft < 8;
-    next.hidden = !can || row.scrollLeft > row.scrollWidth - row.clientWidth - 8;
-  }
-  root.querySelectorAll('.c-shelf').forEach(function (sec) {
-    var row = sec.querySelector('.c-shelf__row');
-    if (!row) return;
-    row.addEventListener('scroll', function () { arrows(sec); }, { passive: true });
-    arrows(sec);
-  });
-  window.addEventListener('resize', function () { root.querySelectorAll('.c-shelf').forEach(arrows); });
-  /* 从别的页面点 Winter's 进来时这一块一开始是藏着的，量不出宽度——显示出来以后再量一遍 */
   if (window.MutationObserver) {
-    new MutationObserver(function () {
-      syncTop();
-      root.querySelectorAll('.c-shelf').forEach(arrows);
-    }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-hero-active'] });
+    /* 从别的页面点 Winter's 进来时这一块一开始是藏着的——显示出来以后标签条再对一次位置 */
+    new MutationObserver(syncTop).observe(document.documentElement, { attributes: true, attributeFilter: ['data-hero-active'] });
   }
 })();
 </script>

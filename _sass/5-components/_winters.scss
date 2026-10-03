@@ -36,6 +36,8 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   -webkit-backdrop-filter: saturate(140%) blur(8px);
   border-bottom: 1px solid $line;
   transition: top .28s ease;
+  /* 手机上划到头别把整页带着往前 / 往后翻（Winter 2026-10-03：横滑一不留神就进了别的页面） */
+  overscroll-behavior-x: contain;
   &::-webkit-scrollbar { display: none; }
 }
 /* 装得下时居中，装不下时照常从左边开始横滑（别用 justify-content: center，会把开头几个顶出滚动区） */
@@ -148,34 +150,34 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   color: $muted;
 }
 
-/* 横着滑的那一行（右边渐隐，暗示还能往右滑） */
-.c-shelf__viewport { position: relative; }
-.c-shelf__row {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  scrollbar-width: none;
-  padding: 4px 2px 16px;
-  -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent);
-  mask-image: linear-gradient(90deg, #000 90%, transparent);
-  &::-webkit-scrollbar { display: none; }
-  > * { scroll-snap-align: start; }
+/* 一格里的东西（2026-10-03 改）：文章排成跟 AU 页一样的小拍立得格子（行上同时挂着 .c-post-grid --small，
+   列数、相纸、字号都吃 _index-post.scss / _polaroid.scss 那一套），唱片排成小方格。
+   以前是横着滑，Winter：「在手机上一不留神就会滑到最右边然后进入其他页面」——⚠️ 别再改回横滑。
+   收着的时候只露前几张（电脑 4 张、平板 6 张、手机 4 张；唱片电脑一排 6 张、手机两排 6 张），点开看全部。 */
+.c-shelf__row { padding: 6px 2px 4px; }
+.c-shelf:not(.is-open) .c-post-grid > :nth-child(n+5) { display: none; }
+@media only screen and (min-width: 721px) and (max-width: 1100px) {
+  .c-shelf:not(.is-open) .c-post-grid > :nth-child(n+5) { display: flex; }
+  .c-shelf:not(.is-open) .c-post-grid > :nth-child(n+7) { display: none; }
+}
+/* 卡片小标签（随笔 / 书信 / 小说 / 翻译）在手机上也留着——AU 卡那一行是重复信息才藏，这里不是 */
+.c-shelf .c-post__eyebrow { display: inline-block; }
+.c-wn-lock {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  font-family: $wn-cn;
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
 }
 
-/* 点了篇数：摊开成格栅一眼看全 */
-.c-shelf.is-open .c-shelf__row {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  overflow: visible;
-  -webkit-mask-image: none;
-  mask-image: none;
-}
-.c-shelf.is-open .c-shelf__row > * { width: auto; }
-
-.c-shelf__collapse {
+.c-shelf__more {
   display: block;
-  margin: 2px auto 8px;
+  margin: 18px auto 4px;
   appearance: none;
   cursor: pointer;
   border: 1px dashed $line-strong;
@@ -183,137 +185,28 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   color: $accent-dark;
   font-family: $wn-cn;
   font-size: 14px;
-  padding: 7px 18px;
+  padding: 7px 20px;
   border-radius: 999px;
   &:hover { border-color: $accent; }
-  &[hidden] { display: none; }
-}
-
-/* 电脑（有鼠标）上的左右箭头 */
-.c-shelf__nav {
-  position: absolute;
-  top: 38%;
-  z-index: 2;
-  width: 38px;
-  height: 38px;
-  margin-top: -19px;
-  border-radius: 50%;
-  border: 1px solid $line-strong;
-  background: rgba(var(--rgb-paper), 0.94);
-  color: $ink;
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(var(--rgb-shadow), 0.12);
-  &:hover { border-color: $accent; color: $accent-dark; }
-  &[hidden] { display: none; }
-}
-.c-shelf__nav--prev { left: -8px; }
-.c-shelf__nav--next { right: -8px; }
-
-/* ── 文章卡 ── */
-.c-wn-card {
-  flex: 0 0 236px;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  background: $paper;
-  border: 1px solid $line;
-  border-radius: 12px;
-  overflow: hidden;
-  color: $ink;
-  text-decoration: none;
-  box-shadow: 0 6px 16px rgba(var(--rgb-shadow), 0.07);
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-  &:hover {
-    transform: translateY(-3px);
-    border-color: $line-strong;
-    box-shadow: 0 12px 26px rgba(var(--rgb-shadow), 0.12);
-  }
   &:focus-visible { outline: 3px solid $accent; outline-offset: 2px; }
 }
-.c-wn-card__img {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  background-color: $line;
-  background-size: cover;
-  background-repeat: no-repeat;
-  &.is-blank {
-    display: grid;
-    place-items: center;
-    background-image: linear-gradient(135deg, $paper-warm, color-mix(in srgb, #{$accent} 14%, #{$paper-warm}));
-    i {
-      font-family: $heading-font-family;
-      font-style: italic;
-      font-size: 15px;
-      color: $muted;
-    }
-  }
-}
-.c-wn-card__lock {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  font-family: $wn-cn;
-  font-size: 11.5px;
-  line-height: 1.5;
-  padding: 1px 8px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.55);
-  color: #fff;
-}
-.c-wn-card__body {
-  display: grid;
-  align-content: start;
-  gap: 4px;
-  padding: 11px 13px 13px;
-}
-.c-wn-card__title {
-  font-family: $wn-cn;
-  font-weight: 600;
-  font-size: 15.5px;
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.c-wn-card__tag {
-  display: inline-block;
-  margin-right: 6px;
-  padding: 0 6px;
-  border-radius: 4px;
-  font-size: 11.5px;
-  font-weight: 500;
-  line-height: 1.6;
-  vertical-align: 2px;
-  color: $accent-dark;
-  background: color-mix(in srgb, #{$accent} 13%, transparent);
-}
-.c-wn-card__sum {
-  font-family: $wn-cn;
-  font-size: 13px;
-  line-height: 1.65;
-  color: $muted;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.c-wn-card__date {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 13px;
-  letter-spacing: .04em;
-  color: $muted;
-}
 
-/* ── 冬的歌单：一行开头那张入口卡 ── */
-.c-wn-songbook {
-  flex: 0 0 236px;
-  min-height: 236px;
+/* 唱片：一排小方格，开头那张「冬的歌单」入口卡横着铺满一整行 */
+.c-shelf__row--songs {
   display: grid;
-  align-content: space-between;
-  gap: 12px;
-  padding: 16px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 22px 18px;
+}
+.c-shelf--songs:not(.is-open) .c-shelf__row--songs > :nth-child(n+8) { display: none; }
+
+/* ── 冬的歌单：格子最上面那张横着的入口卡 ── */
+.c-wn-songbook {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
   border-radius: 12px;
   color: #fff;
   text-decoration: none;
@@ -327,9 +220,8 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   &:focus-visible { outline: 3px solid $accent; outline-offset: 2px; }
 }
 .c-wn-songbook__vinyl {
-  justify-self: end;
-  width: 86px;
-  height: 86px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background:
     repeating-radial-gradient(circle, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 4px),
@@ -350,7 +242,6 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   b { font-family: $wn-cn; font-size: 21px; font-weight: 600; }
   span { font-family: $wn-cn; font-size: 13px; line-height: 1.6; opacity: .88; }
 }
-.c-shelf--songs .c-sleeve { flex: 0 0 136px; }
 
 /* ── 冬的笔记：一本一本的笔记本封面（2026-10-01）。左边一道书脊加一串线圈，中间一块贴纸标签 ── */
 .c-wn-notebook {
@@ -435,13 +326,7 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   .c-shelf__desc { color: color-mix(in srgb, var(--note-ink) 62%, transparent); }
   .c-shelf__badge { background: var(--note); border-color: color-mix(in srgb, var(--note-margin) 45%, transparent); }
   .c-shelf__count { background: var(--note); color: var(--note-ink); border-color: color-mix(in srgb, var(--note-margin) 55%, transparent); }
-  .c-shelf__collapse { color: var(--note-ink); border-color: color-mix(in srgb, var(--note-margin) 70%, transparent); }
-  .c-shelf__row {
-    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
-    mask-image: linear-gradient(90deg, #000 88%, transparent);
-    padding-left: 4px;
-  }
-  &.is-open .c-shelf__row { -webkit-mask-image: none; mask-image: none; }
+  .c-shelf__more { color: var(--note-ink); border-color: color-mix(in srgb, var(--note-margin) 70%, transparent); }
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .c-shelf--paper {
@@ -458,55 +343,6 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   --note-ink: #eadfca;
 }
 
-.c-wn-page {
-  flex: 0 0 212px;
-  display: grid;
-  align-content: start;
-  gap: 6px;
-  padding: 11px 12px 13px;
-  border-radius: 3px;
-  background: var(--note);
-  border: 1px solid color-mix(in srgb, var(--note-margin) 40%, transparent);
-  box-shadow: 2px 3px 0 color-mix(in srgb, var(--note-margin) 30%, transparent);
-  color: var(--note-ink);
-  text-decoration: none;
-  transform: rotate(-.6deg);
-  transition: transform .2s ease;
-  &:nth-child(even) { transform: rotate(.7deg); }
-  &:hover { transform: rotate(0deg) translateY(-3px); }
-  &:focus-visible { outline: 3px solid $accent; outline-offset: 2px; }
-}
-.c-shelf--paper.is-open .c-wn-page { transform: none; }
-.c-wn-page__img {
-  aspect-ratio: 3 / 2;
-  border-radius: 2px;
-  background-color: var(--note-line);
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter: sepia(.25) saturate(.85);
-}
-.c-wn-page__date {
-  font-family: $wn-cn;
-  font-size: 12px;
-  color: color-mix(in srgb, var(--note-margin) 85%, var(--note-ink));
-}
-.c-wn-page__title {
-  font-family: $wn-cn;
-  font-weight: 600;
-  font-size: 16.5px;
-  line-height: 1.45;
-}
-.c-wn-page__sum {
-  font-family: $wn-cn;
-  font-size: 12.5px;
-  line-height: 1.65;
-  color: color-mix(in srgb, var(--note-ink) 70%, transparent);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 /* ── 手机 ── */
 @media only screen and (max-width: 640px) {
   .c-shelf { padding-top: 22px; }
@@ -515,18 +351,14 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   .c-shelf__name { font-size: 18.5px; }
   .c-shelf__desc { grid-column: 1 / -1; margin-top: 6px; font-size: 13px; line-height: 1.6; }
   .c-shelf__count { font-size: 12.5px; padding: 4px 10px; }
-  .c-shelf__row { gap: 11px; }
-  .c-wn-card, .c-wn-songbook, .c-wn-notebook { flex-basis: min(210px, 70%); }
-  .c-wn-songbook, .c-wn-notebook { min-height: 210px; }
-  .c-wn-page { flex-basis: min(196px, 66%); }
-  .c-shelf--songs .c-sleeve { flex-basis: 116px; }
-  .c-shelf.is-open .c-shelf__row { grid-template-columns: 1fr 1fr; }
+  .c-wn-notebook { flex-basis: min(210px, 70%); min-height: 210px; }
+  .c-shelf__row--songs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 12px; }
+  .c-wn-songbook { padding: 12px 14px; gap: 14px; }
+  .c-wn-songbook__vinyl { width: 52px; height: 52px; }
   .c-shelf--paper { padding: 20px 10px 12px 38px; margin-left: -4px; margin-right: -4px; }
   .c-winters__chip { font-size: 13px; padding: 5px 11px; }
-  .c-wn-card__title { font-size: 14.5px; }
-  .c-wn-card__sum { font-size: 12.5px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .c-winters__bar, .c-wn-card, .c-wn-songbook, .c-wn-songbook__vinyl, .c-wn-page, .c-wn-notebook { transition: none; }
+  .c-winters__bar, .c-wn-songbook, .c-wn-songbook__vinyl, .c-wn-notebook { transition: none; }
 }
