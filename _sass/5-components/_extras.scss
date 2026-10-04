@@ -3219,7 +3219,32 @@ h3:has(> .c-logstamp__when) {
 }
 .c-egg-card + .c-egg-card { margin-left: 12px; }
 @media only screen and (max-width: 860px) {
-  /* 手机上两张上下叠着，宽度对齐成一样（不然一张宽一张窄，看着歪） */
-  [data-hero-id="AU Story"] .c-egg-card { display: flex; width: min(400px, 94%); margin: 12px auto 0; }
-  [data-hero-id="AU Story"] .c-egg-card .c-egg-card__body { flex: 1 1 auto; }
+  /* 手机上缩成标题下面一行两颗小药丸（2026-10-04 Winter 三版里挑的 C）。
+     以前是两张大卡上下摞着，一张深夜蓝一张纸色，占掉大半屏，她嫌「好难看」。
+     两颗都换成同一种纸色，只有圆圆的小图标里留着各自的样子（星图那颗还是一小片夜空）。 */
+  [data-hero-id="AU Story"] .c-egg-card {
+    display: inline-flex;
+    width: auto;
+    max-width: none;
+    gap: 8px;
+    margin: 18px 4px 0;
+    padding: 5px 13px 5px 5px;
+    border-radius: 999px;
+    background: $paper;
+    color: $ink;
+    box-shadow: inset 0 0 0 1px $line-strong;
+    &:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px $accent; }
+  }
+  [data-hero-id="AU Story"] .c-egg-card + .c-egg-card { margin-left: 4px; }
+  [data-hero-id="AU Story"] .c-egg-card__art { width: 30px; height: 30px; border-radius: 50%; }
+  [data-hero-id="AU Story"] .c-egg-card__art svg { width: 30px; height: 30px; }
+  [data-hero-id="AU Story"] .c-egg-card__eyebrow,
+  [data-hero-id="AU Story"] .c-egg-card__desc { display: none; }
+  [data-hero-id="AU Story"] .c-egg-card__title { margin: 0; font-size: 13.5px; letter-spacing: .5px; }
+  [data-hero-id="AU Story"] .c-egg-card__arrow { margin-left: 0; font-size: 13px; color: $accent; }
+}
+@media only screen and (max-width: 360px) {
+  [data-hero-id="AU Story"] .c-egg-card { margin: 16px 2px 0; padding-right: 10px; gap: 6px; }
+  [data-hero-id="AU Story"] .c-egg-card + .c-egg-card { margin-left: 2px; }
+  [data-hero-id="AU Story"] .c-egg-card__title { font-size: 12.5px; letter-spacing: 0; }
 }
