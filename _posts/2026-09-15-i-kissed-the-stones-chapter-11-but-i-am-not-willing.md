@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 11 · 可我不愿意 — I Kissed the Stones"
+title: "Chapter 12 · 可我不愿意 — I Kissed the Stones"
 date: 2026-09-15 22:48:07 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 怅惘, 暗涌]
@@ -10,7 +10,7 @@ series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 12
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 11"
+chapter_type: "Chapter 12"
 summary: "他说只要你愿意。你说，可我不愿意。"
 redirect_from:
   - /2026/10/17/i-kissed-the-stones-chapter-11-but-i-am-not-willing/

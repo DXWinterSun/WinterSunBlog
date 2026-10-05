@@ -23,9 +23,17 @@ layout: home
 {% assign first_ch = chapters | first %}
 {% assign cover_img = page.cover | default: first_ch.image %}
 
+{% comment %}
+  系列大封面用真正的 <img> + object-fit，不用 CSS 背景图（2026-10-03）：
+  Safari 画大尺寸背景图时会先把图缩小再画，结果只画出图的左上角、放大又发糊
+  （Oh, May 那张 2576 宽的图整张糊成一片，看不出是谁）。<img> 没有这个毛病。
+  裁切锚点来自 _data/image_focus.yml（tools/face_focus.py 按脸的位置算好）：
+  banner = 电脑 2:1，banner_m = 手机 3:2；认不出脸的图回退到居中偏上。
+{% endcomment %}
 {% if cover_img %}
+{% assign cover_focus = site.data.image_focus[cover_img] %}
 <a class="c-series-cover" href="#chapters" aria-label="跳到章节列表">
-  <div class="c-series-cover__image" style="background-image: url('{{ "/images/" | prepend: site.baseurl | append: cover_img }}')" aria-hidden="true"></div>
+  <img class="c-series-cover__image" src="{{ "/images/" | prepend: site.baseurl | append: cover_img }}" alt="" decoding="async" fetchpriority="high" style="--pos: {{ cover_focus.banner | default: '50% 30%' }}; --pos-m: {{ cover_focus.banner_m | default: '50% 30%' }};">
 </a>
 {% endif %}
 

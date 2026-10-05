@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文筛出、再经 tools/hotline_review.json 人审过的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 这句接得上的情境（可多个）。新章节上线后重跑脚本即可，不要手改。",
-  "count": 219
+  "count": 213
  },
  "chars": {
   "youngsam": {
@@ -455,33 +455,23 @@
   "rob": {
    "default": [
     {
-     "cn": "行了、行了……我最见不得你哭。",
+     "cn": "行了行了……我最见不得你哭。",
      "b": [
       "tired"
      ],
-     "ch": 19,
-     "title": "Chapter 19 · 换个名字叫你",
+     "ch": 20,
+     "title": "Chapter 20 · 换个名字叫你",
      "series": "Everything in Transit"
     },
     {
-     "cn": "新歌副歌卡住了，你来两句。",
+     "cn": "新歌副歌卡住了。你来两句。",
      "b": [
       "greet",
       "daily",
       "sleepless"
      ],
-     "ch": 21,
-     "title": "Chapter 21 · 隔壁",
-     "series": "Everything in Transit"
-    },
-    {
-     "cn": "那个……你今天……琴弦调得不错。",
-     "b": [
-      "love",
-      "praise"
-     ],
-     "ch": 23,
-     "title": "Chapter 23 · 女生悄悄话",
+     "ch": 22,
+     "title": "Chapter 22 · 隔壁",
      "series": "Everything in Transit"
     },
     {
@@ -489,8 +479,8 @@
      "b": [
       "tease"
      ],
-     "ch": 25,
-     "title": "Chapter 25 · 只有你",
+     "ch": 26,
+     "title": "Chapter 26 · 只有你",
      "series": "Everything in Transit"
     }
    ]
@@ -1978,55 +1968,6 @@
      ],
      "ch": 48,
      "title": "Chapter 48 · 镜头后面",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "瞧你这没出息样。这就折腾散架了？",
-     "b": [
-      "tired"
-     ],
-     "ch": 53,
-     "title": "Chapter 53 · 一支冰淇淋",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "得，我们家小祖宗这是委屈上了。",
-     "b": [
-      "tired",
-      "tease"
-     ],
-     "ch": 53,
-     "title": "Chapter 53 · 一支冰淇淋",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "说好的亲亲呢。",
-     "b": [
-      "love",
-      "night"
-     ],
-     "ch": 58,
-     "title": "Chapter 58 · 赖床",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "我这张嘴，除了训人骂人，说不出那玩意儿。",
-     "b": [
-      "love"
-     ],
-     "ch": 58,
-     "title": "Chapter 58 · 赖床",
-     "series": "No One Walks Off"
-    },
-    {
-     "cn": "睡吧。有我呢。",
-     "b": [
-      "night",
-      "sleepless",
-      "tired"
-     ],
-     "ch": 58,
-     "title": "Chapter 58 · 赖床",
      "series": "No One Walks Off"
     }
    ]
