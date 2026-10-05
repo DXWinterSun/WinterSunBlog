@@ -837,3 +837,19 @@
   text_en: "Pearl Cream"
   muted_cn: "驼绒大衣"
   muted_en: "Camel Coat"
+
+"No Feeling Is Final":      # Captain Klenzendorf · 色卡同源画册 id: hendrix
+  mf_id: hendrix                # → Many Faces 画册锚点 /sam/many-faces/#hendrix
+  accent: "#9c3f2a"
+  accent_ink: "#7d3222"
+  bg: "#14241c"
+  text: "#ede8d8"
+  muted: "#8b7d4d"
+  accent_cn: "焦锈军装红"
+  accent_en: "Scorched Oxblood"
+  bg_cn: "登台华服绿"
+  bg_en: "Costume Green"
+  text_cn: "鞋带浆洗白"
+  text_en: "Starched-Lace White"
+  muted_cn: "勋表旧橄榄"
+  muted_en: "Ribbon Olive"
