@@ -99,6 +99,7 @@ areas:
     pl: składnia
     points:
       - {key: order,    name: 语序}
+      - {key: exist,    name: 某处有某物,       hint: "there is：jest、są、nie ma"}
       - {key: neg,      name: 否定,             hint: "nie 放哪儿、否定以后要变格"}
       - {key: question, name: 疑问句,           hint: "czy 和疑问词"}
       - {key: clause,   name: 连词和从句,       hint: "że、bo、który"}
@@ -630,3 +631,50 @@ notes:
       - {pl: stół, zh: 桌子, tag: 阳}
       - {pl: na, zh: 在……上面（跟方位格）；到……上面去（跟宾格）, look: false}
     see: ["002"]
+
+  - id: "018"
+    date: 2026-10-05
+    source: 多邻国
+    ok: true
+    task: listen
+    point: syntax.exist
+    also: [prep.case, noun.ins, syntax.neg]
+    title: “某处有某物”就用 jest：地方 + jest + 东西，跟中文顺序一样
+    ask: 这个是 there be 句型？
+    pl: "Za domem ==jest== basen."
+    en: "There is a swimming pool behind the house."
+    zh: 房子后面有个游泳池。
+    mine: "Za domem jest basen"
+    why: |
+      对，这就是波兰语的 there is。只是波兰语没有专门的 there，直接用 jest（是）：先说地方，再说 jest，最后说东西。
+      顺序跟中文一模一样：房子后面 · 有 · 游泳池 → Za domem · jest · basen。比英语还顺。
+      东西是好几个，jest 换成 są：Za domem są drzewa.（房子后面有几棵树。）要说“没有”，不是 nie jest，而是 nie ma，后面的东西还要换成生格，跟第 4 条一个道理：Za domem nie ma basenu.（房子后面没有游泳池。）
+      za domem：za 表示“在……后面”时，后面跟工具格，dom 变成 domem，加 -em，跟第 10 条的 widelcem 一样。同一伙的还有 przed（前面）、nad（上面）、pod（下面）、między（中间），说“在哪儿”时都跟工具格。
+    rule:
+      - 地方 + jest + 东西＝某处有某物；好几个用 są，没有用 nie ma + 生格。
+      - za、przed、nad、pod、między 说“在哪儿”时，都跟工具格。
+    table:
+      - pl: [1]
+        head: ["", "波兰语", "意思"]
+        rows:
+          - ["有一个", "Za domem ==jest== basen.", "房子后面有个游泳池。"]
+          - ["有好几个", "Za domem ==są== drzewa.", "房子后面有几棵树。"]
+          - ["没有", "Za domem ==nie ma== ==basenu==.", "房子后面没有游泳池。"]
+      - head: ["", "介词", "在……"]
+        rows:
+          - ["后面", "za", "za ==domem=="]
+          - ["前面", "przed", "przed ==domem=="]
+          - ["上面", "nad", "nad ==domem=="]
+          - ["下面", "pod", "pod ==stołem=="]
+          - ["中间", "między", "między ==domami=="]
+    examples:
+      - {pl: "Przed domem jest ==samochód==.", zh: 房子前面有一辆车。}
+      - {pl: "W pokoju ==nie ma== ==okna==.", zh: 屋里没有窗户。}
+    words:
+      - {pl: basen, zh: 游泳池, tag: 阳}
+      - {pl: dom, zh: 房子；家, tag: 阳}
+      - {pl: drzewo, zh: 树, tag: 中}
+      - {pl: samochód, zh: 汽车, tag: 阳}
+      - {pl: pokój, zh: 房间, tag: 阳}
+      - {pl: za, zh: 在……后面（跟工具格）, look: false}
+    see: ["004", "010"]
