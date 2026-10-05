@@ -151,7 +151,7 @@ python3 tools/polish/find.py --id 007        # 看那一条原来怎么讲的
 | 🏃 动词 `verb` | present 现在时 · past 过去时 · future 将来时 · aspect 体 · motion 走去坐车 · modal 想能必须喜欢 · imper 命令式 |
 | 📍 介词 `prep` | case 介词跟什么格 · place 在哪儿去哪儿 |
 | 🔢 数字时间 `num` | count 数字后面的名词 · clock 钟点日期星期 |
-| 🧩 句子怎么排 `syntax` | order 语序 · neg 否定 · question 疑问句 · clause 连词和从句 |
+| 🧩 句子怎么排 `syntax` | order 语序 · exist 某处有某物（there is） · neg 否定 · question 疑问句 · clause 连词和从句 |
 | 💬 词义和说法 `words` | pair 近义词 · polite 称呼和礼貌 · phrase 固定说法 · meaning 一个词的意思 |
 | 🦉 多邻国的坑 `duo` | english 题面英语的误会 · accept 判错有没有道理 |
 | 🗣 顺带聊到的英语 `en` | accent 口音 · vowel 元音 · consonant 辅音（聊波兰语时顺带问到的英语发音，卡上写 `lang: en`） |
@@ -209,6 +209,7 @@ python3 tools/polish/render_polish.py --blog                              # 博�
   分类只放目录里；编号当时重排过一次（还没有任何批注），以后照旧永远不改。
 - 2026-10-01：「你还是按知识点而不是句子来的，这样太乱了」→ 卡片改成句子打头（见第三节），去掉卡上的知识点标签和小雪人气泡，
   按她那份总结的「意思 / 作答 / 答案 / 卡点 / 讲解」顺序排。
+- 2026-10-05：加知识点 `syntax.exist`「某处有某物」——她问 Za domem jest basen「这个是 there be 句型？」，原有分类里没有合适的格子。
 - 2026-10-01：页名 Notatnik（波兰语「笔记本」）；默认明亮模式，右上角可切夜间。
 - 2026-10-01：她发来四张多邻国截图问「能不能做成更多邻国的形式」→ 整页改成多邻国做题页的样子（见第三节「卡片长什么样」），
   白底、粗描边、绿 / 红结果条；原来借 Kris 的红蓝配色不再用。
