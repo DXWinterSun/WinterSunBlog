@@ -133,7 +133,12 @@
 
 ## 待办
 
-- [ ] Winter 找横版封面图传 `images/`
-- [ ] Winter 挑第一章的开场方式与章节框架岔路（已给选项）
+- [x] 封面图：`images/no-feeling-is-final.webp`（2026-10-05 Winter 挑定，军装正面照、
+  右眼伤可见；原 3.1MB JPG 已压成 97KB WebP，1920×1440）。
+  ⚠️ 图右侧另有一位女士——部署后看一眼自动对脸的裁切效果，歪了就在
+  `_data/image_focus.yml` 手改那一条并标 `manual: true`。
+- [ ] Winter 过目第一章草稿（预览页已发）
+- [ ] Winter 挑幕一岔路：①换药/摘眼罩怎么分配（A: Ch2 接手换药、Ch3 摘眼罩 /
+  B: 他先死活不让碰、Ch3 噩梦后才交出带子）②Ch2 要不要「上尉的妹妹」起哄线
 - [ ] 建系列首页 + `au_palettes.yml` 条目（带 `mf_id: hendrix`……以部署流程为准）
 - [ ] 正文存档子目录 `.claude/bibles/no-feeling-is-final-revised/` 已建，每章落稿即存
