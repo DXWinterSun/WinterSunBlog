@@ -1,15 +1,15 @@
-# 系列圣经 · Captain Klenzendorf AU（伪兄妹向）
+# 系列圣经 · No Feeling Is Final（Captain Klenzendorf AU · 伪兄妹向）
 
-> 状态：**开坑设定阶段**（2026-10-05 起）。系列英文名、他对她的昵称待 Winter 挑定；
-> 封面图待 Winter 找横版。第一章未动笔。
+> 状态：**设定已齐**（2026-10-05 定稿）。封面图待 Winter 找横版。第一章未动笔。
 > 本系列由一张 Elsa「我要我妹妹」的图点燃（灵感本条目 ary29y 有全程记录）。
 
 ## 基本信息
 
-- **系列英文名（`series_name`）**：待定。候选已给 Winter：
-  A《No Feeling Is Final》（出自原片片尾里尔克诗句）/ B《A Borrowed Name》（借来的姓）/
-  C《The Good Eye》（他剩下的那只眼）。
-- slug / permalink：定名后取其 slugify。
+- **系列英文名（`series_name`）**：`No Feeling Is Final`（2026-10-05 Winter 挑定）——
+  出自原片片尾里尔克的诗：「让一切发生在你身上：美与恐惧……没有哪种感受是终局。」
+  这句诗可作全系列题词 / 结局回环。
+- **slug / permalink**：`series/no-feeling-is-final/`。
+- **series_title**：`No Feeling Is Final · Captain Klenzendorf AU`。
 - **出处**：Jojo Rabbit（2019）· 演员 Sam Rockwell · byline 角色名 **Captain Konrad Klenzendorf**。
 - **画册 id**：`hendrix`（many-faces）/ 别名 `klenz`（quiz、spectrum、sam_themes、lines.json）。
 - **配色**：直接继承画册色卡（`sam_themes.yml` id: klenz）——
@@ -65,8 +65,13 @@
 
 - **她叫他：K。** 家里人的旧习惯，她从小跟着叫。训练营的小孩喊 Captain K——那是姓氏
   Klenzendorf 的 K；**她喊的是 Konrad 的 K。同一个字母，全世界只有她一个人的意思不一样。**
-- 他对她的昵称：**待定**（候选已给 Winter：A 两段式 Winterchen→mein Winter /
-  B Schneeflocke / C Spatz，详见章节流水上方的待办）。
+- **他叫她：两段式（2026-10-05 Winter 挑定）。**
+  - 真相之前：**小冬**（底层德语 Winterchen，家里人那种小词尾叫法，从她小时候叫起）。
+  - 真相之后的某一天，他改口：**我的冬**（底层德语 mein Winter）。
+  - ⚠️ **正文直接写中文「小冬」「我的冬」**——Winter 定的：中文正文即德语译文，
+    直白才一下子 get。德语原词不进对白；若要出现，只能作为「实物上的字」
+    （比如母亲信里写下的 Winterchen），用框角引号规则处理。
+  - **改口那一刻本身是一章的心脏**，单独成章或成场，别顺手带过（见 DEFERRED）。
 
 ## 复现母题清单（每章尽量带一下）
 
@@ -95,6 +100,9 @@
 
 - **跳舞**：全系列不让他们跳——直到自由那天。为什么那时最狠：跳舞=原片里自由的身体语言，
   他们所有的亲密都只能发生在关起的门后，唯有战争结束，爱才第一次可以发生在露天。
+- **改口「我的冬」**：真相揭晓后也不立刻改——两个人先在「还能不能叫小冬」的失重里
+  悬一阵，改口那一刻单独给足分量。为什么压着：称呼是他们之间最后一件「兄妹的遗物」，
+  放下它=承认再也回不去，也=终于往前走。
 
 ### PINNED（已埋，待回收）
 
@@ -106,8 +114,7 @@
 
 ## 待办
 
-- [ ] Winter 挑系列英文名（A/B/C 候选见上）
-- [ ] Winter 挑他对她的昵称（A/B/C 候选见上）
 - [ ] Winter 找横版封面图传 `images/`
-- [ ] 定名后：本文件改名为 `<series-slug>.md`，建 `<series-slug>-revised/` 正文存档子目录
+- [ ] Winter 挑第一章的开场方式与章节框架岔路（已给选项）
 - [ ] 建系列首页 + `au_palettes.yml` 条目（带 `mf_id: hendrix`……以部署流程为准）
+- [ ] 正文存档子目录 `.claude/bibles/no-feeling-is-final-revised/` 已建，每章落稿即存
