@@ -582,3 +582,51 @@ notes:
       - {pl: "ship, sheep.", zh: 同上}
       - {pl: "think, this.", zh: th 会换成 t、f 或 d}
     see: ["002", "014"]
+
+  - id: "017"
+    date: 2026-10-05
+    source: 多邻国
+    ok: true
+    task: speak
+    point: pron.personal
+    also: [prep.case, verb.present, words.pair]
+    title: “躺在我身上”＝leżeć na mnie：“我”跟在介词后面要变成 mnie
+    ask: 这句话，何意味🤣
+    pl: "Dlaczego ==na mnie== ==leżysz==?"
+    en: "Why are you lying on me?"
+    zh: 你干吗躺在我身上？
+    why: |
+      意思就是“你干吗趴在我身上？”多邻国就爱出这种没头没脑的句子，这句还是让那只熊说的，画面只能自己脑补。放在波兰人家里，这多半是对一只压着你不肯挪窝的猫说的。
+      拆开看：dlaczego 为什么（第 2 条见过）· na 在……上面 · mnie 我（跟在介词后面的样子）· leżysz 你躺着（leżeć 的“你”那个样子）。
+      na 后面跟方位格，是“在……上面”，待着不动；跟宾格，是“到……上面去”，有个动作：Kot leży na stole.（猫躺在桌上）Kot wskakuje na stół.（猫跳上桌子）。“我”这个词刚好两种都写成 mnie，所以这句里看不出区别。
+      还有一个英语带来的坑：英语的 lie 既是“躺”又是“撒谎”，波兰语是两个词。leżeć 只是“躺着”这个姿势；撒谎是 kłamać。
+    rule:
+      - 躺着是 leżeć，撒谎是 kłamać，别被英语的 lie 带偏。
+      - “我”跟在介词后面，一律用 mnie；只有“跟我一起”是 ze mną。
+    table:
+      - pl: [0]
+        head: ["介词 + 我", "意思"]
+        rows:
+          - ["dla ==mnie==", "给我"]
+          - ["do ==mnie==", "到我这儿来"]
+          - ["na ==mnie==", "在我身上"]
+          - ["o ==mnie==", "关于我"]
+          - ["ze ==mną==", "跟我一起"]
+      - head: ["", "leżeć 躺着"]
+        rows:
+          - ["我", "leżę"]
+          - ["你", "==leżysz=="]
+          - ["他 / 她", "leży"]
+          - ["我们", "leżymy"]
+          - ["你们", "leżycie"]
+          - ["他们", "leżą"]
+    examples:
+      - {pl: "Kot leży na ==stole==.", zh: 猫躺在桌子上。（方位格）}
+      - {pl: "Kot wskakuje na ==stół==.", zh: 猫跳上桌子。（宾格）}
+      - {pl: "Dlaczego ==kłamiesz==?", zh: 你为什么撒谎？}
+    words:
+      - {pl: leżeć, zh: 躺着, tag: 未完成体}
+      - {pl: kłamać, zh: 撒谎, tag: 未完成体}
+      - {pl: stół, zh: 桌子, tag: 阳}
+      - {pl: na, zh: 在……上面（跟方位格）；到……上面去（跟宾格）, look: false}
+    see: ["002"]
