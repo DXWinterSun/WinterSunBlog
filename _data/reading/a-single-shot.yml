@@ -4857,3 +4857,55 @@ batches:
         note: 牛津第一个意思是人“怒吼”，第二个才是这里的：牛那种低沉的大叫。同一页前面还有 moos（哞哞叫）和 groans（呻吟），牛一路叫着被拖出来，作者给了它三种叫法。
         extra:
           - "**搭配**bellow at sb（冲某人吼）· let out a bellow（大吼一声）"
+
+  - n: 65
+    date: 2026-10-06
+    pages: 72
+    photos: 1
+    notes:
+      - id: "288"
+        page: 72
+        color: blue
+        term: encrusted
+        kind: 单词
+        ipa: /ɪnˈkrʌstɪd/
+        pos: adj.
+        cn: 糊满一层硬壳的
+        en: covered with a thin hard layer of sth
+        en_src: 牛津 8
+        context: "pulls the loop from the muck-==encrusted== heifer"
+        gist: 从那头糊满泥壳的小母牛身上解下绳圈。
+        note: 她划的是 encrusted，前面连着 muck-（书上在行尾断开了）。crust 是“面包皮、硬壳”，en- 是“使成为”。牛津例句很有意思：a crown encrusted with diamonds（镶满钻石的王冠），同一个词，一个是满身干泥，一个是满头钻石。
+        extra:
+          - "**搭配**encrusted with mud/diamonds（结满泥 / 镶满钻石）"
+
+      - id: "289"
+        page: 72
+        color: blue
+        term: blacktopping
+        lemma: blacktop
+        eudic: false
+        kind: 名物
+        ipa: /ˈblæktɑːpɪŋ/
+        pos: n.
+        cn: 铺柏油的活儿
+        en: the work of covering a road or driveway with blacktop
+        context: "Thought you was doing some ==blacktopping=="
+        gist: 我还当你在给人铺柏油呢。
+        note: 第 40 页的 No. 184 记过 blacktop，这里是它当动词用、再加 -ing，指“铺柏油这份活”，欧路列表里就不重复放了。Nobie 说 you was，是乡下的说法，标准英语是 you were。
+
+      - id: "290"
+        page: 72
+        color: blue
+        term: skivvies
+        kind: 口语
+        ipa: /ˈskɪviz/
+        pos: n.
+        cn: （男人的）内衣裤
+        en: (NAmE, informal) underwear, especially men’s underwear
+        en_src: 牛津 8
+        context: "then, in his ==skivvies==, leans back"
+        gist: 只穿着一条内裤，往后靠在门廊栏杆上。
+        note: 美国口语，尤其是当过兵的人这么说。英国的 skivvy 完全是另一个意思：干脏活粗活的女佣。第 75 页 Nobie 把它脱了扔在门廊上，用的还是这个词。
+        extra:
+          - "**易混**美 skivvies（男式内衣）≠ 英 skivvy（打杂女佣）"
