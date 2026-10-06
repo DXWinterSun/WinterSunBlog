@@ -305,7 +305,11 @@ details.tipbox .tips{margin-top:.8rem;}
 .wl summary::after{content:"展开 ▾";margin-left:auto;font-size:.8rem;font-weight:400;color:var(--accent);}
 .wl[open] summary::after{content:"收起 ▴";}
 .wl summary small{font-weight:400;color:var(--muted);font-size:.82rem;}
-.wl__tabs{display:flex;gap:.4rem;padding:0 1rem .6rem;}
+.wl__tabs{display:flex;flex-wrap:wrap;gap:.4rem;padding:0 1rem .6rem;}
+.wl__x{margin-left:.35em;padding:0 .3rem;border-radius:4px;background:var(--band);color:var(--word);font-size:.72em;font-weight:700;vertical-align:.1em;}
+.wf--pink{border-left-color:var(--hl-pink)!important;}
+.rep__all li.wl__letter{display:block;border-left:0;padding:.25rem 1rem;}
+@media (max-width:480px){.wl__tabs{gap:.3rem;padding:0 .8rem .6rem;}.wl__tab{padding:.2rem .6rem;font-size:.8rem;}}
 .wl__tab{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;
  padding:.2rem .9rem;font:inherit;font-size:.85rem;cursor:pointer;min-height:32px;}
 .wl__tab.is-on{background:var(--word);border-color:transparent;color:#fff;}
@@ -531,7 +535,7 @@ JS = '''
       try { localStorage.setItem('ws-reading-wl', k); } catch (e) {}
     });
   });
-  try { var k = localStorage.getItem('ws-reading-wl'); if (k === 'seq' || k === 'fav') wl.querySelector('.wl__tab[data-wl="' + k + '"]').click(); } catch (e) {}
+  try { var k = localStorage.getItem('ws-reading-wl'); if (k === 'seq' || k === 'fav' || k === 'freq') wl.querySelector('.wl__tab[data-wl="' + k + '"]').click(); } catch (e) {}
   // 从卡片点「↑ 词表」回来时自动展开
   [].forEach.call(document.querySelectorAll('a[href="#wordlist"]'), function (a) {
     a.addEventListener('click', function () { wl.open = true; });
@@ -975,12 +979,38 @@ def wordlist_box(batches):
         ew = x.get('eudic') if isinstance(x.get('eudic'), str) else (x.get('lemma') or x['term'])
         return (f'<li data-id="{esc(x["id"])}" data-eudic="{esc(str(ew).strip())}">'
                 f'<a class="wl__row wl__row--{pen}" href="#n{esc(x["id"])}">'
-                f'<span class="wl__term" lang="en">{esc(x["term"])}</span>{pos}'
+                f'<span class="wl__term" lang="en">{esc(x["term"])}{times(x)}</span>{pos}'
                 f'<span class="wl__cn">{fmt(x.get("cn", ""))}</span>'
                 f'<span class="wl__page">p.{esc(x.get("page", ""))}</span></a></li>')
 
+    def times(x):                     # 划过不止一次的词，词后面标「×N」（Winter 2026-10-06：「有助于我去学习高频词」）
+        g = REPEATS.get(str(x.get('id')))
+        return f'<b class="wl__x">×{len(g)}</b>' if g else ''
+
     def key(x):
         return re.sub(r'^[^a-z]+', '', str(x['term']).lower()) or str(x['term']).lower()
+
+    # 按次数：同一个词并成一行（次数多的在前，同样次数按第一次出现的先后），右边是每一处的页码
+    seen, freq = set(), []
+    for x in rows:
+        g = REPEATS.get(str(x['id'])) or [x]
+        if str(g[0]['id']) in seen:
+            continue
+        seen.add(str(g[0]['id']))
+        freq.append(g)
+    freq.sort(key=lambda g: -len(g))
+    freq_html, last = '', None
+    for g in freq:
+        n = len(g)
+        if n != last:
+            freq_html += f'<li class="wl__letter">画过 {n} 次 · {sum(1 for h in freq if len(h) == n)} 个</li>'
+            last = n
+        word = word_base(g[0]) if n > 1 else g[0]['term']
+        pen = g[0].get('color') or 'blue'
+        pgs = ''.join(f'<a href="#n{esc(o["id"])}">p.{esc(o.get("page", ""))}</a>' for o in g)
+        freq_html += (f'<li class="wf wf--{pen}"><span class="rep__word" lang="en">{esc(word)}</span>'
+                      + (f'<span class="rep__x">×{n}</span>' if n > 1 else '<span></span>')
+                      + f'<span class="rep__cn">{fmt(g[0].get("cn", ""))}</span><span class="rep__pgs">{pgs}</span></li>')
 
     az, groups = sorted(rows, key=lambda x: (key(x), str(x['id']))), {}
     for x in az:
@@ -997,9 +1027,11 @@ def wordlist_box(batches):
             '<div class="wl__tabs" role="tablist">'
             '<button type="button" class="wl__tab is-on" data-wl="az" role="tab" aria-selected="true">A–Z</button>'
             '<button type="button" class="wl__tab" data-wl="seq" role="tab" aria-selected="false">按读的顺序</button>'
+            '<button type="button" class="wl__tab" data-wl="freq" role="tab" aria-selected="false">按次数</button>'
             '<button type="button" class="wl__tab wl__tab--fav" data-wl="fav" role="tab" aria-selected="false">★ 收藏 <span class="fav-n">0</span></button></div>'
             f'<div class="wl__pane" data-wl="az"><nav class="wl__letters">{letters}</nav><ul class="wl__list">{az_html}</ul></div>'
             f'<div class="wl__pane" data-wl="seq" hidden><ul class="wl__list">{seq_html}</ul></div>'
+            f'<div class="wl__pane" data-wl="freq" hidden><ul class="wl__list rep__all">{freq_html}</ul></div>'
             '<div class="wl__pane" data-wl="fav" hidden>'
             '<div class="fav__bar"><span class="fav__sync"></span>'
             '<button type="button" class="fav__copy" hidden>复制收藏的词</button></div>'
