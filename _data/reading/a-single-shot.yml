@@ -4102,3 +4102,25 @@ batches:
         note: 两只手抓着扶手，一歪一斜地往上冲，醉了。牛津例句就是醉汉踉跄着出酒馆。另有一个习语 leave sb in the lurch（在别人有难时撂下不管）。
         extra:
           - "**搭配**lurch to one side（突然歪向一边）· leave sb in the lurch（撂下某人不管）"
+
+  - n: 53
+    date: 2026-10-06
+    pages: 58
+    photos: 1
+    notes:
+      - id: "245"
+        page: 58
+        color: blue
+        term: sheepishly
+        lemma: sheepish
+        kind: 单词
+        ipa: /ˈʃiːpɪʃli/
+        pos: adv.
+        cn: 难为情地；讪讪地
+        en: looking or feeling embarrassed because you have done sth silly or wrong
+        en_src: 牛津 8
+        context: "Frowning ==sheepishly==, the woman pulls a blanket"
+        gist: 那女人皱着眉，有点讪讪的，拉过一条毯子。
+        note: 英文释义借的是形容词 sheepish，欧路列表里放的也是 sheepish。字面是“像羊一样的”，羊那种低着头、怯怯的样子，就是被人撞见尴尬事时的表情。
+        extra:
+          - "**搭配**a sheepish grin（不好意思的笑）"
