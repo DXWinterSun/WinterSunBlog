@@ -4298,3 +4298,57 @@ batches:
         note: 本义是鸽子“咕咕”地叫，用在人身上是对心爱的人、对小孩那样柔声细语。gibberish 是“没意义的胡话”，大人哄孩子时的咿咿呀呀就是这种。
         extra:
           - "**搭配**coo over a baby（围着婴儿柔声逗弄）"
+
+  - n: 57
+    date: 2026-10-06
+    pages: 62
+    photos: 1
+    notes:
+      - id: "256"
+        page: 62
+        color: blue
+        term: grimaces
+        lemma: grimace
+        eudic: false
+        kind: 单词
+        ipa: /ˈɡrɪməsɪz/
+        pos: v.
+        cn: 皱眉咧嘴，做苦脸
+        en: to make an ugly expression with your face to show pain, disgust, etc.
+        en_src: 牛津 8
+        context: "John ==grimaces== at her."
+        gist: John 冲她皱了皱脸。
+        note: 这是第三次划这个词了，前两次是第 43 页的 No. 196 和第 48 页的 No. 213，欧路列表里就不重复放了。女人说孩子长得像他，他却笑不出来。
+
+      - id: "257"
+        page: 62
+        color: blue
+        term: temperament
+        kind: 单词
+        ipa: /ˈtemprəmənt/
+        pos: n.
+        cn: 性情；脾性
+        en: a person’s or an animal’s nature as shown in the way they behave or react to situations or people
+        en_src: 牛津 8
+        context: "“and gentle ==temperament==.”"
+        gist: “还有温和的脾性。”
+        note: 那女人说：孩子长得像你，可腿长、性子温和随 Moira。中间有个字母不发音，读作 /ˈtemprəmənt/，不念 tem-per-a-ment。
+        extra:
+          - "**搭配**by temperament（生性）· an artistic temperament（艺术家气质）"
+          - "**易混**temper 是一时的脾气、火气；temperament 是天生的性情。"
+
+      - id: "258"
+        page: 62
+        color: blue
+        term: lanky
+        kind: 单词
+        ipa: /ˈlæŋki/
+        pos: adj.
+        cn: 瘦高个、手脚细长的
+        en: having long thin arms and legs and moving in an awkward way
+        en_src: 牛津 8
+        context: "stands the ==lanky== man with bulging eyes"
+        gist: 站着那个瘦高个、眼珠子往外鼓的男人。
+        note: 牛津说它带一点“动作笨拙”的意思。认出来了吗：这个男人就是 John 白天在街上看见、跟 Waylon 一起过马路的那个金发男人。
+        extra:
+          - "**易混**tall 是高；slim 是苗条（褒）；lanky 是又高又瘦、胳膊腿长得不协调。"
