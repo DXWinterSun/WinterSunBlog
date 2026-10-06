@@ -5206,3 +5206,24 @@ batches:
         note: 牛津标着口语、带贬义，只放在名词前面。大家猜：凶手逼 Ira 打开保险柜，一看里面没几个钱，气得把两个人都杀了。可现在 John 开始怀疑：说不定 Ira 真的有钱，而他捡到的那箱钱就是 Ira 的。
         extra:
           - "**搭配**a piddling amount/sum（一点点钱）"
+
+  - n: 71
+    date: 2026-10-06
+    pages: 80
+    photos: 1
+    notes:
+      - id: "309"
+        page: 80
+        color: blue
+        term: rancid
+        kind: 单词
+        ipa: /ˈrænsɪd/
+        pos: adj.
+        cn: （油脂、肉）变质发臭的，哈喇的
+        en: if food containing fat is rancid, it tastes or smells unpleasant because it is no longer fresh
+        en_src: 牛津 8
+        context: "and leaving ==rancid== meat in people’s—"
+        gist: 还往别人家里扔臭肉——
+        note: 牛津说专指含油脂的东西坏了：黄油、坚果、肉，放久了那股哈喇味。这是 Moira 打电话来骂他：她以为前几天那包钱和肉是他乱来，没想到里面是四千多块钱。
+        extra:
+          - "**易混**rotten 是一般的腐烂；rancid 专说油脂变质那股味；stale 是不新鲜、发干（面包、空气）。"
