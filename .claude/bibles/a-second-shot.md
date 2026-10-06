@@ -9,12 +9,13 @@ series_name: A Second Shot ｜ slug: series/a-second-shot/
 封面：待 Winter 传（提议：山雾里一件挂在晾衣绳上的白衬衫，或他拖车房的侧影 + 一支挂在屋檐下的旧猎枪）
 角色: John Moon（原著版）｜ 演员: Sam Rockwell ｜ 画册 id: `john`
 双 AU 处理：画册 John Moon 本来就有 archived 的 v1（Into the Mountain）——部署时按双 AU 结构（`aus` 数组）挂两条，v1 留档不删，v2 = A Second Shot
-配色（提议，等 Winter 过目）：
-  - **bg 米衬衫 / Shirt Linen** `#ece7d8`（Moira 留下的那件衬衫 — 他还活在她的痕迹里）
-  - **accent 鹿血锈 / Deer Blood** `#8f3a2b`（原著他第一枪打的鹿；本能暴力的那一笔锈红）
-  - **muted 松雾褐 / Pine Dun** `#6d7a5f`（环境底色 — 阿巴拉契亚湿冷山林）
-  - **text 墨林黑 / Ink Pine** `#1b1f1a`
-  - accent_ink `#5e2318`（鹿血暗一档，浅底对比度兜底）
+配色（Winter 2026-10-06 定）：**同画册 John 本色，与 Wintergreen 并线**（她原话："先用 John Moon 原本的配色"——米底锈红她看着费劲，深冷的孤枪色才是她心目中 John Moon 的调）：
+  - **bg 西弗州山夜 / Appalachian Dusk** `#14181f`（深色主题）
+  - **accent 孤枪冷雾蓝 / Lone Mist** `#8fa0b0`
+  - **muted 铁盒旧钞灰 / Cash-Box Grey** `#8e96a2`
+  - **text 猎季拂晓霜 / First-Light Frost** `#e0e4ea`
+  - accent_ink `#54616e`
+  - `mf_id: john` 已挂（"穿上他的颜色"按钮直接工作，与 Wintergreen 共用画册色卡）
 
 ---
 
