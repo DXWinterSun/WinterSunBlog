@@ -3231,3 +3231,120 @@ batches:
         note: eject 本义是“猛地弹出、赶出去”，飞行员跳伞弹射也是它。用在录音机、光驱上，就是按一下、把带子或盘“弹出来”。第 41 页他一直在车里放 Hank Williams, Jr. 的磁带，到这里才关掉。
         extra:
           - "**搭配**eject a disc（退出光盘）· the eject button（弹出键）"
+
+  - n: 39
+    date: 2026-10-06
+    pages: 43
+    photos: 1
+    notes:
+      - id: "194"
+        page: 43
+        color: blue
+        term: Undersheriff
+        kind: 名物
+        ipa: /ˈʌndərʃerɪf/
+        pos: n.
+        cn: 副警长
+        en: the officer next in rank below a sheriff, who acts for him
+        context: "==Undersheriff== Ralph Dolan steps out"
+        gist: 副警长 Ralph Dolan 下了车。
+        note: 牛津查不到，英文解释是我写的。美国县里管治安的是选出来的 sheriff（警长），under- 是“下一级的”，undersheriff 就是他手下的二把手。往下 John 叫他 Undersheriff 时故意把 under 咬得很重，等于提醒他“你只是个副的”。
+        extra:
+          - "**易混**sheriff 是县一级、选出来的；police chief 管的是城市警察局。"
+
+      - id: "195"
+        page: 43
+        color: blue
+        term: puffing
+        lemma: puff
+        kind: 口语
+        ipa: /ˈpʌfɪŋ/
+        pos: v.
+        cn: 糊弄；拿话唬人
+        en: (informal) to try to fool sb by saying sth that is not true
+        context: "“You ==puffing== me, John?”"
+        gist: “你唬我呢，John？”
+        note: 她只划了 puff 这一截。puff 本义是“喷一口烟、吹一口气”，美国口语里 blow smoke 就是“说大话骗人”，这里的 puffing me 是同一个意思，我是照上下文这么理解的，牛津没收这一层。妙在后面：John 说“我没往你身上吹（puffing）”，一边扇开 Dolan 嘴里那股塔可汉堡味，“是我在吸你（inhaling）”。一吹一吸，拿字面意思回嘴，很损。
+        extra:
+          - "**搭配**blow smoke（吹牛、糊弄人）· puff on a cigarette（一口一口地抽烟）"
+
+      - id: "196"
+        page: 43
+        color: blue
+        term: Grimacing
+        lemma: grimace
+        kind: 单词
+        ipa: /ˈɡrɪməsɪŋ/
+        pos: v.
+        cn: （因难受、嫌恶）皱眉咧嘴，做苦脸
+        en: to make an ugly expression with your face to show pain, disgust, etc.
+        en_src: 牛津 8
+        context: "==Grimacing==, he waves his hand"
+        gist: 他皱着脸，挥手扇了扇。
+        note: 是那种五官挤在一起的难看表情，疼的、恶心的、受不了的。这里是嫌 Dolan 嘴里的味儿。牛津给了两种读音，/ˈɡrɪməs/ 和 /ɡrɪˈmeɪs/，都对。
+        extra:
+          - "**搭配**grimace at sth（对着……做苦脸）· with a grimace（皱着脸）"
+          - "**易混**frown 只是皱眉；grimace 是整张脸都扭起来。"
+
+      - id: "197"
+        page: 43
+        color: blue
+        term: inhaling
+        lemma: inhale
+        kind: 单词
+        ipa: /ɪnˈheɪlɪŋ/
+        pos: v.
+        cn: 吸入
+        en: to take air, smoke, gas, etc. into your lungs as you breathe
+        en_src: 牛津 8
+        context: "“I’m ==inhaling== you.”"
+        gist: “我是在吸你（的口气）。”
+        note: 接着上一条的玩笑：你问我是不是在“吹”你，我说我是在“吸”你，意思是你这口气熏得我只能往里吸。反义词是 exhale（呼出）。
+        extra:
+          - "**搭配**inhale deeply（深吸一口气）· inhale fumes（吸入烟气）"
+
+      - id: "198"
+        page: 43
+        color: blue
+        term: glares
+        lemma: glare
+        kind: 一词多义
+        ipa: /ɡlerz/
+        pos: v.
+        cn: 怒视；狠狠地瞪
+        en: to look at sb/sth in an angry way
+        en_src: 牛津 8
+        context: "backs out of the truck and ==glares== at him"
+        gist: 从车窗边退开，狠狠瞪着他。
+        note: 下一行马上又出现了它的另一个意思：in the sudden glare（突然刺眼的阳光），John 摘下墨镜被晃得直眨眼。一个词，一个是瞪人的目光，一个是晃眼的光，挨在一起。
+        extra:
+          - "**易混**stare 是盯着看，不一定生气；glare 是带着怒气瞪；glower 是沉着脸瞪。"
+
+      - id: "199"
+        page: 43
+        color: blue
+        term: jackin’
+        lemma: jack
+        eudic: false
+        kind: 打猎用语
+        ipa: /ˈdʒækɪn/
+        pos: v.
+        cn: 夜里打灯偷猎
+        en: to hunt deer illegally at night by blinding them with a light
+        context: "working on ==jackin’== deer"
+        gist: 忙着夜里打灯偷鹿。
+        note: 第 35 页的 No. 171 讲过 jacked deer meat（打灯偷来的鹿肉），这里是动词。jackin’ 就是 jacking，乡下口音把结尾的 g 吞掉了。Dolan 话里有话：你一夜没睡，是不是又去偷猎了。欧路列表里就不重复放了。
+
+      - id: "200"
+        page: 43
+        color: blue
+        term: jacker
+        eudic: false
+        kind: 打猎用语
+        ipa: /ˈdʒækər/
+        pos: n.
+        cn: 打灯偷猎的人
+        en: a person who hunts deer illegally at night with a light
+        context: "That right, ==jacker==?"
+        gist: 是不是啊，偷猎的？
+        note: 牛津查不到，英文解释是我写的。jack 加 -er，就是“干这个的人”。Dolan 直接拿这个当称呼叫他，一点面子不给。词典里没有，所以不放进欧路列表。
