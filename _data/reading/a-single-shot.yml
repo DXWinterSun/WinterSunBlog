@@ -5722,6 +5722,7 @@ batches:
         color: blue
         term: hoists
         lemma: hoist
+        eudic: false
         kind: 单词
         ipa: /hɔɪsts/
         pos: v.
@@ -5730,7 +5731,7 @@ batches:
         en_src: 牛津 8
         context: "onto her stomach, ==hoists== her bottom"
         gist: 翻过身趴着，把屁股抬了起来。
-        note: hoist 本义是用绳子、吊车往上吊，升旗、扬帆也用它。用在身体上，有一种很费劲、很粗笨的感觉。她屁股上纹着一头张牙舞爪的山狮，就是前面 Simon 说“过会儿她会让它吼”的那只。
+        note: 第 11 页的 No. 052 记过这个词，这里又划了一次，欧路列表里就不重复放了。hoist 本义是用绳子、吊车往上吊，升旗、扬帆也用它。用在身体上，有一种很费劲、很粗笨的感觉。她屁股上纹着一头张牙舞爪的山狮，就是前面 Simon 说“过会儿她会让它吼”的那只。
         extra:
           - "**搭配**hoist a flag/sail（升旗 / 扬帆）· hoist oneself onto a stool（撑着坐上高凳）"
 
