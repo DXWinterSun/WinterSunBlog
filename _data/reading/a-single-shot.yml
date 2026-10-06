@@ -3481,3 +3481,58 @@ batches:
         note: self-fulfilling prophecy 是个固定说法：因为一直相信某件事会发生，就照着它去做，结果它真的发生了。他一直觉得她总有一天会厌倦他、离开他，而这份担心本身，也许就把她推走了。注意拼写：名词 prophecy（-cy，读 /si/），动词 prophesy（-sy，读 /saɪ/）。
         extra:
           - "**搭配**a self-fulfilling prophecy（自我应验的预言）· fulfil a prophecy（应验预言）"
+
+  - n: 42
+    date: 2026-10-06
+    pages: 46
+    photos: 1
+    notes:
+      - id: "210"
+        page: 46
+        color: blue
+        term: slaw
+        lemma: coleslaw
+        eudic: slaw
+        kind: 名物
+        ipa: /slɔː/
+        pos: n.
+        cn: 凉拌卷心菜丝
+        en: pieces of raw cabbage, carrot, onion, etc., mixed with mayonnaise
+        en_src: 牛津 8
+        context: "“And a side of ==slaw==, right?”"
+        gist: “再来一份凉拌菜丝，对吧？”
+        note: slaw 是 coleslaw 的简称，美国小餐馆里配汉堡、炸鸡最常见的小菜。英文释义借的是牛津 coleslaw 那一条。a side of 是“一份配菜”。她连问都不用问就知道他要什么，他却说不要了、换沙拉，两人之间那点熟悉和别扭全在这几句点菜里。
+        extra:
+          - "**搭配**a side of fries/slaw（一份薯条/菜丝做配菜）"
+
+      - id: "211"
+        page: 46
+        color: blue
+        term: owlishly
+        lemma: owlish
+        kind: 单词
+        ipa: /ˈaʊlɪʃli/
+        pos: adv.
+        cn: 像猫头鹰那样（瞪着眼）
+        en: like an owl, with wide round eyes, staring
+        context: "sees Puffer ==owlishly== peering through the smoke"
+        gist: 看见 Puffer 像只猫头鹰似的，隔着烟往这边瞅。
+        note: 牛津对 owlish 的解释是“像猫头鹰，尤其是戴着圆眼镜，显得严肃又有学问”。这里没那份斯文：一个大胖子躲在烟里，瞪圆了眼睛偷看他们说话，像夜里的猫头鹰。英文解释是我按这里的意思写的。
+        extra:
+          - "**搭配**peer at sth（眯着眼、凑近看）"
+
+      - id: "212"
+        page: 46
+        color: blue
+        term: strand
+        kind: 单词
+        ipa: /strænd/
+        pos: n.
+        cn: （头发、线）一缕，一股
+        en: a single thin piece of thread, wire, hair, etc.
+        en_src: 牛津 8
+        context: "She blows at a ==strand== of hair"
+        gist: 她朝一缕垂下来的头发吹了口气。
+        note: 发髻里掉下来的一缕头发挡住眼睛，她手里端着东西，只能噘嘴吹开。很小的一个动作，写得很真。动词 strand 是“使搁浅、困住”，stranded 是“被困住的”，跟这里没关系。
+        extra:
+          - "**搭配**a strand of hair/pearls（一缕头发/一串珍珠）"
