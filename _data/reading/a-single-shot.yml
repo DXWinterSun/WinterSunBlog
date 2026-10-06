@@ -3536,3 +3536,24 @@ batches:
         note: 发髻里掉下来的一缕头发挡住眼睛，她手里端着东西，只能噘嘴吹开。很小的一个动作，写得很真。动词 strand 是“使搁浅、困住”，stranded 是“被困住的”，跟这里没关系。
         extra:
           - "**搭配**a strand of hair/pearls（一缕头发/一串珍珠）"
+
+  - n: 43
+    date: 2026-10-06
+    pages: 48
+    photos: 1
+    notes:
+      - id: "213"
+        page: 48
+        color: blue
+        term: grimacing
+        lemma: grimace
+        eudic: false
+        kind: 单词
+        ipa: /ˈɡrɪməsɪŋ/
+        pos: v.
+        cn: 皱眉咧嘴，做苦脸
+        en: to make an ugly expression with your face to show pain, disgust, etc.
+        en_src: 牛津 8
+        context: "Puffer ==grimacing== at him through the smoke"
+        gist: Puffer 隔着烟冲他皱着一张脸。
+        note: 第 43 页的 No. 196 记过这个词，这里又划了一次，欧路列表里就不重复放了。那边是 John 嫌 Dolan 的口气，这里是老板 Puffer 隔着烟冲他做脸色。
