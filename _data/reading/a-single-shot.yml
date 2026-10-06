@@ -5454,3 +5454,41 @@ batches:
         note: 牛津的例句是孩子在海滩上嬉戏，本来是个轻快可爱的词。这里配上“喂得太饱的海豹”，又滑稽又有点残忍。watch sb do sth 结构，所以 frolic 用原形。
         extra:
           - "**搭配**children frolicking on the beach（在海滩上嬉戏的孩子）"
+
+  - n: 76
+    date: 2026-10-06
+    pages: 87
+    photos: 1
+    notes:
+      - id: "324"
+        page: 87
+        color: blue
+        term: sashaying
+        lemma: sashay
+        kind: 单词
+        ipa: /sæˈʃeɪɪŋ/
+        pos: v.
+        cn: 扭着腰、大摇大摆地走
+        en: to walk in a very confident but relaxed way, especially in order to be noticed
+        en_src: 牛津 8
+        context: "She comes ==sashaying== into Gans’s living room"
+        gist: 她扭着腰、晃晃悠悠地走进 Gans 家的客厅。
+        note: 来自法语的方阵舞步 chassé（滑步）。是那种故意让人看见、摇曳生姿的走法，下一句她半夜穿着一件小得不能再小的睡衣。美式读音重音在后。
+        extra:
+          - "**易混**strut 是昂首挺胸、趾高气扬地走；sashay 是扭着、晃着、招人看地走。"
+
+      - id: "325"
+        page: 87
+        color: blue
+        term: roust
+        kind: 口语
+        ipa: /raʊst/
+        pos: v.
+        cn: 把（人）叫起来、拽出来
+        en: (NAmE) to disturb sb or make them move from a place
+        en_src: 牛津 8
+        context: "Figured I’d ==roust== ya."
+        gist: 想着来把你拽出来乐一乐。
+        note: Simon 半夜带着两个女人跑到 John 的拖车来，意思是“来闹你、把你折腾起来”。roust 跟 rouse（唤醒）是一家，常用在警察把人从住处赶出来、把人从床上叫起来。ya 是 you 的口语写法。
+        extra:
+          - "**搭配**roust sb out of bed（把人从床上轰起来）"
