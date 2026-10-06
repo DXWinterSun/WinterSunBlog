@@ -5227,3 +5227,24 @@ batches:
         note: 牛津说专指含油脂的东西坏了：黄油、坚果、肉，放久了那股哈喇味。这是 Moira 打电话来骂他：她以为前几天那包钱和肉是他乱来，没想到里面是四千多块钱。
         extra:
           - "**易混**rotten 是一般的腐烂；rancid 专说油脂变质那股味；stale 是不新鲜、发干（面包、空气）。"
+
+  - n: 72
+    date: 2026-10-06
+    pages: 83
+    photos: 1
+    notes:
+      - id: "310"
+        page: 83
+        color: blue
+        term: porcupine
+        kind: 名物
+        ipa: /ˈpɔːrkjupaɪn/
+        pos: n.
+        cn: 豪猪，箭猪
+        en: an animal covered with long stiff parts like needles (called quills), which it can raise to protect itself
+        en_src: 牛津 8
+        context: "he had a faceful of ==porcupine== quills"
+        gist: 他满脸扎着豪猪刺。
+        note: 这是 John 想起 Mutt 第一次跑到他们拖车来的样子：小狗跟豪猪打了一架，满脸是刺，两个人拿钳子拔了两个钟头，它一声都没哼。quill 是豪猪的刺，也是鹅毛笔的“羽管”。faceful 是“满满一脸”，跟 mouthful（一满口）同一个构词。
+        extra:
+          - "**易混**porcupine 豪猪（刺长、会竖起来）· hedgehog 刺猬（小、会团成球）"
