@@ -181,20 +181,21 @@
   muted_cn: "倒计时灰"
   muted_en: "Countdown Grey"
 
-"A Second Shot":            # John Moon（原著版 AU；与 Wintergreen 并行的第三条 John 支线。2026-10-06 开坑设定阶段，mf_id 等部署前再接）
-  accent: "#8f3a2b"
-  accent_ink: "#5e2318"
-  bg: "#ece7d8"
-  text: "#1b1f1a"
-  muted: "#6d7a5f"
-  accent_cn: "鹿血锈"
-  accent_en: "Deer Blood"
-  bg_cn: "米衬衫"
-  bg_en: "Shirt Linen"
-  text_cn: "墨林黑"
-  text_en: "Ink Pine"
-  muted_cn: "松雾褐"
-  muted_en: "Pine Dun"
+"A Second Shot":            # John Moon（原著版 AU；与 Wintergreen 并行的第三条 John 支线。配色同画册 John 本色——Winter 2026-10-06 原话：「先用 John Moon 原本的配色」）
+  mf_id: john                # → Many Faces 画册锚点 /sam/many-faces/#john（与 Wintergreen 同源）
+  accent: "#8fa0b0"
+  accent_ink: "#54616e"
+  bg: "#14181f"
+  text: "#e0e4ea"
+  muted: "#8e96a2"
+  accent_cn: "孤枪冷雾蓝"
+  accent_en: "Lone Mist"
+  bg_cn: "西弗州山夜"
+  bg_en: "Appalachian Dusk"
+  text_cn: "猎季拂晓霜"
+  text_en: "First-Light Frost"
+  muted_cn: "铁盒旧钞灰"
+  muted_en: "Cash-Box Grey"
 
 "Wintergreen":              # John Moon（v2 重写版；v1 系列名 A Single Shot AU 已归档）
   mf_id: john                # → Many Faces 画册锚点 /sam/many-faces/#john
