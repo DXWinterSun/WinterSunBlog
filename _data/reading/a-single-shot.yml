@@ -3596,3 +3596,74 @@ batches:
         note: 牛津写作带连字符的 re-enter，美国常连写成 reenter，都对。re- 是“再一次”。sees sb do sth 是“看见某人做了某事”，所以 reenter 用的是原形。
         extra:
           - "**搭配**see sb do sth（看见某人做了某事）"
+
+  - n: 45
+    date: 2026-10-06
+    pages: 50
+    photos: 1
+    notes:
+      - id: "216"
+        page: 50
+        color: blue
+        term: felled
+        lemma: fell
+        kind: 一词多义
+        ipa: /feld/
+        pos: v.
+        cn: 砍倒（树）；击倒
+        en: to cut down a tree; to make sb fall to the ground
+        en_src: 牛津 8
+        context: "The tree was ==felled== by spring lightning."
+        gist: 那棵树是春天被雷劈倒的。
+        note: 小心这个陷阱：fell 有两个身份。一个是 fall 的过去式（跌倒了）；一个是独立的动词，“把树放倒、把人打倒”，过去式是 felled。这里是后一个，树被雷劈倒了。牛津说 fell 打倒人的用法偏文学。
+        extra:
+          - "**易混**fall – fell – fallen（自己倒）；fell – felled – felled（把别的东西放倒）"
+
+      - id: "217"
+        page: 50
+        color: blue
+        term: stamina
+        kind: 单词
+        ipa: /ˈstæmɪnə/
+        pos: n.
+        cn: 耐力；体力
+        en: the physical or mental strength that enables you to do sth difficult for long periods of time
+        en_src: 牛津 8
+        context: "his own physical ==stamina== and prowess"
+        gist: 他自己的体力和本事。
+        note: 肩膀带着伤，一斧一斧劈了一个钟头，他自己都对自己的身子骨佩服起来，就像在看一匹马、一台拖拉机干活。
+        extra:
+          - "**搭配**build up stamina（增强耐力）· It takes a lot of stamina to …（做……很需要耐力）"
+
+      - id: "218"
+        page: 50
+        color: blue
+        term: prowess
+        kind: 单词
+        ipa: /ˈpraʊəs/
+        pos: n.
+        cn: 高超的本领
+        en: great skill at doing sth
+        en_src: 牛津 8
+        context: "physical stamina and ==prowess=="
+        gist: 体力和本事。
+        note: 牛津标着正式，常用在体育、学术上。放在一个劈柴的乡下人身上，正经得有点好笑，但也是真心话：干这种力气活，他确实有一手。
+        extra:
+          - "**搭配**sporting/athletic prowess（运动才能）"
+
+      - id: "219"
+        page: 50
+        color: blue
+        term: co-ops
+        lemma: co-op
+        kind: 名物
+        ipa: /ˈkoʊ ɑːps/
+        pos: n.
+        cn: 合作社
+        en: (informal) a cooperative shop/store, society or business
+        en_src: 牛津 8
+        context: "before dairy ==co-ops==, sixty-thousand-dollar tractors"
+        gist: 在还没有奶业合作社、没有六万块一台的拖拉机之前。
+        note: co-op 是 cooperative 的简称。后面一串都是让小农场活不下去的东西：大合作社、昂贵的拖拉机、查牛奶的检查员、粮食垄断、两位数的利息、开发商。他是在想，要是父亲早生几十年，也许还守得住那块地。
+        extra:
+          - "**搭配**a housing co-op（住房合作社）"
