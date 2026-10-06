@@ -3667,3 +3667,118 @@ batches:
         note: co-op 是 cooperative 的简称。后面一串都是让小农场活不下去的东西：大合作社、昂贵的拖拉机、查牛奶的检查员、粮食垄断、两位数的利息、开发商。他是在想，要是父亲早生几十年，也许还守得住那块地。
         extra:
           - "**搭配**a housing co-op（住房合作社）"
+
+  - n: 46
+    date: 2026-10-06
+    pages: 51
+    photos: 1
+    notes:
+      - id: "220"
+        page: 51
+        color: blue
+        term: incubus
+        kind: 一词多义
+        ipa: /ˈɪŋkjʊbəs/
+        pos: n.
+        cn: 压在身上的祸祟；沉重的负担
+        en: a problem that makes you worry a lot
+        en_src: 牛津 8
+        context: "like an ==incubus== on the Moon family"
+        gist: （那份霉运）像个梦魇似的压在 Moon 家头上。
+        note: 牛津有两个意思：一是文学里的“沉重的负担”，一是老传说里夜里压在睡着的人身上的男妖。这里两层都在：厄运像个甩不掉的东西，落在他们家身上就不走了。注意 Moon 是 John 的姓。
+        extra:
+          - "**易混**nightmare 是噩梦；incubus 是压在你身上的那个东西。"
+
+      - id: "221"
+        page: 51
+        color: blue
+        term: metastasizing
+        lemma: metastasize
+        kind: 名物
+        ipa: /məˈtæstəsaɪzɪŋ/
+        pos: v.
+        cn: （癌细胞）扩散、转移
+        en: (of cancer) to spread from one part of the body to other parts
+        context: "cancer and ==metastasizing== tumors"
+        gist: 癌症，还有不断扩散的肿瘤。
+        note: 医学用词。牛津只收了名词 metastasis（转移），英文解释是我写的。这是他记得的医生的话：父亲的死、母亲后来夜里心脏停了，一桩接一桩。用这么冷的医学词，是一个没念完高中的人把这些词一个一个记住了。
+
+      - id: "222"
+        page: 51
+        color: blue
+        term: hermetic
+        kind: 一词多义
+        ipa: /hɜːrˈmetɪk/
+        pos: adj.
+        cn: 与世隔绝的；封闭的
+        en: closed and difficult to become a part of
+        en_src: 牛津 8
+        context: "his own ==hermetic== existence"
+        gist: 他自己那与世隔绝的日子。
+        note: 本义是“密封的、不透气的”，hermetically sealed 就是“密封”。用在人的生活上，就是封得死死的，外面进不来，自己也出不去。他住在山上一英亩半的地上，像个困在别人土地上的农奴。
+        extra:
+          - "**搭配**hermetically sealed（密封的）"
+
+      - id: "223"
+        page: 51
+        color: blue
+        term: pilfer
+        kind: 单词
+        ipa: /ˈpɪlfər/
+        pos: v.
+        cn: 小偷小摸
+        en: to steal things of little value or in small quantities
+        en_src: 牛津 8
+        context: "forced to ==pilfer== and poach from the land"
+        gist: 只好在那片地上偷偷摸摸、偷猎为生。
+        note: 不是大偷，是一点一点地顺手拿。那片地本该是他的，现在却只能偷它。
+        extra:
+          - "**易混**steal 是一般的偷；pilfer 是小偷小摸；rob 是抢、宾语是人或地方。"
+
+      - id: "224"
+        page: 51
+        color: blue
+        term: errant
+        kind: 一词多义
+        ipa: /ˈerənt/
+        pos: adj.
+        cn: 四处游荡、没有着落的
+        en: straying from the right course; wandering
+        context: "his ==errant==, self-pitying anger meanders"
+        gist: 他那四处乱撞、自怨自艾的怒气，绕来绕去。
+        note: 牛津收的是“犯错的、出格的”和“对配偶不忠的”。这里用的是它更老的本义：“游荡的、走岔的”，像 knight-errant（四处游侠的骑士）。英文解释是我按这层意思写的。后面的 meanders（像河一样弯弯绕绕）正好接着说：这股火没有方向，绕一大圈，最后又回到心里那个黑点上。
+        extra:
+          - "**搭配**knight-errant（游侠骑士）· an errant husband（不忠的丈夫）"
+
+      - id: "225"
+        page: 51
+        color: blue
+        term: fuze
+        lemma: fuse
+        kind: 名物
+        ipa: /fjuːz/
+        pos: n.
+        cn: 引信；导火的那一点
+        en: a device that makes a bomb explode when it hits sth or at a particular time
+        en_src: 牛津 8
+        context: "slowly comes back to its ==fuze=="
+        gist: 慢慢又回到它的引信那儿。
+        note: fuze 是美式拼法，等于 fuse 的“引信”那个意思。他的怒气像一颗雷，绕了一大圈，又回到引爆它的那一点：心里那块又黑又穿不透的地方，他宁愿那只是一场梦。fuse 另有“保险丝”的意思，有个说法叫 have a short fuse（脾气一点就着）。
+        extra:
+          - "**搭配**have a short fuse（脾气火爆）· light the fuse（点燃导火索）"
+
+      - id: "226"
+        page: 51
+        color: blue
+        term: exorbitant
+        kind: 单词
+        ipa: /ɪɡˈzɔːrbɪtənt/
+        pos: adj.
+        cn: 过分的；奢侈得离谱的
+        en: (of a price) much too high
+        en_src: 牛津 8
+        context: "a road to a more ==exorbitant== life"
+        gist: 通往更阔绰的日子的一条路。
+        note: 牛津说它专门用来形容“价格高得离谱”。这里作者拿来说日子：他看那笔钱，不是要过上挥霍的生活，而是想拿它把老婆孩子换回来。
+        extra:
+          - "**搭配**exorbitant prices/rents/fees（离谱的价格/房租/收费）"
