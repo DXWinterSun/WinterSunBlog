@@ -4215,3 +4215,86 @@ batches:
         note: 牛津收的是动词 mortify（使难堪），英文解释是我改成形容词写的。一个一岁的孩子当然不会“羞愧”，这是 John 眼里看出来的：孩子被一个陌生男人吓坏了，那张脸在他看来，就像在嫌弃他、躲着他。紧接着他就想：他恨我。
         extra:
           - "**易混**embarrassed 是尴尬；ashamed 是羞愧；mortified 两样都有，而且是极度的。"
+
+  - n: 56
+    date: 2026-10-06
+    pages: 61
+    photos: 1
+    notes:
+      - id: "251"
+        page: 61
+        color: blue
+        term: crescendo
+        kind: 一词多义
+        ipa: /krəˈʃendoʊ/
+        pos: n.
+        cn: 越来越响的高潮
+        en: a gradual increase in noise; the loudest point of a period of continuous noise
+        en_src: 牛津 8
+        context: "The wailing builds to a ==crescendo==."
+        gist: 哭声越来越高，到了顶点。
+        note: 本来是音乐术语“渐强”，来自意大利语。日常用来说声音一点点变大、到最响的那一刻。build to a crescendo 是固定搭配。
+        extra:
+          - "**搭配**rise/build to a crescendo（逐渐达到高潮）· 反义 diminuendo（渐弱）"
+
+      - id: "252"
+        page: 61
+        color: blue
+        term: pullover
+        kind: 名物
+        ipa: /ˈpʊloʊvər/
+        pos: n.
+        cn: 套头衫
+        en: a knitted piece of clothing for the upper part of the body, with long sleeves and no buttons
+        en_src: 牛津 8
+        context: "blue jeans and a ==pullover== black jersey"
+        gist: 一条牛仔裤，一件黑色套头针织衫。
+        note: pull + over，从头上套下去的，没有扣子。这里放在 jersey（针织衫）前面当修饰，意思是“套头式的”。英式常叫 jumper，美式多说 sweater。
+
+      - id: "253"
+        page: 61
+        color: pink
+        term: deftly
+        lemma: deft
+        kind: 用法
+        ipa: /ˈdeftli/
+        pos: adv.
+        cn: 麻利地；熟练轻巧地
+        en: in a skilful and quick way
+        context: "She ==deftly== cradles him in one arm."
+        gist: 她麻利地把他抱进一只胳膊弯里。
+        note: 粉色：词认识，用法值得再看一眼。deft 常说手巧，deft fingers、deft footwork，这里用在一个女人抱孩子上：接过来、一只手就托稳了，另一只手已经在塞奶瓶。跟前面 John 手忙脚乱、差点把孩子摔了，正好是对照。cradle 也是好词：名词是“摇篮”，动词就是“像摇篮那样抱着”。
+        extra:
+          - "**搭配**deft hands/fingers（灵巧的手）· cradle sb in your arms（把人搂在怀里）"
+
+      - id: "254"
+        page: 61
+        color: blue
+        term: to and fro
+        kind: 习语
+        ipa: /ˌtuː ən ˈfroʊ/
+        pos: adv.
+        cn: 来回地；前后摇
+        en: backwards and forwards
+        context: "rocks him ==to and fro=="
+        gist: 来回轻轻摇着他。
+        note: 书上这个短语跨了一行，她两截都划了。fro 单独不用，只活在这个短语里。最常和 rock（摇）、swing（荡）、walk（踱步）一起用。
+        extra:
+          - "**易混**back and forth 意思一样，更口语；to and fro 更书面、更有画面。"
+
+      - id: "255"
+        page: 61
+        color: blue
+        term: coos
+        lemma: coo
+        kind: 单词
+        ipa: /kuːz/
+        pos: v.
+        cn: 轻声细语地哄
+        en: to say sth in a soft quiet voice, especially to sb you love
+        en_src: 牛津 8
+        context: "==coos== gibberish in his ear"
+        gist: 在他耳边轻声咕哝些听不懂的话。
+        note: 本义是鸽子“咕咕”地叫，用在人身上是对心爱的人、对小孩那样柔声细语。gibberish 是“没意义的胡话”，大人哄孩子时的咿咿呀呀就是这种。
+        extra:
+          - "**搭配**coo over a baby（围着婴儿柔声逗弄）"
