@@ -2956,6 +2956,7 @@ batches:
         color: blue
         term: foreclosed
         lemma: foreclose
+        eudic: false
         kind: 名物
         ipa: /fɔːrˈkloʊzd/
         pos: v.
@@ -2964,7 +2965,7 @@ batches:
         en_src: 牛津 8
         context: "represented the bank when it ==foreclosed=="
         gist: 银行收走抵押的时候，我是银行那边的律师。
-        note: 这是贷款的说法：借钱买地买房，用地或房子做抵押，还不上，银行就把它收走。律师在说的是 John 父亲那片农场。
+        note: 第 23 页的 No. 110 记过这个词，这里又划了一次，欧路列表里就不重复放了。借钱买地买房，用地或房子做抵押，还不上，银行就把它收走。律师在说的是 John 父亲那片农场。
         extra:
           - "**搭配**foreclose on sb/sth（收走某人的抵押物）· foreclosure（名词：收回抵押）"
 
