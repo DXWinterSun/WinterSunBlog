@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 14 · 我要听你亲口说 — I Kissed the Stones"
+title: "Chapter 15 · 我要听你亲口说 — I Kissed the Stones"
 date: 2026-09-15 23:36:57 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 安放, 缱绻]
@@ -10,7 +10,7 @@ series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 15
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 14"
+chapter_type: "Chapter 15"
 summary: "他说他写了。你说，我要你说。"
 redirect_from:
   - /2026/10/20/i-kissed-the-stones-chapter-14-i-want-to-hear-you-say-it/

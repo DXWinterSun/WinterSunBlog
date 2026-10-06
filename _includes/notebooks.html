@@ -1,0 +1,41 @@
+{%- comment -%}
+  一本本笔记本封面（2026-10-03 从 Winter's 第六格「冬的笔记」搬出来，单独成了顶上的 📝 Notes 一格）。
+  用在 _pages/notes/index.html。封面样式在 _sass/5-components/_winters.scss（.c-wn-notebook），
+  排法在 _sass/5-components/_lobby.scss（.c-notes__grid）。
+
+  · 冬的灵感本：/memo/，数据在仓库 memo 分支，构建时读不到，所以封面不报数
+  · 波兰语笔记本：/polish/，读 _data/polish/notes.yml
+  · 原著笔记：每本一张，/reading/<slug>/，读 _data/reading/*.yml
+  · 波兰语变格表：/polski.html，小工具，一张索引卡（原来放在 Gallery 里）
+  以后新开的笔记本，照样往这里加一张封面。
+{%- endcomment -%}
+{%- assign pn = site.data.polish.notes.notes -%}
+{%- assign pn_sent = 0 -%}{%- assign pn_wrong = 0 -%}
+{%- for x in pn -%}
+  {%- if x.section == nil and x.lang == nil -%}{%- assign pn_sent = pn_sent | plus: 1 -%}{%- endif -%}
+  {%- if x.mine and x.ok != true -%}{%- assign pn_wrong = pn_wrong | plus: 1 -%}{%- endif -%}
+{%- endfor %}
+<a class="c-wn-notebook c-wn-notebook--memo" href="{{ site.baseurl }}/memo/">
+  <span class="c-wn-notebook__label"><small>Winter's Ideas</small><b>冬的灵感本</b><span>想做的事，和做到哪了</span></span>
+  <span class="c-wn-notebook__meta">✨ 当下的灵感<br>🌳 长期的计划</span>
+</a>
+{%- if pn and pn.size > 0 %}
+<a class="c-wn-notebook c-wn-notebook--pl" href="{{ site.baseurl }}/polish/">
+  <span class="c-wn-notebook__label"><small lang="pl">Notatnik</small><b>波兰语笔记本</b><span>多邻国上做错的、看不懂的</span></span>
+  <span class="c-wn-notebook__meta"><b>{{ pn_sent }}</b> 句{% if pn_wrong > 0 %} · <b>{{ pn_wrong }}</b> 道错题{% endif %}</span>
+</a>
+{%- endif -%}
+{%- for entry in site.data.reading -%}
+  {%- assign d = entry[1] -%}{%- assign b = d.book -%}
+  {%- assign pal = site.data.au_palettes[b.palette] -%}
+  {%- assign rn = 0 -%}{%- assign upto = '' -%}
+  {%- for bt in d.batches -%}{%- assign upto = bt.pages -%}{%- assign rn = rn | plus: bt.notes.size -%}{%- endfor %}
+<a class="c-wn-notebook" href="{{ site.baseurl }}/reading/{{ b.slug }}/" style="--nb-bg: {{ pal.bg | default: '#1d2330' }}; --nb-spine: {{ pal.accent | default: '#8fa0b0' }}; --nb-ink: {{ pal.text | default: '#e6e6e6' }};">
+  <span class="c-wn-notebook__label"><small>原著笔记</small><b lang="en">{{ b.title }}</b><span>{{ b.author }}</span></span>
+  <span class="c-wn-notebook__meta">{% if upto != '' %}读到第 <b>{{ upto }}</b> 页 · {% endif %}<b>{{ rn }}</b> 条</span>
+</a>
+{%- endfor %}
+<a class="c-wn-notebook c-wn-notebook--tool" href="{{ site.baseurl }}/polski.html">
+  <span class="c-wn-notebook__label"><small lang="pl">Odmiana</small><b>波兰语变格表</b><span>输入一个词，看全部变格，带朗读</span></span>
+  <span class="c-wn-notebook__meta">小工具 · 查词用</span>
+</a>

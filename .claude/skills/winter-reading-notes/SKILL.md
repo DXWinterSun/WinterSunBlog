@@ -192,11 +192,12 @@ python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratc
 | 每本书的笔记页 `/reading/<slug>/` | `reading/<slug>/index.html`，独立整页 | **脚本生成，别手改**：`python3 tools/reading/render_notes.py _data/reading/<slug>.yml --blog` |
 | 入口 ① | `sam/index.html` 互动彩蛋第 11 张卡「书架」 | 不用动 |
 | 入口 ② | 对应系列首页「设定档案」末尾一行链接（A Single Shot → `series/wintergreen/`） | 开新书时手加一行 |
+| 入口 ③ | 顶上 📝 Notes 那一格（2026-10-03 起，`_includes/notebooks.html`；以前在 Winter's 第六格「冬的笔记」），一本书一张笔记本封面 | 不用动：遍历 `_data/reading/*.yml` 自动出 |
 
 **每次整理完新的一页，两样都要重新生成**：`-o <scratchpad>/…html`（发 Artifact 给她批注）和 `--blog`（博客那页），
 一起 commit。博客那页要推 `main` 才上线——照全站部署规矩攒成一包推（一次读好几页就整批推一次），推完等构建跑完。
 
-博客版跟 Artifact 版的区别只有三处：左上角有「← 书架 / Sam」、状态写「在读」、开头说明换成 `demo.yml` 的 `blog_lede`
+博客版跟 Artifact 版的区别只有三处：左上角有「← 书架 / 笔记」（2026-10-03 前是「Sam」）、状态写「在读」、开头说明换成 `demo.yml` 的 `blog_lede`
 （写给读者看的，第一人称是 Winter）。批注按钮在博客上自动不出现。
 
 ## 六、她定过的偏好

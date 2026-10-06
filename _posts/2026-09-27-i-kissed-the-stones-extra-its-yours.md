@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Extra · 是你的东西 — I Kissed the Stones"
+title: "Chapter 10 · 是你的东西 — I Kissed the Stones"
 date: 2026-09-27 00:48:12 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 炽恋, 缱绻]
@@ -10,8 +10,7 @@ series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 10
 series_status: complete
 series_type: Series
-chapter_type: "Extra"
-chapter_kind: extra
+chapter_type: "Chapter 10"
 summary: "他每次都转过身去藏起来；这一夜你说，别转过去。"
 ---
 

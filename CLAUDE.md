@@ -65,8 +65,36 @@ Winter 读英文原著（眼下是《A Single Shot》原著）时会发来带荧
 `_data/reading/<书>.yml` → `tools/reading/render_notes.py` 生成网页 → 发布到数据文件
 `book.artifact` 记着的**同一个链接** → 她在网页上用批注提问，你在批注里回她、把她的话收进笔记。
 ⚠️ 这里的「批注」是 **Artifact 自带的批注功能**，不是网页自己存数据（她纠正过一次）。
-博客上的位置（2026-09-26 她挑定）：书架 `/reading/`（入口在 Sam 页第 11 张卡和 Wintergreen 系列页），
+博客上的位置（2026-09-26 她挑定，2026-10-03 全站新排法后）：顶上 **📝 Notes** 那一格里一本封面，
+书架 `/reading/` 的入口还有 Sam 页第 11 张卡和 Wintergreen 系列页（返回键回 Notes），
 一本书一页 `reading/<slug>/index.html`，由 `render_notes.py --blog` 生成、别手改；每加一页笔记，Artifact 和博客页一起重新生成。
+
+## 🇵🇱 波兰语笔记本：多邻国错题 / 疑问 → 讲清楚 + 收进笔记（2026-10-01）
+
+Winter 在学波兰语（零基础，多邻国 + 李金涛课本）。**她发来多邻国截图、甩来一句波兰语问「为什么」「什么意思」
+「怎么读」「是不是问过」时——不用她交代，直接照 `.claude/skills/winter-polish-notes/SKILL.md` 办：**
+先 `python3 tools/polish/find.py <词>` 查她以前问过没有（问过就先指路「这个你几月几号问过，是第几条」、
+再换个更简单的讲法，并在那条记一笔「又问了」）→ 用大白话讲清楚 → 收进 `_data/polish/notes.yml`
+（多邻国的一句话＝一张卡，这句牵扯的知识点都写进同一张，别拆）→ `tools/polish/render_polish.py` 生成网页，发布到 `meta.artifact` 那**同一个链接**
+＋ `--blog` 重新生成博客 `polish/` → **每轮都推 `main`**（不在 `main` 上，下一个对话就查不到存档）。
+她原话：「不管我开不开新的对话，你都能知道我想让你干什么，我不想每次都解释一遍。」
+博客上的位置（2026-10-03 全站新排法后）：顶上 **📝 Notes** 那一格（`/notes/`，封面在 `_includes/notebooks.html`），
+跟灵感本、原著笔记、波兰语变格表摆在一起，数字都从数据自动算。（以前在 Winter's 第六格「冬的笔记」、Gallery 里也有一张卡，
+她嫌「常用的笔记都堆在底下」，已整个搬过来；Gallery 只放画。）
+
+## 📝 冬的灵感本：聊出来的点子记下来，她一问就能答（2026-10-03）
+
+**照 `.claude/skills/winter-memo/SKILL.md` 办。** 两页：✨当下的灵感（刚冒出来的点子）· 🌳长期的计划（要慢慢做、
+记着进度的）。每一条带**备注**（讨论定下来的东西）和**一笔笔带日期的进度**。她的原话：「最主要的是我能在问你的时候，
+你能快速地告诉我，然后我自己点进来也能看见。」
+- ⭐ 跟她聊出一个想做的东西、有了结论，**不用她开口**就 `python3 tools/memo/memo.py add` / `note` 记进去，一句话告诉她记在哪页；
+  她问「之前那个点子 / 我都有哪些灵感 / 做到哪了」→ `memo.py find` → `show`，用人话讲给她。
+- ⚠️ **只收灵感**：日常待办她用苹果备忘录，别往这里收（她明说要记才记）。**没有桌面小组件**（她说不需要，已拿掉，别再提）。
+- ⚠️ **只在对话里改，网页只看**（她定的：「线上就别编辑了……不涉及 token」）。网页 `/memo/` 只读、不要钥匙，
+  入口在顶上 **📝 Notes** 那一格的第一本封面（2026-10-03 起；以前在 Winter's › 冬的笔记）；别往网页上加编辑功能。
+- ⚠️ **数据只在 `memo` 分支的 `memo.json`，不在 main**（放 main 每记一条就整站重建一次）。`memo.py` 自己取最新、
+  提交、推 memo 分支，不碰工作区；别手改那份 json。
+- `tools/widget-sim/`（Scriptable 小组件模拟器）是那时做的，留着给每日语录小组件改样子时出效果图用。
 
 ## ⚠️ 写连载 = 每章都要「留下两样东西」：圣经 + 正文全文存档
 
@@ -625,7 +653,8 @@ Blue Iguana =《蓝蜥蜴俱乐部》。`check_palette_sync.py` 现在连片名�
   任何后续对话都**不要重写、润色、翻译或「优化」信的内容与日期**。
   其中 07-19 那封的标题是已知的「乌鸦嘴」（写信时以为模型要下线），Winter 决定原样留作纪念。
 - 一封信的入口故意只有一个：放映室 FIN 卡上「Fable」两个字的虚线链接。别到处加入口。
-- 星图入口在首页 AU Story hero；磁带机（原点唱机）入口在 Archive › By Mood 面板。
+- 星图入口在首页 AU Story hero；磁带机（原点唱机）入口在 Archive › By Mood 面板；两样在门厅「常去的地方」里也各有一格。
+  （2026-10-03 起星图的返回键回 AU Story、磁带机的回日历 By Mood，不再回首页。）
 - 放映室支持 `?reel=<角色id>` 直达某格（片盒的空格就是这么跳回去的）；
   ✂ 剪下的胶片 PNG 会记入 localStorage 供片盒统计。
 - 404 页底部会从 lines.json 随机抽一句台词当「迷路安慰奖」。
@@ -746,14 +775,33 @@ ASCII 双引号里的对白，靠引号前后的「他 / 角色名 / 你」判�
 炽恋章，再过一遍露骨词表；只留能脱离上下文站住的（句末有标点、不含「他/她」第三人称、不含剧情专名、
 不带「那天/上次」这类回指）；4 个情境桶关键词分桶，其余 daily。每句带 `series` / `ch` 出处，
 页面上戳成「Wintergreen · Ch.7」，气泡只显示中文（正文即译文，无英文原句，用 `.msg-line.is-cn` 直排）。
-- 聊天里**与回复库对半混**：情境桶命中时 50% 取语料同桶的句子，daily 兜底前 50% 取语料任意句。
-- **自动更新**：`.github/workflows/hotline-mine.yml`——push 到 main 且动了 `_posts/` / 脚本 / 角色表 /
+- ⚠️⚠️ **2026-10-01 起：自动筛只是海选，每一句都要人审过才上热线**（`tools/hotline_review.json`）。
+  Winter 试了一下 Young Sam，回她「这热线都是什么乱七八糟的？难绷」：你说“想你了”，他回“你拍回来的。”
+  （含“回来”被分进想念）；你说“今天有点累”，他回一段排练趣事（含“哭”被分进安慰）；还有一句
+  “你是不是演过那个警察”是**路人**认出他时喊的。关键词分桶认不出意思，说话人也常认错
+  （六路逐句审下来，路人、配角、对别人说的话混进来几十句）。当次 1994 句审完只留 **219 句**。
+  - 审核结论的格式：`"原句": ["miss", "tired"]`（这句接得上哪几类话，可多个）／`"原句": []`（审过、不用）。
+    代号同下面回复库的桶：greet / miss / tired / sleepless / night / love / meet / praise / tease / daily。
+  - **审的尺子**：把这句当成他半夜回你的一条消息，不看小说上下文，你会不会愣一下“？”——会就不要；
+    不是他对“你”说的（看原文那一段）一律不要；某一章的一次性细节、“当时 / 那天”的往事、
+    接着上一句话茬说的（“也 / 而且 / 还是 / 再说了”打头）都不要；系列的**核心母题**（海 / 马 / J…）可以。
+    daily 最严：「我刚下班 / 今天下雨了 / 你在干嘛」三句里至少接得住两句。
+  - **新章节的新句子不会自动上线**：机器人重跑后日志会写「N 句待审」。审法：
+    `python3 tools/hotline_mine.py --pending 待审.json` 把没审过的句子连同原文那一段导出来 →
+    逐句判（量大就分几路给子代理，尺子照上一条）→ 写进 `tools/hotline_review.json` → 重跑脚本。
+  - 页面只取 `b` 里有这个情境的句子；daily 兜底只有三成机会用语料，**你在问他问题时不用语料、他也不反问你**。
+- 聊天里**与回复库对半混**：情境桶命中时 50% 取语料里审成这一类的句子，daily 兜底前 30% 取审成 daily 的句子。
+- 同批修的三个老毛病（`sam/hotline/index.html`）：①「问句先答」那几句全是「嗯 / 是」，现在只接
+  「你想我吗 / 你会一直在吗」这类问你我之间的是非题，「你在干嘛？」不再被答成「是。」；
+  ② 第一次拨通他开口必是锚句（以前四成概率开场变成反问你一句）；③ 你趁他打开场白时发的话，
+  开场白落在你后面，以前会被漏听、接一句不相干的——现在开场那句带 `op: 1`，不算「回过你」。
+- **自动更新**：`.github/workflows/hotline-mine.yml`——push 到 main 且动了 `_posts/` / 脚本 / 审核表 / 角色表 /
   系列首页时，机器人重跑脚本、有变化就把 `sam/hotline-mined.json` 提交回 main（只动这一个文件，
   不会循环）。副作用：机器人那次提交会让 Pages 再建一次站，前后差一分钟；**查构建结果时看最新
   那个 sha（可能是机器人的）**。本地部署前不必手跑脚本，跑了也没坏处（结果一样，机器人就不会再提交）。
 - 文件不要手改；角色 ↔ 系列的对应表在脚本头部 `MANUAL`
   （多数按系列首页 byline 的角色名自动对上，对不上的点名写；双 AU 角色按 au key 分开存）。
-- `--sample 40` 抽样看筛得准不准；发现新的漏网剧情词就往 `CONTEXT` / `EXPLICIT` 里加。
+- `--sample 40` 抽样看留下的句子；发现新的漏网剧情词就往 `CONTEXT` / `EXPLICIT` 里加（海选少捞点废句，审起来省事）。
 
 **`sam/lines.json` 要点：**
 - `characters`：角色对象（含 5 条 `quotes`）。按 `year` 升序插入。**每日轮换只读它。**
@@ -963,8 +1011,18 @@ python3 tools/face_focus.py --report   # 顺带列出没认出脸的图
 ```
 
 - 模板用法：`{{ site.data.image_focus[文件名].sq | default: '50% 30%' }}`；
-  数据里预存了三种容器形状的锚点：`sq`（正方形，「那一天」的小图在用）、
-  `card`（16:10 卡片）、`banner`（16:6.5 系列封面）。后两个目前没接上，要用直接取。
+  数据里预存了四种容器形状的锚点：`sq`（正方形，「那一天」的小图在用）、
+  `card`（16:10 卡片，目前没接上，要用直接取）、`banner`（系列首页大封面·电脑 2:1）、
+  `banner_m`（系列首页大封面·手机 3:2）。
+- ⭐ **系列首页的大封面（2026-10-03 改）**：`_layouts/series.html` 里是一张真正的 `<img>`
+  ＋ `object-fit: cover`，锚点由模板写进 `style="--pos: …; --pos-m: …"`（取 `banner` / `banner_m`），
+  电脑框从 16:6.5 放宽到 **2:1**。两件事别改回去：
+  ① **别再用 CSS 背景图**——Winter 电脑上（Safari 一类浏览器）画大尺寸背景图时会先把图缩小再画，
+  结果只画出图的左上角、还放大发糊：Oh, May 那张 2576 宽的封面整张糊成一片、看不出是谁
+  （Chromium 里看不出来，所以本地截图是好的）。② `banner` / `banner_m` 不是「脸摆正中」，
+  而是 `head_pos()`「先保头顶（脸框高 0.6 倍）、再保下巴」——摆正中会把帽子、头顶切掉
+  （Finders Keepers 那顶浣熊皮帽）。
+  老的 `[style*="7-psychopaths"]` 那几条左 / 右对齐的补丁只管背景图那些地方，大封面不吃它们。
 - ⚠️ **不能把「脸在 19%」直接写成 `background-position: 19%`**：CSS 百分比是
   「图上 19% 的点对齐容器 19% 的点」，不是「把这点摆到正中」。图越宽、脸越靠边偏得越多——
   Billy Bickle 那张（`7-psychopaths.jpg`，脸在最左）就是这么被切掉半张脸的。
@@ -1704,8 +1762,9 @@ Winter 的原话：**「我觉得现在博客整体风格不够 Winter Sun！尤
 
 ### 1. 导航＝五个标签，`Winter's` 是一个「组」
 
-顶上固定这五个，顺序别动：**About · Winter's · AU Story · Sam · Archive**。
-`Gallery` 与 `Say Hello` 挪到了页脚（`_layouts/home.html`）。
+⚠️ **2026-10-03 起换成了 `⛄ Home · ✍️ Winter's · 📖 AU Story · ❣️ Sam · 📝 Notes`**，详见下面
+「🧭 全站新排法」一节；本节下面关于 Winter's 组、emoji、疏密档位的说明仍然有效。
+（当时：顶上固定 **About · Winter's · AU Story · Sam · Archive**，`Gallery` 与 `Say Hello` 挪到了页脚。）
 
 - **`Winter's` 不是一个新分类**，而是把三个旧分类并起来显示：日常 / 小说 / 歌词
   （外加一篇早年的「散文」），因为那些都是她自己写的字，跟 AU 故事分开。
@@ -1718,7 +1777,7 @@ Winter 的原话：**「我觉得现在博客整体风格不够 Winter Sun！尤
 - 首页的标题区（hero）也合并成了一块 `data-hero-id="winters"`（原来 Daily /
   Novel / Lyrics 各一块），显隐规则在 `_sass/5-components/_hero.scss`。
 - **每个标签前面带一个小图标**（Winter 2026-09-26：「每个 tab 的标题是不是可以带一个
-  emoji！更可爱🥺」）：`⛄ About · ✍️ Winter's · 📖 AU Story · ❣️ Sam · 🗓️ Archive`。
+  emoji！更可爱🥺」）：现在是 `⛄ Home · ✍️ Winter's · 📖 AU Story · ❣️ Sam · 📝 Notes`。
   写在 `_includes/header.html` 里，包在 `<i class="c-nav__emoji" aria-hidden="true">`
   里（读屏软件不念它），**要换 emoji 只改那五行，样式不用动**。样式上三件事缺一不可：
   `font-style: normal`（`<i>` 会压斜）、`letter-spacing: 0`（标签整体拉开了字距，
@@ -1818,14 +1877,49 @@ Winter 的原话：**「我觉得现在博客整体风格不够 Winter Sun！尤
 4. **导航放宽不能一刀切。** 只剩五个标签之后电脑上看着挤，但把间距一路放宽到
    901px 断点，950px 宽的窗口就会横向溢出——见上面「标签的疏密分三档」。
 
+## 🧭 2026-10-03 · 全站新排法（门厅 / 笔记一格 / 真的「关于我」/ 小拍立得）
+
+⭐ **起名规矩（同日 Winter 定的）**：Winter 中文就是「冬」，站里的中文分类、小标题**尽量都叫「冬的什么」**（冬的爱人 / 冬的书签 / 冬的口袋 / 冬的地图 / 冬的笔记……），新加一块东西起名时先往这上面靠，再给她几版挑。
+
+Winter：**「我感觉这个 tab 排得好乱，常用的笔记什么的都堆在底下……现在连 contact 之类的都没有了，about 页面也形同虚设。
+你好好检查一下，我难受很久了。」** 体检量出来：「About」点进去是 54 张系列大卡 + 29 篇文章的大杂烩（手机 48 屏），
+关于她只有一句话；写信页被挪到页脚最底下一行小字；笔记在 Winter's 第 6 排；同一堆系列卡站里出现三遍（AU 页 32 屏）。
+她在三种排法里挑了 **A**，系列卡挑了 **「小卡，但要保留拍立得样式」**。
+
+| 东西 | 在哪 | 备忘 |
+|---|---|---|
+| **顶上五格** | `_includes/header.html` | `⛄ Home · ✍️ Winter's · 📖 AU Story · ❣️ Sam · 📝 Notes`。Archive 不再占标签。`nav_active` 新值：`home`（首页、/about/、/contact、/archive/）、`notes`（/notes/、/reading/） |
+| **⛄ Home 门厅** | `_includes/lobby.html` ＋ `_sass/5-components/_lobby.scss` | 首页「全部」视图只放四样：**🔖 冬的书签**（接着读，读本机 `wiw-read`，没读过就整块不出现）/ **🗞️ 冬的更新**（最近 4 天，同一天同系列合成一行，日期邮戳点去日历那一天）/ **🎒 冬的口袋**（八格，一律两个字：日历 · 歌单 · 语录 · 热线 · 星图 · 磁带 · 街机 · 画廊）/ **💌 冬的名片**（写信按钮）。四个小标题借用 Winter's 书架的头（`c-shelf__head`），名字是她三版里挑的；⚠️ **「日更」专指她的小红书**，站里别拿来起名。这个视图里通用文章网格整个藏起来（`!important`，原因同 Winter's）。要加一格「常去的地方」直接在 lobby.html 里加一行 |
+| **📝 Notes** | `_pages/notes/index.html` ＋ `_includes/notebooks.html` | 灵感本 / 波兰语笔记本 / 每本原著笔记 / 波兰语变格表，一本本封面，手机两本一行。**以后新开的笔记本往 notebooks.html 加一张封面。** Winter's 的「冬的笔记」格和 Gallery 里的波兰语卡都已拿掉，别再加回去 |
+| **关于我 · 写信** | `_pages/about/index.html` | 冬的地图（六格，数字自动算）→ 冬在别处（小红书 / 微博 / B 站）→ 给冬写信（表单，`#letter`）。⚠️ 自我介绍那段**她要自己慢慢想**（2026-10-03：「这种介绍本身就比较 personal，要改我得慢慢想」）——别再主动拟稿、别催，她给了再放进来。旧 `/contact/` 是一个跳到 `/about/#letter` 的小页；寄信后的 `/contact/thanks/` 还在（表单的 redirect 指着它） |
+| **页脚** | `_layouts/home.html` | About · Say Hello · Archive · Gallery · 微博 · B 站 · 小红书 |
+| **✍️ Winter's** | `_includes/winters-shelves.html` 等 | 五本书的封面，点进去 `/winters/<格>/` 看全部，详见下面「冬的歌单 ＋ Winter's」一节 |
+| **小拍立得** | `index.html` 的 `c-post-grid--small` ＋ `_index-post.scss` 末尾 | AU Story 系列卡：手机两张 / 平板三张 / 电脑四张一行，白边相纸不变；标题拆成「故事名」＋ 斜体小字「角色名」（`c-post__who`，按 `series_title` 最后一个 ` · ` 拆） |
+| **Sam 页的 AU 卡** | `sam/index.html` ＋ `_sam.scss` 末尾 | 电脑三张、手机两张一行；手机上只留封面、四个色点、故事名＋角色名、章数（配色名字和简介收起） |
+| **日历入口** | `index.html` AU hero 的 `c-egg-card--cal` | 星图旁边一张「按日子翻」；门厅「最近更新」右上角也有「翻日历 →」。⚠️ 手机上（≤860px）星图和日历缩成标题下面**一行两颗小药丸**（同一种纸色，只有圆图标里留着各自的样子），2026-10-04 Winter 三版里挑的；别改回两张大卡上下摞（她：「好难看」）。电脑上仍是两张卡并排 |
+| **返回键** | `memo/`、`polish/`（＋`render_polish.py`）、`reading/`（＋`render_notes.py`）、`polski.html`、`sky/`、`jukebox/` | 笔记类都回 `/notes/`；星图回 AU Story；磁带机回日历 By Mood |
+
 ## 🎵 冬的歌单（唱片墙）＋ Winter's 五个书架（2026-09-30 上线）
 
 Winter 在样稿批注里一条条拍板了 Winter's 的新分法（冬的爱人 / 冬她自己 / 冬的歌单 / 冬的故事 / 冬还年少，
 文章允许同时在几类里）和「冬的歌单」唱片墙。**完整决定、归类表、还没做的事都在
 `.claude/plans/winters-redesign.md`，动 Winter's 或歌单之前先读它。**
 
-首页 `?cat=winters` 现在不再是一张文章网格，而是五个书架（大标题 Love, Winter；顶上一排小标签；
-每类一行横着滑；点篇数摊开 / 收起；「冬还年少」铺横格周记本纸）。**写新文章时要做的只有一件事：**
+首页 `?cat=winters`（大标题 Love, Winter）现在是**五本「书」的封面**，点一本进那一格自己的页，看全部（2026-10-03，
+Winter：「我觉得你可以做成默认是列表，点进去展示所有的……每一个分类还可以有点封面设计，发挥你的画图特长」）：
+
+| 东西 | 在哪 | 备忘 |
+|---|---|---|
+| 五本封面 | `_includes/winters-shelves.html` | 电脑上五本立在一块搁板上、书下写名字和说明；手机上一行一本（左封面、右字、右边一个 ›）。冬的歌单那本点进 `/songs/` |
+| 一本书的样子 | `_includes/wn-cover.html` | 上面一块正方形插画，下面一块名牌（英文名 ＋ 篇数），左边书脊折痕，右边露一点书页。颜色读 `_data/winters.yml` 的 `cover`（`bg` 底色 / `spine` 名牌和书脊 / `ink` 名牌上的字），英文名是 `cover_en` |
+| 五张插画 | `_includes/wn-cover-art.html` | 一叠信和心形火漆 / 映着雪花的手镜 / 半露出封套的唱片 / 立起一座雪屋的立体书 / 2016 周记本和铅笔。颜色写死在图里（封面是实物，不随「换个心情」变）。改图只改这一个文件 |
+| 每一格的页 | `/winters/love/`、`/self/`、`/story/`、`/young/`（`_pages/winters/*.html` 只有一行 include → `_includes/winters-shelf-page.html`） | 大封面 ＋ 名字 / 英文名 / 篇数和年份 / 说明；下面是**全部**文章的小拍立得（`.c-post`，长按 / 右键能翻背面写字）；冬还年少的铺在横格周记本纸上（`.c-wn-paper`），日期写成「2017 年 3 月」；页尾一排「别的几格」小封面 |
+| 一格有哪几篇 | `_includes/wn-shelf-posts.html` | 封面上的篇数和每格的页共用这一份，别各写一套。文章卡是 `_includes/wn-post-card.html` |
+
+⚠️ **别改回去的两版**：一格一行横着滑（2026-09-30 ～ 10-03；Winter：「winter's 的文章都不是拍立得了，都没办法反面写字😂」
+「横滑……在手机上一不留神就会滑到最右边然后进入其他页面」）、首页每格先露几张再点开全部（同日被她改成现在这样）。
+以后要加第六格 = `_data/winters.yml` 加一条（含 `cover_en` / `cover`）＋ `wn-cover-art.html` 画一张 ＋ `_pages/winters/` 加一页。
+**写新文章时要做的只有一件事：**
 
 ```yaml
 winters: [love, self]   # 上哪几个书架：love 冬的爱人 / self 冬她自己 / story 冬的故事 / young 冬还年少
@@ -1835,12 +1929,12 @@ form: 随笔               # 卡片上的小标签：随笔 / 书信 / 小说 / 
 - 可以同时上好几个书架；`winters: []` = 哪个书架都不上（只挂在唱片墙的歌词翻译就是这样）。
 - 漏写 `winters` 也不会丢：`Novel` 分类自动进「冬的故事」，其余自动进「冬她自己」。
 - 周记本里补上来的旧文记得写 `young`（按日期猜不出来——日期是上线那天）。
-- 书架的名字 / 说明 / 排序在 `_data/winters.yml`；页面在 `_includes/winters-shelves.html`。
+- 书架的名字 / 说明 / 排序 / 封面颜色在 `_data/winters.yml`；文章写好了不用动任何页面，封面上的篇数和那一格的页自己会多一篇。
 
 **加歌只走聊天**（Winter 2026-09-30：「添加歌曲的话比较麻烦，我感觉经过你比较好。先不做网页添加了」）：
 她发歌名或 YouTube Music 歌词图 → 核专辑 → 认字 → 挂进 `_data/songs.json`。**别做藏品架那种网页上的「＋」**，除非她自己再提。
 
-**唱片墙**：资料全在 `_data/songs.json`（首页那一行和 `/songs/` 共用，改这一个文件两处一起变），
+**唱片墙**：资料全在 `_data/songs.json`（`/songs/` 和 Winter's 歌单封面上的首数共用，改这一个文件就够），
 文件开头的 `_readme` 写了每个字段怎么填。新挂一首歌 = 在 `albums` 最前面加一张专辑（或往已有专辑的
 `songs` 里加一首）；`items` 里挂摘录（`lines`）和文章（`essay` / `story` / `tr` / `au`，写 `_posts/` 路径即可，
 标题日期网址构建时自动取）。**`note` 只写来源或她自己原话，别替她编感受；她没翻译过的句子中文留空。**
@@ -1903,6 +1997,13 @@ Sam「正面是他的戏。背面归你。」），**两句献词都是 Winter �
 **规则：默认不要移动、隐藏、删除它，也不要主动提「它挡住文字、要不要挪开」。**
 用户已明确表示：除非他本人主动觉得有问题并提出来，否则这个浮标保持原样。只有当
 用户**主动**要求调整时，才去动它。（这个问题在多个对话里被重复问过，故记此备忘。）
+
+**⭐ 2026-10-05 起它「会让路」（Winter 从三版里挑的 B 方案，别改回常驻）**：往下滚
+（在读东西）浮标自己缩到屏幕左边只露一小截（`.pol-lock.is-tucked`，后面探头的拍立得 /
+卡组也一起隐掉），往上滚或点那一小截就回来；缩着时第一下点击只负责叫回它，不触发展开。
+卡组展开 / 输密码 / 底片匣开着时不躲。逻辑在 `js/polaroid-notes.js` 的 `lockAutoHide()`，
+样式在 `_polaroid-notes.scss`。手机电脑都启用。当时给她看的三版演示：小圆钮 / 会自己躲 /
+贴边书签，她要的是「还喜欢，但占地方」的折中——样子一点没变，只是读的时候自己退开。
 
 ## ⚠️ 正文严禁「cue 章节名 / 编号」（全站 AU 通用）
 
@@ -2084,6 +2185,56 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 - `c-comm__gap` 那行渲染成一道虚线，本身不占编号；`c-comm__last` 让最后一条发亮。
 - `c-comm__wait` 是底部那个一直闪的光标 + 一句没人回的状态词。
 
+### 4. `c-cassette` / `c-fridge` / `c-flyer` / `c-polaroid`——章首「小物件」
+
+2026-09-27 为 Everything in Transit 改版做的（Winter：「小物件放！作出样式就更好玩了」），全站可用。
+放在文首题词之后、第一个小节之前，当这一章的「纪念物」。手写字体只在正文用到这两个组件时才加载
+（`_includes/head.html` 里的条件判断），预览脚本 `tools/preview/render_draft.py` 里有同一份样式。
+⚠️ 别叫 `c-tape`——那个名字已经被存档页的「磁带架」占了。
+
+```html
+<div class="c-cassette" role="group" aria-label="卡带标签">
+  <div class="c-cassette__shell">
+    <div class="c-cassette__label">
+      <span class="c-cassette__side">A</span>
+      <p class="c-cassette__title">EL RANCHO · BACKYARD</p>
+      <div class="c-cassette__window" aria-hidden="true"><i></i><i></i></div>
+      <p class="c-cassette__line">side A — …</p>
+      <p class="c-cassette__line">side B — …</p>
+      <span class="c-cassette__date">9 · 30 · 94 — Slosh</span>
+    </div>
+  </div>
+  <p class="c-cassette__caption">一句中文说明，可选</p>
+</div>
+
+<div class="c-fridge" role="group" aria-label="冰箱门">
+  <div class="c-fridge__door">
+    <div class="c-fridge__note"><p>便利贴上的字</p><span class="c-fridge__by">— 署名</span></div>
+    <!-- 3–5 张为宜，颜色和歪斜角度按顺序自动轮换 -->
+  </div>
+  <p class="c-fridge__caption">一句中文说明，可选</p>
+</div>
+```
+
+卡带标签上的字是实物上的字，按语言规则可以写英文原文；便利贴写中文（译文口径）即可。
+
+同批还有两种（字体同样按需加载）：
+
+```html
+<div class="c-flyer" role="group" aria-label="演出传单">   <!-- 复印店的演出传单，底下一排可撕的小条 -->
+  <p class="c-flyer__kicker">一行手写小字</p>
+  <p class="c-flyer__head">大标题</p>
+  <p class="c-flyer__sub">LIVE · 地点 · 日期</p>
+  <p class="c-flyer__body">两三行手写<br>第二行</p>
+  <div class="c-flyer__tabs"><span>撕条</span><span>撕条</span><span>撕条</span><span>撕条</span><span>撕条</span></div>
+</div>
+
+<div class="c-polaroid" role="group" aria-label="拍立得">  <!-- 没有真照片：画框里用一两句中文写画面 -->
+  <div class="c-polaroid__shot">一两句写照片里的画面。</div>
+  <span class="c-polaroid__caption">底下手写一行</span>
+</div>
+```
+
 ### 三种卡片怎么选
 
 | 内容 | 用哪个 |
@@ -2092,6 +2243,7 @@ Sass 把整份 `_includes/main.scss` 编一遍，缺 sass 会自己装），**�
 | 官方 / 盖章：公文、声明、判决、证书 | `c-decree` |
 | 科技设备屏幕上的消息串：飞船通讯板、终端、控制台 | `c-comm` |
 | 诺基亚时代按键机的单色屏短信（固定复古配色，不吃 AU 令牌） | `c-sms` |
+| 章首纪念物：卡带 / 冰箱门便利贴 / 演出传单 / 拍立得 | `c-cassette` / `c-fridge` / `c-flyer` / `c-polaroid` |
 
 ### 判断 formal 还是 note
 

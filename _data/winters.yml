@@ -1,5 +1,8 @@
 # Winter's 的五个书架（2026-09-30 Winter 在样稿里一条条拍板：按「写给谁」分，名字都是她起的）
 #
+# 2026-10-03 起 Winter's 页先是五本「书」的封面（cover_en 是封面上那行英文，cover 是封面底色 bg / 书脊和下面那块名牌的颜色 spine / 名牌上的字色 ink，
+# 插画在 _includes/wn-cover-art.html），点进去才是那一格的全部文章（/winters/<key>/；冬的歌单进 /songs/）。
+#
 # 文章放上哪个书架，写在文章自己的 front matter 里：
 #   winters: [love, self]     # 可以同时在好几个书架上（Winter：「不同类别允许重叠」）
 #   form: 书信                 # 卡片上那枚小标签：随笔 / 书信 / 小说 / 翻译
@@ -13,26 +16,39 @@
 - key: love
   emoji: 💞
   name: 冬的爱人
+  cover_en: To Those I Love
+  cover: { bg: "#f8e1e5", spine: "#c4566c", ink: "#fff6f3" }
   desc: 写给我爱的人：他、朋友、陪我长大的乐队和偶像，还有一位一百多年前的科学家。按时间正着排，能一路读下去。
   order: asc
 
 - key: self
   emoji: 🪞
   name: 冬她自己
+  cover_en: Note to Self
+  cover: { bg: "#e4e5f6", spine: "#5d5fa3", ink: "#f4f5ff" }
   desc: 写给自己的话：回忆、长大、想不通又想通的事。
 
 - key: songs
   emoji: 🎧
   name: 冬的歌单
+  cover_en: On Repeat
+  cover: { bg: "#1d3150", spine: "#e9c86b", ink: "#1d3150" }
   desc: 整面唱片墙：我存的歌词、翻译过的歌、文章和故事里提到的歌。
 
 - key: story
   emoji: 📖
   name: 冬的故事
+  cover_en: Once Upon a Winter
+  cover: { bg: "#d8eeea", spine: "#2f6f6a", ink: "#f2fbf8" }
   desc: 我编的故事，从中学写到现在。
 
 - key: young
   emoji: 📒
   name: 冬还年少
+  cover_en: Back in 2016
+  cover: { bg: "#f7efdc", spine: "#c9493f", ink: "#fffaf0" }
   desc: 2016—2017，中学时写在周记本里的字，后来一篇篇搬上博客。
   paper: true
+
+# 「冬的笔记」（2026-10-01 加的第六格）已在 2026-10-03 全站新排法时搬出去，单独成了顶上的 📝 Notes 一格：
+# 封面在 _includes/notebooks.html，页面 _pages/notes/index.html。别再把笔记本加回这里。

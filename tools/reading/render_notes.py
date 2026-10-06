@@ -1184,7 +1184,7 @@ def main():
                 '<link rel="icon" href="../../favicon.ico">\n'
                 '<!-- 这一页由 tools/reading/render_notes.py --blog 生成，别手改；改 _data/reading/ 里的数据再重新生成 -->\n'
                 f'{FONTS}\n<style>{css}</style>\n</head>\n<body>\n'
-                '<nav class="blognav"><a href="../">← 书架</a><a href="../../sam/">Sam</a></nav>\n'
+                '<nav class="blognav"><a href="../">← 书架</a><a href="../../notes/">笔记</a></nav>\n'
                 f'{inner}</body>\n</html>\n')
     else:
         page = f'<title>{esc(page_title)}</title>\n{FONTS}\n<style>{css}</style>\n{inner}'

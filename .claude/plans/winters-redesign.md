@@ -22,7 +22,7 @@ Winter 的原话：「Winter's tab 现在都是堆在一起的，我想能不能
 - ⚠️ Winter 批评过第一版：「你的分类太按照我的叙述亦步亦趋了……我只是提供思路，你可以有更好的供我挑选的」。
   **分类、起名这类事，自己先细读内容，再给她几种看得见的选项挑**，别把她随口说的几个词直接当成答案。
 
-### 2. 样子：A「横着滑」
+### 2. 样子：A「横着滑」（⚠️ 2026-10-03 已改成跟 AU 一样的小拍立得格子，见 CLAUDE.md 歌单那一节；横滑在手机上会误触翻页，别改回去）
 
 顶上一排小标签，点一下跳到那一类；每一类一行，横着滑看这一类，竖着滚换下一类；
 点右边的篇数，这一类摊开成格栅一眼看全，再点收回（跟藏品架 `sam/shelf/` 的分组用法一样）。
@@ -77,8 +77,8 @@ Winter 的原话：「Winter's tab 现在都是堆在一起的，我想能不能
 |---|---|
 | 五个书架的名字 / 说明 / 排序 | `_data/winters.yml` |
 | 一篇文章上哪几个书架、卡片小标签 | 文章 front matter 的 `winters: [love, self]` 与 `form: 书信` |
-| 书架页面 | `_includes/winters-shelves.html`（首页 `?cat=winters` 才显示），样式 `_sass/5-components/_winters.scss` |
-| 唱片墙资料 | `_data/songs.json`（首页那一行和 `/songs/` 共用） |
+| 书架页面 | 2026-10-03 起：首页 `?cat=winters` 是五本书的封面（`_includes/winters-shelves.html`、`wn-cover.html`、插画 `wn-cover-art.html`），点进 `/winters/<格>/` 看全部（`_includes/winters-shelf-page.html`），样式 `_sass/5-components/_winters.scss`。详见 CLAUDE.md |
+| 唱片墙资料 | `_data/songs.json`（`/songs/` 用；Winter's 歌单封面上的首数也从这里算） |
 | 唱片墙页面 | `songs/index.html`，唱片封面 `_includes/song-sleeve.html`，样式 `_sass/5-components/_songs.scss` |
 
 **以后怎么加歌**：她发歌名 / YouTube Music 歌词图来 → 先核专辑（官方名称与年份）→ 认字 → 挂进
@@ -88,6 +88,12 @@ Winter 的原话：「Winter's tab 现在都是堆在一起的，我想能不能
 - 《宿命》题记「冲突乐队《斗士》」＝ The Fray 的 The Fighter：**对**。
 - 《Thanks, GC》里那四句 Uh Oh：**先只放英文**，不补中文。
 - 网页上自己点「＋」加歌：**先不做**（见上「加歌只走聊天」）。
+
+## 第六格：冬的笔记（2026-10-01）
+
+她挑的入口位置、她起的名字。不收文章，摆一本本笔记本封面：波兰语笔记本（`_data/polish/notes.yml` → `/polish/`，
+白上红下像波兰国旗）和每本原著笔记（`_data/reading/*.yml` → `/reading/<slug>/`，用那本书的配色）。
+封面上的句数、错题数、读到第几页都是构建时从数据算的，加笔记不用动书架。样式 `.c-wn-notebook`。
 
 ## 当前的归类（28 篇，允许重叠；写在各篇的 winters: 里，Winter 随时会挪）
 

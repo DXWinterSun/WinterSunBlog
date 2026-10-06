@@ -1,0 +1,9 @@
+{%- comment -%}
+  一本「书」的封面：上面一块正方形插画（wn-cover-art.html），下面一块名牌写英文名和篇数，左边一道书脊。
+  用法：{% include wn-cover.html shelf=sh n=14 unit='篇' %}。颜色读 _data/winters.yml 的 cover。
+{%- endcomment -%}
+{%- assign cv = include.shelf -%}
+<span class="c-wn-book" style="--cv-bg: {{ cv.cover.bg }}; --cv-spine: {{ cv.cover.spine }}; --cv-ink: {{ cv.cover.ink }};">
+  <span class="c-wn-book__art">{% include wn-cover-art.html key=cv.key %}</span>
+  <span class="c-wn-book__plate"><i>{{ cv.cover_en }}</i><b>{{ include.n }} {{ include.unit }}</b></span>
+</span>

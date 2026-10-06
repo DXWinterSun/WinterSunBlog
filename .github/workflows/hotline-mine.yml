@@ -5,6 +5,8 @@
 # 触发时机：push 到 main 且改动了章节正文（_posts/）、筛话脚本、角色表或系列首页时。
 # 流程：跑 tools/hotline_mine.py 重新筛一遍「他对你说过的话」→ sam/hotline-mined.json
 #       有变化就由机器人替 Winter 提交回 main（只动这一个文件）。
+#       ⚠️ 2026-10-01 起只有 tools/hotline_review.json 里人审过、判定「接得上话」的句子才进语料；
+#       新章节扒出来的新句子先攒着（日志里会写「N 句待审」），要等下一次有人审过才上线。
 #
 # 关于站点构建：机器人这一次提交会让 GitHub Pages 再建一次站（顺带把刚推的那次
 # 构建掐掉重来），前后只差一分钟左右，线上多等一会儿就好。机器人只改语料文件，
@@ -17,6 +19,7 @@ on:
     paths:
       - "_posts/**"
       - "tools/hotline_mine.py"
+      - "tools/hotline_review.json"
       - "sam/lines.json"
       - "sam/hotline-replies.json"
       - "series/*/index.html"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chapter 16 · 从缝上开的还能补 — I Kissed the Stones"
+title: "Chapter 17 · 从缝上开的还能补 — I Kissed the Stones"
 date: 2026-09-16 00:41:49 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 缱绻, 安放]
@@ -10,7 +10,7 @@ series_title: "I Kissed the Stones · Francis Flute AU"
 series_order: 17
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 16"
+chapter_type: "Chapter 17"
 summary: "一双弹琴的手上，开了一道口子。"
 redirect_from:
   - /2026/10/22/i-kissed-the-stones-chapter-16-a-split-at-the-seam/
