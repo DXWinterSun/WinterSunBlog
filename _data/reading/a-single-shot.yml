@@ -5492,3 +5492,32 @@ batches:
         note: Simon 半夜带着两个女人跑到 John 的拖车来，意思是“来闹你、把你折腾起来”。roust 跟 rouse（唤醒）是一家，常用在警察把人从住处赶出来、把人从床上叫起来。ya 是 you 的口语写法。
         extra:
           - "**搭配**roust sb out of bed（把人从床上轰起来）"
+
+  - n: 77
+    date: 2026-10-06
+    pages: 88
+    photos: 1
+    notes:
+      - id: "326"
+        page: 88
+        color: blue
+        term: Dry-gulched
+        lemma: dry-gulch
+        kind: 俚语
+        ipa: /ˈdraɪ ɡʌltʃt/
+        pos: v.
+        cn: 埋伏偷袭
+        en: (informal, NAmE) to attack sb suddenly from a hiding place; to ambush
+        context: "“==Dry-gulched== me after I wounded it"
+        gist: “我把它打伤以后，它倒埋伏起来偷袭了我。”
+        note: 牛津查不到，英文解释是我写的。这是美国西部片里的老俚语：gulch 是山间的干沟，躲在干沟里放冷枪就叫 dry-gulch。Simon 在讲一只公鹿把他顶伤了（Buck gored me），说得像那头鹿是个设埋伏的枪手，一听就是在吹。
+        extra:
+          - "**易混**ambush 是一般的“伏击”；dry-gulch 是带西部片味道的说法。"
+
+      - id: "327"
+        page: 88
+        color: orange
+        term: 好句
+        context: "“That ain’t the end of nobody’s world neither. ==The end of the world’s when your heart stops beating.==”"
+        gist: “那也算不上谁的世界末日。世界末日，是你的心不跳了的时候。”
+        note: 是 Simon 说的。他刚讲完自己当年想念书、被越战搅黄了；John 接了一句“我觉得她有男朋友了”（说的是 Moira）。Simon 这句里的 neither（也）就是两件一起说：你我这些事，都算不上世界末日，只要心还跳，就不算完。可这话落在 John 耳朵里，紧接着他就想到了那个心已经不跳了的女孩，她的世界真的完了。一句粗人的安慰，到这里变成了一记重拳。
