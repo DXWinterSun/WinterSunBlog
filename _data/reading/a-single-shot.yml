@@ -3922,3 +3922,57 @@ batches:
         note: pulse 是“脉搏”，pulsate 就是像脉搏那样一下一下地跳。第 49 页他头疼也是用 throbs（一跳一跳地疼），这里同一个词写的却是回忆里的欢愉。牛津也收了“充满活力的”这层意思：a pulsating game。
         extra:
           - "**搭配**a pulsating headache（一阵阵的头痛）· pulsating rhythms（强劲的节奏）"
+
+  - n: 49
+    date: 2026-10-06
+    pages: 54
+    photos: 1
+    notes:
+      - id: "235"
+        page: 54
+        color: blue
+        term: rummages
+        lemma: rummage
+        kind: 单词
+        ipa: /ˈrʌmɪdʒɪz/
+        pos: v.
+        cn: 翻找；乱翻
+        en: to move things around carelessly while searching for sth
+        en_src: 牛津 8
+        context: "and ==rummages== through her bureau"
+        gist: 在她的五斗柜里翻来翻去。
+        note: bureau 在美国是“带抽屉的卧室柜子”，在英国是“写字台”。rummage 是那种手伸进去乱翻、东西被翻得一团糟的找法。
+        extra:
+          - "**搭配**rummage through/in sth（在……里翻找）· a rummage sale（美：旧货义卖）"
+
+      - id: "236"
+        page: 54
+        color: blue
+        term: douses
+        lemma: douse
+        kind: 单词
+        ipa: /ˈdaʊsɪz/
+        pos: v.
+        cn: 浇水灭火；泼水
+        en: to stop a fire from burning by pouring water over it
+        en_src: 牛津 8
+        context: "John ==douses== them both with water"
+        gist: John 往两样东西上都浇了水。
+        note: 他喝醉了，炉子上的肉排和锅都着了火，一盆水浇下去。douse 也可以是“往……上泼大量液体”，比如泼汽油。
+        extra:
+          - "**搭配**douse the flames（把火浇灭）· douse sth in petrol（往……上浇汽油）"
+
+      - id: "237"
+        page: 54
+        color: blue
+        term: stodgy
+        kind: 一词多义
+        ipa: /ˈstɑːdʒi/
+        pos: adj.
+        cn: 又浓又沉的
+        en: heavy and thick, like food that makes you feel very full
+        context: "he watches ==stodgy== black smoke twist lazily"
+        gist: 他看着一股又浓又沉的黑烟懒洋洋地打着旋。
+        note: 牛津标着口语、偏英式，两个意思：食物吃下去“顶得慌、发撑”；人或东西“古板、乏味”。这里是借第一个意思形容烟：糊肉排冒出的黑烟稠得像吃不动的东西，沉沉地、懒懒地往天上拧。英文解释是我按这里写的。
+        extra:
+          - "**易混**stodgy 是又沉又腻；dense 是密；thick 是浓、厚。"
