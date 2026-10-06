@@ -851,6 +851,7 @@
      按类别、按年代同理。清单视图仍旧是一条小标题线（gline），不用大卡。 */
   .gcard {
     grid-column: 1 / -1;
+    min-width: 0;   /* 同 .crow__body：grid 子项不肯缩，里面的横滑条就会撑宽、滚不动 */
     border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 38%, var(--c-ink));
     border-radius: 14px; padding: 13px 12px 16px;
     background:
@@ -922,11 +923,15 @@
   /* ————— 按角色＝一份名册（Winter 2026-09-22：「一开始出现整列表那种形式，
      点进去之后会具体显示这个人对应了哪几个藏品；不点进去，就显示它有多少件藏品、
      大概是什么，放个 emoji 表示一下」） ————— */
-  .croster { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; }
+  .croster { grid-column: 1 / -1; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
   .crow--hasadd { display: flex; flex-wrap: wrap; align-items: center; }
   .crow--hasadd .crow__head { flex: 1; min-width: 0; }
   .crow--hasadd .crow__add { margin-right: 12px; }
-  .crow--hasadd .crow__body { flex: 1 0 100%; }
+  /* ⚠️ min-width:0 不能省：flex 子项默认不肯缩到内容以下，藏品一多（3 件起）
+     这层会被里面的横滑条撑得比屏幕还宽，横滑条自以为「装得下、不用滚」，
+     多出来的全被 .crow 的 overflow:hidden 裁掉——看着就是「拉不到后面，卡死」。
+     （2026-10-05 Winter 在手机上抓出来的；标题行 .crow__head 早补过同一句。） */
+  .crow--hasadd .crow__body { flex: 1 0 100%; min-width: 0; }
   .crow {
     border: 2px solid color-mix(in srgb, var(--a, var(--gold)) 36%, var(--c-ink));
     border-radius: 4px 12px 12px 4px;
