@@ -5369,3 +5369,88 @@ batches:
         note: 注意双写 d：skid – skidded – skidding。牛津例句 The taxi skidded to a halt（出租车滑了一段停住了），跟这里的 skidding to a stop 是一个句型。
         extra:
           - "**搭配**skid to a halt/stop（滑着停下）· skid marks（刹车留下的轮胎印）"
+
+  - n: 75
+    date: 2026-10-06
+    pages: 86
+    photos: 1
+    notes:
+      - id: "319"
+        page: 86
+        color: blue
+        term: Raucous
+        lemma: raucous
+        kind: 单词
+        ipa: /ˈrɔːkəs/
+        pos: adj.
+        cn: 吵闹刺耳的
+        en: sounding loud and rough
+        en_src: 牛津 8
+        context: "==Raucous== laughter."
+        gist: 一阵粗野刺耳的笑声。
+        note: 牛津的第一个例子就是 raucous laughter。句首大写只是因为这里是一个两个词的短句。拖车里有人在放屁、大笑、尖叫，一片乱哄哄。
+        extra:
+          - "**易混**loud 只是响；noisy 是吵；raucous 是又响又粗、扎耳朵。"
+
+      - id: "320"
+        page: 86
+        color: blue
+        term: baying
+        lemma: bay
+        kind: 一词多义
+        ipa: /ˈbeɪɪŋ/
+        pos: v.
+        cn: （像猎犬一样）嚎叫
+        en: (of a dog or wolf) to make a long deep sound, especially while hunting
+        en_src: 牛津 8
+        context: "A female voice ==baying==, “Gawd!”"
+        gist: 一个女人的声音嚎了一嗓子：“老天！”
+        note: bay 最常见的是名词“海湾”；当动词，是猎狗、狼追猎时那种拖长了的嚎叫。拿来写一个女人在叫，等于把她写成了一只动物。Gawd 是 God 的拖腔写法。这几页里人一直被写成动物，第 92 页这个词还会再出现一次。
+        extra:
+          - "**搭配**baying hounds（狂吠的猎犬）· keep sb/sth at bay（不让……靠近）"
+
+      - id: "321"
+        page: 86
+        color: blue
+        term: glabrous
+        kind: 单词
+        ipa: /ˈɡlæbrəs/
+        pos: adj.
+        cn: 光溜溜的；没有毛的
+        en: smooth and without hair
+        context: "Their loose flesh ==glabrous== and silvery in the moonlight"
+        gist: 她们松垮的皮肉在月光下光溜溜的，泛着银白。
+        note: 牛津查不到，英文解释是我写的。这是植物学、动物学里的词，形容叶子、皮肤“光滑无毛”，非常冷僻。用在两个光着身子下水的女人身上，又冷又像在看动物标本，接着下一段她们就像“喂得太饱的海豹”。
+        extra:
+          - "**易混**smooth 是一般的“光滑”；hairless 是“没毛的”；glabrous 是生物课本上的说法。"
+
+      - id: "322"
+        page: 86
+        color: blue
+        term: yipping
+        lemma: yip
+        eudic: false
+        kind: 口语
+        ipa: /ˈjɪpɪŋ/
+        pos: v.
+        cn: 尖声叫嚷
+        en: to make a short, high sound like a small dog
+        context: "watch the women, ==yipping== and laughing"
+        gist: 看着那两个女人又尖叫又大笑。
+        note: 第 49 页的 No. 214 记过这个词（那里是一个男人尖着嗓子嚷），这里又划了一次，欧路列表里就不重复放了。跟上一张 baying 一样，又是一个狗叫的词。
+
+      - id: "323"
+        page: 86
+        color: blue
+        term: frolic
+        kind: 单词
+        ipa: /ˈfrɑːlɪk/
+        pos: v.
+        cn: 嬉戏打闹
+        en: to play and move around in a lively, happy way
+        en_src: 牛津 8
+        context: "==frolic== in the water like overfed seals"
+        gist: 在水里扑腾嬉闹，像两只喂得太饱的海豹。
+        note: 牛津的例句是孩子在海滩上嬉戏，本来是个轻快可爱的词。这里配上“喂得太饱的海豹”，又滑稽又有点残忍。watch sb do sth 结构，所以 frolic 用原形。
+        extra:
+          - "**搭配**children frolicking on the beach（在海滩上嬉戏的孩子）"
