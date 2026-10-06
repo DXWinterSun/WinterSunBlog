@@ -3123,3 +3123,56 @@ batches:
         note: 名词 wedge 是“楔子”，那种一头厚一头尖、塞进缝里的东西。当动词，就是像楔子一样被死死卡在中间。这家餐馆在一栋两层红砖楼的一楼，两边各挤着一栋一模一样的楼。
         extra:
           - "**搭配**be wedged between A and B（夹在 A 和 B 之间）· drive a wedge between（离间两人）"
+
+  - n: 37
+    date: 2026-10-06
+    pages: 41
+    photos: 1
+    notes:
+      - id: "188"
+        page: 41
+        color: blue
+        term: spherical
+        kind: 单词
+        ipa: /ˈsferɪkl/
+        pos: adj.
+        cn: 球形的；圆圆的
+        en: shaped like a sphere
+        en_src: 牛津 8
+        context: "Moira’s freckled, ==spherical== face"
+        gist: Moira 那张长着雀斑的圆脸。
+        note: sphere 是“球体”，spherical 本来是几何、科学里的词，拿来说人的脸，就是“圆得像个球”，有点故意的笨拙，像是 John 自己笨嘴拙舌在描述她。紧接着的 angular 正好跟它相反。
+        extra:
+          - "**易混**round 是一般的“圆”；spherical 强调立体的、球一样的圆。"
+
+      - id: "189"
+        page: 41
+        color: blue
+        term: angular
+        kind: 一词多义
+        ipa: /ˈæŋɡjələr/
+        pos: adj.
+        cn: 棱角分明的；骨架突出的
+        en: thin and without much flesh so that the bones are noticeable
+        en_src: 牛津 8
+        context: "her strong, ==angular== body"
+        gist: 她结实、骨架分明的身体。
+        note: angle 是“角”，angular 就是“有棱有角的”。用在人身上，是瘦、骨头的线条看得出来。脸是圆的，身子却是有棱角的，作者把一个人身上相反的两样放在一起，很具体。
+        extra:
+          - "**搭配**an angular face（瘦削、轮廓分明的脸）"
+
+      - id: "190"
+        page: 41
+        color: blue
+        term: cordially
+        kind: 单词
+        ipa: /ˈkɔːrdʒəli/
+        pos: adv.
+        cn: 客客气气地；和气地
+        en: in a pleasant and friendly manner
+        en_src: 牛津 8
+        context: "==cordially== whisper to her that"
+        gist: 和和气气地凑过去小声跟她说……
+        note: 牛津标着正式。这是 John 在心里排练：他要像个普通客人一样走进去，点咖啡，客客气气地低声跟她约个时间。一个满身伤、心里有事的人，在想怎样显得礼貌。牛津还说 cordially 跟“讨厌”一类的动词连用时反而是“极其”：They cordially detest each other（两人互相恨透了）。
+        extra:
+          - "**搭配**You are cordially invited to …（诚邀您……，请柬上的套话）"
