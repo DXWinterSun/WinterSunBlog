@@ -5521,3 +5521,55 @@ batches:
         context: "“That ain’t the end of nobody’s world neither. ==The end of the world’s when your heart stops beating.==”"
         gist: “那也算不上谁的世界末日。世界末日，是你的心不跳了的时候。”
         note: 是 Simon 说的。他刚讲完自己当年想念书、被越战搅黄了；John 接了一句“我觉得她有男朋友了”（说的是 Moira）。Simon 这句里的 neither（也）就是两件一起说：你我这些事，都算不上世界末日，只要心还跳，就不算完。可这话落在 John 耳朵里，紧接着他就想到了那个心已经不跳了的女孩，她的世界真的完了。一句粗人的安慰，到这里变成了一记重拳。
+
+  - n: 78
+    date: 2026-10-06
+    pages: 89
+    photos: 1
+    notes:
+      - id: "328"
+        page: 89
+        color: blue
+        term: diddly
+        kind: 口语
+        ipa: /ˈdɪdli/
+        pos: n.
+        cn: 一点儿（都不）
+        en: (NAmE, informal, used in negative sentences) not anything; nothing
+        en_src: 牛津 8
+        context: "I don’t know ==diddly== ’bout him."
+        gist: 我对他一无所知。
+        note: 美国口语，只用在否定句里，也说 diddly-squat。字面上 don’t know diddly 有双重否定的样子，意思却是“什么都不知道”。牛津的例句跟这句几乎一样。
+        extra:
+          - "**易混**同类说法：jack / squat / zilch，都是“屁都不（知道）”。"
+
+      - id: "329"
+        page: 89
+        color: blue
+        term: pail
+        kind: 名物
+        ipa: /peɪl/
+        pos: n.
+        cn: 桶
+        en: (NAmE or old-fashioned) a bucket
+        en_src: 牛津 8
+        context: "Kicks a ==pail== of milk over"
+        gist: 踢翻了一桶牛奶。
+        note: 牛津说是美式或老式说法，等于 bucket。农场里挤奶用的桶最常叫 pail，所以有 milk pail。这是 Simon 讲的 Obadiah Cornish 早年在 Ira 家干活的事。
+        extra:
+          - "**搭配**a milk pail（奶桶）· a pail of water（一桶水）"
+
+      - id: "330"
+        page: 89
+        color: blue
+        term: sliced up
+        lemma: slice up
+        eudic: slice
+        kind: 短语
+        ipa: /slaɪst ʌp/
+        pos: phr. v.
+        cn: （被人用刀）砍杀
+        en: (informal) to cut sb badly with a knife; to kill sb with a knife
+        context: "after Old Ira and Molly got ==sliced up=="
+        gist: Ira 老两口被人砍死以后。
+        note: 牛津没收 slice up 这个意思，英文解释是我写的。slice 本来是切面包、切肉片，用在人身上就是拿刀砍，而且说得很轻巧，有一种冷冷的粗鲁。前面第 79 页说过，他们是被割了喉。
