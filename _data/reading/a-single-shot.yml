@@ -4373,3 +4373,42 @@ batches:
         note: 牛津查不到，英文解释是我写的。lard 是“猪油”，ass 是“屁股”，合起来就是“一屁股肥油”的人，很粗鲁。这里骂的是老板 Puffer。词典里没有，不放进欧路列表。
         extra:
           - "**搭配**chain-smoking（一根接一根抽烟的）"
+
+  - n: 59
+    date: 2026-10-06
+    pages: 64
+    photos: 1
+    notes:
+      - id: "260"
+        page: 64
+        color: blue
+        term: lucrative
+        kind: 单词
+        ipa: /ˈluːkrətɪv/
+        pos: adj.
+        cn: 赚钱多的；油水大的
+        en: producing a large amount of money; making a large profit
+        en_src: 牛津 8
+        context: "moved on to a more ==lucrative== line of work"
+        gist: 改干了一行油水更大的营生。
+        note: line of work 是“行当、干的活儿”。这男人说话一直带着笑、话里有话：我早就不干那点辛苦活了，换了个来钱快的行当。至于是什么行当，他没说。
+        extra:
+          - "**搭配**a lucrative business/contract（赚钱的生意/合同）"
+          - "**易混**profitable 是一般说有利润；lucrative 是利润丰厚，更口语里常用。"
+
+      - id: "261"
+        page: 64
+        color: blue
+        term: steeper
+        lemma: steep
+        kind: 单词
+        ipa: /ˈstiːpər/
+        pos: adj.
+        cn: 更陡的
+        en: (of a slope, hill, etc.) rising or falling quickly, not gradually
+        en_src: 牛津 8
+        context: "Jesus Christ, ==steeper== than a"
+        gist: 天哪，那地方陡得……
+        note: 他在说当年在山上那片地干活的苦，那山坡陡得没法说，后面接了一个很下流的比喻，我就不照录了。steep 另一个常用义是“价格贵得离谱”：That’s a bit steep!（这也太贵了吧！）
+        extra:
+          - "**搭配**a steep hill/slope（陡坡）· a steep rise in prices（价格猛涨）"
