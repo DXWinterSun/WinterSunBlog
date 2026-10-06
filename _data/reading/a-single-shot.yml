@@ -5595,3 +5595,103 @@ batches:
         note: 本义是转圈，牛津例句里有歌手在台上扭动身体。她站在 Colette 的肩膀上，在水里扭来扭去冲岸上的男人卖弄。
         extra:
           - "**搭配**gyrate to the music（随着音乐扭动）"
+
+  - n: 80
+    date: 2026-10-06
+    pages: 92
+    photos: 1
+    notes:
+      - id: "332"
+        page: 92
+        color: blue
+        term: taut
+        eudic: false
+        kind: 单词
+        ipa: /tɔːt/
+        pos: adj.
+        cn: 紧实的
+        en: (of a person or their body) with firm muscles; not fat
+        en_src: 牛津 8
+        context: "the girl’s ==taut==, water-slick body"
+        gist: 女孩那紧实的、沾满水的滑溜溜的身体。
+        note: 第 71 页的 No. 286 记过这个词，那里是“绳子绷紧”，这里是牛津的第三个意思：人的身体结实、没有赘肉，欧路列表里就不重复放了。同一个词，一个是绳，一个是人。
+
+      - id: "333"
+        page: 92
+        color: blue
+        term: mincemeat
+        kind: 习语
+        ipa: /ˈmɪnsmiːt/
+        pos: n.
+        cn: 肉馅（打成肉酱）
+        en: make mincemeat of sb — to defeat sb completely in a fight, an argument or a competition
+        en_src: 牛津 8
+        context: "threaten to make them into ==mincemeat=="
+        gist: 吓唬她们要把她们打成肉酱。
+        note: 这里解释了这个女孩的外号 Mincy 是怎么来的：她小时候一生气就吓唬两个妹妹要把她们“剁成肉馅”。有意思的是，牛津说 mincemeat 本身是英式圣诞馅饼里那种“干果香料馅”，根本没有肉；动词 mince 才是剁碎。
+        extra:
+          - "**搭配**make mincemeat of sb（把某人打得落花流水）· mince words（说话拐弯抹角）"
+
+      - id: "334"
+        page: 92
+        color: blue
+        term: varsity
+        kind: 名物
+        ipa: /ˈvɑːrsəti/
+        pos: n.
+        cn: （学校的）校队
+        en: (NAmE) the main team that represents a college or high school, especially in sports competitions
+        en_src: 牛津 8
+        context: "she wrestled with the boys’ ==varsity=="
+        gist: 她跟男子校队一起练摔跤。
+        note: 美式用法，是学校最好的那支代表队，下面还有二队 junior varsity（简称 JV）。她高中最后一年跟男生校队一起摔跤，一场都没输过，难怪胳膊上全是疙瘩肉。在英国老派说法里 varsity 是“大学”。
+        extra:
+          - "**搭配**varsity team / varsity jacket（校队 / 校队夹克）· junior varsity（二队）"
+
+      - id: "335"
+        page: 92
+        color: blue
+        term: areolae
+        lemma: areola
+        kind: 名物
+        ipa: /əˈriːəliː/
+        pos: n.
+        cn: 乳晕
+        en: the round area of skin around the nipple
+        en_src: 牛津 8
+        context: "her swollen ==areolae== look to John like"
+        gist: 她鼓起来的乳晕，在 John 看来像……
+        note: 拉丁来的解剖学用词，复数是 -ae，跟 alga / algae（藻类）一样变。作者一直用这种冷冰冰的医学、生物课本里的词（第 67 页的 cuspate、第 86 页的 glabrous）来写身体，看的人好像隔着一层玻璃。
+
+      - id: "336"
+        page: 92
+        color: blue
+        term: groveling
+        lemma: grovel
+        kind: 一词多义
+        ipa: /ˈɡrɑːvlɪŋ/
+        pos: adj.
+        cn: 趴在地上、低三下四的
+        en: to move along the ground on your hands and knees
+        en_src: 牛津 8
+        context: "to the ==groveling==, baying, flesh-quacking sounds"
+        gist: 伴着（Simon 和 Colette 那边）趴地上翻滚、嚎叫、肉拍得啪啪响的声音。
+        note: 牛津两个意思：一是带贬义的“卑躬屈膝、低声下气”，二是“手脚着地在地上爬”。这里两层都有：对岸那两人像动物一样在地上滚。groveling、baying、flesh-quacking 三个词一串，全是动物的声音和样子。英式拼两个 l：grovelling。
+        extra:
+          - "**搭配**grovel to sb（向某人低声下气）· grovel for forgiveness（低三下四地求原谅）"
+
+      - id: "337"
+        page: 92
+        color: blue
+        term: baying
+        lemma: bay
+        eudic: false
+        kind: 一词多义
+        ipa: /ˈbeɪɪŋ/
+        pos: adj.
+        cn: 嚎叫的
+        en: (of a dog or wolf) to make a long deep sound
+        en_src: 牛津 8
+        context: "the groveling, ==baying==, flesh-quacking sounds"
+        gist: 趴着翻滚、嚎叫……的声音。
+        note: 第 86 页的 No. 320 刚记过这个词，这里又划了一次，欧路列表里就不重复放了。那一处是女人的一嗓子，这一处已经分不清是人还是狗了。
