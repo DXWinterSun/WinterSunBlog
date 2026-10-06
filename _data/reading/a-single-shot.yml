@@ -4145,3 +4145,73 @@ batches:
         note: 牛津的释义是给动词的，我改成了名词。电视一关，屋里安静下来，婴儿那长长的、尖尖的哭声就显出来了。pronounced 这里不是“发音”，是“明显的、突出的”。第 61 页的 The wailing builds to a crescendo 用的也是它。
         extra:
           - "**易混**cry 最普通；sob 是抽泣；wail 是拉长了声音的大哭。"
+
+  - n: 55
+    date: 2026-10-06
+    pages: 60
+    photos: 1
+    notes:
+      - id: "247"
+        page: 60
+        color: blue
+        term: mooring
+        kind: 一词多义
+        ipa: /ˈmʊrɪŋ/
+        pos: n.
+        cn: 系挂的地方（本义是船的系泊处）
+        en: the place where a ship or boat is moored
+        en_src: 牛津 8
+        context: "pulls free from its ==mooring=="
+        gist: （那串挂饰）从挂钩上扯脱了。
+        note: moor 是把船拴在岸边，mooring 是拴船的地方或绳缆。婴儿床上方那串转着的小动物挂饰（mobile），被他一把扯下来，作者用了拴船的词，好像一条小船挣断了缆绳。
+        extra:
+          - "**搭配**slip its moorings（船挣脱缆绳）"
+
+      - id: "248"
+        page: 60
+        color: blue
+        term: elated
+        kind: 单词
+        ipa: /iˈleɪtɪd/
+        pos: adj.
+        cn: 欣喜若狂的
+        en: very happy and excited because of sth good that has happened
+        en_src: 牛津 8
+        context: "Part of him is ==elated==."
+        gist: 他心里有一部分高兴得要命。
+        note: 前一句：John 原来不知道儿子已经会说话了。孩子哭喊着“妈咪”，他第一次听见儿子开口，心里一半是狂喜，另一半，是自己竟然不知道。
+        extra:
+          - "**搭配**be elated at/by sth（因……而欢欣鼓舞）"
+
+      - id: "249"
+        page: 60
+        color: blue
+        term: gushes
+        lemma: gush
+        kind: 一词多义
+        ipa: /ˈɡʌʃɪz/
+        pos: v.
+        cn: 一股脑儿地、热烈地说
+        en: to express so much praise or emotion about sb/sth that it does not seem natural
+        en_src: 牛津 8
+        context: "leans into the crib and ==gushes=="
+        gist: 俯身凑到小床边，激动地冲口而出……
+        note: gush 本义是“液体从口子里涌出来”，血、水往外冒。用在说话上，是感情一下子全涌出来，牛津说带点“过了头、不太自然”的意味。他太激动了：“我是爸爸。你会说爸爸吗？”
+        extra:
+          - "**搭配**blood gushing from a wound（伤口涌出的血）· gush about sth（滔滔不绝地夸）"
+
+      - id: "250"
+        page: 60
+        color: blue
+        term: mortified
+        lemma: mortify
+        kind: 单词
+        ipa: /ˈmɔːrtɪfaɪd/
+        pos: adj.
+        cn: 羞愧难当的；窘得要命的
+        en: very ashamed or embarrassed
+        context: "The kid looks ==mortified==."
+        gist: 孩子看起来窘得要命。
+        note: 牛津收的是动词 mortify（使难堪），英文解释是我改成形容词写的。一个一岁的孩子当然不会“羞愧”，这是 John 眼里看出来的：孩子被一个陌生男人吓坏了，那张脸在他看来，就像在嫌弃他、躲着他。紧接着他就想：他恨我。
+        extra:
+          - "**易混**embarrassed 是尴尬；ashamed 是羞愧；mortified 两样都有，而且是极度的。"
