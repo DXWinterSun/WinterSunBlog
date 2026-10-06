@@ -4652,3 +4652,87 @@ batches:
         note: 牛津的第一个意思就是“牲畜的粪肥”，第二个才是“泥浆、脏东西”。牛圈后头那片地，既是泥又是粪，muck 两样都包了。往后两页这个词会反复出现，人和牛都滚了一身。
         extra:
           - "**搭配**muck about/around（英：瞎胡闹）· muck in（一起动手干）"
+
+  - n: 63
+    date: 2026-10-06
+    pages: 70
+    photos: 1
+    notes:
+      - id: "276"
+        page: 70
+        color: blue
+        term: quag
+        kind: 方言
+        ipa: /kwæɡ/
+        pos: n.
+        cn: 泥坑；烂泥塘
+        en: an area of soft wet ground that you sink into
+        context: "up to the tops of its legs in a ==quag=="
+        gist: 那头牛陷在泥坑里，泥一直没到腿根。
+        note: 牛津只收了长的 quagmire（第 69 页刚划过），quag 是它的短说法，老派、乡下味重，英文解释是我写的。整个拉牛这一段，这几个词轮着出现：quag、muck、slime，一个比一个黏糊。
+        extra:
+          - "**易混**quag / quagmire 是会陷进去的软泥地；swamp 是长着树的沼泽；bog 是泥炭沼。"
+
+      - id: "277"
+        page: 70
+        color: blue
+        term: molasses
+        kind: 名物
+        ipa: /məˈlæsɪz/
+        pos: n.
+        cn: 糖蜜；黑糖浆
+        en: a thick black sweet sticky liquid produced when sugar is refined
+        en_src: 牛津 8
+        context: "“Like muck was ==molasses==.”"
+        gist: “就跟那烂泥是糖浆似的。”
+        note: 美式叫 molasses，英式叫 treacle。John 问电网是不是断了、牛就那么直直走了进去，Nobie 说她踩进去就跟踩糖浆一样，不当回事。美国有句老话 slow as molasses（慢得像糖浆），就是说又黏又慢。
+        extra:
+          - "**搭配**slow as molasses（慢吞吞的）"
+
+      - id: "278"
+        page: 70
+        color: blue
+        term: slime
+        kind: 单词
+        ipa: /slaɪm/
+        pos: n.
+        cn: 黏糊糊的烂泥；黏液
+        en: any unpleasant thick liquid substance
+        en_src: 牛津 8
+        context: "as far as he can into the ==slime=="
+        gist: 尽量往那滩黏泥里走。
+        note: 牛津例句就是“池子里满是烂泥和绿色的黏液”。slime 是那种又湿又滑、让人恶心的东西，蜗牛爬过留下的也叫 slime。形容词 slimy 还能骂人“油滑、阴险”。
+        extra:
+          - "**搭配**slime-covered（满身黏泥的，第 71 页就有）"
+
+      - id: "279"
+        page: 70
+        color: blue
+        term: ruddy
+        kind: 单词
+        ipa: /ˈrʌdi/
+        pos: adj.
+        cn: （脸色）红润的；红通通的
+        en: (of a person’s face) looking red and healthy
+        en_src: 牛津 8
+        context: "Nobie’s ==ruddy==, sun-chapped face gets redder"
+        gist: Nobie 那张被太阳晒裂、本来就红扑扑的脸，涨得更红了。
+        note: sun-chapped（被太阳晒裂的）第 15 页的 No. 076 讲过，是作者自己拼的词。一个老农民在烈日底下干了一辈子活，脸本来就红，一着急，更红了。英国口语里 ruddy 还是一句很轻的骂人话，相当于“该死的”。
+        extra:
+          - "**搭配**a ruddy complexion（红润的脸色）"
+
+      - id: "280"
+        page: 70
+        color: blue
+        term: prong
+        kind: 名物
+        ipa: /prɔːŋ/
+        pos: n.
+        cn: （叉子的）齿
+        en: each of the two or more long pointed parts of a fork
+        en_src: 牛津 8
+        context: "We’ll get a ==prong== into that loop"
+        gist: 我们拿一根叉齿伸进那个绳圈里。
+        note: 绳圈套到牛脖子上了，再拉就勒死它，John 想去拿把干草叉，用叉齿把绳圈挑起来，挪到牛屁股后面。牛津还收了一个比喻用法：a two-pronged attack（双管齐下的攻势）。
+        extra:
+          - "**搭配**a two-pronged approach（双管齐下的办法）"
