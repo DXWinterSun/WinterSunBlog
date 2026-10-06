@@ -4736,3 +4736,124 @@ batches:
         note: 绳圈套到牛脖子上了，再拉就勒死它，John 想去拿把干草叉，用叉齿把绳圈挑起来，挪到牛屁股后面。牛津还收了一个比喻用法：a two-pronged attack（双管齐下的攻势）。
         extra:
           - "**搭配**a two-pronged approach（双管齐下的办法）"
+
+  - n: 64
+    date: 2026-10-06
+    pages: 71
+    photos: 1
+    notes:
+      - id: "281"
+        page: 71
+        color: blue
+        term: waders
+        lemma: wader
+        eudic: waders
+        kind: 名物
+        ipa: /ˈweɪdərz/
+        pos: n.
+        cn: 齐腰高的防水胶靴（连裤）
+        en: long rubber boots that reach up to your thigh, that you wear for standing in water, especially when fishing
+        en_src: 牛津 8
+        context: "his ==waders== making wet, sloshing sounds"
+        gist: 他的防水胶靴跑起来呱唧呱唧响。
+        note: 第 69 页末尾刚说 Nobie 穿着 fishing waders（钓鱼穿的那种）。wade 是“蹚水”，waders 就是蹚水穿的长筒胶靴，有的一直连到胸口、带背带。永远用复数，一双是 a pair of waders。单数 wader 是另一个意思：长腿的涉水鸟。
+        extra:
+          - "**搭配**a pair of waders（一双高筒胶靴）· wade through（蹚过）"
+
+      - id: "282"
+        page: 71
+        color: blue
+        term: sloshing
+        lemma: slosh
+        kind: 单词
+        ipa: /ˈslɑːʃɪŋ/
+        pos: adj.
+        cn: 哗啦哗啦晃荡的
+        en: (of liquid) to move around making a lot of noise
+        en_src: 牛津 8
+        context: "making wet, ==sloshing== sounds"
+        gist: 发出湿漉漉、呱唧呱唧的声响。
+        note: 牛津标着口语。胶靴里灌了泥水，一跑起来里面的水就哗啦哗啦地晃。slosh 本身就像个拟声词。
+        extra:
+          - "**易混**splash 是溅起水花；slosh 是液体在容器里晃荡、往外漾。"
+
+      - id: "283"
+        page: 71
+        color: pink
+        term: tinges
+        lemma: tinge
+        kind: 用法
+        ipa: /ˈtɪndʒɪz/
+        pos: v.
+        cn: （给……）染上一层（颜色）
+        en: to add a small amount of colour to sth
+        en_src: 牛津 8
+        context: "the sun ==tinges== the grass gold"
+        gist: 太阳给青草染上了一层金色。
+        note: 粉色：词认识，用法新鲜。tinge 名词常见，a tinge of sadness（一丝伤感）；动词牛津说通常用被动：white petals tinged with blue（白花瓣上带一点蓝）。这里是主动用法，后面直接跟颜色：tinge A + 颜色，“把 A 染成淡淡的某色”，跟 paint the wall white 是一样的结构。太阳是“努力穿过雾”的那个，整句又软又亮。
+        extra:
+          - "**搭配**tinged with sth（带着一丝……）· a tinge of regret（一丝遗憾）"
+
+      - id: "284"
+        page: 71
+        color: blue
+        term: opiate
+        kind: 单词
+        ipa: /ˈoʊpiət/
+        pos: n.
+        cn: 镇痛的药；安神的东西
+        en: a drug derived from opium, used in medicine to reduce severe pain
+        en_src: 牛津 8
+        context: "is an ==opiate== to John’s frayed nerves"
+        gist: 对 John 那根绷得快断的神经来说，是一剂镇静药。
+        note: 本义是用鸦片做的镇痛药。这里是比喻：草地、牛、泥土的那股气味，让他绷了两天的神经一下松了下来，他甚至做起白日梦，梦见自己十五岁，跟父亲一起干活。frayed nerves（磨毛了的神经）也是好说法：fray 是布边、绳子磨得起毛。
+        extra:
+          - "**搭配**frayed nerves（快要绷断的神经）· religion is the opiate of the people（宗教是人民的鸦片，马克思那句的常见英译）"
+
+      - id: "285"
+        page: 71
+        color: blue
+        term: drawbar
+        kind: 名物
+        ipa: /ˈdrɔːbɑːr/
+        pos: n.
+        cn: （拖拉机后面的）牵引杆
+        en: a strong bar at the back of a tractor, used for pulling a trailer or other equipment
+        context: "ties the loose end of the rope to the tractor’s ==drawbar=="
+        gist: 把绳子另一头拴在拖拉机的牵引杆上。
+        note: 牛津查不到，英文解释是我写的。draw 在这里是“拉、拖”，bar 是“杆”。拖拉机屁股后面那根横杆，挂农具、拖车都靠它。
+        extra:
+          - "**搭配**draw 作“拉”：a horse-drawn cart（马拉的车）"
+
+      - id: "286"
+        page: 71
+        color: blue
+        term: taut
+        kind: 单词
+        ipa: /tɔːt/
+        pos: adj.
+        cn: 绷紧的
+        en: stretched tightly
+        en_src: 牛津 8
+        context: "Ease her forward till she’s ==taut=="
+        gist: 慢慢往前开，开到绳子绷紧为止。
+        note: 这里的 she 指的是那根绳子，乡下人说东西爱用 she、her。下一句说绳子绷得像一根走钢丝的钢索。taut 也能形容人：神色紧绷，或者身上的肌肉紧实。
+        extra:
+          - "**易混**tight 最普通；taut 专说绳子、皮肤、神经那种被拉得紧紧的。tout（拉客、吹捧）拼法很像，别弄混。"
+
+      - id: "287"
+        page: 71
+        color: blue
+        term: bellowing
+        lemma: bellow
+        kind: 一词多义
+        ipa: /ˈbeloʊɪŋ/
+        pos: v.
+        cn: （牛）哞哞大叫
+        en: when a large animal such as a bull bellows, it makes a loud deep sound
+        en_src: 牛津 8
+        context: "lifts up higher, then, ==bellowing==, falls on one side"
+        gist: 又抬高了一点，然后哞地一声大叫，侧着摔在泥里。
+        note: 牛津第一个意思是人“怒吼”，第二个才是这里的：牛那种低沉的大叫。同一页前面还有 moos（哞哞叫）和 groans（呻吟），牛一路叫着被拖出来，作者给了它三种叫法。
+        extra:
+          - "**搭配**bellow at sb（冲某人吼）· let out a bellow（大吼一声）"
