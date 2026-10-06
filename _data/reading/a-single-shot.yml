@@ -4413,3 +4413,38 @@ batches:
         note: 他在说当年在山上那片地干活的苦，那山坡陡得没法说，后面接了一个很下流的比喻，我就不照录了。steep 另一个常用义是“价格贵得离谱”：That’s a bit steep!（这也太贵了吧！）
         extra:
           - "**搭配**a steep hill/slope（陡坡）· a steep rise in prices（价格猛涨）"
+
+  - n: 60
+    date: 2026-10-06
+    pages: 67
+    photos: 1
+    remark: 第三章 TUESDAY 开始
+    notes:
+      - id: "262"
+        page: 67
+        color: blue
+        term: cuspate
+        kind: 单词
+        ipa: /ˈkʌspeɪt/
+        pos: adj.
+        cn: 尖头的；顶端尖起的
+        en: having a cusp; coming to a point
+        context: "bull’s-eyes with ==cuspate== nipples"
+        gist: 正中是尖尖的乳头。
+        note: 书上这个词在行尾断开（cus- / pate），她两截都划了。牛津没收 cuspate，只收了 cusp（两条曲线相交的尖点），-ate 是“有……形状的”，英文解释是我按这个写的。这是个很冷僻、很像生物课本的词。这一整页都是他脑子里冒出来的、关于那个死去女孩身体的画面，可他明明没看见过，所以他自己在问：“他怎么会知道？”
+
+      - id: "263"
+        page: 67
+        color: blue
+        term: lacquered
+        lemma: lacquer
+        kind: 单词
+        ipa: /ˈlækərd/
+        pos: adj.
+        cn: 像上过漆一样光滑发亮的
+        en: covered with a hard shiny layer, like wood or metal painted with lacquer
+        context: "the smooth, ==lacquered== feel of her thighs"
+        gist: 她大腿那种光滑得像上过漆的触感。
+        note: lacquer 是给木器、金属上的那种亮漆，牛津的释义是给名词和动词的，英文解释是我按形容词改写的。把人的皮肤说成“上过漆”，是一种冷冰冰的、像摸着一件器物的感觉，跟这一页那些“他不该记得”的细节放在一起，更让人不安。
+        extra:
+          - "**搭配**lacquered wood/box（漆木 / 漆盒）"
