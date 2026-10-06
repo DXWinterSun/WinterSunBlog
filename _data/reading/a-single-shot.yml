@@ -5248,3 +5248,46 @@ batches:
         note: 这是 John 想起 Mutt 第一次跑到他们拖车来的样子：小狗跟豪猪打了一架，满脸是刺，两个人拿钳子拔了两个钟头，它一声都没哼。quill 是豪猪的刺，也是鹅毛笔的“羽管”。faceful 是“满满一脸”，跟 mouthful（一满口）同一个构词。
         extra:
           - "**易混**porcupine 豪猪（刺长、会竖起来）· hedgehog 刺猬（小、会团成球）"
+
+  - n: 73
+    date: 2026-10-06
+    pages: 84
+    photos: 1
+    notes:
+      - id: "311"
+        page: 84
+        color: blue
+        term: bobcat
+        kind: 名物
+        ipa: /ˈbɑːbkæt/
+        pos: n.
+        cn: 北美短尾猫
+        en: a North American wild cat
+        en_src: 牛津 8
+        context: "raccoons, foxes, even a ==bobcat== once"
+        gist: 浣熊、狐狸，有一回连短尾猫都斗过。
+        note: bob 有“剪短”的意思（第 45 页 bobs 那张卡讲过“波波头”），bobcat 就是“短尾巴的猫”，个头比家猫大一两倍，是真正的野兽。说的是 Mutt：它打架只是为了好玩。
+
+      - id: "312"
+        page: 84
+        color: blue
+        term: loam
+        kind: 名物
+        ipa: /loʊm/
+        pos: n.
+        cn: 壤土；松软的沃土
+        en: good quality soil containing sand, clay and decayed vegetable matter
+        en_src: 牛津 8
+        context: "digs a hole in the soft ==loam== there"
+        gist: 在那块松软的沃土里挖了个坑。
+        note: 牛津标着术语，是种菜、种花最好的那种土：沙、黏土和烂叶子混在一起。他把 Mutt 埋在菜园旁边，埋在家里最好的那块土里，然后竖了一块扁石头，闭上眼睛为它祷告。
+        extra:
+          - "**易混**soil 是一般的土；loam 是肥沃的壤土；clay 是黏土。"
+
+      - id: "313"
+        page: 84
+        color: orange
+        term: 好句
+        context: "==He thinks of the three of them—Mutt, Moira, and John—lying together in front of a fire on cold winter nights.=="
+        gist: 他想起他们三个——Mutt、Moira 和 John——冬天冷的夜里，一起躺在炉火前面。
+        note: 刚埋完狗，他想到的不是狗本身，是那一家三口最好的样子。名单里把狗排在第一个，自己排在最后。破折号把三个名字单独拎出来，像一张老照片。下一句他做了一个简短的祷告：求上帝让 Mutt 在天堂里也能打架。又好笑又让人心疼。
