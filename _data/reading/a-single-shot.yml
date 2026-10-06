@@ -3782,3 +3782,73 @@ batches:
         note: 牛津说它专门用来形容“价格高得离谱”。这里作者拿来说日子：他看那笔钱，不是要过上挥霍的生活，而是想拿它把老婆孩子换回来。
         extra:
           - "**搭配**exorbitant prices/rents/fees（离谱的价格/房租/收费）"
+
+  - n: 47
+    date: 2026-10-06
+    pages: 52
+    photos: 1
+    notes:
+      - id: "227"
+        page: 52
+        color: blue
+        term: scurry
+        kind: 单词
+        ipa: /ˈskɜːri/
+        pos: v.
+        cn: 碎步急跑；窸窸窣窣地乱窜
+        en: to run with quick short steps
+        en_src: 牛津 8
+        context: "Nocturnal birds and animals fly and ==scurry=="
+        gist: 夜里出没的鸟兽，飞的飞，窜的窜。
+        note: 那种小动物一溜小跑、急急忙忙的样子，老鼠、蚂蚁最常用这个词。fly 给鸟，scurry 给地上的小兽。
+        extra:
+          - "**易混**scurry / scuttle 都是小碎步急跑；dash 是猛冲；scamper 是蹦蹦跳跳地跑。"
+
+      - id: "228"
+        page: 52
+        color: blue
+        term: cacophony
+        lemma: cacophony
+        eudic: false
+        kind: 单词
+        ipa: /kəˈkɑːfəni/
+        pos: n.
+        cn: 刺耳的嘈杂声
+        en: a mixture of loud unpleasant sounds
+        en_src: 牛津 8
+        context: "comes a ==cacophony== of peeps and croaks"
+        gist: 传来一片吱吱呱呱的嘈杂声。
+        note: 第 25 页的 No. 129 记过形容词 cacophonous（响尾蛇的尾巴哗哗作响），这里是它的名词，欧路列表里已经有了。caco- 是“坏的”，-phony 是“声音”，和 symphony（交响乐）正好相反。
+
+      - id: "229"
+        page: 52
+        color: blue
+        term: croaks
+        lemma: croak
+        kind: 单词
+        ipa: /kroʊks/
+        pos: n.
+        cn: （青蛙）呱呱声
+        en: a rough low sound, like the sound a frog makes
+        en_src: 牛津 8
+        context: "a cacophony of peeps and ==croaks=="
+        gist: 吱吱的小蛙叫和呱呱的蛙鸣。
+        note: 牛津的释义是给动词的，我改成了名词。他右边是一个山泉水养着的池塘，夜里小雨蛙 peep（吱吱）、大青蛙 croak（呱呱），一片。用在人身上，croak 是“哑着嗓子说话”。
+        extra:
+          - "**搭配**croak a greeting（哑着嗓子打招呼）"
+
+      - id: "230"
+        page: 52
+        color: blue
+        term: cornmeal
+        kind: 名物
+        ipa: /ˈkɔːrnmiːl/
+        pos: n.
+        cn: 玉米面
+        en: flour made from maize (corn)
+        en_src: 牛津 8
+        context: "rolls it in olive oil and ==cornmeal=="
+        gist: 在橄榄油里滚一滚，再裹上玉米面。
+        note: 他从冰箱里拿出来的是一块响尾蛇肉排，美国乡下常这样炸鱼、炸蛇：裹一层粗玉米面下锅煎。注意美国英语里 corn 就是“玉米”，英式叫 maize。
+        extra:
+          - "**易混**cornmeal 是粗玉米面；cornflour（英）/ cornstarch（美）是勾芡用的玉米淀粉。"
