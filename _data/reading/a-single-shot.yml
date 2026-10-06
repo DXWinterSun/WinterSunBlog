@@ -4448,3 +4448,74 @@ batches:
         note: lacquer 是给木器、金属上的那种亮漆，牛津的释义是给名词和动词的，英文解释是我按形容词改写的。把人的皮肤说成“上过漆”，是一种冷冰冰的、像摸着一件器物的感觉，跟这一页那些“他不该记得”的细节放在一起，更让人不安。
         extra:
           - "**搭配**lacquered wood/box（漆木 / 漆盒）"
+
+  - n: 61
+    date: 2026-10-06
+    pages: 68
+    photos: 1
+    notes:
+      - id: "264"
+        page: 68
+        color: blue
+        term: thrashes
+        lemma: thrash
+        kind: 一词多义
+        ipa: /ˈθræʃɪz/
+        pos: v.
+        cn: 猛地乱挥；翻来覆去地扑腾
+        en: to move or make sth move in a violent or uncontrolled way
+        en_src: 牛津 8
+        context: "In his sleep, John ==thrashes== out with an arm"
+        gist: John 在睡梦里猛地一挥胳膊。
+        note: 她划的是 thrashe 那一截。他喝醉了睡在车里，一胳膊挥出去推开了车门，人跟着空啤酒罐一起滚到草地上。thrash 另一个常见意思是“狠狠地揍、痛打”，口语里还有“把对手打得落花流水”。
+        extra:
+          - "**搭配**thrash around/about（扑腾、乱滚）· thrash out（把问题反复讨论清楚）"
+
+      - id: "265"
+        page: 68
+        color: blue
+        term: atrocious
+        kind: 单词
+        ipa: /əˈtroʊʃəs/
+        pos: adj.
+        cn: 残暴的；罪大恶极的
+        en: very cruel and shocking
+        en_src: 牛津 8
+        context: "his crime is more ==atrocious==, even, than murder"
+        gist: 他犯下的罪，甚至比杀人还要残暴。
+        note: 牛津有两个意思，一个是日常的“糟透了”（天气糟透了、口音难听），一个是这里的“残暴的”。他醒来就认定：自己做的事比杀人还坏。至于他为什么这么想，就是这一页往下他在害怕的东西。名词 atrocity 是“暴行”。
+        extra:
+          - "**易混**awful / terrible 是一般的“糟”；atrocious 更重，可以重到“骇人听闻的暴行”。"
+
+      - id: "266"
+        page: 68
+        color: blue
+        term: obliterates
+        lemma: obliterate
+        kind: 单词
+        ipa: /əˈblɪtəreɪts/
+        pos: v.
+        cn: 把……完全抹掉、遮没
+        en: to remove all signs of sth, either by destroying or covering it completely
+        en_src: 牛津 8
+        context: "fog ==obliterates== the world past a hundred yards"
+        gist: 雾把一百码以外的世界整个抹掉了。
+        note: 牛津的例句正好有“雪盖住了脚印”。这里的雾像枕头一样压在山谷上，一百码以外什么都看不见，就像世界在那里被擦掉了。用在记忆上也行：把一件事从记忆里抹得一干二净。
+        extra:
+          - "**搭配**be completely obliterated（被彻底摧毁 / 抹去）"
+
+      - id: "267"
+        page: 68
+        color: blue
+        term: horrendous
+        kind: 单词
+        ipa: /hɔːˈrendəs/
+        pos: adj.
+        cn: 骇人的；可怕的
+        en: extremely shocking
+        en_src: 牛津 8
+        context: "he committed ==horrendous==, unforgivable acts"
+        gist: 他做了骇人的、不可饶恕的事。
+        note: 他在怀疑：发现那个女孩以后，自己是不是像丢了魂一样，做了些现在想不起来的可怕的事。这念头让他几乎受不了。牛津也收了一个口语的意思“糟透了”，比如 horrendous traffic（堵得要命）。
+        extra:
+          - "**易混**horrible / horrific / horrendous 都从 horror（恐惧）来，horrendous 最口语、最夸张。"
