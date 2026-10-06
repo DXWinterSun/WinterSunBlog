@@ -338,6 +338,16 @@
   card: "0% 50%"
   banner: "50% 0%"
   banner_m: "0% 50%"
+"no-feeling-is-final.webp":
+  x: 52.9
+  y: 18.7
+  w: 1920
+  h: 1440
+  score: 0.94
+  sq: "62% 50%"
+  card: "50% 0%"
+  banner: "50% 0%"
+  banner_m: "50% 0%"
 "oh-may.jpg":
   x: 39.5
   y: 42.3
