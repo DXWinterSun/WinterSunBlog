@@ -3348,3 +3348,41 @@ batches:
         context: "That right, ==jacker==?"
         gist: 是不是啊，偷猎的？
         note: 牛津查不到，英文解释是我写的。jack 加 -er，就是“干这个的人”。Dolan 直接拿这个当称呼叫他，一点面子不给。词典里没有，所以不放进欧路列表。
+
+  - n: 40
+    date: 2026-10-06
+    pages: 44
+    photos: 1
+    notes:
+      - id: "201"
+        page: 44
+        color: blue
+        term: muffler
+        kind: 一词多义
+        ipa: /ˈmʌflər/
+        pos: n.
+        cn: （汽车的）消音器
+        en: (NAmE) a device that is fixed to the exhaust of a vehicle in order to reduce the amount of noise that the engine makes
+        en_src: 牛津 8
+        context: "“Got you a bad ==muffler==, John,”"
+        gist: “你这消音器坏了啊，John。”
+        note: 美式是 muffler，英式叫 silencer。第 40 页就写过他那辆皮卡的 aerated muffler，漏了气的消音器一路轰轰响。Dolan 要找他的茬，翻遍了也只抓到这一条，就借这个给他开了张罚单。牛津另有一个老式的意思：围巾。
+        extra:
+          - "**搭配**a bad/broken muffler（坏了的消音器）"
+
+      - id: "202"
+        page: 44
+        color: blue
+        term: waddling
+        lemma: waddle
+        kind: 单词
+        ipa: /ˈwɑːdlɪŋ/
+        pos: v.
+        cn: 像鸭子一样摇摇摆摆地走
+        en: to walk with short steps, swinging from side to side, like a duck
+        en_src: 牛津 8
+        context: "says Dolan, ==waddling== back to the cruiser"
+        gist: Dolan 说完，一摇一摆地走回警车。
+        note: 前一页写他肚子像个甜瓜、腰上一圈肉，这里走路就像鸭子。作者给 Dolan 留的形象一直是胖、慢、自以为是。
+        extra:
+          - "**易混**waddle 左右摇摆；toddle 是小孩学步那样蹒跚；hobble 是腿脚不好，一瘸一拐。"
