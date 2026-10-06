@@ -4959,3 +4959,40 @@ batches:
         context: "thinking ==how, from the single pull of a shotgun’s trigger, the world’s turned upside down.=="
         gist: 想着：只是扣了一下霰弹枪的扳机，整个世界就颠倒过来了。
         note: the single pull of a shotgun’s trigger 正是书名 A Single Shot（一枪）的意思。一个动作，一秒钟的事，后果却是整个世界翻转。这句跟第 12 页那句“一秒钟之内开始、改变、被抹去”是同一个念头，到这里他已经在后果里了。
+
+  - n: 68
+    date: 2026-10-06
+    pages: 75
+    photos: 1
+    notes:
+      - id: "294"
+        page: 75
+        color: blue
+        term: spigot
+        kind: 名物
+        ipa: /ˈspɪɡət/
+        pos: n.
+        cn: （户外的）水龙头
+        en: (US) any tap/faucet, especially one outdoors
+        en_src: 牛津 8
+        context: "walks over to the ==spigot==, turns on the water"
+        gist: 走到水龙头那儿，拧开了水。
+        note: 美国人说室内的水龙头多用 faucet，屋外墙上接水管的那种常叫 spigot，英式统统叫 tap。
+        extra:
+          - "**易混**faucet（美，室内龙头）· spigot（美，户外龙头）· tap（英）"
+
+      - id: "295"
+        page: 75
+        color: blue
+        term: hereabouts
+        kind: 单词
+        ipa: /ˌhɪrəˈbaʊts/
+        pos: adv.
+        cn: 在这一带；就在附近
+        en: near this place
+        en_src: 牛津 8
+        context: "could still be living ==hereabouts=="
+        gist: 说不定还住在这一带。
+        note: Nobie 说的是五年前 Hollenbach 夫妇的那桩命案：凶手说不定还住在附近，想想就让人发毛。hereabouts 有点老派、有点乡下味，平时多说 around here。同理还有 thereabouts（左右、上下）。
+        extra:
+          - "**搭配**or thereabouts（……左右：ten pounds or thereabouts）"
