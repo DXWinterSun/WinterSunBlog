@@ -3557,3 +3557,42 @@ batches:
         context: "Puffer ==grimacing== at him through the smoke"
         gist: Puffer 隔着烟冲他皱着一张脸。
         note: 第 43 页的 No. 196 记过这个词，这里又划了一次，欧路列表里就不重复放了。那边是 John 嫌 Dolan 的口气，这里是老板 Puffer 隔着烟冲他做脸色。
+
+  - n: 44
+    date: 2026-10-06
+    pages: 49
+    photos: 1
+    notes:
+      - id: "214"
+        page: 49
+        color: blue
+        term: yips
+        lemma: yip
+        kind: 口语
+        ipa: /jɪps/
+        pos: v.
+        cn: 尖着嗓子嚷
+        en: to make a short, high sound like a small dog; to say sth in a high, sharp voice
+        context: "==yips== the man"
+        gist: 那个男人尖着嗓子喊。
+        note: 牛津查不到，英文解释是我写的。yip 本来是小狗、郊狼那种短促的尖叫，第 52 页就有 coyote yips（郊狼的尖嚎）。拿来形容一个男人说话，听着就像一只叫唤的小狗，轻佻又讨人嫌。
+        extra:
+          - "**易混**bark 是狗吠；yap 和 yip 都是小狗尖叫，yap 更吵、更没完。"
+
+      - id: "215"
+        page: 49
+        color: blue
+        term: reenter
+        lemma: re-enter
+        eudic: reenter
+        kind: 单词
+        ipa: /riˈentər/
+        pos: v.
+        cn: 重新进入
+        en: to return to a place that you used to be in
+        en_src: 牛津 8
+        context: "sees Moira ==reenter== the dining room"
+        gist: 看见 Moira 又回到了店堂里。
+        note: 牛津写作带连字符的 re-enter，美国常连写成 reenter，都对。re- 是“再一次”。sees sb do sth 是“看见某人做了某事”，所以 reenter 用的是原形。
+        extra:
+          - "**搭配**see sb do sth（看见某人做了某事）"
