@@ -5137,3 +5137,72 @@ batches:
         note: 这是这一页最重的一个词。他忽然明白：自己藏起她，不只是藏起她的死，而是在抹掉她活过这件事，好像她从来没存在过。他觉得这比开枪还坏。然后想到那些会惦记她的人：父母、两个女朋友，还有 Waylon。
         extra:
           - "**易混**erase / delete 偏日常、偏动手擦删；expunge 更正式，常说从档案、记录里彻底删除。"
+
+  - n: 70
+    date: 2026-10-06
+    pages: 79
+    photos: 1
+    notes:
+      - id: "305"
+        page: 79
+        color: pink
+        term: fragment
+        kind: 用法
+        ipa: /fræɡˈment/
+        pos: v.
+        cn: 碎裂；散成一片片
+        en: to break or make sth break into small pieces or parts
+        en_src: 牛津 8
+        context: "His thoughts ==fragment==."
+        gist: 他的念头散成了碎片。
+        note: 粉色：词认识，用法新鲜。fragment 平时多当名词“碎片、片段”，重音在前：/ˈfræɡmənt/；这里是动词，重音挪到后面：/fræɡˈment/。整句就三个词，短得像碎掉了一样；接着一串名字一个个蹦出来：Waylon、死去的女孩、钱、Obadiah Cornish、Moira 离开他。
+        extra:
+          - "**易混**同样“名前动后”换重音的词：record、present、object、permit"
+
+      - id: "306"
+        page: 79
+        color: blue
+        term: populace
+        kind: 单词
+        ipa: /ˈpɑːpjələs/
+        pos: n.
+        cn: 老百姓；（一地的）民众
+        en: all the ordinary people of a particular country or area
+        en_src: 牛津 8
+        context: "Like most of the county’s ==populace=="
+        gist: 跟这个县里大多数人一样，
+        note: 牛津标着正式，通常说 the populace。跟 population（人口）同一个来源，但 population 偏统计数字，populace 指的是那一群人本身。
+        extra:
+          - "**易混**population（人口数）· populace（民众）· populous（人口稠密的）"
+
+      - id: "307"
+        page: 79
+        color: blue
+        term: blowhard
+        kind: 口语
+        ipa: /ˈbloʊhɑːrd/
+        pos: n.
+        cn: 爱吹牛的人
+        en: a person who talks too proudly about sth they own or sth they have done
+        en_src: 牛津 8
+        context: "being a ==blowhard== is what got Ira killed"
+        gist: Ira 就是死在爱吹牛这一条上。
+        note: 美式口语，带贬义。blow 是“吹”，hard 是“使劲”，使劲吹的人。镇上人都觉得：Ira 到处说他家藏着一个保险柜、里面是二十多年没报税的钱，这才招来了杀身之祸。
+        extra:
+          - "**易混**braggart 和 boaster 也是“吹牛的人”，blowhard 最口语、最美国。"
+
+      - id: "308"
+        page: 79
+        color: blue
+        term: piddling
+        kind: 口语
+        ipa: /ˈpɪdlɪŋ/
+        pos: adj.
+        cn: 少得可怜的；微不足道的
+        en: small and unimportant
+        en_src: 牛津 8
+        context: "discovering its ==piddling== contents"
+        gist: 发现里面那点少得可怜的东西。
+        note: 牛津标着口语、带贬义，只放在名词前面。大家猜：凶手逼 Ira 打开保险柜，一看里面没几个钱，气得把两个人都杀了。可现在 John 开始怀疑：说不定 Ira 真的有钱，而他捡到的那箱钱就是 Ira 的。
+        extra:
+          - "**搭配**a piddling amount/sum（一点点钱）"
