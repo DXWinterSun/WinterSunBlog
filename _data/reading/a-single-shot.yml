@@ -4124,3 +4124,24 @@ batches:
         note: 英文释义借的是形容词 sheepish，欧路列表里放的也是 sheepish。字面是“像羊一样的”，羊那种低着头、怯怯的样子，就是被人撞见尴尬事时的表情。
         extra:
           - "**搭配**a sheepish grin（不好意思的笑）"
+
+  - n: 54
+    date: 2026-10-06
+    pages: 59
+    photos: 1
+    notes:
+      - id: "246"
+        page: 59
+        color: blue
+        term: wail
+        kind: 单词
+        ipa: /weɪl/
+        pos: n.
+        cn: 哭号；尖声哭喊
+        en: a long loud high cry because you are sad or in pain
+        en_src: 牛津 8
+        context: "the kid’s ==wail== becomes more pronounced"
+        gist: 孩子的哭声一下子变得更响了。
+        note: 牛津的释义是给动词的，我改成了名词。电视一关，屋里安静下来，婴儿那长长的、尖尖的哭声就显出来了。pronounced 这里不是“发音”，是“明显的、突出的”。第 61 页的 The wailing builds to a crescendo 用的也是它。
+        extra:
+          - "**易混**cry 最普通；sob 是抽泣；wail 是拉长了声音的大哭。"
