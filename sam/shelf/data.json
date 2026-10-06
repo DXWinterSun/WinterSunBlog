@@ -858,6 +858,97 @@
       "wish": 0,
       "id": "muslf9a1-g4ovt",
       "added": 1791044116921
+    },
+    {
+      "name": "《月球》",
+      "type": "disc",
+      "spec": "蓝光 · 德版铁盒",
+      "charId": "sambell",
+      "date": "2026-10-06",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muwu41vy-57jme",
+      "added": 1791300575374
+    },
+    {
+      "name": "《欢迎来到科林伍德》",
+      "type": "disc",
+      "spec": "DVD · 日版 · 带外盒",
+      "charId": "pero",
+      "date": "2026-10-06",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muwu41vz-j5lej",
+      "added": 1791300575375
+    },
+    {
+      "name": "《欢迎来到科林伍德》",
+      "type": "program",
+      "spec": "日版",
+      "charId": "pero",
+      "date": "2026-10-06",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muwu41vz-t5lpk",
+      "added": 1791300575376
+    },
+    {
+      "name": "《七个神经病》",
+      "type": "program",
+      "spec": "日版",
+      "charId": "billy",
+      "date": "2026-10-06",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muwu41vz-mguyk",
+      "added": 1791300575377
+    },
+    {
+      "name": "《割草叔叔》",
+      "type": "program",
+      "spec": "日版",
+      "charId": "trent",
+      "date": "2026-10-06",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muwu41vz-ib2ey",
+      "added": 1791300575378
+    },
+    {
+      "name": "GQ",
+      "type": "book",
+      "spec": "February 2003 · 封面 · 内页 · 专访",
+      "charId": "",
+      "date": "2026-10-06",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muwu41vz-fgg79",
+      "added": 1791300575379
+    },
+    {
+      "name": "PORT",
+      "type": "book",
+      "spec": "Issue 13 · Spring 2014 · 封面 · 内页 · 专访",
+      "charId": "",
+      "date": "2026-10-06",
+      "note": "",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muwu41vz-2zf51",
+      "added": 1791300575380
     }
   ]
 }
