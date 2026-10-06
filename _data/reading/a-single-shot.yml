@@ -4996,3 +4996,144 @@ batches:
         note: Nobie 说的是五年前 Hollenbach 夫妇的那桩命案：凶手说不定还住在附近，想想就让人发毛。hereabouts 有点老派、有点乡下味，平时多说 around here。同理还有 thereabouts（左右、上下）。
         extra:
           - "**搭配**or thereabouts（……左右：ten pounds or thereabouts）"
+
+  - n: 69
+    date: 2026-10-06
+    pages: 76
+    photos: 1
+    notes:
+      - id: "296"
+        page: 76
+        color: blue
+        term: haughtily
+        lemma: haughty
+        kind: 单词
+        ipa: /ˈhɔːtɪli/
+        pos: adv.
+        cn: 傲慢地
+        en: behaving in an unfriendly way towards other people because you think that you are better than them
+        en_src: 牛津 8
+        context: "Laugh ==haughtily=="
+        gist: 傲慢地笑着。
+        note: 英文释义是牛津给形容词 haughty 的，欧路列表里放的是 haughty。这一段是 Moira 留下的那堆旧杂志里的女人：一串没有主语的短句，“招手、傲慢地笑、扬下巴……”，一个个画面像翻杂志一样闪过去。
+
+      - id: "297"
+        page: 76
+        color: blue
+        term: Jut
+        lemma: jut
+        kind: 单词
+        ipa: /dʒʌt/
+        pos: v.
+        cn: （使）突出、扬起
+        en: to stick out further than the surrounding surface; to make sth stick out
+        en_src: 牛津 8
+        context: "==Jut== out their chins, asses, elbows."
+        gist: 扬起下巴，撅着屁股，支起胳膊肘。
+        note: 句首大写是因为这一串都是没有主语的短句，主语是前面的 Women。jut 多用来说岩石、房檐“伸出来”，用在杂志模特身上，就是那种摆出来的、棱角分明的姿势。
+        extra:
+          - "**搭配**jut out（伸出、突出）· a jutting chin（翘起的下巴）"
+
+      - id: "298"
+        page: 76
+        color: blue
+        term: tartan
+        kind: 名物
+        ipa: /ˈtɑːrtn/
+        pos: n.
+        cn: 苏格兰格纹
+        en: a pattern of squares and lines of different colours and widths that cross each other at an angle of 90°
+        en_src: 牛津 8
+        context: "stride like racehorses around ==tartan== tracks"
+        gist: 像赛马一样在格子花纹的跑道上迈着大步。
+        note: 牛津说它原本出自苏格兰，每个家族有自己的一种格纹。这里大概是杂志上的时装照：模特在格纹地毯或背景上走秀，作者偏说那是赛马场的跑道。
+        extra:
+          - "**易混**tartan 是苏格兰那种多色交叉的格子；plaid 在美国泛指各种格子布；check 是一般的方格。"
+
+      - id: "299"
+        page: 76
+        color: orange
+        term: 好句
+        context: "==Who look right through him as if he is the air they breathe.=="
+        gist: 她们的目光直直穿过他，好像他只是她们呼吸的空气。
+        note: 前面一长串写杂志上的女人在做什么，这一句忽然转到他身上：在她们眼里他根本不存在。可“她们呼吸的空气”又是离不开的东西，看不见，却是必需的。一个被忽视的男人，被比作空气，既卑微又有一点说不出口的分量。
+
+      - id: "300"
+        page: 76
+        color: blue
+        term: leafing through
+        lemma: leaf through
+        kind: 短语
+        ipa: /ˈliːfɪŋ θruː/
+        pos: phr. v.
+        cn: 一页页地随手翻
+        en: to quickly turn over the pages of a book, etc. without reading them carefully
+        en_src: 牛津 8
+        context: "==leafing through== them, searching for a look"
+        gist: 一本本翻着，想找一张跟她相像的脸。
+        note: leaf 除了“树叶”，还是书的“一页”（一张纸的两面）。他翻 Moira 留下的旧杂志，是想找一张跟那个女孩像的脸，好把她的样子在记忆里拼回来。
+        extra:
+          - "**搭配**leaf through a magazine（翻杂志）· turn over a new leaf（翻开新的一页，改过自新）"
+
+      - id: "301"
+        page: 76
+        color: pink
+        term: nightmarish
+        kind: 用法
+        ipa: /ˈnaɪtmerɪʃ/
+        pos: adj.
+        cn: 噩梦般的
+        en: like a nightmare; very frightening or unpleasant
+        context: "his unconscious, ==nightmarish== revelations from the previous night"
+        gist: 前一晚他在昏沉中冒出来的、噩梦一样的那些“记忆”。
+        note: 粉色：词认识，用法值得多看一眼。名词加 -ish，就成了“有……味道的、像……的”：childish（孩子气的）、foolish（傻气的）。这里修饰的是 revelations（揭示、显露），他半睡半醒时“看见”的那些画面，像是真相，又像噩梦，他想用清醒的记忆去推翻它们。牛津只给了例句：nightmarish living conditions（噩梦般的生活条件），英文解释是我写的。
+        extra:
+          - "**搭配**a nightmarish experience（噩梦般的经历）"
+
+      - id: "302"
+        page: 76
+        color: blue
+        term: inchoate
+        kind: 单词
+        ipa: /ɪnˈkoʊət/
+        pos: adj.
+        cn: 模模糊糊、没成形的
+        en: just beginning to form and therefore not clear or developed
+        en_src: 牛津 8
+        context: "She is ==inchoate== in his mind"
+        gist: 她在他脑子里只是个模糊的轮廓。
+        note: 牛津标着正式，读音要小心：/ɪnˈkoʊət/，ch 读 k。他怎么也拼不全那个女孩：一张好看的脸、少女的身形、淡蓝的眼睛、深金色的马尾，就这么几样，再多就没有了。
+        extra:
+          - "**搭配**inchoate ideas（初步的、还没理清的想法）"
+
+      - id: "303"
+        page: 76
+        color: blue
+        term: unabated
+        kind: 单词
+        ipa: /ˌʌnəˈbeɪtɪd/
+        pos: adj.
+        cn: 丝毫未减的
+        en: without becoming any less strong
+        en_src: 牛津 8
+        context: "The heat from the last several days is ==unabated=="
+        gist: 这几天的暑热一点都没退。
+        note: 牛津标着正式，通常不放在名词前面，最常见的就是 continue unabated（持续不减）。abate 是“减弱、平息”，un- 否定。下一句：连一丝风都没有。
+        extra:
+          - "**搭配**continue unabated（有增无减）· The storm abated.（暴风雨减弱了）"
+
+      - id: "304"
+        page: 76
+        color: blue
+        term: expunge
+        kind: 单词
+        ipa: /ɪkˈspʌndʒ/
+        pos: v.
+        cn: 抹去，删掉
+        en: to remove or get rid of sth, such as a name, piece of information or a memory
+        en_src: 牛津 8
+        context: "but to ==expunge== her life"
+        gist: （他的用意）是要把她这一辈子都抹掉。
+        note: 这是这一页最重的一个词。他忽然明白：自己藏起她，不只是藏起她的死，而是在抹掉她活过这件事，好像她从来没存在过。他觉得这比开枪还坏。然后想到那些会惦记她的人：父母、两个女朋友，还有 Waylon。
+        extra:
+          - "**易混**erase / delete 偏日常、偏动手擦删；expunge 更正式，常说从档案、记录里彻底删除。"
