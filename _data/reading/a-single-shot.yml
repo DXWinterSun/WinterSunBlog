@@ -3176,3 +3176,58 @@ batches:
         note: 牛津标着正式。这是 John 在心里排练：他要像个普通客人一样走进去，点咖啡，客客气气地低声跟她约个时间。一个满身伤、心里有事的人，在想怎样显得礼貌。牛津还说 cordially 跟“讨厌”一类的动词连用时反而是“极其”：They cordially detest each other（两人互相恨透了）。
         extra:
           - "**搭配**You are cordially invited to …（诚邀您……，请柬上的套话）"
+
+  - n: 38
+    date: 2026-10-06
+    pages: 42
+    photos: 1
+    notes:
+      - id: "191"
+        page: 42
+        color: blue
+        term: cruiser
+        kind: 一词多义
+        ipa: /ˈkruːzər/
+        pos: n.
+        cn: 巡逻警车
+        en: (NAmE) a police car
+        en_src: 牛津 8
+        context: "Then the ==cruiser== comes to a stop"
+        gist: 接着那辆警车停了下来。
+        note: cruise 是“慢慢地开、巡游”，cruiser 在海军里是“巡洋舰”，在美国口语里就是警察开着到处巡的“巡逻车”。前面刚说 police car，这里换了个说法，指的是同一辆车。
+        extra:
+          - "**搭配**a police cruiser · squad car（也是警车）"
+
+      - id: "192"
+        page: 42
+        color: blue
+        term: clutch
+        kind: 一词多义
+        ipa: /klʌtʃ/
+        pos: n.
+        cn: 离合器踏板
+        en: the pedal in a car or other vehicle that you press with your foot so that you can change gear
+        en_src: 牛津 8
+        context: "one foot on the ==clutch=="
+        gist: 一只脚踩在离合器上。
+        note: clutch 最常见是动词“紧紧抓住”。这里是名词，手动挡汽车左边那个踏板。他坐在车里，一只脚踩着离合，随时准备挂挡开走，又拿不准该不该跑，这个小动作把他的紧张写出来了。
+        extra:
+          - "**搭配**put your foot on the clutch（踩离合）· clutch at sth（拼命抓住）"
+
+      - id: "193"
+        page: 42
+        color: blue
+        term: ejects the tape
+        lemma: eject the tape
+        eudic: eject
+        kind: 短语
+        ipa: /iˈdʒekts ðə ˈteɪp/
+        pos: phr.
+        cn: 把磁带退出来
+        en: when you eject a tape, it comes out of the machine after you have pressed a button
+        en_src: 牛津 8
+        context: "He ==ejects the tape== and shuts off"
+        gist: 他把磁带退出来，熄了火。
+        note: eject 本义是“猛地弹出、赶出去”，飞行员跳伞弹射也是它。用在录音机、光驱上，就是按一下、把带子或盘“弹出来”。第 41 页他一直在车里放 Hank Williams, Jr. 的磁带，到这里才关掉。
+        extra:
+          - "**搭配**eject a disc（退出光盘）· the eject button（弹出键）"
