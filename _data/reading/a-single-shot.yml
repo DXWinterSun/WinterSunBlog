@@ -3976,3 +3976,55 @@ batches:
         note: 牛津标着口语、偏英式，两个意思：食物吃下去“顶得慌、发撑”；人或东西“古板、乏味”。这里是借第一个意思形容烟：糊肉排冒出的黑烟稠得像吃不动的东西，沉沉地、懒懒地往天上拧。英文解释是我按这里写的。
         extra:
           - "**易混**stodgy 是又沉又腻；dense 是密；thick 是浓、厚。"
+
+  - n: 50
+    date: 2026-10-06
+    pages: 55
+    photos: 1
+    notes:
+      - id: "238"
+        page: 55
+        color: blue
+        term: cataclysmic
+        kind: 单词
+        ipa: /ˌkætəˈklɪzmɪk/
+        pos: adj.
+        cn: 天崩地裂般的
+        en: like a cataclysm; sudden and violent
+        context: "Like John’s ==cataclysmic== orgasms,"
+        gist: 就像 John 那天崩地裂般的高潮一样，
+        note: 名词 cataclysm 牛津解释为“突然降临的大灾变，比如洪水、战争”，英文解释是我按它改写的。这句是在说那一大卷钱：他嘴笨，说不出自己有多爱这个家，所以这份礼必须够大，大到自己就能开口说话，就像前一页回忆里那一下，用不着话。
+        extra:
+          - "**搭配**cataclysmic events/change（灾难性的事件/剧变）"
+
+      - id: "239"
+        page: 55
+        color: blue
+        term: bologna
+        kind: 名物
+        ipa: /bəˈloʊni/
+        pos: n.
+        cn: 博洛尼亚大红肠（午餐肉肠）
+        en: (NAmE) a type of sausage that is put in sandwiches, made of a mixture of meats
+        en_src: 牛津 8
+        context: "two ==bologna==-and-cheese sandwiches"
+        gist: 两个红肠奶酪三明治。
+        note: 名字来自意大利城市 Bologna（博洛尼亚），但美国人读成 /bəˈloʊni/，跟 baloney 一样，牛津也说它又写作 baloney。baloney 在口语里还是“胡扯、鬼话”。这是美国最便宜、最家常的三明治馅。
+        extra:
+          - "**搭配**That’s a load of baloney!（简直胡说八道！）"
+
+      - id: "240"
+        page: 55
+        color: blue
+        term: soot
+        kind: 名物
+        ipa: /sʊt/
+        pos: n.
+        cn: 烟灰；黑烟子
+        en: black powder that is produced when wood, coal, etc. is burnt
+        en_src: 牛津 8
+        context: "the kitchen walls streaked with ==soot=="
+        gist: 厨房的墙上一道一道全是烟熏的黑印子。
+        note: 刚才那场锅里的火留下的。streaked with 是“一道一道地沾满”。注意读音是 /sʊt/，跟 foot 同韵，不读 /suːt/。
+        extra:
+          - "**搭配**covered/streaked with soot（满是烟灰）"
