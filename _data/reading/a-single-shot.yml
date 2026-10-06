@@ -4028,3 +4028,38 @@ batches:
         note: 刚才那场锅里的火留下的。streaked with 是“一道一道地沾满”。注意读音是 /sʊt/，跟 foot 同韵，不读 /suːt/。
         extra:
           - "**搭配**covered/streaked with soot（满是烟灰）"
+
+  - n: 51
+    date: 2026-10-06
+    pages: 56
+    photos: 1
+    notes:
+      - id: "241"
+        page: 56
+        color: blue
+        term: contrite
+        kind: 单词
+        ipa: /kənˈtraɪt/
+        pos: adj.
+        cn: 悔恨的；满心愧疚的
+        en: very sorry for sth bad that you have done
+        en_src: 牛津 8
+        context: "a ==contrite== Moira, begging for him"
+        gist: 一个满心悔意、求他把她接回去的 Moira。
+        note: 牛津标着正式。这是他开车去送钱时的想象：一个感激的、被打动的、后悔的 Moira。三个形容词摞在一起，都是他盼着的样子，越摞越看得出来，这不过是他一厢情愿。
+        extra:
+          - "**易混**sorry 是一般的抱歉；regretful 是遗憾；contrite 是认错、真心悔过。"
+
+      - id: "242"
+        page: 56
+        color: blue
+        term: schnapps
+        kind: 名物
+        ipa: /ʃnæps/
+        pos: n.
+        cn: 舒纳普斯烈酒（德式烈酒）
+        en: a strong alcoholic drink made from grain
+        en_src: 牛津 8
+        context: "buys a pint of ==schnapps=="
+        gist: 买了一品脱烈酒。
+        note: 牛津说这个词来自德语。美国超市里卖的 schnapps 常是甜的、带水果味的烈酒，便宜又上头。他本来就已经喝了大半醉，又买一瓶边等边喝。
