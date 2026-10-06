@@ -5573,3 +5573,25 @@ batches:
         context: "after Old Ira and Molly got ==sliced up=="
         gist: Ira 老两口被人砍死以后。
         note: 牛津没收 slice up 这个意思，英文解释是我写的。slice 本来是切面包、切肉片，用在人身上就是拿刀砍，而且说得很轻巧，有一种冷冷的粗鲁。前面第 79 页说过，他们是被割了喉。
+
+  - n: 79
+    date: 2026-10-06
+    pages: 91
+    photos: 1
+    notes:
+      - id: "331"
+        page: 91
+        color: blue
+        term: gyrating
+        lemma: gyrate
+        kind: 单词
+        ipa: /ˈdʒaɪreɪtɪŋ/
+        pos: v.
+        cn: 扭动；转圈摆动
+        en: to make sth, especially a part of your body, move around
+        en_src: 牛津 8
+        context: "The small woman, ==gyrating== her backside"
+        gist: 那个小个子女人扭着屁股。
+        note: 本义是转圈，牛津例句里有歌手在台上扭动身体。她站在 Colette 的肩膀上，在水里扭来扭去冲岸上的男人卖弄。
+        extra:
+          - "**搭配**gyrate to the music（随着音乐扭动）"
