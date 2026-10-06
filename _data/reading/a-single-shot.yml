@@ -4909,3 +4909,40 @@ batches:
         note: 美国口语，尤其是当过兵的人这么说。英国的 skivvy 完全是另一个意思：干脏活粗活的女佣。第 75 页 Nobie 把它脱了扔在门廊上，用的还是这个词。
         extra:
           - "**易混**美 skivvies（男式内衣）≠ 英 skivvy（打杂女佣）"
+
+  - n: 66
+    date: 2026-10-06
+    pages: 73
+    photos: 1
+    notes:
+      - id: "291"
+        page: 73
+        color: blue
+        term: hunches
+        lemma: hunch
+        kind: 一词多义
+        ipa: /ˈhʌntʃɪz/
+        pos: v.
+        cn: 弓着身子；往前一猫腰
+        en: to bend the top part of your body forward and raise your shoulders and back
+        en_src: 牛津 8
+        context: "Nobie ==hunches== forward"
+        gist: Nobie 往前一弓身子。
+        note: 名词 hunch 常见的意思是“直觉、预感”：I have a hunch that…（我有种预感……），跟这里没关系。动词是弯腰弓背，hunchback 就是“驼背”。
+        extra:
+          - "**搭配**hunch over a desk（伏在桌上）· have a hunch（有种预感）"
+
+      - id: "292"
+        page: 73
+        color: blue
+        term: basso
+        kind: 名物
+        ipa: /ˈbæsoʊ/
+        pos: adj.
+        cn: 低沉的（像男低音那样）
+        en: very low and deep in sound, like a bass singer’s voice
+        context: "then a ==basso== growl as it starts the long ascent"
+        gist: 然后一声低沉的轰鸣，开始爬那段长坡。
+        note: 牛津查不到，英文解释是我写的。basso 是意大利语的“男低音”，音乐里用。这里说的是那辆车：换了低挡，发动机发出一声闷闷的低吼，开始往 Hollenbach 家的老房子那边爬。
+        extra:
+          - "**搭配**basso profundo（最深沉的男低音）"
