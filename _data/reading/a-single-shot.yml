@@ -5695,3 +5695,89 @@ batches:
         context: "the groveling, ==baying==, flesh-quacking sounds"
         gist: 趴着翻滚、嚎叫……的声音。
         note: 第 86 页的 No. 320 刚记过这个词，这里又划了一次，欧路列表里就不重复放了。那一处是女人的一嗓子，这一处已经分不清是人还是狗了。
+
+  - n: 81
+    date: 2026-10-06
+    pages: 93
+    photos: 1
+    notes:
+      - id: "338"
+        page: 93
+        color: blue
+        term: coquettishly
+        lemma: coquettish
+        kind: 单词
+        ipa: /koʊˈketɪʃli/
+        pos: adv.
+        cn: 卖弄风情地；撒娇地
+        en: in a way that is intended to attract men
+        context: "and ==coquettishly== asks if maybe"
+        gist: 撒娇似的问他是不是……
+        note: 牛津只收了名词 coquette（卖弄风情的女人，文学用语，常带贬义），英文解释是我按它改写的。词是从法语来的，-ette 结尾，读音重音在 ket。一个摔跤校队出身的壮姑娘，这会儿却在撒娇，有点反差。
+        extra:
+          - "**易混**flirtatious 最常用；coquettish 更文学、更老派。"
+
+      - id: "339"
+        page: 93
+        color: blue
+        term: hoists
+        lemma: hoist
+        kind: 单词
+        ipa: /hɔɪsts/
+        pos: v.
+        cn: 抬起；（用力）撑起
+        en: to raise or pull sth up to a higher position
+        en_src: 牛津 8
+        context: "onto her stomach, ==hoists== her bottom"
+        gist: 翻过身趴着，把屁股抬了起来。
+        note: hoist 本义是用绳子、吊车往上吊，升旗、扬帆也用它。用在身体上，有一种很费劲、很粗笨的感觉。她屁股上纹着一头张牙舞爪的山狮，就是前面 Simon 说“过会儿她会让它吼”的那只。
+        extra:
+          - "**搭配**hoist a flag/sail（升旗 / 扬帆）· hoist oneself onto a stool（撑着坐上高凳）"
+
+      - id: "340"
+        page: 93
+        color: blue
+        term: auburn
+        kind: 单词
+        ipa: /ˈɔːbərn/
+        pos: adj.
+        cn: 红褐色的（头发）
+        en: (of hair) reddish-brown in colour
+        en_src: 牛津 8
+        context: "suddenly turns from an ==auburn== pageboy to a dirty-blond clump"
+        gist: （她的头发）忽然从一头红褐色的齐耳短发，变成了一团深金色的乱发。
+        note: 牛津说专指头发的颜色。pageboy 是那种齐耳、发梢往里扣的短发。这一句是整页的转折：Mincy 的红褐短发在他眼前变成了深金色，而第 76 页说过，那个女孩是 dirty-blond ponytail（深金色马尾）。接下来他就看见了那颗子弹。
+
+  - n: 82
+    date: 2026-10-06
+    pages: 94
+    photos: 1
+    remark: 第三章 TUESDAY 读完
+    notes:
+      - id: "341"
+        page: 94
+        color: blue
+        term: retching
+        lemma: retch
+        kind: 单词
+        ipa: /ˈretʃɪŋ/
+        pos: v.
+        cn: 干呕；呕吐
+        en: to make sounds and movements as if you are vomiting although you do not actually do so
+        en_src: 牛津 8
+        context: "==retching== out the impediment"
+        gist: 把卡在喉咙里的东西全呕了出来。
+        note: 牛津说 retch 是“干呕”，要吐吐不出来的那种；这里 retch out 后面跟了东西，就是真吐了：从昨天早上到现在吃下喝下的一切。impediment 是“阻碍”，前一句说有什么东西堵住了他的喉咙，叫不出声。
+        extra:
+          - "**易混**vomit / throw up 是真吐；retch / gag 是干呕、作呕。"
+
+      - id: "342"
+        page: 94
+        color: orange
+        term: 好句
+        context: "He flops belly-down in the mud, lapping at the water, ==knowing that in this world once familiar to him he is now an alien.=="
+        gist: 他肚皮朝下扑倒在泥里，像牲口一样舔着水，心里明白：在这个他曾经熟悉的世界里，他如今是个异乡人。
+        note: 前半句他像一头动物趴在泥里舔水（lapping 是狗、猫喝水的样子），后半句却是一个人最清醒的念头。alien 不只是“陌生人”，是“不属于这里的东西”。这片山、这个池塘，他从小生活在这里，一枪之后，全变了。第三章就收在这一句上。
+        qa:
+          - q: "读到这里我感觉……怎么说呢，有一种又原始又绝望的性感？Matthew 写的时候好像多次暗示 John 压抑的性欲望，和投射到这个他本不该投射的受害者身上的这种矛盾心理？不是我过于阴暗了吧"
+            a: "不阴暗，这正是作者一路故意写出来的。只看已经读到的：第 67 页他“记得”她身体的细节，可他明明不可能知道，作者让他自己连问了好几遍“他怎么会知道”；第 68 页醒来就认定自己的罪“比杀人还残暴”；第 69 页梦里是她不停变形的身体，他的高潮“像一声枪响”；到第 93 页，和 Mincy 到最后那一下，眼前却是 12 号霰弹打进那女孩的胸口，红褐短发也变成了她的深金色。作者故意让“性”和“那一枪”用同一套词：爆发、枪响、身体。欲望和罪恶感拧成了一股，他越想推开，那个画面越要回来。你说的“原始”也有根据：这几页满是动物，泥里的牛、海豹、嚎叫的狗、屁股上的山狮、像牲口一样舔水的他自己。所以“又原始又绝望”说得很准：原始的是身体，绝望的是他看清了自己的脑子，被自己吓到了。"
