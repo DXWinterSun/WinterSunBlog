@@ -3852,3 +3852,73 @@ batches:
         note: 他从冰箱里拿出来的是一块响尾蛇肉排，美国乡下常这样炸鱼、炸蛇：裹一层粗玉米面下锅煎。注意美国英语里 corn 就是“玉米”，英式叫 maize。
         extra:
           - "**易混**cornmeal 是粗玉米面；cornflour（英）/ cornstarch（美）是勾芡用的玉米淀粉。"
+
+  - n: 48
+    date: 2026-10-06
+    pages: 53
+    photos: 1
+    notes:
+      - id: "231"
+        page: 53
+        color: blue
+        term: stately
+        kind: 单词
+        ipa: /ˈsteɪtli/
+        pos: adj.
+        cn: 端庄的；仪态大方的
+        en: impressive in size, appearance or manner
+        en_src: 牛津 8
+        context: "he sees her, ==stately== and beautiful"
+        gist: 他看见她，端庄又美。
+        note: 是那条蓝白条纹的乡村风连衣裙勾起的回忆：结婚半年后的一场募捐方阵舞会上，她穿着它。stately 原本形容宏伟的房子、高大的树，用在人身上，是“有气派、有仪态”，牛津例句正好是 a tall, stately woman。
+        extra:
+          - "**搭配**a stately home（英国的大庄园宅邸）· a stately pace（从容的步子）"
+
+      - id: "232"
+        page: 53
+        color: blue
+        term: clogs
+        lemma: clog
+        kind: 名物
+        ipa: /klɑːɡz/
+        pos: n.
+        cn: 木底鞋
+        en: a shoe that is completely made of wood or one that has a thick wooden sole and a leather top
+        en_src: 牛津 8
+        context: "Her hair up and in dancing ==clogs=="
+        gist: 头发盘起来，脚上穿着跳舞的木底鞋。
+        note: 美国阿巴拉契亚山区有一种 clogging（踏木鞋舞），跟方阵舞（square dance）是一家，鞋底钉着铁片，跳起来踢踏响。她穿上这双鞋，比 John 还高出好几英寸。动词 clog 是另一个意思：“堵塞”。
+        extra:
+          - "**易混**clog 名词是木鞋；动词是堵住：The pipes clogged up.（管子堵了）"
+
+      - id: "233"
+        page: 53
+        color: blue
+        term: swoon
+        kind: 一词多义
+        ipa: /swuːn/
+        pos: n.
+        cn: 销魂；神魂颠倒
+        en: a state of being so excited or full of love that you almost become unconscious
+        context: "This ain’t no race. It’s a ==swoon==!"
+        gist: 这又不是赛跑，是要慢慢地晕过去！
+        note: 牛津把名词 swoon 标作老式的“昏厥”，动词是“神魂颠倒、迷得晕乎乎”。这是那晚她在他耳边说的话：别急，这不是比谁快，是要两个人一起慢慢地陶醉。英文解释是我按这里写的。前面那句 Rein it in, cowboy（勒住缰绳，牛仔）也是骑马的说法，意思是“慢一点”。
+        extra:
+          - "**搭配**swoon over sb（被某人迷得神魂颠倒）· rein it in（收着点、悠着点）"
+
+      - id: "234"
+        page: 53
+        color: blue
+        term: pulsating
+        lemma: pulsate
+        kind: 单词
+        ipa: /ˈpʌlseɪtɪŋ/
+        pos: adj.
+        cn: 一下一下搏动的
+        en: making strong regular movements or sounds
+        en_src: 牛津 8
+        context: "A ==pulsating== throb, like a crashing wave."
+        gist: 一阵一阵的搏动，像拍上岸的浪。
+        note: pulse 是“脉搏”，pulsate 就是像脉搏那样一下一下地跳。第 49 页他头疼也是用 throbs（一跳一跳地疼），这里同一个词写的却是回忆里的欢愉。牛津也收了“充满活力的”这层意思：a pulsating game。
+        extra:
+          - "**搭配**a pulsating headache（一阵阵的头痛）· pulsating rhythms（强劲的节奏）"
