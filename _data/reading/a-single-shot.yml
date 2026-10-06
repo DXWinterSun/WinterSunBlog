@@ -4519,3 +4519,136 @@ batches:
         note: 他在怀疑：发现那个女孩以后，自己是不是像丢了魂一样，做了些现在想不起来的可怕的事。这念头让他几乎受不了。牛津也收了一个口语的意思“糟透了”，比如 horrendous traffic（堵得要命）。
         extra:
           - "**易混**horrible / horrific / horrendous 都从 horror（恐惧）来，horrendous 最口语、最夸张。"
+
+  - n: 62
+    date: 2026-10-06
+    pages: 69
+    photos: 1
+    notes:
+      - id: "268"
+        page: 69
+        color: blue
+        term: creaks
+        lemma: creak
+        kind: 单词
+        ipa: /kriːks/
+        pos: v.
+        cn: 嘎吱作响
+        en: to make the sound that a door sometimes makes when you open it
+        en_src: 牛津 8
+        context: "The deck screen door ==creaks== open."
+        gist: 门廊那扇纱门嘎吱一声开了。
+        note: 下一句是 Something enters（有什么东西进来了），先让人提心吊胆，结果是那只三色的流浪狗 Mutt。creak 是木头、合页那种干涩的响声。
+        extra:
+          - "**易混**creak 是嘎吱声（门、地板）；squeak 是吱吱尖响（老鼠、鞋底）；rattle 是哗啦哗啦地乱响。"
+
+      - id: "269"
+        page: 69
+        color: blue
+        term: burr-impacted
+        lemma: burr
+        kind: 名物
+        ipa: /ˈbɜːr ɪmpæktɪd/
+        pos: adj.
+        cn: 粘满了带刺草籽的
+        en: (burr) the seed container of some plants which is covered in very small hooks that stick to clothes or fur
+        en_src: 牛津 8
+        context: "scratching the dog’s ==burr==-impacted neck"
+        gist: 挠着狗脖子上那一团团粘死了的刺果。
+        note: 她划的是 burr。burr 是苍耳那种带小钩子的草籽，一沾上衣服、狗毛就扯不下来，英文释义是牛津这一条。impacted 是“挤压得死死的”，合起来就是毛里结满了刺果。这只狗在野地里混了好几天才回来。牛津还有一个意思：说话时卷舌很重的 r 音口音。
+
+      - id: "270"
+        page: 69
+        color: blue
+        term: roils
+        lemma: roil
+        kind: 单词
+        ipa: /rɔɪlz/
+        pos: v.
+        cn: 翻腾；搅动得一片浑浊
+        en: to move in a violent, confused way, like water that has been stirred up
+        context: "which in response to his thoughts ==roils== like a quagmire"
+        gist: （昨晚的记忆）随着他一想，就像一摊泥沼似的翻腾起来。
+        note: 牛津没收，英文解释是我写的。roil 本来说的是水被搅浑、翻涌。他越想把昨晚拼回来，记忆就越像被搅动的泥水，一团浑。后面紧接的 quagmire 和这里是一套比喻。
+        extra:
+          - "**搭配**roiling waters（翻腾的水）· roil the markets（搅乱市场）"
+
+      - id: "271"
+        page: 69
+        color: blue
+        term: quagmire
+        kind: 一词多义
+        ipa: /ˈkwæɡmaɪər/
+        pos: n.
+        cn: 泥沼；脱不了身的困境
+        en: an area of soft wet ground; a difficult or dangerous situation
+        en_src: 牛津 8
+        context: "like a ==quagmire== of ambiguities"
+        gist: 像一摊满是不确定的泥沼。
+        note: 牛津两个意思都有：一是真的烂泥地，二是“陷进去就出不来的困境”。这里是比喻：他的记忆里满是说不清的东西，陷进去拔不出来。巧的是，几行之后就来了一个真的泥坑：Nobie 打电话要他去把陷在泥里的小母牛拉出来。第 70 页的 quag 就是这个词的短说法。
+        extra:
+          - "**搭配**a quagmire of debt（债务的泥潭）"
+
+      - id: "272"
+        page: 69
+        color: blue
+        term: transmogrifying
+        lemma: transmogrify
+        kind: 单词
+        ipa: /trænzˈmɑːɡrɪfaɪɪŋ/
+        pos: v.
+        cn: 变得面目全非的
+        en: to change sb/sth completely, especially in a surprising way
+        en_src: 牛津 8
+        context: "the dead girl’s ==transmogrifying== body"
+        gist: 那死去女孩的、不停变着形的身体。
+        note: 牛津说这个词常带点幽默，是个夸张、花哨的长词，大概是 trans-（改变）加上一段说不清来历的尾巴拼出来的。放在这里却一点都不好笑：那是他半睡半醒时梦见的、不停变化的身体，他自己都分不清那是梦还是真。
+        extra:
+          - "**易混**transform 是一般的“转变”；transmogrify 是变得古怪、离谱。"
+
+      - id: "273"
+        page: 69
+        color: blue
+        term: spasm
+        kind: 单词
+        ipa: /ˈspæzəm/
+        pos: n.
+        cn: 痉挛；一阵抽搐
+        en: a sudden and often painful contracting of a muscle, which you cannot control
+        en_src: 牛津 8
+        context: "and his orgasmic ==spasm=="
+        gist: 还有他那一阵高潮的痉挛。
+        note: 同一句后面接着 entering it like a gunshot（像一声枪响一样），把他的梦和那一枪叠在了一起。spasm 另一个意思是“一阵突然的情绪”，比如 a spasm of anger（一阵怒火）。
+        extra:
+          - "**搭配**a muscle spasm（肌肉痉挛）· go into spasm（抽筋）"
+
+      - id: "274"
+        page: 69
+        color: blue
+        term: heifer
+        eudic: false
+        kind: 名物
+        ipa: /ˈhefər/
+        pos: n.
+        cn: 还没生过小牛的小母牛
+        en: a young female cow, especially one that has not yet had a calf
+        en_src: 牛津 8
+        context: "pulling a ==heifer== out of the muck"
+        gist: 把一头小母牛从泥里拽出来。
+        note: 第 7 页的 No. 035 记过这个词（那里是复数 heifers），这里又划了一次，欧路列表里就不重复放了。读音前半是 hef，别读成 hei。
+
+      - id: "275"
+        page: 69
+        color: blue
+        term: muck
+        kind: 一词多义
+        ipa: /mʌk/
+        pos: n.
+        cn: 烂泥；粪泥
+        en: dirt or mud; waste matter from farm animals
+        en_src: 牛津 8
+        context: "out of the ==muck=="
+        gist: 从烂泥里（拽出来）。
+        note: 牛津的第一个意思就是“牲畜的粪肥”，第二个才是“泥浆、脏东西”。牛圈后头那片地，既是泥又是粪，muck 两样都包了。往后两页这个词会反复出现，人和牛都滚了一身。
+        extra:
+          - "**搭配**muck about/around（英：瞎胡闹）· muck in（一起动手干）"
