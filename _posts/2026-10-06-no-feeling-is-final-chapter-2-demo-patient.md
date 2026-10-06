@@ -1,4 +1,18 @@
-<!-- 草稿 · 待 Winter 过目。落盘部署前以最终认可版为准。 -->
+---
+layout: post
+title: "Chapter 2 · 示范病人 — No Feeling Is Final"
+categories: ["AU Story"]
+date: 2026-10-06 19:05:00 +0800
+image: no-feeling-is-final.webp
+series: "No Feeling Is Final"
+series_title: "No Feeling Is Final · Captain Klenzendorf AU"
+series_order: 2
+series_status: ongoing
+series_type: "Series"
+chapter_type: "Chapter 2"
+summary: "训练营来了位新上尉——他把自己报名成了你急救课的示范病人。"
+tags: [Captain Klenzendorf, Sam Rockwell, AU, No Feeling Is Final, 絮语, 悸动]
+---
 
 > 公告栏上添了一个新名字。  
 > 那个姓，你从小写惯。

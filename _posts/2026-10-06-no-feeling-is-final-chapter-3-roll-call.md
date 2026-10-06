@@ -1,4 +1,18 @@
-<!-- 草稿 · 待 Winter 过目。落盘部署前以最终认可版为准。 -->
+---
+layout: post
+title: "Chapter 3 · 数到谁没应声 — No Feeling Is Final"
+categories: ["AU Story"]
+date: 2026-10-06 19:10:00 +0800
+image: no-feeling-is-final.webp
+series: "No Feeling Is Final"
+series_title: "No Feeling Is Final · Captain Klenzendorf AU"
+series_order: 3
+series_status: ongoing
+series_type: "Series"
+chapter_type: "Chapter 3"
+summary: "噩梦把他掀回战场的那个夜里，你第一次看见眼罩底下的那只眼睛。"
+tags: [Captain Klenzendorf, Sam Rockwell, AU, No Feeling Is Final, 暗涌, 缱绻]
+---
 
 > 白天他有一百种声音。  
 > 夜里那一种，你是第一次听见。

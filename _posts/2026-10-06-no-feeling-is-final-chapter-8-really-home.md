@@ -1,4 +1,18 @@
-<!-- 草稿 · 待 Winter 过目。落盘部署前以最终认可版为准。 -->
+---
+layout: post
+title: "Chapter 8 · 这下我是真的回来了 — No Feeling Is Final"
+categories: ["AU Story"]
+date: 2026-10-06 19:35:00 +0800
+image: no-feeling-is-final.webp
+series: "No Feeling Is Final"
+series_title: "No Feeling Is Final · Captain Klenzendorf AU"
+series_order: 8
+series_status: ongoing
+series_type: "Series"
+chapter_type: "Chapter 8"
+summary: "他数到你的名字，没人应。你推门进去说，在。"
+tags: [Captain Klenzendorf, Sam Rockwell, AU, No Feeling Is Final, 悸动, 缱绻]
+---
 
 > 那个字在屋子里住了七天。  
 > 第七天夜里，他先喊了你的名字——在梦里。

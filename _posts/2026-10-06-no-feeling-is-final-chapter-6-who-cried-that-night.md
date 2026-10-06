@@ -1,4 +1,19 @@
-<!-- 草稿 · 待 Winter 过目。chapter_kind: pov。信已按冬璇修订：妈妈不点破感情。 -->
+---
+layout: post
+title: "Chapter 6 · 那晚哭的是谁 — No Feeling Is Final"
+categories: ["AU Story"]
+date: 2026-10-06 19:25:00 +0800
+image: no-feeling-is-final.webp
+series: "No Feeling Is Final"
+series_title: "No Feeling Is Final · Captain Klenzendorf AU"
+series_order: 6
+series_status: ongoing
+series_type: "Series"
+chapter_type: "Chapter 6"
+chapter_kind: pov
+summary: "柜子最底层的铁盒开了。二十二年前复活节夜里的哭声，终于有了名字。"
+tags: [Captain Klenzendorf, Sam Rockwell, AU, No Feeling Is Final, 暗涌, 怅惘]
+---
 
 > 有些事他记了二十二年，  
 > 只是一直不知道自己记的是什么。

@@ -1,4 +1,18 @@
-<!-- 草稿 · 待 Winter 过目。落盘部署前以最终认可版为准。 -->
+---
+layout: post
+title: "Chapter 7 · 你是不是后悔回来了 — No Feeling Is Final"
+categories: ["AU Story"]
+date: 2026-10-06 19:30:00 +0800
+image: no-feeling-is-final.webp
+series: "No Feeling Is Final"
+series_title: "No Feeling Is Final · Captain Klenzendorf AU"
+series_order: 7
+series_status: ongoing
+series_type: "Series"
+chapter_type: "Chapter 7"
+summary: "他躲了你一个礼拜。你问出那句最伤人的话，他把铁盒放在了桌上。"
+tags: [Captain Klenzendorf, Sam Rockwell, AU, No Feeling Is Final, 暗涌, 怅惘]
+---
 
 > 你最怕的从来不是他沉默。  
 > 是他沉默的时候，还在对你笑。
