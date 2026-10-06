@@ -5291,3 +5291,81 @@ batches:
         context: "==He thinks of the three of them—Mutt, Moira, and John—lying together in front of a fire on cold winter nights.=="
         gist: 他想起他们三个——Mutt、Moira 和 John——冬天冷的夜里，一起躺在炉火前面。
         note: 刚埋完狗，他想到的不是狗本身，是那一家三口最好的样子。名单里把狗排在第一个，自己排在最后。破折号把三个名字单独拎出来，像一张老照片。下一句他做了一个简短的祷告：求上帝让 Mutt 在天堂里也能打架。又好笑又让人心疼。
+
+  - n: 74
+    date: 2026-10-06
+    pages: 85
+    photos: 1
+    notes:
+      - id: "314"
+        page: 85
+        color: orange
+        term: 好句
+        context: "He ==wonders how, in this world, he could ever have thought his luck would be good enough to allow him to walk away unscathed with a case full of cash.=="
+        gist: 他想不通，在这个世道里，自己怎么会以为运气好到能拎着一箱现钞全身而退。
+        note: 这一处是从第 84 页最后一个词 He 划起，一直划到这一页。unscathed 是“毫发无伤”，walk away unscathed 是“全身而退”。in this world 三个词最重：不是哪一天、哪一个人，而是“这个世界”本来就不会放过他。他的狗刚刚为他挨了一枪。
+
+      - id: "315"
+        page: 85
+        color: pink
+        term: cresting
+        lemma: crest
+        kind: 用法
+        ipa: /ˈkrestɪŋ/
+        pos: v.
+        cn: 涌到浪尖
+        en: to reach the top of a hill, mountain or wave
+        en_src: 牛津 8
+        context: "darkness ==cresting== in a watery black wave"
+        gist: 黑暗像一道黑水浪，涌起来，到了浪尖。
+        note: 粉色：词认识，用法新鲜。crest 名词是“浪尖、山顶、鸟冠、家族纹章”，牛津说动词是“到达山顶或浪峰”，通常要带宾语（crest the ridge）。这里作者让“黑暗”自己当了浪：窗外的夜一层层涌上来，涨到顶，好像随时要拍下来。紧接着：几分钟像几个钟头，几个钟头像几天。
+        extra:
+          - "**搭配**crest a hill（翻上山顶）· on the crest of a wave（正当春风得意）"
+
+      - id: "316"
+        page: 85
+        color: blue
+        term: serpentine
+        kind: 单词
+        ipa: /ˈsɜːrpəntiːn/
+        pos: v.
+        cn: 像蛇一样蜿蜒前行
+        en: to move along in a winding way, bending and twisting like a snake
+        context: "A set of headlights slowly ==serpentine== their way up"
+        gist: 一对车灯慢慢地、弯弯绕绕地爬上山谷。
+        note: 牛津只收了形容词 serpentine（像蛇一样弯曲的、文学用语），这里作者把它当动词用，英文解释是我写的。serpent 是“蛇”。山路弯，车灯在黑里一左一右地绕着往上爬，看着就像一条蛇。注意美式读音结尾是 /tiːn/。
+        extra:
+          - "**搭配**make one’s way（一路走过去）：serpentine their way up = 蛇行着一路往上"
+
+      - id: "317"
+        page: 85
+        color: blue
+        term: lurches
+        lemma: lurch
+        eudic: false
+        kind: 单词
+        ipa: /ˈlɜːrtʃɪz/
+        pos: v.
+        cn: 猛地一晃；突然前冲
+        en: to make a sudden, unsteady movement forward or sideways
+        en_src: 牛津 8
+        context: "The vehicle ==lurches== before skidding"
+        gist: 那辆车猛地往前一冲。
+        note: 第 57 页的 No. 244 记过这个词（那里是 John 喝醉了跌跌撞撞上楼梯），这里又划了一次，欧路列表里就不重复放了。这回是车：一下子前冲、然后打滑。
+
+      - id: "318"
+        page: 85
+        color: blue
+        term: skidding
+        lemma: skid
+        kind: 单词
+        ipa: /ˈskɪdɪŋ/
+        pos: v.
+        cn: 打滑；滑着停下
+        en: (usually of a vehicle) to slide sideways or forwards in an uncontrolled way
+        en_src: 牛津 8
+        context: "skidding to an uncertain stop"
+        gist: 打着滑，晃晃悠悠地停了下来。
+        note: 注意双写 d：skid – skidded – skidding。牛津例句 The taxi skidded to a halt（出租车滑了一段停住了），跟这里的 skidding to a stop 是一个句型。
+        extra:
+          - "**搭配**skid to a halt/stop（滑着停下）· skid marks（刹车留下的轮胎印）"
