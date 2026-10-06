@@ -3055,3 +3055,71 @@ batches:
         note: 他把五张一百块拍在律师桌上，是早上从枕套里拿的。前面他问“别收我超过半千”，half grand 就是五百块，grand 是口语里的“一千块”。retainer 还有别的意思：美国人说牙齿矫正后戴的“保持器”也是它。
         extra:
           - "**搭配**pay sb a retainer（付给某人聘金）· on a retainer（按月领聘用金）"
+
+  - n: 36
+    date: 2026-10-06
+    pages: 40
+    photos: 1
+    notes:
+      - id: "184"
+        page: 40
+        color: blue
+        term: blacktop
+        kind: 名物
+        ipa: /ˈblæktɑːp/
+        pos: n.
+        cn: 柏油；沥青路面
+        en: a black, sticky material used to cover roads and driveways
+        context: "the thought of pouring ==blacktop== in the afternoon heat"
+        gist: 一想到下午还得顶着热浪浇柏油……
+        note: 牛津只写了一句“美式，等于英式的 Tarmac”，英文解释是我写的。black（黑）+ top（表面），就是铺在路面最上面那层黑东西。他上午铺石子，下午还要浇柏油，第 50 页还会说到这份活：laying blacktop。
+        extra:
+          - "**搭配**pour/lay blacktop（浇、铺柏油）· a blacktop road（柏油路）"
+
+      - id: "185"
+        page: 40
+        color: blue
+        term: smock
+        kind: 名物
+        ipa: /smɑːk/
+        pos: n.
+        cn: （女式）宽松罩衫
+        en: a loose comfortable piece of clothing like a long shirt, worn especially by women
+        en_src: 牛津 8
+        context: "his wife, in cotton ==smock== and jeans"
+        gist: 他的妻子，穿着棉布罩衫和牛仔裤。
+        note: 牛津还有第二个意思：画家、工人穿在外面防脏的“工作罩衣”。这里是他想象中的妻子，靠在拖车门口，穿得很家常。第 46 页 Moira 身上那件 green smock 是餐馆女招待的工作服，正好是第二个意思。
+        extra:
+          - "**搭配**an artist’s smock（画家的罩衫）"
+
+      - id: "186"
+        page: 40
+        color: blue
+        term: herky-jerky
+        kind: 口语
+        ipa: /ˌhɜːrki ˈdʒɜːrki/
+        pos: adj.
+        cn: 一抽一抽的；不连贯、一顿一顿的
+        en: moving in a sudden, uneven, stop-and-start way
+        context: "facial expressions and ==herky-jerky== movements"
+        gist: 一会儿一个表情，动作一抽一抽的。
+        note: 牛津查不到，英文解释是我写的。这是美国口语里押韵的叠词，核心是 jerky（一顿一顿、猛地一动的），前面配个 herky 只为了顺口，本身没意思。说的是那个小男孩：婴儿的动作就是这样，一下一下、不连贯。
+        extra:
+          - "**易混**jerky 一个词就是“忽动忽停的”；herky-jerky 更口语、更带画面感。"
+
+      - id: "187"
+        page: 40
+        color: blue
+        term: wedged
+        lemma: wedge
+        kind: 一词多义
+        ipa: /wedʒd/
+        pos: v.
+        cn: 被夹在（两者）中间；挤进去
+        en: to put or squeeze sth tightly into a narrow space, so that it cannot move easily
+        en_src: 牛津 8
+        context: "building ==wedged== between two others"
+        gist: 一栋夹在另外两栋楼中间的房子。
+        note: 名词 wedge 是“楔子”，那种一头厚一头尖、塞进缝里的东西。当动词，就是像楔子一样被死死卡在中间。这家餐馆在一栋两层红砖楼的一楼，两边各挤着一栋一模一样的楼。
+        extra:
+          - "**搭配**be wedged between A and B（夹在 A 和 B 之间）· drive a wedge between（离间两人）"
