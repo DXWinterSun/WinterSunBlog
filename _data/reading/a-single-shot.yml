@@ -3386,3 +3386,98 @@ batches:
         note: 前一页写他肚子像个甜瓜、腰上一圈肉，这里走路就像鸭子。作者给 Dolan 留的形象一直是胖、慢、自以为是。
         extra:
           - "**易混**waddle 左右摇摆；toddle 是小孩学步那样蹒跚；hobble 是腿脚不好，一瘸一拐。"
+
+  - n: 41
+    date: 2026-10-06
+    pages: 45
+    photos: 1
+    notes:
+      - id: "203"
+        page: 45
+        color: blue
+        term: engulfed
+        lemma: engulf
+        kind: 单词
+        ipa: /ɪnˈɡʌlft/
+        pos: v.
+        cn: 被吞没；被团团裹住
+        en: to surround or to cover sb/sth completely
+        en_src: 牛津 8
+        context: "==engulfed== in a cloud of blue-white smoke"
+        gist: 整个人淹没在一团蓝白色的烟雾里。
+        note: 牛津标着正式。gulf 是“海湾、深渊”，en- 是“使进入”，就像被一口吞进去。三百二十磅的大块头，整个罩在自己吐的烟里，画面很夸张。
+        extra:
+          - "**搭配**be engulfed in flames（被大火吞没）· Fear engulfed her.（恐惧淹没了她）"
+
+      - id: "204"
+        page: 45
+        color: blue
+        term: bobs
+        lemma: bob
+        kind: 一词多义
+        ipa: /bɑːbz/
+        pos: v.
+        cn: （使）上下晃动
+        en: to move or make sth move quickly up and down
+        en_src: 牛津 8
+        context: "Puffer ==bobs== the burning cigarette between his lips"
+        gist: Puffer 嘴里叼着的烟一上一下地晃。
+        note: 嘴里叼着烟说话、点头，烟头就跟着一翘一翘的。bob 常用在小船在水上一起一伏、人点头上。另一个意思是“把头发剪成齐耳短发”，bob 也就是“波波头”。
+        extra:
+          - "**搭配**bob up and down（上下起伏）· bob your head（点头）"
+
+      - id: "205"
+        page: 45
+        color: blue
+        term: curt
+        kind: 单词
+        ipa: /kɜːrt/
+        pos: adj.
+        cn: 简短生硬的；爱答不理的
+        en: appearing rude because very few words are used, or because sth is done in a very quick way
+        en_src: 牛津 8
+        context: "answers with a ==curt== nod"
+        gist: 只草草点了一下头算是回答。
+        note: 牛津的例子里正好就有 a curt nod。别人跟他打招呼，他一个字都懒得说，点一下头就完。curt 是“短到没礼貌”。
+        extra:
+          - "**易混**brief 只是短；curt 是短得冷淡、不客气；abrupt 是突然、生硬。"
+
+      - id: "206"
+        page: 45
+        color: orange
+        term: 好句
+        context: "John feels ==his spirits raised and lowered at the same time==."
+        gist: 看见她，John 觉得心里同时被提起来，又被压下去。
+        note: spirits 是“情绪、心气”，raise 和 lower 一升一降，放在同一个瞬间。见到她当然高兴，可一见到她，也就想起了她已经走了、想起自己那堆事。不用说一句“又喜又悲”，一升一降的动作就够了。
+
+      - id: "207"
+        page: 45
+        color: orange
+        term: 好句
+        context: "she loved in him ==what the world couldn’t see—a gentle soul and a kind heart that injured easily and took forever to heal==."
+        gist: 她爱的是他身上世人看不见的东西：一个温柔的灵魂，一颗善良的心，容易受伤，伤了又要很久才好。
+        note: 别人眼里的他是偷猎的、打不住工的、粗人。只有她说过，她看见的是另一面。最后半句最好：一颗心像一个身体，会受伤，还“要等到天荒地老才能长好”。这句话出自她口中，现在被他想起，正是她已经离开的时候。
+
+      - id: "208"
+        page: 45
+        color: orange
+        term: 好句
+        context: "yet had married John, who ==didn’t even graduate from high school==."
+        gist: 可她偏偏嫁给了连高中都没念完的 John。
+        note: 前一句说她能说会写，完全可以去上大学；这一句一个 even（连……都），把两人之间的落差摆出来。不是他在自嘲，而是他心里一直放不下的那点自卑。
+
+      - id: "209"
+        page: 45
+        color: blue
+        term: prophecy
+        kind: 单词
+        ipa: /ˈprɑːfəsi/
+        pos: n.
+        cn: 预言
+        en: a statement that sth will happen in the future
+        en_src: 牛津 8
+        context: "this became a self-fulfilling ==prophecy=="
+        gist: 这就成了一个自己应验的预言。
+        note: self-fulfilling prophecy 是个固定说法：因为一直相信某件事会发生，就照着它去做，结果它真的发生了。他一直觉得她总有一天会厌倦他、离开他，而这份担心本身，也许就把她推走了。注意拼写：名词 prophecy（-cy，读 /si/），动词 prophesy（-sy，读 /saɪ/）。
+        extra:
+          - "**搭配**a self-fulfilling prophecy（自我应验的预言）· fulfil a prophecy（应验预言）"
