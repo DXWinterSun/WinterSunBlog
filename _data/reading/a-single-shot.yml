@@ -4063,3 +4063,42 @@ batches:
         context: "buys a pint of ==schnapps=="
         gist: 买了一品脱烈酒。
         note: 牛津说这个词来自德语。美国超市里卖的 schnapps 常是甜的、带水果味的烈酒，便宜又上头。他本来就已经喝了大半醉，又买一瓶边等边喝。
+
+  - n: 52
+    date: 2026-10-06
+    pages: 57
+    photos: 1
+    notes:
+      - id: "243"
+        page: 57
+        color: blue
+        term: guffawing
+        lemma: guffaw
+        kind: 单词
+        ipa: /ɡəˈfɔːɪŋ/
+        pos: v.
+        cn: 放声大笑；哈哈狂笑
+        en: to laugh noisily
+        en_src: 牛津 8
+        context: "the kid, ==guffawing== to himself"
+        gist: 那小子自己一个人哈哈大笑着。
+        note: 是那种不顾旁人、粗声粗气的大笑。送比萨的小伙子从楼上下来，一边笑一边嘟囔，像是刚在楼上看到了什么好笑的东西。
+        extra:
+          - "**易混**giggle 是咯咯傻笑；chuckle 是低声轻笑；guffaw 是粗声狂笑。"
+
+      - id: "244"
+        page: 57
+        color: blue
+        term: lurches
+        lemma: lurch
+        kind: 单词
+        ipa: /ˈlɜːrtʃɪz/
+        pos: v.
+        cn: 踉踉跄跄地走
+        en: to make a sudden, unsteady movement forward or sideways
+        en_src: 牛津 8
+        context: "he ==lurches== up the wooden stairs"
+        gist: 他跌跌撞撞地爬上木楼梯。
+        note: 两只手抓着扶手，一歪一斜地往上冲，醉了。牛津例句就是醉汉踉跄着出酒馆。另有一个习语 leave sb in the lurch（在别人有难时撂下不管）。
+        extra:
+          - "**搭配**lurch to one side（突然歪向一边）· leave sb in the lurch（撂下某人不管）"
