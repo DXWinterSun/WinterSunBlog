@@ -4352,3 +4352,24 @@ batches:
         note: 牛津说它带一点“动作笨拙”的意思。认出来了吗：这个男人就是 John 白天在街上看见、跟 Waylon 一起过马路的那个金发男人。
         extra:
           - "**易混**tall 是高；slim 是苗条（褒）；lanky 是又高又瘦、胳膊腿长得不协调。"
+
+  - n: 58
+    date: 2026-10-06
+    pages: 63
+    photos: 1
+    notes:
+      - id: "259"
+        page: 63
+        color: blue
+        term: lard-ass
+        eudic: false
+        kind: 俚语
+        ipa: /ˈlɑːrd æs/
+        pos: n.
+        cn: （骂人话）死胖子
+        en: (rude slang) a very fat, lazy person
+        context: "that chain-smoking ==lard-ass==, got himself"
+        gist: 那个烟不离手的死胖子……
+        note: 牛津查不到，英文解释是我写的。lard 是“猪油”，ass 是“屁股”，合起来就是“一屁股肥油”的人，很粗鲁。这里骂的是老板 Puffer。词典里没有，不放进欧路列表。
+        extra:
+          - "**搭配**chain-smoking（一根接一根抽烟的）"
