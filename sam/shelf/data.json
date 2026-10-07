@@ -949,6 +949,32 @@
       "wish": 0,
       "id": "muwu41vz-2zf51",
       "added": 1791300575380
+    },
+    {
+      "name": "《神枪手之死》",
+      "type": "disc",
+      "spec": "DVD · 德版 · 二区",
+      "charId": "charley",
+      "date": "2026-10-07",
+      "note": "碟面上的群像里有他（中间偏右、白衬衫小胡子）",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muyb4s5t-hcfgr",
+      "added": 1791389629073
+    },
+    {
+      "name": "Disney 100 Phantom 异形特卡 · Justin Hammer",
+      "type": "card",
+      "spec": "PM-YX-08 · 2张",
+      "charId": "hammer",
+      "date": "2026-10-07",
+      "note": "带彩虹反光的异形切边卡，和那套 40 张是同一系列",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "muyb4s5u-oovug",
+      "added": 1791389629074
     }
   ]
 }
