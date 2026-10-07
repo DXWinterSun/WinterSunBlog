@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Extra · Back to Back — Everybody's Home"
-date: 2026-10-07 00:08:00 +0800
+date: 2026-10-08 00:08:00 +0800
 image: sam-bell-5.jpeg
 tags: [Sam Bell, Sam Rockwell, AU, Everybody's Home, 缱绻, 安放]
 categories: ["AU Story"]
@@ -13,6 +13,8 @@ series_type: Series
 chapter_type: "Extra"
 chapter_kind: extra
 summary: "十一月五号是他一个人的；十一月六号，是他们捡来的。"
+redirect_from:
+  - /2026/10/07/everybody-s-home-extra-back-to-back/
 ---
 
 > 《月球》（_Moon_, 2009）AU 系列《Everybody's Home》番外十八。前情见
