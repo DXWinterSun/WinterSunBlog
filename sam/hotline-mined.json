@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文筛出、再经 tools/hotline_review.json 人审过的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 这句接得上的情境（可多个）。新章节上线后重跑脚本即可，不要手改。",
-  "count": 213
+  "count": 207
  },
  "chars": {
   "youngsam": {
@@ -1233,67 +1233,6 @@
      "ch": 29,
      "title": "Extra · 十七个弯",
      "series": "Summer Never Ends"
-    }
-   ]
-  },
-  "johnmoon": {
-   "default": [
-    {
-     "cn": "一直这么……被你爱着。就这个。别的没了。",
-     "b": [
-      "love"
-     ],
-     "ch": 15,
-     "title": "Chapter 15 · 愿望不实现就不实现",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "现在明白了。要是那些道儿，都是为了把我送到你跟前——那就不亏。一步都不亏。",
-     "b": [
-      "love"
-     ],
-     "ch": 22,
-     "title": "Chapter 22 · 一天都不想等了",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "从今往后你什么都不用干。",
-     "b": [
-      "tired"
-     ],
-     "ch": 22,
-     "title": "Chapter 22 · 一天都不想等了",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "炉子上还有火。屋外是雪。你在家。",
-     "b": [
-      "sleepless",
-      "tired",
-      "night"
-     ],
-     "ch": 27,
-     "title": "Chapter 27 · 这回来得及",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "我听着。今晚多长都行。",
-     "b": [
-      "tired",
-      "sleepless"
-     ],
-     "ch": 27,
-     "title": "Chapter 27 · 这回来得及",
-     "series": "Wintergreen"
-    },
-    {
-     "cn": "我睡外侧。靠门这边。你睡里头，贴墙，暖和。",
-     "b": [
-      "night"
-     ],
-     "ch": 8,
-     "title": "Chapter 8 · 床够宽",
-     "series": "Wintergreen"
     }
    ]
   },
