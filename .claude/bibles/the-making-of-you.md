@@ -10,6 +10,8 @@ Stankis（"You talked to Aldo Stankis?" / "the Stankis group"），维基百科�
 早先的 Stankas 是照维基百科剧情简介抄的（那页自己前后不一）。当日全站已改，注音写 `STAN-kis`、「i 要短」；
 网址、文件名、封面图名 `aldo-stankas.jpg` 里的旧拼法刻意没动（动了会断链接）。
 彩蛋：片里 Howard 当面把他叫成 “Stankass”、“Stinkis”——他的姓在原片里就是被人故意念拧的。
+⚠️ **本系列的 Aldo 是「冷面版」，保留、别往原片那个油嘴滑舌的方向改**（2026-10-11 Winter：「冷面版有冷面该有的味道」）。
+原片那个话多、爱显摆、撒谎不眨眼的迷人混蛋，另开一个新 AU 来写（灵感本 ✨「Aldo 的第二个 AU」）。
 配色: 分红翡翠 `#2ea86a` / 空头支票 `#0f1613`（au_palettes mf_id: aldo）
 进度: **主线 32 章（已在一起并结婚，主线完）+ 番外 33 篇（ongoing，持续加甜/他视角）**
 
