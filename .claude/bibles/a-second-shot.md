@@ -304,3 +304,4 @@ series_name: A Second Shot ｜ slug: series/a-second-shot/
       - Moira 走时带走：首饰盒、Nolan 小毛衣、浅蓝小毯子、塑料小马、粉猪书。
       - Ch3 你写的那行字在第五页空白处，你临走把那一页抽给了他。
 
+  - 2026-10-11 第 12–15 章路线图 + 三个岔路（Moira 那一头怎么收 / “John 就行”要不要还 / 最后一章停在哪）：`.claude/roadmaps/a-second-shot.json`，预览 https://claude.ai/artifact/4ELLNQL4qP312KRtrqmnoL 。第 13 章新点子：他从钱夹里拿出你留给他的那一页“保留山林”（待她点头）。
