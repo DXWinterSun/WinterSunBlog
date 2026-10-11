@@ -118,7 +118,7 @@ AU 的命门是角色不能崩。Winter 对 OOC 极敏感，抓到会明确指�
 
 Winter 会给「你」对他的称呼定死一个规矩，这条极容易写错，错了她一定抓。
 
-> 例（Making of You 的铁律）：「你」自始至终只叫他 **「Stankas 先生」**，从第一章到婚后、到床上都不改口——绝不直呼 Aldo。这是这个 AU 的一条脊。写每一句她对他说的话之前，都对一下称呼。
+> 例（Making of You 的铁律）：「你」自始至终只叫他 **「Stankis 先生」**，从第一章到婚后、到床上都不改口——绝不直呼 Aldo。这是这个 AU 的一条脊。写每一句她对他说的话之前，都对一下称呼。
 
 开新 AU 时就问清称呼规矩，钉进圣经。
 
@@ -187,4 +187,4 @@ Winter 点头后，成品的 front matter、标签白名单、`summary` 字数�
 
 ## 参考文件
 
-- `references/worked-example.md` —— 用 Making of You（Aldo Stankas AU）作范例，展示一份填好的系列圣经长什么样、伏笔怎么记账、番外体裁怎么落地。开新 AU 或拿不准某一步时照着看。
+- `references/worked-example.md` —— 用 Making of You（Aldo Stankis AU）作范例，展示一份填好的系列圣经长什么样、伏笔怎么记账、番外体裁怎么落地。开新 AU 或拿不准某一步时照着看。

@@ -3,10 +3,10 @@ layout: post
 title: "Extra 12 · 产品照 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 怅惘]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 怅惘]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 44
 series_status: ongoing
 series_type: Series
@@ -35,7 +35,7 @@ summary: "小号这次挖到的图，你存不下手了——他和她，郎才�
 
 他扫了一眼，神色毫无波澜：“哦。Claire。”顿了顿，补充了一条商业信息，“现在是全城最好的家事律师。你要现在离，她能给你争到苹果树，连果子的期权都算你的。”
 
-“Aldo Stankas！”
+“Aldo Stankis！”
 
 “哎。”他心满意足地应了，然后才认真看你，“问吧。憋一晚上了，眼睛底下都青了——问。”
 
@@ -49,7 +49,7 @@ summary: "小号这次挖到的图，你存不下手了——他和她，郎才�
 
 你忽然愣住了。没有。一帧都没有。同一个笑，同一个角度，同一副姿态，精确得像同一张底片洗出来的。
 
-“这叫产品照，Winter。”他把手机搁下，语气平静，“Aldo Stankas，旗舰型号，出厂标准姿态。我这样的照片存世大概有两千张，身边的人换过一批又一批——产品不变。她也一样，她站在我旁边的样子，和她站在法庭上、站在她现任丈夫旁边的样子，同一套出厂设置。两件旗舰产品摆在一起，当然配。橱窗里的东西，都配。”
+“这叫产品照，Winter。”他把手机搁下，语气平静，“Aldo Stankis，旗舰型号，出厂标准姿态。我这样的照片存世大概有两千张，身边的人换过一批又一批——产品不变。她也一样，她站在我旁边的样子，和她站在法庭上、站在她现任丈夫旁边的样子，同一套出厂设置。两件旗舰产品摆在一起，当然配。橱窗里的东西，都配。”
 
 “那……”你小声地，把第二个问题放出来，这个更没出息，“你们那种关系……就是，大人的那种……是不是，更多是——”
 

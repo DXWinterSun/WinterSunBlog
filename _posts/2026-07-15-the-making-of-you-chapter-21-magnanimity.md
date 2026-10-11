@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 27 · 大度 — The Making of You"
 date: 2026-07-15 07:49:39 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 絮语, 悸动]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 絮语, 悸动]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 27
 series_status: ongoing
 series_type: Series
@@ -69,17 +69,17 @@ redirect_from:
 
 理由永远充分：顺路，合同，带文件。他和 Leo 正式认识，是第三次探班。那场面你在旁边看着，脚趾抠紧：他笑容无懈可击，伸出手——“你好，我是她的经纪人。”
 
-“Stankas 先生！久仰！”Leo 握上去，热情洋溢，虎牙都露出来了，“说真的，Winter 太厉害了，有几场戏她一入戏，我鸡皮疙瘩都起来了——那眼神，跟真的一样！我差点都要信了！”
+“Stankis 先生！久仰！”Leo 握上去，热情洋溢，虎牙都露出来了，“说真的，Winter 太厉害了，有几场戏她一入戏，我鸡皮疙瘩都起来了——那眼神，跟真的一样！我差点都要信了！”
 
 “跟真的一样？”他重复了一遍，笑容不变，握着的手紧了半分，时长超出礼节两秒，“呵。她基本功好。我教的。”
 
-“怪不得！”Leo 毫无知觉，反而凑近了些，压低声音，一脸真诚地讨教，“那个……Stankas 先生，冒昧问一句，像 Winter 这样的——呃我是说，她平时，喜欢什么样的……”
+“怪不得！”Leo 毫无知觉，反而凑近了些，压低声音，一脸真诚地讨教，“那个……Stankis 先生，冒昧问一句，像 Winter 这样的——呃我是说，她平时，喜欢什么样的……”
 
 “喜欢工作。”他松开手，微笑着截断了这个问题的去路，顺便替你把人生规划安排到了下个十年，“她未来五年，三部文艺片，两个国际项目，档期以分钟计。年轻人，”他抬手，亲切地、用力地拍了拍 Leo 的肩，像拍一颗即将出局的棋子，“专注事业。”
 
 拍吻戏那天，他也“顺路”来了。
 
-那是场隔着一层纱帘的、点到为止的吻，文艺又克制，全组都夸导演拍得美。监视器后面，他从头到尾站得笔直，双手插兜，表情是开董事会的表情。一条过。导演回头客气地问：“Stankas 先生觉得怎么样？”
+那是场隔着一层纱帘的、点到为止的吻，文艺又克制，全组都夸导演拍得美。监视器后面，他从头到尾站得笔直，双手插兜，表情是开董事会的表情。一条过。导演回头客气地问：“Stankis 先生觉得怎么样？”
 
 “专业的事听专业的。”他公事公办地点头，“导演觉得好，就好。”
 

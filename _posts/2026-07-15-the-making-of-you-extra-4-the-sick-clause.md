@@ -3,10 +3,10 @@ layout: post
 title: "Extra 4 · 生病条款 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 安放]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 安放]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 36
 series_status: ongoing
 series_type: Series
@@ -19,7 +19,7 @@ summary: "你烧到三十九度还想拍。他第一次对你发火，又红了�
 
 事情败露，是因为三个细节。
 
-那天晚上的例行电话里，你的声音比平时低了半个调——你以为掩饰得很好，毕竟你是拿过奖的演员。第二，你推掉了晚饭，理由是“背台词”，可你的台词功课，比平时晚发了两个小时。第三，也是最致命的：他说“那早点睡”，你回了句“好的，Stankas 先生”——没有讨价还价。
+那天晚上的例行电话里，你的声音比平时低了半个调——你以为掩饰得很好，毕竟你是拿过奖的演员。第二，你推掉了晚饭，理由是“背台词”，可你的台词功课，比平时晚发了两个小时。第三，也是最致命的：他说“那早点睡”，你回了句“好的，Stankis 先生”——没有讨价还价。
 
 四年了，你哪次不磨到十一点。
 
@@ -75,7 +75,7 @@ summary: "你烧到三十九度还想拍。他第一次对你发火，又红了�
 
 黑暗里，坐在床边守着的人，握着你的手，一下子攥紧了。
 
-“……Stankas 先生别嫌我麻烦……”梦里的你还在往外倒，把那些醒着时死也不说的、库存三年的话，一句一句往外倒，“……其实好想他……天天都想……别告诉他……”
+“……Stankis 先生别嫌我麻烦……”梦里的你还在往外倒，把那些醒着时死也不说的、库存三年的话，一句一句往外倒，“……其实好想他……天天都想……别告诉他……”
 
 守着你的人俯下身，在你滚烫的额头上，极轻极轻地印了一个吻。
 
@@ -91,7 +91,7 @@ summary: "你烧到三十九度还想拍。他第一次对你发火，又红了�
     <p>第三条：违约金——被本人照顾至痊愈为止。粥由本人做。不得保释，不得上诉。</p>
     <p>第四条：本条款对等适用于本人。（补：本人从不生病。此条备而不用。）</p>
   </div>
-  <span class="c-note__sign">— Stankas 先生 批</span>
+  <span class="c-note__sign">— Stankis 先生 批</span>
 </div>
 
 三个月后，第四条启用了。

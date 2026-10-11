@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 30 · 红毯 — The Making of You"
 date: 2026-07-15 08:08:43 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 安放]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 安放]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 30
 series_status: ongoing
 series_type: Series
@@ -19,11 +19,11 @@ summary: "二十年侧门进场的人，第一次把自己的名字，走在了�
 
 车在红毯入口停下的前一分钟，你发现了一件不得了的事。
 
-Aldo Stankas 在紧张。
+Aldo Stankis 在紧张。
 
 不明显——他那张脸这辈子都不会明显——可你现在读他像读母语：领巾被他抚平了三次；上车之后他把袖扣转了两圈；此刻，他望着窗外那条被灯烧成白色的毯子，喉结动了一下。
 
-“Stankas 先生，”你憋着笑，把他自己的话原样递回去，“你紧张。”
+“Stankis 先生，”你憋着笑，把他自己的话原样递回去，“你紧张。”
 
 “胡说。”他面不改色，“我在做动线评估。”
 
@@ -39,9 +39,9 @@ Aldo Stankas 在紧张。
 
 然后，你听见入口处的司仪，对着话筒，一字一顿地念出：
 
-“Winter Vale 女士，及男友——Aldo Stankas 先生。”
+“Winter Vale 女士，及男友——Aldo Stankis 先生。”
 
-Stan-kas。念得又准又稳，一个音都没有拧。
+Stan-kis。念得又准又稳，一个音都没有拧。
 
 你感觉到臂弯里他的手臂，几不可察地绷了一下。你太知道那半秒是什么了——被念拧了二十年的姓，第一次在这样的灯下、这样的场合，被完完整整、清清楚楚地念对。你侧过头，发现他正目视前方，下颌线绷得很直，像什么都没发生。
 
@@ -49,7 +49,7 @@ Stan-kas。念得又准又稳，一个音都没有拧。
 
 提问区的第一站，话筒几乎是砸过来的。
 
-“Stankas 先生！二十年了，您第一次走红毯——现在感觉如何？”
+“Stankis 先生！二十年了，您第一次走红毯——现在感觉如何？”
 
 “感觉，”他扫了一眼脚下，慢条斯理，“这毯子的绒，比我批预算时以为的厚。钱没白花。”
 
@@ -61,7 +61,7 @@ Stan-kas。念得又准又稳，一个音都没有拧。
 
 你在旁边脸红得发烫，记者们笑成一片。然后，一个资深些的记者，问出了那个真正的问题：
 
-“Stankas 先生，您做了二十年金牌经纪人，把那么多明星送上这条红毯。今天以另一个身份亲自走上来——有什么不一样？”
+“Stankis 先生，您做了二十年金牌经纪人，把那么多明星送上这条红毯。今天以另一个身份亲自走上来——有什么不一样？”
 
 周围忽然静了一点。你感觉到无数镜头对准了他。
 
@@ -79,7 +79,7 @@ Stan-kas。念得又准又稳，一个音都没有拧。
 
 你和他对视了一眼。
 
-“Stankas 先生。”你老老实实地说。
+“Stankis 先生。”你老老实实地说。
 
 全场爆笑。他在笑声里面无表情地补充：“这一项还在谈。三年了。”他叹了口气，语气沉痛，“我谈判从不输——除了这一单。”
 

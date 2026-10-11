@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 16 · 非卖品 — The Making of You"
 date: 2026-07-19 09:11:22 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 暗涌, 悸动]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 暗涌, 悸动]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 16
 series_status: ongoing
 series_type: Series
@@ -27,7 +27,7 @@ redirect_from:
 
 “Julian Roarke 今天给我打了个电话。”他开口，平得可怕，“很客气。说你主动联系了他，问他那个 offer 还算不算数。”他抬起眼，那双榛色的眼睛在昏暗里沉沉地看着你，“他还让我别太意外。”
 
-你的心沉到底。“Stankas 先生，我——”
+你的心沉到底。“Stankis 先生，我——”
 
 “我只问你一件事。”他打断你，一字一顿，“真的，假的。”
 

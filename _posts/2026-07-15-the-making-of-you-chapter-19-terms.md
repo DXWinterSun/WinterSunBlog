@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 25 · 条款 — The Making of You"
 date: 2026-07-15 07:29:44 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 絮语, 缱绻]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 絮语, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 25
 series_status: ongoing
 series_type: Series
@@ -23,15 +23,15 @@ redirect_from:
 
 问题出在：你们都不会。
 
-他四十多年的人生里，规则只有一套——报价，谈判，成交，交割。感情这个东西，他向来是绕着走的。而你，十九岁签给他，二十二岁被他“撤牌自留”，三年养成刻进骨子里的全是“Stankas 先生说”“好的我马上改”——一夜之间要改口，你的舌头根本转不过弯。
+他四十多年的人生里，规则只有一套——报价，谈判，成交，交割。感情这个东西，他向来是绕着走的。而你，十九岁签给他，二十二岁被他“撤牌自留”，三年养成刻进骨子里的全是“Stankis 先生说”“好的我马上改”——一夜之间要改口，你的舌头根本转不过弯。
 
 第二天早上你走进玻璃楼，在电梯里遇到他。四目相对，你脱口而出：
 
-“早，Stankas 先生。”
+“早，Stankis 先生。”
 
 电梯里还有三个员工。他面无表情地“嗯”了一声。可电梯到顶层、人走空了之后，他伸手按住关门键，居高临下地看着你，那双榛色的眼睛里写满谴责：
 
-“Stankas 先生？”
+“Stankis 先生？”
 
 “……那，那叫什么？”你脸爆红，“总不能在公司叫……叫……”
 
@@ -55,7 +55,7 @@ redirect_from:
 
 “笑什么。”
 
-“你紧张。”你指出这个惊天事实，自己都不敢相信，“Stankas 先生，你在紧张。”
+“你紧张。”你指出这个惊天事实，自己都不敢相信，“Stankis 先生，你在紧张。”
 
 他放下刀叉，抹了一把下巴——第三次，你见他做这个多余的动作。然后他破罐破摔地承认了，声音闷闷的：
 

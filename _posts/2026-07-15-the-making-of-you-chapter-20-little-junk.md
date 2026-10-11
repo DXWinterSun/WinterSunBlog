@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 26 · 小破烂 — The Making of You"
 date: 2026-07-15 07:40:47 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 怀旧]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 怀旧]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 26
 series_status: ongoing
 series_type: Series
@@ -75,7 +75,7 @@ redirect_from:
 
 “对不起。”
 
-Aldo Stankas 说了对不起。没有玩笑垫着，没有老板腔裹着，光秃秃的三个字，说得又哑又生疏，像一门二十年没用过的语言。
+Aldo Stankis 说了对不起。没有玩笑垫着，没有老板腔裹着，光秃秃的三个字，说得又哑又生疏，像一门二十年没用过的语言。
 
 “那句混账话是我说的。我说的时候连想都没想——我不知道有人会当真，更不知道……”他低头，极轻地碰了碰那颗苹果，像碰一件出土的文物，“更不知道有人拿它，疼了自己半年。”
 

@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 23 · 颁奖夜 — The Making of You"
 date: 2026-07-15 07:18:51 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 悸动]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 23
 series_status: ongoing
 series_type: Series
@@ -43,7 +43,7 @@ redirect_from:
 
 对不起了，你在心里说。今晚就冒这一次。
 
-“还有一个人，卡片上写了，但只写了一行，我觉得不够。”你合上卡片，“我的经纪人，Aldo Stankas。”
+“还有一个人，卡片上写了，但只写了一行，我觉得不够。”你合上卡片，“我的经纪人，Aldo Stankis。”
 
 台下起了一小片善意的骚动——这个名字在这个行业里，谁都认识。
 
@@ -51,7 +51,7 @@ redirect_from:
 
 你举起奖杯，朝着那片看不清的黑暗。
 
-“Stankas 先生——这一座，给走廊里的你。谢谢你在谁都没看见我的时候，买下了那一秒。剩下的每一秒，是你把它们，也都变成了真的。”
+“Stankis 先生——这一座，给走廊里的你。谢谢你在谁都没看见我的时候，买下了那一秒。剩下的每一秒，是你把它们，也都变成了真的。”
 
 掌声炸开的时候，导播的镜头扫过观众席，最后停在了那个业内无人不识的男人身上。
 
@@ -59,7 +59,7 @@ redirect_from:
 
 采访间在后台，长枪短炮排成一面墙。
 
-“Winter！恭喜！致辞里那段走廊的故事太动人了——你和 Stankas 先生共事三年，网上一直有传闻，今晚他的领巾又和你的裙子是同一个绿色，请问你们是否在交往？”
+“Winter！恭喜！致辞里那段走廊的故事太动人了——你和 Stankis 先生共事三年，网上一直有传闻，今晚他的领巾又和你的裙子是同一个绿色，请问你们是否在交往？”
 
 问得这么直接，你反而稳了——他陪你练过比这刁十倍的。你笑了笑，用他教的节奏，答一半：
 

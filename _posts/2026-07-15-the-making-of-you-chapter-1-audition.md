@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 1 · 试镜 — The Making of You"
 date: 2026-07-15 03:52:17 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 暗涌]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 1
 series_status: ongoing
 series_type: Series
@@ -43,7 +43,7 @@ redirect_from:
 
 他抬手，把卡片抵在你手心。烫金的字，只印一个名字、一个号码，别的什么都没有。他的指尖擦过你的掌纹，不轻不重，顺势替你把手指往卡片上按了按，像替一件东西贴好标签。
 
-“Aldo Stankas。”他报出自己的名字，像在报一个你早该付得起、又其实付不起的价钱。你当然听过——整个圈子都听过。这城里有一半人想签他签不到，另一半人签了他又后悔。他看着你张口结舌的样子，笑了一下。那笑容漂亮得近乎危险，眼角折出几道纹，却半点不让人放松。
+“Aldo Stankis。”他报出自己的名字，像在报一个你早该付得起、又其实付不起的价钱。你当然听过——整个圈子都听过。这城里有一半人想签他签不到，另一半人签了他又后悔。他看着你张口结舌的样子，笑了一下。那笑容漂亮得近乎危险，眼角折出几道纹，却半点不让人放松。
 
 “别急着谢我，”他低声说，那声音裹着一层熟极了的暖意，像浇在你手背上的温水，“我还没决定要不要你呢。”
 

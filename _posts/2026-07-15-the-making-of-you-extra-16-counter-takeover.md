@@ -3,10 +3,10 @@ layout: post
 title: "Extra 16 · 反收购 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 炽恋, 暗涌]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 炽恋, 暗涌]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 48
 series_status: ongoing
 series_type: Series
@@ -21,7 +21,7 @@ summary: "天蝎座记仇。你上周的收购案，他今晚逐条反制。"
 
 正常得可疑。照常上班，照常毒舌，照常在周五傍晚宣布“光线不错”。你等了三天，没等到任何反击，不免有点飘——第七天早餐的时候，你终于没绷住，端着咖啡，用他的腔调慢悠悠地问：
 
-“Stankas 先生，上周被收购的滋味，如何啊？”
+“Stankis 先生，上周被收购的滋味，如何啊？”
 
 他翻报纸的手没停，眼皮都没抬：“还行。”
 
@@ -77,7 +77,7 @@ summary: "天蝎座记仇。你上周的收购案，他今晚逐条反制。"
 
 你败下阵来。你听见自己用又软又颤、烧得一塌糊涂的声音，把那个称呼，完完整整地交了出去：
 
-“Stankas……先生。”
+“Stankis……先生。”
 
 “哎。”他应了，应得心满意足，尾音低得像叹息。
 

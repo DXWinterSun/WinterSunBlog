@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 28 · 真情实感 — The Making of You"
 date: 2026-07-15 07:50:39 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 安放]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 安放]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 28
 series_status: ongoing
 series_type: Series
@@ -51,7 +51,7 @@ redirect_from:
 
 他整个人僵住了。你看着他的脸以肉眼可见的速度失去血色，看着他扶在桌沿的手收紧，看着这个谈过几个亿案子的男人，狼狈得像被人当胸抽了一拳——你赶紧伸手按住他的手背，把下半句说完：
 
-“可是 Stankas 先生，你还记不记得，你教过我一件事？”
+“可是 Stankis 先生，你还记不记得，你教过我一件事？”
 
 “……什么？”
 
@@ -63,7 +63,7 @@ redirect_from:
 
 你看着他的眼睛，把最后一句说完：
 
-“我对面站的，从来就没有别人。三年半了，摄影机拍到的每一个‘真情实感’的眼神，都是我在看你。全国人民磕的那对 CP——男主角是谁，根本无所谓。他们嗑的是我看你的眼神，Stankas 先生。他们从我第一部戏，嗑到了现在。”
+“我对面站的，从来就没有别人。三年半了，摄影机拍到的每一个‘真情实感’的眼神，都是我在看你。全国人民磕的那对 CP——男主角是谁，根本无所谓。他们嗑的是我看你的眼神，Stankis 先生。他们从我第一部戏，嗑到了现在。”
 
 寂静。长得可怕的寂静。
 

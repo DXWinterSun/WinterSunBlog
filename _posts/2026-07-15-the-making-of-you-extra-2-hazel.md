@@ -3,10 +3,10 @@ layout: post
 title: "Extra 2 · 榛色 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 缱绻]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 悸动, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 34
 series_status: ongoing
 series_type: Series
@@ -37,7 +37,7 @@ Vivienne Cross。你从小在海报上看到大的名字，他“存货时代”
 
 你在洗手间的镜子前站了三分钟，把那点酸涩一遍遍往下咽——咽得很熟练。太熟练了。这门手艺你十九岁就会了，四年没生疏。
 
-回去之后，你笑得更得体了。得体到滴水不漏，得体到全程再没看他一眼，得体到散场时对他说的是：“Stankas 先生慢聊，我先回去了，明早还有通告。”
+回去之后，你笑得更得体了。得体到滴水不漏，得体到全程再没看他一眼，得体到散场时对他说的是：“Stankis 先生慢聊，我先回去了，明早还有通告。”
 
 你都走到衣帽间了，身后传来不紧不慢的脚步声。
 
@@ -45,13 +45,13 @@ Vivienne Cross。你从小在海报上看到大的名字，他“存货时代”
 
 你站住了。他绕到你面前，双手插兜，居高临下地看你——那张脸上的表情你从没见过：三分审视，三分了然，还有四分……被他拼命压住的、几乎要满溢出来的得意。
 
-“‘Stankas 先生慢聊’。”他字正腔圆地复述了一遍，眼睛越来越亮，“Winter Vale，你吃醋了。”
+“‘Stankis 先生慢聊’。”他字正腔圆地复述了一遍，眼睛越来越亮，“Winter Vale，你吃醋了。”
 
 “我没有。”
 
 “你有。”他斩钉截铁，嘴角已经压不住了，“我等这一天等了两年。你知不知道你吃醋的时候，礼貌得像在宣战？——太好看了。再说一遍那个‘慢聊’我听听。”
 
-“Aldo Stankas！”
+“Aldo Stankis！”
 
 “哎。”他应得心满意足。
 

@@ -3,10 +3,10 @@ layout: post
 title: "Extra 13 · 造不出来的部分 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 悸动]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 悸动]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 45
 series_status: ongoing
 series_type: Series
@@ -23,7 +23,7 @@ summary: "全网发现他从没夸过你。他试了三次，废纸篓里躺着�
 
 第二天，考古队顺藤摸瓜，统计出了一个惊人的对照数据，并做成了词条：
 
-#Stankas先生从未公开夸过太太#
+#Stankis先生从未公开夸过太太#
 
 有人翻遍了他所有的公开发言。夸过你的商业价值（“被严重低估”），夸过你的基本功（“我教的”），夸过你的奖（“投资回报符合预期”）——正经的、人对人的夸奖，零。评论区哀鸿遍野：“不是，哥，你太太全网夸你，你就这？”“谈判之王不会夸人真的假的”“建议 Vale 姐反向讨薪”。
 
@@ -95,7 +95,7 @@ summary: "全网发现他从没夸过你。他试了三次，废纸篓里躺着�
 
 他伸手，把倒计时按掉，看都没看。
 
-“时间到了。”你的眼泪早就没忍住，嗓子哑得不像话，还想笑他，“Stankas 先生，超时了。”
+“时间到了。”你的眼泪早就没忍住，嗓子哑得不像话，还想笑他，“Stankis 先生，超时了。”
 
 “没到。”他说，眼睛没离开你，“这一项，不设上限。跟你学的。”
 
@@ -117,6 +117,6 @@ summary: "全网发现他从没夸过你。他试了三次，废纸篓里躺着�
 
 “商业机密。”
 
-“Stankas 先生！”
+“Stankis 先生！”
 
 “……最。”他把你按回怀里，不许你看他的脸，声音从头顶上方传下来，又低又哑，像终于交出了最后一页底稿，“没有后缀。你是我见过最。到此为止，语法错误，随它去——词是人造的，Winter。你不是。”

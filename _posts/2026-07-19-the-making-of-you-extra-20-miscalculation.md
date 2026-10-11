@@ -3,10 +3,10 @@ layout: post
 title: "Extra 20 · 失算 — The Making of You"
 date: 2026-07-19 09:14:22 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 暗涌, 思念]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 暗涌, 思念]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 52
 series_status: ongoing
 series_type: Series
@@ -45,7 +45,7 @@ Vivienne 的事，他办得干净利落。
 
 他反反复复只有一个念头，怎么都想不通：他刚刚，才为她烧掉一个八年的客户。而她，连一句都没问过他，就去找了退路。
 
-哪里错了？他 Aldo Stankas 什么时候，把一件事办错过？
+哪里错了？他 Aldo Stankis 什么时候，把一件事办错过？
 
 “来一趟。”他给她发了三个字。
 

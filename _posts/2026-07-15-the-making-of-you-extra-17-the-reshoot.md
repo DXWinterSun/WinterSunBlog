@@ -3,10 +3,10 @@ layout: post
 title: "Extra 17 · 重拍 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 炽恋, 悸动]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 炽恋, 悸动]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 49
 series_status: ongoing
 series_type: Series
@@ -53,11 +53,11 @@ summary: "你递给他一份剧本：八年前那场签约戏。这次，重拍�
 
 “谁准你喊卡。”
 
-“我是编剧。”你看着他，把这一场真正的戏肉放出来，“加一段。即兴。——Stankas 先生，八年前，你的指尖碰到我下巴的那一下……你想过吗？”
+“我是编剧。”你看着他，把这一场真正的戏肉放出来，“加一段。即兴。——Stankis 先生，八年前，你的指尖碰到我下巴的那一下……你想过吗？”
 
 办公室里静了。百叶窗的光条落在他脸上，那双眼睛深了一度。你以为他会打哈哈，会说“荒谬”，会用玩笑挡回去——他没有。这一次，他把底稿交了。
 
-“想过。”他说，声音低哑，“就那一下。半秒。然后我用了整个下午骂自己：她十九岁，她是你的艺人，她信你——Aldo Stankas，你算个什么东西。”他看着你，一字一字，“那天之后，我给自己立了铁律：手，永远只碰下巴以上，教学范围以内。八年前那一条，拍得对。我一秒都不后悔。”
+“想过。”他说，声音低哑，“就那一下。半秒。然后我用了整个下午骂自己：她十九岁，她是你的艺人，她信你——Aldo Stankis，你算个什么东西。”他看着你，一字一字，“那天之后，我给自己立了铁律：手，永远只碰下巴以上，教学范围以内。八年前那一条，拍得对。我一秒都不后悔。”
 
 “我知道。”你的眼睛热了，“所以今天这一条——”
 
@@ -83,7 +83,7 @@ summary: "你递给他一份剧本：八年前那场签约戏。这次，重拍�
 
 “周一我怎么在这张桌子上开会。”
 
-“敬业一点，Stankas 先生。”
+“敬业一点，Stankis 先生。”
 
 “敬业。”他低头看你，那双眼睛在夕阳里又变回了琥珀色，软的，“我这辈子最敬业的一场戏，十九岁那年不敢拍，今天补上了。”他把你圈紧，下巴搁上你的发顶，幽幽补了一句：
 

@@ -3,10 +3,10 @@ layout: post
 title: "Extra 27 · 垄断 — The Making of You"
 date: 2026-07-21 04:53:17 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 絮语]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 絮语]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 59
 series_status: ongoing
 series_type: Series
@@ -37,7 +37,7 @@ redirect_from:
 
 “放着。”他从你手里把那一摞信抽走，“我来。”
 
-“……Stankas 先生，这是助理的活。”
+“……Stankis 先生，这是助理的活。”
 
 “现在是我的活。”他坐下，慢条斯理地拆开第一封，眉头以肉眼可见的速度，越皱越紧，“安全审查。你现在这个咖位，什么牛鬼蛇神都往上凑。”
 
@@ -57,7 +57,7 @@ redirect_from:
 
 “德艺双馨。”他说得义正辞严，“稳重。”
 
-你终于没忍住，笑出了声：“Stankas 先生。”
+你终于没忍住，笑出了声：“Stankis 先生。”
 
 “嗯。”
 
@@ -65,7 +65,7 @@ redirect_from:
 
 他握着笔的手，几不可察地顿了一下。
 
-“胡说什么。”他头也不抬，语气冷得像在否认一桩子虚乌有的指控，“我 Aldo Stankas，吃一个连脸都没见过的粉丝的醋？我像那么闲的人吗。我这是——”
+“胡说什么。”他头也不抬，语气冷得像在否认一桩子虚乌有的指控，“我 Aldo Stankis，吃一个连脸都没见过的粉丝的醋？我像那么闲的人吗。我这是——”
 
 “形象管理。”你替他接上。
 
@@ -91,7 +91,7 @@ redirect_from:
 
 “……闭嘴。”
 
-“Stankas 先生，”你不依不饶，凑到他耳边，学着那些狂徒粉丝的语气，甜甜地，“其实我知道，我这千千万万个粉丝里，最狂的那一个，是你吧？”
+“Stankis 先生，”你不依不饶，凑到他耳边，学着那些狂徒粉丝的语气，甜甜地，“其实我知道，我这千千万万个粉丝里，最狂的那一个，是你吧？”
 
 他终于抬起眼看你。那点冰化了，底下是别的东西——被你说中了，恼羞成怒，却又没法反驳的，很软的那种东西。
 
@@ -105,7 +105,7 @@ redirect_from:
 
 他们爱的是 Winter Vale，那个他亲手造出来、送给全世界的、发光的招牌。
 
-而只有一个人，独家拥有那个招牌背面，凌晨两点、字迹歪斜、只会叫他一声“Stankas 先生”的，你。
+而只有一个人，独家拥有那个招牌背面，凌晨两点、字迹歪斜、只会叫他一声“Stankis 先生”的，你。
 
 这一单垄断，从签约那天起，就写死在合同里了，永不到期。
 

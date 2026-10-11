@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 29 · 更正声明 — The Making of You"
 date: 2026-07-15 08:00:43 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 安放]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 安放]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 29
 series_status: ongoing
 series_type: Series
@@ -25,7 +25,7 @@ redirect_from:
 
 一周后，他把一份文件放在你面前。封面上打着项目代号，格式严整，像一份并购案的执行方案。你翻开第一页，标题是：
 
-《关于 Winter Vale 女士与 Aldo Stankas 先生恋情之披露方案（终稿）》
+《关于 Winter Vale 女士与 Aldo Stankis 先生恋情之披露方案（终稿）》
 
 “三个方案我都做了。”他站在落地窗前，背着手，用向董事会陈述的语气开始汇报，“方案A，冷处理，永远不认——否了。让你藏一辈子？不行。方案B，蹭现在的热度官宣——也否了。CP 的流量是别人的名字，我的事，不借别人的东风。”他转过身，“方案C，我们自己的时间，自己的方式。风险评估在第四页：短期你会掉粉，百分之八到十二；‘资源靠男友’的话至少骂半年；我这边，‘老牛吃嫩草’的标题一个月内起码两百个——”
 
@@ -53,7 +53,7 @@ redirect_from:
   <p class="c-decree__body">是全部。</p>
   <div class="c-decree__sign">
     <span class="c-decree__sign-label">本人 · 亲笔</span>
-    <span class="c-decree__signature">Aldo Stankas</span>
+    <span class="c-decree__signature">Aldo Stankis</span>
   </div>
 </div>
 
@@ -71,7 +71,7 @@ redirect_from:
 
 #原来糖埋了三年#
 
-Leo 也转发了那条声明，配的字只有一行，全网笑疯：“难怪我问她喜欢什么类型，她经纪人替她回答：喜欢工作。——行吧，Stankas 先生，你赢了，你专注事业。”
+Leo 也转发了那条声明，配的字只有一行，全网笑疯：“难怪我问她喜欢什么类型，她经纪人替她回答：喜欢工作。——行吧，Stankis 先生，你赢了，你专注事业。”
 
 至于掉粉——他算的是百分之八到十二。实际数字出来，合伙人拿着报表冲进他办公室：掉了不到百分之二，涨回来的是四倍。“你失算了，”合伙人幸灾乐祸，“二十年头一回。高兴吗？”
 

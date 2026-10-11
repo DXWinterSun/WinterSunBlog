@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 6 · 价码 — The Making of You"
 date: 2026-07-15 04:31:09 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 怅惘, 暗涌]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 怅惘, 暗涌]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 6
 series_status: ongoing
 series_type: Series

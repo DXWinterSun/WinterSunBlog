@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 15 · 存货 — The Making of You"
 date: 2026-07-19 09:10:22 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 暗涌, 怅惘]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 暗涌, 怅惘]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 15
 series_status: ongoing
 series_type: Series
@@ -67,4 +67,4 @@ redirect_from:
 
 挂了电话，你握着手机，在黑暗里坐了很久。你说不清心里是轻松，还是一种更大的、说不出的空。你只知道，你把那扇门，亲手推开了一道缝。
 
-你没想到的是，那道缝后面站着的，会是那样一个 Aldo Stankas。
+你没想到的是，那道缝后面站着的，会是那样一个 Aldo Stankis。

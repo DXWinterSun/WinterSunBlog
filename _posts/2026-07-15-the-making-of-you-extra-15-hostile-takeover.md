@@ -3,10 +3,10 @@ layout: post
 title: "Extra 15 · 恶意收购 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 炽恋, 缱绻]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 炽恋, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 47
 series_status: ongoing
 series_type: Series
@@ -37,7 +37,7 @@ summary: "那晚你抽走他的钢笔，坐上他的腿——恶意收购，即�
 
 他的呼吸，当场断了半拍。
 
-“今晚这一单，”你看着他，把他的语言原样征用，一字一字，“恶意收购。不设谈判环节，不接受反报价。Stankas 先生——”你俯身，唇擦着他的耳廓，用气声把最后一句放进去，“你被收购了。”
+“今晚这一单，”你看着他，把他的语言原样征用，一字一字，“恶意收购。不设谈判环节，不接受反报价。Stankis 先生——”你俯身，唇擦着他的耳廓，用气声把最后一句放进去，“你被收购了。”
 
 你感觉到他整个人在你身下绷紧了。
 
@@ -83,4 +83,4 @@ summary: "那晚你抽走他的钢笔，坐上他的腿——恶意收购，即�
 
 他把你往怀里拢了拢，补上最后一句，声音低得像盖章：
 
-“所以这不叫恶意收购。双方自愿，叫合并。——合并完成。存续主体：我们。注销原主体：Aldo Stankas，一个曾经以为自己有主导权的人。”
+“所以这不叫恶意收购。双方自愿，叫合并。——合并完成。存续主体：我们。注销原主体：Aldo Stankis，一个曾经以为自己有主导权的人。”

@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 3 · 打磨 — The Making of You"
 date: 2026-07-15 04:10:15 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 暗涌, 悸动]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 暗涌, 悸动]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 3
 series_status: ongoing
 series_type: Series

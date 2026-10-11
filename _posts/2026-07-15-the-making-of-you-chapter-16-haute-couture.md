@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 22 · 高定 — The Making of You"
 date: 2026-07-15 07:17:51 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 絮语]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 悸动, 絮语]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 22
 series_status: ongoing
 series_type: Series

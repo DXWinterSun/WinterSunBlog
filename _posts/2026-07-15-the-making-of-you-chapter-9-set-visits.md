@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 12 · 探班 — The Making of You"
 date: 2026-07-15 06:37:28 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 暗涌]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 暗涌]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 12
 series_status: ongoing
 series_type: Series
@@ -41,13 +41,13 @@ Winter Vale。
 
 导演从监视器后面直起身，回头看了你一眼，那眼神第一次有了点重量。收工的时候，你跑去场边，他却已经在跟制片人谈笑，见你过来，只公事公办地点了下头：“今天那条还行。明天的夜戏，台词再顺两遍。”说完就走了，连一句多余的话都没有。
 
-副导演凑过来，啧了一声：“可以啊你。Aldo Stankas 亲自探班——我干这行十五年，就没见过他跟组。”
+副导演凑过来，啧了一声：“可以啊你。Aldo Stankis 亲自探班——我干这行十五年，就没见过他跟组。”
 
 “他……可能只是顺路。”你说。
 
 “顺路？”副导演笑了，“上周三他也顺路。你拍定妆那天，他也顺路。小姑娘，这城里没有人的路，顺得过他的办公室到这儿的四十分钟车程。”
 
-你的心跳漏了半拍。可你立刻把那点妄想按下去——你太清楚他会怎么解释了。果然，几天后庆功小聚，制片人半开玩笑地当面问他：堂堂 Aldo Stankas，怎么改行做保姆了？
+你的心跳漏了半拍。可你立刻把那点妄想按下去——你太清楚他会怎么解释了。果然，几天后庆功小聚，制片人半开玩笑地当面问他：堂堂 Aldo Stankis，怎么改行做保姆了？
 
 他晃着杯子，笑得漫不经心：“保姆？我这是看着我的钱。”他朝你的方向随意抬了抬下巴，像在指一件资产，“从零做起来的，毛病没改干净就放出去，砸的是我的招牌。我盯的不是她，是我的投资。”
 

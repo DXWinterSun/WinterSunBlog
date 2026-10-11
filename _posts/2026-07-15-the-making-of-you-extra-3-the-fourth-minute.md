@@ -3,10 +3,10 @@ layout: post
 title: "Extra 3 · 第四分钟 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 炽恋, 缱绻]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 炽恋, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 35
 series_status: ongoing
 series_type: Series
@@ -15,7 +15,7 @@ chapter_kind: extra
 summary: "三分钟封顶的条款，那晚被你单方面撕毁了。违约金他亲自来收。"
 ---
 
-> 全城都知道 Stankas 先生的规矩：任何条款，逾期必究。没人知道他自己那条三分钟的规矩，是用来保命的。
+> 全城都知道 Stankis 先生的规矩：任何条款，逾期必究。没人知道他自己那条三分钟的规矩，是用来保命的。
 
 撕毁条款的那晚，是你蓄谋已久的。
 
@@ -59,15 +59,15 @@ summary: "三分钟封顶的条款，那晚被你单方面撕毁了。违约金�
 
 “那笔账，”他的手掌覆上来，力道又稳又烫，“今天一起收。”
 
-你原以为，床上的 Stankas 先生会是彻底的主控——毕竟这个人连约会都做风险评估。前半程，他确实是：他把你拆得很慢，很彻底，手和唇都带着那种把一块璞玉雕出来的耐心，你被他磨得眼眶发红，声音都不成调，他还有闲心低声点评“这一段，保一条”。你又羞又气，眼泪汪汪地瞪他——
+你原以为，床上的 Stankis 先生会是彻底的主控——毕竟这个人连约会都做风险评估。前半程，他确实是：他把你拆得很慢，很彻底，手和唇都带着那种把一块璞玉雕出来的耐心，你被他磨得眼眶发红，声音都不成调，他还有闲心低声点评“这一段，保一条”。你又羞又气，眼泪汪汪地瞪他——
 
 然后你想起了你的武器。
 
-“Stankas 先生。”你看着他的眼睛，轻轻喊了一声。
+“Stankis 先生。”你看着他的眼睛，轻轻喊了一声。
 
 他动作一顿。
 
-“Stankas 先生，”你不依不饶，声音软得发颤，手臂环上他的脖子，把他往下拉，直到那双暮色里的榛色眼睛近在咫尺，“进来的时候——看着我。”
+“Stankis 先生，”你不依不饶，声音软得发颤，手臂环上他的脖子，把他往下拉，直到那双暮色里的榛色眼睛近在咫尺，“进来的时候——看着我。”
 
 那是你第一次，亲眼看着一世英名毁于一旦。
 
@@ -89,7 +89,7 @@ summary: "三分钟封顶的条款，那晚被你单方面撕毁了。违约金�
 
 “商业机密。”他有气无力地说。
 
-“Stankas 先——”
+“Stankis 先——”
 
 “你还喊！”他忍无可忍地按住你的后脑勺，把你摁回怀里，你贴着他的胸腔，听见他的心跳和他的叹息一起震动，“……三分钟条款，作废。”他认命地宣布，“新条款：上不封顶。反正英名也没了。”
 

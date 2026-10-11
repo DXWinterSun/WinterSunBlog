@@ -3,10 +3,10 @@ layout: post
 title: "Extra 28 · 不可抗力 — The Making of You"
 date: 2026-07-27 14:32:59 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 安放]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 安放]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 60
 series_status: ongoing
 series_type: Series
@@ -39,7 +39,7 @@ redirect_from:
 
 就是这一点，让一切变得不一样了。
 
-“Stankas 先生，”不知过了多久，你先开口，声音在黑里显得格外轻，“你有没有……后悔过？”
+“Stankis 先生，”不知过了多久，你先开口，声音在黑里显得格外轻，“你有没有……后悔过？”
 
 “后悔什么。”
 
@@ -65,7 +65,7 @@ redirect_from:
 
 你在黑暗里，摸到了他的手，握住。
 
-“Stankas 先生，”你把他那句话，稳稳地、一个字一个字地，还给他，“我哪儿也不去。”
+“Stankis 先生，”你把他那句话，稳稳地、一个字一个字地，还给他，“我哪儿也不去。”
 
 “那条走廊，你要是让我再选一百次，我还是会走进去，还是会撞上你。”你顿了顿，声音也软下来，“你不是拿得太多。是你把一张什么都不是的白纸，画成了今天的我。这笔账，永远是你亏，我赚——你这辈子唯一一单亏本的买卖，砸在了我手里，认了吧。”
 
@@ -97,7 +97,7 @@ redirect_from:
 
 你看着他的背影，没有拆穿他。
 
-你知道，他大概明天就会当这一切没发生过。他会继续做那个滴水不漏、只会说冷话的 Aldo Stankas。
+你知道，他大概明天就会当这一切没发生过。他会继续做那个滴水不漏、只会说冷话的 Aldo Stankis。
 
 可你也知道了——那层壳子底下，锁着一个多软、多不安、多舍不得你的人。你把这一夜，和黑暗里他说的每一个字，悄悄收好，藏进那个只有你知道的地方，和那声“宝贝”、那本对平了的账，放在一处。
 
