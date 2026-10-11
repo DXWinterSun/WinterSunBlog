@@ -1,100 +1,21 @@
 ---
-layout: home
-title: Say Hello
+layout: null
 permalink: /contact/
+sitemap: false
 ---
-
-<section class="c-hero">
-  {% if site.author-image %}
-  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
-    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-  </a>
-  {% endif %}
-
-  <div class="c-hero__eyebrow">Say Hello</div>
-  <h1 class="c-hero__title">Drop a <em>Note</em></h1>
-  <div class="c-hero__byline">
-    <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">letters always welcome — long or short</span>
-    <span class="c-hero__byline-rule"></span>
-  </div>
-
-  <p class="c-hero__lede">
-    <span class="c-hero__quote">&ldquo;</span>
-    随时来这里坐坐，留几个字也好。
-    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
-  </p>
-</section>
-
-<section class="c-hello">
-  <ul class="c-hello__channels">
-    {% if site.author-email %}
-    <li class="c-hello__channel">
-      <a href="#hello-form" class="c-hello__card">
-        <span class="c-hello__card-eyebrow">Email</span>
-        <span class="c-hello__card-title">写一封信</span>
-        <span class="c-hello__card-cta">Use the form below ↓</span>
-      </a>
-    </li>
-    {% endif %}
-    {% if site.author-redbook %}
-    <li class="c-hello__channel">
-      <a href="{{site.author-redbook}}" target="_blank" rel="noopener" class="c-hello__card">
-        <span class="c-hello__card-eyebrow">Red Book</span>
-        <span class="c-hello__card-title">小红书</span>
-        <span class="c-hello__card-cta">Sam 的每日切片 · 我爱的人和事 ↗</span>
-      </a>
-    </li>
-    {% endif %}
-    {% if site.author-weibo %}
-    <li class="c-hello__channel">
-      <a href="{{site.author-weibo}}" target="_blank" rel="noopener" class="c-hello__card">
-        <span class="c-hello__card-eyebrow">Weibo</span>
-        <span class="c-hello__card-title">微博</span>
-        <span class="c-hello__card-cta">走近一点的我 · 日常的细碎 ↗</span>
-      </a>
-    </li>
-    {% endif %}
-    {% if site.author-bilibili %}
-    <li class="c-hello__channel">
-      <a href="{{site.author-bilibili}}" target="_blank" rel="noopener" class="c-hello__card">
-        <span class="c-hello__card-eyebrow">Bilibili</span>
-        <span class="c-hello__card-title">B 站</span>
-        <span class="c-hello__card-cta">视频自留地 · 也同步小红书 ↗</span>
-      </a>
-    </li>
-    {% endif %}
-  </ul>
-
-  {% if site.web3forms-key and site.web3forms-key != "" %}
-  <form id="hello-form" class="c-hello__form" action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="{{site.web3forms-key}}">
-    <div class="c-section-heading">
-      <h3 class="c-section-heading__title">A Letter</h3>
-      <span class="c-section-heading__meta">straight to my inbox</span>
-    </div>
-
-    <div class="c-hello__row">
-      <label class="c-hello__field">
-        <span class="c-hello__label">Your name</span>
-        <input class="c-hello__input" type="text" name="name" required>
-      </label>
-      <label class="c-hello__field">
-        <span class="c-hello__label">Your email</span>
-        <input class="c-hello__input" type="email" name="email" required>
-      </label>
-    </div>
-    <label class="c-hello__field">
-      <span class="c-hello__label">Subject</span>
-      <input class="c-hello__input" type="text" name="subject">
-    </label>
-    <label class="c-hello__field">
-      <span class="c-hello__label">Your letter</span>
-      <textarea class="c-hello__input c-hello__input--area" name="message" rows="8" required></textarea>
-    </label>
-
-    <button class="c-hello__submit" type="submit">Send the letter</button>
-    <input type="hidden" name="redirect" value="{{ site.url }}{{ site.baseurl }}/contact/thanks/">
-  </form>
-  {% endif %}
-</section>
+{%- comment -%}
+  2026-10-03：写信表单并进了「关于我」页（/about/#letter）。这里只留一个跳转，老链接、老书签照样能到。
+  （寄出信之后的「谢谢」页仍在 /contact/thanks/，表单的 redirect 指着它，别删。）
+{%- endcomment -%}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>写信 · {{ site.title }}</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/about/">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/about/#letter">
+<script>location.replace('{{ site.baseurl }}/about/#letter');</script>
+</head>
+<body><p><a href="{{ site.baseurl }}/about/#letter">写信的地方搬到这里了 →</a></p></body>
+</html>

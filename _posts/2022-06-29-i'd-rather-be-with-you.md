@@ -5,6 +5,8 @@ date: 2022-06-29
 image: waterside.png
 tags: [缱绻]
 categories: Lyrics
+winters: []            # 不上书架，只挂在唱片墙（_data/songs.json）
+form: 翻译
 summary: "这首歌如此温柔、诚挚，就像我对他的爱一般。"
 ---
 

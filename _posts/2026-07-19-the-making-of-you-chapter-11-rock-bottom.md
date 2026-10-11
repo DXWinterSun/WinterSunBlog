@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 11 · 谷底 — The Making of You"
 date: 2026-07-19 09:09:22 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 暗涌, 怅惘]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 暗涌, 怅惘]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 11
 series_status: ongoing
 series_type: Series
@@ -41,7 +41,7 @@ redirect_from:
 
 “导演给我打了电话。”他开口，一个字一个字，像敲在冰上，“一屋子人等着，你把一场三页纸的对手戏，忘词忘了三回。后半场，整个人是飘的。”
 
-你张了张嘴，眼泪先下来了。“对不起。”你听见自己说，声音抖得不成样子，“Stankas 先生，是我不好，我搞砸了……你要是觉得，我不值得……你可以……”
+你张了张嘴，眼泪先下来了。“对不起。”你听见自己说，声音抖得不成样子，“Stankis 先生，是我不好，我搞砸了……你要是觉得，我不值得……你可以……”
 
 “我可以什么？”他打断你，声音陡地沉下去，“把你退回去？”
 
@@ -55,7 +55,7 @@ redirect_from:
 
 “……盯着我？”你抬起满是泪的脸。
 
-“从明天起，你的戏我要在场。”他重新坐回桌后，翻开一本厚厚的日程，语气像在谈一桩再普通不过的生意，“别多想。我从零做出来的东西，没改利索就撒出去，砸的是我 Aldo Stankas 的招牌。我盯的不是你，是我的本钱。”
+“从明天起，你的戏我要在场。”他重新坐回桌后，翻开一本厚厚的日程，语气像在谈一桩再普通不过的生意，“别多想。我从零做出来的东西，没改利索就撒出去，砸的是我 Aldo Stankis 的招牌。我盯的不是你，是我的本钱。”
 
 你怔怔地站在那儿。你听懂的是：他连你一个人上场都信不过了。你成了那个需要被人时时刻刻看着、否则随时会砸锅的次品。原来你不但没能让他“一直有意思”，还亲手把自己变成了他的一桩麻烦。那点酸涩堵在胸口，比被骂一顿还难受。
 

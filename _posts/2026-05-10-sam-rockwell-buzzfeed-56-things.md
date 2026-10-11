@@ -5,6 +5,8 @@ date: 2026-05-10 00:00:00
 image: sam-bell-moon-au.jpg
 tags: [絮语]
 categories: Daily
+winters: [love]
+form: 翻译
 summary: "BuzzFeed 问了他 56 件事，每一条都像他本人的一张切片。"
 ---
 

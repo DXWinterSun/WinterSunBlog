@@ -3,10 +3,10 @@ layout: post
 title: "Extra 30 · 补偿 — The Making of You"
 date: 2026-07-27 14:34:59 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 絮语]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 絮语]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 62
 series_status: ongoing
 series_type: Series
@@ -17,7 +17,7 @@ easter_eggs:
   - series_order: 61
     label: "他当着光一遍遍说爱你之后——这趟假，是那句‘我要你好好活着’的余震"
   - series_order: 56
-    label: "灯亮着、你醒着，他念‘宝贝’，你回‘Stankas 先生’——他不再让你改口了"
+    label: "灯亮着、你醒着，他念‘宝贝’，你回‘Stankis 先生’——他不再让你改口了"
   - series_order: 3
     label: "一句‘很好’曾是你拿命换的奖赏——这一趟，它变得随手可得，因为它只是爱"
 redirect_from:
@@ -37,7 +37,7 @@ redirect_from:
 
 那个二十年不休假、能让全城排队等他的男人，把手机关了机，扔进抽屉，锁上。
 
-“Stankas 先生，”你小心翼翼地试探，“公司那边……”
+“Stankis 先生，”你小心翼翼地试探，“公司那边……”
 
 “不管了。”
 
@@ -45,7 +45,7 @@ redirect_from:
 
 “黄了。”他答得云淡风轻，往你手里塞了杯椰子水，“我人在陪我老婆。”
 
-你差点被那口椰子水呛到。“陪我老婆”这四个字，从 Aldo Stankas 嘴里说出来，像太阳打西边出来一样，让你浑身不自在。
+你差点被那口椰子水呛到。“陪我老婆”这四个字，从 Aldo Stankis 嘴里说出来，像太阳打西边出来一样，让你浑身不自在。
 
 而这，才只是个开始。
 
@@ -77,7 +77,7 @@ redirect_from:
 
 你没有笑。你窝进他怀里，把脸埋在他胸口，久久没有说话。海浪一下一下，拍在夜色里。
 
-“Stankas 先生，”你终于开口，声音闷闷的，“我好像……不太会。”
+“Stankis 先生，”你终于开口，声音闷闷的，“我好像……不太会。”
 
 “不会什么。”
 
@@ -119,11 +119,11 @@ redirect_from:
 
 你破天荒地，没有装睡。你红着脸，极轻极轻地，回了他一声——
 
-“……Stankas 先生。”
+“……Stankis 先生。”
 
 他笑了。这一回，他没有让你改口。
 
-因为他终于懂了：你那一声“Stankas 先生”，和他那一声“宝贝”，从来说的，是同一件事。
+因为他终于懂了：你那一声“Stankis 先生”，和他那一声“宝贝”，从来说的，是同一件事。
 
 一个改不了口，一个补一辈子的课。多好。多般配。
 

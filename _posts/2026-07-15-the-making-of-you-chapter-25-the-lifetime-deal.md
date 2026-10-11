@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 31 · 终身合约 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 安放]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 安放]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 31
 series_status: ongoing
 series_type: Series
@@ -19,7 +19,7 @@ summary: "他请了全城的媒体开发布会。压轴那单的乙方签名栏�
 
 请柬是周一发出去的，烫金，措辞矜贵：
 
-Stankas Talent 谨定于本周五晚八时，发布本公司成立二十三年以来，金额最高之一份合约。恭候莅临见证。
+Stankis Talent 谨定于本周五晚八时，发布本公司成立二十三年以来，金额最高之一份合约。恭候莅临见证。
 
 全城的媒体疯了一个星期。猜什么的都有：天价挖角？国际巨星回流？公司易主？娱乐版的编辑们把可能的名单排了三页纸。没人猜对。连你都没猜对——你是以“公司资深艺人”的身份被通知出席的，他给你的原话是：“压轴那单跟你有点关系，你坐第一排，给我撑撑场面。”
 
@@ -42,14 +42,14 @@ Stankas Talent 谨定于本周五晚八时，发布本公司成立二十三年�
   <div class="c-decree__stamp">Deal No. 001 &amp; Last</div>
   <h3 class="c-decree__title">终身合约</h3>
   <p class="c-decree__subtitle">The Deal of a Lifetime</p>
-  <p class="c-decree__body">甲方：Aldo Stankas（含其全部：手腕，账本，二十三年，与余生）</p>
+  <p class="c-decree__body">甲方：Aldo Stankis（含其全部：手腕，账本，二十三年，与余生）</p>
   <p class="c-decree__body">乙方：＿＿＿＿＿＿＿＿</p>
   <p class="c-decree__body">第一条：无解约条款。第二条：无违约金——违约不可能发生，故无需约定。第三条：无期限。</p>
-  <p class="c-decree__body">附则一：既有各项条款并入本约——榛色观赏权（上不封顶）、生病条款（终身，不得保释）、称呼条款（甲方放弃改判，“Stankas 先生”永久有效）。</p>
+  <p class="c-decree__body">附则一：既有各项条款并入本约——榛色观赏权（上不封顶）、生病条款（终身，不得保释）、称呼条款（甲方放弃改判，“Stankis 先生”永久有效）。</p>
   <p class="c-decree__body">附件一：苹果，一颗。文物级。见证全案。</p>
   <div class="c-decree__sign">
     <span class="c-decree__sign-label">甲方 · 已签</span>
-    <span class="c-decree__signature">Aldo Stankas</span>
+    <span class="c-decree__signature">Aldo Stankis</span>
   </div>
 </div>
 

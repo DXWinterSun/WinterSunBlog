@@ -1,0 +1,19 @@
+{%- comment -%}
+  给定 include.key（love / self / story / young），算出这一格的文章：wn_list（已排好序）、wn_n（篇数）、wn_shelf（_data/winters.yml 里那一条）。
+  归类规则：文章自己写的 winters: [...] 为准；没写的 Novel → story，其余 → self。winters: [] = 哪格都不上。
+  Winter's 封面那一页（winters-shelves.html）和每一格自己的页（winters-shelf-page.html）共用这一份，别各写一套。
+{%- endcomment -%}
+{%- assign wn_cats = "Daily|Novel|Lyrics|散文" | split: "|" -%}
+{%- assign wn_pool = site.posts | where_exp: "p", "p.series == nil" -%}
+{%- assign wn_list = "" | split: "" -%}
+{%- for wn_p in wn_pool -%}
+  {%- assign wn_c = wn_p.categories | first -%}
+  {%- unless wn_cats contains wn_c -%}{%- continue -%}{%- endunless -%}
+  {%- if wn_p.winters -%}{%- assign wn_keys = wn_p.winters -%}
+  {%- elsif wn_c == 'Novel' -%}{%- assign wn_keys = "story" | split: "|" -%}
+  {%- else -%}{%- assign wn_keys = "self" | split: "|" -%}{%- endif -%}
+  {%- if wn_keys contains include.key -%}{%- assign wn_list = wn_list | push: wn_p -%}{%- endif -%}
+{%- endfor -%}
+{%- assign wn_shelf = site.data.winters | where: "key", include.key | first -%}
+{%- if wn_shelf.order == 'asc' -%}{%- assign wn_list = wn_list | reverse -%}{%- endif -%}
+{%- assign wn_n = wn_list | size -%}

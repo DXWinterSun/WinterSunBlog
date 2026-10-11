@@ -5,6 +5,8 @@ date: 2020-11-08
 image: summer.jpg
 tags: [安放, 絮语]
 categories: Daily
+winters: [love, self]
+form: 随笔
 summary: "只有我，才是我的救赎。"
 ---
 

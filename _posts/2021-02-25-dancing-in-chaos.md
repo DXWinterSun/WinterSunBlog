@@ -5,6 +5,8 @@ date: 2021-02-25
 image: chaos.jpg
 tags: [缱绻, 安放]
 categories: Daily
+winters: [love]
+form: 随笔
 summary: "纵然在满地鸡毛里，我们也会翩翩起舞。"
 ---
 

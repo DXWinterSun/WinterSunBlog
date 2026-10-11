@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 12 · 跑，Francis — I Kissed the Stones"
+title: "Chapter 13 · 跑，Francis — I Kissed the Stones"
 date: 2026-09-15 23:18:51 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 暗涌, 怅惘]
 categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
-series_order: 12
+series_order: 13
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 12"
+chapter_type: "Chapter 13"
 summary: "她把剪刀抵在自己喉咙上，只说三个字：放他走。"
 redirect_from:
   - /2026/10/18/i-kissed-the-stones-chapter-12-run-francis/

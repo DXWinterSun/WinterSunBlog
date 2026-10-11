@@ -5,6 +5,8 @@ date: 2016-11-02
 image: colosseum.jpg
 tags: [缱绻, 思念]
 categories: Novel
+winters: [story, young]
+form: 小说
 summary: "因为宝贝，我们本可以不再孤独。"
 ---
 ```

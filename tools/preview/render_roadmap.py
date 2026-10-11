@@ -15,6 +15,7 @@ CLAUDE.md 第 7 条：**每写完一章（以及开新坑时）先给下一段�
 
 JSON 结构见 .claude/roadmaps/ 里的样板：
   _meta: title / eyebrow / sub / lede / accent,bg,text,muted / acts[] / motifs[] / debts[] / forks[]
+         可选 ask_title / ask_note：页尾岔路区的标题和一句说明（默认「三个岔路等你挑 / 挑完我写第一章」）
   chapters: [{n, act(0..2), t 标题, w 这章干什么, key(1|2 关键度), pin(埋钩子), blank(空章)}]
 """
 import json, html, argparse, os
@@ -168,8 +169,8 @@ def main():
         % ''.join('<li><span>%s</span></li>' % E(x) for x in m.get('motifs', [])),
         '    <div class="box"><h2>伏笔账</h2><ul>%s</ul></div>' % debts,
         '  </div>',
-        '  <section class="ask"><h2>三个岔路等你挑</h2>',
-        '    <p>都是剧情走向，凭感觉选就行。挑完我写第一章。</p>',
+        '  <section class="ask"><h2>%s</h2>' % E(m.get('ask_title', '三个岔路等你挑')),
+        '    <p>%s</p>' % E(m.get('ask_note', '都是剧情走向，凭感觉选就行。挑完我写第一章。')),
         '    <ul class="forks">%s</ul>' % forks,
         '  </section>',
         '  <p class="foot">这是路线图，不是成稿——章名和写法动笔时还会调。'

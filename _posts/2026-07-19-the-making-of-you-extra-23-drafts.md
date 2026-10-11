@@ -3,10 +3,10 @@ layout: post
 title: "Extra 23 · 草稿箱 — The Making of You"
 date: 2026-07-19 09:17:22 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 思念, 怅惘]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 思念, 怅惘]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 55
 series_status: ongoing
 series_type: Series
@@ -24,12 +24,12 @@ redirect_from:
   - /2026/07/15/the-making-of-you-extra-23-drafts/
 ---
 
-> 全城都收过 Aldo Stankas 的短信：字字千金，从不改口，发出去绝不收回。
+> 全城都收过 Aldo Stankis 的短信：字字千金，从不改口，发出去绝不收回。
 > 没人见过他的草稿箱。那里只存着一个人的名字——和他这辈子最想说、却最没敢发出去的，所有话。
 
 他是个从不打草稿的人。
 
-想好了，说出口；写下了，就发出去。二十年，他的对话框干干净净，没有一条犹豫的痕迹。全城都知道，Aldo Stankas 说出口的话，一个字都收不回。
+想好了，说出口；写下了，就发出去。二十年，他的对话框干干净净，没有一条犹豫的痕迹。全城都知道，Aldo Stankis 说出口的话，一个字都收不回。
 
 只有一个人的对话框例外。
 
@@ -82,7 +82,7 @@ redirect_from:
 
 散场后想问她累不累的，半夜想让她早点睡的，看她又瘦了想让她好好吃饭的，戏拍好了想夸她一句“今天这条，真的很好”的——每一条，都写了。每一条，都删了。它们全挤在同一个对话框里，写给同一个人，一条也没送到过她手上。
 
-Aldo Stankas 这辈子写过的、最真的那些话，全在草稿箱里，躺成了一片没人认领的坟。
+Aldo Stankis 这辈子写过的、最真的那些话，全在草稿箱里，躺成了一片没人认领的坟。
 
 他告诉自己：等时候到了。等一个，说出口不会把她吓跑、也不会连累她的时候。
 

@@ -16,3 +16,7 @@ story_91465444_final.html
 .idea/
 __pycache__/
 *.pyc
+
+# 欧路外挂词典（Winter 的牛津 / 柯林斯）绝不入库：仓库是公开的
+*.mdx
+*.mdd

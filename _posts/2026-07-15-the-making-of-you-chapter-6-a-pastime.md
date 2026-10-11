@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 7 · 消遣 — The Making of You"
 date: 2026-07-15 04:58:26 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 暗涌, 怅惘]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 暗涌, 怅惘]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 7
 series_status: ongoing
 series_type: Series
@@ -35,7 +35,7 @@ redirect_from:
 
 里头传来他懒洋洋的、你太熟悉的声音，尾音还挂着点笑：
 
-“图什么？怎么，我堂堂 Aldo Stankas，还不能自己找点乐子、让自己开开心心吗？”他像是嫌这话题没意思，轻描淡写地一笔带过，“就图个乐子呗。有意思，好玩。仅此而已。”
+“图什么？怎么，我堂堂 Aldo Stankis，还不能自己找点乐子、让自己开开心心吗？”他像是嫌这话题没意思，轻描淡写地一笔带过，“就图个乐子呗。有意思，好玩。仅此而已。”
 
 一阵笑。话题就那么翻了篇，轻得像一片羽毛落地。
 
@@ -43,7 +43,7 @@ redirect_from:
 
 图个乐子。有意思，好玩。仅此而已。
 
-你早该想到的。他是 Aldo Stankas。他撬人、买人、供人，从不肯为一个无名之辈费半点功夫。你从前以为自己是被归进了什么“另一条产线”——现在你才明白，根本没有那条产线。从零开始的，只有你一个。而“只有你一个”的意思，从来不是你有多特别，是——你不过是他生意之余，一时手痒随手捡来的一件新鲜玩意儿。一场消遣。
+你早该想到的。他是 Aldo Stankis。他撬人、买人、供人，从不肯为一个无名之辈费半点功夫。你从前以为自己是被归进了什么“另一条产线”——现在你才明白，根本没有那条产线。从零开始的，只有你一个。而“只有你一个”的意思，从来不是你有多特别，是——你不过是他生意之余，一时手痒随手捡来的一件新鲜玩意儿。一场消遣。
 
 玩具是会腻的，乐子是会散的。等他哪天不再觉得“有意思”，等你哪天让他觉得“没意思”了，他就会像丢开一件玩腻的东西那样，把你丢开——甚至不必解释，因为你本就不在他的账本里。
 

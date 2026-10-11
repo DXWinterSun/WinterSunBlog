@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Chapter 18 · 找一个会弹琴的姑娘 — I Kissed the Stones"
+title: "Chapter 19 · 找一个会弹琴的姑娘 — I Kissed the Stones"
 date: 2026-09-16 12:49:29 +0800
 image: francis-flute-au.jpg
 tags: [Francis Flute, Sam Rockwell, AU, I Kissed the Stones, 暗涌, 安放]
 categories: ["AU Story"]
 series: "I Kissed the Stones"
 series_title: "I Kissed the Stones · Francis Flute AU"
-series_order: 18
+series_order: 19
 series_status: complete
 series_type: Series
-chapter_type: "Chapter 18"
+chapter_type: "Chapter 19"
 summary: "他找了十个月。找的是一个会弹琴的姑娘。"
 redirect_from:
   - /2026/10/24/i-kissed-the-stones-chapter-18-a-girl-who-plays/

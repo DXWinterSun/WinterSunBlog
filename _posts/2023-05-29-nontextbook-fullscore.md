@@ -5,6 +5,8 @@ date: 2023-05-29
 image: textbook.jpg
 tags: [缱绻, 絮语]
 categories: Daily
+winters: [love]
+form: 随笔
 summary: "他做的事情从不按教科书，可他依然是我满分的爱人。"
 ---
 

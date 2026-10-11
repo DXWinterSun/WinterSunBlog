@@ -5,6 +5,8 @@ date: 2022-07-10
 image: camp-stars.png
 tags: [思念]
 categories: Novel
+winters: [story]
+form: 小说
 summary: "亲爱的，你是那最亮的星吗？"
 ---
 

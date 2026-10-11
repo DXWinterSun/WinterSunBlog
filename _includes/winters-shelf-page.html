@@ -1,0 +1,59 @@
+{%- comment -%}
+  Winter's 一格自己的页（2026-10-03）：/winters/love/、/self/、/story/、/young/（_pages/winters/*.html 只写一行 include）。
+  上面一块大封面 ＋ 名字和说明；下面是这一格【全部】文章的小拍立得（长按 / 右键能翻到背面写字）；
+  页尾一排别的几格的小封面，不用先回 Winter's。冬还年少的文章铺在横格周记本纸上，日期写成「2017 年 3 月」。
+  用法：{% include winters-shelf-page.html key='love' %}；冬的歌单不走这里，直接是 /songs/。
+{%- endcomment -%}
+{%- include wn-shelf-posts.html key=include.key -%}
+{%- assign wp_shelf = wn_shelf -%}
+{%- assign wp_list = wn_list -%}
+{%- assign wp_n = wn_n -%}
+{%- assign wp_y0 = 9999 -%}{%- assign wp_y1 = 0 -%}
+{%- for wp_p in wp_list -%}
+  {%- assign wp_y = wp_p.date | date: '%Y' | plus: 0 -%}
+  {%- if wp_y < wp_y0 -%}{%- assign wp_y0 = wp_y -%}{%- endif -%}
+  {%- if wp_y > wp_y1 -%}{%- assign wp_y1 = wp_y -%}{%- endif -%}
+{%- endfor %}
+<section class="c-wn-page" style="--cv-bg: {{ wp_shelf.cover.bg }}; --cv-spine: {{ wp_shelf.cover.spine }}; --cv-ink: {{ wp_shelf.cover.ink }};">
+  <a class="c-wn-page__back" href="{{ site.baseurl }}/?cat=winters">‹ Winter&rsquo;s</a>
+  <header class="c-wn-page__head">
+    <div class="c-wn-page__book">{% include wn-cover.html shelf=wp_shelf n=wp_n unit='篇' %}</div>
+    <div class="c-wn-page__intro">
+      <div class="c-wn-page__eyebrow">Winter&rsquo;s</div>
+      <h1 class="c-wn-page__title"><i aria-hidden="true">{{ wp_shelf.emoji }}</i>{{ wp_shelf.name }}</h1>
+      <p class="c-wn-page__en">{{ wp_shelf.cover_en }}</p>
+      <p class="c-wn-page__meta">{{ wp_n }} 篇{% if wp_n > 0 %} · {{ wp_y0 }}{% if wp_y1 != wp_y0 %}—{{ wp_y1 }}{% endif %}{% endif %}</p>
+    </div>
+    <p class="c-wn-page__desc">{{ wp_shelf.desc }}</p>
+  </header>
+
+  {%- if wp_n == 0 %}
+  <p class="c-wn-page__empty">这一格还空着。</p>
+  {%- else %}
+  {%- if wp_shelf.paper %}<div class="c-wn-paper">{% endif %}
+  <div class="c-post-grid c-post-grid--small c-wn-grid">
+    {%- for wp_p in wp_list %}
+    {% include wn-post-card.html p=wp_p paper=wp_shelf.paper %}
+    {%- endfor %}
+  </div>
+  {%- if wp_shelf.paper %}</div>{% endif %}
+  {%- endif %}
+
+  <nav class="c-wn-page__others" aria-label="Winter's 别的几格">
+    <h2>别的几格</h2>
+    <ul>
+      {%- assign wp_song_n = 0 -%}
+      {%- for a in site.data.songs.albums -%}{%- assign wp_song_n = wp_song_n | plus: a.songs.size -%}{%- endfor -%}
+      {%- for sh in site.data.winters -%}
+        {%- if sh.key == include.key -%}{%- continue -%}{%- endif -%}
+        {%- if sh.key == 'songs' -%}
+          {%- assign wp_on = wp_song_n -%}{%- assign wp_ou = '首' -%}{%- assign wp_oh = '/songs/' | prepend: site.baseurl -%}
+        {%- else -%}
+          {%- include wn-shelf-posts.html key=sh.key -%}
+          {%- assign wp_on = wn_n -%}{%- assign wp_ou = '篇' -%}{%- assign wp_oh = '/winters/' | append: sh.key | append: '/' | prepend: site.baseurl -%}
+        {%- endif %}
+      <li><a href="{{ wp_oh }}">{% include wn-cover.html shelf=sh n=wp_on unit=wp_ou %}<span>{{ sh.name }}</span></a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+</section>

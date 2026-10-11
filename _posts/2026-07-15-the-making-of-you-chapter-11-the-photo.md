@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 14 · 照片 — The Making of You"
 date: 2026-07-15 06:39:28 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 暗涌, 怅惘]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 暗涌, 怅惘]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 14
 series_status: ongoing
 series_type: Series
@@ -25,7 +25,7 @@ redirect_from:
 
 你是在化妆车里刷到的。手指一下子就凉了。
 
-你第一时间想到的不是自己——是他。是“Aldo Stankas 栽在一个小艺人身上”会变成整个圈子多好笑的一个段子，是那些本来就等着看他笑话的人。你慌得台词都忘了，给他打电话，响一声就被按掉，只回来一条短信：
+你第一时间想到的不是自己——是他。是“Aldo Stankis 栽在一个小艺人身上”会变成整个圈子多好笑的一个段子，是那些本来就等着看他笑话的人。你慌得台词都忘了，给他打电话，响一声就被按掉，只回来一条短信：
 
 “今天你只有一件事：把下午那场戏拍好。剩下的不归你管。”
 

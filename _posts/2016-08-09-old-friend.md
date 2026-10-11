@@ -5,6 +5,8 @@ date: 2016-08-09
 image: alley.jpg
 tags: [怀旧, 思念]
 categories: Novel
+winters: [story, young]
+form: 小说
 summary: "那位金发的少年还在等吗？"
 ---
 

@@ -5,6 +5,8 @@ date: 2022-03-21
 image: love-till-end.jpg
 tags: [缱绻]
 categories: Daily
+winters: [love]
+form: 书信
 summary: "这世间没有比你的笑容更美好的事物，对此我无比确信。"
 ---
 

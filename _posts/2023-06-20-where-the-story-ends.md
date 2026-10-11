@@ -5,6 +5,8 @@ date: 2023-06-20
 image: where-the-story-ends.jpg
 tags: [安放, 怅惘]
 categories: Daily
+winters: [love]
+form: 书信
 summary: "故事终结之处，新的开始也在徐徐展开。我所爱的，从未离开。"
 ---    
 

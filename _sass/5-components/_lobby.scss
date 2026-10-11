@@ -1,0 +1,276 @@
+/* ===============
+	⛄ HOME 门厅 ＋ 📝 NOTES 笔记页（2026-10-03 全站新排法，Winter 选的 A 方案）
+	门厅：首页「全部」视图只放四样——接着读 / 最近更新 / 常去的地方 / 关于我，
+	下面那张 48 屏的通用文章网格在这个视图里整个藏起来（全部故事去 AU Story、Winter's 看）。
+	标记在 _includes/lobby.html；笔记页在 _pages/notes/index.html + _includes/notebooks.html。
+=============== */
+
+$lb-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
+$lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+
+.c-lobby { display: none; }
+:root:not([data-hero-active]) .c-lobby,
+:root[data-hero-active="all"] .c-lobby { display: grid; }
+/* ⚠️ 必须 !important：js/main.js 的 showPostsView() 用 jQuery .show() 往 .c-posts 上写行内 display */
+:root:not([data-hero-active]) .c-posts,
+:root[data-hero-active="all"] .c-posts { display: none !important; }
+
+.c-lobby {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 34px 44px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  align-items: start;
+}
+.c-lobby__main,
+.c-lobby__side { display: grid; gap: 34px; min-width: 0; }
+.c-lobby__block { display: grid; gap: 14px; min-width: 0; }
+.c-lobby__block[hidden] { display: none; }
+
+/* 四个小标题借用 Winter's 书架的头（_winters.scss 的 .c-shelf__head：圆章 · 名字 · 右边小药丸 · 底下一行说明），
+   全站「冬的什么」长一个样子（2026-10-03 Winter：「副标题不够显眼……分类尽可能都用冬的 xx」） */
+.c-lobby .c-shelf__head { margin: 0; }
+.c-lobby .c-shelf__count { text-decoration: none; }
+
+/* ── 接着读：一张横着的拍立得 ── */
+.c-lobby-resume {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 9px;
+  background: $paper;
+  border: 1px solid $line;
+  border-radius: 3px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 14px 30px -14px rgba(var(--rgb-shadow), 0.30), 0 2px 7px rgba(var(--rgb-shadow), 0.12);
+  transition: transform .3s ease, box-shadow .3s ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 44px -14px rgba(var(--rgb-shadow), 0.40), 0 3px 10px rgba(var(--rgb-shadow), 0.16);
+  }
+  &:focus-visible { outline: 3px solid $accent; outline-offset: 3px; }
+}
+.c-lobby-resume__img {
+  display: block;
+  aspect-ratio: 1 / 1;
+  border-radius: 1px;
+  background-color: $line;
+  background-size: cover;
+  background-position: 50% 30%;
+  box-shadow: inset 0 0 0 1px rgba(var(--rgb-shadow), 0.10);
+  &.is-blank { background-image: linear-gradient(135deg, $paper-warm, $line); }
+}
+.c-lobby-resume__body { display: grid; gap: 6px; min-width: 0; padding-right: 6px; }
+.c-lobby-resume__series {
+  font-family: $heading-font-family;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: $accent;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.c-lobby-resume__chapter {
+  font-family: $lb-cn;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: $ink;
+}
+.c-lobby-resume__bar {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  background: $line;
+  overflow: hidden;
+  i { display: block; height: 100%; width: 0; background: $accent; border-radius: 2px; }
+}
+.c-lobby-resume__meta { font-family: $lb-cn; font-size: 13px; color: $ink-soft; }
+.c-lobby__also {
+  margin: 0;
+  font-family: $lb-cn;
+  font-size: 13.5px;
+  color: $muted;
+  a { color: $ink-soft; text-decoration: none; border-bottom: 1px dashed $line-strong; }
+  a:hover { color: $accent; border-color: $accent; }
+}
+
+/* ── 最近更新：左边一枚日期邮戳（跟日历同款，向右歪 6 度），右边那天发了什么 ── */
+.c-lobby-upd {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.c-lobby-upd__day {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 10px 0;
+  border-bottom: 1px dashed $line;
+  &:last-child { border-bottom: 0; }
+}
+.c-lobby-upd__stamp {
+  justify-self: start;
+  margin-top: 1px;
+  padding: 3px 8px;
+  border: 1.5px solid $accent;
+  border-radius: 999px;
+  font-family: $heading-font-family;
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: $accent;
+  text-decoration: none;
+  transform: rotate(6deg);
+  transition: background-color .2s ease, color .2s ease;
+  &:hover { background: $accent; color: $paper; }
+}
+.c-lobby-upd__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  a {
+    display: grid;
+    gap: 1px;
+    text-decoration: none;
+    color: $ink-soft;
+    &:hover b { color: $accent; }
+  }
+  b {
+    font-family: $heading-font-family;
+    font-size: 15px;
+    font-weight: 700;
+    color: $ink;
+    transition: color .2s ease;
+  }
+  span { font-family: $lb-cn; font-size: 14px; line-height: 1.6; }
+}
+
+/* ── 常去的地方：一排小方块 ── */
+.c-lobby-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  a {
+    display: grid;
+    justify-items: center;
+    gap: 4px;
+    padding: 12px 4px 10px;
+    border-radius: 12px;
+    border: 1px solid $line;
+    background: $paper;
+    font-family: $lb-cn;
+    font-size: 13px;
+    color: $ink-soft;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.3;
+    transition: transform .2s ease, border-color .2s ease, color .2s ease;
+    &:hover { transform: translateY(-2px); border-color: $accent; color: $accent; }
+    &:focus-visible { outline: 3px solid $accent; outline-offset: 2px; }
+  }
+  i { font-style: normal; font-family: $lb-emoji; font-size: 22px; line-height: 1.2; }
+}
+
+/* ── 关于我：小卡 + 写信 ── */
+.c-lobby-me {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid $line;
+  background: $paper;
+}
+.c-lobby-me__who {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; border: 2px solid $paper; box-shadow: 0 0 0 1px $line; }
+  b { display: block; font-family: $lb-cn; font-size: 16px; font-weight: 600; color: $ink; }
+  span span { display: block; margin-top: 2px; font-family: $lb-cn; font-size: 13.5px; color: $ink-soft; line-height: 1.6; }
+}
+.c-lobby-me__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  a {
+    padding: 6px 13px;
+    border-radius: 999px;
+    border: 1px solid $line-strong;
+    font-family: $lb-cn;
+    font-size: 13px;
+    color: $ink-soft;
+    text-decoration: none;
+    transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+    &:hover { border-color: $accent; color: $accent; }
+  }
+  a.is-main { background: $accent; border-color: $accent; color: $paper; }
+  a.is-main:hover { background: $accent-dark; border-color: $accent-dark; color: $paper; }
+}
+
+/* ── 📝 Notes：笔记本一本本摆开 ── */
+.c-notes { padding-bottom: 48px; }
+.c-notes__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1040px;
+  margin: 0 auto;
+  .c-wn-notebook { min-height: 250px; }
+}
+/* 变格表：一张浅色的小工具本（米色竖纹封面、灰蓝书脊，跟几本笔记区分开） */
+.c-wn-notebook--tool {
+  --nb-bg: #f7f3ea;
+  --nb-spine: #6d7f92;
+  --nb-ink: #2f2a24;
+  background: repeating-linear-gradient(90deg, #f7f3ea 0, #f7f3ea 23px, #ebe4d5 23px, #ebe4d5 24px);
+}
+.c-notes__foot {
+  margin: 28px 0 0;
+  text-align: center;
+  font-family: $lb-cn;
+  font-size: 14px;
+  color: $muted;
+}
+
+@media only screen and (max-width: 1000px) {
+  .c-notes__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 620px; }
+}
+@media only screen and (max-width: 900px) {
+  .c-lobby { grid-template-columns: minmax(0, 1fr); max-width: 620px; gap: 30px; }
+}
+@media only screen and (max-width: 560px) {
+  .c-lobby { gap: 28px; }
+  .c-lobby__main, .c-lobby__side { gap: 28px; }
+  .c-lobby-resume { grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 7px; }
+  .c-lobby-resume__chapter { font-size: 15.5px; }
+  .c-lobby-upd__day { grid-template-columns: 56px minmax(0, 1fr); gap: 10px; }
+  .c-lobby-tiles { gap: 8px; }
+  .c-lobby-tiles a { font-size: 12px; padding: 10px 2px 8px; border-radius: 10px; }
+  .c-lobby-tiles i { font-size: 20px; }
+  /* 手机上两本一行：字收一档，书脊线圈也收窄一点 */
+  .c-notes__grid { gap: 14px; }
+  .c-notes__grid .c-wn-notebook { min-height: 196px; padding: 14px 10px 12px 26px; box-shadow: inset 11px 0 0 var(--nb-spine), 0 8px 20px rgba(var(--rgb-shadow), 0.16); }
+  .c-notes__grid .c-wn-notebook::before { left: 6px; width: 10px; }
+  .c-notes__grid .c-wn-notebook__label { padding: 8px 8px; }
+  .c-notes__grid .c-wn-notebook__label b { font-size: 15.5px; }
+  .c-notes__grid .c-wn-notebook__label small { font-size: 9.5px; letter-spacing: .12em; }
+  .c-notes__grid .c-wn-notebook__label span { font-size: 11.5px; }
+  .c-notes__grid .c-wn-notebook__meta { font-size: 12px; }
+  .c-notes__grid .c-wn-notebook__meta b { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-lobby-resume, .c-lobby-tiles a, .c-lobby-upd__stamp { transition: none; }
+}

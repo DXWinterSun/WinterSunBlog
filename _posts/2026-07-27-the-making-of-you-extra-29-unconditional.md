@@ -3,10 +3,10 @@ layout: post
 title: "Extra 29 · 无条件 — The Making of You"
 date: 2026-07-27 14:33:59 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 安放]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 安放]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 61
 series_status: ongoing
 series_type: Series
@@ -57,13 +57,13 @@ redirect_from:
 
 你是在第三天的清晨醒来的。
 
-眼睛睁开的第一瞬，白得刺眼。然后你看清了——床边坐着一个人。那个永远一丝不苟、西装挺括、连领巾都分毫不乱的 Aldo Stankas，此刻鬓角白了一片，满脸青黑的胡茬，眼睛熬得通红，衬衫皱得像睡了三天没换。
+眼睛睁开的第一瞬，白得刺眼。然后你看清了——床边坐着一个人。那个永远一丝不苟、西装挺括、连领巾都分毫不乱的 Aldo Stankis，此刻鬓角白了一片，满脸青黑的胡茬，眼睛熬得通红，衬衫皱得像睡了三天没换。
 
 他看见你睁眼的那一刻，整个人猛地一震。
 
 那双通红的眼睛，一瞬间蓄满了水。
 
-“……Stankas 先生，”你的嗓子哑得几乎发不出声，你还想笑，还想问那个荒唐的问题，“那条……成了吗？”
+“……Stankis 先生，”你的嗓子哑得几乎发不出声，你还想笑，还想问那个荒唐的问题，“那条……成了吗？”
 
 “成了。”他的声音抖得不成样子，“你拿命换的那条，一条过。全片最好的一个镜头。”他闭了闭眼，一滴水到底还是砸了下来，“可我这辈子，再不想看它第二遍。”
 

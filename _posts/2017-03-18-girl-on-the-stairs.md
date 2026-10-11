@@ -5,6 +5,8 @@ date: 2017-03-18
 image: girl-on-stair.jpg
 tags: [怀旧, 怅惘]
 categories: Novel
+winters: [story, young]
+form: 小说
 summary: "她好像曾经来过，但回忆不记得。"
 ---
 是个夏天，晚上，失眠的维克推开公寓门，想去小区里转转，找找困意。    

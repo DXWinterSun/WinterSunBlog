@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 20 · 搬家 — The Making of You"
 date: 2026-07-15 06:53:57 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 絮语, 缱绻]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 絮语, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 20
 series_status: ongoing
 series_type: Series

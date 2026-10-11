@@ -145,3 +145,60 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ===============
+	ABOUT 关于我（2026-10-03）：写信页并进了 /about/，多出「这里有什么」一排去处
+=============== */
+.c-about .c-section-heading { margin-top: 8px; }
+.c-about__here {
+  list-style: none;
+  margin: 0 0 56px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  li { margin: 0; min-width: 0; }
+  a {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    align-items: center;
+    height: 100%;
+    padding: 14px 16px;
+    border: 1px solid $line;
+    border-radius: 10px;
+    background: $paper;
+    text-decoration: none;
+    color: inherit;
+    transition: $global-transition;
+    &:hover { transform: translateY(-2px); border-color: $accent-soft; b { color: $accent; } }
+  }
+  i { grid-row: 1 / 3; font-style: normal; font-size: 24px; font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; }
+  b { font-family: 'Noto Serif SC', 'Songti SC', $heading-font-family; font-size: 16px; color: $ink; transition: color $global-transition; }
+  span { font-family: 'Noto Serif SC', 'Songti SC', $base-font-family; font-size: 13px; color: $ink-soft; line-height: 1.5; }
+}
+.c-about__channels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.c-about__letter-lede {
+  margin: -6px 0 22px;
+  font-family: 'Noto Serif SC', 'Songti SC', $base-font-family;
+  font-size: 15px;
+  color: $ink-soft;
+}
+#letter { scroll-margin-top: 90px; }
+
+@media only screen and (max-width: 900px) {
+  .c-about__here { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media only screen and (max-width: 720px) {
+  .c-about__channels { grid-template-columns: 1fr; gap: 10px; }
+  .c-about__channels .c-hello__card { padding: 14px 18px; gap: 6px; }
+  .c-about__channels .c-hello__card-title { font-size: 19px; }
+}
+@media only screen and (max-width: 420px) {
+  .c-about__here { gap: 8px; }
+  .c-about__here a { padding: 11px 10px; column-gap: 8px; }
+  .c-about__here i { font-size: 20px; }
+  .c-about__here b { font-size: 14.5px; }
+  .c-about__here span { font-size: 12px; }
+}

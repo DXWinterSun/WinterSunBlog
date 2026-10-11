@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 2 · 签约 — The Making of You"
 date: 2026-07-15 03:53:17 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 暗涌, 悸动]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 暗涌, 悸动]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 2
 series_status: ongoing
 series_type: Series
@@ -59,9 +59,9 @@ redirect_from:
 
 “当然，”他放软了声音，那软是练过千百遍的，像温水浇在你冻僵的手背上，“你也可以现在就走。门在那儿。这城里有的是比你听话的孩子。”
 
-就在这时，桌上的电话响了。他瞥了一眼来电，似乎是个熟人，接起来，语气松了些。那头不知说了句什么，把他的姓念拧了——你听得清清楚楚，对方把 Stankas 念成了别的什么，带着点漫不经心的轻慢。他脸上的笑没变，可你看见他握着笔的那只手，几不可察地停了半秒。
+就在这时，桌上的电话响了。他瞥了一眼来电，似乎是个熟人，接起来，语气松了些。那头不知说了句什么，把他的姓念拧了——你听得清清楚楚，对方把 Stankis 念成了别的什么，带着点漫不经心的轻慢。他脸上的笑没变，可你看见他握着笔的那只手，几不可察地停了半秒。
 
-“是 Stan-kas，”他纠正，声音很轻，轻得像不在意，“……没事。老毛病了。”
+“是 Stan-kis，”他纠正，声音很轻，轻得像不在意，“……没事。老毛病了。”
 
 他挂了电话，重新看向你，仿佛那半秒从未发生。可你忽然觉得，你和他之间那面天衣无缝的玻璃上，裂开了一道极细的缝——快得你以为是自己看错了。
 

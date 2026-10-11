@@ -1,4 +1,4 @@
-# 范例：The Making of You（Aldo Stankas AU）
+# 范例：The Making of You（Aldo Stankis AU）
 
 这是一份**已经落地**的 AU，用它展示系列圣经的样子、伏笔怎么记账、番外体裁怎么用。开新 AU 时照这个骨架填，不是照抄内容。
 
@@ -12,7 +12,7 @@
 # The Making of You · 系列圣经（内部工作文件，Jekyll 不发布）
 
 series_name: The Making of You ｜ slug series/the-making-of-you/ ｜ collection_order 19
-角色: Aldo Stankas（Sam Rockwell,《明星少女养成记》/ Trust Me 2013）画册 id aldo
+角色: Aldo Stankis（Sam Rockwell,《明星少女养成记》/ Trust Me 2013）画册 id aldo
 配色: 分红翡翠 #2ea86a / 空头支票 #0f1613
 
 ## 人物 & 关系内核
@@ -33,12 +33,12 @@ series_name: The Making of You ｜ slug series/the-making-of-you/ ｜ collection
 - 锚句「你就是我的人了」（Ch2）= 你的动力锚点，反复回响
 
 ## 铁律（写进圣经防手滑）
-- 称呼：「你」自始至终只叫他「Stankas 先生」，到婚后到床上都不改口。绝不直呼 Aldo。
+- 称呼：「你」自始至终只叫他「Stankis 先生」，到婚后到床上都不改口。绝不直呼 Aldo。
 - 正文弯引号 “ ”/‘ ’；第二人称「你」。
 
 ## 已写章节流水
 1. 试镜 — 走廊初遇，他撩你也撩别人（你的「特殊」落空）
-2. 签约 — 绕你一圈/抬下巴，「你就是我的人了」；Stankas 被念拧伏线（握笔手停半秒）
+2. 签约 — 绕你一圈/抬下巴，「你就是我的人了」；Stankis 被念拧伏线（握笔手停半秒）
 ...（略）...
 
 ## DEFERRED（压着，到点再放）
@@ -58,7 +58,7 @@ series_name: The Making of You ｜ slug series/the-making-of-you/ ｜ collection
 
 ## 伏笔记账的实际效果
 
-同一条「Stankas 被念拧、握笔手停半秒」的伏线：
+同一条「Stankis 被念拧、握笔手停半秒」的伏线：
 
 - **埋**：Ch2 签约时，电话那头把他姓念拧，他握笔的手停半秒——「你」看见了。（圣经记 PINNED）
 - **中途呼应**：红毯（Ch24）司仪二十年来第一次念对；婚礼（Ch26）证婚人聘用理由只有「全城念得最标准的人」。
@@ -76,7 +76,7 @@ series_name: The Making of You ｜ slug series/the-making-of-you/ ｜ collection
 - **角色扮演/重拍**：Extra 17《重拍》——重演签约那天，台词还原，只改结局。
 - **play 变体（炽恋）**：Extra 15《恶意收购》（你主导）↔ Extra 16《反收购》（他主导），一对镜像。
 - **甜宠日常**：Extra 14 他难得在家办公，看她不自知的可爱。
-- **设定深潜**：Extra 6《Stankas》姓氏与母亲；情史番外。
+- **设定深潜**：Extra 6《Stankis》姓氏与母亲；情史番外。
 
 每篇一个不同角度/体裁，这是让长番外不腻的关键。
 

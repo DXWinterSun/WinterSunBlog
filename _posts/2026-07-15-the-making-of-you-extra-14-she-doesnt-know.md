@@ -3,10 +3,10 @@ layout: post
 title: "Extra 14 · 她不知道 — The Making of You"
 date: 2026-07-15
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 絮语]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 絮语]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 46
 series_status: ongoing
 series_type: Series
@@ -73,7 +73,7 @@ summary: "他难得在家办公。一整天，正经邮件一封没回。"
 
 她这个人，从头到尾，就没知道过自己有多好。
 
-他早该发现的。证据链完整得可以直接开庭：十九岁，走廊里，她连下巴都不敢抬——不是没学过仪态，是打心底不觉得自己配抬。后来那三年，她拿命换一个“别被换掉”，因为她真心认为自己是最廉价的那个。到今天，影后了，Stankas 夫人了，窗台上供着全网考古不出来的爱情文物了——她偶尔还是会在酒会的角落里，悄悄把那点“我配吗”往下咽。他都看见了。他一直都看见。
+他早该发现的。证据链完整得可以直接开庭：十九岁，走廊里，她连下巴都不敢抬——不是没学过仪态，是打心底不觉得自己配抬。后来那三年，她拿命换一个“别被换掉”，因为她真心认为自己是最廉价的那个。到今天，影后了，Stankis 夫人了，窗台上供着全网考古不出来的爱情文物了——她偶尔还是会在酒会的角落里，悄悄把那点“我配吗”往下咽。他都看见了。他一直都看见。
 
 全案的题眼，今天结案：她不知道自己有多美。
 

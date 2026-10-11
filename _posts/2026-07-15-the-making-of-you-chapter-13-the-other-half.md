@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 18 · 下半句 — The Making of You"
 date: 2026-07-15 06:52:57 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 安放]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 悸动, 安放]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 18
 series_status: ongoing
 series_type: Series
@@ -43,7 +43,7 @@ redirect_from:
 
 “哟，”同行笑了，“那现在不藏了？”
 
-“现在？”他也笑了一声，那笑里有种你熟悉的、胜券在握的东西，“现在片子拍完了，藏不住了。她值多少，你们等着看成片。我只提醒你一句——”他的声音淡下来，一字一顿，“她是我从一间破选角室的走廊里，亲手挑出来的。我 Aldo Stankas 这双眼睛，二十年没看走眼过。她不是我的乐子，她是我挑的人。谁再拿‘乐子’两个字碰她，就是在说我眼瞎——你知道我这个人，最记仇。”
+“现在？”他也笑了一声，那笑里有种你熟悉的、胜券在握的东西，“现在片子拍完了，藏不住了。她值多少，你们等着看成片。我只提醒你一句——”他的声音淡下来，一字一顿，“她是我从一间破选角室的走廊里，亲手挑出来的。我 Aldo Stankis 这双眼睛，二十年没看走眼过。她不是我的乐子，她是我挑的人。谁再拿‘乐子’两个字碰她，就是在说我眼瞎——你知道我这个人，最记仇。”
 
 隔断这边，你捂住了嘴。
 

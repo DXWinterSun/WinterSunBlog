@@ -5,6 +5,8 @@ date: 2023-03-13
 image: bedroom.jpg
 tags: [缱绻, 絮语]
 categories: Daily
+winters: [love, self]
+form: 随笔
 summary: "我喜欢滤镜，但我更喜欢的是和他一起，没有滤镜却也无比美好的现世生活。"
 ---
 

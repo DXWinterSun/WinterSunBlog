@@ -58,10 +58,11 @@ layout: home
   </a>
   {% endif %}
   <div class="c-hero__eyebrow">Winter&rsquo;s</div>
-  <h1 class="c-hero__title">In My Own <em>Hand</em></h1>
+  {%- comment -%} 大标题 Winter 2026-09-30 从八个候选里挑的：像信末的署名，「爱你的，冬」。 {%- endcomment -%}
+  <h1 class="c-hero__title">Love, <em>Winter</em></h1>
   <div class="c-hero__byline">
     <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">日常、小说、歌词——这些是我自己写下的字</span>
+    <span class="c-hero__byline-text">冬的爱人、冬她自己、冬的故事……都是我自己写下的字</span>
     <span class="c-hero__byline-rule"></span>
   </div>
 </section>
@@ -99,6 +100,24 @@ layout: home
     </span>
     <span class="c-egg-card__arrow" aria-hidden="true">→</span>
   </a>
+  {%- comment -%} 2026-10-03：Archive 不再占顶上的标签，AU 页顶上补一张「按日子翻」的入口（日历那页大多是 AU 的更新） {%- endcomment %}
+  <a class="c-egg-card c-egg-card--cal" href="{{ site.baseurl }}/archive/">
+    <span class="c-egg-card__art" aria-hidden="true">
+      <svg viewBox="0 0 56 56" width="56" height="56" fill="none">
+        <rect x="9" y="12" width="38" height="34" rx="4" class="cal-page"/>
+        <rect x="9" y="12" width="38" height="9" rx="4" class="cal-top"/>
+        <rect x="9" y="17" width="38" height="4" class="cal-top"/>
+        <g class="cal-dots"><circle cx="16" cy="28" r="1.4"/><circle cx="23" cy="28" r="1.4"/><circle cx="30" cy="28" r="1.4"/><circle cx="16" cy="35" r="1.4"/><circle cx="23" cy="35" r="1.4"/><circle cx="16" cy="41" r="1.4"/><circle cx="23" cy="41" r="1.4"/><circle cx="30" cy="41" r="1.4"/></g>
+        <g transform="rotate(6 37 36)"><circle cx="37" cy="36" r="7.5" class="cal-stamp"/><text x="37" y="39" text-anchor="middle" class="cal-num">3</text></g>
+      </svg>
+    </span>
+    <span class="c-egg-card__body">
+      <span class="c-egg-card__eyebrow">Down the Years</span>
+      <span class="c-egg-card__title">按日子翻</span>
+      <span class="c-egg-card__desc">哪天更新了什么，一天一枚邮戳</span>
+    </span>
+    <span class="c-egg-card__arrow" aria-hidden="true">→</span>
+  </a>
 </section>
 
 <section class="c-hero c-hero--filter" data-hero-id="gallery">
@@ -116,6 +135,10 @@ layout: home
   </div>
 </section>
 
+{% include lobby.html %}
+
+{% include winters-shelves.html %}
+
 <div class="c-posts o-opacity">
   {% if site.posts.size > 0 %}
 
@@ -124,7 +147,8 @@ layout: home
     <span class="c-section-heading__meta" id="js-post-count">{{ site.posts.size }} posts</span>
   </div>
 
-  <div class="c-post-grid">
+  {%- comment -%} c-post-grid--small：2026-10-03 Winter 挑的「小卡，但保留拍立得样式」——手机一行两张、电脑一行四张（_index-post.scss 末尾） {%- endcomment %}
+  <div class="c-post-grid c-post-grid--small">
     {% comment %}
       Series cards — one per unique series. Hidden on the "all" view (which shows
       individual chapters); shown when their parent category is the active filter,
@@ -139,9 +163,12 @@ layout: home
       创建时间 = collection_order（编号即开坑先后）。本页取其【倒序】。
       非 Sam 的系列（tumblr 搬运的 Hector / Leonard / BayBay 等）统一垫底，
       内部同样「新 → 老」（按第一篇章节日期）。不按「最近更新」排。
+      2026-10-01 起：**新开的非 Sam 系列**只要在系列首页写了 collection_order（接着编号往下排），
+      就跟 Sam 系列一起按开坑先后排，不再垫底；不写 sam_collection，所以照样不进 Sam 页。
+      （Heart Facing Inward 开坑当天被排到最底下，Winter 以为系列没显示。）
     {%- endcomment -%}
     {% assign all_series = "" | split: "" %}
-    {% assign sam_pages = site.pages | where_exp: "p", "p.sam_collection" | sort: "collection_order" | reverse %}
+    {% assign sam_pages = site.pages | where_exp: "p", "p.collection_order" | sort: "collection_order" | reverse %}
     {% for sp in sam_pages %}
       {% if sp.series_name %}
         {% assign sp_count = site.posts | where: "series", sp.series_name | size %}
@@ -184,7 +211,16 @@ layout: home
       </div>
       <div class="c-post__body">
         <div class="c-post__eyebrow">{{ series_cat }} · {{ series_first.series_type | default: "Series" }}</div>
-        <h3 class="c-post__title">{{ series_first.series_title | default: series_name }}</h3>
+        {%- assign st_full = series_first.series_title | default: series_name -%}
+        {%- assign st_parts = st_full | split: ' · ' -%}
+        {%- if st_parts.size > 1 -%}
+          {%- assign st_who = st_parts | last -%}
+          {%- assign st_tail = ' · ' | append: st_who -%}
+          {%- assign st_story = st_full | replace_first: st_tail, '' -%}
+        <h3 class="c-post__title">{{ st_story }}<span class="c-post__who">{{ st_who }}</span></h3>
+        {%- else %}
+        <h3 class="c-post__title">{{ st_full }}</h3>
+        {%- endif %}
         <p class="c-post__summary">{{ series_count }} chapter{% if series_count != 1 %}s{% endif %} · {% include series-status.html status=series_status %}</p>
       </div>
     </a>

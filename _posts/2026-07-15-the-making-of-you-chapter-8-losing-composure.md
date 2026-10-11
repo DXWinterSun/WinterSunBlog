@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 10 · 失控 — The Making of You"
 date: 2026-07-15 06:12:29 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 缱绻]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 悸动, 缱绻]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 10
 series_status: ongoing
 series_type: Series
@@ -59,7 +59,7 @@ redirect_from:
 
 “小朋友”三个字一出来，你像被兜头浇了盆冷水，猛地松开手，退后一步，脸烧得厉害。
 
-你怎么能忘了呢。他是 Aldo Stankas，你的上级，你的操盘手；而你，是他一时兴起、图个乐子捡来的一个新人。他刚才那半空里没落下的手、那声“多大点事”，已经把话说得再清楚不过——分寸，是你自己越的。
+你怎么能忘了呢。他是 Aldo Stankis，你的上级，你的操盘手；而你，是他一时兴起、图个乐子捡来的一个新人。他刚才那半空里没落下的手、那声“多大点事”，已经把话说得再清楚不过——分寸，是你自己越的。
 
 “对……对不起，”你手忙脚乱地擦脸，“我太激动了。”
 

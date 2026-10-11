@@ -361,6 +361,12 @@
     lockEl = document.createElement("div"); lockEl.className = "pol-lock";
     document.body.appendChild(lockEl); renderLock();
     lockEl.addEventListener("click", function(e) {
+      // 缩在屏幕边上时，第一下点击只负责把它叫回来，不触发展开/按钮
+      if (lockEl.classList.contains("is-tucked")) {
+        e.preventDefault(); e.stopPropagation();
+        lockEl.classList.remove("is-tucked");
+        return;
+      }
       var t = e.target;
       while (t && t !== lockEl) {
         if (t.tagName === "BUTTON" || t.tagName === "INPUT") return;
@@ -368,6 +374,27 @@
       }
       lockEl.classList.toggle("is-open");
     });
+  }
+
+  /* —— 会让路（2026-10-05 Winter 挑的 B 方案）：往下滚（在读东西）就缩到屏幕
+        左边只露一小截，往上滚或点那一截就回来。跟站头 headerAutoHide() 同一个脾气。
+        正在用它（卡组展开 / 输密码 / 底片匣开着）时不躲。 —— */
+  function lockAutoHide() {
+    if (!lockEl) return;
+    var lastY = window.pageYOffset || 0;
+    function busy() {
+      if (lockEl.classList.contains("is-open")) return true;
+      if (lockEl.querySelector("input")) return true;               // 正在输密码
+      if (boxEl && boxEl.classList.contains("open")) return true;   // 底片匣开着
+      return false;
+    }
+    window.addEventListener("scroll", function () {
+      var y = window.pageYOffset || 0;
+      if (busy()) { lastY = y; return; }
+      if (y > lastY + 8 && y > 64) lockEl.classList.add("is-tucked");
+      else if (y < lastY - 8 || y < 48) lockEl.classList.remove("is-tucked");
+      lastY = y;
+    }, { passive: true });
   }
   function renderLock() {
     var brand = '<span class="pol-lock-brand">' +
@@ -1117,6 +1144,7 @@
   /* ========== 启动 ========== */
   function init() {
     buildLock(); buildDeck(); buildGuest(); markDogears(); attachCards(); buildPen(); syncDeckVisible();
+    lockAutoHide();
     if (isArticlePage()) {
       renderMarks(); attachMarking();
       var hm = location.hash.match(/^#pol-mark-(\d+)$/);

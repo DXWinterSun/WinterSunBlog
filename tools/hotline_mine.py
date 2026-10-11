@@ -5,6 +5,17 @@
 
 用法：python3 tools/hotline_mine.py          （重新生成；新章节上线后再跑一遍即可）
      python3 tools/hotline_mine.py --sample 30   （随机抽 30 句看看筛得准不准）
+     python3 tools/hotline_mine.py --pending 待审.json   （把还没审过的句子连同原文段落导出来，审完写进 tools/hotline_review.json）
+
+⚠️ 2026-10-01 改：自动筛只是「海选」，【能不能上热线由人审】。
+   Winter 试了一下 Young Sam：你说“想你了”，他回“你拍回来的。”；你说“今天有点累”，他回
+   “就重复一句‘你在看我’……”；还有一句“你是不是演过那个警察”其实是路人认出他时喊的。
+   关键词分桶认不出意思，所以现在每一句都要在 tools/hotline_review.json 里有一条审过的结论：
+     "原句": ["miss", "tired"]   ← 她说想念 / 说累的时候，这句接得上
+     "原句": []                  ← 审过，接不上话，不用
+   审的尺子：把这句话当成他半夜回你的一条消息，不看小说上下文，你会不会愣一下“？”——会，就不要。
+   没审过的句子不进 sam/hotline-mined.json（新章节上线后机器人重跑，新句子先攒着，
+   跑 --pending 导出来审完再进）。
 
 规则（Winter 2026-09-02 要「从他们的 AU 里筛一筛」）：
 - 只取弯双引号 “…” 里的对白；靠引号前后的「他 / 角色名 / 你 + 说话动词」判定说话人，
@@ -32,7 +43,7 @@ MANUAL = {
   'eric': 'Knox AU', 'bowen': 'This House Is Clean',
   'greaves': {'eyes-on-me': 'Eyes on Me', 'no-one-walks-off': 'No One Walks Off'},
   'jim': {'some-steps': 'Some Steps Only We Know', 'the-one-i-kept': 'The One I Kept'},
-  'pero': 'The Serbian Tornado',
+  'pero': 'The Serbian Tornado', 'matty': 'Oh, May',
 }
 
 def series_table():
@@ -123,6 +134,22 @@ def standalone(cn, names):
     return bool(re.search(r'我', cn)) and n >= 8            # 只有「我」的叙述句要长一点才站得住
     return True
 
+def clean(t):
+    """擦掉 Markdown 记号：**加粗**、*斜体*、~~删除线~~ 不该原样出现在气泡里"""
+    return re.sub(r'\*+|~~', '', t)
+
+def norm(cn):
+    return re.sub(r'[^一-鿿A-Za-z0-9]', '', cn)
+
+REVIEW_PATH = rp('tools/hotline_review.json')
+def load_review():
+    if not os.path.exists(REVIEW_PATH): return {}
+    d = json.load(io.open(REVIEW_PATH, encoding='utf-8'))
+    out = {}
+    for slot, lines in d.get('chars', {}).items():
+        out[slot] = {norm(k): v for k, v in lines.items()}
+    return out
+
 def mine_series(cid, sn):
     his_name = NAME.get(cid, '')
     names = [n.strip('"“”') for n in re.split(r'[\s"]+', his_name) if n and len(n) > 1]
@@ -147,35 +174,51 @@ def mine_series(cid, sn):
                 before = p[(ms[i-1].end() if i else 0):m.start()]
                 after = p[m.end():(ms[i+1].start() if i+1 < len(ms) else len(p))]
                 if speaker(before, after, his_re) != 'his': continue
-                cn = (m.group(1) or m.group(2) or '').strip()
+                cn = clean(m.group(1) or m.group(2) or '').strip()
                 cn = re.sub(r'^[…—\s]+', '', cn)
                 if not standalone(cn, names): continue
                 key = re.sub(r'[^一-鿿]', '', cn)
                 if key in seen: continue
                 seen.add(key)
                 out.append({'cn': cn, 'b': bucket_of(cn), 'ch': int(order) if order.isdigit() else 0,
-                            'title': title, 'series': sn})
+                            'title': title, 'series': sn, 'ctx': clean(p)})
     return out
 
 def main():
     sample = int(sys.argv[sys.argv.index('--sample') + 1]) if '--sample' in sys.argv else 0
-    data = {'meta': {'note': '由 tools/hotline_mine.py 从各 AU 正文自动筛出的「他说过的话」（中文正文即译文，无英文原句）。'
-                              '每句带 series / ch / title 出处，b = 情境桶。新章节上线后重跑脚本即可，不要手改。'},
+    pending_out = sys.argv[sys.argv.index('--pending') + 1] if '--pending' in sys.argv else None
+    review = load_review()
+    data = {'meta': {'note': '由 tools/hotline_mine.py 从各 AU 正文筛出、再经 tools/hotline_review.json 人审过的「他说过的话」'
+                              '（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 这句接得上的情境（可多个）。'
+                              '新章节上线后重跑脚本即可，不要手改。'},
             'chars': {}}
-    total = 0
+    total, pending = 0, []
     for cid, k, sn in targets():
-        lines = mine_series(cid, sn)
-        slot = data['chars'].setdefault(cid, {})
-        slot[k or 'default'] = lines
-        total += len(lines)
-        print('%-12s %-18s %-32s %4d 句' % (cid, k or '', sn, len(lines)))
+        slot_key = cid + ('@' + k if k else '')
+        rv = review.get(slot_key, {})
+        kept, waiting = [], 0
+        for l in mine_series(cid, sn):
+            verdict = rv.get(norm(l['cn']))
+            if verdict is None:
+                waiting += 1
+                pending.append(dict(l, slot=slot_key, guess=l['b']))
+                continue
+            if not verdict: continue
+            kept.append({'cn': l['cn'], 'b': verdict, 'ch': l['ch'], 'title': l['title'], 'series': l['series']})
+        data['chars'].setdefault(cid, {})[k or 'default'] = kept
+        total += len(kept)
+        print('%-12s %-18s %-32s %4d 句可用%s' % (cid, k or '', sn, len(kept), ('  · %d 句待审' % waiting) if waiting else ''))
     data['meta']['count'] = total
     io.open(rp('sam/hotline-mined.json'), 'w', encoding='utf-8').write(json.dumps(data, ensure_ascii=False, indent=1) + '\n')
-    print('合计', total, '句 → sam/hotline-mined.json')
+    print('合计', total, '句 → sam/hotline-mined.json' + ('；另有 %d 句还没审（--pending 导出来审）' % len(pending) if pending else ''))
+    if pending_out:
+        for l in pending: l.pop('b', None)
+        io.open(pending_out, 'w', encoding='utf-8').write(json.dumps(pending, ensure_ascii=False, indent=1) + '\n')
+        print('待审', len(pending), '句 →', pending_out)
     if sample:
         pool = [(cid, k, l) for cid, d in data['chars'].items() for k, ls in d.items() for l in ls]
         for cid, k, l in random.sample(pool, min(sample, len(pool))):
-            print('  [%s%s · %s Ch.%s · %s] %s' % (cid, '@' + k if k != 'default' else '', l['series'], l['ch'], l['b'], l['cn']))
+            print('  [%s%s · %s Ch.%s · %s] %s' % (cid, '@' + k if k != 'default' else '', l['series'], l['ch'], '/'.join(l['b']), l['cn']))
 
 if __name__ == '__main__':
     main()

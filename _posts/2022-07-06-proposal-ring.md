@@ -5,6 +5,8 @@ date: 2022-07-06
 image: hug-on-couch.jpg
 tags: [缱绻]
 categories: Novel
+winters: [story]
+form: 小说
 summary: "依偎在他怀里，戴着戒指的手彼此紧握，她唯独希望，能留在此刻。"
 ---
 

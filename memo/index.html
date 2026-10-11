@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>冬的灵感本 · Winter Sun</title>
+<meta name="description" content="Winter 的灵感本：当下冒出来的点子，和要慢慢做的长期计划；每一条带备注和一笔笔进度。">
+<meta name="theme-color" content="#eff6fb">
+<meta name="apple-mobile-web-app-title" content="灵感本">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- EB Garamond 是给「换个心情」浮层用的（全站正文字体），别删 -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Special+Elite&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/WinterSunBlog/css/theme-picker.css">
+<style>
+  /* ————— 冬的灵感本 · Winter's Ideas（只读）—————
+     2026-10-03 第四次改：日常待办她照旧用苹果备忘录（「比较方便实时地去增添和修改」），
+     这里只收灵感——✨ 当下的灵感（刚冒出来的点子）/ 🌳 长期的计划（要慢慢做、记着进度的）。
+     桌面小组件也拿掉了（「好像其实没必要放在桌面上」）：她问，Claude 能马上答；她点进来，看得见。
+     2026-10-03 Winter：「线上就别编辑了，我想只能从你这改，这样不涉及 token 之类的」。
+     所以这一页只看不改：没有钥匙、没有输入框。要加、要改、要划掉，都在 Claude Code 的
+     对话里跟 Claude 说，由 tools/memo/memo.py 写进仓库 memo 分支上的 memo.json。
+     这页从 GitHub 的公开接口直接读那一份（不用登录），读不到就先显示本机上次存下的
+     （localStorage 键 ws-memo-cache）。入口在 Winter's › 冬的笔记 那一格的笔记本封面。
+     配色跟全站「换个心情」走（theme-picker），各页自己的颜色只用在圆圈和数字上。 */
+  :root {
+    --page: #3D80C2;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    --serif: 'EB Garamond', Georgia, 'Times New Roman', 'Noto Serif SC', 'Songti SC', serif;
+    --cnserif: 'Noto Serif SC', 'Songti SC', serif;
+    --shadow: 0 1px 2px rgba(var(--rgb-shadow), .06), 0 8px 24px -12px rgba(var(--rgb-shadow), .18);
+  }
+  html, body { margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    min-height: 100dvh;
+    background: var(--c-bg);
+    color: var(--c-ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    padding: max(14px, env(safe-area-inset-top)) 0 max(40px, env(safe-area-inset-bottom));
+  }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  a { color: inherit; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+
+  /* 顶栏：回 Winter's · 换心情 · 昼夜（跟全站站头那两颗一模一样的小圆钮） */
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .back { font-family: var(--serif); font-size: 14px; color: var(--c-muted); text-decoration: none; letter-spacing: .5px; }
+  .back:hover { color: var(--c-ink); }
+  .topbar__right { display: flex; align-items: center; gap: 8px; }
+  .iconbtn {
+    width: 36px; height: 36px; padding: 0; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--c-line); border-radius: 999px; background: transparent;
+    color: var(--c-ink-soft); line-height: 1; font-size: 16px;
+    transition: border-color .25s ease, background-color .25s ease, transform .25s ease;
+  }
+  .iconbtn:hover { border-color: color-mix(in srgb, var(--c-accent) 55%, transparent); background-color: rgba(var(--rgb-accent), .06); transform: rotate(20deg); }
+
+  .head { text-align: center; margin: 26px 0 18px; }
+  .head__eyebrow {
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+    font-family: 'Special Elite', 'Courier New', monospace; font-size: 10.5px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--c-muted-soft); margin-bottom: 8px;
+  }
+  .head__eyebrow i { width: 22px; height: 2px; background: rgba(var(--rgb-accent), .4); }
+  .head h1 {
+    margin: 0; font-family: var(--serif); font-weight: 500; font-style: italic;
+    font-size: clamp(34px, 9vw, 46px); letter-spacing: .5px; line-height: 1.05;
+  }
+  .head h1 b { font-style: normal; font-weight: 500; font-family: var(--cnserif); font-size: .5em; letter-spacing: 4px; display: block; margin-top: 8px; color: var(--c-ink-soft); }
+  .status { margin-top: 12px; font-size: 12.5px; color: var(--c-muted); min-height: 18px; }
+  .status i { font-style: normal; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--c-muted-soft); margin-right: 6px; vertical-align: 1px; }
+  .status.is-ok i { background: var(--c-status-green); }
+  .status.is-off i { background: var(--c-status-red); }
+
+  /* 页签：一页一颗，带条数；跟下面左右滑动的页面联动 */
+  .tabs {
+    position: sticky; top: 0; z-index: 5;
+    display: flex; gap: 5px; padding: 10px 16px; margin: 0 -16px;
+    background: color-mix(in srgb, var(--c-bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex: 1 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+    padding: 8px 9px; border-radius: 999px; border: 1px solid var(--c-line);
+    background: var(--c-paper); color: var(--c-ink-soft); font-size: 14px; white-space: nowrap;
+    transition: border-color .2s ease, color .2s ease, transform .15s ease;
+  }
+  .tab:active { transform: scale(.96); }
+  .tab__n { font-family: var(--serif); font-size: 15px; color: var(--tab-c); min-width: 9px; }
+  .tab.is-on { border-color: var(--tab-c); color: var(--c-ink); box-shadow: inset 0 0 0 1px var(--tab-c); }
+
+  /* 一页一张纸，横着滑 */
+  .pager {
+    display: flex; overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin: 4px -16px 0; overscroll-behavior-x: contain; align-items: flex-start;
+  }
+  .pager::-webkit-scrollbar { display: none; }
+  .panel { flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; padding: 6px 16px 10px; min-width: 0; }
+  .card { background: var(--c-paper); border: 1px solid var(--c-line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; }
+  .card__band { height: 6px; background: var(--page); }
+  .card__in { padding: 14px 16px 8px; }
+  .panel__head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+  .panel__title { font-family: var(--cnserif); font-weight: 600; font-size: 19px; white-space: nowrap; }
+  .panel__hint { font-size: 12.5px; color: var(--c-muted); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .panel__n { font-family: var(--serif); font-size: 26px; color: var(--page); line-height: 1; }
+
+  .list { list-style: none; margin: 0; padding: 0; }
+  .it { border-top: 1px solid var(--c-line); }
+  .it:first-child { border-top: 0; }
+  .it > button {
+    display: flex; align-items: flex-start; gap: 10px; width: 100%;
+    padding: 12px 0; border: 0; background: none; text-align: left;
+  }
+  .it__dot { flex: 0 0 18px; width: 18px; height: 18px; margin-top: 2px; border-radius: 50%; border: 1.6px solid var(--page); opacity: .8; position: relative; }
+  .it.is-pin .it__dot { border: 0; opacity: 1; }
+  .it.is-pin .it__dot::before { content: "★"; position: absolute; inset: -3px 0 0; text-align: center; font-size: 17px; line-height: 1; color: var(--c-gold); }
+  .it.is-done .it__dot { background: var(--page); opacity: .55; }
+  .it.is-done .it__dot::after { content: ""; position: absolute; left: 5px; top: 2px; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  .it__main { flex: 1; min-width: 0; }
+  .it__text { display: block; font-size: 16px; line-height: 1.45; word-break: break-word; }
+  .it.is-done .it__text { color: var(--c-muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--page) 70%, transparent); }
+  .it__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 3px; font-size: 12px; color: var(--c-muted); }
+  .it__meta:empty { display: none; }
+  .it__more { flex: 0 0 auto; align-self: center; color: var(--c-muted-soft); font-size: 15px; }
+  .chip { display: inline-flex; align-items: center; gap: 3px; padding: 1px 7px; border-radius: 999px; background: rgba(var(--rgb-accent), .08); color: var(--c-ink-soft); }
+  .chip--hot { background: color-mix(in srgb, var(--c-status-red) 14%, transparent); color: var(--c-status-red); }
+  .peek { flex-basis: 100%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--c-ink-soft); }
+  .peek time { color: var(--c-muted); margin-right: 5px; font-variant-numeric: tabular-nums; }
+
+  .empty { list-style: none; text-align: center; padding: 22px 0 18px; color: var(--c-muted); font-size: 13.5px; line-height: 1.8; }
+  .empty b { display: block; font-size: 26px; margin-bottom: 2px; font-weight: 400; }
+  .donebar { margin-top: 2px; padding: 8px 0 4px; border-top: 1px dashed var(--c-line-strong); }
+  .donebar button { border: 0; background: none; padding: 4px 0; font-size: 13px; color: var(--c-muted); }
+  .donelist .it > button { padding: 8px 0; }
+  .donelist .it__text { font-size: 14.5px; }
+
+  .foot { text-align: center; margin: 26px 0 0; font-size: 13px; color: var(--c-muted); line-height: 2; }
+  .foot a { color: var(--c-accent); text-decoration: none; border-bottom: 1px dotted currentColor; }
+  .foot small { display: block; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--c-muted-soft); margin-top: 18px; }
+
+  /* 点开一条：从底下升起来的一张纸，只看 */
+  .veil { position: fixed; inset: 0; z-index: 40; background: rgba(var(--rgb-shadow), .32); opacity: 0; transition: opacity .25s ease; }
+  .veil.is-on { opacity: 1; }
+  .sheet {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 41;
+    max-height: 86dvh; overflow-y: auto; overscroll-behavior: contain;
+    background: var(--c-paper); border-radius: 22px 22px 0 0;
+    padding: 10px 20px max(22px, env(safe-area-inset-bottom));
+    box-shadow: 0 -10px 40px -10px rgba(var(--rgb-shadow), .35);
+    transform: translateY(105%); transition: transform .3s cubic-bezier(.2,.9,.3,1);
+    max-width: 640px; margin: 0 auto;
+  }
+  .sheet.is-on { transform: translateY(0); }
+  .sheet__grip { width: 38px; height: 5px; border-radius: 3px; background: var(--c-line-strong); margin: 0 auto 14px; }
+  .d-crumb { font-size: 12.5px; color: var(--c-muted); }
+  .d-title { font-family: var(--cnserif); font-weight: 600; font-size: 20px; line-height: 1.45; margin: 6px 0 4px; word-break: break-word; }
+  .d-chips { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12.5px; }
+  .sheet h3 { font-size: 12.5px; font-weight: 500; color: var(--c-muted); letter-spacing: 1px; margin: 20px 0 8px; }
+  .d-note { margin: 0; font-size: 15px; line-height: 1.85; color: var(--c-ink-soft); white-space: pre-wrap; word-break: break-word; }
+  .log { list-style: none; margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--c-line); display: grid; gap: 10px; }
+  .log li { position: relative; display: flex; gap: 10px; align-items: baseline; font-size: 14.5px; line-height: 1.6; color: var(--c-ink-soft); }
+  .log li::before { content: ""; position: absolute; left: -20px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--c-paper); border: 2px solid var(--c-accent); }
+  .log li:first-child::before { background: var(--c-accent); }
+  .log time { flex: 0 0 auto; font-size: 12px; color: var(--c-muted); font-variant-numeric: tabular-nums; min-width: 34px; }
+  .log span { flex: 1; min-width: 0; word-break: break-word; }
+  .d-blank { margin: 18px 0 0; font-size: 13.5px; color: var(--c-muted); line-height: 1.8; }
+  .d-close { display: block; width: 100%; margin-top: 24px; border: 1px solid var(--c-line); background: var(--c-bg-soft); border-radius: 12px; padding: 12px; font-size: 15px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  /* 画出来之前就穿好昼夜（全站同一个键 wiw-theme），免得先闪一下别的颜色 */
+  (function () {
+    try {
+      var t = localStorage.getItem("wiw-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="/WinterSunBlog/notes/">← 回笔记</a>
+    <span class="topbar__right">
+      <button class="c-palette-trigger" type="button" id="js-palette-trigger"
+              aria-label="换个心情 · 配色主题" title="换个心情" data-baseurl="/WinterSunBlog">
+        <svg class="c-palette-trigger__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </button>
+      <button type="button" class="iconbtn" id="mode-btn" title="白天 / 夜里" aria-label="白天或夜里"></button>
+    </span>
+  </div>
+
+  <div class="head">
+    <span class="head__eyebrow"><i></i>Kept by Winter Sun<i></i></span>
+    <h1>Winter&rsquo;s Ideas<b>冬的灵感本</b></h1>
+    <div class="status" id="status"><i></i>正在取……</div>
+  </div>
+
+  <nav class="tabs" id="tabs" aria-label="页"></nav>
+  <div class="pager" id="pager"></div>
+
+  <div class="foot">
+    想记灵感、补进度：在 Claude Code 里说一声<br>
+    想不起来之前那个点子了，也直接问
+    <small>a small notebook, kept by 冬璇</small>
+  </div>
+
+</div>
+
+<div class="veil" id="veil" hidden></div>
+<div class="sheet" id="detail" role="dialog" aria-modal="true" aria-labelledby="d-title" hidden>
+  <div class="sheet__grip"></div>
+  <div class="d-crumb" id="d-crumb"></div>
+  <div class="d-title" id="d-title"></div>
+  <div class="d-chips" id="d-chips"></div>
+  <div id="d-body"></div>
+  <button type="button" class="d-close" id="d-close">关上</button>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var API = "https://api.github.com/repos/DXWinterSun/WinterSunBlog/contents/memo.json?ref=memo";
+  var KEY_CACHE = "ws-memo-cache";        // 上次读到的整份，读不到时先显示它
+  var COLORS = ["#3D80C2", "#CF5F78", "#D9962E", "#55966B", "#8C6BC2", "#2E9AA0"];
+  var doc = null, cur = 0, panelKey = "", openDone = {};
+
+  function ls(k, v) {
+    try {
+      if (v === undefined) return localStorage.getItem(k);
+      localStorage.setItem(k, v);
+    } catch (e) {}
+    return null;
+  }
+  function t(s) { var n = Date.parse(s || ""); return isNaN(n) ? 0 : n; }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function md(iso) {
+    var d = new Date(t(iso));
+    return t(iso) ? (d.getMonth() + 1) + "/" + d.getDate() : "";
+  }
+  function hm(iso) {
+    var d = new Date(t(iso));
+    return ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+  }
+
+  /* ————— 读：公开接口，不用钥匙 ————— */
+  function load() {
+    return fetch(API + "&_=" + Date.now(), {
+      headers: { "Accept": "application/vnd.github.raw", "X-GitHub-Api-Version": "2022-11-28" },
+      cache: "no-store"
+    }).then(function (r) {
+      if (!r.ok) throw new Error("read " + r.status);
+      return r.json();
+    });
+  }
+  function setStatus(ok, msg) {
+    var s = $("status");
+    s.className = "status " + (ok ? "is-ok" : "is-off");
+    s.innerHTML = "";
+    s.appendChild(el("i"));
+    s.appendChild(document.createTextNode(msg));
+  }
+  function stamp() {
+    var u = doc && doc.updated;
+    return u ? "最近一次更新 · " + md(u) + " " + hm(u) : "已取到";
+  }
+  function refresh(first) {
+    load().then(function (data) {
+      doc = data;
+      ls(KEY_CACHE, JSON.stringify(data));
+      setStatus(true, stamp());
+      render(first);
+    }, function () {
+      if (doc) { setStatus(false, "这会儿没连上，先给你看上次的 · " + md(doc.updated)); render(first); return; }
+      setStatus(false, "这会儿连不上 GitHub，等一下刷新试试");
+    });
+  }
+
+  /* ————— 整理 ————— */
+  function pages() { return (doc && doc.settings && doc.settings.pages) || []; }
+  function pageById(id) { return pages().filter(function (p) { return p.id === id; })[0]; }
+  function colorOf(p, k) { return (p && p.color) || COLORS[(k || 0) % COLORS.length]; }
+  function sortOpen(a, b) {
+    var pa = a.pin ? 0 : 1, pb = b.pin ? 0 : 1;
+    if (pa !== pb) return pa - pb;
+    if ((a.order || 0) !== (b.order || 0)) return (a.order || 0) - (b.order || 0);
+    return String(a.created || "").localeCompare(String(b.created || ""));
+  }
+  function itemsOf(pid, done) {
+    return ((doc && doc.items) || []).filter(function (i) { return i.page === pid && !!i.done === !!done; })
+      .sort(done ? function (a, b) { return t(b.doneAt || b.updated) - t(a.doneAt || a.updated); } : sortOpen);
+  }
+  function findItem(id) { return ((doc && doc.items) || []).filter(function (i) { return i.id === id; })[0]; }
+  function dueInfo(due) {
+    var m = String(due || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return null;
+    var d = new Date(+m[1], +m[2] - 1, +m[3]), n = new Date();
+    var diff = Math.round((d - new Date(n.getFullYear(), n.getMonth(), n.getDate())) / 864e5);
+    if (diff === 0) return { text: "今天", hot: true };
+    if (diff === 1) return { text: "明天" };
+    if (diff === 2) return { text: "后天" };
+    if (diff < 0) return { text: (+m[2]) + "/" + (+m[3]) + " · 过了", hot: true };
+    return { text: (+m[2]) + "/" + (+m[3]) };
+  }
+
+  /* ————— 画 ————— */
+  function render(first) {
+    if (!doc) return;
+    var ps = pages();
+    if (first) {
+      var want = decodeURIComponent((location.hash || "").slice(1));
+      var k = ps.map(function (p) { return p.id; }).indexOf(want);
+      if (k >= 0) cur = k;
+    }
+    if (cur >= ps.length) cur = Math.max(0, ps.length - 1);
+    renderTabs();
+    var key = ps.map(function (p) { return p.id; }).join("|");
+    if (key !== panelKey) buildPanels();
+    ps.forEach(fillPanel);
+  }
+
+  function renderTabs() {
+    var box = $("tabs");
+    box.innerHTML = "";
+    pages().forEach(function (p, k) {
+      var b = el("button", "tab" + (k === cur ? " is-on" : ""));
+      b.type = "button";
+      b.style.setProperty("--tab-c", colorOf(p, k));
+      b.appendChild(el("span", null, (p.emoji ? p.emoji + " " : "") + p.name));
+      b.appendChild(el("span", "tab__n", String(itemsOf(p.id).length)));
+      b.onclick = function () { go(k, true); };
+      box.appendChild(b);
+    });
+  }
+
+  var panels = {};
+  function buildPanels() {
+    var pager = $("pager");
+    pager.innerHTML = "";
+    panels = {};
+    pages().forEach(function (p) {
+      var panel = el("section", "panel");
+      var card = el("div", "card");
+      card.appendChild(el("div", "card__band"));
+      var inner = el("div", "card__in");
+      var head = el("div", "panel__head");
+      var title = el("span", "panel__title"), hint = el("span", "panel__hint"), n = el("span", "panel__n");
+      head.appendChild(title); head.appendChild(hint); head.appendChild(n);
+      var list = el("ul", "list"), done = el("div");
+      inner.appendChild(head); inner.appendChild(list); inner.appendChild(done);
+      card.appendChild(inner);
+      panel.appendChild(card);
+      pager.appendChild(panel);
+      panels[p.id] = { panel: panel, title: title, hint: hint, n: n, list: list, done: done };
+    });
+    panelKey = pages().map(function (p) { return p.id; }).join("|");
+    requestAnimationFrame(function () { go(cur, false); });
+  }
+
+  function fillPanel(p, k) {
+    var P = panels[p.id];
+    if (!P) return;
+    P.panel.style.setProperty("--page", colorOf(p, k));
+    P.title.textContent = (p.emoji ? p.emoji + " " : "") + p.name;
+    P.hint.textContent = p.hint || "";
+    var open = itemsOf(p.id), done = itemsOf(p.id, true);
+    P.n.textContent = String(open.length);
+    P.list.innerHTML = "";
+    if (!open.length) {
+      var e = el("li", "empty");
+      e.appendChild(el("b", null, done.length ? "✓" : "❄"));
+      e.appendChild(document.createTextNode(done.length ? "这一页的都做成了" : "这一页还空着，聊出点子就记在这里"));
+      P.list.appendChild(e);
+    }
+    open.forEach(function (i) { P.list.appendChild(row(i, false)); });
+    P.done.innerHTML = "";
+    if (done.length) {
+      var bar = el("div", "donebar");
+      var tog = el("button", null, (openDone[p.id] ? "▾ " : "▸ ") + "已经做成的 " + done.length + " 个");
+      tog.type = "button";
+      tog.onclick = function () { openDone[p.id] = !openDone[p.id]; fillPanel(p, k); };
+      bar.appendChild(tog);
+      P.done.appendChild(bar);
+      if (openDone[p.id]) {
+        var dl = el("ul", "list donelist");
+        done.forEach(function (i) { dl.appendChild(row(i, true)); });
+        P.done.appendChild(dl);
+      }
+    }
+  }
+
+  function row(i, isDone) {
+    var li = el("li", "it" + (isDone ? " is-done" : "") + (i.pin && !isDone ? " is-pin" : ""));
+    var b = el("button");
+    b.type = "button";
+    b.appendChild(el("span", "it__dot"));
+    var m = el("span", "it__main");
+    m.appendChild(el("span", "it__text", i.text));
+    var meta = el("span", "it__meta");
+    if (!isDone) {
+      var d = dueInfo(i.due);
+      if (d) meta.appendChild(el("span", "chip" + (d.hot ? " chip--hot" : ""), d.text));
+    }
+    var last = i.log && i.log.length ? i.log[i.log.length - 1] : null;
+    if (last) {
+      meta.appendChild(el("span", "chip", "进度 " + i.log.length));
+      var pk = el("span", "peek");
+      pk.appendChild(el("time", null, md(last.at)));
+      pk.appendChild(document.createTextNode(last.text));
+      meta.appendChild(pk);
+    } else if (i.note) {
+      meta.appendChild(el("span", "peek", "✎ " + i.note.replace(/\s+/g, " ")));
+    }
+    m.appendChild(meta);
+    b.appendChild(m);
+    if (i.note || last) b.appendChild(el("span", "it__more", "›"));
+    b.onclick = function () { openDetail(i.id); };
+    li.appendChild(b);
+    return li;
+  }
+
+  /* 页面左右滑：页签跟着走，网址带上 #页 */
+  function go(k, smooth) {
+    var ps = pages();
+    if (!ps.length) return;
+    cur = Math.max(0, Math.min(k, ps.length - 1));
+    var pager = $("pager");
+    pager.scrollTo({ left: cur * pager.clientWidth, behavior: smooth ? "smooth" : "auto" });
+    markTabs();
+    try { history.replaceState(null, "", "#" + ps[cur].id); } catch (e) {}
+  }
+  function markTabs() {
+    var tabs = $("tabs").children;
+    for (var k = 0; k < tabs.length; k++) tabs[k].classList.toggle("is-on", k === cur);
+  }
+  var scrollT = null;
+  $("pager").addEventListener("scroll", function () {
+    clearTimeout(scrollT);
+    scrollT = setTimeout(function () {
+      var pager = $("pager");
+      var k = Math.round(pager.scrollLeft / Math.max(1, pager.clientWidth));
+      if (k !== cur && pages()[k]) {
+        cur = k;
+        markTabs();
+        try { history.replaceState(null, "", "#" + pages()[cur].id); } catch (e) {}
+      }
+    }, 90);
+  });
+  window.addEventListener("resize", function () { go(cur, false); });
+  window.addEventListener("hashchange", function () {
+    var k = pages().map(function (p) { return p.id; }).indexOf(decodeURIComponent(location.hash.slice(1)));
+    if (k >= 0 && k !== cur) go(k, true);
+  });
+
+  /* ————— 点开一条：备注 + 进度，只看 ————— */
+  function openDetail(id) {
+    var it = findItem(id);
+    if (!it) return;
+    var pg = pageById(it.page) || {};
+    $("d-crumb").textContent = (pg.emoji ? pg.emoji + " " : "") + (pg.name || "") + " · " + md(it.created) + " 记的" +
+      (it.done ? " · " + md(it.doneAt || it.updated) + " 做成" : "");
+    $("d-title").textContent = it.text;
+    var chips = $("d-chips");
+    chips.innerHTML = "";
+    if (it.pin && !it.done) chips.appendChild(el("span", "chip", "★ 置顶"));
+    var d = it.done ? null : dueInfo(it.due);
+    if (d) chips.appendChild(el("span", "chip" + (d.hot ? " chip--hot" : ""), "到期 " + d.text));
+    var body = $("d-body");
+    body.innerHTML = "";
+    if (it.note) {
+      body.appendChild(el("h3", null, "备注"));
+      body.appendChild(el("p", "d-note", it.note));
+    }
+    if (it.log && it.log.length) {
+      body.appendChild(el("h3", null, "进度 · " + it.log.length + " 笔，新的在上面"));
+      var ol = el("ol", "log");
+      it.log.slice().reverse().forEach(function (e) {
+        var li = el("li");
+        li.appendChild(el("time", null, md(e.at)));
+        li.appendChild(el("span", null, e.text));
+        ol.appendChild(li);
+      });
+      body.appendChild(ol);
+    }
+    if (!it.note && !(it.log && it.log.length)) {
+      body.appendChild(el("p", "d-blank", "还没有备注和进度。在对话里聊出结论、做到哪一步，Claude 会记在这里。"));
+    }
+    $("veil").hidden = false;
+    $("detail").hidden = false;
+    $("detail").scrollTop = 0;
+    requestAnimationFrame(function () { $("veil").classList.add("is-on"); $("detail").classList.add("is-on"); });
+  }
+  function closeDetail() {
+    $("detail").classList.remove("is-on");
+    $("veil").classList.remove("is-on");
+    setTimeout(function () { $("detail").hidden = true; $("veil").hidden = true; }, 300);
+  }
+  $("veil").onclick = closeDetail;
+  $("d-close").onclick = closeDetail;
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDetail(); });
+
+  /* ————— 昼夜（配色交给全站的选色器） ————— */
+  function isDarkNow() {
+    var a = document.documentElement.getAttribute("data-theme");
+    return a === "dark" || (!a && !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches));
+  }
+  function paintModeBtn() {
+    var b = $("mode-btn");
+    b.textContent = isDarkNow() ? "🌑" : "🌕";
+    b.title = isDarkNow() ? "现在是夜里 · 点一下换白天" : "现在是白天 · 点一下换夜里";
+  }
+  $("mode-btn").onclick = function () {
+    var next = isDarkNow() ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    ls("wiw-theme", next);
+    paintModeBtn();
+  };
+  paintModeBtn();
+
+  /* ————— 开场：先摆上次存下的，再去取最新的；从别处切回来也再取一次 ————— */
+  try { doc = JSON.parse(ls(KEY_CACHE) || "null"); } catch (e) { doc = null; }
+  if (doc) render(true);
+  refresh(true);
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") refresh(false);
+  });
+})();
+</script>
+
+<!-- 全站共用的选色器：与博客、藏品架、游戏厅同一套、同一份记忆 -->
+<script src="/WinterSunBlog/js/sam-themes-data.js"></script>
+<script src="/WinterSunBlog/js/theme-picker.js"></script>
+</body>
+</html>

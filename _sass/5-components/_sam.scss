@@ -640,11 +640,19 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   margin: 4px auto 44px;
   padding: 0 8px;
 }
+/* 封面是真正的 <img>（不是背景图）+ object-fit：Safari 画大背景图会只画出左上角、
+   放大发糊（2026-10-03 Oh, May 翻车）。锚点由模板按脸的位置写进 --pos / --pos-m。
+   电脑从 16:6.5 放宽到 2:1——太扁的框会把 16:9 剧照的头顶和下巴一起切掉。 */
 .c-series-cover__image {
-  aspect-ratio: 16 / 6.5;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: 50% 30%;
+  object-position: var(--pos, 50% 30%);
+  background-color: $line;
   border-radius: 6px;
-  background-size: cover;
-  background-position: center 30%;
   border: 1px solid $line;
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.10);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
@@ -656,8 +664,14 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
 
 @media (max-width: 600px) {
   .c-series-cover { margin: 0 auto 32px; }
-  .c-series-cover__image { aspect-ratio: 3 / 2; }
+  .c-series-cover__image {
+    aspect-ratio: 3 / 2;
+    object-position: var(--pos-m, 50% 30%);
+  }
 }
+
+/* ⚠️ 下面这几条 [style*="文件名"] 只管「背景图」那些地方（章节卡 / 首页卡 / 文章头图）。
+   系列首页的大封面 2026-10-03 起是 <img>，锚点直接来自 _data/image_focus.yml，不吃这几条。 */
 
 /* ----- The Part Where You Live · Billy Bickle AU · 封面从左裁剪 -----
    封面 7-psychopaths.jpg 里 Billy 的脸在画面左侧；默认的水平居中裁剪
@@ -961,8 +975,36 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
     &:last-child { transform: none; }
   }
 }
-@media (max-width: 600px) {
+/* 彩带两头那几格的提示不要再从页面边上伸出去：最后三格靠右对齐、
+   最前三格靠左对齐（默认是以自己为中心，边上那几个必然超出去，
+   虽然平时透明却照样占位，整页就能横着滑）。 */
+.c-year-ribbon__track > :nth-last-child(-n+3) .c-year-ribbon__tip {
+  left: auto;
+  right: 0;
+  transform: translate(0, 4px);
+}
+.c-year-ribbon__track > :nth-last-child(-n+3):hover .c-year-ribbon__tip,
+.c-year-ribbon__track > :nth-last-child(-n+3):focus-visible .c-year-ribbon__tip {
+  transform: translate(0, 0);
+}
+.c-year-ribbon__track > :nth-child(-n+3) .c-year-ribbon__tip {
+  left: 0;
+  right: auto;
+  transform: translate(0, 4px);
+}
+.c-year-ribbon__track > :nth-child(-n+3):hover .c-year-ribbon__tip,
+.c-year-ribbon__track > :nth-child(-n+3):focus-visible .c-year-ribbon__tip {
+  transform: translate(0, 0);
+}
+
+/* ⚠️ 年份彩带那个悬浮小提示要一直藏到 900px 以下（原来只藏到 600px）：
+   它是绝对定位的，最右边那一格的提示会伸到页面外头，虽然平时是透明的、
+   却照样占位，于是 Sam 页在 601–900px 宽时整页能横着滑出十几二十像素。
+   平板 / 手机本来就没有鼠标悬停，这个提示在那儿也用不上。 */
+@media (max-width: 900px) {
   .c-year-ribbon__tip { display: none; }
+}
+@media (max-width: 600px) {
   .c-year-ribbon__track { height: 28px; gap: 1px; }
 }
 
@@ -1445,4 +1487,48 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   .c-sam-card__body { padding: 20px 20px; }
   .c-sam-card__title { font-size: 21px; }
   .c-sam-card__desc { -webkit-line-clamp: 3; }
+}
+
+/* ===============
+	小一号的 AU 卡（2026-10-03 全站新排法）：Sam 页底下 43 张系列卡以前手机上一行一张，
+	互动彩蛋之后还要再划 30 屏。现在电脑一行三张、手机一行两张；手机上只留封面、四个色点、
+	故事名 + 角色名、章数，配色的中英名字和简介收起来（点进系列页都看得到）。
+=============== */
+.c-sam-card__who {
+  display: block;
+  margin-top: 4px;
+  font-family: $base-font-family;
+  font-size: 0.74em;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.3;
+  color: $ink-soft;
+}
+@media only screen and (min-width: 1000px) {
+  .c-sam-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .c-sam-grid .c-sam-card__body { padding: 20px 20px 20px; }
+  .c-sam-grid .c-sam-card__title { font-size: 20px; }
+  .c-sam-grid .c-sam-card__desc { font-size: 14px; }
+  .c-sam-grid .c-sam-card__pcols { gap: 7px 12px; }
+}
+@media only screen and (max-width: 720px) {
+  .c-sam-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .c-sam-grid .c-sam-card__body { padding: 10px 10px 12px; }
+  .c-sam-grid .c-sam-card__palette {
+    margin: -26px 0 9px;
+    padding: 6px 8px;
+    border-radius: 999px;
+    gap: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  }
+  .c-sam-grid .c-sam-card__pcap,
+  .c-sam-grid .c-sam-card__pname,
+  .c-sam-grid .c-sam-card__psig,
+  .c-sam-grid .c-sam-card__eyebrow,
+  .c-sam-grid .c-sam-card__desc,
+  .c-sam-grid .c-sam-card__cta { display: none; }
+  .c-sam-grid .c-sam-card__pcols { display: flex; gap: 5px; }
+  .c-sam-grid .c-sam-card__pcol i { width: 12px; height: 12px; }
+  .c-sam-grid .c-sam-card__title { font-size: 14.5px; line-height: 1.25; margin-bottom: 8px; }
+  .c-sam-grid .c-sam-card__count { font-size: 11px; }
 }

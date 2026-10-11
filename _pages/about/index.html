@@ -1,5 +1,127 @@
 ---
+layout: home
+title: About
 permalink: /about/
-redirect_to: /
-sitemap: false
+nav_active: home
 ---
+{%- comment -%}
+  关于我 · 写信（2026-10-03 全站新排法）。
+  以前 /about/ 只是一个跳回首页的空壳，「Say Hello」写信页又被挪到页脚最底下一行小字——
+  Winter：「现在连 contact 之类的都没有了，about 页面也形同虚设」。现在两样并成这一页：
+  冬的地图（数字都从数据自动算）→ 冬在别处 → 给冬写信（#letter）。小标题 2026-10-03 她定的「冬的什么」。
+  入口：门厅最下面的「关于我」小卡、页脚。旧的 /contact/ 会跳到这页的 #letter。
+  ⚠️ 「关于我」那段自我介绍属于创作文字，要 Winter 过目认可后才能写进来（写在 .c-about__bio 里）。
+{%- endcomment -%}
+{%- assign ab_series = 0 -%}
+{%- assign ab_series_pages = site.pages | where: "layout", "series" -%}
+{%- for sp in ab_series_pages -%}{%- if sp.series_name -%}{%- assign ab_series = ab_series | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- assign ab_chapters = site.posts | where_exp: "p", "p.series" | size -%}
+{%- assign ab_wn_cats = "Daily|Novel|Lyrics|散文" | split: "|" -%}
+{%- assign ab_wn = 0 -%}
+{%- for p in site.posts -%}{%- assign c = p.categories | first -%}{%- if p.series == nil and ab_wn_cats contains c -%}{%- assign ab_wn = ab_wn | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- assign ab_songs = 0 -%}
+{%- for a in site.data.songs.albums -%}{%- assign ab_songs = ab_songs | plus: a.songs.size -%}{%- endfor -%}
+{%- assign ab_since = site.posts | last -%}
+
+<section class="c-hero c-hero--filter">
+  {% if site.author-image %}
+  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
+    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
+  </a>
+  {% endif %}
+  <div class="c-hero__eyebrow">About · Say Hello</div>
+  <h1 class="c-hero__title">Winter <em>Sun</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">冬璇 · {{ site.author-job }}</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+  <p class="c-hero__lede">
+    <span class="c-hero__quote">&ldquo;</span>
+    {{ site.about-author }}
+    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
+  </p>
+</section>
+
+<section class="c-hello c-about">
+
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">冬的地图</h3>
+    <span class="c-section-heading__meta">since {{ ab_since.date | date: '%Y' }}</span>
+  </div>
+  <ul class="c-about__here">
+    <li><a href="{{ site.baseurl }}/?cat=AU+Story"><i aria-hidden="true">📖</i><b>AU 故事</b><span>{{ ab_series }} 个系列 · {{ ab_chapters }} 章</span></a></li>
+    <li><a href="{{ site.baseurl }}/?cat=winters"><i aria-hidden="true">✍️</i><b>Winter's</b><span>{{ ab_wn }} 篇我自己写的字</span></a></li>
+    <li><a href="{{ site.baseurl }}/sam/"><i aria-hidden="true">❣️</i><b>Sam</b><span>{{ site.data.sam.faces }} 个角色 · {{ site.data.sam.wall_lines }} 句台词</span></a></li>
+    <li><a href="{{ site.baseurl }}/songs/"><i aria-hidden="true">🎧</i><b>冬的歌单</b><span>{{ ab_songs }} 首歌</span></a></li>
+    <li><a href="{{ site.baseurl }}/notes/"><i aria-hidden="true">📝</i><b>笔记</b><span>灵感本、波兰语、原著笔记</span></a></li>
+    <li><a href="{{ site.baseurl }}/archive/"><i aria-hidden="true">🗓️</i><b>日历</b><span>{{ site.posts.size }} 篇，按日子翻</span></a></li>
+  </ul>
+
+  <div class="c-section-heading">
+    <h3 class="c-section-heading__title">冬在别处</h3>
+    <span class="c-section-heading__meta">elsewhere</span>
+  </div>
+  <ul class="c-hello__channels c-about__channels">
+    {% if site.author-redbook %}
+    <li class="c-hello__channel">
+      <a href="{{site.author-redbook}}" target="_blank" rel="noopener" class="c-hello__card">
+        <span class="c-hello__card-eyebrow">Red Book</span>
+        <span class="c-hello__card-title">小红书</span>
+        <span class="c-hello__card-cta">Sam 的每日切片 · 我爱的人和事 ↗</span>
+      </a>
+    </li>
+    {% endif %}
+    {% if site.author-weibo %}
+    <li class="c-hello__channel">
+      <a href="{{site.author-weibo}}" target="_blank" rel="noopener" class="c-hello__card">
+        <span class="c-hello__card-eyebrow">Weibo</span>
+        <span class="c-hello__card-title">微博</span>
+        <span class="c-hello__card-cta">走近一点的我 · 日常的细碎 ↗</span>
+      </a>
+    </li>
+    {% endif %}
+    {% if site.author-bilibili %}
+    <li class="c-hello__channel">
+      <a href="{{site.author-bilibili}}" target="_blank" rel="noopener" class="c-hello__card">
+        <span class="c-hello__card-eyebrow">Bilibili</span>
+        <span class="c-hello__card-title">B 站</span>
+        <span class="c-hello__card-cta">视频自留地 · 也同步小红书 ↗</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+
+  {% if site.web3forms-key and site.web3forms-key != "" %}
+  <form id="letter" class="c-hello__form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="{{site.web3forms-key}}">
+    <div class="c-section-heading">
+      <h3 class="c-section-heading__title">给冬写信</h3>
+      <span class="c-section-heading__meta">straight to my inbox</span>
+    </div>
+    <p class="c-about__letter-lede">随时来这里坐坐，留几个字也好。</p>
+
+    <div class="c-hello__row">
+      <label class="c-hello__field">
+        <span class="c-hello__label">Your name</span>
+        <input class="c-hello__input" type="text" name="name" required>
+      </label>
+      <label class="c-hello__field">
+        <span class="c-hello__label">Your email</span>
+        <input class="c-hello__input" type="email" name="email" required>
+      </label>
+    </div>
+    <label class="c-hello__field">
+      <span class="c-hello__label">Subject</span>
+      <input class="c-hello__input" type="text" name="subject">
+    </label>
+    <label class="c-hello__field">
+      <span class="c-hello__label">Your letter</span>
+      <textarea class="c-hello__input c-hello__input--area" name="message" rows="8" required></textarea>
+    </label>
+
+    <button class="c-hello__submit" type="submit">Send the letter</button>
+    <input type="hidden" name="redirect" value="{{ site.url }}{{ site.baseurl }}/contact/thanks/">
+  </form>
+  {% endif %}
+</section>

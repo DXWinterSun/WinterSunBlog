@@ -3,10 +3,10 @@ layout: post
 title: "Chapter 17 · 杀青 — The Making of You"
 date: 2026-07-15 06:40:28 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 悸动, 暗涌]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 悸动, 暗涌]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 17
 series_status: ongoing
 series_type: Series
@@ -31,7 +31,7 @@ redirect_from:
 
 你笑了。也许是酒，也许是杀青，也许是这半年所有的兵荒马乱终于落了地——你难得地，敢在他旁边多站一会儿。
 
-“Stankas 先生，”你看着楼下的车河，手指绞着栏杆，酝酿了半天，才把那几句在心里排练过无数遍的话说出口，“谢谢你。今天导演敬我的那杯……其实都该敬你。我知道我这样的新人有多少，是你把我捡起来，一点一点教到今天的。我的事业，我的名字，都是你给的。”你深吸一口气，“我不会让你失望的。我会一直、一直努力下去，只要……”
+“Stankis 先生，”你看着楼下的车河，手指绞着栏杆，酝酿了半天，才把那几句在心里排练过无数遍的话说出口，“谢谢你。今天导演敬我的那杯……其实都该敬你。我知道我这样的新人有多少，是你把我捡起来，一点一点教到今天的。我的事业，我的名字，都是你给的。”你深吸一口气，“我不会让你失望的。我会一直、一直努力下去，只要……”
 
 只要你还没玩腻。
 

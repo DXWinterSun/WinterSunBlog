@@ -5,6 +5,8 @@ date: 2016-08-28
 image: door.jpg
 tags: [絮语]
 categories: Daily
+winters: [self, young]
+form: 随笔
 summary: "究竟，是结局，还是开端？假如我遗失了记忆，会不会就此忘记向何处去？"
 ---
 我们都知道，一部小说有着开端、发展、高潮和结局这四个部分。它们通常不相重叠，即使真的重叠，你又是否见过开端和结局的重叠呢？    

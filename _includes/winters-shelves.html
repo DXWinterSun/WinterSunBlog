@@ -1,0 +1,35 @@
+{%- comment -%}
+  Winter's（首页 ?cat=winters）＝五本「书」的封面（2026-10-03 改版）。
+  Winter：「我觉得你可以做成默认是列表，点进去展示所有的，而不是想着在首页就是有一部分展示的，
+  这样每一个分类还可以有点封面设计，发挥你的画图特长」。
+  · 电脑：五本书立在一块搁板上，书下面写中文名、说明；手机：一行一本，左边封面、右边字。
+  · 点一本＝进那一格自己的页 /winters/<key>/（_pages/winters/*.html → _includes/winters-shelf-page.html），
+    那里是全部文章的小拍立得；冬的歌单进 /songs/ 唱片墙。
+  · 书架是哪几格、叫什么、封面颜色：_data/winters.yml；插画：_includes/wn-cover-art.html；
+    一格有哪几篇：_includes/wn-shelf-posts.html（跟每格的页共用）。
+  · ⚠️ 以前（09-30 ～ 10-03）是一格一行横着滑，后来改过一版「先露几张、点开看全部」，都被 Winter 否了，别改回去。
+{%- endcomment -%}
+{%- assign wn_song_n = 0 -%}
+{%- for a in site.data.songs.albums -%}{%- assign wn_song_n = wn_song_n | plus: a.songs.size -%}{%- endfor %}
+<div class="c-winters" id="js-winters">
+  <ul class="c-wn-covers">
+    {%- for sh in site.data.winters -%}
+      {%- if sh.key == 'songs' -%}
+        {%- assign cv_n = wn_song_n -%}{%- assign cv_unit = '首' -%}{%- assign cv_href = '/songs/' | prepend: site.baseurl -%}
+      {%- else -%}
+        {%- include wn-shelf-posts.html key=sh.key -%}
+        {%- assign cv_n = wn_n -%}{%- assign cv_unit = '篇' -%}{%- assign cv_href = '/winters/' | append: sh.key | append: '/' | prepend: site.baseurl -%}
+      {%- endif %}
+    <li class="c-wn-covers__item">
+      <a class="c-wn-cover" href="{{ cv_href }}">
+        <span class="c-wn-cover__stand">{% include wn-cover.html shelf=sh n=cv_n unit=cv_unit %}</span>
+        <span class="c-wn-cover__text">
+          <b class="c-wn-cover__name"><i aria-hidden="true">{{ sh.emoji }}</i>{{ sh.name }}</b>
+          <span class="c-wn-cover__en">{{ sh.cover_en }}</span>
+          <span class="c-wn-cover__desc">{{ sh.desc }}</span>
+        </span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</div>

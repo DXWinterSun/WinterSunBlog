@@ -3,10 +3,10 @@ layout: post
 title: "Extra 26 · 对账 — The Making of You"
 date: 2026-07-21 04:52:17 +0800
 image: aldo-stankas.jpg
-tags: [Aldo Stankas, Sam Rockwell, AU, The Making of You, 缱绻, 怅惘]
+tags: [Aldo Stankis, Sam Rockwell, AU, The Making of You, 缱绻, 怅惘]
 categories: ["AU Story"]
 series: "The Making of You"
-series_title: "The Making of You · Aldo Stankas AU"
+series_title: "The Making of You · Aldo Stankis AU"
 series_order: 58
 series_status: ongoing
 series_type: Series
@@ -47,7 +47,7 @@ redirect_from:
 
 他捏着那一页，愣了很久。
 
-Aldo Stankas，全城最难被撼动的男人，此刻居然为一行字，耳根有点发烫。她记得他的古龙水。一天一天地，记。他自己都不记得那阵子换过什么味道，而这个小孩，在凌晨快两点、眼睛都要睁不开的时候，郑重其事地，为他今天比昨天“更那什么”了一点，纠结了半页纸。
+Aldo Stankis，全城最难被撼动的男人，此刻居然为一行字，耳根有点发烫。她记得他的古龙水。一天一天地，记。他自己都不记得那阵子换过什么味道，而这个小孩，在凌晨快两点、眼睛都要睁不开的时候，郑重其事地，为他今天比昨天“更那什么”了一点，纠结了半页纸。
 
 他翻到下一页。笑意就凝住了。
 
