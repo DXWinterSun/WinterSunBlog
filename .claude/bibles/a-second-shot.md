@@ -305,3 +305,6 @@ series_name: A Second Shot ｜ slug: series/a-second-shot/
       - Ch3 你写的那行字在第五页空白处，你临走把那一页抽给了他。
 
   - 2026-10-11 第 12–15 章路线图 + 三个岔路（Moira 那一头怎么收 / “John 就行”要不要还 / 最后一章停在哪）：`.claude/roadmaps/a-second-shot.json`，预览 https://claude.ai/artifact/4ELLNQL4qP312KRtrqmnoL 。第 13 章新点子：他从钱夹里拿出你留给他的那一页“保留山林”（待她点头）。
+  - **2026-10-11 她挑了 A·A·A**：① Moira 寄来离婚文件＋字条“饲料订了吗。”，是她先放手，他坐在桌边签了很久（Ch14）；② 银行里又有人叫他 Mr. Moon，他照样说“John 就行”，回家路上你问他，他说“……那是你的。”（Ch13）；③ 全篇停在你搬进来那一夜、门锁上的那一声（Ch15）。
+  - **Ch12《他把衬衫叠进了抽屉》草稿**：`ch12.md` + `ch12-notes.md`，预览 https://claude.ai/artifact/KLAd4NrKV4RYcwv4M5jmb3 （待她过目，未上线）。回收：白衬衫 PIN 1（“……干净了。”）、头发盖脸（“……我那时候不敢看你。”）、两张单人床（“……我知道。”）。新埋：“……开春，这儿全是蕨。”。他第一次在白天叫你 Winter（“……Winter。吃饭。”）。
+  - 顺手：Ch11 抽屉那句改成“梳子原本就收在那儿”（对上 Ch6 修订），正文存档已改，`_posts/` 跟 Ch12 一起上。
