@@ -1,8 +1,9 @@
-# Aldo 新 AU（原片味）· 系列圣经（内部工作文件，Jekyll 不发布）
+# Trust Me, Baby · Aldo Stankis AU · 系列圣经（内部工作文件，Jekyll 不发布）
 
-> 状态：2026-10-11 设定定稿第一轮，还没动笔。系列英文名待定（路线图岔路三），定了以后把本文件改名成 `<series-slug>.md`。
+> 状态：2026-10-11 设定定稿；第一章草稿已出，等 Winter 过目。
+> series_name: **Trust Me, Baby** ｜ slug `series/trust-me-baby/` ｜ ⚠️ 名字里有逗号，章节 tags 里要写成 `"Trust Me, Baby"`（带引号），否则 YAML 会把它拆成两个标签。
 > 续写前先读本圣经；写完回来更新「章节流水 / 伏笔账」，随正文一起 commit/push。
-> 路线图数据：`.claude/roadmaps/aldo-monroe.json`（`python3 tools/preview/render_roadmap.py` 生成页面）。
+> 路线图数据：`.claude/roadmaps/trust-me-baby.json`（`python3 tools/preview/render_roadmap.py` 生成页面）。
 
 角色: **Aldo Stankis**（Sam Rockwell,《Trust Me》2013 / 中文译名《明星少女养成记》）画册 id `aldo`
 配色: 沿用画册里他那套（分红翡翠 `#2ea86a` / 空头支票 `#0f1613`），一个角色一套色，跟 The Making of You 同一套。
@@ -41,7 +42,11 @@
 ## 称呼（铁律）
 
 - 你叫他 **Aldo**（他的名字谁都叫，不特殊化）；生气时连名带姓喊「Aldo Stankis」。
-- 他叫你：跟叫所有人一样，宝贝 / 甜心……（「只对你不一样的那一样」见路线图岔路二，挑定后写进这里）。
+- 他叫你：跟叫所有人一样，宝贝 / 甜心……
+- Rolf 叫你「Monroe 小姐」。
+- ⭐ **只对你不一样的那一样（Winter 选岔路二 C）**：他从不对你敲戒指、从不对你说「我婚姻幸福」。
+  你看他对别人敲了一千次，早就看惯了，**从没想过有什么不同**——所以正文里你不能察觉，叙述也别点破。
+  每章让他对别人敲一回（读者慢慢攒），对你一回都没有。他摘戒指那天，你倒回去才想起来。
 - Howard 叫你「Winter 大小姐」（「该回去哄 Winter 大小姐了吧」）。
 
 ## 配角
@@ -68,10 +73,12 @@
 ## 伏笔账
 
 - **DEFERRED** 怕成为他的前妻 → 第三幕求婚
-- **DEFERRED** 他的婚姻只是人设 → 你什么时候知道（路线图岔路一）
+- **DEFERRED** 他的婚姻只是人设 → **他自己当着你摘下戒指、说是道具**（Winter 选岔路一 C），放到很后面：前期靠你的负罪感撑张力
 - **PINNED** 第一章致辞谢了 Rolf 和你妈，没谢他 → 最后一章同一个奖台谢他
 - **PINNED** 「还得多练」→ 往后每一场吻戏之前
-- **DEFERRED** 只对你不一样的那一样（他先沦陷的证据）→ 第六章起露出来（路线图岔路二）
+- **DEFERRED** 他从不对你敲戒指（岔路二 C）→ 摘戒指那天你才想起来；之前一个字都别点破
+- **PINNED** 「‘不怕难看的人’那句，稿子上没有」（Ch1）→ 他一边撬别人一边记得你改到第三版的稿子＝他先沦陷的第一道缝
+- **PINNED** Kevin（Ch1 颁奖礼上的占座人，抱着你上了全国直播）→ 可回来客串
 - **PINNED** 「我是希腊爱尔兰混血」→ 他第一次跟你说真话的时候
 
 ## 定下来的开场
@@ -81,9 +88,14 @@
 
 ## 章节流水
 
-（还没动笔）
+- **Ch1 致辞里没有他**（草稿，待过目）：颁奖礼。红毯上他搂着 Howard 的 Tyler Wade，对记者敲戒指「我婚姻幸福」；
+  你从下车就开始记账。他的空座被占座的 Kevin 填上，你拿奖时抱着你上全国直播的是 Kevin。致辞谢导演 Ruth、谢你妈、谢 Rolf，
+  独独没谢他；他在台下笑得最响。后台：「Aldo 罪该万死」「Tyler 不吃生蚝」「稿子上没有那句」；Howard「该回去哄 Winter 大小姐了吧」
+  →「趁他还是你的人」；Howard 骂「Stankass」。他钻进 Rolf 的车。收：九个人宝贝，叫你五次，你恨自己连这个都数了。
+  闪回：十八岁生日自己推门，「我只撬人，不收人」「那你撬一个试试」。全文 `trust-me-baby-revised/ch1.md`。
 
 ## 预览页
 
-- 路线图（2026-10-11 第一版，三个岔路待挑）：https://claude.ai/artifact/4KsXFqMgdaegZS97JdGR6q
+- 路线图（2026-10-11，三个岔路已挑 C/C/C）：https://claude.ai/artifact/4KsXFqMgdaegZS97JdGR6q
+- Ch1 草稿预览：https://claude.ai/artifact/KDFRCnf1exJYPUkLWjyg1X
   改版用同一个链接重新发布（另一个对话里传 `url`）。

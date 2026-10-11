@@ -117,6 +117,22 @@
   muted_cn: "佣金灰绿"
   muted_en: "Commission Sage"
 
+"Trust Me, Baby":           # Aldo Stankis（原片味）· 与 The Making of You 共用同一套（一个角色一套色）
+  mf_id: aldo                # → Many Faces 画册锚点 /sam/many-faces/#aldo
+  accent: "#2ea86a"
+  accent_ink: "#1f7a4c"      # accent 暗一档，浅色主题下 ≥4.5:1（实测 ~5.3:1 vs 白）
+  bg: "#0f1613"
+  text: "#dce8e1"
+  muted: "#849a8e"
+  accent_cn: "分红翡翠"
+  accent_en: "Broker's Emerald"
+  bg_cn: "空头支票"
+  bg_en: "Blank-Cheque Black"
+  text_cn: "合约薄荷"
+  text_en: "Contract Mint"
+  muted_cn: "佣金灰绿"
+  muted_en: "Commission Sage"
+
 "Zaphod AU":                # Zaphod Beeblebrox
   mf_id: zaphod                # → Many Faces 画册锚点 /sam/many-faces/#zaphod
   accent: "#d4a82a"
