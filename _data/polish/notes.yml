@@ -678,3 +678,54 @@ notes:
       - {pl: pokój, zh: 房间, tag: 阳}
       - {pl: za, zh: 在……后面（跟工具格）, look: false}
     see: ["004", "010"]
+
+  - id: "019"
+    date: 2026-10-11
+    source: 多邻国
+    ok: true
+    task: fill
+    point: noun.loc
+    also: [prep.case, pron.possess, adj.agree]
+    title: o（关于）后面跟方位格：复数名词一律收 -ach，“我的”这类收 -ich / -ych
+    ask: 这个 o（about）后面跟的什么格😵‍💫好多结尾是 ch
+    pl: "Mówimy ==o== ==moich rodzicach==."
+    en: "We are speaking about my parents."
+    zh: 我们在聊我的父母。
+    mine: "Mówimy ==o== moich rodzicach."
+    why: |
+      o 当“关于”讲的时候，后面跟方位格（第六格）。第 17 条那个 o mnie（关于我），用的就是它。
+      你看到的那一串 ch，正是方位格复数的记号：名词收 -ach（rodzice 父母 → rodzicach），“我的”和形容词收 -ich 或 -ych（mój → moich，nowy → nowych）。好消息是，名词的 -ach 不分阳性、阴性、中性，复数一律这样，比单数省心得多；单数的方位格词尾五花八门（o mamie、o domu），得一个个记。
+      方位格还有个怪脾气：它只跟在介词后面出现，从来不单独用。常带它的介词就五个：o 关于、w 在……里、na 在……上、przy 在……旁边、po 在……之后。
+      小心一点：moich、nowych 这种 -ch 光看自己说明不了是哪个格，生格复数也长这样（nie mam nowych ==książek== 我没有新书）。要看后面的名词：名词是 -ach，才是方位格。
+    rule:
+      - o（关于）、w、na、przy、po → 方位格。
+      - 方位格复数：名词 -ach，“我的”和形容词 -ich / -ych。
+    table:
+      - head: ["", "原来", "方位格复数"]
+        rows:
+          - ["我的", "mój", "==moich=="]
+          - ["新的", "nowy", "==nowych=="]
+          - ["父母", "rodzice", "==rodzicach=="]
+          - ["书", "książki", "==książkach=="]
+          - ["猫", "koty", "==kotach=="]
+      - head: ["", "跟方位格的介词", "例子"]
+        rows:
+          - ["关于", "o", "o ==rodzicach=="]
+          - ["在……里", "w", "w ==domu=="]
+          - ["在……上", "na", "na ==stole=="]
+          - ["在……旁边", "przy", "przy ==oknie=="]
+          - ["在……之后", "po", "po ==lekcji=="]
+    extra:
+      - "**例外** o 后面偶尔跟宾格，那是“要什么、为了什么”的固定搭配：prosić o ==pomoc==（请求帮助）。当“关于”讲时，一律方位格。"
+    examples:
+      - {pl: "Myślę o ==moich kotach==.", zh: 我在想我的猫。}
+      - {pl: "Mówimy o ==moim domu==.", zh: 我们在聊我家。（单数：moim、domu）}
+      - {pl: "Rozmawiamy o ==mamie==.", zh: 我们在聊妈妈。}
+    words:
+      - {pl: mówić, zh: 说；讲, tag: 未完成体}
+      - {pl: rodzice, zh: 父母, tag: 复数}
+      - {pl: mój, zh: 我的}
+      - {pl: rozmawiać, zh: 聊天；谈, tag: 未完成体}
+      - {pl: myśleć, zh: 想, tag: 未完成体}
+      - {pl: o, zh: 关于（跟方位格）, look: false}
+    see: ["017", "018"]
