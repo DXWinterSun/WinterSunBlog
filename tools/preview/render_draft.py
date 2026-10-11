@@ -9,9 +9,14 @@
         --title  "雪的巡游" \
         --subtitle "番外 · Don't Panic, Baby Doll" \
         --mood   "缱绻 · 安放" \
-        --notes  衔接说明.md
+        --notes  衔接说明.md \
+        --forks  下一章岔路.json
 
 然后把生成的 .html 用 Artifact 工具发布，把链接给 Winter。
+
+--forks：下一章要她挑的岔路，做在页面最底下，可以点选、拼成一句话、一键复制
+（Winter 2026-10-11 定：岔路一律跟着最新一章的预览页走，别写在聊天里让她去找）。
+JSON 格式见 tools/preview/forks.py 开头。
 
 配色自动从 `_data/au_palettes.yml` 按 --series（= 章节 front matter 的
 series 值）取该 AU 的 accent / bg / text / muted，所以预览页的观感和
@@ -24,6 +29,9 @@ series 值）取该 AU 的 accent / bg / text / muted，所以预览页的观感
   后两者预览页自带简化样式，看到的效果跟线上接近）
 """
 import argparse, html, os, re, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import forks as forks_mod  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 DEFAULT = {'accent': '#c9a227', 'bg': '#12110f', 'text': '#ece7dd', 'muted': '#8f8a7e'}
@@ -567,6 +575,7 @@ def main():
     ap.add_argument('--notes', default='', help='衔接说明文件（.md 或 .html），渲染在页尾')
     ap.add_argument('--eyebrow', default='草稿 / 待冬璇过目', help='状态条里「状态」那一格')
     ap.add_argument('--kicker', default='', help='大标题上方那行斜体系列名，如「Everybody\'s Home · Sam Bell AU」')
+    ap.add_argument('--forks', default='', help='下一章岔路 JSON（格式见 forks.py），做成页底可点选、可复制的选项')
     a = ap.parse_args()
 
     src = open(a.source, encoding='utf-8').read()
@@ -601,13 +610,20 @@ def main():
                + ''.join(cells) + '</div>\n')
     kicker = f'<p class="kicker">{html.escape(a.kicker)}</p>\n' if a.kicker else ''
 
-    page = (f'<title>{html.escape(a.title)}</title>\n{css}\n<div class="wrap">\n'
+    fk_css = fk_html = fk_tail = ''
+    nf = 0
+    if a.forks:
+        fk_css, fk_html, fk_tail, nf = forks_mod.render(a.forks, a.title)
+        fk_css = f'<style>{fk_css}</style>\n'
+
+    page = (f'<title>{html.escape(a.title)}</title>\n{css}\n{fk_css}<div class="wrap">\n'
             f'{console}{kicker}'
             f'<h1>{html.escape(a.title)}</h1>\n{subs}<div class="rule"></div>\n'
-            f'{body}\n{foot}\n</div>')
+            f'{body}\n{foot}\n{fk_html}\n</div>\n{fk_tail}')
     open(a.out, 'w', encoding='utf-8').write(page)
     n = len(re.sub(r'<[^>]+>|\s', '', body))
-    print(f'✅ {a.out}（配色：{a.series or "默认"} accent {pal["accent"]}，{n} 字）')
+    print(f'✅ {a.out}（配色：{a.series or "默认"} accent {pal["accent"]}，{n} 字'
+          + (f'，页底 {nf} 道岔路' if nf else '') + '）')
 
 
 if __name__ == '__main__':

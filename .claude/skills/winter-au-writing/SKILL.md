@@ -58,6 +58,16 @@ python3 tools/preview/render_draft.py 草稿.md -o /tmp/.../预览.html \
 - 正文排成上述预览页，让她读到手感；
 - 结尾附一两句「衔接说明」——这章回收了哪个伏笔、埋了什么新钩子、和前文哪里对上，方便她判断连贯性；
 - 顺手把 `summary`（≤35 字钩子）和 mood 标签也拟好，她点头就能直接进发布流程。
+- ⭐ **下一章的岔路做在这一页的最底下**（Winter 2026-10-11 定，所有 AU 通用）：写成
+  `<系列>-revised/chN+1-forks.json`，生成时加 `--forks`。每道 2–3 个选项、带一两句描述，可标「我推荐」；
+  她点选后页底拼成一句话、一键复制贴回聊天，还有一个「想补充的话」框。**聊天里别再把 A/B/C 列一遍让她去找**，
+  一句「岔路在页底」就够。改稿重发时岔路照样带上。格式见 `tools/preview/forks.py` 开头。
+
+```bash
+python3 tools/preview/render_draft.py <系列>-revised/ch2.md -o /tmp/.../预览.html \
+    --series "Trust Me, Baby" --title "他自己排的队" --subtitle "Chapter 2" \
+    --notes <系列>-revised/ch2-notes.md --forks <系列>-revised/ch3-forks.json
+```
 
 ### 节奏：她说慢就慢
 
@@ -170,6 +180,7 @@ Winter 明确认可成人向可以写得**直白、贴肉**——脱衣、动作
 ### 给她一份「番外菜单」
 
 写完一篇，顺手列几个「接下来可以写的番外」方向（停电夜、末班车、冷战、厨房战争、观察笔记回礼……）让她点。她会「收着」，想看哪个再说。**多给选项**是这套合作的一贯风格。
+菜单也照上面的办法做进这一篇预览页的页底（`--forks`，可以 `"multi": true` 让她多选），别列在聊天里。
 
 ---
 

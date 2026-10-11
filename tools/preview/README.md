@@ -72,6 +72,23 @@ python3 tools/preview/render_draft.py _posts/2026-10-02-zaphod-au-extra-a-tour-o
 # 期望：7 张内嵌图、5 个小节、3 个引用块、5 处硬换行
 ```
 
+## 页底岔路：`--forks`（下一章让她挑的东西）
+
+Winter 2026-10-11 定：**岔路一律做在最新一章预览页的最底下**，可以点选、拼成一句话、一键复制，
+不再写在聊天里让她去找。所有 AU 通用。
+
+```bash
+python3 tools/preview/render_draft.py ch2.md -o 预览.html --series "…" --title "…" \
+    --notes ch2-notes.md --forks ch3-forks.json
+```
+
+- JSON 格式写在 `forks.py` 开头：`title` / `note` / `prefix` / `forks[{id, q, short, hint, multi, options[{id, name, short, hook, rec}]}]`。
+- 复制出去的那句话长这样：`第三章：为什么待一整天 B（监督他撬人）；撞上谁 A（Tyler 报到）。补充：……`
+  ——每道的 `short` + 字母 + 选项的 `short`，所以 `short` 要写得一看就懂。
+- 页尾自带「想补充的话」输入框，写了一起复制（她常常挑完还要加一句）。
+- 页底那条栏平时藏着，她点了第一个选项才出来，不挡读正文。选过的记在她本机浏览器里。
+- 岔路 JSON 存进 `.claude/bibles/<系列>-revised/`，跟章节一起留档。
+
 ## 开新坑：`render_pitch.py`（开坑提案页）
 
 开新 AU 时，设定不要在聊天里一条条问，排成一张**可以点着挑的选项页**：
