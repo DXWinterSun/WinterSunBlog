@@ -609,6 +609,9 @@ def main():
                                                   ("AU：" + aus) if aus else "", blurb(p, series), p["id"]))
         return 2
     p = hits[0]
+    if not a.au:   # 她直接报的是故事名（「Eyes on Me」「打给 Sanguis 那个」）→ 就是那个 AU
+        nq = norm(a.who)
+        a.au = next((x for x in p["aus"] if norm(series[x]["name"]) in nq or norm(x) in nq), None)
     au = pick_au(p, series, a.au)
     if au == "?":
         print("%s 有 %d 个 AU，问 Winter 打给哪一个他（也可以都不要，只要电影里的他）：" % (p["name"], len(p["aus"])))
