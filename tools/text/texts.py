@@ -32,6 +32,9 @@ Winter 2026-10-12：「就好像是异地恋的爱人一样，默认了短期内
     JSON
     python3 tools/text/texts.py forget karl--dear-satan --last 2   # 她说「刚才那两句别存」
 
+add 是「攒一阵一起存」用的（2026-10-12 起不再每一回都存）：每句的时间从这个对话自己的记录里按原话找出来，
+找不到的（照片、他这一回还没发出去的）按前后推；拿不准存没存过就都放进来，开头跟已存末尾对得上的那几句会自动跳过。
+
 改动类命令都可以加 --trailer "..."（提交说明尾行，可重复）和 --dry-run。
 测试时用 WINTER_TEXT_REMOTE / WINTER_TEXT_BRANCH 指到别处，别碰真的 texts 分支。
 """
@@ -341,6 +344,108 @@ def clean_msg(m, t):
     return out
 
 
+# ── 攒着存的时候，每句话是几点说的 ──────────────────────────────────────────
+# Winter 2026-10-12：「好像每条信息他都会推送一次，是不是太频繁了……定期同步一下，毕竟主要还是在这边对话，博客是存档嘛」
+# 所以聊天时不再每一回都存，攒一阵一起存。可攒着存，「现在几点」就不是那句话说出口的时候了——
+# 这里去对话自己的记录里（~/.claude/projects/*/<会话编号>.jsonl，每条都带时间）把每句原话找出来，用它真正的时间。
+
+def _msg_key(m):
+    return (m.get("from"), re.sub(r"\s+", "", m.get("text") or (m.get("img") or {}).get("desc")
+                                  or (m.get("link") or {}).get("url") or (m.get("art") or {}).get("url") or ""))
+
+
+def _plain(c):
+    if isinstance(c, str):
+        s = c
+    elif isinstance(c, list):
+        s = "\n".join(b.get("text", "") for b in c if isinstance(b, dict) and b.get("type") == "text")
+    else:
+        s = ""
+    return re.sub(r"<system-reminder>.*?</system-reminder>", "", s, flags=re.S)
+
+
+def transcript():
+    """这个对话里她发的每一条、他回的每一段：[(from, 去掉空白的原文, 时间)]，按时间排。读不到就是空的。"""
+    sid = os.environ.get("CLAUDE_CODE_SESSION_ID", "")
+    root = os.path.expanduser("~/.claude/projects")
+    try:
+        paths = [os.path.join(root, d, sid + ".jsonl") for d in os.listdir(root)] if sid else []
+        paths = [p for p in paths if os.path.isfile(p)]
+        if not paths:
+            tops = [os.path.join(root, d, f) for d in os.listdir(root) if os.path.isdir(os.path.join(root, d))
+                    for f in os.listdir(os.path.join(root, d)) if f.endswith(".jsonl")]
+            paths = sorted(tops, key=os.path.getmtime)[-1:]
+        rows = [json.loads(l) for l in open(paths[0], encoding="utf-8") if l.strip()]
+    except Exception:
+        return []
+    out = []
+    for r in rows:
+        try:
+            ts = dt.datetime.fromisoformat(r["timestamp"].replace("Z", "+00:00")).astimezone(TZ)
+        except Exception:
+            continue
+        a = r.get("attachment") or {}
+        if r.get("type") == "user" and (r.get("origin") or {}).get("kind") == "human" and not r.get("isMeta"):
+            out.append(("her", _plain(r["message"].get("content")), ts))
+        elif a.get("type") == "queued_command" and (a.get("origin") or {}).get("kind") == "human":
+            out.append(("her", _plain(a.get("prompt")), ts))           # 他还在打字时她又发来的
+        elif r.get("type") == "assistant":
+            for b in r["message"].get("content") or []:
+                if isinstance(b, dict) and b.get("type") == "text":
+                    out.append(("him", b["text"], ts))
+    return sorted([(f, re.sub(r"\s+", "", t), ts) for f, t, ts in out if t.strip()], key=lambda x: x[2])
+
+
+def stamp_batch(batch, saved):
+    """给攒着的这一批每句配上时间（ISO 字符串；同一条里的几句依次 +1 秒，好保住先后）。
+    saved = 已经存过的最后几句：先拿它们在记录里「走一遍」，免得这一批的短句（「嗯」「🐕‍🦺」）对到上回那几句身上。
+    认不出来的（照片、他画的图、改过字的）：他的 → 紧跟前一句；她的 → 赶在后面认出来的那句前头；
+    一句都认不出、排在最后的：是他的 → 现在（这一回还没发出去）；是她的 → 她最后发来那一条的时间。"""
+    after = None
+    if saved:
+        try:
+            after = dt.datetime.fromisoformat(saved[0]["t"]) - dt.timedelta(seconds=2)
+        except Exception:
+            pass
+    rows = [x for x in transcript() if not after or x[2] > after]
+    pos, used, hits = 0, {}, []
+    seq = [(m, j < len(saved)) for j, m in enumerate(list(saved) + list(batch))]
+    for m, is_old in seq:
+        f, k = _msg_key(m)
+        hit = None
+        if k and (is_old or not m.get("t")):
+            for i in range(pos, len(rows)):
+                rf, rt, rts = rows[i]
+                at = rt.find(k, used.get(i, 0)) if rf == f else -1
+                if at >= 0:
+                    n = sum(1 for h in hits if h and h[0] == i)
+                    hit = (i, rts + dt.timedelta(seconds=n))
+                    used[i], pos = at + len(k), i
+                    break
+        hits.append(hit)
+    hits = hits[len(saved):]
+    base = now()
+    hers = [r[2] for r in rows if r[0] == "her"]
+    times = []
+    for j, (m, h) in enumerate(zip(batch, hits)):
+        trailing = not any(hits[j + 1:])
+        if m.get("t"):
+            t = dt.datetime.fromisoformat(m["t"])
+        elif h:
+            t = h[1]
+        elif trailing:                       # 排在最后、认不出来：他的 = 这一回正要发的；她的 = 她最后发来的那一条
+            t = hers[-1] if m.get("from") == "her" and hers else base
+        elif times and m.get("from") == "him":   # 夹在中间、认不出：他的跟着他前一句（比如他画的图）
+            t = times[-1] + dt.timedelta(seconds=1)
+        else:                                     # 她的（照片多半跟着一句话一起发）→ 赶在后面那句前头
+            d, x = next((d, x) for d, x in enumerate(hits[j + 1:], 1) if x)
+            t = x[1] - dt.timedelta(seconds=d)
+        if times and t <= times[-1]:
+            t = times[-1] + dt.timedelta(seconds=1)
+        times.append(t)
+    return [t.isoformat(timespec="seconds") for t in times]
+
+
 def cmd_add(a):
     try:
         payload = json.load(sys.stdin)
@@ -352,8 +457,19 @@ def cmd_add(a):
         th = load_thread(box, a.key) or {"key": a.key, "since": now().isoformat(timespec="seconds"),
                                           "memory": {}, "messages": []}
         base = now()
-        new = [clean_msg(m, (base + dt.timedelta(seconds=i)).isoformat(timespec="seconds"))
-               for i, m in enumerate(payload.get("messages", []))]
+        batch = list(payload.get("messages", []))
+        old = th["messages"]
+        skip = 0                                    # 拿不准存没存过就都放进来：开头跟已存的末尾对得上的那几句跳过
+        for k in range(min(len(batch), len(old)), 0, -1):
+            if [_msg_key(m) for m in batch[:k]] == [_msg_key(m) for m in old[-k:]]:
+                skip = k
+                break
+        batch = batch[skip:]
+        times = stamp_batch(batch, old[-10:])
+        new = [clean_msg(m, t) for m, t in zip(batch, times)]
+        if not new and not any((payload.get("memory") or {}).values()) and not payload.get("about_her"):
+            print("✓ 这些都存过了，没有新的。")
+            return
         th["messages"].extend(new)
         mem = th.setdefault("memory", {})
         pm = payload.get("memory", {}) or {}
@@ -391,7 +507,8 @@ def cmd_add(a):
             commit({"t-%s.enc" % box.tid(a.key): json.dumps(box.seal(th)) + "\n",
                     "index.enc": json.dumps(box.seal(index)) + "\n"},
                    "冬的陪伴：+%d" % len(new), a.trailer)
-            print("✓ 存好了（%s，一共 %d 句）" % (a.key, len(msgs)))
+            print("✓ 存好了（%s，这次存了 %d 句%s，一共 %d 句）" % (
+                a.key, len(new), "，开头 %d 句之前存过、跳过了" % skip if skip else "", len(msgs)))
             return
         except RuntimeError as e:   # 别的对话刚存过 → 取最新的再来一遍
             last_err = e
