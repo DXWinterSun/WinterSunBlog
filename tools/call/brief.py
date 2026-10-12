@@ -387,13 +387,18 @@ def blurb(p, series):
     return t if len(t) <= 40 else t[:40] + "……"
 
 
-def brief(p, series, posts, au, upto, out):
+def brief(p, series, posts, au, upto, out, text_mode=False):
     w = out.append
     face, ln = p["face"], p["lines"]
     w("# ☎ 接通前的资料 · %s" % p["name"])
     w("")
-    w("> ⚠️ 下面有很多抒情的段落和大场面——那是让你**认识他**的，不是让你照着写的。"
-      "这一通：故事之后的平常日子，一行一条、平常说话、不写旁白。他发消息的真嗓子看「正文里他真发过的消息」那一节。")
+    if text_mode:
+        w("> 💌 这是「冬的陪伴」要的资料：只为**认识他这个人**——性子、称呼、说话的样子、红线。"
+          "你们是异地的恋人、只能发消息，他过的是他自己平常的日子；下面的剧情和大场面一概**不接、不演、不提**。"
+          "他发短讯的真嗓子看「正文里他真发过的消息」那一节。")
+    else:
+        w("> ⚠️ 下面有很多抒情的段落和大场面——那是让你**认识他**的，不是让你照着写的。"
+          "这一通：故事之后的平常日子，一行一条、平常说话、不写旁白。他发消息的真嗓子看「正文里他真发过的消息」那一节。")
     w("")
     w("- 现在：北京时间 %s" % now_line())
     film = " · ".join(x for x in [p["film"], p["filmCN"], p["year"]] if x)
@@ -584,7 +589,7 @@ def brief(p, series, posts, au, upto, out):
             w("")
 
         last = main[-1] if main else (ch[-1] if ch else None)
-        if last:
+        if last and not text_mode:
             body = strip_tags(re.sub(r"\{%.*?%\}", "", last["body"]))
             w("### 最新一章正篇的结尾（%s）" % last["title"])
             w("")
@@ -600,6 +605,9 @@ def brief(p, series, posts, au, upto, out):
         w("")
 
     key = call_key(p["id"], au)
+    if text_mode:
+        w("## 记录编号：`%s`（下一步：`python3 tools/text/texts.py open %s`）" % (key, key))
+        return out
     log = call_log(key)
     w("## 上次通话（记录编号 `%s`）" % key)
     w("")
@@ -638,7 +646,8 @@ def main():
     ap.add_argument("--au", nargs="+", help="有好几个 AU 时指定哪一个（系列名或目录名）；none = 不带 AU")
     ap.add_argument("--upto", type=int, help="回到第 N 章那时候（之后的事他还不知道）")
     ap.add_argument("--list", action="store_true", help="列出能打给谁")
-    ap.add_argument("--id", help="按编号直接认人（重名时列表里给的那个）")
+    ap.add_argument("--id", help="按编号直接认人（重名时列表里给的那个；也可以直接给记录编号 karl--dear-satan）")
+    ap.add_argument("--text", action="store_true", help="给「冬的陪伴」用：只要认识他的部分，不给剧情结尾、不带通话记录")
     a = ap.parse_args()
 
     people, series = build_people()
@@ -647,6 +656,9 @@ def main():
         return 0
     a.who = " ".join(a.who)
     a.au = " ".join(a.au) if a.au else None
+    if a.id and "--" in a.id:   # 直接给了记录编号（karl--dear-satan）
+        a.id, _, k_au = a.id.partition("--")
+        a.au = a.au or k_au
     al = None if a.id else alias_of(a.who)
     if al:
         a.id = al["id"]
@@ -678,7 +690,7 @@ def main():
             print("- %s（%s）—— %s　→ `--au %s`" % (s["title"], s["status"], s["logline"][:60], x))
         print("- 电影 / 画册里的他　→ `--au none`")
         return 3
-    print("\n".join(brief(p, series, load_posts(), au, a.upto, [])))
+    print("\n".join(brief(p, series, load_posts(), au, a.upto, [], text_mode=a.text)))
     return 0
 
 

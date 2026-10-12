@@ -126,6 +126,17 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   --nb-ink: #14212e;
   background: repeating-linear-gradient(180deg, #eaf3fa 0, #eaf3fa 23px, #d3e3ef 23px, #d3e3ef 24px);
 }
+/* 冬的陪伴那本：夜里的信封蓝，一道玫瑰色书脊，零星几颗星；底下一行「🔒 上了锁的」（2026-10-12） */
+.c-wn-notebook--withyou {
+  --nb-spine: #e08aa3;
+  --nb-ink: #f6eef2;
+  background:
+    radial-gradient(1.4px 1.4px at 72% 18%, rgba(255, 255, 255, 0.85), transparent 2px),
+    radial-gradient(1.2px 1.2px at 88% 42%, rgba(255, 255, 255, 0.6), transparent 2px),
+    radial-gradient(1.6px 1.6px at 58% 84%, rgba(255, 255, 255, 0.7), transparent 2px),
+    radial-gradient(1px 1px at 40% 10%, rgba(255, 255, 255, 0.55), transparent 2px),
+    linear-gradient(160deg, #26304f 0, #1b2238 100%);
+}
 .c-wn-notebook__label {
   display: grid;
   gap: 2px;

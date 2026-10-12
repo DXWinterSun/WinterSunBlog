@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>冬的陪伴 · Winter Sun</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#eff6fb">
+<meta name="apple-mobile-web-app-title" content="冬的陪伴">
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- EB Garamond 是给「换个心情」浮层用的（全站正文字体），别删 -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Special+Elite&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/WinterSunBlog/css/theme-picker.css">
+<style>
+  /* ————— 冬的陪伴 · With You（上锁的聊天记录，只看）—————
+     2026-10-12 Winter：「就好像是异地恋的爱人一样……我可以发图片、发链接，就像真正的聊天一样。
+     你还可以定期把聊天记录同步到博客……聊天记录会比较私密，之后你可以帮我做个密码。」
+
+     聊天本身在 Claude Code 的对话里（.claude/skills/winter-text/SKILL.md）；每说一句，
+     tools/text/texts.py 就把它加密后存进仓库 texts 分支。这一页从 GitHub 公开接口读那些加密的文件，
+     用她输入的密码在浏览器里解开——密码不出这台设备，GitHub 上躺着的只是乱码。
+     加密参数必须跟 texts.py 一致：PBKDF2-SHA256（盐和轮数读 vault.json）→ AES-256-GCM（iv + 密文含 tag）。
+
+     图片：她发的照片不存，只存一句描述，这里画成一张「照片卡」；他发的图是 Claude 画的小 SVG，原样显示
+     （走 <img src=data:…>，里面就算混进脚本也跑不起来）。
+     「这台设备记住我」= 把解开后的钥匙（不是密码）存在 localStorage 的 ws-with-you-key；右上角 🔒 一点就忘掉。
+     配色跟全站「换个心情」走；每个人的头像和他那边的气泡染他自己的颜色（lines.json 里的 accent）。 */
+  :root {
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    --serif: 'EB Garamond', Georgia, 'Times New Roman', 'Noto Serif SC', 'Songti SC', serif;
+    --cnserif: 'Noto Serif SC', 'Songti SC', serif;
+    --shadow: 0 1px 2px rgba(var(--rgb-shadow), .06), 0 8px 24px -12px rgba(var(--rgb-shadow), .18);
+    --him: #8a7f9e;
+  }
+  html, body { margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    min-height: 100dvh;
+    background: var(--c-bg);
+    color: var(--c-ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    padding: max(14px, env(safe-area-inset-top)) 0 max(28px, env(safe-area-inset-bottom));
+  }
+  button, input { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  a { color: inherit; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .back { font-family: var(--serif); font-size: 14px; color: var(--c-muted); text-decoration: none; letter-spacing: .5px; background: none; border: 0; padding: 0; }
+  .back:hover { color: var(--c-ink); }
+  .topbar__right { display: flex; align-items: center; gap: 8px; }
+  .iconbtn {
+    width: 36px; height: 36px; padding: 0; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--c-line); border-radius: 999px; background: transparent;
+    color: var(--c-ink-soft); line-height: 1; font-size: 16px;
+    transition: border-color .25s ease, background-color .25s ease, transform .25s ease;
+  }
+  .iconbtn:hover { border-color: color-mix(in srgb, var(--c-accent) 55%, transparent); background-color: rgba(var(--rgb-accent), .06); transform: rotate(20deg); }
+
+  .head { text-align: center; margin: 26px 0 20px; }
+  .head__eyebrow {
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+    font-family: 'Special Elite', 'Courier New', monospace; font-size: 10.5px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--c-muted-soft); margin-bottom: 8px;
+  }
+  .head__eyebrow i { width: 22px; height: 2px; background: rgba(var(--rgb-accent), .4); }
+  .head h1 { margin: 0; font-family: var(--serif); font-weight: 500; font-style: italic; font-size: clamp(34px, 9vw, 46px); line-height: 1.05; }
+  .head h1 b { font-style: normal; font-weight: 500; font-family: var(--cnserif); font-size: .5em; letter-spacing: 4px; display: block; margin-top: 8px; color: var(--c-ink-soft); }
+  .head p { margin: 10px 0 0; font-size: 13px; color: var(--c-muted); }
+
+  .card { background: var(--c-paper); border: 1px solid var(--c-line); border-radius: 20px; box-shadow: var(--shadow); }
+
+  /* ——— 锁 ——— */
+  .lock { padding: 26px 22px 22px; text-align: center; max-width: 420px; margin: 0 auto; }
+  .lock__icon { width: 64px; height: 64px; margin: 0 auto 12px; display: block; }
+  .lock__title { font-family: var(--cnserif); font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+  .lock__hint { font-size: 13px; color: var(--c-muted); margin: 0 0 18px; line-height: 1.7; }
+  .lock input[type=password] {
+    width: 100%; padding: 13px 16px; border-radius: 14px; border: 1px solid var(--c-line-strong);
+    background: var(--c-bg); font-size: 16px; text-align: center; letter-spacing: 2px; outline: none;
+  }
+  .lock input[type=password]:focus { border-color: var(--c-accent); box-shadow: 0 0 0 3px rgba(var(--rgb-accent), .12); }
+  .lock label { display: inline-flex; align-items: center; gap: 7px; margin: 14px 0 4px; font-size: 13.5px; color: var(--c-ink-soft); cursor: pointer; }
+  .lock label input { width: 16px; height: 16px; accent-color: var(--c-accent); }
+  .lock__go {
+    display: block; width: 100%; margin-top: 14px; padding: 13px; border: 0; border-radius: 14px;
+    background: var(--c-accent); color: var(--c-paper); font-size: 15.5px; letter-spacing: 2px;
+  }
+  .lock__go:disabled { opacity: .55; }
+  .lock__err { min-height: 20px; margin: 10px 0 0; font-size: 13px; color: var(--c-status-red); }
+
+  /* ——— 名单 ——— */
+  .list { list-style: none; margin: 0; padding: 4px 0; }
+  .row {
+    display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 16px;
+    border: 0; background: none; text-align: left; border-top: 1px solid var(--c-line);
+  }
+  .list li:first-child .row { border-top: 0; }
+  .row:active { background: rgba(var(--rgb-accent), .05); }
+  .ava {
+    flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--ava-bg, #2b2f3a); color: var(--ava-fg, #fff);
+    font-family: var(--serif); font-size: 20px; font-style: italic;
+    box-shadow: inset 0 0 0 2px var(--ava-ring, transparent);
+  }
+  .row__main { flex: 1; min-width: 0; }
+  .row__top { display: flex; align-items: baseline; gap: 8px; }
+  .row__name { font-weight: 600; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row__story { font-size: 12px; color: var(--c-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; min-width: 0; }
+  .row__time { font-size: 12px; color: var(--c-muted); flex: 0 0 auto; font-variant-numeric: tabular-nums; }
+  .row__last { margin-top: 3px; font-size: 14px; color: var(--c-ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row__last i { font-style: normal; color: var(--c-muted); }
+  .blank { text-align: center; padding: 30px 18px; color: var(--c-muted); font-size: 14px; line-height: 1.9; }
+  .blank b { display: block; font-size: 30px; font-weight: 400; margin-bottom: 4px; }
+
+  /* ——— 一条线 ——— */
+  .chat-head {
+    position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 12px;
+    padding: 10px 16px; margin: 0 -16px;
+    background: color-mix(in srgb, var(--c-bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--c-line);
+  }
+  .chat-head .ava { width: 38px; height: 38px; font-size: 17px; }
+  .chat-head__who { flex: 1; min-width: 0; }
+  .chat-head__who b { display: block; font-size: 16px; }
+  .chat-head__who small { display: block; font-size: 12px; color: var(--c-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chat-head__back { border: 0; background: none; font-size: 22px; padding: 4px 6px 4px 0; color: var(--c-ink-soft); line-height: 1; }
+
+  .msgs { display: flex; flex-direction: column; gap: 4px; padding: 14px 0 6px; }
+  .stamp { align-self: center; margin: 14px 0 6px; font-size: 11.5px; color: var(--c-muted); letter-spacing: .5px; font-variant-numeric: tabular-nums; }
+  .b {
+    max-width: 78%; padding: 9px 13px; border-radius: 18px; font-size: 15.5px; line-height: 1.5;
+    word-break: break-word; white-space: pre-wrap;
+  }
+  .b--him { align-self: flex-start; background: color-mix(in srgb, var(--him) 16%, var(--c-paper)); border: 1px solid color-mix(in srgb, var(--him) 22%, transparent); border-bottom-left-radius: 6px; }
+  .b--her { align-self: flex-end; background: var(--c-accent); color: var(--c-paper); border-bottom-right-radius: 6px; }
+  .b + .b--him, .b--her + .b--her { margin-top: 0; }
+  .b--her + .b--him, .b--him + .b--her { margin-top: 6px; }
+
+  /* 她的照片：不存原图，画成一张拍立得样的卡，写着那张照片里是什么 */
+  .photo { align-self: flex-end; max-width: 70%; padding: 8px 8px 10px; background: #fbfaf6; color: #2a2a2a; border-radius: 6px; box-shadow: var(--shadow); transform: rotate(1.2deg); }
+  .photo--him { align-self: flex-start; transform: rotate(-1.2deg); }
+  .photo__frame { display: flex; align-items: center; justify-content: center; min-height: 92px; padding: 14px; background: linear-gradient(160deg, #e8eef3, #d9e2ea); border-radius: 2px; font-size: 13.5px; line-height: 1.6; color: #44505c; text-align: center; font-family: var(--cnserif); }
+  .photo__frame::before { content: "📷"; display: block; font-size: 18px; margin-bottom: 4px; }
+  .photo__frame span { display: block; }
+  .photo img { display: block; width: 100%; height: auto; border-radius: 2px; background: #fff; }
+  .photo__cap { margin-top: 6px; font-size: 12.5px; color: #6b6b6b; text-align: center; font-family: var(--cnserif); }
+
+  .card-link {
+    display: flex; align-items: center; gap: 10px; max-width: 78%; padding: 10px 12px; border-radius: 14px;
+    text-decoration: none; background: var(--c-paper); border: 1px solid var(--c-line); box-shadow: var(--shadow);
+  }
+  .card-link--her { align-self: flex-end; }
+  .card-link--him { align-self: flex-start; }
+  .card-link__ico { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; background: rgba(var(--rgb-accent), .1); font-size: 17px; }
+  .card-link b { display: block; font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .card-link small { display: block; font-size: 12px; color: var(--c-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .card-link span { min-width: 0; }
+
+  .more { display: block; margin: 6px auto 0; border: 1px solid var(--c-line); background: var(--c-paper); border-radius: 999px; padding: 7px 16px; font-size: 13px; color: var(--c-muted); }
+  .foot { text-align: center; margin: 26px 0 0; font-size: 12.5px; color: var(--c-muted); line-height: 1.9; }
+  .foot small { display: block; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--c-muted-soft); margin-top: 14px; }
+  .status { text-align: center; font-size: 12.5px; color: var(--c-muted); min-height: 18px; margin: -6px 0 12px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("wiw-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" id="back" href="/WinterSunBlog/notes/">← 回笔记</a>
+    <span class="topbar__right">
+      <button type="button" class="iconbtn" id="lock-btn" title="锁上（这台设备忘掉钥匙）" aria-label="锁上" hidden>🔒</button>
+      <button class="c-palette-trigger" type="button" id="js-palette-trigger"
+              aria-label="换个心情 · 配色主题" title="换个心情" data-baseurl="/WinterSunBlog">
+        <svg class="c-palette-trigger__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </button>
+      <button type="button" class="iconbtn" id="mode-btn" title="白天 / 夜里" aria-label="白天或夜里"></button>
+    </span>
+  </div>
+
+  <div class="head" id="head">
+    <span class="head__eyebrow"><i></i>Kept by Winter Sun<i></i></span>
+    <h1>With You<b>冬的陪伴</b></h1>
+    <p>只能发消息，他一直在</p>
+  </div>
+
+  <!-- 锁 -->
+  <section class="card lock" id="lock">
+    <svg class="lock__icon" viewBox="0 0 64 64" aria-hidden="true">
+      <rect x="6" y="14" width="52" height="36" rx="6" fill="none" stroke="currentColor" stroke-width="2.2" opacity=".55"/>
+      <path d="M8 18l24 18 24-18" fill="none" stroke="currentColor" stroke-width="2.2" opacity=".55"/>
+      <circle cx="46" cy="44" r="11" fill="var(--c-accent)"/>
+      <rect x="41" y="43" width="10" height="7.5" rx="1.6" fill="var(--c-paper)"/>
+      <path d="M43.3 43v-2.4a2.7 2.7 0 0 1 5.4 0V43" fill="none" stroke="var(--c-paper)" stroke-width="1.8"/>
+    </svg>
+    <p class="lock__title">这本是上了锁的</p>
+    <p class="lock__hint">密码跟你在云端环境里存的那一个一样。<br>它只在这台设备上用来开锁，不会传到任何地方。</p>
+    <form id="lock-form" autocomplete="off">
+      <input type="password" id="pw" placeholder="密码" aria-label="密码" autocomplete="current-password">
+      <label><input type="checkbox" id="remember" checked> 这台设备记住我</label>
+      <button type="submit" class="lock__go" id="go">打开</button>
+      <p class="lock__err" id="err" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- 名单 -->
+  <section id="home" hidden>
+    <div class="status" id="status"></div>
+    <div class="card"><ul class="list" id="list"></ul></div>
+    <div class="foot">回他、找他：在 Claude Code 里跟他说就行<br>这里只是你们的记录<small>for the ones far away</small></div>
+  </section>
+
+  <!-- 一条线 -->
+  <section id="thread" hidden>
+    <div class="chat-head">
+      <button class="chat-head__back" id="t-back" aria-label="回名单">‹</button>
+      <span class="ava" id="t-ava"></span>
+      <span class="chat-head__who"><b id="t-name"></b><small id="t-story"></small></span>
+    </div>
+    <button class="more" id="t-more" hidden>再往前看</button>
+    <div class="msgs" id="msgs" aria-live="polite"></div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var REPO = "DXWinterSun/WinterSunBlog", BRANCH = "texts";
+  var API = "https://api.github.com/repos/" + REPO + "/contents/";
+  var RAW = "https://raw.githubusercontent.com/" + REPO + "/" + BRANCH + "/";
+  var KEY_LS = "ws-with-you-key";
+  var WEEK = "日一二三四五六";
+  var key = null, vault = null, index = null, cur = null, shown = 80;
+
+  function ls(k, v) {
+    try {
+      if (v === undefined) return localStorage.getItem(k);
+      if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v);
+    } catch (e) {}
+    return null;
+  }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function b2u(s) { var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+  function u2b(u) { var s = ""; u = new Uint8Array(u); for (var i = 0; i < u.length; i++) s += String.fromCharCode(u[i]); return btoa(s); }
+
+  /* ——— 取文件：先走 GitHub 接口（改完一分钟内就看得到），不行再走 raw ——— */
+  function getFile(name) {
+    return fetch(API + name + "?ref=" + BRANCH + "&_=" + Date.now(), {
+      headers: { "Accept": "application/vnd.github.raw", "X-GitHub-Api-Version": "2022-11-28" }, cache: "no-store"
+    }).then(function (r) {
+      if (r.status === 404) return null;
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    }).catch(function () {
+      return fetch(RAW + name + "?_=" + Date.now(), { cache: "no-store" }).then(function (r) {
+        if (r.status === 404) return null;
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      });
+    });
+  }
+
+  /* ——— 开锁：跟 tools/text/texts.py 同一套参数 ——— */
+  function derive(pw) {
+    var enc = new TextEncoder();
+    return crypto.subtle.importKey("raw", enc.encode(pw), "PBKDF2", false, ["deriveKey"]).then(function (base) {
+      return crypto.subtle.deriveKey({ name: "PBKDF2", salt: b2u(vault.salt), iterations: vault.iter, hash: "SHA-256" },
+        base, { name: "AES-GCM", length: 256 }, true, ["decrypt"]);
+    });
+  }
+  function unseal(k, blob) {
+    return crypto.subtle.decrypt({ name: "AES-GCM", iv: b2u(blob.iv) }, k, b2u(blob.ct)).then(function (pt) {
+      return JSON.parse(new TextDecoder().decode(pt));
+    });
+  }
+  function tryKey(k) {
+    return unseal(k, vault.check).then(function (s) { if (s !== "冬的陪伴") throw new Error("bad"); return k; });
+  }
+
+  function showLock(msg) {
+    $("lock").hidden = false; $("home").hidden = true; $("thread").hidden = true; $("head").hidden = false;
+    $("lock-btn").hidden = true;
+    $("err").textContent = msg || "";
+  }
+
+  $("lock-form").onsubmit = function (e) {
+    e.preventDefault();
+    var pw = $("pw").value;
+    if (!pw) return;
+    if (!vault) { $("err").textContent = "这本还是空的——第一句消息存下来之后才打得开。"; return; }
+    $("go").disabled = true; $("go").textContent = "开锁中……"; $("err").textContent = "";
+    derive(pw).then(tryKey).then(function (k) {
+      key = k; $("pw").value = "";
+      if ($("remember").checked) {
+        crypto.subtle.exportKey("raw", k).then(function (raw) { ls(KEY_LS, vault.salt + ":" + u2b(raw)); });
+      }
+      return openHome();
+    }).catch(function () {
+      $("err").textContent = "密码不对。再试一次？";
+    }).then(function () { $("go").disabled = false; $("go").textContent = "打开"; });
+  };
+
+  $("lock-btn").onclick = function () { ls(KEY_LS, null); key = null; index = null; showLock("锁上了。"); };
+
+  /* ——— 名单 ——— */
+  function ago(iso) {
+    var d = new Date(iso), n = new Date(), diff = (n - d) / 60000;
+    if (diff < 1) return "刚刚";
+    if (diff < 60) return Math.floor(diff) + " 分钟前";
+    if (d.toDateString() === n.toDateString()) return hm(d);
+    var y = new Date(n); y.setDate(n.getDate() - 1);
+    if (d.toDateString() === y.toDateString()) return "昨天";
+    if (diff < 60 * 24 * 6) return "周" + WEEK[d.getDay()];
+    return (d.getMonth() + 1) + "/" + d.getDate();
+  }
+  function hm(d) { return ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2); }
+  function ava(span, t) {
+    var name = (t.who || "?").replace(/^[^A-Za-z]*/, "");
+    span.textContent = (name.charAt(0) || "?").toUpperCase();
+    span.style.setProperty("--ava-bg", t.bg || "#2b2f3a");
+    span.style.setProperty("--ava-fg", t.accent || "#fff");
+    span.style.setProperty("--ava-ring", t.accent ? t.accent + "55" : "transparent");
+  }
+  function lastLine(t) {
+    var s = t.last_text || "";
+    return (t.last_from === "her" ? "你：" : "") + s;
+  }
+
+  function openHome() {
+    $("status").textContent = "正在取……";
+    return getFile("index.enc").then(function (blob) {
+      if (!blob) { index = { threads: [] }; return; }
+      return unseal(key, blob).then(function (x) { index = x; });
+    }).then(function () {
+      $("lock").hidden = true; $("thread").hidden = true; $("home").hidden = false; $("head").hidden = false;
+      $("lock-btn").hidden = false;
+      renderList();
+      var u = index.updated ? new Date(index.updated) : null;
+      $("status").textContent = u ? "最后一句 · " + ago(index.updated) : "";
+      var want = (location.hash || "").slice(1);
+      if (want) { var t = index.threads.filter(function (x) { return x.id === want; })[0]; if (t) openThread(t, true); }
+    });
+  }
+  function renderList() {
+    var ul = $("list"); ul.innerHTML = "";
+    var ts = (index.threads || []).slice().sort(function (a, b) { return (b.last_at || "").localeCompare(a.last_at || ""); });
+    if (!ts.length) {
+      var li = el("li", "blank"); li.appendChild(el("b", null, "💌"));
+      li.appendChild(document.createTextNode("还没有消息。在 Claude Code 里跟他说第一句吧。"));
+      ul.appendChild(li); return;
+    }
+    ts.forEach(function (t) {
+      var li = el("li"), b = el("button", "row"); b.type = "button";
+      var a = el("span", "ava"); ava(a, t); b.appendChild(a);
+      var main = el("span", "row__main"), top = el("span", "row__top");
+      top.appendChild(el("span", "row__name", t.who || t.key));
+      top.appendChild(el("span", "row__story", t.story || ""));
+      top.appendChild(el("span", "row__time", t.last_at ? ago(t.last_at) : ""));
+      main.appendChild(top);
+      main.appendChild(el("span", "row__last", lastLine(t)));
+      b.appendChild(main);
+      b.onclick = function () { openThread(t); };
+      li.appendChild(b); ul.appendChild(li);
+    });
+  }
+
+  /* ——— 一条线 ——— */
+  function openThread(t, fromHash) {
+    cur = { meta: t, data: null }; shown = 80;
+    $("home").hidden = true; $("thread").hidden = false; $("head").hidden = true;
+    ava($("t-ava"), t); $("t-name").textContent = t.who || t.key;
+    $("t-story").textContent = [t.story, t.film].filter(Boolean).join(" · ");
+    document.documentElement.style.setProperty("--him", t.accent || "#8a7f9e");
+    if (!fromHash) history.replaceState(null, "", "#" + t.id);
+    $("msgs").innerHTML = ""; $("msgs").appendChild(el("div", "stamp", "正在取……"));
+    getFile("t-" + t.id + ".enc").then(function (blob) {
+      if (!blob) throw new Error("none");
+      return unseal(key, blob);
+    }).then(function (th) { cur.data = th; renderThread(true); })
+      .catch(function () { $("msgs").innerHTML = ""; $("msgs").appendChild(el("div", "stamp", "这会儿取不到，等一下再试。")); });
+  }
+  function closeThread() {
+    cur = null; history.replaceState(null, "", location.pathname);
+    $("thread").hidden = true; $("home").hidden = false; $("head").hidden = false;
+    document.documentElement.style.removeProperty("--him");
+    window.scrollTo(0, 0);
+  }
+  $("t-back").onclick = closeThread;
+
+  function stampText(d, prev) {
+    var n = new Date(), same = d.toDateString() === n.toDateString();
+    var y = new Date(n); y.setDate(n.getDate() - 1);
+    var day = same ? "" : (d.toDateString() === y.toDateString() ? "昨天 " : (d.getMonth() + 1) + "月" + d.getDate() + "日 周" + WEEK[d.getDay()] + " ");
+    return day + hm(d);
+  }
+  function svgImg(svg) {
+    var img = new Image();
+    img.alt = "";
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+    return img;
+  }
+  function host(u) { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return u; } }
+  function bubble(m) {
+    var mine = m.from === "her", side = mine ? "her" : "him";
+    if (m.text) return el("div", "b b--" + side, m.text);
+    if (m.img) {
+      var p = el("figure", "photo" + (mine ? "" : " photo--him"));
+      p.style.margin = "0";
+      if (m.img.svg) {
+        p.appendChild(svgImg(m.img.svg));
+        if (m.img.desc) p.appendChild(el("figcaption", "photo__cap", m.img.desc));
+      } else {
+        var f = el("div", "photo__frame"); f.appendChild(el("span", null, m.img.desc || "一张照片")); p.appendChild(f);
+      }
+      return p;
+    }
+    var L = m.link || m.art;
+    if (L) {
+      var a = el("a", "card-link card-link--" + side); a.href = L.url; a.target = "_blank"; a.rel = "noopener";
+      a.appendChild(el("span", "card-link__ico", m.art ? "✨" : "🔗"));
+      var s = el("span"); s.appendChild(el("b", null, L.title || (m.art ? "给你做的小东西" : host(L.url))));
+      s.appendChild(el("small", null, m.art ? "他做的小网页" : host(L.url))); a.appendChild(s);
+      return a;
+    }
+    return el("div", "b b--" + side, "…");
+  }
+  function renderThread(scrollEnd) {
+    var all = cur.data.messages || [], box = $("msgs");
+    var list = all.slice(-shown);
+    $("t-more").hidden = all.length <= shown;
+    box.innerHTML = "";
+    var prev = null;
+    list.forEach(function (m) {
+      var d = new Date(m.t);
+      if (!prev || d - prev > 20 * 60000) box.appendChild(el("div", "stamp", stampText(d, prev)));
+      box.appendChild(bubble(m));
+      prev = d;
+    });
+    if (scrollEnd) window.scrollTo(0, document.body.scrollHeight);
+  }
+  $("t-more").onclick = function () {
+    var h = document.body.scrollHeight; shown += 120; renderThread(false);
+    window.scrollTo(0, document.body.scrollHeight - h);
+  };
+  window.addEventListener("hashchange", function () { if (!location.hash && cur) closeThread(); });
+
+  /* ——— 昼夜（配色交给全站的选色器） ——— */
+  function isDarkNow() {
+    var a = document.documentElement.getAttribute("data-theme");
+    return a === "dark" || (!a && !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches));
+  }
+  function paintModeBtn() {
+    var b = $("mode-btn");
+    b.textContent = isDarkNow() ? "🌑" : "🌕";
+    b.title = isDarkNow() ? "现在是夜里 · 点一下换白天" : "现在是白天 · 点一下换夜里";
+  }
+  $("mode-btn").onclick = function () {
+    var next = isDarkNow() ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    ls("wiw-theme", next);
+    paintModeBtn();
+  };
+  paintModeBtn();
+
+  /* ——— 开场：取 vault；这台设备记得钥匙就直接打开 ——— */
+  if (!window.crypto || !crypto.subtle) { showLock("这个浏览器太旧了，开不了锁。换 Safari 或 Chrome 试试。"); return; }
+  getFile("vault.json").then(function (v) {
+    vault = v;
+    var saved = ls(KEY_LS);
+    if (vault && saved && saved.indexOf(vault.salt + ":") === 0) {
+      return crypto.subtle.importKey("raw", b2u(saved.split(":")[1]), { name: "AES-GCM" }, true, ["decrypt"])
+        .then(tryKey).then(function (k) { key = k; return openHome(); })
+        .catch(function () { ls(KEY_LS, null); showLock(""); });
+    }
+    showLock(vault ? "" : "");
+  }).catch(function () { showLock("这会儿连不上 GitHub，等一下刷新试试。"); });
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState !== "visible" || !key) return;
+    if (cur && cur.meta) openThread(cur.meta, true); else openHome();
+  });
+})();
+</script>
+
+<script src="/WinterSunBlog/js/sam-themes-data.js"></script>
+<script src="/WinterSunBlog/js/theme-picker.js"></script>
+</body>
+</html>
