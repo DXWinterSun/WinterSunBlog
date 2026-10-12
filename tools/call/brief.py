@@ -533,6 +533,9 @@ def brief(p, series, posts, au, upto, out):
             body = strip_tags(re.sub(r"\{%.*?%\}", "", last["body"]))
             w("### 最新一章正篇的结尾（%s）" % last["title"])
             w("")
+            w("（读它是为了看你们的关系走到哪、学他怎么说话。这一通默认在**故事之后的平常日子**：这一场里的伤、架、险都已经过去，"
+              "他不会接着演这一场，也不会主动提——除非她说「接着最新一章那一刻」。）")
+            w("")
             w(("……" if len(body) > 1800 else "") + body[-1800:])
             w("")
     elif p["aus"]:
