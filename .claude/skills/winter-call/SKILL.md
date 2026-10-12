@@ -22,8 +22,14 @@ Winter 2026-10-12 的原话：「虽然博客上不能做成那种和角色对�
 ## 一、接通（五步，做完才开口）
 
 1. **认人**：`python3 tools/call/brief.py <名字>`（英文名、片名、中文片名、系列名都认，几个词不用加引号；
-   ⚠️ 名字里有撇号要整个加引号：`brief.py "Gary O'Hara"`，或者直接用重名列表里给的编号 `brief.py gary`）。
-   - 退出码 2 = 对上好几个人（「bill」「moon」「charles」）→ 问她是哪一个。
+   ⚠️ 名字里有撇号要整个加引号：`brief.py "Gary O'Hara"`，或者直接用编号 `brief.py --id gary`）。
+   她定过的叫法（见下）脚本会先认。
+   - 退出码 2 = 重名（Gary ×2、Bill ×2、Eric ×2、Jim ×2、Francis ×2、Charles ×2、Sam ×3、「moon」……）→
+     **用一句轻快的话问，别列清单、别报编号**，拿各自最好认的那个东西区分：
+     「哪个 Gary？收发室那个，还是弹吉他那个？」她怎么答都行（「吉他」「O'Hara」「Slow Hands」），你对上之后用 `--id <编号>` 接通。
+   - 她说「以后 Gary 就是弹吉他那个」「我说教练就是 Eyes on Me 的 Bill」→ `calls.py alias <她的叫法> <编号> [--au <系列目录名>]`，
+     以后这个叫法直接接通、不再问（`calls.py unalias` 取消）。她第一次说出一个只属于她的叫法（「教练」「锤子」）、你确认是谁之后，
+     也可以顺手问一句「以后这么叫就是他？」
    - 退出码 3 = 他有两个 AU（Bill Greaves / Jim Crocker / Wild Bill / John Moon）→ 问她打给哪一个他，
      用**故事名 + 一句话**问（「No One Walks Off 里的爸爸，还是 Eyes on Me 里的教练？」），也可以都不要（`--au none` = 电影里的他）。
    - 中文昵称（「教练」「锤子」「小布什」「月球那个」）脚本认不出 → 跑 `--list` 自己对，拿不准就问，**别替她挑**。
@@ -135,6 +141,7 @@ python3 tools/call/calls.py add <编号> --who "<名字 · 系列>" --mode <电�
 | 她说 | 发生什么 |
 |---|---|
 | 「打给 Gary」「Bill 在吗」 | 接通（有重名 / 两个 AU 会先问是哪一个） |
+| 「以后 Gary 就是弹吉他那个」 | 记住，以后说 Gary 直接接通他 |
 | 「打给 Gary，回到第 9 章那时候」 | 那时候的他，之后的事他不知道 |
 | 「换成发消息 / 打电话 / 见面吧」 | 换形式 |
 | 「原话」 | 他的英文原句 + 中译 |
@@ -149,7 +156,7 @@ python3 tools/call/calls.py add <编号> --who "<名字 · 系列>" --mode <电�
 | 东西 | 在哪 |
 |---|---|
 | 接通前的资料 | `tools/call/brief.py`（`--list` 名单 · `--au` 选 AU · `--upto N` 回到第 N 章） |
-| 通话记录 | `tools/call/calls.py`（ls / show / add / fix / forget），数据在 `calls` 分支 `calls.json` |
+| 通话记录 + 她定的叫法 | `tools/call/calls.py`（ls / show / add / fix / forget / alias / unalias），数据在 `calls` 分支 `calls.json` |
 | 资料来源（都是现成的，不用另外维护） | 画册 `sam/many-faces/index.html` · 台词 `sam/lines.json` · 热线 `sam/hotline-replies.json` · 系列首页 `series/*/index.html` · 圣经 `.claude/bibles/` · 正文 `_posts/` |
 
 新开一个 AU、画册加一个人，**这里什么都不用改**——brief 每次现读。系列目录名和圣经文件名对不上的那几个，

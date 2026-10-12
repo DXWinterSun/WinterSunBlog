@@ -14,10 +14,11 @@ code 的好处就是可以对齐 AU 和画册的人物设定，并且还能有�
     python3 tools/call/brief.py gary                  # 找人；名字、片名、中文片名、系列名都认
     python3 tools/call/brief.py bill --au eyes-on-me  # 一个人有两个 AU 时指定是哪一个
     python3 tools/call/brief.py bill --au none        # 不要 AU，只要电影里 / 画册里的他
+    python3 tools/call/brief.py --id garyguitar       # 重名时按编号直接认（列表里 --id 后面那个）
     python3 tools/call/brief.py gary --upto 12        # 回到第 12 章那时候的他（之后的事他还不知道）
 
 找到不止一个人 → 列出候选、退出码 2；一个人有好几个 AU 又没指定 → 列出来、退出码 3。
-两种情况都去问 Winter「是哪一个」，别替她挑。
+两种情况都去问 Winter「是哪一个」，别替她挑。她定过的叫法（calls.py alias，「以后 Gary 就是弹吉他那个」）先认。
 """
 import argparse
 import datetime as dt
@@ -256,9 +257,6 @@ def keys_of(p, series):
 def find(people, series, q):
     """先认全名 / 片名 / 系列名一字不差的；再认名字里某个词打头的；最后才是随便哪儿包含。"""
     nq = norm(q)
-    by_id = [p for p in people if norm(p["id"]) == nq]
-    if by_id:
-        return by_id
     exact, word, part = [], [], []
     for p in people:
         ks = keys_of(p, series)
@@ -329,12 +327,38 @@ def call_key(pid, au):
     return pid + ("--" + au if au else "")
 
 
+_CALLS = None
+
+
+def calls_data():
+    """calls 分支上的 calls.json（通话记录 + 她定的叫法），一次接通只取一回。"""
+    global _CALLS
+    if _CALLS is None:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import calls
+        _CALLS = calls.load_quiet()
+    return _CALLS
+
+
 def call_log(key):
-    """上次通话留下的几句（calls 分支上的 calls.json，由 calls.py 记）。"""
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    """上次通话留下的几句（由 calls.py 记）。"""
     import calls
-    e = calls.load_quiet().get("calls", {}).get(key)
+    e = calls_data().get("calls", {}).get(key)
     return calls.render(e, recent=6) if e else None
+
+
+def alias_of(q):
+    """她定过的叫法（「以后说 Gary 就是 Interoffice 那个」「教练」），由 calls.py alias 记。"""
+    for k, v in calls_data().get("aliases", {}).items():
+        if norm(k) == norm(q):
+            return v
+    return None
+
+
+def blurb(p, series):
+    """重名时给她挑的那一句：画册的一句话，没有就用系列基调。"""
+    t = p["face"].get("tagline") or (series[p["aus"][0]]["logline"] if p["aus"] else "")
+    return t if len(t) <= 40 else t[:40] + "……"
 
 
 def brief(p, series, posts, au, upto, out):
@@ -556,24 +580,33 @@ def main():
     ap.add_argument("--au", nargs="+", help="有好几个 AU 时指定哪一个（系列名或目录名）；none = 不带 AU")
     ap.add_argument("--upto", type=int, help="回到第 N 章那时候（之后的事他还不知道）")
     ap.add_argument("--list", action="store_true", help="列出能打给谁")
+    ap.add_argument("--id", help="按编号直接认人（重名时列表里给的那个）")
     a = ap.parse_args()
 
     people, series = build_people()
-    if a.list or not a.who:
+    if a.list or (not a.who and not a.id):
         listing(people, series)
         return 0
     a.who = " ".join(a.who)
     a.au = " ".join(a.au) if a.au else None
-    hits = find(people, series, a.who)
+    al = None if a.id else alias_of(a.who)
+    if al:
+        a.id = al["id"]
+        if not a.au and al.get("au"):
+            a.au = al["au"]
+    if a.id:
+        hits = [p for p in people if p["id"] == a.id]
+    else:
+        hits = find(people, series, a.who)
     if not hits:
         print("没认出「%s」是谁。跑 `--list` 看看全部名单，或者换个叫法（英文名 / 片名）。" % a.who)
         return 1
     if len(hits) > 1:
-        print("「%s」能对上好几个人，问 Winter 是哪一个：" % a.who)
+        print("「%s」能对上好几个人，用一句话问 Winter 是哪一个（她要是说「以后 %s 就是他」，用 calls.py alias 记下来）：" % (a.who, a.who))
         for p in hits:
             aus = " / ".join(series[x]["name"] for x in p["aus"])
-            print("- %s（%s %s）%s　→ 用 `%s`" % (p["name"], p["filmCN"] or p["film"], p["year"],
-                                              ("AU：" + aus) if aus else "", p["id"]))
+            print("- %s（%s %s）%s —— %s　→ `--id %s`" % (p["name"], p["filmCN"] or p["film"], p["year"],
+                                                  ("AU：" + aus) if aus else "", blurb(p, series), p["id"]))
         return 2
     p = hits[0]
     au = pick_au(p, series, a.au)

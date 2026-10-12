@@ -20,6 +20,9 @@ Winter 2026-10-12 选的：「记几句，下次接着问」。挂断之后由 C
     python3 tools/call/calls.py fix gary--interoffice "她说：他不会一上来就叫 sweetheart，熟了才叫名字"
     python3 tools/call/calls.py forget gary--interoffice            # 忘掉最近一通
     python3 tools/call/calls.py forget gary--interoffice --all      # 这个人的通话记录全忘（纠正过的地方保留）
+    python3 tools/call/calls.py alias Gary garyguitar               # 她说「以后 Gary 就是弹吉他那个」
+    python3 tools/call/calls.py alias 教练 greaves --au eyes-on-me  # 她自己的叫法，连 AU 一起定
+    python3 tools/call/calls.py unalias Gary                        # 不要这个默认了，重名时再问
 
 改动类命令都可以加 --dry-run（只打印、不推）和 --trailer "..."（给提交说明补尾行，可重复）。
 """
@@ -35,8 +38,8 @@ FILE = "calls.json"
 REMOTE = "origin"
 TZ = dt.timezone(dt.timedelta(hours=8))   # 一律按北京时间
 README = ("☎ 打给他 · 通话记录。只由 tools/call/calls.py 改，别手改。"
-          "每个键 = 角色 id（有 AU 的再接 --系列目录名）；log = 一通一条，notes 是他该记得的事；"
-          "fixes = Winter 纠正过的「这不像他」，每一通都要遵守。")
+          "calls 的每个键 = 角色 id（有 AU 的再接 --系列目录名）；log = 一通一条，notes 是他该记得的事；"
+          "fixes = Winter 纠正过的「这不像他」，每一通都要遵守。aliases = 她定的叫法（「Gary」默认是谁、「教练」是谁）。")
 
 
 def now():
@@ -166,12 +169,18 @@ def main():
     s.add_argument("text")
     s = change("forget")
     s.add_argument("--all", action="store_true")
+    s = change("alias")
+    s.add_argument("target", help="角色编号（brief.py 重名列表里 --id 后面那个）")
+    s.add_argument("--au", default="", help="连哪个 AU 一起定（系列目录名）")
+    s = change("unalias")
     a = ap.parse_args()
 
     if a.cmd in ("ls", "show"):
         data = load_quiet()
         calls = data.get("calls", {})
         if a.cmd == "ls":
+            for k, v in data.get("aliases", {}).items():
+                print("叫法：「%s」→ %s%s" % (k, v["id"], (" · " + v["au"]) if v.get("au") else ""))
             if not calls:
                 print("还没有任何通话记录。")
             for k, e in sorted(calls.items(), key=lambda kv: (kv[1].get("log") or [{"at": ""}])[-1]["at"], reverse=True):
@@ -184,6 +193,12 @@ def main():
         return 0
 
     def op(data):
+        if a.cmd == "alias":
+            data.setdefault("aliases", {})[a.key] = {"id": a.target, "au": a.au, "at": now().isoformat(timespec="minutes")}
+            return "通话记录：以后说「%s」就是 %s" % (a.key, a.target + (" · " + a.au if a.au else ""))
+        if a.cmd == "unalias":
+            data.setdefault("aliases", {}).pop(a.key, None)
+            return "通话记录：「%s」不再默认是谁" % a.key
         e = data["calls"].setdefault(a.key, {"who": "", "log": [], "fixes": []})
         if a.cmd == "add":
             if a.who:
@@ -217,7 +232,8 @@ def main():
         msg = op(data)
         if a.dry_run:
             print("（演练，不推）" + msg)
-            print(render(data["calls"][a.key]))
+            if a.key in data["calls"]:
+                print(render(data["calls"][a.key]))
             return 0
         try:
             commit_and_push(data, msg, a.trailer)
