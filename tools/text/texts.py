@@ -37,6 +37,7 @@ Winter 2026-10-12：「就好像是异地恋的爱人一样，默认了短期内
 """
 import argparse
 import base64
+import re
 import datetime as dt
 import hashlib
 import json
@@ -329,6 +330,12 @@ def clean_msg(m, t):
     for k in ("text", "img", "link", "art"):
         if m.get(k):
             out[k] = m[k]
+    if "img" in out and out["img"].get("svg_file"):   # 他画的图：给文件路径，省得把 SVG 塞进 JSON 里转义
+        try:
+            with open(out["img"].pop("svg_file"), encoding="utf-8") as f:
+                out["img"]["svg"] = f.read()
+        except OSError:
+            pass
     if "img" in out and out["img"].get("svg") and len(out["img"]["svg"]) > 24000:
         out["img"]["svg"] = ""   # 太大的图不存，留描述
     return out
@@ -350,12 +357,17 @@ def cmd_add(a):
         th["messages"].extend(new)
         mem = th.setdefault("memory", {})
         pm = payload.get("memory", {}) or {}
+        day = "%d/%d：" % (base.month, base.day)
+        bare = lambda x: x.split("：", 1)[1] if re.match(r"^\d{1,2}/\d{1,2}：", x) else x
+        for x in (pm.get("drop", []) or []) + (pm.get("done", []) or []):   # 说岔了的、办完了的：写一段原文就能划掉
+            for k in ("her", "his", "pending"):
+                mem[k] = [p for p in mem.get(k, []) if x not in p]
         for k in ("her", "his", "pending", "fixes"):
             for x in pm.get(k, []) or []:
-                if x and x not in mem.setdefault(k, []):
-                    mem[k].append(x)
-        for x in pm.get("done", []) or []:
-            mem["pending"] = [p for p in mem.get("pending", []) if x not in p and p not in x]
+                x = (x or "").strip()
+                if not x or any(bare(x) == bare(y) for y in mem.get(k, [])):
+                    continue
+                mem.setdefault(k, []).append(x if k == "fixes" or re.match(r"^\d{1,2}/\d{1,2}：", x) else day + x)
         for k in ("her", "his"):
             mem[k] = mem.get(k, [])[-40:]   # 记太多就只留最近的
         for x in payload.get("about_her", []) or []:

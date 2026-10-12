@@ -60,6 +60,9 @@ BUCKET_CN = {"greet": "打招呼", "miss": "说想他", "tired": "说累", "slee
              "night": "道晚安", "love": "表白撒娇", "meet": "说要去见他", "praise": "夸他",
              "tease": "闹他", "daily": "日常"}
 
+# 冬的陪伴只要「认识他」的那几节（不要母题、剧情、床上）
+TEXT_KEYS = ["他 ·", "他·", "### 他", "人物", "内核", "称呼", "声口", "关系", "动力", "你 ·", "### 你", "红线"]
+
 # 圣经里值得在接通前就读的小节（按标题关键词认）
 BIBLE_KEYS = ["他 ·", "他·", "### 他", "人物", "内核", "称呼", "声口", "关系", "动力",
               "你 ·", "### 你", "红线", "已确立", "床上", "母题"]
@@ -476,6 +479,8 @@ def brief(p, series, posts, au, upto, out, text_mode=False):
             w("引言：%s" % s["lede"])
         w("")
         for h, t in s["intros"]:
+            if text_mode and "设定" not in h:
+                continue   # 「关于这个系列」讲的是世界观和剧情，冬的陪伴用不上
             w("### %s" % h)
             w("")
             w(t)
@@ -496,17 +501,21 @@ def brief(p, series, posts, au, upto, out, text_mode=False):
             if upto:
                 w("⚠️ 圣经写的是全系列。这一通只到第 %d 章，圣经里第 %d 章之后才发生 / 才揭晓的事，一个字都不能用。" % (upto, upto))
                 w("")
-            if len(text) <= 60000:
+            if text_mode:
+                w("（冬的陪伴只要认识他：下面只摘了他这个人、称呼、声口、红线这几节。**不用读整本圣经，也不用读章节**——"
+                  "剧情、事件、AU 里的世界观都不进这条线。）")
+            elif len(text) <= 60000:
                 w("⭐ 这本圣经不长（%d 字）：接通前**整本读一遍**（Read 这个文件），下面只是先垫个底。" % len(text))
             else:
                 w("⭐ 这本圣经很长（%d 字）：下面这些节读全（没印完的照行号 sed），再读「伏笔账」和流水最后一段。" % len(text))
-            w("⚠️ 圣经开头写的多是**开篇时**的他（年龄、年份、称呼）；此刻的状态以最新一章为准，伏笔账里标了已回收的就是已经发生了。")
+            if not text_mode:
+                w("⚠️ 圣经开头写的多是**开篇时**的他（年龄、年份、称呼）；此刻的状态以最新一章为准，伏笔账里标了已回收的就是已经发生了。")
             main_nums = [c["num"] for c in posts.get(series[au]["name"], []) if c["num"] is not None and not c["kind"]]
             flow_text = "\n".join(b for _, h, _, b in secs if "流水" in h) or text
             nums = [int(a or b) for a, b in re.findall(r"Ch\.?\s*(\d{1,3})|第\s*(\d{1,3})\s*章", flow_text)]
             if flow_text is not text:   # 流水里「14. **标题**」这种编号也算
                 nums += [int(n) for n in re.findall(r"^\s*[-*]?\s*(\d{1,3})[\.、]\s", flow_text, re.M)]
-            if main_nums and nums and not upto and max(nums) < max(main_nums):
+            if main_nums and nums and not upto and not text_mode and max(nums) < max(main_nums):
                 w("⚠️ 圣经的章节流水最多记到第 %d 章，正篇已经到第 %d 章——**圣经可能没跟上**：至少把最近两三章正篇读全，"
                   "再扫一眼下面「你们走到哪了」每章那一句。" % (max(nums), max(main_nums)))
             w("")
@@ -518,6 +527,8 @@ def brief(p, series, posts, au, upto, out, text_mode=False):
                     continue   # 上一节已经整节印过（含这个子节）
                 if lv > 3 or not any(k in h for k in BIBLE_KEYS) or "流水" in h:
                     continue
+                if text_mode and not any(k in h for k in TEXT_KEYS):
+                    continue
                 if budget <= 0:
                     break
                 end = next((l2 - 1 for lv2, _, l2, _ in secs[n + 1:] if lv2 <= lv), lines_total)
@@ -528,14 +539,15 @@ def brief(p, series, posts, au, upto, out, text_mode=False):
                 w("")
                 budget -= len(piece)
                 covered = end
-            w("圣经全部小节（要细看某节：`sed -n '起,止p' %s`）：" % os.path.relpath(bp, ROOT))
-            w("")
-            for lv, h, line, _ in secs:
-                if lv <= 3:
-                    w("%s- 第 %d 行 · %s" % ("  " * (lv - 2), line, h))
-            w("")
+            if not text_mode:
+                w("圣经全部小节（要细看某节：`sed -n '起,止p' %s`）：" % os.path.relpath(bp, ROOT))
+                w("")
+                for lv, h, line, _ in secs:
+                    if lv <= 3:
+                        w("%s- 第 %d 行 · %s" % ("  " * (lv - 2), line, h))
+                w("")
             flow = [x for x in secs if "流水" in x[1]]
-            if flow and not upto:
+            if flow and not upto and not text_mode:
                 lv, h, line, body = flow[-1]
                 w("### %s（最后一段，第 %d 行起）" % (h, line))
                 w("")
@@ -552,20 +564,23 @@ def brief(p, series, posts, au, upto, out, text_mode=False):
             stop = max([c["order"] for c in ch if c["num"] is not None and c["num"] <= upto] or [0])
             ch = [c for c in ch if c["order"] <= stop]
         main = [c for c in ch if not c["kind"]]
-        w("## 你们走到哪了（%s 共 %d 篇%s）" % (s["name"], len(ch), ("，只算到第 %d 章" % upto) if upto else ""))
-        w("")
+        if not text_mode:
+            w("## 你们走到哪了（%s 共 %d 篇%s）" % (s["name"], len(ch), ("，只算到第 %d 章" % upto) if upto else ""))
+            w("")
         if upto:
             w("⚠️ 这一通回到第 %d 章那时候：之后发生的事他一概不知道，也不许漏嘴。" % upto)
             w("")
-        w("（按系列顺序；番外是按上线先后插进来的，**它在故事里发生在哪儿看 story_time 或正文**，别把番外当成最新状态。）")
-        w("")
-        for i, c in enumerate(ch):
+        if not text_mode:
+            w("（按系列顺序；番外是按上线先后插进来的，**它在故事里发生在哪儿看 story_time 或正文**，别把番外当成最新状态。）")
+            w("")
+        for i, c in enumerate([] if text_mode else ch):
             tag = {"extra": "番外", "pov": "他视角"}.get(c["kind"], "")
             title = re.sub(r"\s+—\s+%s\s*$" % re.escape(s["name"]), "", c["title"])
             extra = "".join(x for x in [("〔%s〕" % tag) if tag else "", ("〔故事里：%s〕" % c["story_time"]) if c["story_time"] else ""])
             path = ("　`%s`" % c["path"]) if i >= len(ch) - 4 else ""
             w("- %s%s —— %s%s" % (title, extra, c["summary"], path))
-        w("")
+        if not text_mode:
+            w("")
         chats, comms, notes = his_texts(ch)
         w("## 正文里他真发过的消息 / 写过的字条（⭐ 他「发给她一个人」时的嗓子，比小说叙述准）")
         w("")
