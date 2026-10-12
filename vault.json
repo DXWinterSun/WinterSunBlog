@@ -1,0 +1,11 @@
+{
+ "v": 1,
+ "kdf": "PBKDF2-SHA256",
+ "iter": 310000,
+ "salt": "1+7qgn7xV5H+YAzJNS5DdQ==",
+ "check": {
+  "iv": "RpRtiWiTXYrDpDzl",
+  "ct": "BP8MtIesZGzfIzx2uF2TyGBxJNshSAMXyjYHYmco"
+ },
+ "note": "冬的陪伴。除了这个文件，别的都是加密的；钥匙只有 Winter 知道。"
+}
