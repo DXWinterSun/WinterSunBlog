@@ -14,7 +14,7 @@ Winter 2026-10-12 选的：「记几句，下次接着问」。挂断之后由 C
 
     python3 tools/call/calls.py ls                          # 都跟谁通过话
     python3 tools/call/calls.py show gary--interoffice      # 这个人的全部记录（brief.py 会自动带上最近几通）
-    python3 tools/call/calls.py add gary--interoffice --who "Gary O'Hara · Interoffice" --mode 公用电话 \\
+    python3 tools/call/calls.py add gary--interoffice --who "Gary O'Hara · Interoffice" --mode 电话 \\
         --note "她说今天学生太吵，嗓子哑了" --note "他答应下次打来先问她嗓子"
     python3 tools/call/calls.py add gary--interoffice --update --note ……   # 还是这一通：整条换成新写的（聊得长时中途先记、挂断再更新）
     python3 tools/call/calls.py fix gary--interoffice "她说：他不会一上来就叫 sweetheart，熟了才叫名字"

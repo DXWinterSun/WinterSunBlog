@@ -196,6 +196,7 @@ def load_posts():
             "path": os.path.relpath(f, ROOT), "title": fm.get("title", ""), "date": fm.get("date", "")[:10],
             "order": order, "kind": kind, "num": int(num.group(1)) if num else None,
             "summary": fm.get("summary", ""), "tags": fm.get("tags", ""), "body": body,
+            "story_time": fm.get("story_time", ""),
         })
     for s in by:
         by[s].sort(key=lambda p: (p["order"], p["date"]))
@@ -255,6 +256,9 @@ def keys_of(p, series):
 def find(people, series, q):
     """先认全名 / 片名 / 系列名一字不差的；再认名字里某个词打头的；最后才是随便哪儿包含。"""
     nq = norm(q)
+    by_id = [p for p in people if norm(p["id"]) == nq]
+    if by_id:
+        return by_id
     exact, word, part = [], [], []
     for p in people:
         ks = keys_of(p, series)
@@ -378,6 +382,9 @@ def brief(p, series, posts, au, upto, out):
         w("（热线里写好的那套回复是 %s 的他，不是这一通的 AU——称呼和处境都不一样，别照搬。）" % series[home.group(1)]["name"])
         w("")
         rep = None
+    if not rep and ln:
+        w("（热线里还没给他写回复库——声口全看圣经和正文。）")
+        w("")
     if rep:
         reg = rep.get("register", "")
         pet = rep.get("pet", "")
@@ -391,7 +398,7 @@ def brief(p, series, posts, au, upto, out):
         w("")
         if isinstance(pet, dict):
             pet = " / ".join(x for x in (pet.get("en"), pet.get("cn")) if x)
-        w("声口档：%s　称呼你：%s" % (reg or "—", pet or "（不带称呼）"))
+        w("声口档：%s　称呼你：%s" % (reg or "—", pet or "（热线里没写——以圣经的称呼为准）"))
         w("")
         for b, cn in BUCKET_CN.items():
             for x in (bk.get(b) or [])[:1]:
@@ -429,18 +436,36 @@ def brief(p, series, posts, au, upto, out):
             if upto:
                 w("⚠️ 圣经写的是全系列。这一通只到第 %d 章，圣经里第 %d 章之后才发生 / 才揭晓的事，一个字都不能用。" % (upto, upto))
                 w("")
-            budget = 14000
-            for lv, h, line, body in secs:
+            if len(text) <= 60000:
+                w("⭐ 这本圣经不长（%d 字）：接通前**整本读一遍**（Read 这个文件），下面只是先垫个底。" % len(text))
+            else:
+                w("⭐ 这本圣经很长（%d 字）：下面这些节读全（没印完的照行号 sed），再读「伏笔账」和流水最后一段。" % len(text))
+            w("⚠️ 圣经开头写的多是**开篇时**的他（年龄、年份、称呼）；此刻的状态以最新一章为准，伏笔账里标了已回收的就是已经发生了。")
+            main_nums = [c["num"] for c in posts.get(series[au]["name"], []) if c["num"] is not None and not c["kind"]]
+            flow_text = "\n".join(b for _, h, _, b in secs if "流水" in h) or text
+            nums = [int(a or b) for a, b in re.findall(r"Ch\.?\s*(\d{1,3})|第\s*(\d{1,3})\s*章", flow_text)]
+            if main_nums and nums and not upto and max(nums) < max(main_nums):
+                w("⚠️ 圣经的章节流水最多记到第 %d 章，正篇已经到第 %d 章——**圣经可能没跟上**：至少把最近两三章正篇读全，"
+                  "再扫一眼下面「你们走到哪了」每章那一句。" % (max(nums), max(main_nums)))
+            w("")
+            budget = 16000
+            lines_total = len(text.splitlines())
+            covered = -1
+            for n, (lv, h, line, body) in enumerate(secs):
+                if line <= covered:
+                    continue   # 上一节已经整节印过（含这个子节）
                 if lv > 3 or not any(k in h for k in BIBLE_KEYS) or "流水" in h:
                     continue
-                piece = clip(body, 2600)
                 if budget <= 0:
                     break
-                w("### %s（第 %d 行）" % (h, line))
+                end = next((l2 - 1 for lv2, _, l2, _ in secs[n + 1:] if lv2 <= lv), lines_total)
+                piece = body if len(body) <= 3500 else body[:3500].rstrip() + "\n……（没印完：这一节是第 %d–%d 行）" % (line, end)
+                w("### %s（第 %d–%d 行）" % (h, line, end))
                 w("")
                 w(piece)
                 w("")
                 budget -= len(piece)
+                covered = end
             w("圣经全部小节（要细看某节：`sed -n '起,止p' %s`）：" % os.path.relpath(bp, ROOT))
             w("")
             for lv, h, line, _ in secs:
@@ -470,9 +495,14 @@ def brief(p, series, posts, au, upto, out):
         if upto:
             w("⚠️ 这一通回到第 %d 章那时候：之后发生的事他一概不知道，也不许漏嘴。" % upto)
             w("")
-        for c in ch[-6:]:
-            tag = {"extra": "番外", "pov": "他视角"}.get(c["kind"], "正篇")
-            w("- %s · %s · %s —— %s　`%s`" % (c["date"], tag, c["title"], c["summary"], c["path"]))
+        w("（按系列顺序；番外是按上线先后插进来的，**它在故事里发生在哪儿看 story_time 或正文**，别把番外当成最新状态。）")
+        w("")
+        for i, c in enumerate(ch):
+            tag = {"extra": "番外", "pov": "他视角"}.get(c["kind"], "")
+            title = re.sub(r"\s+—\s+%s\s*$" % re.escape(s["name"]), "", c["title"])
+            extra = "".join(x for x in [("〔%s〕" % tag) if tag else "", ("〔故事里：%s〕" % c["story_time"]) if c["story_time"] else ""])
+            path = ("　`%s`" % c["path"]) if i >= len(ch) - 4 else ""
+            w("- %s%s —— %s%s" % (title, extra, c["summary"], path))
         w("")
         last = main[-1] if main else (ch[-1] if ch else None)
         if last:
@@ -493,7 +523,7 @@ def brief(p, series, posts, au, upto, out):
     w("")
     w(log if log else "（还没有记录——这是第一通。）")
     w("")
-    w("挂断后记一笔：`python3 tools/call/calls.py add %s --who \"%s\" --mode <电话/消息/见面> --note \"……\"`"
+    w("挂断后记一笔：`python3 tools/call/calls.py add %s --who \"%s\" --mode <电话/消息/见面/通讯板> --note \"……\" --trailer \"<会话要求的署名行>\"`"
       % (key, p["name"] + (" · " + series[au]["name"] if au else "")))
     w("她说「这不像他」：`python3 tools/call/calls.py fix %s \"……\"`" % key)
     return out
