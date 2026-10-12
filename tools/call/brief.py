@@ -323,6 +323,32 @@ def now_line():
     return "%s 周%s %s（%s）" % (t.strftime("%Y-%m-%d"), wd, t.strftime("%H:%M"), part)
 
 
+def his_texts(chapters):
+    """正文里他真发过的消息、写过的字条——这才是他「发给她一个人」时的嗓子，比小说叙述准。"""
+    chats, comms, notes = [], [], []
+    for c in chapters:
+        b = c["body"]
+        for m in re.findall(r'<div class="c-chat__msg c-chat__msg--in[^"]*">(.*?)</div>', b, re.S):
+            chats.append(strip_tags(m))
+        for log in re.findall(r'<ol class="c-comm__log">(.*?)</ol>', b, re.S):
+            for cls, m in re.findall(r'<li([^>]*)>(.*?)</li>', log, re.S):
+                if "c-comm__gap" not in cls:
+                    comms.append(strip_tags(m))
+        for blk in re.findall(r'<div class="c-note"[^>]*>(.*?)(?=<div class="c-note"|\Z)', b, re.S):
+            m = re.match(r'(.*?)<span class="c-note__sign[^"]*">(.*?)</span>\s*</div>', blk, re.S)
+            if not m:
+                continue   # 没署名的字条（或者这张卡在署名之前就结束了）：分不清是谁写的，不要
+            body, sign = m.group(1), m.group(2)
+            if "\n\n" in re.sub(r"<[^>]+>", "", body).strip() and "</div>" in body and body.count("</div>") > 1:
+                continue   # 署名前已经有卡片结束过一次 = 抓到了卡片外面的叙述
+            sign = strip_tags(sign)
+            if re.search(r"W\.|Winter|你|妈|Mom|Ma\b", sign):
+                continue   # 她写的、家里人写的，不是他
+            body = re.sub(r'<span class="c-note__label">.*?</span>', "", body, flags=re.S)
+            notes.append((strip_tags(body), sign))
+    return chats[-40:], comms[-25:], notes[-6:]
+
+
 def call_key(pid, au):
     return pid + ("--" + au if au else "")
 
@@ -365,6 +391,9 @@ def brief(p, series, posts, au, upto, out):
     w = out.append
     face, ln = p["face"], p["lines"]
     w("# ☎ 接通前的资料 · %s" % p["name"])
+    w("")
+    w("> ⚠️ 下面有很多抒情的段落和大场面——那是让你**认识他**的，不是让你照着写的。"
+      "这一通：故事之后的平常日子，一行一条、平常说话、不写旁白。他发消息的真嗓子看「正文里他真发过的消息」那一节。")
     w("")
     w("- 现在：北京时间 %s" % now_line())
     film = " · ".join(x for x in [p["film"], p["filmCN"], p["year"]] if x)
@@ -420,6 +449,8 @@ def brief(p, series, posts, au, upto, out):
         bk = block.get("buckets", block)
         w("## 热线里写好的他（声口样本）")
         w("")
+        w("（早先写的，里面提到的处境——在哪上班、谁还在——可能已经变了，跟此刻对不上的别用。）")
+        w("")
         if isinstance(pet, dict):
             pet = " / ".join(x for x in (pet.get("en"), pet.get("cn")) if x)
         w("声口档：%s　称呼你：%s" % (reg or "—", pet or "（热线里没写——以圣经的称呼为准）"))
@@ -468,6 +499,8 @@ def brief(p, series, posts, au, upto, out):
             main_nums = [c["num"] for c in posts.get(series[au]["name"], []) if c["num"] is not None and not c["kind"]]
             flow_text = "\n".join(b for _, h, _, b in secs if "流水" in h) or text
             nums = [int(a or b) for a, b in re.findall(r"Ch\.?\s*(\d{1,3})|第\s*(\d{1,3})\s*章", flow_text)]
+            if flow_text is not text:   # 流水里「14. **标题**」这种编号也算
+                nums += [int(n) for n in re.findall(r"^\s*[-*]?\s*(\d{1,3})[\.、]\s", flow_text, re.M)]
             if main_nums and nums and not upto and max(nums) < max(main_nums):
                 w("⚠️ 圣经的章节流水最多记到第 %d 章，正篇已经到第 %d 章——**圣经可能没跟上**：至少把最近两三章正篇读全，"
                   "再扫一眼下面「你们走到哪了」每章那一句。" % (max(nums), max(main_nums)))
@@ -528,6 +561,28 @@ def brief(p, series, posts, au, upto, out):
             path = ("　`%s`" % c["path"]) if i >= len(ch) - 4 else ""
             w("- %s%s —— %s%s" % (title, extra, c["summary"], path))
         w("")
+        chats, comms, notes = his_texts(ch)
+        w("## 正文里他真发过的消息 / 写过的字条（⭐ 他「发给她一个人」时的嗓子，比小说叙述准）")
+        w("")
+        if chats:
+            w("手机消息（他发的，按先后）：")
+            w("")
+            w("\n".join("- " + x for x in chats))
+            w("")
+        if comms:
+            w("通讯板 / 屏幕上的消息（多半是他发的，拿不准看那一章）：")
+            w("")
+            w("\n".join("- " + x for x in comms))
+            w("")
+        for body, sign in notes:
+            w("字条（署名 %s）：" % sign)
+            w("")
+            w(clip(body, 600))
+            w("")
+        if not (chats or comms or notes):
+            w("（正文里没有他发消息、写字条的记录。声口只能从对白里学——但对白是小说的节奏，发消息要更短、更平。）")
+            w("")
+
         last = main[-1] if main else (ch[-1] if ch else None)
         if last:
             body = strip_tags(re.sub(r"\{%.*?%\}", "", last["body"]))
