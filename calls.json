@@ -1,0 +1,4 @@
+{
+  "_readme": "☎ 打给他 · 通话记录。只由 tools/call/calls.py 改，别手改。每个键 = 角色 id（有 AU 的再接 --系列目录名）；log = 一通一条，notes 是他该记得的事；fixes = Winter 纠正过的「这不像他」，每一通都要遵守。",
+  "calls": {}
+}
