@@ -88,6 +88,7 @@ P('  <defs>')
 P('    <radialGradient id="br35sun" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#f3c96a" stop-opacity=".30"/><stop offset="1" stop-color="#f3c96a" stop-opacity="0"/></radialGradient>')
 P('    <linearGradient id="br35sweep" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>')
 P('    <linearGradient id="br35root" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe6ee" stop-opacity="0"/><stop offset="1" stop-color="#dfe6ee" stop-opacity=".85"/></linearGradient>')
+P('    <linearGradient id="br35rootink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4452" stop-opacity="0"/><stop offset="1" stop-color="#3b4452" stop-opacity=".45"/></linearGradient>')
 for s, (hi, mid, lo, glow) in enumerate(STRANDS):
     P(f'    <filter id="br35blur{s}" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>')
 shapes = []
@@ -116,8 +117,10 @@ P(f'  <g><animateTransform attributeName="transform" type="rotate" values="-1.4 
 # 发根：一把头发收拢进辫子
 for k in range(13):
     x0 = 92 + k * 9.5 + random.uniform(-2, 2)
-    P(f'    <path d="M{x0:.1f},4 Q{(x0 + TOP[0]) / 2 + random.uniform(-6, 6):.1f},{28 + random.uniform(-4, 4):.1f} {TOP[0] + random.uniform(-5, 5):.1f},{TOP[1] + 4:.1f}" '
-      f'stroke="url(#br35root)" stroke-width="{random.uniform(1.6, 2.6):.1f}" fill="none" stroke-linecap="round"/>')
+    d = f"M{x0:.1f},4 Q{(x0 + TOP[0]) / 2 + random.uniform(-6, 6):.1f},{28 + random.uniform(-4, 4):.1f} {TOP[0] + random.uniform(-5, 5):.1f},{TOP[1] + 4:.1f}"
+    sw = random.uniform(1.6, 2.6)
+    P(f'    <path d="{d}" stroke="url(#br35rootink)" stroke-width="{sw + 1.2:.1f}" fill="none" stroke-linecap="round"/>')  # 衬线：浅色主题下也看得见
+    P(f'    <path d="{d}" stroke="url(#br35root)" stroke-width="{sw:.1f}" fill="none" stroke-linecap="round"/>')
 
 # 三股各自的光晕，轮流亮
 for s, (hi, mid, lo, glow) in enumerate(STRANDS):
@@ -142,9 +145,11 @@ for k in range(22):
     ln = random.uniform(20, 44)
     x2, y2 = ex + math.cos(ang) * ln, ey + math.sin(ang) * ln
     mx, my = ex + math.cos(ang) * ln * .5 + random.uniform(-5, 5), ey + math.sin(ang) * ln * .5
-    col = STRANDS[k % 3][0]
-    P(f'      <path d="M{ex:.1f},{ey:.1f} Q{mx:.1f},{my:.1f} {x2:.1f},{y2:.1f}" stroke="{col}" stroke-opacity="{random.uniform(.55, .9):.2f}" '
-      f'stroke-width="{random.uniform(1.1, 2.0):.1f}" fill="none" stroke-linecap="round"/>')
+    col = STRANDS[k % 3][1]
+    d = f"M{ex:.1f},{ey:.1f} Q{mx:.1f},{my:.1f} {x2:.1f},{y2:.1f}"
+    sw = random.uniform(1.1, 2.0)
+    P(f'      <path d="{d}" stroke="#3b4452" stroke-opacity=".5" stroke-width="{sw + 1.1:.1f}" fill="none" stroke-linecap="round"/>')  # 衬线
+    P(f'      <path d="{d}" stroke="{col}" stroke-opacity="{random.uniform(.8, 1):.2f}" stroke-width="{sw:.1f}" fill="none" stroke-linecap="round"/>')
 P('    </g>')
 P('  </g>')
 
