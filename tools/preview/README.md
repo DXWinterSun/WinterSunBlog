@@ -28,6 +28,7 @@ python3 tools/preview/render_draft.py 草稿.md -o /tmp/.../预览.html \
 | `-o` | 输出 html 路径。**改稿后用同一个路径重新生成 + 重新发布，链接不变** |
 | `--title` | 页面大标题，用中文章节名 |
 | `--series` | 章节 front matter 的 `series` 值。据此从 `_data/au_palettes.yml` 自动取该 AU 的配色，预览观感就和线上阅读页一致。留空 / 查不到 → 站点默认金色 |
+| `--palette` | 直接给四个色值「底色,主色,文字,弱色」，如 `"#141936,#e8b33a,#efe7d2,#8d91ad"`。给还没进 `au_palettes.yml` 的新坑 / 重写中的系列用，会盖过 `--series` 取到的颜色 |
 | `--subtitle` | 副标题，一般写「Chapter N · 系列展示名」或「番外 · 系列展示名」 |
 | `--mood` | mood 标签，如 `炽恋 · 缱绻` |
 | `--notes` | 页尾「衔接说明」文件（`.md` 或 `.html`）：这章回收了哪个伏笔、埋了什么新钩子、拟好的 summary、mood。方便她判断连贯性 |

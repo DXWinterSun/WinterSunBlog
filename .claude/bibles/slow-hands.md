@@ -16,7 +16,7 @@
 - [x] **素材**（2026-10-13 到齐）：三段蓝光翻拍（① 男主上吉他课 3:18 ② 派对上默念《Two Princes》24 秒
       ③ 另一节课的几秒钟）→ `slow-hands-revised/gary-素材档案.md`（逐场对白＋动作、外貌、声口、屋子、判断、存疑清单）。
       14 张截图只在对话里看过，不入库。转交指令存在 `slow-hands-revised/video-brief.md`。
-- [ ] **开坑提案**（2026-10-13 发出，等她挑）：https://claude.ai/artifact/ErJLsXfLhXkDkupTRFSkzs
+- [x] **开坑提案**（2026-10-13 她挑完，结果见下面「设定」一节）：https://claude.ai/artifact/ErJLsXfLhXkDkupTRFSkzs
       数据 `.claude/pitches/gary-garren.json`，生成 `tools/preview/render_pitch.py`。
       五道岔路：初见（A 你也按了那个门铃·英语老师 / B 隔着一面墙·夜班护士 / C 派对木墩旁）、
       跟电影的关系（同一年镜头外 / 电影之后 / 只借他和屋）、味道（可多选）、他叫你什么、你姓什么（Bell / Sharp / Prince）。
@@ -24,13 +24,46 @@
 - [ ] 她挑完 → 把结果写进本笔记 → 第一章预览页 ＋ 前几章路线图。系列名、配色之后再挑。
 - [ ] 动笔第一章（照 winter-au-writing 的流程：预览页 → 她点头 → 存档 → 页底岔路）。
 
+## 设定（Winter 2026-10-13 拍板）
+
+她挑的原话：「初见 C 木墩旁边 · 跟电影 A 同一年，镜头外面 · 味道 C 热辣 · 他叫你 A 天天换外号 · 你姓 A Winter Bell」
+
+| 项 | 定了什么 |
+|---|---|
+| 你 | **Winter Bell**。职业还没定（第一章他猜了三次都没中，第二章岔路里挑）。 |
+| 他 | **Gary Garren**，自封“Garren 博士”。Winter 的读法：**比起 Sam，Gary 更落魄，但要逞强耍酷。** |
+| 他的声音 | 就是 Sam Rockwell 本人的声音：**没有特别的口音，低、有磁性。** |
+| 初见 | 电影里那场派对。满屋子人在跳，他一个人坐在木墩上念《Two Princes》；你坐到他旁边，他发现被看见，一秒钟换上那张吹牛的脸。 |
+| 跟电影 | **同一年，镜头外面。** 电影里的事一件不改；Sam 也是他的学生；片子里的场面可以从你的角度偷看一眼。 |
+| 味道 | **热辣。** 他的荤段子和热辣的嘴是核心乐趣——**你嘴上抵赖，心里超级受用。** 之后的床戏放飞：谐音梗、荤段子都上，尺度按全站炽恋那一档往上。 |
+| 他叫你 | **天天换外号**（片里对 Sam 就是 Captain / champion / bro-rometer / man），从来不叫名字。**他第一次叫 Winter = 出事了**（大招，压到回环那里）。 |
+| 你叫他 | Gary（片里学生就这么叫）；想损他时叫“Garren 博士”。 |
+| 你的姓 | Bell。Winter：「我的这个姓氏很适合讲 knock-knock joke」→ 他会一直拿它讲门铃笑话（英文双关，正文保留英文原句，靠旁白点破）。 |
+
+### 主线：一个回环（Winter 原话）
+
+> 「我从他卸下防备的时候第一次见到他，他发现被看见之后立刻换上一直以来的外壳，
+> 然后兜兜转转，他把自己的脆弱和不安全感展露给我，一个回环。」
+
+开头和结尾是同一个画面的两面：开头你撞见他卸下防备，他立刻换脸；结尾你又一次看见他卸下防备——这一回他不换了。
+
+### ⚠️ 场地推断（待 Winter 核）
+
+片段二那场派对：维基百科的剧情写着 Birdie 跟 Sam、Eliot、Eliot 的女朋友 Ashley 一起去了一个灵修营；
+片段二的石头墙、蜡烛、曼陀罗挂毯、木墩、条纹毯，接着切到夜里室外 Birdie 围着圆点围巾、Sam 裹着条纹毯子——
+所以推断派对就在那个灵修营。第一章按这个写（上州山里的石头老农舍，十月）。Winter 看片若觉得不是，再改。
+Gary 为什么会在那儿，片子没交代；第一章里他自己的说法是“有人花钱请我来弹琴……好吧，管饭管住”。
+
 ## 二、已查证的电影事实（写作不得与之冲突）
 
 - 《A Case of You》，2013 年，导演 Kat Coiro，编剧 Christian Long、Justin Long、Keir O'Donnell；
   2013-04-21 翠贝卡电影节首映，2013-11-08 在美国小规模上映。故事在纽约（影评点名布鲁克林）。
 - Sam Rockwell 饰 Gary。男主角 Sam（Justin Long）为了追咖啡店店员 Birdie（Evan Rachel Wood），
   照着她网上的喜好把自己改造成「完美男友」，其中一项就是找 Gary 学吉他。
+- 剧情（维基百科）：Sam 为了装成 Birdie 网上喜欢的那种人，学吉他、学法餐、买惠特曼和 Joan Baez；后来 Birdie 跟 Sam、
+  Eliot（Sam 的室友）、Ashley（Eliot 的女朋友）一起去了一个灵修营。
 - 来源：维基百科 *A Case of You (film)*；The Film Stage 翠贝卡影评。
+- 《Two Princes》：Spin Doctors 1991 年首张专辑《Pocket Full of Kryptonite》里的歌，唱的是一个穷王子劝姑娘别嫁那个有钱的、嫁给他（Songfacts）。
 
 ### 片中事实（全部出自三段蓝光片段，时间码见素材档案）
 
@@ -48,7 +81,7 @@
   一句一个外号（man / Captain / bro-rometer / champion），从不叫学生名字；学生叫他 Gary；
   “Money, pussy or fame?” 连问三遍；“You know what I mean?”；被看轻就炸（“Stop with the 'tude.”“Are you effing fucking with me?!”）。
 - 课尾闭眼皱脸、很投入地唱《Two Princes》。派对上一个人坐在木墩上，嘴唇跟着《Two Princes》轻轻动，谁也不挨。
-- ⚠️ 嗓音、口音素材里判断不了，等 Winter 补。
+- 嗓音、口音：素材里判断不了，Winter 补了——就是 Sam Rockwell 本人的声音，没有特别口音，低、有磁性。
 
 ## 三、善后清单（新版定稿后处理，不作写作参考）
 
