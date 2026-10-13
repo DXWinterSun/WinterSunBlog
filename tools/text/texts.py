@@ -468,7 +468,8 @@ def stamp_batch(batch, saved):
 LIFE_KEEP = 80
 RULES = ("📌 存的规矩（2026-10-13，已经开着的对话也照这个）：平常一来一回不用存，攒到她道别、定时提醒来、或三十句上下再一起 add；"
          "她的**日常事实**（课、吃了什么、去了哪、身体）放 \"life\"，换谁都知道；**只跟他说的私话**才放 memory.her。"
-         "细则在 .claude/skills/winter-text/SKILL.md 第六节。")
+         "她这两天**吃了什么**：用 ArtifactData 读「雪地打卡」的 meals（只看吃了什么，热量、体重、减肥不读不提）。"
+         "细则在 .claude/skills/winter-text/SKILL.md 第二节 2.7、第六节。")
 
 
 def _bare(x):
