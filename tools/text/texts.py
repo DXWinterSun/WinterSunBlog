@@ -31,6 +31,13 @@ Winter 2026-10-12：「就好像是异地恋的爱人一样，默认了短期内
      "about_her": ["教英语，带好几个班"]}
     JSON
     python3 tools/text/texts.py forget karl--dear-satan --last 2   # 她说「刚才那两句别存」
+    python3 tools/text/texts.py life                               # 她的日子（所有人都知道的事实）
+    python3 tools/text/texts.py life --add "周二早上第一节有课" --about "教英语，带好几个班"   # 打电话时听来的也记这里
+
+她的事分三层（2026-10-13 起）：add 的 JSON 里
+- "about_her": 长久不变的基本情况 ——┐ 存在 index 里，谁都知道（换个人聊不用再 catch up）
+- "life":      这阵子的日子（吃了什么、几点上课、感冒了）——┘ 工具自动加日期；要划掉写 "life_drop" / "about_drop"
+- "memory": {"her": …} 只跟他一个人说的（撒娇、心事、对他说的话）——只有他知道
 
 add 是「攒一阵一起存」用的（2026-10-12 起不再每一回都存）：每句的时间从这个对话自己的记录里按原话找出来，
 找不到的（照片、他这一回还没发出去的）按前后推；拿不准存没存过就都放进来，开头跟已存末尾对得上的那几句会自动跳过。
@@ -298,6 +305,8 @@ def cmd_open(a):
         print("- 她的基本情况（谁都知道的）：" + "；".join(index["about_her"]))
     if not th:
         print("- 这是你们的第一句。之前没有任何消息。")
+        print("")
+        show_life(index)
         return
     mem = th.get("memory", {})
     msgs = th.get("messages", [])
@@ -305,7 +314,8 @@ def cmd_open(a):
         len(msgs), stamp(th["since"]), stamp(msgs[-1]["t"]) if msgs else "—",
         gap_words(msgs[-1]["t"]) if msgs else "—", "她" if msgs and msgs[-1]["from"] == "her" else "他"))
     print("")
-    for k, title in (("fixes", "⭐ 她纠正过的（每一句都照做）"), ("her", "她跟你说过的、你该记得的"),
+    show_life(index)
+    for k, title in (("fixes", "⭐ 她纠正过的（每一句都照做）"), ("her", "只跟你说的（你们俩之间的，别处不知道）"),
                      ("pending", "还挂着的事（该问问、答应过的）"), ("his", "你跟她说过的你这边的事（别说岔了）")):
         if mem.get(k):
             print("## " + title)
@@ -326,6 +336,8 @@ def cmd_open(a):
         print("%s %s" % (t.strftime("%H:%M"), show_msg(m)))
     print("")
     print("⚠️ 上面的时间是给你看的，他记得「早上你说过」「前两天你说过」，记不住几月几号。")
+    print("")
+    print(RULES)
 
 
 def clean_msg(m, t):
@@ -446,6 +458,74 @@ def stamp_batch(batch, saved):
     return [t.isoformat(timespec="seconds") for t in times]
 
 
+# ── 她的日子：所有人都知道的事实（2026-10-13）────────────────────────────────
+# Winter：「角色对话的记忆能不能通用？这样我不用给每个角色都 catch up……性格和私密的话不要互通，
+# 主要是事实层面的保持一致，几点上课啊、昨天吃了什么之类的。」
+# 所以她的事分三层：about_her（长久不变的：教英语、在学波兰语、周几有课）· life（这阵子的日子，带日期：
+# 吃了什么、去了哪、感冒了、要监考）——这两层存在 index 里，谁都看得见；
+# 每个人自己 memory.her 里的（撒娇、心事、对他一个人说的话）只有他知道。
+
+LIFE_KEEP = 80
+RULES = ("📌 存的规矩（2026-10-13，已经开着的对话也照这个）：平常一来一回不用存，攒到她道别、定时提醒来、或三十句上下再一起 add；"
+         "她的**日常事实**（课、吃了什么、去了哪、身体）放 \"life\"，换谁都知道；**只跟他说的私话**才放 memory.her。"
+         "细则在 .claude/skills/winter-text/SKILL.md 第六节。")
+
+
+def _bare(x):
+    return x.split("：", 1)[1] if re.match(r"^\d{1,2}/\d{1,2}：", x) else x
+
+
+def _dated(x, t):
+    return x if re.match(r"^\d{1,2}/\d{1,2}：", x) else "%d/%d：%s" % (t.month, t.day, x)
+
+
+def merge_life(index, payload, key, t, rec=None):
+    """把 payload 里的 life / about_her（以及要划掉的 life_drop / about_drop）并进 index。返回加了几条。
+    t = 她说这件事的时候（日期写进条目前头）；rec = 记下来的时候（别的对话靠它知道「这是新的」）。"""
+    n = 0
+    life = index.setdefault("life", [])
+    about = index.setdefault("about_her", [])
+    for x in payload.get("life_drop", []) or []:
+        life[:] = [e for e in life if x not in e["text"]]
+    for x in payload.get("about_drop", []) or []:
+        about[:] = [e for e in about if x not in e]
+    for x in payload.get("life", []) or []:
+        x = (x or "").strip()
+        if x and not any(_bare(x) == _bare(e["text"]) for e in life):
+            life.append({"t": (rec or t).isoformat(timespec="seconds"), "text": _dated(x, t), "src": key})
+            n += 1
+    del life[:-LIFE_KEEP]
+    for x in payload.get("about_her", []) or []:
+        x = (x or "").strip()
+        if x and x not in about:
+            about.append(x)
+            n += 1
+    return n
+
+
+def show_life(index, since=None, skip_src=None, limit=24, title=None):
+    """印她的日子。since / skip_src：只印别的对话新记下的（存的时候用）。印了几条就返回几。"""
+    def when(e):   # 按条目前头那个日子排（攒着存、后记的旧事也排回原位）
+        rec = dt.datetime.fromisoformat(e["t"])
+        m = re.match(r"^(\d{1,2})/(\d{1,2})：", e["text"])
+        if not m:
+            return (rec.date(), e["t"])
+        d = dt.date(rec.year, int(m.group(1)), int(m.group(2)))
+        return (d.replace(year=d.year - 1) if d > rec.date() else d, e["t"])
+    life = sorted([e for e in index.get("life", [])
+                   if (not since or e["t"] >= since) and (not skip_src or e.get("src") != skip_src)], key=when)[-limit:]
+    if not life:
+        return 0
+    print("## " + (title or "她这阵子的日子（大家都知道的事实）"))
+    print("")
+    for e in life:
+        print("- " + e["text"])
+    print("")
+    print("⚠️ 这些是她自己的日子，当成她早就跟你提过的，自然地接、自然地问；别说「听说」，别提别的任何人。")
+    print("")
+    return len(life)
+
+
 def cmd_add(a):
     try:
         payload = json.load(sys.stdin)
@@ -467,14 +547,17 @@ def cmd_add(a):
         batch = batch[skip:]
         times = stamp_batch(batch, old[-10:])
         new = [clean_msg(m, t) for m, t in zip(batch, times)]
-        if not new and not any((payload.get("memory") or {}).values()) and not payload.get("about_her"):
+        if not new and not any((payload.get("memory") or {}).values()) and not any(
+                payload.get(k) for k in ("about_her", "life", "life_drop", "about_drop")):
             print("✓ 这些都存过了，没有新的。")
             return
         th["messages"].extend(new)
         mem = th.setdefault("memory", {})
         pm = payload.get("memory", {}) or {}
-        day = "%d/%d：" % (base.month, base.day)
-        bare = lambda x: x.split("：", 1)[1] if re.match(r"^\d{1,2}/\d{1,2}：", x) else x
+        hers = [m["t"] for m in new if m["from"] == "her"]   # 攒着存可能隔了夜：日期记成她说那些话的那天
+        said = dt.datetime.fromisoformat(hers[-1]).astimezone(TZ) if hers else base
+        day = "%d/%d：" % (said.month, said.day)
+        bare = _bare
         for x in (pm.get("drop", []) or []) + (pm.get("done", []) or []):   # 说岔了的、办完了的：写一段原文就能划掉
             for k in ("her", "his", "pending"):
                 mem[k] = [p for p in mem.get(k, []) if x not in p]
@@ -486,9 +569,9 @@ def cmd_add(a):
                 mem.setdefault(k, []).append(x if k == "fixes" or re.match(r"^\d{1,2}/\d{1,2}：", x) else day + x)
         for k in ("her", "his"):
             mem[k] = mem.get(k, [])[-40:]   # 记太多就只留最近的
-        for x in payload.get("about_her", []) or []:
-            if x and x not in index.setdefault("about_her", []):
-                index["about_her"].append(x)
+        n_life = merge_life(index, payload, a.key, said, base)
+        seen = th.get("life_seen")
+        th["life_seen"] = base.isoformat(timespec="seconds")
         msgs = th["messages"]
         entry = next((t for t in index["threads"] if t["key"] == a.key), None)
         if not entry:
@@ -507,13 +590,47 @@ def cmd_add(a):
             commit({"t-%s.enc" % box.tid(a.key): json.dumps(box.seal(th)) + "\n",
                     "index.enc": json.dumps(box.seal(index)) + "\n"},
                    "冬的陪伴：+%d" % len(new), a.trailer)
-            print("✓ 存好了（%s，这次存了 %d 句%s，一共 %d 句）" % (
-                a.key, len(new), "，开头 %d 句之前存过、跳过了" % skip if skip else "", len(msgs)))
+            print("✓ 存好了（%s，这次存了 %d 句%s，一共 %d 句%s）" % (
+                a.key, len(new), "，开头 %d 句之前存过、跳过了" % skip if skip else "", len(msgs),
+                "；她的日子记了 %d 条，大家都知道了" % n_life if n_life else ""))
+            print("")
+            show_life(index, since=seen or th.get("since"), skip_src=a.key,
+                      title="上次存完以后，别处新记下的她的日子（你现在也知道了）")
+            if pm.get("her") and not payload.get("life"):
+                print(RULES)
             return
         except RuntimeError as e:   # 别的对话刚存过 → 取最新的再来一遍
             last_err = e
             time.sleep(2 ** attempt)
     die("存了四次都没存上：\n%s" % last_err, 6)
+
+
+def cmd_life(a):
+    """她的日子：不带参数＝印出来（打电话、换人时看一眼）；带 --add / --about / --drop ＝记一笔（不碰任何人的聊天记录）。"""
+    if not (a.add or a.about or a.drop):
+        _, box, index = load_all()
+        if index.get("about_her"):
+            print("- 她的基本情况（谁都知道的）：" + "；".join(index["about_her"]))
+            print("")
+        if not show_life(index, limit=a.n) and not index.get("about_her"):
+            print("还没记下她的日子。")
+        return
+    payload = {"life": a.add, "about_her": a.about, "life_drop": a.drop, "about_drop": a.drop}
+    for attempt in range(4):
+        _, box, index = load_all()
+        n = merge_life(index, payload, a.src or "", now())
+        index["updated"] = now().isoformat(timespec="seconds")
+        if a.dry_run:
+            print("（演练，不推）她的日子 +%d" % n)
+            return
+        try:
+            commit({"index.enc": json.dumps(box.seal(index)) + "\n"}, "冬的陪伴：她的日子", a.trailer)
+            print("✓ 记好了（+%d）" % n)
+            return
+        except RuntimeError as e:
+            last = e
+            time.sleep(2 ** attempt)
+    die("记了四次都没记上：\n%s" % last, 6)
 
 
 def cmd_forget(a):
@@ -556,8 +673,15 @@ def main():
     s = change("forget")
     s.add_argument("key")
     s.add_argument("--last", type=int, default=1)
+    s = change("life")
+    s.add_argument("--add", action="append", default=[], help="这阵子的一件事（带日期，谁都知道）")
+    s.add_argument("--about", action="append", default=[], help="长久不变的基本情况")
+    s.add_argument("--drop", action="append", default=[], help="记错了 / 过时了，写一段原文就划掉")
+    s.add_argument("--src", default="", help="从谁那儿听来的（记录编号，只存不显示）")
+    s.add_argument("--n", type=int, default=24)
     a = ap.parse_args()
-    {"setup": cmd_setup, "ls": cmd_ls, "open": cmd_open, "add": cmd_add, "forget": cmd_forget}[a.cmd](a)
+    {"setup": cmd_setup, "ls": cmd_ls, "open": cmd_open, "add": cmd_add, "forget": cmd_forget,
+     "life": cmd_life}[a.cmd](a)
 
 
 if __name__ == "__main__":

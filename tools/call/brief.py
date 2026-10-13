@@ -369,6 +369,27 @@ def calls_data():
     return _CALLS
 
 
+def her_life():
+    """「冬的陪伴」里记着的她的日子（所有人都知道的事实）。没密码、取不到就是 None，不报错。"""
+    if not os.environ.get("WINTER_TEXT_KEY"):
+        return None
+    import contextlib
+    import io
+    try:
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "text"))
+        import texts
+        buf, err = io.StringIO(), io.StringIO()
+        with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(err):
+            _, box, index = texts.load_all()
+            if index.get("about_her"):
+                print("- 她的基本情况（谁都知道的）：" + "；".join(index["about_her"]))
+                print("")
+            texts.show_life(index)
+        return buf.getvalue().strip() or None
+    except (Exception, SystemExit):
+        return None
+
+
 def call_log(key):
     """上次通话留下的几句（由 calls.py 记）。"""
     import calls
@@ -623,6 +644,12 @@ def brief(p, series, posts, au, upto, out, text_mode=False):
     if text_mode:
         w("## 记录编号：`%s`（下一步：`python3 tools/text/texts.py open %s`）" % (key, key))
         return out
+    life = her_life()
+    if life:
+        w("## 她的日子（跟谁聊都一样的事实，从「冬的陪伴」里来）")
+        w("")
+        w(life.replace("## 她这阵子的日子（大家都知道的事实）\n\n", ""))
+        w("")
     log = call_log(key)
     w("## 上次通话（记录编号 `%s`）" % key)
     w("")
@@ -631,6 +658,8 @@ def brief(p, series, posts, au, upto, out, text_mode=False):
     w("挂断后记一笔：`python3 tools/call/calls.py add %s --who \"%s\" --mode <电话/消息/见面/通讯板> --note \"……\" --trailer \"<会话要求的署名行>\"`"
       % (key, p["name"] + (" · " + series[au]["name"] if au else "")))
     w("她说「这不像他」：`python3 tools/call/calls.py fix %s \"……\"`" % key)
+    w("她这一通里说到的**她自己的日子**（课、吃了什么、去了哪、身体），挂断后也记一笔，换谁都知道（加密的，别写进上面那条公开的通话记录）："
+      "`python3 tools/text/texts.py life --add \"……\" --src %s --trailer \"<会话要求的署名行>\"`" % key)
     return out
 
 
