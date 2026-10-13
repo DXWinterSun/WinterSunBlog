@@ -13,11 +13,15 @@
 
 ## 一、现在走到哪
 
-- [ ] **素材**：Winter 用本地的 Claude 拆三段蓝光片段（① 男主上吉他课 ② 派对上 Gary 一个人默念《Two Princes》
-      ③ Gary 另外短暂出现的几秒钟），交回 `gary-素材档案.md` ＋ 10–14 张截图。
-      转交给本地的那份指令存在 `slow-hands-revised/video-brief.md`。
-      素材到了之后：档案原文存进 `slow-hands-revised/`（截图是电影画面，**不入库**，只在对话里看）。
-- [ ] 读完素材 → 跟她一项项定设定：他是谁 / 「你」这个系列姓什么 / 关系动力 / 称呼 / 母题 / 配色。
+- [x] **素材**（2026-10-13 到齐）：三段蓝光翻拍（① 男主上吉他课 3:18 ② 派对上默念《Two Princes》24 秒
+      ③ 另一节课的几秒钟）→ `slow-hands-revised/gary-素材档案.md`（逐场对白＋动作、外貌、声口、屋子、判断、存疑清单）。
+      14 张截图只在对话里看过，不入库。转交指令存在 `slow-hands-revised/video-brief.md`。
+- [ ] **开坑提案**（2026-10-13 发出，等她挑）：https://claude.ai/artifact/ErJLsXfLhXkDkupTRFSkzs
+      数据 `.claude/pitches/gary-garren.json`，生成 `tools/preview/render_pitch.py`。
+      五道岔路：初见（A 你也按了那个门铃·英语老师 / B 隔着一面墙·夜班护士 / C 派对木墩旁）、
+      跟电影的关系（同一年镜头外 / 电影之后 / 只借他和屋）、味道（可多选）、他叫你什么、你姓什么（Bell / Sharp / Prince）。
+      还请她在补充框里写一句他的嗓音和口音（素材那边听不见声音）。
+- [ ] 她挑完 → 把结果写进本笔记 → 第一章预览页 ＋ 前几章路线图。系列名、配色之后再挑。
 - [ ] 动笔第一章（照 winter-au-writing 的流程：预览页 → 她点头 → 存档 → 页底岔路）。
 
 ## 二、已查证的电影事实（写作不得与之冲突）
@@ -26,9 +30,25 @@
   2013-04-21 翠贝卡电影节首映，2013-11-08 在美国小规模上映。故事在纽约（影评点名布鲁克林）。
 - Sam Rockwell 饰 Gary。男主角 Sam（Justin Long）为了追咖啡店店员 Birdie（Evan Rachel Wood），
   照着她网上的喜好把自己改造成「完美男友」，其中一项就是找 Gary 学吉他。
-- **他的姓：片中他自己说过**（Winter 2026-10-13 看蓝光确认）。以素材档案里的原话为准，到了再填进这里。
 - 来源：维基百科 *A Case of You (film)*；The Film Stage 翠贝卡影评。
-- （素材档案到了以后，片中看到、听到的事实一条条补在这一节，每条注时间码。）
+
+### 片中事实（全部出自三段蓝光片段，时间码见素材档案）
+
+- **全名 Gary Garren**，自己报的，还带头衔：“Dr. Gary Garren will teach you a thing or three.”（片段一 2:36，蓝光字幕拼作 Garren）
+- 楼下门铃一排四格，他那格是黑马克笔手写的 `GUITAR LESONS`（拼错）。学生是从电线杆上撕了他的号码找来的（他自己说的）。
+- 屋子：宝蓝色墙；橙色的龙、飘着小天使的超现实画、叠满人脸的石塔；串珠门帘；拼布旧扶手椅；隔壁黄墙屋、彩虹扎染桌布；
+  门边小牌 `ALL MADAMS MUST KEEP THEIR GIRLS OFF THE STREET AFTER DARK`（第一行第二个词待核）。
+  上课是两把灰色金属折叠椅，膝盖对膝盖。黄色 Gibson 电吉他；墙上挂两三把琴；奶白色小音箱。
+- 外形：棕色乱发上翘、红棕色络腮胡、左耳银色小圈耳环、右手宽银戒指（十字花纹）、编织手链、颈绳小吊坠；
+  上课穿米黄底小黑点衬衫（袖卷到小臂、敞领、浅色打底衫）、牛仔裤。另一节课：白背心、搭一条格子围巾。
+  派对：毛线帽、格子法兰绒衬衫。看着四十岁上下（只是外表）。
+- 嘴角叼烟弹琴（点没点看不出），把琴递给学生前把烟往耳边一夹。
+- 声口：教琴极短（“Play a G.”“You gotta bar it.”），闲话长句连珠炮、满嘴 fuck；吹牛自己一层层往回缩
+  （Woodstock → '99 → 给 Spin Doctors 伴奏 → 其实坐在后台 → 跟 Chris Barron 的兄弟很铁）；
+  一句一个外号（man / Captain / bro-rometer / champion），从不叫学生名字；学生叫他 Gary；
+  “Money, pussy or fame?” 连问三遍；“You know what I mean?”；被看轻就炸（“Stop with the 'tude.”“Are you effing fucking with me?!”）。
+- 课尾闭眼皱脸、很投入地唱《Two Princes》。派对上一个人坐在木墩上，嘴唇跟着《Two Princes》轻轻动，谁也不挨。
+- ⚠️ 嗓音、口音素材里判断不了，等 Winter 补。
 
 ## 三、善后清单（新版定稿后处理，不作写作参考）
 
