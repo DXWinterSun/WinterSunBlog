@@ -1195,12 +1195,12 @@ def main():
 
     cells = []
     if last:
-        status = '在读' if a.blog else (book.get('status') or '待你批注')
+        status = (book.get('status_blog') or '在读') if a.blog else (book.get('status') or '待你批注')
         cells.append(f'<span><b>状态</b> · {esc(status)}</span>')
         cells.append(f'<span><b>已记</b> · {total} 条</span>')
         if last.get('pages'):
             upto = re.split(r'[–-]', str(last['pages']))[-1].strip()
-            cells.append(f'<span><b>读到</b> · 第 {esc(upto)} 页</span>')
+            cells.append(f'<span><b>篇幅</b> · {esc(upto)}</span>' if PAGE_UNIT == '段' else f'<span><b>读到</b> · 第 {esc(upto)} 页</span>')
     else:
         cells.append('<span><b>状态</b> · 等第一批照片</span>')
         cells.append('<span><b>已记</b> · 0 条</span>')
@@ -1210,8 +1210,8 @@ def main():
     if book.get('about'):                 # 第二行单独起，免得手机上从半截断开
         kick += f'<br>{esc(book["about"])}'
     head = (f'{console}<p class="kicker">{kick}</p>\n'
-            f'<h1 lang="en">{esc(title)}</h1>\n<p class="sub">原著笔记 · 高亮词句</p>\n<div class="rule"></div>\n'
-            f'<p class="lede">{fmt(demo["blog_lede" if a.blog else "lede"])}</p>\n')
+            f'<h1 lang="en">{esc(title)}</h1>\n<p class="sub">{esc(book.get("sub") or "原著笔记 · 高亮词句")}</p>\n<div class="rule"></div>\n'
+            f'<p class="lede">{fmt(book.get("blog_lede" if a.blog else "lede") or demo["blog_lede" if a.blog else "lede"])}</p>\n')
 
     if batches:
         toc = ''

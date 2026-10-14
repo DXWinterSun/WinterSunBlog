@@ -46,7 +46,7 @@ nav_active: notes
       {%- assign upto = bt.pages -%}
       {%- for x in bt.notes -%}
         {%- assign n_all = n_all | plus: 1 -%}
-        {%- if x.color == 'orange' -%}{%- assign n_quote = n_quote | plus: 1 -%}{%- else -%}{%- assign n_word = n_word | plus: 1 -%}{%- endif -%}
+        {%- if x.color == 'orange' or x.color == 'yellow' -%}{%- assign n_quote = n_quote | plus: 1 -%}{%- else -%}{%- assign n_word = n_word | plus: 1 -%}{%- endif -%}
       {%- endfor -%}
     {%- endfor %}
     <a class="c-book" href="{{ site.baseurl }}/reading/{{ b.slug }}/"
@@ -61,7 +61,7 @@ nav_active: notes
         <span class="c-book__title">{{ b.title }}</span>
         {% if b.about %}<span class="c-book__about">{{ b.about }}</span>{% endif %}
         <span class="c-book__stats">
-          {% if upto != '' %}<span>读到第 <b>{{ upto }}</b> 页</span>{% endif %}
+          {% if upto != '' %}{% if b.page_unit == '段' %}<span>共 <b>{{ upto }}</b></span>{% else %}<span>读到第 <b>{{ upto }}</b> 页</span>{% endif %}{% endif %}
           <span><b>{{ n_word }}</b> 条词汇</span>
           {% if n_quote > 0 %}<span><b>{{ n_quote }}</b> 句好句</span>{% endif %}
         </span>
@@ -70,7 +70,7 @@ nav_active: notes
     </a>
     {%- endfor %}
   </div>
-  <p class="c-bookshelf__hint">蓝色是生词，粉色是认识但用法新鲜的词，橙色是写得好的句子。每本书的笔记页顶上都能一键复制全部生词，导进欧路词典。</p>
+  <p class="c-bookshelf__hint">蓝色是生词，粉色是认识但用法新鲜的词，紫色是人名地名片名，黄色是拆开讲的长难句，橙色是写得好的句子。书之外，网上读的英文报道也在这里。每本书的笔记页顶上都能一键复制全部生词，导进欧路词典。</p>
 </section>
 
 <style>

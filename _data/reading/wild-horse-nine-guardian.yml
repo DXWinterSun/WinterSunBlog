@@ -1,0 +1,812 @@
+# 《卫报》2026-10-09 访谈 ——「Old-timey fascism was kept secret…」McDonagh / Malkovich / Rockwell 谈 Wild Horse Nine
+# Winter 在划线页（tools/reading/clone_article.py 排的）上用五支笔划的词句，Claude 读回来整理成笔记。
+# 工作法：.claude/skills/winter-reading-notes/SKILL.md 第七节；生成：
+#   python3 tools/reading/render_notes.py _data/reading/wild-horse-nine-guardian.yml -o <scratchpad>/wild-horse-nine-guardian-notes.html
+#   python3 tools/reading/render_notes.py _data/reading/wild-horse-nine-guardian.yml --blog
+#
+# ⚠️ 仓库公开、报道有版权：只录划线所在的几个词，不整段抄。编号永远不改。
+
+book:
+  slug: wild-horse-nine-guardian
+  kind: article
+  title: "Martin McDonagh, John Malkovich and Sam Rockwell on Wild Horse Nine"
+  author: "Xan Brooks · The Guardian"
+  year: 2026
+  about: "《卫报》2026 年 10 月 9 日威尼斯电影节访谈，三个人聊新片 Wild Horse Nine、祖孙、海龟和谁杀了肯尼迪"
+  source_url: "https://www.theguardian.com/film/2026/oct/09/martin-mcdonagh-john-malkovich-sam-rockwell-interview-wild-horse-nine"
+  page_unit: 段                   # 位置写段号，标题 / 导语直接写字
+  sub: "文章笔记 · 划线词句"
+  status: 待你批注
+  status_blog: 读完
+  lede: >-
+    这是一篇网页报道，不是书：在划线页上划的词句都整理在这里。**蓝色**生词、**粉色**认识但用法新鲜的词、
+    **紫色**人名地名片名、**黄色**拆开讲的长难句。位置写的是第几段。有问题就在卡片上批注给我。
+  blog_lede: >-
+    读《卫报》这篇访谈时划的词句，都整理在这一页：**蓝色**是生词，**粉色**是认识、但用法对我来说新鲜的词，
+    **紫色**是人名地名片名，**黄色**是拆开讲的长难句。位置写的是第几段。点 🔊 能听读音；页顶那块能一键复制全部生词，导进欧路词典。
+  highlighters:
+    blue: "#7fd6dc"
+    pink: "#f2a7c6"
+    purple: "#cdb4f0"
+    yellow: "#f3dd7a"
+    orange: "#f7b27c"
+  detail: full
+  detail_picked: true
+  artifact: "https://claude.ai/artifact/UcvimREqg6dwF37CMsLba9"   # 笔记网页（2026-10-14 首发），之后永远更新这一个
+
+batches:
+  - n: 1
+    date: 2026-10-14
+    pages: 导语–30 段
+    notes:
+      - id: "001"
+        page: 导语
+        color: pink
+        term: shooting the breeze
+        lemma: shoot the breeze
+        kind: 习语
+        ipa: /ˌʃuːt ðə ˈbriːz/
+        pos: idiom
+        cn: 闲聊，东拉西扯
+        en: to chat in a relaxed way about things that are not important
+        context: "Malkovich and Rockwell ==shooting the breeze== as CIA agents"
+        gist: 两个人以中情局特工的身份闲扯。
+        note: 美式口语，字面是“朝风开枪”，意思是没目的地瞎聊。你认识 shoot，新的是这个搭配。放在这里还有点双关——两个特工真会开枪，片子里他们却整天在岛上扯闲篇。
+        extra: ["**近义** chat / chew the fat（后者更老派）"]
+
+      - id: "002"
+        page: 1
+        color: blue
+        term: charismatic
+        kind: 单词
+        ipa: /ˌkærɪzˈmætɪk/
+        pos: adj.
+        cn: 有魅力的，有感召力的
+        en: having a strong personal charm that attracts and influences other people
+        context: "Malkovich, he says, is ==charismatic== and dangerous"
+        gist: 他说，Malkovich 有魅力，又危险。
+        note: 名词是 charisma，希腊语里是“神赐的恩典”，原指领袖那种让人想追随的气场——比 charming（讨人喜欢）重得多。
+        extra: ["**易混** charming 是“招人喜欢”，charismatic 是“有气场、能带动人”"]
+
+      - id: "003"
+        page: 1
+        color: blue
+        term: sparring
+        lemma: spar
+        kind: 单词
+        ipa: /ˈspɑːrɪŋ/
+        pos: n.
+        cn: （拳击）对练；sparring partner 陪练搭档
+        en: boxing practice with a partner; a sparring partner is someone you practise or argue with in a friendly way
+        context: "the perfect ==sparring== partner"
+        gist: 最好的对练搭档。
+        note: 拳击术语。sparring partner 引申成“能跟你来回过招的人”——斗嘴、对戏都用。Rockwell 说 Malkovich 是 the perfect sparring partner，是夸跟他对戏过瘾。
+        extra: ["**搭配** spar with sb 跟某人过招 / 斗嘴"]
+
+      - id: "004"
+        page: 1
+        color: blue
+        term: boot
+        lemma: to boot
+        eudic: to boot
+        kind: 习语
+        ipa: /tə ˈbuːt/
+        pos: idiom
+        cn: 而且，外加
+        en: in addition to what has just been said
+        context: "annoyingly modest ==to boot=="
+        gist: 而且还谦虚得让人恼火。
+        note: 跟靴子没关系。这个 boot 来自古英语 bōt（好处、补偿），to boot 字面是“作为额外的好处”。放句尾，常带点调侃，像中文的“还外加……”。
+
+      - id: "005"
+        page: 5
+        color: blue
+        term: commandeer
+        kind: 单词
+        ipa: /ˌkɑːmənˈdɪr/
+        pos: v.
+        cn: 征用，强行占用
+        en: to take control of a place or a vehicle for your own use, especially by force or official order
+        context: "the production team ==commandeer== suites"
+        gist: 剧组把几间套房整个占了下来。
+        note: 本是军事用语（军队征用民房、车辆），来自南非荷兰语 kommandeer。这里是夸张的俏皮话——宣传团队像占领军一样把酒店套房征用了。
+
+      - id: "006"
+        page: 5
+        color: blue
+        term: opulent
+        kind: 单词
+        ipa: /ˈɑːpjələnt/
+        pos: adj.
+        cn: 豪华的，富丽的
+        en: very rich and luxurious in appearance
+        context: "at an ==opulent== Venice hotel"
+        gist: 在一家富丽堂皇的威尼斯酒店。
+        note: 比 luxurious 更强调“堆出来的富丽”，常形容酒店、宫殿、装潢。名词 opulence。
+
+      - id: "007"
+        page: 5
+        color: blue
+        term: harried
+        kind: 单词
+        ipa: /ˈhærid/
+        pos: adj.
+        cn: 疲于应付的，焦头烂额的
+        en: worried and stressed because you have too many things to deal with
+        context: "The ==harried== concierge"
+        gist: 忙得焦头烂额的礼宾员。
+        note: 来自动词 harry（不停骚扰、侵扰，原指劫掠），harried 就是“被人追着、催着”的状态。
+        extra: ["**易混** hurried（匆忙的）只差一个字母，意思不同"]
+
+      - id: "008"
+        page: 6
+        color: blue
+        term: volatile
+        kind: 单词
+        ipa: /ˈvɑːlətl/
+        pos: adj.
+        cn: 一触即发的；多变的
+        en: likely to change suddenly, especially to become violent
+        context: "playful and ==volatile=="
+        gist: 既俏皮，又一点就炸。
+        note: 本义是化学上的“易挥发的”，引申为人或局势“不稳定、随时会爆”。形容 McDonagh 的电影很准——前一秒在耍宝，下一秒就见血。
+
+      - id: "009"
+        page: 6
+        color: blue
+        term: spring-loaded
+        kind: 单词
+        ipa: /ˌsprɪŋ ˈloʊdɪd/
+        pos: adj.
+        cn: 装了弹簧的；（引申）绷紧待发的
+        en: fitted with a spring so that it jumps or snaps out when released
+        context: "==spring-loaded== with violence"
+        gist: 暴力像上了弹簧，随时弹出来。
+        note: 字面是机械词（弹簧刀、弹簧门）。作者拿它当比喻：暴力不摆在明面上，而是压着弹簧藏在片子里，一碰就弹出来。
+
+      - id: "010"
+        page: 6
+        color: blue
+        term: absurdist
+        kind: 单词
+        ipa: /əbˈsɜːrdɪst/
+        pos: adj.
+        cn: 荒诞派的
+        en: relating to absurdism, the idea that life has no meaning and is therefore strange and comic
+        context: "spiced with ==absurdist== black comedy"
+        gist: 撒上一把荒诞派的黑色幽默。
+        note: 荒诞派戏剧（贝克特《等待戈多》）那一路。McDonagh 自己就是剧作家出身，评论常拿他跟品特、贝克特比。
+
+      - id: "011"
+        page: 6
+        color: blue
+        term: antics
+        kind: 单词
+        ipa: /ˈæntɪks/
+        pos: n. [pl.]
+        cn: 滑稽的举动，胡闹
+        en: silly or amusing behaviour
+        context: "its odd-couple ==antics=="
+        gist: 这对欢喜冤家的闹腾。
+        note: 几乎只用复数。前面的 odd couple 来自尼尔·西蒙的喜剧《单身公寓》（The Odd Couple），指性格相反却凑在一起的两个人，现在是固定说法。
+
+      - id: "012"
+        page: 6
+        color: blue
+        term: upstart
+        kind: 单词
+        ipa: /ˈʌpstɑːrt/
+        pos: n.
+        cn: 暴发的新贵；（贬）横空出世的愣头青
+        en: a person who has suddenly become successful and behaves as if they are more important than they are
+        context: "the ==upstart== enfant terrible of London theatre"
+        gist: 当年伦敦剧坛那个横空出世的坏小子。
+        note: 带贬义，但这里是作者带笑的回顾——McDonagh 二十多岁靠《丽南山的美人》轰动伦敦，老派剧评人确实觉得他“太狂”。这里当形容词用，修饰后面的 enfant terrible。
+
+      - id: "013"
+        page: 6
+        color: blue
+        term: enfant
+        lemma: enfant terrible
+        eudic: enfant terrible
+        kind: 短语
+        ipa: /ˌɑːnfɑːn teˈriːbl/
+        pos: n.
+        cn: 惊世骇俗的新人，离经叛道的才子
+        en: a successful young person whose behaviour or ideas shock the establishment
+        context: "the upstart ==enfant== terrible of London theatre"
+        gist: 伦敦剧坛那个专门惹恼前辈的坏小子。
+        note: 法语借词，字面是“可怕的孩子”，原指童言无忌让大人难堪的小孩。英语里专指艺术界那种才华横溢、专门跟老一辈对着干的年轻人。你划的是 enfant 一个词，要记的是整个短语。
+
+      - id: "014"
+        page: 7
+        color: purple
+        term: Santiago
+        kind: 地名
+        ipa: /ˌsæntiˈɑːɡoʊ/
+        cn: 圣地亚哥（智利首都）
+        en: the capital city of Chile
+        context: "His film opens in ==Santiago=="
+        gist: 影片从圣地亚哥开场。
+        note: 1973 年 9 月 11 日，皮诺切特在这里发动政变推翻阿连德政府，美国中情局暗中支持——片中两个特工“刚策划完智利政变”，说的就是这件事。
+
+      - id: "015"
+        page: 7
+        color: yellow
+        term: 长难句
+        context: "==From there it homes in on Malkovich’s CIA veteran,== a leaky repository of cold war horror with his memories of the Bay of Pigs and Dealey Plaza."
+        gist: 镜头从那里收拢到 Malkovich 演的那位中情局老兵身上——一个装满冷战恐怖、还不断往外漏的仓库，猪湾和迪利广场的记忆都在他脑子里。
+        note: 主干是 it homes in on X：it 指 the film，home in on 是“对准、聚焦到”（导弹寻的的那个 home）。From there 接上一句“先在圣地亚哥，再搬到南太平洋”，意思是“从那儿起”。逗号后面整个是 veteran 的同位语：a leaky repository of cold war horror（一个会漏的冷战恐怖仓库），再用 with his memories of… 补充这仓库里装的是什么。卡住的地方多半是 homes in on——home 在这里是动词。
+        extra:
+          - "**home in on** 对准、锁定（导弹、追踪的用法，不是“回家”）"
+          - "**a leaky repository** 会漏的仓库——他守不住秘密，正好接下一句 spill the beans"
+          - "**veteran** 老兵、老手"
+
+      - id: "016"
+        page: 7
+        color: purple
+        term: the Bay of Pigs
+        eudic: false
+        kind: 地名
+        ipa: /ˌbeɪ əv ˈpɪɡz/
+        cn: 猪湾
+        en: a bay on the south coast of Cuba, the site of a failed CIA-backed invasion in 1961
+        context: "memories of ==the Bay of Pigs== and Dealey Plaza"
+        gist: 猪湾和迪利广场的记忆。
+        note: 古巴南岸的一个海湾。1961 年 4 月，中情局训练的古巴流亡者在这里登陆，想推翻卡斯特罗，三天内全军覆没，是肯尼迪政府和中情局最丢脸的一次失败。
+
+      - id: "017"
+        page: 7
+        color: purple
+        term: Dealey Plaza
+        eudic: false
+        kind: 地名
+        ipa: /ˈdiːli ˈplæzə/
+        cn: 迪利广场
+        en: the square in downtown Dallas where President Kennedy was shot in 1963
+        context: "the Bay of Pigs and ==Dealey Plaza=="
+        gist: 猪湾和迪利广场。
+        note: 达拉斯市中心的广场，1963 年 11 月 22 日肯尼迪的车队经过这里时遇刺。片中 Chris“知道谁杀了肯尼迪”，所以这两个地名合在一起，就是他的全部秘密。
+
+      - id: "018"
+        page: 7
+        color: pink
+        term: spill the beans
+        kind: 习语
+        ipa: /ˌspɪl ðə ˈbiːnz/
+        pos: idiom
+        cn: 泄密，把事抖出来
+        en: to tell people secret information
+        context: "is about to ==spill the beans=="
+        gist: 眼看就要把秘密全抖出来。
+        note: 口语习语，来头说法很多（一说古希腊用豆子投票，打翻豆罐等于提前揭晓结果），都不可考。跟上一句 go out with a bang（轰轰烈烈地走）接在一起，节奏很好。
+
+      - id: "019"
+        page: 8
+        color: purple
+        term: Lee Harvey Oswald
+        eudic: false
+        kind: 人名
+        ipa: /ˌliː ˌhɑːrvi ˈɑːzwɔːld/
+        cn: 李·哈维·奥斯瓦尔德
+        en: the man officially named as the assassin of President Kennedy
+        context: "Was ==Lee Harvey Oswald== involved?"
+        gist: 奥斯瓦尔德有没有参与？
+        note: 官方认定的肯尼迪刺杀者，当时 24 岁。案发两天后在警局地下室被夜总会老板杰克·鲁比当众枪杀，连审判都没来得及——阴谋论六十年不散，很大程度就是因为这个。
+
+      - id: "020"
+        page: 10
+        color: pink
+        term: coincided with
+        lemma: coincide with
+        kind: 短语
+        ipa: /ˌkoʊɪnˈsaɪd wɪð/
+        pos: phr. v.
+        cn: （时间上）正好赶上，与……同时发生
+        en: to happen at the same time as something else
+        context: "the shoot ==coincided with== Donald Trump’s strike"
+        gist: 拍摄期正撞上特朗普打击委内瑞拉。
+        note: 你认识 coincidence（巧合），这里是动词加 with，只说两件事时间重合，不一定是巧合——文中恰恰是在说“历史爱重演”。
+        extra: ["**搭配** coincide with sth；名词 coincidence"]
+
+      - id: "021"
+        page: 10
+        color: blue
+        term: covert
+        kind: 单词
+        ipa: /ˈkoʊvɜːrt/
+        pos: adj.
+        cn: 秘密的，隐蔽的
+        en: secret or hidden, not done openly
+        context: "used to be more ==covert==, conducted via proxies"
+        gist: 以前这类行动更隐蔽。
+        note: 跟 overt（公开的）是一对反义词，情报界的常用词：covert operation 秘密行动。你划的时候带上了逗号，词是 covert。
+        extra: ["**反义** overt 公开的"]
+
+      - id: "022"
+        page: 10
+        color: blue
+        term: proxies
+        lemma: proxy
+        kind: 单词
+        ipa: /ˈprɑːksi/
+        pos: n.
+        cn: 代理人；（这里）替人出面的势力
+        en: a person or group that acts on behalf of another
+        context: "conducted ==via proxies=="
+        gist: 借别人的手去干。
+        note: 冷战常用词，proxy war 代理人战争——大国不亲自下场，扶植当地势力替自己打。前面提到的智利政变、猪湾都是这种。
+
+      - id: "023"
+        page: 10
+        color: blue
+        term: brazen
+        kind: 单词
+        ipa: /ˈbreɪzn/
+        pos: adj.
+        cn: 明目张胆的，厚颜无耻的
+        en: open and without shame about doing something wrong
+        context: "now they seem ==brazen=="
+        gist: 现在却是明晃晃地干。
+        note: 本义“黄铜做的”（brass），引申成“脸皮像铜一样厚”。跟前面的 covert 正好对照：以前偷着干，现在摆明了干。
+
+      - id: "024"
+        page: 10
+        color: blue
+        term: smash-and-grab raid
+        eudic: smash-and-grab
+        kind: 短语
+        ipa: /ˌsmæʃ ən ˈɡræb reɪd/
+        pos: n.
+        cn: 砸橱窗抢劫
+        en: a robbery in which a thief breaks a shop window and grabs what is inside
+        context: "the equivalent of a ==smash-and-grab raid=="
+        gist: 跟砸店抢东西没两样。
+        note: 英式说法，指砸了珠宝店橱窗、抓一把就跑的抢劫。作者拿它比军事行动，意思是粗暴、不加掩饰。
+
+      - id: "025"
+        page: 10
+        color: purple
+        term: Johnson
+        eudic: false
+        kind: 人名
+        ipa: /ˈdʒɑːnsn/
+        cn: 林登·约翰逊（美国第 36 任总统）
+        en: Lyndon B. Johnson, US president from 1963 to 1969
+        context: "if you look at Vietnam, there’s ==Johnson=="
+        gist: 看看越南，还有约翰逊。
+        note: 肯尼迪遇刺后接任的总统，1963–69 年在任。越战就是在他手里全面升级的，所以 McDonagh 数“比特朗普更糟的总统”时点到他。
+
+      - id: "026"
+        page: 11
+        color: purple
+        term: the Energizer Bunny
+        eudic: false
+        kind: 名物
+        ipa: /ˈenərdʒaɪzər ˈbʌni/
+        cn: 劲量兔（劲量电池的广告吉祥物）
+        en: the drum-playing toy rabbit in Energizer battery adverts that “keeps going and going”
+        context: "==the Energizer Bunny== versus the all-seeing Sphinx"
+        gist: 永动的劲量兔对上洞悉一切的斯芬克斯。
+        note: 美国劲量电池 1989 年起的广告：一只戴墨镜打鼓的粉红兔子一直走个不停，口号 keeps going and going。英语里说一个人是 Energizer Bunny，就是精力永远用不完——这是在说 Rockwell。
+
+      - id: "027"
+        page: 11
+        color: purple
+        term: the all-seeing Sphinx
+        eudic: false
+        kind: 名物
+        ipa: /ˌɔːl ˈsiːɪŋ ˈsfɪŋks/
+        cn: 洞悉一切的斯芬克斯
+        en: the Sphinx of Greek myth and Egypt, used for someone mysterious who seems to know everything
+        context: "the Energizer Bunny versus ==the all-seeing Sphinx=="
+        gist: 劲量兔对上洞悉一切的斯芬克斯。
+        note: 希腊神话里出谜语的人面狮身兽，也指埃及吉萨那座石像。说一个人像斯芬克斯，就是深不可测、不动声色——这是在说 Malkovich。两个比喻一动一静，正好接后面那句“不同的能量、不同的速度”。
+
+      - id: "028"
+        page: 11
+        color: blue
+        term: heedless
+        kind: 单词
+        ipa: /ˈhiːdləs/
+        pos: adj.
+        cn: 不管不顾的，大大咧咧的
+        en: not paying attention to something; careless
+        context: "more bouncy and ==heedless=="
+        gist: 更蹦跶，更大大咧咧。
+        note: heed 是“留意、听从”（pay heed to），heedless 就是不留心。墨镜丢在地上差点被踩，就是这个词的画面。
+
+      - id: "029"
+        page: 12
+        color: blue
+        term: bumptious
+        kind: 单词
+        ipa: /ˈbʌmpʃəs/
+        pos: adj.
+        cn: 自以为是的，咋咋呼呼的
+        en: unpleasantly confident and full of yourself
+        context: "the ==bumptious== small-town deputy"
+        gist: 那个自以为是的小镇副警长。
+        note: 带点滑稽味的贬义词，比 arrogant 轻、比 cocky 更土气。说的就是《三块广告牌》里的 Dixon——Rockwell 拿奥斯卡的那个角色。
+
+      - id: "030"
+        page: 12
+        color: blue
+        term: follow suit
+        kind: 习语
+        ipa: /ˌfɑːloʊ ˈsuːt/
+        pos: idiom
+        cn: 照着做，跟进（这里指也拿奖）
+        en: to do the same thing as someone else has just done
+        context: "Malkovich may well ==follow suit=="
+        gist: Malkovich 很可能也跟着拿一座。
+        note: 来自纸牌：suit 是花色，follow suit 是跟着出同花色的牌。
+
+      - id: "031"
+        page: 12
+        color: blue
+        term: rapturous
+        kind: 单词
+        ipa: /ˈræptʃərəs/
+        pos: adj.
+        cn: 狂热的，欣喜若狂的
+        en: showing great enthusiasm and joy
+        context: "a ==rapturous== 13-minute ovation"
+        gist: 长达十三分钟的热烈起立鼓掌。
+        note: 名词 rapture（狂喜）。影展新闻里 rapturous ovation 几乎是固定搭配，掌声几分钟是威尼斯、戛纳记者爱算的数。
+
+      - id: "032"
+        page: 12
+        color: blue
+        term: flavourful
+        kind: 单词
+        ipa: /ˈfleɪvərfl/
+        pos: adj.
+        cn: 滋味十足的
+        en: full of flavour; here, rich and enjoyable to watch
+        context: "on fabulously ==flavourful== form"
+        gist: 状态好得有滋有味。
+        note: 本是形容食物的词，拿来说演技是作者的小花样——Malkovich 这次演得“有味道”。英式拼法 flavour，美式 flavorful。
+
+      - id: "033"
+        page: 12
+        color: blue
+        term: innate
+        kind: 单词
+        ipa: /ɪˈneɪt/
+        pos: adj.
+        cn: 天生的
+        en: something you are born with, not learned
+        context: "mining his ==innate== theatricality"
+        gist: 挖出他骨子里的戏剧感。
+        note: in- 加 natus（出生），天生带来的。后面的 theatricality 这里不是贬义，是说他那种舞台腔、仪式感。
+
+      - id: "034"
+        page: 15
+        color: blue
+        term: slick
+        kind: 单词
+        ipa: /slɪk/
+        pos: adj.
+        cn: 油滑的，能说会道的
+        en: smooth and clever in speech, sometimes too much so
+        context: "a ==slick== talker"
+        gist: 嘴皮子很溜的人。
+        note: 本义“光滑的”（路面打滑是 slick），形容人就是“滑头”。Clint Eastwood 出了名的只拍一两条，所以要“能说会道”才骗得到第三条。
+
+      - id: "035"
+        page: 17
+        color: blue
+        term: egg-white
+        kind: 单词
+        ipa: /ˈeɡ waɪt/
+        pos: n.
+        cn: 蛋清
+        en: the clear part of an egg, which turns white when cooked
+        context: "They put an ==egg-white== in it"
+        gist: 里面加了蛋清。
+        note: 蛋黄是 yolk。皮斯科酸酒确实要加蛋清，摇出一层泡沫。
+
+      - id: "036"
+        page: 18
+        color: blue
+        term: materialised
+        lemma: materialise
+        kind: 单词
+        ipa: /məˈtɪriəlaɪz/
+        pos: v.
+        cn: （突然）出现，现身
+        en: to appear suddenly, as if from nowhere
+        context: "has ==materialised== in the doorway"
+        gist: 不知什么时候出现在门口。
+        note: 本义“变成实体”，用在人身上是“凭空现身”的幽默说法，像从空气里冒出来。美式拼 materialize。
+
+      - id: "037"
+        page: 18
+        color: purple
+        term: Pisco sour
+        eudic: pisco sour
+        kind: 名物
+        ipa: /ˈpiːskoʊ ˈsaʊər/
+        cn: 皮斯科酸酒
+        en: a cocktail of pisco (grape brandy), lime juice, syrup and egg white
+        context: "“==Pisco sour==,” she says."
+        gist: “皮斯科酸酒。”她说。
+        note: 秘鲁和智利的国民鸡尾酒：皮斯科白兰地（葡萄蒸馏的烈酒）加青柠汁、糖浆、蛋清摇出泡沫。Rockwell 想不起名字，Leslie Bibb 在门口替他接上了。
+
+      - id: "038"
+        page: 20
+        color: blue
+        term: Marooned
+        lemma: maroon
+        kind: 单词
+        ipa: /məˈruːn/
+        pos: v.
+        cn: 困在孤岛上
+        en: to leave someone in a place, especially an island, with no way of leaving
+        context: "==Marooned== on his island"
+        gist: 困在他的岛上。
+        note: 老航海词，原指把人丢在荒岛上当惩罚。Chris 守在复活节岛上，字面和心境都是“被放逐”。跟颜色词 maroon（栗色）同形不同源。
+
+      - id: "039"
+        page: 20
+        color: purple
+        term: the Dallas parts
+        eudic: false
+        kind: 名物
+        ipa: /ˈdæləs/
+        cn: “达拉斯那部分”（指肯尼迪遇刺的事）
+        en: the parts of his story about Dallas, where Kennedy was shot
+        context: "he’ll mention “==the Dallas parts==”"
+        gist: 他会讲到“达拉斯那部分”。
+        note: 达拉斯是肯尼迪遇刺的城市。老板们不敢直说“刺杀”，只敢说“达拉斯那部分”——这种闪烁其词本身就是台词的味道。
+
+      - id: "040"
+        page: 21
+        color: purple
+        term: Tom Ripley
+        eudic: false
+        kind: 人名
+        ipa: /ˌtɑːm ˈrɪpli/
+        cn: 汤姆·雷普利
+        en: the charming impostor and killer in Patricia Highsmith’s novels
+        context: "He’s been ==Tom Ripley==, Biff Loman"
+        gist: 他演过汤姆·雷普利、比夫·洛曼。
+        note: 海史密斯小说里的冒名顶替者、杀人犯。Malkovich 在 2002 年《雷普利的游戏》（Ripley’s Game）里演的是中年的他。
+
+      - id: "041"
+        page: 21
+        color: purple
+        term: Biff Loman
+        eudic: false
+        kind: 人名
+        ipa: /ˌbɪf ˈloʊmən/
+        cn: 比夫·洛曼
+        en: the elder son in Arthur Miller’s play Death of a Salesman
+        context: "Tom Ripley, ==Biff Loman== and the Vicomte de Valmont"
+        gist: 雷普利、比夫·洛曼和瓦尔蒙子爵。
+        note: 阿瑟·米勒《推销员之死》里推销员威利的大儿子。Malkovich 1984 年在百老汇演这个角色，是他成名的舞台作之一，后来还拍成了电视版。
+
+      - id: "042"
+        page: 21
+        color: purple
+        term: Vicomte de Valmont
+        eudic: false
+        kind: 人名
+        ipa: /viːˌkɔːnt də vælˈmɔːn/
+        cn: 瓦尔蒙子爵
+        en: the seducer in Les Liaisons dangereuses
+        context: "Biff Loman and the ==Vicomte de Valmont=="
+        gist: 比夫·洛曼和瓦尔蒙子爵。
+        note: 《危险关系》里的浪荡子，1988 年电影版 Malkovich 演他，跟格伦·克洛斯对手戏。这三个名字一个是骗子、一个是失意的儿子、一个是情场浪子，所以作者说“英雄恶棍都演过”。
+
+      - id: "043"
+        page: 21
+        color: purple
+        term: Libra
+        eudic: false
+        kind: 作品名
+        ipa: /ˈliːbrə/
+        cn: 《天秤星座》（唐·德里罗 1988 年的小说）
+        en: Don DeLillo’s 1988 novel about Lee Harvey Oswald
+        context: "a stage version of ==Libra==, Don DeLillo’s novel"
+        gist: 把《天秤星座》搬上舞台。
+        note: 以奥斯瓦尔德为主角的小说，把真实档案和虚构掺在一起写。Malkovich 1994 年在芝加哥荒原狼剧团把它改编成舞台剧并执导。
+
+      - id: "044"
+        page: 21
+        color: purple
+        term: Lee Harvey Oswald
+        eudic: false
+        kind: 人名
+        ipa: /ˌliː ˌhɑːrvi ˈɑːzwɔːld/
+        cn: 李·哈维·奥斯瓦尔德
+        en: the man officially named as the assassin of President Kennedy
+        context: "Don DeLillo’s novel about ==Lee Harvey Oswald=="
+        gist: 德里罗写奥斯瓦尔德的小说。
+        note: 第 8 段的 No. 019 记过。这里是第二次出现，说的是 Malkovich 三十年前就排过关于他的戏——所以他对这个话题“早有研究”。
+
+      - id: "045"
+        page: 21
+        color: purple
+        term: Zapruder
+        eudic: false
+        kind: 人名
+        ipa: /zəˈpruːdər/
+        cn: 泽普鲁德（亚伯拉罕·泽普鲁德）
+        en: the Dallas bystander whose home movie captured the shooting of Kennedy
+        context: "the ==Zapruder== footage of JFK’s final moments"
+        gist: 泽普鲁德拍下的肯尼迪最后时刻。
+        note: 达拉斯一个做女装生意的人，用家用摄影机拍下了肯尼迪中枪的 26 秒。Zapruder film 是刺杀案最重要的影像证据，阴谋论者逐帧研究的就是它。
+
+      - id: "046"
+        page: 21
+        color: blue
+        term: crank
+        kind: 单词
+        ipa: /kræŋk/
+        pos: n.
+        cn: 怪人，偏执狂
+        en: a person with strange or obsessive ideas
+        context: "if that makes him a ==crank=="
+        gist: 要是这就算他是个偏执狂。
+        note: 本义是曲柄、摇把，形容人大概是“脑子转得怪”。这里是作者替他自嘲：不信官方说法就算怪人的话，他可一点不孤单——下一段说六成美国人都不信。
+
+      - id: "047"
+        page: 22
+        color: purple
+        term: Keebler
+        eudic: false
+        kind: 名物
+        ipa: /ˈkiːblər/
+        cn: 奇宝（美国饼干牌子）
+        en: an American biscuit brand whose adverts say the biscuits are baked by elves living in a tree
+        context: "So could ==Keebler== elves."
+        gist: 奇宝小精灵也“可能是真的”。
+        note: 美国老牌饼干，广告说饼干是住在空心树里的小精灵做的。Malkovich 的意思：官方说法可能是真的，奇宝小精灵也可能是真的——信不信由你。
+
+      - id: "048"
+        page: 23
+        color: purple
+        term: George McGovern
+        eudic: false
+        kind: 人名
+        ipa: /ˌdʒɔːrdʒ məˈɡʌvərn/
+        cn: 乔治·麦戈文
+        en: the Democratic candidate who lost the 1972 US presidential election to Nixon
+        context: "when the liberal ==George McGovern== lost in a landslide"
+        gist: 自由派的麦戈文惨败那一年。
+        note: 1972 年民主党总统候选人，反越战的自由派，输给尼克松输到只拿下一个州加一个特区。Malkovich 那年 19 岁，从此不再投票。
+
+      - id: "049"
+        page: 25
+        color: blue
+        term: glumly
+        lemma: glum
+        kind: 单词
+        ipa: /ˈɡlʌmli/
+        pos: adv.
+        cn: 闷闷不乐地
+        en: in a sad, quiet, discouraged way
+        context: "“Yeah, well, I vote,” he says ==glumly==."
+        gist: 他有点蔫地说。
+        note: 形容词 glum。Rockwell 平时蹦蹦跳跳，一说到投票就蔫了，这个副词是作者的小对比。
+
+      - id: "050"
+        page: 26
+        color: blue
+        term: publicist
+        kind: 单词
+        ipa: /ˈpʌblɪsɪst/
+        pos: n.
+        cn: 宣传人员，公关
+        en: a person whose job is to get publicity for a film, a company or a famous person
+        context: "The ==publicist== sticks her head around the door"
+        gist: 公关探进头来。
+        note: 影展采访里的固定角色：掐时间、赶人、喊下一个。
+
+      - id: "051"
+        page: 26
+        color: blue
+        term: perks up
+        lemma: perk up
+        kind: 短语
+        ipa: /ˌpɜːrk ˈʌp/
+        pos: phr. v.
+        cn: 来精神了，活跃起来
+        en: to become more cheerful or lively
+        context: "Rockwell ==perks up=="
+        gist: Rockwell 一下子来了精神。
+        note: 一听“最后一个问题”就精神了——跟上面的 glumly 刚好一前一后。
+
+      - id: "052"
+        page: 27
+        color: pink
+        term: scripted
+        lemma: script
+        kind: 一词多义
+        ipa: /ˈskrɪptɪd/
+        pos: v.
+        cn: 按剧本安排好
+        en: planned and written in advance, like a film script
+        context: "a death can be ==scripted== like a film"
+        gist: 假如死亡也能像电影一样写好剧本。
+        note: 你认识名词 script（剧本），这里当动词用：给一件事写好脚本、照本演出。
+
+      - id: "053"
+        page: 27
+        color: pink
+        term: bow out
+        kind: 短语
+        ipa: /ˌbaʊ ˈaʊt/
+        pos: phr. v.
+        cn: 谢幕退场；（婉）离世
+        en: to leave or stop doing something, especially after a long career; here, to die
+        context: "the ideal place to ==bow out=="
+        gist: 最理想的谢幕之地。
+        note: bow 是鞠躬，读 /baʊ/，不是蝴蝶结那个 /boʊ/。演员谢幕时鞠一躬下台，所以 bow out 是“体面退场”。作者用它委婉地问“想死在哪儿”，跟整段的演戏比喻一气呵成。
+
+      - id: "054"
+        page: 28
+        color: purple
+        term: Casanova
+        eudic: false
+        kind: 人名
+        ipa: /ˌkæsəˈnoʊvə/
+        cn: 卡萨诺瓦
+        en: the 18th-century Venetian adventurer famous for his love affairs and his memoirs
+        context: "a new opera based on ==Casanova==’s memoirs"
+        gist: 一部根据卡萨诺瓦回忆录改的歌剧。
+        note: 18 世纪威尼斯的冒险家，以情史出名，晚年写的回忆录是欧洲风俗史的重要材料。Malkovich 说的那部戏是 2010 年前后的 The Giacomo Variations，他演卡萨诺瓦。
+
+      - id: "055"
+        page: 28
+        color: blue
+        term: chambermaid
+        kind: 单词
+        ipa: /ˈtʃeɪmbərmeɪd/
+        pos: n.
+        cn: 客房女服务员，女仆
+        en: a woman whose job is cleaning bedrooms in a hotel or a big house
+        context: "chasing a ==chambermaid== around the stage"
+        gist: 满台追一个女仆。
+        note: chamber 是旧词的“房间”。卡萨诺瓦追女仆是他回忆录里的保留节目。
+
+      - id: "056"
+        page: 28
+        color: blue
+        term: stretcher
+        kind: 单词
+        ipa: /ˈstretʃər/
+        pos: n.
+        cn: 担架
+        en: a long piece of strong cloth with poles, used for carrying a sick or injured person
+        context: "people come out with a ==stretcher=="
+        gist: 有人抬着担架上来。
+        note: stretch 是拉伸，担架就是绷紧的一块布。
+
+      - id: "057"
+        page: 29
+        color: purple
+        term: Düsseldorf
+        eudic: false
+        kind: 地名
+        ipa: /ˈdʊsldɔːrf/
+        cn: 杜塞尔多夫
+        en: a city on the Rhine in western Germany
+        context: "a knee doctor in ==Düsseldorf=="
+        gist: 杜塞尔多夫的一位膝盖医生。
+        note: 德国西部莱茵河畔的城市。顺便说一句，这位 Barbara Sturm 骨科出身，后来做的护肤品牌 Dr. Barbara Sturm 在护肤圈很有名——Malkovich 说“膝盖医生”没说错。你划的时候带上了句号，词是 Düsseldorf。
+
+      - id: "058"
+        page: 30
+        color: blue
+        term: coronary
+        kind: 单词
+        ipa: /ˈkɔːrəneri/
+        pos: n.
+        cn: （口语）心脏病发作
+        en: (informal) a heart attack
+        context: "he’d fake a ==coronary=="
+        gist: 他假装心脏病发作。
+        note: 本是形容词“冠状动脉的”（coronary artery），口语里直接当名词用，等于 heart attack。前文说过 heart attack，这里换个词，是英文写作避免重复的习惯。

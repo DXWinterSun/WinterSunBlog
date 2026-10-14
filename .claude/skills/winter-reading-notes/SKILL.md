@@ -263,7 +263,7 @@ python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratc
 （每条有 `color` blue / pink / purple / yellow / orange、`loc` 位置、`text` 原样、`p` `s` `e` 定位）→ 照第二节的格式写进
 `_data/reading/<slug>.yml`，只有几处不同：
 
-- `book.page_unit: 段`，`book.about` 写「《卫报》2026-10-09 的报道，作者 Xan Brooks」这类来源，`book.source_url` 记网址；
+- `book.kind: article`、`book.page_unit: 段`，`book.about` 写来源，`book.source_url` 记网址；`book.sub` / `lede` / `blog_lede` / `status_blog` 可以盖掉书的那套文案（书架和 Notes 封面上会显示「文章笔记」「共 30 段」）；
 - 每条的 `page` 写段号（`loc` 是「第 5 段」就写 `5`；标题 / 导语直接写 `标题` / `导语`）；`batches` 里的 `pages` 写 `1–12 段`；
 - `context` 照旧只留划线前后几个词，**不整段抄**（仓库公开，报道有版权）；
 - 整理完一批，把这批的每一条 `ArtifactData update {noted: true}`（带 `if_version`），页上那处划线会多一道绿底线、清单里标「✓ 已整理」，
@@ -271,4 +271,4 @@ python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratc
 
 | 文章 | 划线页 | 笔记数据 / 笔记页 |
 |---|---|---|
-| 《卫报》2026-10-09 · McDonagh / Malkovich / Rockwell 谈 Wild Horse Nine（Xan Brooks） | https://claude.ai/artifact/5E9AEbCjzWxKkAeSTwrNKB | （还没整理） |
+| 《卫报》2026-10-09 · McDonagh / Malkovich / Rockwell 谈 Wild Horse Nine（Xan Brooks） | https://claude.ai/artifact/5E9AEbCjzWxKkAeSTwrNKB | `_data/reading/wild-horse-nine-guardian.yml` · 笔记页 https://claude.ai/artifact/UcvimREqg6dwF37CMsLba9 · 博客 `/reading/wild-horse-nine-guardian/`（2026-10-14 整理 58 条，全部标了 noted） |

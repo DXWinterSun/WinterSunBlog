@@ -36,8 +36,8 @@
   {%- assign rn = 0 -%}{%- assign upto = '' -%}
   {%- for bt in d.batches -%}{%- assign upto = bt.pages -%}{%- assign rn = rn | plus: bt.notes.size -%}{%- endfor %}
 <a class="c-wn-notebook" href="{{ site.baseurl }}/reading/{{ b.slug }}/" style="--nb-bg: {{ pal.bg | default: '#1d2330' }}; --nb-spine: {{ pal.accent | default: '#8fa0b0' }}; --nb-ink: {{ pal.text | default: '#e6e6e6' }};">
-  <span class="c-wn-notebook__label"><small>原著笔记</small><b lang="en">{{ b.title }}</b><span>{{ b.author }}</span></span>
-  <span class="c-wn-notebook__meta">{% if upto != '' %}读到第 <b>{{ upto }}</b> 页 · {% endif %}<b>{{ rn }}</b> 条</span>
+  <span class="c-wn-notebook__label"><small>{% if b.kind == 'article' %}文章笔记{% else %}原著笔记{% endif %}</small><b lang="en">{{ b.title }}</b><span>{{ b.author }}</span></span>
+  <span class="c-wn-notebook__meta">{% if upto != '' %}{% if b.page_unit == '段' %}共 <b>{{ upto }}</b>{% else %}读到第 <b>{{ upto }}</b> 页{% endif %} · {% endif %}<b>{{ rn }}</b> 条</span>
 </a>
 {%- endfor %}
 <a class="c-wn-notebook c-wn-notebook--tool" href="{{ site.baseurl }}/polski.html">
