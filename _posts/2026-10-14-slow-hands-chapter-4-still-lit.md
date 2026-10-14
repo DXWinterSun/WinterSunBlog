@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Chapter 4 · 一直亮着 — Slow Hands"
+title: "Chapter 4 · 一直亮着 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-14 10:04:00 +0800
 image: gary-petrosino-au.jpg
 series: "Slow Hands"
-series_title: "Slow Hands · Gary Garren AU"
+series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 4
 series_status: ongoing
 series_type: "Series"

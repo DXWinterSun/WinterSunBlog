@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Chapter 2 · G 在哪儿 — Slow Hands"
+title: "Chapter 2 · G 在哪儿 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-14 10:02:00 +0800
 image: gary-petrosino-au.jpg
 series: "Slow Hands"
-series_title: "Slow Hands · Gary Garren AU"
+series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 2
 series_status: ongoing
 series_type: "Series"
