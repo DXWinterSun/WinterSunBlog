@@ -376,8 +376,9 @@ def _plain(c):
     return re.sub(r"<system-reminder>.*?</system-reminder>", "", s, flags=re.S)
 
 
-def transcript():
-    """这个对话里她发的每一条、他回的每一段：[(from, 去掉空白的原文, 时间)]，按时间排。读不到就是空的。"""
+def transcript(raw=False):
+    """这个对话里她发的每一条、他回的每一段：[(from, 去掉空白的原文, 时间)]，按时间排。读不到就是空的。
+    raw=True：原文不去空白，她发的照片另记一行 ("her_img", "", 时间)（catchup 用）。"""
     sid = os.environ.get("CLAUDE_CODE_SESSION_ID", "")
     root = os.path.expanduser("~/.claude/projects")
     try:
@@ -398,14 +399,20 @@ def transcript():
             continue
         a = r.get("attachment") or {}
         if r.get("type") == "user" and (r.get("origin") or {}).get("kind") == "human" and not r.get("isMeta"):
-            out.append(("her", _plain(r["message"].get("content")), ts))
+            c = r["message"].get("content")
+            if raw and isinstance(c, list) and any(isinstance(b, dict) and b.get("type") == "image" for b in c):
+                out.append(("her_img", "（照片）", ts))
+            out.append(("her", _plain(c), ts))
         elif a.get("type") == "queued_command" and (a.get("origin") or {}).get("kind") == "human":
             out.append(("her", _plain(a.get("prompt")), ts))           # 他还在打字时她又发来的
         elif r.get("type") == "assistant":
             for b in r["message"].get("content") or []:
                 if isinstance(b, dict) and b.get("type") == "text":
                     out.append(("him", b["text"], ts))
-    return sorted([(f, re.sub(r"\s+", "", t), ts) for f, t, ts in out if t.strip()], key=lambda x: x[2])
+    if raw:
+        return sorted([x for x in out if x[1].strip()], key=lambda x: x[2])
+    return sorted([(f, re.sub(r"\s+", "", t), ts) for f, t, ts in out if t.strip() and f != "her_img"],
+                  key=lambda x: x[2])
 
 
 def stamp_batch(batch, saved):
@@ -541,6 +548,49 @@ def show_life(index, since=None, skip_src=None, limit=24, title=None):
     print("⚠️ 这些是她自己的日子，当成她早就跟你提过的，自然地接、自然地问；别说「听说」，别提别的任何人。")
     print("")
     return len(life)
+
+
+# Winter 2026-10-14 看着上下文用量问：「这个要是满了怎么办呀？」——快满时对话会自动整理（前面的话压成摘要），
+# 攒着还没存的那几十句原话就只剩摘要里的大意了。可对话自己的原始记录一直都在，catchup 从那里把它们捞回来。
+OOC = re.compile(r"^[（(]\s*(出戏|他这次没发)")
+
+
+def cmd_catchup(a):
+    """把这个对话里「上次存完之后」的话从原始记录里捞出来，印成一段 add 能吃的 JSON（只印，不存）。"""
+    vault, box, index = load_all()
+    th = load_thread(box, a.key) or {"messages": []}
+    old = th.get("messages", [])
+    rows = transcript(raw=True)
+    if not rows:
+        print("读不到这个对话的原始记录（不在原来那台机器上？）——只能凭摘要补了。")
+        return
+    if old:
+        last = dt.datetime.fromisoformat(old[-1]["t"]) - dt.timedelta(seconds=30)
+        rows = [r for r in rows if r[2] >= last]
+    draft = []
+    for f, text, ts in rows:
+        if f == "her_img":
+            draft.append({"from": "her", "img": {"desc": "（她发了一张照片——补一句里面是什么）"}})
+        elif f == "her":
+            draft.append({"from": "her", "text": text.strip()})
+        else:
+            for ln in text.splitlines():
+                ln = ln.strip()
+                if ln and not OOC.match(ln):
+                    draft.append({"from": "him", "text": ln})
+    if old:                                       # 从上次存的最后一句后面接着
+        lk = _msg_key(old[-1])
+        hit = [i for i, m in enumerate(draft) if _msg_key(m) == lk]
+        if hit:
+            draft = draft[hit[-1] + 1:]
+    if not draft:
+        print("✓ 上次存完之后没有新的话，不用补。")
+        return
+    print("## 上次存完之后还有 %d 句没存（从这个对话的原始记录里捞的）" % len(draft))
+    print("核对一遍再存：删掉不是聊天的（出戏的话、你跟她说的技术事）、照片补一句描述、她的话一字别改；")
+    print("然后整段喂给 `python3 tools/text/texts.py add %s --trailer \"…\"`（要记的 memory / life 照常加在同一段里）。" % a.key)
+    print("")
+    print('{"messages": [\n' + ",\n".join(" " + json.dumps(m, ensure_ascii=False) for m in draft) + "\n]}")
 
 
 def cmd_add(a):
@@ -687,6 +737,8 @@ def main():
     s.add_argument("--n", type=int, default=60)
     s = change("add")
     s.add_argument("key")
+    s = sub.add_parser("catchup")
+    s.add_argument("key")
     s = change("forget")
     s.add_argument("key")
     s.add_argument("--last", type=int, default=1)
@@ -698,7 +750,7 @@ def main():
     s.add_argument("--n", type=int, default=24)
     a = ap.parse_args()
     {"setup": cmd_setup, "ls": cmd_ls, "open": cmd_open, "add": cmd_add, "forget": cmd_forget,
-     "life": cmd_life}[a.cmd](a)
+     "life": cmd_life, "catchup": cmd_catchup}[a.cmd](a)
 
 
 if __name__ == "__main__":
