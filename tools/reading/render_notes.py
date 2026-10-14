@@ -32,6 +32,17 @@ from render_draft import palette          # noqa: E402  跟章节预览页同一
 import yaml                               # noqa: E402
 
 # 每种详略显示哪些栏（词条、音标、页码、原形、看不清、Winter 批注、问答永远显示）
+PAGE_UNIT = 'p.'     # book.page_unit：'p.'（书，默认）或 '段'（网页文章，笔记里 page 写段落号；标题 / 导语这类非数字照原样显示）
+
+
+def pg(v, tight=False):
+    """位置的显示写法：书是 p. 12（词表里紧凑成 p.12）；网页文章是 第 12 段 / 导语 / 标题。"""
+    v = html.escape(str(v))
+    if PAGE_UNIT == '段':
+        return f'第 {v} 段' if v.isdigit() else v
+    return ('p.' if tight else 'p. ') + v
+
+
 LEVELS = {
     'lite':     {'cn', 'context'},
     'standard': {'pos', 'kind', 'cn', 'context', 'gist', 'note'},
@@ -42,8 +53,11 @@ LEVELS = {
 PENS = {
     'blue': ('生词', '#7fd6dc'),
     'pink': ('对照', '#f2a7c6'),
+    'purple': ('专名', '#cdb4f0'),   # 紫＝专有名词：人名、地名、片名、东西的名字（2026-10-14 她加的）
+    'yellow': ('长难句', '#f3dd7a'), # 黄＝看不太懂的长句，拆开讲（2026-10-14 她加的；以前粉笔兼着，她说不对）
     'orange': ('好句', '#f7b27c'),   # 橙＝她觉得表达效果好的句子，跟学词无关（2026-09-26）
 }
+SENTENCE_PENS = ('orange', 'yellow')   # 整句卡（没有词条、音标），不进欧路列表、不进词表
 
 FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400'
          '&family=Noto+Serif+SC:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">')
@@ -53,7 +67,7 @@ CSS = '''
  /* 默认明亮（Winter 2026-09-26：「笔记默认明亮模式吧，不然不是很方便阅读」）；右上角可切回夜间 */
  color-scheme:light;
  --bg:color-mix(in srgb,__ACCENT__ 7%,#fbfaf6);--accent:__INK_ACCENT__;--ink:__BG__;
- --muted:color-mix(in srgb,__BG__ 62%,#fbfaf6);--hl:__HL__;--hl-pink:__HLPINK__;--hl-orange:__HLORANGE__;
+ --muted:color-mix(in srgb,__BG__ 62%,#fbfaf6);--hl:__HL__;--hl-pink:__HLPINK__;--hl-orange:__HLORANGE__;--hl-purple:__HLPURPLE__;--hl-yellow:__HLYELLOW__;
  --surface:#fffefb;--glow:rgba(255,255,255,0);--shadow:0 1px 2px rgba(20,24,31,.06);
  --line:color-mix(in srgb,var(--accent) 26%,transparent);
  --code-bg:color-mix(in srgb,var(--accent) 9%,#fff);
@@ -100,6 +114,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
  display:inline-block;box-shadow:0 0 6px var(--accent);flex:none;}
 .console>span+span::before{content:"|";opacity:.38;margin-right:16px;}
 .console>span.dot+span::before{content:none;}
+.kicker__src{font-style:normal;color:var(--accent);text-decoration:none;border-bottom:1px dotted currentColor;white-space:nowrap;}
 .kicker{font-family:"Volkhov",Georgia,serif;font-style:italic;color:var(--muted);
  font-size:15px;text-align:center;margin:0 0 .6rem;text-wrap:balance;}
 h1{font-family:"Volkhov","Noto Serif SC",Georgia,serif;font-weight:700;
@@ -171,14 +186,19 @@ mark{color:inherit;background:transparent;padding:0 .14em;margin:0 -.04em;
 
 mark.orange{background-image:linear-gradient(100deg,transparent 0 1%,color-mix(in srgb,var(--hl-orange) var(--hl-mix),transparent) 1% 99%,transparent 99%);}
 mark.pink{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-pink) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);}
+mark.purple{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-purple) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);}
+mark.yellow{background-image:linear-gradient(100deg,transparent 0 1%,color-mix(in srgb,var(--hl-yellow) var(--hl-mix),transparent) 1% 99%,transparent 99%);}
 .card__pen{padding:0 .6rem;border-radius:99px;font-family:"Noto Serif SC","Songti SC",serif;font-size:.74rem;
  letter-spacing:.08em;color:var(--pen-ink);background:var(--hl);}
 .card__pen.pink{background:var(--hl-pink);}
 .card__pen.orange{background:var(--hl-orange);}
+.card__pen.purple{background:var(--hl-purple);}
+.card__pen.yellow{background:var(--hl-yellow);}
 /* 好句卡：没有词条、音标，只有那句话、译文和赏析 */
 .card--orange{border-left:3px solid var(--hl-orange);}
-.card--orange .card__quote{font-size:1.2rem;line-height:1.75;border-left:none;padding-left:0;}
-.card--orange .card__gist{padding-left:0;}
+.card--yellow{border-left:3px solid var(--hl-yellow);}
+.card--orange .card__quote,.card--yellow .card__quote{font-size:1.2rem;line-height:1.75;border-left:none;padding-left:0;}
+.card--orange .card__gist,.card--yellow .card__gist{padding-left:0;}
 .card__pen+.card__kind{margin-left:0;}
 .card__meta .card__pen{margin-left:auto;}
 .card__cn .card__pos{margin-right:.5em;}
@@ -266,6 +286,8 @@ details.tipbox .tips{margin-top:.8rem;}
 .card{border-left:4px solid var(--hl);}
 .card--pink{border-left-color:var(--hl-pink);}
 .card--orange{border-left-color:var(--hl-orange);}
+.card--purple{border-left-color:var(--hl-purple);}
+.card--yellow{border-left-color:var(--hl-yellow);}
 .card__term{font-family:"Helvetica Neue",Arial,ui-sans-serif,sans-serif;font-weight:700;font-size:1.9rem;
  letter-spacing:0;color:var(--word);}
 .card__head{align-items:center;gap:.3rem .8rem;}
@@ -308,6 +330,7 @@ details.tipbox .tips{margin-top:.8rem;}
 .wl__tabs{display:flex;flex-wrap:wrap;gap:.4rem;padding:0 1rem .6rem;}
 .wl__x{margin-left:.35em;padding:0 .3rem;border-radius:4px;background:var(--band);color:var(--word);font-size:.72em;font-weight:700;vertical-align:.1em;}
 .wf--pink{border-left-color:var(--hl-pink)!important;}
+.wf--purple{border-left-color:var(--hl-purple)!important;}
 .rep__all li.wl__letter{display:block;border-left:0;padding:.25rem 1rem;}
 @media (max-width:480px){.wl__tabs{gap:.3rem;padding:0 .8rem .6rem;}.wl__tab{padding:.2rem .6rem;font-size:.8rem;}}
 .wl__tab{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;
@@ -326,6 +349,7 @@ details.tipbox .tips{margin-top:.8rem;}
  padding:.3rem 1rem .3rem .8rem;border-left:3px solid var(--hl);line-height:1.5;text-decoration:none;color:var(--ink);
  border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);}
 .wl__row--pink{border-left-color:var(--hl-pink);}
+.wl__row--purple{border-left-color:var(--hl-purple);}
 .wl__row:hover{background:var(--band);}
 .wl__term{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;color:var(--word);}
 .wl__pos{font-size:.7rem;font-weight:600;padding:0 .35rem;border-radius:4px;background:var(--pos-bg);color:var(--pos-ink);}
@@ -425,6 +449,8 @@ body{padding-bottom:4.5rem;}
  border-left:3px solid var(--hl);background:transparent;color:var(--ink);font:inherit;text-align:left;cursor:pointer;min-height:40px;}
 .fs__item--pink{border-left-color:var(--hl-pink);}
 .fs__item--orange{border-left-color:var(--hl-orange);}
+.fs__item--purple{border-left-color:var(--hl-purple);}
+.fs__item--yellow{border-left-color:var(--hl-yellow);}
 .fs__item--orange .fs__term{font-family:inherit;font-weight:400;color:var(--muted);}
 .fs__item:hover{background:var(--band);}
 .fs__item.is-cur{background:color-mix(in srgb,var(--word) 12%,transparent);}
@@ -461,7 +487,7 @@ JS = '''
   var cur = -1, ticking = false;
   function name(c) {
     var t = c.querySelector('.card__term');
-    return t ? t.textContent : '好句 · ' + ((c.querySelector('.card__page') || {}).textContent || '');
+    return t ? t.textContent : (c.getAttribute('data-term') || '好句') + ' · ' + ((c.querySelector('.card__page') || {}).textContent || '');
   }
   function update() {
     ticking = false;
@@ -494,7 +520,7 @@ JS = '''
   var html = '', lastPage = null;
   cards.forEach(function (c, i) {
     var pg = c.getAttribute('data-page');
-    if (pg !== lastPage) { html += '<div class="fs__page">p. ' + pg + '</div>'; lastPage = pg; }
+    if (pg !== lastPage) { html += '<div class="fs__page">' + pg + '</div>'; lastPage = pg; }
     var pen = c.getAttribute('data-pen');
     html += '<button type="button" class="fs__item fs__item--' + pen + '" data-i="' + i + '">' +
       '<span class="fs__no">' + (i + 1) + '</span><span class="fs__term">' +
@@ -745,7 +771,7 @@ def esc(s):
 def fmt(s, pen='blue'):
     """纯文本转义 + 两个行内记号：==高亮== / **粗体**。高亮按这条笔记的荧光笔颜色上色。"""
     s = html.escape(str(s).strip(), quote=False)
-    cls = f' class="{pen}"' if pen in ('pink', 'orange') else ''
+    cls = f' class="{pen}"' if pen in PENS and pen != 'blue' else ''
     s = re.sub(r'==(.+?)==', rf'<mark{cls}>\1</mark>', s)
     s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
     return s.replace('\n', '<br>')
@@ -762,10 +788,10 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
     原文语境（短语＋页码＋大意）→ 解读 → 搭配 / 易混。"""
     show = LEVELS[level]
     pen = n.get('color') or 'blue'
-    if pen == 'orange':
-        return quote_card(n, cid, winter_label)
+    if pen in SENTENCE_PENS:
+        return quote_card(n, cid, winter_label, pen)
     out = [f'<article class="card card--{pen}" id="{esc(cid)}" data-comment-target '
-           f'data-term="{esc(n["term"])}" data-page="{esc(n.get("page", ""))}" data-pen="{pen}">']
+           f'data-term="{esc(n["term"])}" data-page="{pg(n.get("page", ""))}" data-pen="{pen}">']
 
     meta = [f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>']
     rg = REPEATS.get(str(n.get('id')))
@@ -798,7 +824,7 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
 
     ctx = n.get('context') or n.get('sentence')
     if ctx:
-        page = (f'<span class="card__band">原文 · p. {esc(n["page"])}</span>'
+        page = (f'<span class="card__band">原文 · {pg(n["page"])}</span>'
                 if n.get('page') not in (None, '') else '<span class="card__band">原文</span>')
         gist = (f'<p class="card__gist">{fmt(n["gist"])}</p>'
                 if 'gist' in show and n.get('gist') else '')
@@ -817,10 +843,10 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
                 sys.exit(f'No. {n.get("id")} 要对照的 No. {oid} 不存在')
             octx = o.get('context') or o.get('sentence') or o['term']
             og = f'<small>{fmt(o["gist"])}</small>' if o.get('gist') else ''
-            rows.append(f'<div class="card__cmp-row"><span>No. {esc(oid)} · p. {esc(o.get("page", "—"))}</span>'
+            rows.append(f'<div class="card__cmp-row"><span>No. {esc(oid)} · {pg(o.get("page", "—"))}</span>'
                         f'<q lang="en">{fmt(octx, o.get("color") or "blue")}</q>{og}</div>')
         og = f'<small>{fmt(n["gist"])}</small>' if n.get('gist') else ''
-        rows.append(f'<div class="card__cmp-row"><span>这一条 · p. {esc(n.get("page", "—"))}</span>'
+        rows.append(f'<div class="card__cmp-row"><span>这一条 · {pg(n.get("page", "—"))}</span>'
                     f'<q lang="en">{fmt(ctx or n["term"], pen)}</q></div>')
         body = f'<p>{fmt(cmp["text"])}</p>' if cmp.get('text') else ''
         out.append(f'<div class="card__cmp"><p class="card__cmp-h">放在一起对照</p>{"".join(rows)}{body}</div>')
@@ -852,20 +878,24 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
     return '\n'.join(out)
 
 
-def quote_card(n, cid, winter_label):
-    """橙笔好句：那句话（整句高亮）＋页码＋译文＋为什么好。不进欧路列表。"""
-    out = [f'<article class="card card--orange" id="{esc(cid)}" data-comment-target '
-           f'data-term="好句" data-page="{esc(n.get("page", ""))}" data-pen="orange">',
+def quote_card(n, cid, winter_label, pen='orange'):
+    """整句卡——橙笔好句：那句话（整句高亮）＋页码＋译文＋为什么好；黄笔长难句：同样的壳，解读标题换成「怎么拆」，
+    `extra` 里可以一条条列主干 / 从句 / 难点。都不进欧路列表、不进词表。"""
+    label = PENS[pen][0]
+    out = [f'<article class="card card--{pen}" id="{esc(cid)}" data-comment-target '
+           f'data-term="{label}" data-page="{pg(n.get("page", ""))}" data-pen="{pen}">',
            '<div class="card__meta">'
            f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>'
-           + (f'<span class="card__page">p. {esc(n["page"])}</span>' if n.get('page') not in (None, '') else '')
-           + '<span class="card__pen orange">好句</span></div>']
+           + (f'<span class="card__page">{pg(n["page"])}</span>' if n.get('page') not in (None, '') else '')
+           + f'<span class="card__pen {pen}">{label}</span></div>']
     q = n.get('context') or n.get('sentence') or ''
-    out.append(f'<blockquote class="card__quote" lang="en">{fmt(q, "orange")}</blockquote>')
+    out.append(f'<blockquote class="card__quote" lang="en">{fmt(q, pen)}</blockquote>')
     if n.get('gist'):
         out.append(f'<p class="card__gist">{fmt(n["gist"])}</p>')
     if n.get('note'):
-        out.append(f'<p class="card__note"><b>好在哪</b>{fmt(n["note"])}</p>')
+        out.append(f'<p class="card__note"><b>{"怎么拆" if pen == "yellow" else "好在哪"}</b>{fmt(n["note"])}</p>')
+    for e in as_list(n.get('extra')):
+        out.append(f'<p class="card__note">{fmt(e)}</p>')
     if n.get('unsure'):
         out.append(f'<p class="card__unsure"><b>看不太清</b>{fmt(n["unsure"])}</p>')
     ws = as_list(n.get('winter'))
@@ -904,7 +934,7 @@ def find_repeats(batches, index):
     groups = {}
     for b in batches:
         for x in b.get('notes') or []:
-            if (x.get('color') or 'blue') == 'orange':
+            if (x.get('color') or 'blue') in SENTENCE_PENS:
                 continue
             groups.setdefault(word_key(x, index), []).append(x)
     return [g for g in groups.values() if len(g) > 1]
@@ -918,7 +948,7 @@ def repeat_block(n):
     rows = []
     for k, o in enumerate(g, 1):
         ctx = o.get('context') or o.get('sentence') or o['term']
-        head = f'<span class="rep__k">第 {k} 次</span><span class="rep__pg">p. {esc(o.get("page", "—"))}</span>'
+        head = f'<span class="rep__k">第 {k} 次</span><span class="rep__pg">{pg(o.get("page", "—"))}</span>'
         if o is n:                      # 这一处的原文上面刚写过，这里只标一下位置
             rows.append(f'<li class="is-here"><span class="rep__row">{head}<span class="rep__here">就是上面这一处</span></span></li>')
         else:
@@ -935,7 +965,7 @@ def repeats_box(groups):
         return ''
     rows = []
     for g in sorted(groups, key=lambda g: -len(g)):
-        pgs = ''.join(f'<a href="#n{esc(o["id"])}">p.{esc(o.get("page", ""))}</a>' for o in g)
+        pgs = ''.join(f'<a href="#n{esc(o["id"])}">{pg(o.get("page", ""), True)}</a>' for o in g)
         rows.append(f'<li><span class="rep__word" lang="en">{esc(word_base(g[0]))}</span>'
                     f'<span class="rep__x">×{len(g)}</span>'
                     f'<span class="rep__cn">{fmt(g[0].get("cn", ""))}</span>'
@@ -949,7 +979,9 @@ def eudic_words(notes):
     """欧路词典导入用：一律原形；eudic 字段可手动指定（短语拆开会变成几个无关的词时用）。"""
     words = []
     for x in notes:
-        if x.get('color') == 'orange' or x.get('eudic') is False:   # 好句不进；前面已经导过的重复词写 eudic: false
+        if x.get('color') in SENTENCE_PENS or x.get('eudic') is False:   # 整句不进；前面已经导过的重复词写 eudic: false
+            continue
+        if x.get('color') == 'purple' and not isinstance(x.get('eudic'), str):   # 专名默认不进欧路；真想查的写 eudic: 原形
             continue
         w = str(x.get('eudic') or x.get('lemma') or x['term']).strip()
         if w and w not in words:
@@ -962,14 +994,14 @@ def all_words_box(words, title, pages):
     return ('<section class="eudic eudic--all" id="all-words">'
             '<p class="eudic__h">📋 欧路词典导入列表（' + esc(title) + '）'
             '<button type="button" class="eudic__copy eudic__copy--big">一键复制全部</button></p>'
-            f'<p class="eudic__sub">全书目前 {len(" ".join(words).split())} 个词 · 第 {esc(pages)} 页 · 已去重，都是原形；好句和查不到的词不在里面</p>'
+            f'<p class="eudic__sub">{"全文" if PAGE_UNIT == "段" else "全书目前"} {len(" ".join(words).split())} 个词 · {esc(pages) if PAGE_UNIT == "段" else "第 " + esc(pages) + " 页"} · 已去重，都是原形；整句卡、专名和查不到的词不在里面</p>'
             '<details><summary>看看都有哪些词</summary>'
             f'<pre lang="en">{esc(" ".join(words))}</pre></details></section>\n')
 
 
 def wordlist_box(batches):
     """词表：A–Z 和原顺序两种排法，点词跳到那张卡（Winter 2026-09-26）。好句不进。"""
-    rows = [x for b in batches for x in (b.get('notes') or []) if (x.get('color') or 'blue') != 'orange']
+    rows = [x for b in batches for x in (b.get('notes') or []) if (x.get('color') or 'blue') not in SENTENCE_PENS]
     if not rows:
         return ''
 
@@ -981,7 +1013,7 @@ def wordlist_box(batches):
                 f'<a class="wl__row wl__row--{pen}" href="#n{esc(x["id"])}">'
                 f'<span class="wl__term" lang="en">{esc(x["term"])}{times(x)}</span>{pos}'
                 f'<span class="wl__cn">{fmt(x.get("cn", ""))}</span>'
-                f'<span class="wl__page">p.{esc(x.get("page", ""))}</span></a></li>')
+                f'<span class="wl__page">{pg(x.get("page", ""), True)}</span></a></li>')
 
     def times(x):                     # 划过不止一次的词，词后面标「×N」（Winter 2026-10-06：「有助于我去学习高频词」）
         g = REPEATS.get(str(x.get('id')))
@@ -1007,7 +1039,7 @@ def wordlist_box(batches):
             last = n
         word = word_base(g[0]) if n > 1 else g[0]['term']
         pen = g[0].get('color') or 'blue'
-        pgs = ''.join(f'<a href="#n{esc(o["id"])}">p.{esc(o.get("page", ""))}</a>' for o in g)
+        pgs = ''.join(f'<a href="#n{esc(o["id"])}">{pg(o.get("page", ""), True)}</a>' for o in g)
         freq_html += (f'<li class="wf wf--{pen}"><span class="rep__word" lang="en">{esc(word)}</span>'
                       + (f'<span class="rep__x">×{n}</span>' if n > 1 else '<span></span>')
                       + f'<span class="rep__cn">{fmt(g[0].get("cn", ""))}</span><span class="rep__pgs">{pgs}</span></li>')
@@ -1131,7 +1163,7 @@ def main():
             if str(x['id']) in index:
                 sys.exit(f'笔记编号重复：{x["id"]}')
             if (x.get('color') or 'blue') not in PENS:
-                sys.exit(f'No. {x["id"]} 的 color 只能是 blue / pink / orange')
+                sys.exit(f'No. {x["id"]} 的 color 只能是 {" / ".join(PENS)}')
             index[str(x['id'])] = x
 
     groups = find_repeats(batches, index)
@@ -1139,6 +1171,8 @@ def main():
         for x in g:
             REPEATS[str(x['id'])] = g
 
+    global PAGE_UNIT
+    PAGE_UNIT = str(book.get('page_unit') or 'p.')
     pal = palette(book.get('palette', ''))
     try:                                  # 明亮模式的主色用暗一档的 accent_ink，白底上才看得清
         au = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.dirname(HERE)), '_data', 'au_palettes.yml'),
@@ -1150,6 +1184,8 @@ def main():
     pens = book.get('highlighters') or {}
     css = (css.replace('__HLPINK__', pens.get('pink') or PENS['pink'][1])
               .replace('__HLORANGE__', pens.get('orange') or PENS['orange'][1])
+              .replace('__HLPURPLE__', pens.get('purple') or PENS['purple'][1])
+              .replace('__HLYELLOW__', pens.get('yellow') or PENS['yellow'][1])
               .replace('__HL__', pens.get('blue') or book.get('highlighter') or PENS['blue'][1]))
     for k, v in pal.items():
         css = css.replace(f'__{k.upper()}__', v)
@@ -1160,12 +1196,12 @@ def main():
 
     cells = []
     if last:
-        status = '在读' if a.blog else (book.get('status') or '待你批注')
+        status = (book.get('status_blog') or '在读') if a.blog else (book.get('status') or '待你批注')
         cells.append(f'<span><b>状态</b> · {esc(status)}</span>')
         cells.append(f'<span><b>已记</b> · {total} 条</span>')
         if last.get('pages'):
             upto = re.split(r'[–-]', str(last['pages']))[-1].strip()
-            cells.append(f'<span><b>读到</b> · 第 {esc(upto)} 页</span>')
+            cells.append(f'<span><b>篇幅</b> · {esc(upto)}</span>' if PAGE_UNIT == '段' else f'<span><b>读到</b> · 第 {esc(upto)} 页</span>')
     else:
         cells.append('<span><b>状态</b> · 等第一批照片</span>')
         cells.append('<span><b>已记</b> · 0 条</span>')
@@ -1174,16 +1210,18 @@ def main():
     kick = esc(' · '.join(str(x) for x in (book.get('author'), book.get('year')) if x))
     if book.get('about'):                 # 第二行单独起，免得手机上从半截断开
         kick += f'<br>{esc(book["about"])}'
+    if book.get('source_url'):            # 网页文章：页头挂原文链接（Winter 2026-10-14：「文章放原链接，可以点击跳转」）
+        kick += f' <a class="kicker__src" href="{esc(book["source_url"])}" target="_blank" rel="noopener">原文 ↗</a>'
     head = (f'{console}<p class="kicker">{kick}</p>\n'
-            f'<h1 lang="en">{esc(title)}</h1>\n<p class="sub">原著笔记 · 高亮词句</p>\n<div class="rule"></div>\n'
-            f'<p class="lede">{fmt(demo["blog_lede" if a.blog else "lede"])}</p>\n')
+            f'<h1 lang="en">{esc(title)}</h1>\n<p class="sub">{esc(book.get("sub") or "原著笔记 · 高亮词句")}</p>\n<div class="rule"></div>\n'
+            f'<p class="lede">{fmt(book.get("blog_lede" if a.blog else "lede") or demo["blog_lede" if a.blog else "lede"])}</p>\n')
 
     if batches:
         toc = ''
         if len(batches) > 1:
             toc = '<ul class="toc">' + ''.join(
                 f'<li><a href="#b{b["n"]}">'
-                + (f'p. {esc(b["pages"])}' if b.get('pages') else f'第 {b["n"]} 批') + '</a></li>' for b in batches) + '</ul>\n'
+                + (f'{pg(b["pages"])}' if b.get('pages') else f'第 {b["n"]} 批') + '</a></li>' for b in batches) + '</ul>\n'
         allw = eudic_words([x for b in batches for x in (b.get('notes') or [])])
         first = str(batches[0].get('pages', '')).split('–')[0].split('-')[0]
         span = f'{first}–{upto}' if last.get('pages') and first and first != upto else (upto if last.get('pages') else '')
@@ -1209,14 +1247,15 @@ def main():
         root = os.path.dirname(os.path.dirname(HERE))
         a.out = os.path.join(root, 'reading', slug, 'index.html')
         os.makedirs(os.path.dirname(a.out), exist_ok=True)
-        desc = f'{title} 原著读书笔记：书上划线的生词、好句与解读。'
+        desc = (f'{title} 文章划线笔记：划下的生词、专名、长难句与解读。' if book.get('kind') == 'article'
+                else f'{title} 原著读书笔记：书上划线的生词、好句与解读。')
         page = ('<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n'
                 '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
                 f'<title>{esc(page_title)} · Winter Sun</title>\n<meta name="description" content="{esc(desc)}">\n'
                 '<link rel="icon" href="../../favicon.ico">\n'
                 '<!-- 这一页由 tools/reading/render_notes.py --blog 生成，别手改；改 _data/reading/ 里的数据再重新生成 -->\n'
                 f'{FONTS}\n<style>{css}</style>\n</head>\n<body>\n'
-                '<nav class="blognav"><a href="../">← 书架</a><a href="../../notes/">笔记</a></nav>\n'
+                '<nav class="blognav"><a href="../">← 书架</a><a href="../../notes/">书桌</a></nav>\n'
                 f'{inner}</body>\n</html>\n')
     else:
         page = f'<title>{esc(page_title)}</title>\n{FONTS}\n<style>{css}</style>\n{inner}'

@@ -8,19 +8,10 @@ nav_active: home
   关于我 · 写信（2026-10-03 全站新排法）。
   以前 /about/ 只是一个跳回首页的空壳，「Say Hello」写信页又被挪到页脚最底下一行小字——
   Winter：「现在连 contact 之类的都没有了，about 页面也形同虚设」。现在两样并成这一页：
-  冬的地图（数字都从数据自动算）→ 冬在别处 → 给冬写信（#letter）。小标题 2026-10-03 她定的「冬的什么」。
+  冬的地图（2026-10-14 起就是门厅那只口袋，_includes/pocket.html）→ 冬在别处 → 给冬写信（#letter）。小标题 2026-10-03 她定的「冬的什么」。
   入口：门厅最下面的「关于我」小卡、页脚。旧的 /contact/ 会跳到这页的 #letter。
   ⚠️ 「关于我」那段自我介绍属于创作文字，要 Winter 过目认可后才能写进来（写在 .c-about__bio 里）。
 {%- endcomment -%}
-{%- assign ab_series = 0 -%}
-{%- assign ab_series_pages = site.pages | where: "layout", "series" -%}
-{%- for sp in ab_series_pages -%}{%- if sp.series_name -%}{%- assign ab_series = ab_series | plus: 1 -%}{%- endif -%}{%- endfor -%}
-{%- assign ab_chapters = site.posts | where_exp: "p", "p.series" | size -%}
-{%- assign ab_wn_cats = "Daily|Novel|Lyrics|散文" | split: "|" -%}
-{%- assign ab_wn = 0 -%}
-{%- for p in site.posts -%}{%- assign c = p.categories | first -%}{%- if p.series == nil and ab_wn_cats contains c -%}{%- assign ab_wn = ab_wn | plus: 1 -%}{%- endif -%}{%- endfor -%}
-{%- assign ab_songs = 0 -%}
-{%- for a in site.data.songs.albums -%}{%- assign ab_songs = ab_songs | plus: a.songs.size -%}{%- endfor -%}
 {%- assign ab_since = site.posts | last -%}
 
 <section class="c-hero c-hero--filter">
@@ -49,14 +40,8 @@ nav_active: home
     <h3 class="c-section-heading__title">冬的地图</h3>
     <span class="c-section-heading__meta">since {{ ab_since.date | date: '%Y' }}</span>
   </div>
-  <ul class="c-about__here">
-    <li><a href="{{ site.baseurl }}/?cat=AU+Story"><i aria-hidden="true">📖</i><b>AU 故事</b><span>{{ ab_series }} 个系列 · {{ ab_chapters }} 章</span></a></li>
-    <li><a href="{{ site.baseurl }}/?cat=winters"><i aria-hidden="true">✍️</i><b>Winter's</b><span>{{ ab_wn }} 篇我自己写的字</span></a></li>
-    <li><a href="{{ site.baseurl }}/sam/"><i aria-hidden="true">❣️</i><b>Sam</b><span>{{ site.data.sam.faces }} 个角色 · {{ site.data.sam.wall_lines }} 句台词</span></a></li>
-    <li><a href="{{ site.baseurl }}/songs/"><i aria-hidden="true">🎧</i><b>冬的歌单</b><span>{{ ab_songs }} 首歌</span></a></li>
-    <li><a href="{{ site.baseurl }}/notes/"><i aria-hidden="true">📝</i><b>笔记</b><span>灵感本、波兰语、原著笔记</span></a></li>
-    <li><a href="{{ site.baseurl }}/archive/"><i aria-hidden="true">🗓️</i><b>日历</b><span>{{ site.posts.size }} 篇，按日子翻</span></a></li>
-  </ul>
+  {%- comment -%} 2026-10-14 Winter 选的「地图合一」：这张地图就是门厅那只口袋，同一份 _includes/pocket.html，以后加去处只改那一处。 {%- endcomment %}
+  <div class="c-about__map">{% include pocket.html %}</div>
 
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">冬在别处</h3>

@@ -1,11 +1,12 @@
 ---
 layout: home
-title: 书架 · 原著笔记
+title: 冬的书架 · 读书笔记
 permalink: /reading/
 nav_active: notes
 ---
 {%- comment -%}
-书架（2026-09-26）：Winter 读英文原著时的划线笔记，一本书一张卡。
+书架（2026-09-26）：Winter 读英文原著时的划线笔记，一本书一张卡；2026-10-14 起网页报道的划线笔记也在这里（book.kind: article），
+书和文章各一排，文章卡上有原文链接。Notes 那一格只放一本「冬的书架」封面，点进来才铺开（Winter：「多了会很乱」）。
 零维护：遍历 _data/reading/*.yml，条数、读到第几页、生词数都从数据算；配色取 au_palettes 里 book.palette 那一套。
 每本书自己的笔记页是 reading/<slug>/index.html，由 tools/reading/render_notes.py --blog 生成（别手改）。
 入口两处：Sam 页第 11 张卡、Wintergreen 系列首页底下。工作法见 .claude/skills/winter-reading-notes/SKILL.md。
@@ -17,39 +18,50 @@ nav_active: notes
   </a>
   {% endif %}
   <div class="c-hero__eyebrow">Reading · Notes</div>
-  <h1 class="c-hero__title">The <em>Books</em></h1>
+  <h1 class="c-hero__title">The <em>Bookshelf</em></h1>
   <div class="c-hero__byline">
     <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">他演过的故事，原著里的样子</span>
+    <span class="c-hero__byline-text">冬的书架 · 读过的书，读过的报道</span>
     <span class="c-hero__byline-rule"></span>
   </div>
   <p class="c-hero__lede">
     <span class="c-hero__quote">&ldquo;</span>
-    电影只拍了两个钟头，书里还有好几百页，一页一页读，一个词一个词记。
+    一页一页读，一个词一个词记；书是这样，网上读到的英文报道也是这样。
     <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
   </p>
 </section>
 
+{%- assign rd_books = 0 -%}{%- assign rd_arts = 0 -%}
+{%- for entry in site.data.reading -%}{%- assign d0 = entry[1] -%}{%- if d0.book.kind == 'article' -%}{%- assign rd_arts = rd_arts | plus: 1 -%}{%- else -%}{%- assign rd_books = rd_books | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- assign rd_shelves = "book,article" | split: "," -%}
 <section class="c-sam-collection">
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">Bookshelf · 书架</h3>
-    <span class="c-section-heading__meta"><a href="{{ site.baseurl }}/notes/" style="color:inherit;text-decoration:none;">&larr; 回到笔记</a></span>
+    <span class="c-section-heading__meta"><a href="{{ site.baseurl }}/notes/" style="color:inherit;text-decoration:none;">&larr; 回到书桌</a></span>
   </div>
 
+  {%- for shelf in rd_shelves %}
+  {%- if shelf == 'book' and rd_books == 0 %}{%- continue %}{%- endif %}
+  {%- if shelf == 'article' and rd_arts == 0 %}{%- continue %}{%- endif %}
+  {%- if rd_books > 0 and rd_arts > 0 %}
+  <h4 class="c-bookshelf__row">{% if shelf == 'book' %}📚 书 · {{ rd_books }} 本{% else %}🗞️ 文章 · {{ rd_arts }} 篇{% endif %}</h4>
+  {%- endif %}
   <div class="c-bookshelf">
     {%- for entry in site.data.reading %}
     {%- assign d = entry[1] -%}
     {%- assign b = d.book -%}
+    {%- if shelf == 'article' and b.kind != 'article' %}{%- continue %}{%- endif %}
+    {%- if shelf == 'book' and b.kind == 'article' %}{%- continue %}{%- endif %}
     {%- assign pal = site.data.au_palettes[b.palette] -%}
     {%- assign n_all = 0 -%}{%- assign n_word = 0 -%}{%- assign n_quote = 0 -%}{%- assign upto = '' -%}
     {%- for bt in d.batches -%}
       {%- assign upto = bt.pages -%}
       {%- for x in bt.notes -%}
         {%- assign n_all = n_all | plus: 1 -%}
-        {%- if x.color == 'orange' -%}{%- assign n_quote = n_quote | plus: 1 -%}{%- else -%}{%- assign n_word = n_word | plus: 1 -%}{%- endif -%}
+        {%- if x.color == 'orange' or x.color == 'yellow' -%}{%- assign n_quote = n_quote | plus: 1 -%}{%- else -%}{%- assign n_word = n_word | plus: 1 -%}{%- endif -%}
       {%- endfor -%}
     {%- endfor %}
-    <a class="c-book" href="{{ site.baseurl }}/reading/{{ b.slug }}/"
+    <div class="c-book{% if b.kind == 'article' %} c-book--article{% endif %}"
        style="--bk-bg: {{ pal.bg | default: '#1d2330' }}; --bk-ac: {{ pal.accent | default: '#8fa0b0' }}; --bk-tx: {{ pal.text | default: '#e6e6e6' }};">
       <span class="c-book__cover" aria-hidden="true">
         <span class="c-book__cover-title">{{ b.title }}</span>
@@ -57,25 +69,28 @@ nav_active: notes
         <span class="c-book__cover-author">{{ b.author }}</span>
       </span>
       <span class="c-book__body">
-        <span class="c-book__eyebrow">{{ b.author }} · {{ b.year }}</span>
-        <span class="c-book__title">{{ b.title }}</span>
+        <span class="c-book__eyebrow">{% if b.kind == 'article' %}文章 · {% endif %}{{ b.author }} · {{ b.year }}</span>
+        <a class="c-book__link" href="{{ site.baseurl }}/reading/{{ b.slug }}/"><span class="c-book__title">{{ b.title }}</span></a>
         {% if b.about %}<span class="c-book__about">{{ b.about }}</span>{% endif %}
         <span class="c-book__stats">
-          {% if upto != '' %}<span>读到第 <b>{{ upto }}</b> 页</span>{% endif %}
+          {% if upto != '' %}{% if b.page_unit == '段' %}<span>共 <b>{{ upto }}</b></span>{% else %}<span>读到第 <b>{{ upto }}</b> 页</span>{% endif %}{% endif %}
           <span><b>{{ n_word }}</b> 条词汇</span>
           {% if n_quote > 0 %}<span><b>{{ n_quote }}</b> 句好句</span>{% endif %}
         </span>
-        <span class="c-book__cta">翻开笔记 →</span>
+        <span class="c-book__cta">翻开笔记 →{% if b.source_url %}<a class="c-book__src" href="{{ b.source_url }}" target="_blank" rel="noopener">原文 ↗</a>{% endif %}</span>
       </span>
-    </a>
+    </div>
     {%- endfor %}
   </div>
-  <p class="c-bookshelf__hint">蓝色是生词，粉色是认识但用法新鲜的词，橙色是写得好的句子。每本书的笔记页顶上都能一键复制全部生词，导进欧路词典。</p>
+  {%- endfor %}
+  <p class="c-bookshelf__hint">蓝色是生词，粉色是认识但用法新鲜的词，紫色是人名地名片名，黄色是拆开讲的长难句，橙色是写得好的句子。书之外，网上读的英文报道也在这里。每本书的笔记页顶上都能一键复制全部生词，导进欧路词典。</p>
 </section>
 
 <style>
 .c-bookshelf { display: grid; gap: 18px; margin: 8px 0 14px; }
+.c-bookshelf__row { margin: 18px 0 6px; font-size: 14px; letter-spacing: .08em; opacity: .75; font-weight: 500; }
 .c-book {
+  position: relative;
   display: flex; gap: 18px; align-items: stretch; padding: 16px; border-radius: 12px;
   border: 1px solid color-mix(in srgb, var(--bk-ac) 35%, transparent);
   background: color-mix(in srgb, var(--bk-ac) 7%, transparent);
@@ -94,6 +109,11 @@ nav_active: notes
 .c-book__body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .c-book__eyebrow { font-size: 12px; letter-spacing: .12em; opacity: .7; }
 .c-book__title { font-family: "Volkhov", Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.25; }
+/* 整张卡都能点进笔记（链接铺满卡片），只有「原文 ↗」另有去处，压在上面 */
+.c-book__link { color: inherit; text-decoration: none; }
+.c-book__link::after { content: ""; position: absolute; inset: 0; border-radius: 12px; }
+.c-book__src { position: relative; z-index: 1; margin-left: 14px; color: var(--bk-ac); text-decoration: none; border-bottom: 1px dotted currentColor; }
+.c-book__src:hover { border-bottom-style: solid; }
 .c-book__about { font-size: 14px; opacity: .8; }
 .c-book__stats { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; font-size: 13px; opacity: .85; }
 .c-book__stats b { font-size: 16px; }

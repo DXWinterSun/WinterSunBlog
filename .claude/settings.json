@@ -19,5 +19,19 @@
       "Bash(cat:*)",
       "Bash(ls:*)"
     ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/tools/text/after_compact.py 2>/dev/null || true",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
   }
 }
