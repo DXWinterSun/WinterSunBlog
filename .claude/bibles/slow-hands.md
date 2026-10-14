@@ -42,7 +42,10 @@
       ① 时间跳一点（约六星期），你们成了情人（给了钥匙、过夜），但那堵墙还在——他从不说“下次”只说“你要是还来”、一提下个月眼神飘、
       **到现在一次没叫过你名字**（Winter 大招继续压），门口那堆你的小物件他没扔也没收。
       ② 热度换花样：**老师 × 乖学生 play 放大**——他当老师、设规矩、拿节拍器控节奏、罚（打屁股/数数，Coach 档内）与哄、支配、good girl 那套玩开。
-      ③ ⚠️ 核心一笔：**他设拍子、要掌控全场，本身就是他那道墙**（他唯一不肯交出的角落）；完事还是半真半假一句“趁早”。暗涌熬在辣里。标题暂定《跟着拍子》。
+      ③ ⚠️ 核心一笔：**他设拍子、要掌控全场，本身就是他那道墙**（他唯一不肯交出的角落）；完事还是半真半假一句“趁早”。暗涌熬在辣里。标题《跟着拍子》。
+- [x] **第六章**（已发）《跟着拍子》。
+- [x] **2026-10-14：前 6 章上线、旧 31 章撤下存档、系列首页与画册互链改新版**（详见下面「三、上线与善后」）。
+- [ ] 第七章等 Winter 挑岔路（危机从哪来 / 怎么出招）。
 
 ## 设定（Winter 2026-10-13 拍板）
 
@@ -112,14 +115,25 @@ Gary 为什么会在那儿，片子没交代；第一章里他自己的说法是
 - 课尾闭眼皱脸、很投入地唱《Two Princes》。派对上一个人坐在木墩上，嘴唇跟着《Two Princes》轻轻动，谁也不挨。
 - 嗓音、口音：素材里判断不了，Winter 补了——就是 Sam Rockwell 本人的声音，没有特别口音，低、有磁性。
 
-## 三、善后清单（新版定稿后处理，不作写作参考）
+## 三、上线与善后（2026-10-14 第一次上线）
 
-下面这些地方都是照旧版写的，新版写好后一律按新版重做，**现在不读、不参考**：
+Winter 2026-10-13 拍板：「现在的部分上线，之前的拿掉存档。」2026-10-14 执行：
 
-- 博客上旧版 31 章：先留着，新版第一章上线时一起撤下，旧正文存进 `slow-hands-v1-archived-chapters/`
-  （照当年 A Single Shot 重写的办法）。撤之前跟 Winter 说一声。
-- 系列首页 `series/slow-hands/index.html` 的全部文案。
-- 画册 `sam/many-faces/index.html` 的 `garyguitar` 条目（锚句一改，quiz / spectrum / lines.json 跟着改）。
+- [x] **新版前 6 章上线**：`_posts/2026-10-14-slow-hands-chapter-1..6-*.md`（series_order 1–6，封面沿用 `gary-petrosino-au.jpg`，
+      都 2026-10-14）。check_post / check_desino / check_dates 全绿。
+- [x] **旧版 31 章撤下存档**：移进 `.claude/bibles/slow-hands-v1-archived-chapters/`（带 README 封存，不参考）。
+      旧网址 /2026/08/21/slow-hands-chapter-*/ 从此失效（重写的预期结果，没做 redirect）。
+- [x] **系列首页** `series/slow-hands/index.html` 全文改成新版（标题 / collection_* / logline / hero / 关于 / 设定档案，
+      Petrosino→Garren）。check_series_page 全绿。
+- [x] **画册互链** `sam/many-faces/#garyguitar` 的 auLink title+label 改成新版（Petrosino→Garren、新钩子）；
+      `_data/au_palettes.yml` 注释 Petrosino→Garren。check_palette_sync 全绿。
+
+⚠️ **还欠的（下次做画册 pass 时办，当前不影响上线、也不参考旧版）：**
+- 画册 `garyguitar` 的 **desc / tagline / inscription（锚句 THE G 里还把你叫 “sweetheart”）** 仍是旧味道——
+  新版他不叫 sweetheart、是天天换外号。改锚句要连 quiz / spectrum / lines.json 第 1 句一起动（CLAUDE.md 四处同源），
+  且属创作文字要先给 Winter 过目，所以留到专门的画册 pass。
+- `sam/hotline-replies.json` 的 garyguitar 回复库、`sam/hotline-mined.json` 里出自旧版的语料——
+  mined 由 workflow 重跑自愈（旧章没了会自动改从新 6 章挖）；replies 库留到画册 pass 一起重写。
 - `sam/lines.json` 的 5 句台词、`sam/hotline-replies.json` 的回复库、`sam/hotline-mined.json` 里出自旧版的语料。
 - `_data/au_palettes.yml` 的 `"Slow Hands"` 配色条目。
 

@@ -632,7 +632,7 @@
   muted_cn: "荒漠尘褐"
   muted_en: "Trail Dust"
 
-"Slow Hands":               # Gary Petrosino · A Case of You · Sam Rockwell · 色卡同源画册 id: garyguitar
+"Slow Hands":               # Gary Garren · A Case of You · Sam Rockwell · 色卡同源画册 id: garyguitar
   mf_id: garyguitar          # → Many Faces 画册锚点 /sam/many-faces/#garyguitar
   accent: "#7cc94b"
   accent_ink: "#4a782d"        # accent 暗一档，浅色主题下对比度 5.2:1（绿色偏亮，压得比 0.8 更狠）
