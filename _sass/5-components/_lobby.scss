@@ -317,7 +317,8 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
 }
 
 /* ── 🪑 书桌：本子都摊在一张桌子上（2026-10-14，Winter：「desk 是不是可以做一个整体的桌面的感觉，正好上面都是笔记本呢」）──
-   .c-desk 是桌面，三种样子（她挑定前都留着）：--wood 木桌 / --mat 桌垫 / --scatter 木桌随手摊开。
+   .c-desk 就是一张暖色橡木桌（她 2026-10-14 从木桌 / 桌垫 / 随手摊开三版里挑的木桌；另两版已拆掉）：
+   左上角一圈台灯的暖光，本子各自歪一点点像随手放的，顶上留一条桌沿摆小物件。
    小物件在 _includes/desk-things.html（马克杯、铅笔、便利贴、回形针、杯底印、雪花镇纸），全是装饰。
    ⚠️ 这一段必须放在文件末尾：上面手机那段 @media 给 .c-notes__grid .c-wn-notebook 写了阴影，同权重，后者盖前者。 */
 .c-desk {
@@ -353,7 +354,7 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
   }
   .c-wn-notebook:hover { transform: translateY(-5px) rotate(-0.6deg); }
 }
-/* 本子轻轻歪一点，像随手放的（木桌 / 桌垫只歪一点点，随手摊开歪得多） */
+/* 本子轻轻歪一点，像随手放的 */
 .c-desk .c-notes__grid .c-wn-notebook:nth-child(5n+1) { transform: rotate(-1.1deg); }
 .c-desk .c-notes__grid .c-wn-notebook:nth-child(5n+2) { transform: rotate(0.8deg); }
 .c-desk .c-notes__grid .c-wn-notebook:nth-child(5n+3) { transform: rotate(-0.5deg); }
@@ -361,45 +362,11 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
 .c-desk .c-notes__grid .c-wn-notebook:nth-child(5n+5) { transform: rotate(-0.9deg); }
 .c-desk .c-notes__grid .c-wn-notebook:hover { transform: translateY(-5px) rotate(0deg); }
 
-/* 桌垫：页面还是雪地蓝，桌上铺一块深海军蓝的毛毡垫，边上一圈缝线 */
-.c-desk--mat {
-  --desk-a: #243a55;
-  --desk-b: #1b2d44;
-  --desk-grain: rgba(255, 255, 255, 0.025);
-  --desk-edge: rgba(255, 255, 255, 0.14);
-  background:
-    radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.07), transparent 1.5px),
-    radial-gradient(1px 1px at 70% 60%, rgba(255, 255, 255, 0.06), transparent 1.5px),
-    radial-gradient(1px 1px at 45% 85%, rgba(255, 255, 255, 0.05), transparent 1.5px),
-    repeating-linear-gradient(45deg, transparent 0, transparent 3px, var(--desk-grain) 3px, var(--desk-grain) 4px),
-    linear-gradient(180deg, var(--desk-a) 0, var(--desk-b) 100%);
-  box-shadow: inset 0 0 0 1px var(--desk-edge), inset 0 0 0 12px rgba(0, 0, 0, 0.08), 0 18px 44px rgba(var(--rgb-shadow), 0.3);
-  &::before { background: radial-gradient(60% 55% at 12% 0%, rgba(200, 225, 245, 0.22), transparent 70%); }
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    border: 1.5px dashed rgba(255, 255, 255, 0.22);
-    border-radius: 10px;
-    pointer-events: none;
-  }
-}
-
-/* 随手摊开：歪得更多一点，像刚用完没收 */
-.c-desk--scatter .c-notes__grid .c-wn-notebook:nth-child(5n+1) { transform: rotate(-3deg) translateY(6px); }
-.c-desk--scatter .c-notes__grid .c-wn-notebook:nth-child(5n+2) { transform: rotate(2.2deg) translateY(-4px); }
-.c-desk--scatter .c-notes__grid .c-wn-notebook:nth-child(5n+3) { transform: rotate(-1.6deg) translateY(10px); }
-.c-desk--scatter .c-notes__grid .c-wn-notebook:nth-child(5n+4) { transform: rotate(3.4deg) translateY(-2px); }
-.c-desk--scatter .c-notes__grid .c-wn-notebook:nth-child(5n+5) { transform: rotate(-2.4deg) translateY(4px); }
-.c-desk--scatter .c-notes__grid .c-wn-notebook:hover { transform: translateY(-6px) rotate(0deg); }
-
-/* 夜里：木头变深核桃色，桌垫更暗 */
+/* 夜里：木头变深核桃色 */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .c-desk { --desk-a: #6e4a2e; --desk-b: #55381f; --desk-grain: rgba(0, 0, 0, 0.18); --desk-edge: rgba(255, 230, 200, 0.12); }
-  :root:not([data-theme="light"]) .c-desk--mat { --desk-a: #18263a; --desk-b: #101a2a; --desk-grain: rgba(255, 255, 255, 0.02); }
 }
 :root[data-theme="dark"] .c-desk { --desk-a: #6e4a2e; --desk-b: #55381f; --desk-grain: rgba(0, 0, 0, 0.18); --desk-edge: rgba(255, 230, 200, 0.12); }
-:root[data-theme="dark"] .c-desk--mat { --desk-a: #18263a; --desk-b: #101a2a; --desk-grain: rgba(255, 255, 255, 0.02); }
 
 /* 小物件：都摆在本子之间的空当里，不压字 */
 .c-desk__thing {
@@ -422,8 +389,6 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
   50% { opacity: .85; }
   100% { opacity: 0; transform: translateY(-8px) scaleY(1.15); }
 }
-.c-desk--mat .c-desk__thing--ring { display: none; }
-.c-desk--mat .c-desk__thing { filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45)); }
 
 @media only screen and (max-width: 900px) {
   .c-desk { padding: 88px 22px 70px; border-radius: 14px; }
