@@ -17,6 +17,7 @@ python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratc
 - 一本书一张页、一个链接：新的一批往 `batches` 末尾追加，重新生成，发布到同一个链接。
 - 第一次发布带 `capabilities: {"comments": {"composer_only": true}}`，卡片上的「批注」按钮才打得开批注框。
 - 行内记号只有两个：`==高亮==`、`**粗体**`；其余一律当纯文本转义。
+- `color` 五种：blue 生词 / pink 对照 / purple 专名（默认不进欧路）/ yellow 长难句（整句卡，标题「怎么拆」）/ orange 好句（整句卡，「好在哪」）；整句卡不进欧路、不进词表。
 - 笔记编号重复时脚本直接报错退出（批注锚在卡片 id 上，重号会串）。
 
 自检：随手写一个带两批、各字段都填了的临时数据文件跑一遍，数一下 `class="card"` 的个数、
@@ -35,7 +36,7 @@ python3 tools/reading/clone_article.py --html 下载的.html --url <网址> --sl
 ```
 
 - 抓标题、导语、署名、日期、正文各段（《卫报》按它的结构找，别的网站退到 `<article>`），
-  排成一页：三支笔（蓝生词 / 粉对照 / 橙好句，跟 `render_notes.py` 同色）、选中即划、点已划的换色或擦掉、
+  排成一页：五支笔（蓝生词 / 粉对照 / 紫专名 / 黄长难句 / 橙好句，跟 `render_notes.py` 的 PENS 同色；紫、黄是 2026-10-14 她加的）、选中即划、点已划的换色或擦掉、
   底部「清单」（按颜色列出、可擦、可复制一份贴给 Claude）。
 - **第一次发布带 `capabilities: {"db": {}}`**：划线存进这张页自己的数据库 `highlights` 集合
   （一处一条：`p` 段下标、`loc` 位置名、`s`/`e` 字符偏移、`color`、`text`、`ts`、`noted`），手机电脑同一份；

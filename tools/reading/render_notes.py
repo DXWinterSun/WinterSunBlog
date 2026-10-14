@@ -53,8 +53,11 @@ LEVELS = {
 PENS = {
     'blue': ('生词', '#7fd6dc'),
     'pink': ('对照', '#f2a7c6'),
+    'purple': ('专名', '#cdb4f0'),   # 紫＝专有名词：人名、地名、片名、东西的名字（2026-10-14 她加的）
+    'yellow': ('长难句', '#f3dd7a'), # 黄＝看不太懂的长句，拆开讲（2026-10-14 她加的；以前粉笔兼着，她说不对）
     'orange': ('好句', '#f7b27c'),   # 橙＝她觉得表达效果好的句子，跟学词无关（2026-09-26）
 }
+SENTENCE_PENS = ('orange', 'yellow')   # 整句卡（没有词条、音标），不进欧路列表、不进词表
 
 FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400'
          '&family=Noto+Serif+SC:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">')
@@ -64,7 +67,7 @@ CSS = '''
  /* 默认明亮（Winter 2026-09-26：「笔记默认明亮模式吧，不然不是很方便阅读」）；右上角可切回夜间 */
  color-scheme:light;
  --bg:color-mix(in srgb,__ACCENT__ 7%,#fbfaf6);--accent:__INK_ACCENT__;--ink:__BG__;
- --muted:color-mix(in srgb,__BG__ 62%,#fbfaf6);--hl:__HL__;--hl-pink:__HLPINK__;--hl-orange:__HLORANGE__;
+ --muted:color-mix(in srgb,__BG__ 62%,#fbfaf6);--hl:__HL__;--hl-pink:__HLPINK__;--hl-orange:__HLORANGE__;--hl-purple:__HLPURPLE__;--hl-yellow:__HLYELLOW__;
  --surface:#fffefb;--glow:rgba(255,255,255,0);--shadow:0 1px 2px rgba(20,24,31,.06);
  --line:color-mix(in srgb,var(--accent) 26%,transparent);
  --code-bg:color-mix(in srgb,var(--accent) 9%,#fff);
@@ -182,14 +185,19 @@ mark{color:inherit;background:transparent;padding:0 .14em;margin:0 -.04em;
 
 mark.orange{background-image:linear-gradient(100deg,transparent 0 1%,color-mix(in srgb,var(--hl-orange) var(--hl-mix),transparent) 1% 99%,transparent 99%);}
 mark.pink{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-pink) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);}
+mark.purple{background-image:linear-gradient(100deg,transparent 0 1.5%,color-mix(in srgb,var(--hl-purple) var(--hl-mix),transparent) 1.5% 98%,transparent 98%);}
+mark.yellow{background-image:linear-gradient(100deg,transparent 0 1%,color-mix(in srgb,var(--hl-yellow) var(--hl-mix),transparent) 1% 99%,transparent 99%);}
 .card__pen{padding:0 .6rem;border-radius:99px;font-family:"Noto Serif SC","Songti SC",serif;font-size:.74rem;
  letter-spacing:.08em;color:var(--pen-ink);background:var(--hl);}
 .card__pen.pink{background:var(--hl-pink);}
 .card__pen.orange{background:var(--hl-orange);}
+.card__pen.purple{background:var(--hl-purple);}
+.card__pen.yellow{background:var(--hl-yellow);}
 /* 好句卡：没有词条、音标，只有那句话、译文和赏析 */
 .card--orange{border-left:3px solid var(--hl-orange);}
-.card--orange .card__quote{font-size:1.2rem;line-height:1.75;border-left:none;padding-left:0;}
-.card--orange .card__gist{padding-left:0;}
+.card--yellow{border-left:3px solid var(--hl-yellow);}
+.card--orange .card__quote,.card--yellow .card__quote{font-size:1.2rem;line-height:1.75;border-left:none;padding-left:0;}
+.card--orange .card__gist,.card--yellow .card__gist{padding-left:0;}
 .card__pen+.card__kind{margin-left:0;}
 .card__meta .card__pen{margin-left:auto;}
 .card__cn .card__pos{margin-right:.5em;}
@@ -277,6 +285,8 @@ details.tipbox .tips{margin-top:.8rem;}
 .card{border-left:4px solid var(--hl);}
 .card--pink{border-left-color:var(--hl-pink);}
 .card--orange{border-left-color:var(--hl-orange);}
+.card--purple{border-left-color:var(--hl-purple);}
+.card--yellow{border-left-color:var(--hl-yellow);}
 .card__term{font-family:"Helvetica Neue",Arial,ui-sans-serif,sans-serif;font-weight:700;font-size:1.9rem;
  letter-spacing:0;color:var(--word);}
 .card__head{align-items:center;gap:.3rem .8rem;}
@@ -319,6 +329,7 @@ details.tipbox .tips{margin-top:.8rem;}
 .wl__tabs{display:flex;flex-wrap:wrap;gap:.4rem;padding:0 1rem .6rem;}
 .wl__x{margin-left:.35em;padding:0 .3rem;border-radius:4px;background:var(--band);color:var(--word);font-size:.72em;font-weight:700;vertical-align:.1em;}
 .wf--pink{border-left-color:var(--hl-pink)!important;}
+.wf--purple{border-left-color:var(--hl-purple)!important;}
 .rep__all li.wl__letter{display:block;border-left:0;padding:.25rem 1rem;}
 @media (max-width:480px){.wl__tabs{gap:.3rem;padding:0 .8rem .6rem;}.wl__tab{padding:.2rem .6rem;font-size:.8rem;}}
 .wl__tab{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:99px;
@@ -337,6 +348,7 @@ details.tipbox .tips{margin-top:.8rem;}
  padding:.3rem 1rem .3rem .8rem;border-left:3px solid var(--hl);line-height:1.5;text-decoration:none;color:var(--ink);
  border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);}
 .wl__row--pink{border-left-color:var(--hl-pink);}
+.wl__row--purple{border-left-color:var(--hl-purple);}
 .wl__row:hover{background:var(--band);}
 .wl__term{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;color:var(--word);}
 .wl__pos{font-size:.7rem;font-weight:600;padding:0 .35rem;border-radius:4px;background:var(--pos-bg);color:var(--pos-ink);}
@@ -436,6 +448,8 @@ body{padding-bottom:4.5rem;}
  border-left:3px solid var(--hl);background:transparent;color:var(--ink);font:inherit;text-align:left;cursor:pointer;min-height:40px;}
 .fs__item--pink{border-left-color:var(--hl-pink);}
 .fs__item--orange{border-left-color:var(--hl-orange);}
+.fs__item--purple{border-left-color:var(--hl-purple);}
+.fs__item--yellow{border-left-color:var(--hl-yellow);}
 .fs__item--orange .fs__term{font-family:inherit;font-weight:400;color:var(--muted);}
 .fs__item:hover{background:var(--band);}
 .fs__item.is-cur{background:color-mix(in srgb,var(--word) 12%,transparent);}
@@ -756,7 +770,7 @@ def esc(s):
 def fmt(s, pen='blue'):
     """纯文本转义 + 两个行内记号：==高亮== / **粗体**。高亮按这条笔记的荧光笔颜色上色。"""
     s = html.escape(str(s).strip(), quote=False)
-    cls = f' class="{pen}"' if pen in ('pink', 'orange') else ''
+    cls = f' class="{pen}"' if pen in PENS and pen != 'blue' else ''
     s = re.sub(r'==(.+?)==', rf'<mark{cls}>\1</mark>', s)
     s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
     return s.replace('\n', '<br>')
@@ -773,8 +787,8 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
     原文语境（短语＋页码＋大意）→ 解读 → 搭配 / 易混。"""
     show = LEVELS[level]
     pen = n.get('color') or 'blue'
-    if pen == 'orange':
-        return quote_card(n, cid, winter_label)
+    if pen in SENTENCE_PENS:
+        return quote_card(n, cid, winter_label, pen)
     out = [f'<article class="card card--{pen}" id="{esc(cid)}" data-comment-target '
            f'data-term="{esc(n["term"])}" data-page="{pg(n.get("page", ""))}" data-pen="{pen}">']
 
@@ -863,20 +877,24 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
     return '\n'.join(out)
 
 
-def quote_card(n, cid, winter_label):
-    """橙笔好句：那句话（整句高亮）＋页码＋译文＋为什么好。不进欧路列表。"""
-    out = [f'<article class="card card--orange" id="{esc(cid)}" data-comment-target '
-           f'data-term="好句" data-page="{pg(n.get("page", ""))}" data-pen="orange">',
+def quote_card(n, cid, winter_label, pen='orange'):
+    """整句卡——橙笔好句：那句话（整句高亮）＋页码＋译文＋为什么好；黄笔长难句：同样的壳，解读标题换成「怎么拆」，
+    `extra` 里可以一条条列主干 / 从句 / 难点。都不进欧路列表、不进词表。"""
+    label = PENS[pen][0]
+    out = [f'<article class="card card--{pen}" id="{esc(cid)}" data-comment-target '
+           f'data-term="{label}" data-page="{pg(n.get("page", ""))}" data-pen="{pen}">',
            '<div class="card__meta">'
            f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>'
            + (f'<span class="card__page">{pg(n["page"])}</span>' if n.get('page') not in (None, '') else '')
-           + '<span class="card__pen orange">好句</span></div>']
+           + f'<span class="card__pen {pen}">{label}</span></div>']
     q = n.get('context') or n.get('sentence') or ''
-    out.append(f'<blockquote class="card__quote" lang="en">{fmt(q, "orange")}</blockquote>')
+    out.append(f'<blockquote class="card__quote" lang="en">{fmt(q, pen)}</blockquote>')
     if n.get('gist'):
         out.append(f'<p class="card__gist">{fmt(n["gist"])}</p>')
     if n.get('note'):
-        out.append(f'<p class="card__note"><b>好在哪</b>{fmt(n["note"])}</p>')
+        out.append(f'<p class="card__note"><b>{"怎么拆" if pen == "yellow" else "好在哪"}</b>{fmt(n["note"])}</p>')
+    for e in as_list(n.get('extra')):
+        out.append(f'<p class="card__note">{fmt(e)}</p>')
     if n.get('unsure'):
         out.append(f'<p class="card__unsure"><b>看不太清</b>{fmt(n["unsure"])}</p>')
     ws = as_list(n.get('winter'))
@@ -915,7 +933,7 @@ def find_repeats(batches, index):
     groups = {}
     for b in batches:
         for x in b.get('notes') or []:
-            if (x.get('color') or 'blue') == 'orange':
+            if (x.get('color') or 'blue') in SENTENCE_PENS:
                 continue
             groups.setdefault(word_key(x, index), []).append(x)
     return [g for g in groups.values() if len(g) > 1]
@@ -960,7 +978,9 @@ def eudic_words(notes):
     """欧路词典导入用：一律原形；eudic 字段可手动指定（短语拆开会变成几个无关的词时用）。"""
     words = []
     for x in notes:
-        if x.get('color') == 'orange' or x.get('eudic') is False:   # 好句不进；前面已经导过的重复词写 eudic: false
+        if x.get('color') in SENTENCE_PENS or x.get('eudic') is False:   # 整句不进；前面已经导过的重复词写 eudic: false
+            continue
+        if x.get('color') == 'purple' and not isinstance(x.get('eudic'), str):   # 专名默认不进欧路；真想查的写 eudic: 原形
             continue
         w = str(x.get('eudic') or x.get('lemma') or x['term']).strip()
         if w and w not in words:
@@ -980,7 +1000,7 @@ def all_words_box(words, title, pages):
 
 def wordlist_box(batches):
     """词表：A–Z 和原顺序两种排法，点词跳到那张卡（Winter 2026-09-26）。好句不进。"""
-    rows = [x for b in batches for x in (b.get('notes') or []) if (x.get('color') or 'blue') != 'orange']
+    rows = [x for b in batches for x in (b.get('notes') or []) if (x.get('color') or 'blue') not in SENTENCE_PENS]
     if not rows:
         return ''
 
@@ -1142,7 +1162,7 @@ def main():
             if str(x['id']) in index:
                 sys.exit(f'笔记编号重复：{x["id"]}')
             if (x.get('color') or 'blue') not in PENS:
-                sys.exit(f'No. {x["id"]} 的 color 只能是 blue / pink / orange')
+                sys.exit(f'No. {x["id"]} 的 color 只能是 {" / ".join(PENS)}')
             index[str(x['id'])] = x
 
     groups = find_repeats(batches, index)
@@ -1163,6 +1183,8 @@ def main():
     pens = book.get('highlighters') or {}
     css = (css.replace('__HLPINK__', pens.get('pink') or PENS['pink'][1])
               .replace('__HLORANGE__', pens.get('orange') or PENS['orange'][1])
+              .replace('__HLPURPLE__', pens.get('purple') or PENS['purple'][1])
+              .replace('__HLYELLOW__', pens.get('yellow') or PENS['yellow'][1])
               .replace('__HL__', pens.get('blue') or book.get('highlighter') or PENS['blue'][1]))
     for k, v in pal.items():
         css = css.replace(f'__{k.upper()}__', v)

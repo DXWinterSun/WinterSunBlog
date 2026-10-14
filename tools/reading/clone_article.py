@@ -28,9 +28,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'preview'))
 from render_draft import palette          # noqa: E402  跟预览页同一套配色（默认金色；--series 可指定 AU）
 
 PENS = [  # id, 名字, 颜色（跟 render_notes.py 的 PENS 同色）, 一句说明
-    ('blue',   '生词', '#7fd6dc', '不认识的词'),
-    ('pink',   '对照', '#f2a7c6', '词认识，但这个用法值得再看一眼'),
-    ('orange', '好句', '#f7b27c', '表达效果好的句子'),
+    ('blue',   '生词',   '#7fd6dc', '不认识的词'),
+    ('pink',   '对照',   '#f2a7c6', '词认识，但这个用法新鲜、值得再看一眼'),
+    ('purple', '专名',   '#cdb4f0', '人名、地名、片名、东西的名字'),       # 2026-10-14 她加的
+    ('yellow', '长难句', '#f3dd7a', '看不太懂的长句，要拆开讲'),           # 2026-10-14 她加的
+    ('orange', '好句',   '#f7b27c', '表达效果好的句子'),
 ]
 
 FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400'
@@ -107,7 +109,7 @@ CSS = '''
  --bg:color-mix(in srgb,__ACCENT__ 6%,#fbfaf6);--accent:__INK_ACCENT__;--ink:#1d2129;--muted:#6b7280;
  --surface:#fffefb;--line:color-mix(in srgb,var(--accent) 24%,transparent);
  --shadow:0 10px 28px rgba(20,24,31,.12);--hl-mix:62%;--noted:#1f9a55;
- --pen-blue:__PEN_BLUE__;--pen-pink:__PEN_PINK__;--pen-orange:__PEN_ORANGE__;
+ --pen-blue:__PEN_BLUE__;--pen-pink:__PEN_PINK__;--pen-purple:__PEN_PURPLE__;--pen-yellow:__PEN_YELLOW__;--pen-orange:__PEN_ORANGE__;
 }
 :root[data-theme="dark"]{
  color-scheme:dark;
@@ -143,7 +145,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC",
 @media (max-width:700px){.art .num{display:none}}
 mark{color:inherit;border-radius:2px;padding:.06em 0;background:color-mix(in srgb,var(--c) var(--hl-mix),transparent);
  box-decoration-break:clone;-webkit-box-decoration-break:clone;cursor:pointer;transition:background .15s}
-mark.is-noted{box-shadow:inset 0 -2px 0 var(--noted)}
+mark.is-noted::after{content:"✓";font-size:.55em;vertical-align:super;color:var(--noted);margin-left:.1em;font-family:system-ui,sans-serif}
 mark.is-focus{background:color-mix(in srgb,var(--c) 88%,transparent)}
 /* 浮在选区上方的小笔盒 */
 .pop{position:absolute;z-index:20;display:none;gap:.35rem;align-items:center;padding:.4rem .5rem;border-radius:999px;
@@ -172,7 +174,7 @@ mark.is-focus{background:color-mix(in srgb,var(--c) 88%,transparent)}
 .pen.is-on .n{color:var(--ink)}
 .bar .list{height:36px;padding:0 .75rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);
  cursor:pointer;font-family:inherit;font-size:.82rem;letter-spacing:.04em;white-space:nowrap}
-@media (max-width:480px){.pen{padding:0 .5rem 0 .35rem}.pen .lbl{display:none}.pen.is-on .lbl{display:inline}}
+@media (max-width:480px){.bar__in{gap:.3rem;padding:.4rem .45rem}.pen{padding:0 .4rem 0 .3rem;gap:.25rem}.pen .lbl{display:none}.pen.is-on .lbl{display:inline}.pen .n:empty{display:none}.bar .list{padding:0 .6rem}}
 .hint{position:fixed;left:50%;bottom:calc(66px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:14;
  font-size:.78rem;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.25rem .8rem;
  opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;max-width:calc(100vw - 24px);overflow:hidden;text-overflow:ellipsis}
@@ -207,7 +209,7 @@ mark.is-focus{background:color-mix(in srgb,var(--c) 88%,transparent)}
 JS = r'''
 (function(){
   var SLUG = document.body.getAttribute('data-slug');
-  var PENS = {blue:'生词', pink:'对照', orange:'好句'};
+  var PENS = __PENS_JSON__, ORDER = __ORDER_JSON__;
   var art = document.getElementById('art');
   var paras = Array.prototype.slice.call(art.querySelectorAll('.p'));
   var TEXT = paras.map(function(p){ return p.getAttribute('data-t'); });
@@ -267,9 +269,9 @@ JS = r'''
     counts();
   }
   function counts(){
-    var c = {blue:0,pink:0,orange:0}, n = 0, noted = 0;
+    var c = {}, n = 0, noted = 0;
     Object.keys(H).forEach(function(id){ var h = H[id]; c[h.color] = (c[h.color]||0)+1; n++; if (h.noted) noted++; });
-    ['blue','pink','orange'].forEach(function(k){ var el = document.querySelector('.pen[data-pen="' + k + '"] .n'); if (el) el.textContent = c[k] || ''; });
+    ORDER.forEach(function(k){ var el = document.querySelector('.pen[data-pen="' + k + '"] .n'); if (el) el.textContent = c[k] || ''; });
     var lb = document.getElementById('list-btn');
     lb.textContent = n ? ('清单 ' + n + (noted ? ' · 已整理 ' + noted : '')) : '清单';
   }
@@ -384,7 +386,7 @@ JS = r'''
     var body = document.getElementById('drawer-body'), ids = Object.keys(H);
     if (!ids.length) { body.innerHTML = '<p class="empty">还一处都没划。选中几个字，挑一支笔。</p>'; drawer.classList.add('is-on'); return; }
     var html = '';
-    ['blue','pink','orange'].forEach(function(c){
+    ORDER.forEach(function(c){
       var g = ids.filter(function(id){ return H[id].color === c; }).sort(function(a,b){ return H[a].p - H[b].p || H[a].s - H[b].s; });
       if (!g.length) return;
       html += '<div class="grp" style="--c:var(--pen-' + c + ')"><i></i>' + PENS[c] + ' · ' + g.length + '</div>';
@@ -469,7 +471,9 @@ def render(meta, pal, ink_accent, slug):
     pens = {k: c for k, _, c, _ in PENS}
     css = (CSS.replace('__ACCENT__', pal['accent']).replace('__INK_ACCENT__', ink_accent).replace('__BG__', pal['bg'])
               .replace('__TEXT__', pal['text']).replace('__MUTED__', pal['muted'])
-              .replace('__PEN_BLUE__', pens['blue']).replace('__PEN_PINK__', pens['pink']).replace('__PEN_ORANGE__', pens['orange']))
+              .replace('__PEN_BLUE__', pens['blue']).replace('__PEN_PINK__', pens['pink']).replace('__PEN_ORANGE__', pens['orange'])
+              .replace('__PEN_PURPLE__', pens['purple']).replace('__PEN_YELLOW__', pens['yellow'])
+)
     allp = [{'k': 't', 't': meta['title']}] + ([{'k': 'lede', 't': meta['standfirst']}] if meta.get('standfirst') else []) + meta['paras']
     paras, n = [], 0
     for i, p in enumerate(allp):
@@ -487,6 +491,8 @@ def render(meta, pal, ink_accent, slug):
         f'<button type="button" class="pen" data-pen="{k}" style="--c:var(--pen-{k})"><i></i><span class="lbl">{n}</span><span class="n"></span></button>'
         for k, n, _, _ in PENS)
     pop_html = ''.join(f'<button type="button" data-pen="{k}" style="--c:var(--pen-{k})" title="{n}" aria-label="{n}"></button>' for k, n, _, _ in PENS)
+    js = (JS.replace('__PENS_JSON__', json.dumps({k: n for k, n, _, _ in PENS}, ensure_ascii=False))
+            .replace('__ORDER_JSON__', json.dumps([k for k, _, _, _ in PENS])))
     by = ' · '.join(x for x in (meta.get('author'), meta.get('site'), meta.get('date')) if x)
     title = esc(meta['title'])
     meta_html = (f'<p class="by">{esc(by)}</p>\n'
@@ -518,7 +524,7 @@ def render(meta, pal, ink_accent, slug):
   <div id="drawer-body"></div>
 </div></div>
 <div class="toast" id="toast"></div>
-<script>{JS}</script>
+<script>{js}</script>
 </body>
 </html>
 '''
