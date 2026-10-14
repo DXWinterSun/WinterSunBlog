@@ -1513,3 +1513,61 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   .c-sam-toy__eyebrow, .c-sam-toy__t2, .c-sam-toy__desc, .c-sam-toy__arrow { display: none; }
   .c-year-ribbon { margin-bottom: 14px; }
 }
+
+/* ===============
+	Sam 页中段（计数卡 → 三节折叠 → 互动彩蛋）在手机上的三种排法（2026-10-14，Winter：「中间的过渡也不那么好看」）
+	她挑定前都留着：.is-mid-a 一排三块画砖 / .is-mid-b 三张横条小卡 / .is-mid-c 并进一张目录卡。
+	三节各有一块小插画（sam-toy-art.html 的 who / little / story）。电脑上不动：画砖行、节头的小插画都藏着。
+=============== */
+.c-sam-fold-tabs { display: none; }
+.c-sam-fold__art { display: none; }
+
+@media only screen and (max-width: 720px) {
+  /* 三版共用：那行「点标题展开」的提示收掉；两颗跳转链接做成小药丸；彩带不再套一层卡 */
+  .c-sam-fold-hint { display: none; }
+  .c-sam-jump { gap: 8px; margin: 14px 0 18px; }
+  .c-sam-jump span { display: none; }
+  .c-sam-jump a { padding: 5px 12px; border: 1px solid $line-strong; border-radius: 999px; background: $paper; letter-spacing: .08em; }
+  .c-year-ribbon { background: transparent; border: 0; padding: 4px 2px 18px; margin-bottom: 8px; }
+  .c-sam-collection .c-section-heading { margin: 8px 0 14px; }
+
+  /* A · 一排三块画砖，点一块展开那一节 */
+  .is-mid-a .c-sam-fold-tabs {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 4px 0 12px;
+    button {
+      display: grid; justify-items: center; gap: 6px; padding: 0 0 2px; background: transparent; border: 0; cursor: pointer; color: inherit; font: inherit;
+      b { font-family: $heading-font-family; font-size: 12.5px; font-weight: 700; color: $ink; line-height: 1.2; text-align: center; }
+      i { font-family: $heading-font-family; font-style: italic; font-size: 11px; color: $muted; margin-top: -3px; }
+    }
+    .c-sam-fold-tabs__art { display: block; width: 74px; height: 74px; border-radius: 18px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(20, 33, 46, 0.08), 0 10px 18px -10px rgba(var(--rgb-shadow), 0.45); transition: transform .2s, box-shadow .2s; svg { display: block; width: 100%; height: 100%; } }
+    button.is-on .c-sam-fold-tabs__art { box-shadow: inset 0 0 0 2px $accent, 0 10px 18px -10px rgba(var(--rgb-shadow), 0.45); transform: translateY(-2px); }
+    button.is-on b { color: $accent; }
+  }
+  .is-mid-a .c-sam-fold { border: 0; }
+  .is-mid-a .c-sam-fold__head { display: none; }
+  .is-mid-a .c-sam-fold__body { padding: 16px 16px 10px; margin: 0 0 12px; background: $paper; border: 1px solid $line; border-radius: 14px; }
+
+  /* B · 三张横条小卡：左边小插画，右边两行标题 */
+  .is-mid-b .c-sam-folds { display: grid; gap: 10px; margin: 4px 0 8px; }
+  .is-mid-b .c-sam-fold { border: 1px solid $line; border-radius: 14px; background: $paper; overflow: hidden; }
+  .is-mid-b .c-sam-fold:last-of-type { border-bottom: 1px solid $line; }
+  .is-mid-b .c-sam-fold__head { padding: 10px 14px 10px 10px; gap: 12px; }
+  .is-mid-b .c-sam-fold__art { display: block; flex: 0 0 auto; width: 52px; height: 52px; border-radius: 12px; overflow: hidden; svg { display: block; width: 100%; height: 100%; } }
+  .is-mid-b .c-sam-fold__titles { flex: 1; flex-direction: column; align-items: flex-start; gap: 1px; }
+  .is-mid-b .c-sam-fold__en { font-size: 17px; }
+  .is-mid-b .c-sam-fold__cn { font-size: 12.5px; }
+  .is-mid-b .c-sam-fold__body { padding: 0 16px 10px; }
+
+  /* C · 并进一张目录卡：三节排在一张卡里，小插画 + 序号，分隔线 */
+  .is-mid-c .c-sam-folds { margin: 4px 0 8px; padding: 4px 14px; background: $paper; border: 1px solid $line; border-radius: 16px; counter-reset: fold; }
+  .is-mid-c .c-sam-fold { border-top: 1px solid $line; counter-increment: fold; }
+  .is-mid-c .c-sam-fold:first-of-type { border-top: 0; }
+  .is-mid-c .c-sam-fold:last-of-type { border-bottom: 0; }
+  .is-mid-c .c-sam-fold__head { padding: 12px 2px; gap: 12px; }
+  .is-mid-c .c-sam-fold__head::before { content: counter(fold, decimal-leading-zero); font-family: $heading-font-family; font-style: italic; font-size: 11px; color: $muted; flex: 0 0 auto; }
+  .is-mid-c .c-sam-fold__art { display: block; flex: 0 0 auto; width: 42px; height: 42px; border-radius: 10px; overflow: hidden; svg { display: block; width: 100%; height: 100%; } }
+  .is-mid-c .c-sam-fold__titles { flex: 1; flex-direction: column; align-items: flex-start; gap: 0; }
+  .is-mid-c .c-sam-fold__en { font-size: 16px; }
+  .is-mid-c .c-sam-fold__cn { font-size: 12px; }
+  .is-mid-c .c-sam-fold__body { padding: 0 2px 10px; }
+}

@@ -46,8 +46,17 @@ title: Sam
 
   <p class="c-sam-fold-hint">点标题展开 / 收起 · 一次读一节</p>
 
+  {%- comment -%} 手机上三节的入口可以是一排三块画砖（_sam.scss 里的 .c-sam-fold-tabs，只在手机显示），点一块展开那一节 {%- endcomment %}
+  <div class="c-sam-fold-tabs" id="js-fold-tabs" hidden>
+    <button type="button" data-fold="who-is-sam"><span class="c-sam-fold-tabs__art" aria-hidden="true">{% include sam-toy-art.html key='who' %}</span><b>Who is Sam</b><i>他是谁</i></button>
+    <button type="button" data-fold="the-little-things"><span class="c-sam-fold-tabs__art" aria-hidden="true">{% include sam-toy-art.html key='little' %}</span><b>The Little Things</b><i>那些小事</i></button>
+    <button type="button" data-fold="our-story"><span class="c-sam-fold-tabs__art" aria-hidden="true">{% include sam-toy-art.html key='story' %}</span><b>Our Story</b><i>我们的故事</i></button>
+  </div>
+
+  <div class="c-sam-folds">
   <details class="c-sam-fold" name="sam-story" id="who-is-sam">
     <summary class="c-sam-fold__head">
+      <span class="c-sam-fold__art" aria-hidden="true">{% include sam-toy-art.html key='who' %}</span>
       <span class="c-sam-fold__titles"><span class="c-sam-fold__en">Who is Sam</span><span class="c-sam-fold__cn">他是谁</span></span>
       <span class="c-sam-fold__chev" aria-hidden="true">▸</span>
     </summary>
@@ -68,6 +77,7 @@ title: Sam
 
   <details class="c-sam-fold" name="sam-story" id="the-little-things">
     <summary class="c-sam-fold__head">
+      <span class="c-sam-fold__art" aria-hidden="true">{% include sam-toy-art.html key='little' %}</span>
       <span class="c-sam-fold__titles"><span class="c-sam-fold__en">The Little Things</span><span class="c-sam-fold__cn">那些小事</span></span>
       <span class="c-sam-fold__chev" aria-hidden="true">▸</span>
     </summary>
@@ -231,6 +241,7 @@ title: Sam
 
   <details class="c-sam-fold" name="sam-story" id="our-story">
     <summary class="c-sam-fold__head">
+      <span class="c-sam-fold__art" aria-hidden="true">{% include sam-toy-art.html key='story' %}</span>
       <span class="c-sam-fold__titles"><span class="c-sam-fold__en">Our Story</span><span class="c-sam-fold__cn">我们的故事</span></span>
       <span class="c-sam-fold__chev" aria-hidden="true">▸</span>
     </summary>
@@ -306,6 +317,7 @@ title: Sam
       <button type="button" class="c-sam-fold__collapse">▲ 收起本节</button>
     </div>
   </details>
+  </div>
 
   {%- comment -%} 「每日一更」已并入页面顶部的 .c-streak 计数器（hero 下方，见文首），
        原独立折叠块删除，避免与顶部计数器重复；下面的 style / script 保留在此、全局生效 {%- endcomment -%}
@@ -422,6 +434,19 @@ title: Sam
     }
     openHash();
     window.addEventListener('hashchange', openHash);
+    /* 手机上那排三块画砖：点一块开合对应那一节，开着的那块亮边 */
+    var tabs = document.getElementById('js-fold-tabs');
+    if (tabs) {
+      tabs.hidden = false;
+      tabs.querySelectorAll('button').forEach(function (b) {
+        var d = document.getElementById(b.getAttribute('data-fold')); if (!d) return;
+        b.addEventListener('click', function () {
+          d.open = !d.open;
+          if (d.open) setTimeout(function () { d.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 40);
+        });
+        d.addEventListener('toggle', function () { b.classList.toggle('is-on', d.open); });
+      });
+    }
   })();
 </script>
 
