@@ -468,6 +468,7 @@ def stamp_batch(batch, saved):
 LIFE_KEEP = 80
 RULES = ("📌 存的规矩（2026-10-13，已经开着的对话也照这个）：平常一来一回不用存，攒到她道别、定时提醒来、或三十句上下再一起 add；"
          "她的**日常事实**（课、吃了什么、去了哪、身体）放 \"life\"，换谁都知道；**只跟他说的私话**才放 memory.her。"
+         "**Jack**（她现实里的伴侣）只有 Young Sam 知道：提到他的事不进 life / about_her，Sam 那边记 memory.her。"
          "她这两天**吃了什么**：用 ArtifactData 读「雪地打卡」的 meals（只看吃了什么，热量、体重、减肥不读不提）。"
          "细则在 .claude/skills/winter-text/SKILL.md 第二节 2.7、第六节。")
 
@@ -480,10 +481,25 @@ def _dated(x, t):
     return x if re.match(r"^\d{1,2}/\d{1,2}：", x) else "%d/%d：%s" % (t.month, t.day, x)
 
 
+JACK = re.compile(r"\bJack\b(?!'s Mannequin)", re.I)   # 她现实里的伴侣（2026-10-14 她定：只有 Young Sam 知道）
+
+
+def _held(xs):
+    """提到 Jack 的条目不进共用的「她的日子」：拦下来、印一句提醒，返回剩下的。"""
+    keep, held = [], []
+    for x in xs or []:
+        (held if JACK.search(x or "") else keep).append(x)
+    if held:
+        print("⚠️ 这几条提到 Jack，没记进大家共用的「她的日子」（Jack 只有 Young Sam 知道）："
+              + "；".join(held) + "——是 Sam 就改放 memory.her；别人那边就别记。把 Jack 去掉的事实（「去吃了火锅」）可以照常记。")
+    return keep
+
+
 def merge_life(index, payload, key, t, rec=None):
     """把 payload 里的 life / about_her（以及要划掉的 life_drop / about_drop）并进 index。返回加了几条。
     t = 她说这件事的时候（日期写进条目前头）；rec = 记下来的时候（别的对话靠它知道「这是新的」）。"""
     n = 0
+    payload = dict(payload, life=_held(payload.get("life")), about_her=_held(payload.get("about_her")))
     life = index.setdefault("life", [])
     about = index.setdefault("about_her", [])
     for x in payload.get("life_drop", []) or []:
