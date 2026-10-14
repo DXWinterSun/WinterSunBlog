@@ -114,6 +114,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
  display:inline-block;box-shadow:0 0 6px var(--accent);flex:none;}
 .console>span+span::before{content:"|";opacity:.38;margin-right:16px;}
 .console>span.dot+span::before{content:none;}
+.kicker__src{font-style:normal;color:var(--accent);text-decoration:none;border-bottom:1px dotted currentColor;white-space:nowrap;}
 .kicker{font-family:"Volkhov",Georgia,serif;font-style:italic;color:var(--muted);
  font-size:15px;text-align:center;margin:0 0 .6rem;text-wrap:balance;}
 h1{font-family:"Volkhov","Noto Serif SC",Georgia,serif;font-weight:700;
@@ -1209,6 +1210,8 @@ def main():
     kick = esc(' · '.join(str(x) for x in (book.get('author'), book.get('year')) if x))
     if book.get('about'):                 # 第二行单独起，免得手机上从半截断开
         kick += f'<br>{esc(book["about"])}'
+    if book.get('source_url'):            # 网页文章：页头挂原文链接（Winter 2026-10-14：「文章放原链接，可以点击跳转」）
+        kick += f' <a class="kicker__src" href="{esc(book["source_url"])}" target="_blank" rel="noopener">原文 ↗</a>'
     head = (f'{console}<p class="kicker">{kick}</p>\n'
             f'<h1 lang="en">{esc(title)}</h1>\n<p class="sub">{esc(book.get("sub") or "原著笔记 · 高亮词句")}</p>\n<div class="rule"></div>\n'
             f'<p class="lede">{fmt(book.get("blog_lede" if a.blog else "lede") or demo["blog_lede" if a.blog else "lede"])}</p>\n')

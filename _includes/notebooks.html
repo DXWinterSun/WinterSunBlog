@@ -6,7 +6,8 @@
   · 冬的灵感本：/memo/，数据在仓库 memo 分支，构建时读不到，所以封面不报数
   · 冬的陪伴：/with-you/，加密的聊天记录在 texts 分支，上锁，封面不报数（2026-10-12）
   · 波兰语笔记本：/polish/，读 _data/polish/notes.yml
-  · 原著笔记：每本一张，/reading/<slug>/，读 _data/reading/*.yml
+  · 冬的书架：书和文章的划线笔记合成一本，点进去（/reading/）再一本本铺开；封面上的数字从 _data/reading/*.yml 算
+    （2026-10-14 Winter：「一本书或者一篇文章的就是一个单独本子，多了会很乱……做成一个本子，不同的笔记点进去再铺开」）
   · 波兰语变格表：/polski.html，小工具，一张索引卡（原来放在 Gallery 里）
   以后新开的笔记本，照样往这里加一张封面。
 {%- endcomment -%}
@@ -30,16 +31,18 @@
   <span class="c-wn-notebook__meta"><b>{{ pn_sent }}</b> 句{% if pn_wrong > 0 %} · <b>{{ pn_wrong }}</b> 道错题{% endif %}</span>
 </a>
 {%- endif -%}
+{%- assign rd_books = 0 -%}{%- assign rd_arts = 0 -%}{%- assign rd_n = 0 -%}
 {%- for entry in site.data.reading -%}
-  {%- assign d = entry[1] -%}{%- assign b = d.book -%}
-  {%- assign pal = site.data.au_palettes[b.palette] -%}
-  {%- assign rn = 0 -%}{%- assign upto = '' -%}
-  {%- for bt in d.batches -%}{%- assign upto = bt.pages -%}{%- assign rn = rn | plus: bt.notes.size -%}{%- endfor %}
-<a class="c-wn-notebook" href="{{ site.baseurl }}/reading/{{ b.slug }}/" style="--nb-bg: {{ pal.bg | default: '#1d2330' }}; --nb-spine: {{ pal.accent | default: '#8fa0b0' }}; --nb-ink: {{ pal.text | default: '#e6e6e6' }};">
-  <span class="c-wn-notebook__label"><small>{% if b.kind == 'article' %}文章笔记{% else %}原著笔记{% endif %}</small><b lang="en">{{ b.title }}</b><span>{{ b.author }}</span></span>
-  <span class="c-wn-notebook__meta">{% if upto != '' %}{% if b.page_unit == '段' %}共 <b>{{ upto }}</b>{% else %}读到第 <b>{{ upto }}</b> 页{% endif %} · {% endif %}<b>{{ rn }}</b> 条</span>
+  {%- assign d = entry[1] -%}
+  {%- if d.book.kind == 'article' -%}{%- assign rd_arts = rd_arts | plus: 1 -%}{%- else -%}{%- assign rd_books = rd_books | plus: 1 -%}{%- endif -%}
+  {%- for bt in d.batches -%}{%- assign rd_n = rd_n | plus: bt.notes.size -%}{%- endfor -%}
+{%- endfor -%}
+{%- if rd_books > 0 or rd_arts > 0 %}
+<a class="c-wn-notebook c-wn-notebook--reading" href="{{ site.baseurl }}/reading/">
+  <span class="c-wn-notebook__label"><small>Reading Notes</small><b>冬的书架</b><span>读原著、读报道时划下来的词句</span></span>
+  <span class="c-wn-notebook__meta">{% if rd_books > 0 %}<b>{{ rd_books }}</b> 本书{% endif %}{% if rd_books > 0 and rd_arts > 0 %} · {% endif %}{% if rd_arts > 0 %}<b>{{ rd_arts }}</b> 篇文章{% endif %} · <b>{{ rd_n }}</b> 条</span>
 </a>
-{%- endfor %}
+{%- endif %}
 <a class="c-wn-notebook c-wn-notebook--tool" href="{{ site.baseurl }}/polski.html">
   <span class="c-wn-notebook__label"><small lang="pl">Odmiana</small><b>波兰语变格表</b><span>输入一个词，看全部变格，带朗读</span></span>
   <span class="c-wn-notebook__meta">小工具 · 查词用</span>

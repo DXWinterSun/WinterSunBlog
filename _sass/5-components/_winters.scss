@@ -126,6 +126,15 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   --nb-ink: #14212e;
   background: repeating-linear-gradient(180deg, #eaf3fa 0, #eaf3fa 23px, #d3e3ef 23px, #d3e3ef 24px);
 }
+/* 冬的书架那本：方格纸、墨绿书脊（2026-10-14 起书和文章的划线笔记合成一本，点进去才铺开） */
+.c-wn-notebook--reading {
+  --nb-spine: #2f6f73;
+  --nb-ink: #1d2129;
+  background:
+    linear-gradient(90deg, rgba(47, 111, 115, 0.12) 1px, transparent 1px) 0 0 / 18px 18px,
+    linear-gradient(180deg, rgba(47, 111, 115, 0.12) 1px, transparent 1px) 0 0 / 18px 18px,
+    #f7f4ea;
+}
 /* 冬的陪伴那本：夜里的信封蓝，一道玫瑰色书脊，零星几颗星；底下一行「🔒 上了锁的」（2026-10-12） */
 .c-wn-notebook--withyou {
   --nb-spine: #e08aa3;
