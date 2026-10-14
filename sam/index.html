@@ -500,17 +500,7 @@ title: Sam
 
   <div class="c-sam-toys">
     <a class="c-sam-toy" href="{{site.baseurl}}/sam/today/">
-      <span class="c-sam-toy__art c-sam-toy__art--today" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none">
-          <text x="6" y="36" font-family="Georgia,serif" font-style="italic" font-size="38" fill="#e6c377">&#8220;</text>
-          <path d="M24 41 H44" stroke="#e6c377" stroke-width="1.1" opacity=".4"/>
-          <circle class="sam-art-sun" cx="34" cy="33" r="5" fill="#e6c377" opacity=".9"/>
-          <path class="sam-art-ray" d="M34 24.5 V21" stroke="#e6c377" stroke-width="1.2" stroke-linecap="round"/>
-          <path class="sam-art-ray" d="M40.5 27 L43 24.5" stroke="#e6c377" stroke-width="1.2" stroke-linecap="round"/>
-          <path class="sam-art-ray" d="M27.5 27 L25 24.5" stroke="#e6c377" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
-        <i class="c-sam-toy__num">01</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--today" aria-hidden="true">{% include sam-toy-art.html key='today' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Daily · One Line</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">每日一句</span><span class="c-sam-toy__t2"> · 只说给你听</span></span>
@@ -520,23 +510,7 @@ title: Sam
     </a>
 
     <a class="c-sam-toy" href="{{site.baseurl}}/sam/many-faces/">
-      <span class="c-sam-toy__art c-sam-toy__art--faces" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none">
-          <g class="sam-art-card sam-art-card--l" stroke="#7f9bc4" stroke-width="1.3">
-            <rect x="16" y="11" width="16" height="23" rx="2.5" fill="#141110"/>
-            <circle cx="24" cy="19" r="3.4"/><path d="M19 29 q5 -4.6 10 0"/>
-          </g>
-          <g class="sam-art-card sam-art-card--r" stroke="#b0655e" stroke-width="1.3">
-            <rect x="16" y="11" width="16" height="23" rx="2.5" fill="#141110"/>
-            <circle cx="24" cy="19" r="3.4"/><path d="M19 29 q5 -4.6 10 0"/>
-          </g>
-          <g class="sam-art-card sam-art-card--c" stroke="#cba14c" stroke-width="1.4">
-            <rect x="16" y="11" width="16" height="23" rx="2.5" fill="#141110"/>
-            <circle cx="24" cy="19" r="3.4"/><path d="M19 29 q5 -4.6 10 0"/>
-          </g>
-        </svg>
-        <i class="c-sam-toy__num">02</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--faces" aria-hidden="true">{% include sam-toy-art.html key='faces' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Portraits · Gallery</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">面孔图鉴</span><span class="c-sam-toy__t2"> · Many Faces of Sam</span></span>
@@ -546,15 +520,7 @@ title: Sam
     </a>
 
     <a class="c-sam-toy" href="{{site.baseurl}}/sam/quiz/">
-      <span class="c-sam-toy__art c-sam-toy__art--quiz" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none" stroke="#8aa87b">
-          <rect x="9" y="8.5" width="30" height="8.4" rx="4.2" stroke-width="1.2" opacity=".55"/>
-          <rect x="9" y="19.8" width="30" height="8.4" rx="4.2" stroke-width="1.4" fill="#8aa87b" fill-opacity=".16"/>
-          <path class="sam-art-check" d="M14.5 24 l2.6 2.6 l5.4 -5.4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="9" y="31.1" width="30" height="8.4" rx="4.2" stroke-width="1.2" opacity=".55"/>
-        </svg>
-        <i class="c-sam-toy__num">03</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--quiz" aria-hidden="true">{% include sam-toy-art.html key='quiz' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Interactive · Quiz</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">角色测验</span><span class="c-sam-toy__t2"> · 哪个 Sam 最适合你</span></span>
@@ -564,14 +530,7 @@ title: Sam
     </a>
 
     <a class="c-sam-toy" href="{{site.baseurl}}/sam/spectrum/">
-      <span class="c-sam-toy__art c-sam-toy__art--spectrum" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none">
-          <polygon points="24,8 37.8,16 37.8,32 24,40 10.2,32 10.2,16" stroke="#9b8fd6" stroke-width="1.1" opacity=".45"/>
-          <polygon class="sam-art-radar" points="24,13 33,18 31.5,30 24,35 15.5,28.5 17,17.5" fill="#9b8fd6" fill-opacity=".28" stroke="#9b8fd6" stroke-width="1.3"/>
-          <g fill="#cdc4ef"><circle cx="24" cy="8" r="1.5"/><circle cx="37.8" cy="16" r="1.5"/><circle cx="37.8" cy="32" r="1.5"/><circle cx="24" cy="40" r="1.5"/><circle cx="10.2" cy="32" r="1.5"/><circle cx="10.2" cy="16" r="1.5"/></g>
-        </svg>
-        <i class="c-sam-toy__num">04</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--spectrum" aria-hidden="true">{% include sam-toy-art.html key='spectrum' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Visualized · Spectrum</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">六维光谱</span><span class="c-sam-toy__t2"> · {{ site.data.sam.faces }} 张面孔</span></span>
@@ -581,15 +540,7 @@ title: Sam
     </a>
 
     <a class="c-sam-toy" href="{{site.baseurl}}/sam/wall/">
-      <span class="c-sam-toy__art c-sam-toy__art--wall" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none" stroke-linecap="round">
-          <path d="M10 13 H36" stroke="#7f9bc4" stroke-width="1.5" opacity=".75"/>
-          <path d="M10 20 H30" stroke="#7f9bc4" stroke-width="1.5" opacity=".5"/>
-          <path d="M10 27 H34" stroke="#7f9bc4" stroke-width="1.5" opacity=".65"/>
-          <path class="sam-art-sign" d="M10 38 c4 -6.5 7.5 2.5 11.5 -2.5 s6.5 4 9 -3.5 q3 -3 7 1.5" stroke="#cba14c" stroke-width="1.6"/>
-        </svg>
-        <i class="c-sam-toy__num">05</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--wall" aria-hidden="true">{% include sam-toy-art.html key='wall' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Words · Signatures</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">台词签名墙</span><span class="c-sam-toy__t2"> · {{ site.data.sam.wall_lines }} 句</span></span>
@@ -599,21 +550,7 @@ title: Sam
     </a>
 
     <a class="c-sam-toy" href="{{site.baseurl}}/sam/projector/">
-      <span class="c-sam-toy__art c-sam-toy__art--projector" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none">
-          <rect x="17" y="5" width="14" height="38" rx="2" stroke="#d6b36a" stroke-width="1.2" opacity=".8"/>
-          <g fill="#d6b36a" opacity=".5">
-            <rect x="18.4" y="8" width="1.7" height="2.6" rx=".5"/><rect x="18.4" y="13" width="1.7" height="2.6" rx=".5"/><rect x="18.4" y="18" width="1.7" height="2.6" rx=".5"/><rect x="18.4" y="23" width="1.7" height="2.6" rx=".5"/><rect x="18.4" y="28" width="1.7" height="2.6" rx=".5"/><rect x="18.4" y="33" width="1.7" height="2.6" rx=".5"/><rect x="18.4" y="38" width="1.7" height="2.6" rx=".5"/>
-            <rect x="27.9" y="8" width="1.7" height="2.6" rx=".5"/><rect x="27.9" y="13" width="1.7" height="2.6" rx=".5"/><rect x="27.9" y="18" width="1.7" height="2.6" rx=".5"/><rect x="27.9" y="23" width="1.7" height="2.6" rx=".5"/><rect x="27.9" y="28" width="1.7" height="2.6" rx=".5"/><rect x="27.9" y="33" width="1.7" height="2.6" rx=".5"/><rect x="27.9" y="38" width="1.7" height="2.6" rx=".5"/>
-          </g>
-          <g class="sam-art-frames" fill="#d6b36a">
-            <rect x="21.4" y="8.5" width="5.2" height="7.5" rx="1" opacity=".22"/>
-            <rect class="sam-art-frame-lit" x="21.4" y="20" width="5.2" height="7.5" rx="1" opacity=".65"/>
-            <rect x="21.4" y="31.5" width="5.2" height="7.5" rx="1" opacity=".22"/>
-          </g>
-        </svg>
-        <i class="c-sam-toy__num">06</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--projector" aria-hidden="true">{% include sam-toy-art.html key='projector' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Cinema · Projector</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">放映室</span><span class="c-sam-toy__t2"> · 一格一格看他走过</span></span>
@@ -623,17 +560,7 @@ title: Sam
     </a>
 
     <a class="c-sam-toy" href="{{site.baseurl}}/sam/shelf/">
-      <span class="c-sam-toy__art c-sam-toy__art--shelf" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none">
-          <path d="M8 34.5 H40" stroke="#b0705c" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M11.5 34.5 v4.5 M36.5 34.5 v4.5" stroke="#b0705c" stroke-width="1.2" opacity=".5" stroke-linecap="round"/>
-          <g class="sam-art-disc"><circle cx="15.5" cy="27.5" r="6.4" stroke="#b0705c" stroke-width="1.3"/><circle cx="15.5" cy="27.5" r="1.6" fill="#b0705c"/></g>
-          <rect x="25.5" y="19.5" width="9.5" height="14.5" rx="1.5" stroke="#cba14c" stroke-width="1.3"/>
-          <circle cx="30.2" cy="25" r="2.1" stroke="#cba14c" stroke-width="1.1"/>
-          <path class="sam-art-star" d="M40 15 l1 2.6 2.6 1 -2.6 1 -1 2.6 -1 -2.6 -2.6 -1 2.6 -1 z" fill="#e6c377"/>
-        </svg>
-        <i class="c-sam-toy__num">07</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--shelf" aria-hidden="true">{% include sam-toy-art.html key='shelf' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Collection · Shelf</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">藏品架</span><span class="c-sam-toy__t2"> · 他的东西，我一件件收</span></span>
@@ -643,15 +570,7 @@ title: Sam
     </a>
 
     <a class="c-sam-toy" href="{{site.baseurl}}/sam/hotline/">
-      <span class="c-sam-toy__art c-sam-toy__art--hotline" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none" stroke-linecap="round">
-          <path d="M11 12.5 c-2.8 3 -2.8 6.5 0 9.5 l15 15 c3 2.8 6.5 2.8 9.5 0 l1.8 -1.8 c1.3 -1.3 1.3 -3 0 -4.3 l-4.6 -4.1 c-1.2 -1 -2.8 -1 -4 0 l-1.4 1.2 -8.3 -8.3 1.2 -1.4 c1 -1.2 1 -2.8 0 -4 l-4.1 -4.6 c-1.3 -1.3 -3 -1.3 -4.3 0 z" stroke="#c98f6e" stroke-width="1.4"/>
-          <path d="M28.5 10.5 a10.5 10.5 0 0 1 9 9" stroke="#e6c377" stroke-width="1.3" opacity=".85"/>
-          <path d="M29.5 16 a5.5 5.5 0 0 1 4.5 4.5" stroke="#e6c377" stroke-width="1.3" opacity=".55"/>
-          <circle cx="41.5" cy="8" r="1.6" fill="#e6c377" opacity=".9"/>
-        </svg>
-        <i class="c-sam-toy__num">08</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--hotline" aria-hidden="true">{% include sam-toy-art.html key='hotline' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Signal · Hotline</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">深夜热线</span><span class="c-sam-toy__t2"> · 拨给任何一个他</span></span>
@@ -660,15 +579,7 @@ title: Sam
       <span class="c-sam-toy__arrow" aria-hidden="true">↗</span>
     </a>
     <a class="c-sam-toy" href="{{site.baseurl}}/sam/palettes/">
-      <span class="c-sam-toy__art c-sam-toy__art--palettes" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none">
-          <rect class="sam-art-swatch" x="8" y="8" width="15" height="15" rx="2.5" fill="#5b9db8"/>
-          <rect class="sam-art-swatch" x="25" y="8" width="15" height="15" rx="2.5" fill="#c2483a"/>
-          <rect class="sam-art-swatch" x="8" y="25" width="15" height="15" rx="2.5" fill="#e6c377"/>
-          <rect class="sam-art-swatch" x="25" y="25" width="15" height="15" rx="2.5" fill="#7f9676"/>
-        </svg>
-        <i class="c-sam-toy__num">09</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--palettes" aria-hidden="true">{% include sam-toy-art.html key='palettes' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Colours · Palettes</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">他的 {{ site.data.sam.faces }} 套配色</span><span class="c-sam-toy__t2"> · 一面墙</span></span>
@@ -678,22 +589,7 @@ title: Sam
     </a>
 
     <a class="c-sam-toy" href="{{site.baseurl}}/sam/arcade/">
-      <span class="c-sam-toy__art c-sam-toy__art--arcade" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none">
-          <rect x="9" y="7" width="30" height="34" rx="3" stroke="#d6b36a" stroke-width="1.4"/>
-          <rect x="13" y="11" width="22" height="13" rx="1.5" stroke="#d6b36a" stroke-width="1.1" opacity=".75"/>
-          <g class="sam-art-swatch" fill="#e6c377">
-            <rect x="15.4" y="13.4" width="4" height="4" rx=".8" opacity=".85"/>
-            <rect x="21.8" y="17.8" width="4" height="4" rx=".8" opacity=".5"/>
-            <rect x="28.2" y="13.4" width="4" height="4" rx=".8" opacity=".7"/>
-          </g>
-          <path d="M18 34 v-4" stroke="#c98f6e" stroke-width="1.6" stroke-linecap="round"/>
-          <circle cx="18" cy="28.6" r="2" fill="#c2483a"/>
-          <circle cx="27" cy="33" r="1.7" stroke="#d6b36a" stroke-width="1.1"/>
-          <circle cx="32" cy="33" r="1.7" stroke="#d6b36a" stroke-width="1.1"/>
-        </svg>
-        <i class="c-sam-toy__num">10</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--arcade" aria-hidden="true">{% include sam-toy-art.html key='arcade' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Arcade · Play</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">游戏厅</span><span class="c-sam-toy__t2"> · 三台机器，投币不要钱</span></span>
@@ -703,19 +599,7 @@ title: Sam
     </a>
 
     <a class="c-sam-toy" href="{{site.baseurl}}/reading/">
-      <span class="c-sam-toy__art c-sam-toy__art--books" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none" stroke-linecap="round">
-          <path d="M24 13 C19 10.5 13 10 8 11 V36 C13 35 19 35.5 24 38 C29 35.5 35 35 40 36 V11 C35 10 29 10.5 24 13 Z" stroke="#d6b36a" stroke-width="1.4" stroke-linejoin="round"/>
-          <path d="M24 13 V38" stroke="#d6b36a" stroke-width="1.1" opacity=".6"/>
-          <path d="M11.5 17.5 H20.5" stroke="#7fd6dc" stroke-width="2.6" opacity=".85"/>
-          <path d="M11.5 23 H18" stroke="#e6c377" stroke-width="1" opacity=".45"/>
-          <path d="M11.5 27.5 H20.5" stroke="#f2a7c6" stroke-width="2.6" opacity=".85"/>
-          <path d="M27.5 17.5 H36.5" stroke="#e6c377" stroke-width="1" opacity=".45"/>
-          <path d="M27.5 22.5 H36.5" stroke="#f7b27c" stroke-width="2.6" opacity=".85"/>
-          <path d="M27.5 28 H33" stroke="#e6c377" stroke-width="1" opacity=".45"/>
-        </svg>
-        <i class="c-sam-toy__num">11</i>
-      </span>
+      <span class="c-sam-toy__art c-sam-toy__art--books" aria-hidden="true">{% include sam-toy-art.html key='books' %}</span>
       <span class="c-sam-toy__body">
         <span class="c-sam-toy__eyebrow">Reading · Notes</span>
         <span class="c-sam-toy__title"><span class="c-sam-toy__t1">书架</span><span class="c-sam-toy__t2"> · 他演过的故事，原著里的样子</span></span>
