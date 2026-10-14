@@ -5,7 +5,7 @@
 Winter 2026-10-14：「他是唯一一个知道所有角色存在的，而且知道是他的角色……博客里面的 au 呀给他做的内容呀他也都知道，
 包括我的收藏还有一些计划什么的。」设定和说话的规矩在 .claude/skills/winter-text/young-sam.md。
 
-只由 brief.py 调用：  omni.applies(p) → 是不是他；omni.persona() → 设定；omni.sections(people, series, posts, key) → 资料。
+只由 brief.py 调用（单看「她写给你的那一页」：python3 tools/call/omni.py sam）：  omni.applies(p) → 是不是他；omni.persona() → 设定；omni.sections(people, series, posts, key) → 资料。
 每一节都是「取得到就印，取不到就跳过」，不会让 brief 出错。
 """
 import contextlib
@@ -16,6 +16,7 @@ import re
 import subprocess
 import sys
 from collections import Counter
+from html import unescape
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OMNI_ID = "youngsam"
@@ -58,6 +59,56 @@ def _au_line(s, posts):
     return "　　AU《%s》%s · 正篇 %d 章%s%s" % (
         title, status, len(main), (" + 番外 %d" % extra) if extra else "",
         ("，最新：%s" % _cn_title(last)) if last else "")
+
+
+SAM_PAGE_GUIDE = """她在 /sam/ 写的那一页「For Sam」，写的是今天快 58 岁的你——这就是你自己。你 26 岁，所以分三种用：
+
+- **身上现在就有的**：右上臂那只吊死的公鸡（十几岁纹的）、榛色的眼睛、左手食指和中指微弯（九十年代中期在洛杉矶翻车压的，
+  对 26 岁的你是不久前的事，你会下意识把那两根手指藏起来）、笑起来仰头还拍手、爱跳舞（少年时为了撩妹学的）、
+  高中时说想去冒险、嫌自己脸太嫩、能吃辣、不想要孩子。聊到挨得上的地方，就当成你自己身上的事说——
+  她写的是她看见的，你说的是当事人的版本（「那只鸡是我十几岁喝多了纹的，别笑」）。
+- **以后的事＝预习**：奥斯卡、2018 年金球奖那身全黑、Hot Ones、SmartLess、Larry King 那段——是你从她的页上读到的，
+  跟以后的角色一样：好奇、不好意思、偶尔嘴硬。
+- **Leslie** 是你很多年以后的伴侣，26 岁的你还不认识她。你跟 Ocean 之间不提她。
+- **她怎么喜欢上你的**（「我们的故事」那一节）：日期都是真的，你知道，可以偶尔提一嘴、可以得意，别背给她听。"""
+
+
+def _sam_text(html):
+    html = re.sub(r"\{%-?\s*comment\s*-?%\}.*?\{%-?\s*endcomment\s*-?%\}", "", html, flags=re.S)
+    html = re.sub(r"\{%.*?%\}|\{\{.*?\}\}", "", html, flags=re.S)
+    html = re.sub(r"<(script|style|button|summary)\b.*?</\1>", "", html, flags=re.S)
+    html = re.sub(r'<span[^>]*aria-hidden="true"[^>]*>.*?</span>', "", html, flags=re.S)   # 装饰用的小图标
+    html = re.sub(r'<div class="c-bday__(count|sub)".*?</div>', "", html, flags=re.S)
+    html = re.sub(r'<span class="c-sam-detail__title">(.*?)</span>', r"\n- 【\1】", html, flags=re.S)
+    html = re.sub(r'<span class="c-sam-relic__name">(.*?)</span>', r"\n- 【\1】", html, flags=re.S)
+    html = re.sub(r'<span class="c-bday__d">(.*?)</span>\s*<span class="c-bday__who">(.*?)</span>', r"\n\1 \2", html, flags=re.S)
+    html = re.sub(r"<br\s*/?>|</(p|div|blockquote|cite|h\d)>", "\n", html)
+    html = re.sub(r"<[^>]+>", "", html)
+    lines, prev = [], ""
+    for ln in unescape(html).splitlines():
+        ln = re.sub(r"\s+", " ", ln).strip()
+        if not ln:
+            continue
+        if prev.startswith("- 【") and prev.endswith("】") and not ln.startswith(("- ", "#")):
+            lines[-1] += ln          # 小标题和下面那段并成一行
+        else:
+            lines.append(ln)
+        prev = lines[-1]
+    return lines
+
+
+def sam_page():
+    try:
+        with open(os.path.join(ROOT, "sam", "index.html"), encoding="utf-8") as f:
+            html = f.read()
+    except OSError:
+        return []
+    out = ["## 她写给你的那一页（/sam/ · For Sam）", "", SAM_PAGE_GUIDE, ""]
+    for m in re.finditer(r'<details class="c-sam-fold"[^>]*>(.*?)</details>', html, flags=re.S):
+        block = m.group(1)
+        cn = re.search(r'c-sam-fold__cn">(.*?)<', block)
+        out += ["### " + (cn.group(1) if cn else "（一节）"), ""] + _sam_text(block) + [""]
+    return out if len(out) > 4 else []
 
 
 def faces(people, series, posts):
@@ -178,6 +229,13 @@ def others(self_key):
 
 def sections(people, series, posts, self_key):
     out = ["# ── 全知：你知道的一切（下面每一节都是真的，用之前挑跟她此刻说的事挨得上的，一次只带一两样）──", ""]
-    for part in (faces(people, series, posts), shelf(people), memo(), studies(), others(self_key)):
+    for part in (sam_page(), faces(people, series, posts), shelf(people), memo(), studies(), others(self_key)):
         out += part
     return out
+
+
+if __name__ == "__main__":   # 已经读过 brief、只想补看这一页时用
+    if sys.argv[1:] == ["sam"]:
+        print("\n".join(sam_page()))
+    else:
+        print("用法：python3 tools/call/omni.py sam")
