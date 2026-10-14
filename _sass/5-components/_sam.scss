@@ -1532,3 +1532,39 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   .c-sam-toy__arrow { font-size: 13px; }
   .c-year-ribbon { margin-bottom: 14px; }
 }
+
+/* 手机上互动彩蛋的三种排法（2026-10-14 第二轮，Winter：「这么排还是觉得不够好看」）——她挑定前都留着：
+   --tiles 两列画砖（深色灯箱铺满卡的上半、名字在下） / --icons 三列像手机桌面（只剩灯箱＋短名） / --dark 一摞深色票 */
+@media only screen and (max-width: 720px) {
+  .c-sam-toys--tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .c-sam-toys--tiles .c-sam-toy { display: grid; grid-template-columns: 1fr; padding: 0; gap: 0; overflow: hidden; border-radius: 12px; align-items: stretch; }
+  .c-sam-toys--tiles .c-sam-toy__art { width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 0; }
+  .c-sam-toys--tiles .c-sam-toy__art svg { inset: auto; left: 50%; top: 50%; width: 64px; height: 64px; transform: translate(-50%, -50%); }
+  .c-sam-toys--tiles .c-sam-toy__num { top: 7px; left: 9px; font-size: 10px; }
+  .c-sam-toys--tiles .c-sam-toy__body { padding: 9px 11px 11px; gap: 3px; }
+  .c-sam-toys--tiles .c-sam-toy__eyebrow { font-size: 9px; letter-spacing: .12em; }
+  .c-sam-toys--tiles .c-sam-toy__title { font-size: 14.5px; }
+  .c-sam-toys--tiles .c-sam-toy__t2,
+  .c-sam-toys--tiles .c-sam-toy__arrow { display: none; }
+
+  .c-sam-toys--icons { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 8px; }
+  .c-sam-toys--icons .c-sam-toy { display: grid; justify-items: center; gap: 7px; padding: 0; background: transparent; border: 0; box-shadow: none; }
+  .c-sam-toys--icons .c-sam-toy:hover { transform: none; }
+  .c-sam-toys--icons .c-sam-toy__art { width: 68px; height: 68px; border-radius: 16px; box-shadow: inset 0 0 0 1px rgba(230, 195, 119, 0.14), 0 6px 14px -6px rgba(0, 0, 0, 0.45); }
+  .c-sam-toys--icons .c-sam-toy__art svg { inset: 7px; width: 54px; height: 54px; }
+  .c-sam-toys--icons .c-sam-toy__num { display: none; }
+  .c-sam-toys--icons .c-sam-toy__body { align-items: center; gap: 0; }
+  .c-sam-toys--icons .c-sam-toy__title { font-size: 12.5px; text-align: center; line-height: 1.3; }
+  .c-sam-toys--icons .c-sam-toy__eyebrow,
+  .c-sam-toys--icons .c-sam-toy__t2,
+  .c-sam-toys--icons .c-sam-toy__arrow { display: none; }
+
+  .c-sam-toys--dark { gap: 6px; }
+  .c-sam-toys--dark .c-sam-toy { background: #191411; border-color: rgba(230, 195, 119, 0.16); color: #efe6d6; border-radius: 10px; padding: 9px 12px 9px 9px; }
+  .c-sam-toys--dark .c-sam-toy__art { background: rgba(255, 255, 255, 0.04); box-shadow: inset 0 0 0 1px rgba(230, 195, 119, 0.22); }
+  .c-sam-toys--dark .c-sam-toy__eyebrow { color: #cba14c; }
+  .c-sam-toys--dark .c-sam-toy__title { color: #f4ecdc; }
+  .c-sam-toys--dark .c-sam-toy__t2 { color: rgba(244, 236, 220, 0.6); font-weight: 400; }
+  .c-sam-toys--dark .c-sam-toy__arrow { color: #cba14c; }
+  .c-sam-toys--dark .c-sam-toy:hover .c-sam-toy__title { color: #fff; }
+}
