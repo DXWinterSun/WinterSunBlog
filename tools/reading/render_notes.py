@@ -486,7 +486,7 @@ JS = '''
   var cur = -1, ticking = false;
   function name(c) {
     var t = c.querySelector('.card__term');
-    return t ? t.textContent : '好句 · ' + ((c.querySelector('.card__page') || {}).textContent || '');
+    return t ? t.textContent : (c.getAttribute('data-term') || '好句') + ' · ' + ((c.querySelector('.card__page') || {}).textContent || '');
   }
   function update() {
     ticking = false;
@@ -993,7 +993,7 @@ def all_words_box(words, title, pages):
     return ('<section class="eudic eudic--all" id="all-words">'
             '<p class="eudic__h">📋 欧路词典导入列表（' + esc(title) + '）'
             '<button type="button" class="eudic__copy eudic__copy--big">一键复制全部</button></p>'
-            f'<p class="eudic__sub">全书目前 {len(" ".join(words).split())} 个词 · 第 {esc(pages)} 页 · 已去重，都是原形；好句和查不到的词不在里面</p>'
+            f'<p class="eudic__sub">{"全文" if PAGE_UNIT == "段" else "全书目前"} {len(" ".join(words).split())} 个词 · {esc(pages) if PAGE_UNIT == "段" else "第 " + esc(pages) + " 页"} · 已去重，都是原形；整句卡、专名和查不到的词不在里面</p>'
             '<details><summary>看看都有哪些词</summary>'
             f'<pre lang="en">{esc(" ".join(words))}</pre></details></section>\n')
 
@@ -1244,7 +1244,8 @@ def main():
         root = os.path.dirname(os.path.dirname(HERE))
         a.out = os.path.join(root, 'reading', slug, 'index.html')
         os.makedirs(os.path.dirname(a.out), exist_ok=True)
-        desc = f'{title} 原著读书笔记：书上划线的生词、好句与解读。'
+        desc = (f'{title} 文章划线笔记：划下的生词、专名、长难句与解读。' if book.get('kind') == 'article'
+                else f'{title} 原著读书笔记：书上划线的生词、好句与解读。')
         page = ('<!doctype html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n'
                 '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
                 f'<title>{esc(page_title)} · Winter Sun</title>\n<meta name="description" content="{esc(desc)}">\n'
