@@ -11,8 +11,10 @@
     python3 tools/reading/clone_article.py --html 已下载.html --url <网址> -o …    # 抓不到时先 curl 下来再喂
 
 然后用 Artifact 工具发布，第一次发布必须带
-    capabilities = {"db": {}, "user": {}}
-——划线存在这张页自己的数据库 `highlights` 集合里（手机电脑同一份），Claude 用 ArtifactData 读回来整理笔记。
+    capabilities = {"db": {}, "comments": {"composer_only": true}}
+——划线存在这张页自己的数据库 `highlights` 集合里（手机电脑同一份），Claude 用 ArtifactData 读回来整理笔记；
+comments 是笔盒里那颗 💬：她选中字 / 点一处划线再点它，才弹 Artifact 自带的批注框（她 2026-10-14：
+「不需要每次画词都弹出，我主动点击的时候才给我批注的框」）。
 之后重新发布不传 capabilities。她划完说「整理一下」→ 读 `highlights` → 照读书笔记那套写进
 `_data/reading/<slug>.yml`（`page` 写段落号，`book.page_unit: 段`）→ 把整理过的划线标成 noted。
 
@@ -167,6 +169,9 @@ mark.is-focus{background:color-mix(in srgb,var(--c) 88%,transparent)}
  display:inline-flex;align-items:center;justify-content:center;color:#1d2129}
 .pop button.is-cur{border-color:var(--ink)}
 .pop button.erase{background:transparent;border:1px solid var(--line);color:var(--ink);font-size:14px}
+.pop button.ask,.bar .ask{display:none;background:transparent;border:1px solid var(--line);color:var(--ink);font-size:15px}
+body.has-cmt .pop button.ask{display:inline-flex}
+body.has-cmt .bar .ask{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;padding:0;cursor:pointer}
 .pop button.big{display:none;width:auto;height:38px;padding:0 1.1rem;border-radius:999px;font-family:inherit;font-size:.9rem;letter-spacing:.04em}
 .pop.is-pen button[data-pen],.pop.is-pen button.erase{display:none}
 .pop.is-pen button.big{display:inline-flex}
@@ -332,9 +337,16 @@ JS = r'''
   }
 
   /* ── 小笔盒 ── */
-  var popTarget = null;   // 点中已有划线时记下它的 id 们
-  function showPop(rect, ids){
-    popTarget = ids || null;
+  var popTarget = null, popEl = null;   // 点中已有划线时记下它的 id 们、那块 <mark>
+  var cmt = null;                        // Artifact 的批注（在 claude.ai 里打开才有）
+  var muteSel = 0, muteText = '';        // 打开批注框之后，同一段选区别再弹笔盒（选区还在，会误弹）；选了别的照常弹
+  function askAbout(target){
+    if (!cmt || !target) return;
+    hidePop(); muteSel = Date.now() + 4000; muteText = String(window.getSelection() || '');
+    cmt.openComposer(target).catch(function(e){ var c = e && e.code; if (c === 'not_granted' || c === 'capability_disabled' || c === 'capability_removed' || c === 'unavailable') { cmt = null; document.body.classList.remove('has-cmt'); } });
+  }
+  function showPop(rect, ids, el){
+    popTarget = ids || null; popEl = el || null;
     var cur = ids && H[ids[ids.length-1]] ? H[ids[ids.length-1]].color : null;
     Array.prototype.forEach.call(pop.querySelectorAll('button[data-pen]'), function(b){ b.classList.toggle('is-cur', b.getAttribute('data-pen') === cur); });
     pop.querySelector('.erase').style.display = ids ? '' : 'none';
@@ -347,13 +359,18 @@ JS = r'''
     if (rect.top < 70) { y = rect.bottom + window.scrollY + 54; }   // 顶上放不下就挂到下面
     pop.style.left = x + 'px'; pop.style.top = y + 'px';
   }
-  function hidePop(){ pop.classList.remove('is-on'); popTarget = null; }
+  function hidePop(){ pop.classList.remove('is-on'); popTarget = null; popEl = null; }
   pop.addEventListener('mousedown', function(e){ e.preventDefault(); });   // 别把选区点没了
   pop.addEventListener('touchstart', function(e){ e.preventDefault(); var b = e.target.closest('button'); if (b) b.click(); }, {passive:false});
   pop.addEventListener('click', function(e){
     var b = e.target.closest('button'); if (!b) return;
     if (b.classList.contains('erase')) { (popTarget||[]).forEach(remove); hidePop(); say('擦掉了'); return; }
     if (b.classList.contains('big')) { apply(pen); return; }
+    if (b.classList.contains('ask')) {
+      if (popEl) { askAbout({element: popEl}); return; }
+      var sel = window.getSelection(); if (sel && !sel.isCollapsed) askAbout({range: sel.getRangeAt(0).cloneRange()});
+      return;
+    }
     var c = b.getAttribute('data-pen');
     if (popTarget) { popTarget.forEach(function(id){ recolor(id, c); }); hidePop(); say('换成' + PENS[c]); }
     else apply(c);
@@ -365,7 +382,8 @@ JS = r'''
   document.addEventListener('mouseup', function(){ mouseDown = false; setTimeout(onSel, 30); });
   document.addEventListener('selectionchange', function(){ clearTimeout(selTimer); selTimer = setTimeout(onSel, 220); });
   function onSel(){
-    if (mouseDown) return;                              // 鼠标还按着：拖到一半，先别动
+    if (mouseDown) return;
+    if (Date.now() < muteSel && String(window.getSelection() || '') === muteText) return;                              // 鼠标还按着：拖到一半，先别动
     var s = selection();
     if (!s) { if (!popTarget) hidePop(); return; }
     if (pen && !TOUCH) { apply(pen); return; }          // 电脑上拿着笔：松开鼠标就划上
@@ -376,8 +394,15 @@ JS = r'''
     var sel = window.getSelection(); if (sel && !sel.isCollapsed) return;
     var ids = m.getAttribute('data-ids').split(' ');
     Array.prototype.forEach.call(art.querySelectorAll('mark.is-focus'), function(x){ x.classList.remove('is-focus'); });
-    showPop(m.getBoundingClientRect(), ids);
+    showPop(m.getBoundingClientRect(), ids, m);
   });
+  document.getElementById('ask-btn').addEventListener('click', function(){
+    var sel = window.getSelection();
+    if (sel && !sel.isCollapsed && art.contains(sel.getRangeAt(0).commonAncestorContainer)) { askAbout({range: sel.getRangeAt(0).cloneRange()}); return; }
+    var f = art.querySelector('mark.is-focus'); if (f) { askAbout({element: f}); return; }
+    say('先选中几个字，或点一处划线，再点 💬');
+  });
+  document.getElementById('ask-btn').addEventListener('mousedown', function(e){ e.preventDefault(); });
   document.addEventListener('mousedown', function(e){ if (!pop.contains(e.target) && !e.target.closest('mark')) hidePop(); });
   document.addEventListener('touchstart', function(e){ if (!pop.contains(e.target) && !e.target.closest('mark')) hidePop(); }, {passive:true});
 
@@ -467,6 +492,9 @@ JS = r'''
     if (!window.claude || typeof window.claude.use !== 'function') return Promise.resolve(null);
     return window.claude.use('db');
   }
+  if (window.claude && typeof window.claude.use === 'function') {
+    window.claude.use('comments').then(function(c){ if (c) { cmt = c; document.body.classList.add('has-cmt'); } }).catch(function(){});
+  }
   useDb().then(function(d){
     if (!d) { syncNote.textContent = '这次划的只存在这台设备上（在 Claude 里打开这一页，划线才会同步给 Claude）。'; return; }
     db = d; backend = 'db';
@@ -541,9 +569,9 @@ def render(meta, pal, ink_accent, slug):
   <div class="art" id="art">
 {paras}  </div>
 </div>
-<div class="pop" id="pop" role="toolbar" aria-label="笔盒">{pop_html}<button type="button" class="erase" aria-label="擦掉">✕</button><button type="button" class="big">划上</button></div>
+<div class="pop" id="pop" role="toolbar" aria-label="笔盒">{pop_html}<button type="button" class="erase" aria-label="擦掉">✕</button><button type="button" class="big">划上</button><button type="button" class="ask" aria-label="批注" title="批注">💬</button></div>
 <div class="hint" id="hint"></div>
-<div class="bar"><div class="bar__in">{pens_html}<button type="button" class="list" id="list-btn">清单</button></div></div>
+<div class="bar"><div class="bar__in">{pens_html}<button type="button" class="ask" id="ask-btn" aria-label="批注" title="批注">💬</button><button type="button" class="list" id="list-btn">清单</button></div></div>
 <div class="drawer" id="drawer"><div class="drawer__panel">
   <div class="drawer__head"><h2>划过的地方</h2><div class="tools"><button type="button" id="copy-btn">复制清单</button><button type="button" id="drawer-close">收起</button></div></div>
   <div id="drawer-body"></div>

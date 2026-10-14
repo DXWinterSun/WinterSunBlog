@@ -250,7 +250,9 @@ python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratc
 **她发来一个文章链接、说「我想在上面划线 / 做成能划的 / 像读书那样」→ 不用她多交代：**
 
 1. `python3 tools/reading/clone_article.py <网址> -o <scratchpad>/<slug>.html`（抓不到就 `curl -A "Mozilla/5.0"` 下来，`--html … --url …` 喂进去）。
-2. 用 Artifact 发布，**第一次带 `capabilities: {"db": {}}`**（划线存在页面自己的数据库里，手机电脑同一份）。
+2. 用 Artifact 发布，**第一次带 `capabilities: {"db": {}, "comments": {"composer_only": true}}`**（划线存在页面自己的数据库里，手机电脑同一份；
+   comments 给笔盒和笔架上那颗 💬——她选中字或点一处划线后**主动点它**才弹批注框，不随划线弹。她的批注照第四节办，是问题就在批注里答，
+   答案和她的话收进那条笔记）。
    发完用 `ArtifactData list highlights` 看一眼能读到（新页是空的就对了）。
 3. 聊天里只给链接 + 一句「跟读书一样：选字、挑笔；底下清单能看、能擦」。
 4. 把链接记进本节下面的表。
