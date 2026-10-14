@@ -363,8 +363,11 @@ JS = r'''
     var big = pop.querySelector('.big');
     if (pen && !ids) { big.style.setProperty('--c', 'var(--pen-' + pen + ')'); big.textContent = '划上 · ' + PENS[pen]; }
     pop.classList.toggle('is-pen', !!(pen && !ids));
+    // 先把它放到最左边、放开宽度再量——绝对定位的盒子靠右时会被挤得换行，量出来的宽度就不对（390 宽的手机上翻过车）
+    pop.style.left = '8px'; pop.style.width = '';
     pop.classList.add('is-on');
-    var w = pop.offsetWidth, x = rect.left + rect.width/2 + window.scrollX, y = rect.top + window.scrollY;
+    var w = pop.offsetWidth; pop.style.width = w + 'px';
+    var x = rect.left + rect.width/2 + window.scrollX, y = rect.top + window.scrollY;
     x = Math.max(w/2 + 8, Math.min(document.documentElement.clientWidth - w/2 - 8, x));
     if (rect.top < 70) { y = rect.bottom + window.scrollY + 54; }   // 顶上放不下就挂到下面
     pop.style.left = x + 'px'; pop.style.top = y + 'px';
