@@ -74,6 +74,9 @@ Winter 读英文原著（眼下是《A Single Shot》原著）时会发来带荧
 博客上的位置（2026-09-26 她挑定，2026-10-03 全站新排法后）：顶上 **📝 Notes** 那一格里一本封面，
 书架 `/reading/` 的入口还有 Sam 页第 11 张卡和 Wintergreen 系列页（返回键回 Notes），
 一本书一页 `reading/<slug>/index.html`，由 `render_notes.py --blog` 生成、别手改；每加一页笔记，Artifact 和博客页一起重新生成。
+⭐ **网上的英文文章也能划**（2026-10-14 她读《卫报》访谈时提的）：她发来文章链接说想划线 → `tools/reading/clone_article.py`
+把文章排成一页、发布时带 `capabilities: {"db": {}}`，她在上面用同样的蓝 / 粉 / 橙三支笔划；她说「整理一下」→ 用 ArtifactData
+读 `highlights` 集合做笔记（`page_unit: 段`），整理过的标 `noted: true`。细节在 skill 第七节。
 
 ## 🇵🇱 波兰语笔记本：多邻国错题 / 疑问 → 讲清楚 + 收进笔记（2026-10-01）
 

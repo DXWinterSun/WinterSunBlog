@@ -214,3 +214,31 @@ python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratc
 - 2026-09-28：**收藏**（她：「收藏某一些词……有些想回过头再看，记住了的可以在收藏里随时删除」）。词卡右上角一颗 ☆，点亮成 ★；词表第三个页签「★ 收藏」按读的顺序列出，每行右边 ✕ 拿掉（底下弹「撤销」防手滑），还能「复制收藏的词」导进欧路。存法：先存本机 `localStorage` 键 `ws-reading-fav:<书的 slug>`；在 Claude 里打开 Artifact 时再同步进这页自己的数据库 `favs/<slug>`（`{ids:[笔记编号…]}`），手机电脑同一份——所以 **Artifact 重新发布时 `capabilities` 必须照旧带 `db`（连同 `comments` 的 `composer_only`），漏了收藏就只剩本机**。博客那一页没有数据库，只记在当前设备。想知道她收藏了哪些，用 ArtifactData 读 `favs` 集合。编号是收藏的依据，**已发布的笔记别改编号**。
 - 2026-09-26：**笔记页默认明亮模式**（她：「笔记默认明亮模式吧，不然感觉不是很方便阅读」）。右上角 🌕 / 🌑 可以切回夜间，选择只存在她本机。明亮模式的主色用 `au_palettes.yml` 里那一套的 `accent_ink`。
 - 2026-09-26：她把以前在别的对话里用过的格式整理成五条规矩发来（蓝粉两色、词条顺序、粉色对照、欧路列表、一次一页不大段摘抄），见本文件开头那一节。
+
+## 七、网上的文章也能划（2026-10-14 起）
+
+她读《卫报》那篇 McDonagh / Malkovich / Rockwell 访谈时说：**「我看见一个生词自己查的方式还是太老套了……
+是不是可以你帮我做一个这个网页的文章的克隆，我在读的时候可以在上面用我习惯的颜色标注词和短语，就像我读书一样，
+然后你就可以帮我做笔记了？」**
+
+**她发来一个文章链接、说「我想在上面划线 / 做成能划的 / 像读书那样」→ 不用她多交代：**
+
+1. `python3 tools/reading/clone_article.py <网址> -o <scratchpad>/<slug>.html`（抓不到就 `curl -A "Mozilla/5.0"` 下来，`--html … --url …` 喂进去）。
+2. 用 Artifact 发布，**第一次带 `capabilities: {"db": {}}`**（划线存在页面自己的数据库里，手机电脑同一份）。
+   发完用 `ArtifactData list highlights` 看一眼能读到（新页是空的就对了）。
+3. 聊天里只给链接 + 一句「跟读书一样：选字、挑笔；底下清单能看、能擦」。
+4. 把链接记进本节下面的表。
+
+**她划完说「整理一下 / 做笔记」→** `ArtifactData(action="list", url=<链接>, collection="highlights")` 读回全部划线
+（每条有 `color` 蓝 / 粉 / 橙、`loc` 位置、`text` 原样、`p` `s` `e` 定位）→ 照第二节的格式写进
+`_data/reading/<slug>.yml`，只有几处不同：
+
+- `book.page_unit: 段`，`book.about` 写「《卫报》2026-10-09 的报道，作者 Xan Brooks」这类来源，`book.source_url` 记网址；
+- 每条的 `page` 写段号（`loc` 是「第 5 段」就写 `5`；标题 / 导语直接写 `标题` / `导语`）；`batches` 里的 `pages` 写 `1–12 段`；
+- `context` 照旧只留划线前后几个词，**不整段抄**（仓库公开，报道有版权）；
+- 整理完一批，把这批的每一条 `ArtifactData update {noted: true}`（带 `if_version`），页上那处划线会多一道绿底线、清单里标「✓ 已整理」，
+  她一眼就知道哪些还没做；同一篇文章的笔记页跟书一样一个链接、往后追加。
+
+| 文章 | 划线页 | 笔记数据 / 笔记页 |
+|---|---|---|
+| 《卫报》2026-10-09 · McDonagh / Malkovich / Rockwell 谈 Wild Horse Nine（Xan Brooks） | https://claude.ai/artifact/5E9AEbCjzWxKkAeSTwrNKB | （还没整理） |

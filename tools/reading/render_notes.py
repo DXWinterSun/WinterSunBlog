@@ -32,6 +32,17 @@ from render_draft import palette          # noqa: E402  跟章节预览页同一
 import yaml                               # noqa: E402
 
 # 每种详略显示哪些栏（词条、音标、页码、原形、看不清、Winter 批注、问答永远显示）
+PAGE_UNIT = 'p.'     # book.page_unit：'p.'（书，默认）或 '段'（网页文章，笔记里 page 写段落号；标题 / 导语这类非数字照原样显示）
+
+
+def pg(v, tight=False):
+    """位置的显示写法：书是 p. 12（词表里紧凑成 p.12）；网页文章是 第 12 段 / 导语 / 标题。"""
+    v = html.escape(str(v))
+    if PAGE_UNIT == '段':
+        return f'第 {v} 段' if v.isdigit() else v
+    return ('p.' if tight else 'p. ') + v
+
+
 LEVELS = {
     'lite':     {'cn', 'context'},
     'standard': {'pos', 'kind', 'cn', 'context', 'gist', 'note'},
@@ -494,7 +505,7 @@ JS = '''
   var html = '', lastPage = null;
   cards.forEach(function (c, i) {
     var pg = c.getAttribute('data-page');
-    if (pg !== lastPage) { html += '<div class="fs__page">p. ' + pg + '</div>'; lastPage = pg; }
+    if (pg !== lastPage) { html += '<div class="fs__page">' + pg + '</div>'; lastPage = pg; }
     var pen = c.getAttribute('data-pen');
     html += '<button type="button" class="fs__item fs__item--' + pen + '" data-i="' + i + '">' +
       '<span class="fs__no">' + (i + 1) + '</span><span class="fs__term">' +
@@ -765,7 +776,7 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
     if pen == 'orange':
         return quote_card(n, cid, winter_label)
     out = [f'<article class="card card--{pen}" id="{esc(cid)}" data-comment-target '
-           f'data-term="{esc(n["term"])}" data-page="{esc(n.get("page", ""))}" data-pen="{pen}">']
+           f'data-term="{esc(n["term"])}" data-page="{pg(n.get("page", ""))}" data-pen="{pen}">']
 
     meta = [f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>']
     rg = REPEATS.get(str(n.get('id')))
@@ -798,7 +809,7 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
 
     ctx = n.get('context') or n.get('sentence')
     if ctx:
-        page = (f'<span class="card__band">原文 · p. {esc(n["page"])}</span>'
+        page = (f'<span class="card__band">原文 · {pg(n["page"])}</span>'
                 if n.get('page') not in (None, '') else '<span class="card__band">原文</span>')
         gist = (f'<p class="card__gist">{fmt(n["gist"])}</p>'
                 if 'gist' in show and n.get('gist') else '')
@@ -817,10 +828,10 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
                 sys.exit(f'No. {n.get("id")} 要对照的 No. {oid} 不存在')
             octx = o.get('context') or o.get('sentence') or o['term']
             og = f'<small>{fmt(o["gist"])}</small>' if o.get('gist') else ''
-            rows.append(f'<div class="card__cmp-row"><span>No. {esc(oid)} · p. {esc(o.get("page", "—"))}</span>'
+            rows.append(f'<div class="card__cmp-row"><span>No. {esc(oid)} · {pg(o.get("page", "—"))}</span>'
                         f'<q lang="en">{fmt(octx, o.get("color") or "blue")}</q>{og}</div>')
         og = f'<small>{fmt(n["gist"])}</small>' if n.get('gist') else ''
-        rows.append(f'<div class="card__cmp-row"><span>这一条 · p. {esc(n.get("page", "—"))}</span>'
+        rows.append(f'<div class="card__cmp-row"><span>这一条 · {pg(n.get("page", "—"))}</span>'
                     f'<q lang="en">{fmt(ctx or n["term"], pen)}</q></div>')
         body = f'<p>{fmt(cmp["text"])}</p>' if cmp.get('text') else ''
         out.append(f'<div class="card__cmp"><p class="card__cmp-h">放在一起对照</p>{"".join(rows)}{body}</div>')
@@ -855,10 +866,10 @@ def card(n, level, cid, winter_label='Winter 的批注', index=None):
 def quote_card(n, cid, winter_label):
     """橙笔好句：那句话（整句高亮）＋页码＋译文＋为什么好。不进欧路列表。"""
     out = [f'<article class="card card--orange" id="{esc(cid)}" data-comment-target '
-           f'data-term="好句" data-page="{esc(n.get("page", ""))}" data-pen="orange">',
+           f'data-term="好句" data-page="{pg(n.get("page", ""))}" data-pen="orange">',
            '<div class="card__meta">'
            f'<span class="card__no">No. {esc(n.get("id", "—"))}</span>'
-           + (f'<span class="card__page">p. {esc(n["page"])}</span>' if n.get('page') not in (None, '') else '')
+           + (f'<span class="card__page">{pg(n["page"])}</span>' if n.get('page') not in (None, '') else '')
            + '<span class="card__pen orange">好句</span></div>']
     q = n.get('context') or n.get('sentence') or ''
     out.append(f'<blockquote class="card__quote" lang="en">{fmt(q, "orange")}</blockquote>')
@@ -918,7 +929,7 @@ def repeat_block(n):
     rows = []
     for k, o in enumerate(g, 1):
         ctx = o.get('context') or o.get('sentence') or o['term']
-        head = f'<span class="rep__k">第 {k} 次</span><span class="rep__pg">p. {esc(o.get("page", "—"))}</span>'
+        head = f'<span class="rep__k">第 {k} 次</span><span class="rep__pg">{pg(o.get("page", "—"))}</span>'
         if o is n:                      # 这一处的原文上面刚写过，这里只标一下位置
             rows.append(f'<li class="is-here"><span class="rep__row">{head}<span class="rep__here">就是上面这一处</span></span></li>')
         else:
@@ -935,7 +946,7 @@ def repeats_box(groups):
         return ''
     rows = []
     for g in sorted(groups, key=lambda g: -len(g)):
-        pgs = ''.join(f'<a href="#n{esc(o["id"])}">p.{esc(o.get("page", ""))}</a>' for o in g)
+        pgs = ''.join(f'<a href="#n{esc(o["id"])}">{pg(o.get("page", ""), True)}</a>' for o in g)
         rows.append(f'<li><span class="rep__word" lang="en">{esc(word_base(g[0]))}</span>'
                     f'<span class="rep__x">×{len(g)}</span>'
                     f'<span class="rep__cn">{fmt(g[0].get("cn", ""))}</span>'
@@ -981,7 +992,7 @@ def wordlist_box(batches):
                 f'<a class="wl__row wl__row--{pen}" href="#n{esc(x["id"])}">'
                 f'<span class="wl__term" lang="en">{esc(x["term"])}{times(x)}</span>{pos}'
                 f'<span class="wl__cn">{fmt(x.get("cn", ""))}</span>'
-                f'<span class="wl__page">p.{esc(x.get("page", ""))}</span></a></li>')
+                f'<span class="wl__page">{pg(x.get("page", ""), True)}</span></a></li>')
 
     def times(x):                     # 划过不止一次的词，词后面标「×N」（Winter 2026-10-06：「有助于我去学习高频词」）
         g = REPEATS.get(str(x.get('id')))
@@ -1007,7 +1018,7 @@ def wordlist_box(batches):
             last = n
         word = word_base(g[0]) if n > 1 else g[0]['term']
         pen = g[0].get('color') or 'blue'
-        pgs = ''.join(f'<a href="#n{esc(o["id"])}">p.{esc(o.get("page", ""))}</a>' for o in g)
+        pgs = ''.join(f'<a href="#n{esc(o["id"])}">{pg(o.get("page", ""), True)}</a>' for o in g)
         freq_html += (f'<li class="wf wf--{pen}"><span class="rep__word" lang="en">{esc(word)}</span>'
                       + (f'<span class="rep__x">×{n}</span>' if n > 1 else '<span></span>')
                       + f'<span class="rep__cn">{fmt(g[0].get("cn", ""))}</span><span class="rep__pgs">{pgs}</span></li>')
@@ -1139,6 +1150,8 @@ def main():
         for x in g:
             REPEATS[str(x['id'])] = g
 
+    global PAGE_UNIT
+    PAGE_UNIT = str(book.get('page_unit') or 'p.')
     pal = palette(book.get('palette', ''))
     try:                                  # 明亮模式的主色用暗一档的 accent_ink，白底上才看得清
         au = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.dirname(HERE)), '_data', 'au_palettes.yml'),
@@ -1183,7 +1196,7 @@ def main():
         if len(batches) > 1:
             toc = '<ul class="toc">' + ''.join(
                 f'<li><a href="#b{b["n"]}">'
-                + (f'p. {esc(b["pages"])}' if b.get('pages') else f'第 {b["n"]} 批') + '</a></li>' for b in batches) + '</ul>\n'
+                + (f'{pg(b["pages"])}' if b.get('pages') else f'第 {b["n"]} 批') + '</a></li>' for b in batches) + '</ul>\n'
         allw = eudic_words([x for b in batches for x in (b.get('notes') or [])])
         first = str(batches[0].get('pages', '')).split('–')[0].split('-')[0]
         span = f'{first}–{upto}' if last.get('pages') and first and first != upto else (upto if last.get('pages') else '')
