@@ -33,7 +33,9 @@ PENS = [  # id, 名字, 颜色（跟 render_notes.py 的 PENS 同色）, 一句�
     ('purple', '专名',   '#cdb4f0', '人名、地名、片名、东西的名字'),       # 2026-10-14 她加的
     ('yellow', '长难句', '#f3dd7a', '看不太懂的长句，要拆开讲'),           # 2026-10-14 她加的
     ('orange', '好句',   '#f7b27c', '表达效果好的句子'),
+    ('sam',    'Sam',    '#e0566b', '关于他、值得收藏的话——画成下划线，能单独导出给小红书'),   # 2026-10-14 她加的
 ]
+SAM = 'sam'   # 这一支不是荧光笔：下划线，可以跟别的颜色叠在同一段字上；单独导出
 
 FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400'
          '&family=Noto+Serif+SC:wght@400;500;600&display=swap">')
@@ -109,7 +111,7 @@ CSS = '''
  --bg:color-mix(in srgb,__ACCENT__ 6%,#fbfaf6);--accent:__INK_ACCENT__;--ink:#1d2129;--muted:#6b7280;
  --surface:#fffefb;--line:color-mix(in srgb,var(--accent) 24%,transparent);
  --shadow:0 10px 28px rgba(20,24,31,.12);--hl-mix:62%;--noted:#1f9a55;
- --pen-blue:__PEN_BLUE__;--pen-pink:__PEN_PINK__;--pen-purple:__PEN_PURPLE__;--pen-yellow:__PEN_YELLOW__;--pen-orange:__PEN_ORANGE__;
+ --pen-blue:__PEN_BLUE__;--pen-pink:__PEN_PINK__;--pen-purple:__PEN_PURPLE__;--pen-yellow:__PEN_YELLOW__;--pen-orange:__PEN_ORANGE__;--pen-sam:__PEN_SAM__;
 }
 :root[data-theme="dark"]{
  color-scheme:dark;
@@ -145,6 +147,14 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC",
 @media (max-width:700px){.art .num{display:none}}
 mark{color:inherit;border-radius:2px;padding:.06em 0;background:color-mix(in srgb,var(--c) var(--hl-mix),transparent);
  box-decoration-break:clone;-webkit-box-decoration-break:clone;cursor:pointer;transition:background .15s}
+mark.is-sam{text-decoration:underline;text-decoration-color:var(--pen-sam);text-decoration-thickness:2px;text-underline-offset:.16em;text-decoration-skip-ink:none}
+mark.is-sam:not(.has-bg){background:transparent}
+.pen[data-pen="sam"] i,.pop button[data-pen="sam"]{background:transparent;border:0;font-size:16px;line-height:1}
+.pen[data-pen="sam"] i::before,.pop button[data-pen="sam"]::before{content:"❣️"}
+.pen[data-pen="sam"].is-on{background:color-mix(in srgb,var(--pen-sam) 22%,var(--surface));border-color:var(--pen-sam)}
+.pop button[data-pen="sam"].is-cur{border:2px solid var(--pen-sam);border-radius:50%}
+.grp .gcopy{margin-left:auto;height:28px;padding:0 .6rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-family:inherit;font-size:.76rem}
+.row .t mark.is-sam{background:transparent}
 mark.is-noted::after{content:"✓";font-size:.55em;vertical-align:super;color:var(--noted);margin-left:.1em;font-family:system-ui,sans-serif}
 mark.is-focus{background:color-mix(in srgb,var(--c) 88%,transparent)}
 /* 浮在选区上方的小笔盒 */
@@ -260,9 +270,13 @@ JS = r'''
         var cover = hs.filter(function(h){ return h.s <= a && h.e >= b; }).sort(function(x,y){ return (x.ts||0)-(y.ts||0); });
         var seg = esc(t.slice(a,b));
         if (!cover.length) { out += seg; continue; }
-        var top = cover[cover.length-1];
+        var bg = cover.filter(function(h){ return h.color !== 'sam'; }), sam = bg.length !== cover.length;
+        var top = bg.length ? bg[bg.length-1] : cover[cover.length-1];
+        var cls = [];
+        if (sam) cls.push('is-sam'); if (bg.length) cls.push('has-bg');
+        if (bg.length && bg.every(function(h){return h.noted;})) cls.push('is-noted');
         out += '<mark style="--c:var(--pen-' + top.color + ')" data-ids="' + cover.map(function(h){return h.id;}).join(' ') +
-               '" class="' + (cover.every(function(h){return h.noted;}) ? 'is-noted' : '') + '">' + seg + '</mark>';
+               '" class="' + cls.join(' ') + '">' + seg + '</mark>';
       }
       el.innerHTML = num + out;
     });
@@ -389,10 +403,11 @@ JS = r'''
     ORDER.forEach(function(c){
       var g = ids.filter(function(id){ return H[id].color === c; }).sort(function(a,b){ return H[a].p - H[b].p || H[a].s - H[b].s; });
       if (!g.length) return;
-      html += '<div class="grp" style="--c:var(--pen-' + c + ')"><i></i>' + PENS[c] + ' · ' + g.length + '</div>';
+      html += '<div class="grp" style="--c:var(--pen-' + c + ')">' + (c === 'sam' ? '❣️ ' : '<i></i>') + PENS[c] + ' · ' + g.length +
+              (c === 'sam' ? '<button type="button" class="gcopy" id="copy-sam">复制 Sam 的</button>' : '') + '</div>';
       g.forEach(function(id){
         var h = H[id];
-        html += '<div class="row" data-id="' + id + '"><span class="t" data-go="' + id + '"><mark style="--c:var(--pen-' + c + ')">' + esc(h.text) + '</mark></span>' +
+        html += '<div class="row" data-id="' + id + '"><span class="t" data-go="' + id + '"><mark style="--c:var(--pen-' + c + ')" class="' + (c === 'sam' ? 'is-sam' : '') + '">' + esc(h.text) + '</mark></span>' +
                 '<span class="pg">' + (h.loc || LOC[h.p] || '') + '</span>' + (h.noted ? '<span class="ok">✓ 已整理</span>' : '') +
                 '<button class="x" data-x="' + id + '" aria-label="擦掉">✕</button></div>';
       });
@@ -410,14 +425,24 @@ JS = r'''
       if (m) { m.scrollIntoView({block:'center', behavior:'smooth'}); m.classList.add('is-focus'); setTimeout(function(){ m.classList.remove('is-focus'); }, 1600); }
     }
   });
-  document.getElementById('copy-btn').addEventListener('click', function(){
-    var ids = Object.keys(H).sort(function(a,b){ return H[a].p - H[b].p || H[a].s - H[b].s; });
-    var lines = ids.map(function(id){ var h = H[id]; return '[' + PENS[h.color] + '] ' + (h.loc || LOC[h.p] || '') + '：' + h.text; });
-    var txt = lines.join('\n');
-    function done(){ say('复制好了，贴给 Claude 就行'); }
+  function copyText(txt, msg){
+    function done(){ say(msg); }
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, function(){ fallback(txt); done(); });
     else { fallback(txt); done(); }
+  }
+  function sorted(){ return Object.keys(H).sort(function(a,b){ return H[a].p - H[b].p || H[a].s - H[b].s; }); }
+  document.getElementById('copy-btn').addEventListener('click', function(){
+    var lines = sorted().filter(function(id){ return H[id].color !== 'sam'; }).map(function(id){ var h = H[id]; return '[' + PENS[h.color] + '] ' + (h.loc || LOC[h.p] || '') + '：' + h.text; });
+    copyText(lines.join('\n'), '复制好了，贴给 Claude 就行');
   });
+  document.getElementById('drawer-body').addEventListener('click', function(e){
+    if (!e.target.closest('#copy-sam')) return;
+    e.stopPropagation();
+    var head = document.querySelector('#art h1.p'), title = head ? head.getAttribute('data-t') : document.title;
+    var link = document.querySelector('.eyebrow a'), url = link ? link.getAttribute('href') : '';
+    var lines = sorted().filter(function(id){ return H[id].color === 'sam'; }).map(function(id){ var h = H[id]; return '· ' + h.text + '（' + (h.loc || LOC[h.p] || '') + '）'; });
+    copyText('来自《' + title + '》' + (url ? '\n' + url : '') + '\n\n' + lines.join('\n'), '复制好了 ❣️ 去发给小红书那边吧');
+  }, true);
   function fallback(txt){ var ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); }catch(e){} ta.remove(); }
 
   var toastT = null;
@@ -472,7 +497,7 @@ def render(meta, pal, ink_accent, slug):
     css = (CSS.replace('__ACCENT__', pal['accent']).replace('__INK_ACCENT__', ink_accent).replace('__BG__', pal['bg'])
               .replace('__TEXT__', pal['text']).replace('__MUTED__', pal['muted'])
               .replace('__PEN_BLUE__', pens['blue']).replace('__PEN_PINK__', pens['pink']).replace('__PEN_ORANGE__', pens['orange'])
-              .replace('__PEN_PURPLE__', pens['purple']).replace('__PEN_YELLOW__', pens['yellow'])
+              .replace('__PEN_PURPLE__', pens['purple']).replace('__PEN_YELLOW__', pens['yellow']).replace('__PEN_SAM__', pens['sam'])
 )
     allp = [{'k': 't', 't': meta['title']}] + ([{'k': 'lede', 't': meta['standfirst']}] if meta.get('standfirst') else []) + meta['paras']
     paras, n = [], 0
