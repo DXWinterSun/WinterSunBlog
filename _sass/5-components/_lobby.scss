@@ -328,7 +328,7 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
   position: relative;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 58px 44px 70px;
+  padding: 104px 44px 70px;   /* 顶上留一条桌沿，便利贴、回形针、镇纸都摆在那条空带里，不压本子 */
   border-radius: 18px;
   overflow: hidden;
   isolation: isolate;
@@ -410,10 +410,10 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
 }
 .c-desk__thing--mug { width: 92px; right: 26px; bottom: 18px; transform: rotate(-8deg); }
 .c-desk__thing--pencil { width: 190px; left: 30px; bottom: 26px; transform: rotate(-14deg); }
-.c-desk__thing--note { width: 96px; right: 40px; top: 10px; transform: rotate(5deg); }
-.c-desk__thing--clip { width: 20px; left: 58px; top: 22px; transform: rotate(28deg); }
+.c-desk__thing--note { width: 92px; right: 48px; top: 6px; transform: rotate(5deg); }
+.c-desk__thing--clip { width: 20px; left: 58px; top: 26px; transform: rotate(28deg); }
 .c-desk__thing--ring { width: 110px; right: 150px; bottom: -8px; z-index: 1; filter: none; }
-.c-desk__thing--snow { width: 70px; left: 34%; top: 8px; transform: rotate(-10deg); }
+.c-desk__thing--snow { width: 64px; left: 40%; top: 14px; transform: rotate(-10deg); }
 .c-desk__steam path { animation: deskSteam 2.8s ease-in-out infinite; transform-origin: 50% 100%; }
 .c-desk__steam path:nth-child(2) { animation-delay: .6s; }
 .c-desk__steam path:nth-child(3) { animation-delay: 1.3s; }
@@ -426,17 +426,18 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
 .c-desk--mat .c-desk__thing { filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45)); }
 
 @media only screen and (max-width: 900px) {
-  .c-desk { padding: 46px 22px 70px; border-radius: 14px; }
-  .c-desk__thing--snow { display: none; }
-  .c-desk__thing--note { width: 80px; right: 16px; top: 4px; }
+  .c-desk { padding: 88px 22px 70px; border-radius: 14px; }
+  .c-desk__thing--snow { width: 54px; left: 44%; top: 12px; }
+  .c-desk__thing--note { width: 76px; right: 20px; top: 6px; }
   .c-desk__thing--pencil { width: 150px; left: 14px; bottom: 16px; }
   .c-desk__thing--mug { width: 72px; right: 14px; bottom: 10px; }
   .c-desk__thing--clip { left: 24px; top: 14px; }
   .c-desk__thing--ring { right: 90px; bottom: -14px; width: 90px; }
 }
 @media only screen and (max-width: 560px) {
-  .c-desk { padding: 38px 14px 66px; margin: 0 -2px; }
-  .c-desk__thing--note { width: 66px; right: 10px; top: 2px; }
+  .c-desk { padding: 78px 14px 66px; margin: 0 -2px; }
+  .c-desk__thing--snow { display: none; }
+  .c-desk__thing--note { width: 66px; right: 14px; top: 6px; }
   .c-desk__thing--pencil { width: 120px; left: 10px; bottom: 14px; }
   .c-desk__thing--mug { width: 60px; right: 10px; bottom: 8px; }
   .c-desk .c-notes__grid { gap: 16px 12px; }
