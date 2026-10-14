@@ -455,6 +455,17 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
   --note-margin: #7a4a3d;
 }
 
+/* 书架底下一句：指路去书桌（2026-10-14 Winter 选的「作品与书桌」方案，两页互相指路） */
+.c-wn-foot {
+  margin: 26px auto 0;
+  max-width: 1040px;
+  text-align: center;
+  font-family: 'Noto Serif SC', 'Songti SC', $base-font-family;
+  font-size: 14px;
+  color: $muted;
+  a { color: $accent; text-decoration: none; border-bottom: 1px dotted $accent-soft; white-space: nowrap; }
+}
+
 /* ── 平板 ── */
 @media only screen and (max-width: 1000px) {
   .c-wn-covers { gap: 22px 20px; }

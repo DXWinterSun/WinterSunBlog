@@ -4,7 +4,8 @@
   关于她的只有一句话。现在第一格只放四样：🔖 冬的书签 / 🗞️ 冬的更新 / 🎒 冬的口袋 / 💌 冬的名片。
   四个小标题跟 Winter's 书架同一个样子（c-shelf__head：圆章 · 名字 · 右边小药丸 · 底下一行说明），
   名字是她在三版里挑的「冬的 + 随身的小东西」（2026-10-03）；「日更」专指她的小红书，别拿来当标题。
-  口袋里八格一律两个字（她挑的）：日历 · 歌单 · 语录 · 热线 · 星图 · 磁带 · 街机 · 画廊。
+  口袋 2026-10-14 起装满了：全站 21 个去处分三个内袋（翻一翻 / 玩一玩 / 记一记），名字一律两个字，
+  在 _includes/pocket.html 里，跟「关于我」页的「冬的地图」共用一份。
   全部故事去 AU Story 和 Winter's 各自看；日历（Archive）不再占标签，入口在这里和 AU 页顶上。
 
   · 只在首页「全部」视图出现（_sass/5-components/_lobby.scss 按 data-hero-active 切换），
@@ -65,17 +66,8 @@
   <div class="c-lobby__side">
 
     <div class="c-lobby__block">
-      <div class="c-shelf__head"><span class="c-shelf__badge" aria-hidden="true">🎒</span><h2 class="c-shelf__name">冬的口袋</h2><p class="c-shelf__desc">常去的几个地方，揣在身上</p></div>
-      <nav class="c-lobby-tiles" aria-label="冬的口袋">
-        <a href="{{ site.baseurl }}/archive/"><i aria-hidden="true">🗓️</i>日历</a>
-        <a href="{{ site.baseurl }}/songs/"><i aria-hidden="true">🎧</i>歌单</a>
-        <a href="{{ site.baseurl }}/sam/today/"><i aria-hidden="true">☀️</i>语录</a>
-        <a href="{{ site.baseurl }}/sam/hotline/"><i aria-hidden="true">☎️</i>热线</a>
-        <a href="{{ site.baseurl }}/sky/"><i aria-hidden="true">✨</i>星图</a>
-        <a href="{{ site.baseurl }}/jukebox/"><i aria-hidden="true">📼</i>磁带</a>
-        <a href="{{ site.baseurl }}/sam/arcade/"><i aria-hidden="true">🕹️</i>街机</a>
-        <a href="{{ site.baseurl }}/?view=gallery"><i aria-hidden="true">🖼️</i>画廊</a>
-      </nav>
+      <div class="c-shelf__head"><span class="c-shelf__badge" aria-hidden="true">🎒</span><h2 class="c-shelf__name">冬的口袋</h2><p class="c-shelf__desc">站里所有的去处，都揣在身上</p></div>
+      {% include pocket.html %}
     </div>
 
     <div class="c-lobby__block">

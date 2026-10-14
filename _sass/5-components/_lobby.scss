@@ -1,5 +1,5 @@
 /* ===============
-	⛄ HOME 门厅 ＋ 📝 NOTES 笔记页（2026-10-03 全站新排法，Winter 选的 A 方案）
+	⛄ HOME 门厅 ＋ 🪑 DESK 书桌页（2026-10-14 前叫 📝 Notes）（2026-10-03 全站新排法，Winter 选的 A 方案）
 	门厅：首页「全部」视图只放四样——接着读 / 最近更新 / 常去的地方 / 关于我，
 	下面那张 48 屏的通用文章网格在这个视图里整个藏起来（全部故事去 AU Story、Winter's 看）。
 	标记在 _includes/lobby.html；笔记页在 _pages/notes/index.html + _includes/notebooks.html。
@@ -156,17 +156,47 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
 }
 
 /* ── 常去的地方：一排小方块 ── */
-.c-lobby-tiles {
+/* ── 冬的口袋：三个内袋（2026-10-14 Winter 选的「装满、分三个内袋」＋「随心情上色」）──
+   标记在 _includes/pocket.html，门厅和「关于我」页共用。三个内袋各染一点颜色：翻一翻、玩一玩从主题色调，
+   记一记从冬阳金调（都极淡，只够分得开）；用 color-mix 接 $accent / $gold，所以 AU 系列页、换个心情都跟着走。 */
+.c-pocket { display: grid; gap: 16px; min-width: 0; }
+.c-pocket__bag {
+  --pk-tint: #{$accent};
+  --pk-mix: 7%;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 10px 10px 10px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--pk-tint) var(--pk-mix), $paper);
+  border: 1px solid color-mix(in srgb, var(--pk-tint) 28%, $line);
+}
+.c-pocket__bag--play { --pk-mix: 13%; }
+.c-pocket__bag--note { --pk-tint: #{$gold}; --pk-mix: 11%; }
+.c-pocket__name {
+  margin: 0 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $lb-cn;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: color-mix(in srgb, var(--pk-tint) 72%, $ink);
+  i { font-style: normal; font-family: $lb-emoji; font-size: 13px; }
+}
+.c-pocket__tiles {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
   a {
     display: grid;
     justify-items: center;
-    gap: 4px;
-    padding: 12px 4px 10px;
-    border-radius: 12px;
-    border: 1px solid $line;
+    gap: 3px;
+    min-width: 0;
+    padding: 10px 2px 8px;
+    border-radius: 11px;
+    border: 1px solid color-mix(in srgb, var(--pk-tint) 22%, $line);
     background: $paper;
     font-family: $lb-cn;
     font-size: 13px;
@@ -175,10 +205,18 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
     text-align: center;
     line-height: 1.3;
     transition: transform .2s ease, border-color .2s ease, color .2s ease;
-    &:hover { transform: translateY(-2px); border-color: $accent; color: $accent; }
+    &:hover { transform: translateY(-2px); border-color: var(--pk-tint); color: color-mix(in srgb, var(--pk-tint) 80%, $ink); }
     &:focus-visible { outline: 3px solid $accent; outline-offset: 2px; }
   }
   i { font-style: normal; font-family: $lb-emoji; font-size: 22px; line-height: 1.2; }
+}
+/* 「关于我」页上同一只口袋：页面宽，三个内袋并排 */
+.c-about__map { margin: 0 0 56px; }
+.c-about__map .c-pocket { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+.c-about__map .c-pocket__tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media only screen and (max-width: 900px) {
+  .c-about__map .c-pocket { grid-template-columns: 1fr; }
+  .c-about__map .c-pocket__tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 /* ── 关于我：小卡 + 写信 ── */
@@ -243,6 +281,7 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
   font-family: $lb-cn;
   font-size: 14px;
   color: $muted;
+  a { color: $accent; text-decoration: none; border-bottom: 1px dotted $accent-soft; white-space: nowrap; }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -257,9 +296,11 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
   .c-lobby-resume { grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 7px; }
   .c-lobby-resume__chapter { font-size: 15.5px; }
   .c-lobby-upd__day { grid-template-columns: 56px minmax(0, 1fr); gap: 10px; }
-  .c-lobby-tiles { gap: 8px; }
-  .c-lobby-tiles a { font-size: 12px; padding: 10px 2px 8px; border-radius: 10px; }
-  .c-lobby-tiles i { font-size: 20px; }
+  .c-pocket { gap: 12px; }
+  .c-pocket__bag { padding: 8px; gap: 6px; }
+  .c-pocket__tiles { gap: 6px; }
+  .c-pocket__tiles a { font-size: 12px; padding: 9px 2px 7px; border-radius: 10px; }
+  .c-pocket__tiles i { font-size: 20px; }
   /* 手机上两本一行：字收一档，书脊线圈也收窄一点 */
   .c-notes__grid { gap: 14px; }
   .c-notes__grid .c-wn-notebook { min-height: 196px; padding: 14px 10px 12px 26px; box-shadow: inset 11px 0 0 var(--nb-spine), 0 8px 20px rgba(var(--rgb-shadow), 0.16); }
@@ -272,5 +313,5 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
   .c-notes__grid .c-wn-notebook__meta b { font-size: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .c-lobby-resume, .c-lobby-tiles a, .c-lobby-upd__stamp { transition: none; }
+  .c-lobby-resume, .c-pocket__tiles a, .c-lobby-upd__stamp { transition: none; }
 }
