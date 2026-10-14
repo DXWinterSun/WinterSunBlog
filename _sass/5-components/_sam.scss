@@ -1490,9 +1490,10 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
 }
 
 /* ===============
-	小一号的 AU 卡（2026-10-03 全站新排法）：Sam 页底下 43 张系列卡以前手机上一行一张，
-	互动彩蛋之后还要再划 30 屏。现在电脑一行三张、手机一行两张；手机上只留封面、四个色点、
-	故事名 + 角色名、章数，配色的中英名字和简介收起来（点进系列页都看得到）。
+	小一号的 AU 卡（2026-10-03 全站新排法）：电脑一行三张。
+	⚠️ 手机上保持一行一张（2026-10-14 Winter：「之前做的 AU 半透明的色卡效果换成双栏也不怎么好看了，
+	我感觉 AU 页双栏就行，Sam 页为了好看还是单栏」）——曾经做过手机两栏、只留四个色点的版本，被她否了，别再改回去；
+	手机单栏走上面 720px 那段的规则，半透明色卡带中英色名完整显示。
 =============== */
 .c-sam-card__who {
   display: block;
@@ -1511,24 +1512,23 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   .c-sam-grid .c-sam-card__desc { font-size: 14px; }
   .c-sam-grid .c-sam-card__pcols { gap: 7px 12px; }
 }
+
+/* ===============
+	互动彩蛋 · 手机上收紧（2026-10-14 Winter：「手机端……互动彩蛋排得好分散」）：
+	十一张卡每张占小半屏，要划三千多像素。手机上改成一行一条：小一号的画砖、眉标 + 标题，
+	说明文字收起（点进去都看得到），一屏能看到六七个。电脑上不动。
+	⚠️ 放在文件末尾：跟上面 720px 那段同权重，后者盖前者。
+=============== */
 @media only screen and (max-width: 720px) {
-  .c-sam-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .c-sam-grid .c-sam-card__body { padding: 10px 10px 12px; }
-  .c-sam-grid .c-sam-card__palette {
-    margin: -26px 0 9px;
-    padding: 6px 8px;
-    border-radius: 999px;
-    gap: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
-  }
-  .c-sam-grid .c-sam-card__pcap,
-  .c-sam-grid .c-sam-card__pname,
-  .c-sam-grid .c-sam-card__psig,
-  .c-sam-grid .c-sam-card__eyebrow,
-  .c-sam-grid .c-sam-card__desc,
-  .c-sam-grid .c-sam-card__cta { display: none; }
-  .c-sam-grid .c-sam-card__pcols { display: flex; gap: 5px; }
-  .c-sam-grid .c-sam-card__pcol i { width: 12px; height: 12px; }
-  .c-sam-grid .c-sam-card__title { font-size: 14.5px; line-height: 1.25; margin-bottom: 8px; }
-  .c-sam-grid .c-sam-card__count { font-size: 11px; }
+  .c-sam-toys { gap: 8px; margin-bottom: 44px; }
+  .c-sam-toy { align-items: center; padding: 10px 12px 10px 10px; gap: 12px; border-radius: 10px; }
+  .c-sam-toy__art { width: 48px; height: 48px; border-radius: 8px; }
+  .c-sam-toy__art svg { inset: 4px; width: 40px; height: 40px; }
+  .c-sam-toy__num { top: 2px; left: 4px; font-size: 8px; }
+  .c-sam-toy__body { gap: 2px; }
+  .c-sam-toy__eyebrow { font-size: 9.5px; letter-spacing: .14em; }
+  .c-sam-toy__title { font-size: 15px; line-height: 1.3; }
+  .c-sam-toy__desc { display: none; }
+  .c-sam-toy__arrow { font-size: 13px; }
+  .c-year-ribbon { margin-bottom: 14px; }
 }

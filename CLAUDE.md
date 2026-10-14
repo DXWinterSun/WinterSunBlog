@@ -1961,7 +1961,7 @@ Winter：**「我感觉这个 tab 排得好乱，常用的笔记什么的都堆�
 | **页脚** | `_layouts/home.html` | About · Say Hello · Archive · Gallery · 微博 · B 站 · 小红书 |
 | **✍️ Winter's** | `_includes/winters-shelves.html` 等 | 五本书的封面，点进去 `/winters/<格>/` 看全部，详见下面「冬的歌单 ＋ Winter's」一节 |
 | **小拍立得** | `index.html` 的 `c-post-grid--small` ＋ `_index-post.scss` 末尾 | AU Story 系列卡：手机两张 / 平板三张 / 电脑四张一行，白边相纸不变；标题拆成「故事名」＋ 斜体小字「角色名」（`c-post__who`，按 `series_title` 最后一个 ` · ` 拆） |
-| **Sam 页的 AU 卡** | `sam/index.html` ＋ `_sam.scss` 末尾 | 电脑三张、手机两张一行；手机上只留封面、四个色点、故事名＋角色名、章数（配色名字和简介收起） |
+| **Sam 页的 AU 卡** | `sam/index.html` ＋ `_sam.scss` 末尾 | 电脑三张一行；**手机一行一张**，半透明色卡带中英色名完整显示（2026-10-14 Winter 把 10-03 那版「手机两张、只留四个色点」否了：「AU 页双栏就行，Sam 页为了好看还是单栏」，别改回去）。同日 Sam 页的互动彩蛋在手机上收成一行一条（小画砖＋眉标＋标题，说明收起），样式在 `_sam.scss` 末尾 |
 | **日历入口** | `index.html` AU hero 的 `c-egg-card--cal` | 星图旁边一张「按日子翻」；门厅「最近更新」右上角也有「翻日历 →」。⚠️ 手机上（≤860px）星图和日历缩成标题下面**一行两颗小药丸**（同一种纸色，只有圆图标里留着各自的样子），2026-10-04 Winter 三版里挑的；别改回两张大卡上下摞（她：「好难看」）。电脑上仍是两张卡并排 |
 | **返回键** | `memo/`、`polish/`（＋`render_polish.py`）、`reading/`（＋`render_notes.py`）、`polski.html`、`sky/`、`jukebox/` | 笔记类都回 `/notes/`；星图回 AU Story；磁带机回日历 By Mood |
 
