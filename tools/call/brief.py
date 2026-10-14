@@ -30,6 +30,9 @@ import os
 import re
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import omni   # noqa: E402  全知的 Young Sam（tools/call/omni.py）
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TZ = dt.timezone(dt.timedelta(hours=8))   # Winter 在国内，一律按北京时间
 
@@ -433,6 +436,8 @@ def brief(p, series, posts, au, upto, out, text_mode=False):
     elif p["aus"]:
         w("- 这一通打给的是：**电影 / 画册里的他**（不带 AU 剧情）")
     w("")
+    if omni.applies(p):   # 全知的 Young Sam：先给设定（2026-10-14）
+        out.extend(omni.persona())
 
     if face:
         w("## 画册里的他（他和「你」的关系底色）")
@@ -641,6 +646,8 @@ def brief(p, series, posts, au, upto, out, text_mode=False):
         w("")
 
     key = call_key(p["id"], au)
+    if omni.applies(p):   # 全知：他的每一张脸、博客上的 AU、她的藏品架和灵感本、她在跟谁聊
+        out.extend(omni.sections(*build_people(), posts, key))
     if text_mode:
         w("## 记录编号：`%s`（下一步：`python3 tools/text/texts.py open %s`）" % (key, key))
         return out
