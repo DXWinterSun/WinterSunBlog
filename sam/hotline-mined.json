@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文筛出、再经 tools/hotline_review.json 人审过的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 这句接得上的情境（可多个）。新章节上线后重跑脚本即可，不要手改。",
-  "count": 207
+  "count": 198
  },
  "chars": {
   "youngsam": {
@@ -1429,91 +1429,7 @@
    ]
   },
   "garyguitar": {
-   "default": [
-    {
-     "cn": "你想哪儿去了。",
-     "b": [
-      "tease"
-     ],
-     "ch": 12,
-     "title": "Chapter 12 · 再弹一遍",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你睡着的时候是六十。醒着的时候八十。",
-     "b": [
-      "sleepless"
-     ],
-     "ch": 12,
-     "title": "Chapter 12 · 再弹一遍",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我弹给你听。",
-     "b": [
-      "sleepless",
-      "tired"
-     ],
-     "ch": 14,
-     "title": "Chapter 14 · The Slow One",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我半年给你数了几千次拍子。你骗不了我。",
-     "b": [
-      "tired"
-     ],
-     "ch": 14,
-     "title": "Chapter 14 · The Slow One",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我最近老想写点慢的东西。",
-     "b": [
-      "daily"
-     ],
-     "ch": 14,
-     "title": "Chapter 14 · The Slow One",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你现在才生气？",
-     "b": [
-      "tease"
-     ],
-     "ch": 17,
-     "title": "Chapter 17 · Slow Hands",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "晚了。你都已经上我们乐队了。",
-     "b": [
-      "tease"
-     ],
-     "ch": 17,
-     "title": "Chapter 17 · Slow Hands",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你想听什么。",
-     "b": [
-      "sleepless",
-      "tired"
-     ],
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我每次抬头你都在。",
-     "b": [
-      "love"
-     ],
-     "ch": 30,
-     "title": "Chapter 30 · 他说了",
-     "series": "Slow Hands"
-    }
-   ]
+   "default": []
   },
   "doug": {
    "default": [
