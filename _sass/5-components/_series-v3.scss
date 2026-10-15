@@ -397,8 +397,19 @@ $series-measure: 880px;
   &::before { left: -8px; }
   &::after { right: -8px; }
 }
-.c-tk-stub {
+/* ⚠️ 戏服间那格复用了 .au-strip__switch 的 data-* 属性，_extras.scss 里那套胶片按钮样式会一起套上来，
+   所以这里的选择器要带上父级压过它，并把它那套横排小字 / 边框 / 内边距都归零 */
+.c-tk-stubs .c-tk-stub,
+.c-tk-stubs .c-tk-stub.au-strip__switch {
   display: grid;
+  margin: 0;
+  border-radius: 0;
+  letter-spacing: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  width: auto;
+  min-height: 0;
+  box-shadow: none;
   justify-items: center;
   gap: 3px;
   padding: 14px 6px 15px;
@@ -410,14 +421,14 @@ $series-measure: 880px;
   text-align: center;
   cursor: pointer;
   transition: background 0.15s ease;
-  & + & { border-left: 1px dashed color-mix(in srgb, var(--tk-text) 30%, transparent); }
   svg { width: 20px; height: 20px; fill: none; stroke: var(--tk-accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-  b { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; }
+  b { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--tk-text); }
   em { font-family: $heading-font-family; font-style: italic; font-size: 10.5px; color: var(--tk-muted); letter-spacing: 0.04em; }
-  &:hover { background: color-mix(in srgb, var(--tk-accent) 10%, transparent); }
+  &:hover { background: color-mix(in srgb, var(--tk-accent) 10%, transparent); color: var(--tk-text); border-color: transparent; }
   &:focus-visible { outline: 2px solid var(--tk-accent); outline-offset: -3px; }
   &[hidden] { display: none !important; }
 }
+.c-tk-stubs .c-tk-stub + .c-tk-stub { border-left: 1px dashed color-mix(in srgb, var(--tk-text) 30%, transparent); }
 
 /* 「保存票根」出来的图：一层浮层，图 + 一句话（手机长按存相册，电脑点下载） */
 .c-tk-saved {
@@ -470,4 +481,6 @@ $series-measure: 880px;
   .c-tk-perf__c b { font-size: 10px; }
   .c-tk-perf__c em { font-size: 8px; }
   .c-tk-save { right: 10px; top: 10px; font-size: 11px; padding: 5px 10px 5px 8px; }
+  .c-tk-print__run { font-size: 9.5px; letter-spacing: 0.06em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .c-pal-bar__name em { font-size: 9px; }
 }
