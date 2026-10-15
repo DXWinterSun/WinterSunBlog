@@ -617,7 +617,7 @@
       if (sp) { var g1 = grp("s:" + sp.s, sp.t, sp.who); row.stub = "票"; row.title = "系列的背面"; row.kind = "ticket"; row.n = -1; g1.rows.push(row); g1.sp = sp; }
       else if (po && po.s) { var g2 = grp("s:" + po.s, po.st || po.s, ""); row.stub = stubOf(po); row.title = chapTitle(po.t); row.kind = "ticket"; row.n = po.k === "main" ? (po.n || 0) : 1000 + (po.n || 0); g2.rows.push(row); }
       else if (po) { var g3 = grp("photo", "照片", "Winter&rsquo;s"); row.stub = "照"; row.title = po.t; row.kind = "photo"; row.n = 0; g3.rows.push(row); }
-      else { var g4 = grp("other", "别的背面", ""); row.stub = "·"; row.title = k; row.kind = /\/\d{4}\/\d{2}\/\d{2}\//.test(k) ? "ticket" : "photo"; row.n = 0; g4.rows.push(row); }
+      else { var g4 = grp("other", "别的背面", ""); row.stub = "·"; row.title = decodeURIComponent(k.replace(/\/$/, "").split("/").pop() || k).replace(/-/g, " "); row.kind = /\/\d{4}\/\d{2}\/\d{2}\//.test(k) ? "ticket" : "photo"; row.n = 0; g4.rows.push(row); }
     }
     var out = [];
     for (var i = 0; i < order.length; i++) {

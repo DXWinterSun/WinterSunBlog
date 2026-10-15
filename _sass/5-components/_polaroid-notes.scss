@@ -20,6 +20,7 @@ $pol-strip: #14110d;
 $pol-strip-ink: #e7dcc6;
 $pol-line: rgba(74, 66, 52, 0.14);
 $pol-line-strong: rgba(74, 66, 52, 0.3);
+$pol-accent: #b08968;        /* 相纸上的暖色点缀（日记的一二三、寄信钮）——相纸不随「换个心情」变 */
 $pol-serif: 'EB Garamond', 'Noto Serif SC', serif;
 $pol-mono: 'Special Elite', 'Courier New', monospace;
 
@@ -399,7 +400,7 @@ $pol-mono: 'Special Elite', 'Courier New', monospace;
 .pol-lucky-top {
   display: flex; align-items: center; justify-content: space-between;
   background: $pol-strip; border-radius: 3px; padding: 11px 10px;
-  box-shadow: inset 0 -2px 0 var(--c-accent, transparent);
+  box-shadow: inset 0 -2px 0 $pol-accent;
 }
 .pol-lucky-date { font-family: $pol-serif; font-style: italic; font-size: 15px; letter-spacing: 0.3px; color: $pol-strip-ink; }
 .pol-lucky-nav { border: none; background: transparent; color: rgba(231, 220, 198, 0.55); font-size: 21px; line-height: 1; cursor: pointer; padding: 0 8px; }
@@ -409,12 +410,12 @@ $pol-mono: 'Special Elite', 'Courier New', monospace;
   background-image: repeating-linear-gradient(to bottom, transparent 0 33px, rgba(0, 0, 0, 0.07) 33px 34px);
 }
 .pol-lucky-row { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 11px; cursor: text; }
-.pol-lucky-no { flex: none; width: 22px; text-align: center; font-family: 'Ma Shan Zheng', cursive; font-size: 21px; color: var(--c-accent, #b08968); line-height: 1.35; }
+.pol-lucky-no { flex: none; width: 22px; text-align: center; font-family: 'Ma Shan Zheng', cursive; font-size: 21px; color: $pol-accent; line-height: 1.35; }
 .pol-lucky-in {
   flex: 1; border: none; outline: none; resize: none; background: transparent;
   color: $pol-ink; font-size: 21px; line-height: 1.4; min-height: 30px; overflow: hidden;
   border-bottom: 1px solid $pol-line-strong; padding: 0 0 3px;
-  caret-color: var(--c-accent, #b08968);
+  caret-color: $pol-accent;
 }
 .pol-lucky-in::placeholder { color: $pol-pencil-light; }
 .pol-lucky-free { width: 100%; min-height: 120px; border-bottom: none; line-height: 1.5; }
@@ -432,7 +433,7 @@ $pol-mono: 'Special Elite', 'Courier New', monospace;
   flex: 1; min-width: 0; border: none; outline: none; background: transparent;
   border-bottom: 1px solid $pol-line-strong; padding: 3px 0;
   font-family: $pol-serif; font-size: 15px; color: $pol-ink;
-  caret-color: var(--c-accent, #b08968);
+  caret-color: $pol-accent;
 }
 .pol-letter-in::placeholder { color: $pol-pencil-light; font-style: italic; }
 .pol-letter-when-field { align-items: flex-start; }
@@ -445,7 +446,7 @@ $pol-mono: 'Special Elite', 'Courier New', monospace;
   padding: 3px 11px; cursor: pointer; transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 .pol-when-chip:hover { background: rgba(255, 255, 255, 0.9); color: $pol-ink; }
-.pol-when-chip.on { background: var(--c-accent, #b08968); border-color: var(--c-accent, #b08968); color: #fff; }
+.pol-when-chip.on { background: $pol-accent; border-color: $pol-accent; color: #fff; }
 .pol-letter-date {
   color: $pol-ink; border: none; outline: none; background: transparent;
   border-bottom: 1px solid $pol-line-strong; padding: 2px 0;
@@ -455,7 +456,7 @@ $pol-mono: 'Special Elite', 'Courier New', monospace;
   display: none;
   font-family: $pol-serif; font-style: italic; font-size: 13px;
   border: none; border-radius: 999px; padding: 5px 14px; cursor: pointer;
-  background: var(--c-accent, #b08968); color: #fff;
+  background: $pol-accent; color: #fff;
 }
 .pol-lucky-send:hover { filter: brightness(1.06); }
 .pol-lucky-sendmsg { font-family: $pol-serif; font-style: italic; font-size: 11px; color: #6f9a6f; opacity: 0; transition: opacity 0.3s ease; }
