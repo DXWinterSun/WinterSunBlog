@@ -38,9 +38,9 @@ NAME = {c['id']: c['name'] for c in LINES['characters']}
 # 大多数能按系列首页 byline 的角色名自动对上；对不上的（byline 用全名）在这里点名。
 MANUAL = {
   'rob': 'Everything in Transit', 'doug': 'Better Living Through You',
-  'wildbill': 'Tuning the Devil', 'garyguitar': 'Slow Hands',
+  'wildbill': 'Tuning the Devil', 'garyguitar': 'Just Go Ahead Now',
   'sambell': "Everybody's Home", 'dixon': 'Only I Know',
-  'eric': 'Knox AU', 'bowen': 'This House Is Clean',
+  'eric': 'Simon Says', 'bowen': 'This House Is Clean',
   'greaves': {'eyes-on-me': 'Eyes on Me', 'no-one-walks-off': 'No One Walks Off'},
   'jim': {'some-steps': 'Some Steps Only We Know', 'the-one-i-kept': 'The One I Kept'},
   'pero': 'The Serbian Tornado', 'matty': 'Oh, May',

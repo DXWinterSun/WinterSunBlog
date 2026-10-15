@@ -4,13 +4,13 @@ title: "Chapter 5 · The Boy Who Prayed for You — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg
-series: "Menelaus AU"
+series: "If You'll Have Me"
 series_title: "If You'll Have Me · Menelaus AU"
 series_order: 5
 series_type: "Series"
 chapter_type: "Chapter 5"
 summary: "他独自跪在神庙祈愿，你从门后偷听，他说想娶你，然后你推门而入。"
-tags: [Menelaus, BayBay, AU, Menelaus AU, 悸动, 安放]
+tags: [Menelaus, BayBay, AU, "If You'll Have Me", 悸动, 安放]
 ---
 
 🏛《The Boy Who Prayed for You》

@@ -101,7 +101,7 @@ const characters = [
     accentNameEn: "Crimson Lens", accentNameCn: "红镜红",
     profile: { burn:10, forbear:9, romance:6, chaos:8, raw:1, grace:9 },
     auLink: {
-      href: "/WinterSunBlog/series/knox-au/",
+      href: "/WinterSunBlog/series/simon-says/",
       title: "Simon Says · Knox AU",
       label: "他计划了一切，却没有计划上你。",
     },
@@ -171,7 +171,7 @@ const characters = [
     accentNameEn: "Stardust Gold", accentNameCn: "星际金",
     profile: { burn:9, forbear:1, romance:8, chaos:10, raw:6, grace:7 },
     auLink: {
-      href: "/WinterSunBlog/series/zaphod-au/",
+      href: "/WinterSunBlog/series/don-t-panic-baby-doll/",
       title: "Don't Panic, Baby Doll",
       label: "他叫你baby doll，整个银河系都知道，除了他自己。",
     },

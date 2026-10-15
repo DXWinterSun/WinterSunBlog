@@ -4,7 +4,7 @@ title: "Chapter 27 · 我愿意 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 15:01:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 27
 series_status: complete
@@ -12,7 +12,7 @@ series_type: Series
 chapter_type: "Chapter 27 · 大结局"
 chapter_kind: extra
 summary: "他求着你把一切修好、把婚礼补上——这一次，你当他的面，说了我愿意。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 安放, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 安放, 缱绻]
 redirect_from:
   - /2026/09/29/zaphod-au-chapter-27-i-do/
 ---

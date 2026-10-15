@@ -4,14 +4,14 @@ title: "Chapter 10 · 你怎么哭了 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:44:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 10
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 10"
 summary: "你掉了滴伤心的泪，他逼问出真相，头一回为你违背了随心所欲。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 怅惘, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 怅惘, 缱绻]
 redirect_from:
   - /2026/09/12/zaphod-au-chapter-10-why-are-you-crying/
 ---

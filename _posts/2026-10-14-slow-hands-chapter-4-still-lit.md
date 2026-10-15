@@ -4,14 +4,14 @@ title: "Chapter 4 · 一直亮着 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-14 10:04:00 +0800
 image: gary-petrosino-au.jpg
-series: "Slow Hands"
+series: "Just Go Ahead Now"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 4
 series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 4"
 summary: "只差一寸，他却退开了。满墙的脸，没有一张是真的。"
-tags: [Gary Garren, Sam Rockwell, AU, Slow Hands, 暗涌, 怅惘]
+tags: [Gary Garren, Sam Rockwell, AU, "Just Go Ahead Now", 暗涌, 怅惘]
 ---
 
 > 那首歌里唱，他想给你买一条坠子，可他兜里没有。  

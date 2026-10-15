@@ -7,15 +7,15 @@
 > ⛔ **铁律：一切以电影原片为准。** 旧版圣经已归档为 `slow-hands-v1-archived.md`——**不要读、不要引用、不要拿来对照**。
 > 旧版的人设、外貌、道具、姓名、称呼、母题、故事名，一样都不继承；新版里每一条设定，要么出自原片，要么由 Winter 新定。
 > 唯一保留：封面 `images/gary-petrosino-au.jpg`。
-> （文件名和系列内部键暂时还叫 `slow-hands`，只是为了不弄断博客上的链接；新版叫什么由 Winter 定，定了再改。）
+> （2026-10-15：系列内部键、网址、圣经文件名已全部改成 `Just Go Ahead Now` / `just-go-ahead-now`，旧网址 `/series/slow-hands/` 自动跳转。章节文件名仍以 slow-hands 开头，那只是文件名。）
 
 ---
 
 ## 一、现在走到哪
 
 - [x] **素材**（2026-10-13 到齐）：三段蓝光翻拍（① 男主上吉他课 3:18 ② 派对上默念《Two Princes》24 秒
-      ③ 另一节课的几秒钟）→ `slow-hands-revised/gary-素材档案.md`（逐场对白＋动作、外貌、声口、屋子、判断、存疑清单）。
-      14 张截图只在对话里看过，不入库。转交指令存在 `slow-hands-revised/video-brief.md`。
+      ③ 另一节课的几秒钟）→ `just-go-ahead-now-revised/gary-素材档案.md`（逐场对白＋动作、外貌、声口、屋子、判断、存疑清单）。
+      14 张截图只在对话里看过，不入库。转交指令存在 `just-go-ahead-now-revised/video-brief.md`。
 - [x] **开坑提案**（2026-10-13 她挑完，结果见下面「设定」一节）：https://claude.ai/artifact/ErJLsXfLhXkDkupTRFSkzs
       数据 `.claude/pitches/gary-garren.json`，生成 `tools/preview/render_pitch.py`。
       五道岔路：初见（A 你也按了那个门铃·英语老师 / B 隔着一面墙·夜班护士 / C 派对木墩旁）、
@@ -52,8 +52,7 @@
       支配 / 老师 / 荤话 + 真心（占有形式）一起来。⚠️仍不叫你名字、仍不说“别走”，回环不收。炽恋章。标题暂定《你是谁的》或《谁教会你的》。
 - [x] ⚠️ **系列展示名定案（Winter 2026-10-14）：《Just Go Ahead Now》**（Two Princes 副歌，穷王子“来吧，选我”）。
       已改展示名：series 首页 title / collection_title / hero h1、6 章的 title 后缀与 series_title、画册 auLink title。
-      ⚠️**内部键一律没动**：`series: "Slow Hands"` / `series_name: "Slow Hands"` / slug `/series/slow-hands/` / au_palettes key / mf_id——
-      所以链接、分组、配色全不受影响。文件名、圣经文件名也仍叫 slow-hands（内部标识，不是展示名）。
+      ~~内部键一律没动~~ → 2026-10-15 冬要求统一，内部键 / slug / 配色 key / 圣经文件名全部改成 Just Go Ahead Now。
 - [x] **第七章**《你是谁的》、**第八章**《全纽约最有钱的人》——2026-10-15 上线（冬 2026-10-15 看过预览后让直接发）。
 - [ ] **第八章方向**（Winter 2026-10-14 挑）：天亮以后 = **他想重新砌墙**（冬补：他天没亮悄悄溜走了🥲）；
       最后一步 = **你先摊牌**（冬补：你直接追去他家）。⭐⭐ **这一章回环收口**：你用他给的钥匙进门、当面说“我爱你，我不走，现在轮到你”，
@@ -181,7 +180,7 @@ Winter 原话：「Gary Garren 的 AU 那个窗口崩了，这几个是写好的
 - [x] **系列完结**：系列首页 `series_status: complete`、byline 改 complete；十章 front matter 也都是 complete。往后只写番外（`chapter_kind: extra` / `pov`，series_order 从 11 起）。
 - [x] **配色重配**（下节「六、配色」）。
 - [x] **画册 pass（2026-10-15，冬看过提案页后说「画册的可以，上线吧」）**：画册名字改全名 Gary Garren、tagline / desc / 锚句（A THING OR THREE）重写，
-      台词墙 5 句、热线回复库 26 句（默认称呼 sweetheart → Red Pen）、六维（6/6/7/7/8/4）全部换成新版；quiz / spectrum / sam_themes / lines.json 同步。提案稿存 `slow-hands-revised/gallery-pass.md`。
+      台词墙 5 句、热线回复库 26 句（默认称呼 sweetheart → Red Pen）、六维（6/6/7/7/8/4）全部换成新版；quiz / spectrum / sam_themes / lines.json 同步。提案稿存 `just-go-ahead-now-revised/gallery-pass.md`。
 
 ## 六、配色（2026-10-15 Winter 挑定）
 

@@ -4,14 +4,14 @@ title: "Chapter 7 · 一件小事 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:41:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 7
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 7"
 summary: "他一个哈欠宣了战，末日舰队待发；你眨下眼，把浩劫改成了感恩追封。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 絮语, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 絮语, 缱绻]
 redirect_from:
   - /2026/09/09/zaphod-au-chapter-7-a-small-errand/
 ---

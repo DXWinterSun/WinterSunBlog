@@ -4,7 +4,7 @@ title: "番外 · 说你不走了 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-08-24 06:02:53 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 34
 series_status: complete
@@ -12,7 +12,7 @@ series_type: Series
 chapter_type: "番外"
 chapter_kind: extra
 summary: "他不肯出来，也不肯放，只逼你说一句我不走了。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 炽恋, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 炽恋, 缱绻]
 redirect_from:
   - /2026/10/06/zaphod-au-extra-say-you-are-not-leaving/
 ---

@@ -4,13 +4,13 @@ title: "Chapter 8 · You Called Me Zeus — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-15
 image: menelaus-au.svg
-series: "Menelaus AU"
+series: "If You'll Have Me"
 series_title: "If You'll Have Me · Menelaus AU"
 series_order: 8
 series_type: "Series"
 chapter_type: "Chapter 8"
 summary: "宙斯降临神庙问罪，你迎风而立，怒斥控制，甘愿斩断神性也要自由。"
-tags: [Menelaus, BayBay, AU, Menelaus AU, 暗涌]
+tags: [Menelaus, BayBay, AU, "If You'll Have Me", 暗涌]
 ---
 
 ⚡️You Called Me Zeus｜你终于喊出"宙斯"

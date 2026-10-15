@@ -45,7 +45,7 @@ Winter 常常是「看了一部片，喜欢里面某个角色，想给他开个 
 
 ```bash
 python3 tools/preview/render_draft.py 草稿.md -o /tmp/.../预览.html \
-    --series "Zaphod AU" --title "雪的巡游" \
+    --series "Don't Panic, Baby Doll" --title "雪的巡游" \
     --subtitle "番外 · Don't Panic, Baby Doll" --mood "缱绻 · 安放" --notes 衔接说明.md
 ```
 

@@ -4,14 +4,14 @@ title: "Chapter 8 · 全纽约最有钱的人 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-15 10:02:00 +0800
 image: gary-petrosino-au.jpg
-series: "Slow Hands"
+series: "Just Go Ahead Now"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 8
 series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 8"
 summary: "他天没亮溜了。你用那把钥匙推开门，把最重的那句先放下。"
-tags: [Gary Garren, Sam Rockwell, AU, Slow Hands, 缱绻, 安放]
+tags: [Gary Garren, Sam Rockwell, AU, "Just Go Ahead Now", 缱绻, 安放]
 ---
 
 > 他在你身体里卸下过一次防备。  

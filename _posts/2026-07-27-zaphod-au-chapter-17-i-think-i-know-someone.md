@@ -4,14 +4,14 @@ title: "Chapter 17 · 好像认识一个人 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:51:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 17
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 17"
 summary: "一场雪让他心口一颤——他好像认识一个人，可谁都说他在瞎想。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 怅惘, 思念]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 怅惘, 思念]
 redirect_from:
   - /2026/09/19/zaphod-au-chapter-17-i-think-i-know-someone/
 ---

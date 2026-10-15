@@ -5,14 +5,14 @@ categories: ["AU Story"]
 date: 2026-07-27 14:46:59 +0800
 image: zaphod-au.jpg
 has_art: true
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 12
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 12"
 summary: "这一次，白纱和他身边的位置，都是你的了。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 缱绻, 安放]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 缱绻, 安放]
 redirect_from:
   - /2026/09/14/zaphod-au-chapter-12-your-turn/
 ---

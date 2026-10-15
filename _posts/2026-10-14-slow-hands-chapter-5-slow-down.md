@@ -4,14 +4,14 @@ title: "Chapter 5 · 慢一点 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-14 10:05:00 +0800
 image: gary-petrosino-au.jpg
-series: "Slow Hands"
+series: "Just Go Ahead Now"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 5
 series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 5"
 summary: "你不说了。你走过去，自己迈了那一寸。"
-tags: [Gary Garren, Sam Rockwell, AU, Slow Hands, 炽恋, 暗涌]
+tags: [Gary Garren, Sam Rockwell, AU, "Just Go Ahead Now", 炽恋, 暗涌]
 ---
 
 > 他教了你三个月，怎么把一根弦轻轻放下去，让它自己响。  

@@ -4,14 +4,14 @@ title: "Chapter 15 · 最后一件礼物 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:49:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 15
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 15"
 summary: "门没有开——你抹去了自己，只为他能活着，一无所知地。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 怅惘, 暗涌]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 怅惘, 暗涌]
 redirect_from:
   - /2026/09/17/zaphod-au-chapter-15-the-last-gift/
 ---

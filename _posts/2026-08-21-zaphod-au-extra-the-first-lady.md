@@ -4,7 +4,7 @@ title: "番外 · 总统夫人 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-08-21 22:51:45 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 31
 series_status: complete
@@ -12,7 +12,7 @@ series_type: Series
 chapter_type: "番外"
 chapter_kind: extra
 summary: "他签名签到一半一回头，看见他老婆那边的人比他还多。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 炽恋, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 炽恋, 缱绻]
 redirect_from:
   - /2026/10/03/zaphod-au-extra-the-first-lady/
 ---

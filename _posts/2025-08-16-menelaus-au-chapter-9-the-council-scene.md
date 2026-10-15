@@ -4,13 +4,13 @@ title: "Chapter 9 · The Council Scene — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-16
 image: menelaus-au.svg
-series: "Menelaus AU"
+series: "If You'll Have Me"
 series_title: "If You'll Have Me · Menelaus AU"
 series_order: 9
 series_type: "Series"
 chapter_type: "Chapter 9"
 summary: "战神质疑你的职务，他猛地站起：“只要她觉得她是对的，那她就是对的。”"
-tags: [Menelaus, BayBay, AU, Menelaus AU, 暗涌, 安放]
+tags: [Menelaus, BayBay, AU, "If You'll Have Me", 暗涌, 安放]
 ---
 
 🐶《狗狗王子惊艳众神的一句话》｜议会名场面！

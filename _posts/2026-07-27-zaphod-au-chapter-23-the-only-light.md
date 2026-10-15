@@ -5,14 +5,14 @@ categories: ["AU Story"]
 date: 2026-07-27 14:57:59 +0800
 image: zaphod-au.jpg
 has_art: true
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 23
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 23"
 summary: "他走出整个宇宙，走进那片黑——最深处，一点光，是你指上的星云。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 思念, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 思念, 缱绻]
 redirect_from:
   - /2026/09/25/zaphod-au-chapter-23-the-only-light/
 ---

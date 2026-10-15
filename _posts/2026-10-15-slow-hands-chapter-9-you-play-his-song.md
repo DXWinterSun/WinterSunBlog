@@ -4,14 +4,14 @@ title: "Chapter 9 · 你弹他的歌 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-15 10:03:00 +0800
 image: gary-petrosino-au.jpg
-series: "Slow Hands"
+series: "Just Go Ahead Now"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 9
 series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 9"
 summary: "你学了三个月的那首歌，终于弹给他听。他唱到那一句，你吻了他。"
-tags: [Gary Garren, Sam Rockwell, AU, Slow Hands, 缱绻, 安放]
+tags: [Gary Garren, Sam Rockwell, AU, "Just Go Ahead Now", 缱绻, 安放]
 ---
 
 > 你来学琴，是想用一首歌，说一句你说不出口的话。  

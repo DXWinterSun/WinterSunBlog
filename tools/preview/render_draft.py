@@ -5,7 +5,7 @@
 用法（在仓库根目录跑）：
 
     python3 tools/preview/render_draft.py 草稿.md -o 预览.html \
-        --series "Zaphod AU" \
+        --series "Don't Panic, Baby Doll" \
         --title  "雪的巡游" \
         --subtitle "番外 · Don't Panic, Baby Doll" \
         --mood   "缱绻 · 安放" \

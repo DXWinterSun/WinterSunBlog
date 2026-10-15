@@ -4,14 +4,14 @@ title: "Chapter 2 · G 在哪儿 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-14 10:02:00 +0800
 image: gary-petrosino-au.jpg
-series: "Slow Hands"
+series: "Just Go Ahead Now"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 2
 series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "他把琴塞进你手里：来，告诉我 G 在哪儿。"
-tags: [Gary Garren, Sam Rockwell, AU, Slow Hands, 暗涌, 悸动]
+tags: [Gary Garren, Sam Rockwell, AU, "Just Go Ahead Now", 暗涌, 悸动]
 ---
 
 > 你一整天都在替别人把话说对。  

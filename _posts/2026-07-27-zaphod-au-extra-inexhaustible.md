@@ -4,7 +4,7 @@ title: "番外 · 取之不竭 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 15:03:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 29
 series_status: complete
@@ -12,7 +12,7 @@ series_type: Series
 chapter_type: "番外"
 chapter_kind: extra
 summary: "从前汲得越凶越要他命；如今他不竭，你终于敢一滴不留地要他。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 炽恋, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 炽恋, 缱绻]
 redirect_from:
   - /2026/10/01/zaphod-au-extra-inexhaustible/
 ---
