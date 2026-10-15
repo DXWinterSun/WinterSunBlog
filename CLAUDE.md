@@ -1638,6 +1638,7 @@ Winter：「这个 AU 的主页面排版不够好看……一个个组件堆着�
 | ③ 四色细色带 `_includes/au-palette-bar.html` | `au_palettes.yml` | **中英文名都要**（她点名）。老的胶片色卡 `au-palette-strip.html` 只剩章节页在用 |
 | ④ 基调一句 `.c-series-tone` | `logline` | 不加框 |
 | ⑤ 文件夹标签 `.c-folder-tabs` | `{{ content }}` 里的几篇 `.c-sam-intro`，JS 按 `h2` 做标签 | 没 JS 就上下排。纸里首字下沉 |
+| ⑤b 设定档案 → 翻开的书 `.c-dossier` | `js/series-page.js` 的 `dossierBook()` 把那篇 `.c-sam-intro` 里的 `<p><strong>…</strong> 正文</p>` 拆成：**他左页、你右页**（名字大、身份小字、正文两端对齐）、其余条目（信物 / 别的人物）是夹在书下的**书签**（含「信物」字样的带一枚小标签）、`c-sam-intro__closing` 一行斜体（开头「核心张力：」这类 ≤6 字的前缀拆成小标）。手机上也是书，字收一档（Winter 2026-10-15 定）。认人的规矩：加粗开头 `你` / `Winter` 的是你；第一个不是你、也不含「信物 / 意象 / 契机 / 母题 / 贯穿全文」的是他；`他｜Karl（Sam Rockwell）`、`Matty（Sam Rockwell）｜修车工`、`你（Winter Hart）｜幕僚`、`Chuck｜Chuck Barris（…）` 这些写法都认得；认不出他或你就原样不动。**写新系列的设定档案照老格式写就行**（他 / 你 / 信物三条 ＋ 一句收束），不用写任何新标记 |
 | ⑥ 三张书页 `.c-book-page` | JS 按 `data-kind`（main / extra / pov）把票根分进三张纸，右边书口小标签；点标题行合上 | 只有一类时就一张纸、不出标签。「倒序」由 main.js 翻正篇那张，series-page.js 跟着翻另两张。原来的「正篇 / 他视角 / 番外」筛选条已拆 |
 | ⑦ 票根 `_includes/series-ticket.html` | 角色名（`byline` 第一段）顶天 → 封面横条 → 四色齿孔（中英名）→ 系列名与场次（首尾章日期；complete 印「终场」、ongoing「开演至今」、hiatus「中场休息」）→ 三格撕票口 | 三格按「剧场一套」命名：**戏服间** Wardrobe＝穿上他的颜色（仍是 `au-strip__switch` 那套属性）· **演员表** Cast＝画册（要 `mf_id`）· **后台电话** Backstage＝热线（JS 读 lines.json 认出 Sam 角色才亮）。票永远用该系列四色，不随昼夜翻 |
 

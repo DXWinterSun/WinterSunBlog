@@ -291,35 +291,22 @@ $series-measure: 880px;
   }
 }
 .c-dossier__close--more { margin-top: 0; padding-top: 0; border-top: 0; }
-/* 手机：名字还面对面，介绍一左一右错开（Winter 选的「名字并排介绍错开」） */
+/* 手机：照样是一本翻开的书（Winter 2026-10-15：「手机也做成书比较好看」），只是字收小一档 */
 @media (max-width: 640px) {
-  .c-dossier__book {
-    grid-template-areas: "hl hr" "bl bl" "br br";
-    background: color-mix(in srgb, $ink 4%, $paper);
-    padding: 14px 0 26px;
-    column-gap: 10px;
-  }
-  .c-dossier__head { padding: 0 14px; }
-  .c-dossier__name { font-size: 20px; }
-  .c-dossier__sub { font-size: 12.5px; }
-  .c-dossier__body {
-    margin: 12px 14px 0;
-    padding: 9px 12px 10px;
-    max-width: 88%;
-    border-radius: 0 8px 8px 0;
-    border-left: 3px solid $accent;
-    background: color-mix(in srgb, $paper 60%, transparent);
-  }
-  .c-dossier__pg--you .c-dossier__body {
-    margin-left: auto;
-    border-left: 0;
-    border-right: 3px solid $ink;
-    border-radius: 8px 0 0 8px;
-  }
-  .c-dossier__body p { font-size: 14.5px; line-height: 1.8; text-align: justify; }
-  .c-dossier__pg--you .c-dossier__body p { text-align-last: right; }
-  .c-dossier__marks { margin: 0 14px; }
+  .c-dossier__book { padding: 14px 0 24px; }
+  .c-dossier__head { padding: 0 12px; }
+  .c-dossier__body { padding: 6px 12px 0; }
+  .c-dossier__pg--him .c-dossier__head, .c-dossier__pg--him .c-dossier__body { padding-right: 14px; }
+  .c-dossier__pg--you .c-dossier__head, .c-dossier__pg--you .c-dossier__body { padding-left: 14px; }
+  .c-dossier__lab { width: 22px; height: 22px; font-size: 11px; margin-bottom: 6px; }
+  .c-dossier__name { font-size: 19px; }
+  .c-dossier__sub { font-size: 12px; margin-top: 3px; }
+  .c-dossier__body p { font-size: 13.5px; line-height: 1.75; }
+  .c-dossier__folio { bottom: 7px; font-size: 11px; &--l { left: 10px; } &--r { right: 10px; } }
+  .c-dossier__marks { margin: 0 12px; }
   .c-dossier__mark { padding: 10px 12px 11px; }
+  .c-dossier__mark-head b { font-size: 16px; }
+  .c-dossier__mark-body { font-size: 14px; }
   .c-dossier__close { font-size: 15.5px; }
 }
 
