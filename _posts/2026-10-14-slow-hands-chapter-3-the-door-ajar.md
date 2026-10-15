@@ -7,7 +7,7 @@ image: gary-petrosino-au.jpg
 series: "Slow Hands"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 3
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 3"
 summary: "你早到了。门留着一道缝，里头有人在轻轻地唱。"

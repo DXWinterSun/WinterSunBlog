@@ -7,7 +7,7 @@ image: gary-petrosino-au.jpg
 series: "Slow Hands"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 2
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "他把琴塞进你手里：来，告诉我 G 在哪儿。"

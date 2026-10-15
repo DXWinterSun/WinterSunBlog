@@ -580,18 +580,18 @@
   year: 2013
   name: "Gary"
   anchor: garyguitar
-  cn: 氪石荧光
-  en: Kryptonite Glow
-  bg_cn: 琴箱陈褐
-  bg_en: Soundhole Umber
-  text_cn: 拨片乳白
-  text_en: Celluloid Pick
+  cn: 二手琴黄
+  en: Secondhand Yellow
+  bg_cn: 宝蓝墙漆
+  bg_en: Blue Wall Paint
+  text_cn: 传单纸白
+  text_en: Flyer Paper
   muted_cn: 素圈银灰
   muted_en: Hoop Silver
-  accent: "#7cc94b"
-  bg: "#171310"
-  text: "#ede4d3"
-  muted: "#8e897e"
+  accent: "#ecc84f"
+  bg: "#132457"
+  text: "#f0ead8"
+  muted: "#9aa3b8"
 
 - id: varney
   year: 2014

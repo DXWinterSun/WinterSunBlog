@@ -7,7 +7,7 @@ image: gary-petrosino-au.jpg
 series: "Slow Hands"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 4
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 4"
 summary: "只差一寸，他却退开了。满墙的脸，没有一张是真的。"

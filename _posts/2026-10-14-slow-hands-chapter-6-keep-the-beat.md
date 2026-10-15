@@ -7,7 +7,7 @@ image: gary-petrosino-au.jpg
 series: "Slow Hands"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 6
-series_status: ongoing
+series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 6"
 summary: "他给你弹错的每个音都定了价。只有一样，他定不了。"
