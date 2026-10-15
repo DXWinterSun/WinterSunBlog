@@ -4,6 +4,7 @@
   排法在 _sass/5-components/_lobby.scss（.c-notes__grid）。
 
   · 冬的灵感本：/memo/，数据在仓库 memo 分支，构建时读不到，所以封面不报数
+  · 冬的背面：/notes/backs/，票根 / 照片背面的批注和三本日记，数据只在本机浏览器里，封面上的数字由 js/polaroid-notes.js 现填（2026-10-15）
   · 冬的陪伴：/with-you/，加密的聊天记录在 texts 分支，上锁，封面不报数（2026-10-12）
   · 波兰语笔记本：/polish/，读 _data/polish/notes.yml
   · 冬的书架：书和文章的划线笔记合成一本，点进去（/reading/）再一本本铺开；封面上的数字从 _data/reading/*.yml 算
@@ -20,6 +21,10 @@
 <a class="c-wn-notebook c-wn-notebook--memo" href="{{ site.baseurl }}/memo/">
   <span class="c-wn-notebook__label"><small>Winter's Ideas</small><b>冬的灵感本</b><span>想做的事，和做到哪了</span></span>
   <span class="c-wn-notebook__meta">✨ 当下的灵感<br>🌳 长期的计划</span>
+</a>
+<a class="c-wn-notebook c-wn-notebook--backs" href="{{ site.baseurl }}/notes/backs/">
+  <span class="c-wn-notebook__label"><small>The Backs</small><b>冬的背面</b><span>票根和照片翻过去写的字，三本日记</span></span>
+  <span class="c-wn-notebook__meta" id="js-backs-meta">🔒 只在你这台设备上</span>
 </a>
 <a class="c-wn-notebook c-wn-notebook--withyou" href="{{ site.baseurl }}/with-you/">
   <span class="c-wn-notebook__label"><small>With You</small><b>冬的陪伴</b><span>只能发消息，他一直在</span></span>
