@@ -174,7 +174,7 @@ $series-measure: 880px;
   /* 纸里那一篇 .c-sam-intro 收掉自己的大边距和居中大标题（标题已经印在标签上） */
   .c-sam-intro { margin: 0; padding: 0; max-width: none; }
   .c-sam-intro__heading { display: none; }
-  .c-sam-intro p:first-of-type::first-letter {
+  .c-sam-intro > p:first-of-type::first-letter {
     float: left;
     font-family: $heading-font-family;
     font-size: 3.1em;
@@ -184,6 +184,144 @@ $series-measure: 880px;
   }
 }
 .c-folder-tabs__sheet[hidden] { display: none !important; }
+
+/* ---------- ⑤b 设定档案 → 翻开的书（JS dossierBook 生成）---------- */
+.c-dossier { margin-top: 4px; p { text-indent: 0; } }
+.c-dossier__book {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "hl hr" "bl br";
+  column-gap: 0;
+  border-radius: 8px;
+  background:
+    linear-gradient(to right, transparent 44%, color-mix(in srgb, #000 20%, transparent) 50%, transparent 56%),
+    color-mix(in srgb, $ink 4%, $paper);
+  padding: 18px 0 30px;
+}
+.c-dossier__pg { display: contents; }
+.c-dossier__head { padding: 0 22px; }
+.c-dossier__body { padding: 8px 22px 0; }
+.c-dossier__pg--him .c-dossier__head { grid-area: hl; }
+.c-dossier__pg--him .c-dossier__body { grid-area: bl; }
+.c-dossier__pg--you .c-dossier__head { grid-area: hr; text-align: right; }
+.c-dossier__pg--you .c-dossier__body { grid-area: br; text-align: right; }
+.c-dossier__lab {
+  display: inline-grid;
+  place-items: center;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: $accent;
+  color: $paper;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.c-dossier__pg--you .c-dossier__lab { background: $ink; color: $paper; }
+.c-dossier__name {
+  margin: 0;
+  font-family: $heading-font-family;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: $ink;
+  text-wrap: balance;
+}
+.c-dossier__sub { margin: 4px 0 0; font-size: 13.5px; line-height: 1.5; color: $muted; }
+.c-dossier__body p { margin: 0 0 0.6em; font-size: 15.5px; line-height: 1.85; color: $ink; text-align: justify; }
+.c-dossier__pg--you .c-dossier__body p { text-align-last: right; }
+.c-dossier__body p:last-child { margin-bottom: 0; }
+.c-dossier__folio {
+  position: absolute;
+  bottom: 9px;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 12px;
+  color: $muted;
+  &--l { left: 14px; }
+  &--r { right: 14px; }
+}
+/* 书签：夹在两页下面 */
+.c-dossier__marks { margin: 0 40px; }
+.c-dossier__mark {
+  position: relative;
+  padding: 12px 16px 13px;
+  background: color-mix(in srgb, $muted 18%, $paper);
+  border-top: 1px solid color-mix(in srgb, $muted 45%, transparent);
+  &:last-child { border-radius: 0 0 8px 8px; }
+}
+.c-dossier__mark-head {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  b { font-family: $heading-font-family; font-size: 17px; font-weight: 600; color: $ink; }
+  i { font-size: 13px; color: $muted; font-style: italic; }
+}
+.c-dossier__chip {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  color: $ink;
+  border: 1px solid color-mix(in srgb, $muted 70%, transparent);
+  border-radius: 3px;
+  padding: 0 4px 0 7px;
+  align-self: center;
+}
+.c-dossier__mark-body { margin: 4px 0 0; font-size: 14.5px; line-height: 1.8; color: $ink; }
+/* 收束：一道细线，一行斜体 */
+.c-dossier__close {
+  margin: 16px 0 10px;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, $accent 50%, transparent);
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.7;
+  color: $ink;
+  b {
+    font-style: normal;
+    font-family: $heading-font-family;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: $accent;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+}
+.c-dossier__close--more { margin-top: 0; padding-top: 0; border-top: 0; }
+/* 手机：名字还面对面，介绍一左一右错开（Winter 选的「名字并排介绍错开」） */
+@media (max-width: 640px) {
+  .c-dossier__book {
+    grid-template-areas: "hl hr" "bl bl" "br br";
+    background: color-mix(in srgb, $ink 4%, $paper);
+    padding: 14px 0 26px;
+    column-gap: 10px;
+  }
+  .c-dossier__head { padding: 0 14px; }
+  .c-dossier__name { font-size: 20px; }
+  .c-dossier__sub { font-size: 12.5px; }
+  .c-dossier__body {
+    margin: 12px 14px 0;
+    padding: 9px 12px 10px;
+    max-width: 88%;
+    border-radius: 0 8px 8px 0;
+    border-left: 3px solid $accent;
+    background: color-mix(in srgb, $paper 60%, transparent);
+  }
+  .c-dossier__pg--you .c-dossier__body {
+    margin-left: auto;
+    border-left: 0;
+    border-right: 3px solid $ink;
+    border-radius: 8px 0 0 8px;
+  }
+  .c-dossier__body p { font-size: 14.5px; line-height: 1.8; text-align: justify; }
+  .c-dossier__pg--you .c-dossier__body p { text-align-last: right; }
+  .c-dossier__marks { margin: 0 14px; }
+  .c-dossier__mark { padding: 10px 12px 11px; }
+  .c-dossier__close { font-size: 15.5px; }
+}
 
 /* ---------- ⑥ 章节：三张书页 ---------- */
 .c-series-page .c-sam-collection { margin-top: 36px; margin-bottom: 0; }
