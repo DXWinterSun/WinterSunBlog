@@ -180,7 +180,8 @@ Winter 原话：「Gary Garren 的 AU 那个窗口崩了，这几个是写好的
       ⚠️ 第十章原稿写她“红头发”——前 9 章从没写过她的发色，Red Pen 是红笔不是红发，已改成第一章的“端着一杯没动过的红酒”。
 - [x] **系列完结**：系列首页 `series_status: complete`、byline 改 complete；十章 front matter 也都是 complete。往后只写番外（`chapter_kind: extra` / `pov`，series_order 从 11 起）。
 - [x] **配色重配**（下节「六、配色」）。
-- [ ] 仍欠（画册 pass 时办，属创作文字要先给冬过目）：画册 garyguitar 的 tagline / desc / 锚句 “sweetheart”、lines.json 5 句、hotline-replies 回复库。
+- [x] **画册 pass（2026-10-15，冬看过提案页后说「画册的可以，上线吧」）**：画册名字改全名 Gary Garren、tagline / desc / 锚句（A THING OR THREE）重写，
+      台词墙 5 句、热线回复库 26 句（默认称呼 sweetheart → Red Pen）、六维（6/6/7/7/8/4）全部换成新版；quiz / spectrum / sam_themes / lines.json 同步。提案稿存 `slow-hands-revised/gallery-pass.md`。
 
 ## 六、配色（2026-10-15 Winter 挑定）
 

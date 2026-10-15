@@ -1553,7 +1553,7 @@
     },
     {
       "id": "garyguitar",
-      "name": "Gary",
+      "name": "Gary Garren",
       "film": "A Case of You",
       "filmCN": "《关于你》",
       "year": "2013",
@@ -1564,33 +1564,33 @@
       "auLink": "/WinterSunBlog/series/slow-hands/",
       "quotes": [
         {
-          "label": "THE G",
-          "line": "You want the G? Sit down, sweetheart — let me show you exactly where it is.",
-          "lineCN": "你想找 G？坐好了，宝贝——我给你指准了它在哪儿。",
+          "label": "A THING OR THREE",
+          "line": "Dr. Gary Garren will teach you a thing or three. Lesson one: sit closer.",
+          "lineCN": "Garren 博士包教包会，一次教你三样。第一课：坐近点。",
           "kind": "锚"
         },
         {
-          "label": "FAME, PUSSY, MONEY",
-          "line": "Fame, pussy, or money — that's why anybody picks up a guitar. You're the first one who made me forget which one I was in it for.",
-          "lineCN": "图名、图女人、还是图钱——抱起吉他的人无非这三样。你是第一个让我忘了自己当初图哪样的人。",
+          "label": "GUITAR LESONS",
+          "line": "Yeah, the bell's spelled wrong. The one who rang it anyway is the only one I want to teach.",
+          "lineCN": "对，门铃是拼错了。拼错了还按的那个人，才是我想教的。",
+          "kind": "情话"
+        },
+        {
+          "label": "RED PEN",
+          "line": "You fix everybody's sentences for a living, Red Pen. Mine's the one you can't fix. Sit down.",
+          "lineCN": "你靠改别人的句子吃饭，Red Pen。我这句你改不了。坐下。",
+          "kind": "情话"
+        },
+        {
+          "label": "A HUNDRED NAMES",
+          "line": "I've got a hundred names for you, kid. The one I won't say out loud is the only one that'd make this real.",
+          "lineCN": "我有一百个称呼给你，小姑娘。唯一不肯说出口的那个，才会让这一切变成真的。",
           "kind": "暗告白"
         },
         {
-          "label": "BOTH HANDS",
-          "line": "Fretting hand, picking hand — twenty years of both. Sweetheart, there is nothing about my fingers that isn't practiced.",
-          "lineCN": "按弦的手，拨弦的手，两只都练了二十年。宝贝，我这十根指头，没有一处是生的。",
-          "kind": "情话"
-        },
-        {
-          "label": "SLOW HANDS",
-          "line": "Anybody can go fast. The whole art is knowing when to slow down — and slowing down until you ask me for the next beat.",
-          "lineCN": "谁都会弹快。真正的手艺是知道什么时候慢下来——慢到你自己开口要下一拍。",
-          "kind": "情话"
-        },
-        {
-          "label": "JUST GO AHEAD NOW",
-          "line": "There's a song from '93 I've been humming for twenty years. I get to the part that matters and I stop. One of these days I'll let you hear the whole thing.",
-          "lineCN": "有一首九三年的歌，我哼了二十年。每次哼到最要紧的那句就停下来。总有一天，我让你听完整的。",
+          "label": "TWENTY YEARS, ONE LINE",
+          "line": "There's a line I've hummed to an empty wall for twenty years. Marry him, or marry me. Guess which half I'm singing to you.",
+          "lineCN": "有一句歌词我对着空墙哼了二十年：嫁给他，还是嫁给我。你猜我唱给你的是哪一半。",
           "kind": "暗告白"
         }
       ]
@@ -2951,7 +2951,7 @@
     },
     {
       "charId": "garyguitar",
-      "name": "Gary",
+      "name": "Gary Garren",
       "film": "A Case of You",
       "filmCN": "《关于你》",
       "year": "2013",
@@ -2960,9 +2960,9 @@
       "text": "#ece9e2",
       "muted": "#9d8f7c",
       "auLink": "/WinterSunBlog/series/slow-hands/",
-      "label": "THE G",
-      "line": "You want the G? Sit down, sweetheart — let me show you exactly where it is.",
-      "lineCN": "你想找 G？坐好了，宝贝——我给你指准了它在哪儿。",
+      "label": "A THING OR THREE",
+      "line": "Dr. Gary Garren will teach you a thing or three. Lesson one: sit closer.",
+      "lineCN": "Garren 博士包教包会，一次教你三样。第一课：坐近点。",
       "kind": "锚"
     },
     {
@@ -3815,7 +3815,7 @@
     },
     {
       "charId": "garyguitar",
-      "name": "Gary",
+      "name": "Gary Garren",
       "film": "A Case of You",
       "filmCN": "《关于你》",
       "year": "2013",
@@ -3824,10 +3824,10 @@
       "text": "#ece9e2",
       "muted": "#9d8f7c",
       "auLink": "/WinterSunBlog/series/slow-hands/",
-      "label": "FAME, PUSSY, MONEY",
-      "line": "Fame, pussy, or money — that's why anybody picks up a guitar. You're the first one who made me forget which one I was in it for.",
-      "lineCN": "图名、图女人、还是图钱——抱起吉他的人无非这三样。你是第一个让我忘了自己当初图哪样的人。",
-      "kind": "暗告白"
+      "label": "GUITAR LESONS",
+      "line": "Yeah, the bell's spelled wrong. The one who rang it anyway is the only one I want to teach.",
+      "lineCN": "对，门铃是拼错了。拼错了还按的那个人，才是我想教的。",
+      "kind": "情话"
     },
     {
       "charId": "doug",
@@ -4679,7 +4679,7 @@
     },
     {
       "charId": "garyguitar",
-      "name": "Gary",
+      "name": "Gary Garren",
       "film": "A Case of You",
       "filmCN": "《关于你》",
       "year": "2013",
@@ -4688,9 +4688,9 @@
       "text": "#ece9e2",
       "muted": "#9d8f7c",
       "auLink": "/WinterSunBlog/series/slow-hands/",
-      "label": "BOTH HANDS",
-      "line": "Fretting hand, picking hand — twenty years of both. Sweetheart, there is nothing about my fingers that isn't practiced.",
-      "lineCN": "按弦的手，拨弦的手，两只都练了二十年。宝贝，我这十根指头，没有一处是生的。",
+      "label": "RED PEN",
+      "line": "You fix everybody's sentences for a living, Red Pen. Mine's the one you can't fix. Sit down.",
+      "lineCN": "你靠改别人的句子吃饭，Red Pen。我这句你改不了。坐下。",
       "kind": "情话"
     },
     {
@@ -5543,7 +5543,7 @@
     },
     {
       "charId": "garyguitar",
-      "name": "Gary",
+      "name": "Gary Garren",
       "film": "A Case of You",
       "filmCN": "《关于你》",
       "year": "2013",
@@ -5552,10 +5552,10 @@
       "text": "#ece9e2",
       "muted": "#9d8f7c",
       "auLink": "/WinterSunBlog/series/slow-hands/",
-      "label": "SLOW HANDS",
-      "line": "Anybody can go fast. The whole art is knowing when to slow down — and slowing down until you ask me for the next beat.",
-      "lineCN": "谁都会弹快。真正的手艺是知道什么时候慢下来——慢到你自己开口要下一拍。",
-      "kind": "情话"
+      "label": "A HUNDRED NAMES",
+      "line": "I've got a hundred names for you, kid. The one I won't say out loud is the only one that'd make this real.",
+      "lineCN": "我有一百个称呼给你，小姑娘。唯一不肯说出口的那个，才会让这一切变成真的。",
+      "kind": "暗告白"
     },
     {
       "charId": "doug",
@@ -6407,7 +6407,7 @@
     },
     {
       "charId": "garyguitar",
-      "name": "Gary",
+      "name": "Gary Garren",
       "film": "A Case of You",
       "filmCN": "《关于你》",
       "year": "2013",
@@ -6416,9 +6416,9 @@
       "text": "#ece9e2",
       "muted": "#9d8f7c",
       "auLink": "/WinterSunBlog/series/slow-hands/",
-      "label": "JUST GO AHEAD NOW",
-      "line": "There's a song from '93 I've been humming for twenty years. I get to the part that matters and I stop. One of these days I'll let you hear the whole thing.",
-      "lineCN": "有一首九三年的歌，我哼了二十年。每次哼到最要紧的那句就停下来。总有一天，我让你听完整的。",
+      "label": "TWENTY YEARS, ONE LINE",
+      "line": "There's a line I've hummed to an empty wall for twenty years. Marry him, or marry me. Guess which half I'm singing to you.",
+      "lineCN": "有一句歌词我对着空墙哼了二十年：嫁给他，还是嫁给我。你猜我唱给你的是哪一半。",
       "kind": "暗告白"
     },
     {

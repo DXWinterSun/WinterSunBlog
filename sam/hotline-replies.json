@@ -2329,112 +2329,132 @@
   "garyguitar": {
    "greet": [
     {
-     "line": "Sweetheart. Studio's empty, amp's warm. Say the word.",
-     "cn": "宝贝。琴房空着，音箱是热的。你说句话就行。"
+     "line": "Red Pen. Third floor, bell's still spelled wrong. Come up.",
+     "cn": "Red Pen。三楼，门铃还是拼错的。上来。"
     },
     {
-     "line": "I'm here. Wednesday or not — you don't need an appointment.",
-     "cn": "我在。周三不周三的——你不用预约。"
+     "line": "Hey, kid. Lesson's not till Wednesday. I'm not complaining.",
+     "cn": "嘿，小姑娘。课要到星期三才上。我可没抱怨。"
+    },
+    {
+     "line": "Dr. Garren's office. Office hours: whenever you show up.",
+     "cn": "Garren 博士办公室。办公时间：你什么时候来，什么时候开门。"
     }
    ],
    "miss": [
     {
-     "line": "Yeah? Then come Wednesday. Come before Wednesday. Come whenever — that's the point.",
-     "cn": "是吗？那周三来。周三前也行。什么时候来都行——重点在这儿。"
+     "line": "Nah, I don't miss people. I just played your chord progression four times tonight. For practice.",
+     "cn": "我不想人的。我就是今晚把你那套和弦走了四遍。练手。"
     },
     {
-     "line": "Been playing the same eight bars all afternoon because they sound like you walking in.",
-     "cn": "一下午都在弹同样的八小节，因为它们听着像你推门进来。"
+     "line": "The chair's still where you left it. Two inches closer than it should be. Don't read into that.",
+     "cn": "椅子还在你留的地方。比该在的位置近两寸。别多想。"
+    },
+    {
+     "line": "Come back and I'll say it. Not over the phone. Over the phone it doesn't count.",
+     "cn": "回来我就说。电话里不说。电话里说的不算数。"
     }
    ],
    "tired": [
     {
-     "line": "Then don't play tonight. Sit on the amp. I'll noodle and you don't have to say a word.",
-     "cn": "那今晚别弹了。坐音箱上。我随便拨拨，你一个字都不用说。"
+     "line": "Put the pen down, Red Pen. Whoever wrote that sentence can live with it till tomorrow.",
+     "cn": "把笔放下，Red Pen。写那句话的人熬到明天也死不了。"
     },
     {
-     "line": "Put your hands down. Somebody's been asking too much of them today.",
-     "cn": "手放下。今天有人对这双手要求太多了。"
+     "line": "Hard day. Okay. Sit on the stool and let me play you something bad enough to make you laugh.",
+     "cn": "今天不好过。行。坐那张凳子上，我给你弹个烂到能让你笑的。"
+    },
+    {
+     "line": "You're allowed to be tired. I'll be annoying for both of us tonight.",
+     "cn": "你可以累。今晚的贫嘴我一个人包了。"
     }
    ],
    "sleepless": [
     {
-     "line": "Same. Nothing good ever gets written before midnight anyway.",
-     "cn": "一样。反正半夜之前也写不出什么好东西。"
+     "line": "Can't sleep? Me neither. Twenty years I've been losing to the same four chords.",
+     "cn": "睡不着？我也是。二十年了，我老输给同样四个和弦。"
     },
     {
-     "line": "Then let me play you the boring part. Slow tuning, one string at a time. Beats counting sheep.",
-     "cn": "那我给你弹最无聊的那段。慢慢调音，一根一根来。比数羊管用。"
+     "line": "Hum something. Anything. If it's mine, I'll pretend I didn't notice.",
+     "cn": "哼点什么。随便。要是哼的是我的歌，我装没听见。"
     }
    ],
    "night": [
     {
-     "line": "Night, sweetheart. Leave the callus alone — it needs to set.",
-     "cn": "晚安，宝贝。别抠茧子——得让它长住。"
+     "line": "Night, kid. Lock your door. Not that anybody's coming to check. Lock it anyway.",
+     "cn": "晚安，小姑娘。锁门。倒不是有谁会去查。反正锁上。"
     },
     {
-     "line": "Sleep. Wednesday's not going anywhere. Neither am I.",
-     "cn": "睡吧。周三跑不了。我也跑不了。"
+     "line": "Go to sleep. The G will still be there in the morning. Both of them.",
+     "cn": "睡吧。G 明早还在。两个都在。"
+    },
+    {
+     "line": "Sweet dreams. If I'm in one, make me taller.",
+     "cn": "好梦。要是梦见我，把我做高一点。"
     }
    ],
    "love": [
     {
-     "line": "…Say it slower. That's not a line, sweetheart. Slow is genuinely how I take things in.",
-     "cn": "……说慢点。这不是撩你，宝贝。我是真的得慢着才听得进去。"
+     "line": "Yeah? ...Yeah. Okay. Give me a second, I've got a whole speech and none of it works right now.",
+     "cn": "是吗？……嗯。好。等我一下，我有一整篇词，现在一句都用不上。"
     },
     {
-     "line": "Twenty years I picked up a guitar for fame, money, or company. You made me forget which one I was in it for.",
-     "cn": "二十年了，我抱起吉他不是图名、图钱，就是图有人陪。你让我忘了自己当初图哪样。"
+     "line": "Careful. I've got a hundred names for you and you just made me want to use the real one.",
+     "cn": "小心点。我有一百个称呼给你，你刚才让我想叫那个真的。"
+    },
+    {
+     "line": "I'm a guitar teacher with a five-dollar dragon on his wall. You sure? ...Don't answer. I like the sure.",
+     "cn": "我是个墙上挂着五块钱的龙的吉他老师。你确定？……别回答。我喜欢你那个确定。"
     }
    ],
    "meet": [
     {
-     "line": "Then come. Buzzer's broken — stand under the window and yell. That's the system.",
-     "cn": "那就来。门铃坏了——站窗底下喊一嗓子。我们这儿就这规矩。"
+     "line": "Wednesday's too far. Thursday's also too far. Pick a day and I'll be the one who opened the door too fast.",
+     "cn": "星期三太远。星期四也太远。你挑一天，我就是那个开门开太快的人。"
     },
     {
-     "line": "Wednesday. Seven. Same as always. Except we both know it stopped being a lesson a while ago.",
-     "cn": "周三。七点。跟往常一样。只不过你我都清楚，那早就不是上课了。"
+     "line": "Ring the bell. Yeah, the misspelled one. I'll be at the top of the stairs pretending I wasn't waiting.",
+     "cn": "按门铃。对，拼错的那个。我在楼梯顶上装作没在等。"
     }
    ],
    "praise": [
     {
-     "line": "Careful. Twenty years of people telling me I'm good at exactly one thing. You're the first who meant something else by it.",
-     "cn": "小心点。二十年了，人人都说我只在一件事上行。你是第一个，说这话时指的是别的。"
+     "line": "I know. Twenty years of practice and one hell of a face. ...Say it again, I wasn't ready.",
+     "cn": "我知道。二十年的练习，加一张要命的脸。……再说一遍，刚才没准备好。"
     },
     {
-     "line": "Anybody can go fast. Saying it slow, like that — that's the part that gets me.",
-     "cn": "谁都会弹快。你这么慢慢说出来——这才要我的命。"
+     "line": "Flattery works on me. Keep going. The lesson's free today.",
+     "cn": "夸我管用。接着夸。今天的课免费。"
     }
    ],
    "tease": [
     {
-     "line": "That so. Sit down, sweetheart. Let me show you exactly where you're wrong.",
-     "cn": "是吗。坐好了，宝贝。我给你指准了你错在哪儿。"
+     "line": "Oh, we've got attitude today. Good. Play it. I want to hear what attitude sounds like in G.",
+     "cn": "哟，今天有态度了。好啊。弹出来。我想听听态度在 G 调里什么样。"
     },
     {
-     "line": "You're a terrible student and my favourite hour of the week.",
-     "cn": "你是个糟糕的学生，也是我一周里最喜欢的一个钟头。"
+     "line": "Hate me? Fine. Hate me from the stool. The stool is closer.",
+     "cn": "讨厌我？行。坐凳子上讨厌。凳子离我近。"
     }
    ],
    "daily": [
     {
-     "line": "Three lessons, two of them awful, one kid who might actually be good. Same as every week.",
-     "cn": "三节课，两节惨不忍睹，有个孩子说不定真有天分。跟每周一样。"
+     "line": "Tell me about your day. Use real words, I'll handle the punctuation.",
+     "cn": "说说你今天。用人话，标点我来管。"
     },
     {
-     "line": "Restrung the old one. Smells like 1993 in here now.",
-     "cn": "给老琴换了弦。现在屋里一股九三年的味儿。"
+     "line": "I taught a kid three chords and he thanked me by playing them badly. Best Tuesday I've had.",
+     "cn": "我教了一个小子三个和弦，他用弹得稀烂来谢我。这是我过得最好的一个星期二。"
     },
     {
-     "line": "There's a song I've been humming twenty years. Still stop at the part that matters. One of these days.",
-     "cn": "有首歌我哼了二十年。每次到最要紧那句还是停下来。总有一天吧。"
+     "line": "Dragon's still orange. Tower's still ugly. Guitar's still a hundred and twenty bucks. Your turn.",
+     "cn": "龙还是橙的。塔还是丑的。琴还是一百二。该你了。"
     }
    ],
    "register": "playful",
    "pet": {
-    "en": "sweetheart",
-    "cn": "宝贝"
+    "en": "Red Pen",
+    "cn": "Red Pen"
    }
   },
   "doug": {
