@@ -28,7 +28,7 @@
 {%- endif -%}
 <section class="c-tk-end" aria-label="票根">
   <p class="c-tk-end__eyebrow">— 票根 · Keep this stub —</p>
-  <div class="c-stub-ticket" id="js-series-ticket" data-note-key="{{ page.url }}" data-base="{{ site.baseurl }}"
+  <div class="c-stub-ticket" id="js-series-ticket" data-note-key="{{ page.url | prepend: site.baseurl }}" data-base="{{ site.baseurl }}"
        data-who="{{ tk_who | escape }}" data-sub="{% if tk_actor %}{{ tk_actor | escape }} · {% endif %}{{ tk_film | escape }}"
        data-series="{{ page.hero_title | strip_html | default: page.series_name | escape }}"
        data-run="{% if tk_n > 0 %}Chapter 01 → {% if tk_n < 10 %}0{% endif %}{{ tk_n }} · {{ tk_first.date | date: '%Y.%m.%d' }} — {{ tk_last.date | date: '%m.%d' }} · {% endif %}{{ tk_st }}"
