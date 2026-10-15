@@ -637,16 +637,16 @@
   accent: "#ecc84f"
   accent_ink: "#7f6410"        # accent 暗一档，浅色主题下对比度 5.6:1（黄色偏亮，压得比 0.8 更狠）
   bg: "#132457"
-  text: "#f0ead8"
-  muted: "#9aa3b8"
+  text: "#ece9e2"
+  muted: "#9d8f7c"
   accent_cn: "二手琴黄"
   accent_en: "Secondhand Yellow"
   bg_cn: "宝蓝墙漆"
   bg_en: "Blue Wall Paint"
-  text_cn: "传单纸白"
-  text_en: "Flyer Paper"
-  muted_cn: "素圈银灰"
-  muted_en: "Hoop Silver"
+  text_cn: "耳圈银白"
+  text_en: "Earring Silver"
+  muted_cn: "咖啡烟灰"
+  muted_en: "Coffee Smoke"
 
 "Interoffice":              # Gary O'Hara · Strictly Business · Sam Rockwell · 色卡同源画册 id: gary
   mf_id: gary                # → Many Faces 画册锚点 /sam/many-faces/#gary

@@ -584,14 +584,14 @@
   en: Secondhand Yellow
   bg_cn: 宝蓝墙漆
   bg_en: Blue Wall Paint
-  text_cn: 传单纸白
-  text_en: Flyer Paper
-  muted_cn: 素圈银灰
-  muted_en: Hoop Silver
+  text_cn: 耳圈银白
+  text_en: Earring Silver
+  muted_cn: 咖啡烟灰
+  muted_en: Coffee Smoke
   accent: "#ecc84f"
   bg: "#132457"
-  text: "#f0ead8"
-  muted: "#9aa3b8"
+  text: "#ece9e2"
+  muted: "#9d8f7c"
 
 - id: varney
   year: 2014

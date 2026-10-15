@@ -182,35 +182,17 @@ Winter 原话：「Gary Garren 的 AU 那个窗口崩了，这几个是写好的
 - [x] **配色重配**（下节「六、配色」）。
 - [ ] 仍欠（画册 pass 时办，属创作文字要先给冬过目）：画册 garyguitar 的 tagline / desc / 锚句 “sweetheart”、lines.json 5 句、hotline-replies 回复库。
 
-## 六、配色（2026-10-15 按重写版圣经重配）
+## 六、配色（2026-10-15 Winter 挑定）
 
-旧版是「氪石荧光绿 × 琴箱陈褐」（出自旧 AU 的《Pocket Full of Kryptonite》梗）。重写版最硬的两样实物是**宝蓝色的墙**和**一百二的黄吉他**，色卡就从这两样长出来：
+旧版是「氪石荧光绿 × 琴箱陈褐」（出自旧 AU 的《Pocket Full of Kryptonite》梗）。重配时给她看了四版（提案页 https://claude.ai/artifact/8Fu6MqbzQSAgnr51pQCTpu），
+她的原话：「A 的蓝色和黄色我都喜欢，白色那个能不能换成银白色取耳环的意象，然后深色用 D 的那个椅子但是名字改成咖啡和烟这种。」定案：
 
 | 位 | 色值 | 中文名 | 英文名 | 出处 |
 |---|---|---|---|---|
 | bg | `#132457` | 宝蓝墙漆 | Blue Wall Paint | 他那间宝蓝色墙的屋子 |
 | accent | `#ecc84f` | 二手琴黄 | Secondhand Yellow | 一百二、琴颈自己修的黄 Gibson |
-| text | `#f0ead8` | 传单纸白 | Flyer Paper | 电线杆上撕下来的 GUITAR LESSONS 传单 |
-| muted | `#9aa3b8` | 素圈银灰 | Hoop Silver | 左耳那枚银圈（Winter 点名的性感处，名字沿用） |
+| text | `#ece9e2` | 耳圈银白 | Earring Silver | 左耳那枚银圈（Winter 点名的性感处） |
+| muted | `#9d8f7c` | 咖啡烟灰 | Coffee Smoke | 那间屋子的烟味、咖啡味（色值取自提案 D 的拼布椅灰，名字按她的意思改） |
 
 `accent_ink` = `#7f6410`（浅色主题下 5.6:1）。五处拷贝（画册 / quiz / spectrum / sam_themes / lines.json 含 pool）＋ au_palettes 同一次改完，`check_palette_sync.py` 全绿。
-
-## 五、PINNED 伏笔账
-
-全部回收，系列完结。
-
-| 伏笔 | 埋 | 收 | 状态 |
-|---|---|---|---|
-| Two Princes / 穷王子 | ch1（木墩上一个人念） | ch9（她弹给他）+ ch10（他唱给她）首尾闭合 | ✅ CLOSED |
-| 木墩 / 灵修营 | ch1（她坐到旁边） | ch9（她视角补"我一直都听见了"）+ ch10（他视角补全） | ✅ CLOSED |
-| 卷帘门 | ch1（他拉下脸） | ch10（"他没有再把那张脸盖回去"） | ✅ CLOSED |
-| 折叠椅近两寸 | ch2（她走后他推椅子） | ch10（"他告诉自己那是因为教琴方便"揭底） | ✅ CLOSED |
-| 楼梯第三级 | ch3（她来早了） | ch10（"他没回头，等了几秒"） | ✅ CLOSED |
-| 火柴三根 | ch4（差点吻） | ch10（"她看见了"） | ✅ CLOSED |
-| 琴声好 | ch4（她说琴声好） | ch10（"从来没有人说过好"） | ✅ CLOSED |
-| "你明天就会后悔的" | ch5（第一个吻之后） | ch10（"他真的信"） | ✅ CLOSED |
-| 钥匙 / 门边的东西 / 数 | ch6（他给钥匙、她放东西） | ch10（他视角补全：每天数，多了就知道她没走） | ✅ CLOSED |
-| 名字大招 | ch8（第一次叫 Winter） | ch10（"叫了就真了"） | ✅ CLOSED |
-| "这屋子灰大" | ch8（他哭了说灰大） | ch10（"这一次他没打算说是灰大"） | ✅ CLOSED |
-| G 和弦 / "慢一点" | ch2（第一节课） | ch9（"你为这首歌，已经慢了三个月"） | ✅ CLOSED |
-| 报名表空白 | ch2（"你想学什么"空着） | ch9（她想学的就是这首歌） | ✅ CLOSED |
+⚠️ 教训：配色这种她能凭喜好判断的事，先给几版让她挑，别直接定（2026-10-15 她说「配色你也没给我选择商量就做决定啦？」）。
