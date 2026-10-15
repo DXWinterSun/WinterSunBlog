@@ -120,6 +120,7 @@
     if (!box) return;
     var read = {}, map = {};
     try { read = JSON.parse(localStorage.getItem('wiw-read') || '{}') || {}; } catch (e) { return; }
+    (function () { var R = {'Slow Hands':'Just Go Ahead Now','Zaphod AU':"Don't Panic, Baby Doll",'Knox AU':'Simon Says','Alexios AU':'The Only War','Menelaus AU':"If You'll Have Me"}, k; for (k in R) { if (read[k] && !read[R[k]]) read[R[k]] = read[k]; } })();  // 老系列键的记录也认
     try { map = JSON.parse(document.getElementById('js-lobby-series').textContent); } catch (e) { map = {}; }
     var list = Object.keys(read).filter(function (k) { return read[k] && read[k].last && map[k]; })
       .sort(function (a, b) { return (read[b].last.ts || 0) - (read[a].last.ts || 0); });

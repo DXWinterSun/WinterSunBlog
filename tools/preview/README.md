@@ -12,7 +12,7 @@ Winter 看章节草稿的固定方式（2026-08-17 起，所有 AU 通用）：*
 
 ```bash
 python3 tools/preview/render_draft.py 草稿.md -o /tmp/.../预览.html \
-    --series   "Zaphod AU" \
+    --series   "Don't Panic, Baby Doll" \
     --title    "雪的巡游" \
     --subtitle "番外 · Don't Panic, Baby Doll" \
     --mood     "缱绻 · 安放" \
@@ -69,7 +69,7 @@ EB Garamond），Artifact 的内容安全策略允许这两个域名，别换成
 
 ```bash
 python3 tools/preview/render_draft.py _posts/2026-10-02-zaphod-au-extra-a-tour-of-snow.md \
-    -o /tmp/t.html --series "Zaphod AU" --title "雪的巡游"
+    -o /tmp/t.html --series "Don't Panic, Baby Doll" --title "雪的巡游"
 # 期望：7 张内嵌图、5 个小节、3 个引用块、5 处硬换行
 ```
 

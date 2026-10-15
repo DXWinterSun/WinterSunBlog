@@ -5,14 +5,14 @@ categories: ["AU Story"]
 date: 2026-07-27 14:53:59 +0800
 image: zaphod-au.jpg
 has_art: true
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 19
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 19"
 summary: "满天璀璨里，他偏偏盯住那个本该有星云、却空着的缺口。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 怅惘, 思念]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 怅惘, 思念]
 redirect_from:
   - /2026/09/21/zaphod-au-chapter-19-the-gap/
 ---

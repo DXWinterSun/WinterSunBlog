@@ -120,7 +120,7 @@ layout: home
     {%- assign is_main = false -%}
     {%- if ct contains "Chapter" and ct_check > 0 -%}{%- assign is_main = true -%}{%- endif -%}
     {%- if ct contains "Episode" -%}{%- assign is_main = true -%}{%- endif -%}
-    {%- comment -%} Oneshot 系列的本体（如 Knox AU 的 Simon Says）也是正篇，只是没有号 {%- endcomment -%}
+    {%- comment -%} Oneshot 系列的本体（如 Simon Says · Eric Knox AU）也是正篇，只是没有号 {%- endcomment -%}
     {%- if ct == "Oneshot" -%}{%- assign is_main = true -%}{%- endif -%}
     {%- if is_main -%}{%- assign ckind = "main" -%}{%- else -%}{%- assign ckind = chapter.chapter_kind | default: "extra" -%}{%- endif -%}
     {%- if ckind == "pov" -%}{%- assign ckind_stub = "POV" -%}{%- else -%}{%- assign ckind_stub = "EX" -%}{%- endif -%}

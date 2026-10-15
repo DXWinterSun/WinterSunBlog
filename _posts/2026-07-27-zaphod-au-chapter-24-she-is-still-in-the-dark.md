@@ -4,14 +4,14 @@ title: "Chapter 24 · 她还在黑里 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:58:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 24
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 24"
 summary: "他找到你，你却还沉在黑里——只在快耗尽他时，微醒，推开他。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 暗涌, 怅惘]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 暗涌, 怅惘]
 redirect_from:
   - /2026/09/26/zaphod-au-chapter-24-she-is-still-in-the-dark/
 ---

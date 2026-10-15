@@ -133,7 +133,7 @@
   muted_cn: "佣金灰绿"
   muted_en: "Commission Sage"
 
-"Zaphod AU":                # Zaphod Beeblebrox
+"Don't Panic, Baby Doll":                # Zaphod Beeblebrox
   mf_id: zaphod                # → Many Faces 画册锚点 /sam/many-faces/#zaphod
   accent: "#d4a82a"
   accent_ink: "#927012"
@@ -149,7 +149,7 @@
   muted_cn: "通缉令褐"
   muted_en: "Wanted-Poster Tan"
 
-"Knox AU":                  # Eric Knox
+"Simon Says":                  # Eric Knox
   mf_id: eric                # → Many Faces 画册锚点 /sam/many-faces/#eric
   accent: "#cf3550"
   accent_ink: "#a62a40"
@@ -277,7 +277,7 @@
   muted_cn: "荧屏微蓝"
   muted_en: "Television Blue"
 
-"Menelaus AU":
+"If You'll Have Me":
   accent: "#c9963a"
   accent_ink: "#9a7020"
   bg: "#1c1a14"
@@ -332,7 +332,7 @@
   bg_cn: "罗马暗夜"
   bg_en: "Palatine Dark"
 
-"Alexios AU":
+"The Only War":
   accent: "#3a9aaa"
   accent_ink: "#207080"
   bg: "#0e1e22"
@@ -632,7 +632,7 @@
   muted_cn: "荒漠尘褐"
   muted_en: "Trail Dust"
 
-"Slow Hands":               # Gary Garren · A Case of You · Sam Rockwell · 色卡同源画册 id: garyguitar（2026-10-15 按重写版圣经重配：宝蓝墙 × 一百二的黄吉他）
+"Just Go Ahead Now":               # Gary Garren · A Case of You · Sam Rockwell · 色卡同源画册 id: garyguitar（2026-10-15 按重写版圣经重配：宝蓝墙 × 一百二的黄吉他）
   mf_id: garyguitar          # → Many Faces 画册锚点 /sam/many-faces/#garyguitar
   accent: "#ecc84f"
   accent_ink: "#7f6410"        # accent 暗一档，浅色主题下对比度 5.6:1（黄色偏亮，压得比 0.8 更狠）

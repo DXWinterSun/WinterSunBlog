@@ -4,13 +4,13 @@ title: "Chapter 3 · When the Gods Slept — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg
-series: "Menelaus AU"
+series: "If You'll Have Me"
 series_title: "If You'll Have Me · Menelaus AU"
 series_order: 3
 series_type: "Series"
 chapter_type: "Chapter 3"
 summary: "战后当夜，他昏睡，你守在床边，直到他醒来偷偷亲你却打翻了药碗。"
-tags: [Menelaus, BayBay, AU, Menelaus AU, 缱绻, 絮语]
+tags: [Menelaus, BayBay, AU, "If You'll Have Me", 缱绻, 絮语]
 ---
 
 🛏《When the Gods Slept》

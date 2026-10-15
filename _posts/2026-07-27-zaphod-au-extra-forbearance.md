@@ -4,7 +4,7 @@ title: "番外 · 忍辱负重 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 15:02:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 28
 series_status: complete
@@ -12,7 +12,7 @@ series_type: Series
 chapter_type: "番外"
 chapter_kind: extra
 summary: "岳父岳母连眼皮都懒得抬——这份委屈，全成了他撒娇的本钱。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 絮语, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 絮语, 缱绻]
 redirect_from:
   - /2026/09/30/zaphod-au-extra-forbearance/
 ---

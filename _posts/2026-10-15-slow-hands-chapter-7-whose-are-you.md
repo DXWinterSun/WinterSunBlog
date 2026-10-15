@@ -4,14 +4,14 @@ title: "Chapter 7 · 你是谁的 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-15 10:01:00 +0800
 image: gary-petrosino-au.jpg
-series: "Slow Hands"
+series: "Just Go Ahead Now"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 7
 series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 7"
 summary: "你一个星期没去。第七天夜里十一点半，他站在了你门口。"
-tags: [Gary Garren, Sam Rockwell, AU, Slow Hands, 炽恋, 暗涌]
+tags: [Gary Garren, Sam Rockwell, AU, "Just Go Ahead Now", 炽恋, 暗涌]
 ---
 
 > 他从不追人。给了你钥匙，却从没要过你的。  

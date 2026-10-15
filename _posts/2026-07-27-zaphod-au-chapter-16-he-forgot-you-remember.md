@@ -4,14 +4,14 @@ title: "Chapter 16 · 他忘了，你记得 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:50:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 16
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 16"
 summary: "他好端端地忘了你，活得鲜亮；你成了那片空，独自记得一切。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 怅惘, 思念]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 怅惘, 思念]
 redirect_from:
   - /2026/09/18/zaphod-au-chapter-16-he-forgot-you-remember/
 ---

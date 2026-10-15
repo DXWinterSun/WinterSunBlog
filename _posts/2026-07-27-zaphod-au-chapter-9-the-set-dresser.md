@@ -4,14 +4,14 @@ title: "Chapter 9 · 布景师 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:43:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 9
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 9"
 summary: "议会替他定了政治联姻，你却亲手把他娶别人的婚礼，筹备得尽善尽美。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 怅惘, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 怅惘, 缱绻]
 redirect_from:
   - /2026/09/11/zaphod-au-chapter-9-the-set-dresser/
 ---

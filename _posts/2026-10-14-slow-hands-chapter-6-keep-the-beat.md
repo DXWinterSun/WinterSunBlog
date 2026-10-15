@@ -4,14 +4,14 @@ title: "Chapter 6 · 跟着拍子 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-14 10:06:00 +0800
 image: gary-petrosino-au.jpg
-series: "Slow Hands"
+series: "Just Go Ahead Now"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 6
 series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 6"
 summary: "他给你弹错的每个音都定了价。只有一样，他定不了。"
-tags: [Gary Garren, Sam Rockwell, AU, Slow Hands, 炽恋, 暗涌]
+tags: [Gary Garren, Sam Rockwell, AU, "Just Go Ahead Now", 炽恋, 暗涌]
 ---
 
 > 他给你弹错的每一个音都定了价。  

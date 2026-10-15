@@ -3,9 +3,9 @@ layout: post
 title: "Extra · Simon 说的才算 — Knox AU"
 date: 2026-09-27 01:15:30 +0800
 image: knox-au.jpg
-tags: [Eric Knox, Sam Rockwell, AU, Knox AU, 炽恋, 安放]
+tags: [Eric Knox, Sam Rockwell, AU, "Simon Says", 炽恋, 安放]
 categories: ["AU Story"]
-series: "Knox AU"
+series: "Simon Says"
 series_title: "Simon Says · Eric Knox AU"
 series_order: 4
 series_status: ongoing

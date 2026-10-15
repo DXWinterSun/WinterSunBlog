@@ -3,9 +3,9 @@ layout: post
 title: "Extra · 他停了很久 — Knox AU"
 date: 2026-09-27 01:14:30 +0800
 image: knox-au.jpg
-tags: [Eric Knox, Sam Rockwell, AU, Knox AU, 炽恋, 暗涌]
+tags: [Eric Knox, Sam Rockwell, AU, "Simon Says", 炽恋, 暗涌]
 categories: ["AU Story"]
-series: "Knox AU"
+series: "Simon Says"
 series_title: "Simon Says · Eric Knox AU"
 series_order: 2
 series_status: ongoing

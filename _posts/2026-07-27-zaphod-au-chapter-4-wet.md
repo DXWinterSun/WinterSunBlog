@@ -4,14 +4,14 @@ title: "Chapter 4 · 湿漉漉的总统先生 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:38:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 4
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 4"
 summary: "吹头发、掀浴巾、半夜跨几万光年取零食——伺候总统先生，是你最甜的特权。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 缱绻, 絮语]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 缱绻, 絮语]
 redirect_from:
   - /2026/09/06/zaphod-au-chapter-4-wet/
 ---

@@ -4,14 +4,14 @@ title: "Chapter 1 · 叮咚 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-14 10:01:00 +0800
 image: gary-petrosino-au.jpg
-series: "Slow Hands"
+series: "Just Go Ahead Now"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 1
 series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "派对上满屋子人跳着，只有他一个人在角落，念一首歌。"
-tags: [Gary Garren, Sam Rockwell, AU, Slow Hands, 暗涌, 悸动]
+tags: [Gary Garren, Sam Rockwell, AU, "Just Go Ahead Now", 暗涌, 悸动]
 ---
 
 > 满屋子的人都在跳，跟着鼓点，跟着一句谁也听不懂的梵唱。  

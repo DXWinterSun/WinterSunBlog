@@ -4,7 +4,7 @@ title: "Chapter 10 · 穷王子的暗账 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-15 10:04:00 +0800
 image: gary-petrosino-au.jpg
-series: "Slow Hands"
+series: "Just Go Ahead Now"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 10
 series_status: complete
@@ -12,7 +12,7 @@ series_type: "Series"
 chapter_type: "Chapter 10"
 chapter_kind: pov
 summary: "他有一首歌，念了二十年谁都没给过。原来她一直都听见了。"
-tags: [Gary Garren, Sam Rockwell, AU, Slow Hands, 缱绻, 安放]
+tags: [Gary Garren, Sam Rockwell, AU, "Just Go Ahead Now", 缱绻, 安放]
 ---
 
 > 他有一首歌，念了二十年，谁都没给过。  

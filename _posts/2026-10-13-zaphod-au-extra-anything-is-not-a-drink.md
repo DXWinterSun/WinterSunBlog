@@ -4,7 +4,7 @@ title: "番外 · “都可以”不是一种饮料 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-10-13 22:45:00 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 35
 series_status: complete
@@ -13,7 +13,7 @@ chapter_type: "番外"
 chapter_kind: extra
 has_art: true
 summary: "他宣布今天的国事只有一项：查清楚 baby doll 喜欢什么。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 絮语, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 絮语, 缱绻]
 ---
 
 > 他问你想要什么。你说：您。他说那个不算，那是现成的。于是剩下的，全宇宙没有一个人知道——连你自己也不知道。

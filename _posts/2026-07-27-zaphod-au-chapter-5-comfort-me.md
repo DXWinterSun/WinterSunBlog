@@ -4,14 +4,14 @@ title: "Chapter 5 · 哄哄我 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:39:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 5
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 5"
 summary: "别人得到他的烟花，你守着他烧尽后只肯给你一个人的疲惫与安睡。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 缱绻, 怅惘]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 缱绻, 怅惘]
 redirect_from:
   - /2026/09/07/zaphod-au-chapter-5-comfort-me/
 ---

@@ -49,7 +49,7 @@ Winter（冬璇）自己说的，原话大意：**「我对技术层面的东西
 
 ```bash
 python3 tools/preview/render_draft.py 草稿.md -o /tmp/.../预览.html \
-    --series "Zaphod AU" --title "雪的巡游" \
+    --series "Don't Panic, Baby Doll" --title "雪的巡游" \
     --subtitle "番外 · Don't Panic, Baby Doll" --mood "缱绻 · 安放" --notes 衔接说明.md
 ```
 
@@ -1161,15 +1161,21 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
 | 章节 front matter | `series_title:` | `Story · Character AU` | `The Far Side · Sam Bell AU` |
 | 章节 front matter | `title:` 后缀 | `Chapter N · 中文名 — Story` | `Chapter 1 · Departure — The Far Side` |
 
-⚠️ **内部管线字段不要动**：`series:`（章节）/ `series_name:`（系列首页）/
-目录 slug 三者必须完全一致，且 `_data/au_palettes.yml` 的配色 key 就是
-`series_name`。这些是不可见的内部键，哪怕值还是旧的（如 `"Sam Bell · Moon AU"`）
-也**保持原样**——改它们会动到 URL、章节分组和配色，得不偿失。统一标题只改
-上表那些展示字段即可。
+⭐ **内部键 = 故事名，展示名改了内部键就跟着改（Winter 2026-10-15 定）**：`series:`（章节）/
+`series_name:`（系列首页）/ 目录 slug / `_data/au_palettes.yml` 的配色 key，一律就是 `Story English Name`
+本身（slug = Jekyll `slugify` 的结果，撇号也变成连字符：`Don't Panic, Baby Doll` → `don-t-panic-baby-doll`）。
+她的原话：「我还是喜欢统一的形式，不要想着不断链接就留老版本的，要改就都改，这个问题老出现我有点倦怠了。」
+以前为了不断链接把内部键留成旧名（`Slow Hands` / `Zaphod AU` / `Knox AU` / `Alexios AU` / `Menelaus AU`），
+结果首页「冬的更新」把 Slow Hands 印了出来——2026-10-15 已把这五个系列**全部改成故事名**。
+**改一个系列展示名时要同一次做完**：① 全部章节 `series:` 和 `tags` 第四个（含逗号 / 撇号的名字加双引号）；
+② 系列首页 `series_name` / `permalink` / 目录改名，**老网址写进 `redirect_from:`**；③ `au_palettes.yml` 的 key；
+④ 画册 / quiz / spectrum / lines.json / `src/sam/sam_gallery.jsx` 里的 `auLink` 路径；⑤ `tools/hotline_mine.py` 的 `MANUAL`；
+⑥ `js/main.js` 与 `_includes/lobby.html` 里 `RENAMED` 加一条（阅读记忆按系列键存，不加她的书签就丢）；
+⑦ `.claude/bibles/` 的圣经文件也跟着改名。章节文件名不用动（网址里只有日期和文件名，跟系列键无关）。
 
 ❌ 反例（同一部电影用剧名，或光秃秃只有角色名 / 剧名）：
 `Sam Bell · Moon AU`（用了剧名 Moon）、`A Single Shot AU`（纯剧名）、
-`Alexios AU`（缺 Story 名）。都应改成 `Story · Character AU`。
+`Alexios AU`（缺 Story 名）。都应改成 `Story · Character AU`。（这几个 2026-10-15 已连同内部键一起改完。）
 
 **角色段必须用「完整角色名」**（2026-07 全站统一过一遍，以该系列首页 byline 的
 角色名为准，含军衔 / 绰号引号）：`Eric Knox`（不是 Knox）、`Zaphod Beeblebrox`

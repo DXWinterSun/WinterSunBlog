@@ -4,14 +4,14 @@ title: "Chapter 3 · 两个脑袋，三只手 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:37:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 3
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 3"
 summary: "全银河系都想领教总统先生的魅力，只有你尝过它开到最大的样子。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 炽恋, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 炽恋, 缱绻]
 redirect_from:
   - /2026/09/05/zaphod-au-chapter-3-two-heads-three-hands/
 ---

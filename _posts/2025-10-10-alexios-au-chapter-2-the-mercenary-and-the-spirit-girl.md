@@ -4,13 +4,13 @@ title: "Chapter 2 · The Mercenary and the Spirit Girl — The Only War"
 categories: ["AU Story"]
 date: 2025-10-10
 image: alexios-au.svg
-series: "Alexios AU"
+series: "The Only War"
 series_title: "The Only War · Alexios AU"
 series_order: 2
 series_type: "Series"
 chapter_type: "Chapter 2"
 summary: "篝火边他说：在你之前，我从未想过自己有一天会停下来。"
-tags: [Alexios, AU, Alexios AU, 安放, 缱绻]
+tags: [Alexios, AU, "The Only War", 安放, 缱绻]
 ---
 
 🌌《Alek的低语：在你之前的我》

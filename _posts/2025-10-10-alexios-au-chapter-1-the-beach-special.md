@@ -4,13 +4,13 @@ title: "Chapter 1 · The Beach Special — The Only War"
 categories: ["AU Story"]
 date: 2025-10-10
 image: alexios-au.svg
-series: "Alexios AU"
+series: "The Only War"
 series_title: "The Only War · Alexios AU"
 series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "他说受训是攻破堡垒，不是建堡——然后开始认认真真给沙堡布防。"
-tags: [Alexios, AU, Alexios AU, 絮语, 悸动]
+tags: [Alexios, AU, "The Only War", 絮语, 悸动]
 ---
 
 💛《Alek与Winter的沙堡奇遇记》🏜️

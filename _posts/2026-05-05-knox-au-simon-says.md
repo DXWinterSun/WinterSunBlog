@@ -3,9 +3,9 @@ layout: post
 title: "Simon Says — Knox AU"
 date: 2026-05-05
 image: knox-au.jpg
-tags: [Eric Knox, Sam Rockwell, AU, Knox AU, 暗涌, 悸动]
+tags: [Eric Knox, Sam Rockwell, AU, "Simon Says", 暗涌, 悸动]
 categories: ["AU Story"]
-series: "Knox AU"
+series: "Simon Says"
 series_title: "Simon Says · Eric Knox AU"
 series_order: 1
 series_status: complete

@@ -4,14 +4,14 @@ title: "Chapter 3 · 门没关严 — Just Go Ahead Now"
 categories: ["AU Story"]
 date: 2026-10-14 10:03:00 +0800
 image: gary-petrosino-au.jpg
-series: "Slow Hands"
+series: "Just Go Ahead Now"
 series_title: "Just Go Ahead Now · Gary Garren AU"
 series_order: 3
 series_status: complete
 series_type: "Series"
 chapter_type: "Chapter 3"
 summary: "你早到了。门留着一道缝，里头有人在轻轻地唱。"
-tags: [Gary Garren, Sam Rockwell, AU, Slow Hands, 暗涌, 悸动]
+tags: [Gary Garren, Sam Rockwell, AU, "Just Go Ahead Now", 暗涌, 悸动]
 ---
 
 > 第一次，是你撞见他卸下防备。  

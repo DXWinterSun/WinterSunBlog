@@ -4,14 +4,14 @@ title: "Chapter 21 · 把她还给我 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:55:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 21
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 21"
 summary: "他用整颗心许愿——记忆全数涌回，连她在门后做的事，一并奉还。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 怅惘, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 怅惘, 缱绻]
 redirect_from:
   - /2026/09/23/zaphod-au-chapter-21-give-her-back-to-me/
 ---
