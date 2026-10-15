@@ -253,7 +253,12 @@
     var l = document.createElement("link"); l.rel = "stylesheet"; l.href = FONT_LINK; document.head.appendChild(l);
   }
 
-  function keyOf(a) { try { return new URL(a.getAttribute("href"), location.origin).pathname; } catch (e) { return a.getAttribute("href") || ""; } }
+  // 批注的钥匙 = 这张卡指向的文章路径；没有链接的（系列页底那张票根）用 data-note-key（= 系列页自己的路径）
+  function keyOf(a) {
+    var k = a.getAttribute("data-note-key");
+    if (k) return k;
+    try { return new URL(a.getAttribute("href"), location.origin).pathname; } catch (e) { return a.getAttribute("href") || ""; }
+  }
   function fmt(ts) { return ts ? new Date(ts).toLocaleString("zh-CN", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }) : ""; }
 
   /* ========== 编辑器浮层（构建一次）========== */
@@ -317,7 +322,7 @@
 
   /* ========== 折角记号（仅本机有批注的卡片）========== */
   function markDogears() {
-    var posts = document.querySelectorAll(".c-post, .c-chapter-card");
+    var posts = document.querySelectorAll(".c-post, .c-chapter-card, .c-stub-ticket");
     for (var i = 0; i < posts.length; i++) {
       var a = posts[i];
       var n = Store.get(keyOf(a));
@@ -331,10 +336,10 @@
 
   /* ========== 卡片交互（仅解锁后拦截右键 / 长按）========== */
   function attachCards() {
-    var posts = document.querySelectorAll(".c-post, .c-chapter-card");
+    var posts = document.querySelectorAll(".c-post, .c-chapter-card, .c-stub-ticket");
     for (var i = 0; i < posts.length; i++) {
       (function (a) {
-        var kind = a.classList.contains("c-chapter-card") ? "ticket" : "photo";
+        var kind = (a.classList.contains("c-chapter-card") || a.classList.contains("c-stub-ticket")) ? "ticket" : "photo";
         a.addEventListener("contextmenu", function (e) {
           if (!unlocked) return;          // 锁定时保留浏览器默认右键，不打扰访客
           e.preventDefault();

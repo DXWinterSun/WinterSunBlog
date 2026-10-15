@@ -1102,19 +1102,24 @@ python3 tools/face_focus.py --report   # 顺带列出没认出脸的图
 - 系列目录 slug（`series/tuning-the-devil/`）→ 就是英文 `series:` 值的
   slugify 结果，三者要能对上
 
-中文只能出现在 `title:`、`series_title:`、`collection_title:`、hero HTML
+中文只能出现在 `title:`、`series_title:`、`collection_title:`、`lede:`
 等**纯展示**字段里，不参与 Jekyll 路径生成的地方随便用。
 
-## ⚠️ 系列首页 hero 标题必须用英文
+## ⚠️ 系列首页的页头全在 front matter 里（2026-10-15 起不再手写 hero）
 
-`series/*/index.html` 里 `<h1 class="c-hero__title">` 必须写英文标题
-（和 `series_name` / 系列目录 slug 保持一致），中文只能出现在副标题、
-byline、lede 引语等展示位置。例如：
+**系列首页 `series/*/index.html` 不再有 `<section class="c-hero">`。** 页头那几样东西全写成
+front matter，由 `_layouts/series.html` 统一渲染（详见下面「🎫 系列页：杂志开头、票根收尾」一节）：
 
-```html
-<h1 class="c-hero__title">Tuning the Devil</h1>  <!-- ✅ 英文 -->
-<h1 class="c-hero__title">为他调音</h1>           <!-- ❌ 中文 -->
+```yaml
+hero_eyebrow: "AU Story · Series"            # 眉标（Oneshot 写 "AU Story · Oneshot"）
+hero_title: "Tuning the Devil"               # 大标题，必须英文（可含 <em>）；只写 Story，不带「· 角色 AU」
+byline: "William \"Wild Bill\" Wharton · The Green Mile · Sam Rockwell"   # 角色 · 作品 · 演员（状态那段不写，模板从 series_status 取）
+lede: "他平等地厌恶世上每一个人……"              # 情感引言一句，不带引号符号（模板会加）
 ```
+
+`hero_title` 必须英文（和 `series_name` / 目录 slug 一个意思），中文只能出现在 `lede`、`logline`、
+`title` 等展示字段里。老文件由 `tools/series/migrate_hero.py` 一次性搬过来了，再跑是空操作。
+⚠️ `tools/call/brief.py`、`tools/hotline_mine.py` 读系列的角色名都改成先读 `byline:`，别再往文件里找 `c-hero__byline-text`。
 
 ## ⚠️ `series_title` 格式：必须用角色名，不能用剧名或背景设定
 
@@ -1180,22 +1185,22 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
 
 ## ⚠️ 系列首页 byline 格式统一为「角色 · 作品出处 · 演员 · 状态」
 
-`c-hero__byline-text` 的固定格式是四段：
+署名显示成四段，前三段写在系列首页 front matter 的 `byline:` 里，第四段「状态」由模板从 `series_status` 取：
 
 ```
 角色名 · 作品出处 · 演员 · 状态
 ```
 
-```html
-<!-- Sam Rockwell 的角色 -->
-<span class="c-hero__byline-text">Justin Hammer · Iron Man 2 · Sam Rockwell · ongoing</span>
-
-<!-- BayBay（Mathew Baynton）的角色 -->
-<span class="c-hero__byline-text">Charles II · Horrible Histories · BayBay · ongoing</span>
-
-<!-- 其他演员的角色 -->
-<span class="c-hero__byline-text">Hector Escaton · Westworld · Rodrigo Santoro · ongoing</span>
+```yaml
+# Sam Rockwell 的角色
+byline: "Justin Hammer · Iron Man 2 · Sam Rockwell"
+# BayBay（Mathew Baynton）的角色
+byline: "Charles II · Horrible Histories · BayBay"
+# 其他演员的角色
+byline: "Hector Escaton · Westworld · Rodrigo Santoro"
 ```
+
+（页面上仍渲染成 `<span class="c-hero__byline-text">…</span>`，热线入口等运行时脚本靠它认角色名。）
 
 四段规则：
 - **作品出处**：角色真正的出处作品（电影 / 剧集 / 游戏），**不是**这个 AU 的
@@ -1485,9 +1490,13 @@ collection_title: "English Title · Character AU"
 collection_desc: "一两句钩子简介。"
 ```
 
-**Hero 区块：**
-- `<h1 class="c-hero__title">` → 必须是**英文**
-- byline / lede 引语可以用中文
+**页头四个字段（不再手写 hero HTML）：**
+```yaml
+hero_eyebrow: "AU Story · Series"
+hero_title: "English Title"                 # 必须英文
+byline: "角色名 · 作品官方全名 · 演员"         # 中文角色名也行（如 囚徒）
+lede: "一句戳心的引言"
+```
 
 **内容区块（`c-sam-intro`）：**
 - 第一个 article：`关于这个系列`，2-4 段，概述世界观与核心冲突
@@ -1580,7 +1589,7 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 新章节会自动继承，不需要每篇手动加**。三个部分：
 
 1. **系列首页的章节列表** —— 由 `_layouts/series.html` 渲染。
-   每个 `series/*/index.html` 只负责写 hero + 简介，**章节区块不要手写**。
+   每个 `series/*/index.html` 只负责写 front matter（含页头四个字段）+ 简介两段，**章节区块不要手写**。
    只要 front matter 里有这两行就会自动出现（**2026-07-30 按 Winter 要求改版：
    封面图页顶已有，章节不再重复配图；旧的「纯文字目录 + 配图卡片」双目录
    已合并为一列无图章节卡 `c-chapter-list`**，按 `series_order` 排序）：
@@ -1605,9 +1614,34 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 3. 这套东西的样式在 `_sass/5-components/_extras.scss`
    （`c-series-toc` / `c-chapter-return` / `c-chapter-nav__back`）。
 
-一句话：**开新系列 = 复制一个 `series/*/index.html`，改 hero/简介，设好
+一句话：**开新系列 = 复制一个 `series/*/index.html`，改 front matter（页头四个字段）和简介两段，设好
 `layout: series` 和 `series_name` 即可；章节照常写齐 `series*` 字段。
-目录和返回按钮都会自己长出来。**
+页头、目录、票根、返回按钮都会自己长出来。**
+
+## 🎫 系列页：杂志开头、票根收尾（2026-10-15）
+
+Winter：「这个 AU 的主页面排版不够好看……一个个组件堆着，没什么章法」。病根是框套框、谁都一样重，
+色卡大盒子夹在标题和署名中间，封面排到第四屏。提案页上她挑的（<https://claude.ai/artifact/HwM4ovawANQRwxrtSuES9s>）：
+**开头像杂志，滑到底是他的票根**，介绍用文件夹标签，正篇 / 番外 / 他视角三类并列、各自能合上。
+整页由 `_layouts/series.html` 渲染，样式在 `_sass/5-components/_series-v3.scss`，交互在 `js/series-page.js`（只在系列页加载）：
+
+| 从上到下 | 怎么来的 | 备忘 |
+|---|---|---|
+| ① 杂志头 `.c-mag-head` | front matter `hero_eyebrow` / `hero_title` / `byline` ＋ `collection_order` 当「No.」 | 靠左收小，让位给图。仍带 `c-hero` 类，雪照样下 |
+| ② 满幅封面 `.c-mag-cover`，引言印在图下沿 | 第一章的 `image`（或 `cover:`），锚点 `image_focus.yml` 的 `banner` / `banner_m`；`lede` 压在底部渐变上 | 渐变接到 `--c-bg`、字用 `--c-ink`，浅色深色都读得清。手机出血到 16px 边、框竖一点（4:4.2） |
+| ③ 四色细色带 `_includes/au-palette-bar.html` | `au_palettes.yml` | **中英文名都要**（她点名）。老的胶片色卡 `au-palette-strip.html` 只剩章节页在用 |
+| ④ 基调一句 `.c-series-tone` | `logline` | 不加框 |
+| ⑤ 文件夹标签 `.c-folder-tabs` | `{{ content }}` 里的几篇 `.c-sam-intro`，JS 按 `h2` 做标签 | 没 JS 就上下排。纸里首字下沉 |
+| ⑥ 三张书页 `.c-book-page` | JS 按 `data-kind`（main / extra / pov）把票根分进三张纸，右边书口小标签；点标题行合上 | 只有一类时就一张纸、不出标签。「倒序」由 main.js 翻正篇那张，series-page.js 跟着翻另两张。原来的「正篇 / 他视角 / 番外」筛选条已拆 |
+| ⑦ 票根 `_includes/series-ticket.html` | 角色名（`byline` 第一段）顶天 → 封面横条 → 四色齿孔（中英名）→ 系列名与场次（首尾章日期；complete 印「终场」、ongoing「开演至今」、hiatus「中场休息」）→ 三格撕票口 | 三格按「剧场一套」命名：**戏服间** Wardrobe＝穿上他的颜色（仍是 `au-strip__switch` 那套属性）· **演员表** Cast＝画册（要 `mf_id`）· **后台电话** Backstage＝热线（JS 读 lines.json 认出 Sam 角色才亮）。票永远用该系列四色，不随昼夜翻 |
+
+- **保存票根**（右上角）：`series-page.js` 用 canvas 把票画成一张图，弹一层浮层——手机长按存相册、电脑点下载。
+  字体要等 `document.fonts` 载好；照片同源才画得上。
+- **右键 / 长按翻到背面**：票根带 `data-note-key`（= 系列页路径），`polaroid-notes.js` 的 `keyOf()` 先认它。
+  ⏳ **背面「分层」还没做**：Winter 选了「票号一排」的思路（顶上一排章节票号、写过字的亮着、点一个号整张背面换成那章），
+  但她说呈现还不完美，要连着记忆碎片的拍立得背面、章节票根背面一起整体优化，下一轮再做。
+- 她看过并否掉 / 没选的：先看见他（海报式，什么都不加框）、节目单幕次（ACT I/II/III）、横票电影票、
+  目录页式折叠（编号＋小点引到＋）、背面小抽屉 / 一叠票。别做回去。
 
 ## 🗄️ 藏品架 `sam/shelf/`（Winter 自己在页面里编辑的收藏册）
 

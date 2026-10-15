@@ -63,11 +63,12 @@
 | 位置 | 格式 | 你的值 |
 |---|---|---|
 | 系列展示标题 | `Story · Character AU` | |
-| 系列首页 hero 大标题 `<h1>` | **只写 Story**（不带 `· 角色 AU`），且必须英文 | |
+| 系列首页大标题 `hero_title:` | **只写 Story**（不带 `· 角色 AU`），且必须英文 | |
 
-> 例：展示标题 `The Far Side · Sam Bell AU`；hero `<h1>` 只写 `The Far Side`。
+> 例：展示标题 `The Far Side · Sam Bell AU`；`hero_title:` 只写 `The Far Side`。
+> ⚠️ 2026-10-15 起系列首页不再手写 hero HTML：`hero_eyebrow` / `hero_title` / `byline`（角色 · 作品 · 演员）/ `lede` 四样都写进 front matter。
 
-### A4. hero 情感引言（`c-hero__lede`，封面图上方那句）
+### A4. 情感引言（front matter `lede:`，印在封面图下沿那句）
 
 - 一句**戳心的画面 / 悬念**，感性、诗意，常用第二人称「你 / 他」。
 - 可以用中文。是「钩子」，不是简介，别剧透。
