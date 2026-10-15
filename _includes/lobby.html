@@ -49,10 +49,19 @@
                 {%- endfor -%}
               {%- else -%}
                 {%- assign lb_new = g.items | first -%}{%- assign lb_old = g.items | last -%}
+                {%- comment -%} 显示名用 series_title 里「· 角色 AU」前面那段（故事名），别把内部键（如 Slow Hands）印出来 {%- endcomment -%}
+                {%- assign lb_st = lb_new.series_title | default: g.name -%}
+                {%- assign lb_parts = lb_st | split: ' · ' -%}
+                {%- if lb_parts.size > 1 -%}
+                  {%- assign lb_tail = ' · ' | append: lb_parts.last -%}
+                  {%- assign lb_story = lb_st | replace_first: lb_tail, '' -%}
+                {%- else -%}
+                  {%- assign lb_story = lb_st -%}
+                {%- endif -%}
                 {%- if g.items.size == 1 %}
-            <li><a href="{{ lb_new.url | prepend: site.baseurl }}"><b>{{ g.name }}</b><span>{{ lb_new.title | split: ' — ' | first }}</span></a></li>
+            <li><a href="{{ lb_new.url | prepend: site.baseurl }}"><b>{{ lb_story }}</b><span>{{ lb_new.title | split: ' — ' | first }}</span></a></li>
                 {%- else %}
-            <li><a href="{{ site.baseurl }}/archive/#d{{ d.name }}"><b>{{ g.name }}</b><span>{{ g.items.size }} 篇：{{ lb_old.chapter_type | default: '第一篇' }} 到 {{ lb_new.chapter_type | default: '最新一篇' }}</span></a></li>
+            <li><a href="{{ site.baseurl }}/archive/#d{{ d.name }}"><b>{{ lb_story }}</b><span>{{ g.items.size }} 篇：{{ lb_old.chapter_type | default: '第一篇' }} 到 {{ lb_new.chapter_type | default: '最新一篇' }}</span></a></li>
                 {%- endif -%}
               {%- endif -%}
             {%- endfor %}
@@ -98,7 +107,9 @@
           {%- assign lb_f = site.data.image_focus[lb_first.image] -%}
           {%- if lb_f.sq -%}{%- assign lb_pos = lb_f.sq -%}{%- endif -%}
         {%- endif -%}
-        {{ sp.series_name | jsonify }}: {"u": {{ sp.url | prepend: site.baseurl | jsonify }}, "img": {{ lb_img | jsonify }}, "pos": {{ lb_pos | jsonify }}}{% unless forloop.last %},{% endunless %}
+        {%- assign lb_tparts = sp.title | split: ' · ' -%}
+        {%- if lb_tparts.size > 1 -%}{%- assign lb_ttail = ' · ' | append: lb_tparts.last -%}{%- assign lb_tname = sp.title | replace_first: lb_ttail, '' -%}{%- else -%}{%- assign lb_tname = sp.title | default: sp.series_name -%}{%- endif -%}
+        {{ sp.series_name | jsonify }}: {"u": {{ sp.url | prepend: site.baseurl | jsonify }}, "n": {{ lb_tname | jsonify }}, "img": {{ lb_img | jsonify }}, "pos": {{ lb_pos | jsonify }}}{% unless forloop.last %},{% endunless %}
       {%- endif -%}
     {%- endfor -%}
   }</script>
@@ -124,7 +135,7 @@
     var done = (last.pct || 0) >= 95;
     var a = document.getElementById('js-lobby-resume');
     a.href = done ? s.u + '#chapters' : last.path;
-    document.getElementById('js-lobby-resume-series').textContent = k;
+    document.getElementById('js-lobby-resume-series').textContent = s.n || k;
     document.getElementById('js-lobby-resume-chapter').textContent = label(last.no, last.title);
     document.getElementById('js-lobby-resume-bar').style.width = Math.max(4, Math.min(100, last.pct || 0)) + '%';
     document.getElementById('js-lobby-resume-meta').textContent = done ? '这章读完了，去目录看下一章 →' : '读到 ' + (last.pct || 0) + '%，接着读 →';
@@ -139,7 +150,7 @@
         if (i) p.appendChild(document.createTextNode(' · '));
         var l = document.createElement('a');
         l.href = (read[o].last.pct || 0) >= 95 ? map[o].u + '#chapters' : read[o].last.path;
-        l.textContent = o;
+        l.textContent = map[o].n || o;
         p.appendChild(l);
       });
       p.hidden = false;
