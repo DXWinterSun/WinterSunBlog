@@ -64,9 +64,11 @@ def check(path):
     print(f"\n检查文件：{path}\n" + "─" * 56)
 
     # 1) Hero 标题必须英文（ASCII）—— 硬规则
-    m = re.search(r'<h1[^>]*class="[^"]*c-hero__title[^"]*"[^>]*>(.*?)</h1>', html, re.DOTALL)
+    # 2026-10-15 起页头写在 front matter（hero_title: / lede: / byline:），老文件才有 <section class="c-hero">
+    m = re.search(r'^hero_title:\s*"(.*?)"\s*$', html, re.M) or \
+        re.search(r'<h1[^>]*class="[^"]*c-hero__title[^"]*"[^>]*>(.*?)</h1>', html, re.DOTALL)
     if not m:
-        warn("没找到 <h1 class=\"c-hero__title\">，确认 Hero 区块存在")
+        warn("没找到 hero_title:（或老式 <h1 class=\"c-hero__title\">）")
     else:
         title = re.sub(r"<[^>]+>", "", m.group(1)).strip()
         if not title:
@@ -78,13 +80,16 @@ def check(path):
             bad(f"Hero 标题含非 ASCII 字符 {non}：「{title}」——必须英文，否则系列链接断裂")
 
     # 2) au-palette-strip include 必须原样存在
-    if re.search(r"\{%\s*include\s+" + re.escape(PALETTE_INCLUDE) + r"\s*%\}", html):
+    if re.search(r"^hero_title:", html, re.M):
+        ok("新式页头（front matter），色卡由 layout 渲染，不用 include")
+    elif re.search(r"\{%\s*include\s+" + re.escape(PALETTE_INCLUDE) + r"\s*%\}", html):
         ok("包含 {% include au-palette-strip.html %}")
     else:
         warn(f"未找到 {{% include {PALETTE_INCLUDE} %}}（这行应原样复制）")
 
     # 3) Hero 灵魂句字数
-    m = re.search(r'<p[^>]*class="[^"]*c-hero__lede[^"]*"[^>]*>(.*?)</p>', html, re.DOTALL)
+    m = re.search(r'^lede:\s*"(.*?)"\s*$', html, re.M) or \
+        re.search(r'<p[^>]*class="[^"]*c-hero__lede[^"]*"[^>]*>(.*?)</p>', html, re.DOTALL)
     if m:
         # 去掉引号 span（c-hero__quote）后再数
         body = re.sub(r'<span[^>]*c-hero__quote[^>]*>.*?</span>', "", m.group(1), flags=re.DOTALL)

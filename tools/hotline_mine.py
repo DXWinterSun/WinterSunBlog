@@ -51,7 +51,8 @@ def series_table():
     for f in glob.glob(rp('series/*/index.html')):
         s = io.open(f, encoding='utf-8').read()
         sn = re.search(r'^series_name:\s*"([^"]*)"', s, re.M)
-        by = re.search(r'c-hero__byline-text">([^<]*)<', s)
+        # 2026-10-15 起署名写在 front matter 的 byline: 里；老文件仍从 hero 里抓
+        by = re.search(r'^byline:\s*"([^"]*)"', s, re.M) or re.search(r'c-hero__byline-text">([^<]*)<', s)
         if sn and by:
             out[sn.group(1)] = by.group(1).split('·')[0].strip()
     return out

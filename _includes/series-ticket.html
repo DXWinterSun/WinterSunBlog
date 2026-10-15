@@ -1,0 +1,90 @@
+{%- comment -%}
+  页底票根（2026-10-15 系列页改版，Winter 定的「杂志开头、票根收尾」）。
+  一张竖票：角色名顶天大字 → 封面横条 → 四色齿孔条（中英文名）→ 系列名与场次 → 三格撕票口。
+  三格 = 原来散在三处的三个去处，按「剧场一套」改名（Winter 选的）：
+    戏服间 Wardrobe   = 穿上他的颜色（au-strip__switch 那套 data-au-* 属性，theme-picker.js 认得）
+    演员表 Cast       = 在 Many Faces 里找他（只有写了 mf_id 的系列才有）
+    后台电话 Backstage = 深夜热线（js/series-page.js 运行时读 lines.json 认出是哪个 Sam 角色后才显示）
+  右上角「保存票根」由 js/series-page.js 画成一张图；右键 / 长按翻到背面（polaroid-notes.js，key = 本页路径）。
+  票的颜色永远用该系列自己的四色（它是一件印出来的东西，不随昼夜翻面）；没有配色的系列用一套暗金兜底。
+  需要调用处先算好：chapters（已排序的章节数组）、cover_img、cover_focus。
+{%- endcomment -%}
+{%- assign p = site.data.au_palettes[page.series_name] -%}
+{%- assign by_parts = page.byline | split: " · " -%}
+{%- assign tk_who = by_parts[0] | default: page.series_name -%}
+{%- assign tk_film = by_parts[1] -%}
+{%- assign tk_actor = by_parts[2] -%}
+{%- assign tk_first = include.chapters | first -%}
+{%- assign tk_last = include.chapters | last -%}
+{%- assign tk_n = include.chapters | size -%}
+{%- assign st = page.series_status | default: "ongoing" -%}
+{%- if st == "complete" -%}{%- assign tk_st = "终场" -%}{%- elsif st == "hiatus" -%}{%- assign tk_st = "中场休息" -%}{%- elsif st == "oneshot" -%}{%- assign tk_st = "独幕" -%}{%- else -%}{%- assign tk_st = "开演至今" -%}{%- endif -%}
+{%- assign theme_id = "" -%}
+{%- if p and p.mf_id -%}
+  {%- for t in site.data.sam_themes -%}
+    {%- assign t_anchor = t.anchor | default: t.id -%}
+    {%- if t_anchor == p.mf_id -%}{%- assign theme_id = t.id -%}{%- break -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+<section class="c-tk-end" aria-label="票根">
+  <p class="c-tk-end__eyebrow">— 票根 · Keep this stub —</p>
+  <div class="c-stub-ticket" id="js-series-ticket" data-note-key="{{ page.url | prepend: site.baseurl }}" data-base="{{ site.baseurl }}"
+       data-who="{{ tk_who | escape }}" data-sub="{% if tk_actor %}{{ tk_actor | escape }} · {% endif %}{{ tk_film | escape }}"
+       data-series="{{ page.hero_title | strip_html | default: page.series_name | escape }}"
+       data-run="{% if tk_n > 0 %}Chapter 01 → {% if tk_n < 10 %}0{% endif %}{{ tk_n }} · {{ tk_first.date | date: '%Y.%m.%d' }} — {{ tk_last.date | date: '%m.%d' }} · {% endif %}{{ tk_st }}"
+       {% if p %}style="--tk-bg: {{ p.bg }}; --tk-accent: {{ p.accent }}; --tk-text: {{ p.text }}; --tk-muted: {{ p.muted }};"{% endif %}>
+    <button class="c-tk-save" type="button" id="js-ticket-save" title="把这张票根存成一张图">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2"/></svg>保存票根
+    </button>
+    <div class="c-tk-who">
+      <span class="c-tk-who__e">Admit One{% if page.collection_order %} · AU Story No. {{ page.collection_order }}{% endif %}</span>
+      <b class="c-tk-who__name">{{ tk_who }}</b>
+      <em class="c-tk-who__sub">{% if tk_actor %}{{ tk_actor }} · {% endif %}{{ tk_film }}</em>
+    </div>
+    {%- if include.cover_img %}
+    <img class="c-tk-photo" id="js-ticket-photo" src="{{ "/images/" | prepend: site.baseurl | append: include.cover_img }}" alt="" loading="lazy" decoding="async"
+         style="--pos: {{ include.cover_focus.banner | default: '50% 30%' }};">
+    {%- endif %}
+    {%- if p %}
+    <div class="c-tk-perf" aria-label="系列配色 · Palette">
+      <span class="c-tk-perf__holes" aria-hidden="true"></span>
+      <span class="c-tk-perf__row">
+        <span class="c-tk-perf__c" style="background: {{ p.accent }}" data-hex="{{ p.accent }}" data-cn="{{ p.accent_cn }}" data-en="{{ p.accent_en }}"><b>{{ p.accent_cn }}</b><em>{{ p.accent_en }}</em></span>
+        <span class="c-tk-perf__c" style="background: {{ p.bg }}" data-hex="{{ p.bg }}" data-cn="{{ p.bg_cn }}" data-en="{{ p.bg_en }}"><b>{{ p.bg_cn }}</b><em>{{ p.bg_en }}</em></span>
+        {%- if p.text_cn %}<span class="c-tk-perf__c" style="background: {{ p.text }}" data-hex="{{ p.text }}" data-cn="{{ p.text_cn }}" data-en="{{ p.text_en }}"><b>{{ p.text_cn }}</b><em>{{ p.text_en }}</em></span>{% endif -%}
+        {%- if p.muted_cn %}<span class="c-tk-perf__c" style="background: {{ p.muted }}" data-hex="{{ p.muted }}" data-cn="{{ p.muted_cn }}" data-en="{{ p.muted_en }}"><b>{{ p.muted_cn }}</b><em>{{ p.muted_en }}</em></span>{% endif -%}
+      </span>
+      <span class="c-tk-perf__holes" aria-hidden="true"></span>
+    </div>
+    {%- endif %}
+    <div class="c-tk-print">
+      <span class="c-tk-print__name">{{ page.hero_title | default: page.series_name }}</span>
+      <span class="c-tk-print__run">{% if tk_n > 0 %}Chapter 01 → {% if tk_n < 10 %}0{% endif %}{{ tk_n }} &nbsp;·&nbsp; {{ tk_first.date | date: '%Y.%m.%d' }} — {{ tk_last.date | date: '%m.%d' }} &nbsp;·&nbsp; {% endif %}{{ tk_st }}</span>
+    </div>
+    <div class="c-tk-stubs" id="js-ticket-stubs">
+      {%- if p %}
+      <button class="c-tk-stub au-strip__switch" type="button" title="把整站换成他的颜色"
+        {% if theme_id != "" %}data-au-theme="{{ theme_id }}"{% endif %}
+        data-au-accent="{{ p.accent }}"{% if p.accent_ink %} data-au-accent-ink="{{ p.accent_ink }}"{% endif %}
+        data-au-bg="{{ p.bg }}" data-au-text="{{ p.text }}" data-au-muted="{{ p.muted }}"
+        data-au-accent-name="{{ p.accent_cn }} · {{ p.accent_en }}" data-au-bg-name="{{ p.bg_cn }} · {{ p.bg_en }}"
+        {% if p.text_cn %}data-au-text-name="{{ p.text_cn }} · {{ p.text_en }}"{% endif %}
+        {% if p.muted_cn %}data-au-muted-name="{{ p.muted_cn }} · {{ p.muted_en }}"{% endif %}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a2 2 0 1 1 2 2c-1 0-2 .7-2 1.6V9"/><path d="M12 9 3.5 15.2A1.6 1.6 0 0 0 4.5 18h15a1.6 1.6 0 0 0 1-2.8L12 9z"/></svg>
+        <b>戏服间</b><em>Wardrobe</em>
+      </button>
+      {%- endif %}
+      {%- if p and p.mf_id %}
+      <a class="c-tk-stub" href="{{ site.baseurl }}/sam/many-faces/#{{ p.mf_id }}" title="去画册里找他">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5c2.5 1 5.5 1 8 0 2.5 1 5.5 1 8 0v7c0 4.5-3.6 8-8 8s-8-3.5-8-8V5z"/><path d="M8.5 11h2M13.5 11h2"/><path d="M9 15.5c1.8 1.3 4.2 1.3 6 0"/></svg>
+        <b>演员表</b><em>Cast</em>
+      </a>
+      {%- endif %}
+      <a class="c-tk-stub" id="js-ticket-phone" href="{{ site.baseurl }}/sam/hotline/" title="拨通深夜热线，跟他说说话" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3l1.5 4-2 1.5a11 11 0 0 0 6 6L15 13.5l4 1.5v3a2 2 0 0 1-2 2A14 14 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        <b>后台电话</b><em>Backstage</em>
+      </a>
+    </div>
+  </div>
+  <p class="c-tk-end__foot"><a href="{{ site.baseurl }}/?cat=AU+Story">← 回 AU Story</a></p>
+</section>

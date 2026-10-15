@@ -11,6 +11,11 @@ collection_eyebrow: "AU Story · Series"
 collection_title: 'Sanguis Benedicta · William "Wild Bill" Wharton AU'
 collection_desc: "《绿里奇迹》里那个人人都怕的 Wild Bill——他随时能要你的命，而你从第一口起就没想过拦他。"
 logline: "一篇暗涌向的哥特爱情：一九四六年的路易斯安那，你爱上一个随时能杀了你的死囚血族，而你把处置权整个交给了他。"
+# —— 页头（2026-10-15 起由 _layouts/series.html 渲染，不再手写 hero）——
+hero_eyebrow: "AU Story · Series"
+hero_title: "Sanguis Benedicta"
+byline: "William “Wild Bill” Wharton · The Green Mile · Sam Rockwell"
+lede: "他随时可以要你的命。你从第一口起，就没想过要拦他。"
 ---
 
 {%- comment -%}
@@ -24,28 +29,6 @@ logline: "一篇暗涌向的哥特爱情：一九四六年的路易斯安那，�
 · 正文严禁 cue 章节（「这一章」「上一章」）；成稿前 grep 一遍「章」字。
 ────────────────────────────────────────────────────────────────
 {%- endcomment -%}
-
-<section class="c-hero">
-  {% if site.author-image %}
-  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
-    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-  </a>
-  {% endif %}
-
-  <div class="c-hero__eyebrow">AU Story · Series</div>
-  <h1 class="c-hero__title">Sanguis Benedicta</h1>
-  {% include au-palette-strip.html %}
-  <div class="c-hero__byline">
-    <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">William &ldquo;Wild Bill&rdquo; Wharton · The Green Mile · Sam Rockwell · ongoing</span>
-    <span class="c-hero__byline-rule"></span>
-  </div>
-  <p class="c-hero__lede">
-    <span class="c-hero__quote">&ldquo;</span>
-    他随时可以要你的命。你从第一口起，就没想过要拦他。
-    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
-  </p>
-</section>
 
 <article class="c-sam-intro">
   <h2 class="c-sam-intro__heading">关于这个系列</h2>

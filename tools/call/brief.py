@@ -157,8 +157,9 @@ def load_series():
         fm, body = front_matter(text)
         if fm.get("layout") != "series":
             continue
+        # 2026-10-15 起 byline / lede 写在 front matter 里（页头由 layout 渲染）；老文件仍从 hero 里抓
         by = re.search(r'c-hero__byline-text">\s*(.*?)\s*<', text, re.S)
-        byline = strip_tags(by.group(1)) if by else ""
+        byline = fm.get("byline") or (strip_tags(by.group(1)) if by else "")
         parts = [p.strip() for p in byline.split("·")]
         comments = re.findall(r"\{%-?\s*comment\s*-?%\}(.*?)\{%-?\s*endcomment\s*-?%\}", text, re.S)
         intros = []
@@ -166,6 +167,10 @@ def load_series():
             h = re.search(r"<h2[^>]*>(.*?)</h2>", art, re.S)
             intros.append((strip_tags(h.group(1)) if h else "", strip_tags(re.sub(r"<h2.*?</h2>", "", art, flags=re.S))))
         lede = re.search(r'<p class="c-hero__lede[^>]*>(.*?)</p>', text, re.S)
+        if fm.get("lede"):
+            class _L:  # 让下面那行照旧取 group(1)
+                def group(self, _i): return fm["lede"]
+            lede = _L()
         out[slug] = {
             "slug": slug,
             "name": fm.get("series_name", ""),

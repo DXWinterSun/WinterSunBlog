@@ -1102,19 +1102,24 @@ python3 tools/face_focus.py --report   # 顺带列出没认出脸的图
 - 系列目录 slug（`series/tuning-the-devil/`）→ 就是英文 `series:` 值的
   slugify 结果，三者要能对上
 
-中文只能出现在 `title:`、`series_title:`、`collection_title:`、hero HTML
+中文只能出现在 `title:`、`series_title:`、`collection_title:`、`lede:`
 等**纯展示**字段里，不参与 Jekyll 路径生成的地方随便用。
 
-## ⚠️ 系列首页 hero 标题必须用英文
+## ⚠️ 系列首页的页头全在 front matter 里（2026-10-15 起不再手写 hero）
 
-`series/*/index.html` 里 `<h1 class="c-hero__title">` 必须写英文标题
-（和 `series_name` / 系列目录 slug 保持一致），中文只能出现在副标题、
-byline、lede 引语等展示位置。例如：
+**系列首页 `series/*/index.html` 不再有 `<section class="c-hero">`。** 页头那几样东西全写成
+front matter，由 `_layouts/series.html` 统一渲染（详见下面「🎫 系列页：杂志开头、票根收尾」一节）：
 
-```html
-<h1 class="c-hero__title">Tuning the Devil</h1>  <!-- ✅ 英文 -->
-<h1 class="c-hero__title">为他调音</h1>           <!-- ❌ 中文 -->
+```yaml
+hero_eyebrow: "AU Story · Series"            # 眉标（Oneshot 写 "AU Story · Oneshot"）
+hero_title: "Tuning the Devil"               # 大标题，必须英文（可含 <em>）；只写 Story，不带「· 角色 AU」
+byline: "William \"Wild Bill\" Wharton · The Green Mile · Sam Rockwell"   # 角色 · 作品 · 演员（状态那段不写，模板从 series_status 取）
+lede: "他平等地厌恶世上每一个人……"              # 情感引言一句，不带引号符号（模板会加）
 ```
+
+`hero_title` 必须英文（和 `series_name` / 目录 slug 一个意思），中文只能出现在 `lede`、`logline`、
+`title` 等展示字段里。老文件由 `tools/series/migrate_hero.py` 一次性搬过来了，再跑是空操作。
+⚠️ `tools/call/brief.py`、`tools/hotline_mine.py` 读系列的角色名都改成先读 `byline:`，别再往文件里找 `c-hero__byline-text`。
 
 ## ⚠️ `series_title` 格式：必须用角色名，不能用剧名或背景设定
 
@@ -1186,22 +1191,22 @@ series_title: "The One Who Fell from the Sky · RAF 1940 AU"    # ❌ 用了背�
 
 ## ⚠️ 系列首页 byline 格式统一为「角色 · 作品出处 · 演员 · 状态」
 
-`c-hero__byline-text` 的固定格式是四段：
+署名显示成四段，前三段写在系列首页 front matter 的 `byline:` 里，第四段「状态」由模板从 `series_status` 取：
 
 ```
 角色名 · 作品出处 · 演员 · 状态
 ```
 
-```html
-<!-- Sam Rockwell 的角色 -->
-<span class="c-hero__byline-text">Justin Hammer · Iron Man 2 · Sam Rockwell · ongoing</span>
-
-<!-- BayBay（Mathew Baynton）的角色 -->
-<span class="c-hero__byline-text">Charles II · Horrible Histories · BayBay · ongoing</span>
-
-<!-- 其他演员的角色 -->
-<span class="c-hero__byline-text">Hector Escaton · Westworld · Rodrigo Santoro · ongoing</span>
+```yaml
+# Sam Rockwell 的角色
+byline: "Justin Hammer · Iron Man 2 · Sam Rockwell"
+# BayBay（Mathew Baynton）的角色
+byline: "Charles II · Horrible Histories · BayBay"
+# 其他演员的角色
+byline: "Hector Escaton · Westworld · Rodrigo Santoro"
 ```
+
+（页面上仍渲染成 `<span class="c-hero__byline-text">…</span>`，热线入口等运行时脚本靠它认角色名。）
 
 四段规则：
 - **作品出处**：角色真正的出处作品（电影 / 剧集 / 游戏），**不是**这个 AU 的
@@ -1491,9 +1496,13 @@ collection_title: "English Title · Character AU"
 collection_desc: "一两句钩子简介。"
 ```
 
-**Hero 区块：**
-- `<h1 class="c-hero__title">` → 必须是**英文**
-- byline / lede 引语可以用中文
+**页头四个字段（不再手写 hero HTML）：**
+```yaml
+hero_eyebrow: "AU Story · Series"
+hero_title: "English Title"                 # 必须英文
+byline: "角色名 · 作品官方全名 · 演员"         # 中文角色名也行（如 囚徒）
+lede: "一句戳心的引言"
+```
 
 **内容区块（`c-sam-intro`）：**
 - 第一个 article：`关于这个系列`，2-4 段，概述世界观与核心冲突
@@ -1586,7 +1595,7 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 新章节会自动继承，不需要每篇手动加**。三个部分：
 
 1. **系列首页的章节列表** —— 由 `_layouts/series.html` 渲染。
-   每个 `series/*/index.html` 只负责写 hero + 简介，**章节区块不要手写**。
+   每个 `series/*/index.html` 只负责写 front matter（含页头四个字段）+ 简介两段，**章节区块不要手写**。
    只要 front matter 里有这两行就会自动出现（**2026-07-30 按 Winter 要求改版：
    封面图页顶已有，章节不再重复配图；旧的「纯文字目录 + 配图卡片」双目录
    已合并为一列无图章节卡 `c-chapter-list`**，按 `series_order` 排序）：
@@ -1611,9 +1620,35 @@ for t in yaml.safe_load(open('_data/sam_themes.yml')):
 3. 这套东西的样式在 `_sass/5-components/_extras.scss`
    （`c-series-toc` / `c-chapter-return` / `c-chapter-nav__back`）。
 
-一句话：**开新系列 = 复制一个 `series/*/index.html`，改 hero/简介，设好
+一句话：**开新系列 = 复制一个 `series/*/index.html`，改 front matter（页头四个字段）和简介两段，设好
 `layout: series` 和 `series_name` 即可；章节照常写齐 `series*` 字段。
-目录和返回按钮都会自己长出来。**
+页头、目录、票根、返回按钮都会自己长出来。**
+
+## 🎫 系列页：杂志开头、票根收尾（2026-10-15）
+
+Winter：「这个 AU 的主页面排版不够好看……一个个组件堆着，没什么章法」。病根是框套框、谁都一样重，
+色卡大盒子夹在标题和署名中间，封面排到第四屏。提案页上她挑的（<https://claude.ai/artifact/HwM4ovawANQRwxrtSuES9s>）：
+**开头像杂志，滑到底是他的票根**，介绍用文件夹标签，正篇 / 番外 / 他视角三类并列、各自能合上。
+整页由 `_layouts/series.html` 渲染，样式在 `_sass/5-components/_series-v3.scss`，交互在 `js/series-page.js`（只在系列页加载）：
+
+| 从上到下 | 怎么来的 | 备忘 |
+|---|---|---|
+| ① 杂志头 `.c-mag-head` | front matter `hero_eyebrow` / `hero_title` / `byline` ＋ `collection_order` 当「No.」 | 靠左收小，让位给图。仍带 `c-hero` 类，雪照样下 |
+| ② 满幅封面 `.c-mag-cover`，引言印在图下沿 | 第一章的 `image`（或 `cover:`），锚点 `image_focus.yml` 的 `banner` / `banner_m`；`lede` 压在底部渐变上 | 渐变接到 `--c-bg`、字用 `--c-ink`，浅色深色都读得清。手机出血到 16px 边、框竖一点（4:4.2） |
+| ③ 四色细色带 `_includes/au-palette-bar.html` | `au_palettes.yml` | **中英文名都要**（她点名）。老的胶片色卡 `au-palette-strip.html` 只剩章节页在用 |
+| ④ 基调一句 `.c-series-tone` | `logline` | 不加框 |
+| ⑤ 文件夹标签 `.c-folder-tabs` | `{{ content }}` 里的几篇 `.c-sam-intro`，JS 按 `h2` 做标签 | 没 JS 就上下排。纸里首字下沉 |
+| ⑤b 设定档案 → 翻开的书 `.c-dossier` | `js/series-page.js` 的 `dossierBook()` 把那篇 `.c-sam-intro` 里的 `<p><strong>…</strong> 正文</p>` 拆成：**他左页、你右页**（名字大、身份小字、正文两端对齐）、其余条目（信物 / 别的人物）是夹在书下的**书签**（含「信物」字样的带一枚小标签）、`c-sam-intro__closing` 一行斜体（开头「核心张力：」这类 ≤6 字的前缀拆成小标）。手机上也是书，字收一档（Winter 2026-10-15 定）。认人的规矩：加粗开头 `你` / `Winter` 的是你；第一个不是你、也不含「信物 / 意象 / 契机 / 母题 / 贯穿全文」的是他；`他｜Karl（Sam Rockwell）`、`Matty（Sam Rockwell）｜修车工`、`你（Winter Hart）｜幕僚`、`Chuck｜Chuck Barris（…）` 这些写法都认得；认不出他或你就原样不动。**写新系列的设定档案照老格式写就行**（他 / 你 / 信物三条 ＋ 一句收束），不用写任何新标记 |
+| ⑥ 三张书页 `.c-book-page` | JS 按 `data-kind`（main / extra / pov）把票根分进三张纸，右边书口小标签；点标题行合上 | 只有一类时就一张纸、不出标签。「倒序」由 main.js 翻正篇那张，series-page.js 跟着翻另两张。原来的「正篇 / 他视角 / 番外」筛选条已拆 |
+| ⑦ 票根 `_includes/series-ticket.html` | 角色名（`byline` 第一段）顶天 → 封面横条 → 四色齿孔（中英名）→ 系列名与场次（首尾章日期；complete 印「终场」、ongoing「开演至今」、hiatus「中场休息」）→ 三格撕票口 | 三格按「剧场一套」命名：**戏服间** Wardrobe＝穿上他的颜色（仍是 `au-strip__switch` 那套属性）· **演员表** Cast＝画册（要 `mf_id`）· **后台电话** Backstage＝热线（JS 读 lines.json 认出 Sam 角色才亮）。票永远用该系列四色，不随昼夜翻 |
+
+- **保存票根**（右上角）：`series-page.js` 用 canvas 把票画成一张图，弹一层浮层——手机长按存相册、电脑点下载。
+  字体要等 `document.fonts` 载好；照片同源才画得上。
+- **右键 / 长按翻到背面**：票根带 `data-note-key`（= 系列页路径），`polaroid-notes.js` 的 `keyOf()` 先认它。
+  ⏳ **背面「分层」还没做**：Winter 选了「票号一排」的思路（顶上一排章节票号、写过字的亮着、点一个号整张背面换成那章），
+  但她说呈现还不完美，要连着记忆碎片的拍立得背面、章节票根背面一起整体优化，下一轮再做。
+- 她看过并否掉 / 没选的：先看见他（海报式，什么都不加框）、节目单幕次（ACT I/II/III）、横票电影票、
+  目录页式折叠（编号＋小点引到＋）、背面小抽屉 / 一叠票。别做回去。
 
 ## 🗄️ 藏品架 `sam/shelf/`（Winter 自己在页面里编辑的收藏册）
 
@@ -2055,30 +2090,24 @@ form: 随笔               # 卡片上的小标签：随笔 / 书信 / 小说 / 
 - 修改 `js/main.js` 后记得 cache-bust 已经在 `_includes/javascripts.html`
   里通过 `?v={{ site.time | date: '%Y%m%d%H%M' }}` 自动处理，不用手动改。
 
-## ⚠️ 左下角那张浮动小卡（宝丽来背面批注）是常驻功能，默认别动
+## ↩️ 记忆碎片（宝丽来 / 票根背面批注）：钢笔小钮 + 小册子 + 书桌上一本「冬的背面」（2026-10-15 改版）
 
-页面左下角常驻的那个浮动小卡 / 钢笔浮标（`js/polaroid-notes.js`，样式在
-`_sass/5-components/_polaroid-notes.scss`）——右键(电脑)/长按(手机)照片就能翻开
-照片背面、写一段本机加密保存的手写批注——是**用户特意做的、重要的常驻功能**，
-不是 bug。它有时会浮在正文（比如 Sam 页说明文字）上方，看着像挡字，但**这是预期行为**。
+右键（电脑）/ 长按（手机）一张照片卡、一张章节票根、系列页底那张票根，翻到背面写字——本机 `localStorage` 存，
+解锁一次长期有效（`js/polaroid-notes.js`，样式 `_sass/5-components/_polaroid-notes.scss`）。它是 Winter 特意做的常驻功能，
+**默认别动、别主动提「挡字要不要挪」**；2026-10-15 这版是她自己点名要「整体优化」、在方案页上一项项挑的
+（<https://claude.ai/artifact/FiLNkjvQvxeGTvTNv2yMde>）：
 
-**2026-07-30 扩展**：①章节票根卡与文章页也纳入批注体系——文章右下角有**浮笔**
-（解锁后可见，点开当前文章的背面继续写）；②翻面分两套皮肤：带图卡片=拍立得背面
-（献词归 Leo「趁我还记得，把它写在背面。」），章节票根/章节页=票根背面（献词归
-Sam「正面是他的戏。背面归你。」），**两句献词都是 Winter 定的，不要改**；③**铅笔
-划线**：文章页选中正文可划线（本机私有，细下划线随 accent 色），背面列引文可跳回
-原文；一次划线不跨段；原文改动后引文标「原文已改动」；底片匣导出/导入已含划线。
+| 她定的 | 现在的样子 |
+|---|---|
+| **页角一枚钢笔小钮** `.pol-pin`（左下角 44px 圆钮，往下滚自己缩到边上只露一截，往上滚回来） | 取代了原来那颗长条浮标 + 叠在上面的三张日记卡 + 右下角那支浮笔。点开一张小册子 `.pol-pop`：解锁了＝「写在这一篇的背面」（文章页）/「翻开这个系列的票根」（系列页）＋ **所有背面的总账**（按系列分组，一张一行，点一行翻开）＋ 底片匣 / 去书桌 / 封存；没解锁＝访客那张拍立得（点开 → You Are My Fact）＋ 验笔迹 |
+| **三种背面统一成一张米色相纸** | 拍立得＝黑色相纸条（献词归 Leo「趁我还记得，把它写在背面。」）；票根＝**系列色票头**（`--pol-tk-bg/accent/text`，系列页从页底票根的变量取、章节页从胶片色卡那颗按钮的 `data-au-*` 取）＋ 撕线，印 `Admit One · No. N`（献词归 Sam「正面是他的戏。背面归你。」）；日记＝黑色日期条。**两句献词都是 Winter 定的，不要改。** 日记那排五十四个色点拿掉了（`renderThemeBar` 还在文件里但不再调用） |
+| **票根背面顶上一条胶片齿孔格** `.pol-film`（她在三种画法里挑的「B 胶片格」） | 这个系列的章节票号（正篇印号、番外 EX / POV / IF），**写过字或划过线的亮着**，正在看的那格高亮；点一格整张背面换成那一章（字、划线引文、「去读这一章 →」），最左「系列」那格回系列自己的背面。章节资料从 **`/backs-map.json`** 取（Liquid 构建时生成：路径 → 章名 / 系列 / 类型 / 号；只在点开册子或票根背面时取一次） |
+| **书桌上一本「冬的背面」** `/notes/backs/`（`_pages/notes/backs.html`，封面在 `notebooks.html`，口袋「记一记」里也有一格「背面」） | 五页：背面总账 / 幸运三件 / 吐槽 / 给自己的信 / 底片匣。页面只是空架子，内容由 `polaroid-notes.js` 的 `buildDesk()` 从本机摊开；日记页左边一张拍立得封面（点开写今天）、右边按日期列过去写的；没验笔迹只看到一行提示。封面上的数字由 `fillDeskCover()` 现填 |
 
-**规则：默认不要移动、隐藏、删除它，也不要主动提「它挡住文字、要不要挪开」。**
-用户已明确表示：除非他本人主动觉得有问题并提出来，否则这个浮标保持原样。只有当
-用户**主动**要求调整时，才去动它。（这个问题在多个对话里被重复问过，故记此备忘。）
-
-**⭐ 2026-10-05 起它「会让路」（Winter 从三版里挑的 B 方案，别改回常驻）**：往下滚
-（在读东西）浮标自己缩到屏幕左边只露一小截（`.pol-lock.is-tucked`，后面探头的拍立得 /
-卡组也一起隐掉），往上滚或点那一小截就回来；缩着时第一下点击只负责叫回它，不触发展开。
-卡组展开 / 输密码 / 底片匣开着时不躲。逻辑在 `js/polaroid-notes.js` 的 `lockAutoHide()`，
-样式在 `_polaroid-notes.scss`。手机电脑都启用。当时给她看的三版演示：小圆钮 / 会自己躲 /
-贴边书签，她要的是「还喜欢，但占地方」的折中——样子一点没变，只是读的时候自己退开。
+- **铅笔划线**照旧：文章页选中正文 → 「划线」小按钮；背面列引文可跳回；底片匣导出 / 导入含划线和三本日记。
+- 批注的钥匙是网址路径（含 `/WinterSunBlog` 前缀，`keyOf()` / `normPath()`）；系列页那张票根用 `data-note-key`。
+- 「会让路」逻辑还在 `lockAutoHide()`；册子 / 底片匣开着时不躲。
+- 她看过没选的：票头露一排、书口小书签（票号的另两种画法）、底片册（左下角一本三页的册子）、邮戳钮。别做回去。
 
 ## ⚠️ 正文严禁「cue 章节名 / 编号」（全站 AU 通用）
 

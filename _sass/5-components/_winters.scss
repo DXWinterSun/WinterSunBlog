@@ -136,6 +136,14 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
     #f7f4ea;
 }
 /* 冬的陪伴那本：夜里的信封蓝，一道玫瑰色书脊，零星几颗星；底下一行「🔒 上了锁的」（2026-10-12） */
+/* 冬的背面那本（2026-10-15）：米色相纸、深褐书脊，像一张翻过来的拍立得 */
+.c-wn-notebook--backs {
+  --nb-spine: #4a4234;
+  --nb-ink: #f6f1e7;
+  background:
+    linear-gradient(180deg, #14110d 0, #14110d 34%, transparent 34%),
+    repeating-linear-gradient(180deg, #f6f1e7 0, #f6f1e7 23px, #e4dcc8 23px, #e4dcc8 24px);
+}
 .c-wn-notebook--withyou {
   --nb-spine: #e08aa3;
   --nb-ink: #f6eef2;

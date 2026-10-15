@@ -1,7 +1,18 @@
 /* =========================================================
    宝丽来背面批注 · Polaroid back-of-photo private notes
-   右键(电脑)/长按(手机)照片 → 翻开写字 → 自动保存(本机)
+   右键(电脑)/长按(手机)照片 / 票根 → 翻开写字 → 自动保存(本机)
    解锁一次后长期保持；日后升级云端只需替换 Store 这一层。
+
+   2026-10-15 整体改版（Winter 在方案页上挑的）：
+   · 左下角那颗长条浮标 + 叠在上面的三张日记卡 → 一枚「钢笔」小圆钮（.pol-pin），
+     点开一张小册子（.pol-pop）：所有背面的总账 / 底片匣 / 封存 / 去书桌；文章页里多一行「写在这一篇的背面」
+     （原来右下角那支浮笔并进来了）。没解锁时点开是访客那张拍立得 + 验笔迹。
+   · 三种背面统一成一张米色相纸：拍立得＝黑色相纸条，票根＝系列色票头＋撕线（印 Admit One 和票号），
+     日记＝日期条。日记那排五十四个色点拿掉了。
+   · 票根背面顶上一条「胶片齿孔格」：这个系列的章节票号，写过字 / 划过线的亮着，点一格整张背面
+     换成那一章；最左边「系列」那格回系列自己的背面。章节资料从 /backs-map.json 取（构建时生成）。
+   · 书桌上多了一本「冬的背面」（/notes/backs/）：三本日记、全部背面的总账、底片匣都在那本里；
+     数据仍只在本机 localStorage，页面只是把它摊开。
    ========================================================= */
 (function () {
   "use strict";
@@ -253,7 +264,12 @@
     var l = document.createElement("link"); l.rel = "stylesheet"; l.href = FONT_LINK; document.head.appendChild(l);
   }
 
-  function keyOf(a) { try { return new URL(a.getAttribute("href"), location.origin).pathname; } catch (e) { return a.getAttribute("href") || ""; } }
+  // 批注的钥匙 = 这张卡指向的文章路径；没有链接的（系列页底那张票根）用 data-note-key（= 系列页自己的路径）
+  function keyOf(a) {
+    var k = a.getAttribute("data-note-key");
+    if (k) return k;
+    try { return new URL(a.getAttribute("href"), location.origin).pathname; } catch (e) { return a.getAttribute("href") || ""; }
+  }
   function fmt(ts) { return ts ? new Date(ts).toLocaleString("zh-CN", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }) : ""; }
 
   /* ========== 编辑器浮层（构建一次）========== */
@@ -264,9 +280,12 @@
     backdrop.innerHTML =
       '<div class="pol-editor" role="dialog" aria-label="照片背面">' +
         '<div class="pol-ed-top">' +
+          '<span class="pol-ed-adm"></span>' +
           '<button class="pol-ed-x" type="button" title="翻回" aria-label="翻回">↩</button>' +
           '<div class="pol-ed-lines"><p class="pol-ed-line"></p><p class="pol-ed-line-en"></p></div>' +
         '</div>' +
+        '<div class="pol-film" hidden></div>' +
+        '<div class="pol-ed-chap" hidden></div>' +
         '<div class="pol-ed-write">' +
           '<textarea class="pol-note" spellcheck="false"></textarea>' +
           '<div class="pol-ed-foot"><span class="pol-ts"></span><span class="pol-saved">已保存 ✓</span></div>' +
@@ -286,23 +305,52 @@
       if (!unlocked || !current) return;
       clearTimeout(saveTimer);
       saveTimer = setTimeout(function () {
+        saveTimer = null;
         var n = Store.set(current, note.value);
         tsEl.textContent = n.ts ? "上次编辑 " + fmt(n.ts) : "";
         savedEl.classList.add("show");
         setTimeout(function () { savedEl.classList.remove("show"); }, 1200);
         markDogears();
+        var film = backdrop.querySelector(".pol-film");
+        if (film && !film.hidden) { var cell = film.querySelector('.pol-film-cell[data-path="' + current.replace(/"/g, '&quot;') + '"]'); if (cell) cell.classList.toggle("is-lit", !!note.value.trim() || Marks.forPath(current).length > 0); }
       }, 450);
     });
+  }
+  /* 票头的颜色：系列页从页底那张票根的变量取，章节页从胶片色卡那颗按钮取，都没有就用默认的深蓝 */
+  function ticketPalette() {
+    var tk = document.getElementById("js-series-ticket");
+    if (tk) {
+      var cs = getComputedStyle(tk);
+      return { bg: cs.getPropertyValue("--tk-bg").trim() || "#15213f", accent: cs.getPropertyValue("--tk-accent").trim() || "#ecc84f", text: cs.getPropertyValue("--tk-text").trim() || "#ece9e2" };
+    }
+    var sw = document.querySelector("[data-au-bg]");
+    if (sw) return { bg: sw.getAttribute("data-au-bg") || "#15213f", accent: sw.getAttribute("data-au-accent") || "#ecc84f", text: sw.getAttribute("data-au-text") || "#ece9e2" };
+    return { bg: "#15213f", accent: "#ecc84f", text: "#ece9e2" };
   }
   function openEditor(id, kind) {
     loadFonts();
     if (!backdrop) buildEditor();
+    id = normPath(id);
     var ed = backdrop.querySelector(".pol-editor");
     var isTicket = kind === "ticket";
     ed.classList.toggle("pol-editor--ticket", isTicket);
     ed.setAttribute("aria-label", isTicket ? "票根背面" : "照片背面");
+    if (isTicket) {
+      var pal = ticketPalette();
+      ed.style.setProperty("--pol-tk-bg", pal.bg); ed.style.setProperty("--pol-tk-accent", pal.accent); ed.style.setProperty("--pol-tk-text", pal.text);
+    }
     backdrop.querySelector(".pol-ed-line").textContent = isTicket ? TICKET_TAGLINE : NOTE_TAGLINE;
     backdrop.querySelector(".pol-ed-line-en").textContent = isTicket ? TICKET_TAGLINE_EN : NOTE_TAGLINE_EN;
+    loadNoteInto(id);
+    backdrop.classList.add("open");
+    var film = backdrop.querySelector(".pol-film"), chap = backdrop.querySelector(".pol-ed-chap"), adm = backdrop.querySelector(".pol-ed-adm");
+    film.hidden = true; chap.hidden = true; adm.textContent = isTicket ? "Admit One" : "";
+    if (isTicket) renderFilm(id);
+    if (unlocked) setTimeout(function () { note.focus(); }, 420);
+  }
+  /* 把某一张背面的字和划线装进编辑器（翻票号时也走这里） */
+  function loadNoteInto(id) {
+    flushNote();
     current = id;
     var n = Store.get(id);
     note.value = n.text;
@@ -310,14 +358,65 @@
     note.placeholder = unlocked ? "写下你不想忘记的……" : "🔒 解锁后可编辑";
     tsEl.textContent = n.ts ? "上次编辑 " + fmt(n.ts) : "";
     renderEditorMarks(id);
-    backdrop.classList.add("open");
-    if (unlocked) setTimeout(function () { note.focus(); }, 420);
   }
-  function closeEditor() { if (backdrop) backdrop.classList.remove("open"); current = null; }
+  function flushNote() {
+    if (!saveTimer || !current || !unlocked) return;
+    clearTimeout(saveTimer); saveTimer = null;
+    Store.set(current, note.value); markDogears();
+  }
+  function closeEditor() { flushNote(); if (backdrop) backdrop.classList.remove("open"); current = null; if (deskEl) renderDeskLedger(); }
+
+  /* —— 票根背面顶上的胶片齿孔格：这个系列的章节票号，写过的亮着，点一格翻到那一章的背面 —— */
+  function renderFilm(id) {
+    var film = backdrop.querySelector(".pol-film"), chap = backdrop.querySelector(".pol-ed-chap"), adm = backdrop.querySelector(".pol-ed-adm");
+    loadMap(function (map) {
+      if (normPath(current) !== id) return;
+      var sp = map.series && map.series[id], po = map.posts && map.posts[id];
+      var sname = sp ? sp.s : (po ? po.s : null);
+      if (!sname) return;
+      var seriesPath = null, k;
+      for (k in map.series) if (map.series.hasOwnProperty(k) && map.series[k].s === sname) { seriesPath = k; break; }
+      var chaps = [];
+      for (k in map.posts) if (map.posts.hasOwnProperty(k) && map.posts[k].s === sname) chaps.push({ path: k, p: map.posts[k] });
+      chaps.sort(function (a, b) { var wa = a.p.k === "main" ? 0 : 1, wb = b.p.k === "main" ? 0 : 1; return wa - wb || (a.p.n || 0) - (b.p.n || 0) || (a.p.d > b.p.d ? 1 : -1); });
+      var notes = Store.all(), marks = Marks.all();
+      function lit(p) { var n = notes[p]; return !!((n && n.text && n.text.trim()) || (marks[p] && marks[p].length)); }
+      var html = '<span class="pol-film-holes" aria-hidden="true"></span><div class="pol-film-cells">';
+      if (seriesPath) html += '<button type="button" class="pol-film-cell is-series' + (seriesPath === id ? " is-on" : "") + (lit(seriesPath) ? " is-lit" : "") + '" data-path="' + esc(seriesPath) + '">系列</button>';
+      for (var i = 0; i < chaps.length; i++) {
+        var c = chaps[i];
+        html += '<button type="button" class="pol-film-cell' + (c.path === id ? " is-on" : "") + (lit(c.path) ? " is-lit" : "") + '" data-path="' + esc(c.path) + '" title="' + esc(chapTitle(c.p.t)) + '">' + stubOf(c.p) + '</button>';
+      }
+      html += '</div><span class="pol-film-holes" aria-hidden="true"></span>';
+      film.innerHTML = html; film.hidden = false;
+      var on = film.querySelector(".pol-film-cell.is-on");
+      if (on && on.scrollIntoView) { try { on.scrollIntoView({ block: "nearest", inline: "center" }); } catch (e) {} }
+      var cells = film.querySelectorAll(".pol-film-cell");
+      for (var j = 0; j < cells.length; j++) {
+        (function (b) {
+          b.addEventListener("click", function () {
+            var p = b.getAttribute("data-path");
+            loadNoteInto(p);
+            renderFilm(p);
+          });
+        })(cells[j]);
+      }
+      // 票头：系列的背面印 Admit One · 系列名；某一章印票号 + 章名 + 去读
+      if (po) {
+        adm.textContent = "Admit One · " + (stubOf(po) === "EX" || stubOf(po) === "POV" || stubOf(po) === "IF" ? stubOf(po) : "No. " + stubOf(po));
+        var onPage = isArticlePage() && normPath(location.pathname) === id;
+        chap.innerHTML = '<b>' + esc(chapTitle(po.t)) + '</b>' + (onPage ? '<i>就是这一章</i>' : '<a href="' + esc(id) + '">去读这一章 →</a>');
+        chap.hidden = false;
+      } else {
+        adm.textContent = "Admit One · " + (sp ? sp.t : "");
+        chap.hidden = true;
+      }
+    });
+  }
 
   /* ========== 折角记号（仅本机有批注的卡片）========== */
   function markDogears() {
-    var posts = document.querySelectorAll(".c-post, .c-chapter-card");
+    var posts = document.querySelectorAll(".c-post, .c-chapter-card, .c-stub-ticket");
     for (var i = 0; i < posts.length; i++) {
       var a = posts[i];
       var n = Store.get(keyOf(a));
@@ -331,10 +430,10 @@
 
   /* ========== 卡片交互（仅解锁后拦截右键 / 长按）========== */
   function attachCards() {
-    var posts = document.querySelectorAll(".c-post, .c-chapter-card");
+    var posts = document.querySelectorAll(".c-post, .c-chapter-card, .c-stub-ticket");
     for (var i = 0; i < posts.length; i++) {
       (function (a) {
-        var kind = a.classList.contains("c-chapter-card") ? "ticket" : "photo";
+        var kind = (a.classList.contains("c-chapter-card") || a.classList.contains("c-stub-ticket")) ? "ticket" : "photo";
         a.addEventListener("contextmenu", function (e) {
           if (!unlocked) return;          // 锁定时保留浏览器默认右键，不打扰访客
           e.preventDefault();
@@ -355,87 +454,211 @@
     }
   }
 
-  /* ========== 浮动锁 ========== */
-  var lockEl;
+
+  /* ========== 钢笔小钮 + 小册子（2026-10-15 起，取代左下角长条浮标和叠在上面的日记卡）========== */
+  var BASEURL = (typeof window !== "undefined" && window.SITE_BASEURL) || "";
+  var DESK_URL = BASEURL + "/notes/backs/";
+  var pinEl, popEl, popOpen = false;
+  var PIN_SVG = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="m4 20 3.5-1 10-10-2.5-2.5-10 10z"/><path d="m14 7.5 2.5 2.5"/><path d="M17 4.5 19.5 7"/></svg>';
   function buildLock() {
-    lockEl = document.createElement("div"); lockEl.className = "pol-lock";
-    document.body.appendChild(lockEl); renderLock();
-    lockEl.addEventListener("click", function(e) {
-      // 缩在屏幕边上时，第一下点击只负责把它叫回来，不触发展开/按钮
-      if (lockEl.classList.contains("is-tucked")) {
-        e.preventDefault(); e.stopPropagation();
-        lockEl.classList.remove("is-tucked");
-        return;
-      }
-      var t = e.target;
-      while (t && t !== lockEl) {
-        if (t.tagName === "BUTTON" || t.tagName === "INPUT") return;
-        t = t.parentNode;
-      }
-      lockEl.classList.toggle("is-open");
+    pinEl = document.createElement("button");
+    pinEl.type = "button";
+    pinEl.className = "pol-pin";
+    pinEl.title = LOCK_LABEL + " · " + LOCK_LABEL_EN;
+    pinEl.setAttribute("aria-label", LOCK_LABEL);
+    pinEl.setAttribute("aria-expanded", "false");
+    pinEl.innerHTML = PIN_SVG;
+    document.body.appendChild(pinEl);
+    popEl = document.createElement("div");
+    popEl.className = "pol-pop";
+    popEl.setAttribute("role", "dialog");
+    popEl.setAttribute("aria-label", LOCK_LABEL);
+    popEl.hidden = true;
+    document.body.appendChild(popEl);
+    pinEl.addEventListener("click", function (e) {
+      // 缩在屏幕边上时，第一下点击只负责把它叫回来
+      if (pinEl.classList.contains("is-tucked")) { e.preventDefault(); pinEl.classList.remove("is-tucked"); return; }
+      togglePop();
     });
+    document.addEventListener("click", function (e) {
+      if (!popOpen) return;
+      if (popEl.contains(e.target) || pinEl.contains(e.target)) return;
+      closePop();
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && popOpen) closePop(); });
+    lockEl = pinEl;   // 老名字还有几处在用
+  }
+  var lockEl;
+  function togglePop() { if (popOpen) closePop(); else openPop(); }
+  function openPop() {
+    renderLock();
+    popEl.hidden = false; popOpen = true;
+    pinEl.classList.add("is-open"); pinEl.setAttribute("aria-expanded", "true");
+    if (boxEl) boxEl.classList.remove("open");
+  }
+  function closePop() {
+    popEl.hidden = true; popOpen = false;
+    pinEl.classList.remove("is-open"); pinEl.setAttribute("aria-expanded", "false");
   }
 
-  /* —— 会让路（2026-10-05 Winter 挑的 B 方案）：往下滚（在读东西）就缩到屏幕
-        左边只露一小截，往上滚或点那一截就回来。跟站头 headerAutoHide() 同一个脾气。
-        正在用它（卡组展开 / 输密码 / 底片匣开着）时不躲。 —— */
+  /* —— 会让路（2026-10-05 Winter 挑的 B 方案）：往下滚就缩到屏幕左边只露一小截，往上滚或点那一截就回来。
+        册子 / 底片匣开着、正在输密码时不躲。 —— */
   function lockAutoHide() {
-    if (!lockEl) return;
+    if (!pinEl) return;
     var lastY = window.pageYOffset || 0;
     function busy() {
-      if (lockEl.classList.contains("is-open")) return true;
-      if (lockEl.querySelector("input")) return true;               // 正在输密码
-      if (boxEl && boxEl.classList.contains("open")) return true;   // 底片匣开着
+      if (popOpen) return true;
+      if (boxEl && boxEl.classList.contains("open")) return true;
       return false;
     }
     window.addEventListener("scroll", function () {
       var y = window.pageYOffset || 0;
       if (busy()) { lastY = y; return; }
-      if (y > lastY + 8 && y > 64) lockEl.classList.add("is-tucked");
-      else if (y < lastY - 8 || y < 48) lockEl.classList.remove("is-tucked");
+      if (y > lastY + 8 && y > 64) pinEl.classList.add("is-tucked");
+      else if (y < lastY - 8 || y < 48) pinEl.classList.remove("is-tucked");
       lastY = y;
     }, { passive: true });
   }
+
+  /* 册子里的内容：解锁了＝总账 + 工具；没解锁＝访客那张拍立得 + 验笔迹 */
   function renderLock() {
-    var brand = '<span class="pol-lock-brand">' +
-      '<span class="pol-lock-icons">' + PEN_SVG + CAM_SVG + '</span>' +
-      '<span class="pol-lock-tag"><b>' + LOCK_LABEL + '</b><i>' + LOCK_LABEL_EN + '</i></span></span>' +
-      '<span class="pol-lock-sep"></span>';
-    if (unlocked) {
-      lockEl.innerHTML = brand +
-        '<span class="pol-lock-state pol-lk-stack"><b>笔迹已验</b><i>Verified</i></span>' +
-        '<button class="pol-lk-btn pol-lk-stack" type="button" data-act="box"><b>底片匣</b><i>Negatives</i></button>' +
-        '<button class="pol-lk-btn pol-lk-stack pol-lk-seal" type="button" data-act="lock"><b>封存</b><i>Seal</i></button>';
-    } else {
-      var openBig = hasPass() ? "Leo's Handwriting" : "Leave a Mark";
-      var openSmall = hasPass() ? "&amp; Winter's, too" : "Leo's &amp; Winter's";
-      lockEl.innerHTML = brand + '<button class="pol-lk-btn pol-lk-stack pol-lk-open" type="button"><b>' + openBig + '</b><i>' + openSmall + '</i></button>';
+    if (!popEl) return;
+    var head = '<div class="pol-pop-head"><span class="pol-pop-brand">' + PEN_SVG + CAM_SVG +
+      '<b>' + LOCK_LABEL + '</b><i>' + LOCK_LABEL_EN + '</i></span>' +
+      (unlocked ? '<span class="pol-pop-state">笔迹已验 · Verified</span>' : '') + '</div>';
+    if (!unlocked) {
+      popEl.innerHTML = head +
+        '<button class="pol-guest" type="button" aria-label="翻看这张照片的背面">' +
+          '<span class="pol-card-photo">' + SCENES.guest + '</span>' +
+          '<span class="pol-card-cap pol-guest-cap"><span class="pol-card-q1">' + GUEST.q1 + '</span><span class="pol-card-q2">' + GUEST.q2 + '</span>' +
+          '<span class="pol-card-credit">' + GUEST.credit + '</span><span class="pol-guest-sign">' + GUEST.sign + '</span></span></button>' +
+        '<div class="pol-pop-pw"><input class="pol-pw" type="password" placeholder="' + (hasPass() ? "prove you&#39;re Leo — or Winter…" : "sign it — Leo &amp; Winter…") + '">' +
+        '<button class="pol-go" type="button">' + (hasPass() ? "验明" : "印记") + '</button></div>';
+      popEl.querySelector(".pol-guest .pol-card-photo").style.background = GUEST.grad;
+      popEl.querySelector(".pol-guest").addEventListener("click", function () { closePop(); openGuestBack(); });
+      wirePw(popEl.querySelector(".pol-pw"), popEl.querySelector(".pol-go"));
+      return;
     }
-    var openBtn = lockEl.querySelector(".pol-lk-open");
-    if (openBtn) openBtn.addEventListener("click", showPwInput);
-    var lockBtn = lockEl.querySelector('[data-act="lock"]');
-    if (lockBtn) lockBtn.addEventListener("click", function () { localStorage.removeItem(LS_UNLOCK); unlocked = false; if (boxEl) boxEl.classList.remove("open"); renderLock(); });
-    var boxBtn = lockEl.querySelector('[data-act="box"]');
-    if (boxBtn) boxBtn.addEventListener("click", toggleBox);
-    syncDeckVisible();
-    if (typeof syncPenVisible === "function") syncPenVisible();
+    var acts = '';
+    if (isArticlePage()) acts += '<button class="pol-pop-act" type="button" data-act="here"><b>写在这一篇的背面</b><i>' + (isTicketPage() ? '票根 · Ticket' : '相纸 · Polaroid') + '</i></button>';
+    var tk = document.getElementById("js-series-ticket");
+    if (tk) acts += '<button class="pol-pop-act" type="button" data-act="ticket"><b>翻开这个系列的票根</b><i>Series stub</i></button>';
+    popEl.innerHTML = head + acts +
+      '<div class="pol-pop-sub">所有的背面 · <span class="pol-pop-count"></span></div>' +
+      '<div class="pol-ledger pol-ledger--pop"><p class="pol-ledger-empty">正在翻…</p></div>' +
+      '<div class="pol-pop-foot">' +
+        '<button class="pol-pop-link" type="button" data-act="box">底片匣</button>' +
+        '<a class="pol-pop-link" href="' + DESK_URL + '">去书桌「冬的背面」</a>' +
+        '<button class="pol-pop-link pol-pop-seal" type="button" data-act="lock">封存</button>' +
+      '</div>';
+    popEl.querySelector('[data-act="lock"]').addEventListener("click", function () {
+      localStorage.removeItem(LS_UNLOCK); unlocked = false;
+      if (boxEl) boxEl.classList.remove("open");
+      closePop(); syncDeckVisible(); markDogears();
+    });
+    popEl.querySelector('[data-act="box"]').addEventListener("click", function () { closePop(); toggleBox(); });
+    var here = popEl.querySelector('[data-act="here"]');
+    if (here) here.addEventListener("click", function () { closePop(); openEditor(location.pathname, isTicketPage() ? "ticket" : "photo"); });
+    var tkb = popEl.querySelector('[data-act="ticket"]');
+    if (tkb) tkb.addEventListener("click", function () { closePop(); openEditor(keyOf(tk), "ticket"); });
+    renderLedger(popEl.querySelector(".pol-ledger"), popEl.querySelector(".pol-pop-count"), { compact: true, onPick: closePop });
   }
-  function showPwInput() {
+  function wirePw(pw, go) {
     var setting = !hasPass();
-    lockEl.innerHTML = '<input class="pol-pw" type="password" placeholder="' + (setting ? "sign it — Leo &amp; Winter…" : "prove you're Leo — or Winter…") + '"><button class="pol-go" type="button">' + (setting ? "印记" : "验明") + "</button>";
-    var pw = lockEl.querySelector(".pol-pw"); pw.focus();
     function submit() {
       var v = pw.value.trim(); if (!v) return;
       if (setting) {
         localStorage.setItem(LS_PASS_DEV, hash(v));
-        localStorage.setItem(LS_UNLOCK, "1"); unlocked = true; renderLock();
-      } else {
-        if (hash(v) === passHash()) { localStorage.setItem(LS_UNLOCK, "1"); unlocked = true; renderLock(); }
-        else { pw.value = ""; pw.placeholder = "not their hand… try again"; }
-      }
+        localStorage.setItem(LS_UNLOCK, "1"); unlocked = true;
+      } else if (hash(v) === passHash()) {
+        localStorage.setItem(LS_UNLOCK, "1"); unlocked = true;
+      } else { pw.value = ""; pw.placeholder = "not their hand… try again"; return; }
+      syncDeckVisible(); markDogears(); renderLock();
+      if (deskEl) renderDesk();
     }
-    lockEl.querySelector(".pol-go").addEventListener("click", submit);
+    go.addEventListener("click", submit);
     pw.addEventListener("keydown", function (e) { if (e.key === "Enter") submit(); });
+    setTimeout(function () { try { pw.focus(); } catch (e) {} }, 60);
+  }
+  function showPwInput() { openPop(); }
+
+  /* ========== 背面的总账：哪些票 / 照片写过字、划过线（本机），按系列分组 ========== */
+  var mapCache = null, mapLoading = null;
+  function loadMap(done) {
+    if (mapCache) { done(mapCache); return; }
+    if (mapLoading) { mapLoading.push(done); return; }
+    mapLoading = [done];
+    fetch(BASEURL + "/backs-map.json", { cache: "force-cache" })
+      .then(function (r) { return r.json(); })
+      .then(function (m) { mapCache = m || { posts: {}, series: {} }; })
+      .catch(function () { mapCache = { posts: {}, series: {} }; })
+      .then(function () { var q = mapLoading; mapLoading = null; for (var i = 0; i < q.length; i++) q[i](mapCache); });
+  }
+  function normPath(p) { p = (p || "").replace(/index\.html$/, ""); return p.slice(-1) === "/" ? p : p + "/"; }
+  function chapTitle(raw) { return (raw || "").replace(/^(Chapter|Episode|Extra|Oneshot)[^·]*·\s*/i, "").replace(/\s+—.*$/, ""); }
+  function stubOf(p) {
+    if (!p) return "";
+    if (p.k === "main" && p.n) return (p.n < 10 ? "0" : "") + p.n;
+    if (p.k === "pov") return "POV";
+    return p.c && /IF/.test(p.c) ? "IF" : (p.k === "main" ? "ONE" : "EX");
+  }
+  /* 把 notes + marks 两张表合成「一张背面一行」，再按系列分组 */
+  function ledgerGroups(map) {
+    var notes = Store.all(), marks = Marks.all(), keys = {}, k;
+    for (k in notes) if (notes.hasOwnProperty(k) && notes[k].text && notes[k].text.trim()) keys[normPath(k)] = true;
+    for (k in marks) if (marks.hasOwnProperty(k) && marks[k].length) keys[normPath(k)] = true;
+    var groups = {}, order = [];
+    function grp(id, title, sub) { if (!groups[id]) { groups[id] = { id: id, title: title, sub: sub, rows: [] }; order.push(id); } return groups[id]; }
+    for (k in keys) {
+      var n = notes[k] || notes[k.replace(/\/$/, "")] || null, mk = (marks[k] || []).length;
+      var row = { path: k, note: n && n.text ? n.text.trim() : "", marks: mk, ts: n ? n.ts : 0 };
+      var sp = map.series && map.series[k], po = map.posts && map.posts[k];
+      if (sp) { var g1 = grp("s:" + sp.s, sp.t, sp.who); row.stub = "票"; row.title = "系列的背面"; row.kind = "ticket"; row.n = -1; g1.rows.push(row); g1.sp = sp; }
+      else if (po && po.s) { var g2 = grp("s:" + po.s, po.st || po.s, ""); row.stub = stubOf(po); row.title = chapTitle(po.t); row.kind = "ticket"; row.n = po.k === "main" ? (po.n || 0) : 1000 + (po.n || 0); g2.rows.push(row); }
+      else if (po) { var g3 = grp("photo", "照片", "Winter&rsquo;s"); row.stub = "照"; row.title = po.t; row.kind = "photo"; row.n = 0; g3.rows.push(row); }
+      else { var g4 = grp("other", "别的背面", ""); row.stub = "·"; row.title = decodeURIComponent(k.replace(/\/$/, "").split("/").pop() || k).replace(/-/g, " "); row.kind = /\/\d{4}\/\d{2}\/\d{2}\//.test(k) ? "ticket" : "photo"; row.n = 0; g4.rows.push(row); }
+    }
+    var out = [];
+    for (var i = 0; i < order.length; i++) {
+      var g = groups[order[i]];
+      g.rows.sort(function (a, b) { return a.n - b.n; });
+      out.push(g);
+    }
+    // 系列名下带系列背面的排前面；照片组放最后
+    out.sort(function (a, b) { var wa = a.id === "photo" ? 2 : a.id === "other" ? 3 : 1, wb = b.id === "photo" ? 2 : b.id === "other" ? 3 : 1; return wa - wb || (b.rows.length - a.rows.length); });
+    return out;
+  }
+  function esc(t) { return String(t == null ? "" : t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
+  function renderLedger(el, countEl, opt) {
+    opt = opt || {};
+    loadMap(function (map) {
+      var groups = ledgerGroups(map), total = 0, html = "";
+      for (var i = 0; i < groups.length; i++) {
+        var g = groups[i]; total += g.rows.length;
+        html += '<div class="pol-ledger-grp"><b>' + esc(g.title) + '</b>' + (g.sub ? '<em>' + g.sub + '</em>' : '') + '<small>' + g.rows.length + ' 张</small></div>';
+        for (var r = 0; r < g.rows.length; r++) {
+          var row = g.rows[r];
+          var meta = (row.note ? "1 条" : "") + (row.note && row.marks ? " · " : "") + (row.marks ? row.marks + " 划线" : "");
+          html += '<button class="pol-ledger-row" type="button" data-path="' + esc(row.path) + '" data-kind="' + row.kind + '">' +
+            '<span class="pol-ledger-no' + (row.stub === "票" ? " is-series" : row.stub === "照" ? " is-photo" : "") + '">' + esc(row.stub) + '</span>' +
+            '<span class="pol-ledger-t">' + esc(row.title) + (opt.compact || !row.note ? "" : '<small>' + esc(row.note.slice(0, 40)) + (row.note.length > 40 ? "…" : "") + '</small>') + '</span>' +
+            '<span class="pol-ledger-m">' + meta + '</span></button>';
+        }
+      }
+      if (!total) html = '<p class="pol-ledger-empty">还没有写过的背面。右键（电脑）或长按（手机）一张照片、一张票根，翻过去写一句。</p>';
+      el.innerHTML = html;
+      if (countEl) countEl.textContent = total + " 张";
+      var rows = el.querySelectorAll(".pol-ledger-row");
+      for (var j = 0; j < rows.length; j++) {
+        (function (b) {
+          b.addEventListener("click", function () {
+            if (opt.onPick) opt.onPick();
+            openEditor(b.getAttribute("data-path"), b.getAttribute("data-kind"));
+          });
+        })(rows[j]);
+      }
+    });
   }
 
   /* ========== 收纳盒：导出 / 导入（设备间搬家）========== */
@@ -516,9 +739,9 @@
   }
 
   var boxEl, boxCount, boxMsg, boxFile;
-  function buildBox() {
+  function buildBox(parent) {
     boxEl = document.createElement("div");
-    boxEl.className = "pol-box";
+    boxEl.className = "pol-box" + (parent ? " is-inline open" : "");
     boxEl.innerHTML =
       '<div class="pol-box-head"><span class="pol-box-title"><b>底片匣</b><i>Negatives</i></span><button class="pol-box-x" type="button" aria-label="关闭">×</button></div>' +
       '<p class="pol-box-count"></p>' +
@@ -526,7 +749,7 @@
       '<button class="pol-box-btn" type="button" data-act="import"><b>装入底片<i>Load them back</i></b><small>选一个之前取出的文件，恢复相片</small></button>' +
       '<input class="pol-box-file" type="file" accept="application/json,.json" hidden>' +
       '<p class="pol-box-msg"></p>';
-    document.body.appendChild(boxEl);
+    (parent || document.body).appendChild(boxEl);
     boxCount = boxEl.querySelector(".pol-box-count");
     boxMsg = boxEl.querySelector(".pol-box-msg");
     boxFile = boxEl.querySelector(".pol-box-file");
@@ -550,6 +773,7 @@
   function refreshBox() { if (boxCount) boxCount.textContent = "这台设备上存有 " + noteCount() + " 张相片"; }
   function toggleBox() {
     if (!boxEl) buildBox();
+    if (boxEl.classList.contains("is-inline")) { refreshBox(); return; }
     var open = boxEl.classList.toggle("open");
     if (open) { refreshBox(); if (boxMsg) boxMsg.classList.remove("show"); }
   }
@@ -565,56 +789,7 @@
   }
   function pinDate() { var d = new Date(); return d.getDate() + " " + EN_MON[d.getMonth()]; }
 
-  var deckEl, pins = [];
-  function buildDeck() {
-    deckEl = document.createElement("div");
-    deckEl.className = "pol-deck";
-    deckEl.style.setProperty("--n", JOURNALS.length);
-    for (var i = 0; i < JOURNALS.length; i++) {
-      (function (j, idx) {
-        var pin = document.createElement("button");
-        pin.type = "button"; pin.className = "pol-card";
-        pin.style.setProperty("--i", idx); pin.style.zIndex = idx + 1;
-        pin.innerHTML =
-          '<span class="pol-card-photo">' + (SCENES[j.id] || "") + '</span>' +
-          '<span class="pol-card-cap"><span class="pol-card-q1"></span><span class="pol-card-q2"></span><span class="pol-card-credit"></span><i></i></span>';
-        pin.querySelector(".pol-card-photo").style.background = j.grad;
-        pin.querySelector(".pol-card-q1").textContent = j.q1;
-        pin.querySelector(".pol-card-q2").textContent = j.q2;
-        pin.querySelector(".pol-card-credit").textContent = j.credit;
-        pin.addEventListener("click", function () { openJournal(j, todayKey()); });
-        deckEl.appendChild(pin); pins.push(pin);
-      })(JOURNALS[i], i);
-    }
-    document.body.appendChild(deckEl);
-  }
-  function refreshDeck() { for (var i = 0; i < pins.length; i++) { var el = pins[i].querySelector(".pol-card-cap i"); if (el) el.textContent = pinDate(); } }
-  // 打开编辑卡时，把整叠铺到左侧当切换器，并高亮当前这本
-  function markDeckCurrent(j) { for (var i = 0; i < pins.length; i++) pins[i].classList.toggle("is-current", JOURNALS[i] === j); }
-
-  /* —— 访客彩蛋拍立得（未解锁时藏在浮标后，划过弹起；点开翻到背面）—— */
-  var guestEl, guestBack;
-  function buildGuest() {
-    guestEl = document.createElement("button");
-    guestEl.type = "button";
-    guestEl.className = "pol-guest";
-    guestEl.setAttribute("aria-label", "翻看这张照片的背面");
-    guestEl.innerHTML =
-      '<span class="pol-card-photo">' + SCENES.guest + '</span>' +
-      '<span class="pol-card-cap pol-guest-cap">' +
-        '<span class="pol-card-q1"></span>' +
-        '<span class="pol-card-q2"></span>' +
-        '<span class="pol-card-credit"></span>' +
-        '<span class="pol-guest-sign"></span>' +
-      '</span>';
-    guestEl.querySelector(".pol-card-photo").style.background = GUEST.grad;
-    guestEl.querySelector(".pol-card-q1").textContent = GUEST.q1;
-    guestEl.querySelector(".pol-card-q2").textContent = GUEST.q2;
-    guestEl.querySelector(".pol-card-credit").textContent = GUEST.credit;
-    guestEl.querySelector(".pol-guest-sign").textContent = GUEST.sign;
-    guestEl.addEventListener("click", openGuestBack);
-    document.body.appendChild(guestEl);
-  }
+  var deckEl = null, guestEl = null, guestBack;
   /* 照片背面：黑条印一句 + 手写短笺 + 故事链接 */
   function buildGuestBack() {
     var base = (typeof window !== "undefined" && window.SITE_BASEURL) || "";
@@ -642,11 +817,9 @@
   }
   function closeGuestBack() { if (guestBack) guestBack.classList.remove("open"); }
   function syncDeckVisible() {
-    if (guestEl) guestEl.style.display = unlocked ? "none" : "flex";
     if (unlocked && guestBack) guestBack.classList.remove("open");
-    if (!deckEl) return;
-    if (unlocked) { loadFonts(); deckEl.style.display = "block"; refreshDeck(); }
-    else { deckEl.style.display = "none"; if (jBack) jBack.classList.remove("open"); }
+    if (!unlocked && jBack) jBack.classList.remove("open");
+    if (unlocked) loadFonts();
   }
 
   /* —— 共用的翻开编辑卡（按当前 journal 的 kind 重建内页）—— */
@@ -664,7 +837,6 @@
           '<span class="pol-lucky-date"></span>' +
           '<button class="pol-lucky-nav" type="button" data-d="1" aria-label="后一天">›</button>' +
         '</div>' +
-        '<div class="pol-theme" aria-label="主题色"></div>' +
         '<div class="pol-lucky-body"></div>' +
         '<div class="pol-lucky-foot"><span class="pol-lucky-hint"></span>' +
           '<span class="pol-lucky-foot-r"><span class="pol-lucky-sendmsg"></span><span class="pol-saved pol-lucky-saved">已收好 ✓</span>' +
@@ -797,11 +969,7 @@
     jBack.setAttribute("data-kind", j.kind);
     jHintEl.textContent = j.hint || "";
     buildBodyFor(j);
-    renderThemeBar(j);
-    applyTheme(j);
     jBack.classList.add("open");
-    if (deckEl) deckEl.classList.add("is-switcher");
-    markDeckCurrent(j);
     if (jSendMsgEl) jSendMsgEl.classList.remove("show");
     if (j.kind === "letter") {
       jSavedEl.textContent = "已存草稿 ✓";
@@ -839,8 +1007,7 @@
     if (!jBack) return;
     if (curJournal && curJournal.kind === "letter") saveLetterDraft(); else saveJournal();
     jBack.classList.remove("open");
-    if (deckEl) deckEl.classList.remove("is-switcher");
-    markDeckCurrent(null);
+    if (deskEl) renderDeskJournals();
   }
 
   /* —— 信卡：本地草稿 + 一键寄进自己的邮箱 —— */
@@ -1120,41 +1287,109 @@
     };
   }
 
-  /* ========== 文章页浮笔：边读边写，落在同一张背面上 ========== */
-  var penEl = null;
+  /* ========== 文章页（原来右下角那支浮笔并进了左下角的小钮）========== */
   function isArticlePage() {
     return !!document.querySelector(".c-article__header .c-article__title") &&
       /\/\d{4}\/\d{2}\/\d{2}\//.test(location.pathname);
   }
-  function buildPen() {
-    if (!isArticlePage()) return;
-    penEl = document.createElement("button");
-    penEl.type = "button";
-    penEl.className = "pol-pen";
-    penEl.title = "写在背面";
-    penEl.setAttribute("aria-label", "写在这一篇的背面");
-    penEl.innerHTML = PEN_SVG;
-    document.body.appendChild(penEl);
-    var kind = document.querySelector(".c-chapter-return") ? "ticket" : "photo";
-    penEl.addEventListener("click", function () { openEditor(keyOf({ getAttribute: function () { return location.pathname; } }), kind); });
-    syncPenVisible();
+  function isTicketPage() { return !!document.querySelector(".c-chapter-return"); }
+  function syncPenVisible() {}
+
+  /* ========== 书桌上那本「冬的背面」（/notes/backs/）：三本日记 + 总账 + 底片匣 ========== */
+  var deskEl = null;
+  function buildDesk() {
+    deskEl = document.getElementById("pol-desk");
+    if (!deskEl) return;
+    loadFonts();
+    var tabs = deskEl.querySelectorAll(".pol-desk-tab"), panes = deskEl.querySelectorAll(".pol-desk-pane");
+    function pick(name) {
+      for (var i = 0; i < tabs.length; i++) tabs[i].setAttribute("aria-selected", tabs[i].getAttribute("data-tab") === name ? "true" : "false");
+      for (var j = 0; j < panes.length; j++) panes[j].hidden = panes[j].getAttribute("data-pane") !== name;
+      try { localStorage.setItem("wiw-pol-desk-tab", name); } catch (e) {}
+    }
+    for (var i = 0; i < tabs.length; i++) (function (t) { t.addEventListener("click", function () { pick(t.getAttribute("data-tab")); }); })(tabs[i]);
+    var saved = null; try { saved = localStorage.getItem("wiw-pol-desk-tab"); } catch (e) {}
+    pick(saved && deskEl.querySelector('.pol-desk-tab[data-tab="' + saved + '"]') ? saved : "ledger");
+    renderDesk();
   }
-  function syncPenVisible() { if (penEl) penEl.style.display = unlocked ? "" : "none"; }
+  function renderDesk() {
+    if (!deskEl) return;
+    deskEl.classList.toggle("is-locked", !unlocked);
+    var lockBox = deskEl.querySelector(".pol-desk-lock");
+    if (lockBox) {
+      if (unlocked) { lockBox.hidden = true; }
+      else {
+        lockBox.hidden = false;
+        lockBox.innerHTML = '<p>这本本子只认你的笔迹。先验一下，再翻。</p><div class="pol-pop-pw"><input class="pol-pw" type="password" placeholder="' + (hasPass() ? "prove you&#39;re Leo — or Winter…" : "sign it — Leo &amp; Winter…") + '"><button class="pol-go" type="button">' + (hasPass() ? "验明" : "印记") + '</button></div>';
+        wirePw(lockBox.querySelector(".pol-pw"), lockBox.querySelector(".pol-go"));
+      }
+    }
+    renderDeskLedger();
+    renderDeskJournals();
+    var boxWrap = deskEl.querySelector(".pol-desk-box");
+    if (boxWrap && !boxEl) buildBox(boxWrap);
+    if (boxEl) refreshBox();
+  }
+  function renderDeskLedger() {
+    if (!deskEl) return;
+    var el = deskEl.querySelector(".pol-desk-ledger"), c = deskEl.querySelector(".pol-desk-count");
+    if (!el) return;
+    if (!unlocked) { el.innerHTML = ""; if (c) c.textContent = ""; return; }
+    renderLedger(el, c, {});
+  }
+  function fmtDay(key) { var p = key.split("-"); return (+p[1]) + " 月 " + (+p[2]) + " 日"; }
+  function renderDeskJournals() {
+    if (!deskEl) return;
+    var hosts = deskEl.querySelectorAll(".pol-desk-journal");
+    for (var i = 0; i < hosts.length; i++) {
+      (function (host) {
+        var j = journalById(host.getAttribute("data-journal")); if (!j) return;
+        var all = storeOf(j).all(), days = [];
+        if (j.kind === "letter") {
+          var r = all || {};
+          days = (r.body || r.subject) ? ["draft"] : [];
+        } else {
+          for (var d in all) if (all.hasOwnProperty(d)) days.push(d);
+          days.sort().reverse();
+        }
+        var html = '<button class="pol-jcard" type="button"><span class="pol-card-photo" style="background:' + j.grad + '">' + (SCENES[j.id] || "") + '</span>' +
+          '<span class="pol-card-cap"><span class="pol-card-q1">' + esc(j.q1) + '</span><span class="pol-card-q2">' + esc(j.q2) + '</span><span class="pol-card-credit">' + esc(j.credit) + '</span><i>' + (j.kind === "letter" ? "写一封" : "今天 · " + pinDate()) + '</i></span></button>';
+        html += '<div class="pol-jlist">';
+        if (!unlocked) html += '<p class="pol-ledger-empty">验过笔迹才看得到。</p>';
+        else if (!days.length) html += '<p class="pol-ledger-empty">' + esc(j.hint || "") + '</p>';
+        else for (var k = 0; k < Math.min(days.length, 60); k++) {
+          var key = days[k], rec = j.kind === "letter" ? all : all[key], text;
+          if (j.kind === "three") text = (rec.items || []).filter(Boolean).join(" · ");
+          else if (j.kind === "letter") text = (rec.subject ? rec.subject + " · " : "") + (rec.body || "").slice(0, 60);
+          else text = (rec.text || "").replace(/\s+/g, " ");
+          html += '<button class="pol-jrow" type="button" data-day="' + esc(key) + '"><b>' + (j.kind === "letter" ? "草稿" : fmtDay(key)) + '</b><span>' + esc(text.slice(0, 72)) + (text.length > 72 ? "…" : "") + '</span></button>';
+        }
+        html += '</div>';
+        host.innerHTML = html;
+        host.querySelector(".pol-jcard").addEventListener("click", function () { if (!unlocked) return; openJournal(j, todayKey()); });
+        var rows = host.querySelectorAll(".pol-jrow");
+        for (var m = 0; m < rows.length; m++) (function (b) { b.addEventListener("click", function () { openJournal(j, b.getAttribute("data-day") === "draft" ? todayKey() : b.getAttribute("data-day")); }); })(rows[m]);
+      })(hosts[i]);
+    }
+  }
+  /* 书桌页的本子封面：报一下这台手机上有几张背面 */
+  function fillDeskCover() {
+    var el = document.getElementById("js-backs-meta");
+    if (!el) return;
+    var n = noteCount(), mk = 0, marks = Marks.all();
+    for (var k in marks) if (marks.hasOwnProperty(k)) mk += marks[k].length;
+    el.innerHTML = (n || mk) ? ('<b>' + n + '</b> 张背面' + (mk ? ' · <b>' + mk + '</b> 处划线' : '') + ' · 只在这台设备上') : '🔒 只在你这台设备上';
+  }
 
   /* ========== 启动 ========== */
   function init() {
-    buildLock(); buildDeck(); buildGuest(); markDogears(); attachCards(); buildPen(); syncDeckVisible();
+    buildLock(); markDogears(); attachCards(); syncDeckVisible();
     lockAutoHide();
+    buildDesk(); fillDeskCover();
     if (isArticlePage()) {
       renderMarks(); attachMarking();
       var hm = location.hash.match(/^#pol-mark-(\d+)$/);
       if (hm) setTimeout(function () { scrollToMark(+hm[1]); }, 400);
-    }
-    // 整站明暗切换时，若正开着写作卡，实时重算颜色（深↔浅翻转，色源仍是所选角色）
-    if (window.MutationObserver) {
-      new MutationObserver(function () {
-        if (curJournal && jBack && jBack.classList.contains("open")) applyTheme(curJournal);
-      }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

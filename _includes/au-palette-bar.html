@@ -1,0 +1,21 @@
+{%- comment -%}
+  AU 四色「细色带」（2026-10-15 系列页改版）：四段颜色拼成一条线，底下四个名字（中文 + 英文都要，
+  Winter：「色卡中英文都得要，这个不能省」）。只管展示——「穿上他的颜色 / 去画册找他」两颗按钮
+  搬到了页底票根的撕票口里（_includes/series-ticket.html）。
+  调用：{% include au-palette-bar.html %}（按 page.series_name / page.series 取配色；查不到不渲染）
+{%- endcomment -%}
+{%- assign key = page.series_name | default: page.series -%}
+{%- assign p = site.data.au_palettes[key] -%}
+{%- if p -%}
+<div class="c-pal-bar" aria-label="系列配色 · Palette">
+  <span class="c-pal-bar__line" aria-hidden="true">
+    <i style="background: {{ p.accent }}"></i><i style="background: {{ p.bg }}"></i>{% if p.text_cn %}<i style="background: {{ p.text }}"></i>{% endif %}{% if p.muted_cn %}<i style="background: {{ p.muted }}"></i>{% endif %}
+  </span>
+  <span class="c-pal-bar__names">
+    <span class="c-pal-bar__name"><b>{{ p.accent_cn }}</b><em>{{ p.accent_en }}</em></span>
+    <span class="c-pal-bar__name"><b>{{ p.bg_cn }}</b><em>{{ p.bg_en }}</em></span>
+    {%- if p.text_cn %}<span class="c-pal-bar__name"><b>{{ p.text_cn }}</b><em>{{ p.text_en }}</em></span>{% endif -%}
+    {%- if p.muted_cn %}<span class="c-pal-bar__name"><b>{{ p.muted_cn }}</b><em>{{ p.muted_en }}</em></span>{% endif -%}
+  </span>
+</div>
+{%- endif -%}
