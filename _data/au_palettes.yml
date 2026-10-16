@@ -21,6 +21,10 @@
   accent_en: "Ice-Blue Eyes"
   bg_cn: "旧宝丽来"
   bg_en: "Faded Polaroid"
+  text_cn: "相框米边"
+  text_en: "Polaroid Border"
+  muted_cn: "褪色笔迹"
+  muted_en: "Faded Handwriting"
 
 "Sanguis Benedicta":        # William "Wild Bill" Wharton · 血族哥特，独立设计（无 mf_id，不跟画册同源）
   accent: "#b23a43"
@@ -287,6 +291,10 @@
   accent_en: "Olive Crown"
   bg_cn: "神庙暗夜"
   bg_en: "Temple Night"
+  text_cn: "石柱象牙"
+  text_en: "Column Ivory"
+  muted_cn: "沙场尘土"
+  muted_en: "Spartan Dust"
 
 "The Invisible Light":
   accent: "#c8813a"
@@ -298,6 +306,10 @@
   accent_en: "Candlelight Amber"
   bg_cn: "宫廷丝绒"
   bg_en: "Court Velvet"
+  text_cn: "亚麻画布"
+  text_en: "Linen Canvas"
+  muted_cn: "赭石阴影"
+  muted_en: "Umber Shadow"
 
 "The One Who Fell from the Sky":
   accent: "#5880b0"
@@ -309,6 +321,10 @@
   accent_en: "RAF Steel"
   bg_cn: "肯特夜空"
   bg_en: "Kent Nightfall"
+  text_cn: "航迹云霜"
+  text_en: "Contrail Frost"
+  muted_cn: "跑道雾灰"
+  muted_en: "Runway Mist"
 
 "The Right Romance":
   accent: "#8aab70"
@@ -320,6 +336,10 @@
   accent_en: "British Moss"
   bg_cn: "雨夜暗黑"
   bg_en: "Rain Dark"
+  text_cn: "档案纸页"
+  text_en: "Archive Paper"
+  muted_cn: "茶杯烟灰"
+  muted_en: "Teacup Ash"
 
 "The Purple Throne":
   accent: "#8a4aaa"
@@ -331,6 +351,10 @@
   accent_en: "Imperial Tyrian"
   bg_cn: "罗马暗夜"
   bg_en: "Palatine Dark"
+  text_cn: "玫瑰雨瓣"
+  text_en: "Rose-Shower Petal"
+  muted_cn: "祭坛香灰"
+  muted_en: "Altar Incense Ash"
 
 "The Only War":
   accent: "#3a9aaa"
@@ -342,6 +366,10 @@
   accent_en: "Aegean Teal"
   bg_cn: "深海暗夜"
   bg_en: "Mediterranean Night"
+  text_cn: "浪尖泡沫"
+  text_en: "Wave Foam"
+  muted_cn: "风帆旧灰"
+  muted_en: "Weathered Sail"
 
 "Before the World Broke for Us":
   accent: "#c85a30"
@@ -353,6 +381,10 @@
   accent_en: "Sweetwater Dusk"
   bg_cn: "荒野暗夜"
   bg_en: "Frontier Dark"
+  text_cn: "沙暴象牙"
+  text_en: "Sandstorm Ivory"
+  muted_cn: "马鞍旧革"
+  muted_en: "Saddle Leather"
 
 "A Bear and Somewhere Far":  # C.P. "Clay" Ellis · 色卡同源 many-faces id: clay
   mf_id: clay                # → Many Faces 画册锚点 /sam/many-faces/#clay
@@ -444,6 +476,10 @@
   accent_en: "Chrome-Bone Thin Ice"
   bg_cn: "巷雨墨蓝"
   bg_en: "Alley Rain Ink"
+  text_cn: "新铸瓷肌"
+  text_en: "Fresh-Cast Porcelain"
+  muted_cn: "屋檐滴水"
+  muted_en: "Eave Drip"
 
 "Choke Point":               # Victor Mancini · 色卡同源 sam_themes.yml id: victor
   mf_id: victor                # → Many Faces 画册锚点 /sam/many-faces/#victor
@@ -551,6 +587,10 @@
   accent_en: "Dockside Ember"
   bg_cn: "港湾落雪夜"
   bg_en: "Snowfall Harbor"
+  text_cn: "厨房油灯米"
+  text_en: "Kitchen Lamp Cream"
+  muted_cn: "缆绳旧麻灰"
+  muted_en: "Hemp Rope Grey"
 
 "Nothing Warmer Than You":  # Charley Ford · 雪原枪蓝 · 色卡同源画册 id: charley
   mf_id: charley                # → Many Faces 画册锚点 /sam/many-faces/#charley
