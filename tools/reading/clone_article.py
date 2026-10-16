@@ -16,7 +16,10 @@
 comments 是笔盒里那颗 💬：她选中字 / 点一处划线再点它，才弹 Artifact 自带的批注框（她 2026-10-14：
 「不需要每次画词都弹出，我主动点击的时候才给我批注的框」）。
 之后重新发布不传 capabilities。她划完说「整理一下」→ 读 `highlights` → 照读书笔记那套写进
-`_data/reading/<slug>.yml`（`page` 写段落号，`book.page_unit: 段`）→ 把整理过的划线标成 noted。
+`_data/reading/<slug>.yml`（`page` 写段落号，`book.page_unit: 段`）→ 把整理过的划线标成 noted
+→ **再带 `--notes _data/reading/<slug>.yml` 重新生成这一页、重新发布**：整理过的词在页上点一下，
+页底就弹出它那张解释卡（2026-10-16 她提的：「点一下词就出现解释卡片……不是跳转到总笔记，就是显示点击的那个」）。
+卡片的内容是生成时从 yml 嵌进页里的，所以每整理一批都要重新生成 + 发布一次划线页。
 
 三支笔跟她读书时一样（见 .claude/skills/winter-reading-notes/SKILL.md）：蓝＝生词、粉＝对照、橙＝好句。
 
@@ -225,6 +228,38 @@ body.has-cmt .bar .ask{display:inline-flex;align-items:center;justify-content:ce
 .toast{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:40;background:var(--ink);color:var(--bg);font-size:.82rem;
  padding:.4rem .9rem;border-radius:999px;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.is-on{opacity:1}
+/* 解释卡：点一处整理过的词，从页底弹出它那一张（只这一个词，不是整本笔记） */
+.sheet{position:fixed;inset:0;z-index:32;display:none;background:rgba(0,0,0,.28)}
+.sheet.is-on{display:block}
+.sheet__panel{position:absolute;left:0;right:0;bottom:0;max-height:72vh;overflow:auto;background:var(--surface);color:var(--ink);
+ border-radius:18px 18px 0 0;border-top:5px solid var(--c);padding:.9rem 18px calc(.9rem + env(safe-area-inset-bottom));
+ box-shadow:0 -10px 30px rgba(0,0,0,.25);font-family:"Noto Serif SC","Songti SC",serif;font-size:.95rem;line-height:1.7}
+@media (min-width:700px){.sheet__panel{left:50%;right:auto;width:36rem;transform:translateX(-50%)}}
+.sheet__meta{display:flex;align-items:center;gap:.55rem;font-size:.72rem;color:var(--muted);letter-spacing:.04em;margin:0 0 .35rem}
+.sheet__meta .pen-tag{display:inline-flex;align-items:center;gap:.3rem}
+.sheet__meta .pen-tag i{width:10px;height:10px;border-radius:50%;background:var(--c);display:inline-block}
+.sheet__close{margin-left:auto;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font-size:14px;padding:0}
+.sheet__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.15rem .7rem;margin:0 0 .25rem}
+.sheet__term{margin:0;font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:1.55rem;line-height:1.2}
+.sheet__term.is-long{font-size:1.1rem;font-weight:500;font-style:italic;line-height:1.45}
+.sheet__ipa{font-family:ui-sans-serif,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;font-size:.9rem;color:var(--muted);display:inline-flex;align-items:center;gap:.3rem}
+.sheet__say{border:0;background:transparent;cursor:pointer;font-size:1rem;padding:0 .1rem;line-height:1}
+.sheet__lemma{font-size:.8rem;color:var(--muted)}
+.sheet__cn{margin:.2rem 0 .3rem;font-size:1.05rem;font-weight:500}
+.sheet__cn .pos{font-family:"EB Garamond",Georgia,serif;font-style:italic;font-weight:400;color:var(--muted);margin-right:.5em}
+.sheet__en{margin:0 0 .6rem;font-family:"EB Garamond",Georgia,serif;font-style:italic;font-size:1rem;color:var(--muted)}
+.sheet__ctx{margin:.3rem 0 .6rem;padding:.5rem .8rem;border-left:3px solid var(--c);background:color-mix(in srgb,var(--c) 10%,transparent);border-radius:0 8px 8px 0}
+.sheet__ctx q{font-family:"EB Garamond",Georgia,serif;font-size:1.02rem;quotes:none}
+.sheet__ctx q mark{background:color-mix(in srgb,var(--c) var(--hl-mix),transparent);padding:.04em .1em;border-radius:2px;cursor:default}
+.sheet__ctx .gist{display:block;margin-top:.2rem;font-size:.86rem;color:var(--muted)}
+.sheet__note{margin:0 0 .45rem}
+.sheet__note b{font-weight:500;color:var(--accent);margin-right:.5em;font-size:.82rem;letter-spacing:.06em}
+.sheet__note strong{font-weight:600}
+.sheet__foot{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem;padding-top:.6rem;border-top:1px dashed var(--line)}
+.sheet__foot button{height:32px;padding:0 .75rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font-family:inherit;font-size:.8rem;letter-spacing:.03em}
+.sheet__foot button.ask{display:none}
+body.has-cmt .sheet__foot button.ask{display:inline-block}
+.row .ok{cursor:pointer;text-decoration:underline dotted;text-underline-offset:.15em}
 ::selection{background:color-mix(in srgb,var(--accent) 30%,transparent)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 '''
@@ -407,6 +442,8 @@ JS = r'''
     var sel = window.getSelection(); if (sel && !sel.isCollapsed) return;
     var ids = m.getAttribute('data-ids').split(' ');
     Array.prototype.forEach.call(art.querySelectorAll('mark.is-focus'), function(x){ x.classList.remove('is-focus'); });
+    var n = cardFor(ids);                               // 整理过的词：先给她那张解释卡；笔盒收在卡片底下那颗「换笔」里
+    if (n) { hidePop(); showCard(n, ids, m); return; }
     showPop(m.getBoundingClientRect(), ids, m);
   });
   document.getElementById('ask-btn').addEventListener('click', function(){
@@ -418,6 +455,73 @@ JS = r'''
   document.getElementById('ask-btn').addEventListener('mousedown', function(e){ e.preventDefault(); });
   document.addEventListener('mousedown', function(e){ if (!pop.contains(e.target) && !e.target.closest('mark')) hidePop(); });
   document.addEventListener('touchstart', function(e){ if (!pop.contains(e.target) && !e.target.closest('mark')) hidePop(); }, {passive:true});
+
+  /* ── 解释卡：整理过的词点一下，弹出它那张笔记（内容是生成这页时从 yml 嵌进来的） ── */
+  var NOTES = __NOTES_JSON__, SENT = ['orange', 'yellow'];
+  var sheet = document.getElementById('sheet'), sheetBody = document.getElementById('sheet-body');
+  var cardIds = null, cardEl = null, cardNote = null;
+  function normT(x){ return String(x || '').toLowerCase().replace(/[\u2018\u2019\u201c\u201d]/g, "'").replace(/[^a-z0-9\u4e00-\u9fff']+/g, ' ').trim(); }
+  function pageOf(loc){ var m = /\d+/.exec(loc || ''); return m ? m[0] : String(loc || ''); }
+  NOTES.forEach(function(n){ n._sent = SENT.indexOf(n.color) >= 0; n._key = normT(n._sent ? String(n.ctx || '').replace(/==/g, '') : n.term); n._page = String(n.page); });
+  function findNote(h){
+    if (!h || isUnder(h.color)) return null;
+    var pg = pageOf(h.loc), t = normT(h.text); if (!t) return null;
+    var best = null, bs = -1;
+    NOTES.forEach(function(n){
+      if (n._page !== pg || !n._key) return;
+      var k = n._key, sc = -1;
+      if (k === t) sc = 10; else if (k.indexOf(t) >= 0 || t.indexOf(k) >= 0) sc = 5;
+      if (sc < 0) return;
+      if (n.color === h.color) sc += 2;
+      sc -= Math.abs(k.length - t.length) / 1000;     // 同样都沾边时取长度最接近的（专名 vs 包着它的长难句）
+      if (sc > bs) { bs = sc; best = n; }
+    });
+    return best;
+  }
+  function fmt(x, color){
+    return esc(String(x || '')).replace(/==(.+?)==/g, '<mark style="--c:var(--pen-' + color + ')">$1</mark>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+  }
+  function showCard(n, ids, el){
+    cardIds = ids; cardEl = el; cardNote = n;
+    var c = n.color || 'blue', loc = n.page === '导语' || n.page === '标题' ? n.page : ('第 ' + n.page + ' 段');
+    var h = '<div class="sheet__meta"><span>No. ' + esc(String(n.id || '')) + '</span><span>' + esc(loc) + '</span>' +
+            '<span class="pen-tag"><i></i>' + (PENS[c] || c) + '</span>' + (n.kind ? '<span>' + esc(n.kind) + '</span>' : '') +
+            '<button type="button" class="sheet__close" aria-label="收起">✕</button></div>';
+    if (n._sent) {
+      h += '<div class="sheet__ctx"><q lang="en">' + fmt(n.ctx, c) + '</q>' + (n.gist ? '<span class="gist">' + fmt(n.gist, c) + '</span>' : '') + '</div>';
+      if (n.note) h += '<p class="sheet__note"><b>' + (c === 'yellow' ? '怎么拆' : '好在哪') + '</b>' + fmt(n.note, c) + '</p>';
+    } else {
+      h += '<div class="sheet__head"><h3 class="sheet__term" lang="en">' + esc(n.term || '') + '</h3>' +
+           (n.ipa ? '<span class="sheet__ipa"><button type="button" class="sheet__say" aria-label="朗读">🔊</button>' + esc(n.ipa) + '</span>' : '') +
+           (n.lemma ? '<span class="sheet__lemma">原形 <i lang="en">' + esc(n.lemma) + '</i></span>' : '') + '</div>';
+      if (n.cn) h += '<p class="sheet__cn">' + (n.pos ? '<span class="pos" lang="en">' + esc(n.pos) + '</span>' : '') + fmt(n.cn, c) + '</p>';
+      if (n.en) h += '<p class="sheet__en" lang="en">' + fmt(n.en, c) + '</p>';
+      if (n.ctx) h += '<div class="sheet__ctx"><q lang="en">' + fmt(n.ctx, c) + '</q>' + (n.gist ? '<span class="gist">' + fmt(n.gist, c) + '</span>' : '') + '</div>';
+      if (n.note) h += '<p class="sheet__note"><b>解读</b>' + fmt(n.note, c) + '</p>';
+    }
+    (n.extra || []).forEach(function(x){ h += '<p class="sheet__note">' + fmt(x, c) + '</p>'; });
+    h += '<div class="sheet__foot"><button type="button" class="pens">🖍 换笔 / 擦掉</button><button type="button" class="ask">💬 批注</button><button type="button" class="shut">收起</button></div>';
+    sheetBody.innerHTML = h; sheetBody.style.setProperty('--c', 'var(--pen-' + c + ')');
+    sheet.classList.add('is-on'); sheetBody.scrollTop = 0;
+  }
+  function hideCard(){ sheet.classList.remove('is-on'); cardIds = null; cardEl = null; cardNote = null; }
+  function speak(t){
+    var ss = window.speechSynthesis; if (!ss || !t) { say('这台设备不会读'); return; }
+    try { ss.cancel(); var u = new SpeechSynthesisUtterance(t); u.lang = 'en-US'; u.rate = 0.92; ss.speak(u); } catch(e){ say('这台设备不会读'); }
+  }
+  sheet.addEventListener('click', function(e){
+    if (e.target === sheet) { hideCard(); return; }
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.classList.contains('sheet__close') || b.classList.contains('shut')) { hideCard(); return; }
+    if (b.classList.contains('sheet__say')) { speak(cardNote && (cardNote.say || cardNote.term)); return; }
+    if (b.classList.contains('ask')) { var el = cardEl; hideCard(); if (el) askAbout({element: el}); return; }
+    if (b.classList.contains('pens')) { var ids = cardIds, el2 = cardEl; hideCard(); if (el2) { el2.classList.add('is-focus'); showPop(el2.getBoundingClientRect(), ids, el2); } return; }
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { hideCard(); hidePop(); } });
+  function cardFor(ids){
+    for (var i = ids.length - 1; i >= 0; i--) { var hh = H[ids[i]]; if (hh && hh.noted) { var n = findNote(hh); if (n) return n; } }
+    return null;
+  }
 
   /* ── 底部笔架 ── */
   Array.prototype.forEach.call(document.querySelectorAll('.pen'), function(b){
@@ -446,7 +550,7 @@ JS = r'''
       g.forEach(function(id){
         var h = H[id];
         html += '<div class="row" data-id="' + id + '"><span class="t" data-go="' + id + '"><mark style="--c:var(--pen-' + c + ')" class="' + (isUnder(c) ? 'is-' + c : '') + '">' + esc(h.text) + '</mark></span>' +
-                '<span class="pg">' + (h.loc || LOC[h.p] || '') + '</span>' + (h.noted ? '<span class="ok">✓ 已整理</span>' : '') +
+                '<span class="pg">' + (h.loc || LOC[h.p] || '') + '</span>' + (h.noted ? '<span class="ok" data-card="' + id + '" title="看解释">✓ 已整理</span>' : '') +
                 '<button class="x" data-x="' + id + '" aria-label="擦掉">✕</button></div>';
       });
     });
@@ -457,6 +561,11 @@ JS = r'''
   drawer.addEventListener('click', function(e){ if (e.target === drawer) drawer.classList.remove('is-on'); });
   document.getElementById('drawer-body').addEventListener('click', function(e){
     var x = e.target.closest('[data-x]'); if (x) { remove(x.getAttribute('data-x')); openList(); return; }
+    var ok = e.target.closest('[data-card]'); if (ok) {
+      var cid = ok.getAttribute('data-card'), nn = cardFor([cid]);
+      if (nn) { drawer.classList.remove('is-on'); showCard(nn, [cid], art.querySelector('mark[data-ids~="' + cid + '"]')); return; }
+      say('这条的解释还没接上');
+    }
     var go = e.target.closest('[data-go]'); if (go) {
       var id = go.getAttribute('data-go'); drawer.classList.remove('is-on');
       var m = art.querySelector('mark[data-ids~="' + id + '"]');
@@ -534,7 +643,7 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
-def render(meta, pal, ink_accent, slug):
+def render(meta, pal, ink_accent, slug, notes=None):
     pens = {k: c for k, _, c, _ in PENS}
     css = (CSS.replace('__ACCENT__', pal['accent']).replace('__INK_ACCENT__', ink_accent).replace('__BG__', pal['bg'])
               .replace('__TEXT__', pal['text']).replace('__MUTED__', pal['muted'])
@@ -561,7 +670,8 @@ def render(meta, pal, ink_accent, slug):
     pop_html = ''.join(f'<button type="button" data-pen="{k}" style="--c:var(--pen-{k})" title="{n}" aria-label="{n}"></button>' for k, n, _, _ in PENS)
     js = (JS.replace('__PENS_JSON__', json.dumps({k: n for k, n, _, _ in PENS}, ensure_ascii=False))
             .replace('__ORDER_JSON__', json.dumps([k for k, _, _, _ in PENS]))
-            .replace('__UNDER_JSON__', json.dumps(list(UNDER))))
+            .replace('__UNDER_JSON__', json.dumps(list(UNDER)))
+            .replace('__NOTES_JSON__', json.dumps(notes or [], ensure_ascii=False)))
     by = ' · '.join(x for x in (meta.get('author'), meta.get('site'), meta.get('date')) if x)
     title = esc(meta['title'])
     meta_html = (f'<p class="by">{esc(by)}</p>\n'
@@ -592,11 +702,31 @@ def render(meta, pal, ink_accent, slug):
   <div class="drawer__head"><h2>划过的地方</h2><div class="tools"><button type="button" id="copy-btn">复制清单</button><button type="button" id="drawer-close">收起</button></div></div>
   <div id="drawer-body"></div>
 </div></div>
+<div class="sheet" id="sheet" role="dialog" aria-label="解释卡"><div class="sheet__panel" id="sheet-body"></div></div>
 <div class="toast" id="toast"></div>
 <script>{js}</script>
 </body>
 </html>
 '''
+
+
+def load_notes(path):
+    """把 _data/reading/<slug>.yml 里的笔记压成页里用的小条目（只带卡片要显示的字段）。
+    页上按「段号 + 划的那几个字」认出是哪一条：词卡比 term，整句卡（橙 / 黄）比 context。"""
+    import yaml
+    y = yaml.safe_load(open(path, encoding='utf-8')) or {}
+    out = []
+    for b in y.get('batches') or []:
+        for n in b.get('notes') or []:
+            ex = n.get('extra')
+            ex = ex if isinstance(ex, list) else ([ex] if ex else [])
+            out.append({k: v for k, v in {
+                'id': str(n.get('id', '')), 'page': str(n.get('page', '')), 'color': n.get('color') or 'blue',
+                'term': n.get('term'), 'lemma': n.get('lemma'), 'kind': n.get('kind'), 'ipa': n.get('ipa'), 'pos': n.get('pos'),
+                'say': n.get('say'), 'cn': n.get('cn'), 'en': n.get('en'), 'ctx': n.get('context') or n.get('sentence'),
+                'gist': n.get('gist'), 'note': n.get('note'), 'extra': ex,
+            }.items() if v not in (None, '', [])})
+    return out
 
 
 def main():
@@ -608,6 +738,7 @@ def main():
     ap.add_argument('--series', default='', help='借哪个 AU 系列的配色（au_palettes.yml 的键）；默认站点金色')
     ap.add_argument('-o', '--out', required=True)
     ap.add_argument('--dump', help='把抓出来的文章 JSON 也存一份到这个路径（只放 scratchpad，别进仓库）')
+    ap.add_argument('--notes', help='这篇的笔记 _data/reading/<slug>.yml：整理过的词点一下就弹它那张解释卡（每整理一批就重新生成 + 发布）')
     a = ap.parse_args()
     url = a.url or a.url2
     if not url:
@@ -627,12 +758,13 @@ def main():
         pass
     if not a.series:
         ink_accent = '#8a6d12'      # 默认金色在白纸上太浅，压深一档
-    page = render(meta, pal, ink_accent, slug)
+    notes = load_notes(a.notes) if a.notes else []
+    page = render(meta, pal, ink_accent, slug, notes)
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     open(a.out, 'w', encoding='utf-8').write(page)
     if a.dump:
         json.dump(meta, open(a.dump, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-    print(f'✅ {a.out}（{meta["title"][:40]}… · {len(meta["paras"])} 段 · {meta.get("author") or "无署名"} · slug {slug}）')
+    print(f'✅ {a.out}（{meta["title"][:40]}… · {len(meta["paras"])} 段 · {meta.get("author") or "无署名"} · slug {slug}' + (f' · 嵌了 {len(notes)} 条解释' if notes else '') + '）')
 
 
 if __name__ == '__main__':

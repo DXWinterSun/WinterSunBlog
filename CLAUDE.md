@@ -77,7 +77,7 @@ Winter 读英文原著（眼下是《A Single Shot》原著）时会发来带荧
 一本书一页 `reading/<slug>/index.html`，由 `render_notes.py --blog` 生成、别手改；每加一页笔记，Artifact 和博客页一起重新生成。
 ⭐ **网上的英文文章也能划**（2026-10-14 她读《卫报》访谈时提的）：她发来文章链接说想划线 → `tools/reading/clone_article.py`
 把文章排成一页、发布时带 `capabilities: {"db": {}, "comments": {"composer_only": true}}`（💬 她主动点才弹批注框），她在上面划线（五支笔：蓝生词 / 粉对照 / 紫专名 / 黄长难句 / 橙好句，后两支 2026-10-14 她加的；另有两支下划线：❣️ Sam 收藏关于他的话、✨ 有意思记跟他无关的点，各自单独导出，都不进笔记）；她说「整理一下」→ 用 ArtifactData
-读 `highlights` 集合做笔记（`page_unit: 段`），整理过的标 `noted: true`。细节在 skill 第七节。
+读 `highlights` 集合做笔记（`page_unit: 段`），整理过的标 `noted: true`，**再带 `--notes` 重新生成 + 发布划线页**（整理过的词她点一下就弹出只有那一个词的解释卡，2026-10-16 她提的）。细节在 skill 第七节。
 
 ## 🇵🇱 波兰语笔记本：多邻国错题 / 疑问 → 讲清楚 + 收进笔记（2026-10-01）
 

@@ -225,7 +225,8 @@ python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratc
 **每次整理完新的一页，两样都要重新生成**：`-o <scratchpad>/…html`（发 Artifact 给她批注）和 `--blog`（博客那页），
 一起 commit。博客那页要推 `main` 才上线——照全站部署规矩攒成一包推（一次读好几页就整批推一次），推完等构建跑完。
 
-文章笔记（`book.kind: article`，有 `source_url`）：书架上单独一排「🗞️ 文章」，卡上和笔记页页头都有「原文 ↗」。
+文章笔记（`book.kind: article`，有 `source_url`）：书架上单独一排「🗞️ 文章」，卡上和笔记页页头都有「原文 ↗」；
+`highlight_url` 写划线页的链接，卡上和页头再多一个「划线页 ✎」（她 2026-10-16 要的；那页只有她自己打得开）。
 
 博客版跟 Artifact 版的区别只有三处：左上角有「← 书架 / 笔记」（2026-10-03 前是「Sam」）、状态写「在读」、开头说明换成 `demo.yml` 的 `blog_lede`
 （写给读者看的，第一人称是 Winter）。批注按钮在博客上自动不出现。
@@ -270,7 +271,13 @@ python3 tools/reading/render_notes.py _data/reading/a-single-shot.yml -o <scratc
 - `context` 照旧只留划线前后几个词，**不整段抄**（仓库公开，报道有版权）；
 - 整理完一批，把这批的每一条 `ArtifactData update {noted: true}`（带 `if_version`），页上那处划线会多一道绿底线、清单里标「✓ 已整理」，
   她一眼就知道哪些还没做；同一篇文章的笔记页跟书一样一个链接、往后追加。
+- ⭐ **然后把划线页也重新生成一次、发布到同一个链接**（2026-10-16 她提的：「点一下词就出现解释卡片……不是跳转到总笔记，就是显示点击的那个」）：
+  `python3 tools/reading/clone_article.py --html <scratchpad>/fetch/article.html --url <网址> --slug <slug> --notes _data/reading/<slug>.yml -o <scratchpad>/<slug>.html`
+  → Artifact 发布（不传 capabilities）。解释是生成时从 yml 嵌进页里的：整理过的词她点一下，页底弹出**只有这一个词**的小卡
+  （词 / 音标 🔊 / 词性中文 / 英文释义 / 原文那句 / 解读 / 搭配易混；橙黄整句卡是那句 + 大意 + 好在哪 / 怎么拆），卡底「换笔 / 擦掉」才是原来的笔盒，
+  清单里点「✓ 已整理」也弹同一张。页上按「段号 + 划的字」认笔记（词比 `term`、整句比 `context`），所以 `page` 和 `term` / `context` 要照划线原样写。
+  抓下来的原文 `article.html` 只在 scratchpad，容器回收就没了——下次接着整理时先 `curl -A "Mozilla/5.0"` 重新下一份再生成。
 
 | 文章 | 划线页 | 笔记数据 / 笔记页 |
 |---|---|---|
-| 《卫报》2026-10-09 · McDonagh / Malkovich / Rockwell 谈 Wild Horse Nine（Xan Brooks） | https://claude.ai/artifact/5E9AEbCjzWxKkAeSTwrNKB | `_data/reading/wild-horse-nine-guardian.yml` · 笔记页 https://claude.ai/artifact/UcvimREqg6dwF37CMsLba9 · 博客 `/reading/wild-horse-nine-guardian/`（2026-10-14 整理 58 条，全部标了 noted） |
+| 《卫报》2026-10-09 · McDonagh / Malkovich / Rockwell 谈 Wild Horse Nine（Xan Brooks） | https://claude.ai/artifact/5E9AEbCjzWxKkAeSTwrNKB | `_data/reading/wild-horse-nine-guardian.yml` · 笔记页 https://claude.ai/artifact/UcvimREqg6dwF37CMsLba9 · 博客 `/reading/wild-horse-nine-guardian/`（2026-10-14 整理 58 条，全部标了 noted；2026-10-16 起划线页带 `--notes`，点词弹解释卡） |
