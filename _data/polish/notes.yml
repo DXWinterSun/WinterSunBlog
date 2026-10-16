@@ -729,3 +729,84 @@ notes:
       - {pl: myśleć, zh: 想, tag: 未完成体}
       - {pl: o, zh: 关于（跟方位格）, look: false}
     see: ["017", "018"]
+
+  - id: "020"
+    date: 2026-10-16
+    source: 多邻国
+    task: fill
+    point: prep.case
+    also: [noun.gen, noun.ins, noun.loc]
+    title: 介词后面跟哪个格，是介词自己说了算：podczas 跟生格，przed 跟工具格
+    ask: 这两个不都是在介词后面吗？为什么格不一样我真没招了🤣
+    stuck: 填了原形 obiad，没跟着 podczas 变
+    pl: "==Podczas== ==obiadu== pijemy wino."
+    en: "During lunch we drink wine."
+    zh: 吃午饭的时候，我们喝葡萄酒。
+    mine: "Podczas ==obiad== pijemy wino."
+    right: ["Podczas ==obiadu== pijemy wino."]
+    why: |
+      没招是正常的，因为这件事没有统一的道理：介词后面跟哪个格，不看它站在哪儿，看它是哪个介词。每个介词生来就带着一个格，就像每个名词生来就有阴阳性，只能连在一起记。
+      你这两句正好是两个不同的介词：podczas（在……期间）跟生格，obiad 变 obiadu；przed（在……之前）跟工具格，obiad 变 obiadem。第 18 条的 za domem、第 19 条的 o rodzicach，也是各自的介词各管各的。
+      好在常用的介词不多，而且会抱团：跟工具格的是 za、przed、nad、pod、między 这几个说方位的，再加一个 z（和……一起）；跟方位格的是 o、w、na、przy、po；剩下的大多数跟生格，这一伙人最多：do、od、bez、dla、u、podczas……
+      最直观的办法是拿同一个 obiad 换介词，看它跟着变：饭前、饭间、饭后，三个介词三个样子，见下面第一张表。
+    rule:
+      - 介词说了算：记一个介词，就连它跟的格一起记。
+      - 工具格：za、przed、nad、pod、między、z（和）；方位格：o、w、na、przy、po；生格最多：do、od、bez、dla、u、podczas。
+    table:
+      - pl: [1]
+        head: ["", "同一个 obiad", "跟的格"]
+        rows:
+          - ["饭前", "przed ==obiadem==", "工具格"]
+          - ["吃饭的时候", "podczas ==obiadu==", "生格"]
+          - ["饭后", "po ==obiedzie==", "方位格"]
+          - ["一直到午饭", "do ==obiadu==", "生格"]
+          - ["午饭吃什么？", "Co jest na ==obiad==?", "宾格"]
+      - pl: [1]
+        head: ["跟的格", "介词", "意思"]
+        rows:
+          - ["生格", "do · od · bez · dla · u · podczas", "到 · 从 · 没有 · 给 · 在某人那儿 · 在……期间"]
+          - ["工具格", "za · przed · nad · pod · między · z", "后 · 前 · 上 · 下 · 中间 · 和……一起"]
+          - ["方位格", "o · w · na · przy · po", "关于 · 里 · 上 · 旁边 · 之后"]
+          - ["宾格", "przez · na · w", "穿过 · 到……上去 · 到……里去"]
+    extra:
+      - "**两头跑** 有几个介词不止一个格：na、w 说“在哪儿”跟方位格，说“到哪儿去”跟宾格（第 17 条那只猫）；z 说“和……一起”跟工具格，说“从……出来”跟生格：kawa z ==mlekiem==（加奶的咖啡）、z ==domu==（从家里）。"
+    examples:
+      - {pl: "Podczas ==lekcji== piję wodę.", zh: 上课的时候我喝水。}
+      - {pl: "Po ==obiedzie== pijemy kawę.", zh: 午饭后我们喝咖啡。}
+      - {pl: "Mam prezent dla ==mamy==.", zh: 我有一份给妈妈的礼物。}
+    words:
+      - {pl: obiad, zh: 午饭（波兰人一天里最正经的那顿热饭）, tag: 阳}
+      - {pl: wino, zh: 葡萄酒, tag: 中}
+      - {pl: pić, zh: 喝, tag: 未完成体}
+      - {pl: podczas, zh: 在……期间（跟生格）, look: false}
+    see: ["018", "019", "021"]
+
+  - id: "021"
+    date: 2026-10-16
+    source: 多邻国
+    ok: true
+    task: translate
+    to: pl
+    point: prep.case
+    also: [noun.ins, syntax.neg, noun.gen]
+    title: “饭前”是 przed obiadem：przed 说时间也跟工具格
+    pl: "Nie piję ==kawy== ==przed obiadem==."
+    en: "I do not drink coffee before lunch."
+    zh: 我午饭前不喝咖啡。
+    mine: "Nie piję kawy przed obiadem."
+    why: |
+      przed 第 18 条见过，那时说的是地方：przed domem（房子前面）。这里说的是时间“在……之前”，照样跟工具格：przed obiadem（饭前）。
+      反过来，“饭后”换成 po，就跟方位格了：po obiedzie。obiad 变成 obiedzie，词中间也跟着变了样，这在方位格里很常见，先认个脸就行。
+      句子里还有个生格 kawy，但那不归 przed 管，是前面的 nie 闹的：否定句里，宾语要从宾格换成生格（第 4 条）。肯定句是 Piję kawę.
+    rule: przed 不管说地方还是时间，都跟工具格：przed domem、przed obiadem。
+    table:
+      head: ["", "肯定 · 宾格", "否定 · 生格"]
+      rows:
+        - ["喝咖啡", "Piję ==kawę==.", "Nie piję ==kawy==."]
+    examples:
+      - {pl: "Przed ==lekcją== piję kawę.", zh: 上课前我喝咖啡。}
+      - {pl: "Myję ręce przed ==obiadem==.", zh: 我饭前洗手。}
+    words:
+      - {pl: kawa, zh: 咖啡, tag: 阴}
+      - {pl: przed, zh: 在……之前；在……前面（跟工具格）, look: false}
+    see: ["004", "018", "020"]
