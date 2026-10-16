@@ -14,6 +14,7 @@ book:
   year: 2026
   about: "《卫报》2026 年 10 月 9 日威尼斯电影节访谈，三个人聊新片 Wild Horse Nine、祖孙、海龟和谁杀了肯尼迪"
   source_url: "https://www.theguardian.com/film/2026/oct/09/martin-mcdonagh-john-malkovich-sam-rockwell-interview-wild-horse-nine"
+  highlight_url: "https://claude.ai/artifact/5E9AEbCjzWxKkAeSTwrNKB"   # 她划线的那一页（clone_article.py 排的，只有她打得开）
   page_unit: 段                   # 位置写段号，标题 / 导语直接写字
   sub: "文章笔记 · 划线词句"
   status: 待你批注

@@ -77,7 +77,7 @@ nav_active: notes
           <span><b>{{ n_word }}</b> 条词汇</span>
           {% if n_quote > 0 %}<span><b>{{ n_quote }}</b> 句好句</span>{% endif %}
         </span>
-        <span class="c-book__cta">翻开笔记 →{% if b.source_url %}<a class="c-book__src" href="{{ b.source_url }}" target="_blank" rel="noopener">原文 ↗</a>{% endif %}</span>
+        <span class="c-book__cta">翻开笔记 →{% if b.source_url %}<a class="c-book__src" href="{{ b.source_url }}" target="_blank" rel="noopener">原文 ↗</a>{% endif %}{% if b.highlight_url %}<a class="c-book__src" href="{{ b.highlight_url }}" target="_blank" rel="noopener">划线页 ✎</a>{% endif %}</span>
       </span>
     </div>
     {%- endfor %}

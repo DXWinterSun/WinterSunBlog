@@ -1212,6 +1212,8 @@ def main():
         kick += f'<br>{esc(book["about"])}'
     if book.get('source_url'):            # 网页文章：页头挂原文链接（Winter 2026-10-14：「文章放原链接，可以点击跳转」）
         kick += f' <a class="kicker__src" href="{esc(book["source_url"])}" target="_blank" rel="noopener">原文 ↗</a>'
+    if book.get('highlight_url'):         # 她划线的那一页也挂上（Winter 2026-10-16：「这个可以也放在笔记里吗」）
+        kick += f' <a class="kicker__src" href="{esc(book["highlight_url"])}" target="_blank" rel="noopener">划线页 ✎</a>'
     head = (f'{console}<p class="kicker">{kick}</p>\n'
             f'<h1 lang="en">{esc(title)}</h1>\n<p class="sub">{esc(book.get("sub") or "原著笔记 · 高亮词句")}</p>\n<div class="rule"></div>\n'
             f'<p class="lede">{fmt(book.get("blog_lede" if a.blog else "lede") or demo["blog_lede" if a.blog else "lede"])}</p>\n')
