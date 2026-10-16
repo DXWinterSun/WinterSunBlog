@@ -11,6 +11,11 @@ collection_eyebrow: "AU Story · Series"
 collection_title: "Fog City · Young Sam AU"
 collection_desc: "还没成为任何人的少年 Sam——1986年雾城的排练厅里，你认识了一切开始之前的他。"
 logline: "青涩慢热的少年恋曲：1986年的旧金山艺术高中，一个还什么都不是的男孩，和坐在他身后看他的你。"
+# —— 页头（2026-10-15 起由 _layouts/series.html 渲染，不再手写 hero）——
+hero_eyebrow: "AU Story · Series"
+hero_title: "Fog City"
+byline: "Young Sam · San Francisco, 1986–1987 · Sam Rockwell"
+lede: "台上是别人的戏，你的整场都是他。"
 ---
 
 {%- comment -%}
@@ -35,28 +40,6 @@ logline: "青涩慢热的少年恋曲：1986年的旧金山艺术高中，一个
   两人满 18 岁之后（他的生日 1986-11-05）。时代细节须贴合 1980s 旧金山。
 ────────────────────────────────────────────────────────────────
 {%- endcomment -%}
-
-<section class="c-hero">
-  {% if site.author-image %}
-  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
-    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-  </a>
-  {% endif %}
-
-  <div class="c-hero__eyebrow">AU Story · Series</div>
-  <h1 class="c-hero__title">Fog City</h1>
-  {% include au-palette-strip.html %}
-  <div class="c-hero__byline">
-    <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">Young Sam · San Francisco, 1986–1987 · Sam Rockwell · ongoing</span>
-    <span class="c-hero__byline-rule"></span>
-  </div>
-  <p class="c-hero__lede">
-    <span class="c-hero__quote">&ldquo;</span>
-    台上是别人的戏，你的整场都是他。
-    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
-  </p>
-</section>
 
 <article class="c-sam-intro">
   <h2 class="c-sam-intro__heading">关于这个系列</h2>

@@ -5,7 +5,7 @@
 用法（在仓库根目录跑）：
 
     python3 tools/preview/render_draft.py 草稿.md -o 预览.html \
-        --series "Zaphod AU" \
+        --series "Don't Panic, Baby Doll" \
         --title  "雪的巡游" \
         --subtitle "番外 · Don't Panic, Baby Doll" \
         --mood   "缱绻 · 安放" \
@@ -576,6 +576,8 @@ def main():
     ap.add_argument('--eyebrow', default='草稿 / 待冬璇过目', help='状态条里「状态」那一格')
     ap.add_argument('--kicker', default='', help='大标题上方那行斜体系列名，如「Everybody\'s Home · Sam Bell AU」')
     ap.add_argument('--forks', default='', help='下一章岔路 JSON（格式见 forks.py），做成页底可点选、可复制的选项')
+    ap.add_argument('--palette', default='', help='直接指定配色「底色,主色,文字,弱色」四个 #色值，'
+                    '用于还没进 au_palettes.yml 的新坑 / 重写；会盖过 --series 取到的颜色')
     a = ap.parse_args()
 
     src = open(a.source, encoding='utf-8').read()
@@ -583,6 +585,11 @@ def main():
         src = src.split('---', 2)[2]
 
     pal = palette(a.series)
+    if a.palette:
+        vals = [v.strip() for v in a.palette.split(',')]
+        if len(vals) != 4 or not all(re.fullmatch(r'#[0-9a-fA-F]{6}', v) for v in vals):
+            sys.exit('--palette 要四个 #RRGGBB，按「底色,主色,文字,弱色」的顺序，用逗号隔开')
+        pal.update(zip(('bg', 'accent', 'text', 'muted'), vals))
     css = CSS
     for k, v in pal.items():
         css = css.replace(f'__{k.upper()}__', v)

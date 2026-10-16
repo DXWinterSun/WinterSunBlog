@@ -4,7 +4,8 @@
   关于她的只有一句话。现在第一格只放四样：🔖 冬的书签 / 🗞️ 冬的更新 / 🎒 冬的口袋 / 💌 冬的名片。
   四个小标题跟 Winter's 书架同一个样子（c-shelf__head：圆章 · 名字 · 右边小药丸 · 底下一行说明），
   名字是她在三版里挑的「冬的 + 随身的小东西」（2026-10-03）；「日更」专指她的小红书，别拿来当标题。
-  口袋里八格一律两个字（她挑的）：日历 · 歌单 · 语录 · 热线 · 星图 · 磁带 · 街机 · 画廊。
+  口袋 2026-10-14 起装满了：全站 21 个去处分三个内袋（翻一翻 / 玩一玩 / 记一记），名字一律两个字，
+  在 _includes/pocket.html 里，跟「关于我」页的「冬的地图」共用一份。
   全部故事去 AU Story 和 Winter's 各自看；日历（Archive）不再占标签，入口在这里和 AU 页顶上。
 
   · 只在首页「全部」视图出现（_sass/5-components/_lobby.scss 按 data-hero-active 切换），
@@ -48,10 +49,19 @@
                 {%- endfor -%}
               {%- else -%}
                 {%- assign lb_new = g.items | first -%}{%- assign lb_old = g.items | last -%}
+                {%- comment -%} 显示名用 series_title 里「· 角色 AU」前面那段（故事名），别把内部键（如 Slow Hands）印出来 {%- endcomment -%}
+                {%- assign lb_st = lb_new.series_title | default: g.name -%}
+                {%- assign lb_parts = lb_st | split: ' · ' -%}
+                {%- if lb_parts.size > 1 -%}
+                  {%- assign lb_tail = ' · ' | append: lb_parts.last -%}
+                  {%- assign lb_story = lb_st | replace_first: lb_tail, '' -%}
+                {%- else -%}
+                  {%- assign lb_story = lb_st -%}
+                {%- endif -%}
                 {%- if g.items.size == 1 %}
-            <li><a href="{{ lb_new.url | prepend: site.baseurl }}"><b>{{ g.name }}</b><span>{{ lb_new.title | split: ' — ' | first }}</span></a></li>
+            <li><a href="{{ lb_new.url | prepend: site.baseurl }}"><b>{{ lb_story }}</b><span>{{ lb_new.title | split: ' — ' | first }}</span></a></li>
                 {%- else %}
-            <li><a href="{{ site.baseurl }}/archive/#d{{ d.name }}"><b>{{ g.name }}</b><span>{{ g.items.size }} 篇：{{ lb_old.chapter_type | default: '第一篇' }} 到 {{ lb_new.chapter_type | default: '最新一篇' }}</span></a></li>
+            <li><a href="{{ site.baseurl }}/archive/#d{{ d.name }}"><b>{{ lb_story }}</b><span>{{ g.items.size }} 篇：{{ lb_old.chapter_type | default: '第一篇' }} 到 {{ lb_new.chapter_type | default: '最新一篇' }}</span></a></li>
                 {%- endif -%}
               {%- endif -%}
             {%- endfor %}
@@ -65,17 +75,8 @@
   <div class="c-lobby__side">
 
     <div class="c-lobby__block">
-      <div class="c-shelf__head"><span class="c-shelf__badge" aria-hidden="true">🎒</span><h2 class="c-shelf__name">冬的口袋</h2><p class="c-shelf__desc">常去的几个地方，揣在身上</p></div>
-      <nav class="c-lobby-tiles" aria-label="冬的口袋">
-        <a href="{{ site.baseurl }}/archive/"><i aria-hidden="true">🗓️</i>日历</a>
-        <a href="{{ site.baseurl }}/songs/"><i aria-hidden="true">🎧</i>歌单</a>
-        <a href="{{ site.baseurl }}/sam/today/"><i aria-hidden="true">☀️</i>语录</a>
-        <a href="{{ site.baseurl }}/sam/hotline/"><i aria-hidden="true">☎️</i>热线</a>
-        <a href="{{ site.baseurl }}/sky/"><i aria-hidden="true">✨</i>星图</a>
-        <a href="{{ site.baseurl }}/jukebox/"><i aria-hidden="true">📼</i>磁带</a>
-        <a href="{{ site.baseurl }}/sam/arcade/"><i aria-hidden="true">🕹️</i>街机</a>
-        <a href="{{ site.baseurl }}/?view=gallery"><i aria-hidden="true">🖼️</i>画廊</a>
-      </nav>
+      <div class="c-shelf__head"><span class="c-shelf__badge" aria-hidden="true">🎒</span><h2 class="c-shelf__name">冬的口袋</h2><p class="c-shelf__desc">站里所有的去处，都揣在身上</p></div>
+      {% include pocket.html %}
     </div>
 
     <div class="c-lobby__block">
@@ -106,7 +107,9 @@
           {%- assign lb_f = site.data.image_focus[lb_first.image] -%}
           {%- if lb_f.sq -%}{%- assign lb_pos = lb_f.sq -%}{%- endif -%}
         {%- endif -%}
-        {{ sp.series_name | jsonify }}: {"u": {{ sp.url | prepend: site.baseurl | jsonify }}, "img": {{ lb_img | jsonify }}, "pos": {{ lb_pos | jsonify }}}{% unless forloop.last %},{% endunless %}
+        {%- assign lb_tparts = sp.title | split: ' · ' -%}
+        {%- if lb_tparts.size > 1 -%}{%- assign lb_ttail = ' · ' | append: lb_tparts.last -%}{%- assign lb_tname = sp.title | replace_first: lb_ttail, '' -%}{%- else -%}{%- assign lb_tname = sp.title | default: sp.series_name -%}{%- endif -%}
+        {{ sp.series_name | jsonify }}: {"u": {{ sp.url | prepend: site.baseurl | jsonify }}, "n": {{ lb_tname | jsonify }}, "img": {{ lb_img | jsonify }}, "pos": {{ lb_pos | jsonify }}}{% unless forloop.last %},{% endunless %}
       {%- endif -%}
     {%- endfor -%}
   }</script>
@@ -117,6 +120,7 @@
     if (!box) return;
     var read = {}, map = {};
     try { read = JSON.parse(localStorage.getItem('wiw-read') || '{}') || {}; } catch (e) { return; }
+    (function () { var R = {'Slow Hands':'Just Go Ahead Now','Zaphod AU':"Don't Panic, Baby Doll",'Knox AU':'Simon Says','Alexios AU':'The Only War','Menelaus AU':"If You'll Have Me"}, k; for (k in R) { if (read[k] && !read[R[k]]) read[R[k]] = read[k]; } })();  // 老系列键的记录也认
     try { map = JSON.parse(document.getElementById('js-lobby-series').textContent); } catch (e) { map = {}; }
     var list = Object.keys(read).filter(function (k) { return read[k] && read[k].last && map[k]; })
       .sort(function (a, b) { return (read[b].last.ts || 0) - (read[a].last.ts || 0); });
@@ -132,7 +136,7 @@
     var done = (last.pct || 0) >= 95;
     var a = document.getElementById('js-lobby-resume');
     a.href = done ? s.u + '#chapters' : last.path;
-    document.getElementById('js-lobby-resume-series').textContent = k;
+    document.getElementById('js-lobby-resume-series').textContent = s.n || k;
     document.getElementById('js-lobby-resume-chapter').textContent = label(last.no, last.title);
     document.getElementById('js-lobby-resume-bar').style.width = Math.max(4, Math.min(100, last.pct || 0)) + '%';
     document.getElementById('js-lobby-resume-meta').textContent = done ? '这章读完了，去目录看下一章 →' : '读到 ' + (last.pct || 0) + '%，接着读 →';
@@ -147,7 +151,7 @@
         if (i) p.appendChild(document.createTextNode(' · '));
         var l = document.createElement('a');
         l.href = (read[o].last.pct || 0) >= 95 ? map[o].u + '#chapters' : read[o].last.path;
-        l.textContent = o;
+        l.textContent = map[o].n || o;
         p.appendChild(l);
       });
       p.hidden = false;

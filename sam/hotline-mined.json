@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文筛出、再经 tools/hotline_review.json 人审过的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 这句接得上的情境（可多个）。新章节上线后重跑脚本即可，不要手改。",
-  "count": 207
+  "count": 198
  },
  "chars": {
   "youngsam": {
@@ -112,7 +112,7 @@
      ],
      "ch": 10,
      "title": "Chapter 10 · 你怎么哭了",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "我全给你。是你，站我旁边。",
@@ -121,7 +121,7 @@
      ],
      "ch": 10,
      "title": "Chapter 10 · 你怎么哭了",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "baby doll……我找到你了。",
@@ -131,7 +131,7 @@
      ],
      "ch": 23,
      "title": "Chapter 23 · 唯一的光",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "不不不，你给我回来。",
@@ -141,7 +141,7 @@
      ],
      "ch": 24,
      "title": "Chapter 24 · 她还在黑里",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "没用的。这一次，你哪儿都推不动我了。",
@@ -150,7 +150,7 @@
      ],
      "ch": 26,
      "title": "Chapter 26 · 别慌，宝贝儿",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "现在！立刻！马上！我等不及了！",
@@ -159,7 +159,7 @@
      ],
      "ch": 27,
      "title": "Chapter 27 · 我愿意",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "我全记得。一个字，都不会忘。",
@@ -168,7 +168,7 @@
      ],
      "ch": 27,
      "title": "Chapter 27 · 我愿意",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "啧啧——我这魅力，连你都招架不住。",
@@ -178,7 +178,7 @@
      ],
      "ch": 4,
      "title": "Chapter 4 · 湿漉漉的总统先生",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "累死了。哄哄我。",
@@ -188,7 +188,7 @@
      ],
      "ch": 5,
      "title": "Chapter 5 · 哄哄我",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "你知道我今天，受了多大的委屈吗。",
@@ -198,7 +198,7 @@
      ],
      "ch": 28,
      "title": "番外 · 忍辱负重",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "你说，是不是该补偿补偿我？",
@@ -207,7 +207,7 @@
      ],
      "ch": 28,
      "title": "番外 · 忍辱负重",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "baby doll，我是你丈夫。",
@@ -216,7 +216,7 @@
      ],
      "ch": 33,
      "title": "番外 · 留守",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "你回来了。我没注意。",
@@ -226,7 +226,7 @@
      ],
      "ch": 33,
      "title": "番外 · 留守",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     },
     {
      "cn": "你去了很久。",
@@ -236,7 +236,7 @@
      ],
      "ch": 33,
      "title": "番外 · 留守",
-     "series": "Zaphod AU"
+     "series": "Don't Panic, Baby Doll"
     }
    ]
   },
@@ -1429,91 +1429,7 @@
    ]
   },
   "garyguitar": {
-   "default": [
-    {
-     "cn": "你想哪儿去了。",
-     "b": [
-      "tease"
-     ],
-     "ch": 12,
-     "title": "Chapter 12 · 再弹一遍",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你睡着的时候是六十。醒着的时候八十。",
-     "b": [
-      "sleepless"
-     ],
-     "ch": 12,
-     "title": "Chapter 12 · 再弹一遍",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我弹给你听。",
-     "b": [
-      "sleepless",
-      "tired"
-     ],
-     "ch": 14,
-     "title": "Chapter 14 · The Slow One",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我半年给你数了几千次拍子。你骗不了我。",
-     "b": [
-      "tired"
-     ],
-     "ch": 14,
-     "title": "Chapter 14 · The Slow One",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我最近老想写点慢的东西。",
-     "b": [
-      "daily"
-     ],
-     "ch": 14,
-     "title": "Chapter 14 · The Slow One",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你现在才生气？",
-     "b": [
-      "tease"
-     ],
-     "ch": 17,
-     "title": "Chapter 17 · Slow Hands",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "晚了。你都已经上我们乐队了。",
-     "b": [
-      "tease"
-     ],
-     "ch": 17,
-     "title": "Chapter 17 · Slow Hands",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "你想听什么。",
-     "b": [
-      "sleepless",
-      "tired"
-     ],
-     "ch": 2,
-     "title": "Chapter 2 · 茧",
-     "series": "Slow Hands"
-    },
-    {
-     "cn": "我每次抬头你都在。",
-     "b": [
-      "love"
-     ],
-     "ch": 30,
-     "title": "Chapter 30 · 他说了",
-     "series": "Slow Hands"
-    }
-   ]
+   "default": []
   },
   "doug": {
    "default": [

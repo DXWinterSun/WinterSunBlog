@@ -4,14 +4,14 @@ title: "Chapter 18 · 把你还给你自己 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:52:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 18
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 18"
 summary: "你决定再不改他一分——哪怕他爱你；于是你别过脸，把他还给他自己。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 怅惘, 安放]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 怅惘, 安放]
 redirect_from:
   - /2026/09/20/zaphod-au-chapter-18-giving-you-back-to-yourself/
 ---

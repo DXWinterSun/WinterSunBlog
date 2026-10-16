@@ -16,7 +16,7 @@ check_honorifics.py —— 按「谁在说话」查人称／称呼，不是按�
   python3 tools/check_honorifics.py .claude/bibles/i-kissed-the-stones-revised/ch19.md
   python3 tools/check_honorifics.py _posts/2026-10-*.md
   python3 tools/check_honorifics.py --list <文件>     # 列出全部带你/您的对白供人工过一遍
-  python3 tools/check_honorifics.py --series slow-hands <文件>   # 换系列的规则表
+  python3 tools/check_honorifics.py --series just-go-ahead-now <文件>   # 换系列的规则表
 
 退出码：发现 ERROR → 1；只有 REVIEW / 无问题 → 0。
 

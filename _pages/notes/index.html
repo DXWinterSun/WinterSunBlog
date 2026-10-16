@@ -1,11 +1,12 @@
 ---
 layout: home
-title: Notes
+title: Desk
 permalink: /notes/
 nav_active: notes
 ---
 {%- comment -%}
-  📝 Notes（2026-10-03 全站新排法，Winter 选的 A 方案）：顶上第五格。
+  🪑 Desk · 冬的书桌（2026-10-03 全站新排法时叫 📝 Notes；2026-10-14 Winter 挑了「作品与书桌」方案改名）：顶上第五格。
+  口径：Winter's 是写完的、给人读的；书桌上是她自己每天翻开、还在往里记的。网址仍是 /notes/。
   以前这些笔记本排在 Winter's 第六排、要先划过五排书架才看得到（她：「常用的笔记什么的都堆在底下」），
   现在单独一格，从任何一页点一下就到。封面由 _includes/notebooks.html 生成，数字都从数据自动算。
 {%- endcomment -%}
@@ -16,18 +17,22 @@ nav_active: notes
     <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
   </a>
   {% endif %}
-  <div class="c-hero__eyebrow">Notes</div>
-  <h1 class="c-hero__title">Still <em>Learning</em></h1>
+  <div class="c-hero__eyebrow">Desk</div>
+  <h1 class="c-hero__title">On My <em>Desk</em></h1>
   <div class="c-hero__byline">
     <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">冬的笔记 · 想做的事，和学东西时记下的</span>
+    <span class="c-hero__byline-text">冬的书桌 · 自己每天翻开的：灵感、功课、他、小工具</span>
     <span class="c-hero__byline-rule"></span>
   </div>
 </section>
 
 <section class="c-notes">
-  <div class="c-notes__grid">
-    {% include notebooks.html %}
+  {%- comment -%} 桌面：本子都摊在一张桌子上（2026-10-14 Winter 提的）。一张木桌，样式在 _lobby.scss 的 .c-desk。 {%- endcomment %}
+  <div class="c-desk">
+    {% include desk-things.html %}
+    <div class="c-notes__grid">
+      {% include notebooks.html %}
+    </div>
   </div>
-  <p class="c-notes__foot">以后新开的笔记本，都摆在这一格。</p>
+  <p class="c-notes__foot">桌上是还在往里记的；写完的、给你们读的字，在 <a href="{{ site.baseurl }}/?cat=winters">✍️ Winter&rsquo;s</a>。</p>
 </section>

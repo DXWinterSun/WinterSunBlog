@@ -4,7 +4,7 @@ title: "番外 · 留守 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-08-24 06:01:53 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 33
 series_status: complete
@@ -12,7 +12,7 @@ series_type: Series
 chapter_type: "番外"
 chapter_kind: extra
 summary: "银河系总统被单独留在船上，通讯板上四十七条未读。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 絮语, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 絮语, 缱绻]
 redirect_from:
   - /2026/10/05/zaphod-au-extra-holding-the-fort/
 ---

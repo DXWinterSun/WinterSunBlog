@@ -3,63 +3,72 @@ layout: home
 ---
 {%- assign pal = site.data.au_palettes[page.series_name] -%}
 {%- if pal %}{% include au-palette-style.html pal=pal %}{% endif -%}
-<div class="c-series-page">
-{{ content }}
-
 {% comment %}
-  系列章节区块（封面 + 目录 + 配图卡片）由本 layout 自动渲染，不要在各
-  series 的 index.html 里手写。新系列只要在 front matter 写 `layout: series`
-  和 `series_name:`（与各章 front matter 里的 series 字段完全一致）即可，
-  封面、目录和卡片会自动出现、自动排序，将来加章节也无需再改这里。
+  系列首页（2026-10-15 改版：Winter 定的「杂志开头、票根收尾」，提案页上她挑的）。
+  整页由这个 layout 渲染，系列首页 series/*/index.html 只写 front matter（hero_eyebrow /
+  hero_title / byline / lede / logline…）和「关于这个系列」「设定档案」两段，不再手写 hero。
 
-  版式说明：`.c-series-page` 用 flex `order` 把「封面 + 章节」提到长篇系列
-  介绍（`.c-sam-intro`）之前，这样点进系列先看到配图和目录、能马上找到
-  内容，介绍照常呈现、只是挪到下方。DOM 顺序不变（hero → 介绍 → 章节），
-  仅视觉重排，不影响 SEO / 无障碍朗读顺序。
+  从上到下：
+    ① 杂志头 .c-mag-head —— 眉标 · 英文大标题 · 署名（靠左收小，让位给图）
+    ② 满幅封面 .c-mag-cover —— 引言印在图的下沿
+    ③ 四色细色带 .c-pal-bar —— 中英文名都有
+    ④ 基调一句 .c-series-tone —— 不加框
+    ⑤ 介绍两段 → js/series-page.js 做成「文件夹标签」（没有 JS 就按原样上下排）
+    ⑥ 章节 —— 正篇 / 番外 / 他视角三类并列、各自一张能合上的「书页」（也是 series-page.js 装的；
+       没有 JS 就是一列票根）。「继续读」存根、第一章 / 最新一章 / 倒序、基调筛选照旧。
+    ⑦ 页底票根 _includes/series-ticket.html —— 角色名、封面、四色齿孔、三格撕票口，可保存成图、可翻面写字。
 {% endcomment %}
+{%- assign byline_parts = page.byline | split: " · " -%}
+<div class="c-series-page">
+
+<header class="c-hero c-mag-head">
+  <p class="c-mag-head__eyebrow">{{ page.hero_eyebrow | default: "AU Story · Series" }}{% if page.collection_order %} <span class="c-mag-head__no">· No. {{ page.collection_order }}</span>{% endif %}</p>
+  <h1 class="c-hero__title c-mag-head__title">{{ page.hero_title | default: page.series_name }}</h1>
+  <p class="c-mag-head__byline"><span class="c-hero__byline-text">{{ page.byline }}{% if page.byline %} · {% endif %}{% include series-status.html status=page.series_status %}</span></p>
+</header>
+
 {% if page.series_name %}
 {% assign all_series_posts = site.posts | where: "series", page.series_name | sort: "series_order" %}
 {% assign chapters = all_series_posts | where_exp: "item", "item.is_overview != true" %}
 {% assign first_ch = chapters | first %}
-{% assign cover_img = page.cover | default: first_ch.image %}
+{% assign cover_img = page.cover | default: first_ch.image | default: page.image %}
+{% assign cover_focus = site.data.image_focus[cover_img] %}
 
 {% comment %}
-  系列大封面用真正的 <img> + object-fit，不用 CSS 背景图（2026-10-03）：
-  Safari 画大尺寸背景图时会先把图缩小再画，结果只画出图的左上角、放大又发糊
-  （Oh, May 那张 2576 宽的图整张糊成一片，看不出是谁）。<img> 没有这个毛病。
-  裁切锚点来自 _data/image_focus.yml（tools/face_focus.py 按脸的位置算好）：
-  banner = 电脑 2:1，banner_m = 手机 3:2；认不出脸的图回退到居中偏上。
+  满幅封面是真正的 <img> + object-fit（Safari 画大背景图会糊，2026-10-03 定的）。锚点来自
+  _data/image_focus.yml：电脑用 banner（2:1），手机用 banner_m（竖一点的框，脸在上半）。
+  引言压在图的下沿，底下一道渐变接到页面底色，所以浅色 / 深色主题都读得清。
 {% endcomment %}
 {% if cover_img %}
-{% assign cover_focus = site.data.image_focus[cover_img] %}
-<a class="c-series-cover" href="#chapters" aria-label="跳到章节列表">
-  <img class="c-series-cover__image" src="{{ "/images/" | prepend: site.baseurl | append: cover_img }}" alt="" decoding="async" fetchpriority="high" style="--pos: {{ cover_focus.banner | default: '50% 30%' }}; --pos-m: {{ cover_focus.banner_m | default: '50% 30%' }};">
-</a>
+<figure class="c-mag-cover">
+  <img class="c-mag-cover__img" src="{{ "/images/" | prepend: site.baseurl | append: cover_img }}" alt="" decoding="async" fetchpriority="high"
+       style="--pos: {{ cover_focus.banner | default: '50% 30%' }}; --pos-m: {{ cover_focus.banner_m | default: '50% 30%' }};">
+  {% if page.lede %}
+  <figcaption class="c-mag-cover__cap">
+    <p class="c-hero__lede c-mag-cover__lede"><span class="c-hero__quote">&ldquo;</span>{{ page.lede }}<span class="c-hero__quote c-hero__quote--end">&rdquo;</span></p>
+  </figcaption>
+  {% endif %}
+</figure>
+{% elsif page.lede %}
+<p class="c-hero__lede c-mag-lede-alone"><span class="c-hero__quote">&ldquo;</span>{{ page.lede }}<span class="c-hero__quote c-hero__quote--end">&rdquo;</span></p>
 {% endif %}
 
-{% comment %}
-  一句话速览（logline）：偏客观的「基调 + 讲什么」，1–2 句。功能上区别于
-  hero 里那句感性的标志性引言（c-hero__lede）——那句是情绪钩子，这张卡片
-  是官方简介。在 front matter 里写 `logline:` 即出现，位置固定在封面之下、
-  章节目录之上，样式随该系列 AU 配色自动明暗翻转。
-{% endcomment %}
+{% include au-palette-bar.html %}
+
 {% if page.logline %}
-<div class="c-series-logline">
-  <span class="c-series-logline__label">基调 · Tone</span>
-  <p class="c-series-logline__text">{{ page.logline }}</p>
-</div>
+<p class="c-series-tone"><b class="c-series-tone__label">基调 · Tone</b>{{ page.logline }}</p>
 {% endif %}
+
+<div class="c-series-intro" id="js-series-intro">
+{{ content }}
+</div>
 
 <section class="c-sam-collection" id="chapters">
   <div class="c-section-heading">
     <h3 class="c-section-heading__title">Chapters</h3>
-    <span class="c-section-heading__meta">{{ chapters | size }} chapter{% if chapters.size != 1 %}s{% endif %} · {% include series-status.html status=page.series_status %}</span>
+    <span class="c-section-heading__meta">{{ chapters | size }} 篇 · {% include series-status.html status=page.series_status %}</span>
   </div>
 
-  {% comment %}
-    章节列表（2026-07-30 按 Winter 的要求改版）：封面图在页顶已有，章节不再
-    重复配图；纯文字目录与配图卡片二合一，只留这一列无图章节卡。
-  {% endcomment %}
   {% if chapters.size > 0 %}
   {%- comment -%}
     「上次读到这里」存根（2026-09-18）：读者在本机读过本系列的哪一章，由 js/main.js 记在
@@ -79,7 +88,7 @@ layout: home
     </span>
     <span class="c-resume__arrow" aria-hidden="true">→</span>
   </a>
-  {%- comment -%} 目录快捷键：第一章 / 最新一章 / 倒序（倒序由 js/main.js 切换） {%- endcomment -%}
+  {%- comment -%} 目录快捷键：第一章 / 最新一章 / 倒序（倒序由 js/main.js 切换，series-page.js 同步到番外那几张纸） {%- endcomment -%}
   {% if chapters.size > 3 %}
   <div class="c-chapter-tools" role="group" aria-label="目录快捷键">
     <a class="c-chapter-tools__chip" href="{{ first_chapter.url | prepend: site.baseurl }}"><i>↥</i>第一章</a>
@@ -102,8 +111,8 @@ layout: home
     {% capture cmoods %}{% for m in site.data.moods %}{% if chapter.tags contains m.cn %}{{ m.cn }} {% endif %}{% endfor %}{% endcapture %}
     {%- comment -%}
       章节身份（2026-09-19）：正篇由 chapter_type 的「Chapter N / Episode N」自动判定，
-      番外与他视角在各自 front matter 里写 `chapter_kind: extra | pov`。目录顶上的类型
-      筛选条、票根号与眉头小牌都读这一个值。写新番外时记得写这一行，漏写就当成番外。
+      番外与他视角在各自 front matter 里写 `chapter_kind: extra | pov`。三张书页、票根号与眉头小牌都读这一个值。
+      写新番外时记得写这一行，漏写就当成番外。
     {%- endcomment -%}
     {%- assign ct = chapter.chapter_type | default: "" -%}
     {%- assign ct_num = ct | replace: "Chapter ", "" | replace: "Chapter", "" | replace: "Episode ", "" | replace: "Episode", "" | strip -%}
@@ -111,7 +120,7 @@ layout: home
     {%- assign is_main = false -%}
     {%- if ct contains "Chapter" and ct_check > 0 -%}{%- assign is_main = true -%}{%- endif -%}
     {%- if ct contains "Episode" -%}{%- assign is_main = true -%}{%- endif -%}
-    {%- comment -%} Oneshot 系列的本体（如 Knox AU 的 Simon Says）也是正篇，只是没有号 {%- endcomment -%}
+    {%- comment -%} Oneshot 系列的本体（如 Simon Says · Eric Knox AU）也是正篇，只是没有号 {%- endcomment -%}
     {%- if ct == "Oneshot" -%}{%- assign is_main = true -%}{%- endif -%}
     {%- if is_main -%}{%- assign ckind = "main" -%}{%- else -%}{%- assign ckind = chapter.chapter_kind | default: "extra" -%}{%- endif -%}
     {%- if ckind == "pov" -%}{%- assign ckind_stub = "POV" -%}{%- else -%}{%- assign ckind_stub = "EX" -%}{%- endif -%}
@@ -156,6 +165,7 @@ layout: home
     生成——只列出「本系列真实出现过」的 mood（各带一个计数），点一个或多个即
     只显示命中其中任一情绪的章节，「全部」清空。没有 JS 时不出现筛选条、章节
     照常全列（渐进增强）。mood 调色板从 _data/moods.yml 传给脚本。
+    （正篇 / 番外 / 他视角的分类不再是筛选条，而是三张各自能合上的书页——见 js/series-page.js。）
   {% endcomment %}
   <script type="application/json" id="mood-meta">{{ site.data.moods | jsonify }}</script>
   <script>
@@ -168,47 +178,6 @@ layout: home
     var cards = Array.prototype.slice.call(list.querySelectorAll('.c-chapter-card'));
     if(!cards.length) return;
 
-    /* ── 类型筛选（正篇 / 他视角 / 番外）────────────────────────────────
-       每张卡的 data-kind 来自 front matter 的 chapter_kind（正篇自动判定）。
-       只在本系列真的有两种以上类型时才出现，与下面的基调筛选取交集。 */
-    var kindOrder = [['main','正篇'], ['pov','他视角'], ['extra','番外']];
-    var kindCounts = {};
-    cards.forEach(function(c){
-      var k = c.getAttribute('data-kind') || 'main';
-      kindCounts[k] = (kindCounts[k] || 0) + 1;
-    });
-    var kindsPresent = kindOrder.filter(function(k){ return kindCounts[k[0]]; });
-    var kindPick = 'all';
-    if(kindsPresent.length > 1){
-      var kbar = document.createElement('div');
-      kbar.className = 'c-kind-filter';
-      kbar.setAttribute('role', 'group');
-      kbar.setAttribute('aria-label', '按类型筛选章节');
-      var kbtns = [];
-      function kchip(key, label, n, on){
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'c-kind-filter__chip' + (on ? ' is-on' : '');
-        b.dataset.kind = key;
-        b.setAttribute('aria-pressed', on ? 'true' : 'false');
-        b.innerHTML = label + '<i>' + n + '</i>';
-        b.addEventListener('click', function(){
-          kindPick = key;
-          kbtns.forEach(function(x){
-            var on2 = x.dataset.kind === key;
-            x.classList.toggle('is-on', on2);
-            x.setAttribute('aria-pressed', on2 ? 'true' : 'false');
-          });
-          apply();
-        });
-        kbtns.push(b);
-        kbar.appendChild(b);
-      }
-      kchip('all', '全部', cards.length, true);
-      kindsPresent.forEach(function(k){ kchip(k[0], k[1], kindCounts[k[0]], false); });
-      list.parentNode.insertBefore(kbar, list);
-    }
-
     var counts = {};
     cards.forEach(function(c){
       (c.getAttribute('data-moods') || '').split(' ').filter(Boolean).forEach(function(m){
@@ -216,9 +185,8 @@ layout: home
       });
     });
     var present = meta.filter(function(m){ return counts[m.cn]; }); // 保留 moods.yml 的从烫到静顺序
+    if(present.length < 2) return; // 少于两种情绪就不出筛选条
     var selected = {};
-    var count = null, reset = null;
-    if(present.length < 2){ apply(); return; } // 少于两种情绪就不出情绪筛选条，类型筛选照旧
 
     var bar = document.createElement('div');
     bar.className = 'c-mood-filter';
@@ -248,7 +216,7 @@ layout: home
       bar.appendChild(b);
     });
 
-    reset = document.createElement('button');
+    var reset = document.createElement('button');
     reset.type = 'button';
     reset.className = 'c-mood-filter__reset';
     reset.textContent = '全部';
@@ -259,7 +227,7 @@ layout: home
     });
     bar.appendChild(reset);
 
-    count = document.createElement('span');
+    var count = document.createElement('span');
     count.className = 'c-mood-filter__count';
     count.setAttribute('aria-live', 'polite');
     bar.appendChild(count);
@@ -271,15 +239,12 @@ layout: home
       var shown = 0;
       cards.forEach(function(c){
         var ms = (c.getAttribute('data-moods') || '').split(' ').filter(Boolean);
-        var okMood = !keys.length || ms.some(function(x){ return selected[x]; });
-        var okKind = kindPick === 'all' || (c.getAttribute('data-kind') || 'main') === kindPick;
-        var vis = okMood && okKind;
+        var vis = !keys.length || ms.some(function(x){ return selected[x]; });
         c.style.display = vis ? '' : 'none';
         if(vis) shown++;
       });
-      var filtering = keys.length || kindPick !== 'all';
-      if(count){ count.textContent = filtering ? ('显示 ' + shown + ' / ' + cards.length + ' 章') : ''; }
-      if(reset){ reset.style.display = keys.length ? '' : 'none'; }
+      count.textContent = keys.length ? ('显示 ' + shown + ' / ' + cards.length + ' 章') : '';
+      reset.style.display = keys.length ? '' : 'none';
     }
     apply();
   })();
@@ -287,49 +252,7 @@ layout: home
   {% endif %}
 </section>
 
-{% comment %}
-  深夜热线入口（2026-08，零维护）：运行时读 sam/lines.json，认出本系列的
-  男主是哪个 Sam 角色——先按 auLink 对当前路径，对不上再按 hero byline 首段
-  的角色名对——认出来就在 hero 底部长出「打给他」小胶囊，跳 sam/hotline。
-  非 Sam 角色的系列（lines.json 里没有）自动不出现；新系列无需任何配置。
-  只做「系列 → 热线」单向入口，热线不设回程（Winter 2026-08 定）。
-{% endcomment %}
-<script>
-(function(){
-  var hero = document.querySelector('.c-series-page .c-hero');
-  if (!hero) return;
-  fetch('{{ site.baseurl }}/sam/lines.json', { cache: 'no-cache' })
-    .then(function(r){ return r.json(); })
-    .then(function(data){
-      function norm(p){
-        p = (p || '').replace(/index\.html$/, '');
-        return p.slice(-1) === '/' ? p : p + '/';
-      }
-      var path = norm(window.location.pathname);
-      var bylineEl = document.querySelector('.c-hero__byline-text');
-      var bname = bylineEl ? bylineEl.textContent.split('·')[0].trim() : '';
-      var hit = null;
-      data.characters.forEach(function(c){
-        if (!hit && c.auLink && norm(c.auLink) === path) hit = c;
-      });
-      if (!hit && bname) {
-        data.characters.forEach(function(c){ if (!hit && c.name === bname) hit = c; });
-      }
-      if (!hit) return;
-      var wrap = document.createElement('div');
-      wrap.style.cssText = 'text-align:center;margin-top:22px;';
-      var a = document.createElement('a');
-      a.href = '{{ site.baseurl }}/sam/hotline/?char=' + encodeURIComponent(hit.id);
-      a.title = '拨通深夜热线，跟他说说话';
-      a.style.cssText = 'display:inline-flex;align-items:center;gap:9px;padding:9px 22px;' +
-        'border:1px solid var(--c-accent);border-radius:999px;color:var(--c-accent);' +
-        'text-decoration:none;font-size:12.5px;letter-spacing:2.5px;opacity:.9;';
-      a.textContent = '☎ 深夜热线 · 打给他';
-      wrap.appendChild(a);
-      hero.appendChild(wrap);
-    })
-    .catch(function(){});
-})();
-</script>
+{% include series-ticket.html chapters=chapters cover_img=cover_img cover_focus=cover_focus %}
 {% endif %}
 </div>
+<script defer src="{{ site.baseurl }}/js/series-page.js?v={{ site.time | date: '%Y%m%d%H%M' }}"></script>

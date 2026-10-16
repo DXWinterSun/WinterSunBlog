@@ -5,14 +5,14 @@ categories: ["AU Story"]
 date: 2026-07-27 14:36:59 +0800
 image: zaphod-au.jpg
 has_art: true
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 2
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 2"
 summary: "他赢了选举、得了飞船，只当是自己走运——这是你送他的头两件礼物。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 缱绻, 怅惘]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 缱绻, 怅惘]
 redirect_from:
   - /2026/09/04/zaphod-au-chapter-2-vote-beeblebrox/
 ---

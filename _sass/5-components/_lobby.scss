@@ -1,5 +1,5 @@
 /* ===============
-	⛄ HOME 门厅 ＋ 📝 NOTES 笔记页（2026-10-03 全站新排法，Winter 选的 A 方案）
+	⛄ HOME 门厅 ＋ 🪑 DESK 书桌页（2026-10-14 前叫 📝 Notes）（2026-10-03 全站新排法，Winter 选的 A 方案）
 	门厅：首页「全部」视图只放四样——接着读 / 最近更新 / 常去的地方 / 关于我，
 	下面那张 48 屏的通用文章网格在这个视图里整个藏起来（全部故事去 AU Story、Winter's 看）。
 	标记在 _includes/lobby.html；笔记页在 _pages/notes/index.html + _includes/notebooks.html。
@@ -156,17 +156,47 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
 }
 
 /* ── 常去的地方：一排小方块 ── */
-.c-lobby-tiles {
+/* ── 冬的口袋：三个内袋（2026-10-14 Winter 选的「装满、分三个内袋」＋「随心情上色」）──
+   标记在 _includes/pocket.html，门厅和「关于我」页共用。三个内袋各染一点颜色：翻一翻、玩一玩从主题色调，
+   记一记从冬阳金调（都极淡，只够分得开）；用 color-mix 接 $accent / $gold，所以 AU 系列页、换个心情都跟着走。 */
+.c-pocket { display: grid; gap: 16px; min-width: 0; }
+.c-pocket__bag {
+  --pk-tint: #{$accent};
+  --pk-mix: 7%;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 10px 10px 10px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--pk-tint) var(--pk-mix), $paper);
+  border: 1px solid color-mix(in srgb, var(--pk-tint) 28%, $line);
+}
+.c-pocket__bag--play { --pk-mix: 13%; }
+.c-pocket__bag--note { --pk-tint: #{$gold}; --pk-mix: 11%; }
+.c-pocket__name {
+  margin: 0 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $lb-cn;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: color-mix(in srgb, var(--pk-tint) 72%, $ink);
+  i { font-style: normal; font-family: $lb-emoji; font-size: 13px; }
+}
+.c-pocket__tiles {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
   a {
     display: grid;
     justify-items: center;
-    gap: 4px;
-    padding: 12px 4px 10px;
-    border-radius: 12px;
-    border: 1px solid $line;
+    gap: 3px;
+    min-width: 0;
+    padding: 10px 2px 8px;
+    border-radius: 11px;
+    border: 1px solid color-mix(in srgb, var(--pk-tint) 22%, $line);
     background: $paper;
     font-family: $lb-cn;
     font-size: 13px;
@@ -175,10 +205,18 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
     text-align: center;
     line-height: 1.3;
     transition: transform .2s ease, border-color .2s ease, color .2s ease;
-    &:hover { transform: translateY(-2px); border-color: $accent; color: $accent; }
+    &:hover { transform: translateY(-2px); border-color: var(--pk-tint); color: color-mix(in srgb, var(--pk-tint) 80%, $ink); }
     &:focus-visible { outline: 3px solid $accent; outline-offset: 2px; }
   }
   i { font-style: normal; font-family: $lb-emoji; font-size: 22px; line-height: 1.2; }
+}
+/* 「关于我」页上同一只口袋：页面宽，三个内袋并排 */
+.c-about__map { margin: 0 0 56px; }
+.c-about__map .c-pocket { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+.c-about__map .c-pocket__tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media only screen and (max-width: 900px) {
+  .c-about__map .c-pocket { grid-template-columns: 1fr; }
+  .c-about__map .c-pocket__tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 /* ── 关于我：小卡 + 写信 ── */
@@ -243,6 +281,7 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
   font-family: $lb-cn;
   font-size: 14px;
   color: $muted;
+  a { color: $accent; text-decoration: none; border-bottom: 1px dotted $accent-soft; white-space: nowrap; }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -257,9 +296,11 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
   .c-lobby-resume { grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 7px; }
   .c-lobby-resume__chapter { font-size: 15.5px; }
   .c-lobby-upd__day { grid-template-columns: 56px minmax(0, 1fr); gap: 10px; }
-  .c-lobby-tiles { gap: 8px; }
-  .c-lobby-tiles a { font-size: 12px; padding: 10px 2px 8px; border-radius: 10px; }
-  .c-lobby-tiles i { font-size: 20px; }
+  .c-pocket { gap: 12px; }
+  .c-pocket__bag { padding: 8px; gap: 6px; }
+  .c-pocket__tiles { gap: 6px; }
+  .c-pocket__tiles a { font-size: 12px; padding: 9px 2px 7px; border-radius: 10px; }
+  .c-pocket__tiles i { font-size: 20px; }
   /* 手机上两本一行：字收一档，书脊线圈也收窄一点 */
   .c-notes__grid { gap: 14px; }
   .c-notes__grid .c-wn-notebook { min-height: 196px; padding: 14px 10px 12px 26px; box-shadow: inset 11px 0 0 var(--nb-spine), 0 8px 20px rgba(var(--rgb-shadow), 0.16); }
@@ -272,5 +313,100 @@ $lb-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif
   .c-notes__grid .c-wn-notebook__meta b { font-size: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .c-lobby-resume, .c-lobby-tiles a, .c-lobby-upd__stamp { transition: none; }
+  .c-lobby-resume, .c-pocket__tiles a, .c-lobby-upd__stamp { transition: none; }
+}
+
+/* ── 🪑 书桌：本子都摊在一张桌子上（2026-10-14，Winter：「desk 是不是可以做一个整体的桌面的感觉，正好上面都是笔记本呢」）──
+   .c-desk 就是一张暖色橡木桌（她 2026-10-14 从木桌 / 桌垫 / 随手摊开三版里挑的木桌；另两版已拆掉）：
+   左上角一圈台灯的暖光，本子各自歪一点点像随手放的，顶上留一条桌沿摆小物件。
+   小物件在 _includes/desk-things.html（马克杯、铅笔、便利贴、回形针、杯底印、雪花镇纸），全是装饰。
+   ⚠️ 这一段必须放在文件末尾：上面手机那段 @media 给 .c-notes__grid .c-wn-notebook 写了阴影，同权重，后者盖前者。 */
+.c-desk {
+  --desk-a: #c0905f;
+  --desk-b: #a97649;
+  --desk-grain: rgba(84, 48, 20, 0.13);
+  --desk-edge: rgba(255, 244, 224, 0.22);
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 104px 44px 70px;   /* 顶上留一条桌沿，便利贴、回形针、镇纸都摆在那条空带里，不压本子 */
+  border-radius: 18px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    repeating-linear-gradient(91deg, transparent 0, transparent 19px, var(--desk-grain) 19px, var(--desk-grain) 21px, transparent 21px, transparent 58px, var(--desk-grain) 58px, var(--desk-grain) 59px),
+    repeating-linear-gradient(89.3deg, transparent 0, transparent 33px, rgba(255, 255, 255, 0.05) 33px, rgba(255, 255, 255, 0.05) 35px),
+    linear-gradient(180deg, var(--desk-a) 0, var(--desk-b) 100%);
+  box-shadow: inset 0 0 0 1px var(--desk-edge), inset 0 -14px 34px rgba(50, 26, 8, 0.28), 0 22px 54px rgba(var(--rgb-shadow), 0.28);
+  /* 台灯打下来的一圈暖光（左上） */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(60% 55% at 12% 0%, rgba(255, 235, 190, 0.42), transparent 70%);
+  }
+  .c-notes__grid { position: relative; z-index: 2; }
+  .c-wn-notebook,
+  .c-notes__grid .c-wn-notebook {
+    box-shadow: inset 14px 0 0 var(--nb-spine), 0 16px 30px rgba(20, 10, 0, 0.34), 0 2px 5px rgba(20, 10, 0, 0.22);
+  }
+  .c-wn-notebook:hover { transform: translateY(-5px) rotate(-0.6deg); }
+}
+/* 本子轻轻歪一点，像随手放的 */
+.c-desk .c-notes__grid .c-wn-notebook:nth-child(5n+1) { transform: rotate(-1.1deg); }
+.c-desk .c-notes__grid .c-wn-notebook:nth-child(5n+2) { transform: rotate(0.8deg); }
+.c-desk .c-notes__grid .c-wn-notebook:nth-child(5n+3) { transform: rotate(-0.5deg); }
+.c-desk .c-notes__grid .c-wn-notebook:nth-child(5n+4) { transform: rotate(1.2deg); }
+.c-desk .c-notes__grid .c-wn-notebook:nth-child(5n+5) { transform: rotate(-0.9deg); }
+.c-desk .c-notes__grid .c-wn-notebook:hover { transform: translateY(-5px) rotate(0deg); }
+
+/* 夜里：木头变深核桃色 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .c-desk { --desk-a: #6e4a2e; --desk-b: #55381f; --desk-grain: rgba(0, 0, 0, 0.18); --desk-edge: rgba(255, 230, 200, 0.12); }
+}
+:root[data-theme="dark"] .c-desk { --desk-a: #6e4a2e; --desk-b: #55381f; --desk-grain: rgba(0, 0, 0, 0.18); --desk-edge: rgba(255, 230, 200, 0.12); }
+
+/* 小物件：都摆在本子之间的空当里，不压字 */
+.c-desk__thing {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 8px rgba(20, 10, 0, 0.3));
+}
+.c-desk__thing--mug { width: 92px; right: 26px; bottom: 18px; transform: rotate(-8deg); }
+.c-desk__thing--pencil { width: 190px; left: 30px; bottom: 26px; transform: rotate(-14deg); }
+.c-desk__thing--note { width: 92px; right: 48px; top: 6px; transform: rotate(5deg); }
+.c-desk__thing--clip { width: 20px; left: 58px; top: 26px; transform: rotate(28deg); }
+.c-desk__thing--ring { width: 110px; right: 150px; bottom: -8px; z-index: 1; filter: none; }
+.c-desk__thing--snow { width: 64px; left: 40%; top: 14px; transform: rotate(-10deg); }
+.c-desk__steam path { animation: deskSteam 2.8s ease-in-out infinite; transform-origin: 50% 100%; }
+.c-desk__steam path:nth-child(2) { animation-delay: .6s; }
+.c-desk__steam path:nth-child(3) { animation-delay: 1.3s; }
+@keyframes deskSteam {
+  0% { opacity: .15; transform: translateY(4px) scaleY(.8); }
+  50% { opacity: .85; }
+  100% { opacity: 0; transform: translateY(-8px) scaleY(1.15); }
+}
+
+@media only screen and (max-width: 900px) {
+  .c-desk { padding: 88px 22px 70px; border-radius: 14px; }
+  .c-desk__thing--snow { width: 54px; left: 44%; top: 12px; }
+  .c-desk__thing--note { width: 76px; right: 20px; top: 6px; }
+  .c-desk__thing--pencil { width: 150px; left: 14px; bottom: 16px; }
+  .c-desk__thing--mug { width: 72px; right: 14px; bottom: 10px; }
+  .c-desk__thing--clip { left: 24px; top: 14px; }
+  .c-desk__thing--ring { right: 90px; bottom: -14px; width: 90px; }
+}
+@media only screen and (max-width: 560px) {
+  .c-desk { padding: 78px 14px 66px; margin: 0 -2px; }
+  .c-desk__thing--snow { display: none; }
+  .c-desk__thing--note { width: 66px; right: 14px; top: 6px; }
+  .c-desk__thing--pencil { width: 120px; left: 10px; bottom: 14px; }
+  .c-desk__thing--mug { width: 60px; right: 10px; bottom: 8px; }
+  .c-desk .c-notes__grid { gap: 16px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-desk__steam path { animation: none; opacity: .5; }
 }

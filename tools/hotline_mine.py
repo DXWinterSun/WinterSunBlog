@@ -38,9 +38,9 @@ NAME = {c['id']: c['name'] for c in LINES['characters']}
 # 大多数能按系列首页 byline 的角色名自动对上；对不上的（byline 用全名）在这里点名。
 MANUAL = {
   'rob': 'Everything in Transit', 'doug': 'Better Living Through You',
-  'wildbill': 'Tuning the Devil', 'garyguitar': 'Slow Hands',
+  'wildbill': 'Tuning the Devil', 'garyguitar': 'Just Go Ahead Now',
   'sambell': "Everybody's Home", 'dixon': 'Only I Know',
-  'eric': 'Knox AU', 'bowen': 'This House Is Clean',
+  'eric': 'Simon Says', 'bowen': 'This House Is Clean',
   'greaves': {'eyes-on-me': 'Eyes on Me', 'no-one-walks-off': 'No One Walks Off'},
   'jim': {'some-steps': 'Some Steps Only We Know', 'the-one-i-kept': 'The One I Kept'},
   'pero': 'The Serbian Tornado', 'matty': 'Oh, May',
@@ -51,7 +51,8 @@ def series_table():
     for f in glob.glob(rp('series/*/index.html')):
         s = io.open(f, encoding='utf-8').read()
         sn = re.search(r'^series_name:\s*"([^"]*)"', s, re.M)
-        by = re.search(r'c-hero__byline-text">([^<]*)<', s)
+        # 2026-10-15 起署名写在 front matter 的 byline: 里；老文件仍从 hero 里抓
+        by = re.search(r'^byline:\s*"([^"]*)"', s, re.M) or re.search(r'c-hero__byline-text">([^<]*)<', s)
         if sn and by:
             out[sn.group(1)] = by.group(1).split('·')[0].strip()
     return out

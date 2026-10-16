@@ -4,13 +4,13 @@ title: "Chapter 7 · The Night Before the Choice — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg
-series: "Menelaus AU"
+series: "If You'll Have Me"
 series_title: "If You'll Have Me · Menelaus AU"
 series_order: 7
 series_type: "Series"
 chapter_type: "Chapter 7"
 summary: "他独自躺在长廊望着星空默默难过，你抱着薄毯走来，俯身替他盖上。"
-tags: [Menelaus, BayBay, AU, Menelaus AU, 怅惘, 缱绻]
+tags: [Menelaus, BayBay, AU, "If You'll Have Me", 怅惘, 缱绻]
 ---
 
 🌌 The Night Before the Choice

@@ -4,13 +4,13 @@ title: "Chapter 1 · My Prayer to the Gods — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg
-series: "Menelaus AU"
+series: "If You'll Have Me"
 series_title: "If You'll Have Me · Menelaus AU"
 series_order: 1
 series_type: "Series"
 chapter_type: "Chapter 1"
 summary: "出征前夜，你跪在神庙祈台前，只求他回来时眼睛还会为你发光。"
-tags: [Menelaus, BayBay, AU, Menelaus AU, 思念, 怅惘]
+tags: [Menelaus, BayBay, AU, "If You'll Have Me", 思念, 怅惘]
 ---
 
 🕯《My Prayer to the Gods》

@@ -4,14 +4,14 @@ title: "Chapter 26 · 别慌，宝贝儿 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 15:00:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 26
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 26"
 summary: "你终于全醒，却发现——你怎么汲取他，他都好好的。他说：别慌，宝贝儿。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 安放, 缱绻]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 安放, 缱绻]
 redirect_from:
   - /2026/09/28/zaphod-au-chapter-26-dont-panic-baby-doll/
 ---

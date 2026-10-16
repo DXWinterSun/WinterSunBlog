@@ -5,14 +5,14 @@ categories: ["AU Story"]
 date: 2026-07-27 14:35:59 +0800
 image: zaphod-au.jpg
 has_art: true
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 1
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 1"
 summary: "他随口夸了句冬天很美，一个千万年的虚无之物，第一次有了名字。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 悸动, 怅惘]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 悸动, 怅惘]
 redirect_from:
   - /2026/09/03/zaphod-au-chapter-1-winter/
 ---

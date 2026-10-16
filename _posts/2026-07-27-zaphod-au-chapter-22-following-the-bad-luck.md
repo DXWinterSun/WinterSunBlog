@@ -4,14 +4,14 @@ title: "Chapter 22 · 顺着倒霉走 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:56:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 22
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 22"
 summary: "他这辈子头一回栽跟头——原来运气用尽的方向，就是你的方向。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 思念, 暗涌]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 思念, 暗涌]
 redirect_from:
   - /2026/09/24/zaphod-au-chapter-22-following-the-bad-luck/
 ---

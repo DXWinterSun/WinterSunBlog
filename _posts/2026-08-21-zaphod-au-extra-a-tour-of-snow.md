@@ -4,7 +4,7 @@ title: "番外 · 雪的巡游 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-08-21 22:50:45 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 30
 series_status: complete
@@ -13,7 +13,7 @@ chapter_type: "番外"
 chapter_kind: extra
 has_art: true
 summary: "画上的雪不算数，他非要带你把全银河的雪都看一遍。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 缱绻, 安放]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 缱绻, 安放]
 redirect_from:
   - /2026/10/02/zaphod-au-extra-a-tour-of-snow/
 ---

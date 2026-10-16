@@ -4,14 +4,14 @@ title: "Chapter 25 · 拿不走的东西 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:59:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 25
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 25"
 summary: "神想拆散你们，可他一遍遍回来——这份凡人的爱，神拿不走，只好成全。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 思念, 暗涌]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 思念, 暗涌]
 redirect_from:
   - /2026/09/27/zaphod-au-chapter-25-what-they-couldnt-take/
 ---

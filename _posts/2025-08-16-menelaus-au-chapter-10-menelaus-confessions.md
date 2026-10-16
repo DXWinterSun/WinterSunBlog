@@ -4,13 +4,13 @@ title: "Chapter 10 · Menelaus Confessions — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-16
 image: menelaus-au.svg
-series: "Menelaus AU"
+series: "If You'll Have Me"
 series_title: "If You'll Have Me · Menelaus AU"
 series_order: 10
 series_type: "Series"
 chapter_type: "Chapter 10"
 summary: "他说不出华丽的话，只说你像蜜饼——甜而黏，是他一生中最像奇迹的那口。"
-tags: [Menelaus, BayBay, AU, Menelaus AU, 缱绻, 安放]
+tags: [Menelaus, BayBay, AU, "If You'll Have Me", 缱绻, 安放]
 ---
 
 Menelaus Confessions

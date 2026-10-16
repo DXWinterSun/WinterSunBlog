@@ -11,6 +11,11 @@ collection_eyebrow: "AU Story · Series"
 collection_title: "See How They Stay · Inspector Stoppard AU"
 collection_desc: "《看他们如何逃之夭夭》里那个跛着腿、灌着酒的探长——全世界都从他身边逃开，你偏偏留下来。"
 logline: "偏暖的战后伦敦救赎：全场都把带伤破案的探长当英雄，他却自认一无是处；你偏要把他从酒里捞回来。"
+# —— 页头（2026-10-15 起由 _layouts/series.html 渲染，不再手写 hero）——
+hero_eyebrow: "AU Story · Series"
+hero_title: "See How They Stay"
+byline: "Inspector Stoppard · See How They Run · Sam Rockwell"
+lede: "全世界都从他身边逃开，只有你，偏偏留下来。"
 ---
 
 {%- comment -%}
@@ -38,28 +43,6 @@ logline: "偏暖的战后伦敦救赎：全场都把带伤破案的探长当英�
 · 基调：暖向救赎，慢热暗涌。喜剧成分低于 No One Walks Off，落点在「被郑重选中」。
 ────────────────────────────────────────────────────────────────
 {%- endcomment -%}
-
-<section class="c-hero">
-  {% if site.author-image %}
-  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
-    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-  </a>
-  {% endif %}
-
-  <div class="c-hero__eyebrow">AU Story · Series</div>
-  <h1 class="c-hero__title">See How They Stay</h1>
-  {% include au-palette-strip.html %}
-  <div class="c-hero__byline">
-    <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">Inspector Stoppard · See How They Run · Sam Rockwell · ongoing</span>
-    <span class="c-hero__byline-rule"></span>
-  </div>
-  <p class="c-hero__lede">
-    <span class="c-hero__quote">&ldquo;</span>
-    全世界都从他身边逃开，只有你，偏偏留下来。
-    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
-  </p>
-</section>
 
 <article class="c-sam-intro">
   <h2 class="c-sam-intro__heading">关于这个系列</h2>

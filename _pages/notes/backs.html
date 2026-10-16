@@ -1,0 +1,54 @@
+---
+layout: home
+title: 冬的背面
+permalink: /notes/backs/
+nav_active: notes
+---
+{%- comment -%}
+  🪑 书桌上那本「冬的背面」（2026-10-15，Winter 在记忆碎片方案页上挑的「两个都要」）：
+  三本日记（幸运三件 / 吐槽 / 给自己的信）、这台设备上写过的所有背面的总账、底片匣，都在这一本里。
+  页面只是个空架子——内容全由 js/polaroid-notes.js 在浏览器里从 localStorage 摊开（buildDesk / renderDesk），
+  所以仓库里没有她的任何字；换一台设备看是空的（底片匣能搬）。没验过笔迹只看得到封面和一句提示。
+  左下角那枚小钮点开的是精简版（只有总账和封存），要翻日记来这里。
+{%- endcomment -%}
+
+<section class="c-hero c-hero--filter">
+  <div class="c-hero__eyebrow">Desk · The Backs</div>
+  <h1 class="c-hero__title">冬的<em>背面</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">票根和照片翻过去写的字 · 三本日记 · 只在这台设备上</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-notes">
+  <div class="pol-desk" id="pol-desk">
+    <div class="pol-desk-lock" hidden></div>
+    <div class="pol-desk-tabs" role="tablist" aria-label="这本本子的几页">
+      <button class="pol-desk-tab" type="button" role="tab" data-tab="ledger">背面 <span class="pol-desk-count"></span></button>
+      <button class="pol-desk-tab" type="button" role="tab" data-tab="fortunes">幸运三件</button>
+      <button class="pol-desk-tab" type="button" role="tab" data-tab="windows">吐槽</button>
+      <button class="pol-desk-tab" type="button" role="tab" data-tab="toself">给自己的信</button>
+      <button class="pol-desk-tab" type="button" role="tab" data-tab="box">底片匣</button>
+    </div>
+    <div class="pol-desk-pane" data-pane="ledger" role="tabpanel">
+      <p class="pol-desk-hint">右键（电脑）或长按（手机）任何一张票根、一张照片，翻过去写一句，它就记在这里。点一行翻开那张背面。</p>
+      <div class="pol-ledger pol-desk-ledger"></div>
+    </div>
+    <div class="pol-desk-pane" data-pane="fortunes" role="tabpanel" hidden>
+      <div class="pol-desk-journal" data-journal="fortunes"></div>
+    </div>
+    <div class="pol-desk-pane" data-pane="windows" role="tabpanel" hidden>
+      <div class="pol-desk-journal" data-journal="windows"></div>
+    </div>
+    <div class="pol-desk-pane" data-pane="toself" role="tabpanel" hidden>
+      <div class="pol-desk-journal" data-journal="toself"></div>
+    </div>
+    <div class="pol-desk-pane" data-pane="box" role="tabpanel" hidden>
+      <p class="pol-desk-hint">这些字只存在这台设备的浏览器里。换手机、换电脑，先在旧的这边「取出底片」，到新的那边「装入」。</p>
+      <div class="pol-desk-box"></div>
+    </div>
+  </div>
+  <p class="c-notes__foot"><a href="{{ site.baseurl }}/notes/">← 回书桌</a></p>
+</section>

@@ -6,6 +6,11 @@ nav_active: "AU Story"
 series_name: "Eyes Open"
 # 囚徒（张潇）是真人主播，不是 Sam Rockwell 的角色 → 故意不加 sam_collection，不进 Sam tab。
 logline: "一篇旷野与心跳并行的公路故事。抛锚在沙漠公路上的你被偶像本人捡走，装作不认识，却在牌桌上一眼被他看穿。"
+# —— 页头（2026-10-15 起由 _layouts/series.html 渲染，不再手写 hero）——
+hero_eyebrow: "AU Story · Series"
+hero_title: "Eyes Open"
+byline: "囚徒 · PandaKill · 张潇"
+lede: "你装得挺像。可从他摘下头盔那一秒起，你就没逃过他的眼睛。"
 ---
 
 {%- comment -%}
@@ -21,28 +26,6 @@ logline: "一篇旷野与心跳并行的公路故事。抛锚在沙漠公路上�
   伏笔账在 .claude/bibles/eyes-open.md，动笔前先读。
 ────────────────────────────────────────────────────────────────
 {%- endcomment -%}
-
-<section class="c-hero">
-  {% if site.author-image %}
-  <a class="c-hero__portrait" href="{{site.baseurl}}/" aria-label="Home">
-    <img src="{{site.baseurl}}/images/{{site.author-image}}" alt="{{site.author-name}}">
-  </a>
-  {% endif %}
-
-  <div class="c-hero__eyebrow">AU Story · Series</div>
-  <h1 class="c-hero__title">Eyes Open</h1>
-  {% include au-palette-strip.html %}
-  <div class="c-hero__byline">
-    <span class="c-hero__byline-rule"></span>
-    <span class="c-hero__byline-text">囚徒 · PandaKill · 张潇 · ongoing</span>
-    <span class="c-hero__byline-rule"></span>
-  </div>
-  <p class="c-hero__lede">
-    <span class="c-hero__quote">&ldquo;</span>
-    你装得挺像。可从他摘下头盔那一秒起，你就没逃过他的眼睛。
-    <span class="c-hero__quote c-hero__quote--end">&rdquo;</span>
-  </p>
-</section>
 
 <article class="c-sam-intro">
   <h2 class="c-sam-intro__heading">关于这个系列</h2>

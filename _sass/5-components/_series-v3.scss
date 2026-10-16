@@ -1,0 +1,611 @@
+/* ===============================================================
+   系列首页改版（2026-10-15）· 杂志开头，票根收尾
+   Winter 在提案页上挑定的：杂志头 → 满幅封面（引言印在图上）→ 四色细色带（中英文名）
+   → 基调一句 → 介绍两段做成文件夹标签 → 正篇 / 番外 / 他视角三张能合上的书页 → 页底一张票根。
+   标签 / 书页 / 票根的交互在 js/series-page.js；颜色全走 --c-* 令牌，AU 系列页自动套该系列配色。
+   ⚠️ 老 Sass 3.7.4：不要用 @layer / :has() 以外的新写法，改完跑 bash tools/check_scss.sh。
+   =============================================================== */
+
+$series-measure: 880px;
+
+.c-series-page {
+  display: block;             /* 以前靠 flex order 把封面提到介绍前面；现在 layout 本身就是这个顺序 */
+  max-width: $series-measure;
+  margin: 0 auto;
+}
+
+/* ---------- ① 杂志头 ---------- */
+.c-mag-head {
+  text-align: left;
+  padding: 44px 8px 18px;
+}
+.c-mag-head__eyebrow {
+  margin: 0 0 8px;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: $accent;
+}
+.c-mag-head__no { opacity: 0.7; }
+.c-mag-head__title {
+  /* 覆盖 .c-hero__title 的 72px 居中大字：杂志栏目题，收小靠左，让位给图 */
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.04;
+  margin: 0 0 10px;
+  text-align: left;
+  text-wrap: balance;
+}
+.c-mag-head__byline {
+  margin: 0;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 14px;
+  color: $muted;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- ② 满幅封面，引言印在图的下沿 ---------- */
+.c-mag-cover {
+  position: relative;
+  margin: 0 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: $line;
+}
+.c-mag-cover__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: 50% 30%;
+  object-position: var(--pos, 50% 30%);
+}
+.c-mag-cover__cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  margin: 0;
+  padding: 120px 28px 22px;
+  /* 从透明接到页面底色——浅色主题是淡纸、深色主题是该系列深底，字用 $ink 两边都读得清 */
+  background: linear-gradient(to bottom, transparent 0%, color-mix(in srgb, $cream 55%, transparent) 45%, $cream 100%);
+}
+.c-mag-cover__lede,
+.c-mag-lede-alone {
+  margin: 0;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: clamp(18px, 2.6vw, 24px);
+  line-height: 1.6;
+  color: $ink;
+  text-align: left;
+  max-width: 34em;
+  text-shadow: 0 1px 12px color-mix(in srgb, $cream 70%, transparent);
+  .c-hero__quote { color: $accent; font-size: 1.3em; line-height: 0; vertical-align: -0.2em; }
+}
+.c-mag-lede-alone { padding: 8px 8px 0; }
+
+/* ---------- ③ 四色细色带 ---------- */
+.c-pal-bar {
+  margin: 16px 8px 0;
+}
+.c-pal-bar__line {
+  display: flex;
+  height: 7px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px $line;
+  i { flex: 1 1 0; display: block; }
+}
+.c-pal-bar__names {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-top: 7px;
+  text-align: center;
+}
+.c-pal-bar__name {
+  display: block;
+  min-width: 0;
+  b { display: block; font-size: 12.5px; font-weight: 500; color: $ink-soft; line-height: 1.4; }
+  em { display: block; font-family: $heading-font-family; font-style: italic; font-size: 11px; color: $muted; line-height: 1.3; }
+}
+
+/* ---------- ④ 基调一句 ---------- */
+.c-series-tone {
+  margin: 18px 8px 0;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: $ink-soft;
+}
+.c-series-tone__label {
+  display: inline-block;
+  margin-right: 10px;
+  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: $accent;
+  vertical-align: 0.1em;
+}
+
+/* ---------- ⑤ 介绍两段 → 文件夹标签 ---------- */
+.c-series-intro {
+  margin: 26px 8px 0;
+  /* 没有 JS：两篇 .c-sam-intro 照老样子上下排 */
+}
+.c-folder-tabs__row {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  padding-left: 10px;
+  flex-wrap: wrap;
+}
+.c-folder-tabs__tab {
+  position: relative;
+  top: 1px;
+  padding: 9px 16px 8px;
+  border: 1px solid $line-strong;
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  background: color-mix(in srgb, $ink 4%, transparent);
+  color: $muted;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  &:hover { color: $ink; }
+  &[aria-selected="true"] {
+    background: color-mix(in srgb, $accent 12%, $paper);
+    border-color: $accent;
+    color: $ink;
+    font-weight: 600;
+    z-index: 1;
+  }
+  &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
+}
+.c-folder-tabs__sheet {
+  border: 1px solid $accent;
+  border-radius: 0 8px 8px 8px;
+  background: color-mix(in srgb, $accent 5%, $paper);
+  padding: 18px 22px 8px;
+  /* 纸里那一篇 .c-sam-intro 收掉自己的大边距和居中大标题（标题已经印在标签上） */
+  .c-sam-intro { margin: 0; padding: 0; max-width: none; }
+  .c-sam-intro__heading { display: none; }
+  .c-sam-intro > p:first-of-type::first-letter {
+    float: left;
+    font-family: $heading-font-family;
+    font-size: 3.1em;
+    line-height: 0.82;
+    padding: 4px 8px 0 0;
+    color: $accent;
+  }
+}
+.c-folder-tabs__sheet[hidden] { display: none !important; }
+
+/* ---------- ⑤b 设定档案 → 翻开的书（JS dossierBook 生成）---------- */
+.c-dossier { margin-top: 4px; p { text-indent: 0; } }
+.c-dossier__book {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "hl hr" "bl br";
+  column-gap: 0;
+  border-radius: 8px;
+  background:
+    linear-gradient(to right, transparent 44%, color-mix(in srgb, #000 20%, transparent) 50%, transparent 56%),
+    color-mix(in srgb, $ink 4%, $paper);
+  padding: 18px 0 30px;
+}
+.c-dossier__pg { display: contents; }
+.c-dossier__head { padding: 0 22px; }
+.c-dossier__body { padding: 8px 22px 0; }
+.c-dossier__pg--him .c-dossier__head { grid-area: hl; }
+.c-dossier__pg--him .c-dossier__body { grid-area: bl; }
+.c-dossier__pg--you .c-dossier__head { grid-area: hr; text-align: right; }
+.c-dossier__pg--you .c-dossier__body { grid-area: br; text-align: right; }
+.c-dossier__lab {
+  display: inline-grid;
+  place-items: center;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: $accent;
+  color: $paper;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.c-dossier__pg--you .c-dossier__lab { background: $ink; color: $paper; }
+.c-dossier__name {
+  margin: 0;
+  font-family: $heading-font-family;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: $ink;
+  text-wrap: balance;
+}
+.c-dossier__sub { margin: 4px 0 0; font-size: 13.5px; line-height: 1.5; color: $muted; }
+.c-dossier__body p { margin: 0 0 0.6em; font-size: 15.5px; line-height: 1.85; color: $ink; text-align: justify; }
+.c-dossier__pg--you .c-dossier__body p { text-align-last: right; }
+.c-dossier__body p:last-child { margin-bottom: 0; }
+.c-dossier__folio {
+  position: absolute;
+  bottom: 9px;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 12px;
+  color: $muted;
+  &--l { left: 14px; }
+  &--r { right: 14px; }
+}
+/* 书签：夹在两页下面 */
+.c-dossier__marks { margin: 0 40px; }
+.c-dossier__mark {
+  position: relative;
+  padding: 12px 16px 13px;
+  background: color-mix(in srgb, $muted 18%, $paper);
+  border-top: 1px solid color-mix(in srgb, $muted 45%, transparent);
+  &:last-child { border-radius: 0 0 8px 8px; }
+}
+.c-dossier__mark-head {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  b { font-family: $heading-font-family; font-size: 17px; font-weight: 600; color: $ink; }
+  i { font-size: 13px; color: $muted; font-style: italic; }
+}
+.c-dossier__chip {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  color: $ink;
+  border: 1px solid color-mix(in srgb, $muted 70%, transparent);
+  border-radius: 3px;
+  padding: 0 4px 0 7px;
+  align-self: center;
+}
+.c-dossier__mark-body { margin: 4px 0 0; font-size: 14.5px; line-height: 1.8; color: $ink; }
+/* 收束：一道细线，一行斜体 */
+.c-dossier__close {
+  margin: 16px 0 10px;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, $accent 50%, transparent);
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.7;
+  color: $ink;
+  b {
+    font-style: normal;
+    font-family: $heading-font-family;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: $accent;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+}
+.c-dossier__close--more { margin-top: 0; padding-top: 0; border-top: 0; }
+/* 手机：照样是一本翻开的书（Winter 2026-10-15：「手机也做成书比较好看」），只是字收小一档 */
+@media (max-width: 640px) {
+  .c-dossier__book { padding: 14px 0 24px; }
+  .c-dossier__head { padding: 0 12px; }
+  .c-dossier__body { padding: 6px 12px 0; }
+  .c-dossier__pg--him .c-dossier__head, .c-dossier__pg--him .c-dossier__body { padding-right: 14px; }
+  .c-dossier__pg--you .c-dossier__head, .c-dossier__pg--you .c-dossier__body { padding-left: 14px; }
+  .c-dossier__lab { width: 22px; height: 22px; font-size: 11px; margin-bottom: 6px; }
+  .c-dossier__name { font-size: 19px; }
+  .c-dossier__sub { font-size: 12px; margin-top: 3px; }
+  .c-dossier__body p { font-size: 13.5px; line-height: 1.75; }
+  .c-dossier__folio { bottom: 7px; font-size: 11px; &--l { left: 10px; } &--r { right: 10px; } }
+  .c-dossier__marks { margin: 0 12px; }
+  .c-dossier__mark { padding: 10px 12px 11px; }
+  .c-dossier__mark-head b { font-size: 16px; }
+  .c-dossier__mark-body { font-size: 14px; }
+  .c-dossier__close { font-size: 15.5px; }
+}
+
+/* ---------- ⑥ 章节：三张书页 ---------- */
+.c-series-page .c-sam-collection { margin-top: 36px; margin-bottom: 0; }
+
+.c-book { display: flex; flex-direction: column; gap: 12px; }
+.c-book-page {
+  position: relative;
+  border: 1px solid $line-strong;
+  border-radius: 8px 0 8px 8px;
+  background: color-mix(in srgb, $ink 3%, transparent);
+  padding: 10px 12px 8px;
+  /* 书页叠在一起：右下露出下一张纸的边 */
+  box-shadow: 3px 3px 0 -1px $cream, 3px 3px 0 0 $line-strong;
+  &.has-tab { margin-right: 26px; }
+}
+.c-book-page__head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  width: 100%;
+  padding: 2px 2px 8px;
+  border: 0;
+  background: none;
+  color: $ink;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  b { font-size: 16px; font-weight: 600; letter-spacing: 0.02em; }
+  em { flex: 1; font-family: $heading-font-family; font-style: italic; font-size: 12.5px; color: $muted; }
+  i { font-family: $heading-font-family; font-style: normal; font-size: 18px; line-height: 1; color: $accent; }
+  &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; border-radius: 4px; }
+}
+.c-book-page__tab {
+  position: absolute;
+  right: -26px;
+  top: 10px;
+  writing-mode: vertical-rl;
+  padding: 10px 6px;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  border: 1px solid $line-strong;
+  border-left: 0;
+  border-radius: 0 6px 6px 0;
+  background: color-mix(in srgb, $ink 6%, $cream);
+  color: $muted;
+  pointer-events: none;
+}
+.c-book-page--main .c-book-page__tab { background: color-mix(in srgb, $accent 16%, $cream); color: $accent-dark; border-color: color-mix(in srgb, $accent 45%, $line-strong); }
+.c-book-page.is-closed {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  .c-book-page__head { flex: 1; padding-bottom: 2px; }
+  .c-book-page__body { display: none; }
+}
+.c-book-page__body .c-chapter-list { padding-top: 2px; }
+
+/* ---------- ⑦ 页底票根 ---------- */
+.c-tk-end {
+  margin: 44px 0 24px;
+  padding: 26px 8px 8px;
+  text-align: center;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, $ink 6%, transparent));
+}
+.c-tk-end__eyebrow {
+  margin: 0 0 14px;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: $accent;
+}
+.c-tk-end__foot {
+  margin: 14px 0 0;
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 13px;
+  a { color: $muted; text-decoration: none; &:hover { color: $accent; } }
+}
+
+/* 票本身永远是该系列自己的四色（它是一件印出来的东西，不跟昼夜翻面）；没配色的系列用暗金兜底 */
+.c-stub-ticket {
+  --tk-bg: #1b2238; --tk-accent: #d4b46a; --tk-text: #ece9e2; --tk-muted: #9a9388;
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: left;
+  color: var(--tk-text);
+  background: color-mix(in srgb, var(--tk-bg), #ffffff 7%);
+  border: 1px solid color-mix(in srgb, var(--tk-text) 22%, transparent);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.7);
+  &.has-note::after { content: none; }           /* 折角由 polaroid-notes 的 .pol-dogear 画 */
+}
+.c-tk-save {
+  position: absolute;
+  right: 12px; top: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px 6px 9px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--tk-accent);
+  color: var(--tk-bg);
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  &:hover { filter: brightness(1.08); }
+  &:focus-visible { outline: 2px solid var(--tk-text); outline-offset: 2px; }
+}
+.c-tk-who {
+  display: grid;
+  gap: 2px;
+  padding: 18px 18px 14px;
+}
+.c-tk-who__e {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tk-muted);
+}
+.c-tk-who__name {
+  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: clamp(30px, 7vw, 42px);
+  line-height: 1.02;
+  letter-spacing: 0.005em;
+  color: var(--tk-accent);
+  margin-top: 4px;
+  text-wrap: balance;
+}
+.c-tk-who__sub {
+  font-family: $heading-font-family;
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--tk-text);
+  opacity: 0.85;
+}
+.c-tk-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  object-position: 50% 30%;
+  object-position: var(--pos, 50% 30%);
+  background: var(--tk-bg);
+}
+.c-tk-perf {
+  background: color-mix(in srgb, var(--tk-bg), #000000 35%);
+  padding: 0 6px;
+}
+.c-tk-perf__holes {
+  display: block;
+  height: 10px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--tk-text) 55%, transparent) 2px, transparent 2.4px) 0 50% / 16px 10px repeat-x;
+}
+.c-tk-perf__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.c-tk-perf__c {
+  height: 50px;
+  display: grid;
+  align-content: end;
+  justify-items: center;
+  padding-bottom: 5px;
+  b, em { color: #ece9e2; mix-blend-mode: difference; line-height: 1.25; }
+  b { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; }
+  em { font-family: $heading-font-family; font-style: italic; font-size: 9px; }
+}
+.c-tk-print {
+  display: grid;
+  gap: 3px;
+  padding: 14px 18px 14px;
+}
+.c-tk-print__name {
+  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--tk-text);
+}
+.c-tk-print__run {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  color: var(--tk-muted);
+}
+.c-tk-stubs {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  border-top: 1px dashed color-mix(in srgb, var(--tk-text) 40%, transparent);
+  /* 撕票线两头的半圆咬口 */
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    background: $cream;
+    border: 1px solid color-mix(in srgb, var(--tk-text) 22%, transparent);
+  }
+  &::before { left: -8px; }
+  &::after { right: -8px; }
+}
+/* ⚠️ 戏服间那格复用了 .au-strip__switch 的 data-* 属性，_extras.scss 里那套胶片按钮样式会一起套上来，
+   所以这里的选择器要带上父级压过它，并把它那套横排小字 / 边框 / 内边距都归零 */
+.c-tk-stubs .c-tk-stub,
+.c-tk-stubs .c-tk-stub.au-strip__switch {
+  display: grid;
+  margin: 0;
+  border-radius: 0;
+  letter-spacing: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  width: auto;
+  min-height: 0;
+  box-shadow: none;
+  justify-items: center;
+  gap: 3px;
+  padding: 14px 6px 15px;
+  border: 0;
+  background: none;
+  color: var(--tk-text);
+  font-family: inherit;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  svg { width: 20px; height: 20px; fill: none; stroke: var(--tk-accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  b { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--tk-text); }
+  em { font-family: $heading-font-family; font-style: italic; font-size: 10.5px; color: var(--tk-muted); letter-spacing: 0.04em; }
+  &:hover { background: color-mix(in srgb, var(--tk-accent) 10%, transparent); color: var(--tk-text); border-color: transparent; }
+  &:focus-visible { outline: 2px solid var(--tk-accent); outline-offset: -3px; }
+  &[hidden] { display: none !important; }
+}
+.c-tk-stubs .c-tk-stub + .c-tk-stub { border-left: 1px dashed color-mix(in srgb, var(--tk-text) 30%, transparent); }
+
+/* 「保存票根」出来的图：一层浮层，图 + 一句话（手机长按存相册，电脑点下载） */
+.c-tk-saved {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px 16px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  img { max-width: min(92vw, 460px); max-height: 72vh; border-radius: 10px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6); }
+  p { margin: 0; color: #ece9e2; font-size: 13.5px; letter-spacing: 0.04em; text-align: center; }
+  .c-tk-saved__row { display: flex; gap: 10px; }
+  a, button {
+    font: inherit; font-size: 13px; letter-spacing: 0.08em; cursor: pointer; text-decoration: none;
+    padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(236, 233, 226, 0.5); color: #ece9e2; background: transparent;
+  }
+  a.is-primary { background: #ece9e2; color: #1b2238; border-color: #ece9e2; }
+}
+
+/* ---------- 手机 ---------- */
+@media (max-width: 720px) {
+  .c-mag-head { padding: 28px 0 14px; }
+  .c-mag-head__title { font-size: clamp(30px, 8.6vw, 40px); }
+  .c-mag-cover {
+    margin: 0 -16px;             /* 出血到 .o-container 的 16px 边 */
+    border-radius: 0;
+  }
+  .c-mag-cover__img { aspect-ratio: 4 / 4.2; object-position: var(--pos-m, 50% 30%); }
+  .c-mag-cover__cap { padding: 110px 16px 18px; }
+  .c-mag-cover__lede { font-size: 17px; }
+  .c-pal-bar, .c-series-tone, .c-series-intro { margin-left: 0; margin-right: 0; }
+  .c-pal-bar__name b { font-size: 11.5px; }
+  .c-pal-bar__name em { font-size: 9.5px; }
+  .c-series-tone { font-size: 14.5px; }
+  .c-folder-tabs__tab { padding: 8px 12px 7px; font-size: 13px; }
+  .c-folder-tabs__sheet { padding: 14px 14px 4px; }
+  .c-book-page { padding: 8px 8px 6px; }
+  .c-book-page.has-tab { margin-right: 24px; }
+  .c-book-page__tab { right: -24px; font-size: 11px; padding: 9px 5px; }
+  .c-tk-end { margin: 36px -16px 18px; padding: 22px 16px 8px; }
+  .c-tk-who { padding: 16px 14px 12px; }
+  .c-tk-print { padding: 12px 14px; }
+  .c-tk-perf__c { height: 44px; }
+  .c-tk-perf__c b { font-size: 10px; }
+  .c-tk-perf__c em { font-size: 8px; }
+  .c-tk-save { right: 10px; top: 10px; font-size: 11px; padding: 5px 10px 5px 8px; }
+  .c-tk-print__run { font-size: 9.5px; letter-spacing: 0.06em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .c-pal-bar__name em { font-size: 9px; }
+}

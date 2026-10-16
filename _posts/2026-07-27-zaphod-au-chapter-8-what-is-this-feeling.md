@@ -4,14 +4,14 @@ title: "Chapter 8 · 那是什么感觉 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:42:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 8
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 8"
 summary: "有人对你感兴趣，他浑身不得劲，一把把你掳走宣示主权——他头一回吃醋。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 炽恋, 暗涌]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 炽恋, 暗涌]
 redirect_from:
   - /2026/09/10/zaphod-au-chapter-8-what-is-this-feeling/
 ---

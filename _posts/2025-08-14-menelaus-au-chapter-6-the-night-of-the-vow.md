@@ -4,13 +4,13 @@ title: "Chapter 6 · The Night of the Vow — If You'll Have Me"
 categories: ["AU Story"]
 date: 2025-08-14
 image: menelaus-au.svg
-series: "Menelaus AU"
+series: "If You'll Have Me"
 series_title: "If You'll Have Me · Menelaus AU"
 series_order: 6
 series_type: "Series"
 chapter_type: "Chapter 6"
 summary: "婚礼结束当夜，他站在寝宫门外转了十圈，进门就一头撞上了床柱。"
-tags: [Menelaus, BayBay, AU, Menelaus AU, 悸动, 絮语]
+tags: [Menelaus, BayBay, AU, "If You'll Have Me", 悸动, 絮语]
 ---
 
 💍🌙《The Night of the Vow》

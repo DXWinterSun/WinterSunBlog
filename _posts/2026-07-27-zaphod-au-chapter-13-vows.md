@@ -4,14 +4,14 @@ title: "Chapter 13 · 誓词 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:47:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 13
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 13"
 summary: "你把誓词念给他听，念到最要紧那句，他却又睡着了。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 缱绻, 絮语]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 缱绻, 絮语]
 redirect_from:
   - /2026/09/15/zaphod-au-chapter-13-vows/
 ---

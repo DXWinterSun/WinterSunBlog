@@ -4,14 +4,14 @@ title: "Chapter 6 · 偏爱 — Don't Panic, Baby Doll"
 categories: ["AU Story"]
 date: 2026-07-27 14:40:59 +0800
 image: zaphod-au.jpg
-series: "Zaphod AU"
+series: "Don't Panic, Baby Doll"
 series_title: "Don't Panic, Baby Doll · Zaphod Beeblebrox AU"
 series_order: 6
 series_status: ongoing
 series_type: Series
 chapter_type: "Chapter 6"
 summary: "有人踩着你耀武扬威，他头一回、用最银河系的方式，把人扔进了太空。"
-tags: [Zaphod Beeblebrox, Sam Rockwell, AU, Zaphod AU, 暗涌, 悸动]
+tags: [Zaphod Beeblebrox, Sam Rockwell, AU, "Don't Panic, Baby Doll", 暗涌, 悸动]
 redirect_from:
   - /2026/09/08/zaphod-au-chapter-6-favoritism/
 ---

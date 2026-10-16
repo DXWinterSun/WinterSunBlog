@@ -1,0 +1,47 @@
+{%- comment -%}
+  🎒 冬的口袋（2026-10-14 Winter 挑的「口袋装满、分三个内袋」方案）：站里全部 22 个去处，一个不落，
+  分三个内袋——📖 翻一翻 / 🎲 玩一玩 / 📓 记一记。名字照她定的「两个字」规矩（「波语」是她 10-14 选的，别改回「错题」）。
+  两处共用这一份：门厅（_includes/lobby.html）和「关于我」页的「冬的地图」（_pages/about/index.html，同日她选的「地图合一」），
+  以后站里新开一个去处，只在这里加一行。五个大格子（Home / Winter's / AU / Sam / Desk）和「一封信」不进口袋（一封信只有放映室那一个入口）。
+  三个内袋各带一点颜色（她点的「口袋随心情上色」）：样式在 _sass/5-components/_lobby.scss 的 .c-pocket，
+  颜色用 color-mix 从当前主题色调出来，所以「换个心情」换什么颜色，口袋就跟着什么颜色。
+{%- endcomment -%}
+<nav class="c-pocket" aria-label="冬的口袋">
+  <div class="c-pocket__bag c-pocket__bag--read">
+    <h3 class="c-pocket__name"><i aria-hidden="true">📖</i>翻一翻</h3>
+    <div class="c-pocket__tiles">
+      <a href="{{ site.baseurl }}/archive/"><i aria-hidden="true">🗓️</i>日历</a>
+      <a href="{{ site.baseurl }}/?view=gallery"><i aria-hidden="true">🖼️</i>画廊</a>
+      <a href="{{ site.baseurl }}/sam/many-faces/"><i aria-hidden="true">🎭</i>画册</a>
+      <a href="{{ site.baseurl }}/sky/"><i aria-hidden="true">✨</i>星图</a>
+      <a href="{{ site.baseurl }}/fog-city/playbill/"><i aria-hidden="true">🎟️</i>节目</a>
+      <a href="{{ site.baseurl }}/sam/palettes/"><i aria-hidden="true">🎨</i>配色</a>
+      <a href="{{ site.baseurl }}/sam/shelf/"><i aria-hidden="true">📀</i>藏品</a>
+    </div>
+  </div>
+  <div class="c-pocket__bag c-pocket__bag--play">
+    <h3 class="c-pocket__name"><i aria-hidden="true">🎲</i>玩一玩</h3>
+    <div class="c-pocket__tiles">
+      <a href="{{ site.baseurl }}/songs/"><i aria-hidden="true">🎧</i>歌单</a>
+      <a href="{{ site.baseurl }}/jukebox/"><i aria-hidden="true">📼</i>磁带</a>
+      <a href="{{ site.baseurl }}/sam/today/"><i aria-hidden="true">☀️</i>语录</a>
+      <a href="{{ site.baseurl }}/sam/wall/"><i aria-hidden="true">🖋️</i>台词</a>
+      <a href="{{ site.baseurl }}/sam/hotline/"><i aria-hidden="true">☎️</i>热线</a>
+      <a href="{{ site.baseurl }}/sam/arcade/"><i aria-hidden="true">🕹️</i>街机</a>
+      <a href="{{ site.baseurl }}/sam/quiz/"><i aria-hidden="true">🎯</i>测验</a>
+      <a href="{{ site.baseurl }}/sam/spectrum/"><i aria-hidden="true">🌈</i>光谱</a>
+      <a href="{{ site.baseurl }}/sam/projector/"><i aria-hidden="true">🎞️</i>放映</a>
+    </div>
+  </div>
+  <div class="c-pocket__bag c-pocket__bag--note">
+    <h3 class="c-pocket__name"><i aria-hidden="true">📓</i>记一记</h3>
+    <div class="c-pocket__tiles">
+      <a href="{{ site.baseurl }}/memo/"><i aria-hidden="true">💡</i>灵感</a>
+      <a href="{{ site.baseurl }}/notes/backs/"><i aria-hidden="true">↩️</i>背面</a>
+      <a href="{{ site.baseurl }}/with-you/"><i aria-hidden="true">🔒</i>陪伴</a>
+      <a href="{{ site.baseurl }}/polish/"><i aria-hidden="true">🇵🇱</i>波语</a>
+      <a href="{{ site.baseurl }}/polski.html"><i aria-hidden="true">🔤</i>变格</a>
+      <a href="{{ site.baseurl }}/reading/"><i aria-hidden="true">📚</i>原著</a>
+    </div>
+  </div>
+</nav>

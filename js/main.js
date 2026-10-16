@@ -71,7 +71,10 @@ $(document).ready(function () {
 
   (function readingMemory() {
     var KEY = 'wiw-read';
-    function loadAll() { try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; } }
+    // 2026-10-15 五个系列的内部键改成了故事名，老记录搬到新键下（只搬一次，旧键删掉）
+    var RENAMED = {'Slow Hands':'Just Go Ahead Now','Zaphod AU':"Don't Panic, Baby Doll",'Knox AU':'Simon Says','Alexios AU':'The Only War','Menelaus AU':"If You'll Have Me"};
+    function migrate(all) { var k; for (k in RENAMED) { if (all[k] && !all[RENAMED[k]]) all[RENAMED[k]] = all[k]; if (all[k]) delete all[k]; } return all; }
+    function loadAll() { try { return migrate(JSON.parse(localStorage.getItem(KEY) || '{}') || {}); } catch (e) { return {}; } }
     function saveAll(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) { /* ignore */ } }
     function norm(p) { return (p || '').replace(/index\.html$/, '').replace(/\/+$/, '') + '/'; }
     function chapterNo(label) {

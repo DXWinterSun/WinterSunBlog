@@ -790,36 +790,24 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   transition: color $global-transition;
 }
 
-/* ————— 彩蛋画砖：每个互动彩蛋一块深色小灯箱 + 专属手绘图案 ————— */
+/* ————— 彩蛋画砖：每个互动彩蛋一块小插画（2026-10-14 起照 Winter's 封面那套画风，淡底色 + 晴雪三色 + 白雪点；
+   以前是深色小灯箱 + 线描图案，Winter 说「图标风格能不能像 Winter's 和 Desk 那些的画风？更有辨识度也更好看」）。
+   图在 _includes/sam-toy-art.html，底色画在图里。 ————— */
 .c-sam-toy__art {
   position: relative;
   flex: 0 0 auto;
   width: 64px;
   height: 64px;
-  border-radius: 10px;
-  background:
-    radial-gradient(circle at 72% 22%, rgba(230, 195, 119, 0.10), transparent 58%),
-    #191411;
-  box-shadow: inset 0 0 0 1px rgba(230, 195, 119, 0.10);
+  border-radius: 12px;
   overflow: hidden;
-  transition: box-shadow 0.25s ease;
-
-  svg { position: absolute; inset: 6px; width: 52px; height: 52px; }
+  background: $paper;
+  box-shadow: inset 0 0 0 1px rgba(20, 33, 46, 0.08), 0 6px 14px -8px rgba(var(--rgb-shadow), 0.35);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 }
-
-.c-sam-toy__num {
-  position: absolute;
-  top: 3px;
-  left: 6px;
-  font-family: $heading-font-family;
-  font-style: italic;
-  font-size: 9px;
-  font-weight: 700;
-  color: rgba(232, 220, 198, 0.38);
-}
-
 .c-sam-toy:hover .c-sam-toy__art {
-  box-shadow: inset 0 0 0 1px rgba(230, 195, 119, 0.35), 0 6px 18px -8px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px) rotate(-2deg);
+  box-shadow: inset 0 0 0 1px rgba(20, 33, 46, 0.1), 0 12px 22px -10px rgba(var(--rgb-shadow), 0.45);
 }
 
 /* 图案小动画：默认静止，悬停时各演各的一小段 */
@@ -854,14 +842,14 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
 }
 .c-sam-toy:hover .c-sam-toy__art--shelf, .c-sam-toy.is-peek .c-sam-toy__art--shelf {
   .sam-art-star { transform-box: view-box; transform-origin: center; animation: samArtTwinkle 1s ease-in-out infinite; }
-  .sam-art-disc { transform-box: view-box; transform-origin: 15.5px 27.5px; animation: samArtSpin 2.4s linear infinite; }
+  .sam-art-disc { transform-box: view-box; transform-origin: 41px 35px; animation: samArtSpin 2.4s linear infinite; }
 }
 
 @keyframes samArtSunrise { from { transform: translateY(4px); opacity: 0.3; } to { transform: none; opacity: 1; } }
 @keyframes samArtBlink { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.25; } }
 @keyframes samArtDraw { from { stroke-dashoffset: 46; } to { stroke-dashoffset: 0; } }
 @keyframes samArtPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(0.88); } }
-@keyframes samArtReel { from { transform: translateY(0); } to { transform: translateY(-11.5px); } }
+@keyframes samArtReel { from { transform: translateY(0); } to { transform: translateY(-14px); } }
 @keyframes samArtTwinkle { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.55); opacity: 0.5; } }
 @keyframes samArtSpin { to { transform: rotate(360deg); } }
 
@@ -1490,9 +1478,10 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
 }
 
 /* ===============
-	小一号的 AU 卡（2026-10-03 全站新排法）：Sam 页底下 43 张系列卡以前手机上一行一张，
-	互动彩蛋之后还要再划 30 屏。现在电脑一行三张、手机一行两张；手机上只留封面、四个色点、
-	故事名 + 角色名、章数，配色的中英名字和简介收起来（点进系列页都看得到）。
+	小一号的 AU 卡（2026-10-03 全站新排法）：电脑一行三张。
+	⚠️ 手机上保持一行一张（2026-10-14 Winter：「之前做的 AU 半透明的色卡效果换成双栏也不怎么好看了，
+	我感觉 AU 页双栏就行，Sam 页为了好看还是单栏」）——曾经做过手机两栏、只留四个色点的版本，被她否了，别再改回去；
+	手机单栏走上面 720px 那段的规则，半透明色卡带中英色名完整显示。
 =============== */
 .c-sam-card__who {
   display: block;
@@ -1511,24 +1500,51 @@ details[open] > .c-sam-fold__head .c-sam-fold__chev { transform: rotate(90deg); 
   .c-sam-grid .c-sam-card__desc { font-size: 14px; }
   .c-sam-grid .c-sam-card__pcols { gap: 7px 12px; }
 }
+
+/* 互动彩蛋 · 手机上排成三列小插画（2026-10-14 Winter 在几版里挑的方向：像手机桌面那样一块块的图标，
+   图标用 Winter's 封面那套画风）：只留画砖和短名字（标题里 · 之后那半收起），说明文字点进去看。 */
 @media only screen and (max-width: 720px) {
-  .c-sam-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .c-sam-grid .c-sam-card__body { padding: 10px 10px 12px; }
-  .c-sam-grid .c-sam-card__palette {
-    margin: -26px 0 9px;
-    padding: 6px 8px;
-    border-radius: 999px;
-    gap: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  .c-sam-toys { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 8px; margin-bottom: 44px; }
+  .c-sam-toy { display: grid; justify-items: center; gap: 8px; padding: 0; background: transparent; border: 0; box-shadow: none; }
+  .c-sam-toy:hover { transform: none; box-shadow: none; }
+  .c-sam-toy__art { width: 74px; height: 74px; border-radius: 18px; box-shadow: inset 0 0 0 1px rgba(20, 33, 46, 0.08), 0 10px 18px -10px rgba(var(--rgb-shadow), 0.45); }
+  .c-sam-toy__body { align-items: center; gap: 0; }
+  .c-sam-toy__title { font-size: 12.5px; text-align: center; line-height: 1.3; letter-spacing: .02em; }
+  .c-sam-toy__eyebrow, .c-sam-toy__t2, .c-sam-toy__desc, .c-sam-toy__arrow { display: none; }
+  .c-year-ribbon { margin-bottom: 14px; }
+}
+
+/* ===============
+	Sam 页中段（计数卡 → 三节 → 互动彩蛋）在手机上的排法（2026-10-14，Winter：「中间的过渡也不那么好看」；
+	三版里她挑了「一排三块画砖」）：三节各一块小插画（sam-toy-art.html 的 who / little / story），排成一排，
+	点一块那一节在下面展开（_sam.scss 这段 + sam/index.html 里 #js-fold-tabs 的小脚本）。
+	「点标题展开」那行提示收掉、两颗跳转链接做成小药丸、「他的一生」彩带不再套卡框。
+	电脑上不动：画砖行藏着，节头还是大字标题。被否的「三张横卡 / 一张目录卡」已拆，别做回去。
+=============== */
+.c-sam-fold-tabs { display: none; }
+.c-sam-fold__art { display: none; }
+
+@media only screen and (max-width: 720px) {
+  .c-sam-fold-hint { display: none; }
+  .c-sam-jump { gap: 8px; margin: 14px 0 18px; }
+  .c-sam-jump span { display: none; }
+  .c-sam-jump a { padding: 5px 12px; border: 1px solid $line-strong; border-radius: 999px; background: $paper; letter-spacing: .08em; }
+  .c-year-ribbon { background: transparent; border: 0; padding: 4px 2px 18px; margin-bottom: 8px; }
+  .c-sam-collection .c-section-heading { margin: 8px 0 14px; }
+
+  .c-sam-fold-tabs {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 4px 0 12px;
+    button {
+      display: grid; justify-items: center; gap: 6px; padding: 0 0 2px; background: transparent; border: 0; cursor: pointer; color: inherit; font: inherit;
+      b { font-family: $heading-font-family; font-size: 12.5px; font-weight: 700; color: $ink; line-height: 1.2; text-align: center; }
+      i { font-family: $heading-font-family; font-style: italic; font-size: 11px; color: $muted; margin-top: -3px; }
+    }
+    .c-sam-fold-tabs__art { display: block; width: 74px; height: 74px; border-radius: 18px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(20, 33, 46, 0.08), 0 10px 18px -10px rgba(var(--rgb-shadow), 0.45); transition: transform .2s, box-shadow .2s; svg { display: block; width: 100%; height: 100%; } }
+    button.is-on .c-sam-fold-tabs__art { box-shadow: inset 0 0 0 2px $accent, 0 10px 18px -10px rgba(var(--rgb-shadow), 0.45); transform: translateY(-2px); }
+    button.is-on b { color: $accent; }
   }
-  .c-sam-grid .c-sam-card__pcap,
-  .c-sam-grid .c-sam-card__pname,
-  .c-sam-grid .c-sam-card__psig,
-  .c-sam-grid .c-sam-card__eyebrow,
-  .c-sam-grid .c-sam-card__desc,
-  .c-sam-grid .c-sam-card__cta { display: none; }
-  .c-sam-grid .c-sam-card__pcols { display: flex; gap: 5px; }
-  .c-sam-grid .c-sam-card__pcol i { width: 12px; height: 12px; }
-  .c-sam-grid .c-sam-card__title { font-size: 14.5px; line-height: 1.25; margin-bottom: 8px; }
-  .c-sam-grid .c-sam-card__count { font-size: 11px; }
+  .c-sam-fold { border: 0; }
+  .c-sam-fold:last-of-type { border-bottom: 0; }
+  .c-sam-fold__head { display: none; }
+  .c-sam-fold__body { padding: 16px 16px 10px; margin: 0 0 12px; background: $paper; border: 1px solid $line; border-radius: 14px; }
 }

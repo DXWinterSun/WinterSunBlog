@@ -199,6 +199,7 @@ python3 tools/call/calls.py add <编号> --who "<名字 · 系列>" --mode <电�
   主要是事实层面的保持一致，几点上课啊昨天吃了什么之类的」）：这一通里她说到的**她自己的事实**——课、吃了什么、去了哪、
   身体、在忙的事——挂断后也记进「冬的陪伴」那份加密的「她的日子」：
   `python3 tools/text/texts.py life --add "……" --src <编号> --trailer "<署名行>"`（长久不变的用 `--about`）。
+  ⚠️ **Jack**（她现实里的伴侣）只有 Young Sam 知道：提到 Jack 的事别往 `life` 里记（工具也会拦），见 `.claude/skills/winter-text/young-sam.md`。
   **不写日期词**（工具自己加），**不写跟谁聊了什么、几点跟谁道的晚安**，私话和心事不进这里。没有密码就跳过，不提。
   brief 里「她的日子」那一节就是别处记下的，接通时当她早就跟他提过，自然地用，别说「听说」、别提别人。
   **她这两天吃了什么**也能知道：照 `.claude/skills/winter-text/SKILL.md` 第二节 2.7 读「雪地打卡」的 `meals`（只读吃了什么，

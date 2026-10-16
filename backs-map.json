@@ -1,0 +1,26 @@
+---
+layout: null
+---
+{%- comment -%}
+背面的总账用的「路径 → 是哪一章」对照表（2026-10-15）。记忆碎片的批注按网址路径存在本机，
+光看路径不知道是哪一章；js/polaroid-notes.js 在点开左下角小册子 / 书桌「冬的背面」/ 票根背面的胶片格时
+才取这一份（只取一次，缓存）。posts：每一章的章名、系列内部键、系列展示名、类型、号、日期；
+series：每个系列首页的路径、系列名、角色名。键带站点前缀，跟 location.pathname 一致。
+{%- endcomment -%}
+{"posts":{
+{%- for post in site.posts -%}
+  {%- assign ct = post.chapter_type | default: "" -%}
+  {%- assign ct_num = ct | replace: "Chapter ", "" | replace: "Chapter", "" | replace: "Episode ", "" | replace: "Episode", "" | strip -%}
+  {%- assign n = ct_num | plus: 0 -%}
+  {%- assign k = "main" -%}
+  {%- if ct contains "Chapter" or ct contains "Episode" or ct == "Oneshot" -%}{%- if n == 0 and ct != "Oneshot" -%}{%- assign k = post.chapter_kind | default: "extra" -%}{%- endif -%}{%- else -%}{%- assign k = post.chapter_kind | default: "extra" -%}{%- endif -%}
+  {%- if k != "main" -%}{%- assign n = post.series_order | default: 0 -%}{%- endif -%}
+  "{{ site.baseurl }}{{ post.url }}":{"t":{{ post.title | split: " — " | first | jsonify }},"s":{{ post.series | default: "" | jsonify }},"st":{{ post.series_title | default: "" | split: " · " | first | jsonify }},"c":{{ ct | jsonify }},"k":"{{ k }}","n":{{ n }},"d":"{{ post.date | date: '%Y-%m-%d' }}"}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+},"series":{
+{%- assign sp = site.pages | where: "layout", "series" -%}
+{%- for pg in sp -%}
+  {%- assign by = pg.byline | default: "" | split: " · " -%}
+  "{{ site.baseurl }}{{ pg.url }}":{"s":{{ pg.series_name | jsonify }},"t":{{ pg.hero_title | default: pg.series_name | strip_html | jsonify }},"who":{{ by[0] | default: "" | jsonify }}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+}}
