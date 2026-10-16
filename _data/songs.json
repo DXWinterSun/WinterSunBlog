@@ -10,6 +10,32 @@
   ],
   "albums": [
     {
+      "id": "co-powiemy-naszym-dzieciom",
+      "album": "Co powiemy naszym dzieciom",
+      "artist": "Seweryn Krajewski",
+      "year": 2026,
+      "single": true,
+      "cover": "co-powiemy-naszym-dzieciom.jpg",
+      "color": "#4c46b0",
+      "label": "#e9e6f7",
+      "songs": [
+        {
+          "id": "co-powiemy-naszym-dzieciom",
+          "title": "Co powiemy naszym dzieciom",
+          "items": [
+            {
+              "kind": "lines",
+              "note": "单曲 2026-10-07 发行，是他 9 月那张《Nowy dom》之后单独放出来的一首。2026-10-16 她在 YouTube Music 上听到：「这首好好听……感觉好温暖」。歌词还没公开，等有了再补整首的翻译。",
+              "date": "2026-10-16",
+              "lines": [
+                ["Co powiemy naszym dzieciom", "我们会对我们的孩子说什么"]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "a-boy-named-goo",
       "album": "A Boy Named Goo",
       "artist": "Goo Goo Dolls",
