@@ -139,6 +139,7 @@ notes:
   - id: "001"
     stuck: 分不清该用哪个格
     date: 2026-10-01
+    asked: [2026-10-16]
     source: 多邻国
     point: noun.gen
     also: [noun.plural]
@@ -182,6 +183,9 @@ notes:
       - {pl: filiżanka, zh: 带把的小瓷杯, tag: 阴}
       - {pl: kubek, zh: 马克杯, tag: 阳}
       - {pl: ulica, zh: 街, tag: 阴}
+    qa:
+      - q: 生格是什么呀🤣
+        a: "波兰语的名词会换词尾：同一个词在句子里干不同的活，就换一个样子，一共七种，就叫七个格。中文靠“的、没有、到、给”这些小词来说关系，波兰语把这些关系直接做在词尾上。生格是其中一种，名字别管它，记它干的三样活就行：**……的**（szklanka ==wody== 一杯水）、**没有……**（Nie piję ==kawy==. 我不喝咖啡）、**跟在 do、od、bez、dla、podczas 这些介词后面**（podczas ==obiadu== 吃午饭时）。长相：-a 结尾的阴性换成 -y 或 -i（kawa → kawy），阳性加 -u 或 -a（obiad → obiadu，人和动物多半加 -a），-o 结尾的中性换成 -a（wino → wina）。"
 
   - id: "002"
     stuck: l 和 r 听不出区别
