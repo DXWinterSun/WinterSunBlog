@@ -14,7 +14,7 @@
 import json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-CASES = {'Nominative': '主格', 'Genitive': '生格', 'Dative': '与格', 'Accusative': '宾格',
+CASES = {'Nominative': '主格', 'Genitive': '属格', 'Dative': '与格', 'Accusative': '宾格',
          'Instrumental': '工具格', 'Locative': '方位格', 'Vocative': '呼格'}
 TITLES = {'Declension': '变格', 'Present': '现在时', 'Past': '过去时', 'Future': '将来时', 'Imperative': '命令式'}
 

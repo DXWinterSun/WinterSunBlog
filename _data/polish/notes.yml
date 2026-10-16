@@ -38,7 +38,7 @@ areas:
       - {key: gender, name: 名词的性,           hint: "阳性、阴性、中性怎么看"}
       - {key: plural, name: 复数,               hint: "含男性人称复数"}
       - {key: nom,    name: 主格（第一格）,     hint: "mianownik · 谁、什么"}
-      - {key: gen,    name: 生格（第二格）,     hint: "dopełniacz · 也叫属格 · 谁的、没有什么、一碗什么"}
+      - {key: gen,    name: 属格（第二格）,     hint: "dopełniacz · 也叫生格 · 谁的、没有什么、一碗什么"}
       - {key: dat,    name: 与格（第三格）,     hint: "celownik · 给谁"}
       - {key: acc,    name: 宾格（第四格）,     hint: "biernik · 看见谁、要什么"}
       - {key: ins,    name: 工具格（第五格）,   hint: "narzędnik · 跟谁、用什么、是什么"}
@@ -143,18 +143,18 @@ notes:
     source: 多邻国
     point: noun.gen
     also: [noun.plural]
-    title: 碗、杯、瓶后面的东西，用生格
+    title: 碗、杯、瓶后面的东西，用属格
     pl: "Duża miska ==wody==."
     zh: 一大碗水。
     mine: "==wode=="
     right: ["Duża miska ==wody==."]
     why: |
-      “一碗什么”“一杯什么”，后面那样东西要用生格（也叫属格），相当于英语的 of：一大碗的水。woda 的生格是 wody。
-      你写的 wodę 是宾格，那是“喝水、买水、拿水”时用的：Piję wodę.（我喝水。）同一个“水”：被动作直接拿去用，是宾格 wodę；前面有碗、杯、瓶、一点儿，是生格 wody。
+      “一碗什么”“一杯什么”，后面那样东西要用属格（也叫生格），相当于英语的 of：一大碗的水。woda 的属格是 wody。
+      你写的 wodę 是宾格，那是“喝水、买水、拿水”时用的：Piję wodę.（我喝水。）同一个“水”：被动作直接拿去用，是宾格 wodę；前面有碗、杯、瓶、一点儿，是属格 wody。
       听力上还有个坑：词尾的 ę 平时说话基本念成 e，所以 wodę 听着像 wode，跟 wody 只差最后一个音。
-      再多记一层：wody 也可能是“好几份水”。以 -a 结尾、词干是硬辅音的阴性名词，单数生格和复数主格长得一模一样，只能看上下文：filiżanka kawy 一杯咖啡，是单数生格；dwie kawy 两杯咖啡，是复数。不是所有阴性名词都这样，比如 ulica（街）就分开：单数生格 ulicy，复数 ulice。
+      再多记一层：wody 也可能是“好几份水”。以 -a 结尾、词干是硬辅音的阴性名词，单数属格和复数主格长得一模一样，只能看上下文：filiżanka kawy 一杯咖啡，是单数属格；dwie kawy 两杯咖啡，是复数。不是所有阴性名词都这样，比如 ulica（街）就分开：单数属格 ulicy，复数 ulice。
     rule:
-      - 前面有“一碗、一杯、一瓶、一点儿”，后面就用生格。
+      - 前面有“一碗、一杯、一瓶、一点儿”，后面就用属格。
       - 看见 wody 先看前面：有量词是“水的”，有数字是“好几份”。
     table:
       - head: ["", "原形", "一杯……"]
@@ -162,7 +162,7 @@ notes:
           - ["水", "woda", "szklanka ==wody=="]
           - ["咖啡", "kawa", "filiżanka ==kawy=="]
           - ["茶", "herbata", "kubek ==herbaty=="]
-      - head: ["", "单数生格", "复数主格", "复数生格"]
+      - head: ["", "单数属格", "复数主格", "复数属格"]
         rows:
           - ["水", "wody", "wody", "wód"]
           - ["咖啡", "kawy", "kawy", "kaw"]
@@ -170,10 +170,10 @@ notes:
           - ["街", "ulicy", "==ulice==", "ulic"]
     extra:
       - "**三种杯子**szklanka 是玻璃杯，filiżanka 是带把的小瓷杯，kubek 是马克杯。"
-      - "**k、g 后面写 i**波兰语里 k、g 后面不写 y、改写 i，所以 miska 的单数生格和复数都是 miski。"
+      - "**k、g 后面写 i**波兰语里 k、g 后面不写 y、改写 i，所以 miska 的单数属格和复数都是 miski。"
     examples:
       - {pl: "Piję ==wodę==.", zh: 我喝水。（宾格）}
-      - {pl: "Szklanka ==wody==, proszę.", zh: 请给我一杯水。（生格）}
+      - {pl: "Szklanka ==wody==, proszę.", zh: 请给我一杯水。（属格）}
       - {pl: "Dwie ==kawy==, proszę.", zh: 请来两杯咖啡。（复数）}
     words:
       - {pl: miska, zh: 碗, tag: 阴}
@@ -185,9 +185,9 @@ notes:
       - {pl: ulica, zh: 街, tag: 阴}
     qa:
       - q: 生格是什么呀🤣
-        a: "波兰语的名词会换词尾：同一个词在句子里干不同的活，就换一个样子，一共七种，就叫七个格。中文靠“的、没有、到、给”这些小词来说关系，波兰语把这些关系直接做在词尾上。生格是其中一种，名字别管它，记它干的三样活就行：**……的**（szklanka ==wody== 一杯水）、**没有……**（Nie piję ==kawy==. 我不喝咖啡）、**跟在 do、od、bez、dla、podczas 这些介词后面**（podczas ==obiadu== 吃午饭时）。长相：-a 结尾的阴性换成 -y 或 -i（kawa → kawy），阳性加 -u 或 -a（obiad → obiadu，人和动物多半加 -a），-o 结尾的中性换成 -a（wino → wina）。"
+        a: "波兰语的名词会换词尾：同一个词在句子里干不同的活，就换一个样子，一共七种，就叫七个格。中文靠“的、没有、到、给”这些小词来说关系，波兰语把这些关系直接做在词尾上。属格是其中一种，名字别管它，记它干的三样活就行：**……的**（szklanka ==wody== 一杯水）、**没有……**（Nie piję ==kawy==. 我不喝咖啡）、**跟在 do、od、bez、dla、podczas 这些介词后面**（podczas ==obiadu== 吃午饭时）。长相：-a 结尾的阴性换成 -y 或 -i（kawa → kawy），阳性加 -u 或 -a（obiad → obiadu，人和动物多半加 -a），-o 结尾的中性换成 -a（wino → wina）。"
       - q: 你之前给我讲的“主属与宾工位呼”，生格是哪个？
-        a: "就是那个“属”。属格和生格是同一个格的两个叫法，都是第二格（波兰语叫 dopełniacz）。口诀七个字对着笔记里的名字：主格 · **属格＝生格** · 与格 · 宾格 · 工具格 · **位格＝方位格** · 呼格。"
+        a: "就是那个“属”。生格和属格是同一个格的两个叫法，都是第二格（波兰语叫 dopełniacz）。口诀七个字对着笔记里的名字：主格 · **属格＝生格** · 与格 · 宾格 · 工具格 · **位格＝方位格** · 呼格。"
 
   - id: "002"
     stuck: l 和 r 听不出区别
@@ -209,7 +209,7 @@ notes:
       - 听着“脆”、像舌尖轻轻碰了一下的是 r；平平滑过去的是 l。
       - 听见词尾是清音，写下来可能是浊音字母。
     extra:
-      - "**为什么是 okularów**okulary（眼镜）只有复数。肯定句用宾格：Nosisz okulary.（你戴眼镜。）一加 nie，宾语换成生格：Nie nosisz okularów. 跟第 4 条一个道理。"
+      - "**为什么是 okularów**okulary（眼镜）只有复数。肯定句用宾格：Nosisz okulary.（你戴眼镜。）一加 nie，宾语换成属格：Nie nosisz okularów. 跟第 4 条一个道理。"
     words:
       - {pl: okulary, zh: 眼镜, tag: 只有复数}
       - {pl: nosić, zh: 穿、戴（经常穿戴）, tag: 未完成体}
@@ -246,26 +246,26 @@ notes:
     source: 多邻国
     point: syntax.neg
     also: [noun.gen]
-    title: 否定句里，宾语要从宾格换成生格
+    title: 否定句里，宾语要从宾格换成属格
     pl: "Oni nie sprzedają ==gąbek==."
     en: "They don't sell sponges."
     zh: 他们不卖海绵。
     mine: "==gąbka=="
     right: ["Oni nie sprzedają ==gąbek==."]
     why: |
-      这题是两件事叠在一起。第一件：一加 nie，本来该用宾格的宾语就要换成生格。第二件：题面英语是复数 sponges，所以要用复数的生格。
-      变化路线：gąbka（一块海绵，原形）→ Sprzedają gąbki.（他们卖海绵，复数宾格）→ Nie sprzedają gąbek.（他们不卖海绵，复数生格）。
-      gąbek 是怎么来的：以 -a 结尾的阴性名词，复数生格是把词尾的 -a 去掉（woda → wód，kawa → kaw）。gąbka 去掉 -a 剩下 gąbk，结尾两个辅音挤在一起念不顺，中间就冒出一个 e：gąbek。这个 e 不是硬塞的：古代斯拉夫语里这个位置本来就有一个很弱的元音，在别的形式里都消失了，只在复数生格这种位置上留了下来。
+      这题是两件事叠在一起。第一件：一加 nie，本来该用宾格的宾语就要换成属格。第二件：题面英语是复数 sponges，所以要用复数的属格。
+      变化路线：gąbka（一块海绵，原形）→ Sprzedają gąbki.（他们卖海绵，复数宾格）→ Nie sprzedają gąbek.（他们不卖海绵，复数属格）。
+      gąbek 是怎么来的：以 -a 结尾的阴性名词，复数属格是把词尾的 -a 去掉（woda → wód，kawa → kaw）。gąbka 去掉 -a 剩下 gąbk，结尾两个辅音挤在一起念不顺，中间就冒出一个 e：gąbek。这个 e 不是硬塞的：古代斯拉夫语里这个位置本来就有一个很弱的元音，在别的形式里都消失了，只在复数属格这种位置上留了下来。
     rule:
-      - 有 nie，宾语就从宾格换成生格。
-      - -ka 结尾的阴性名词，复数生格基本都是 -ek。
+      - 有 nie，宾语就从宾格换成属格。
+      - -ka 结尾的阴性名词，复数属格基本都是 -ek。
     table:
-      - head: ["", "肯定 · 宾格", "否定 · 生格"]
+      - head: ["", "肯定 · 宾格", "否定 · 属格"]
         rows:
           - ["眼镜", "Nosisz ==okulary==.", "Nie nosisz ==okularów==."]
           - ["海绵（复数）", "Sprzedają ==gąbki==.", "Nie sprzedają ==gąbek==."]
           - ["水", "Piję ==wodę==.", "Nie piję ==wody==."]
-      - head: ["", "原形", "复数生格"]
+      - head: ["", "原形", "复数属格"]
         rows:
           - ["海绵", "gąbka", "==gąbek=="]
           - ["勺子", "łyżka", "==łyżek=="]
@@ -285,14 +285,14 @@ notes:
     date: 2026-10-01
     source: 多邻国
     point: noun.gen
-    title: potrzebować（需要）后面天生用生格
+    title: potrzebować（需要）后面天生用属格
     ask: 为什么是 wody，不是 wodę？
     pl: "Potrzebujesz ==gąbki== i ==wody==."
     zh: 你需要一块海绵和水。
     why: |
-      有些动词天生就要生格，不管肯定还是否定。potrzebować（需要）就是一个，所以 gąbki 和 wody 都是生格。
-      gąbki 在这里是单数生格（题面是一块海绵），只是刚好跟复数长得一样，见第 1 条。
-    rule: 需要、寻找、听、使用、学、害怕——这几个动词后面直接用生格。
+      有些动词天生就要属格，不管肯定还是否定。potrzebować（需要）就是一个，所以 gąbki 和 wody 都是属格。
+      gąbki 在这里是单数属格（题面是一块海绵），只是刚好跟复数长得一样，见第 1 条。
+    rule: 需要、寻找、听、使用、学、害怕——这几个动词后面直接用属格。
     table:
       head: ["", "动词", "例子"]
       rows:
@@ -335,7 +335,7 @@ notes:
         - ["主格", "nowy", "nowa", "==nowe==", "==nowe==", "nowi"]
     extra:
       - "**补一句**nowe 还管中性单数：nowe okno（新窗户）、nowe mieszkanie（新公寓）。所以听到 nowe 不一定是复数，要看后面的名词。"
-      - "**do zębów**do 后面一律用生格：ząb（牙）→ zębów。szczoteczka 是 szczotka（刷子）的小称，szczoteczka do zębów 就是“刷牙齿的小刷子”——牙刷。"
+      - "**do zębów**do 后面一律用属格：ząb（牙）→ zębów。szczoteczka 是 szczotka（刷子）的小称，szczoteczka do zębów 就是“刷牙齿的小刷子”——牙刷。"
     words:
       - {pl: nowy, zh: 新的, tag: 形容词}
       - {pl: szczoteczka do zębów, zh: 牙刷, tag: 阴, look: szczotka}
@@ -393,7 +393,7 @@ notes:
         - ["-a", "okno → ==okna==、jabłko → ==jabłka==", "中性名词"]
         - ["另一套", "student → ==studenci==、pan → ==panowie==", "指男性的人"]
     extra:
-      - "**顺带一个生格**Jakiego koloru 字面是“什么颜色的”，本身就是生格（kolor → koloru）。问颜色，波兰语就这么问。"
+      - "**顺带一个属格**Jakiego koloru 字面是“什么颜色的”，本身就是属格（kolor → koloru）。问颜色，波兰语就这么问。"
       - "**也有不守规矩的**比如 ręka（手）的复数是 ręce。"
     words:
       - {pl: ściana, zh: 墙, tag: 阴}
@@ -654,10 +654,10 @@ notes:
     why: |
       对，这就是波兰语的 there is。只是波兰语没有专门的 there，直接用 jest（是）：先说地方，再说 jest，最后说东西。
       顺序跟中文一模一样：房子后面 · 有 · 游泳池 → Za domem · jest · basen。比英语还顺。
-      东西是好几个，jest 换成 są：Za domem są drzewa.（房子后面有几棵树。）要说“没有”，不是 nie jest，而是 nie ma，后面的东西还要换成生格，跟第 4 条一个道理：Za domem nie ma basenu.（房子后面没有游泳池。）
+      东西是好几个，jest 换成 są：Za domem są drzewa.（房子后面有几棵树。）要说“没有”，不是 nie jest，而是 nie ma，后面的东西还要换成属格，跟第 4 条一个道理：Za domem nie ma basenu.（房子后面没有游泳池。）
       za domem：za 表示“在……后面”时，后面跟工具格，dom 变成 domem，加 -em，跟第 10 条的 widelcem 一样。同一伙的还有 przed（前面）、nad（上面）、pod（下面）、między（中间），说“在哪儿”时都跟工具格。
     rule:
-      - 地方 + jest + 东西＝某处有某物；好几个用 są，没有用 nie ma + 生格。
+      - 地方 + jest + 东西＝某处有某物；好几个用 są，没有用 nie ma + 属格。
       - za、przed、nad、pod、między 说“在哪儿”时，都跟工具格。
     table:
       - pl: [1]
@@ -702,7 +702,7 @@ notes:
       o 当“关于”讲的时候，后面跟方位格（第六格）。第 17 条那个 o mnie（关于我），用的就是它。
       你看到的那一串 ch，正是方位格复数的记号：名词收 -ach（rodzice 父母 → rodzicach），“我的”和形容词收 -ich 或 -ych（mój → moich，nowy → nowych）。好消息是，名词的 -ach 不分阳性、阴性、中性，复数一律这样，比单数省心得多；单数的方位格词尾五花八门（o mamie、o domu），得一个个记。
       方位格还有个怪脾气：它只跟在介词后面出现，从来不单独用。常带它的介词就五个：o 关于、w 在……里、na 在……上、przy 在……旁边、po 在……之后。
-      小心一点：moich、nowych 这种 -ch 光看自己说明不了是哪个格，生格复数也长这样（nie mam nowych ==książek== 我没有新书）。要看后面的名词：名词是 -ach，才是方位格。
+      小心一点：moich、nowych 这种 -ch 光看自己说明不了是哪个格，属格复数也长这样（nie mam nowych ==książek== 我没有新书）。要看后面的名词：名词是 -ach，才是方位格。
     rule:
       - o（关于）、w、na、przy、po → 方位格。
       - 方位格复数：名词 -ach，“我的”和形容词 -ich / -ych。
@@ -742,7 +742,7 @@ notes:
     task: fill
     point: prep.case
     also: [noun.gen, noun.ins, noun.loc]
-    title: 介词后面跟哪个格，是介词自己说了算：podczas 跟生格，przed 跟工具格
+    title: 介词后面跟哪个格，是介词自己说了算：podczas 跟属格，przed 跟工具格
     ask: 这两个不都是在介词后面吗？为什么格不一样我真没招了🤣
     stuck: 填了原形 obiad，没跟着 podczas 变
     pl: "==Podczas== ==obiadu== pijemy wino."
@@ -752,30 +752,30 @@ notes:
     right: ["Podczas ==obiadu== pijemy wino."]
     why: |
       没招是正常的，因为这件事没有统一的道理：介词后面跟哪个格，不看它站在哪儿，看它是哪个介词。每个介词生来就带着一个格，就像每个名词生来就有阴阳性，只能连在一起记。
-      你这两句正好是两个不同的介词：podczas（在……期间）跟生格，obiad 变 obiadu；przed（在……之前）跟工具格，obiad 变 obiadem。第 18 条的 za domem、第 19 条的 o rodzicach，也是各自的介词各管各的。
-      好在常用的介词不多，而且会抱团：跟工具格的是 za、przed、nad、pod、między 这几个说方位的，再加一个 z（和……一起）；跟方位格的是 o、w、na、przy、po；剩下的大多数跟生格，这一伙人最多：do、od、bez、dla、u、podczas……
+      你这两句正好是两个不同的介词：podczas（在……期间）跟属格，obiad 变 obiadu；przed（在……之前）跟工具格，obiad 变 obiadem。第 18 条的 za domem、第 19 条的 o rodzicach，也是各自的介词各管各的。
+      好在常用的介词不多，而且会抱团：跟工具格的是 za、przed、nad、pod、między 这几个说方位的，再加一个 z（和……一起）；跟方位格的是 o、w、na、przy、po；剩下的大多数跟属格，这一伙人最多：do、od、bez、dla、u、podczas……
       最直观的办法是拿同一个 obiad 换介词，看它跟着变：饭前、饭间、饭后，三个介词三个样子，见下面第一张表。
     rule:
       - 介词说了算：记一个介词，就连它跟的格一起记。
-      - 工具格：za、przed、nad、pod、między、z（和）；方位格：o、w、na、przy、po；生格最多：do、od、bez、dla、u、podczas。
+      - 工具格：za、przed、nad、pod、między、z（和）；方位格：o、w、na、przy、po；属格最多：do、od、bez、dla、u、podczas。
     table:
       - pl: [1]
         head: ["", "同一个 obiad", "跟的格"]
         rows:
           - ["饭前", "przed ==obiadem==", "工具格"]
-          - ["吃饭的时候", "podczas ==obiadu==", "生格"]
+          - ["吃饭的时候", "podczas ==obiadu==", "属格"]
           - ["饭后", "po ==obiedzie==", "方位格"]
-          - ["一直到午饭", "do ==obiadu==", "生格"]
+          - ["一直到午饭", "do ==obiadu==", "属格"]
           - ["午饭吃什么？", "Co jest na ==obiad==?", "宾格"]
       - pl: [1]
         head: ["跟的格", "介词", "意思"]
         rows:
-          - ["生格", "do · od · bez · dla · u · podczas", "到 · 从 · 没有 · 给 · 在某人那儿 · 在……期间"]
+          - ["属格", "do · od · bez · dla · u · podczas", "到 · 从 · 没有 · 给 · 在某人那儿 · 在……期间"]
           - ["工具格", "za · przed · nad · pod · między · z", "后 · 前 · 上 · 下 · 中间 · 和……一起"]
           - ["方位格", "o · w · na · przy · po", "关于 · 里 · 上 · 旁边 · 之后"]
           - ["宾格", "przez · na · w", "穿过 · 到……上去 · 到……里去"]
     extra:
-      - "**两头跑** 有几个介词不止一个格：na、w 说“在哪儿”跟方位格，说“到哪儿去”跟宾格（第 17 条那只猫）；z 说“和……一起”跟工具格，说“从……出来”跟生格：kawa z ==mlekiem==（加奶的咖啡）、z ==domu==（从家里）。"
+      - "**两头跑** 有几个介词不止一个格：na、w 说“在哪儿”跟方位格，说“到哪儿去”跟宾格（第 17 条那只猫）；z 说“和……一起”跟工具格，说“从……出来”跟属格：kawa z ==mlekiem==（加奶的咖啡）、z ==domu==（从家里）。"
     examples:
       - {pl: "Podczas ==lekcji== piję wodę.", zh: 上课的时候我喝水。}
       - {pl: "Po ==obiedzie== pijemy kawę.", zh: 午饭后我们喝咖啡。}
@@ -784,7 +784,7 @@ notes:
       - {pl: obiad, zh: 午饭（波兰人一天里最正经的那顿热饭）, tag: 阳}
       - {pl: wino, zh: 葡萄酒, tag: 中}
       - {pl: pić, zh: 喝, tag: 未完成体}
-      - {pl: podczas, zh: 在……期间（跟生格）, look: false}
+      - {pl: podczas, zh: 在……期间（跟属格）, look: false}
     see: ["018", "019", "021"]
 
   - id: "021"
@@ -803,10 +803,10 @@ notes:
     why: |
       przed 第 18 条见过，那时说的是地方：przed domem（房子前面）。这里说的是时间“在……之前”，照样跟工具格：przed obiadem（饭前）。
       反过来，“饭后”换成 po，就跟方位格了：po obiedzie。obiad 变成 obiedzie，词中间也跟着变了样，这在方位格里很常见，先认个脸就行。
-      句子里还有个生格 kawy，但那不归 przed 管，是前面的 nie 闹的：否定句里，宾语要从宾格换成生格（第 4 条）。肯定句是 Piję kawę.
+      句子里还有个属格 kawy，但那不归 przed 管，是前面的 nie 闹的：否定句里，宾语要从宾格换成属格（第 4 条）。肯定句是 Piję kawę.
     rule: przed 不管说地方还是时间，都跟工具格：przed domem、przed obiadem。
     table:
-      head: ["", "肯定 · 宾格", "否定 · 生格"]
+      head: ["", "肯定 · 宾格", "否定 · 属格"]
       rows:
         - ["喝咖啡", "Piję ==kawę==.", "Nie piję ==kawy==."]
     examples:
