@@ -4,7 +4,7 @@
 查波兰语笔记本：她问的这个，以前问过没有？
 
     python3 tools/polish/find.py kawy                # 搜一个词
-    python3 tools/polish/find.py 生格 否定            # 空格分开的几个词要全部对上
+    python3 tools/polish/find.py 属格 否定            # 空格分开的几个词要全部对上
     python3 tools/polish/find.py --id 007            # 看一条的全部内容
     python3 tools/polish/find.py --points            # 列出分类和每类几条
     python3 tools/polish/find.py --all               # 全部笔记的编号和标题

@@ -249,6 +249,7 @@ def main():
     # 少数系列是有意独立设计的（见下表），其余都该补上 mf_id。
     AU_NO_MF_OK = {
         "Sanguis Benedicta",   # Wild Bill 血族哥特，有意独立配色，不跟画册同源
+        "Good Behavior",       # Wild Bill 监狱长 AU，监狱红，有意独立配色，不跟画册同源
         "Wholly Known",        # Eddie Carbone（舞台剧），画册里没有这个角色
     }
     import glob as _glob

@@ -34,7 +34,7 @@ notes:
     source: 多邻国
     point: noun.gen
     also: [syntax.neg]
-    title: 否定句里，宾语要换成生格
+    title: 否定句里，宾语要换成属格
     en: "I do not drink coffee."
     pl: "Nie piję ==kawy==."
     zh: 我不喝咖啡。
@@ -42,11 +42,11 @@ notes:
     right: ["Nie piję ==kawy==."]
     why: |
       肯定句里，“喝什么”的那样东西用宾格：Piję kawę.（我喝咖啡。）kawa 变成了 kawę。
-      可前面一加 nie，这个宾语就得换成生格：kawa 变成 kawy。你把肯定句里的样子原封不动搬进了否定句，所以判错。
-      可以这么记：生格常带着“一点儿也没有”的味道——“不喝咖啡”，就是一点咖啡也没喝到。
-    rule: 有 nie，宾语就从宾格换成生格。
+      可前面一加 nie，这个宾语就得换成属格：kawa 变成 kawy。你把肯定句里的样子原封不动搬进了否定句，所以判错。
+      可以这么记：属格常带着“一点儿也没有”的味道——“不喝咖啡”，就是一点咖啡也没喝到。
+    rule: 有 nie，宾语就从宾格换成属格。
     table:
-      head: ["", "肯定 · 宾格", "否定 · 生格"]
+      head: ["", "肯定 · 宾格", "否定 · 属格"]
       rows:
         - ["kawa 咖啡", "Piję ==kawę==.", "Nie piję ==kawy==."]
         - ["herbata 茶", "Piję ==herbatę==.", "Nie piję ==herbaty==."]

@@ -44,4 +44,8 @@ python3 tools/reading/clone_article.py --html 下载的.html --url <网址> --sl
 - Claude 做笔记时：`ArtifactData list highlights` 读回来 → 按读书笔记那套写进 `_data/reading/<slug>.yml`
   （`book.page_unit: 段`，每条的 `page` 写段号，标题 / 导语写 `标题` / `导语`，`loc` 里就有）→ 整理过的那几条
   `update {noted: true}`，页上那处划线底下会多一道绿线、清单里标「✓ 已整理」。
+- **整理完再带 `--notes _data/reading/<slug>.yml` 重新生成、重新发布划线页**（2026-10-16 Winter：「点一下词就出现解释卡片……
+  不是跳转到总笔记，就是显示点击的那个」）：笔记在生成时嵌进页里，整理过的词点一下，页底弹出只有这一个词的解释卡
+  （词卡：词 / 音标 🔊 / 中英释义 / 原文那句 / 解读 / 搭配；整句卡：那句 + 大意 + 好在哪 / 怎么拆），
+  卡底「换笔 / 擦掉」才回到笔盒；清单里的「✓ 已整理」也能点出来。页上按「段号 + 划的字」对笔记（词比 `term`、橙黄整句比 `context`）。
 - ⚠️ 仓库公开：文章全文只在（私密的）网页里，**不要**把抓下来的全文或 `--dump` 的 JSON 存进仓库。
