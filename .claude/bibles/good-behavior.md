@@ -121,6 +121,17 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    「今晚不红。全塔照睡。今晚不稳定的就我一个，只给你一个人看」，反锁门，两手撑你椅子扶手圈住你「Nightingale 医生，你在勾引我」「嗯」naughty girl。
    ⭐ **Unstable＝你们俩的暗号，塔里别人不知道**（灯不红）。mood 絮语·暗涌 ｜ 预览页：https://claude.ai/artifact/KdmwGi1wrRmDGCCjPbVJRX ｜ 状态：**草稿，待 Winter 过目**
 
+5. **第四条作废了** — 【第二场炽恋】门锁上；「写 Unstable……这得怎么办」；书桌**最底下那只抽屉**里一副看守留下的老手铐（铰链有锈）
+   「naughty girl 需要一点管教。站起来，转过去」，把你手铐在背后（短链垂在腰窝）；他坐回铁椅、链子绕扶手「第四条，我不动。你写的不稳定你自己来治」，
+   气定神闲，可裤子底下立得老高「医生不是最会看病吗，看出来什么了」「不稳定」；你跪下，只能用嘴：咬开扣子、舌、喉咙一下比一下深，
+   他「就这点本事？」→骂出声→链子攥响、铁椅蹭地、往前探身满头汗「你这张嘴白天写字晚上干这个」；整根吞住停住→**链子滑脱，手插进你头发**
+   「唉，第四条作废了」；按你的头（安全线：「要停就往后仰头，我松手」，你没仰）「谁教你这么坏的」；拎你上腿跨坐，**铁链从头顶落下圈住你的背**（Ch1 回声），
+   「你是什么？」「你的 naughty girl」；裙子推到腰、他顶进来，掐腰按你、手铐短链撞腰窝、他的锁在你眼前晃；「这是管教——」「你懂个屁，你这是在管教我」；
+   你到时**咬住他的项圈**；解手铐揉红印，用敞着的红外套裹住你；**揭开：招聘启事他登的、录用信他回的（老看守的章），你的应聘信收在那只抽屉里、
+   信封边角摸起毛，他背得出「外头没有人会来找我，我可以一直待下去」**——Ch2 问「外面有人等你吗」是想听你自己说；「来应聘的不止你一个，我就挑了你」；
+   「上一位医生的信也是你回的？」停很久：「不是。」
+   mood 炽恋·暗涌 ｜ 预览页：https://claude.ai/artifact/8vyKzKunPnQXfUQHeZf1Yd ｜ 状态：**草稿，待 Winter 过目**
+
 ## DEFERRED（压着，到点再放）
 
 - **W. Wharton，No. 1**：塔底最旧的犯人名册第一页第一行。Warden / Wharton 的谐音（Winter 亲口点出来的）——压到第二幕最狠的位置。
@@ -149,9 +160,15 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
 - ⏳ 老头：两只苹果、指楼上、认识他很久（Ch4）→ 第二幕
 - ⏳ 「上一个这么写的——」「我知道」（Ch4 他想提前任被截住）
 - ⏳ Hobbs 以后送两份早饭（Ch4）
+- ✅ 他怎么知道你姓 Nightingale → Ch5：启事他登、录用信他回、你的应聘信在他抽屉里
+- ⏳ **上一位医生的信不是他回的**（Ch5）→ 谁在往塔里送医生？（Ch6 岔路定方向）
+- ⏳ 来应聘的不止你一个（Ch5）
+- ⏳ 书桌最底下那只抽屉：手铐 ＋ 你的信（Ch5）
 - ⏳ 红绒球在你手里（Ch1）
 
 ## 预览页
+
+- Ch5：https://claude.ai/artifact/8vyKzKunPnQXfUQHeZf1Yd （--notes ch5-notes.md --forks ch6-forks.json）
 
 - Ch4：https://claude.ai/artifact/KdmwGi1wrRmDGCCjPbVJRX （--notes ch4-notes.md --forks ch5-forks.json）
 
