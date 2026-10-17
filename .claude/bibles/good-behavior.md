@@ -12,8 +12,8 @@ series_name: Good Behavior ｜ slug（待建）series/good-behavior/ ｜ 尚未�
 配色: **监狱红**（Winter 选）——独立设计，不跟画册同源（上线时 au_palettes 不写 mf_id，check_palette_sync 的 AU_NO_MF_OK 加一行）
   bg 铁栏夜灰 #16181c ｜ accent 外套正红 #cf3a40 ｜ text #ebe5db ｜ muted #8c939b
   预览时用 `--palette "#16181c,#cf3a40,#ebe5db,#8c939b"`
-「你」: Winter（固定）。**姓待定**——鸟的意象 Winter 喜欢，但 Lark 用过了（站里还用过 Wren / Crowe / Hale），
-  Ch3 岔路换成 Linnet / Finch / Nightingale。身份：巴别塔新来的驻塔医生。
+「你」: **Winter Nightingale**（2026-10-17 Winter 选定；夜莺＝夜里唱的鸟，也是那位护士的姓。站里已用过的鸟姓：Lark / Wren / Crowe / Hale，别撞）。
+  身份：巴别塔新来的驻塔医生。Hobbs 他们叫「Nightingale 医生」；他平时叫「医生」，床上拿「夜莺」做文章（Ch3「唱给我听」）。
 
 ## 世界
 
@@ -99,12 +99,22 @@ series_name: Good Behavior ｜ slug（待建）series/good-behavior/ ｜ 尚未�
    指节攥白在忍；「外面有人等你吗」「没有」「那你是来躲的」「巴别塔最喜欢你这种人」「我进来那会儿，也是——」咽回去；
    「我没说你不能碰我」→你的手落在项圈锁上、不摸钥匙、滑到喉结→「是你先伸的手」naughty girl（第二次）→你又写 Stable（撒谎，他心跳那样）
    →「撒谎是罪恶，会传染，你已经被我传染了」→你下楼，灯一层层红，他在塔顶数「一百——」，你不确定想不想藏得太好。
-   mood 暗涌·悸动 ｜ 预览页：https://claude.ai/artifact/QEJfTMPMfoAS5pnVKpTaR7 ｜ 状态：**草稿，待 Winter 过目**
+   mood 暗涌·悸动 ｜ 预览页：https://claude.ai/artifact/QEJfTMPMfoAS5pnVKpTaR7 ｜ 状态：草稿（Winter 挑了下一章岔路，视为认可）
+3. **一人一个项圈** — 【第一场实写炽恋】你躲进第七层自己屋里（前任的房间）的衣柜（樟脑丸、前任的衬衫），房门没锁；他一路「乖孩子们接着藏，今晚不找你们」，
+   数完喊「藏好了没有——Nightingale 医生？」（你从没告诉过他姓）；他查床底、坐你床、摘下前任大衣看「他走的那天晚上连大衣都没穿」又挂好；
+   掌心贴柜门、额头抵上「我听得见你」，**故意不开**——「最好玩的是快要被找到还没被找到的这一下，你得先等着」，回床边吹口哨；倒数开门「找到了」，
+   伸手等你自己放上来「被找到的归找到的人」；钥匙你放到**窗台**搪瓷杯旁「今晚不用」；你说 **Claim me**（英文原句）、叫对 Mr. Warden；
+   **第一个吻**（排练过似的一寸寸）；解白大褂「医生的皮」；趴腿上——撒谎是罪恶→**第三条「矫正」**打了几下，「矫正一下你倒更湿了」；
+   他红外套脱不掉（镣铐连着）就敞着；铁链横过你手腕＝「禁锢」；「Nightingale，夜莺是夜里唱的鸟，唱给我听」；**第四条转给你：手放枕头上别动**；
+   口、一次次送到边上又停「我没准」；面对面「看着我」慢慢进；「被找到的归谁？说规矩」「归你」；「准了」你到；他沿第一夜铁链压过的那圈
+   **绕脖子吻了一圈**后交代；红灯一盏盏灭＝游戏结束他稳了；「现在我们一人一个。我这个钥匙在你那儿，你这个没有钥匙，淡了我再给你戴上」；
+   「Hobbs 那张脸」；「我在这儿躺一会儿，就一会儿」——攥着你手腕睡着了也没松。
+   mood 炽恋·暗涌 ｜ 预览页：https://claude.ai/artifact/DyXEQqhMWfJZNM5qk9Kszx ｜ 状态：**草稿，待 Winter 过目**（她点头＝第一幕三章一起上线）
 
 ## DEFERRED（压着，到点再放）
 
 - **W. Wharton，No. 1**：塔底最旧的犯人名册第一页第一行。Warden / Wharton 的谐音（Winter 亲口点出来的）——压到第二幕最狠的位置。
-- **你第一次用钥匙**：建议 Ch4，跟第一场实写炽恋绑在一起。
+- **你第一次用钥匙**：第一场炽恋已经在 Ch3（Winter 选），钥匙那晚放在窗台没用。第一次用钥匙仍是大事，Ch4 岔路之一。
 - **宣传片终局**：吊在半空的笼子，「来吧，靠近我，解开门锁」——第三幕。
 
 ## PINNED（已埋，待回收）
@@ -117,10 +127,17 @@ series_name: Good Behavior ｜ slug（待建）series/good-behavior/ ｜ 尚未�
 - ⏳ 你在记录册上撒了谎（Ch2 的 Stable 是假的）→ 塔里的天气被你骗了一次
 - ⏳ 上一位医生：三行 Unstable 后空白，Hobbs 不答（Ch1）→ 第二幕
 - ⏳ 石头上那行老字是谁刻的（Ch1）→ 第二幕
-- ⏳ Hobbs「听见他开始数数，就找个地方藏起来」（Ch1）→ Ch2 末数数开始，Ch3 接着写躲猫猫
+- ✅ Hobbs「听见他开始数数，就找个地方藏起来」→ Ch3 躲猫猫
+- ✅ Ch1 后颈铁链压过的那一圈 → Ch3 变成一圈吻痕（「一人一个项圈」）
+- ⏳ 他知道你姓 Nightingale（你没说过，Ch3）
+- ⏳ 前任的大衣：他摘下来看、「他走的那天晚上连大衣都没穿」（Ch3）→ 他知道那晚的事 → 第二幕
+- ⏳ 钥匙留在你屋窗台上（Ch3）
+- ⏳ 你脖子上那一圈，明天全塔看见、Hobbs 的反应（Ch3）
+- ⏳ 他攥着你手腕睡着（Ch3）→ 怕被丢下的底子
 - ⏳ 红绒球在你手里（Ch1）
 
 ## 预览页
 
+- Ch3：https://claude.ai/artifact/DyXEQqhMWfJZNM5qk9Kszx （--notes ch3-notes.md --forks ch4-forks.json，含封面岔路）
 - Ch2：https://claude.ai/artifact/QEJfTMPMfoAS5pnVKpTaR7 （--notes ch2-notes.md --forks ch3-forks.json）
 - Ch1：https://claude.ai/artifact/T66X32wtSqzZ43tAPYKdsp （生成命令：render_draft.py good-behavior-revised/ch1.md --palette "#16181c,#cf3a40,#ebe5db,#8c939b" --notes ch1-notes.md --forks ch2-forks.json）
