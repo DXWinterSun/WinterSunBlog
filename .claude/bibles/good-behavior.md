@@ -12,7 +12,8 @@ series_name: Good Behavior ｜ slug（待建）series/good-behavior/ ｜ 尚未�
 配色: **监狱红**（Winter 选）——独立设计，不跟画册同源（上线时 au_palettes 不写 mf_id，check_palette_sync 的 AU_NO_MF_OK 加一行）
   bg 铁栏夜灰 #16181c ｜ accent 外套正红 #cf3a40 ｜ text #ebe5db ｜ muted #8c939b
   预览时用 `--palette "#16181c,#cf3a40,#ebe5db,#8c939b"`
-「你」: Winter（固定）。**姓待定**（Ch2 岔路：Lark / Hale / Marsh）。身份：巴别塔新来的驻塔医生。
+「你」: Winter（固定）。**姓待定**——鸟的意象 Winter 喜欢，但 Lark 用过了（站里还用过 Wren / Crowe / Hale），
+  Ch3 岔路换成 Linnet / Finch / Nightingale。身份：巴别塔新来的驻塔医生。
 
 ## 世界
 
@@ -44,7 +45,9 @@ series_name: Good Behavior ｜ slug（待建）series/good-behavior/ ｜ 尚未�
   - 原片回声：**装乖装困，一俯身铁链从头顶套下来**（原片他进 E 区那天的招）。约束衣、关禁闭的梗可以以后用。
 - **你｜驻塔医生**：每晚十一点上塔顶给他做情绪评估，怀表数脉搏、听诊器、记录册（每晚一行，最后一个词 Stable / Unstable）。
   钥匙在**左边口袋**。表面镇定，其实**在被禁锢的怕里会生出渴望**，而且你想讨他喜欢——你越顺他的心意，他越知道你有多 naughty。
-  你「非去不可的理由」→ Ch2 岔路定。
+  ⭐ **你为什么来**（Winter 2026-10-17 定，岔路 B 的方向）：不是惹了麻烦，是**外面已经没有什么可留恋的了，逃离一切**。
+  只有一只箱子、没有照片没有信，渡船不会再来、你也没打算叫，心里只有松了口气的感觉。⚠️ 别给她编一个具体的「外头的人」或「闯的祸」。
+  对照他：他是被丢下的、怕再被丢下；你是自己把一切丢下的。外头没有一扇门后有人等你——塔顶上有个人十点五十八分就坐好了等你。
 
 ## 关系动力学（发动机）
 
@@ -99,13 +102,18 @@ series_name: Good Behavior ｜ slug（待建）series/good-behavior/ ｜ 尚未�
 
 ## PINNED（已埋，待回收）
 
-- ⏳ 你「非去不可的理由」（Ch1 一句带过）→ Ch2 岔路定
+- ✅ 你「非去不可的理由」→ Ch2 落定：没有留恋、逃离一切
+- ✅ 他「明晚我会很乖的」→ Ch2 第四条
+- ⏳ 前任的大衣（口袋鼓鼓的，Ch2）→ 第二幕可以翻
+- ⏳ 「我进来那会儿，也是——」（Ch2 咽回去）→ 第二幕 第一个犯人
+- ⏳ 链子没锁，他随时能起身（Ch2）
+- ⏳ 你在记录册上撒了谎（Ch2 的 Stable 是假的）→ 塔里的天气被你骗了一次
 - ⏳ 上一位医生：三行 Unstable 后空白，Hobbs 不答（Ch1）→ 第二幕
 - ⏳ 石头上那行老字是谁刻的（Ch1）→ 第二幕
-- ⏳ Hobbs「听见他开始数数，就找个地方藏起来」（Ch1）→ 建议 Ch3 第一次躲猫猫
+- ⏳ Hobbs「听见他开始数数，就找个地方藏起来」（Ch1）→ Ch2 末数数开始，Ch3 接着写躲猫猫
 - ⏳ 红绒球在你手里（Ch1）
-- ⏳ 他「明晚我会很乖的」（Ch1 收尾）→ Ch2
 
 ## 预览页
 
+- Ch2：https://claude.ai/artifact/QEJfTMPMfoAS5pnVKpTaR7 （--notes ch2-notes.md --forks ch3-forks.json）
 - Ch1：https://claude.ai/artifact/T66X32wtSqzZ43tAPYKdsp （生成命令：render_draft.py good-behavior-revised/ch1.md --palette "#16181c,#cf3a40,#ebe5db,#8c939b" --notes ch1-notes.md --forks ch2-forks.json）
