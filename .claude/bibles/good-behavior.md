@@ -21,11 +21,13 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
 
 - ⭐ **谁往塔里送医生**（Winter 2026-10-18 定，Ch6 岔路 A）：**当年走掉的那些看守**。人走了规矩没撤，每隔一阵照石头上那行老字往塔里送一个医生。
   前任就是他们送来的；你是监狱长截下来、自己登启事挑的。
-- ⏳ **待定（设定页 https://claude.ai/artifact/WKfBYdbHhZDBmq7rk8q4vF ，pitch 存档 .claude/pitches/good-behavior-world.json）**：
-  ① 哥特奇幻 / 现实（推荐：现实的底子、哥特的壳——前五章没写过任何魔法，别加）
-  ② 前任怎么了（推荐：没死，被他关在塔底；B 摔死非他杀；C 他杀）——Winter 担心「是不是被杀了🥺」
-  ③ 看守要评估干什么（推荐：记录册每月随渡船送出，连写三天 Unstable 外头就派船来「处理」他；下个月船上还有外头送来的新医生）
-  Winter 定了再写 Ch6（白天的一章）。
+- ⭐⭐ **设定三件事**（Winter 2026-10-18 在设定页 https://claude.ai/artifact/WKfBYdbHhZDBmq7rk8q4vF 全选推荐，pitch 存档 .claude/pitches/good-behavior-world.json）：
+  ① **现实的底子，哥特的壳**：没有魔法。巴别塔是一座真的、被外头忘掉的岛上监狱；雾、红灯、躲猫猫、项圈全是人弄出来的。
+     ⚠️ 绝不写超自然：他会老、会累，名画是人画的（Ch6：塔里那个老伪画犯 Elias 画的），别写「他三十年没变样」这类。
+  ② **前任医生没死，被他关在塔底**：前任连写三天 Unstable，按老规矩记录册下个月要随渡船送出去；第三晚监狱长把他关进塔底，记录册没送走。
+     他没杀人，可也不干净——为了不被带走，关了一个人。Hobbs 每天往塔底送一份饭（Ch6 埋）。你迟早会在塔底找到他（第二幕）。
+  ③ **老规矩怎么转**：记录册每月随渡船送出一次（邮袋挂在储藏室墙上）。**连写三天 Unstable，外头就派船来「处理」监狱长**——带走、换掉，没人说得清是哪种。
+     所以 Unstable 既是你们俩的暗号，也是送给外头的报告。⭐ 下个月的船上还有外头新派来的医生——他们不知道塔里已经有一个你。
 
 - **巴别塔**：雾里一座孤塔，圆得像竖起来的井，窗户一圈圈往上叠到云里。渡船放下人就走。
   塔里的走廊挂着人间的名画（《蒙娜丽莎》《星月夜》等），拐角一尊白石雕像，胸前缠暗红珠串、手比心。
@@ -140,6 +142,16 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    「上一位医生的信也是你回的？」停很久：「不是。」
    mood 炽恋·暗涌 ｜ 预览页：https://claude.ai/artifact/8vyKzKunPnQXfUQHeZf1Yd ｜ 状态：**草稿，待 Winter 过目**
 
+6. **连写三天，船就来** — 白天的一章（设定落地：现实底子）。早上八点他端两份早饭敲门（两下慢的＋指节刮一道；Hobbs 是三下轻快的），
+   白天眯眼像被拎出地窖晒太阳的猫「白天怎么这么亮」；替你拎药箱巡诊；洗衣房、厨房（燕麦粥溅半面墙）；介绍犯人「偷了三匹马全是母的」「我一视同仁地烦他们」；
+   给 **Tommy**（十九岁上下，厨房切手）缝针，Tommy 攥你手久了点→他两根手指拎开「包好了，谢谢医生，下一个」，拿你的手在自己外套上擦「我记着他了」；
+   挂画那层尽头 **Elias 的画室**（老伪画犯＝塞苹果的老头，当年卖出去的伪画还挂在外头博物馆；走廊名画全是他画的）；Elias 说漏「出太阳了，你也肯出来晒晒了，**一号**——」
+   改口「监狱长」，他僵住「老东西，眼花了」；下午他被叫走「别给 Tommy 拆线」；储藏室（印公司名的木箱、煤）墙上一只空**邮袋**，Hobbs：月底船来，记录册随船寄给当年的看守，
+   **连写三天 Unstable 外头就派船来接他，接走了就没回来过**；「上一位医生写到第三个」；你才知道第四夜的「我知道」根本不知道；Hobbs 端盖布托盘下储藏室最里头的**铁门**
+   「给塔底的老鼠」；夜：「那你还让我写？」→「**钥匙在你手里，笔也在你手里。你哪天想让船来，连着写三天就行。我不拦你。反正我这个人很守规矩的。**」
+   第四夜那页 Unstable 还在，下一页空着，你拧开钢笔（写什么＝Ch7 岔路）。
+   mood 絮语·暗涌 ｜ 预览页：https://claude.ai/artifact/5ku8V8Ee9jG3HJ7MCFedE1 ｜ 状态：**草稿，待 Winter 过目**（她挑 Ch7 岔路＝认可，届时 Ch4–6 一起上线）
+
 ## DEFERRED（压着，到点再放）
 
 - **W. Wharton，No. 1**：塔底最旧的犯人名册第一页第一行。Warden / Wharton 的谐音（Winter 亲口点出来的）——压到第二幕最狠的位置。
@@ -172,9 +184,17 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
 - ⏳ **上一位医生的信不是他回的**（Ch5）→ 谁在往塔里送医生？（Ch6 岔路定方向）
 - ⏳ 来应聘的不止你一个（Ch5）
 - ⏳ 书桌最底下那只抽屉：手铐 ＋ 你的信（Ch5）
+- ⏳ **Elias 叫他「一号」**（Ch6）→ Elias 记得他还不叫监狱长的时候
+- ⏳ **塔底铁门 + Hobbs 的盖布托盘**（Ch6）→ 前任在下面（设定②）
+- ⏳ **邮袋 + 月底的船**（Ch6）→ 记录册寄出；船上外头新派的医生（压着）
+- ⏳ Tommy：「我记着他了」（Ch6）
+- ⏳ 记录册现状：第四夜 Unstable，第五夜待写（连写三天＝船来）
 - ⏳ 红绒球在你手里（Ch1）
 
 ## 预览页
+
+- Ch6：https://claude.ai/artifact/5ku8V8Ee9jG3HJ7MCFedE1 （--notes ch6-notes.md --forks ch7-forks.json）
+- 设定页：https://claude.ai/artifact/WKfBYdbHhZDBmq7rk8q4vF
 
 - Ch5：https://claude.ai/artifact/8vyKzKunPnQXfUQHeZf1Yd （--notes ch5-notes.md --forks ch6-forks.json）
 
