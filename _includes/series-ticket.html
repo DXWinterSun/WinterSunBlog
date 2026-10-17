@@ -42,8 +42,48 @@
       <em class="c-tk-who__sub">{% if tk_actor %}{{ tk_actor }} · {% endif %}{{ tk_film }}</em>
     </div>
     {%- if include.cover_img %}
+    {%- comment -%}
+      票根照片框是 16:7，比大封面（2:1）更扁，所以不能照搬 image_focus 的 banner 锚点
+      （那是「先保头顶」算出来的，放进更扁的框里头发顶着边、下巴挤着底）。这里按 16:7 自己算：
+      图比框高 → 上下溢出，把脸中心放在框高的 42% 处（头顶留一点空）；图比框宽 → 左右溢出，脸摆正中。
+      算出来的锚点同时写进 --pos（网页上 object-position 用）和 data-pos（保存票根画图用），两边一个数。
+      Winter 2026-10-17 发现「网页上裁得偏、保存的图却正好」——就是因为以前两边读的不是同一个数。
+    {%- endcomment -%}
+    {%- assign tk_pos = '50% 30%' -%}
+    {%- if include.cover_focus.w and include.cover_focus.h -%}
+      {%- assign tk_iar = include.cover_focus.w | times: 1.0 | divided_by: include.cover_focus.h -%}
+      {%- assign tk_bar = 2.2857 -%}
+      {%- if tk_iar < tk_bar -%}
+        {%- assign tk_v = tk_iar | divided_by: tk_bar -%}
+        {%- if tk_v > 0.95 -%}
+          {%- assign tk_pos = '50% 50%' -%}
+        {%- else -%}
+          {%- assign tk_fy = include.cover_focus.y | times: 1.0 | divided_by: 100 -%}
+          {%- assign tk_t = tk_v | times: 0.42 -%}
+          {%- assign tk_t = tk_fy | minus: tk_t -%}
+          {%- assign tk_max = 1.0 | minus: tk_v -%}
+          {%- if tk_t < 0 -%}{%- assign tk_t = 0.0 -%}{%- endif -%}
+          {%- if tk_t > tk_max -%}{%- assign tk_t = tk_max -%}{%- endif -%}
+          {%- assign tk_pct = tk_t | divided_by: tk_max | times: 100 | round -%}
+          {%- assign tk_pos = '50% ' | append: tk_pct | append: '%' -%}
+        {%- endif -%}
+      {%- else -%}
+        {%- assign tk_s = tk_iar | divided_by: tk_bar -%}
+        {%- assign tk_d = tk_s | minus: 1.0 -%}
+        {%- if tk_d < 0.05 -%}
+          {%- assign tk_pos = '50% 50%' -%}
+        {%- else -%}
+          {%- assign tk_fx = include.cover_focus.x | times: 1.0 | divided_by: 100 -%}
+          {%- assign tk_p = tk_fx | times: tk_s | minus: 0.5 | divided_by: tk_d -%}
+          {%- if tk_p < 0 -%}{%- assign tk_p = 0.0 -%}{%- endif -%}
+          {%- if tk_p > 1 -%}{%- assign tk_p = 1.0 -%}{%- endif -%}
+          {%- assign tk_pct = tk_p | times: 100 | round -%}
+          {%- assign tk_pos = tk_pct | append: '% 50%' -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
     <img class="c-tk-photo" id="js-ticket-photo" src="{{ "/images/" | prepend: site.baseurl | append: include.cover_img }}" alt="" loading="lazy" decoding="async"
-         style="--pos: {{ include.cover_focus.banner | default: '50% 30%' }};">
+         data-pos="{{ tk_pos }}" style="--pos: {{ tk_pos }};">
     {%- endif %}
     {%- if p %}
     <div class="c-tk-perf" aria-label="系列配色 · Palette">
