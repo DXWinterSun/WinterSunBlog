@@ -4,10 +4,10 @@
 > （第一夜 / 养好之后的第一夜），先把地基从正文里扒出来记在这儿，往后写都从这里长。
 
 ```
-series_name    Knox AU（内部键，别改）          slug series/knox-au/
+series_name    Simon Says（2026-10-15 起内部键＝故事名） slug series/simon-says/（旧 /series/knox-au/ 已 redirect）
 展示标题        Simon Says · Eric Knox AU
 角色            Eric Knox（Sam Rockwell，Charlie's Angels 2000）  画册 id eric
-配色            镜绯红 #cf3550 / 可乐棕 #1b1310（au_palettes 键 "Knox AU"，mf_id eric）
+配色            镜绯红 #cf3550 / 可乐棕 #1b1310（au_palettes 键 "Simon Says"，mf_id eric）
 「你」          Winter。Charlie 机构里类似 Bosley 的人：协调、联络、文件整理，没有战斗训练，
                「Eric 接触到的人里最普通的那一个，也是唯一一个用普通人的眼睛看见了他的人」。
 状态            series_status: ongoing（2026-09-27 改回）；⭐ 目录顺序：单篇 1 → Extra《他停了很久》2 → Extra《The Voice on the Phone》3 → Extra《Simon 说的才算》4（番外一的 chapter_type 已统一成 Extra）
@@ -51,6 +51,39 @@ series_name    Knox AU（内部键，别改）          slug series/knox-au/
 - 他骗过你、把你当筹码，这一层不洗白；但**他从没对你动过手**（绑手是守卫，他「或许有点享受」）。
 - Vivian 与他的关系是事实，不回避，也不细写。
 - 成年、自愿；第一夜的「不对等」是**知情**不对等（他知道自己在做什么、你不知道），不是意愿不对等——⚠️ 她是真心要的，这一点正文写死了（「至少你确定于你而言毋庸置疑」）。
+
+## 🎬 原片考据（2026-10-17 查证，写往后的章都从这里取）
+
+- **他出生时叫 John McCadden**。片尾 Charlie 原话：“Eric Knox was born John McCadden. His dad was in my Army Intelligence unit,
+  working as a double agent. When he was discovered, the other side killed him. I guess that's not the story Knox heard.”
+  全片只出现这一次，他自己从没说过。（有的字幕拼 McCaddon，以片尾台词为准。）
+- **父亲**：Charlie 陆军情报小队里的双面间谍，身份暴露后被敌方处决。第一章档案那句对得上。
+  ⭐ 第一章写“他叫 John McCadden，Eric Knox 的父亲”——片里没给父亲起名，**读成父子同名**即可：他顶着父亲的名字出生，
+  长大后把它整个丢掉。第一章是 Winter 亲手改过的，**不动**。
+- **那张照片**：他家里挂着父亲（绿色贝雷帽）和“最好的朋友”的合影。原片 Dylan 问“戴绿色贝雷帽的是谁？”——“我爸。”
+  “就是杀了他的人。他们一起在陆军情报部门。这是他最好的朋友，后来背叛了他。”那个朋友＝Charlie。
+- **Knox Technologies / Audio DNA**：声纹识别，“每个人的声音像一片雪花”，任何手机都能变成定位器。造它只为认出 Charlie 的声音。
+- **假绑架**：他自导自演，栽赃 Redstar 的 Roger Corwin，借天使们撬开 Redstar 卫星网。搭档 Vivian Wood（雇天使们的就是她）＋收集头发的 Thin Man。
+- 原片他绑走 Bosley，用 Bosley 的手机接 Charlie 电话（“Mr. Bosley's phone, Eric Knox speaking.”）——AU 里“你”就是那个 Bosley 式的人。
+- 原片结局：直升机发射导弹打 Charlie 海边小屋，导弹被动了线路掉头，他炸死。AU 在摊牌那天岔开，他没走到那一步。
+
+## 🔧 2026-10-17 回炉（Winter：「我感觉我们现在写的太平淡了」「美丽但危险的 Eric」）
+
+- 诊断：三篇番外都在把他往好男朋友养（吃声音的醋 / 不敢碰疤 / 被 Simon says 反将说出我爱你），摊牌时那个人再没出现——**美丽留下了，危险没了**。
+- 提案页（三道岔路：番外怎么改 / 危险从哪来 / 那个名字怎么用，每道带样稿）：`.claude/pitches/simon-says-sharpen.json`
+  → 发布链接：https://claude.ai/artifact/728SXrA3cY4zEg6Xxm6s71 。**她挑完再动笔**；第一章一字不动。
+- 新的危险零件（待她点头后进母题）：那张照片 · Audio DNA 装在你手机上他没开 · John McCadden 只能叫一次 · 抽屉里那副眼镜可以为你戴一次 ·
+  Simon says 他可以在外面拿回去 · “宝贝”重新带刺 · Vivian 是活着的伏笔（第二声枪响没写是谁开的） · 掌心血印会褪。
+- 《Simon 说的才算》里“那一副的账，已经算完了”——提案里建议改成**没算完**。
+- 系列眉标还是 Oneshot；续写时建议改 Series。
+
+## PINNED（2026-10-17 起记账）
+
+- [ ] **John McCadden** 这个名字：你从档案里知道，他不知道你知道。只能叫出口一次（岔路三待定）。
+- [ ] **Vivian 的下落**：第一章第二声枪响没写是谁开的。
+- [ ] **他没叫过你的名字**（圣经旧账，仍欠）。
+- [ ] **“Simon 不说的时候呢”**——他含糊说的那句（Extra 4 结尾），没写出来。
+- [ ] **掌心血印“还没褪掉”**。
 
 ## 🍽 点菜（私房菜 · 默认不上线 · 正文在 `simon-says-extras/`）
 
