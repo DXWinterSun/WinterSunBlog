@@ -41,6 +41,21 @@
   muted_cn: "香灰暗紫"
   muted_en: "Censer Ash"
 
+"Good Behavior":            # William "Wild Bill" Wharton · 监狱红，独立设计（无 mf_id，不跟画册同源；Winter 2026-10-17 选）
+  accent: "#cf3a40"
+  accent_ink: "#a52e33"
+  bg: "#16181c"
+  text: "#ebe5db"
+  muted: "#8c939b"
+  accent_cn: "外套正红"
+  accent_en: "Warden's Coat"
+  bg_cn: "铁栏夜灰"
+  bg_en: "Cell-Bar Night"
+  text_cn: "记录册纸"
+  text_en: "Logbook Paper"
+  muted_cn: "镣铐冷钢"
+  muted_en: "Shackle Steel"
+
 "Tuning the Devil":         # Wild Bill Wharton · 色卡同源画册 id: wildbill
   mf_id: wildbill                # → Many Faces 画册锚点 /sam/many-faces/#wildbill
   accent: "#8a8058"

@@ -5,11 +5,13 @@
 > 提案页 https://claude.ai/artifact/TwxH71nrW1WD6YVZgD85E7 。
 > 续写前先读这份；每写完一章回来更新「章节流水」与 PINNED / DEFERRED。
 
-series_name: Good Behavior ｜ slug（待建）series/good-behavior/ ｜ 尚未上线
+series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 48 ｜ 封面 images/good-behavior.svg（Claude 画的静物，生成脚本 tools/series/good_behavior_cover.py）
+上线：2026-10-18 第一幕 Ch1–3（_posts/2026-10-18-good-behavior-chapter-*）
 角色: William "Wild Bill" Wharton（Sam Rockwell,《绿里奇迹》The Green Mile 1999）画册 id wildbill
   ⚠️ 这是他的**第三个**系列（另两个：Tuning the Devil 调音线、Sanguis Benedicta 血族线）。三边各走各的，
   称呼、设定、母题互不串。上线时画册 wildbill 的 `auLinks` 要加第三条（quiz / spectrum / lines.json 同步，见 CLAUDE.md）。
-配色: **监狱红**（Winter 选）——独立设计，不跟画册同源（上线时 au_palettes 不写 mf_id，check_palette_sync 的 AU_NO_MF_OK 加一行）
+配色: **监狱红**（Winter 选）——独立设计，不跟画册同源（au_palettes 已加、无 mf_id；check_palette_sync 的 AU_NO_MF_OK 已加；画册 wildbill auLinks 已加第三条「监狱线」）
+  色名：外套正红 Warden's Coat / 铁栏夜灰 Cell-Bar Night / 记录册纸 Logbook Paper / 镣铐冷钢 Shackle Steel
   bg 铁栏夜灰 #16181c ｜ accent 外套正红 #cf3a40 ｜ text #ebe5db ｜ muted #8c939b
   预览时用 `--palette "#16181c,#cf3a40,#ebe5db,#8c939b"`
 「你」: **Winter Nightingale**（2026-10-17 Winter 选定；夜莺＝夜里唱的鸟，也是那位护士的姓。站里已用过的鸟姓：Lark / Wren / Crowe / Hale，别撞）。
@@ -92,14 +94,14 @@ series_name: Good Behavior ｜ slug（待建）series/good-behavior/ ｜ 尚未�
    →塔顶：他装乖，你叫他 Mr. Warden（虚荣心爆棚）→前任三行 Unstable→数脉搏→铁链套头拽进两膝之间「抓到了」
    →怕里生出渴望，他闻出来「你身上换味儿了」，手故意慢下来，点破「钥匙在你左边口袋里，你一下都没去摸」→放开你
    →你抖着手写 Stable→「乖。真乖。可我知道你为什么这么乖……naughty girl」→红绒球进你掌心，钥匙焐热了。
-   mood 暗涌·悸动 ｜ 预览页：https://claude.ai/artifact/T66X32wtSqzZ43tAPYKdsp ｜ 状态：草稿（Winter 直接挑了下一章岔路，视为认可）
+   mood 暗涌·悸动 ｜ 预览页：https://claude.ai/artifact/T66X32wtSqzZ43tAPYKdsp ｜ 状态：✅ 2026-10-18 上线
 2. **一根手指都不碰你** — 白天：前任的房间（大衣还挂着、口袋鼓鼓）、你只有一只箱子、渡船不叫（逃离一切）；Hobbs：你写 Stable 全塔睡好觉，
    前任写 Unstable 的三晚灯都红、第三晚上去没下来；老头塞苹果，「像在看一块晴天」。夜：他自定**第四条「监狱长的手放在扶手上」**，
    链子绕扶手但没锁（他随时能起身＝跟你不用钥匙对称）；数脉搏很快；听诊器——他的声音从胸腔顺着管子灌进你耳朵，说你后腰那个地方，
    指节攥白在忍；「外面有人等你吗」「没有」「那你是来躲的」「巴别塔最喜欢你这种人」「我进来那会儿，也是——」咽回去；
    「我没说你不能碰我」→你的手落在项圈锁上、不摸钥匙、滑到喉结→「是你先伸的手」naughty girl（第二次）→你又写 Stable（撒谎，他心跳那样）
    →「撒谎是罪恶，会传染，你已经被我传染了」→你下楼，灯一层层红，他在塔顶数「一百——」，你不确定想不想藏得太好。
-   mood 暗涌·悸动 ｜ 预览页：https://claude.ai/artifact/QEJfTMPMfoAS5pnVKpTaR7 ｜ 状态：草稿（Winter 挑了下一章岔路，视为认可）
+   mood 暗涌·悸动 ｜ 预览页：https://claude.ai/artifact/QEJfTMPMfoAS5pnVKpTaR7 ｜ 状态：✅ 2026-10-18 上线
 3. **一人一个项圈** — 【第一场实写炽恋】你躲进第七层自己屋里（前任的房间）的衣柜（樟脑丸、前任的衬衫），房门没锁；他一路「乖孩子们接着藏，今晚不找你们」，
    数完喊「藏好了没有——Nightingale 医生？」（你从没告诉过他姓）；他查床底、坐你床、摘下前任大衣看「他走的那天晚上连大衣都没穿」又挂好；
    掌心贴柜门、额头抵上「我听得见你」，**故意不开**——「最好玩的是快要被找到还没被找到的这一下，你得先等着」，回床边吹口哨；倒数开门「找到了」，
@@ -109,7 +111,15 @@ series_name: Good Behavior ｜ slug（待建）series/good-behavior/ ｜ 尚未�
    口、一次次送到边上又停「我没准」；面对面「看着我」慢慢进；「被找到的归谁？说规矩」「归你」；「准了」你到；他沿第一夜铁链压过的那圈
    **绕脖子吻了一圈**后交代；红灯一盏盏灭＝游戏结束他稳了；「现在我们一人一个。我这个钥匙在你那儿，你这个没有钥匙，淡了我再给你戴上」；
    「Hobbs 那张脸」；「我在这儿躺一会儿，就一会儿」——攥着你手腕睡着了也没松。
-   mood 炽恋·暗涌 ｜ 预览页：https://claude.ai/artifact/DyXEQqhMWfJZNM5qk9Kszx ｜ 状态：**草稿，待 Winter 过目**（她点头＝第一幕三章一起上线）
+   mood 炽恋·暗涌 ｜ 预览页：https://claude.ai/artifact/DyXEQqhMWfJZNM5qk9Kszx ｜ 状态：✅ 2026-10-18 上线（Winter 挑了下一章岔路＝认可）
+
+4. **别看你不该看的** — 他在你屋里睡到天亮「这可是头一回」、嫌床窄不肯走；Hobbs 端早饭推门（你从不锁门），先看见床尾栏杆上的帽子；
+   你没穿衣服，他看都不看一巴掌盖住你胸口：「Hobbs。眼睛。别看你不该看的。」「你一进门眼睛就闭上了，我瞧得清清楚楚」「以后送两份」
+   「你记得敲门了，回头再发一只袖章」；人走了手不挪「盖着呢。挡风。」；窗台钥匙他捏起来摩挲（离他的锁不到一尺），放回你掌心合上手指
+   「收好，医生。规矩是规矩。我这个人，很守规矩的」；那一圈吻痕你没遮（围巾放回去），全塔看见，Hobbs 掉头就走；老头塞**两只苹果**指楼上
+   （「这么些年，头一回给我好脸色」）；夜：你当面一笔一划写 **Unstable**（勾引）；他走到门边**黄铜闸刀**（全塔的灯从这走），手搭上又拿开
+   「今晚不红。全塔照睡。今晚不稳定的就我一个，只给你一个人看」，反锁门，两手撑你椅子扶手圈住你「Nightingale 医生，你在勾引我」「嗯」naughty girl。
+   ⭐ **Unstable＝你们俩的暗号，塔里别人不知道**（灯不红）。mood 絮语·暗涌 ｜ 预览页：https://claude.ai/artifact/KdmwGi1wrRmDGCCjPbVJRX ｜ 状态：**草稿，待 Winter 过目**
 
 ## DEFERRED（压着，到点再放）
 
@@ -134,9 +144,16 @@ series_name: Good Behavior ｜ slug（待建）series/good-behavior/ ｜ 尚未�
 - ⏳ 钥匙留在你屋窗台上（Ch3）
 - ⏳ 你脖子上那一圈，明天全塔看见、Hobbs 的反应（Ch3）
 - ⏳ 他攥着你手腕睡着（Ch3）→ 怕被丢下的底子
+- ✅ Ch3「我在这儿躺一会儿」→ Ch4 躺到天亮；Hobbs 那张脸 → Ch4；钥匙在窗台 → Ch4 他还给你
+- ⏳ 黄铜闸刀在他门边，灯红不红他说了算（Ch4）
+- ⏳ 老头：两只苹果、指楼上、认识他很久（Ch4）→ 第二幕
+- ⏳ 「上一个这么写的——」「我知道」（Ch4 他想提前任被截住）
+- ⏳ Hobbs 以后送两份早饭（Ch4）
 - ⏳ 红绒球在你手里（Ch1）
 
 ## 预览页
+
+- Ch4：https://claude.ai/artifact/KdmwGi1wrRmDGCCjPbVJRX （--notes ch4-notes.md --forks ch5-forks.json）
 
 - Ch3：https://claude.ai/artifact/DyXEQqhMWfJZNM5qk9Kszx （--notes ch3-notes.md --forks ch4-forks.json，含封面岔路）
 - Ch2：https://claude.ai/artifact/QEJfTMPMfoAS5pnVKpTaR7 （--notes ch2-notes.md --forks ch3-forks.json）
