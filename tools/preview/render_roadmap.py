@@ -16,7 +16,11 @@ CLAUDE.md 第 7 条：**每写完一章（以及开新坑时）先给下一段�
 JSON 结构见 .claude/roadmaps/ 里的样板：
   _meta: title / eyebrow / sub / lede / accent,bg,text,muted / acts[] / motifs[] / debts[] / forks[]
          可选 ask_title / ask_note：页尾岔路区的标题和一句说明（默认「三个岔路等你挑 / 挑完我写第一章」）
-  chapters: [{n, act(0..2), t 标题, w 这章干什么, key(1|2 关键度), pin(埋钩子), blank(空章)}]
+         可选 blocks: [{title, note, items[{k, v}]}]——排在导语和第一幕之间的整块说明
+           （他的底牌 / 借来的东西落在哪……）。v 里可以写 <b>。连载到一半回头梳理时用。
+         forks 可以留空 []：岔路做在最新一章预览页底（CLAUDE.md 第 7 条），这里只用 ask_note 指个路。
+  chapters: [{n, act(0..N), t 标题, w 这章干什么, key(1|2 关键度), pin(埋钩子), blank(空章),
+              tag(可选小标签，如「已上线」「草稿」「番外」)}]
 """
 import json, html, argparse, os
 
@@ -65,6 +69,20 @@ h1{font-size:clamp(1.8rem,6vw,2.8rem);font-weight:600;margin:0;letter-spacing:.0
 .pin{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;color:var(--bg);
   background:var(--accent);border-radius:2px;padding:.08rem .3rem;margin-left:.45rem;
   vertical-align:.18em;white-space:nowrap;}
+
+.blk{margin-top:2.8rem;}
+.blk h2{margin:0;font-size:1.3rem;font-weight:600;}
+.blk>p{margin:.35rem 0 1rem;color:var(--muted);font-size:.93rem;max-width:38em;}
+.blk dl{margin:0;border-top:1px solid var(--line);}
+.blk dl div{display:grid;grid-template-columns:6.4rem 1fr;gap:1rem;padding:.7rem 0;
+  border-bottom:1px solid var(--line);}
+.blk dt{font-weight:600;color:var(--accent);font-size:.95rem;}
+.blk dd{margin:0;font-size:.95rem;}
+.blk dd b{color:var(--accent);font-weight:600;}
+@media (max-width:30rem){.blk dl div{grid-template-columns:1fr;gap:.2rem;}}
+.tag{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;color:var(--muted);
+  border:1px solid var(--line);border-radius:2px;padding:.06rem .3rem;margin-left:.45rem;
+  vertical-align:.18em;white-space:nowrap;font-weight:400;}
 
 .side{margin-top:3rem;display:grid;gap:1.6rem;grid-template-columns:1fr;}
 @media (min-width:44rem){.side{grid-template-columns:1fr 1fr;}}
@@ -129,6 +147,8 @@ def main():
         elif c.get('key') == 1:
             cls += ' ch--k1'
         pin = '<span class="pin">埋钩子</span>' if c.get('pin') else ''
+        if c.get('tag'):
+            pin += '<span class="tag">%s</span>' % E(c['tag'])
         title = E(c['t']) if c['t'] else '还没定'
         return ('<li class="%s"><span class="ch__n">%02d</span><div>'
                 '<h3 class="ch__t">%s%s</h3><p class="ch__w">%s</p></div></li>'
@@ -142,6 +162,12 @@ def main():
             '<span class="act__n">第 %s 幕</span><h2 class="act__t">%s</h2>'
             '<p class="act__d">%s</p></header>\n    <ol class="chs">%s</ol>\n  </section>'
             % (E(act['n']), E(act['title']), E(act['desc']), ''.join(chapter(c) for c in chs)))
+
+    blocks = ''.join(
+        '<section class="blk"><h2>%s</h2>%s<dl>%s</dl></section>'
+        % (E(b['title']), '<p>%s</p>' % b['note'] if b.get('note') else '',
+           ''.join('<div><dt>%s</dt><dd>%s</dd></div>' % (E(x['k']), x['v']) for x in b['items']))
+        for b in m.get('blocks', []))
 
     debts = ''.join(
         '<li class="debt"><span class="k %s">%s</span><span>%s</span></li>'
@@ -163,6 +189,7 @@ def main():
         '  <h1>%s</h1>' % E(m['title']),
         '  <p class="sub">%s</p>' % E(m.get('sub', '')),
         '  <p class="lede">%s</p>' % m.get('lede', ''),
+        '  ' + blocks,
         '  ' + '\n  '.join(acts),
         '  <div class="side">',
         '    <div class="box"><h2>母题（每章尽量带一两个）</h2><ul>%s</ul></div>'
