@@ -555,6 +555,105 @@ $series-measure: 880px;
 }
 .c-tk-stubs .c-tk-stub + .c-tk-stub { border-left: 1px dashed color-mix(in srgb, var(--tk-text) 30%, transparent); }
 
+/* ---------- 连票：同一位演员的另外几场（Winter 2026-10-18 选的 A） ---------- */
+.c-tk-tear {
+  position: relative;
+  height: 0;
+  border-top: 2px dashed color-mix(in srgb, var(--tk-text) 45%, transparent);
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    width: 17px; height: 17px;
+    border-radius: 50%;
+    background: $cream;
+    border: 1px solid color-mix(in srgb, var(--tk-text) 22%, transparent);
+  }
+  &::before { left: -9px; }
+  &::after { right: -9px; }
+}
+.c-tk-book {
+  display: grid;
+  gap: 8px;
+  padding: 10px 10px 12px;
+  background: color-mix(in srgb, var(--tk-bg), #000000 25%);
+}
+.c-tk-book__e {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tk-muted);
+  padding: 0 4px;
+}
+.c-tk-sub {
+  --sb-bg: var(--tk-bg); --sb-accent: var(--tk-accent); --sb-text: var(--tk-text); --sb-muted: var(--tk-muted);
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px 8px 8px;
+  border-radius: 8px;
+  border-left: 3px solid var(--sb-accent);
+  background: color-mix(in srgb, var(--sb-bg), #ffffff 6%);
+  color: var(--sb-text);
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease;
+  &:hover { background: color-mix(in srgb, var(--sb-bg), #ffffff 12%); color: var(--sb-text); transform: translateX(2px); }
+  &:focus-visible { outline: 2px solid var(--sb-accent); outline-offset: 2px; }
+}
+.c-tk-sub__img {
+  display: block;
+  width: 56px; height: 42px;
+  object-fit: cover;
+  object-position: 50% 40%;
+  border-radius: 4px;
+  background: var(--sb-bg);
+  &--blank { background: linear-gradient(135deg, color-mix(in srgb, var(--sb-accent) 40%, var(--sb-bg)), var(--sb-bg)); }
+}
+.c-tk-sub__t {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+  b { font-family: $heading-font-family; font-size: 15px; font-weight: 600; color: var(--sb-accent); line-height: 1.2; }
+  i { font-style: normal; font-size: 11.5px; line-height: 1.4; color: var(--sb-text); opacity: 0.88; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  small { font-family: "Special Elite", "Courier New", monospace; font-size: 8.5px; letter-spacing: 0.1em; color: var(--sb-muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+.c-tk-sub__go { font-family: $heading-font-family; font-size: 20px; color: var(--sb-accent); }
+
+/* ---------- 「同一个他 · 另外几场」那页（自动） ---------- */
+.c-sister-list {
+  list-style: none;
+  margin: 14px 0 4px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.c-sister-list__item {
+  --sb-accent: #{$accent}; --sb-bg: #{$paper};
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px 12px 16px;
+  border-left: 3px solid var(--sb-accent);
+  border-radius: 0 8px 8px 0;
+  background: color-mix(in srgb, var(--sb-accent) 7%, $paper);
+}
+.c-sister-list__name {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px;
+  text-decoration: none; color: $ink;
+  b { font-family: $heading-font-family; font-size: 17px; font-weight: 600; color: $ink; }
+  &:hover b { color: var(--sb-accent); }
+}
+.c-sister-list__st { font-family: $heading-font-family; font-style: italic; font-size: 12px; color: $muted; letter-spacing: 0.04em; }
+.c-sister-list__log { font-size: 14.5px; line-height: 1.75; color: $ink; opacity: 0.9; }
+.c-sister-list__go { justify-self: end; font-family: $heading-font-family; font-style: italic; font-size: 14px; color: var(--sb-accent); text-decoration: none; border-bottom: 1px dashed currentColor; &:hover { color: $ink; } }
+@media (max-width: 640px) {
+  .c-tk-book { padding: 8px 8px 10px; }
+  .c-tk-sub { grid-template-columns: 48px minmax(0, 1fr) auto; gap: 8px; }
+  .c-tk-sub__img { width: 48px; height: 36px; }
+  .c-tk-sub__t b { font-size: 14px; }
+}
+
 /* 「保存票根」出来的图：一层浮层，图 + 一句话（手机长按存相册，电脑点下载） */
 .c-tk-saved {
   position: fixed;

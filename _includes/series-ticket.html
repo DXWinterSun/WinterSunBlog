@@ -19,6 +19,9 @@
 {%- assign tk_n = include.chapters | size -%}
 {%- assign st = page.series_status | default: "ongoing" -%}
 {%- if st == "complete" -%}{%- assign tk_st = "终场" -%}{%- elsif st == "hiatus" -%}{%- assign tk_st = "中场休息" -%}{%- elsif st == "oneshot" -%}{%- assign tk_st = "独幕" -%}{%- else -%}{%- assign tk_st = "开演至今" -%}{%- endif -%}
+{%- include series-siblings.html -%}
+{%- assign tk_mf = p.mf_id | default: tk_sib_mf -%}
+{%- if tk_mf == "" -%}{%- assign tk_mf = nil -%}{%- endif -%}
 {%- assign theme_id = "" -%}
 {%- if p and p.mf_id -%}
   {%- for t in site.data.sam_themes -%}
@@ -30,7 +33,7 @@
   <p class="c-tk-end__eyebrow">— 票根 · Keep this stub —</p>
   <div class="c-stub-ticket" id="js-series-ticket" data-note-key="{{ page.url | prepend: site.baseurl }}" data-base="{{ site.baseurl }}"
        data-who="{{ tk_who | escape }}" data-sub="{% if tk_actor %}{{ tk_actor | escape }} · {% endif %}{{ tk_film | escape }}"
-       data-series="{{ page.hero_title | strip_html | default: page.series_name | escape }}"
+       data-series="{{ page.hero_title | strip_html | default: page.series_name | escape }}"{% if tk_mf %} data-mf="{{ tk_mf }}"{% endif %}
        data-run="{% if tk_n > 0 %}Chapter 01 → {% if tk_n < 10 %}0{% endif %}{{ tk_n }} · {{ tk_first.date | date: '%Y.%m.%d' }} — {{ tk_last.date | date: '%m.%d' }} · {% endif %}{{ tk_st }}"
        {% if p %}style="--tk-bg: {{ p.bg }}; --tk-accent: {{ p.accent }}; --tk-text: {{ p.text }}; --tk-muted: {{ p.muted }};"{% endif %}>
     <button class="c-tk-save" type="button" id="js-ticket-save" title="把这张票根存成一张图">
@@ -114,8 +117,8 @@
         <b>戏服间</b><em>Wardrobe</em>
       </button>
       {%- endif %}
-      {%- if p and p.mf_id %}
-      <a class="c-tk-stub" href="{{ site.baseurl }}/sam/many-faces/#{{ p.mf_id }}" title="去画册里找他">
+      {%- if tk_mf %}
+      <a class="c-tk-stub" href="{{ site.baseurl }}/sam/many-faces/#{{ tk_mf }}" title="去画册里找他">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5c2.5 1 5.5 1 8 0 2.5 1 5.5 1 8 0v7c0 4.5-3.6 8-8 8s-8-3.5-8-8V5z"/><path d="M8.5 11h2M13.5 11h2"/><path d="M9 15.5c1.8 1.3 4.2 1.3 6 0"/></svg>
         <b>演员表</b><em>Cast</em>
       </a>
@@ -125,6 +128,35 @@
         <b>后台电话</b><em>Backstage</em>
       </a>
     </div>
+    {%- if tk_sibs.size > 0 %}
+    {%- comment -%} 连票：同一位演员的另外几场，沿撕线连在主票下面（Winter 2026-10-18 选的 A）。每张小票用那个系列自己的四色。{%- endcomment -%}
+    {%- assign sb_cnt = tk_sibs.size -%}
+    {%- if sb_cnt == 1 -%}{%- assign sb_cn = "一" -%}{%- elsif sb_cnt == 2 -%}{%- assign sb_cn = "两" -%}{%- elsif sb_cnt == 3 -%}{%- assign sb_cn = "三" -%}{%- elsif sb_cnt == 4 -%}{%- assign sb_cn = "四" -%}{%- else -%}{%- assign sb_cn = sb_cnt -%}{%- endif -%}
+    <div class="c-tk-tear" aria-hidden="true"></div>
+    <div class="c-tk-book" id="js-ticket-book" aria-label="他的另外几场">
+      <span class="c-tk-book__e">Same Actor · Other Shows · 他的另外{{ sb_cn }}场</span>
+      {%- for sb in tk_sibs %}
+      {%- assign sb_p = site.data.au_palettes[sb.series_name] -%}
+      {%- assign sb_ch = site.posts | where: "series", sb.series_name | sort: "series_order" -%}
+      {%- assign sb_first = sb_ch | first -%}{%- assign sb_last = sb_ch | last -%}{%- assign sb_n = sb_ch | size -%}
+      {%- assign sb_s = sb.series_status | default: "ongoing" -%}
+      {%- if sb_s == "complete" -%}{%- assign sb_st = "终场" -%}{%- elsif sb_s == "hiatus" -%}{%- assign sb_st = "中场休息" -%}{%- elsif sb_s == "oneshot" -%}{%- assign sb_st = "独幕" -%}{%- else -%}{%- assign sb_st = "开演至今" -%}{%- endif -%}
+      {%- capture sb_run -%}{% if sb_n > 0 %}Chapter 01 → {% if sb_n < 10 %}0{% endif %}{{ sb_n }} · {{ sb_first.date | date: '%Y.%m.%d' }} — {{ sb_last.date | date: '%m.%d' }} · {% endif %}{{ sb_st }}{%- endcapture -%}
+      {%- assign sb_cover = sb_first.image | default: sb.cover -%}
+      {%- assign sb_title = sb.hero_title | strip_html | default: sb.series_name -%}
+      <a class="c-tk-sub" href="{{ site.baseurl }}{{ sb.url }}" data-name="{{ sb_title | escape }}" data-line="{{ sb.line_name | escape }}" data-lede="{{ sb.lede | escape }}" data-run="{{ sb_run | strip | escape }}"
+         {% if sb_p %}style="--sb-bg: {{ sb_p.bg }}; --sb-accent: {{ sb_p.accent }}; --sb-text: {{ sb_p.text }}; --sb-muted: {{ sb_p.muted }};"{% endif %}>
+        {%- if sb_cover %}<img class="c-tk-sub__img" src="{{ "/images/" | prepend: site.baseurl | append: sb_cover }}" alt="" decoding="async">{% else %}<span class="c-tk-sub__img c-tk-sub__img--blank" aria-hidden="true"></span>{% endif %}
+        <span class="c-tk-sub__t">
+          <b>{% if sb.line_name %}{{ sb.line_name }} · {% endif %}{{ sb_title }}</b>
+          {%- if sb.lede %}<i>{{ sb.lede }}</i>{% endif %}
+          <small>{{ sb_run | strip }}</small>
+        </span>
+        <span class="c-tk-sub__go" aria-hidden="true">→</span>
+      </a>
+      {%- endfor %}
+    </div>
+    {%- endif %}
   </div>
   <p class="c-tk-end__foot"><a href="{{ site.baseurl }}/?cat=AU+Story">← 回 AU Story</a></p>
 </section>

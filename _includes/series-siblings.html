@@ -1,0 +1,25 @@
+{%- comment -%}
+  同一位演员的其他场次（2026-10-18，Winter 定的「连票」）：按 byline 第一段（角色名，去掉各种引号后比对）
+  在所有 layout: series 的页里找同名的，排除本页。结果：
+    tk_sibs    其他场次的页（数组，按 collection_order 排）
+    tk_sib_mf  本系列没写 mf_id 时，从兄弟系列借来的画册锚点（票根「演员表」那格用）
+    sb_who     角色名原文（byline 第一段）
+  Jekyll 的 include 不隔离变量，所以 _layouts/series.html 和 series-ticket.html 直接 include 一次、读这几个变量就行。
+  每个有兄弟的系列页 front matter 要写 line_name（调音线 / 血族线 / 女仆线…），票上和「同一个他」那页按它称呼。
+{%- endcomment -%}
+{%- assign sb_who = page.byline | default: "" | split: " · " | first | default: "" -%}
+{%- assign sb_me = sb_who | replace: "“", "" | replace: "”", "" | replace: "\"", "" | replace: "'", "" | strip -%}
+{%- assign tk_sibs = "" | split: "" -%}
+{%- assign tk_sib_mf = "" -%}
+{%- if sb_me != "" -%}
+  {%- assign sb_all = site.pages | where: "layout", "series" | where_exp: "s", "s.collection_order" | sort: "collection_order" -%}
+  {%- for sb in sb_all -%}
+    {%- if sb.url == page.url -%}{%- continue -%}{%- endif -%}
+    {%- assign sb_name = sb.byline | default: "" | split: " · " | first | default: "" | replace: "“", "" | replace: "”", "" | replace: "\"", "" | replace: "'", "" | strip -%}
+    {%- if sb_name == sb_me -%}
+      {%- assign tk_sibs = tk_sibs | push: sb -%}
+      {%- assign sb_p = site.data.au_palettes[sb.series_name] -%}
+      {%- if tk_sib_mf == "" and sb_p and sb_p.mf_id -%}{%- assign tk_sib_mf = sb_p.mf_id -%}{%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
