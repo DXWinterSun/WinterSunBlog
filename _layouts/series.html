@@ -59,8 +59,28 @@ layout: home
 <p class="c-series-tone"><b class="c-series-tone__label">基调 · Tone</b>{{ page.logline }}</p>
 {% endif %}
 
+{% include series-siblings.html %}
 <div class="c-series-intro" id="js-series-intro">
 {{ content }}
+{%- if tk_sibs.size > 0 %}{% unless content contains "c-sister-au" %}
+{%- comment -%} 同一位演员演过不止一场：自动加一页（Winter 2026-10-18 定）。手写过 .c-sister-au 的页（Jim 那两页）保留手写的，不再自动加。{%- endcomment -%}
+{%- assign sb_total = tk_sibs.size | plus: 1 -%}
+{%- if sb_total == 2 -%}{%- assign sb_total_cn = "两" -%}{%- elsif sb_total == 3 -%}{%- assign sb_total_cn = "三" -%}{%- elsif sb_total == 4 -%}{%- assign sb_total_cn = "四" -%}{%- elsif sb_total == 5 -%}{%- assign sb_total_cn = "五" -%}{%- else -%}{%- assign sb_total_cn = sb_total -%}{%- endif -%}
+<article class="c-sam-intro c-sister-au c-sister-au--auto">
+  <h2 class="c-sam-intro__heading">同一个他 · 另外几场</h2>
+  <p>{{ sb_who }} 在站里演过{{ sb_total_cn }}场{% if page.line_name %}，你正读的是<strong>{{ page.line_name }}</strong>{% endif %}。另外{% if tk_sibs.size == 1 %}那一场{% else %}几场{% endif %}各是各的故事，从哪一场看起都行——同一张脸，不一样的命。</p>
+  <ul class="c-sister-list">
+    {%- for sb in tk_sibs %}
+    {%- assign sb_p = site.data.au_palettes[sb.series_name] -%}
+    <li class="c-sister-list__item"{% if sb_p %} style="--sb-accent: {{ sb_p.accent }}; --sb-bg: {{ sb_p.bg }};"{% endif %}>
+      <a class="c-sister-list__name" href="{{ site.baseurl }}{{ sb.url }}"><b>{% if sb.line_name %}{{ sb.line_name }} · {% endif %}{{ sb.hero_title | strip_html | default: sb.series_name }}</b><em class="c-sister-list__st">{% include series-status.html status=sb.series_status %}</em></a>
+      {%- if sb.logline %}<span class="c-sister-list__log">{{ sb.logline }}</span>{% endif %}
+      <a class="c-sister-list__go" href="{{ site.baseurl }}{{ sb.url }}">去看{% if sb.line_name %}{{ sb.line_name }}{% else %}这一场{% endif %} →</a>
+    </li>
+    {%- endfor %}
+  </ul>
+</article>
+{%- endunless %}{% endif %}
 </div>
 
 <section class="c-sam-collection" id="chapters">
