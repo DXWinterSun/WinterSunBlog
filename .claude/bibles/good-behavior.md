@@ -152,6 +152,15 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    第四夜那页 Unstable 还在，下一页空着，你拧开钢笔（写什么＝Ch7 岔路）。
    mood 絮语·暗涌 ｜ 预览页：https://claude.ai/artifact/5ku8V8Ee9jG3HJ7MCFedE1 ｜ 状态：✅ 2026-10-18 上线（第二批 Ch4–6）
 
+7. **那张纸坐船走了** — 第五夜：你**撕掉第四夜那页 Unstable**（连订口毛边都没留），对折推给他；「撕记录册可是罪恶……你知道你是什么吗？」你答 naughty girl；
+   「页码是连着的，外头的人会数」「那就让他们数」；你写 Stable（这回是真的，他笑时脉稳）；他揣起那页、摘马灯「带你去个地方」——屋后窄门、生锈铁梯、盖板，
+   **塔顶**石栏杆外是一整片白雾（看不见岸）；「我以前天天上来，看雾哪天散……后来不上来了，看烦了，它从来不散」；他把那页**折成纸船**丢进雾里
+   「你写的那个词，替我先坐船走了」；「哭什么，一张纸」；【第三场炽恋】红外套裹住你、手伸进裙子「你撕我记录册的时候就湿了吧」「撒谎」；
+   把你**抱上栏杆**（背后只有雾），**铁链绕到你后腰把你圈住**「抓着呢，掉不下去」「这链子我戴了这么些年，头一回派上正经用场」；慢、一寸一寸、一直盯着你；
+   「雾底下全听得见」「底下没人」「有。有我。」；你到时往后仰、咬他肩；天亮前裹着外套靠栏杆：「你在等什么？」「**等有人回来**」（没说是谁）；
+   「今天又想上来看了……有人陪我一块儿看。……而且你暖和」；他回屋睡；你下到七层，**Hobbs 等在门口，托盘布没掀：「底下那个人……烧了一整夜了」**。
+   mood 炽恋·缱绻 ｜ 预览页：https://claude.ai/artifact/RKF9zN81d5uKKT3o45nqc3 ｜ 状态：**草稿，待 Winter 过目**
+
 ## DEFERRED（压着，到点再放）
 
 - **W. Wharton，No. 1**：塔底最旧的犯人名册第一页第一行。Warden / Wharton 的谐音（Winter 亲口点出来的）——压到第二幕最狠的位置。
@@ -188,10 +197,14 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
 - ⏳ **塔底铁门 + Hobbs 的盖布托盘**（Ch6）→ 前任在下面（设定②）
 - ⏳ **邮袋 + 月底的船**（Ch6）→ 记录册寄出；船上外头新派的医生（压着）
 - ⏳ Tommy：「我记着他了」（Ch6）
-- ⏳ 记录册现状：第四夜 Unstable，第五夜待写（连写三天＝船来）
+- ✅ 记录册：第四夜那页 Unstable 被你撕了（Ch7），第五夜写 Stable（真的）。⏳ **少了一页、页码连着，月底寄出去外头会数**
+- ⏳ 他以前天天上塔顶「等有人回来」（Ch7）→ 等谁
+- ⏳ **塔底那个人烧了一整夜，Hobbs 来找你**（Ch7 末）→ Ch8
 - ⏳ 红绒球在你手里（Ch1）
 
 ## 预览页
+
+- Ch7：https://claude.ai/artifact/RKF9zN81d5uKKT3o45nqc3 （--notes ch7-notes.md --forks ch8-forks.json）
 
 - Ch6：https://claude.ai/artifact/5ku8V8Ee9jG3HJ7MCFedE1 （--notes ch6-notes.md --forks ch7-forks.json）
 - 设定页：https://claude.ai/artifact/WKfBYdbHhZDBmq7rk8q4vF
