@@ -408,10 +408,10 @@
     }
 
     if (photo && photo.complete && photo.naturalWidth) {
-      drawCover(ctx, photo, 0, y, W, photoH, cssVar(photo, '--pos', '50% 30%'));
+      drawCover(ctx, photo, 0, y, W, photoH, (photo.getAttribute('data-pos') || cssVar(photo, '--pos', '50% 30%')));
       y += photoH; rest();
     } else if (photo) {
-      photo.addEventListener('load', function () { drawCover(ctx, photo, 0, y, W, photoH, cssVar(photo, '--pos', '50% 30%')); y += photoH; rest(); }, { once: true });
+      photo.addEventListener('load', function () { drawCover(ctx, photo, 0, y, W, photoH, (photo.getAttribute('data-pos') || cssVar(photo, '--pos', '50% 30%'))); y += photoH; rest(); }, { once: true });
       photo.addEventListener('error', function () { y += photoH; rest(); }, { once: true });
     } else { rest(); }
   }
