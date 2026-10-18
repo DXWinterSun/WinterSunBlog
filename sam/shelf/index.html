@@ -655,6 +655,8 @@
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: calc(10px * var(--fs)); letter-spacing: 2px; text-transform: uppercase;
   }
+  .item__bhead > span { white-space: nowrap; }
+  .item__bhead > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; }   /* 挤不下先省略类别名，No. 不动 */
   .item__bbody { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 9px 12px 8px; }
   .item__back-note {
     flex: 1; min-height: 0; overflow: auto; margin: 0; font-weight: var(--fw-thin);
@@ -744,6 +746,44 @@
     .item__flip { transition: none; }
     .item__face { transition: box-shadow .14s ease; }   /* 不转就不用等，直接换面 */
   }
+  /* ⑤ 手机上翻面＝把卡拿到眼前（Winter 2026-10-18 选的）：一行两张的小卡装不下背面那段话，在卡里再滚一层
+     手指一划划的是整页。所以 ≤620px 时点 ↻ 不在原地翻，而是复制一张到屏幕中间放大、翻过来，背面有多长就多高
+     （最多一屏，再长卡里滚）；点空白处 / ↻ / Esc 放回去，放回去时缩回原来那张卡的位置。电脑上照旧原地翻。 */
+  .zoom {
+    position: fixed; inset: 0; z-index: 38;                 /* 压过右下角的悬浮键（35），让着编辑弹窗（40）和提示条（50） */
+    display: flex; align-items: center; justify-content: center;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+    background: rgba(0,0,0,0); backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);
+    transition: background .4s ease, backdrop-filter .4s ease, -webkit-backdrop-filter .4s ease;
+    overscroll-behavior: contain;
+  }
+  .zoom.is-in { background: rgba(0,0,0,.58); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+  html.is-zoomed, html.is-zoomed body { overflow: hidden; }
+  .zoom .item {
+    --zw: min(88vw, 380px);
+    width: var(--zw); aspect-ratio: auto; max-height: 100%;
+    display: flex; flex-direction: column; cursor: default;
+    transition: transform .45s cubic-bezier(.2,.8,.25,1);
+  }
+  .zoom .item:hover, .zoom .item:active { transform: none; }
+  .zoom .item::after { display: none; }
+  .zoom .item__flip { flex: 1; min-height: calc(var(--zw) * 1.08); height: auto; display: flex; flex-direction: column; }   /* 字少的卡别空一大截，字多的自己长高 */
+  .zoom .item__face--back { position: relative; inset: auto; flex: 1; height: auto; max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); }
+  .zoom .item__face--front { position: absolute; inset: 0; height: auto; }
+  .zoom .item__face { box-shadow: 6px 6px 0 var(--shade), 0 18px 48px rgba(0,0,0,.45); }
+  .zoom .item:hover .item__face, .zoom .item:active .item__face { box-shadow: 6px 6px 0 var(--shade), 0 18px 48px rgba(0,0,0,.45); }
+  .zoom .item__bhead { font-size: calc(11px * var(--fs)); padding: 10px 44px 10px 14px; }
+  .zoom .item__tools { right: 9px; top: 9px; }
+  .zoom .item__tools .item__turn { width: 26px; height: 26px; font-size: calc(13px * var(--fs)); }
+  .zoom .item__bbody { padding: 12px 14px 12px; }
+  .zoom .item__back-note { font-size: calc(14.5px * var(--fs)); line-height: 1.85; flex: 0 1 auto; }
+  .zoom .item__dl { font-size: calc(10.5px * var(--fs)); margin-top: auto; padding-top: 10px; }
+  .zoom .item__bfoot { margin-top: 10px; }
+  .zoom .item__dog { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .zoom, .zoom .item { transition: none; }
+  }
+
   .item { cursor: default; }   /* 卡面本身只是闪一下，真正能点的是 ↻ 和 ✎ */
   .item:hover { transform: translate(-2px, -2px); }
   .item:hover .item__face { box-shadow: 7px 7px 0 var(--shade); }
@@ -2185,6 +2225,58 @@
   };
   ART.other = ART.goods;
 
+  /* ————— 手机：把一张卡拿到眼前看背面（见样式里 .zoom 那段说明）————— */
+  var ZOOM_MQ = window.matchMedia("(max-width: 620px)");
+  function zoomCard(el, it) {
+    if (document.querySelector(".zoom")) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var layer = document.createElement("div"); layer.className = "zoom";
+    layer.setAttribute("role", "dialog"); layer.setAttribute("aria-label", (it.name || "") + " · 背面");
+    var clone = el.cloneNode(true);
+    clone.classList.remove("is-flipped", "is-shine", "is-tilt");
+    ["--rx", "--ry", "--gx", "--gy"].forEach(function (v) { clone.style.removeProperty(v); });
+    layer.appendChild(clone); document.body.appendChild(layer);
+    document.documentElement.classList.add("is-zoomed");
+
+    /* 复制出来的卡没有事件，重新接上：↻ 放回去，✎ 放回去再编辑，点卡面不算点空白 */
+    clone.querySelectorAll(".item__turn").forEach(function (b) { b.addEventListener("click", function (e) { e.stopPropagation(); close(); }); });
+    clone.querySelectorAll(".item__edit").forEach(function (b) { b.addEventListener("click", function (e) { e.stopPropagation(); close(); openSheet(it.id); }); });
+    clone.addEventListener("click", function (e) { e.stopPropagation(); });
+    layer.addEventListener("click", close);
+    function onKey(e) { if (e.key === "Escape") close(); }
+    document.addEventListener("keydown", onKey);
+
+    /* 从原来那张卡的位置「拿」过来：先摆回原位的大小和位置，再动画到正中、同时翻面 */
+    function fromRect() {
+      var src = el.getBoundingClientRect(), dst = clone.getBoundingClientRect();
+      var sc = src.width / dst.width;
+      var dx = (src.left + src.width / 2) - (dst.left + dst.width / 2);
+      var dy = (src.top + src.height / 2) - (dst.top + dst.height / 2);
+      return "translate(" + dx.toFixed(1) + "px," + dy.toFixed(1) + "px) scale(" + sc.toFixed(3) + ")";
+    }
+    if (!reduce) { clone.style.transform = fromRect(); void clone.offsetWidth; }
+    requestAnimationFrame(function () {
+      layer.classList.add("is-in");
+      clone.style.transform = "";
+      clone.classList.add("is-flipped");
+      var first = clone.querySelector(".item__face--back .item__turn"); if (first) first.focus({ preventScroll: true });
+    });
+
+    var closing = false;
+    function close() {
+      if (closing) return; closing = true;
+      document.removeEventListener("keydown", onKey);
+      layer.classList.remove("is-in");
+      clone.classList.remove("is-flipped");
+      if (!reduce) { clone.style.transform = fromRect(); setTimeout(remove, 470); } else remove();
+    }
+    function remove() {
+      layer.remove();
+      document.documentElement.classList.remove("is-zoomed");
+      var back = el.querySelector(".item__face--front .item__turn"); if (back) back.focus({ preventScroll: true });
+    }
+  }
+
   function itemCard(it) {
     var c = it.charId ? charById[it.charId] : null;
     var t = typeById[it.type] || typeById.other;
@@ -2305,6 +2397,7 @@
       b.setAttribute("aria-label", "翻到另一面");
       b.addEventListener("click", function (e) {
         e.stopPropagation();                       // 别把馆长的「编辑」一起触发了
+        if (ZOOM_MQ.matches && !el.classList.contains("is-flipped")) { zoomCard(el, it); return; }   // 手机：拿到眼前看背面
         el.classList.toggle("is-flipped");
         el.classList.remove("is-tilt");            // 翻过去就别再歪着
         el.style.removeProperty("--rx");
