@@ -1123,10 +1123,17 @@
     font-weight: var(--fw-thin); font-size: calc(12.5px * var(--fs)); line-height: 1.7; color: var(--ink-mid);
   }
   .row__sub i { font-style: normal; color: color-mix(in srgb, var(--a, var(--gold)) 80%, #fff); }
+  /* 备注：平时只露一行，点一下原地摊开全文、再点收回（Winter 2026-10-18：「点击备注的地方就展开全部，直接在当前页面把它拉长展开」） */
   .row__note {
     display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
     margin-top: 2px; font-weight: var(--fw-thin); font-size: calc(12.5px * var(--fs)); line-height: 1.7; color: var(--ink-dim);
+    cursor: pointer; -webkit-tap-highlight-color: transparent;
+    border-radius: 4px; margin-left: -4px; padding: 0 4px;
   }
+  .row__note.is-open { -webkit-line-clamp: unset; display: block; overflow: visible; color: var(--ink-soft); white-space: pre-wrap; }
+  .row__note.is-open::after { content: " ▴ 收起"; font-size: .85em; letter-spacing: 1px; color: var(--ink-faint); white-space: nowrap; }
+  @media (hover: hover) and (pointer: fine) { .row__note:hover { background: color-mix(in srgb, var(--a, var(--gold)) 12%, transparent); } }
+  .row__note:focus-visible { outline: 2px solid color-mix(in srgb, var(--a, var(--gold)) 70%, transparent); outline-offset: 1px; }
   .row__badges { flex: none; font-size: calc(13px * var(--fs)); padding-top: 2px; letter-spacing: 2px; }
 
   /* ————— 角色联动地图 ————— */
@@ -2501,6 +2508,15 @@
     }
     if (it.note) {
       var no = document.createElement("span"); no.className = "row__note"; no.textContent = it.note;
+      no.setAttribute("role", "button"); no.setAttribute("tabindex", "0"); no.setAttribute("aria-expanded", "false");
+      no.title = "点一下展开 / 收起";
+      function toggleNote(e) {
+        e.stopPropagation();                              // 别把整条的点击（馆长编辑等）一起触发
+        var open = no.classList.toggle("is-open");
+        no.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+      no.addEventListener("click", toggleNote);
+      no.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleNote(e); } });
       body.appendChild(no);
     }
     el.appendChild(body);
