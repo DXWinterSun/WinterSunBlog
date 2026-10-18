@@ -1749,7 +1749,11 @@ GitHub 细粒度令牌（存本机 `localStorage` 键 `ws-sam-shelf-key`）后�
 （2026-09-22 那版「一种媒介一个记号」——盒脊 / 露半张唱片 / 书口页脚 / 贴条——已被小画取代，`--pad-l` 那套边距变量也一起拆了。）
 
 同批还做了：**翻面**（卡片拆成 `.item`外壳 ＋ `.item__flip` ＋ 两张 `.item__face`；
-外壳不能带 `overflow:hidden`，会把 3D 压平）、**卡牌跟手指倾斜的反光**（只给
+外壳不能带 `overflow:hidden`，会把 3D 压平。⚠️ **背着的那一面要用 `visibility: hidden` 真藏掉**
+（`.is-flipped .item__face--front` / `:not(.is-flipped) .item__face--back`，延迟 .18s 等转过 90°），
+不能只靠 `backface-visibility`：正面那些带 z-index 的绝对定位小东西——档案编号、↻ ✎——在 Chrome / Safari 里
+各自成层，翻到背面会镜像透过来叠在字上，2026-10-18 Winter 当天就抓到了。**两面的 ↻ 都在右上角同一个点**
+（背面也塞进一个 `.item__tools`），她的原话「翻页在右边，想翻回来它就跑到左边了，这太不符合人的习惯了」）、**卡牌跟手指倾斜的反光**（只给
 `.item--card`，`pointermove` 算 rotateX/Y ＋ 一层跟着指尖走的高光，手一离开就复位）、
 **架板**（`.item::after` 垫在每张卡底下，左右各伸 6px 咬住缝；同一行的卡被 grid 拉平
 所以连成一条通板。板色要从 `--c-bg` 往暗里调，拿 `--c-ink` 调会在夜里变成一条发亮的带子）。

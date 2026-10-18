@@ -541,9 +541,14 @@
     background: var(--panel-hi);
     box-shadow: 4px 4px 0 var(--shade);
     backface-visibility: hidden; -webkit-backface-visibility: hidden;
-    transition: box-shadow .14s ease;
+    transition: box-shadow .14s ease, visibility 0s linear .18s;   /* 转过 90° 那一刻（约 .18s）再把背着的那面藏起来 */
   }
   .item__face--back { position: absolute; inset: 0; transform: rotateY(180deg); }
+  /* ⚠️ 背着的那一面要真的藏掉（visibility），不能只靠 backface-visibility：
+     正面那些带 z-index 的绝对定位小东西（档案编号、↻ ✎）在 Chrome / Safari 里各自成一层，
+     backface-visibility 管不到它们，翻到背面时会镜像透过来叠在字上（2026-10-18 Winter 抓的）。 */
+  .item.is-flipped .item__face--front { visibility: hidden; }
+  .item:not(.is-flipped) .item__face--back { visibility: hidden; }
 
   /* ——— 正面 · 上半截那扇窗 ——— */
   .item__win {
@@ -564,7 +569,7 @@
   }
   .item__badges { position: absolute; left: 9px; bottom: 6px; z-index: 2; display: flex; gap: 4px; font-size: calc(12.5px * var(--fs)); }
   /* 右上角：✎（只有馆长看得见）和 ↻ */
-  .item__tools { position: absolute; right: 7px; top: 7px; z-index: 3; display: flex; gap: 5px; }
+  .item__tools { position: absolute; right: 7px; top: 7px; z-index: 3; display: flex; gap: 5px; }   /* 正反两面都用它，↻ 永远在右上角同一个点 */
   .item__tools .item__turn, .item__tools .item__edit { position: static; width: 22px; height: 22px; }
   .item__edit {
     display: none; border-radius: 50%; cursor: pointer; line-height: 1;
@@ -645,7 +650,8 @@
   /* ——— 背面 · 产品背面 ——— */
   .item__bhead {
     flex: none; display: flex; justify-content: space-between; align-items: center; gap: 8px;
-    padding: 6px 12px; background: color-mix(in srgb, var(--a, var(--gold)) 78%, var(--c-ink)); color: #fff;
+    padding: 8px 40px 8px 12px; min-height: 36px; box-sizing: border-box;   /* 右边给 ↻ 让位 */
+    background: color-mix(in srgb, var(--a, var(--gold)) 78%, var(--c-ink)); color: #fff;
     font-family: 'Special Elite', 'Courier New', monospace;
     font-size: calc(10px * var(--fs)); letter-spacing: 2px; text-transform: uppercase;
   }
@@ -665,7 +671,7 @@
   .item__dl dd { margin: 0; display: flex; align-items: baseline; gap: 5px; min-width: 0; }
   .item__dl dd::before { content: ""; flex: 1; min-width: 8px; border-bottom: 1px dotted rgba(var(--ink-rgb),.35); transform: translateY(-3px); }
   .item__dl dd span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .item__bfoot { flex: none; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; margin-top: 7px; padding-right: 28px; }
+  .item__bfoot { flex: none; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; margin-top: 7px; }
   .item__barcode {
     display: block; height: 14px; width: 46%; opacity: .5;
     background: repeating-linear-gradient(90deg,
@@ -673,7 +679,8 @@
       rgba(var(--ink-rgb),.75) 3px 5px, transparent 5px 6px,
       rgba(var(--ink-rgb),.75) 6px 8px, transparent 8px 11px);
   }
-  .item__tiny { font-family: 'Special Elite', 'Courier New', monospace; font-size: calc(8.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-faint); }
+  .item__tiny { font-family: 'Special Elite', 'Courier New', monospace; font-size: calc(8.5px * var(--fs)); letter-spacing: 2px; color: var(--ink-faint); white-space: nowrap; }
+  .item__bfoot .item__barcode { flex: 0 1 46%; width: auto; min-width: 20px; }   /* 窄卡上让条码缩，别让那行小字折成两行 */
   /* 卡牌的背面印一层像卡背那样的菱格 */
   .item--card .item__bbody {
     background-image:
@@ -735,6 +742,7 @@
   @media (prefers-reduced-motion: reduce) {
     .item.is-shine .item__face--front::before { display: none; }
     .item__flip { transition: none; }
+    .item__face { transition: box-shadow .14s ease; }   /* 不转就不用等，直接换面 */
   }
   .item { cursor: default; }   /* 卡面本身只是闪一下，真正能点的是 ↻ 和 ✎ */
   .item:hover { transform: translate(-2px, -2px); }
@@ -2311,7 +2319,9 @@
     ed.addEventListener("click", function (e) { e.stopPropagation(); openSheet(it.id); });
     tools.appendChild(ed);
     tools.appendChild(turnBtn());
-    back.appendChild(turnBtn());
+    var btools = document.createElement("span"); btools.className = "item__tools";   /* 背面的 ↻ 也在右上角，跟正面同一个点 */
+    btools.appendChild(turnBtn());
+    back.appendChild(btools);
 
     /* ————— 卡牌：跟着手指 / 鼠标歪一歪，反光跟着走 ————— */
     if (it.type === "card" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
