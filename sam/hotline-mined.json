@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文筛出、再经 tools/hotline_review.json 人审过的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 这句接得上的情境（可多个）。新章节上线后重跑脚本即可，不要手改。",
-  "count": 198
+  "count": 197
  },
  "chars": {
   "youngsam": {
@@ -241,17 +241,7 @@
    ]
   },
   "dixon": {
-   "default": [
-    {
-     "cn": "我……送你回去吧。",
-     "b": [
-      "daily"
-     ],
-     "ch": 1,
-     "title": "Chapter 1 · 红底黑字",
-     "series": "Only I Know"
-    }
-   ]
+   "default": []
   },
   "wildbill": {
    "default": [
