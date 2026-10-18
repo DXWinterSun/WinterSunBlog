@@ -173,6 +173,17 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    你想起第一夜「全塔就你一个敢不按我的规矩来」，忽然很想知道他对塔底那个人说过什么。
    mood 暗涌·怅惘 ｜ 预览页：https://claude.ai/artifact/EoyH7S1aLrQYg3zK2KPtau ｜ 状态：**草稿，待 Winter 过目**
 
+9. **医生没来** — 第六夜你写完 Stable 起身「明天见，Mr. Warden」不回头，**记录册落在他桌上**没去拿（冷他，Winter 选 C）；**他闹**：半夜把托盘从塔顶顺楼梯井扔到底、
+   **拉了一夜的闸**（全塔灯红黄闪到天亮，没人敢睡也没人敢藏）、罚 **Tommy** 从顶到底刷楼梯；白天跟在你身后五步、踢翻两个水桶、靴尖磕门槛
+   「医生，我不稳定了，你不看看？」「十一点再看」，走时撞歪走廊上的画；**第七夜你头一回没上去**；十一点二十门上两下慢＋刮一道，他**背靠你的门坐地上**
+   （跟 Ch3 衣柜翻面：这回他在门外）；他闻出你身上塔底的霉味和退烧药味；**真相 A 都是真的**：「椅子，链子，第四条，躲猫猫。都是真的。我跟他都玩过。」
+   ⭐ Winter 的话「他不挑，可他难取悦」→「我不挑。男的女的，乖的坏的，来一个我要一个。因为都一样。谁都一样没劲。我谁都要，就是因为谁都不稀罕」
+   「没一个能让我高兴超过三天。Lowell 撑了三天」「那我呢？」「**你撑了七天了**」；为什么是你→先挡「你好看」→「**钥匙这么些年谁都没给过。Lowell 来时我让 Hobbs
+   说钥匙丢了。你来时是我让 Hobbs 给你的**」「还有你写了一笔又撕了。**Lowell 写了三笔一笔都没撕，他想让船来把我接走**」「我没杀他，给他饭吃给他毯子，
+   我就是不能让那本册子寄出去。我不能让他走，也不能让他们把我带走」「你关了一个人」「知道」（就这一句，不辩解）；他递上记录册：你那行 Stable 底下，
+   他又大又歪的「**Unstable.**」＋挤在格边的「**医生没来。**」——**这算一笔**；「你撕不撕随你」「医生，我不稳定。你得看看我」；你把门开大了一点。
+   mood 絮语·怅惘 ｜ 预览页：https://claude.ai/artifact/65RqzMoy6JEEM9C9mKMsi4 ｜ 状态：**草稿，待 Winter 过目**（她挑 Ch10 岔路＝认可，届时 Ch7–9 一起上线）
+
 ## DEFERRED（压着，到点再放）
 
 - **W. Wharton，No. 1**：塔底最旧的犯人名册第一页第一行。Warden / Wharton 的谐音（Winter 亲口点出来的）——压到第二幕最狠的位置。
@@ -215,10 +226,16 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
 - ⏳ **他跟 Lowell 也走过同一套**（椅子、第四条「刚定的」、躲猫猫、「归找到的人」）→ Ch9 岔路定几分真
 - ⏳ **钥匙只给了你**：Hobbs 对 Lowell 说钥匙丢了——谁让 Hobbs 把钥匙给你的？
 - ⏳ Lowell 第三晚自己走下去，他锁了门、一句话没说——为什么
-- ⏳ 你瞒着他下过塔底（Ch8）
+- ✅ 你瞒着他下过塔底 → Ch9 他闻出来了
+- ✅ 他跟 Lowell 走过同一套几分真 → Ch9：都是真的（Winter 选 A）；不同处＝钥匙只给了你（他让 Hobbs 给的）
+- ⏳ **记录册：他自己写了一笔 Unstable「医生没来」**（Ch9，第七夜）＝第一笔，船要三笔；第四夜那页被撕、少一页
+- ⏳ Lowell 写三笔是想让船把他接走——Lowell 为什么想送走他
+- ⏳ 全塔看见灯闪了一夜（Ch9）
 - ⏳ 红绒球在你手里（Ch1）
 
 ## 预览页
+
+- Ch9：https://claude.ai/artifact/65RqzMoy6JEEM9C9mKMsi4 （--notes ch9-notes.md --forks ch10-forks.json）
 
 - Ch8：https://claude.ai/artifact/EoyH7S1aLrQYg3zK2KPtau （--notes ch8-notes.md --forks ch9-forks.json）
 
