@@ -6,7 +6,7 @@
 > 续写前先读这份；每写完一章回来更新「章节流水」与 PINNED / DEFERRED。
 
 series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 48 ｜ 封面 images/good-behavior.svg（Claude 画的静物，生成脚本 tools/series/good_behavior_cover.py）
-上线：2026-10-18 第一幕 Ch1–3（_posts/2026-10-18-good-behavior-chapter-*）
+上线：2026-10-18 凌晨 Ch1–3、上午 Ch4–6（_posts/2026-10-18-good-behavior-chapter-*）
 角色: William "Wild Bill" Wharton（Sam Rockwell,《绿里奇迹》The Green Mile 1999）画册 id wildbill
   ⚠️ 这是他的**第三个**系列（另两个：Tuning the Devil 调音线、Sanguis Benedicta 血族线）。三边各走各的，
   称呼、设定、母题互不串。上线时画册 wildbill 的 `auLinks` 要加第三条（quiz / spectrum / lines.json 同步，见 CLAUDE.md）。
@@ -129,7 +129,7 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    「收好，医生。规矩是规矩。我这个人，很守规矩的」；那一圈吻痕你没遮（围巾放回去），全塔看见，Hobbs 掉头就走；老头塞**两只苹果**指楼上
    （「这么些年，头一回给我好脸色」）；夜：你当面一笔一划写 **Unstable**（勾引）；他走到门边**黄铜闸刀**（全塔的灯从这走），手搭上又拿开
    「今晚不红。全塔照睡。今晚不稳定的就我一个，只给你一个人看」，反锁门，两手撑你椅子扶手圈住你「Nightingale 医生，你在勾引我」「嗯」naughty girl。
-   ⭐ **Unstable＝你们俩的暗号，塔里别人不知道**（灯不红）。mood 絮语·暗涌 ｜ 预览页：https://claude.ai/artifact/KdmwGi1wrRmDGCCjPbVJRX ｜ 状态：**草稿，待 Winter 过目**
+   ⭐ **Unstable＝你们俩的暗号，塔里别人不知道**（灯不红）。mood 絮语·暗涌 ｜ 预览页：https://claude.ai/artifact/KdmwGi1wrRmDGCCjPbVJRX ｜ 状态：✅ 2026-10-18 上线
 
 5. **第四条作废了** — 【第二场炽恋】门锁上；「写 Unstable……这得怎么办」；书桌**最底下那只抽屉**里一副看守留下的老手铐（铰链有锈）
    「naughty girl 需要一点管教。站起来，转过去」，把你手铐在背后（短链垂在腰窝）；他坐回铁椅、链子绕扶手「第四条，我不动。你写的不稳定你自己来治」，
@@ -140,7 +140,7 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    你到时**咬住他的项圈**；解手铐揉红印，用敞着的红外套裹住你；**揭开：招聘启事他登的、录用信他回的（老看守的章），你的应聘信收在那只抽屉里、
    信封边角摸起毛，他背得出「外头没有人会来找我，我可以一直待下去」**——Ch2 问「外面有人等你吗」是想听你自己说；「来应聘的不止你一个，我就挑了你」；
    「上一位医生的信也是你回的？」停很久：「不是。」
-   mood 炽恋·暗涌 ｜ 预览页：https://claude.ai/artifact/8vyKzKunPnQXfUQHeZf1Yd ｜ 状态：**草稿，待 Winter 过目**
+   mood 炽恋·暗涌 ｜ 预览页：https://claude.ai/artifact/8vyKzKunPnQXfUQHeZf1Yd ｜ 状态：✅ 2026-10-18 上线
 
 6. **连写三天，船就来** — 白天的一章（设定落地：现实底子）。早上八点他端两份早饭敲门（两下慢的＋指节刮一道；Hobbs 是三下轻快的），
    白天眯眼像被拎出地窖晒太阳的猫「白天怎么这么亮」；替你拎药箱巡诊；洗衣房、厨房（燕麦粥溅半面墙）；介绍犯人「偷了三匹马全是母的」「我一视同仁地烦他们」；
@@ -150,7 +150,7 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    **连写三天 Unstable 外头就派船来接他，接走了就没回来过**；「上一位医生写到第三个」；你才知道第四夜的「我知道」根本不知道；Hobbs 端盖布托盘下储藏室最里头的**铁门**
    「给塔底的老鼠」；夜：「那你还让我写？」→「**钥匙在你手里，笔也在你手里。你哪天想让船来，连着写三天就行。我不拦你。反正我这个人很守规矩的。**」
    第四夜那页 Unstable 还在，下一页空着，你拧开钢笔（写什么＝Ch7 岔路）。
-   mood 絮语·暗涌 ｜ 预览页：https://claude.ai/artifact/5ku8V8Ee9jG3HJ7MCFedE1 ｜ 状态：**草稿，待 Winter 过目**（她挑 Ch7 岔路＝认可，届时 Ch4–6 一起上线）
+   mood 絮语·暗涌 ｜ 预览页：https://claude.ai/artifact/5ku8V8Ee9jG3HJ7MCFedE1 ｜ 状态：✅ 2026-10-18 上线（第二批 Ch4–6）
 
 ## DEFERRED（压着，到点再放）
 
