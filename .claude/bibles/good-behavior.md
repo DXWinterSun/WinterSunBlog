@@ -161,6 +161,18 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    「今天又想上来看了……有人陪我一块儿看。……而且你暖和」；他回屋睡；你下到七层，**Hobbs 等在门口，托盘布没掀：「底下那个人……烧了一整夜了」**。
    mood 炽恋·缱绻 ｜ 预览页：https://claude.ai/artifact/RKF9zN81d5uKKT3o45nqc3 ｜ 状态：**草稿，待 Winter 过目**
 
+8. **第四条，他也跟我说过** — 你瞒着他（他白天在楼上睡）跟 Hobbs 下塔底：铁门、石阶、看守在时的**老牢房**（铁栏锈红，上面的屋子是他后来改的）；
+   最里头一间锁着，**钥匙只有监狱长有**，你隔栏杆看病、给退烧药。前任 **Julian Lowell**（三十出头、瘦、外头会被多看两眼的长相，「又换了一个」「我也是」医生）
+   看见你脖子上淡了的那圈「**他也给你戴了**」；一样样说：头晚装乖、链子拽过去、「抓到了，你们这些人啊一个比一个好骗」；第二晚手放扶手链绕两圈
+   「**他说那是第四条，他刚定的。他是不是也跟你说过？**」；第三晚躲猫猫——你接「被找到的，归找到的人」，他「对，就是这一句」；「他男的女的都要？」「**他什么都要**」。
+   ⭐ Winter 2026-10-18 的点子：上一个也是跟他玩情趣玩脱了，「我以为我很特别但其实只是其中一个」，他男女通吃。
+   **对不上**（Ch8 岔路 B）：① Lowell 说第三晚**是他自己走下来的**（想藏到最底下），监狱长找到他、在栏杆外看了很久、锁上门一句话没说走了——
+   跟 Hobbs「上去就没下来」、跟设定②「他把人关下去」的表面说法不同（⚠️ 设定②仍成立：门是他锁的、钥匙在他那儿）；
+   ② **钥匙**：「Hobbs 跟我说，钥匙早就丢了」——Lowell 从没拿到过；Hobbs 脸白透先走了。**椅子、链子、第四条、躲猫猫他全听过，只有钥匙只给了你。**
+   十一点：他拍腿「过来暖暖」，你第一次没过去，看扶手上链子磨出的两道亮痕；「医生，你今天不稳定」「naughty girl，谁惹你了？」；
+   你想起第一夜「全塔就你一个敢不按我的规矩来」，忽然很想知道他对塔底那个人说过什么。
+   mood 暗涌·怅惘 ｜ 预览页：https://claude.ai/artifact/EoyH7S1aLrQYg3zK2KPtau ｜ 状态：**草稿，待 Winter 过目**
+
 ## DEFERRED（压着，到点再放）
 
 - **W. Wharton，No. 1**：塔底最旧的犯人名册第一页第一行。Warden / Wharton 的谐音（Winter 亲口点出来的）——压到第二幕最狠的位置。
@@ -199,10 +211,16 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
 - ⏳ Tommy：「我记着他了」（Ch6）
 - ✅ 记录册：第四夜那页 Unstable 被你撕了（Ch7），第五夜写 Stable（真的）。⏳ **少了一页、页码连着，月底寄出去外头会数**
 - ⏳ 他以前天天上塔顶「等有人回来」（Ch7）→ 等谁
-- ⏳ **塔底那个人烧了一整夜，Hobbs 来找你**（Ch7 末）→ Ch8
+- ✅ 塔底那个人烧了一整夜 → Ch8 你下去了：Julian Lowell
+- ⏳ **他跟 Lowell 也走过同一套**（椅子、第四条「刚定的」、躲猫猫、「归找到的人」）→ Ch9 岔路定几分真
+- ⏳ **钥匙只给了你**：Hobbs 对 Lowell 说钥匙丢了——谁让 Hobbs 把钥匙给你的？
+- ⏳ Lowell 第三晚自己走下去，他锁了门、一句话没说——为什么
+- ⏳ 你瞒着他下过塔底（Ch8）
 - ⏳ 红绒球在你手里（Ch1）
 
 ## 预览页
+
+- Ch8：https://claude.ai/artifact/EoyH7S1aLrQYg3zK2KPtau （--notes ch8-notes.md --forks ch9-forks.json）
 
 - Ch7：https://claude.ai/artifact/RKF9zN81d5uKKT3o45nqc3 （--notes ch7-notes.md --forks ch8-forks.json）
 
