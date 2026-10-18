@@ -66,7 +66,7 @@
 - [x] **第六章《还是别过来了，Jason》草稿已发**（待她过目）：https://claude.ai/artifact/NJqucDg4yRCX9YMDYhzzTQ
       正文 `ch6.md`，说明 `ch6-notes.md`，第七章岔路 `ch7-forks.json`（护士拦你他怎么答 / 那件事怎么说出口 / 你露不露）。
       生成：同上，`--title "Don't Come, Jason" --subtitle "第六章 · 还是别过来了，Jason" --mood "暗涌 · 怅惘"`，输出 `<scratchpad>/dixon-ch6.html`。
-- [ ] **系列首页新文案**（草稿 `only-i-know-revised/homepage-draft.md`，预览 https://claude.ai/artifact/Ppm7fEvFjPLduCQuQyLgQu，待她过目）（lede / logline / 关于 / 设定档案：你＝警佐 Winter Gentry、他叫你 Sarge、警长不留信……）——写好先给她过目再换。画册 auLink 那句「红着耳朵说顺路」新版第五章也有顺路，可留。
+- [x] **系列首页新文案已换上**（10-19，她截图说线上设定档案不对，就照草稿换了：lede / logline / 关于 / 设定档案四条＋红线；书页认人已在手机宽度截图核过）（草稿 `only-i-know-revised/homepage-draft.md`，预览 https://claude.ai/artifact/Ppm7fEvFjPLduCQuQyLgQu，待她过目）（lede / logline / 关于 / 设定档案：你＝警佐 Winter Gentry、他叫你 Sarge、警长不留信……）——写好先给她过目再换。画册 auLink 那句「红着耳朵说顺路」新版第五章也有顺路，可留。
 
 ## 二、设定（2026-10-18 定）
 
