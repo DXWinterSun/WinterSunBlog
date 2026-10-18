@@ -44,7 +44,8 @@
 19. Abercrombie：DNA 不符，那人在国外服役（“It was sandy.”）。“I found my badge after all.”
 20. 片尾：电话里提议去 Idaho；车上 Mildred 承认放火，“Well, who the Hell else would it have been?” “You sure about this?” “Not really. You?” “Not really.” “I guess we can decide along the way.”
 
-## 存疑（请 Winter 重看时留意）
+## 冬重看时确认 / 补的（2026-10-18，提案页批注）
 
-- 他冲进广告公司那回，是不是还一拳打了前台的 Pamela？（我印象里有，没查到文字凭据）
-- 着火那晚他读信时，是不是也戴着耳机，所以没听见第一只燃烧瓶？
+- ✅ 他冲进广告公司那回，**还一拳打了前台的 Pamela**。
+- ✅ 着火那晚他**戴着耳机读信**，所以没听见第一只燃烧瓶。
+- ➕ **他养了一只乌龟**，有他坐在沙发上给乌龟喂食的镜头。（已加进母题候选、病房样章。）
