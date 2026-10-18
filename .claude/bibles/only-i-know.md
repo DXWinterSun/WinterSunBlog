@@ -59,7 +59,7 @@
 - [x] **第 1–5 章已上线**（2026-10-19，她说「1-5都可以发」）：`_posts/2026-10-19-only-i-know-chapter-{1..5}-*.md`，日期 2026-10-19 00:11–00:15 +0800。
       旧四章撤下，原样存进 `.claude/bibles/only-i-know-v1-archived-chapters/`；旧网址（/2026/06/20/… 和 /2026/06/18/…）写进新第 1–4 章的 redirect_from。
       系列首页只把 `series_status` 从 hiatus 改回 ongoing；文案没动（旧版「警局前台 · 高半级 · 这个家的爸妈 · 顺路」跟新版大体对得上）。
-- [ ] **系列首页新文案**（lede / logline / 关于 / 设定档案：你＝警佐 Winter Gentry、他叫你 Sarge、警长不留信……）——写好先给她过目再换。画册 auLink 那句「红着耳朵说顺路」新版第五章也有顺路，可留。
+- [ ] **系列首页新文案**（草稿 `only-i-know-revised/homepage-draft.md`，预览 https://claude.ai/artifact/Ppm7fEvFjPLduCQuQyLgQu，待她过目）（lede / logline / 关于 / 设定档案：你＝警佐 Winter Gentry、他叫你 Sarge、警长不留信……）——写好先给她过目再换。画册 auLink 那句「红着耳朵说顺路」新版第五章也有顺路，可留。
 
 ## 二、设定（2026-10-18 定）
 
