@@ -6,7 +6,7 @@
 > 续写前先读这份；每写完一章回来更新「章节流水」与 PINNED / DEFERRED。
 
 series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 48 ｜ 封面 images/good-behavior.svg（Claude 画的静物，生成脚本 tools/series/good_behavior_cover.py）
-上线：2026-10-18 凌晨 Ch1–3、上午 Ch4–6（_posts/2026-10-18-good-behavior-chapter-*）
+上线：2026-10-18 凌晨 Ch1–3、上午 Ch4–6、中午 Ch7–9（_posts/2026-10-18-good-behavior-chapter-*）
 角色: William "Wild Bill" Wharton（Sam Rockwell,《绿里奇迹》The Green Mile 1999）画册 id wildbill
   ⚠️ 这是他的**第三个**系列（另两个：Tuning the Devil 调音线、Sanguis Benedicta 血族线）。三边各走各的，
   称呼、设定、母题互不串。上线时画册 wildbill 的 `auLinks` 要加第三条（quiz / spectrum / lines.json 同步，见 CLAUDE.md）。
@@ -159,7 +159,7 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    把你**抱上栏杆**（背后只有雾），**铁链绕到你后腰把你圈住**「抓着呢，掉不下去」「这链子我戴了这么些年，头一回派上正经用场」；慢、一寸一寸、一直盯着你；
    「雾底下全听得见」「底下没人」「有。有我。」；你到时往后仰、咬他肩；天亮前裹着外套靠栏杆：「你在等什么？」「**等有人回来**」（没说是谁）；
    「今天又想上来看了……有人陪我一块儿看。……而且你暖和」；他回屋睡；你下到七层，**Hobbs 等在门口，托盘布没掀：「底下那个人……烧了一整夜了」**。
-   mood 炽恋·缱绻 ｜ 预览页：https://claude.ai/artifact/RKF9zN81d5uKKT3o45nqc3 ｜ 状态：**草稿，待 Winter 过目**
+   mood 炽恋·缱绻 ｜ 预览页：https://claude.ai/artifact/RKF9zN81d5uKKT3o45nqc3 ｜ 状态：✅ 2026-10-18 上线（第三批）
 
 8. **第四条，他也跟我说过** — 你瞒着他（他白天在楼上睡）跟 Hobbs 下塔底：铁门、石阶、看守在时的**老牢房**（铁栏锈红，上面的屋子是他后来改的）；
    最里头一间锁着，**钥匙只有监狱长有**，你隔栏杆看病、给退烧药。前任 **Julian Lowell**（三十出头、瘦、外头会被多看两眼的长相，「又换了一个」「我也是」医生）
@@ -171,7 +171,7 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    ② **钥匙**：「Hobbs 跟我说，钥匙早就丢了」——Lowell 从没拿到过；Hobbs 脸白透先走了。**椅子、链子、第四条、躲猫猫他全听过，只有钥匙只给了你。**
    十一点：他拍腿「过来暖暖」，你第一次没过去，看扶手上链子磨出的两道亮痕；「医生，你今天不稳定」「naughty girl，谁惹你了？」；
    你想起第一夜「全塔就你一个敢不按我的规矩来」，忽然很想知道他对塔底那个人说过什么。
-   mood 暗涌·怅惘 ｜ 预览页：https://claude.ai/artifact/EoyH7S1aLrQYg3zK2KPtau ｜ 状态：**草稿，待 Winter 过目**
+   mood 暗涌·怅惘 ｜ 预览页：https://claude.ai/artifact/EoyH7S1aLrQYg3zK2KPtau ｜ 状态：✅ 2026-10-18 上线（第三批）
 
 9. **医生没来** — 第六夜你写完 Stable 起身「明天见，Mr. Warden」不回头，**记录册落在他桌上**没去拿（冷他，Winter 选 C）；**他闹**：半夜把托盘从塔顶顺楼梯井扔到底、
    **拉了一夜的闸**（全塔灯红黄闪到天亮，没人敢睡也没人敢藏）、罚 **Tommy** 从顶到底刷楼梯；白天跟在你身后五步、踢翻两个水桶、靴尖磕门槛
@@ -182,7 +182,7 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    说钥匙丢了。你来时是我让 Hobbs 给你的**」「还有你写了一笔又撕了。**Lowell 写了三笔一笔都没撕，他想让船来把我接走**」「我没杀他，给他饭吃给他毯子，
    我就是不能让那本册子寄出去。我不能让他走，也不能让他们把我带走」「你关了一个人」「知道」（就这一句，不辩解）；他递上记录册：你那行 Stable 底下，
    他又大又歪的「**Unstable.**」＋挤在格边的「**医生没来。**」——**这算一笔**；「你撕不撕随你」「医生，我不稳定。你得看看我」；你把门开大了一点。
-   mood 絮语·怅惘 ｜ 预览页：https://claude.ai/artifact/65RqzMoy6JEEM9C9mKMsi4 ｜ 状态：**草稿，待 Winter 过目**（她挑 Ch10 岔路＝认可，届时 Ch7–9 一起上线）
+   mood 絮语·怅惘 ｜ 预览页：https://claude.ai/artifact/65RqzMoy6JEEM9C9mKMsi4 ｜ 状态：✅ 2026-10-18 上线（第三批）
 
 ## DEFERRED（压着，到点再放）
 
