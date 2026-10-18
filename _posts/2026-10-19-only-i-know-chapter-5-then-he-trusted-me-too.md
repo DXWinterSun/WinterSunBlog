@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
 series_order: 5
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 5"
 summary: "他说警长没给他写信，是因为放心他。你没告诉他那只信封。"

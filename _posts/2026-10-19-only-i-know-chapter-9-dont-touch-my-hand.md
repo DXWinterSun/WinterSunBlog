@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
 series_order: 9
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 9"
 summary: "他把手举得高高的，谁也不让碰。指甲缝里，是那个人的皮。"

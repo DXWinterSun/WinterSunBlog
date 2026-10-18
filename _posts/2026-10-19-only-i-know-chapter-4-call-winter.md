@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
 series_order: 4
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 4"
 summary: "他给三个人留了信。给你的，只有布袋上那一句。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
 series_order: 6
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 6"
 summary: "你第一次叫他 Jason，是叫他别来。那一夜，警局着了火。"

@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
 series_order: 3
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 3"
 summary: "他说他妈不干这种事，那只饭盒就在他手边。"

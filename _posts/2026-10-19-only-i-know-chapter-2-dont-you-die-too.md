@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
 series_order: 2
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 2"
 summary: "他头一回把警长的病说出口，夜里来问你：还剩几个月？"

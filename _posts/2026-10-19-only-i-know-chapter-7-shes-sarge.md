@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
 series_order: 7
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 7"
 summary: "护士问他，你是他什么人。他想了很久：她是 Sarge。"

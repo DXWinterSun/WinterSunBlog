@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
 series_order: 10
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 10"
 summary: "他穿着你的外套上了那辆车。你说：你会回来的。"

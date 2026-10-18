@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
 series_order: 8
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 8"
 summary: "他每天念那封信。念到中间那个词，他念不出口。"

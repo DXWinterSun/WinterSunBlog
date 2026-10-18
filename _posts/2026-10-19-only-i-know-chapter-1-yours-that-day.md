@@ -8,7 +8,7 @@ categories: ["AU Story"]
 series: "Only I Know"
 series_title: "Only I Know · Jason Dixon AU"
 series_order: 1
-series_status: ongoing
+series_status: complete
 series_type: Series
 chapter_type: "Chapter 1"
 summary: "警长的病全镇都不提，他不敢问，就每天问你吃药了没。"
