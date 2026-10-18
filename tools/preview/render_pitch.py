@@ -19,6 +19,7 @@ JSON 结构（样板见 .claude/pitches/）：
            sample 用空行分段；rec=true 显示「我推荐」小牌
            fork 加 "multi": true → 这一道可以多选（勾选框），页底把勾的几项用「＋」连起来
 
+页尾自带一个「想补充的话」输入框（meta.more_label 可改提示语），写了就一起拼进复制的那句话。
 字符串里可以直接写 <b> <i> 这类行内 HTML（内容是自己写的，不转义）。
 单一深色设计（跟路线图页一致），不跟随读者的明暗主题；配色取该角色画册四色。
 """
@@ -124,6 +125,12 @@ section{margin-top:3.2rem;}
 .sample p{margin:0;}
 .sample p+p{margin-top:.75em;}
 
+.more{display:block;margin-top:3rem;}
+.more span{display:block;font-size:.92rem;color:var(--muted);margin-bottom:.45rem;}
+.more textarea{width:100%%;box-sizing:border-box;min-height:5rem;resize:vertical;font:inherit;font-size:.95rem;
+  line-height:1.7;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:4px;
+  padding:.6rem .75rem;}
+.more textarea:focus{outline:2px solid var(--accent);outline-offset:2px;}
 .next{margin-top:3.6rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.93rem;}
 .next b{color:var(--text);}
 
@@ -147,7 +154,13 @@ JS = """
   var KEY = %(key)s, PREFIX = %(prefix)s;
   var forks = [].slice.call(document.querySelectorAll('.fork'));
   var txt = document.getElementById('bar-txt'), cnt = document.getElementById('bar-cnt'),
-      btn = document.getElementById('bar-copy');
+      btn = document.getElementById('bar-copy'), more = document.getElementById('more');
+  function extra(){ return more ? (more.value || '').trim() : ''; }
+  function line(){
+    var p = picks(), m = extra(), s = PREFIX + p.join(' · ');
+    if (m) s += (p.length ? '。补充：' : '补充：') + m;
+    return s;
+  }
   function picks(){
     var out = [];
     forks.forEach(function(f){
@@ -158,12 +171,12 @@ JS = """
     return out;
   }
   function paint(){
-    var p = picks();
-    cnt.textContent = '已挑 ' + p.length + ' / ' + forks.length;
-    txt.textContent = p.length ? p.join(' · ') : '每一栏点一个，这里会拼成一句话';
-    btn.disabled = !p.length;
+    var p = picks(), m = extra();
+    cnt.textContent = '已挑 ' + p.length + ' / ' + forks.length + (m ? ' · 带补充' : '');
+    txt.textContent = (p.length || m) ? line().slice(PREFIX.length) : '每一栏点一个，这里会拼成一句话';
+    btn.disabled = !(p.length || m);
     try {
-      var s = {};
+      var s = {more: more ? more.value : ''};
       forks.forEach(function(f){
         var cs = [].slice.call(f.querySelectorAll('input:checked'));
         if (cs.length) s[f.id] = cs.map(function(c){ return c.id; });
@@ -173,20 +186,23 @@ JS = """
   }
   try {
     var s = JSON.parse(localStorage.getItem(KEY) || '{}');
+    if (more && s.more) more.value = s.more;
+    delete s.more;
     Object.keys(s).forEach(function(k){
       [].concat(s[k]).forEach(function(id){ var el = document.getElementById(id); if (el) el.checked = true; });
     });
   } catch(e) {}
   document.addEventListener('change', paint);
+  if (more) more.addEventListener('input', paint);
   btn.addEventListener('click', function(){
-    var line = PREFIX + picks().join(' · ');
+    var text = line();
     function done(){ btn.textContent = '已复制'; setTimeout(function(){ btn.textContent = '复制'; }, 1600); }
     function fallback(){
       var r = document.createRange(); r.selectNodeContents(txt);
       var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
       btn.textContent = '已选中，长按复制';
     }
-    try { navigator.clipboard.writeText(line).then(done, fallback); } catch(e) { fallback(); }
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch(e) { fallback(); }
   });
   paint();
 })();
@@ -252,6 +268,8 @@ def main():
             % (f['id'], E(f.get('short', '')), ('岔路 %d · 可多选' if f.get('multi') else '岔路 %d') % n,
                f['q'], f.get('hint', ''), grid, ''.join(opts)))
 
+    out.append('<label class="more" for="more"><span>%s</span><textarea id="more" rows="3"></textarea></label>'
+               % E(m.get('more_label', '想补充的话（可不填，会一起复制）')))
     if m.get('next'):
         out.append('<p class="next">%s</p>' % m['next'])
     out.append('</div>')
