@@ -269,3 +269,9 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
 - Ch3：https://claude.ai/artifact/DyXEQqhMWfJZNM5qk9Kszx （--notes ch3-notes.md --forks ch4-forks.json，含封面岔路）
 - Ch2：https://claude.ai/artifact/QEJfTMPMfoAS5pnVKpTaR7 （--notes ch2-notes.md --forks ch3-forks.json）
 - Ch1：https://claude.ai/artifact/T66X32wtSqzZ43tAPYKdsp （生成命令：render_draft.py good-behavior-revised/ch1.md --palette "#16181c,#cf3a40,#ebe5db,#8c939b" --notes ch1-notes.md --forks ch2-forks.json）
+
+## 官方设定借点子（2026-10-18，待 Winter 勾选）
+
+官方监狱长资料（多米尼克·洛克 / 巴别塔 / 1 月 24 日 / 安息香 / 「由内反锁的监狱」「自愿留守」「规则由你宣告」/ 背景小字「变强了你就不来了」「一起幸福或一起坠落」）。
+**只借思路，名字不换**。勾选页：https://claude.ai/artifact/GHtSuo9iVpygeCMCsd7r9u （数据 `.claude/pitches/good-behavior-official.json`）。
+她勾完把借来的写进上面「设定」「母题」各节，再从第十一章起用。
