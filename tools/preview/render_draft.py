@@ -607,6 +607,7 @@ blockquote p:last-child{margin-bottom:0}
  .foot td{border:0;padding:.12rem 0}
  .foot td[data-k]:not([data-k=""])::before{content:attr(data-k) "　";color:var(--accent);font-weight:600}
  .foot td:first-child{color:var(--accent);font-weight:600}
+ .foot td:empty{display:none}
 }
 @media(max-width:480px){body{font-size:16px}.wrap{padding:2.4rem 1.1rem 4rem}h1{font-size:1.6rem}}
 </style>'''
