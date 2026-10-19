@@ -96,6 +96,17 @@
   card: "20% 50%"
   banner: "0% 50%"
   banner_m: "23% 50%"
+"another-girl-another-planet.jpg":
+  x: 56.7
+  y: 31.0
+  w: 655
+  h: 491
+  score: 0.94
+  fs: 43.1
+  sq: "77% 50%"
+  card: "50% 0%"
+  banner: "50% 0%"
+  banner_m: "50% 0%"
 "better-living-through-chemistry.jpg":
   x: 40.8
   y: 40.4
@@ -271,17 +282,6 @@
   sq: "50% 50%"
   card: "50% 9%"
   banner: "50% 4%"
-  banner_m: "50% 0%"
-"heading-normal.png":
-  x: nan
-  y: -1.4166410177963622e+20
-  w: 32
-  h: 32
-  score: 1.0
-  fs: 0.0
-  sq: "50% 50%"
-  card: "50% 0%"
-  banner: "50% 0%"
   banner_m: "50% 0%"
 "heading-rabbit.png":
   x: 43.2
