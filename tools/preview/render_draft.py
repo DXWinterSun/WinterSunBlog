@@ -94,6 +94,26 @@ def html_depth(text):
 
 def to_html(src):
     out, para, quote, raw = [], [], [], []
+    items, table = [], []          # 列表（- 开头）/ 表格（| 开头）：说明文字里常用
+
+    def flush_l():
+        if items:
+            out.append('<ul>' + ''.join('<li>' + join(it) + '</li>' for it in items) + '</ul>')
+            items.clear()
+
+    def flush_t():
+        if table:
+            rows = [r for r in table if not re.fullmatch(r'\|?[\s:|-]+\|?', r)]
+            cells = [[c.strip() for c in r.strip('|').split('|')] for r in rows]
+            head, body_rows = cells[0], cells[1:]
+            th = ''.join('<th>' + inline(c) + '</th>' for c in head)
+            trs = ''.join(
+                '<tr>' + ''.join(
+                    '<td data-k="%s">%s</td>' % (html.escape(head[i] if i < len(head) else ''), inline(c))
+                    for i, c in enumerate(r)) + '</tr>'
+                for r in body_rows)
+            out.append('<div class="tbl"><table><thead><tr>' + th + '</tr></thead><tbody>' + trs + '</tbody></table></div>')
+            table.clear()
 
     def flush_p():
         if para:
@@ -125,6 +145,18 @@ def to_html(src):
                 out.append('\n'.join(raw).strip()); raw.clear()
             continue
 
+        if stripped.startswith('|'):              # 表格行
+            flush_p(); flush_q(); flush_l(); table.append(stripped)
+            continue
+        if line.startswith('- '):                 # 列表项
+            flush_p(); flush_q(); flush_t(); items.append([line[2:]])
+            continue
+        if items and stripped and line[:1] in (' ', '\t'):   # 列表项的续行（缩进）
+            items[-1].append(stripped)
+            continue
+        if stripped or not (items or table):
+            flush_l(); flush_t()
+
         if stripped.startswith('<'):              # 裸 HTML 块开始
             flush_p(); flush_q()
             raw.append(line)
@@ -140,11 +172,11 @@ def to_html(src):
         elif stripped in ('---', '***', '___'):
             flush_p(); flush_q(); out.append('<hr>')
         elif not stripped:
-            flush_p(); flush_q()
+            flush_p(); flush_q(); flush_l(); flush_t()
         else:
             flush_q(); para.append(line)
 
-    flush_p(); flush_q()
+    flush_p(); flush_q(); flush_l(); flush_t()
     if raw:
         out.append('\n'.join(raw).strip())
     return '\n'.join(out)
@@ -560,6 +592,22 @@ blockquote p:last-child{margin-bottom:0}
  color:var(--muted);font-size:.82rem;line-height:1.9;font-family:system-ui,sans-serif;}
 .foot b,.foot strong{color:var(--accent);font-weight:600;}
 .foot p{margin:0 0 .6rem;text-align:left}
+.foot ul{margin:0 0 .9rem;padding-left:1.2rem}
+.foot li{margin:.25rem 0;text-align:left}
+.foot li::marker{color:var(--accent)}
+.tbl{margin:.4rem 0 1.2rem}
+.foot table{border-collapse:collapse;width:100%;font-size:.8rem}
+.foot th,.foot td{border-bottom:1px solid color-mix(in srgb,var(--muted) 35%,transparent);
+ padding:.5rem .55rem;text-align:left;vertical-align:top}
+.foot th{color:var(--accent);font-weight:600;white-space:nowrap}
+@media(max-width:560px){
+ .foot table,.foot tbody,.foot tr,.foot td{display:block;width:auto}
+ .foot thead{display:none}
+ .foot tr{padding:.7rem 0;border-bottom:1px solid color-mix(in srgb,var(--muted) 35%,transparent)}
+ .foot td{border:0;padding:.12rem 0}
+ .foot td[data-k]:not([data-k=""])::before{content:attr(data-k) "　";color:var(--accent);font-weight:600}
+ .foot td:first-child{color:var(--accent);font-weight:600}
+}
 @media(max-width:480px){body{font-size:16px}.wrap{padding:2.4rem 1.1rem 4rem}h1{font-size:1.6rem}}
 </style>'''
 
