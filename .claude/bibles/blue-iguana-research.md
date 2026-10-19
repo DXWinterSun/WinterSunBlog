@@ -76,7 +76,10 @@
 
 ## 跟 Winter 记忆对不上的地方（已在提案页跟她说明）
 
-- 「他色眯眯看路过的美女、把女主醋得够呛」：片子里只有开场那一下，那时 Katherine 还没进门；她全片没为别的女人吃过醋。
+- 「他盯着身材很好的美女看、把女主醋得够呛」：**Winter 说有，是一段没台词的戏**（2026-10-19 批注纠正：「后面他和女主暧昧期间……在一个餐馆还是什么地方」）。
+  字幕里最像的一处：00:42 道歉之后，00:43:37 咖啡馆「Could I have a cappuccino to go, please?」→ 十几秒只有 [coffee machine] →
+  00:43:54 Katherine「He said she's coming in a month.」→ 00:43:59 又说一遍「He said that she's coming in a month.」（他没在听）。未经画面核实。
+  开场那一下（00:00:55「All right, beautiful」）Katherine 还没进门。
 - 画册（`sam/many-faces` 的 `eddie`）几处杜撰：他不是洗碗的（是站柜台）；他飞伦敦是为三万美元截一个包，不是为钻石；
   「最远只到过泽西」「门上的铃」都是编的。等故事定了按片子重写，先给她过目。
 - 2026-10-19 已修：画册 / quiz / spectrum / lines.json 里这位 Eddie 的 auLink 原本错挂到 Wholly Known（那是
