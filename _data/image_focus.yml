@@ -272,6 +272,17 @@
   card: "50% 9%"
   banner: "50% 4%"
   banner_m: "50% 0%"
+"heading-normal.png":
+  x: nan
+  y: -1.4166410177963622e+20
+  w: 32
+  h: 32
+  score: 1.0
+  fs: 0.0
+  sq: "50% 50%"
+  card: "50% 0%"
+  banner: "50% 0%"
+  banner_m: "50% 0%"
 "heading-rabbit.png":
   x: 43.2
   y: 49.4
