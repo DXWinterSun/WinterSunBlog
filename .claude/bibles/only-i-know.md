@@ -106,6 +106,12 @@
       正文 `ex1.md`，说明 `ex1-notes.md`，页底 `ex2-forks.json`（下一篇：他视角 / 学会了就不忘 / 他妈终于问了 / 先停）。
       生成：`python3 tools/preview/render_draft.py .claude/bibles/only-i-know-revised/ex1.md -o <scratchpad>/dixon-ex1.html --series "Only I Know" --title "Not Just for Now" --subtitle "番外一 · 这回不是先拿着了" --mood "安放 · 絮语" --notes …/ex1-notes.md --forks …/ex2-forks.json`
       上线时：`chapter_type: "Extra 1"`、`chapter_kind: extra`、`series_order: 12`，tags […, 安放, 絮语]，summary「这回不是先拿着了。他没接警徽，先回头看了你。」
+- [x] **番外一她认可了**（10-19：「好棒！🥺呜呜从没写过这么符合原作但又温暖的au」）。先存着，按“攒三篇一部署”的老规矩，跟后面两篇一起上（她喊发就随时发）。
+- [x] **她要写前传**（10-19）：「下面从最开始写，不是 au 或者电影最开始，是从我们认识最开始。我怎么当上警佐的，他这个大男孩当时什么样子。这个可以写我和他视角交替的版本，一节我，一节他……而且也会有其他人物的参与，比如 Bill。」
+      ⭐ 定死：**每章一节你、一节他交替**；你那节第二人称，他那节第三人称、从他眼里看“她”。
+      提案页：https://claude.ai/artifact/9TgpBF689ayYxNbC3W3nxn （数据 `.claude/pitches/only-i-know-prequel.json`，`render_pitch.py` 生成，输出 `<scratchpad>/dixon-prequel.html`）
+      四道：怎么认识（罚单 / 他教你用无线电 / 他把你当秘书）· 怎么当上警佐（考上的、他拿卡片考你 / 一月冰暴 / Bill 越级提）· Bill 要不要有几节 · 写到哪儿收（他穿上制服那天 / 写进“那件事”那一夜 / 一路到复活节前夜）。
+      年份：片子原话“在署里三年、警校五年（算上留级六年）”→ 前传从正篇前七八年起：你二十三刚进署，他三十一、警校三年级。“那件事”在他刚进署那阵（三年前），你不在场、不知细节。
 - [ ] ~~第十一章 = 他回来那晚 = 炽恋章~~（已写）（全站那一档，参照 No One Walks Off Ch50；守他声口：笨嘴、话多、紧张又真心；你是 Sarge）。写完主线收住，之后番外随她。
 - [x] 年龄补丁已上线（10-19 00:38 北京时间）：首页“比他小八岁”、第 1/3 章那一笔。
 - [x] **第九章岔路她挑了**（10-19）：那晚 **A 他妈打电话叫你**；浴室门 **A 给你开了**；炽恋 **C 他从爱达荷回来那晚**。
