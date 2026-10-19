@@ -143,6 +143,7 @@ def detect_all():
             "w": int(w),
             "h": int(h),
             "score": round(float(f[-1]), 2),
+            "fs": round(fh / H * 100, 1),   # 脸框有图高的百分之几（「冬的陪伴」圆头像按它放大到脸）
         }
         for key, ar in SHAPES.items():
             if key in HEAD_SHAPES:
@@ -157,7 +158,7 @@ def render(data):
     lines = [
         "# 封面「对脸」锚点 —— 由 tools/face_focus.py 自动生成，别手改整份文件。",
         "#",
-        "# 每一条：x / y 是脸中心在图上的位置（%），w / h 是原图尺寸，",
+        "# 每一条：x / y 是脸中心在图上的位置（%），w / h 是原图尺寸，fs 是脸框有图高的百分之几，",
         "# sq / card / banner / banner_m 是四种容器形状下该用的锚点（已按裁切数学算好）：",
         "#   sq 正方形小图 · card 16:10 卡片 · banner 系列大封面·电脑 2:1 · banner_m 系列大封面·手机 3:2",
         "# 模板用法：{{ site.data.image_focus[文件名].sq | default: '50% 30%' }}",
@@ -169,7 +170,7 @@ def render(data):
     for name in sorted(data):
         rec = data[name]
         lines.append('"%s":' % name.replace('"', '\\"'))
-        for key in ("x", "y", "w", "h", "score", "sq", "card", "banner", "banner_m", "manual", "note"):
+        for key in ("x", "y", "w", "h", "score", "fs", "sq", "card", "banner", "banner_m", "manual", "note"):
             if key not in rec:
                 continue
             val = rec[key]

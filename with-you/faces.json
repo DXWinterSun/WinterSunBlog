@@ -1,0 +1,23 @@
+---
+layout: null
+permalink: /with-you/faces.json
+sitemap: false
+---
+{%- comment -%}
+  「冬的陪伴」的头像：每个系列（目录名＝记录编号里 -- 后面那半，如 youngsam--fog-city → fog-city）
+  的封面照，和 _data/image_focus.yml 里记的脸的位置（x / y，%）、原图尺寸（w / h）、脸有多大（fs，图高的 %）。
+  with-you/index.html 照这个把脸放大摆进圆头像里。封面取法跟 _layouts/series.html 一样。
+{%- endcomment -%}
+{%- assign sp = site.pages | where: "layout", "series" -%}
+{
+{%- for p in sp -%}
+{%- assign slug = p.url | remove_first: "/series/" | remove: "/" -%}
+{%- assign chs = site.posts | where: "series", p.series_name | sort: "series_order" -%}
+{%- assign first = chs | first -%}
+{%- assign img = p.cover | default: first.image | default: p.image -%}
+{%- if img -%}
+{%- assign f = site.data.image_focus[img] -%}
+{{ slug | jsonify }}: {"img": {{ "/images/" | prepend: site.baseurl | append: img | jsonify }}{% if f %}, "x": {{ f.x }}, "y": {{ f.y }}, "w": {{ f.w }}, "h": {{ f.h }}{% if f.fs %}, "fs": {{ f.fs }}{% endif %}{% endif %}},
+{%- endif -%}
+{%- endfor -%}
+"_": null}
