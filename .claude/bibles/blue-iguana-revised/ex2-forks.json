@@ -1,28 +1,28 @@
 {
-  "title": "下一口想吃什么",
-  "note": "系列慢慢来，这几个都是不占正篇的小番外。可以多选；这篇哪里不对味，写在补充框里。",
-  "prefix": "醋是调料看完了：",
+  "title": "上线前挑一下系列名",
+  "note": "系列名会印在系列首页、Sam 页卡片、每一篇的标题里，上线以后再改很麻烦，所以先定。挑好贴回来，我就上线。",
+  "prefix": "Eddie 系列：",
   "forks": [
     {
-      "id": "taste",
-      "q": "这篇的口味",
-      "short": "口味",
+      "id": "name",
+      "q": "这个系列叫什么？",
+      "short": "系列名",
       "options": [
-        {"id": "ok", "name": "刚刚好", "short": "刚刚好"},
-        {"id": "hot", "name": "再辣一点", "short": "再辣一点", "hook": "荤话再多些，再直白些。"},
-        {"id": "sweet", "name": "再甜一点", "short": "再甜一点", "hook": "少点逗，多点他软下来的时候。"}
+        {"id": "planet", "name": "Another Girl, Another Planet", "short": "Another Girl, Another Planet", "rec": true,
+         "hook": "片尾曲。歌名就是“另一个姑娘”：全伦敦的姑娘他都看。整句又是“另一个星球”：一个美国人，跟着你掉进了伦敦。"},
+        {"id": "gap", "name": "Mind the Gap", "short": "Mind the Gap", "hook": "伦敦地铁里天天在念的那句“小心空隙”。中间那道缝，是他的美国话和你的伦敦话。"},
+        {"id": "vinegar", "name": "Salt & Vinegar", "short": "Salt & Vinegar", "hook": "炸鱼薯条要撒的盐和醋，也是英国最常见的薯片口味。醋是调料，整个系列的味道就是它。"},
+        {"id": "plain", "name": "Just Plain Eddie", "short": "Just Plain Eddie", "hook": "影评里那句“就叫 Eddie，没别的”。他没有姓，这个名字本身就是个钩子。"}
       ]
     },
     {
-      "id": "next",
-      "q": "下一口想吃什么？",
-      "short": "下一口",
-      "multi": true,
+      "id": "spice",
+      "q": "这一版的辣度",
+      "short": "辣度",
       "options": [
-        {"id": "his", "name": "反过来，他醋了", "short": "他醋了", "hook": "酒馆里有人跟你搭讪。嘴上最滑的那个人，醋起来是什么样子。", "rec": true},
-        {"id": "comic", "name": "他念漫画给你听", "short": "念漫画", "hook": "那本骑士漫画，“她的爱是我抵挡邪恶的盾”。他嫌肉麻，念着念着就念不下去了。"},
-        {"id": "paper", "name": "那卷厕纸", "short": "那卷厕纸", "hook": "有人动了他的高档保湿厕纸。甜蜜日常，一点不辣。"},
-        {"id": "accent", "name": "伦敦腔补课", "short": "伦敦腔补课", "hook": "你教他说伦敦腔，错一个词罚一下。辣的。"}
+        {"id": "ok", "name": "就这样，上线", "short": "就这样"},
+        {"id": "more", "name": "还能再辣", "short": "还能再辣"},
+        {"id": "less", "name": "有点过了", "short": "有点过了"}
       ]
     }
   ]
