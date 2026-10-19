@@ -269,7 +269,7 @@
   var key = null, vault = null, index = null, cur = null, shown = 80;
   var FACES = {};
   fetch("faces.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : {}; })
-    .then(function (f) { FACES = f || {}; if (index && !$("home").hidden) renderList(); if (cur) ava($("t-ava"), cur.meta); })
+    .then(function (f) { FACES = f || {}; if (index && !$("home").hidden) renderList(); if (cur) { ava($("t-ava"), cur.meta); wear(cur.meta); } })
     .catch(function () {});
 
   function ls(k, v) {
@@ -324,7 +324,7 @@
 
   function showLock(msg) {
     $("lock").hidden = false; $("home").hidden = true; $("thread").hidden = true; $("head").hidden = false;
-    moveTools(false);
+    moveTools(false); wear(null);
     $("lock-btn").hidden = true;
     $("err").textContent = msg || "";
   }
@@ -393,7 +393,7 @@
       return unseal(key, blob).then(function (x) { index = x; });
     }).then(function () {
       $("lock").hidden = true; $("thread").hidden = true; $("home").hidden = false; $("head").hidden = false;
-      moveTools(false);
+      moveTools(false); wear(null);
       $("lock-btn").hidden = false;
       renderList();
       var u = index.updated ? new Date(index.updated) : null;
@@ -426,6 +426,20 @@
   }
 
   /* ——— 一条线 ——— */
+  /* 每个人的对话默认穿他自己的颜色（系列配色，跟系列页「穿上他的颜色」同一套）；
+     她在对话里用「换个心情」换过的，按人记住（theme-picker.js 的分场配色），全站的颜色不动。 */
+  function hisColors(t) {
+    var f = FACES[String(t.key || "").split("--")[1]], p = f && f.pal;
+    if (p && p.theme) return { type: "preset", id: p.theme };
+    if (p && p.accent && p.bg) return { type: "au-direct", accent: p.accent, accent_ink: p.accent_ink || null,
+      bg: p.bg, text: p.text, muted: p.muted, accent_name: p.accent_name || null, bg_name: p.bg_name || null,
+      text_name: p.text_name || null, muted_name: p.muted_name || null };
+    if (t.accent && t.bg) return { type: "au-direct", accent: t.accent, bg: t.bg, text: "#efe8da", muted: "#948a7c" };
+    return null;
+  }
+  function wear(t) {
+    if (window.wiwPaletteScope) window.wiwPaletteScope(t ? "with-you:" + (t.key || t.id) : null, t ? hisColors(t) : null);
+  }
   function moveTools(into) {
     var box = $(into ? "t-tools" : "top-tools"), lockBtn = $("lock-btn");
     [$("js-palette-trigger"), $("mode-btn")].forEach(function (b) {
@@ -436,7 +450,7 @@
   }
   function openThread(t, fromHash) {
     cur = { meta: t, data: null }; shown = 80;
-    moveTools(true);
+    moveTools(true); wear(t);
     $("home").hidden = true; $("thread").hidden = false; $("head").hidden = true;
     ava($("t-ava"), t); $("t-name").textContent = t.who || t.key;
     $("t-story").textContent = [t.story, t.film].filter(Boolean).join(" · ");
@@ -451,7 +465,7 @@
   }
   function closeThread() {
     cur = null; history.replaceState(null, "", location.pathname);
-    moveTools(false);
+    moveTools(false); wear(null);
     $("thread").hidden = true; $("home").hidden = false; $("head").hidden = false;
     document.documentElement.style.removeProperty("--him");
     window.scrollTo(0, 0);
@@ -560,6 +574,6 @@
 </script>
 
 <script src="/WinterSunBlog/js/sam-themes-data.js"></script>
-<script src="/WinterSunBlog/js/theme-picker.js"></script>
+<script src="/WinterSunBlog/js/theme-picker.js?v=20261019"></script>
 </body>
 </html>

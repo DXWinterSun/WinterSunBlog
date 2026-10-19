@@ -132,8 +132,31 @@
 
   var currentState = null;
 
+  // ── 分场配色（2026-10-19，「冬的陪伴」聊天页）─────────────────────────────
+  // 页面调 window.wiwPaletteScope(键, 他的颜色) 进入「分场」：这一场默认穿他的颜色，
+  // 她在这一场里换过的按键记在 SCOPE_KEY，全站那份 wiw-palette 不动；
+  // 「还原默认」＝回到他的颜色。调 wiwPaletteScope(null) 退出、回到全站的颜色。
+  // 别的页面不调它，就跟以前一模一样。
+  var SCOPE_KEY = 'wiw-palette-scoped';
+  var scope = null;   // { key, fallback }
+
+  function scopedMap() {
+    try { return JSON.parse(localStorage.getItem(SCOPE_KEY) || '{}') || {}; } catch (e) { return {}; }
+  }
+
+  function globalState() {
+    try { var raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : null; } catch (e) { return null; }
+  }
+
   function saveState(state) {
     currentState = state;
+    if (scope) {
+      var m = scopedMap();
+      if (state) m[scope.key] = state; else delete m[scope.key];
+      try { localStorage.setItem(SCOPE_KEY, JSON.stringify(m)); } catch (e) {}
+      if (!state) currentState = scope.fallback;
+      return;
+    }
     try { localStorage.setItem(STORAGE_KEY, state ? JSON.stringify(state) : ''); } catch (e) {}
   }
 
@@ -495,6 +518,7 @@
     document.getElementById('js-palette-reset').addEventListener('click', function () {
       clearVars();
       saveState(null);
+      applyState(currentState);   // 分场里＝穿回他的颜色；平时 currentState 是空，什么也不做
       updateSwatchStates();
       hueSlider.value = 0;
       updateHuePreview(0);
@@ -530,14 +554,34 @@
 
   // ── Init ──────────────────────────────────────────────────────────────────
 
+  function rescope(next) {
+    scope = next;
+    currentState = next ? (scopedMap()[next.key] || next.fallback || null) : globalState();
+    clearVars();
+    applyState(currentState);
+    updateSwatchStates();
+    var sl = document.getElementById('js-palette-hue');
+    if (sl) {
+      sl.value = currentState && currentState.type === 'custom' ? currentState.hue : 0;
+      updateHuePreview(parseInt(sl.value, 10));
+    }
+    var reset = document.getElementById('js-palette-reset');
+    if (reset) reset.textContent = next && next.fallback ? '还原他的颜色' : '还原默认';
+  }
+
+  window.wiwPaletteScope = function (key, fallback) {
+    rescope(key ? { key: String(key), fallback: fallback || null } : null);
+  };
+
   function init() {
-    try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) { currentState = JSON.parse(raw); applyState(currentState); }
-    } catch (e) {}
+    if (!scope) {
+      currentState = globalState();
+      if (currentState) applyState(currentState);
+    }
 
     var ui = buildUI();
     initEvents(ui.trigger, ui.overlay);
+    if (scope) rescope(scope);
   }
 
   if (document.readyState === 'loading') {
