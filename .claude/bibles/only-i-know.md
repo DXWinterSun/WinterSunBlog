@@ -96,6 +96,10 @@
 - [x] **第十一章已上线 · 主线完结**（10-19，她说「呜呜呜上线🥺」；第十二章岔路她挑了 **主线 A 到这儿完结**，番外那道一篇都没勾）：
       `_posts/2026-10-19-only-i-know-chapter-11-the-word-in-the-middle.md`，01:20 +0800。系列首页和全部十一章的 `series_status` 都改成 `complete`（票根印「终场」）。
       ⭐ 以后再写都算番外（`chapter_kind: extra` / 他视角 `pov`），`series_order` 接着 12 往下排；番外菜单（他视角 / 他回署里第一天 / 跟他妈吃顿饭 / 警长还在的时候 / 乌龟视角）在 `ch12-forks.json`，她想看了再挑，别主动开写。
+- [x] **番外菜单已发**（10-19，她问「下面番外怎么走」）：https://claude.ai/artifact/NnjeKKWwV5zAyyCrShj9oy
+      数据 `.claude/pitches/only-i-know-extras.json`，生成 `python3 tools/preview/render_pitch.py .claude/pitches/only-i-know-extras.json -o <scratchpad>/dixon-extras.html`。
+      十篇：他回署里那天（推荐先写）/ 她是 Sarge（他视角·暗账体）/ 学会了就不忘（炽恋·第二天早上）/ 夜班，桌沿（炽恋·新楼第一个夜班）/ 他妈终于问了 / 警长还在的时候（前传）/ 她烧的那栋楼 / 一杯橙汁（Red）/ 那首《Chiquitita》/ 乌龟视角。三道：想看哪几篇（多选）· 先写哪篇 · 一篇一篇来还是攒三篇。
+      菜单里拟的称呼规矩（待她看）：署里你叫他 Dixon、关起门叫 Jason；他平时 Sarge、要紧时 Winter。番外从 series_order 12 起。
 - [ ] ~~第十一章 = 他回来那晚 = 炽恋章~~（已写）（全站那一档，参照 No One Walks Off Ch50；守他声口：笨嘴、话多、紧张又真心；你是 Sarge）。写完主线收住，之后番外随她。
 - [x] 年龄补丁已上线（10-19 00:38 北京时间）：首页“比他小八岁”、第 1/3 章那一笔。
 - [x] **第九章岔路她挑了**（10-19）：那晚 **A 他妈打电话叫你**；浴室门 **A 给你开了**；炽恋 **C 他从爱达荷回来那晚**。
