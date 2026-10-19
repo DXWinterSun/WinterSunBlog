@@ -295,12 +295,66 @@ def cmd_ls(a):
             (t.get("last_text") or "")[:30]))
 
 
+# ── 他那边几点（2026-10-19）────────────────────────────────────────────
+# Winter：「聊到今天他说他那边1点了我才意识到对啊我们有时差……不应该让他半夜还给我发信息，得符合真实的时间。
+# 我又不太擅长算这个，全靠世界时钟。」——所以由这里替她算：places.json 记着每个人住哪、几点睡。
+PLACES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "places.json")
+
+
+def place_of(key):
+    try:
+        with open(PLACES, encoding="utf-8") as f:
+            p = json.load(f).get(key)
+        return p if isinstance(p, dict) and p.get("tz") else None
+    except (OSError, ValueError):
+        return None
+
+
+def clock_lines(key, at=None):
+    """两边各几点、他醒着没有。返回 (几行字, 他是不是在睡)。"""
+    from zoneinfo import ZoneInfo
+    at = at or now()
+    here = at.astimezone(TZ)
+    lines = ["- 你这边：北京 %d/%d 周%s %s" % (here.month, here.day, WEEK[here.weekday()], here.strftime("%H:%M"))]
+    p = place_of(key)
+    if not p:
+        lines.append("- 他那边：还没记他住哪（tools/text/places.json）——照他的 AU 设定补一条，拿不准就问她。")
+        return lines, False
+    there = at.astimezone(ZoneInfo(p["tz"]))
+    diff = int(round((here.utcoffset() - there.utcoffset()).total_seconds() / 3600))
+    a, b = p.get("sleep") or [1, 9]
+    asleep = (a <= there.hour < b) if a < b else (there.hour >= a or there.hour < b)
+    which = "同一天" if there.date() == here.date() else ("前一天" if there.date() < here.date() else "后一天")
+    lines.append("- 他那边：%s %d/%d 周%s %s（%s，比你晚 %d 小时）——%s" % (
+        p.get("city", ""), there.month, there.day, WEEK[there.weekday()], there.strftime("%H:%M"), which, diff,
+        ("💤 他在睡（%d 点睡、%d 点醒）：她这时发的先不回，只回一行「（%s%s，他睡着了）」，等他醒了一口气回" % (
+            a, b, p.get("city", ""), _hour_words(there))) if asleep else "他醒着"))
+    return lines, asleep
+
+
+def _hour_words(t):
+    h, m = t.hour, t.minute
+    part = "凌晨" if h < 6 else "早上" if h < 9 else "上午" if h < 12 else "中午" if h < 13 else "下午" if h < 18 else "晚上"
+    hh = h if h <= 12 else h - 12
+    cn = "零一二三四五六七八九十"
+    word = cn[hh] if hh <= 10 else "十" + cn[hh - 10]
+    return part + word + "点" + ("半" if 25 <= m < 40 else "多" if m >= 10 else "")
+
+
+def cmd_clock(a):
+    lines, asleep = clock_lines(a.key)
+    print("\n".join(lines))
+
+
 def cmd_open(a):
     _, box, index = load_all()
     th = load_thread(box, a.key)
     print("# 💌 冬的陪伴 · %s" % a.key)
     print("")
-    print("- 现在：北京时间 %s" % stamp(now().isoformat()))
+    print("## 现在几点")
+    print("")
+    print("\n".join(clock_lines(a.key)[0]))
+    print("")
     if index.get("about_her"):
         print("- 她的基本情况（谁都知道的）：" + "；".join(index["about_her"]))
     if not th:
@@ -552,7 +606,7 @@ def show_life(index, since=None, skip_src=None, limit=24, title=None):
 
 # Winter 2026-10-14 看着上下文用量问：「这个要是满了怎么办呀？」——快满时对话会自动整理（前面的话压成摘要），
 # 攒着还没存的那几十句原话就只剩摘要里的大意了。可对话自己的原始记录一直都在，catchup 从那里把它们捞回来。
-OOC = re.compile(r"^[（(]\s*(出戏|他这次没发)")
+OOC = re.compile(r"^[（(][^）)]*(出戏|他这次没发|睡着了)")
 
 
 def cmd_catchup(a):
@@ -739,6 +793,8 @@ def main():
     s.add_argument("key")
     s = sub.add_parser("catchup")
     s.add_argument("key")
+    s = sub.add_parser("clock")
+    s.add_argument("key")
     s = change("forget")
     s.add_argument("key")
     s.add_argument("--last", type=int, default=1)
@@ -750,7 +806,7 @@ def main():
     s.add_argument("--n", type=int, default=24)
     a = ap.parse_args()
     {"setup": cmd_setup, "ls": cmd_ls, "open": cmd_open, "add": cmd_add, "forget": cmd_forget,
-     "life": cmd_life, "catchup": cmd_catchup}[a.cmd](a)
+     "life": cmd_life, "catchup": cmd_catchup, "clock": cmd_clock}[a.cmd](a)
 
 
 if __name__ == "__main__":
