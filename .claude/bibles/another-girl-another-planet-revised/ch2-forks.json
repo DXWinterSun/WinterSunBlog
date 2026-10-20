@@ -1,0 +1,30 @@
+{
+  "title": "第一章看完，挑三样",
+  "note": "第一道是这章对不对味；后两道是正篇往下必须定的。可以多选，想改的写在补充框里。",
+  "prefix": "行情价三万看完了：",
+  "forks": [
+    {"id": "taste", "q": "这章的味道", "short": "味道",
+     "options": [
+       {"id": "ok", "name": "就这样，上线", "short": "就这样"},
+       {"id": "him", "name": "他的戏再多一点", "short": "他再多一点", "hook": "现在是你的视角在看他；可以多给他几句话。"},
+       {"id": "me", "name": "你的处境再写透一点", "short": "我的处境", "hook": "欠债、律师、为什么敢飞过来。"}
+     ]},
+    {"id": "debt", "q": "你欠 Arkady 的钱，是怎么来的？", "short": "欠债",
+     "hint": "第八章 Tommy 会把这件事告诉他，第十章炸鱼薯条店那场也靠它。",
+     "options": [
+       {"id": "ex", "name": "跟片子一样：前男友骗的", "short": "前男友骗的", "rec": true,
+        "hook": "他说服你把积蓄给他开公司，公司不行了又让你找 Arkady 借，然后带着钱和你最好的朋友跑了。炸鱼店那场 Eddie 揍的就是他。"},
+       {"id": "tommy", "name": "替 Tommy 背的", "short": "替 Tommy 背的",
+        "hook": "表哥惹的祸，你替他签的字。他对你有愧，所以才给你找来这两个人。炸鱼店那场换成别的人。"},
+       {"id": "self", "name": "你自己砸的", "short": "自己砸的",
+        "hook": "你自己做的决定，自己赔的钱，不怪任何人。她不是受害者，是个认赌服输的人。"}
+     ]},
+    {"id": "surname", "q": "这个系列你姓什么？", "short": "你姓",
+     "hint": "第二章到了伦敦，Tommy 和别人会连名带姓地叫你。三个都出自 1605 年那张火药阴谋的名单（Winter 这个姓本来就在上面）。",
+     "options": [
+       {"id": "keyes", "name": "Winter Keyes", "short": "Keyes", "rec": true, "hook": "当年看管火药的人姓 Keyes，听着就是钥匙。他头一回听见准要说：那我得把你揣兜里。"},
+       {"id": "percy", "name": "Winter Percy", "short": "Percy", "hook": "租下议会地窖的那个人。听着体面，正好拿来让他挤兑。"},
+       {"id": "catesby", "name": "Winter Catesby", "short": "Catesby", "hook": "领头的那个。主意都是你拿的。"}
+     ]}
+  ]
+}

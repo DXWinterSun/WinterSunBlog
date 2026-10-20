@@ -6,7 +6,7 @@ date: 2026-10-19 22:45:00 +0800
 image: another-girl-another-planet.jpg
 series: "Another Girl, Another Planet"
 series_title: "Another Girl, Another Planet · Eddie AU"
-series_order: 1
+series_order: 101
 series_status: ongoing
 series_type: "Series"
 chapter_type: "Extra 1"
