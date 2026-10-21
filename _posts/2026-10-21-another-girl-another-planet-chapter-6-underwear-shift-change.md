@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 6 · 穿着内裤来换班 — Another Girl, Another Planet"
 categories: ["AU Story"]
-date: 2026-10-21 22:05:00 +0800
+date: 2026-10-21 21:59:00 +0800
 image: another-girl-another-planet.jpg
 series: "Another Girl, Another Planet"
 series_title: "Another Girl, Another Planet · Eddie AU"
