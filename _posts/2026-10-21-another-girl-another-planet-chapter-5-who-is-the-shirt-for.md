@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 5 · 打扮给谁看 — Another Girl, Another Planet"
 categories: ["AU Story"]
-date: 2026-10-21 22:40:00 +0800
+date: 2026-10-21 21:38:00 +0800
 image: another-girl-another-planet.jpg
 series: "Another Girl, Another Planet"
 series_title: "Another Girl, Another Planet · Eddie AU"
