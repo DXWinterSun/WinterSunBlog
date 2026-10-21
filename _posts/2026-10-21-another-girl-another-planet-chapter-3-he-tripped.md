@@ -2,7 +2,7 @@
 layout: post
 title: "Chapter 3 · 他自己绊的 — Another Girl, Another Planet"
 categories: ["AU Story"]
-date: 2026-10-22 00:40:00 +0800
+date: 2026-10-21 17:20:00 +0800
 image: another-girl-another-planet.jpg
 series: "Another Girl, Another Planet"
 series_title: "Another Girl, Another Planet · Eddie AU"
