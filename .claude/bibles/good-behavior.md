@@ -6,7 +6,7 @@
 > 续写前先读这份；每写完一章回来更新「章节流水」与 PINNED / DEFERRED。
 
 series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 48 ｜ 封面 images/good-behavior.svg（Claude 画的静物，生成脚本 tools/series/good_behavior_cover.py）
-上线：2026-10-18 凌晨 Ch1–3、上午 Ch4–6、中午 Ch7–9（_posts/2026-10-18-good-behavior-chapter-*）
+上线：2026-10-18 凌晨 Ch1–3、上午 Ch4–6、中午 Ch7–9（_posts/2026-10-18-good-behavior-chapter-*）；2026-10-22 晚 Ch10–12（_posts/2026-10-22-…）
 角色: William "Wild Bill" Wharton（Sam Rockwell,《绿里奇迹》The Green Mile 1999）画册 id wildbill
   ⚠️ 这是他的**第三个**系列（另两个：Tuning the Devil 调音线、Sanguis Benedicta 血族线）。三边各走各的，
   称呼、设定、母题互不串。上线时画册 wildbill 的 `auLinks` 要加第三条（quiz / spectrum / lines.json 同步，见 CLAUDE.md）。
@@ -193,8 +193,7 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    「**你在我这儿，不用乖**」（呼应系列名）；他手扶你腰怕你掉；一起到，**他第一次叫你 Winter**；天快亮他总摸空脖子；「**锁回去吧**，他们得看见我还戴着才知道塔还是那个塔，
    钥匙在你那儿就行」；你给他戴回、底下垫纱布、咔哒，他笑得像领了糖；他写的那行 Unstable 你没撕（Ch10 岔路 A 留着）。
    ⚠️ 「第一次用钥匙＝开不是锁」是 Claude 替 Winter 做的主（她选了全套检查，没选“用钥匙锁住他”），notes 里已说明可改。
-   mood 炽恋·安放 ｜ 预览页：https://claude.ai/artifact/8tmqw7KEG3zRNb7r5nhcJ8 ｜ 状态：Winter 挑了第十一章岔路＝认可，待第四批上线
-   ⚠️ 落盘时 tags 第一个要改成 `William "Wild Bill" Wharton`（草稿里写成了 Wild Bill Wharton）
+   mood 炽恋·安放 ｜ 预览页：https://claude.ai/artifact/8tmqw7KEG3zRNb7r5nhcJ8 ｜ 状态：✅ 2026-10-22 上线（第四批）
 
 11. **名册第一行** — 早上你在前任药柜最里头找到「Tinct. Benz. Co.」**安息香酊**（甜、暖、像老教堂）；下午问 Elias「一号」，他早上看见项圈底下露出白纱布（「这么些年头一回有东西」）
    →「叫 Hobbs 带上钥匙，他欠你一回」；经过 Lowell（烧退了、在看你带的书「老头，你也下来了」），牢门钥匙不在 Hobbs 那串里；走廊尽头**看守值班室**，铁皮柜最底层的**名册**（c-decree 卡）：
@@ -205,7 +204,7 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    「看见什么了？」「一个名字」「**那个名字是给看守喊的，你别喊**」「那我喊什么？」「照旧」——Mr. Warden 他笑得藏不住；「不可矫正」「写得真准，这么些年就这一句写对了」；
    「你哪天生的？」「谁记那个」（你没告诉他）；你开口「**塔底那扇门，打开它**」，他笑停住，列邮袋 / 写信 / 外头会来——「那他们就会来——」没说完；
    你蹲下：「**门开了，他走不走，是他的事**」「那你呢？」「**我在这儿**」；他不答，把你手腕拉到脸前，鼻子贴着脉搏闻那点安息香，很久不松。
-   mood 怅惘·缱绻 ｜ 预览页：https://claude.ai/artifact/7S5UCjKZNFsAoFm6zmH5vj ｜ 状态：Winter 挑了第十二章岔路＝认可，待第四批上线
+   mood 怅惘·缱绻 ｜ 预览页：https://claude.ai/artifact/7S5UCjKZNFsAoFm6zmH5vj ｜ 状态：✅ 2026-10-22 上线（第四批）
 
 12. **说十遍我不走** — 【第六场炽恋】接第十一章同一夜。他从**帽墙内侧皮衬里**抠出一把黑铁钥匙（塔底牢门的）；你第一回看清帽子上骷髅手骨底下那枚**黄铜锁眼**（一直以为是扣子）
    「全塔的锁我都有钥匙，就脖子上这一把没有」「**你去开**」「你不下去？」「**我下去，就开不了了**」「明天白天去，我睡着的时候」→ 你手里两把钥匙。
@@ -219,7 +218,8 @@ series_name: Good Behavior ｜ slug series/good-behavior/ ｜ collection_order 4
    你捧住他的脸「我不走。第十遍」「……准了」。天亮他睡着还攥你手腕；**Hobbs：「监狱长这两天身上一股……医生的味儿」「安息香」**；Hobbs 看见黑钥匙一句不问，领你下去；
    锁锈了两只手才拧开；Lowell「他让你来的？」「他给我的钥匙」「**他从来没给过我钥匙。哪一把都没有**」；他爬到储藏室的光里，你以为他先找邮袋——他回头：「有吃的吗？」；
    你上楼他醒着背对门：「他出来了？」「……他往哪儿走了？」「厨房，他饿了」——他笑出声倒在床上两手盖脸「厨房。唉。厨房」，另一只手摸到你手腕攥住。
-   mood 炽恋·缱绻 ｜ 预览页：https://claude.ai/artifact/3qcsRncnUZHq3NXhoxTCCX ｜ 状态：**草稿，待 Winter 过目**
+   mood 炽恋·缱绻 ｜ 预览页：https://claude.ai/artifact/3qcsRncnUZHq3NXhoxTCCX ｜ 状态：✅ 2026-10-22 上线（第四批，Winter 挑了第十三章岔路＝认可）
+   ⭐ 第十三章岔路（Winter 2026-10-22）：第十三章 A（洗衣房「看守的狗」）· Lowell A（要把塔里的事写下来，带上船）
 
 ## DEFERRED（压着，到点再放）
 
