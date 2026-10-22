@@ -940,3 +940,19 @@
   text_en: "Starched-Lace White"
   muted_cn: "勋表旧橄榄"
   muted_en: "Ribbon Olive"
+
+"Another Girl, Another Planet":  # Eddie · Blue Iguana · 色卡同源画册 id: eddie（2026-10-19 开坑）
+  mf_id: eddie                # → Many Faces 画册锚点 /sam/many-faces/#eddie
+  accent: "#2e9fd4"
+  accent_ink: "#1f6f96"        # accent 偏浅，额外压暗到浅色主题下对比度 ≥4.5:1
+  bg: "#1a1f24"
+  text: "#dce5ea"
+  muted: "#7a8088"
+  accent_cn: "蓝蜥宝石"
+  accent_en: "Iguana Jewel"
+  bg_cn: "酒馆烟灰"
+  bg_en: "Tavern Smoke"
+  text_cn: "糖霜浅釉"
+  text_en: "Doughnut Glaze"
+  muted_cn: "雨街铅色"
+  muted_en: "Rainy-Street Lead"

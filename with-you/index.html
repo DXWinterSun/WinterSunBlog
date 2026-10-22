@@ -105,13 +105,18 @@
   }
   .list li:first-child .row { border-top: 0; }
   .row:active { background: rgba(var(--rgb-accent), .05); }
+  /* 头像（2026-10-19 Winter：「头像感觉太简陋了，就一个首字母🤣」）：用他那个 AU 的封面照，
+     按 _data/image_focus.yml 记的脸的位置和大小放大、把脸摆在圆心（faces.json 由 Jekyll 生成）。
+     没有封面照的人才退回首字母圆，外面一圈他的颜色。 */
   .ava {
+    position: relative; overflow: hidden;
     flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%;
     display: inline-flex; align-items: center; justify-content: center;
     background: var(--ava-bg, #2b2f3a); color: var(--ava-fg, #fff);
     font-family: var(--serif); font-size: 20px; font-style: italic;
-    box-shadow: inset 0 0 0 2px var(--ava-ring, transparent);
+    box-shadow: 0 0 0 2px var(--c-paper), 0 0 0 3.5px var(--ava-ring, transparent);
   }
+  .ava img { position: absolute; max-width: none; display: block; }
   .row__main { flex: 1; min-width: 0; }
   .row__top { display: flex; align-items: baseline; gap: 8px; }
   .row__name { font-weight: 600; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -135,6 +140,10 @@
   .chat-head__who b { display: block; font-size: 16px; }
   .chat-head__who small { display: block; font-size: 12px; color: var(--c-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .chat-head__back { border: 0; background: none; font-size: 22px; padding: 4px 6px 4px 0; color: var(--c-ink-soft); line-height: 1; }
+  /* 聊天里也够得着「换个心情」和昼夜（同日：「聊天界面里看不见主题设置那些，不太方便」）：
+     进一条线时把顶栏那两颗钮挪到这条吸顶的头里，回名单再挪回去 */
+  .chat-head__tools { display: flex; align-items: center; gap: 6px; flex: 0 0 auto; }
+  .chat-head__tools .iconbtn, .chat-head__tools .c-palette-trigger { width: 32px; height: 32px; font-size: 14px; }
 
   .msgs { display: flex; flex-direction: column; gap: 4px; padding: 14px 0 6px; }
   .stamp { align-self: center; margin: 14px 0 6px; font-size: 11.5px; color: var(--c-muted); letter-spacing: .5px; font-variant-numeric: tabular-nums; }
@@ -190,7 +199,7 @@
 
   <div class="topbar">
     <a class="back" id="back" href="/WinterSunBlog/notes/">← 回书桌</a>
-    <span class="topbar__right">
+    <span class="topbar__right" id="top-tools">
       <button type="button" class="iconbtn" id="lock-btn" title="锁上（这台设备忘掉钥匙）" aria-label="锁上" hidden>🔒</button>
       <button class="c-palette-trigger" type="button" id="js-palette-trigger"
               aria-label="换个心情 · 配色主题" title="换个心情" data-baseurl="/WinterSunBlog">
@@ -240,6 +249,7 @@
       <button class="chat-head__back" id="t-back" aria-label="回名单">‹</button>
       <span class="ava" id="t-ava"></span>
       <span class="chat-head__who"><b id="t-name"></b><small id="t-story"></small></span>
+      <span class="chat-head__tools" id="t-tools"></span>
     </div>
     <button class="more" id="t-more" hidden>再往前看</button>
     <div class="msgs" id="msgs" aria-live="polite"></div>
@@ -257,6 +267,10 @@
   var KEY_LS = "ws-with-you-key";
   var WEEK = "日一二三四五六";
   var key = null, vault = null, index = null, cur = null, shown = 80;
+  var FACES = {};
+  fetch("faces.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : {}; })
+    .then(function (f) { FACES = f || {}; if (index && !$("home").hidden) renderList(); if (cur) { ava($("t-ava"), cur.meta); wear(cur.meta); } })
+    .catch(function () {});
 
   function ls(k, v) {
     try {
@@ -310,6 +324,7 @@
 
   function showLock(msg) {
     $("lock").hidden = false; $("home").hidden = true; $("thread").hidden = true; $("head").hidden = false;
+    moveTools(false); wear(null);
     $("lock-btn").hidden = true;
     $("err").textContent = msg || "";
   }
@@ -350,10 +365,24 @@
     span.textContent = (name.charAt(0) || "?").toUpperCase();
     span.style.setProperty("--ava-bg", t.bg || "#2b2f3a");
     span.style.setProperty("--ava-fg", t.accent || "#fff");
-    span.style.setProperty("--ava-ring", t.accent ? t.accent + "55" : "transparent");
+    span.style.setProperty("--ava-ring", t.accent ? t.accent + "aa" : "transparent");
+    var f = FACES[String(t.key || "").split("--")[1]];
+    if (!f || !f.img) return;
+    var img = new Image(); img.alt = ""; img.decoding = "async";
+    var w = f.w || 16, h = f.h || 9;
+    // 放大到脸占圆的一半高；没记脸多大就放大两倍。至少要盖满整个圆，最多放大六倍。
+    var H = f.fs ? 50 / f.fs : 2, W;
+    H = Math.min(6, Math.max(H, 1, h / w)); W = H * w / h;
+    var fx = (f.x != null ? f.x : 50) / 100, fy = (f.y != null ? f.y : 35) / 100;
+    var left = Math.min(0, Math.max(1 - W, 0.5 - fx * W)), top = Math.min(0, Math.max(1 - H, 0.47 - fy * H));
+    img.style.width = (W * 100) + "%"; img.style.height = (H * 100) + "%";
+    img.style.left = (left * 100) + "%"; img.style.top = (top * 100) + "%";
+    img.onerror = function () { img.remove(); };
+    img.src = f.img;
+    span.textContent = ""; span.appendChild(img);
   }
   function lastLine(t) {
-    var s = t.last_text || "";
+    var s = (t.last_text || "").replace(/\s*\n+\s*/g, " ");
     return (t.last_from === "her" ? "你：" : "") + s;
   }
 
@@ -364,6 +393,7 @@
       return unseal(key, blob).then(function (x) { index = x; });
     }).then(function () {
       $("lock").hidden = true; $("thread").hidden = true; $("home").hidden = false; $("head").hidden = false;
+      moveTools(false); wear(null);
       $("lock-btn").hidden = false;
       renderList();
       var u = index.updated ? new Date(index.updated) : null;
@@ -396,8 +426,31 @@
   }
 
   /* ——— 一条线 ——— */
+  /* 每个人的对话默认穿他自己的颜色（系列配色，跟系列页「穿上他的颜色」同一套）；
+     她在对话里用「换个心情」换过的，按人记住（theme-picker.js 的分场配色），全站的颜色不动。 */
+  function hisColors(t) {
+    var f = FACES[String(t.key || "").split("--")[1]], p = f && f.pal;
+    if (p && p.theme) return { type: "preset", id: p.theme };
+    if (p && p.accent && p.bg) return { type: "au-direct", accent: p.accent, accent_ink: p.accent_ink || null,
+      bg: p.bg, text: p.text, muted: p.muted, accent_name: p.accent_name || null, bg_name: p.bg_name || null,
+      text_name: p.text_name || null, muted_name: p.muted_name || null };
+    if (t.accent && t.bg) return { type: "au-direct", accent: t.accent, bg: t.bg, text: "#efe8da", muted: "#948a7c" };
+    return null;
+  }
+  function wear(t) {
+    if (window.wiwPaletteScope) window.wiwPaletteScope(t ? "with-you:" + (t.key || t.id) : null, t ? hisColors(t) : null);
+  }
+  function moveTools(into) {
+    var box = $(into ? "t-tools" : "top-tools"), lockBtn = $("lock-btn");
+    [$("js-palette-trigger"), $("mode-btn")].forEach(function (b) {
+      if (!b) return;
+      if (into) box.appendChild(b); else box.insertBefore(b, null);
+    });
+    if (!into) box.insertBefore(lockBtn, box.firstChild);
+  }
   function openThread(t, fromHash) {
     cur = { meta: t, data: null }; shown = 80;
+    moveTools(true); wear(t);
     $("home").hidden = true; $("thread").hidden = false; $("head").hidden = true;
     ava($("t-ava"), t); $("t-name").textContent = t.who || t.key;
     $("t-story").textContent = [t.story, t.film].filter(Boolean).join(" · ");
@@ -412,6 +465,7 @@
   }
   function closeThread() {
     cur = null; history.replaceState(null, "", location.pathname);
+    moveTools(false); wear(null);
     $("thread").hidden = true; $("home").hidden = false; $("head").hidden = false;
     document.documentElement.style.removeProperty("--him");
     window.scrollTo(0, 0);
@@ -431,6 +485,13 @@
     return img;
   }
   function host(u) { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return u; } }
+  // 一条消息里打了回车＝分成好几条（同日：「这个界面我的回车没有做成分条消息🤔」）
+  function bubbles(m) {
+    if (!m.text || m.text.indexOf("\n") < 0) return [bubble(m)];
+    var side = m.from === "her" ? "her" : "him";
+    return m.text.split(/\n+/).map(function (x) { return x.trim(); }).filter(Boolean)
+      .map(function (x) { return el("div", "b b--" + side, x); });
+  }
   function bubble(m) {
     var mine = m.from === "her", side = mine ? "her" : "him";
     if (m.text) return el("div", "b b--" + side, m.text);
@@ -464,7 +525,7 @@
     list.forEach(function (m) {
       var d = new Date(m.t);
       if (!prev || d - prev > 20 * 60000) box.appendChild(el("div", "stamp", stampText(d, prev)));
-      box.appendChild(bubble(m));
+      bubbles(m).forEach(function (b) { box.appendChild(b); });
       prev = d;
     });
     if (scrollEnd) window.scrollTo(0, document.body.scrollHeight);
@@ -513,6 +574,6 @@
 </script>
 
 <script src="/WinterSunBlog/js/sam-themes-data.js"></script>
-<script src="/WinterSunBlog/js/theme-picker.js"></script>
+<script src="/WinterSunBlog/js/theme-picker.js?v=20261019"></script>
 </body>
 </html>

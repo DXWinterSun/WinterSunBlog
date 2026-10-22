@@ -1079,6 +1079,45 @@
       "wish": 0,
       "id": "mvcht8fa-hltzb",
       "added": 1792247374054
+    },
+    {
+      "name": "《银河系漫游指南》明信片 · He’s From a Far Out Planet",
+      "type": "card",
+      "spec": "电影海报明信片",
+      "charId": "zaphod",
+      "date": "2026-10-18",
+      "note": "美丽的总统先生，金发披肩，双手一举，笑得一脸灿烂",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mvdg5o87-xsym6",
+      "added": 1792305061351
+    },
+    {
+      "name": "《银河系漫游指南》明信片 · 荷兰版",
+      "type": "card",
+      "spec": "荷兰 Boomerang 免费明信片",
+      "charId": "zaphod",
+      "date": "2026-10-18",
+      "note": "荷兰语写着“想看看我的飞船吗？”，底下小字：Zaphod（左）是银河系总统，Humma Kavula（右）是星际传教士，Zaphod 不久前还在地球上用史上最老套的搭讪台词泡到了一个女孩……",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mvdg5o88-ij179",
+      "added": 1792305061352
+    },
+    {
+      "name": "《致命一击》原声带",
+      "type": "ost",
+      "spec": "CD · 全新",
+      "charId": "johnmoon",
+      "date": "2026-10-18",
+      "note": "Atli Örvarsson 作曲，瑞典 MovieScore Media 和马耳他 Kronos 唱片合出。卖家正是唱片背面署名的出品人 Godwin Borg 的 eBay 店，回消息的是他太太，说还没看过这部片，会去看看😆 里面有一组《John Moon 变奏曲》，三个乐章：开枪、深夜来电、对决",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "mvdg5o89-v461r",
+      "added": 1792305061353
     }
   ]
 }

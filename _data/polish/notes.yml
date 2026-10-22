@@ -816,3 +816,100 @@ notes:
       - {pl: kawa, zh: 咖啡, tag: 阴}
       - {pl: przed, zh: 在……之前；在……前面（跟工具格）, look: false}
     see: ["004", "018", "020"]
+
+  - id: "022"
+    section: vocab
+    date: 2026-10-21
+    source: 自己问的
+    point: num.clock
+    also: [noun.acc, noun.loc, prep.case]
+    title: 十二个月、星期一到星期天：波兰语都小写开头
+    ask: 可以把一年 12 个月还有一周 7 天的说法做一下吗？包括年、月、星期之类的基本说法
+    pl: "Dziś jest ==środa==."
+    en: "Today is Wednesday."
+    zh: 今天星期三。
+    why: |
+      先说最省心的一条：月份和星期在波兰语里都小写开头，跟普通名词一样。英语要大写，别跟着写大。
+      星期跟中文一样是数出来的：wtorek 来自“第二”，czwartek 是“第四”，piątek 是“第五”，正好对上星期二、四、五。剩下几个也好记：niedziela 是“不干活”的日子，poniedziałek 是“星期天之后”（po + niedziela），środa 是一周的“中间”，sobota 来自“安息日”。
+      月份大多是看着大自然起的名字，不像英语那样从拉丁语来（只有 marzec、maj 跟 March、May 同源）：luty 是“严寒”，kwiecień 是“开花”，czerwiec 来自一种能做红染料的虫子，lipiec 是椴树开花，sierpień 是镰刀（割麦子），wrzesień 是石楠花开，październik 是打亚麻剩下的碎秆，listopad 是“叶子落下”，grudzień 是冻硬的土块。
+      要说“在星期几”“在几月”，前面都加 w，但后面的格不一样：星期几用宾格，w środę（在星期三）——阳性的那四个变了跟没变一样，只有 -a 结尾的 środa、sobota、niedziela 把 -a 换成 -ę；几月用方位格，w październiku（在十月）。还是第 20 条那句话：格是介词和搭配说了算，这两个只能分开记。
+    rule:
+      - 月份、星期都小写开头。
+      - 在星期几：w + 宾格（w środę）；在几月：w + 方位格（w październiku）。
+    table:
+      - pl: [1, 2]
+        head: ["", "月份", "在这个月"]
+        rows:
+          - ["1 月", "styczeń", "w ==styczniu=="]
+          - ["2 月", "luty", "w ==lutym=="]
+          - ["3 月", "marzec", "w ==marcu=="]
+          - ["4 月", "kwiecień", "w ==kwietniu=="]
+          - ["5 月", "maj", "w ==maju=="]
+          - ["6 月", "czerwiec", "w ==czerwcu=="]
+          - ["7 月", "lipiec", "w ==lipcu=="]
+          - ["8 月", "sierpień", "w ==sierpniu=="]
+          - ["9 月", "wrzesień", "==we== ==wrześniu=="]
+          - ["10 月", "październik", "w ==październiku=="]
+          - ["11 月", "listopad", "w ==listopadzie=="]
+          - ["12 月", "grudzień", "w ==grudniu=="]
+      - pl: [1, 2]
+        head: ["", "星期", "在星期几"]
+        rows:
+          - ["周一", "poniedziałek", "w poniedziałek"]
+          - ["周二", "wtorek", "==we== wtorek"]
+          - ["周三", "środa", "w ==środę=="]
+          - ["周四", "czwartek", "w czwartek"]
+          - ["周五", "piątek", "w piątek"]
+          - ["周六", "sobota", "w ==sobotę=="]
+          - ["周日", "niedziela", "w ==niedzielę=="]
+      - head: ["", "波兰语", ""]
+        pl: [1]
+        rows:
+          - ["年", "rok", "阳"]
+          - ["月", "miesiąc", "阳"]
+          - ["星期；周", "tydzień", "阳"]
+          - ["天", "dzień", "阳"]
+          - ["周末", "weekend", "阳"]
+          - ["今天 · 明天 · 昨天", "dziś · jutro · wczoraj", ""]
+          - ["春 · 夏 · 秋 · 冬", "wiosna · lato · jesień · zima", ""]
+    extra:
+      - "**we** w 碰上 w、f 开头的词，说成 we，好念一点：we wtorek、we wrześniu。"
+      - "**变样的** rok 的复数借了 lato（夏天）的复数：dwa ==lata==（两年）；dzień 的复数是 ==dni==；tydzień 一变就成了 tygodni-：tydzień → ==tygodnia==。"
+      - "**你本子上的** 星期三写成了 środę，那是“在星期三”（w środę）的样子，原形是 środa；czasu 是 czas（时间）的属格，因为前面是 Nie mam（没有），跟第 4 条一个道理；mie… 写完是 miesiąc（月）。其余都对。"
+    examples:
+      - {pl: "Do zobaczenia w ==piątek==.", zh: 星期五见。}
+      - {pl: "Moje urodziny są w ==listopadzie==.", zh: 我的生日在十一月。}
+      - {pl: "W ==październiku== jest jesień.", zh: 十月是秋天。}
+    words:
+      - {pl: styczeń, zh: 一月, tag: 阳}
+      - {pl: luty, zh: 二月, tag: 阳}
+      - {pl: marzec, zh: 三月, tag: 阳}
+      - {pl: kwiecień, zh: 四月, tag: 阳}
+      - {pl: maj, zh: 五月, tag: 阳}
+      - {pl: czerwiec, zh: 六月, tag: 阳}
+      - {pl: lipiec, zh: 七月, tag: 阳}
+      - {pl: sierpień, zh: 八月, tag: 阳}
+      - {pl: wrzesień, zh: 九月, tag: 阳}
+      - {pl: październik, zh: 十月, tag: 阳}
+      - {pl: listopad, zh: 十一月, tag: 阳}
+      - {pl: grudzień, zh: 十二月, tag: 阳}
+      - {pl: poniedziałek, zh: 星期一, tag: 阳}
+      - {pl: wtorek, zh: 星期二, tag: 阳}
+      - {pl: środa, zh: 星期三, tag: 阴}
+      - {pl: czwartek, zh: 星期四, tag: 阳}
+      - {pl: piątek, zh: 星期五, tag: 阳}
+      - {pl: sobota, zh: 星期六, tag: 阴}
+      - {pl: niedziela, zh: 星期天, tag: 阴}
+      - {pl: rok, zh: 年, tag: 阳}
+      - {pl: miesiąc, zh: 月, tag: 阳}
+      - {pl: tydzień, zh: 星期；周, tag: 阳}
+      - {pl: dzień, zh: 天, tag: 阳}
+      - {pl: weekend, zh: 周末, tag: 阳}
+      - {pl: dziś, zh: 今天（也说 dzisiaj）, look: false}
+      - {pl: jutro, zh: 明天, look: false}
+      - {pl: wczoraj, zh: 昨天, look: false}
+      - {pl: wiosna, zh: 春天, tag: 阴}
+      - {pl: lato, zh: 夏天, tag: 中}
+      - {pl: jesień, zh: 秋天, tag: 阴}
+      - {pl: zima, zh: 冬天, tag: 阴}
+    see: ["004", "019", "020"]

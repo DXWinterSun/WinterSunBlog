@@ -273,13 +273,21 @@
         }
         var path = norm(window.location.pathname);
         var bylineEl = document.querySelector('.c-hero__byline-text');
-        var bname = bylineEl ? bylineEl.textContent.split('·')[0].trim() : '';
+        var plain = function (t) { return (t || '').replace(/[“”"'‘’]/g, '').trim(); };
+        var bname = bylineEl ? plain(bylineEl.textContent.split('·')[0]) : '';
+        var ticket = document.getElementById('js-series-ticket');
+        var mf = ticket ? ticket.getAttribute('data-mf') : '';
+        var alias = (data.meta && data.meta.mf_alias) || {};
         var hit = null;
         data.characters.forEach(function (c) {
           if (!hit && c.auLink && norm(c.auLink) === path) hit = c;
         });
+        if (!hit && mf) {
+          /* 票根上的画册锚点（本系列的，或跟同一个人的别的系列借的）：lines.json 的 id 可能是别名 */
+          data.characters.forEach(function (c) { if (!hit && (c.id === mf || alias[c.id] === mf)) hit = c; });
+        }
         if (!hit && bname) {
-          data.characters.forEach(function (c) { if (!hit && c.name === bname) hit = c; });
+          data.characters.forEach(function (c) { if (!hit && plain(c.name) === bname) hit = c; });
         }
         if (!hit) return;
         a.href = BASE + '/sam/hotline/?char=' + encodeURIComponent(hit.id);
@@ -322,11 +330,19 @@
     var stubs = Array.prototype.slice.call(ticket.querySelectorAll('.c-tk-stub')).filter(function (s) { return !s.hidden; })
       .map(function (s) { return { cn: s.querySelector('b').textContent, en: s.querySelector('em').textContent }; });
     var photo = document.getElementById('js-ticket-photo');
-
     var S = 2, W = 560 * S, pad = 20 * S;
+    /* 连票：同一位演员的另外几场，画在撕票口下面 */
+    var subs = Array.prototype.slice.call(ticket.querySelectorAll('.c-tk-sub')).map(function (a) {
+      return { name: a.getAttribute('data-name') || '', line: a.getAttribute('data-line') || '', lede: a.getAttribute('data-lede') || '', run: a.getAttribute('data-run') || '',
+        bg: cssVar(a, '--sb-bg', bg), ac: cssVar(a, '--sb-accent', ac), tx: cssVar(a, '--sb-text', tx), mu: cssVar(a, '--sb-muted', mu),
+        img: a.querySelector('img.c-tk-sub__img') };
+    });
+    var bookE = ticket.querySelector('.c-tk-book__e');
+    var subH = 64 * S, bookH = subs.length ? (10 + 16 + 8) * S + subs.length * (subH + 8 * S) + 4 * S : 0;
+
     var photoH = photo ? Math.round(W * 7 / 16) : 0;
     var perfH = swatches.length ? 66 * S : 0;
-    var H = (18 + 14 + 12 + 44 + 4 + 18 + 14) * S + photoH + perfH + (14 + 22 + 6 + 14 + 14) * S + (stubs.length ? 64 * S : 0);
+    var H = (18 + 14 + 12 + 44 + 4 + 18 + 14) * S + photoH + perfH + (14 + 22 + 6 + 14 + 14) * S + (stubs.length ? 64 * S : 0) + bookH;
     var cv = document.createElement('canvas');
     cv.width = W; cv.height = H;
     var ctx = cv.getContext('2d');
@@ -402,6 +418,48 @@
           ctx.fillStyle = mu; ctx.font = 'italic ' + (10.5 * S) + 'px "EB Garamond", serif';
           ctx.fillText(s.en, cx, y + 40 * S);
           ctx.textAlign = 'left';
+        });
+        y += 64 * S;
+      }
+      if (subs.length) {
+        /* 撕线 + 咬口，然后是连票那一块 */
+        ctx.strokeStyle = 'rgba(236,233,226,.45)'; ctx.lineWidth = 2 * S; ctx.setLineDash([5 * S, 5 * S]);
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1 * S;
+        ctx.fillStyle = mix(bg, '#000000', 0.25);
+        ctx.fillRect(0, y + 1 * S, W, bookH - 1 * S);
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath(); ctx.arc(0, y, 9 * S, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(W, y, 9 * S, 0, Math.PI * 2); ctx.fill();
+        ctx.globalCompositeOperation = 'source-over';
+        y += 10 * S;
+        ctx.fillStyle = mu; ctx.font = (9 * S) + 'px "Special Elite", "Courier New", monospace';
+        drawSpaced(ctx, (bookE ? bookE.textContent : 'Same Actor · Other Shows').toUpperCase(), 14 * S, y, 0.24 * 9 * S);
+        y += 16 * S + 8 * S;
+        subs.forEach(function (sb) {
+          var x0 = 10 * S, w0 = W - 20 * S;
+          ctx.fillStyle = mix(sb.bg, '#ffffff', 0.06);
+          roundRect(ctx, x0, y, w0, subH, 8 * S); ctx.fill();
+          ctx.fillStyle = sb.ac; ctx.fillRect(x0, y + 6 * S, 3 * S, subH - 12 * S);
+          var ix = x0 + 11 * S, iw = 56 * S, ih = 42 * S, iy = y + (subH - ih) / 2;
+          if (sb.img && sb.img.complete && sb.img.naturalWidth) {
+            ctx.save(); roundRect(ctx, ix, iy, iw, ih, 4 * S); ctx.clip();
+            drawCover(ctx, sb.img, ix, iy, iw, ih, '50% 40%'); ctx.restore();
+          } else { ctx.fillStyle = mix(sb.ac, sb.bg, 0.6); roundRect(ctx, ix, iy, iw, ih, 4 * S); ctx.fill(); }
+          var tx0 = ix + iw + 10 * S, tw = w0 - (tx0 - x0) - 30 * S;
+          ctx.fillStyle = sb.ac; ctx.font = 'bold ' + (15 * S) + 'px Volkhov, "Noto Serif SC", serif';
+          var nm = (sb.line ? sb.line + ' · ' : '') + sb.name, nmFull = nm;
+          while (nm.length > 1 && ctx.measureText(nm + '…').width > tw) nm = nm.slice(0, -1);
+          ctx.fillText(nm.length < nmFull.length ? nm + '…' : nm, tx0, y + 9 * S);
+          if (sb.lede) {
+            ctx.fillStyle = sb.tx; ctx.globalAlpha = 0.88; ctx.font = (11 * S) + 'px "Noto Serif SC", serif';
+            var l = sb.lede; while (l.length > 1 && ctx.measureText(l + '…').width > tw) l = l.slice(0, -1);
+            ctx.fillText(l.length < sb.lede.length ? l + '…' : l, tx0, y + 29 * S); ctx.globalAlpha = 1;
+          }
+          ctx.fillStyle = sb.mu; ctx.font = (8.5 * S) + 'px "Special Elite", "Courier New", monospace';
+          drawSpaced(ctx, sb.run, tx0, y + 46 * S, 0.1 * 8.5 * S);
+          ctx.fillStyle = sb.ac; ctx.font = (20 * S) + 'px Volkhov, serif';
+          ctx.fillText('→', x0 + w0 - 24 * S, y + (subH - 20 * S) / 2);
+          y += subH + 8 * S;
         });
       }
       done(cv);

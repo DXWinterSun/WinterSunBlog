@@ -1,0 +1,39 @@
+---
+layout: null
+permalink: /with-you/faces.json
+sitemap: false
+---
+{%- comment -%}
+  「冬的陪伴」的头像：每个系列（目录名＝记录编号里 -- 后面那半，如 youngsam--fog-city → fog-city）
+  的封面照，和 _data/image_focus.yml 里记的脸的位置（x / y，%）、原图尺寸（w / h）、脸有多大（fs，图高的 %）。
+  with-you/index.html 照这个把脸放大摆进圆头像里。封面取法跟 _layouts/series.html 一样。
+  另带 "pal"＝这个系列的配色（_data/au_palettes.yml），聊天页打开谁就默认穿谁的颜色；
+  有 mf_id 的反查 sam_themes 的 id（"theme"），跟系列页「穿上他的颜色」那颗按钮同一套
+  （见 _includes/au-palette-strip.html），选色器就认成预设色卡、显示他的四个色名。
+{%- endcomment -%}
+{%- assign sp = site.pages | where: "layout", "series" -%}
+{
+{%- for p in sp -%}
+{%- assign slug = p.url | remove_first: "/series/" | remove: "/" -%}
+{%- assign chs = site.posts | where: "series", p.series_name | sort: "series_order" -%}
+{%- assign first = chs | first -%}
+{%- assign img = p.cover | default: first.image | default: p.image -%}
+{%- assign pl = site.data.au_palettes[p.series_name] -%}
+{%- assign theme_id = "" -%}
+{%- if pl.mf_id -%}
+{%- for t in site.data.sam_themes -%}
+{%- assign t_anchor = t.anchor | default: t.id -%}
+{%- if t_anchor == pl.mf_id -%}{%- assign theme_id = t.id -%}{%- break -%}{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- if img or pl -%}
+{%- assign f = nil -%}{%- if img -%}{%- assign f = site.data.image_focus[img] -%}{%- endif -%}
+{{ slug | jsonify }}: {"img": {% if img %}{{ "/images/" | prepend: site.baseurl | append: img | jsonify }}{% else %}null{% endif %}{% if f %}, "x": {{ f.x }}, "y": {{ f.y }}, "w": {{ f.w }}, "h": {{ f.h }}{% if f.fs %}, "fs": {{ f.fs }}{% endif %}{% endif %}
+{%- if pl %}, "pal": {"theme": {% if theme_id != "" %}{{ theme_id | jsonify }}{% else %}null{% endif %}, "accent": {{ pl.accent | jsonify }}, "accent_ink": {{ pl.accent_ink | default: nil | jsonify }}, "bg": {{ pl.bg | jsonify }}, "text": {{ pl.text | jsonify }}, "muted": {{ pl.muted | jsonify }}
+{%- if pl.accent_cn %}, "accent_name": {{ pl.accent_cn | append: " · " | append: pl.accent_en | jsonify }}{% endif %}
+{%- if pl.bg_cn %}, "bg_name": {{ pl.bg_cn | append: " · " | append: pl.bg_en | jsonify }}{% endif %}
+{%- if pl.text_cn %}, "text_name": {{ pl.text_cn | append: " · " | append: pl.text_en | jsonify }}{% endif %}
+{%- if pl.muted_cn %}, "muted_name": {{ pl.muted_cn | append: " · " | append: pl.muted_en | jsonify }}{% endif %}}{% endif %}},
+{%- endif -%}
+{%- endfor -%}
+"_": null}
