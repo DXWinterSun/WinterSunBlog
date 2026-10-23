@@ -420,6 +420,11 @@ def _msg_key(m):
                                   or (m.get("link") or {}).get("url") or (m.get("art") or {}).get("url") or ""))
 
 
+# 断线时（额度用完、接口报错）对话里会冒出几条系统替他「说」的报错，那不是他的话，存的时候认出来扔掉。
+API_ERR = re.compile(r"^\s*(API Error|Claude AI usage limit|You've hit your (usage )?limit|You've reached your|"
+                     r"Prompt is too long|Request timed out|Credit balance is too low|Usage limit reached)", re.I)
+
+
 def _plain(c):
     if isinstance(c, str):
         s = c
@@ -460,8 +465,10 @@ def transcript(raw=False):
         elif a.get("type") == "queued_command" and (a.get("origin") or {}).get("kind") == "human":
             out.append(("her", _plain(a.get("prompt")), ts))           # 他还在打字时她又发来的
         elif r.get("type") == "assistant":
+            if r.get("isApiErrorMessage") or (r.get("message") or {}).get("model") == "<synthetic>":
+                continue                                                 # 报错，不是他说的
             for b in r["message"].get("content") or []:
-                if isinstance(b, dict) and b.get("type") == "text":
+                if isinstance(b, dict) and b.get("type") == "text" and not API_ERR.match(b["text"]):
                     out.append(("him", b["text"], ts))
     if raw:
         return sorted([x for x in out if x[1].strip()], key=lambda x: x[2])
