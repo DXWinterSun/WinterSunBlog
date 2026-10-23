@@ -616,15 +616,12 @@ def show_life(index, since=None, skip_src=None, limit=24, title=None):
 OOC = re.compile(r"^[（(][^）)]*(出戏|他这次没发|睡着了)")
 
 
-def cmd_catchup(a):
-    """把这个对话里「上次存完之后」的话从原始记录里捞出来，印成一段 add 能吃的 JSON（只印，不存）。"""
-    vault, box, index = load_all()
-    th = load_thread(box, a.key) or {"messages": []}
+def unsaved(th):
+    """这个对话里上次存完之后还没存的话（add 能吃的样子）；读不到原始记录就是 None。"""
     old = th.get("messages", [])
     rows = transcript(raw=True)
     if not rows:
-        print("读不到这个对话的原始记录（不在原来那台机器上？）——只能凭摘要补了。")
-        return
+        return None
     if old:
         last = dt.datetime.fromisoformat(old[-1]["t"]) - dt.timedelta(seconds=30)
         rows = [r for r in rows if r[2] >= last]
@@ -644,6 +641,17 @@ def cmd_catchup(a):
         hit = [i for i, m in enumerate(draft) if _msg_key(m) == lk]
         if hit:
             draft = draft[hit[-1] + 1:]
+    return draft
+
+
+def cmd_catchup(a):
+    """把这个对话里「上次存完之后」的话从原始记录里捞出来，印成一段 add 能吃的 JSON（只印，不存）。"""
+    vault, box, index = load_all()
+    th = load_thread(box, a.key) or {"messages": []}
+    draft = unsaved(th)
+    if draft is None:
+        print("读不到这个对话的原始记录（不在原来那台机器上？）——只能凭摘要补了。")
+        return
     if not draft:
         print("✓ 上次存完之后没有新的话，不用补。")
         return
@@ -652,6 +660,97 @@ def cmd_catchup(a):
     print("然后整段喂给 `python3 tools/text/texts.py add %s --trailer \"…\"`（要记的 memory / life 照常加在同一段里）。" % a.key)
     print("")
     print('{"messages": [\n' + ",\n".join(" " + json.dumps(m, ensure_ascii=False) for m in draft) + "\n]}")
+
+
+# ── 定时提醒叫醒他的时候只跑这一条（2026-10-23）──────────────────────────
+# Winter 问「这个找我一次会费多少额度？」——量下来他主动找她一次抵得上平常聊五六个来回：以前一次要做十来步
+# （拉规矩、重读 skill、open、读吃了什么、存、推送……），而每一步都得把整段聊天从头翻一遍，读进来的东西还一直留在对话里。
+# wake 一口气给齐要用的：规矩改没改、两边的钟、该不该发、上一句多久前、还挂着的事、最近几句、还没存的话。
+RULE_FILES = (".claude/skills/winter-text/", "tools/text/places.json", "tools/call/omni.py")
+
+
+def pull_rules():
+    """取一下最新的 main。返回改过的规矩文件（没改就是空的）；取不到返回 None。"""
+    try:
+        before = git("rev-parse", "HEAD")
+        git("pull", "-q", "--ff-only", REMOTE, "main")
+        after = git("rev-parse", "HEAD")
+    except RuntimeError:
+        return None
+    if before == after:
+        return []
+    return [f for f in git("diff", "--name-only", before, after).splitlines() if f.startswith(RULE_FILES)]
+
+
+def her_night(iso):
+    return not 7 <= dt.datetime.fromisoformat(iso).astimezone(TZ).hour < 23
+
+
+def unanswered(msgs):
+    """他末尾那几次主动找她、她都还没回的次数。只算隔了两个小时以上他才开口的（聊着聊着他最后回的那句、
+    道晚安时他说的最后一句都不算）；她睡着时他留的言也不算（她在睡，不是不理他）。"""
+    n = 0
+    for i in range(len(msgs) - 1, 0, -1):
+        m = msgs[i]
+        if m["from"] != "him":
+            break
+        gap = dt.datetime.fromisoformat(m["t"]) - dt.datetime.fromisoformat(msgs[i - 1]["t"])
+        if gap > dt.timedelta(hours=2) and not her_night(m["t"]):
+            n += 1
+    return n
+
+
+def cmd_wake(a):
+    changed = pull_rules()
+    _, box, index = load_all()
+    th = load_thread(box, a.key) or {"messages": []}
+    msgs = th.get("messages", [])
+    print("# 💌 定时提醒 · %s" % a.key)
+    print("")
+    if changed:
+        print("⚠️ 规矩改过（%s）——先重读 .claude/skills/winter-text/SKILL.md 第八节「他先找你」再发。" % "、".join(changed))
+    elif changed is None:
+        print("（没取到最新的规矩，照你记得的办。）")
+    else:
+        print("（规矩没变：别去翻 skill、别 open、别读吃了什么，照下面写就行。）")
+    print("")
+    lines, asleep = clock_lines(a.key)
+    print("\n".join(lines))
+    n = unanswered(msgs)
+    if asleep:
+        print("→ 💤 他在睡：这回什么都不发，只输出「（他这次没发）」，什么都不存。")
+    elif n >= 2:
+        print("→ 他已经连着 %d 次找她她都没回：这回不发，只输出「（他这次没发）」。" % n)
+    elif n == 1:
+        print("→ 他上一次找她她还没回：只发一句很轻的（「……好吧 你忙」那种），不追问。")
+    else:
+        print("→ 照常发。")
+    if msgs:
+        last = msgs[-1]
+        print("- 上一句：%s（%s，%s发的）" % (stamp(last["t"]), gap_words(last["t"]), "她" if last["from"] == "her" else "他"))
+    print("")
+    show_life(index, since=msgs[-1]["t"] if msgs else None, skip_src=a.key, limit=6,
+              title="上一句以后别的对话里新记下的她的日子")
+    pend = th.get("memory", {}).get("pending") or []
+    if pend:
+        print("## 还挂着的事")
+        print("")
+        for x in pend[-5:]:
+            print("- " + x)
+        print("")
+    print("## 最近几句")
+    print("")
+    for m in msgs[-a.n:]:
+        print("%s %s" % (stamp(m["t"]), show_msg(m)))
+    print("")
+    draft = unsaved(th)
+    if draft:
+        print("## 上次存完之后还有 %d 句没存（核对一遍：删掉出戏的、照片补一句描述）" % len(draft))
+        print("")
+        print('{"messages": [\n' + ",\n".join(" " + json.dumps(m, ensure_ascii=False) for m in draft) + "\n]}")
+        print("")
+    print("写好以后只再跑一次：`python3 tools/text/texts.py add %s`，把%s他这回发的放进同一段 messages 一起存。" % (
+        a.key, "上面没存的（核对过）和" if draft else ""))
 
 
 def cmd_add(a):
@@ -802,6 +901,9 @@ def main():
     s.add_argument("key")
     s = sub.add_parser("clock")
     s.add_argument("key")
+    s = sub.add_parser("wake")
+    s.add_argument("key")
+    s.add_argument("--n", type=int, default=8)
     s = change("forget")
     s.add_argument("key")
     s.add_argument("--last", type=int, default=1)
@@ -813,7 +915,8 @@ def main():
     s.add_argument("--n", type=int, default=24)
     a = ap.parse_args()
     {"setup": cmd_setup, "ls": cmd_ls, "open": cmd_open, "add": cmd_add, "forget": cmd_forget,
-     "life": cmd_life, "catchup": cmd_catchup, "clock": cmd_clock}[a.cmd](a)
+     "life": cmd_life, "catchup": cmd_catchup, "clock": cmd_clock,
+     "wake": cmd_wake}[a.cmd](a)
 
 
 if __name__ == "__main__":
