@@ -11,7 +11,7 @@ import json
 import re
 import sys
 
-KEY = re.compile(r"texts\.py\s+(?:open|add|catchup)\s+([a-z0-9][a-z0-9-]*)")
+KEY = re.compile(r"texts\.py\s+(?:open|add|catchup|wake|clock)\s+([a-z0-9][a-z0-9-]*)")
 
 
 MARK = "冬的陪伴 · 他想你了"   # 定时提醒的抬头：出现过就一定是陪伴对话
@@ -19,10 +19,22 @@ MARK = "冬的陪伴 · 他想你了"   # 定时提醒的抬头：出现过就�
 
 def scan(path):
     """返回（聊过的记录编号，后聊的在后；是不是一定是陪伴对话）。"""
-    found, sure = [], False
+    found, sure, _ = scan_from(path)
+    return found, sure
+
+
+def scan_from(path, start=0, found=None, sure=False):
+    """从第 start 个字节往后接着看（clock_hook.py 每句话只看新增的那一截）。返回（编号们，sure，看到了哪）。"""
+    found = list(found or [])
+    pos = start
     try:
-        with open(path, encoding="utf-8") as f:
-            for line in f:
+        with open(path, "rb") as f:
+            f.seek(start)
+            for raw in f:
+                if not raw.endswith(b"\n"):      # 还没写完的最后一行，下回再看
+                    break
+                pos += len(raw)
+                line = raw.decode("utf-8", "replace")
                 if "texts.py" not in line and MARK not in line and "set_session_title" not in line:
                     continue
                 try:
@@ -46,7 +58,7 @@ def scan(path):
                         found.append(k)
     except OSError:
         pass
-    return found, sure
+    return found, sure, pos
 
 
 def main():
