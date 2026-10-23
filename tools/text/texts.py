@@ -751,6 +751,7 @@ def cmd_wake(a):
         print("")
     print("写好以后只再跑一次：`python3 tools/text/texts.py add %s`，把%s他这回发的放进同一段 messages 一起存。" % (
         a.key, "上面没存的（核对过）和" if draft else ""))
+    print("⚠️ 提醒里要是写了用 PushNotification：跳过。云端对话推不到她手机上（官方只在连着电脑的对话里推），白花一步。")
 
 
 def cmd_add(a):
