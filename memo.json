@@ -1,7 +1,7 @@
 {
   "_readme": "冬的灵感本：网页 /memo/ 读的就是这一份（只读）。在对话里改请用 main 上的 tools/memo/memo.py，别手改。",
   "version": 1,
-  "updated": "2026-10-23T16:51:00+08:00",
+  "updated": "2026-10-24T18:06:00+08:00",
   "settings": {
     "style": "snow",
     "updated": "2026-10-03T12:59:01+08:00",
@@ -279,6 +279,16 @@
       "created": "2026-10-23T16:51:00+08:00",
       "updated": "2026-10-23T16:51:00+08:00",
       "note": "10/23：Sam 演蝙蝠侠的喜剧短片，2005 年，James Duffy 导演、Will Carlough 编剧；Justin Long 演罗宾，Callie Thorne、Josh Hamilton 也在里面。豆瓣没有条目，片名用英文。片源：编剧本人 2010 年传的 YouTube 完整版 DiPSklJ-Kh4（7:11，只有 480×360，英文只有自动字幕）。B 站只有一个无字幕搬运（BV1PczDYXEtG），所以值得做中英熟肉。可以配 Josh Hamilton 拍的那张片场蝙蝠侠照（他 IG 的 Ca8hFP9MgCm，写的「Gotham City 2004」）先发一帖预热。冷知识：2010 年说 Sam 和 Justin Long 要在合集电影里重演，最后《电影43》（2013）里蝙蝠侠换成了 Jason Sudeikis，Leslie 演了神奇女侠。她说「这个项目确实不错，先 pin 一下」。"
+    },
+    {
+      "id": "bhwwn2",
+      "page": "long",
+      "text": "画册新角色：Jeremy（The F Word，2005）",
+      "done": false,
+      "order": -2,
+      "created": "2026-10-24T18:06:00+08:00",
+      "updated": "2026-10-24T18:06:00+08:00",
+      "note": "10/24：在 eBay 看到 The F Word 蓝光（Cinevolve 旗下 cineBLU，2008 年 10 月正式发行，全新未拆，卖家 box532），Sam 在里面演 Jeremy，画册 54 人里还没有他。你定了：收进画册，当第 55 个角色。之前下的资源没放到他出场就卡退了，所以现在还不知道他戏份多少、说了什么。下一步：碟到手 → 用 MakeMKV「备份」存一份原盘（第一张蓝光）→ 你看完 → 一起挑他的五句台词、四色色卡、六维打分，再照画册那套流程做。注意：原片是标清数码摄像机拍的，蓝光画质不会比 DVD 好多少。"
     }
   ],
   "gone": {
