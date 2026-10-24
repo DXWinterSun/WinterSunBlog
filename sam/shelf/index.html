@@ -1761,6 +1761,7 @@
 
     <div class="toggles">
       <label class="tog" id="f-nas-row" style="display:none"><input type="checkbox" id="f-nas"><span>📡 已经导进 NAS（Infuse 里能看了）</span></label>
+      <label class="tog" id="f-orig-row" style="display:none"><input type="checkbox" id="f-orig"><span>💿 存了原盘（整张盘原样存下，菜单、花絮都在）</span></label>
       <label class="tog"><input type="checkbox" id="f-signed"><span>✍️ 上面有他的亲笔签名</span></label>
       <label class="tog"><input type="checkbox" id="f-wish"><span>🌠 还没入手，先放进心愿单</span></label>
     </div>
@@ -1954,6 +1955,7 @@
     if (filter === "signed") return !!it.signed;
     if (filter === "nas") return it.type === "disc" && !!it.nas;
     if (filter === "nonas") return it.type === "disc" && !it.nas;
+    if (filter === "orig") return it.type === "disc" && !!it.orig;
     return it.type === filter;
   }
 
@@ -2322,6 +2324,7 @@
     win.appendChild(no);
     var badges = [];
     if (it.type === "disc" && it.nas) badges.push("📡");
+    if (it.type === "disc" && it.orig) badges.push("💿");
     if (it.signed) badges.push("✍️");
     if (badges.length) {
       var bd = document.createElement("span"); bd.className = "item__badges";
@@ -2387,6 +2390,7 @@
     if (c) rows.push(["谁的", whoLine(it, c) + " · " + c.year]);
     if (it.date) rows.push([it.wish ? "许愿" : "入手", it.date]);
     if (it.type === "disc") rows.push(["NAS", it.nas ? "已进" : "还没进"]);
+    if (it.type === "disc") rows.push(["原盘", it.orig ? "已存 · 菜单都在" : "还没存"]);
     if (it.signed) rows.push(["签名", "有他的亲笔签名"]);
     if (rows.length) {
       var dl = document.createElement("dl"); dl.className = "item__dl";
@@ -2523,6 +2527,7 @@
 
     var badges = [];
     if (it.type === "disc" && it.nas) badges.push("📡");
+    if (it.type === "disc" && it.orig) badges.push("💿");
     if (it.signed) badges.push("✍️");
     var bd = document.createElement("span"); bd.className = "row__badges"; bd.textContent = badges.join("");
     el.appendChild(bd);
@@ -2611,6 +2616,7 @@
     if (filter === "signed") return { e: "✍️", t: head ? head + "签名品" : "带签名的东西" };
     if (filter === "nas") return { e: "📡", t: head ? head + "东西" : "进了 NAS 的东西" };
     if (filter === "nonas") return { e: "🎞️", t: head ? head + "东西" : "还没进 NAS 的东西" };
+    if (filter === "orig") return { e: "💿", t: head ? head + "东西" : "存了原盘的东西" };
     return { e: "🔍", t: head ? head + "东西" : "东西" };
   }
   /* 只留某一类（角色照旧留着） */
@@ -2622,6 +2628,7 @@
     if (f === "signed") return !!it.signed;
     if (f === "nas") return it.type === "disc" && !!it.nas;
     if (f === "nonas") return it.type === "disc" && !it.nas;
+    if (f === "orig") return it.type === "disc" && !!it.orig;
     return it.type === f;
   }
   function fillEmpty(box, list) {
@@ -2756,6 +2763,7 @@
 
     var discs = allOwn.filter(function (it) { return it.type === "disc"; });
     var nasDone = discs.filter(function (it) { return it.nas; });
+    var origDone = discs.filter(function (it) { return it.orig; });
 
     var stats = $("stats");
     stats.innerHTML = "";
@@ -2772,7 +2780,8 @@
        不再单独占一排标签） */
     [["✍️", "签名", signed.length, "signed"]]
       .concat(discs.length ? [["📡", "已进 NAS", nasDone.length, "nas"],
-                              ["🎞️", "没进", discs.length - nasDone.length, "nonas"]] : [])
+                              ["🎞️", "没进", discs.length - nasDone.length, "nonas"],
+                              ["💿", "原盘", origDone.length, "orig"]] : [])
       .concat(chars.length ? [["✦", "点亮", covered + " / " + chars.length, "", jumpToMap]] : [])
       .concat(allWish.length ? [["🌠", "心愿", allWish.length]] : [])
       .forEach(function (p) {
@@ -2850,7 +2859,8 @@
     if (!t) {
       var nm = filter === "signed" ? "✍️ 有签名"
              : filter === "nas" ? "📡 已进 NAS"
-             : filter === "nonas" ? "🎞️ 还没进 NAS" : "";
+             : filter === "nonas" ? "🎞️ 还没进 NAS"
+             : filter === "orig" ? "💿 存了原盘" : "";
       if (!nm) { subLine.innerHTML = SUB_HOME; return; }
       subLine.innerHTML = "只看 <b>" + nm + "</b>";
     } else {
@@ -3210,6 +3220,7 @@
       }
     }
     $("f-nas-row").style.display = (id === "disc") ? "flex" : "none";
+    $("f-orig-row").style.display = (id === "disc") ? "flex" : "none";
     $("f-fmt-row").style.display = fmts.length ? "flex" : "none";
     $("f-region-row").style.display = fmts.length ? "flex" : "none";
     $("f-issue-row").style.display = issueOn(id) ? "flex" : "none";
@@ -3523,6 +3534,7 @@
     $("f-date").value = it ? (it.date || "") : today();   // 新添的默认就是今天，省得每次点三下
     $("f-note").value = it ? (it.note || "") : "";
     $("f-nas").checked = it ? !!it.nas : false;
+    $("f-orig").checked = it ? !!it.orig : false;
     $("f-signed").checked = it ? !!it.signed : false;
     $("f-wish").checked = it ? !!it.wish : false;
     /* 先定类别（制式那排会跟着重建），再把已有的规格拆回去点上 */
@@ -3585,6 +3597,7 @@
       date: $("f-date").value,
       note: $("f-note").value.trim(),
       nas: (formType === "disc" && $("f-nas").checked) ? 1 : 0,
+      orig: (formType === "disc" && $("f-orig").checked) ? 1 : 0,
       signed: $("f-signed").checked ? 1 : 0,
       wish: $("f-wish").checked ? 1 : 0
     };
@@ -3665,6 +3678,7 @@
       year: c ? c.year : "",
       signed: it.signed ? "有签名" : "",
       nas: it.type === "disc" ? (it.nas ? "已进 NAS" : "未进 NAS") : "",
+      orig: it.type === "disc" && it.orig ? "存了原盘" : "",
       date: it.date || "",
       note: (it.note || "").replace(/\s*\n\s*/g, " "),
       state: it.wish ? "心愿单" : "已入手"
@@ -3703,6 +3717,7 @@
         var l2 = [];
         if (f.who) l2.push(f.who + (f.year ? " · " + f.year : ""));
         if (f.nas) l2.push(f.nas);
+        if (f.orig) l2.push(f.orig);
         if (f.signed) l2.push(f.signed);
         if (f.date) l2.push((it.wish ? "许愿于 " : "入手于 ") + f.date);
         if (l2.length) out.push("     " + l2.join(" ｜ "));
@@ -3712,10 +3727,10 @@
     });
     return out.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
   }
-  var EX_COLS = ["编号", "名称", "类别", "版本 / 规格", "角色", "出处", "年份", "签名", "NAS", "入手日期", "想说的话", "状态"];
+  var EX_COLS = ["编号", "名称", "类别", "版本 / 规格", "角色", "出处", "年份", "签名", "NAS", "原盘", "入手日期", "想说的话", "状态"];
   function exRow(it) {
     var f = exFields(it);
-    return [f.n, f.name, f.type, f.spec, f.char, f.film, f.year, f.signed, f.nas, f.date, f.note, f.state];
+    return [f.n, f.name, f.type, f.spec, f.char, f.film, f.year, f.signed, f.nas, f.orig, f.date, f.note, f.state];
   }
   function buildCsv(list) {
     var q = function (v) { return '"' + String(v).replace(/"/g, '""') + '"'; };
