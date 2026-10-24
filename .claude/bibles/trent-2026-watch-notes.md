@@ -233,7 +233,7 @@
 - 草坪那句原话（约 40:29，对小女孩说）：The way I see it, you got people who own lawns, and you got people who mow them. And they're never the same people.
 - 富家子同学是 **Sean**，不是 Brett（约 31:23）：县里的学校三年级，Sean 待了几个月就转私立；Sean 不记得他，他记得 Sean 家那辆蓝色宝马。他答「不是朋友，就是一个班的」，原话带肯塔基土腔 We was。
 - 墙里的人叫他 **that lawnmower kid**（约 54:18）；Pam 叫他 trailer man；Stockard 先生叫他 son / boy。Winter 要求这类称呼保留英文。
-- 价钱：Stockard 家说好三十块一块草坪（Morton 先少给十块说是玩笑，后来还是补上了）。
+- 价钱：**一块草坪四十块**（她 2026-10-24 纠正：结账时 Stockard 先生先只给了三十——字幕「这是二十……再来这个」——他说差十块，对方说开玩笑才补上；影评也说四十。我之前按「给二十差十」算成三十，算错了）。
 - 车：65 年福特 F-100，方向盘边换挡的三速手动，车底支架他自己修好的。
 - 门卫 Nash：小时候也割过草，「草坪最好的一点是总会长回来」；规矩是下午五点后别在小区里，除非先打招呼。
 - Pam Gregory：他喊她 Patty 被纠正；他没电话，「我有两毛五」。
