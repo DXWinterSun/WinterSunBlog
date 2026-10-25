@@ -1,0 +1,82 @@
+{
+  "title": "挑两样",
+  "note": "介绍和另外三句台词照上面写的；下面三道你挑完，我就改到画册、测验、光谱、台词墙那几处，一起上线。",
+  "prefix": "画册 Trent：",
+  "forks": [
+    {
+      "id": "tagline",
+      "q": "一句钩子，换成哪句？",
+      "short": "钩子",
+      "hint": "卡片最上面那句，测验结果页和光谱页也用这一句。",
+      "options": [
+        {
+          "id": "scar",
+          "name": "他给墙里的人割草，却记得你领口底下的那道疤。",
+          "short": "领口底下的疤",
+          "rec": true,
+          "hook": "原片：墙里割草的。AU：<b>九岁那年他看见过，十二年一个字都没说。</b>"
+        },
+        {
+          "id": "wrong",
+          "name": "他说有草坪的和割草的从来不是同一拨人——他说错了。",
+          "short": "他说错了",
+          "hook": "原片那句名台词，<b>加上你们结局那一句「我说错了」。</b>"
+        },
+        {
+          "id": "whistle",
+          "name": "他在你家草坪上吹了一声草叶哨——十二年前，是他教你的。",
+          "short": "草叶哨",
+          "hook": "<b>重逢那一下</b>，最有画面。"
+        },
+        {
+          "id": "keep",
+          "name": "不换：他不属于这里，但他愿意为你停下来。",
+          "short": "不换",
+          "hook": "保留现在这句。"
+        }
+      ]
+    },
+    {
+      "id": "inscription",
+      "q": "题词（也是台词墙第一句），换成哪块？",
+      "short": "题词",
+      "hint": "卡片上那块「── 标签 ──」，同时是台词墙、每日一句里他的第一句。没挑中的那块当第二句。",
+      "options": [
+        {
+          "id": "people",
+          "name": "NEVER THE SAME PEOPLE",
+          "short": "同一拨人",
+          "rec": true,
+          "hook": "The way I see it, you got people who own lawns, and you got people who mow them. And they're never the same people. — I was wrong about that.<br><b>照我看，这世上有一拨人有草坪，有一拨人割草坪，从来不是同一拨人。——这句我说错了。</b>"
+        },
+        {
+          "id": "socks",
+          "name": "A CLEAN SHIRT, NEW SOCKS",
+          "short": "干净衬衫新袜子",
+          "hook": "One day I'm gonna save up enough, put on a clean shirt and a new pair of socks, and just walk out of this life. You've got the socks. Guess I'm taking you with me.<br><b>总有一天我要攒够钱，穿上一件干净衬衫、一双新袜子，就这么走出这辈子。袜子在你那儿——那我只好连你一起带走。</b>"
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "q": "名字要不要写全？",
+      "short": "名字",
+      "hint": "原片里他叫 Trent Burns，新系列也用全名。画册现在只写 Trent。",
+      "options": [
+        {
+          "id": "full",
+          "name": "写全：Trent Burns",
+          "short": "Trent Burns",
+          "rec": true,
+          "hook": "跟系列页、原片对上。<b>「他叫 Trent Burns」</b>——你当着一整顶帐篷说过的。"
+        },
+        {
+          "id": "short",
+          "name": "就叫 Trent",
+          "short": "Trent",
+          "hook": "保持现在的样子。"
+        }
+      ]
+    }
+  ]
+}

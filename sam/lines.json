@@ -277,7 +277,7 @@
     },
     {
       "id": "trent",
-      "name": "Trent",
+      "name": "Trent Burns",
       "film": "Lawn Dogs",
       "filmCN": "《割草叔叔》",
       "year": "1997",
@@ -288,34 +288,34 @@
       "auLink": "/WinterSunBlog/series/the-same-people/",
       "quotes": [
         {
-          "label": "SAVING UP TO TAKE YOU",
-          "line": "I was saving up to leave. Now I'm saving up to take you with me.",
-          "lineCN": "我攒钱本是为了离开——如今攒钱，是为了带你一起走。",
+          "label": "A CLEAN SHIRT, NEW SOCKS",
+          "line": "One day I'm gonna save up enough, put on a clean shirt and a new pair of socks, and just walk out of this life. You've got the socks. Guess I'm taking you with me.",
+          "lineCN": "总有一天我要攒够钱，穿上一件干净衬衫、一双新袜子，就这么走出这辈子。袜子在你那儿——那我只好连你一起带走。",
           "kind": "锚"
         },
         {
-          "label": "A CUP FROM THE CUPBOARD",
-          "line": "Every house on this street leaves my cup out on the step. You took one down from the cupboard and put it in my hand. I've been carrying that around for three weeks and I still don't know how to say what it did to me.",
-          "lineCN": "这条街上每一家，都把我那只杯子搁在台阶上。你从柜子里拿了一只，放进我手里。这件事我揣了三个礼拜，到现在还是不知道该怎么说它对我做了什么。",
-          "kind": "暗告白"
+          "label": "NEVER THE SAME PEOPLE",
+          "line": "The way I see it, you got people who own lawns, and you got people who mow them. And they're never the same people. — I was wrong about that.",
+          "lineCN": "照我看，这世上有一拨人有草坪，有一拨人割草坪，从来不是同一拨人。——这句我说错了。",
+          "kind": "电影 · 他的准则"
         },
         {
-          "label": "THE MAN IN THE BOOTH",
-          "line": "The gate goes up for you and down for me, and the man in the booth writes my name every single time. Inside the wall, you're the only one who ever says it out loud.",
-          "lineCN": "那道门对你抬起来，对我落下去，门房每一回都要把我的名字登记一遍。墙里头，只有你把它念出声过。",
-          "kind": "情话"
+          "label": "HOLDING IT BY THE BOTTOM",
+          "line": "I held that glass by the bottom so I wouldn't get grass on your fingers. Twelve years, and the first thing I did was try not to touch you.",
+          "lineCN": "我捏着杯底接你那杯茶，怕把草汁蹭到你手指上。十二年没见，我头一件事，是想办法别碰着你。",
+          "kind": "AU · 信物"
         },
         {
-          "label": "THIRTY FEET OFF THE BRIDGE",
-          "line": "Thirty feet down off that bridge, nine feet of water, four and a half over the east ledge. I counted all of it. They call it showing off. You're the only one who ever called it knowing what I'm doing.",
-          "lineCN": "从那座桥上往下三十英尺，水深九英尺，东边那道石梁四英尺半。我全数过。他们管这叫逞能——只有你说，那叫心里有数。",
-          "kind": "暗告白"
+          "label": "LIKE A STEPPED-ON DUCK",
+          "line": "Took you a whole week to make that grass squeal, and it sounded like somebody stepped on a duck. I didn't laugh. I knew you were leaving the next day.",
+          "lineCN": "那片草叶你吹了一个礼拜才吹响，跟被人踩了尾巴的鸭子似的。我没笑——我知道你第二天就要走。",
+          "kind": "AU · 暗告白"
         },
         {
-          "label": "SHAKE THE COFFEE CAN",
-          "line": "There's a coffee can under the bunk. Shake it and you can hear how far off August is. Lately I've been counting it for two.",
-          "lineCN": "铺底下有个咖啡罐。摇一摇，就听得出八月还有多远。最近我是按两个人算的。",
-          "kind": "情话"
+          "label": "THE MOWER IN THE TRUCK BED",
+          "line": "They got lawns in New Mexico too. Somebody's gotta cut 'em straight. Might as well be me — I'm already in the truck.",
+          "lineCN": "新墨西哥也有草坪，总得有人割得整整齐齐。那就我吧——我人都已经在车上了。",
+          "kind": "AU · 情话"
         }
       ]
     },
@@ -2487,7 +2487,7 @@
     },
     {
       "charId": "trent",
-      "name": "Trent",
+      "name": "Trent Burns",
       "film": "Lawn Dogs",
       "filmCN": "《割草叔叔》",
       "year": "1997",
@@ -2496,9 +2496,9 @@
       "text": "#dce5ea",
       "muted": "#7a7654",
       "auLink": "/WinterSunBlog/series/the-same-people/",
-      "label": "SAVING UP TO TAKE YOU",
-      "line": "I was saving up to leave. Now I'm saving up to take you with me.",
-      "lineCN": "我攒钱本是为了离开——如今攒钱，是为了带你一起走。",
+      "label": "A CLEAN SHIRT, NEW SOCKS",
+      "line": "One day I'm gonna save up enough, put on a clean shirt and a new pair of socks, and just walk out of this life. You've got the socks. Guess I'm taking you with me.",
+      "lineCN": "总有一天我要攒够钱，穿上一件干净衬衫、一双新袜子，就这么走出这辈子。袜子在你那儿——那我只好连你一起带走。",
       "kind": "锚"
     },
     {
@@ -3351,7 +3351,7 @@
     },
     {
       "charId": "trent",
-      "name": "Trent",
+      "name": "Trent Burns",
       "film": "Lawn Dogs",
       "filmCN": "《割草叔叔》",
       "year": "1997",
@@ -3360,10 +3360,10 @@
       "text": "#dce5ea",
       "muted": "#7a7654",
       "auLink": "/WinterSunBlog/series/the-same-people/",
-      "label": "A CUP FROM THE CUPBOARD",
-      "line": "Every house on this street leaves my cup out on the step. You took one down from the cupboard and put it in my hand. I've been carrying that around for three weeks and I still don't know how to say what it did to me.",
-      "lineCN": "这条街上每一家，都把我那只杯子搁在台阶上。你从柜子里拿了一只，放进我手里。这件事我揣了三个礼拜，到现在还是不知道该怎么说它对我做了什么。",
-      "kind": "暗告白"
+      "label": "NEVER THE SAME PEOPLE",
+      "line": "The way I see it, you got people who own lawns, and you got people who mow them. And they're never the same people. — I was wrong about that.",
+      "lineCN": "照我看，这世上有一拨人有草坪，有一拨人割草坪，从来不是同一拨人。——这句我说错了。",
+      "kind": "电影 · 他的准则"
     },
     {
       "charId": "samuel",
@@ -4215,7 +4215,7 @@
     },
     {
       "charId": "trent",
-      "name": "Trent",
+      "name": "Trent Burns",
       "film": "Lawn Dogs",
       "filmCN": "《割草叔叔》",
       "year": "1997",
@@ -4224,10 +4224,10 @@
       "text": "#dce5ea",
       "muted": "#7a7654",
       "auLink": "/WinterSunBlog/series/the-same-people/",
-      "label": "THE MAN IN THE BOOTH",
-      "line": "The gate goes up for you and down for me, and the man in the booth writes my name every single time. Inside the wall, you're the only one who ever says it out loud.",
-      "lineCN": "那道门对你抬起来，对我落下去，门房每一回都要把我的名字登记一遍。墙里头，只有你把它念出声过。",
-      "kind": "情话"
+      "label": "HOLDING IT BY THE BOTTOM",
+      "line": "I held that glass by the bottom so I wouldn't get grass on your fingers. Twelve years, and the first thing I did was try not to touch you.",
+      "lineCN": "我捏着杯底接你那杯茶，怕把草汁蹭到你手指上。十二年没见，我头一件事，是想办法别碰着你。",
+      "kind": "AU · 信物"
     },
     {
       "charId": "samuel",
@@ -5079,7 +5079,7 @@
     },
     {
       "charId": "trent",
-      "name": "Trent",
+      "name": "Trent Burns",
       "film": "Lawn Dogs",
       "filmCN": "《割草叔叔》",
       "year": "1997",
@@ -5088,10 +5088,10 @@
       "text": "#dce5ea",
       "muted": "#7a7654",
       "auLink": "/WinterSunBlog/series/the-same-people/",
-      "label": "THIRTY FEET OFF THE BRIDGE",
-      "line": "Thirty feet down off that bridge, nine feet of water, four and a half over the east ledge. I counted all of it. They call it showing off. You're the only one who ever called it knowing what I'm doing.",
-      "lineCN": "从那座桥上往下三十英尺，水深九英尺，东边那道石梁四英尺半。我全数过。他们管这叫逞能——只有你说，那叫心里有数。",
-      "kind": "暗告白"
+      "label": "LIKE A STEPPED-ON DUCK",
+      "line": "Took you a whole week to make that grass squeal, and it sounded like somebody stepped on a duck. I didn't laugh. I knew you were leaving the next day.",
+      "lineCN": "那片草叶你吹了一个礼拜才吹响，跟被人踩了尾巴的鸭子似的。我没笑——我知道你第二天就要走。",
+      "kind": "AU · 暗告白"
     },
     {
       "charId": "samuel",
@@ -5943,7 +5943,7 @@
     },
     {
       "charId": "trent",
-      "name": "Trent",
+      "name": "Trent Burns",
       "film": "Lawn Dogs",
       "filmCN": "《割草叔叔》",
       "year": "1997",
@@ -5952,10 +5952,10 @@
       "text": "#dce5ea",
       "muted": "#7a7654",
       "auLink": "/WinterSunBlog/series/the-same-people/",
-      "label": "SHAKE THE COFFEE CAN",
-      "line": "There's a coffee can under the bunk. Shake it and you can hear how far off August is. Lately I've been counting it for two.",
-      "lineCN": "铺底下有个咖啡罐。摇一摇，就听得出八月还有多远。最近我是按两个人算的。",
-      "kind": "情话"
+      "label": "THE MOWER IN THE TRUCK BED",
+      "line": "They got lawns in New Mexico too. Somebody's gotta cut 'em straight. Might as well be me — I'm already in the truck.",
+      "lineCN": "新墨西哥也有草坪，总得有人割得整整齐齐。那就我吧——我人都已经在车上了。",
+      "kind": "AU · 情话"
     },
     {
       "charId": "samuel",
