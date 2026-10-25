@@ -435,3 +435,9 @@
   你们住镇子最西头的土坯房（房东跑卡车的），后院红土、风滚草、一棵歪长的牧豆树——**全镇就你们家院子没有草**；他埋旧镀锌洗衣盆当池子、平石头搭斜坡、铁丝网围一圈。
   十月底下霜，Duck 钻进牧豆树底下的土里过冬：「它知道开春有人等它。」「这回，不用等那么久。」「嗯。这回就一个冬天。」第二年三月，它从土里钻出来，你喊他的名字，他攥着割草机油壶跑过来。
   预览页：https://claude.ai/artifact/Wt8ktkGiGKbCXRQn2D1bUR · summary：他停下割草机，从草里捧出一只小乌龟。你给它起名叫 Duck。· mood：絮语 · 安放
+
+## 画册 / 台词同步（2026-10-26）
+
+- 她要画册 Trent「更符合原片的同时，加一点我们 au 的设定」；改稿 `the-same-people-revised/manyfaces-trent-draft.md`（预览 https://claude.ai/artifact/1Z1jW4PQ1HwF1uwhmUurkE）。
+- 她选的：钩子「他说有草坪的和割草的从来不是同一拨人——他说错了。」· 题词 **A CLEAN SHIRT, NEW SOCKS**（原片 51:32 那句 + 「袜子在你那儿——那我只好连你一起带走」）· 名字写全 **Trent Burns**。
+- 改动：画册（name / tagline / desc 四段 / inscription）、quiz（name / tagline / 锚句）、spectrum（name / 锚句 / tagline）、lines.json 五句（锚：干净衬衫新袜子 · 电影 · 他的准则：NEVER THE SAME PEOPLE……I was wrong about that · AU · 信物：HOLDING IT BY THE BOTTOM · AU · 暗告白：LIKE A STEPPED-ON DUCK · AU · 情话：THE MOWER IN THE TRUCK BED），pool 同步。旧作那几句（门房登记、咖啡罐、三个礼拜）全部撤下。六维打分没动。
