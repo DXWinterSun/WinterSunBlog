@@ -735,7 +735,7 @@
   muted_cn: "车窗雾灰"
   muted_en: "Windshield Grey"
 
-"I Never Looked Away":      # Trent · Lawn Dogs · Sam Rockwell · 色卡同源画册 id: trent
+"The Same People":          # Trent Burns · Lawn Dogs · Sam Rockwell · 色卡同源画册 id: trent（2026-10-26 接替已归档的 I Never Looked Away）
   mf_id: trent               # → Many Faces 画册锚点 /sam/many-faces/#trent
   accent: "#79a7bd"
   accent_ink: "#587a8b"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1

@@ -1,4 +1,4 @@
-# The Same People · Trent Burns AU — 系列圣经（开坑中）
+# The Same People · Trent Burns AU — 系列圣经（2026-10-26 上线 · 十九章完结 + 番外）
 
 > 2026-10-24 开坑。Winter 重看《Lawn Dogs》时提出，想写一版「更原汁原味」的 Trent。
 > 旧作 I Never Looked Away（`.claude/bibles/lawn-dogs-au.md`）先不动，新坑写出几章、她满意了再归档。
@@ -6,6 +6,16 @@
 > - 观影笔记（她边看边说的话、字幕核对过的原片细节）：`.claude/bibles/trent-2026-watch-notes.md`
 > - 开坑提案页：`.claude/pitches/trent-lawn-dogs-2026-10.json` → https://claude.ai/artifact/Eji1EE8sDeg5xtARYcqsP5
 > - 本地看片交接说明：`.claude/bibles/trent-2026-video-brief.md`（她交回 `trent-素材档案.md` 后整合进本圣经）
+
+## 上线记录（2026-10-26）
+
+- 她拍板（原话）：「**新系列上线，旧的归档！配图还用之前那个就行**」。
+- 线上：系列首页 `series/the-same-people/`（`redirect_from: /series/i-never-looked-away/`，旧网址跳新系列）；`collection_order: 50`；`series_status: complete`；byline `Trent Burns · Lawn Dogs · Sam Rockwell`。
+- 章节：`_posts/2026-10-26-the-same-people-chapter-1…19-*.md` + `_posts/2026-10-26-the-same-people-extra-1-not-just-a-whistle.md`（`chapter_kind: pov`，series_order 20）；日期 2026-10-26 00:01–00:20 +0800；封面沿用 `i-never-looked-away.jpg`。
+- 配色：`_data/au_palettes.yml` 的 key 从 "I Never Looked Away" 改成 "The Same People"（`mf_id: trent` 不变）。
+- 互链：画册 / lines.json（含 pool）/ quiz / spectrum 的 Trent auLink 全改到新系列；`tools/call/brief.py` 去掉旧目录映射。
+- **旧作归档**：32 篇原文移到 `.claude/bibles/i-never-looked-away-v1-archived-chapters/`（附 README），旧首页存为 `.claude/bibles/i-never-looked-away-v1-archived.md`，旧圣经 `lawn-dogs-au.md` 开头标了「已归档」。
+- 热线语料：`hotline_mine.py` 重跑，旧作那批审过的句子随文章撤下；新系列的句子进了「待审」，要上热线得按 CLAUDE.md 的审法过一遍。
 
 ## 基本信息
 
