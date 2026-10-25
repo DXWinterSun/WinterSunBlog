@@ -1,3 +1,5 @@
+> ⚠️ **2026-10-26 已归档**：这是旧作 I Never Looked Away 的圣经。新系列是 **The Same People**（`.claude/bibles/the-same-people.md`），旧作 32 章封存在 `.claude/bibles/i-never-looked-away-v1-archived-chapters/`，不再参考。
+
 # Lawn Dogs · Trent AU — 系列圣经（开坑中 · 灵感本）
 
 > 2026-08-02 开本。Winter 说「之前很多灵感但都没记下来」——从今天起，

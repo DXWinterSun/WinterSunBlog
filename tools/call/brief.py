@@ -50,7 +50,6 @@ def read(path):
 BIBLE_FOR = {
     "wholly-known": "eddie-carbone-au",
     "everything-in-transit": "glory-daze",
-    "i-never-looked-away": "lawn-dogs-au",
     "the-serbian-tornado": "pero-mahlovic-au",
     "the-saloon-nobody-dares": "samuel-doc-au",
 }
