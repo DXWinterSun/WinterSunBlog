@@ -94,7 +94,11 @@ SERIES = {
         #    ⚠️⚠️ 必须**逐篇点名**，不能按「extra」这种笼统的词匹配——
         #    番外完全可以发生在锁开之前（如 extra2 他视角写十六岁那天），
         #    那种篇目里他的「你」仍然是错的。
-        "lock2_open_files": ["extra1", "extra-i-love-you"],
+        "lock2_open_files": [
+            "extra1", "extra-i-love-you",
+            # ⭐ 结局那一夜他视角：第②把锁就在这一篇里开，所以他说「你」是对的
+            "extra10", "i-thought-she-was-asleep",
+        ],
         # ⭐ 他视角的第一人称篇目：叙述者就是他，所以叙述里出现「我」是对的，
         #    不查「叙述第一人称」那一组；说话人提示语也按「我说／她说」认。
         "first_person_him_files": [
@@ -103,6 +107,7 @@ SERIES = {
             "i-shouldnt-have-gone-in", "i-said-it-for-her",
             "i-went-to-see-if-it-was-still-there", "i-didnt-wipe-it-off",
             "i-practiced-on-the-ground", "four-hundred-seventy-three-houses",
+            "i-thought-she-was-asleep",
         ],
         # ⚠️ 已人工核过、确实不是 Flute 的「他」（分场里没提名字，脚本解析不出来）
         #    ——每加一条都要写清真正的说话人，别拿它当消错工具
