@@ -1,7 +1,7 @@
 {
   "_readme": "冬的灵感本：网页 /memo/ 读的就是这一份（只读）。在对话里改请用 main 上的 tools/memo/memo.py，别手改。",
   "version": 1,
-  "updated": "2026-10-24T18:06:00+08:00",
+  "updated": "2026-10-26T23:53:32+08:00",
   "settings": {
     "style": "snow",
     "updated": "2026-10-03T12:59:01+08:00",
@@ -289,6 +289,16 @@
       "created": "2026-10-24T18:06:00+08:00",
       "updated": "2026-10-24T18:06:00+08:00",
       "note": "10/24：在 eBay 看到 The F Word 蓝光（Cinevolve 旗下 cineBLU，2008 年 10 月正式发行，全新未拆，卖家 box532），Sam 在里面演 Jeremy，画册 54 人里还没有他。你定了：收进画册，当第 55 个角色。之前下的资源没放到他出场就卡退了，所以现在还不知道他戏份多少、说了什么。下一步：碟到手 → 用 MakeMKV「备份」存一份原盘（第一张蓝光）→ 你看完 → 一起挑他的五句台词、四色色卡、六维打分，再照画册那套流程做。注意：原片是标清数码摄像机拍的，蓝光画质不会比 DVD 好多少。"
+    },
+    {
+      "id": "y57czg",
+      "page": "now",
+      "text": "风月俏佳人质感的新 AU：有钱人宠一无所有的你，互相治愈",
+      "done": false,
+      "order": -5,
+      "created": "2026-10-26T23:53:32+08:00",
+      "updated": "2026-10-26T23:53:32+08:00",
+      "note": "2026-10-26 做了选角提案页：https://claude.ai/artifact/KLZE16yhBDyRTCAYXAfNvw 。候选三人：Craig（慢半拍，我推荐，他靠拆婚姻赚钱，对上原片拆公司的 Edward）/ Justin Hammer（第二场，最浮夸的宠）/ Jim Crocker（第三场，三十年代伦敦）。等她挑他、挑你的处境、勾名场面。提案数据在 .claude/pitches/pretty-woman.json"
     }
   ],
   "gone": {
