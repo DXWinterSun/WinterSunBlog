@@ -10,6 +10,34 @@
   ],
   "albums": [
     {
+      "id": "lp-45",
+      "album": "LP 45",
+      "artist": "Lady Pank",
+      "year": 2025,
+      "cover": "lady-pank-lp45.jpg",
+      "color": "#2b5f9e",
+      "label": "#f2c84b",
+      "songs": [
+        {
+          "id": "motyle",
+          "title": "Motyle",
+          "items": [
+            {
+              "kind": "lines",
+              "note": "YouTube Music 歌词卡 · 2026-10-26 · 她说：「这首好有节奏感！尤其这几句」。词 Andrzej Mogielnicki、曲 Jan Borysewicz；2025 年 1 月先出的单曲（黄底蝴蝶那张封面），11 月收进乐队四十五周年的这张专辑。",
+              "date": "2026-10-26",
+              "lines": [
+                ["Żegnajcie motyle", "再见了，蝴蝶们"],
+                ["Ulotne piękne chwile", "那些转瞬即逝的美好时刻"],
+                ["Przeżyłem ich tyle z wami", "我和你们一起经历了那么多"],
+                ["Odlatujcie w swoją kwietną dal", "飞走吧，飞向你们开满花的远方"]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "co-powiemy-naszym-dzieciom",
       "album": "Co powiemy naszym dzieciom",
       "artist": "Seweryn Krajewski",
