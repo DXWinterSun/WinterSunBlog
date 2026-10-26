@@ -324,12 +324,26 @@ def clock_lines(key, at=None):
     diff = int(round((here.utcoffset() - there.utcoffset()).total_seconds() / 3600))
     a, b = p.get("sleep") or [1, 9]
     asleep = (a <= there.hour < b) if a < b else (there.hour >= a or there.hour < b)
+    lying = asleep and just_lay_down(p, there)
+    asleep = asleep and not lying
     which = "同一天" if there.date() == here.date() else ("前一天" if there.date() < here.date() else "后一天")
     lines.append("- 他那边：%s %d/%d 周%s %s（%s，比你晚 %d 小时）——%s" % (
         p.get("city", ""), there.month, there.day, WEEK[there.weekday()], there.strftime("%H:%M"), which, diff,
         ("💤 他在睡（%d 点睡、%d 点醒）：她这时发的先不回，只回一行「（%s%s，他睡着了）」，等他醒了一口气回" % (
-            a, b, p.get("city", ""), _hour_words(there))) if asleep else "他醒着"))
+            a, b, p.get("city", ""), _hour_words(there))) if asleep
+        else ("🛏 他刚躺下、还没睡着（%d 点睡）：%s" % (a, LYING)) if lying else "他醒着"))
     return lines, asleep
+
+
+# 他一到点就算睡着，她晚两分钟回的那句就没人接了。躺下后头二十分钟还拿着手机。
+GRACE_MIN = 20
+LYING = "回一两句短的就睡，别聊开；过了这二十分钟她再发，就是睡着了"
+
+
+def just_lay_down(p, there):
+    """他是不是刚到睡觉的点（躺下后头二十分钟）。"""
+    a = (p.get("sleep") or [1, 9])[0]
+    return there.hour == a and there.minute < GRACE_MIN
 
 
 def _hour_words(t):

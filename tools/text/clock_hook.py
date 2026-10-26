@@ -56,6 +56,8 @@ def main():
     if asleep:
         line += ("——💤 他在睡：这句先不回，只出一行「（%s%s，他睡着了）」（刚断过线就照「断线了」那条破例）"
                  % (p.get("city", ""), texts._hour_words(there)))
+    elif texts.just_lay_down(p, there):
+        line += "——🛏 他刚躺下、还没睡着：" + texts.LYING
     else:
         line += "，他醒着"
     line += "。（%s 的钟已经对好，不用再跑 clock。）" % key

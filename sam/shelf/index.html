@@ -1788,19 +1788,19 @@
      issue = 杂志、场刊这种按期出的，多给一排「Spring / 年份」直接点。 */
   var TYPES = [
     { id: "disc",    emoji: "📀", label: "碟片",   fmts: ["蓝光", "4K UHD", "DVD"], fmtsMore: ["VCD", "LD", "录像带"],
-      sugs: ["铁盒", "限量", "全新"], sugsMore: ["首刷", "初回版", "收藏版", "导演剪辑版", "二手", "未拆封"] },
+      sugs: ["铁盒", "限量", "全新"], sugsMore: ["首刷", "初回版", "收藏版", "导演剪辑版", "未拆封"] },
     { id: "ost",     emoji: "🎵", label: "原声带", fmts: ["CD", "黑胶", "磁带"],
-      sugs: ["限量", "全新", "未拆封"], sugsMore: ["首版", "再版", "彩胶", "二手", "带海报"] },
+      sugs: ["限量", "全新", "未拆封"], sugsMore: ["首版", "再版", "彩胶", "带海报"] },
     { id: "card",    emoji: "🃏", label: "卡牌",
-      sugs: ["签名卡", "编号卡", "限量"], sugsMore: ["实物卡", "全新", "二手", "已评级"] },
+      sugs: ["签名卡", "编号卡", "限量"], sugsMore: ["实物卡", "全新", "已评级"] },
     { id: "goods",   emoji: "🧸", label: "周边",
-      sugs: ["限量", "全新", "未拆封"], sugsMore: ["带原盒", "绝版", "二手"] },
+      sugs: ["限量", "全新", "未拆封"], sugsMore: ["带原盒", "绝版"] },
     { id: "program", emoji: "📔", label: "场刊", issue: true,
-      sugs: ["首演场", "带票根", "全新"], sugsMore: ["签名页", "有折痕", "绝版", "二手"] },
+      sugs: ["首演场", "带票根", "全新"], sugsMore: ["签名页", "有折痕", "绝版"] },
     { id: "book",    emoji: "📖", label: "书刊", issue: true,
-      sugs: ["封面", "内页", "专访"], sugsMore: ["整本", "剪页", "全新", "未拆封", "有折痕", "带海报", "创刊号", "绝版", "二手"] },
+      sugs: ["封面", "内页", "专访"], sugsMore: ["整本", "剪页", "全新", "未拆封", "有折痕", "带海报", "创刊号", "绝版"] },
     { id: "other",   emoji: "🎁", label: "其他",
-      sugs: ["限量", "全新"], sugsMore: ["未拆封", "绝版", "二手"] }
+      sugs: ["限量", "全新"], sugsMore: ["未拆封", "绝版"] }
   ];
   var typeById = {};
   TYPES.forEach(function (t) { typeById[t.id] = t; });
@@ -3261,7 +3261,7 @@
   /* 常写的那几条，点一下就变成一枚标签，省得每次手打。
      每一类各有各的一套（写在 TYPES 里），这里是没写的那些类别的兜底。 */
   var SUGGESTS = ["限量", "全新"];
-  var SUGGESTS_MORE = ["未拆封", "绝版", "二手"];
+  var SUGGESTS_MORE = ["未拆封", "绝版"];
   /* 杂志 / 场刊的期号：季刊按季、月刊按月，右边跟一个年份滚轮，点完就是「Spring 2011」 */
   var SEASONS = ["Spring", "Summer", "Fall", "Winter"];
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",

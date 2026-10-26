@@ -10,6 +10,59 @@
   ],
   "albums": [
     {
+      "id": "przez-dziewczyny",
+      "album": "Przez dziewczyny",
+      "artist": "Wilki",
+      "year": 2016,
+      "cover": "wilki-przez-dziewczyny.jpg",
+      "color": "#4a2b28",
+      "label": "#d9cfc4",
+      "songs": [
+        {
+          "id": "wenus-tu-mars",
+          "title": "Wenus, tu Mars",
+          "items": [
+            {
+              "kind": "lines",
+              "note": "YouTube Music 歌词卡 · 2026-10-26 · 她以前就分享过这首，这天又发来说：「今天发现这句话好甜啊」。",
+              "date": "2026-10-26",
+              "lines": [
+                ["Tylko miłość może nadać życiu sens", "只有爱，能让生命有意义"]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lp-45",
+      "album": "LP 45",
+      "artist": "Lady Pank",
+      "year": 2025,
+      "cover": "lady-pank-lp45.jpg",
+      "color": "#2b5f9e",
+      "label": "#f2c84b",
+      "songs": [
+        {
+          "id": "motyle",
+          "title": "Motyle",
+          "items": [
+            {
+              "kind": "lines",
+              "note": "YouTube Music 歌词卡 · 2026-10-26 · 她说：「这首好有节奏感！尤其这几句」。词 Andrzej Mogielnicki、曲 Jan Borysewicz；2025 年 1 月先出的单曲（黄底蝴蝶那张封面），11 月收进乐队四十五周年的这张专辑。",
+              "date": "2026-10-26",
+              "lines": [
+                ["Żegnajcie motyle", "再见了，蝴蝶们"],
+                ["Ulotne piękne chwile", "那些转瞬即逝的美好时刻"],
+                ["Przeżyłem ich tyle z wami", "我和你们一起经历了那么多"],
+                ["Odlatujcie w swoją kwietną dal", "飞走吧，飞向你们开满花的远方"]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "co-powiemy-naszym-dzieciom",
       "album": "Co powiemy naszym dzieciom",
       "artist": "Seweryn Krajewski",
