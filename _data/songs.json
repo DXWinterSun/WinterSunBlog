@@ -10,6 +10,31 @@
   ],
   "albums": [
     {
+      "id": "przez-dziewczyny",
+      "album": "Przez dziewczyny",
+      "artist": "Wilki",
+      "year": 2016,
+      "cover": "wilki-przez-dziewczyny.jpg",
+      "color": "#4a2b28",
+      "label": "#d9cfc4",
+      "songs": [
+        {
+          "id": "wenus-tu-mars",
+          "title": "Wenus, tu Mars",
+          "items": [
+            {
+              "kind": "lines",
+              "note": "YouTube Music 歌词卡 · 2026-10-26 · 她以前就分享过这首，这天又发来说：「今天发现这句话好甜啊」。",
+              "date": "2026-10-26",
+              "lines": [
+                ["Tylko miłość może nadać życiu sens", "只有爱，能让生命有意义"]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "lp-45",
       "album": "LP 45",
       "artist": "Lady Pank",
