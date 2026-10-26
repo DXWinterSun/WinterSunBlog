@@ -97,7 +97,13 @@ SERIES = {
         "lock2_open_files": ["extra1", "extra-i-love-you"],
         # ⭐ 他视角的第一人称篇目：叙述者就是他，所以叙述里出现「我」是对的，
         #    不查「叙述第一人称」那一组；说话人提示语也按「我说／她说」认。
-        "first_person_him_files": ["his-pov", "他视角"],
+        "first_person_him_files": [
+            "his-pov", "他视角",
+            # 上线后的 _posts 文件名里没有 his-pov，所以这几篇要点名（都是第一人称「我」＝Francis）
+            "i-shouldnt-have-gone-in", "i-said-it-for-her",
+            "i-went-to-see-if-it-was-still-there", "i-didnt-wipe-it-off",
+            "i-practiced-on-the-ground", "four-hundred-seventy-three-houses",
+        ],
         # ⚠️ 已人工核过、确实不是 Flute 的「他」（分场里没提名字，脚本解析不出来）
         #    ——每加一条都要写清真正的说话人，别拿它当消错工具
         # 格式：(章文件名里的编号, 引文开头) —— ⚠️ 只在那一章放行，避免跨章误放
