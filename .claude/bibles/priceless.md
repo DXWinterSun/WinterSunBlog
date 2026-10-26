@@ -120,6 +120,11 @@
   - Ch2 只有你没有外号 → 后面揭开。
   - Ch2 他那条羊绒毯子盖在你身上；便笺“毯子不算耶利哥之墙，它只是一条毯子”。
   - Ch2 新高跟鞋（鞋跟细得像铅笔），饭桌上踩他用。
+  - Ch3 他只哼和声那一半，“像一句话说到一半，在等另一个人接下去”，你差一点接了 → 哪一晚你接上主旋律。
+  - Ch3《今夜的你》（The Way You Look Tonight，1936，《摇摆乐时代》里 Astaire 唱时 Ginger Rogers 满头洗发水泡沫）
+    ＝你妈妈洗碗时唱的歌 → 你们的歌。
+  - Ch3 你替他挡 Carlisle 的 Stark 笑话，以为是分内事 → 第七章 Tony 到场。
+  - Ch3 小账本划掉“他唱歌好听”，划了两道还看得见。
 
 ## 章节流水
 
@@ -137,9 +142,17 @@
   还会背台词；耶利哥之墙；三十九块六；你睡着，盖着他的毯子，便笺，小账本第二天。
   Winter 选的岔路：名店 B（他陪你去别家）· 外号 A（只有你没有）· 晚上先饭局再看电影（她：“先 A 后 C 最自然，
   氛围升级一步步来”；私人时间不在费用里，同意是因为他加钱、看的是你真喜欢的、不落俗套、莫名像你们开场的爱情片）。
+- **Ch3 · 他唱歌好听**（草稿，待过目）：星期二。他留便笺让你用主卧对着整座城的浴缸；你戴着裂屏 iPod 唱《今夜的你》
+  （你妈妈洗碗时唱的歌），他回来拿文件，靠门框接和声，“我没进来，按法律算这还是走廊”，只看你的脸，给你打分
+  （音准八、气息九、降半调扣一）；四年里你第一次慌。下午慈善马球赛，白太阳裙、钴蓝缎带草帽，他米白亚麻西装巴拿马帽；
+  撩三顶帽子你打分；中场踩草皮他踩成踢踏舞，你鞋跟陷进草皮，他把另一只也掰了，“两边一样高，今年最成功的一次改装”；Ted Carlisle（做飞机零件，爱退酒）拿 Stark 涮他，
+  你先笑，拐到他那匹在场中“想人生”的马，他接“思考是好事，你也可以试试”；回程他话多一倍、不提 Carlisle，开一千奖金，
+  “你记住了。”“我记性好，做这一行的，记性都好。”；夜里隔墙他洗澡哼和声那一半，你差点接上；账本划掉“他唱歌好听”。
+  Winter 选的岔路：浴缸的歌 B（老派情歌）· 马球场 C（有人拿 Stark 涮他）· 划掉那行 A（他唱歌好听）。
 
 ## 预览页
 
 - Ch1：https://claude.ai/artifact/Q6TDLufKDFiwZDTjRTCibS（页底是第二章岔路 `priceless-revised/ch2-forks.json`）
 - Ch2：https://claude.ai/artifact/VaNHHeEACp98Wfnzs1YppJ（页底是第三章岔路 `priceless-revised/ch3-forks.json`）
+- Ch3：https://claude.ai/artifact/MRgYa964WtbmqutYmUVVXb（页底是第四章岔路 `priceless-revised/ch4-forks.json`）
 - 路线图：https://claude.ai/artifact/27SyrBgtiQb8kx9bWWzSFF（`.claude/roadmaps/priceless.json`）
