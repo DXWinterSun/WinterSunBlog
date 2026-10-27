@@ -3,8 +3,8 @@
   "polski": {
    "list": "PLbMtFPQvK26Y",
    "title": "Polski",
-   "count": 38,
-   "duration": 8434,
+   "count": 39,
+   "duration": 8639,
    "synced": "2026-10-27",
    "tracks": [
     {
@@ -309,6 +309,14 @@
      "artist": "Wilki",
      "dur": 209,
      "thumb": "https://i.ytimg.com/vi/xxjzxcuECo8/mqdefault.jpg",
+     "added": "2026-10-27"
+    },
+    {
+     "id": "vOK6slholn4",
+     "title": "Weź Nie Pierdol",
+     "artist": "Video",
+     "dur": 205,
+     "thumb": "https://i.ytimg.com/vi/vOK6slholn4/mqdefault.jpg",
      "added": "2026-10-27"
     }
    ]

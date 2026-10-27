@@ -10,6 +10,32 @@
   ],
   "albums": [
     {
+      "id": "video-gra",
+      "album": "Video gra",
+      "artist": "Video",
+      "year": 2008,
+      "cover": "video-gra.jpg",
+      "color": "#1a4b8c",
+      "label": "#e8dfc0",
+      "songs": [
+        {
+          "id": "wez-nie-pierdol",
+          "title": "Weź nie pierdol",
+          "items": [
+            {
+              "kind": "lines",
+              "note": "YouTube Music 歌词卡 · 2026-10-27 · 她说：「这个歌词好拽🤣加入歌单了」。pierdolić 是波兰语里很粗的那个词，这句相当于「少他妈扯淡」；YouTube 译成 Don't give a damn 是客气了。",
+              "date": "2026-10-27",
+              "lines": [
+                ["Weź nie pierdol", "少扯淡"],
+                ["Weź nie pierdol, babe", "少扯淡，宝贝"]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "przez-dziewczyny",
       "album": "Przez dziewczyny",
       "artist": "Wilki",
