@@ -580,6 +580,17 @@
   card: "0% 50%"
   banner: "50% 0%"
   banner_m: "0% 50%"
+"video-gra.jpg":
+  x: 46.8
+  y: 33.5
+  w: 500
+  h: 500
+  score: 0.79
+  fs: 3.9
+  sq: "50% 50%"
+  card: "50% 6%"
+  banner: "50% 15%"
+  banner_m: "50% 0%"
 "wild-bill.jpg.jpeg":
   x: 49.4
   y: 33.2
