@@ -131,6 +131,13 @@
   - Ch4 他十九岁他爸带他看《茶花女》、第二幕打呼；后来每次一个人坐包厢 → 他的伤，第七章。
   - Ch4 门没锁，他在门外站了很久没敲 → 第六章。
   - Ch4 小账本“备注：第三条——”写不下去。
+  - ~~Ch1 他这辈子没养过狗，“这是你后来才知道的”~~ 已收（Ch5：Patton 坐他鞋上，“救我”）。
+  - Ch5 Graham Ashworth（Ashworth 太太的儿子，三十上下，哈佛，好看，从不讲笑话）出四万请你下礼拜去纽约；
+    名片在你包里；你说“我考虑考虑”（你这一行里＝不），他只听见这半句 → 第六章他“留你”。
+  - Ch5 他差一点说“跟我的——”。他说“纽约冷，记得带件外套，你那件开衫袖口都起球了”“我要是你我就去”。
+  - Ch5 将军夫人：“四年里他一直在演。这个礼拜他偶尔会忘了演。”
+  - Ch5 合同“八九不离十，就看星期六” → 第七章。
+  - Ch5 你心里那句没说出口的“留住我啊，Hammer 先生”（Winter 原话）→ 第六章他接。
 
 ## 章节流水
 
@@ -163,6 +170,14 @@
   我今晚就没哭，我很坚强”；走廊里你让他解项链（扣两次解三次），抢在他玩笑之前说“第三条，我们可以再谈谈”，你先吻他，
   他一手攥项链一手落你腰后；“晚安，Hammer 先生”；门没锁，他在门外站很久没敲；账本“备注：第三条——”。
   岔路：Winter 回了一句“继续”，没挑，按推荐写：旧金山《茶花女》· 项链借的 · 只是吻（床留到吃醋那晚，合她“一步步升级”）。
+- **Ch5 · 我考虑考虑**（草稿，待过目）：星期四。你早起抢先说“昨晚算加班”，他半秒后笑“那我得补钱”“建议按次”，
+  早餐桌上开一千支票，你收了；他讲一整顿早饭没再看你。帕萨迪纳将军家紫藤白房子，两条腊肠狗扑他，Patton 坐他鞋上，
+  “救我”，抱狗像抱没拆引信的炸弹，你今天第一次笑。紫藤架下午饭、薄荷柠檬水；将军带他进书房抽雪茄；Margaret：
+  “他偶尔会忘了演”。Graham Ashworth 看穿你“他的女朋友不会在他讲笑话之前先笑”，出四万，你算完没有不去的理由，
+  说“我考虑考虑”；他两手各端一杯柠檬水站在三步外。他嗓门大，“跟我的——跟 Price 小姐”，“纽约冷，记得带件外套”，
+  “我要是你我就去”，笑得太一模一样。车上话更多、不提 Graham；晚上没哼歌，没来门外；你门没锁；账本第五天；
+  “留住我啊，Hammer 先生”咽回去。
+  Winter 选的岔路：早上 C（你说是加班）· 新雇主 B（比他年轻）· 他听见 B（只听见半句）。补充：“留住我吧，Hammer 先生！”
 
 ## 预览页
 
@@ -170,4 +185,5 @@
 - Ch2：https://claude.ai/artifact/VaNHHeEACp98Wfnzs1YppJ（页底是第三章岔路 `priceless-revised/ch3-forks.json`）
 - Ch3：https://claude.ai/artifact/MRgYa964WtbmqutYmUVVXb（页底是第四章岔路 `priceless-revised/ch4-forks.json`）
 - Ch4：https://claude.ai/artifact/PdKaAaBhoivm2VuBmP4t8E（页底是第五章岔路 `priceless-revised/ch5-forks.json`）
+- Ch5：https://claude.ai/artifact/SqQn5WWcWCtnBuUGK5bChJ（页底是第六章岔路 `priceless-revised/ch6-forks.json`）
 - 路线图：https://claude.ai/artifact/27SyrBgtiQb8kx9bWWzSFF（`.claude/roadmaps/priceless.json`）
