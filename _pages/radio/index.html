@@ -12,6 +12,7 @@ description: "冬的电台：我在 YouTube Music 上攒的波兰语歌单，听
   · 刻度盘就是按乐队筛：JS 按每首歌的 data-band 数出来，≥2 首的乐队各占一格，其余并进「其他」；指针滑到选中的那格。
   · 唱片墙上有的歌打一枚「墙」字标，点过去看摘录 / 翻译（按歌名对 _data/songs.json）。
   · 歌没有视频 id（临时曲目）时，点了去 YouTube Music 搜；有 id 就直接播。
+  · 每行右边一颗小相机 = 存一张这首歌的卡片（js/radio-card.js，收音机样子的图，浮层复用票根那套 .c-tk-saved）。
 {%- endcomment -%}
 {%- assign cfg = site.data.radio -%}
 {%- assign st_cfg = cfg.stations[0] -%}
@@ -90,6 +91,7 @@ description: "冬的电台：我在 YouTube Music 上攒的波兰语歌单，听
         {%- if t.dur > 0 %}<span class="c-radio__dur">{{ m }}:{% if s < 10 %}0{% endif %}{{ s }}</span>{% endif %}
       </a>
       {%- if wall_id %}<a class="c-radio__wall" href="{{ site.baseurl }}/songs/#s-{{ wall_id }}" title="唱片墙上有这首：摘录和翻译">墙</a>{% endif %}
+      <button type="button" class="c-radio__save" title="存一张这首歌的卡片" aria-label="存一张这首歌的卡片">📷</button>
     </li>
     {%- endfor %}
   </ol>
@@ -98,7 +100,7 @@ description: "冬的电台：我在 YouTube Music 上攒的波兰语歌单，听
     {%- if st.provisional -%}
     这份曲目是先照截图抄的，歌名点了去 YouTube Music 搜；等歌单链接接上，封面和直接播放就都有了。
     {%- else -%}
-    每周一自动去歌单看一眼，新歌自己排进来；歌名下面那行小字是英文意思，想顺便学一学的时候看。
+    每周一自动去歌单看一眼，新歌自己排进来；歌名下面那行小字是英文意思，想顺便学一学的时候看。每一行右边的小相机能存一张这首歌的卡片。
     {%- endif -%}
   </p>
 </section>
@@ -148,3 +150,4 @@ description: "冬的电台：我在 YouTube Music 上攒的波兰语歌单，听
   window.addEventListener('resize', function () { var cur = dial.querySelector('[aria-selected="true"]'); if (cur) needle.style.left = (cur.offsetLeft + cur.offsetWidth / 2) + 'px'; });
 })();
 </script>
+<script src="{{ site.baseurl }}/js/radio-card.js?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>

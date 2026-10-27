@@ -68,7 +68,8 @@ def split_entry(e, fix):
         'title': f.get('title', title),
         'artist': f.get('artist', artist),
         'dur': int(e.get('duration') or 0),
-        'thumb': 'https://i.ytimg.com/vi/%s/hqdefault.jpg' % vid if vid else '',
+        # mqdefault 是 16:9 的（320×180），方形专辑图正好居中、两边灰边；hqdefault 是 4:3 还多两道黑边，别用
+        'thumb': 'https://i.ytimg.com/vi/%s/mqdefault.jpg' % vid if vid else '',
     }
 
 
