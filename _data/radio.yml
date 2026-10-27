@@ -13,7 +13,7 @@ stations:
     name: Polski FM
     cn: 波兰台
     tagline: 听不懂也好听
-    url: ""   # ← 她的 Polski 歌单分享链接（还没发来；填上再跑一次 sync_radio.py）
+    url: "https://music.youtube.com/playlist?list=PLbMtFPQvK26Y"   # 她 2026-10-27 发来的分享链接
 
 fix: {}
 
