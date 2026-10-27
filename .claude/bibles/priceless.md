@@ -144,6 +144,14 @@
   - Ch6 Graham 名片还在包里，没扔也没打电话 → 第八章。
   - Ch6 他睡前又哼和声，你没接、握紧他的手 → 第七章你接上主旋律（候选）。
   - Ch6 小账本“今晚：不收钱”，没划掉。
+  - ~~Ch1 Stark 半秒 / Ch3 替他挡 / Ch4 他的伤~~ 已收（Ch7：Tony 当众开玩笑，你没先笑；合同给了东海岸老公司；
+    “我这辈子拿的全是二等奖”“我记得”）。
+  - ~~Ch1“名字不在价钱里” / Ch3 和声那一半~~ 已收（Ch7：空宴会厅，七号桌那把椅子上，你第一次私下叫 Justin；
+    他哼和声，你接上主旋律）。
+  - Ch7 Winter 原话落地：“我看见的 Justin Hammer，是这间屋子里最有魅力的那个。你不用比过任何人。真要比，对别人太不公平了。”
+    （跟 Good Enough 的“你本来就够好”区分开：这边是俏皮的偏爱，不是安慰。）
+  - Ch7 小账本“备注：Justin。”“这个怎么算？”“不算，它不在价钱里。”
+  - Ch7 欠 Rosie 二十块；Rosie 外号“稳手小姐”。
 
 ## 章节流水
 
@@ -192,6 +200,15 @@
   你答不上，“那我不付钱了。Winter。”他一整夜只剩这个名字，你说“我在，我在这儿”；事后他哼和声你没接、握紧他手；
   账本第六天“今晚：不收钱”没划掉。
   Winter 选的岔路：怎么留 A（把整条街搬进套房）· 那扇门 A（他敲门）· 那一句 C（叫你的名字）。
+- **Ch7 · 你没笑**（草稿，待过目）：星期六。他怀里醒，讲 Patton 当空军上将的梦，手一直没离开你的背；你替他系领结（四年，
+  三十秒；“我系了二十年，每次都歪”），他一次扣上项链。同一间宴会厅、一百二十把椅子；Rosie“你欠我二十块”，他叫她稳手小姐；
+  Graham 点头不过来。Tony 九点到，整间屋子往门口歪；一九五七年樱桃红老敞篷车，Tony 说“两倍”，拿话筒“我车库里有十一辆，
+  我只是想看看 Justin 的脸”；你没笑，笑声一处处熄，Tony 先安静“看来今晚有人不吃我这一套，新鲜”，红头发的女士忍笑；
+  “你没笑。”“不好笑。”他笑了一下只给你。合同给了东海岸老公司（创始人可能跟林肯握过手），他借 Tony 句式“我就是想看看
+  将军的脸”，一整晚每次笑都晚半秒。午夜空宴会厅，他站拍卖讲台，你坐七号桌那把椅子：“Justin。”“你叫错了，这儿没人。”
+  “我知道。”“二等奖”“我记得”；你的话（最有魅力的那个，对别人太不公平了）；“对 Tony 太不公平了，我得给他寄道歉信”；
+  没有音乐，他哼和声，你接主旋律；Rosie 抱盘子站门口；“再叫一遍，我还不太习惯。”账本“备注：Justin。”
+  Winter 选的岔路：Tony A（你没先笑）· 合同 B（没拿到）· Justin B（空宴会厅）。补充：她看见的 Justin Hammer 就是最有魅力的那个。
 
 ## 预览页
 
@@ -201,4 +218,5 @@
 - Ch4：https://claude.ai/artifact/PdKaAaBhoivm2VuBmP4t8E（页底是第五章岔路 `priceless-revised/ch5-forks.json`）
 - Ch5：https://claude.ai/artifact/SqQn5WWcWCtnBuUGK5bChJ（页底是第六章岔路 `priceless-revised/ch6-forks.json`）
 - Ch6：https://claude.ai/artifact/WDy2pcZQHSfp2SbTty89sz（页底是第七章岔路 `priceless-revised/ch7-forks.json`）
+- Ch7：https://claude.ai/artifact/XX7ZvEEyCa92e6dV5ugbL9（页底是最后一章岔路 `priceless-revised/ch8-forks.json`）
 - 路线图：https://claude.ai/artifact/27SyrBgtiQb8kx9bWWzSFF（`.claude/roadmaps/priceless.json`）
