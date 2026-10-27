@@ -1,0 +1,150 @@
+---
+layout: home
+title: 冬的电台 · Polski FM
+permalink: /radio/
+nav_active: notes
+description: "冬的电台：我在 YouTube Music 上攒的波兰语歌单，听不懂也好听。每周自动对一次，新歌自己排进来。"
+---
+{%- comment -%}
+  📻 冬的电台 · Polski FM（2026-10-27，Winter 在提案页上挑的「一台波兰收音机」）
+  · 曲目在 _data/radio_tracks.json（tools/songs/sync_radio.py 从她公开的 YouTube Music 歌单抓，机器人每周一对一次）；
+    台的设定、歌名英文小注、手工修正在 _data/radio.yml。
+  · 刻度盘就是按乐队筛：JS 按每首歌的 data-band 数出来，≥2 首的乐队各占一格，其余并进「其他」；指针滑到选中的那格。
+  · 唱片墙上有的歌打一枚「墙」字标，点过去看摘录 / 翻译（按歌名对 _data/songs.json）。
+  · 歌没有视频 id（临时曲目）时，点了去 YouTube Music 搜；有 id 就直接播。
+{%- endcomment -%}
+{%- assign cfg = site.data.radio -%}
+{%- assign st_cfg = cfg.stations[0] -%}
+{%- assign st = site.data.radio_tracks.stations[st_cfg.id] -%}
+{%- assign tracks = st.tracks -%}
+{%- assign total_min = st.duration | divided_by: 60 -%}
+{%- assign hh = total_min | divided_by: 60 -%}
+{%- assign mm = total_min | modulo: 60 -%}
+{%- comment -%} 唱片墙上有哪些歌：拼成 |title|title| 一串，顺手记 id {%- endcomment -%}
+{%- assign wall_keys = "|" -%}
+{%- for a in site.data.songs.albums -%}{%- for s in a.songs -%}{%- assign k = s.title | downcase | split: " (" | first | strip -%}{%- assign wall_keys = wall_keys | append: k | append: "|" -%}{%- endfor -%}{%- endfor -%}
+{%- assign newest = tracks | last -%}
+
+<section class="c-hero c-hero--filter">
+  <div class="c-hero__eyebrow">Desk · {{ st_cfg.name }}</div>
+  <h1 class="c-hero__title">冬的<em>电台</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">{{ st_cfg.tagline }} · 我在 YouTube Music 上攒的波兰语歌，每周自动对一次</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-radio" id="js-radio" data-list="{{ st.list }}">
+  <a class="c-radio__back" href="{{ site.baseurl }}/notes/">‹ 回书桌</a>
+
+  <div class="c-radio__set">
+    <div class="c-radio__dialwrap">
+      <div class="c-radio__dial" id="js-radio-dial" role="tablist" aria-label="按乐队拨台">
+        <i class="c-radio__needle" id="js-radio-needle" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="c-radio__brand">
+      <span class="c-radio__name">{{ st_cfg.name | upcase }}</span>
+      <small>冬璇的{{ st_cfg.cn }} · {{ st.count }} 首 · {% if hh > 0 %}{{ hh }} 小时 {% endif %}{{ mm }} 分 · {{ st.synced }} 对过一次</small>
+    </div>
+    {%- if newest %}
+    <div class="c-radio__now"><i aria-hidden="true"></i><span>最近放进来的 · {{ newest.title }}{% if newest.artist != "" %} — {{ newest.artist }}{% endif %}</span></div>
+    {%- endif %}
+    {%- if st.list != "" %}
+    <a class="c-radio__open" href="https://music.youtube.com/playlist?list={{ st.list }}" target="_blank" rel="noopener">在 YouTube Music 打开整个台 ›</a>
+    {%- endif %}
+  </div>
+
+  <ol class="c-radio__list" id="js-radio-list">
+    {%- for t in tracks -%}
+      {%- assign key = t.title | downcase | split: " (" | first | strip -%}
+      {%- assign band_name = t.artist | split: " & " | first | split: ", " | first | strip -%}
+      {%- if band_name == "" -%}{%- assign band_name = "其他" -%}{%- endif -%}
+      {%- assign band = band_name | slugify -%}
+      {%- assign gloss = cfg.gloss[key] -%}
+      {%- assign wall_hit = "|" | append: key | append: "|" -%}
+      {%- assign wall_id = nil -%}
+      {%- if wall_keys contains wall_hit -%}
+        {%- for a in site.data.songs.albums -%}{%- for s in a.songs -%}{%- assign k2 = s.title | downcase | split: " (" | first | strip -%}{%- if k2 == key -%}{%- assign wall_id = s.id -%}{%- endif -%}{%- endfor -%}{%- endfor -%}
+      {%- endif -%}
+      {%- if t.id != "" -%}
+        {%- capture href -%}https://music.youtube.com/watch?v={{ t.id }}{% if st.list != "" %}&list={{ st.list }}{% endif %}{%- endcapture -%}
+      {%- else -%}
+        {%- capture href -%}https://music.youtube.com/search?q={{ t.title | append: " " | append: t.artist | url_encode }}{%- endcapture -%}
+      {%- endif -%}
+      {%- assign m = t.dur | divided_by: 60 -%}{%- assign s = t.dur | modulo: 60 -%}
+    <li class="c-radio__row" data-band="{{ band }}" data-band-name="{{ band_name | escape }}">
+      <a class="c-radio__track" href="{{ href }}" target="_blank" rel="noopener">
+        <span class="c-radio__n">{{ forloop.index }}</span>
+        {%- if t.thumb != "" %}
+        <img class="c-radio__th" src="{{ t.thumb }}" alt="" loading="lazy" width="44" height="44">
+        {%- else %}
+        <i class="c-radio__th c-radio__th--blank" data-seed="{{ band }}">{{ band_name | slice: 0, 2 | upcase }}</i>
+        {%- endif %}
+        <span class="c-radio__t">
+          <b lang="pl">{{ t.title }}</b>
+          {%- if gloss %}<small class="c-radio__gloss" lang="en">{{ gloss }}</small>{% endif %}
+          <small class="c-radio__who">{% if t.artist != "" %}{{ t.artist }}{% else %}—{% endif %}</small>
+        </span>
+        {%- if t.dur > 0 %}<span class="c-radio__dur">{{ m }}:{% if s < 10 %}0{% endif %}{{ s }}</span>{% endif %}
+      </a>
+      {%- if wall_id %}<a class="c-radio__wall" href="{{ site.baseurl }}/songs/#s-{{ wall_id }}" title="唱片墙上有这首：摘录和翻译">墙</a>{% endif %}
+    </li>
+    {%- endfor %}
+  </ol>
+  <p class="c-radio__empty" id="js-radio-empty" hidden>这一台现在没有歌。</p>
+  <p class="c-radio__foot">
+    {%- if st.provisional -%}
+    这份曲目是先照截图抄的，歌名点了去 YouTube Music 搜；等歌单链接接上，封面和直接播放就都有了。
+    {%- else -%}
+    每周一自动去歌单看一眼，新歌自己排进来；歌名下面那行小字是英文意思，想顺便学一学的时候看。
+    {%- endif -%}
+  </p>
+</section>
+
+<script>
+(function () {
+  var root = document.getElementById('js-radio'); if (!root) return;
+  var dial = document.getElementById('js-radio-dial'), needle = document.getElementById('js-radio-needle');
+  var rows = [].slice.call(root.querySelectorAll('.c-radio__row'));
+  var counts = {}, names = {};
+  rows.forEach(function (r) { var b = r.getAttribute('data-band'); counts[b] = (counts[b] || 0) + 1; names[b] = r.getAttribute('data-band-name'); });
+  var bands = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || names[a].localeCompare(names[b]); });
+  var main = bands.filter(function (b) { return counts[b] >= 2; }), rest = bands.filter(function (b) { return counts[b] < 2; });
+  var restN = rest.reduce(function (n, b) { return n + counts[b]; }, 0);
+  var ticks = [['all', '全部', rows.length]].concat(main.map(function (b) { return [b, names[b], counts[b]]; }));
+  if (rest.length) ticks.push(['other', '其他', restN]);
+  var btns = {};
+  ticks.forEach(function (t) {
+    var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('data-band', t[0]);
+    b.innerHTML = '<span>' + t[1] + '</span><small>' + t[2] + '</small>';
+    b.addEventListener('click', function () { pick(t[0], true); });
+    dial.appendChild(b); btns[t[0]] = b;
+  });
+  function pick(b, scroll) {
+    if (!btns[b]) b = 'all';
+    var shown = 0;
+    rows.forEach(function (r) {
+      var rb = r.getAttribute('data-band');
+      var ok = b === 'all' || (b === 'other' ? rest.indexOf(rb) >= 0 : rb === b);
+      r.hidden = !ok; if (ok) shown++;
+    });
+    document.getElementById('js-radio-empty').hidden = shown > 0;
+    Object.keys(btns).forEach(function (k) { btns[k].setAttribute('aria-selected', k === b ? 'true' : 'false'); });
+    var el = btns[b];
+    needle.style.left = (el.offsetLeft + el.offsetWidth / 2) + 'px';
+    if (scroll && el.scrollIntoView) { try { el.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); } catch (e) { } }
+    try { history.replaceState(null, '', b === 'all' ? location.pathname : '#' + b); } catch (e) { }
+  }
+  // 没封面图的歌：按乐队名算一个固定的颜色
+  root.querySelectorAll('.c-radio__th--blank').forEach(function (el) {
+    var s = el.getAttribute('data-seed') || '', h = 0;
+    for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 360;
+    el.style.setProperty('--h', h);
+  });
+  var start = (location.hash || '').replace('#', '');
+  pick(start && btns[start] ? start : 'all', false);
+  window.addEventListener('resize', function () { var cur = dial.querySelector('[aria-selected="true"]'); if (cur) needle.style.left = (cur.offsetLeft + cur.offsetWidth / 2) + 'px'; });
+})();
+</script>

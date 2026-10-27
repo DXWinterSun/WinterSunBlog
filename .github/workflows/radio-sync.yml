@@ -1,0 +1,58 @@
+# 📻 冬的电台 · 每周对一次歌单
+#
+# Winter 2026-10-27 选的「每周自动去你的歌单看一眼，有新歌就排进来」。
+# 每周一北京时间上午 11 点（UTC 03:00）跑一次 tools/songs/sync_radio.py：
+# 只取她公开歌单的目录（不下载音频），有变化就由机器人把 _data/radio_tracks.json 提交回 main。
+# 她说「现在就更新」时，也可以在 Actions 页手动点 Run workflow，或者在对话里直接跑脚本推上去。
+# 改了 _data/radio.yml（加了台、填了链接）也会立刻跑一次。
+# 跟 face-focus 一样：只动那一个 json，不会触发自己。YouTube 偶尔会拦住云端机器，那一次失败就等下周，或在对话里跑。
+name: Radio sync
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"
+  push:
+    branches: ["main"]
+    paths:
+      - "_data/radio.yml"
+      - "tools/songs/sync_radio.py"
+      - ".github/workflows/radio-sync.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "radio-sync"
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install yt-dlp
+        run: pip install --quiet yt-dlp pyyaml
+
+      - name: Read the playlists
+        run: python3 tools/songs/sync_radio.py
+
+      - name: Commit the tracks (only if they changed)
+        run: |
+          git add _data/radio_tracks.json
+          if git diff --cached --quiet; then
+            echo "曲目没变化，不用提交。"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "冬的电台 · 歌单自动同步"
+          git pull --rebase origin main
+          git push origin HEAD:main

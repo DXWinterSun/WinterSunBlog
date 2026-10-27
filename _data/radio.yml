@@ -1,0 +1,58 @@
+# 📻 冬的电台 · Polski FM（2026-10-27）
+#
+# Winter 在 YouTube Music 上攒的公开歌单，搬到博客上当「电台」。这份是手写的设定：
+#   · stations  每个台一条：id（网址里用）/ name（台名）/ cn（中文）/ url（歌单的分享链接，只要公开就行）
+#   · gloss     歌名的英文小注（她 2026-10-27 要的：「小字注释一下英文的歌名，我也顺便学习了」）。
+#               键 = 歌名小写、去掉括号里的版本说明；没写的歌页面上就只有原名，不会坏。新歌同步进来后记得补。
+#   · fix       某首歌抓下来的歌名 / 艺人不对，在这里按视频 id 改（{id: {title: …, artist: …}}）。
+# 曲目本身在 _data/radio_tracks.json，由 tools/songs/sync_radio.py 从歌单抓，别手改；
+# 机器人每周一自动对一次（.github/workflows/radio-sync.yml），她说一声也随时能跑。
+
+stations:
+  - id: polski
+    name: Polski FM
+    cn: 波兰台
+    tagline: 听不懂也好听
+    url: ""   # ← 她的 Polski 歌单分享链接（还没发来；填上再跑一次 sync_radio.py）
+
+fix: {}
+
+gloss:
+  "urke": "Urke (a nickname)"
+  "ławka": "The Bench"
+  "dobra konstelacja": "A Good Constellation"
+  "pokonaj siebie": "Overcome Yourself"
+  "bo to co najważniejsze": "Because What Matters Most"
+  "życie na czekanie": "A Life Spent Waiting"
+  "w blasku słońca": "In the Sunlight"
+  "może jeszcze się spotkamy": "Maybe We'll Meet Again"
+  "po prostu miłość": "Simply Love"
+  "za to co mam": "For What I Have"
+  "jak anioła głos": "Like an Angel's Voice"
+  "dla siebie sami": "Just for Ourselves"
+  "miasto budzi się": "The City Is Waking Up"
+  "konstelacje": "Constellations"
+  "wenus, tu mars": "Venus, This Is Mars"
+  "nieprawda": "Not True"
+  "tacy sami": "Just the Same"
+  "oh luczija": "Oh Lucija (a name)"
+  "swoje szczęście znam": "I Know My Own Happiness"
+  "zostań ze mną": "Stay with Me"
+  "no pokaż na co cię stać": "Come On, Show What You've Got"
+  "7 stan": "The Seventh State"
+  "niekochanie": "Unloving"
+  "znowu pada deszcz": "It's Raining Again"
+  "stacja warszawa": "Warsaw Station"
+  "ostatnia nocka": "The Last Night Shift"
+  "w ciemną noc": "Into the Dark Night"
+  "póki jesteś": "While You're Here"
+  "poki jestes": "While You're Here"
+  "tylko z tobą chcę być sobą": "Only with You Do I Want to Be Myself"
+  "dni, których nie znamy": "The Days We Don't Know"
+  "motyle": "Butterflies"
+  "zabijasz mnie": "You're Killing Me"
+  "księga przemian": "The Book of Changes"
+  "liczysz się tylko ty": "Only You Count"
+  "co powiemy naszym dzieciom": "What Will We Tell Our Children"
+  "zostańmy trochę dłużej": "Let's Stay a Little Longer"
+  "ty jak nikt": "You Like No One Else"

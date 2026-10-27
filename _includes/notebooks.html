@@ -9,6 +9,7 @@
   · 波兰语笔记本：/polish/，读 _data/polish/notes.yml
   · 冬的书架：书和文章的划线笔记合成一本，点进去（/reading/）再一本本铺开；封面上的数字从 _data/reading/*.yml 算
     （2026-10-14 Winter：「一本书或者一篇文章的就是一个单独本子，多了会很乱……做成一个本子，不同的笔记点进去再铺开」）
+  · 冬的电台：/radio/，她在 YouTube Music 上攒的波兰语歌单，曲目在 _data/radio_tracks.json（2026-10-27）
   · 波兰语变格表：/polski.html，小工具，一张索引卡（原来放在 Gallery 里）
   以后新开的笔记本，照样往这里加一张封面。
 {%- endcomment -%}
@@ -48,6 +49,10 @@
   <span class="c-wn-notebook__meta">{% if rd_books > 0 %}<b>{{ rd_books }}</b> 本书{% endif %}{% if rd_books > 0 and rd_arts > 0 %} · {% endif %}{% if rd_arts > 0 %}<b>{{ rd_arts }}</b> 篇文章{% endif %} · <b>{{ rd_n }}</b> 条</span>
 </a>
 {%- endif %}
+<a class="c-wn-notebook c-wn-notebook--radio" href="{{ site.baseurl }}/radio/">
+  <span class="c-wn-notebook__label"><small>Polski FM</small><b>冬的电台</b><span>攒下来的波兰语歌，听不懂也好听</span></span>
+  <span class="c-wn-notebook__meta">📻 <b>{{ site.data.radio_tracks.stations.polski.count }}</b> 首 · 每周自动对一次</span>
+</a>
 <a class="c-wn-notebook c-wn-notebook--tool" href="{{ site.baseurl }}/polski.html">
   <span class="c-wn-notebook__label"><small lang="pl">Odmiana</small><b>波兰语变格表</b><span>输入一个词，看全部变格，带朗读</span></span>
   <span class="c-wn-notebook__meta">小工具 · 查词用</span>

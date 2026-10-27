@@ -1,0 +1,318 @@
+{
+ "stations": {
+  "polski": {
+   "list": "",
+   "title": "Polski",
+   "count": 38,
+   "duration": 7331,
+   "synced": "2026-10-27",
+   "tracks": [
+    {
+     "id": "",
+     "title": "Urke",
+     "artist": "Wilki",
+     "dur": 204,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Ławka",
+     "artist": "Platinum Purge",
+     "dur": 203,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Dobra konstelacja",
+     "artist": "Lady Pank",
+     "dur": 265,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Pokonaj siebie",
+     "artist": "Feel & Iwona Węgrowska",
+     "dur": 0,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Bo to co najważniejsze",
+     "artist": "Łukasz Zagrobelny",
+     "dur": 253,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Życie na czekanie",
+     "artist": "Łukasz Zagrobelny",
+     "dur": 227,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "W blasku słońca",
+     "artist": "Feel & Damian Skoczyk",
+     "dur": 190,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Może jeszcze się spotkamy",
+     "artist": "Feel",
+     "dur": 208,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Po prostu miłość",
+     "artist": "RH+",
+     "dur": 181,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Za to co mam",
+     "artist": "Mateusz Mijal & Jacek Stachursky",
+     "dur": 0,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Jak anioła głos",
+     "artist": "Feel",
+     "dur": 207,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Dla siebie sami (Wersja 2012)",
+     "artist": "Yugopolis & Krzysztof Kiljański",
+     "dur": 0,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Miasto budzi się (2014 Remastered)",
+     "artist": "Yugopolis & Paweł Kukiz",
+     "dur": 260,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Konstelacje",
+     "artist": "Pin",
+     "dur": 200,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Wenus, tu Mars",
+     "artist": "Wilki",
+     "dur": 158,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Nieprawda",
+     "artist": "Łukasz Zagrobelny",
+     "dur": 197,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Tacy sami",
+     "artist": "Lady Pank",
+     "dur": 264,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Oh Luczija",
+     "artist": "Lady Pank",
+     "dur": 207,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Swoje szczęście znam",
+     "artist": "Feel",
+     "dur": 202,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Zostań ze mną",
+     "artist": "Feel",
+     "dur": 217,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "No pokaż na co cię stać",
+     "artist": "Feel",
+     "dur": 218,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "7 Stan",
+     "artist": "Feel",
+     "dur": 215,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Niekochanie",
+     "artist": "Pin",
+     "dur": 181,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Znowu pada deszcz",
+     "artist": "Lady Pank",
+     "dur": 243,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Stacja Warszawa",
+     "artist": "Lady Pank & Orkiestra Symfoników",
+     "dur": 0,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Ostatnia nocka (Wersja 2012)",
+     "artist": "Yugopolis & Maciej Maleńczuk",
+     "dur": 182,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "W ciemną noc",
+     "artist": "Feel",
+     "dur": 188,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Póki jesteś",
+     "artist": "Maciej Silski",
+     "dur": 210,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Love Story",
+     "artist": "",
+     "dur": 0,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Tylko z Tobą chcę być sobą",
+     "artist": "Łukasz Zagrobelny",
+     "dur": 239,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Dni, których nie znamy",
+     "artist": "Marek Grechuta",
+     "dur": 294,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Motyle",
+     "artist": "Lady Pank",
+     "dur": 203,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Zabijasz mnie",
+     "artist": "Mateusz Mijal",
+     "dur": 218,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Księga przemian",
+     "artist": "Wilki",
+     "dur": 266,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Liczysz się tylko ty",
+     "artist": "Wilki",
+     "dur": 229,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Co powiemy naszym dzieciom",
+     "artist": "Seweryn Krajewski",
+     "dur": 250,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Zostańmy trochę dłużej",
+     "artist": "Robert Barwiński",
+     "dur": 343,
+     "thumb": "",
+     "added": "2026-10-22"
+    },
+    {
+     "id": "",
+     "title": "Ty jak nikt",
+     "artist": "Wilki",
+     "dur": 209,
+     "thumb": "",
+     "added": "2026-10-22"
+    }
+   ],
+   "provisional": true
+  }
+ }
+}

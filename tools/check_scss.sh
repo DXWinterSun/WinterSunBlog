@@ -14,11 +14,13 @@ cd "$(dirname "$0")/.."
 export PATH="$PATH:$(ruby -e 'print Gem.bindir' 2>/dev/null)"
 export RUBYOPT="-EUTF-8"
 
-if ! command -v sass >/dev/null 2>&1; then
-  echo "· 没有 sass，正在装 ruby-sass 3.7.4（跟线上同版本）…"
-  gem install sass -v 3.7.4 --no-document >/dev/null 2>&1
-  export PATH="$PATH:$(ruby -e 'print Gem.bindir')"
+# 一定要用 ruby-sass 3.7.4 本尊：机器上常常另装着 dart-sass（sass-embedded），PATH 上的 `sass` 是它，
+# 新写法它都认、什么都查不出来，而且报错为空（2026-10-27 踩过）。所以不走 PATH，按版本号直接点名那个 gem。
+if ! gem list -i sass -v 3.7.4 >/dev/null 2>&1; then
+  echo "· 没有 ruby-sass 3.7.4，正在装（跟线上同版本）…"
+  gem install sass -v 3.7.4 --no-document --force >/dev/null 2>&1
 fi
+sass() { ruby -e "gem 'sass','3.7.4'; load Gem.bin_path('sass','sass','3.7.4')" -- "$@"; }
 
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
