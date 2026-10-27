@@ -1,7 +1,7 @@
 {
   "_readme": "冬的灵感本：网页 /memo/ 读的就是这一份（只读）。在对话里改请用 main 上的 tools/memo/memo.py，别手改。",
   "version": 1,
-  "updated": "2026-10-27T15:49:40+08:00",
+  "updated": "2026-10-27T22:52:18+08:00",
   "settings": {
     "style": "snow",
     "updated": "2026-10-03T12:59:01+08:00",
@@ -297,8 +297,8 @@
       "done": false,
       "order": -5,
       "created": "2026-10-26T23:53:32+08:00",
-      "updated": "2026-10-27T00:27:01+08:00",
-      "note": "2026-10-26 做了选角提案页：https://claude.ai/artifact/KLZE16yhBDyRTCAYXAfNvw 。候选三人：Craig（慢半拍，我推荐，他靠拆婚姻赚钱，对上原片拆公司的 Edward）/ Justin Hammer（第二场，最浮夸的宠）/ Jim Crocker（第三场，三十年代伦敦）。等她挑他、挑你的处境、勾名场面。提案数据在 .claude/pitches/pretty-woman.json\n\n她挑了 Justin Hammer（第二场，跟 Good Enough 分开写）· 你在打零工 · 名场面：名店打脸、盛装一夜、不接吻、浴缸唱歌、首饰盒。她的设定：你漂亮得体、很乐意挣这笔外快，是他的“体面解法”；你一直说只是生意，自己先沦陷；他没一句正经话；不管钢铁侠2翻车的事。后面的醋：新雇主找上门，他撒钱买买买＋床上宠爱。第二页（系列名/你的姓/开场）：https://claude.ai/artifact/Pv5YGaWtoiQTpADqs5dSwk ，数据在 .claude/pitches/pretty-woman-hammer.json\n\n定名：Priceless · Winter Price · 开场在宴会上端盘子。第一章草稿 https://claude.ai/artifact/Q6TDLufKDFiwZDTjRTCibS ，路线图 https://claude.ai/artifact/27SyrBgtiQb8kx9bWWzSFF ，圣经 .claude/bibles/priceless.md"
+      "updated": "2026-10-27T22:52:18+08:00",
+      "note": "2026-10-26 做了选角提案页：https://claude.ai/artifact/KLZE16yhBDyRTCAYXAfNvw 。候选三人：Craig（慢半拍，我推荐，他靠拆婚姻赚钱，对上原片拆公司的 Edward）/ Justin Hammer（第二场，最浮夸的宠）/ Jim Crocker（第三场，三十年代伦敦）。等她挑他、挑你的处境、勾名场面。提案数据在 .claude/pitches/pretty-woman.json\n\n她挑了 Justin Hammer（第二场，跟 Good Enough 分开写）· 你在打零工 · 名场面：名店打脸、盛装一夜、不接吻、浴缸唱歌、首饰盒。她的设定：你漂亮得体、很乐意挣这笔外快，是他的“体面解法”；你一直说只是生意，自己先沦陷；他没一句正经话；不管钢铁侠2翻车的事。后面的醋：新雇主找上门，他撒钱买买买＋床上宠爱。第二页（系列名/你的姓/开场）：https://claude.ai/artifact/Pv5YGaWtoiQTpADqs5dSwk ，数据在 .claude/pitches/pretty-woman-hammer.json\n\n定名：Priceless · Winter Price · 开场在宴会上端盘子。第一章草稿 https://claude.ai/artifact/Q6TDLufKDFiwZDTjRTCibS ，路线图 https://claude.ai/artifact/27SyrBgtiQb8kx9bWWzSFF ，圣经 .claude/bibles/priceless.md\n\n正篇八章写完（2026-10-27），系列名 Priceless，等她过目后一次上线。第八章 https://claude.ai/artifact/QjPWRtuNnBV5fCjMy5Mden （页底番外菜单），系列首页文案 https://claude.ai/artifact/GG6CmugWhmcsYbs1JsHjCK"
     },
     {
       "id": "d4iph8",
