@@ -152,6 +152,11 @@
     （跟 Good Enough 的“你本来就够好”区分开：这边是俏皮的偏爱，不是安慰。）
   - Ch7 小账本“备注：Justin。”“这个怎么算？”“不算，它不在价钱里。”
   - Ch7 欠 Rosie 二十块；Rosie 外号“稳手小姐”。
+  - ~~全部~~ 已收（Ch8）：项链中午还；长期合同（c-decree，第五条“可以再谈”）你不要；三十九块六→你只要九十块，
+    他没零钱“那就欠着”；外套鞋耳环都留下，只带走丝巾；坐公交（夜班大巴）；Graham“冰都化了”；三个礼拜后同一间
+    宴会厅七号桌又一把空椅子，“九十块，你还欠我的”，四张二十一张十块；底牌：一年半前门缝里看你一个人跳舞，
+    凡你们公司接的晚宴他都来；“我不给我当真的东西起外号”＝第一句正经话（后面没有玩笑）；“你一点都不像一个价钱”
+    “无价的”；四分钟原样重来；账本“备注：无价”“从今天起，不记账了”；他哼主旋律，你接和声。
 
 ## 章节流水
 
@@ -209,6 +214,16 @@
   “我知道。”“二等奖”“我记得”；你的话（最有魅力的那个，对别人太不公平了）；“对 Tony 太不公平了，我得给他寄道歉信”；
   没有音乐，他哼和声，你接主旋律；Rosie 抱盘子站门口；“再叫一遍，我还不太习惯。”账本“备注：Justin。”
   Winter 选的岔路：Tony A（你没先笑）· 合同 B（没拿到）· Justin B（空宴会厅）。补充：她看见的 Justin Hammer 就是最有魅力的那个。
+- **Ch8 · 你还欠我九十块**（草稿，待过目，完结章）：见上一行“已收”与 `priceless-revised/ch8-notes.md`。
+  Winter 选的岔路：那一万 B（只要九十）· 结局 A（又一把空椅子）· 底牌 A（揭开）。
+
+## 状态
+
+正篇八章写完（2026-10-27），**全部待 Winter 过目，点头后一次上线**。上线要做的：系列首页 `series/priceless/`
+（文案草稿 `priceless-revised/series-page-draft.md`）、`au_palettes.yml` 加 `"Priceless"`（抄 Good Enough，`mf_id: hammer`）、
+两边 `line_name`（Priceless「女伴线」；Good Enough 也要补一个）、画册 Hammer 改 `auLinks` 数组（含 quiz / spectrum /
+lines.json 同步，跑 `check_palette_sync.py`）、热线回复库 Hammer 改 `aus` 数组（要写新回复，属创作，先给她看）、八章 `_posts/`。
+番外菜单在第八章预览页页底（`priceless-revised/extras-forks.json`）。
 
 ## 预览页
 
@@ -219,4 +234,6 @@
 - Ch5：https://claude.ai/artifact/SqQn5WWcWCtnBuUGK5bChJ（页底是第六章岔路 `priceless-revised/ch6-forks.json`）
 - Ch6：https://claude.ai/artifact/WDy2pcZQHSfp2SbTty89sz（页底是第七章岔路 `priceless-revised/ch7-forks.json`）
 - Ch7：https://claude.ai/artifact/XX7ZvEEyCa92e6dV5ugbL9（页底是最后一章岔路 `priceless-revised/ch8-forks.json`）
+- Ch8：https://claude.ai/artifact/QjPWRtuNnBV5fCjMy5Mden（页底是番外菜单 `priceless-revised/extras-forks.json`）
+- 系列首页文案：https://claude.ai/artifact/GG6CmugWhmcsYbs1JsHjCK
 - 路线图：https://claude.ai/artifact/27SyrBgtiQb8kx9bWWzSFF（`.claude/roadmaps/priceless.json`）
