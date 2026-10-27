@@ -61,7 +61,7 @@ $radio-red: #d4213d;
   gap: 0;
   min-width: 100%;
   width: max-content;
-  padding: 1rem .4rem .45rem;
+  padding: 1rem .6rem .45rem;
   border: 1px solid rgba(255, 255, 255, .16);
   border-radius: 6px;
   background:
@@ -69,6 +69,7 @@ $radio-red: #d4213d;
     linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .015));
   button {
     position: relative;
+    z-index: 1;                 /* 字压在指针上面，指针再亮也不挡字 */
     flex: 1 0 auto;
     appearance: none;
     background: none;
@@ -107,8 +108,9 @@ $radio-red: #d4213d;
   border-left: 2px solid $radio-red;
   box-shadow: 0 0 10px $radio-red, 0 0 2px #fff;
   pointer-events: none;
+  opacity: .9;
   transition: left .45s cubic-bezier(.4, 0, .2, 1);
-  z-index: 1;
+  z-index: 0;
 }
 .c-radio__brand {
   display: flex;
