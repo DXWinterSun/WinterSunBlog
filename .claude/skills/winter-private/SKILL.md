@@ -15,7 +15,17 @@ python3 tools/private/private.py show <名字>           # 正文 + 带日期的
 python3 tools/private/private.py show <名字> --log 10  # 只看最近几条进度
 python3 tools/private/private.py note <名字> "一句进度" "又一句"     # 记进度（自动带日期）
 python3 tools/private/private.py put <名字> --title "标题" < 草稿.md  # 整份正文换新（进度留着）
+python3 tools/private/private.py show <名字> --page    # 印出网页上那份（JSON）
+python3 tools/private/private.py page <名字> < 网页.json # 换掉网页上那份
 ```
+
+**她自己能看**（2026-10-28：「现在这些记录你都放哪里的，我在哪能看见」→「做，重要信息都放进去」）：
+书桌上那本上锁的 **🧳「冬的行程」`/trip/`**（`trip/index.html`，口袋「记一记」里也有一格「行程」），
+同一个密码在浏览器里解开。页上排的是每份档案的 **page**（登机牌倒计时、下一步、戏票、每天、待办、
+签证 / 剧场 / 住和走、预算），下面接着**进度**（就是 `note` 记的那些，新的在上）和折起来的原稿。
+page 的格式写在 `trip/index.html` 开头的注释里。**票买了、事办了、日程变了 → 进度 `note` 一笔，
+同时 `show --page` 取出来改好、`page` 存回去**（明文草稿放会话临时目录，存完就删），她刷新就看得到。
+⚠️ 进度她在网页上也会读到：写成她看了也明白的话，别写成只有下一个对话才懂的暗号。
 
 提交时带上 `--trailer` 署名尾行（同 texts.py）。
 

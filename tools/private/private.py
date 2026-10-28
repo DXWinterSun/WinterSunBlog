@@ -16,10 +16,16 @@
     python3 tools/private/private.py show <名字> --log 10           # 只看最近 10 条进度
     python3 tools/private/private.py note <名字> "材料打印好了"      # 记一笔进度（自动带日期）
     python3 tools/private/private.py put <名字> --title "标题" < 档案.md   # 整份正文换新（进度留着）
+    python3 tools/private/private.py show <名字> --page             # 印出网页上那份（JSON）
+    python3 tools/private/private.py page <名字> < 网页.json        # 换掉网页上那份（书桌上「冬的行程」/trip/ 读它）
     ⚠️ 这里和 main 上任何文件都别写真的档案名、日期、号码——公开的。
 
 改动类命令都可以加 --trailer "..."（提交说明尾行，可重复）和 --dry-run。
 测试时用 WINTER_PRIVATE_REMOTE / WINTER_PRIVATE_BRANCH 指到别处，别碰真的 private 分支。
+
+网页那份（2026-10-28 Winter：「做，重要信息都放进去」）：每份档案除了正文和进度，还可以带一份 page（JSON），
+博客书桌上那本上锁的「冬的行程」（trip/index.html）用同一个密码在浏览器里解开、照它排版。
+格式写在 trip/index.html 开头的注释里。改了待办、票、日程，就 `show --page` 取出来、改好、`page` 存回去。
 """
 
 import argparse
@@ -182,6 +188,9 @@ def cmd_show(a):
     doc = load_doc(box, a.name)
     if not doc:
         die("没有叫 %s 的档案。现有：%s" % (a.name, "、".join(d["name"] for d in index["docs"]) or "（空）"), 2)
+    if a.page:
+        print(json.dumps(doc.get("page") or {}, ensure_ascii=False, indent=1))
+        return
     if a.log is None:
         print(doc["body"].rstrip())
         print()
@@ -203,6 +212,21 @@ def cmd_put(a):
     doc["body"] = body
     save(box, index, doc, "私人档案：更新一份", a)
     print("✓ 存好了：%s（%d 字）" % (doc["title"], len(body)))
+
+
+def cmd_page(a):
+    raw = sys.stdin.read()
+    try:
+        page = json.loads(raw)
+    except ValueError as e:
+        die("网页那份不是合法的 JSON：%s" % e, 2)
+    box, index = load()
+    doc = load_doc(box, a.name)
+    if not doc:
+        die("没有叫 %s 的档案。" % a.name, 2)
+    doc["page"] = page
+    save(box, index, doc, "私人档案：更新网页那份", a)
+    print("✓ 网页那份换好了，刷新「冬的行程」就看得到。")
 
 
 def cmd_note(a):
@@ -231,14 +255,17 @@ def main():
     s = sub.add_parser("show")
     s.add_argument("name")
     s.add_argument("--log", type=int, nargs="?", const=10, default=None, help="只看最近几条进度")
+    s.add_argument("--page", action="store_true", help="印出网页上那份（JSON）")
     s = change("put")
     s.add_argument("name")
     s.add_argument("--title", default="")
+    s = change("page")
+    s.add_argument("name")
     s = change("note")
     s.add_argument("name")
     s.add_argument("text", nargs="+")
     a = ap.parse_args()
-    {"setup": cmd_setup, "ls": cmd_ls, "show": cmd_show, "put": cmd_put, "note": cmd_note}[a.cmd](a)
+    {"setup": cmd_setup, "ls": cmd_ls, "show": cmd_show, "put": cmd_put, "page": cmd_page, "note": cmd_note}[a.cmd](a)
 
 
 if __name__ == "__main__":

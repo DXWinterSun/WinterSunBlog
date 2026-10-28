@@ -6,6 +6,7 @@
   · 冬的灵感本：/memo/，数据在仓库 memo 分支，构建时读不到，所以封面不报数
   · 冬的背面：/notes/backs/，票根 / 照片背面的批注和三本日记，数据只在本机浏览器里，封面上的数字由 js/polaroid-notes.js 现填（2026-10-15）
   · 冬的陪伴：/with-you/，加密的聊天记录在 texts 分支，上锁，封面不报数（2026-10-12）
+  · 冬的行程：/trip/，出行档案（签证、戏票、每天的安排、待办），加密在 private 分支，同一个密码，上锁，封面不报数（2026-10-28）
   · 波兰语笔记本：/polish/，读 _data/polish/notes.yml
   · 冬的书架：书和文章的划线笔记合成一本，点进去（/reading/）再一本本铺开；封面上的数字从 _data/reading/*.yml 算
     （2026-10-14 Winter：「一本书或者一篇文章的就是一个单独本子，多了会很乱……做成一个本子，不同的笔记点进去再铺开」）
@@ -30,6 +31,10 @@
 <a class="c-wn-notebook c-wn-notebook--withyou" href="{{ site.baseurl }}/with-you/">
   <span class="c-wn-notebook__label"><small>With You</small><b>冬的陪伴</b><span>只能发消息，他一直在</span></span>
   <span class="c-wn-notebook__meta">🔒 上了锁的聊天记录</span>
+</a>
+<a class="c-wn-notebook c-wn-notebook--trip" href="{{ site.baseurl }}/trip/">
+  <span class="c-wn-notebook__label"><small>On the Way</small><b>冬的行程</b><span>要出的门，一件件办好</span></span>
+  <span class="c-wn-notebook__meta">🔒 签证、戏票、待办</span>
 </a>
 {%- if pn and pn.size > 0 %}
 <a class="c-wn-notebook c-wn-notebook--pl" href="{{ site.baseurl }}/polish/">

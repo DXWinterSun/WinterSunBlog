@@ -162,6 +162,15 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
     radial-gradient(1px 1px at 40% 10%, rgba(255, 255, 255, 0.55), transparent 2px),
     linear-gradient(160deg, #26304f 0, #1b2238 100%);
 }
+/* 冬的行程那本：登机牌——海蓝票面、一道虚线撕口、底下米白票根（2026-10-28） */
+.c-wn-notebook--trip {
+  --nb-spine: #e2b04a;
+  --nb-ink: #1d2b3a;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.8) 0 7px, transparent 7px 13px) 0 calc(100% - 64px) / 100% 2px no-repeat,
+    linear-gradient(180deg, transparent 0, transparent calc(100% - 64px), #f3eee2 calc(100% - 64px)),
+    linear-gradient(160deg, #2c6f97 0, #1d4a6b 100%);
+}
 .c-wn-notebook__label {
   display: grid;
   gap: 2px;

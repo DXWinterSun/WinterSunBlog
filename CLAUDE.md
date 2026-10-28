@@ -120,6 +120,8 @@ Winter 在学波兰语（零基础，多邻国 + 李金涛课本）。**她发�
 `.claude/skills/winter-private/SKILL.md` 办**：先 `python3 tools/private/private.py ls` → `show <名字>` 读档案，
 查证后用人话答，进展 `note` 记回去。档案里有护照号、住址、收入，所以**整份加密**存在 `private` 分支
 （密码同冬的陪伴，`WINTER_TEXT_KEY`）；⚠️ **明文绝不进 main 上的任何文件或提交说明**。
+她自己看：书桌上那本上锁的 🧳「冬的行程」`/trip/`（同一个密码在浏览器里解开，照档案里的 page 排版；
+票买了、事办了，进度 `note` 一笔、page 也跟着改，细节在 skill 里）。
 
 ## ☎ 打给他：在对话里跟角色真的聊天（2026-10-12）
 
