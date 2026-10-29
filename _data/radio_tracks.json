@@ -3,9 +3,9 @@
   "polski": {
    "list": "PLbMtFPQvK26Y",
    "title": "Polski",
-   "count": 39,
-   "duration": 8639,
-   "synced": "2026-10-27",
+   "count": 44,
+   "duration": 9736,
+   "synced": "2026-10-29",
    "tracks": [
     {
      "id": "anE8VjceiPw",
@@ -318,6 +318,46 @@
      "dur": 205,
      "thumb": "https://i.ytimg.com/vi/vOK6slholn4/mqdefault.jpg",
      "added": "2026-10-27"
+    },
+    {
+     "id": "HROv4_wLxtw",
+     "title": "Każdej nocy",
+     "artist": "Grzegorz Markowski",
+     "dur": 189,
+     "thumb": "https://i.ytimg.com/vi/HROv4_wLxtw/mqdefault.jpg",
+     "added": "2026-10-29"
+    },
+    {
+     "id": "4UkHazBGe-4",
+     "title": "Zostań ze mną",
+     "artist": "Lady Pank",
+     "dur": 209,
+     "thumb": "https://i.ytimg.com/vi/4UkHazBGe-4/mqdefault.jpg",
+     "added": "2026-10-29"
+    },
+    {
+     "id": "h95v32evrtA",
+     "title": "Na Krawędzi Życia",
+     "artist": "Wilki",
+     "dur": 180,
+     "thumb": "https://i.ytimg.com/vi/h95v32evrtA/mqdefault.jpg",
+     "added": "2026-10-29"
+    },
+    {
+     "id": "lUPoiVo4zHQ",
+     "title": "Stacja Warszawa (2004) HD Remastered",
+     "artist": "Lady pank",
+     "dur": 260,
+     "thumb": "https://i.ytimg.com/vi/lUPoiVo4zHQ/mqdefault.jpg",
+     "added": "2026-10-29"
+    },
+    {
+     "id": "JIaJnvZAmhs",
+     "title": "Zawsze tam gdzie Ty",
+     "artist": "Lady Pank",
+     "dur": 259,
+     "thumb": "https://i.ytimg.com/vi/JIaJnvZAmhs/mqdefault.jpg",
+     "added": "2026-10-29"
     }
    ]
   }
