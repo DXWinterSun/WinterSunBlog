@@ -960,4 +960,9 @@ notes:
       - {pl: czuć, zh: 感觉到, tag: 未完成体}
       - {pl: stan, zh: 状态, tag: 阳}
       - {pl: na pewno, zh: 肯定、一定, look: false}
+      - {pl: Stany Zjednoczone, zh: the United States · 美国（“联合起来的州”）, look: stan}
+      - {pl: państwo, zh: state / country · 国家, tag: 中}
     see: ["009", "021"]
+    qa:
+      - q: 这个 stan 的 state 是状态的 state，可以指那个州的 state 吗？
+        a: 可以，两个意思它都有，跟英文 state 一模一样。stan 是 state (condition)：stan zdrowia 健康状况，stan cywilny 婚姻状况，stan wojenny 戒严（1981 年波兰那次就叫这个）。stan 也是 state (US state)：stan Kalifornia 加州，Stany Zjednoczone 美国，波兰人口语里就叫美国 Stany，“去美国”说 jechać do Stanów。只有“国家”意义上的 state 不用它，那是 państwo。三个词是一家人：stan、stać（to stand）、英文 stand / state 都从同一个“站住、立着”的老词根来，“状态”就是你现在“站在”哪一步。
