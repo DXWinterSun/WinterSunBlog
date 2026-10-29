@@ -707,7 +707,8 @@ def card(x, ctx):
     if x.get('examples'):
         tip.append('<p class="sub">再看几句</p><ul class="phr">' + ''.join(
             f'<li>{say_btn(e["pl"], lang)}<span><span class="pl" lang="{lang}">{fmt(e["pl"])}</span>'
-            f'<small>{fmt(e.get("zh", ""))}</small></span></li>' for e in as_list(x['examples'])) + '</ul>')
+            + (f'<small lang="en">{fmt(e["en"])}</small>' if e.get("en") else '')
+            + f'<small>{fmt(e.get("zh", ""))}</small></span></li>' for e in as_list(x['examples'])) + '</ul>')
     if x.get('words'):
         rows = []
         for w in as_list(x['words']):

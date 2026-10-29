@@ -924,6 +924,7 @@ notes:
     title: Teraz to mam ＝ 现在我有了它：to 在这儿是“它 / 这个”，不是“是”，也不是“我的”
     ask: 这首 7 stan 节奏感真的好强！第一次认真看副歌歌词竟然也是这个 teraz。他唱的 Teraz to mam 的意思是“现在是我的”吗？
     pl: "Teraz ==to== mam."
+    en: "Now I have it. (now · it · I-have)"
     zh: 现在我有了它（这种感觉）。
     why: |
       三个词拆开：teraz 是“现在”（Lady Pank 那张专辑名就是它），to 是“它、这个”，mam 是“我有”（mieć 的“我”那一格，你在 Nie mam czasu 里见过）。连起来就是“现在我有了它”。“它”指的是副歌反复唱的那个 stan（状态）：歌名 7 stan 就是“第七种状态”，波兰语里“在第七重天上”（w siódmym niebie）是乐得不行的意思，所以整首歌说的是终于找到了一种对从前都释然、现在就很好的心境。“现在是我的”会说 Teraz to moje，只差一个词，意思差挺多：一个是“我拥有了它”，一个是“它属于我”。
@@ -934,24 +935,26 @@ notes:
       - to 靠着动词就是“它 / 这个”，夹在两个名词中间才是“是”。
       - 小代词 to 不站句尾：Teraz to mam，不是 Teraz mam to。
     table:
-      - head: ["", "歌里那几句", "意思"]
+      - head: ["", "歌里那几句", "English", "意思"]
         pl: [1]
         rows:
-          - ["有", "Teraz to ==mam==.", "现在我有了它。"]
-          - ["知道", "Teraz to ==wiem==.", "现在我明白了。"]
-          - ["感觉", "Teraz to ==czuję==.", "现在我感觉到了。"]
-          - ["爱", "Teraz kocham ==ten== stan.", "现在我爱这种状态。"]
+          - ["有", "Teraz to ==mam==.", "Now I have it.", "现在我有了它。"]
+          - ["知道", "Teraz to ==wiem==.", "Now I know it.", "现在我明白了。"]
+          - ["感觉", "Teraz to ==czuję==.", "Now I feel it.", "现在我感觉到了。"]
+          - ["爱", "Teraz kocham ==ten== stan.", "Now I love this state.", "现在我爱这种状态。"]
+          - ["头", "To dziś w głowie mam.", "This is what I have in my head today.", "今天我满脑子都是这个。"]
+          - ["无所谓", "Wiem to na pewno, jest mi wszystko jedno.", "I know it for sure, it's all the same to me.", "我很确定，我无所谓了。"]
     extra:
       - "**ten · ta · to** 其实是同一个词“这个”的阳 / 阴 / 中三种样子：ten stan（阳）、ta książka（阴）、to okno（中）。中性的 to 还兼职当“它”和“是”，所以它最忙。"
       - "**jest mi wszystko jedno** 固定说法，字面“对我来说全都一样”，就是“我无所谓”。mi 是“对我”（与格）。"
       - "**na pewno** 两个词。字幕里连成 napewno 是错的。"
     examples:
-      - {pl: "Teraz to moje.", zh: 现在这是我的了。（你以为的那个意思，差在 moje）}
-      - {pl: "Nie wiem, co to jest.", zh: 我不知道这是什么。}
-      - {pl: "Jest mi wszystko jedno.", zh: 我无所谓。}
+      - {pl: "Teraz to moje.", en: "Now it's mine.", zh: 现在这是我的了。（你以为的那个意思，差在 moje）}
+      - {pl: "Nie wiem, co to jest.", en: "I don't know what this is.", zh: 我不知道这是什么。}
+      - {pl: "Jest mi wszystko jedno.", en: "It's all the same to me. (= I don't care)", zh: 我无所谓。}
     words:
       - {pl: teraz, zh: 现在, look: false}
-      - {pl: to, zh: 这个；它；（两个名词之间）是, look: false}
+      - {pl: to, zh: this / it；（两个名词之间）is, look: false}
       - {pl: mieć, zh: 有, tag: 未完成体}
       - {pl: wiedzieć, zh: 知道, tag: 未完成体}
       - {pl: czuć, zh: 感觉到, tag: 未完成体}
