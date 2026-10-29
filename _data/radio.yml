@@ -15,7 +15,10 @@ stations:
     tagline: 听不懂也好听
     url: "https://music.youtube.com/playlist?list=PLbMtFPQvK26Y"   # 她 2026-10-27 发来的分享链接
 
-fix: {}
+fix:
+  lUPoiVo4zHQ:            # 歌迷传的 2004 年原版 MV（录音室版；官方只上了现场版），把标题尾巴和频道名收拾干净
+    title: Stacja Warszawa
+    artist: Lady Pank
 
 gloss:
   "urke": "Urke (a nickname)"
@@ -60,3 +63,4 @@ gloss:
   "weź nie pierdol": "Cut the Crap (vulgar)"
   "zawsze tam gdzie ty": "Always Where You Are"
   "każdej nocy": "Every Night"
+  "na krawędzi życia": "On the Edge of Life"
