@@ -19,7 +19,8 @@
 - ✅ 2026-10-30 前三章上线（Winter：“特别棒！”）。系列首页 `series/not-a-three/`、`au_palettes.yml` 新条目、两边 `line_name`（SNE「暑期工线」/ 本部「原片线」）、画册 Owen 改成 `auLinks` 两条。
 - 第四章预览页：<https://claude.ai/artifact/FUjCrqcX6nxzWRLAsNgqLd>。
 - 第五章预览页：<https://claude.ai/artifact/KrcemBJxg8hjtkuhgsE321>。
-- 第六章预览页：<https://claude.ai/artifact/CM2FuXa4UR1RjmRh8biAyj>。第四到六章等 Winter 点头后一起上线。下一次部署：第四到六章攒齐。
+- 第六章预览页：<https://claude.ai/artifact/CM2FuXa4UR1RjmRh8biAyj>。
+- ✅ 2026-10-31 第四到六章上线（Winter 看完接着挑了第七章岔路，没提要改）。下一次部署：第七到九章攒齐。
 
 ## 这部戏是什么
 
