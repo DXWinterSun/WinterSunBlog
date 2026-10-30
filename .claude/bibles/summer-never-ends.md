@@ -7,7 +7,8 @@
 - `series_name`: `Summer Never Ends`（章节 `series:` 必须完全一致）
 - slug: `series/summer-never-ends/`
 - 展示标题: `Summer Never Ends · Owen AU`
-- byline: `Owen · The Way Way Back (2013) · Sam Rockwell · ongoing`
+- byline: `Owen · The Way, Way Back (2013) · Sam Rockwell`（2026-10-30 片名改成官方全名，带逗号）
+- `line_name: "暑期工线"`（2026-10-30 起 Owen 有第二场：`Not a Three`「原片线」，十六岁、照原片走、他不回应。两部是两个世界，人物和设定互不相通；画册 Owen 已改成 `auLinks` 两条）
 - 封面图: `the-way-way-back.JPG`（每章都用，注意大写 `.JPG`）
 - 身份标签: `[Owen, Sam Rockwell, AU, Summer Never Ends, mood…]`
 - 已用 `series_order`: 1–37 已上线；**38、39、40 已写好在抽屉里（`.claude/bibles/sne-extra38/39/40-draft.md`），Winter 已认可但要求攒着一起发。新篇从 41 起。**
