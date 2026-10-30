@@ -22,7 +22,8 @@
 - 第六章预览页：<https://claude.ai/artifact/CM2FuXa4UR1RjmRh8biAyj>。
 - 第七章预览页：<https://claude.ai/artifact/FNWQdEZF29htzg3JcF8vbh>。
 - 第八章预览页：<https://claude.ai/artifact/FbAVBA9UwRCiXkgWx4ZRC3>。
-- 第九章预览页：<https://claude.ai/artifact/7EDPu1r37usXtyeWV3vveQ>。第七到九章等 Winter 点头后一起上线。
+- 第九章预览页：<https://claude.ai/artifact/7EDPu1r37usXtyeWV3vveQ>。
+- ✅ 第七到九章上线（Winter 看完接着挑了第十章岔路）。下一次部署：第十、十一章（夏天收尾 + 两年后）。
 - ✅ 2026-10-31 第四到六章上线（Winter 看完接着挑了第七章岔路，没提要改）。下一次部署：第七到九章攒齐。
 
 ## 这部戏是什么
