@@ -27,7 +27,8 @@
 - 第十一章预览页：<https://claude.ai/artifact/HXWc9aganpXfUcXniX1u2w>。
 - 第十二章预览页：<https://claude.ai/artifact/UHoJBtpi3UxnHFffGxEkZd>（2026-11-01 按 Winter 的话改过告白那段）。
 - 第十三章预览页：<https://claude.ai/artifact/PZDLiEfcLQuA46xxcRUUBc>。
-- 第十四章预览页：<https://claude.ai/artifact/XU9DdWXPDvN9pqNQjzn17Y>。第十四章和终章一起上线。
+- 第十四章预览页：<https://claude.ai/artifact/XU9DdWXPDvN9pqNQjzn17Y>。
+- ✅ 2026-11-02 第十四章上线（Winter 看完挑了终章岔路）。终章等她点头后上线，同时系列改成 complete。
 - ✅ 2026-11-01 第十二、十三章上线，同时把已上线各章的管理员腔一起修了。
 - ✅ 第十、十一章上线（Winter 看完挑了第十二章岔路）。
 - ✅ 第七到九章上线（Winter 看完接着挑了第十章岔路）。下一次部署：第十、十一章（夏天收尾 + 两年后）。
