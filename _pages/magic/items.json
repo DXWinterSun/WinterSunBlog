@@ -1,0 +1,12 @@
+---
+permalink: /magic/items.json
+layout: null
+---
+{%- comment -%} 藏品架用：哪一件抖出来过、抖出来的是哪几场。键是藏品架的编号（_parallel/ 里每一场的 item）。 {%- endcomment -%}
+{%- assign withitem = site.parallel | where_exp: "s", "s.item" | sort: "date" -%}
+{%- assign ids = withitem | map: "item" | uniq -%}
+{
+{%- for id in ids %}
+  {{ id | jsonify }}: [{%- assign ss = withitem | where: "item", id -%}{%- for s in ss -%}{"t": {{ s.title | jsonify }}, "u": {{ s.url | prepend: site.baseurl | jsonify }}}{% unless forloop.last %}, {% endunless %}{%- endfor -%}]{% unless forloop.last %},{% endunless %}
+{%- endfor %}
+}

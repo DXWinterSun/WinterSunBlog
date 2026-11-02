@@ -85,3 +85,18 @@ gallery_images:
   - GCwDuckie-illustration.PNG
   - christmas-tree.webp
   - ice-and-sky.jpg
+
+# 🪄 冬的魔法（2026-11-02）：杂志一抖，他就掉出来。一场一个文件，放在 _parallel/，
+# 每一场一页 /magic/<名字>/（不带日期），排版用 _layouts/magic.html。玩法说明在 .claude/skills/winter-parallel/。
+collections:
+  parallel:
+    output: true
+    permalink: /magic/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: parallel
+    values:
+      layout: magic
+      nav_active: notes

@@ -1,0 +1,37 @@
+---
+layout: home
+---
+{%- comment -%}
+  🪄 冬的魔法 · 一场一页（2026-11-02）。文件在 _parallel/，网址 /magic/<名字>/（_config.yml 的 collections）。
+  颜色：front matter 写 palette: "<au_palettes 里的系列名>" 就穿那个 AU 的颜色；没有角色色卡的（真人 Sam）写 pal: {accent, accent_ink, bg, text, muted}。
+  正文里每一回开头那行 <p class="pt-you"> 是她当时说的话，排成一张小字条；样式在 _sass/5-components/_magic.scss。
+{%- endcomment -%}
+{%- assign pal = page.pal -%}
+{%- if page.palette -%}{%- assign pal = site.data.au_palettes[page.palette] -%}{%- endif -%}
+{%- if pal %}{% include au-palette-style.html pal=pal %}{% endif -%}
+<article class="c-article c-magic">
+  <div class="c-article__content">
+    <div class="c-wrap-content">
+      <a class="c-chapter-return" href="{{ site.baseurl }}/magic/">
+        <span class="c-chapter-return__arrow">←</span>
+        <span class="c-chapter-return__body">
+          <span class="c-chapter-return__eyebrow">回到冬的魔法</span>
+          <span class="c-chapter-return__title">杂志一抖，他就掉出来</span>
+        </span>
+      </a>
+      <header class="c-article__header c-magic__head">
+        <p class="c-magic__from"><span class="c-magic__wand" aria-hidden="true">🪄</span>从 {{ page.from }} 里抖出来的</p>
+        <h1 class="c-article__title">{{ page.title }}</h1>
+        <div class="c-article__date">{{ page.who }} · {{ page.date | date: "%Y 年 %-m 月 %-d 日" }}</div>
+      </header>
+      <div class="c-magic__body">
+        {{ content }}
+      </div>
+      <nav class="c-magic__nav" aria-label="别的几场">
+        {%- if page.previous %}<a class="c-magic__nav-a" href="{{ site.baseurl }}{{ page.previous.url }}"><small>上一场</small>{{ page.previous.title }}</a>{% else %}<span></span>{% endif -%}
+        {%- if page.next %}<a class="c-magic__nav-a c-magic__nav-a--next" href="{{ site.baseurl }}{{ page.next.url }}"><small>下一场</small>{{ page.next.title }}</a>{% endif -%}
+      </nav>
+      <p class="c-notes__foot"><a href="{{ site.baseurl }}/magic/">← 冬的魔法</a> · <a href="{{ site.baseurl }}/sam/shelf/">去藏品架挑下一件 →</a></p>
+    </div>
+  </div>
+</article>

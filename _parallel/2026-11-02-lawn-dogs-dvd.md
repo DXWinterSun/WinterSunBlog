@@ -3,7 +3,10 @@ title: "他从碟盒里光着跳出来"
 who: "Trent Burns"
 from: "《割草叔叔》 · DVD · 澳版"
 item: "mvce6186-j5q5h"   # 藏品架上那张碟的编号
-date: 2026-11-02
+date: 2026-11-02 23:00:00 +0800
+kind: disc
+hook: "盒子上那道裂缝，是你拿胶水粘的。"
+palette: "The Same People"   # 用他那个 AU 的颜色（_data/au_palettes.yml）
 ---
 
 <p class="pt-you">下一个想和Trent Burns来点脸红心跳💓这个大庭广众之下脱光光跳水的小伙子🤗</p>

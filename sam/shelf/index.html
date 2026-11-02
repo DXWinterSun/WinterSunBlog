@@ -663,6 +663,14 @@
     font-size: calc(12.5px * var(--fs)); line-height: 1.8; color: var(--ink-soft); scrollbar-width: thin;
   }
   .item__back-note.is-empty { color: var(--ink-faint); font-style: italic; }
+  /* 🪄 抖出来过（2026-11-02，冬的魔法）：在对话里从这一件里抖出来过一个他，背面盖一枚戳，点了去那一场 */
+  .item__magic {
+    flex: none; align-self: flex-start; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px;
+    margin: 0 0 8px; padding: 4px 9px 5px; border: 1.5px dashed var(--a, var(--gold)); border-radius: 8px;
+    transform: rotate(-1.4deg); font-size: calc(11.5px * var(--fs)); line-height: 1.5; color: var(--ink);
+  }
+  .item__magic b { font-weight: 700; letter-spacing: .06em; color: var(--a, var(--gold)); }
+  .item__magic a { color: inherit; text-decoration: underline dotted; text-underline-offset: 3px; }
   .item__dl {
     flex: none; margin: 8px 0 0; padding: 6px 0 0; border-top: 1px solid rgba(var(--line-rgb),.16);
     display: grid; grid-template-columns: auto 1fr; gap: 1px 8px;
@@ -1938,6 +1946,14 @@
     })
     .catch(function () { loadedChars = true; ready(); });
 
+  /* 🪄 冬的魔法：哪几件在对话里「抖」出来过一个他（/magic/items.json，构建时由 _parallel/ 生成）。
+     取不到就当没有，不影响架子。 */
+  var MAGIC = {};
+  fetch("../../magic/items.json", { cache: "no-cache" })
+    .then(function (r) { return r.ok ? r.json() : {}; })
+    .then(function (m) { MAGIC = m || {}; if (loadedData) render(); })
+    .catch(function () {});
+
   function ready() {
     if (!loadedData) return;
     var l = $("loading"); if (l) l.remove();
@@ -2326,6 +2342,7 @@
     if (it.type === "disc" && it.nas) badges.push("📡");
     if (it.type === "disc" && it.orig) badges.push("💿");
     if (it.signed) badges.push("✍️");
+    if (MAGIC[it.id]) badges.push("🪄");
     if (badges.length) {
       var bd = document.createElement("span"); bd.className = "item__badges";
       bd.textContent = badges.join(" ");
@@ -2381,6 +2398,17 @@
     bh.appendChild(bh1); bh.appendChild(bh2);
     back.appendChild(bh);
     var bb = document.createElement("div"); bb.className = "item__bbody";
+    if (MAGIC[it.id] && MAGIC[it.id].length) {
+      var mg = document.createElement("p"); mg.className = "item__magic";
+      var mgb = document.createElement("b"); mgb.textContent = "🪄 抖出来过";
+      mg.appendChild(mgb);
+      MAGIC[it.id].forEach(function (m) {
+        var ma = document.createElement("a"); ma.href = m.u; ma.textContent = m.t + " →";
+        ma.addEventListener("click", function (e) { e.stopPropagation(); });
+        mg.appendChild(ma);
+      });
+      bb.appendChild(mg);
+    }
     var bn = document.createElement("p");
     bn.className = "item__back-note" + (it.note ? "" : " is-empty");
     bn.textContent = it.note || "（背面没写字）";

@@ -1,0 +1,150 @@
+/* ─────────────────────────────────────────────────────────────
+   🪄 冬的魔法（2026-11-02）：杂志一抖，他就掉出来
+   · 书桌上那本封面 .c-wn-notebook--magic（_includes/notebooks.html）
+   · 目录页 /magic/（_pages/magic/index.html）：一场一张卡
+   · 一场一页（_layouts/magic.html）：她当时说的话 .pt-you 排成一张小字条
+   ───────────────────────────────────────────────────────────── */
+
+/* 书桌上那本：深紫的夜、冬阳金的书脊（像一根魔杖），零星几颗金色小星 */
+.c-wn-notebook--magic {
+  --nb-spine: #e9b451;
+  --nb-ink: #f4eefb;
+  background:
+    radial-gradient(1.6px 1.6px at 78% 16%, rgba(255, 231, 168, 0.95), transparent 2px),
+    radial-gradient(1.2px 1.2px at 64% 34%, rgba(255, 255, 255, 0.7), transparent 2px),
+    radial-gradient(1.8px 1.8px at 88% 52%, rgba(255, 231, 168, 0.8), transparent 2px),
+    radial-gradient(1.1px 1.1px at 46% 10%, rgba(255, 255, 255, 0.6), transparent 2px),
+    radial-gradient(1.4px 1.4px at 70% 88%, rgba(255, 255, 255, 0.65), transparent 2px),
+    linear-gradient(160deg, #4d3b7c 0, #2a2149 100%);
+}
+
+/* ── 目录页 ── */
+.c-magic-list__lede {
+  max-width: 34rem;
+  margin: 0 auto 20px;
+  text-align: center;
+  font-family: $wn-cn;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $muted;
+  b { color: $ink; font-size: 16px; }
+}
+.c-magic-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+@media (min-width: 720px) {
+  .c-magic-cards { grid-template-columns: 1fr 1fr; }
+}
+.c-magic-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 18px 14px 16px;
+  border-radius: 14px;
+  border: 1px solid $line;
+  background: $paper;
+  color: $ink;
+  text-decoration: none;
+  box-shadow: inset 4px 0 0 var(--mg-a), 0 6px 18px rgba(var(--rgb-shadow), 0.10);
+  transition: transform .2s ease;
+  &::after {
+    content: "✦";
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 13px;
+    color: $gold;
+    opacity: .85;
+  }
+  &:hover { transform: translateY(-3px); }
+  &:focus-visible { outline: 3px solid $accent; outline-offset: 2px; }
+}
+.c-magic-card__art {
+  display: block;
+  width: 76px;
+  height: 76px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+  svg { display: block; width: 100%; height: 100%; }
+}
+.c-magic-card__body { display: grid; gap: 3px; min-width: 0; padding-right: 12px; }
+.c-magic-card__from { font-family: $wn-cn; font-size: 11.5px; letter-spacing: .04em; color: $muted; }
+.c-magic-card__title { font-family: $wn-cn; font-size: 19px; font-weight: 600; line-height: 1.35; }
+.c-magic-card__hook { font-family: $wn-cn; font-size: 13.5px; line-height: 1.55; color: $ink-soft; }
+.c-magic-card__meta { font-size: 12.5px; font-style: italic; color: $muted; }
+
+/* 插画里的小动作：划过时帽子往上一跳、星星转一下 */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .magic-art-hat, .magic-art-star, .magic-art-disc { transition: transform .35s ease; transform-box: fill-box; transform-origin: center; }
+  .c-magic-card:hover .magic-art-hat,
+  .c-sam-toy:hover .magic-art-hat { transform: translate(1px, -3px) rotate(28deg); }
+  .c-magic-card:hover .magic-art-star,
+  .c-sam-toy:hover .magic-art-star { transform: rotate(45deg) scale(1.25); }
+  .c-magic-card:hover .magic-art-disc,
+  .c-sam-toy:hover .magic-art-disc { transform: translateX(3px) rotate(40deg); }
+}
+
+/* ── 一场一页 ── */
+.c-magic__from {
+  margin: 0 0 6px;
+  font-family: $wn-cn;
+  font-size: 13px;
+  letter-spacing: .06em;
+  color: $accent;
+}
+.c-magic__wand { display: inline-block; margin-right: 6px; font-style: normal; }
+.c-magic__body > p {
+  text-indent: 2em;
+  text-indent: 2em each-line;
+}
+/* 她当时说的话：一张靠右的小字条，像聊天里她发过去的那一条 */
+.c-magic__body > p.pt-you {
+  width: fit-content;
+  max-width: 86%;
+  margin: 2.6em 0 1.4em auto;
+  padding: 9px 14px 10px;
+  border-radius: 14px 14px 3px 14px;
+  border: 1px solid color-mix(in srgb, #{$accent} 24%, transparent);
+  background: color-mix(in srgb, #{$accent} 10%, #{$paper});
+  font-family: $wn-cn;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $ink-soft;
+  text-indent: 0;
+  &::before {
+    content: "你说";
+    display: block;
+    margin-bottom: 2px;
+    font-size: 11px;
+    letter-spacing: .16em;
+    color: $accent;
+  }
+}
+.c-magic__body > p.pt-you:first-child { margin-top: .6em; }
+.c-magic__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 3em 0 0;
+  padding-top: 1.2em;
+  border-top: 1px dashed $line-strong;
+}
+.c-magic__nav-a {
+  display: grid;
+  gap: 2px;
+  max-width: 48%;
+  font-family: $wn-cn;
+  font-size: 15px;
+  color: $ink;
+  text-decoration: none;
+  small { font-size: 11px; letter-spacing: .14em; color: $muted; }
+  &:hover { color: $accent; }
+}
+.c-magic__nav-a--next { margin-left: auto; text-align: right; }

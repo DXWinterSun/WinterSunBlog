@@ -1,0 +1,44 @@
+---
+layout: home
+title: 冬的魔法
+permalink: /magic/
+nav_active: notes
+---
+{%- comment -%}
+  🪄 书桌上那本「冬的魔法」（2026-11-02，Winter 起的名字）：杂志一抖，他就掉出来——藏品架上的杂志、碟、场刊，
+  画册里的角色，都能在对话里「抖」出来见一面。她在对话里看，这里是存档，每一场一字不差。
+  每一场是 _parallel/ 里的一个文件，这一页自己列出来，不用改。玩法在 .claude/skills/winter-parallel/。
+  三个入口（她 2026-11-02「ABC 都要做」）：书桌上这本 · Sam 页第 12 张卡 · 藏品架上抖过的那一件背面盖一枚 🪄 戳（读 /magic/items.json）。
+{%- endcomment -%}
+{%- assign scenes = site.parallel | sort: "date" | reverse -%}
+{%- assign items = site.parallel | map: "item" | compact | uniq -%}
+
+<section class="c-hero c-hero--filter">
+  <div class="c-hero__eyebrow">Desk · Winter&rsquo;s Magic</div>
+  <h1 class="c-hero__title">冬的<em>魔法</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">杂志一抖，他就掉出来</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-notes c-magic-list">
+  <p class="c-magic-list__lede">每一场都是在对话里玩出来的，这里一字不差地收着。抖过 <b>{{ items.size }}</b> 件，一共 <b>{{ scenes.size }}</b> 场。</p>
+  <div class="c-magic-cards">
+    {%- for s in scenes -%}
+    {%- assign pal = s.pal -%}
+    {%- if s.palette -%}{%- assign pal = site.data.au_palettes[s.palette] -%}{%- endif %}
+    <a class="c-magic-card" href="{{ site.baseurl }}{{ s.url }}" style="--mg-a: {{ pal.accent | default: '#3f9ecb' }}; --mg-b: {{ pal.bg | default: '#14212e' }}; --mg-t: {{ pal.text | default: '#f4f7fa' }};">
+      <span class="c-magic-card__art" aria-hidden="true">{% include magic-art.html key=s.kind %}</span>
+      <span class="c-magic-card__body">
+        <span class="c-magic-card__from">从 {{ s.from }} 里抖出来</span>
+        <b class="c-magic-card__title">{{ s.title }}</b>
+        {%- if s.hook %}<span class="c-magic-card__hook">{{ s.hook }}</span>{% endif %}
+        <span class="c-magic-card__meta">{{ s.who }} · {{ s.date | date: "%Y.%m.%d" }}</span>
+      </span>
+    </a>
+    {%- endfor %}
+  </div>
+  <p class="c-notes__foot"><a href="{{ site.baseurl }}/notes/">← 回书桌</a> · <a href="{{ site.baseurl }}/sam/shelf/">去藏品架挑下一件 →</a></p>
+</section>

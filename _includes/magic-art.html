@@ -1,0 +1,52 @@
+{%- comment -%}
+  🪄 冬的魔法的小插画（2026-11-02）：抖的是什么，就画什么正往外掉东西。
+  画风照 _includes/sam-toy-art.html：淡底、几粒白雪点、冰蓝 / 海军蓝 / 冬阳金，颜色写死在图里。
+  用法：{% include magic-art.html key='book' %}（book 杂志 · disc 碟；别的先借 book 那张）。
+  Sam 页第 12 张卡、/magic/ 的每一张卡都用它。
+  ⚠️ 划过时会动的那几块（magic-art-hat / -star / -disc）身上别直接写 transform 属性：_magic.scss 给它们设了
+  transform-box: fill-box，会把属性里的旋转中心挪走（帽子跑出画框过一次）。要转就套一层 <g> 写在里面。
+{%- endcomment -%}
+{%- case include.key -%}
+{%- when 'disc' -%}
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <rect width="64" height="64" fill="#dcece4"/>
+  <g fill="#ffffff" opacity=".9"><circle cx="8" cy="9" r="1.2"/><circle cx="57" cy="57" r="1.1"/><circle cx="6" cy="56" r="1"/><circle cx="30" cy="6" r=".9"/></g>
+  <g class="magic-art-disc">
+    <circle cx="41" cy="35" r="14" fill="#eef3f7"/>
+    <circle cx="41" cy="35" r="14" fill="none" stroke="#14212e" stroke-width="1.2"/>
+    <path d="M30 31 a12 12 0 0 1 9 -8" stroke="#7cb4d4" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".8"/>
+    <circle cx="41" cy="35" r="4.2" fill="#dcece4" stroke="#14212e" stroke-width="1"/>
+  </g>
+  <g transform="rotate(-7 24 38)">
+    <rect x="11" y="20" width="25" height="36" rx="2.5" fill="#2c4058"/>
+    <rect x="11" y="20" width="4" height="36" rx="1.5" fill="#1d2d40"/>
+    <rect x="18" y="26" width="15" height="12" rx="1.5" fill="#79a7bd"/>
+    <rect x="18" y="41" width="13" height="2" rx="1" fill="#f1ebe1" opacity=".7"/>
+    <rect x="18" y="45" width="9" height="2" rx="1" fill="#f1ebe1" opacity=".5"/>
+    <path d="M24 20 l2.5 4 l-2 2.6 l2.6 3.4" stroke="#e9b451" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <path d="M51 11 q2.6 3.6 0 5.4 q-2.6 -1.8 0 -5.4 Z" fill="#7cb4d4"/>
+  <path d="M57 19 q2 2.8 0 4.2 q-2 -1.4 0 -4.2 Z" fill="#7cb4d4" opacity=".8"/>
+  <path class="magic-art-star" d="M45 6 l1.1 3 l3 1.1 l-3 1.1 l-1.1 3 l-1.1 -3 l-3 -1.1 l3 -1.1 Z" fill="#e9b451"/>
+</svg>
+{%- else -%}
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <rect width="64" height="64" fill="#ece4f6"/>
+  <g fill="#ffffff" opacity=".9"><circle cx="8" cy="10" r="1.2"/><circle cx="57" cy="56" r="1.2"/><circle cx="7" cy="54" r="1"/><circle cx="58" cy="34" r=".9"/></g>
+  <g transform="rotate(-13 27 42)">
+    <rect x="14" y="26" width="25" height="32" rx="2" fill="#fffdf7" stroke="#14212e" stroke-width="1.1"/>
+    <rect x="16" y="28" width="21" height="5.5" rx="1" fill="#f3d34a"/>
+    <path d="M14 58 h25 v-9 q-12.5 -6 -25 0 Z" fill="#7cb4d4"/>
+    <circle cx="26.5" cy="41" r="5" fill="#f4d7c6"/>
+  </g>
+  <path d="M29 25 q3 -7 9 -8" stroke="#14212e" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="1.6 2.6" fill="none" opacity=".55"/>
+  <g class="magic-art-hat"><g transform="rotate(16 43 18)">
+    <ellipse cx="43" cy="20.5" rx="9" ry="2.6" fill="#14212e"/>
+    <path d="M38 20 q0 -7 5 -7 q5 0 5 7 Z" fill="#14212e"/>
+    <path d="M38.5 18.2 h9" stroke="#e2662f" stroke-width="1.3"/>
+  </g></g>
+  <path class="magic-art-star" d="M55 24 l1.1 3 l3 1.1 l-3 1.1 l-1.1 3 l-1.1 -3 l-3 -1.1 l3 -1.1 Z" fill="#e9b451"/>
+  <path d="M12 16 l.8 2.2 l2.2 .8 l-2.2 .8 l-.8 2.2 l-.8 -2.2 l-2.2 -.8 l2.2 -.8 Z" fill="#e9b451" opacity=".85"/>
+  <circle cx="33" cy="9" r="1.3" fill="#e9b451"/>
+</svg>
+{%- endcase -%}
