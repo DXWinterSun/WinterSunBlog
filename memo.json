@@ -1,7 +1,7 @@
 {
   "_readme": "冬的灵感本：网页 /memo/ 读的就是这一份（只读）。在对话里改请用 main 上的 tools/memo/memo.py，别手改。",
   "version": 1,
-  "updated": "2026-11-03T23:48:55+08:00",
+  "updated": "2026-11-03T23:58:09+08:00",
   "settings": {
     "style": "snow",
     "updated": "2026-10-03T12:59:01+08:00",
@@ -347,8 +347,8 @@
       "done": false,
       "order": -10,
       "created": "2026-11-03T23:48:55+08:00",
-      "updated": "2026-11-03T23:48:55+08:00",
-      "note": "你的原话：这些角色都是我的，住在我的岛上，岛无限大（毕竟有 Zaphod 这样的银河系总统）；我和角色们的故事都经历过，不同的身份也合理；在岛上他们知道彼此和彼此的故事，不会真的吃醋。想玩的：每个人的小家、排队游戏、心血来潮叫一个或几个来炽恋。尺度照冬的魔法：角色照各自 AU，杂志里的真人 Sam 只到抱抱亲亲。提案页（五道岔路，等你挑）：https://claude.ai/artifact/WL8Ttd8DbmE3Zo8JngHk7h ，内容存在 .claude/pitches/winter-island.json。"
+      "updated": "2026-11-03T23:58:09+08:00",
+      "note": "你的原话：这些角色都是我的，住在我的岛上，岛无限大（毕竟有 Zaphod 这样的银河系总统）；我和角色们的故事都经历过，不同的身份也合理；在岛上他们知道彼此和彼此的故事，不会真的吃醋。想玩的：每个人的小家、排队游戏、心血来潮叫一个或几个来炽恋。尺度照冬的魔法：角色照各自 AU，杂志里的真人 Sam 只到抱抱亲亲。提案页（五道岔路，等你挑）：https://claude.ai/artifact/WL8Ttd8DbmE3Zo8JngHk7h ，内容存在 .claude/pitches/winter-island.json。\n\n你挑定了：画册里每张脸都住，Sam Bell 是 Five 和 Six 两个都在，不是 Sam 演的 AU 角色也住；相处是嘴上酸一句、谁都不当真；先玩每个人的小家、岛上的一天、召唤；博客上做一张手绘岛图。「排队游戏」是输入法打错了，其实是派对游戏。第一批小家（Trent、Zaphod、Five 和 Six、Leonard）在这里等你过目：https://claude.ai/artifact/XTcxMupt3jUr5Yniys95TY ，页底四道岔路。岛的规矩写进了仓库，新对话说「上岛」就认得。"
     }
   ],
   "gone": {
