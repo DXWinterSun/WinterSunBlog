@@ -1,0 +1,102 @@
+---
+layout: home
+title: 冬的岛屿
+permalink: /island/
+nav_active: notes
+---
+{%- comment -%}
+  🏝️ 冬的岛屿（2026-11-03，Winter：「这些角色都是我的，住在我的岛上……总之我是岛主🏝️」）。
+  她挑的「冬天的水彩雪岛」：底图是 _includes/island-map.html，房子按 _data/island.yml 的 x / y 叠上去，
+  每户一张卡（点房子或下面的名字翻出来），颜色和故事链接从他那个 AU 来（_data/au_palettes.yml）。
+  draft: true 的住户还在等她过目，这里不出现。加一户 = island.yml 加一条，这一页不用动。
+  规矩在 .claude/skills/winter-island/SKILL.md。
+{%- endcomment -%}
+{%- assign shown = site.data.island.residents | where_exp: "r", "r.draft != true" -%}
+
+<section class="c-hero c-hero--filter">
+  <div class="c-hero__eyebrow">Desk · Winter&rsquo;s Island</div>
+  <h1 class="c-hero__title">冬的<em>岛屿</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">岛主 Winter · 面积无限 · 已经住进来 {{ shown.size }} 户</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-isle">
+  <div class="c-isle__frame">
+    <div class="c-isle__map" id="isle-map">
+      {% include island-map.html %}
+      {%- for r in shown -%}
+      {%- assign pal = site.data.au_palettes[r.series] %}
+      <button class="c-isle__house c-isle__house--{{ r.icon }}" type="button" data-isle="{{ r.id }}" aria-controls="isle-{{ r.id }}"
+        style="left: {{ r.x }}%; top: {{ r.y }}%; --flag: {{ pal.accent | default: '#3f9ecb' }};">
+        {% include island-house.html icon=r.icon %}
+        <span class="c-isle__name">{{ r.name }}</span>
+      </button>
+      {%- endfor %}
+    </div>
+  </div>
+
+  <div class="c-isle__cards" id="isle-cards">
+    <article class="c-isle__card c-isle__card--intro" id="isle-intro">
+      <p class="c-isle__eyebrow">岛主须知</p>
+      <h2 class="c-isle__home">点一栋房子，看看谁住在这儿</h2>
+      <p>这座岛是无限大的，银河系总统的飞船也停得下。住在这儿的每一个他，跟你的故事都真的发生过；上了岛，他们互相认得，也知道彼此跟你的事，嘴上会酸一句，谁都不当真。</p>
+      <p>北边的山顶积着雪，南边那条河一年到头是夏天。抖出来的人从码头上岸，新搬来一户，地图上就多一栋房子。</p>
+    </article>
+    {%- for r in shown -%}
+    {%- assign pal = site.data.au_palettes[r.series] %}
+    <article class="c-isle__card" id="isle-{{ r.id }}" data-isle-card="{{ r.id }}" hidden style="--flag: {{ pal.accent | default: '#3f9ecb' }};">
+      {%- if pal %}
+      <i class="c-isle__band" aria-hidden="true"><b style="background: {{ pal.bg }}"></b><b style="background: {{ pal.accent }}"></b><b style="background: {{ pal.text }}"></b><b style="background: {{ pal.muted }}"></b></i>
+      {%- endif %}
+      <p class="c-isle__eyebrow">{{ r.region }}</p>
+      <h2 class="c-isle__home">{{ r.home }}</h2>
+      <p class="c-isle__who">{{ r.full }}{% if r.series %} · {{ r.series }}{% endif %}</p>
+      <div class="c-isle__text">{{ r.text | markdownify }}</div>
+      <p class="c-isle__links">
+        {%- if r.series %}<a href="{{ site.baseurl }}/series/{{ r.series | slugify }}/">去读你们的故事 →</a>{% endif -%}
+        {%- if pal.mf_id %}<a href="{{ site.baseurl }}/sam/many-faces/#{{ pal.mf_id }}">画册里的他 →</a>{% endif -%}
+      </p>
+    </article>
+    {%- endfor %}
+  </div>
+
+  <nav class="c-isle__roll" aria-label="岛上的住户">
+    {%- for r in shown -%}
+    {%- assign pal = site.data.au_palettes[r.series] %}
+    <button type="button" class="c-isle__chip" data-isle="{{ r.id }}" style="--flag: {{ pal.accent | default: '#3f9ecb' }};"><i aria-hidden="true"></i>{{ r.name }}</button>
+    {%- endfor %}
+  </nav>
+
+  <p class="c-notes__foot"><a href="{{ site.baseurl }}/notes/">← 回书桌</a> · <a href="{{ site.baseurl }}/magic/">🪄 冬的魔法</a></p>
+</section>
+
+<script>
+(function () {
+  var cards = document.querySelectorAll('[data-isle-card]');
+  var intro = document.getElementById('isle-intro');
+  var btns = document.querySelectorAll('[data-isle]');
+  function show(id, scroll) {
+    var hit = false;
+    cards.forEach(function (c) { var on = c.getAttribute('data-isle-card') === id; c.hidden = !on; if (on) hit = true; });
+    intro.hidden = hit;
+    btns.forEach(function (b) { b.classList.toggle('is-on', b.getAttribute('data-isle') === id); });
+    if (hit && scroll) {
+      var card = document.getElementById('isle-' + id);
+      if (card && card.getBoundingClientRect().top > window.innerHeight * .7) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    return hit;
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var id = b.getAttribute('data-isle');
+      if (b.classList.contains('is-on')) { show('', false); try { history.replaceState(null, '', location.pathname); } catch (e) {} return; }
+      if (show(id, true)) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
+    });
+  });
+  var h = (location.hash || '').slice(1);
+  if (h) show(h, false);
+})();
+</script>

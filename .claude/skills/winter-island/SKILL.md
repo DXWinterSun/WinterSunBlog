@@ -20,16 +20,23 @@ description: 🏝️ 冬的岛屿——Winter 是岛主，画册里每一张脸�
 | ⭐ Sam Bell | **Five 和 Six 两个都在**（她：「毕竟电影里也是他俩」）。两人同住一户，规矩照 Everybody's Home 圣经：他们之间到拥抱、拍后颈为止 |
 | 相处 | **嘴上酸一句，谁都不当真**：像 Young Sam 吃自己的醋那样，酸完自己先笑场。不真吃醋、不抢、不比谁更好 |
 | 先玩 | **每个人的小家 ＋ 岛上的一天 ＋ 召唤**（派对游戏也要，玩哪几样看岔路） |
-| 博客上 | **一张手绘岛图**，一户一户点进去（画风待她在第一批小家页底挑） |
+| 博客上 | **一张手绘岛图** `/island/`，画风她挑的**冬天的水彩雪岛**（见第五节） |
+| 几条线的人 | **合成一个人，他记得所有的线**（Wild Bill 三条、Jim Crocker / Bill Greaves / John Moon 各两条）：一户，偶尔会搞混是哪一回的事 |
+| 写小家的顺序 | **按画册年份从最早往后**：第一批 Trent / Zaphod / Five & Six / Leonard，第二批 Young Sam / Gary / Kris / Rob，往下是 Matty、Buck、Samuel、Jerry…… |
+| 派对游戏 | 先玩 **「我从来没有」**，在 Rob 家后院 |
 | 写法 | 跟冬的魔法一样：**段落，第二人称「你」**，他用「他」 |
 | 尺度 | 角色照各自 AU 的尺度和红线（Everybody's Home 的 5×6 边界、No One Walks Off 的年龄线……都照旧）；**真人 Sam**（杂志里抖出来的）住岛上可以，只到抱抱亲亲 |
 
 ⚠️ 她说「排队游戏」是输入法打错了，**是派对游戏**。
 
+预览页：第一批 <https://claude.ai/artifact/XTcxMupt3jUr5Yniys95TY>（她没提意见、直接挑了下一步，算认可）· 第二批 <https://claude.ai/artifact/CnVLf3tzdoTdGjykmE8XdW>（等她过目）。
+
 ## 二、岛长什么样（第一批小家定下的方向）
 
 - 岛无限大，四个方向先这样摆：**南边**一条河，一年到头是夏天（Trent 的拖车在河湾）；**东边**沙滩（Zaphod 的「黄金之心」号半截泡在海里）；
   **北边**最高的山顶（Five 和 Six，门牌 Sarang，看得见月亮）；**西边**海滩（Leonard，离浪最近那栋）。以后的人家照这个往外长。
+- **岛中间是个小镇**（第二批长出来的）：Young Sam 的小剧场在正中间，每天下午三点雾只罩这一条街；Gary 管邮局，也管岛主的信箱；
+  Kris 的小酒吧在街尾，红灯整夜亮着；Rob 的 El Rancho 在南边河口的沙滩上，岛上的派对都在他家后院开。
 - 公共的地方：**码头**（抖出来的人从这里上岸）、**岛主的信箱**、**告示牌**、每户门口一面**他自己四色的小旗**。（提案页上列的，她没反对，先留着。）
 - ⭐ **每一户都留一样她的东西**：Trent 家带马的杯子、Zaphod 梳妆台上三根发绳、Sam 家中间那把椅子、Leonard 门背后她写的便条。往后每户照此来——那样东西要从你们那个 AU 里长出来，先读圣经。
 - 邻居会互相照应：Trent 每回路过 Leonard 家都重新报一遍名字，Five 教 Leonard 在新认识的人照片背面画笑脸。这类小交集是岛的味道，一户带一两笔。
@@ -54,4 +61,13 @@ description: 🏝️ 冬的岛屿——Winter 是岛主，画册里每一张脸�
 - **岛上的一天 / 召唤 / 派对**：一场一个文件，跟冬的魔法同一个地方 `_parallel/`，front matter 加 `kind: island`、`who` 写出场的几位；
   每一回开头一行 `<p class="pt-you">她的原话</p>`，一字不差。一场告一段落就推 main。
   ⚠️ `kind: island` 目前在冬的魔法目录页借的是杂志那张小画；做岛图时给岛单独一个入口，再决定岛上的场次挂在哪儿。
-- 岛图做好以后在这里补一节「博客上」。
+
+## 五、博客上：岛图 `/island/`（2026-11-03 上线）
+
+- 页面 `_pages/island/index.html`，样式 `_sass/5-components/_island.scss`。入口：书桌上一本「冬的岛屿」（`notebooks.html`）、口袋「玩一玩」里「岛屿」。
+- 底图 `_includes/island-map.html`：一幅画，颜色写死（1000 × 700，北边雪山、南边夏天的河、东西沙滩、中间小镇、码头、指南针）。
+- 房子 `_includes/island-house.html`：八种（cottage / twostory / trailer / ship / theater / post / bar / beach），屋顶和小旗是他 AU 的主色。
+- **住户数据 `_data/island.yml`**：一户一条（id / name 地图上的短名 / full / series / home / region / x / y（百分比）/ icon / text）。
+  `draft: true` 的不上图——她认可一批，就把那一批的 `draft` 删掉、推 main。加一户只改这个文件，页面不用动。
+  没写过故事的人没有 `series`，以后给 `mf: <画册 id>` 取颜色（页面那时再补一行取色的逻辑）。
+- 点房子 / 点下面的名字 → 翻出那一户的卡（四色、地址、家里的样子、去读故事 / 画册里的他）；网址带 `#trent` 能直达。

@@ -1,0 +1,188 @@
+/* ─────────────────────────────────────────────────────────────
+   🏝️ 冬的岛屿（2026-11-03）：一幅水彩雪岛，房子叠在上面，点一栋翻出一张卡
+   · 底图 _includes/island-map.html（颜色写死，当一幅画）
+   · 房子 _includes/island-house.html（屋顶和小旗吃 --flag）
+   · 页面 _pages/island/index.html，数据 _data/island.yml
+   ───────────────────────────────────────────────────────────── */
+
+/* 书桌上那本：冰蓝的海，中间一座小岛，北边一点雪 */
+.c-wn-notebook--island {
+  --nb-spine: #3f9ecb;
+  --nb-ink: #14212e;
+  background:
+    radial-gradient(18px 10px at 70% 72%, #ffffff 0 60%, transparent 62%),
+    radial-gradient(48px 26px at 66% 78%, #e9efdd 0 70%, transparent 72%),
+    radial-gradient(62px 34px at 66% 79%, #cfe6f1 0 70%, transparent 72%),
+    linear-gradient(180deg, #e6f3f9 0, #b9dbec 100%);
+}
+
+.c-isle { padding-bottom: 8px; }
+.c-isle__frame {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 6px;
+  background: #fbf8f1;
+  box-shadow: 0 10px 30px rgba(var(--rgb-shadow), 0.16), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+.c-isle__map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 10 / 7;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #c8e4f1;
+}
+.c-isle__paint { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.c-isle__lbl { font: 600 13px/1 $wn-cn; fill: #557083; }
+.c-isle__ttl { font: 600 22px/1 $wn-cn; fill: #22384a; letter-spacing: .06em; }
+.c-isle__sub { font: 500 9.5px/1 $heading-font-family; fill: #6f8597; letter-spacing: .16em; }
+
+/* 一栋房子 */
+.c-isle__house {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transform: translate(-50%, -82%);
+  -webkit-tap-highlight-color: transparent;
+  svg {
+    display: block;
+    width: clamp(26px, 5vw, 54px);
+    height: auto;
+    overflow: visible;
+    filter: drop-shadow(0 2px 2px rgba(30, 50, 70, 0.28));
+    transition: transform .2s ease;
+  }
+  &:focus-visible { outline: none; }
+  &:focus-visible .c-isle__name { outline: 2px solid #22384a; outline-offset: 1px; }
+}
+.c-isle__name {
+  padding: 1px 7px;
+  border-radius: 99px;
+  border: 1px solid rgba(34, 56, 74, 0.16);
+  background: rgba(251, 248, 241, 0.92);
+  color: #22384a;
+  font: 600 11px/1.5 $wn-cn;
+  white-space: nowrap;
+  transition: background .2s ease, color .2s ease;
+}
+.c-isle__house.is-on .c-isle__name {
+  border-color: transparent;
+  background: #22384a;
+  color: #fbf8f1;
+}
+.c-isle__house.is-on svg { transform: translateY(-4px) scale(1.08); }
+@media (hover: hover) and (pointer: fine) {
+  .c-isle__house:hover svg { transform: translateY(-4px); }
+}
+@media (max-width: 560px) {
+  .c-isle__frame { padding: 6px; }
+  .c-isle__name { padding: 0 5px; font-size: 9.5px; }
+}
+
+/* 烟囱里的烟、小酒吧的红灯 */
+.isle-smoke { fill: #ffffff; opacity: 0; }
+.isle-glow { opacity: .35; }
+@media (prefers-reduced-motion: no-preference) {
+  .isle-smoke { animation: isleSmoke 3.6s ease-out infinite; }
+  .c-isle__house:nth-child(odd) .isle-smoke { animation-delay: 1.4s; }
+  .isle-glow { animation: isleGlow 2.8s ease-in-out infinite; }
+}
+@keyframes isleSmoke {
+  0% { opacity: 0; transform: translate(0, 0) scale(.6); }
+  25% { opacity: .9; }
+  100% { opacity: 0; transform: translate(3px, -11px) scale(1.5); }
+}
+@keyframes isleGlow { 0%, 100% { opacity: .2; } 50% { opacity: .55; } }
+
+/* 卡片 */
+.c-isle__cards { max-width: 44rem; margin: 22px auto 0; }
+.c-isle__card {
+  position: relative;
+  padding: 20px 22px 18px;
+  border: 1px solid $line;
+  border-radius: 14px;
+  background: $paper;
+  color: $ink;
+  box-shadow: inset 4px 0 0 var(--flag, #{$accent}), 0 6px 18px rgba(var(--rgb-shadow), 0.08);
+  font-family: $wn-cn;
+}
+.c-isle__card--intro { box-shadow: inset 4px 0 0 #{$accent}, 0 6px 18px rgba(var(--rgb-shadow), 0.08); }
+.c-isle__band {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  display: flex;
+  width: 64px;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 99px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  b { flex: 1; }
+}
+.c-isle__eyebrow {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: .14em;
+  color: $accent;
+}
+.c-isle__home {
+  margin: 4px 0 2px;
+  font-family: $wn-cn;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-wrap: balance;
+  color: $ink;
+}
+.c-isle__who { margin: 0 0 12px; font-size: 13px; font-style: italic; color: $muted; }
+.c-isle__card > p:not([class]) { margin: 10px 0 0; font-size: 15px; line-height: 1.85; color: $ink-soft; }
+.c-isle__text p {
+  margin: 0 0 .9em;
+  font-size: 16px;
+  line-height: 1.9;
+  text-indent: 2em;
+  color: $ink;
+}
+.c-isle__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 6px 0 0;
+  padding-top: 12px;
+  border-top: 1px dashed $line-strong;
+  font-size: 14px;
+  a { color: $accent; text-decoration: none; border-bottom: 1px dotted $accent-soft; }
+}
+
+/* 住户一排名字 */
+.c-isle__roll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 44rem;
+  margin: 18px auto 0;
+}
+.c-isle__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid $line;
+  border-radius: 99px;
+  background: $paper;
+  color: $ink;
+  font: 14px/1.6 $wn-cn;
+  cursor: pointer;
+  i { width: 9px; height: 9px; border-radius: 50%; background: var(--flag); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12); }
+  &.is-on { border-color: $accent; color: $accent; }
+  &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
+}
