@@ -1,0 +1,361 @@
+/* ===============
+	💿 冬的碟柜（/discs/，2026-11-04）
+	Winter 在提案页上挑的「唱片行的那面墙」：封面朝外一格一格，塑料壳的黑铰链和反光都画出来，
+	底下挂一张小价签——专辑名是价签上最大的字（她：「排版肯定要一眼看见专辑名字的」）。
+	一个乐队一格。页面：discs/index.html；资料：_data/discs.json；封面：discs/covers/
+=============== */
+
+$disc-en: 'EB Garamond', 'Noto Serif SC', Georgia, serif;
+$disc-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
+$disc-red: #d4213d;
+$disc-plastic: #0b0c0e;
+
+.c-discs {
+  position: relative;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.2rem 0 3rem;
+  font-family: $disc-cn;
+  color: $ink;
+}
+.c-discs__back {
+  display: inline-block;
+  margin-bottom: .8rem;
+  font-family: $disc-en;
+  font-size: .9rem;
+  color: $muted;
+  text-decoration: none;
+  &:hover { color: $accent; }
+}
+
+/* 乐队跳转：一排小药丸 */
+.c-discs__bands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: .2rem 0 .6rem;
+  a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .3rem;
+    padding: .1rem .7rem;
+    border: 1px solid $line;
+    border-radius: 999px;
+    font-family: $disc-en;
+    font-size: .84rem;
+    color: $ink;
+    text-decoration: none;
+    small { font-size: .72rem; color: $muted; font-variant-numeric: tabular-nums; }
+    &:hover { border-color: $accent; color: $accent; }
+  }
+}
+
+/* 一个乐队一格 */
+.c-discs__band { margin-top: 2.2rem; scroll-margin-top: 5rem; }
+.c-discs__band-h {
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  margin: 0 0 1rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid $line;
+  font-family: $disc-en;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  small { font-family: $disc-cn; font-size: .8rem; font-weight: 400; color: $muted; }
+  &::after { content: ""; flex: 1; }
+}
+.c-discs__wall {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.4rem .9rem;
+}
+
+/* ── 一只塑料壳 ── */
+.c-disc { min-width: 0; }
+.c-disc__case {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: $disc-plastic;
+  cursor: pointer;
+  box-shadow: 0 8px 18px -6px rgba(0, 0, 0, .45), 0 1px 0 rgba(255, 255, 255, .06) inset;
+  transition: transform .18s ease, box-shadow .18s ease;
+  overflow: visible;
+  /* 左边那道铰链 */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 9px;
+    border-radius: 3px 0 0 3px;
+    background: linear-gradient(90deg, #000 0, #30333a 45%, #0d0e11 70%, #000);
+    z-index: 2;
+  }
+  /* 壳面的反光 */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 3px;
+    background: linear-gradient(112deg, rgba(255, 255, 255, .30) 0, rgba(255, 255, 255, .10) 22%, transparent 36%, transparent 66%, rgba(255, 255, 255, .09) 100%);
+    pointer-events: none;
+    z-index: 3;
+  }
+  img, .c-disc__print {
+    position: absolute;
+    top: 3px; right: 3px; bottom: 3px; left: 10px;
+    width: calc(100% - 13px);
+    height: calc(100% - 6px);
+    object-fit: cover;
+    border-radius: 1px;
+    display: block;
+  }
+  .c-disc__print {
+    display: grid;
+    place-items: center;
+    padding: .6rem;
+    font-family: $disc-en;
+    font-style: normal;
+    font-weight: 600;
+    font-size: .95rem;
+    text-align: center;
+    color: #f4efe4;
+    background: linear-gradient(135deg, #3a4150, #1c2029);
+  }
+  &:hover, &:focus-visible { transform: translateY(-3px); box-shadow: 0 14px 24px -8px rgba(0, 0, 0, .5); }
+  &:focus-visible { outline: 2px solid $accent; outline-offset: 3px; }
+  &.is-empty {
+    width: 9rem;
+    margin: 0 auto;
+    cursor: default;
+    opacity: .55;
+    &:hover { transform: none; }
+  }
+}
+.c-disc__new {
+  position: absolute;
+  right: -.35rem; top: -.45rem;
+  z-index: 4;
+  padding: 0 .4rem;
+  border-radius: 2px;
+  background: $disc-red;
+  color: #fff;
+  font-family: $disc-en;
+  font-style: normal;
+  font-weight: 600;
+  font-size: .6rem;
+  letter-spacing: .12em;
+  line-height: 1.6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+}
+.c-disc__signed {
+  position: absolute;
+  left: .9rem; bottom: .35rem;
+  z-index: 4;
+  font-style: normal;
+  font-size: .85rem;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5));
+}
+
+/* ── 小价签：专辑名最大 ── */
+.c-disc__tag {
+  position: relative;
+  margin: .7rem 0 0 .45rem;
+  padding: .4rem .55rem .42rem .7rem;
+  border: 1px solid color-mix(in srgb, $gold 55%, $line);
+  border-radius: 2px;
+  background: color-mix(in srgb, $gold 10%, $paper);
+  line-height: 1.4;
+  /* 价签的小孔和细绳 */
+  &::before {
+    content: "";
+    position: absolute;
+    left: -.42rem; top: -.42rem;
+    width: .55rem; height: .55rem;
+    border-radius: 50%;
+    border: 1px solid color-mix(in srgb, $gold 55%, $line);
+    background: $paper;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    left: -.15rem; top: -.75rem;
+    width: .5rem; height: .5rem;
+    border-left: 1px solid color-mix(in srgb, $gold 70%, $muted);
+    border-top: 1px solid color-mix(in srgb, $gold 70%, $muted);
+    border-radius: 50% 0 0 0;
+  }
+}
+.c-disc__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-family: $disc-en;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: $ink;
+}
+.c-disc__who {
+  display: block;
+  margin-top: .12rem;
+  font-size: .78rem;
+  color: $muted;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.c-disc__ver {
+  display: block;
+  margin-top: .2rem;
+  padding-top: .2rem;
+  border-top: 1px dotted color-mix(in srgb, $gold 60%, $line);
+  font-size: .7rem;
+  letter-spacing: .02em;
+  color: $muted;
+  word-break: keep-all;     /* 「全新」别被拆成两行 */
+}
+.c-disc__wall {
+  position: absolute;
+  right: .4rem; top: -.55rem;
+  font-size: .62rem;
+  letter-spacing: .08em;
+  line-height: 1.6;
+  padding: 0 .3rem;
+  border: 1px solid $gold;
+  border-radius: 2px;
+  background: $paper;
+  color: $gold;
+  text-decoration: none;
+  &:hover { background: $gold; color: $paper; }
+}
+
+/* 空柜子 */
+.c-discs__empty {
+  margin: 2.5rem auto 1rem;
+  text-align: center;
+  color: $muted;
+  font-size: .92rem;
+  line-height: 1.8;
+  p { margin: 1.2rem 0 0; }
+}
+.c-discs__foot {
+  margin: 2.4rem .2rem 0;
+  font-size: .85rem;
+  color: $muted;
+  line-height: 1.8;
+  a { color: inherit; }
+}
+
+/* ── 点开一张：资料浮层 ── */
+.c-disc-view {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.c-disc-view__back { position: absolute; inset: 0; background: rgba(8, 10, 14, .62); backdrop-filter: blur(3px); }
+.c-disc-view__panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1.1rem;
+  width: min(34rem, 100%);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 1.1rem;
+  border-radius: 12px;
+  background: $paper;
+  color: $ink;
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .6);
+}
+.c-disc-view__x {
+  position: absolute;
+  right: .6rem; top: .5rem;
+  width: 2rem; height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: $muted;
+  font-size: 1rem;
+  cursor: pointer;
+  &:hover { background: color-mix(in srgb, $ink 8%, transparent); color: $ink; }
+}
+.c-disc-view__case {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: $disc-plastic;
+  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .5);
+  &::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 10px; border-radius: 3px 0 0 3px; background: linear-gradient(90deg, #000 0, #30333a 45%, #0d0e11 70%, #000); z-index: 2; }
+  &::after { content: ""; position: absolute; inset: 0; border-radius: 3px; background: linear-gradient(112deg, rgba(255, 255, 255, .28) 0, rgba(255, 255, 255, .08) 22%, transparent 36%, transparent 66%, rgba(255, 255, 255, .08) 100%); pointer-events: none; z-index: 3; }
+  img { position: absolute; top: 3px; right: 3px; bottom: 3px; left: 11px; width: calc(100% - 14px); height: calc(100% - 6px); object-fit: cover; border-radius: 1px; }
+}
+.c-disc-view__body {
+  min-width: 0;
+  h3 { margin: .1rem 1.6rem 0 0; font-family: $disc-en; font-size: 1.45rem; font-weight: 600; line-height: 1.2; }
+}
+.c-disc-view__who { margin: .15rem 0 .7rem; color: $muted; font-size: .9rem; }
+.c-disc-view__dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .2rem .8rem;
+  margin: 0;
+  font-size: .86rem;
+  dt { color: $muted; white-space: nowrap; }
+  dd { margin: 0; }
+}
+.c-disc-view__memo {
+  margin: .8rem 0 0;
+  padding: .55rem .8rem;
+  border-left: 2px solid $gold;
+  background: color-mix(in srgb, $gold 10%, transparent);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+.c-disc-view__links { margin: .8rem 0 0; font-size: .85rem; a { color: $accent; } }
+body.is-disc-open { overflow: hidden; }
+
+/* ── 唱片墙那边：封面右上角一枚 💿（柜里有这张） ── */
+.c-sleeve__badge--disc { left: auto; right: 6px; padding: 0 5px; }
+
+/* ── 唱片墙顶上两条横幅并排（电台 · 碟柜） ── */
+.c-songs__banners {
+  display: grid;
+  gap: .8rem;
+  margin: 0 0 1.4rem;
+  .c-radio-banner { margin: 0; }
+}
+.c-radio-banner--discs {
+  background:
+    radial-gradient(circle at 74% 50%, rgba(255, 255, 255, .55) 0 6%, transparent 7%),
+    radial-gradient(circle at 74% 50%, #d5dbe4 0 22%, #2b3038 23%, transparent 24%),
+    linear-gradient(180deg, #30343b, #171a20);
+  &::before { background: linear-gradient(90deg, #b8c0cc 50%, #5f6773 50%); }
+  .c-radio-banner__go { position: relative; padding: .1rem .55rem; border-radius: 999px; background: rgba(0, 0, 0, .4); }
+}
+
+@media (min-width: 640px) {
+  .c-songs__banners { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .c-discs__wall { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem .7rem; }
+}
+@media (max-width: 480px) {
+  .c-discs__wall { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem .8rem; }
+  .c-disc__title { font-size: .98rem; }
+  .c-disc-view__panel { grid-template-columns: 1fr; padding: 1rem; }
+  .c-disc-view__case { width: 10rem; margin: 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .c-disc__case { transition: none; }
+}

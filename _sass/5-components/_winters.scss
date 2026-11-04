@@ -145,6 +145,15 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 11px) 0 14px / 100% 8px no-repeat,
     linear-gradient(180deg, #2a2f3a, #161a23);
 }
+/* 冬的碟柜那本：炭黑塑料壳、右边探出半张银色的碟、灰书脊（2026-11-04） */
+.c-wn-notebook--discs {
+  --nb-spine: #8f98a5;
+  --nb-ink: #f3f5f8;
+  background:
+    radial-gradient(circle at 74% 56%, rgba(255, 255, 255, 0.5) 0 6%, transparent 7%),
+    radial-gradient(circle at 74% 56%, #d5dbe4 0 24%, #262a31 25%, transparent 26%),
+    linear-gradient(180deg, #30343b, #161a21);
+}
 .c-wn-notebook--backs {
   --nb-spine: #4a4234;
   --nb-ink: #f6f1e7;

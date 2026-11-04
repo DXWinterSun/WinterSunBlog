@@ -1,0 +1,129 @@
+---
+layout: home
+title: 冬的碟柜 · Discs
+permalink: /discs/
+nav_active: notes
+description: "冬的碟柜：家里的音乐 CD，一张张拍下来记在这儿，买之前翻一眼就知道有没有。"
+---
+{%- comment -%}
+  💿 冬的碟柜（2026-11-04，Winter 在提案页上挑的「唱片行的那面墙」）
+  · 资料全在 _data/discs.json（她拍照、我认、tools/discs/add.py 记进去）；封面图在 discs/covers/（官方专辑图）。
+    ⚠️ 封面放这儿不放 images/，是为了不惊动对脸机器人（face-focus.yml 只盯 images/**）。
+  · 一个乐队一格，张数多的在前（JS 排）；一张 CD = 一只塑料壳（左边黑铰链 + 反光）+ 底下一张小价签，
+    专辑名是价签上最大的字（她：「排版肯定要一眼看见专辑名字的」）。
+  · 点壳子弹出这张的资料（版本 · 状态 · 碎碎念）；网址 #d-<id> 直接打开。
+  · 唱片墙上也有的专辑带一枚金色「墙」字标；唱片墙那边的封面右上角会出现 💿。
+{%- endcomment -%}
+{%- assign items = site.data.discs.items -%}
+{%- assign groups = items | group_by: "artist" | sort: "name" -%}
+{%- assign band_n = groups | size -%}
+
+<section class="c-hero c-hero--filter">
+  <div class="c-hero__eyebrow">Desk · Discs</div>
+  <h1 class="c-hero__title">冬的<em>碟柜</em></h1>
+  <div class="c-hero__byline">
+    <span class="c-hero__byline-rule"></span>
+    <span class="c-hero__byline-text">家里的 CD 都在这儿 · {{ items.size }} 张 · {{ band_n }} 个乐队</span>
+    <span class="c-hero__byline-rule"></span>
+  </div>
+</section>
+
+<section class="c-discs" id="js-discs">
+  <a class="c-discs__back" href="{{ site.baseurl }}/notes/">‹ 回书桌</a>
+
+  {%- if items.size == 0 %}
+  <div class="c-discs__empty">
+    <div class="c-disc__case is-empty" aria-hidden="true"></div>
+    <p>柜子还空着。回家把 CD 拍给我，一张张记进来。</p>
+  </div>
+  {%- else %}
+  <nav class="c-discs__bands" aria-label="按乐队跳">
+    {%- for g in groups %}<a href="#band-{{ g.name | slugify }}" data-n="{{ g.items.size }}">{{ g.name }}<small>{{ g.items.size }}</small></a>{% endfor %}
+  </nav>
+  {%- for g in groups %}
+  <section class="c-discs__band" id="band-{{ g.name | slugify }}" data-n="{{ g.items.size }}">
+    <h2 class="c-discs__band-h"><span>{{ g.name }}</span><small>{{ g.items.size }} 张</small></h2>
+    <div class="c-discs__wall">
+      {%- for d in g.items -%}
+        {%- assign wall_id = d.wall -%}
+        {%- unless wall_id -%}
+          {%- assign d_album = d.album | downcase | strip -%}{%- assign d_artist = d.artist | downcase | strip -%}
+          {%- for a in site.data.songs.albums -%}{%- assign a_album = a.album | downcase | strip -%}{%- assign a_artist = a.artist | downcase | strip -%}{%- if a_album == d_album and a_artist == d_artist -%}{%- assign wall_id = a.id -%}{%- endif -%}{%- endfor -%}
+        {%- endunless %}
+      <article class="c-disc" id="d-{{ d.id }}" data-id="{{ d.id }}">
+        <button type="button" class="c-disc__case" data-open="{{ d.id }}" aria-label="看《{{ d.album | escape }}》的资料">
+          {%- if d.cover %}<img src="{{ site.baseurl }}/discs/covers/{{ d.cover }}" alt="" loading="lazy" width="300" height="300">{% else %}<i class="c-disc__print">{{ d.album | escape }}</i>{% endif %}
+          {%- if d.status contains "全新" %}<i class="c-disc__new" aria-hidden="true">NEW</i>{% endif %}
+          {%- if d.status contains "签名" %}<i class="c-disc__signed" aria-hidden="true">✍️</i>{% endif %}
+        </button>
+        <div class="c-disc__tag">
+          <b class="c-disc__title" lang="pl">{{ d.album | escape }}</b>
+          <span class="c-disc__who">{{ d.artist | escape }}{% if d.year %} · {{ d.year }}{% endif %}</span>
+          {%- if d.ver or d.status %}<span class="c-disc__ver">{{ d.ver | escape }}{% if d.ver and d.status %} · {% endif %}{{ d.status | escape }}</span>{% endif %}
+          {%- if wall_id %}<a class="c-disc__wall" href="{{ site.baseurl }}/songs/#a-{{ wall_id }}" title="唱片墙上有这张：摘录和翻译">墙</a>{% endif %}
+        </div>
+        <template class="c-disc__data">{{ d | jsonify | escape }}</template>
+        {%- if wall_id %}<template class="c-disc__wallhref">{{ site.baseurl }}/songs/#a-{{ wall_id }}</template>{% endif %}
+      </article>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endfor %}
+  {%- endif %}
+
+  <p class="c-discs__foot">这页只放音乐 CD；Sam 的电影碟在<a href="{{ site.baseurl }}/sam/shelf/">藏品架</a>。没写「全新」的都是二手。</p>
+</section>
+
+<div class="c-disc-view" id="js-disc-view" hidden role="dialog" aria-modal="true" aria-labelledby="js-disc-view-title">
+  <div class="c-disc-view__back" data-close></div>
+  <div class="c-disc-view__panel">
+    <button type="button" class="c-disc-view__x" data-close aria-label="关上">✕</button>
+    <div class="c-disc-view__case"><img id="js-disc-view-img" src="" alt=""></div>
+    <div class="c-disc-view__body">
+      <h3 id="js-disc-view-title"></h3>
+      <p class="c-disc-view__who" id="js-disc-view-who"></p>
+      <dl class="c-disc-view__dl" id="js-disc-view-dl"></dl>
+      <p class="c-disc-view__memo" id="js-disc-view-memo" hidden></p>
+      <p class="c-disc-view__links" id="js-disc-view-links"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('js-discs'); if (!root) return;
+  // 乐队按张数多的在前（Liquid 只能按名字排）
+  var bands = [].slice.call(root.querySelectorAll('.c-discs__band'));
+  bands.sort(function (a, b) { return (+b.getAttribute('data-n')) - (+a.getAttribute('data-n')) || a.id.localeCompare(b.id); });
+  var foot = root.querySelector('.c-discs__foot');
+  bands.forEach(function (b) { root.insertBefore(b, foot); });
+  var nav = root.querySelector('.c-discs__bands');
+  if (nav) { var links = [].slice.call(nav.children); links.sort(function (a, b) { return (+b.getAttribute('data-n')) - (+a.getAttribute('data-n')) || a.textContent.localeCompare(b.textContent); }); links.forEach(function (l) { nav.appendChild(l); }); }
+
+  var view = document.getElementById('js-disc-view');
+  var FIELDS = [['ver', '版本'], ['status', '状态'], ['added', '记进来']];
+  function open(id, push) {
+    var art = root.querySelector('.c-disc[data-id="' + CSS.escape(id) + '"]'); if (!art) return;
+    var d; try { d = JSON.parse(art.querySelector('.c-disc__data').innerHTML.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')); } catch (e) { return; }
+    var img = art.querySelector('img');
+    document.getElementById('js-disc-view-img').src = img ? img.src : '';
+    document.getElementById('js-disc-view-title').textContent = d.album || '';
+    document.getElementById('js-disc-view-who').textContent = (d.artist || '') + (d.year ? ' · ' + d.year : '');
+    var dl = document.getElementById('js-disc-view-dl'); dl.innerHTML = '';
+    FIELDS.forEach(function (f) { if (d[f[0]]) { var dt = document.createElement('dt'); dt.textContent = f[1]; var dd = document.createElement('dd'); dd.textContent = d[f[0]]; dl.appendChild(dt); dl.appendChild(dd); } });
+    var memo = document.getElementById('js-disc-view-memo'); memo.hidden = !d.memo; memo.textContent = d.memo ? '“' + d.memo + '”' : '';
+    var links = document.getElementById('js-disc-view-links'); links.innerHTML = '';
+    var wh = art.querySelector('.c-disc__wallhref');
+    if (wh) { var a = document.createElement('a'); a.href = wh.innerHTML.trim(); a.textContent = '唱片墙上有这张 ›'; links.appendChild(a); }
+    view.hidden = false; document.body.classList.add('is-disc-open');
+    if (push) { try { history.replaceState(null, '', '#d-' + id); } catch (e) { } }
+    var x = view.querySelector('.c-disc-view__x'); if (x) x.focus();
+  }
+  function close() { view.hidden = true; document.body.classList.remove('is-disc-open'); try { history.replaceState(null, '', location.pathname); } catch (e) { } }
+  root.addEventListener('click', function (e) { var b = e.target.closest('[data-open]'); if (b) open(b.getAttribute('data-open'), true); });
+  view.addEventListener('click', function (e) { if (e.target.closest('[data-close]')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !view.hidden) close(); });
+  var h = (location.hash || '').replace('#d-', '');
+  if (h && location.hash.indexOf('#d-') === 0) open(h, false);
+})();
+</script>
