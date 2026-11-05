@@ -135,9 +135,11 @@ def build():
 
     # ── 北边：雪山（Five & Six 在最高那座的山顶）和雪原上一面冰湖
     a('<g filter="url(#isle-wc)">')
+    a('<g stroke="#9fb4c6" stroke-width="2" stroke-linejoin="round">')
     a('<path d="M520 356 L596 270 L668 356 Z" fill="#cbd7e2"/><path d="M944 356 L1024 262 L1100 356 Z" fill="#cbd7e2"/>')
     a('<path d="M616 344 L700 214 L784 344 Z" fill="#c2d0dc"/><path d="M832 344 L920 200 L1008 344 Z" fill="#c2d0dc"/>')
     a('<path d="M690 352 L800 150 L912 352 Z" fill="#b2c3d3"/>')
+    a("</g>")
     a('<path d="M770 206 L800 150 L832 208 L818 200 L802 220 L786 200 Z" fill="#ffffff"/>')
     a('<path d="M684 238 L700 214 L717 241 L708 236 L700 247 L692 236 Z" fill="#ffffff"/>')
     a('<path d="M903 228 L920 200 L938 230 L929 225 L920 237 L911 225 Z" fill="#ffffff"/>')
@@ -147,7 +149,7 @@ def build():
     a("</g>")
     a('<g stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" opacity=".9"><path d="M770 392 l30 -6 M818 402 l26 -5 M846 390 l18 -3"/></g>')
     # 雪原上的小雪人
-    a('<g transform="translate(1000 452)"><circle cy="-6" r="7" fill="#ffffff" stroke="#b9cbd8"/><circle cy="-17" r="5" fill="#ffffff" stroke="#b9cbd8"/><path d="M0 -17 l5 1.4 l-5 1" fill="#e3954a"/><rect x="-4.5" y="-26" width="9" height="4" fill="#34495e"/><rect x="-3" y="-30" width="6" height="5" fill="#34495e"/></g>')
+    a('<g transform="translate(760 458)"><circle cy="-6" r="7" fill="#ffffff" stroke="#b9cbd8"/><circle cy="-17" r="5" fill="#ffffff" stroke="#b9cbd8"/><path d="M0 -17 l5 1.4 l-5 1" fill="#e3954a"/><rect x="-4.5" y="-26" width="9" height="4" fill="#34495e"/><rect x="-3" y="-30" width="6" height="5" fill="#34495e"/></g>')
 
     # ── 西北：松林和林中的湖
     a('<g filter="url(#isle-wc)"><ellipse cx="330" cy="300" rx="64" ry="30" fill="#bcdcec" stroke="#ffffff" stroke-width="3"/></g>')
@@ -196,6 +198,9 @@ def build():
     # 小镇的桥、Trent 那座单车道的小桥
     a('<g transform="rotate(-62 668 560)"><rect x="646" y="554" width="44" height="12" rx="2" fill="#b9a68a"/><path d="M648 557 h40 M648 563 h40" stroke="#8a7458" stroke-width="1"/></g>')
     a('<g transform="rotate(42 700 794)"><rect x="678" y="788" width="44" height="11" rx="2" fill="#b08b62"/><path d="M680 791 h40 M680 796 h40" stroke="#8a6a46" stroke-width="1"/></g>')
+
+    a('<g transform="rotate(-48 805 905)"><rect x="781" y="898" width="48" height="13" rx="1" fill="#8e9aa6"/><path d="M783 898 l8 -6 l8 6 l8 -6 l8 6 l8 -6 l8 6" stroke="#5f6c78" stroke-width="1.4" fill="none"/></g>')
+    a('<g filter="url(#isle-wc)"><ellipse cx="306" cy="214" rx="28" ry="12" fill="#bcdcec" stroke="#ffffff" stroke-width="2"/></g>')
 
     # ── 路：小镇往四面八方
     a('<g fill="none" stroke="#bfa47c" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="1 8" opacity=".9">'
@@ -246,9 +251,9 @@ def build():
 
     # ── 各区的名字（小字，房子尽量不压上去）
     zones = [
-        (300, 140, "西北的松林"), (1010, 132, "北边的雪山"), (1300, 150, "英格兰高地"),
-        (300, 470, "红岩荒原"), (176, 978, "西边的海滩"), (850, 494, "小镇"), (800, 1000, "夏天的河"),
-        (1430, 410, "悬崖"), (1240, 1000, "地中海海岸"), (1520, 650, "东边的沙滩"),
+        (300, 118, "西北的松林"), (1010, 132, "北边的雪山"), (1300, 150, "英格兰高地"),
+        (215, 722, "红岩荒原"), (176, 978, "西边的海滩"), (850, 628, "小镇"), (800, 1000, "夏天的河"),
+        (1395, 968, "地中海海岸"), (1520, 650, "东边的沙滩"),
     ]
     a('<g class="c-isle__zones">' + "".join(
         f'<text x="{x}" y="{y}" text-anchor="middle" class="c-isle__zone">{t}</text>' for x, y, t in zones if t) + "</g>")
