@@ -1,0 +1,22 @@
+[
+  {"id": "robert", "name": "Robert", "full": "Robert Goode", "series": null, "mf": "robert",
+   "home": "电话线一直拉到门口的那栋小屋", "zone": "snow", "region": "北边的雪原 · 山脚的小村", "icon": "cottage"},
+  {"id": "brad", "name": "Brad", "full": "Brad Cairn", "series": "The Ball He Couldn't Reach", "mf": null,
+   "home": "球场对面那栋老公寓的九楼", "zone": "river", "region": "南边的河 · 球场对面", "icon": "tower"},
+  {"id": "kenny", "name": "Kenny", "full": "Kenny Waters", "series": null, "mf": "kenny",
+   "home": "湖边窗户从来不关的木屋", "zone": "pines", "region": "西北的松林 · 湖边", "icon": "cabin"},
+  {"id": "bowen", "name": "Bowen", "full": "Eric Bowen", "series": "This House Is Clean", "mf": null,
+   "home": "整条街最便宜的那一栋", "zone": "suburb", "region": "小镇边上的住宅区 · 街道尽头", "icon": "twostory"},
+  {"id": "guy", "name": "Guy", "full": "Guy Fleegman", "series": null, "mf": "guy",
+   "home": "全岛最安全的那一栋", "zone": "suburb", "region": "小镇边上的住宅区", "icon": "cottage"},
+  {"id": "bronco", "name": "Bronco", "full": "Bronco", "series": null, "mf": "bronco",
+   "home": "红岩顶上拴着战鹿的石屋", "zone": "mesa", "region": "西边的红岩荒原 · 平顶山上", "icon": "barn"},
+  {"id": "billy", "name": "Billy", "full": "Billy Bickle", "series": "The Part Where You Live", "mf": null,
+   "home": "门从来不锁的平房", "zone": "mesa", "region": "西边的红岩荒原 · 土路尽头", "icon": "cottage"},
+  {"id": "eric", "name": "Knox", "full": "Eric Knox", "series": "Simon Says", "mf": null,
+   "home": "悬崖顶上那栋白色的玻璃房子", "zone": "east", "region": "东边的沙滩和悬崖 · 悬崖顶上", "icon": "villa"},
+  {"id": "hammer", "name": "Hammer", "full": "Justin Hammer", "series": "Good Enough", "mf": null,
+   "home": "楼顶亮着他名字的玻璃楼", "zone": "east", "region": "东边的沙滩和悬崖 · 沙滩上", "icon": "tower"},
+  {"id": "wolf", "name": "Mr. Wolf", "full": "Mr. Wolf", "series": null, "mf": "wolf",
+   "home": "后街那间车库楼上", "zone": "town", "region": "小镇 · 后街", "icon": "shop"}
+]

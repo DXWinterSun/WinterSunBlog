@@ -1,0 +1,11 @@
+[
+  {"id": "owen", "name": "Owen", "full": "Owen", "series": "Summer Never Ends", "mf": null, "home": "一年到头不闭园的水上乐园", "zone": "river", "region": "南边的河 · 水上乐园", "icon": "tower"},
+  {"id": "greaves", "name": "Greaves", "full": "Bill Greaves", "series": "No One Walks Off", "mf": null, "home": "车库上钉着篮筐的那栋", "zone": "snow", "region": "北边的雪原 · 雪村", "icon": "gym"},
+  {"id": "victor", "name": "Victor", "full": "Victor Mancini", "series": "Choke Point", "mf": null, "home": "1734 年那座小村的村口", "zone": "pines", "region": "西北的松林 · 1734 年的小村", "icon": "cabin"},
+  {"id": "aidan", "name": "Aidan", "full": "Aidan Wilde", "series": null, "mf": "aidan", "home": "一排门里谁也记不住的那一扇", "zone": "highland", "region": "东北的英格兰高地 · 石板小街", "icon": "twostory"},
+  {"id": "alexios", "name": "Alexios", "full": "Alexios", "series": "The Only War", "mf": null, "home": "海湾崖顶那座白石屋", "zone": "med", "region": "东南的地中海海岸 · 白崖下的海湾", "icon": "cottage"},
+  {"id": "menelaus", "name": "Menelaus", "full": "Menelaus", "series": "If You'll Have Me", "mf": null, "home": "柱子上全是印子的那座宅子", "zone": "med", "region": "东南的地中海海岸 · 山坡上", "icon": "temple"},
+  {"id": "elagabalus", "name": "Elagabalus", "full": "Elagabalus", "series": "The Purple Throne", "mf": null, "home": "港口边那座紫色的小宫殿", "zone": "med", "region": "东南的地中海海岸 · 港口", "icon": "manor"},
+  {"id": "flute", "name": "Flute", "full": "Francis Flute", "series": "I Kissed the Stones", "mf": null, "home": "橄榄坡上那间有风琴的作坊", "zone": "med", "region": "东南的地中海海岸 · 橄榄坡", "icon": "shop"},
+  {"id": "carbone", "name": "Carbone", "full": "Eddie Carbone", "series": "Wholly Known", "mf": null, "home": "码头边那栋红砖公寓", "zone": "river", "region": "南边的河 · 码头边", "icon": "twostory"}
+]

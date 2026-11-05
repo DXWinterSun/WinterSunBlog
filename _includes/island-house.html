@@ -1,7 +1,9 @@
 {%- comment -%}
   🏝️ 岛图上的一栋房子（2026-11-03）。{% include island-house.html icon='cottage' %}
   屋顶和门口那面小旗吃 CSS 变量 --flag（他那个 AU 的主色，由 _pages/island/index.html 写在按钮上），其余颜色写死。
-  icon：cottage 小屋 / twostory 两层小楼 / trailer 拖车 / ship 飞船 / theater 剧场 / post 邮局 / bar 小酒吧 / beach 海边大房子。
+  icon：cottage 小屋 / twostory 两层小楼 / trailer 拖车 / ship 飞船 / theater 剧场 / post 邮局 / bar 小酒吧 / beach 海边大房子；
+  2026-11-05 全岛住满时又加了：shop 店面 / cabin 林中木屋 / villa 现代别墅 / manor 庄园 / saloon 西部酒馆 / tent 帐篷 /
+  temple 柱廊石屋 / tower 玻璃高楼 / barn 谷仓农舍 / gym 体育馆。
   烟囱冒的烟是 .isle-smoke，动画在 _sass/5-components/_island.scss。
 {%- endcomment -%}
 {%- assign ih_k = include.icon | default: 'cottage' -%}
@@ -59,6 +61,73 @@
   <path d="M5 22 q5 3 10 0 q5 3 10 0 q5 3 10 0 q4 3 8 0" fill="none" stroke="#34495e" stroke-width=".6"/>
   <g fill="#ffd36b"><circle cx="9" cy="23.5" r="1.1"/><circle cx="19" cy="23.5" r="1.1"/><circle cx="29" cy="23.5" r="1.1"/><circle cx="39" cy="23.5" r="1.1"/></g>
   <rect x="10" y="27" width="7" height="6" fill="#fbe7a8" stroke="#34495e" stroke-width=".8"/><rect x="28" y="26" width="8" height="10" fill="#b08b62" stroke="#34495e" stroke-width=".8"/>
+{%- when 'shop' %}
+  <rect x="8" y="12" width="32" height="30" fill="#fffaf2" stroke="#34495e" stroke-width="1.2"/>
+  <rect x="11" y="14" width="26" height="5" rx="1" fill="#f3e7cf" stroke="#34495e" stroke-width=".7"/>
+  <path d="M6 20 h36 v4 q-3 3.5 -6 0 q-3 3.5 -6 0 q-3 3.5 -6 0 q-3 3.5 -6 0 q-3 3.5 -6 0 q-3 3.5 -6 0 Z" fill="var(--flag)" stroke="#34495e" stroke-width="1" stroke-linejoin="round"/>
+  <rect x="11" y="28" width="13" height="9" fill="#fbe7a8" stroke="#34495e" stroke-width=".8"/>
+  <rect x="28" y="28" width="8" height="14" fill="#b08b62" stroke="#34495e" stroke-width=".8"/>
+{%- when 'cabin' %}
+  <circle class="isle-smoke" cx="33" cy="5" r="2.2"/>
+  <rect x="31" y="7" width="4" height="10" fill="#8d7a66" stroke="#34495e" stroke-width=".9"/>
+  <rect x="9" y="23" width="30" height="19" fill="#b98a5a" stroke="#34495e" stroke-width="1.2"/>
+  <path d="M9 28 h30 M9 33 h30 M9 38 h30" stroke="#8a6440" stroke-width="1"/>
+  <path d="M5 24 L24 8 L43 24 Z" fill="var(--flag)" stroke="#34495e" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M24 8 L31.5 14.2 L27.5 13.4 L24 16 L20.5 13.4 L16.5 14.2 Z" fill="#ffffff"/>
+  <rect x="13" y="28" width="7" height="6" fill="#fbe7a8" stroke="#34495e" stroke-width=".8"/>
+  <rect x="26" y="30" width="7" height="12" fill="#7a5634" stroke="#34495e" stroke-width=".8"/>
+{%- when 'villa' %}
+  <rect x="4" y="24" width="34" height="18" fill="#fffaf2" stroke="#34495e" stroke-width="1.2"/>
+  <rect x="14" y="13" width="24" height="12" fill="#fffaf2" stroke="#34495e" stroke-width="1.2"/>
+  <path d="M12 13 h28 M2 24 h14" stroke="var(--flag)" stroke-width="3" stroke-linecap="round"/>
+  <rect x="17" y="16" width="18" height="7" fill="#bfe1f1" stroke="#34495e" stroke-width=".8"/>
+  <rect x="7" y="28" width="14" height="10" fill="#bfe1f1" stroke="#34495e" stroke-width=".8"/>
+  <rect x="26" y="30" width="7" height="12" fill="#b08b62" stroke="#34495e" stroke-width=".8"/>
+  <rect x="3" y="43.5" width="22" height="3" rx="1.5" fill="#8fd0ea"/>
+{%- when 'manor' %}
+  <rect x="12" y="20" width="20" height="22" fill="#f1ebdf" stroke="#34495e" stroke-width="1.2"/>
+  <rect x="4" y="15" width="9" height="27" fill="#f1ebdf" stroke="#34495e" stroke-width="1.2"/>
+  <rect x="31" y="15" width="9" height="27" fill="#f1ebdf" stroke="#34495e" stroke-width="1.2"/>
+  <path d="M3 16 L8.5 6 L14 16 Z M30 16 L35.5 6 L41 16 Z M11 21 L22 12 L33 21 Z" fill="var(--flag)" stroke="#34495e" stroke-width="1.1" stroke-linejoin="round"/>
+  <rect x="6.5" y="20" width="4" height="5" fill="#fbe7a8" stroke="#34495e" stroke-width=".7"/><rect x="33.5" y="20" width="4" height="5" fill="#fbe7a8" stroke="#34495e" stroke-width=".7"/>
+  <rect x="15" y="25" width="4" height="5" fill="#fbe7a8" stroke="#34495e" stroke-width=".7"/><rect x="25" y="25" width="4" height="5" fill="#fbe7a8" stroke="#34495e" stroke-width=".7"/>
+  <path d="M18.5 42 v-7 q3.5 -4 7 0 v7" fill="#7a5634" stroke="#34495e" stroke-width=".8"/>
+{%- when 'saloon' %}
+  <path d="M8 42 V13 h7 v-4 h18 v4 h7 V42 Z" fill="#d9b48a" stroke="#34495e" stroke-width="1.2" stroke-linejoin="round"/>
+  <rect x="11" y="15" width="26" height="6" fill="var(--flag)" stroke="#34495e" stroke-width=".8"/>
+  <path d="M5 30 h38 l-2.5 -4.5 h-33 Z" fill="#a9825a" stroke="#34495e" stroke-width=".8" stroke-linejoin="round"/>
+  <path d="M9 30 v12 M39 30 v12" stroke="#34495e" stroke-width="1"/>
+  <rect x="12" y="33" width="6" height="5" fill="#fbe7a8" stroke="#34495e" stroke-width=".7"/><rect x="30" y="33" width="6" height="5" fill="#fbe7a8" stroke="#34495e" stroke-width=".7"/>
+  <path d="M20 34 h8 v6 h-8 Z M24 34 v6" fill="#7a5634" stroke="#34495e" stroke-width=".7"/>
+{%- when 'tent' %}
+  <path d="M3 42 L21 10 L39 42 Z" fill="#efe2c4" stroke="#34495e" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M21 10 L27 42" stroke="#34495e" stroke-width=".8" opacity=".6"/>
+  <path d="M15 42 L21 25 L27 42 Z" fill="var(--flag)" stroke="#34495e" stroke-width=".9" stroke-linejoin="round"/>
+  <path d="M21 10 V5" stroke="#34495e" stroke-width="1.1"/>
+  <path d="M34 44 l4 -5 l4 5 Z" fill="#f0a540"/><path d="M33 45 h10" stroke="#7a5634" stroke-width="1.4"/>
+{%- when 'temple' %}
+  <path d="M3 18 L23 7 L43 18 Z" fill="var(--flag)" stroke="#34495e" stroke-width="1.2" stroke-linejoin="round"/>
+  <rect x="4" y="18" width="38" height="4" fill="#fbf8f1" stroke="#34495e" stroke-width="1"/>
+  <g fill="#fbf8f1" stroke="#34495e" stroke-width=".8"><rect x="7" y="22" width="4" height="16"/><rect x="15" y="22" width="4" height="16"/><rect x="27" y="22" width="4" height="16"/><rect x="35" y="22" width="4" height="16"/></g>
+  <rect x="20.5" y="28" width="5" height="10" fill="#b08b62" stroke="#34495e" stroke-width=".7"/>
+  <rect x="2" y="38" width="42" height="4" fill="#fbf8f1" stroke="#34495e" stroke-width="1"/>
+{%- when 'tower' %}
+  <rect x="16" y="6" width="16" height="36" fill="#cfe7f3" stroke="#34495e" stroke-width="1.2"/>
+  <path d="M16 12 h16 M16 18 h16 M16 24 h16 M16 30 h16 M16 36 h16 M24 6 v36" stroke="#34495e" stroke-width=".6" opacity=".55"/>
+  <rect x="15" y="3.5" width="18" height="3.5" fill="var(--flag)" stroke="#34495e" stroke-width=".9"/>
+  <rect x="6" y="30" width="10" height="12" fill="#fffaf2" stroke="#34495e" stroke-width="1"/>
+  <rect x="8.5" y="33" width="5" height="4" fill="#fbe7a8" stroke="#34495e" stroke-width=".6"/>
+{%- when 'barn' %}
+  <path d="M6 42 V22 L11 13 L23 7 L35 13 L40 22 V42 Z" fill="var(--flag)" stroke="#34495e" stroke-width="1.2" stroke-linejoin="round"/>
+  <rect x="16" y="26" width="14" height="16" fill="#fffaf2" stroke="#34495e" stroke-width=".9"/>
+  <path d="M16 26 L30 42 M30 26 L16 42" stroke="#34495e" stroke-width=".8"/>
+  <rect x="20" y="15" width="6" height="5" fill="#fbe7a8" stroke="#34495e" stroke-width=".8"/>
+{%- when 'gym' %}
+  <path d="M4 42 V25 Q22 8 40 25 V42 Z" fill="#fffaf2" stroke="#34495e" stroke-width="1.2"/>
+  <path d="M4 25 Q22 8 40 25" fill="none" stroke="var(--flag)" stroke-width="3.2"/>
+  <circle cx="22" cy="25" r="4.2" fill="#f0a540" stroke="#34495e" stroke-width=".8"/>
+  <path d="M17.8 25 h8.4 M22 20.8 v8.4" stroke="#34495e" stroke-width=".6"/>
+  <rect x="17" y="33" width="10" height="9" fill="#b08b62" stroke="#34495e" stroke-width=".8"/>
 {%- else %}
   <circle class="isle-smoke" cx="31" cy="8" r="2.4"/>
   <rect x="29" y="10" width="4" height="8" fill="#9b8a78" stroke="#34495e" stroke-width=".9"/>

@@ -38,10 +38,11 @@ nav_active: notes
   </a>
   {%- endfor %}
   <div class="c-isle__frame">
+    <div class="c-isle__scroll" id="isle-scroll">
     <div class="c-isle__map" id="isle-map">
       {% include island-map.html %}
       {%- for r in shown -%}
-      {%- assign pal = site.data.au_palettes[r.series] %}
+      {%- assign pal = site.data.au_palettes[r.series] %}{% if pal == nil and r.mf %}{% assign pal = site.data.sam_themes | where: "anchor", r.mf | first %}{% endif %}
       <button class="c-isle__house c-isle__house--{{ r.icon }}" type="button" data-isle="{{ r.id }}" aria-controls="isle-{{ r.id }}"
         style="left: {{ r.x }}%; top: {{ r.y }}%; --flag: {{ pal.accent | default: '#3f9ecb' }};">
         {% include island-house.html icon=r.icon %}
@@ -49,7 +50,9 @@ nav_active: notes
       </button>
       {%- endfor %}
     </div>
+    </div>
   </div>
+  <p class="c-isle__hint">← 岛太大了，左右划着看 →</p>
 
   <div class="c-isle__cards" id="isle-cards">
     <article class="c-isle__card c-isle__card--intro" id="isle-intro">
@@ -59,7 +62,7 @@ nav_active: notes
       <p>北边的山顶积着雪，南边那条河一年到头是夏天。抖出来的人从码头上岸，新搬来一户，地图上就多一栋房子。</p>
     </article>
     {%- for r in shown -%}
-    {%- assign pal = site.data.au_palettes[r.series] %}
+    {%- assign pal = site.data.au_palettes[r.series] %}{% if pal == nil and r.mf %}{% assign pal = site.data.sam_themes | where: "anchor", r.mf | first %}{% endif %}
     <article class="c-isle__card" id="isle-{{ r.id }}" data-isle-card="{{ r.id }}" hidden style="--flag: {{ pal.accent | default: '#3f9ecb' }};">
       {%- if pal %}
       <i class="c-isle__band" aria-hidden="true"><b style="background: {{ pal.bg }}"></b><b style="background: {{ pal.accent }}"></b><b style="background: {{ pal.text }}"></b><b style="background: {{ pal.muted }}"></b></i>
@@ -70,7 +73,9 @@ nav_active: notes
       <div class="c-isle__text">{{ r.text | markdownify }}</div>
       <p class="c-isle__links">
         {%- if r.series %}<a href="{{ site.baseurl }}/series/{{ r.series | slugify }}/">去读你们的故事 →</a>{% endif -%}
-        {%- if pal.mf_id %}<a href="{{ site.baseurl }}/sam/many-faces/#{{ pal.mf_id }}">画册里的他 →</a>{% endif -%}
+        {%- assign mfid = r.mf | default: pal.mf_id -%}
+        {%- if mfid %}<a href="{{ site.baseurl }}/sam/many-faces/#{{ mfid }}">画册里的他 →</a>{% endif -%}
+        {%- unless r.series %}<span class="c-isle__wait">你们的故事还没写，房子等着修缮</span>{% endunless -%}
       </p>
     </article>
     {%- endfor %}
@@ -90,10 +95,19 @@ nav_active: notes
   </div>
   {%- endif %}
 
+  {%- comment -%} 住户一排名字：按住在哪一片分组（片名和顺序在 island.yml 的 zones），点一个名字，图挪过去、卡翻出来 {%- endcomment -%}
   <nav class="c-isle__roll" aria-label="岛上的住户">
-    {%- for r in shown -%}
-    {%- assign pal = site.data.au_palettes[r.series] %}
-    <button type="button" class="c-isle__chip" data-isle="{{ r.id }}" style="--flag: {{ pal.accent | default: '#3f9ecb' }};"><i aria-hidden="true"></i>{{ r.name }}</button>
+    {%- for z in site.data.island.zones -%}
+    {%- assign zr = shown | where: "zone", z.key -%}
+    {%- if zr.size > 0 %}
+    <div class="c-isle__rollgroup">
+      <p class="c-isle__rollname">{{ z.name }}</p>
+      {%- for r in zr -%}
+      {%- assign pal = site.data.au_palettes[r.series] %}{% if pal == nil and r.mf %}{% assign pal = site.data.sam_themes | where: "anchor", r.mf | first %}{% endif %}
+      <button type="button" class="c-isle__chip" data-isle="{{ r.id }}" style="--flag: {{ pal.accent | default: '#3f9ecb' }};"><i aria-hidden="true"></i>{{ r.name }}</button>
+      {%- endfor %}
+    </div>
+    {%- endif -%}
     {%- endfor %}
   </nav>
 
@@ -123,7 +137,21 @@ nav_active: notes
       if (show(id, true)) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
     });
   });
+  // 窄屏上图比屏幕宽：一进来先把小镇（或网址里点名的那一户）挪到中间
+  var sc = document.getElementById('isle-scroll');
+  function centerOn(id) {
+    if (!sc || sc.scrollWidth <= sc.clientWidth + 2) return;
+    var el = id && sc.querySelector('.c-isle__house[data-isle="' + id + '"]');
+    var x = el ? el.offsetLeft : sc.scrollWidth * 0.53;
+    var y = el ? el.offsetTop : sc.scrollHeight * 0.5;
+    sc.scrollLeft = Math.max(0, x - sc.clientWidth / 2);
+    sc.scrollTop = Math.max(0, y - sc.clientHeight / 2);
+  }
   var h = (location.hash || '').slice(1);
+  centerOn(h);
   if (h) show(h, false);
+  document.querySelectorAll('.c-isle__chip').forEach(function (c) {
+    c.addEventListener('click', function () { centerOn(c.getAttribute('data-isle')); });
+  });
 })();
 </script>

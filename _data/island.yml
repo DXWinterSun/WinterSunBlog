@@ -1,9 +1,21 @@
 # 🏝️ 冬的岛屿：住户和他们的小家（2026-11-03 起）
-# 地图 /island/ 读这一份。x / y 是在地图上的位置（左上角 0,0，右下角 100,100，单位是百分之几）。
+# 地图 /island/ 读这一份。x / y 是在地图上的位置（左上角 0,0，右下角 100,100，单位是百分之几；底图 1600 × 1100，tools/island/make_map.py 画的）。
 # series 用来取他那个 AU 的颜色（_data/au_palettes.yml）和故事链接；没写过故事的人以后改写 mf: <画册 id>。
 # icon：cottage 小屋 / twostory 两层小楼 / trailer 拖车 / ship 飞船 / theater 剧场 / post 邮局 / bar 小酒吧 / beach 海边大房子。
 # draft: true 的还在等 Winter 过目，地图上先不出现；她认可了就删掉这一行。
 # 草稿原文在 .claude/island/homes/，规矩在 .claude/skills/winter-island/SKILL.md。
+# 岛上的几片地方（2026-11-05 全岛住满时分的）：住户的 zone 写这里的 key；页底那排名字按这个顺序分组。
+zones:
+  - { key: snow,      name: "北边的雪山和雪原" }
+  - { key: pines,     name: "西北的松林" }
+  - { key: highland,  name: "东北的英格兰高地" }
+  - { key: town,      name: "岛中间的小镇" }
+  - { key: suburb,    name: "小镇边上的住宅区" }
+  - { key: mesa,      name: "西边的红岩荒原" }
+  - { key: westbeach, name: "西边的海滩" }
+  - { key: river,     name: "南边的河，一直流到河口" }
+  - { key: east,      name: "东边的沙滩和悬崖" }
+  - { key: med,       name: "东南的地中海海岸" }
 residents:
   - id: trent
     name: "Trent"
@@ -11,8 +23,9 @@ residents:
     series: "The Same People"
     home: "河湾那辆拖车"
     region: "南边的河"
-    x: 43
-    y: 77
+    zone: river
+    x: 39.4
+    y: 70.5
     icon: trailer
     text: |
       顺着岛南边那条河往下走，水声最响的那个河湾，就是 Trent 的家：一辆锈成黄褐色的拖车，门口铺一块花地毯，门里挂一道珠帘。天蓝色的福特停在旁边，后斗里还躺着那台割草机。
@@ -28,8 +41,9 @@ residents:
     series: "Don't Panic, Baby Doll"
     home: "半截泡在海里的「黄金之心」号"
     region: "东边的沙滩"
-    x: 85
-    y: 47
+    zone: east
+    x: 92.4
+    y: 55.5
     icon: ship
     text: |
       Zaphod 没有房子，他有一艘飞船。
@@ -47,8 +61,9 @@ residents:
     series: "Everybody's Home"
     home: "山顶那座看得见月亮的房子"
     region: "北边的山顶"
-    x: 47
-    y: 27
+    zone: snow
+    x: 50
+    y: 17.6
     icon: twostory
     text: |
       岛北边最高的那座山顶上，住着两个 Sam。
@@ -66,8 +81,9 @@ residents:
     series: "You Are My Fact"
     home: "离浪最近的那一栋"
     region: "西边的海滩"
-    x: 16
-    y: 55
+    zone: westbeach
+    x: 12
+    y: 77.5
     icon: cottage
     text: |
       Leonard 住在西边的海滩上，离浪最近的那一栋。他说海也只活在此刻，跟他一样。
@@ -87,8 +103,9 @@ residents:
     series: "Fog City"
     home: "小镇正中间那座小剧场"
     region: "小镇 · 正中间"
-    x: 51
-    y: 51
+    zone: town
+    x: 53.1
+    y: 47.5
     icon: theater
     text: |
       岛中间有一个小镇，小镇正中间是一座小剧场。每天下午三点，雾准时从海上翻过来，只罩住剧场门前那一条街。他管这叫“关灯”。
@@ -106,8 +123,9 @@ residents:
     series: "Interoffice"
     home: "邮局楼上"
     region: "小镇 · 邮局"
-    x: 36
-    y: 61
+    zone: town
+    x: 46.6
+    y: 54.5
     icon: post
     text: |
       小镇的邮局归 Gary 管。一楼是收发室，墙上一整排木格子，一格贴一户的名字。岛上六十来位，他一个都没念错过，连 Krzysztof 都念得出来。
@@ -123,8 +141,9 @@ residents:
     series: "The Cardinal"
     home: "整夜亮着红灯的小酒吧"
     region: "小镇 · 街尽头"
-    x: 64
-    y: 61
+    zone: town
+    x: 60.6
+    y: 54.5
     icon: bar
     text: |
       小镇最靠海的那条街尽头，有一家只在夜里开的小酒吧。门口一盏红灯，天黑亮起来，天亮才灭，招牌上写着 The Cardinal。
@@ -142,8 +161,9 @@ residents:
     series: "Everything in Transit"
     home: "后院永远在开派对的那栋房子"
     region: "南边的河口"
-    x: 55
-    y: 87
+    zone: river
+    x: 58.1
+    y: 92.3
     icon: beach
     text: |
       顺着南边那条河一直走到入海口，沙滩上有一栋破破烂烂的大房子，门口歪歪扭扭钉着一块牌子：El Rancho。

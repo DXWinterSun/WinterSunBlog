@@ -1,0 +1,90 @@
+[
+  {
+    "id": "charles2",
+    "name": "Charles II",
+    "full": "Charles II",
+    "series": "The Invisible Light",
+    "mf": null,
+    "home": "高地上那座夜夜开舞会的小王宫",
+    "zone": "highland",
+    "region": "东北的英格兰高地 · 小王宫",
+    "icon": "manor"
+  },
+  {
+    "id": "charlesraf",
+    "name": "Charles",
+    "full": "Charles",
+    "series": "The One Who Fell from the Sky",
+    "mf": null,
+    "home": "跑道尽头那排铁皮屋",
+    "zone": "highland",
+    "region": "东北的英格兰高地 · 机场",
+    "icon": "cottage"
+  },
+  {
+    "id": "stoppard",
+    "name": "Stoppard",
+    "full": "Inspector Stoppard",
+    "series": "See How They Stay",
+    "mf": null,
+    "home": "下着毛毛雨的那条小街",
+    "zone": "highland",
+    "region": "东北的英格兰高地 · 伦敦小街",
+    "icon": "twostory"
+  },
+  {
+    "id": "sampinkett",
+    "name": "Pinkett",
+    "full": "Sam Pinkett",
+    "series": "The Right Romance",
+    "mf": null,
+    "home": "住宅区里草坪修得最齐的那一栋",
+    "zone": "suburb",
+    "region": "小镇边上的住宅区",
+    "icon": "twostory"
+  },
+  {
+    "id": "jim",
+    "name": "Jim",
+    "full": "Jim Crocker",
+    "series": "Some Steps Only We Know",
+    "mf": null,
+    "home": "悬崖顶上那栋夜夜亮灯的白房子",
+    "zone": "east",
+    "region": "东边的沙滩和悬崖 · 悬崖顶上",
+    "icon": "villa"
+  },
+  {
+    "id": "declan",
+    "name": "Declan",
+    "full": "Declan Byrne",
+    "series": "Heart Facing Inward",
+    "mf": null,
+    "home": "悬崖上那座玻璃楼的顶层",
+    "zone": "east",
+    "region": "东边的沙滩和悬崖 · 玻璃高楼",
+    "icon": "tower"
+  },
+  {
+    "id": "sammy",
+    "name": "Sammy",
+    "full": "Sammy",
+    "series": "Made for No One but You",
+    "mf": null,
+    "home": "住宅区尽头那间关不严门的小屋",
+    "zone": "suburb",
+    "region": "小镇边上的住宅区 · 街尽头",
+    "icon": "cottage"
+  },
+  {
+    "id": "qiutu",
+    "name": "囚徒",
+    "full": "囚徒",
+    "series": "Eyes Open",
+    "mf": null,
+    "home": "荒原土路边那顶橙色帐篷",
+    "zone": "mesa",
+    "region": "西边的红岩荒原 · 土路边",
+    "icon": "tent"
+  }
+]
