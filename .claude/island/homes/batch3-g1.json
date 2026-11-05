@@ -1,0 +1,112 @@
+[
+  {
+    "id": "matty",
+    "name": "Matty",
+    "full": "Matty Rzeznik",
+    "series": "Oh, May",
+    "mf": null,
+    "home": "桥头那间带消防梯的修车铺",
+    "zone": "river",
+    "region": "南边的河 · 铁桥桥头",
+    "icon": "twostory"
+  },
+  {
+    "id": "jerry",
+    "name": "Jerry",
+    "full": "Jerry",
+    "series": "I Missed You on Purpose",
+    "mf": null,
+    "home": "镇口那家「LARK MOTORS」车行",
+    "zone": "town",
+    "region": "小镇 · 镇口车行",
+    "icon": "shop"
+  },
+  {
+    "id": "chuck",
+    "name": "Chuck",
+    "full": "Chuck Barris",
+    "series": "Off the Air",
+    "mf": null,
+    "home": "海边那栋「ON AIR」灯从来不亮的房子",
+    "zone": "east",
+    "region": "东边的沙滩和悬崖 · 沙滩上",
+    "icon": "villa"
+  },
+  {
+    "id": "reston",
+    "name": "Reston",
+    "full": "Jim Reston",
+    "series": null,
+    "mf": "reston",
+    "home": "悬崖半腰那间堆满纸箱的屋子",
+    "zone": "east",
+    "region": "东边的沙滩和悬崖 · 悬崖半腰",
+    "icon": "cottage"
+  },
+  {
+    "id": "doug",
+    "name": "Doug",
+    "full": "Douglas Varney",
+    "series": "Better Living Through You",
+    "mf": null,
+    "home": "主街上那家姓 Varney 的药房",
+    "zone": "town",
+    "region": "小镇 · 药房",
+    "icon": "shop"
+  },
+  {
+    "id": "craig",
+    "name": "Craig",
+    "full": "Craig",
+    "series": null,
+    "mf": "craig",
+    "home": "住宅区里冰箱门最满的那一栋",
+    "zone": "suburb",
+    "region": "小镇边上的住宅区",
+    "icon": "twostory"
+  },
+  {
+    "id": "donverdean",
+    "name": "Don",
+    "full": "Don Verdean",
+    "series": "Faith Unseen",
+    "mf": null,
+    "home": "红岩荒原上那栋门廊灯总亮着的房子",
+    "zone": "mesa",
+    "region": "西边的红岩荒原 · 土路尽头",
+    "icon": "twostory"
+  },
+  {
+    "id": "dixon",
+    "name": "Dixon",
+    "full": "Jason Dixon",
+    "series": "Only I Know",
+    "mf": null,
+    "home": "住宅区里养着一只乌龟的那栋",
+    "zone": "suburb",
+    "region": "小镇边上的住宅区 · 靠里那条街",
+    "icon": "cottage"
+  },
+  {
+    "id": "klenz",
+    "name": "Captain K",
+    "full": "Captain Klenzendorf",
+    "series": "No Feeling Is Final",
+    "mf": null,
+    "home": "雪村最边上那栋炉火不灭的小房子",
+    "zone": "snow",
+    "region": "北边的雪原 · 雪山脚下的村子",
+    "icon": "cottage"
+  },
+  {
+    "id": "watson",
+    "name": "Watson",
+    "full": "Watson Bryant",
+    "series": null,
+    "mf": "watson",
+    "home": "小镇拐角那间乱成一团的律师事务所",
+    "zone": "town",
+    "region": "小镇 · 律师事务所",
+    "icon": "shop"
+  }
+]
