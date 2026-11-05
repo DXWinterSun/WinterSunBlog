@@ -31,6 +31,7 @@ layout: home
       {%- endif %}
       <header class="c-article__header c-magic__head">
         {%- if page.kind == 'island' %}
+        {%- if page.special %}<p class="c-magic__special">{{ page.special }}</p>{% endif %}
         <p class="c-magic__from"><span class="c-magic__wand" aria-hidden="true">🏝️</span>{{ page.from }}</p>
         {%- else %}
         <p class="c-magic__from"><span class="c-magic__wand" aria-hidden="true">🪄</span>从 {{ page.from }} 里抖出来的</p>

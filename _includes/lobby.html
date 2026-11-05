@@ -17,6 +17,16 @@
 {%- assign lb_series_pages = site.pages | where: "layout", "series" -%}
 <section class="c-lobby" aria-label="门厅">
   <div class="c-lobby__main">
+    {%- comment -%} 🎂 每年 11 月 5 日到 13 日（她的生日 11 月 6 日前后），门厅最上面挂一条生日横幅，指向岛上的生日特辑；别的日子不出现（js 判断日期）。 {%- endcomment -%}
+    {%- assign lb_bday = site.parallel | where: "kind", "island" | where_exp: "s", "s.special" | sort: "date" | reverse | first %}
+    {%- if lb_bday %}
+    <a class="c-lobby-bday" id="js-lobby-bday" href="{{ site.baseurl }}{{ lb_bday.url }}" hidden>
+      {% include island-cake.html %}
+      <span class="c-lobby-bday__body"><small>{{ lb_bday.special }} · 冬的岛屿</small><b>{{ lb_bday.title }}</b><span>{{ lb_bday.hook }}</span></span>
+      <span class="c-lobby-bday__go" aria-hidden="true">›</span>
+    </a>
+    <script>(function(){var d=new Date(),m=d.getMonth(),n=d.getDate();if(m===10&&n>=5&&n<=13){var e=document.getElementById('js-lobby-bday');if(e)e.hidden=false;}})();</script>
+    {%- endif %}
 
     <div class="c-lobby__block" id="js-lobby-continue" hidden>
       <div class="c-shelf__head"><span class="c-shelf__badge" aria-hidden="true">🔖</span><h2 class="c-shelf__name">冬的书签</h2><p class="c-shelf__desc">上次读到这儿，点一下接着读</p></div>

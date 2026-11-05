@@ -1,11 +1,13 @@
 ---
-title: "在 Rob 家后院玩“我从来没有”"
-who: "Rob · Trent · Zaphod · Five 和 Six · Leonard · Young Sam · Gary · Kris"
+title: "全岛都来给你过生日"
+who: "全岛六十多位 · Rob 做东"
 from: "冬的岛屿 · Rob 家后院"
 kind: island
 permalink: /island/party-never-have-i-ever/
 date: 2026-11-05 21:00:00 +0800
-hook: "两个人同时喊了一声 princess，然后互相瞪了一眼。"
+hook: "从“我从来没有”玩到天亮，六十多张脸挤进了一张合影。"
+special: "🎂 生日特辑"     # 岛图页顶上那张大卡、首页门厅的生日横幅都认这一行
+special_note: "11 月 6 日零点，岛主的生日。El Rancho 宣布超级大，全岛的人都来了。"
 pal:                  # 岛上的颜色：晴雪的冰蓝
   accent: "#5aa9d0"
   accent_ink: "#2f7aa3"

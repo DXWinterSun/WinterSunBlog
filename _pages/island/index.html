@@ -24,6 +24,19 @@ nav_active: notes
 </section>
 
 <section class="c-isle">
+  {%- comment -%} 🎂 生日特辑（2026-11-05 她：「这些作为生日特辑需要即刻上线！」）：哪一场 front matter 写了 special:，就挂在地图上面。 {%- endcomment -%}
+  {%- assign isle_specials = site.parallel | where: "kind", "island" | where_exp: "s", "s.special" | sort: "date" | reverse -%}
+  {%- for sp in isle_specials limit: 1 %}
+  <a class="c-isle-bday" href="{{ site.baseurl }}{{ sp.url }}">
+    {% include island-cake.html %}
+    <span class="c-isle-bday__body">
+      <span class="c-isle-bday__tag">{{ sp.special }}</span>
+      <b class="c-isle-bday__title">{{ sp.title }}</b>
+      {%- if sp.special_note %}<span class="c-isle-bday__note">{{ sp.special_note }}</span>{% endif %}
+      <span class="c-isle-bday__go">推门进去 →</span>
+    </span>
+  </a>
+  {%- endfor %}
   <div class="c-isle__frame">
     <div class="c-isle__map" id="isle-map">
       {% include island-map.html %}
@@ -70,7 +83,7 @@ nav_active: notes
     {%- for d in isle_days %}
     <a class="c-isle__day" href="{{ site.baseurl }}{{ d.url }}">
       <span class="c-isle__day-date">{{ d.date | date: "%-m 月 %-d 日" }}</span>
-      <b>{{ d.title }}</b>
+      <b>{{ d.title }}{% if d.special %} <i class="c-isle__day-tag">{{ d.special }}</i>{% endif %}</b>
       {%- if d.hook %}<span>{{ d.hook }}</span>{% endif %}
     </a>
     {%- endfor %}

@@ -204,3 +204,121 @@
   &:hover b { color: $accent; }
 }
 .c-isle__day-date { grid-row: span 2; font-size: 12px; color: $muted; padding-top: 3px; white-space: nowrap; }
+
+/* ── 🎂 生日特辑（2026-11-05）：岛图上面一张卡、日子列表里一枚小牌、书桌封面一枚贴纸、首页门厅一条横幅 ── */
+.c-cake { display: block; width: 100%; height: auto; overflow: visible; }
+@media (prefers-reduced-motion: no-preference) {
+  .c-cake__flames path { transform-box: fill-box; transform-origin: 50% 100%; animation: cakeFlame 1.6s ease-in-out infinite; }
+  .c-cake__flames path:nth-child(2) { animation-delay: .5s; }
+  .c-cake__flames path:nth-child(3) { animation-delay: 1s; }
+}
+@keyframes cakeFlame { 0%, 100% { transform: scale(1) rotate(-4deg); } 50% { transform: scale(1.18, 1.28) rotate(4deg); } }
+
+.c-isle-bday {
+  position: relative;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  align-items: center;
+  gap: 4px 18px;
+  max-width: 62rem;
+  margin: 0 auto 16px;
+  padding: 16px 22px 16px 16px;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid #cfe2ee;
+  background:
+    radial-gradient(3px 3px at 12% 22%, #ffffff 0 60%, transparent 62%),
+    radial-gradient(2px 2px at 34% 78%, #ffffff 0 60%, transparent 62%),
+    radial-gradient(3px 3px at 72% 18%, #ffffff 0 60%, transparent 62%),
+    radial-gradient(2px 2px at 88% 70%, #ffffff 0 60%, transparent 62%),
+    radial-gradient(2.5px 2.5px at 56% 50%, #f2c46b 0 60%, transparent 62%),
+    radial-gradient(2px 2px at 94% 36%, #f2c46b 0 60%, transparent 62%),
+    linear-gradient(120deg, #e3f2fa 0%, #f4f8fb 55%, #fbf1df 100%);
+  color: #22384a;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(30, 60, 90, 0.14);
+  transition: transform .25s ease, box-shadow .25s ease;
+  .c-cake { width: 92px; }
+}
+.c-isle-bday:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(30, 60, 90, 0.2); }
+.c-isle-bday__body { display: grid; gap: 4px; font-family: $wn-cn; min-width: 0; }
+.c-isle-bday__tag {
+  justify-self: start;
+  padding: 2px 11px 3px;
+  border-radius: 99px;
+  background: #2f7aa3;
+  color: #fbf8f1;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+.c-isle-bday__title { font-size: 24px; font-weight: 600; line-height: 1.35; letter-spacing: .04em; color: #1b3346; }
+.c-isle-bday__note { font-size: 14.5px; line-height: 1.7; color: #4b6578; }
+.c-isle-bday__go { font-size: 13.5px; font-weight: 600; color: #2f7aa3; }
+@media (max-width: 560px) {
+  .c-isle-bday { grid-template-columns: 64px 1fr; gap: 2px 12px; padding: 12px 14px 12px 10px; margin-bottom: 12px; .c-cake { width: 64px; } }
+  .c-isle-bday__title { font-size: 19px; }
+  .c-isle-bday__note { font-size: 13px; }
+}
+
+.c-isle__day-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 8px 1px;
+  border-radius: 99px;
+  background: color-mix(in srgb, #{$accent} 14%, transparent);
+  color: $accent;
+  font: 600 11.5px/1.7 $wn-cn;
+  font-style: normal;
+  letter-spacing: .08em;
+  vertical-align: 2px;
+}
+
+.c-isle-sticker {
+  position: absolute;
+  top: -9px;
+  right: -7px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fbf8f1;
+  box-shadow: 0 2px 6px rgba(20, 40, 60, 0.22);
+  font-size: 17px;
+  font-style: normal;
+  line-height: 1;
+  transform: rotate(10deg);
+}
+
+/* 首页门厅的生日横幅（只在 11 月 5–13 日露面，js 判断） */
+.c-lobby-bday {
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 22px;
+  padding: 12px 16px 12px 12px;
+  border-radius: 14px;
+  border: 1px solid #cfe2ee;
+  background:
+    radial-gradient(2.5px 2.5px at 18% 30%, #ffffff 0 60%, transparent 62%),
+    radial-gradient(2px 2px at 64% 76%, #f2c46b 0 60%, transparent 62%),
+    radial-gradient(2px 2px at 86% 24%, #ffffff 0 60%, transparent 62%),
+    linear-gradient(120deg, #e3f2fa 0%, #f4f8fb 55%, #fbf1df 100%);
+  color: #22384a;
+  text-decoration: none;
+  .c-cake { width: 58px; }
+  &[hidden] { display: none; }
+}
+.c-lobby-bday__body {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  font-family: $wn-cn;
+  small { font-size: 12px; letter-spacing: .12em; color: #2f7aa3; font-weight: 600; }
+  b { font-size: 18px; font-weight: 600; line-height: 1.4; color: #1b3346; }
+  span { font-size: 13px; line-height: 1.6; color: #4b6578; }
+}
+.c-lobby-bday__go { font-size: 26px; color: #2f7aa3; }

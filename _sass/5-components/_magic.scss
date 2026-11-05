@@ -100,6 +100,17 @@
   color: $accent;
 }
 .c-magic__wand { display: inline-block; margin-right: 6px; font-style: normal; }
+/* 生日特辑那一场：标题上面一枚小牌子（front matter 写 special:） */
+.c-magic__special {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 3px 12px 4px;
+  border-radius: 99px;
+  background: $accent;
+  color: $paper;
+  font: 600 13px/1.5 $wn-cn;
+  letter-spacing: .1em;
+}
 .c-magic__body > p {
   text-indent: 2em;
   text-indent: 2em each-line;

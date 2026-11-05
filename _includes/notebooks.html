@@ -45,6 +45,8 @@
 <a class="c-wn-notebook c-wn-notebook--island" href="{{ site.baseurl }}/island/">
   <span class="c-wn-notebook__label"><small>Winter's Island</small><b>冬的岛屿</b><span>他们都住在我的岛上</span></span>
   <span class="c-wn-notebook__meta">🏝️ 住进来 <b>{{ isle_n }}</b> 户 · 面积无限</span>
+  {%- assign isle_sp = site.parallel | where: "kind", "island" | where_exp: "s", "s.special" | size %}
+  {%- if isle_sp > 0 %}<i class="c-isle-sticker" aria-label="生日特辑">🎂</i>{% endif %}
 </a>
 <a class="c-wn-notebook c-wn-notebook--trip" href="{{ site.baseurl }}/trip/">
   <span class="c-wn-notebook__label"><small>On the Way</small><b>冬的行程</b><span>要出的门，一件件办好</span></span>
