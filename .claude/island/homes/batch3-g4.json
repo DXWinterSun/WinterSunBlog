@@ -1,0 +1,13 @@
+[
+  {"id": "hector", "name": "Hector", "full": "Hector Escaton", "series": "Before the World Broke for Us", "mf": null, "home": "峡谷里那堆不灭的篝火", "zone": "mesa", "region": "西边的红岩荒原 · 峡谷营地", "icon": "tent"},
+  {"id": "doc", "name": "Doc", "full": "Doc", "series": "The Saloon Nobody Dares", "mf": null, "home": "又卖酒又缝人的那家酒馆", "zone": "mesa", "region": "西边的红岩荒原 · 尘土小镇的街尾", "icon": "saloon"},
+  {"id": "charley", "name": "Charley", "full": "Charley Ford", "series": "Nothing Warmer Than You", "mf": null, "home": "草地上拴着一匹青灰马的小屋", "zone": "river", "region": "南边的河 · 上游的草地", "icon": "cottage"},
+  {"id": "silas", "name": "Silas", "full": "Colonel Silas Groves", "series": "What He Owed", "mf": null, "home": "雪原边上那间孤零零的营房", "zone": "snow", "region": "北边的雪原 · 雪原边上", "icon": "cabin"},
+  {"id": "wildbill", "name": "Wild Bill", "full": "William “Wild Bill” Wharton", "series": "Tuning the Devil", "mf": null, "home": "湖边那间台阶翘着的木工房", "zone": "pines", "region": "西北的松林 · 芦苇湖边", "icon": "shop"},
+  {"id": "bush", "name": "Bush", "full": "George W. Bush", "series": "The Most Powerful Man", "mf": null, "home": "那片枯草金色的牧场", "zone": "mesa", "region": "西边的红岩荒原 · 牧场", "icon": "barn"},
+  {"id": "clay", "name": "Clay", "full": "Claiborne “C.P.” “Clay” Ellis", "series": "A Bear and Somewhere Far", "mf": null, "home": "出镇路口那座加油站", "zone": "suburb", "region": "小镇边上的住宅区 · 出镇的路口", "icon": "shop"},
+  {"id": "buck", "name": "Buck", "full": "Buck “The Kid”", "series": "Finders Keepers", "mf": null, "home": "水潭边那半截拖车", "zone": "pines", "region": "西北的松林 · 林子深处的水潭", "icon": "trailer"},
+  {"id": "johnmoon", "name": "John Moon", "full": "John Moon", "series": "Wintergreen", "mf": null, "home": "山脊上那间生着炉子的木屋", "zone": "pines", "region": "西北的松林 · 山脊", "icon": "cabin"},
+  {"id": "karl", "name": "Karl", "full": "Karl Fairhurst", "series": "Dear Satan", "mf": null, "home": "雪村里壁炉最大的那一栋", "zone": "snow", "region": "北边的雪原 · 雪村", "icon": "twostory"},
+  {"id": "glenn", "name": "Glenn", "full": "Glenn Marchand", "series": "Don't Let Me Go", "mf": null, "home": "门前那条路铲得最干净的那一栋", "zone": "snow", "region": "北边的雪原 · 雪村", "icon": "cottage"}
+]
