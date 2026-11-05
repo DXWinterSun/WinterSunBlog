@@ -34,8 +34,9 @@
   <span class="c-wn-notebook__label"><small>With You</small><b>冬的陪伴</b><span>只能发消息，他一直在</span></span>
   <span class="c-wn-notebook__meta">🔒 上了锁的聊天记录</span>
 </a>
-{%- assign mg_scenes = site.parallel | size -%}
-{%- assign mg_items = site.parallel | map: "item" | compact | uniq | size %}
+{%- assign mg_list = site.parallel | where_exp: "s", "s.kind != 'island'" -%}
+{%- assign mg_scenes = mg_list | size -%}
+{%- assign mg_items = mg_list | map: "item" | compact | uniq | size %}
 <a class="c-wn-notebook c-wn-notebook--magic" href="{{ site.baseurl }}/magic/">
   <span class="c-wn-notebook__label"><small>Winter's Magic</small><b>冬的魔法</b><span>杂志一抖，他就掉出来</span></span>
   <span class="c-wn-notebook__meta">🪄 抖过 <b>{{ mg_items }}</b> 件 · <b>{{ mg_scenes }}</b> 场</span>

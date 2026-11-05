@@ -87,10 +87,9 @@ residents:
     series: "Fog City"
     home: "小镇正中间那座小剧场"
     region: "小镇 · 正中间"
-    x: 49
-    y: 55
+    x: 51
+    y: 51
     icon: theater
-    draft: true
     text: |
       岛中间有一个小镇，小镇正中间是一座小剧场。每天下午三点，雾准时从海上翻过来，只罩住剧场门前那一条街。他管这叫“关灯”。
 
@@ -107,10 +106,9 @@ residents:
     series: "Interoffice"
     home: "邮局楼上"
     region: "小镇 · 邮局"
-    x: 40
+    x: 36
     y: 61
     icon: post
-    draft: true
     text: |
       小镇的邮局归 Gary 管。一楼是收发室，墙上一整排木格子，一格贴一户的名字。岛上六十来位，他一个都没念错过，连 Krzysztof 都念得出来。
 
@@ -125,10 +123,9 @@ residents:
     series: "The Cardinal"
     home: "整夜亮着红灯的小酒吧"
     region: "小镇 · 街尽头"
-    x: 60
-    y: 63
+    x: 64
+    y: 61
     icon: bar
-    draft: true
     text: |
       小镇最靠海的那条街尽头，有一家只在夜里开的小酒吧。门口一盏红灯，天黑亮起来，天亮才灭，招牌上写着 The Cardinal。
 
@@ -148,7 +145,6 @@ residents:
     x: 55
     y: 87
     icon: beach
-    draft: true
     text: |
       顺着南边那条河一直走到入海口，沙滩上有一栋破破烂烂的大房子，门口歪歪扭扭钉着一块牌子：El Rancho。
 

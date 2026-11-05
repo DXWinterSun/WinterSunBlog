@@ -23,13 +23,15 @@ description: 🏝️ 冬的岛屿——Winter 是岛主，画册里每一张脸�
 | 博客上 | **一张手绘岛图** `/island/`，画风她挑的**冬天的水彩雪岛**（见第五节） |
 | 几条线的人 | **合成一个人，他记得所有的线**（Wild Bill 三条、Jim Crocker / Bill Greaves / John Moon 各两条）：一户，偶尔会搞混是哪一回的事 |
 | 写小家的顺序 | **按画册年份从最早往后**：第一批 Trent / Zaphod / Five & Six / Leonard，第二批 Young Sam / Gary / Kris / Rob，往下是 Matty、Buck、Samuel、Jerry…… |
-| 派对游戏 | 先玩 **「我从来没有」**，在 Rob 家后院 |
+| 派对游戏 | 先玩 **「我从来没有」**，在 Rob 家后院，第一场请已经有家的八户（2026-11-05 开场，停在「轮到岛主了」） |
 | 写法 | 跟冬的魔法一样：**段落，第二人称「你」**，他用「他」 |
 | 尺度 | 角色照各自 AU 的尺度和红线（Everybody's Home 的 5×6 边界、No One Walks Off 的年龄线……都照旧）；**真人 Sam**（杂志里抖出来的）住岛上可以，只到抱抱亲亲 |
 
 ⚠️ 她说「排队游戏」是输入法打错了，**是派对游戏**。
 
-预览页：第一批 <https://claude.ai/artifact/XTcxMupt3jUr5Yniys95TY>（她没提意见、直接挑了下一步，算认可）· 第二批 <https://claude.ai/artifact/CnVLf3tzdoTdGjykmE8XdW>（等她过目）。
+预览页：第一批 <https://claude.ai/artifact/XTcxMupt3jUr5Yniys95TY>（她没提意见、直接挑了下一步，算认可）· 第二批 <https://claude.ai/artifact/CnVLf3tzdoTdGjykmE8XdW>（2026-11-05 她直接挑了页底岔路，算认可，已上图）。
+
+⭐ **还没写过故事的人**（她 2026-11-05）：**照他那部片子写家，人现在就得在岛上**——「之后有故事了还可以修缮房子嘛，这都没问题🤭但现在人得在！」所以按年份轮到谁就写谁，不跳过；他有了 AU 以后，把那一户改写一遍（叫「修缮」），往家里添上她的那样东西。
 
 ## 二、岛长什么样（第一批小家定下的方向）
 
@@ -58,9 +60,11 @@ description: 🏝️ 冬的岛屿——Winter 是岛主，画册里每一张脸�
 ## 四、存档（她：「你定期同步一下确保不丢就行」）
 
 - **小家**：草稿在 `.claude/island/homes/batchN.md`（一户一个 `### 名字 · 一句地址`），她认可后再进博客的岛图数据（做岛图时定格式）。
-- **岛上的一天 / 召唤 / 派对**：一场一个文件，跟冬的魔法同一个地方 `_parallel/`，front matter 加 `kind: island`、`who` 写出场的几位；
+- **岛上的一天 / 召唤 / 派对**：一场一个文件，跟冬的魔法同一个地方 `_parallel/`，front matter 写 `kind: island`、
+  **`permalink: /island/<短名>/`**、`who`（出场的几位）、`from`（「冬的岛屿 · 在哪儿」）、`hook`、`pal`（岛上用晴雪冰蓝那一组，照派对那场抄）。
   每一回开头一行 `<p class="pt-you">她的原话</p>`，一字不差。一场告一段落就推 main。
-  ⚠️ `kind: island` 目前在冬的魔法目录页借的是杂志那张小画；做岛图时给岛单独一个入口，再决定岛上的场次挂在哪儿。
+  `kind: island` 的场次**不进冬的魔法**（目录页和书桌封面的数字都把它们滤掉了），挂在岛图页底「岛上发生过的事」；
+  一场一页用的还是 `_layouts/magic.html`，它认 `kind: island`，返回键回岛上。
 
 ## 五、博客上：岛图 `/island/`（2026-11-03 上线）
 

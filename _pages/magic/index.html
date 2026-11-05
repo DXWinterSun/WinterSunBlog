@@ -10,8 +10,8 @@ nav_active: notes
   每一场是 _parallel/ 里的一个文件，这一页自己列出来，不用改。玩法在 .claude/skills/winter-parallel/。
   三个入口（她 2026-11-02「ABC 都要做」）：书桌上这本 · Sam 页第 12 张卡 · 藏品架上抖过的那一件背面盖一枚 🪄 戳（读 /magic/items.json）。
 {%- endcomment -%}
-{%- assign scenes = site.parallel | sort: "date" | reverse -%}
-{%- assign items = site.parallel | map: "item" | compact | uniq -%}
+{%- assign scenes = site.parallel | where_exp: "s", "s.kind != 'island'" | sort: "date" | reverse -%}
+{%- assign items = scenes | map: "item" | compact | uniq -%}
 
 <section class="c-hero c-hero--filter">
   <div class="c-hero__eyebrow">Desk · Winter&rsquo;s Magic</div>

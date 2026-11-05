@@ -12,6 +12,15 @@ layout: home
 <article class="c-article c-magic">
   <div class="c-article__content">
     <div class="c-wrap-content">
+      {%- if page.kind == 'island' %}
+      <a class="c-chapter-return" href="{{ site.baseurl }}/island/">
+        <span class="c-chapter-return__arrow">←</span>
+        <span class="c-chapter-return__body">
+          <span class="c-chapter-return__eyebrow">回到冬的岛屿</span>
+          <span class="c-chapter-return__title">他们都住在我的岛上</span>
+        </span>
+      </a>
+      {%- else %}
       <a class="c-chapter-return" href="{{ site.baseurl }}/magic/">
         <span class="c-chapter-return__arrow">←</span>
         <span class="c-chapter-return__body">
@@ -19,19 +28,28 @@ layout: home
           <span class="c-chapter-return__title">杂志一抖，他就掉出来</span>
         </span>
       </a>
+      {%- endif %}
       <header class="c-article__header c-magic__head">
+        {%- if page.kind == 'island' %}
+        <p class="c-magic__from"><span class="c-magic__wand" aria-hidden="true">🏝️</span>{{ page.from }}</p>
+        {%- else %}
         <p class="c-magic__from"><span class="c-magic__wand" aria-hidden="true">🪄</span>从 {{ page.from }} 里抖出来的</p>
+        {%- endif %}
         <h1 class="c-article__title">{{ page.title }}</h1>
         <div class="c-article__date">{{ page.who }} · {{ page.date | date: "%Y 年 %-m 月 %-d 日" }}</div>
       </header>
       <div class="c-magic__body">
         {{ content }}
       </div>
+      {%- unless page.kind == 'island' %}
       <nav class="c-magic__nav" aria-label="别的几场">
         {%- if page.previous %}<a class="c-magic__nav-a" href="{{ site.baseurl }}{{ page.previous.url }}"><small>上一场</small>{{ page.previous.title }}</a>{% else %}<span></span>{% endif -%}
         {%- if page.next %}<a class="c-magic__nav-a c-magic__nav-a--next" href="{{ site.baseurl }}{{ page.next.url }}"><small>下一场</small>{{ page.next.title }}</a>{% endif -%}
       </nav>
       <p class="c-notes__foot"><a href="{{ site.baseurl }}/magic/">← 冬的魔法</a> · <a href="{{ site.baseurl }}/sam/shelf/">去藏品架挑下一件 →</a></p>
+      {%- else %}
+      <p class="c-notes__foot"><a href="{{ site.baseurl }}/island/">← 冬的岛屿</a> · <a href="{{ site.baseurl }}/magic/">🪄 冬的魔法</a></p>
+      {%- endunless %}
     </div>
   </div>
 </article>

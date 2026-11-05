@@ -63,6 +63,20 @@ nav_active: notes
     {%- endfor %}
   </div>
 
+  {%- assign isle_days = site.parallel | where: "kind", "island" | sort: "date" | reverse -%}
+  {%- if isle_days.size > 0 %}
+  <div class="c-isle__days">
+    <h2 class="c-isle__days-h">岛上发生过的事</h2>
+    {%- for d in isle_days %}
+    <a class="c-isle__day" href="{{ site.baseurl }}{{ d.url }}">
+      <span class="c-isle__day-date">{{ d.date | date: "%-m 月 %-d 日" }}</span>
+      <b>{{ d.title }}</b>
+      {%- if d.hook %}<span>{{ d.hook }}</span>{% endif %}
+    </a>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+
   <nav class="c-isle__roll" aria-label="岛上的住户">
     {%- for r in shown -%}
     {%- assign pal = site.data.au_palettes[r.series] %}
