@@ -1,0 +1,12 @@
+[
+  {"id": "eddie", "name": "Eddie", "full": "Eddie", "series": "Another Girl, Another Planet", "mf": null, "home": "伦敦小街上门口挂着铃的那间", "zone": "highland", "region": "东北的英格兰高地 · 伦敦小街", "icon": "twostory"},
+  {"id": "manfromfuture", "name": "Future Man", "full": "The Man from the Future", "series": null, "mf": "manfromfuture", "home": "荒原土路边那家通宵餐馆", "zone": "mesa", "region": "西边的红岩荒原 · 通宵餐馆", "icon": "shop"},
+  {"id": "samuel", "name": "Samuel", "full": "Samuel", "series": null, "mf": "samuel", "home": "河边那家没人听歌的酒廊", "zone": "river", "region": "南边的河 · 桥头酒廊", "icon": "bar"},
+  {"id": "frank", "name": "Frank", "full": "Frank Mercer", "series": "The Real Thing", "mf": null, "home": "悬崖步道边那间朝海的公寓", "zone": "east", "region": "东边的沙滩和悬崖 · 悬崖步道", "icon": "villa"},
+  {"id": "silk", "name": "Silk", "full": "Jimmy Silk", "series": "Nickel and Dime", "mf": null, "home": "冰湖边停着旧雪佛兰的那一户", "zone": "snow", "region": "北边的雪原 · 冰湖边", "icon": "cottage"},
+  {"id": "aldo", "name": "Aldo", "full": "Aldo Stankis", "series": "The Making of You", "mf": null, "home": "玻璃楼的顶层", "zone": "east", "region": "东边的沙滩和悬崖 · 玻璃楼", "icon": "tower"},
+  {"id": "pero", "name": "Pero", "full": "Pero “Pepe” Mahlovic", "series": "The Serbian Tornado", "mf": null, "home": "拳馆楼上，楼梯陡得要命的那间", "zone": "river", "region": "南边的河 · 球场边的拳馆", "icon": "gym"},
+  {"id": "francis", "name": "Munch", "full": "Francis Munch", "series": null, "mf": "francis", "home": "住宅区尽头带玻璃花房的那一栋", "zone": "suburb", "region": "小镇边上的住宅区 · 街尽头", "icon": "cottage"},
+  {"id": "wayne", "name": "Wayne", "full": "Wayne", "series": null, "mf": "wayne", "home": "松林湖边那栋带凉台的乡间房子", "zone": "pines", "region": "西北的松林 · 湖边", "icon": "cabin"},
+  {"id": "garyguitar", "name": "Gary G.", "full": "Gary Garren", "series": "Just Go Ahead Now", "mf": null, "home": "门铃拼错的那栋楼，三楼", "zone": "town", "region": "小镇 · 老楼三楼", "icon": "twostory"}
+]
