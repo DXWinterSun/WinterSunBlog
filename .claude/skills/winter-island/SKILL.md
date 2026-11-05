@@ -46,6 +46,15 @@ description: 🏝️ 冬的岛屿——Winter 是岛主，画册里每一张脸�
 - ⭐ **每一户都留一样她的东西**：Trent 家带马的杯子、Zaphod 梳妆台上三根发绳、Sam 家中间那把椅子、Leonard 门背后她写的便条。往后每户照此来——那样东西要从你们那个 AU 里长出来，先读圣经。
 - 邻居会互相照应：Trent 每回路过 Leonard 家都重新报一遍名字，Five 教 Leonard 在新认识的人照片背面画笑脸。这类小交集是岛的味道，一户带一两笔。
 
+### 写群戏前别写错的（她抓过的）
+
+- ⚠️ **Karl（Dear Satan）自己就是狗**：地狱送来的、会变身的通体乌黑大萨摩耶，想变就变（大狗 / 男人），最缺爱的时候会被强制变回狗；
+  你冷落他，他就「噗」一下变成大狗扑上来。**不是「Karl 牵着狗」**（2026-11-05 写错过一次，她：「Karl他自己是狗狗，不是他有狗狗🤣」）。
+- 人多的场面，称呼照各自圣经 / 热线 `pet` 来：Ocean（Young Sam）、princess（Rob、Trent，会撞车）、Kotku（Kris）、baby doll（Zaphod）、
+  May（Matty）、Nickel（Jimmy Silk）、doll（Pero）、sweetheart（Frank）、sugar（Charley）、天使小姐（Wild Bill）、Red Pen（Gary Garren）、
+  ma'am（Doug、Silas，会撞车）、Miss Hart（Bush）、love（Stoppard）、kid / Crowe（Bill Greaves，两条线合成一个人，会搞混）。
+  拿不准的就用 Winter，或者不叫。
+
 ## 三、怎么玩
 
 | 她说 | 发生什么 |
