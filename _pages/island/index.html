@@ -37,6 +37,18 @@ nav_active: notes
     </span>
   </a>
   {%- endfor %}
+  {%- comment -%} 最新章节直接放在地图上方，不必先划过整座岛才能找到故事。 {%- endcomment -%}
+  {%- assign isle_latest = site.parallel | where: "kind", "island" | sort: "date" | last -%}
+  {%- if isle_latest %}
+  <div class="c-isle__days" aria-label="岛上最新一章">
+    <h2 class="c-isle__days-h">最新一章</h2>
+    <a class="c-isle__day" href="{{ site.baseurl }}{{ isle_latest.url }}">
+      <span class="c-isle__day-date">{{ isle_latest.date | date: "%-m 月%-d 日" }}</span>
+      <b>{{ isle_latest.title }} →</b>
+      {%- if isle_latest.hook %}<span>{{ isle_latest.hook }}</span>{% endif %}
+    </a>
+  </div>
+  {%- endif %}
   <div class="c-isle__frame">
     <div class="c-isle__scroll" id="isle-scroll">
     <div class="c-isle__map" id="isle-map">
