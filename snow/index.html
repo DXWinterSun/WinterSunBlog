@@ -1,0 +1,366 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>雪地打卡</title><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+
+:root{
+  --bg:#eef4fa; --paper:#ffffff; --ink:#1d2b44; --muted:#5d6f88; --line:#d3dfec;
+  --ice:#3f7fb8; --ice-soft:#dbe9f6; --gold:#c8962e; --gold-soft:#fbf1dc;
+  --good:#2f8a64; --shadow:rgba(29,43,68,.08);
+  --num:"Volkhov",Georgia,"Songti SC",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1826; --paper:#172335; --ink:#e7eef7; --muted:#9aabc2; --line:#2a3a52;
+  --ice:#8cc0ec; --ice-soft:#1f3350; --gold:#e6bb5c; --gold-soft:#3a2f18;
+  --good:#6fcf9f; --shadow:rgba(0,0,0,.3); color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0f1826; --paper:#172335; --ink:#e7eef7; --muted:#9aabc2; --line:#2a3a52;
+  --ice:#8cc0ec; --ice-soft:#1f3350; --gold:#e6bb5c; --gold-soft:#3a2f18;
+  --good:#6fcf9f; --shadow:rgba(0,0,0,.3); color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;padding:24px 16px 48px}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-size:22px;margin:0;text-wrap:balance;letter-spacing:.02em}
+.eyebrow{font-family:var(--num);font-style:italic;color:var(--ice);font-size:13px;letter-spacing:.08em}
+.sub{color:var(--muted);font-size:13px;margin:2px 0 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 2px 0 var(--shadow)}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums}
+.label{font-size:12px;color:var(--muted);letter-spacing:.04em}
+button{font:inherit;cursor:pointer}
+input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-offset:2px}
+.btn{background:var(--ice);color:var(--paper);border:0;border-radius:999px;padding:10px 20px;font-weight:600}
+.btn:disabled{opacity:.5;cursor:default}
+.ghost{background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 12px;font-size:13px}
+.link{background:none;border:0;color:var(--muted);text-decoration:underline dotted;padding:0;font-size:13px}
+
+/* 现在 */
+.now{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.now b{display:block;font-family:var(--num);font-size:26px;font-weight:700;line-height:1.2}
+.now .big b{font-size:34px;color:var(--ice)}
+.nudge{margin:14px 0 0;text-align:center;font-size:14px}
+.nudge strong{color:var(--gold)}
+
+/* 雪道 */
+.road{position:relative;height:96px;margin:6px 8px 0}
+.road__track{position:absolute;left:0;right:0;top:46px;height:8px;border-radius:8px;background:var(--ice-soft)}
+.road__fill{position:absolute;left:0;top:46px;height:8px;border-radius:8px;background:linear-gradient(90deg,var(--ice-soft),var(--ice));transition:width .8s ease}
+.road__me{position:absolute;top:8px;font-size:28px;transform:translateX(-50%);transition:left .8s ease;line-height:1}
+.stop{position:absolute;top:36px;transform:translateX(-50%);text-align:center;width:90px}
+.stop__dot{width:28px;height:28px;margin:0 auto;border-radius:50%;background:var(--paper);border:2px solid var(--line);display:grid;place-items:center;font-size:15px}
+.stop.is-won .stop__dot{border-color:var(--gold);background:var(--gold-soft)}
+.stop__kg{font-size:11px;color:var(--muted);margin-top:2px}
+.road__ends{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin:0 0 0}
+
+/* 奖励 */
+.prizes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.prizes{grid-template-columns:1fr}}
+.prize{position:relative;overflow:hidden;border:1.5px dashed var(--line);border-radius:14px;padding:14px;background:var(--paper)}
+.prize__icon{font-size:30px;line-height:1}
+.prize__name{font-weight:700;margin:6px 0 0}
+.prize__goal{font-size:12px;color:var(--muted)}
+.prize__left{font-family:var(--num);font-size:20px;margin-top:8px}
+.prize__bar{height:6px;background:var(--ice-soft);border-radius:6px;margin-top:6px;overflow:hidden}
+.prize__bar i{display:block;height:100%;background:var(--ice);border-radius:6px;transition:width .8s ease}
+.prize.is-won{border:2px solid var(--gold);background:var(--gold-soft)}
+.prize.is-won .prize__bar i{background:var(--gold)}
+.prize.is-won .prize__left{color:var(--gold)}
+.prize__stamp{position:absolute;right:10px;top:10px;border:2px solid var(--gold);color:var(--gold);border-radius:6px;padding:0 6px;font-size:12px;font-weight:700;transform:rotate(8deg)}
+
+/* 打卡 */
+.checkin{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.checkin .full{grid-column:1/-1}
+.kg-input{font-family:var(--num);font-size:22px}
+.done{color:var(--good);font-size:13px;margin:8px 0 0}
+.err{color:#c0392b;font-size:13px;margin:8px 0 0}
+
+/* 图 */
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font-size:10px;font-family:var(--sans)}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-top:6px;flex-wrap:wrap}
+
+/* 日历 */
+.streak{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.streak b{font-family:var(--num);font-size:24px;color:var(--ice)}
+.days{display:grid;grid-template-columns:repeat(14,1fr);gap:4px;margin-top:10px}
+.day{aspect-ratio:1;border-radius:50%;background:var(--ice-soft);display:grid;place-items:center;font-size:12px}
+.day.is-on{background:var(--ice);color:var(--paper)}
+.day.is-today{outline:2px solid var(--gold);outline-offset:1px}
+
+/* 记录 */
+.log{list-style:none;margin:0;padding:0}
+.log li{display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line)}
+.log li:last-child{border-bottom:0}
+.log .d{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.log .note{font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.log .k{font-family:var(--num);font-size:17px}
+.log .del{background:none;border:0;color:var(--muted);font-size:13px;padding:2px 4px}
+.diff{font-size:11px;margin-left:4px}
+.diff.down{color:var(--good)} .diff.up{color:var(--gold)}
+
+.setup{display:grid;gap:10px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hint{font-size:12px;color:var(--muted);margin:0}
+.offline{font-size:13px;color:var(--muted);text-align:center}
+
+/* 吃了什么 */
+.food__head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.kcal-today b{font-size:24px;color:var(--ice)}
+.kcal-bar{height:6px;background:var(--ice-soft);border-radius:6px;margin-top:6px;overflow:hidden}
+.kcal-bar i{display:block;height:100%;background:var(--ice);border-radius:6px;transition:width .6s ease}
+.kcal-bar.is-over i{background:var(--gold)}
+.meals{margin-top:12px}
+.meals li{grid-template-columns:auto 1fr auto auto}
+
+/* 庆祝 */
+.party{position:fixed;inset:0;display:grid;place-items:center;background:rgba(15,24,38,.55);z-index:10;padding:16px}
+.party__card{background:var(--paper);border:2px solid var(--gold);border-radius:20px;padding:26px 22px;text-align:center;max-width:340px}
+.party__icon{font-size:56px;line-height:1}
+.party h2{margin:10px 0 4px;font-size:20px}
+.flake{position:fixed;top:-20px;color:var(--ice);pointer-events:none;z-index:11;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.flake{display:none}.road__fill,.road__me,.prize__bar i{transition:none}}
+
+[hidden]{display:none!important}.log .note{white-space:normal;overflow:visible;overflow-wrap:anywhere}.del{display:none}.lockbox{max-width:480px;margin:24px auto;padding:24px}#lock-form{display:flex;gap:8px;flex-wrap:wrap}#lock-form input{flex:1;min-width:120px}body{margin:0}#meal-date{max-width:160px}.log .k{white-space:normal}
+</style></head><body><div class="wrap"><header><h1>冬璇的雪地打卡 ⛄</h1><p>在对话里记录，在这里看见每一步。</p><button id="lock-now" class="btn" hidden>锁起来</button></header>
+<section id="lock" class="card lockbox"><h2>这是你上锁的本子</h2><p>用原来私聊记录的密码打开。密码和解密后的记录只留在当前页面内存中。</p><form id="lock-form"><input id="password" type="password" autocomplete="current-password" aria-label="密码" required><button class="btn" id="unlock">打开</button></form><p id="error" role="status" aria-live="polite"></p></section>
+  <div id="main" hidden style="display:contents">
+    <!-- 现在 -->
+    <section class="card">
+      <div class="now">
+        <div><span class="label">起点</span><b class="num" id="n-start">—</b></div>
+        <div class="big"><span class="label">现在</span><b class="num" id="n-now">—</b></div>
+        <div><span class="label">已经瘦了</span><b class="num" id="n-lost">—</b></div>
+      </div>
+      <div class="road" id="road" aria-hidden="true">
+        <div class="road__track"></div>
+        <div class="road__fill" id="road-fill"></div>
+      </div>
+      <div class="road__ends"><span id="road-l">起点</span><span id="road-r">终点</span></div>
+      <p class="nudge" id="nudge"></p>
+    </section>
+
+    <!-- 奖励 -->
+    <section class="prizes" id="prizes"></section>
+
+    <!-- 吃了什么 -->
+    <section class="card" id="food">
+      <div class="food__head">
+        <div class="label">饮食记录 · <input id="meal-date" type="date" aria-label="查看日期"></div>
+        <div class="kcal-today"><b class="num" id="kcal-sum">0</b> <span class="label" id="kcal-goal-l">千卡</span></div>
+      </div>
+      <div class="kcal-bar" id="kcal-bar" hidden><i id="kcal-fill"></i></div>
+
+      <p class="hint" style="margin:8px 0 0">实际吃掉的才计入；份量修正替换原记录。照片热量为估算。</p>
+      <ul class="log meals" id="meals"></ul>
+    </section>
+
+    <!-- 连续 -->
+    <section class="card">
+      <div class="streak">
+        <div><span class="label">连续打卡</span> <b id="streak">0</b> <span class="label">天</span></div>
+        <div class="label" id="count">一共打卡 0 次</div>
+      </div>
+      <div class="days" id="days"></div>
+      <p class="hint" style="margin-top:8px">最近两周：蓝点是打过卡的日子，金圈是今天。</p>
+    </section>
+
+    <!-- 曲线 -->
+    <section class="card">
+      <div class="label">体重曲线</div>
+      <div id="chart-box"></div>
+      <div class="legend"><span>— 每次称的体重</span><span id="lg1"></span><span id="lg2"></span></div>
+    </section>
+
+    <!-- 记录 -->
+    <section class="card">
+      <div class="label">每一次的记录</div>
+      <ul class="log" id="log"></ul>
+      
+    </section>
+  </div>
+</div>
+<script>
+(function(){var $=function(id){return document.getElementById(id);};
+  var db = null, settings = null, logs = [], meals = [];
+  var ICON = {1:'🥽', 2:'👗'};
+
+  function pad(n){ return (n<10?'0':'')+n; }
+  function ymd(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+  function today(){ return new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai'}).format(new Date()); }
+  function kgFmt(x){ return Number(x).toLocaleString('en-US',{maximumFractionDigits:2,minimumFractionDigits:1}); }
+  function num(v){ var x = parseFloat(v); return isFinite(x) ? x : null; }
+  function show(el, text){ el.textContent = text; el.hidden = !text; }
+
+
+
+  function latest(){ return logs.length ? logs[logs.length-1] : null; }
+  function current(){ var l = latest(); return l ? l.kg : settings.start; }
+  function minSoFar(){ var m = settings.start; logs.forEach(function(l){ if(l.kg < m) m = l.kg; }); return m; }
+
+  function render(){
+    if(!settings) return;
+    $('main').hidden = false;
+    var s = settings, now = current(), lost = s.start - now;
+    $('n-start').textContent = kgFmt(s.start);
+    $('n-now').textContent = kgFmt(now);
+    $('n-lost').textContent = (lost >= 0 ? '' : '+') + kgFmt(Math.abs(lost));
+
+    // 雪道
+    var span = s.start - s.g2, pct = span > 0 ? Math.max(0, Math.min(1, (s.start-now)/span)) : 0;
+    var road = $('road');
+    road.querySelectorAll('.stop,.road__me').forEach(function(n){ n.remove(); });
+    [[s.g1,1],[s.g2,2]].forEach(function(g){
+      var p = span > 0 ? Math.max(0, Math.min(1,(s.start-g[0])/span)) : 1;
+      var el = document.createElement('div');
+      el.className = 'stop' + (minSoFar() <= g[0] ? ' is-won' : '');
+      el.style.left = (p*100)+'%';
+      el.innerHTML = '<div class="stop__dot">'+ICON[g[1]]+'</div><div class="stop__kg num">'+kgFmt(g[0])+'</div>';
+      road.appendChild(el);
+    });
+    var me = document.createElement('div');
+    me.className = 'road__me'; me.textContent = '⛄'; me.style.left = (pct*100)+'%';
+    road.appendChild(me);
+    $('road-fill').style.width = (pct*100)+'%';
+    $('road-l').textContent = '起点 '+kgFmt(s.start);
+    $('road-r').textContent = '终点 '+kgFmt(s.g2);
+
+    // 一句鼓励
+    var n;
+    if(now <= s.g2) n = '到终点了！去把 <strong>'+esc(s.p2)+'</strong> 领回家 ✨';
+    else if(now <= s.g1) n = '<strong>'+esc(s.p1)+'</strong> 已经是你的了。离 <strong>'+esc(s.p2)+'</strong> 还差 <strong>'+kgFmt(now-s.g2)+'</strong> 公斤';
+    else n = '离 <strong>'+esc(s.p1)+'</strong> 还差 <strong>'+kgFmt(now-s.g1)+'</strong> 公斤';
+    if(s.height){ var bmi = now / Math.pow(s.height/100,2); n += '<br><span class="label">BMI '+bmi.toFixed(1)+'</span>'; }
+    $('nudge').innerHTML = n;
+
+    // 奖励卡
+    $('prizes').innerHTML = [[s.g1,s.p1,1],[s.g2,s.p2,2]].map(function(g){
+      var won = minSoFar() <= g[0];
+      var need = s.start - g[0], done = s.start - now;
+      var p = need > 0 ? Math.max(0, Math.min(1, done/need)) : 1;
+      return '<div class="prize'+(won?' is-won':'')+'">'+
+        (won ? '<span class="prize__stamp">已解锁</span>' : '')+
+        '<div class="prize__icon">'+ICON[g[2]]+'</div>'+
+        '<div class="prize__name">'+esc(g[1])+'</div>'+
+        '<div class="prize__goal">瘦到 '+kgFmt(g[0])+' 公斤</div>'+
+        '<div class="prize__left">'+(won ? '你做到了' : '还差 '+kgFmt(now-g[0])+' 公斤')+'</div>'+
+        '<div class="prize__bar"><i style="width:'+(won?100:Math.round(p*100))+'%"></i></div>'+
+      '</div>';
+    }).join('');
+
+    // 今天打过没
+    var td = logs.filter(function(l){ return l.date === today(); })[0];
+
+    renderStreak(); renderChart(); renderLog(); renderMeals();
+  }
+
+  function esc(t){ var d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; }
+
+  function renderStreak(){
+    var set = {}; logs.forEach(function(l){ set[l.date] = 1; });
+    var d = new Date(), k = 0;
+    if(!set[ymd(d)]) d.setDate(d.getDate()-1);
+    while(set[ymd(d)]){ k++; d.setDate(d.getDate()-1); }
+    $('streak').textContent = k;
+    $('count').textContent = '一共打卡 '+logs.length+' 次';
+    var html = '', t = new Date();
+    for(var i=13;i>=0;i--){
+      var x = new Date(t); x.setDate(t.getDate()-i);
+      var key = ymd(x);
+      html += '<div class="day'+(set[key]?' is-on':'')+(i===0?' is-today':'')+'" title="'+key+'">'+x.getDate()+'</div>';
+    }
+    $('days').innerHTML = html;
+  }
+
+  function renderChart(){
+    var s = settings, box = $('chart-box');
+    $('lg1').textContent = '┄ '+kgFmt(s.g1)+' '+s.p1;
+    $('lg2').textContent = '┄ '+kgFmt(s.g2)+' '+s.p2;
+    var pts = [{date: s.startDate, kg: s.start}].concat(logs.filter(function(l){ return l.date >= s.startDate; }));
+    if(pts.length < 2){ box.innerHTML = '<p class="hint" style="margin-top:8px">打两次卡以后，这里会画出你的曲线。</p>'; return; }
+    var W = 600, H = 240, L = 36, R = 12, T = 12, B = 26;
+    var t0 = Date.parse(pts[0].date), t1 = Date.parse(pts[pts.length-1].date); if(t1 === t0) t1 = t0 + 864e5;
+    var ks = pts.map(function(p){ return p.kg; });
+    var lo = Math.floor(Math.min.apply(null, ks.concat([s.g2])) - 1), hi = Math.ceil(Math.max.apply(null, ks) + 1);
+    var X = function(d){ return L + (Date.parse(d)-t0)/(t1-t0)*(W-L-R); };
+    var Y = function(k){ return T + (hi-k)/(hi-lo)*(H-T-B); };
+    var g = '';
+    var step = Math.max(1, Math.ceil((hi-lo)/6));
+    for(var k=lo; k<=hi; k+=step){ g += '<line x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(k)+'" y2="'+Y(k)+'" stroke="var(--line)" stroke-width="1"/><text x="'+(L-6)+'" y="'+(Y(k)+3)+'" text-anchor="end">'+k+'</text>'; }
+    [[s.g1,'var(--gold)'],[s.g2,'var(--gold)']].forEach(function(z){
+      g += '<line x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(z[0])+'" y2="'+Y(z[0])+'" stroke="'+z[1]+'" stroke-width="1.5" stroke-dasharray="5 4"/>';
+    });
+    var line = pts.map(function(p,i){ return (i?'L':'M')+X(p.date).toFixed(1)+' '+Y(p.kg).toFixed(1); }).join(' ');
+    var area = line + ' L'+X(pts[pts.length-1].date).toFixed(1)+' '+(H-B)+' L'+X(pts[0].date).toFixed(1)+' '+(H-B)+' Z';
+    g += '<path d="'+area+'" fill="var(--ice)" fill-opacity=".12"/>';
+    g += '<path d="'+line+'" fill="none" stroke="var(--ice)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>';
+    pts.forEach(function(p,i){ var last = i === pts.length-1;
+      g += '<circle cx="'+X(p.date)+'" cy="'+Y(p.kg)+'" r="'+(last?5:2.5)+'" fill="'+(last?'var(--gold)':'var(--ice)')+'"><title>'+p.date+' · '+kgFmt(p.kg)+' 公斤</title></circle>'; });
+    var fmt = function(d){ return d.slice(5).replace('-','/'); };
+    g += '<text x="'+L+'" y="'+(H-8)+'">'+fmt(pts[0].date)+'</text><text x="'+(W-R)+'" y="'+(H-8)+'" text-anchor="end">'+fmt(pts[pts.length-1].date)+'</text>';
+    box.innerHTML = '<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="体重曲线">'+g+'</svg>';
+  }
+
+  function renderLog(){
+    var rows = logs.slice().reverse();
+    if(!rows.length){ $('log').innerHTML = '<li><span class="hint">还没有记录，今天打第一次卡吧。</span></li>'; return; }
+    $('log').innerHTML = rows.map(function(l, i){
+      var prev = rows[i+1] ? rows[i+1].kg : settings.start, d = l.kg - prev;
+      var diff = Math.abs(d) < 0.05 ? '' : '<span class="diff '+(d<0?'down':'up')+'">'+(d<0?'↓':'↑')+kgFmt(Math.abs(d))+'</span>';
+      return '<li><span class="d">'+l.date.slice(5).replace('-','/')+'</span><span class="note">'+esc(l.note||'')+'</span><span class="k">'+kgFmt(l.kg)+diff+'</span><button class="del" data-del="'+l.date+'" aria-label="删掉这条">✕</button></li>';
+    }).join('');
+  }
+
+
+  var journal = null, secretKey = null, generation = 0;
+  function renderMeals(){
+    var date=$('meal-date').value || today();
+    var rows=meals.filter(function(m){return m.date===date && !m.planned;});
+    var sum=rows.reduce(function(a,m){return a+(m.kcal||0);},0);
+    $('kcal-sum').textContent=sum;
+    $('kcal-goal-l').textContent='千卡（已记录）';
+    $('kcal-bar').hidden=true;
+    $('meals').innerHTML=rows.length ? rows.map(function(m){
+      var range=m.kcalRange ? '（'+m.kcalRange[0]+'～'+m.kcalRange[1]+'）' : '';
+      return '<li><span class="d">'+esc(m.meal||'')+'</span><span class="note">'+esc(m.what||'')+'</span><span class="k">'+esc(m.kcal)+esc(range)+'</span></li>';
+    }).join('') : '<li>这一天还没有已记录的饮食。</li>';
+  }
+  $('meal-date').value=today(); $('meal-date').onchange=renderMeals;
+  function bytes(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);});}
+  async function decrypt(k,b){return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:bytes(b.iv)},k,bytes(b.ct))));}
+  async function get(url){var r=await fetch(url,{cache:'no-store',credentials:'omit',referrerPolicy:'no-referrer'});if(!r.ok)throw Error('network');return r.json();}
+  function lock(){
+    generation++; secretKey=null;journal=null;logs=[];meals=[];settings=null;
+    $('main').hidden=true;$('lock').hidden=false;$('lock-now').hidden=true;
+    ['log','meals','chart-box','prizes','days','nudge','n-start','n-now','n-lost','streak','count','kcal-sum','road-l','road-r'].forEach(function(id){$(id).textContent='';});
+    $('road').querySelectorAll('.stop,.road__me').forEach(function(n){n.remove();});
+    $('password').value='';$('error').textContent='';
+  }
+  $('lock-now').onclick=lock;
+  window.addEventListener('pagehide',lock);
+  $('lock-form').onsubmit=async function(e){
+    e.preventDefault();var attempt=++generation;var pw=$('password').value;$('password').value='';
+    $('unlock').disabled=true;$('error').textContent='正在开锁……';
+    try{
+      if(!window.crypto || !crypto.subtle)throw Error('unsupported');
+      var commit=await get('https://api.github.com/repos/DXWinterSun/WinterSunBlog/commits/private');
+      if(!/^[0-9a-f]{40}$/.test(commit.sha))throw Error('network');
+      var root='https://raw.githubusercontent.com/DXWinterSun/WinterSunBlog/'+commit.sha+'/';
+      var vault=await get(root+'vault.json');
+      if(vault.kdf!=='PBKDF2-SHA256'||vault.iter!==310000)throw Error('unsupported');
+      var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);pw='';
+      var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:bytes(vault.salt),iterations:vault.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+      if(await decrypt(k,vault.check)!=='冬的私人档案')throw Error('key');
+      var salt=bytes(vault.salt),name=new TextEncoder().encode('snow-journal'),all=new Uint8Array(salt.length+name.length);all.set(salt);all.set(name,salt.length);
+      var hash=await crypto.subtle.digest('SHA-256',all);
+      var id=Array.from(new Uint8Array(hash),function(b){return b.toString(16).padStart(2,'0');}).join('').slice(0,12);
+      var doc=await decrypt(k,await get(root+'d-'+id+'.enc'));
+      if(attempt!==generation)return;
+      journal=doc.page;secretKey=k;
+      settings=Object.assign({},journal.settings.data,{kcal:null});
+      logs=journal.collections.logs.map(function(r){return Object.assign({id:r.id},r.data);}).sort(function(a,b){return a.date.localeCompare(b.date);});
+      meals=journal.collections.meals.map(function(r){return Object.assign({id:r.id},r.data);});
+      render();$('lock').hidden=true;$('lock-now').hidden=false;$('error').textContent='';
+    }catch(err){if(attempt===generation)$('error').textContent='未能打开：请检查密码或稍后重试。不会改动任何记录。';}
+    finally{pw='';$('unlock').disabled=false;}
+  };
+})();
+</script></body></html>
