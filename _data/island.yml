@@ -2,6 +2,7 @@
 # 地图 /island/ 读这一份。x / y 是在地图上的位置（左上角 0,0，右下角 100,100，单位是百分之几；底图 1600 × 1100，tools/island/make_map.py 画的）。
 # series 用来取他那个 AU 的颜色（_data/au_palettes.yml）和故事链接；没写过故事的人以后改写 mf: <画册 id>。
 # icon：cottage 小屋 / twostory 两层小楼 / trailer 拖车 / ship 飞船 / theater 剧场 / post 邮局 / bar 小酒吧 / beach 海边大房子。
+# 新增图标：shop 店面 / cabin 木屋 / villa 别墅 / manor 庄园 / saloon 西部酒馆 / tent 帐篷 / temple 柱廊石屋 / tower 高楼 / barn 谷仓 / gym 体育馆。
 # draft: true 的还在等 Winter 过目，地图上先不出现；她认可了就删掉这一行。
 # 草稿原文在 .claude/island/homes/，规矩在 .claude/skills/winter-island/SKILL.md。
 # 岛上的几片地方（2026-11-05 全岛住满时分的）：住户的 zone 写这里的 key；页底那排名字按这个顺序分组。

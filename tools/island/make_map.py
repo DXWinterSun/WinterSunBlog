@@ -202,6 +202,17 @@ def build():
     a('<g transform="rotate(-48 805 905)"><rect x="781" y="898" width="48" height="13" rx="1" fill="#8e9aa6"/><path d="M783 898 l8 -6 l8 6 l8 -6 l8 6 l8 -6 l8 6" stroke="#5f6c78" stroke-width="1.4" fill="none"/></g>')
     a('<g filter="url(#isle-wc)"><ellipse cx="306" cy="214" rx="28" ry="12" fill="#bcdcec" stroke="#ffffff" stroke-width="2"/></g>')
 
+    # Matty 的铁桥跨过河道，修车铺在东侧桥头；桥面和两侧桁架。
+    a('<g transform="rotate(-38 798 907)" stroke="#657888" stroke-linejoin="round">'
+      '<rect x="750" y="899" width="96" height="16" rx="2" fill="#bcc7ce" stroke-width="1.5"/>'
+      '<path d="M750 896 L766 884 L782 896 L798 884 L814 896 L830 884 L846 896 M750 918 L766 930 L782 918 L798 930 L814 918 L830 930 L846 918" fill="none" stroke-width="2"/>'
+      '<path d="M750 896 H846 M750 918 H846" fill="none" stroke-width="2"/></g>')
+
+    # 高地脚下的伦敦小街，连接 Eddie 和 Stoppard 的红砖屋。
+    a('<path d="M1245 252 C1280 270 1320 290 1390 302" fill="none" stroke="#b8afa1" stroke-width="9" stroke-linecap="round"/>'
+      '<path d="M1245 252 C1280 270 1320 290 1390 302" fill="none" stroke="#ece4d7" stroke-width="5" stroke-dasharray="2 4"/>'
+      '<text x="1330" y="338" text-anchor="middle" class="c-isle__lbl">伦敦小街</text>')
+
     # ── 路：小镇往四面八方
     a('<g fill="none" stroke="#bfa47c" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="1 8" opacity=".9">'
       '<path d="M560 560 C640 548 760 556 850 560 C940 564 1000 556 1100 570 C1200 586 1290 600 1420 606"/>'
@@ -252,7 +263,7 @@ def build():
     # ── 各区的名字（小字，房子尽量不压上去）
     zones = [
         (300, 118, "西北的松林"), (1010, 132, "北边的雪山"), (1300, 150, "英格兰高地"),
-        (215, 722, "红岩荒原"), (176, 978, "西边的海滩"), (850, 628, "小镇"), (800, 1000, "夏天的河"),
+        (215, 722, "红岩荒原"), (176, 978, "西边的海滩"), (850, 628, "小镇"), (1110, 760, "住宅区"), (800, 1000, "夏天的河"),
         (1395, 968, "地中海海岸"), (1520, 650, "东边的沙滩"),
     ]
     a('<g class="c-isle__zones">' + "".join(
