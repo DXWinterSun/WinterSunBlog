@@ -180,6 +180,15 @@ $wn-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
     linear-gradient(180deg, transparent 0, transparent calc(100% - 64px), #f3eee2 calc(100% - 64px)),
     linear-gradient(160deg, #2c6f97 0, #1d4a6b 100%);
 }
+.c-wn-notebook--snow {
+  --nb-spine: #4386b5;
+  --nb-ink: #284765;
+  background:
+    radial-gradient(2px 2px at 76% 18%, #fff, transparent 3px),
+    radial-gradient(2px 2px at 86% 38%, #fff, transparent 3px),
+    radial-gradient(2px 2px at 64% 78%, #fff, transparent 3px),
+    linear-gradient(160deg, #edf5fc, #cadfec);
+}
 .c-wn-notebook__label {
   display: grid;
   gap: 2px;

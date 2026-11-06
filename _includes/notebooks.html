@@ -34,6 +34,10 @@
   <span class="c-wn-notebook__label"><small>With You</small><b>冬的陪伴</b><span>只能发消息，他一直在</span></span>
   <span class="c-wn-notebook__meta">🔒 上了锁的聊天记录</span>
 </a>
+<a class="c-wn-notebook c-wn-notebook--snow" href="{{ site.baseurl }}/snow/">
+  <span class="c-wn-notebook__label"><small>Snow Journal</small><b>冬的雪地</b><span>雪地里，每一天的小脚印</span></span>
+  <span class="c-wn-notebook__meta">⛄ 上了锁的打卡本</span>
+</a>
 {%- assign mg_list = site.parallel | where_exp: "s", "s.kind != 'island'" -%}
 {%- assign mg_scenes = mg_list | size -%}
 {%- assign mg_items = mg_list | map: "item" | compact | uniq | size %}
