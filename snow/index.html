@@ -1,4 +1,9 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>雪地打卡</title><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>冬的雪地 · Winter Sun</title>
+<link rel="icon" type="image/png" href="/WinterSunBlog/images/heading-normal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Special+Elite&family=Noto+Serif+SC:wght@400;500;600&family=Volkhov:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/WinterSunBlog/css/theme-picker.css"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
 
 :root{
   --bg:#eef4fa; --paper:#ffffff; --ink:#1d2b44; --muted:#5d6f88; --line:#d3dfec;
@@ -120,8 +125,64 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
 @media (prefers-reduced-motion:reduce){.flake{display:none}.road__fill,.road__me,.prize__bar i{transition:none}}
 
 [hidden]{display:none!important}.log .note{white-space:normal;overflow:visible;overflow-wrap:anywhere}.del{display:none}.lockbox{max-width:480px;margin:24px auto;padding:24px}#lock-form{display:flex;gap:8px;flex-wrap:wrap}#lock-form input{flex:1;min-width:120px}body{margin:0}#meal-date{max-width:160px}.log .k{white-space:normal}
-</style></head><body><div class="wrap"><header><a href="/WinterSunBlog/notes/">← 回书桌</a><h1>冬璇的雪地打卡 ⛄</h1><p>在对话里记录，在这里看见每一步。</p><button id="lock-now" class="btn" hidden>锁起来</button></header>
-<section id="lock" class="card lockbox"><h2>这是你上锁的本子</h2><p>用原来私聊记录的密码打开。密码和解密后的记录只留在当前页面内存中。</p><form id="lock-form"><input id="password" type="password" autocomplete="current-password" aria-label="密码" required><button class="btn" id="unlock">打开</button></form><p id="error" role="status" aria-live="polite"></p></section>
+
+/* Shared notebook typography, tokens and spacing; snow journal retains its chart and snow trail. */
+:root, :root[data-theme="dark"] {
+ --bg:var(--c-bg);--paper:var(--c-paper);--ink:var(--c-ink);--muted:var(--c-muted);
+ --line:var(--c-line);--ice:var(--c-accent);--ice-soft:var(--c-bg-soft);
+ --gold:var(--c-gold);--gold-soft:color-mix(in srgb,var(--c-gold) 12%,var(--c-paper));
+ --good:var(--c-status-green);--num:'Volkhov',Georgia,serif;
+ --serif:'EB Garamond',Georgia,'Noto Serif SC','Songti SC',serif;
+ --cnserif:'Noto Serif SC','Songti SC',serif;
+ --sans:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',sans-serif;
+}
+html{padding:0}body{min-height:100dvh;padding:max(14px,env(safe-area-inset-top)) 0 max(40px,env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px;padding:0 16px;gap:18px}
+a{color:inherit}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.back{font:14px var(--serif);color:var(--muted);text-decoration:none;letter-spacing:.5px}.back:hover{color:var(--ink)}
+.topbar__right{display:flex;align-items:center;gap:8px}
+.iconbtn{width:36px;height:36px;padding:0;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);font-size:16px;flex-shrink:0}
+.head{text-align:center;margin:8px 0 2px}.head__eyebrow{display:flex;align-items:center;justify-content:center;gap:9px;font:10.5px 'Special Elite',monospace;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.head__eyebrow i{width:22px;height:2px;background:var(--ice);opacity:.4}
+.head h1{font:italic 500 clamp(34px,9vw,46px)/1.05 var(--serif);letter-spacing:0}
+.head h1 b{display:block;margin-top:8px;font:500 .5em var(--cnserif);letter-spacing:4px;color:var(--c-ink-soft)}
+.head p{font-size:13px;color:var(--muted);margin:10px 0 0}
+.card{border-radius:20px;box-shadow:0 1px 2px rgba(var(--rgb-shadow),.06),0 8px 24px -12px rgba(var(--rgb-shadow),.18)}
+.lockbox{width:100%;max-width:420px;margin:0 auto;padding:26px 22px 22px;text-align:center}
+.lockbox h2{font:600 17px var(--cnserif);margin:10px 0 6px}.lockbox p{font-size:13px;color:var(--muted);line-height:1.7}
+.lock-icon{font-size:36px;line-height:1;margin-bottom:14px}
+#lock-form{display:grid;grid-template-columns:1fr;gap:12px}#lock-form input{min-width:0;text-align:center}
+.btn{min-height:44px}.food__head{align-items:center;flex-wrap:wrap;gap:12px}
+.food-date{display:flex;align-items:center;flex-wrap:wrap;gap:8px}#meal-date{width:auto;max-width:100%;min-height:40px;padding:6px 10px}
+.log li,.meals li{grid-template-columns:58px minmax(0,1fr) auto;gap:10px;align-items:start;padding:12px 0}
+.log .note{white-space:normal;overflow:visible;overflow-wrap:anywhere;line-height:1.75;color:var(--c-ink-soft)}
+.log .k{white-space:nowrap;text-align:right}.meals .k{font-size:16px}.estimate{display:block;font:11px var(--sans);color:var(--muted);margin-top:4px}
+.stop{width:64px}.now{padding:4px 0}.label{color:var(--muted)}
+@media(max-width:420px){.food__head{align-items:flex-start}.kcal-today{width:100%}.log li,.meals li{grid-template-columns:52px minmax(0,1fr);gap:4px 10px}.log .k{grid-column:2;grid-row:2;text-align:left}.estimate{display:inline;margin-left:6px}.days{gap:3px}.day{font-size:10px}}
+</style><script>
+  (function () {
+    try {
+      var t = localStorage.getItem("wiw-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+</head><body><div class="wrap">  <div class="topbar">
+    <a class="back" id="back" href="/WinterSunBlog/notes/">← 回书桌</a>
+    <span class="topbar__right">
+      <button type="button" class="iconbtn" id="lock-now" title="锁上这本记录" aria-label="锁上" hidden>🔒</button>
+      <button class="c-palette-trigger" type="button" id="js-palette-trigger"
+              aria-label="换个心情 · 配色主题" title="换个心情" data-baseurl="/WinterSunBlog">
+        <svg class="c-palette-trigger__heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </button>
+      <button type="button" class="iconbtn" id="mode-btn" title="白天 / 夜里" aria-label="白天或夜里"></button>
+    </span>
+  </div>
+
+<header class="head"><span class="head__eyebrow"><i></i>Kept by Winter Sun<i></i></span><h1>Snow Journal<b>冬的雪地</b></h1><p>雪地里，每一天的小脚印</p></header>
+<section id="lock" class="card lockbox"><div class="lock-icon" aria-hidden="true">⛄</div><h2>这本是上了锁的</h2><p>密码跟「冬的陪伴」那一个一样。<br>只在当前页面用来开锁，不会传到任何地方。</p><form id="lock-form"><input id="password" type="password" placeholder="密码" autocomplete="current-password" aria-label="密码" required><button class="btn" id="unlock">打开</button></form><p id="error" role="status" aria-live="polite"></p></section>
   <div id="main" hidden style="display:contents">
     <!-- 现在 -->
     <section class="card">
@@ -144,7 +205,7 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
     <!-- 吃了什么 -->
     <section class="card" id="food">
       <div class="food__head">
-        <div class="label">饮食记录 · <input id="meal-date" type="date" aria-label="查看日期"></div>
+        <div class="label food-date"><label for="meal-date">饮食记录</label><input id="meal-date" type="date" aria-label="查看日期"></div>
         <div class="kcal-today"><b class="num" id="kcal-sum">0</b> <span class="label" id="kcal-goal-l">千卡</span></div>
       </div>
       <div class="kcal-bar" id="kcal-bar" hidden><i id="kcal-fill"></i></div>
@@ -310,6 +371,24 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
   }
 
 
+  function isDarkNow() {
+    var a = document.documentElement.getAttribute("data-theme");
+    return a === "dark" || (!a && !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches));
+  }
+  function paintModeBtn() {
+    var b = $("mode-btn");
+    b.textContent = isDarkNow() ? "🌑" : "🌕";
+    b.title = isDarkNow() ? "现在是夜里 · 点一下换白天" : "现在是白天 · 点一下换夜里";
+  }
+  $("mode-btn").onclick = function () {
+    var next = isDarkNow() ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("wiw-theme", next); } catch (e) {}
+    paintModeBtn();
+  };
+  paintModeBtn();
+
+
   var journal = null, secretKey = null, generation = 0;
   function renderMeals(){
     var date=$('meal-date').value || today();
@@ -320,7 +399,7 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
     $('kcal-bar').hidden=true;
     $('meals').innerHTML=rows.length ? rows.map(function(m){
       var range=m.kcalRange ? '（'+m.kcalRange[0]+'～'+m.kcalRange[1]+'）' : '';
-      return '<li><span class="d">'+esc(m.meal||'')+'</span><span class="note">'+esc(m.what||'')+'</span><span class="k">'+esc(m.kcal)+esc(range)+'</span></li>';
+      return '<li><span class="d">'+esc(m.meal||'')+'</span><span class="note">'+esc(m.what||'')+'</span><span class="k">'+esc(m.kcal)+(range ? '<small class="estimate">'+esc(range)+'</small>' : '')+'</span></li>';
     }).join('') : '<li>这一天还没有已记录的饮食。</li>';
   }
   $('meal-date').value=today(); $('meal-date').onchange=renderMeals;
@@ -330,7 +409,7 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
   function lock(){
     generation++; secretKey=null;journal=null;logs=[];meals=[];settings=null;
     $('main').hidden=true;$('lock').hidden=false;$('lock-now').hidden=true;
-    ['log','meals','chart-box','prizes','days','nudge','n-start','n-now','n-lost','streak','count','kcal-sum','road-l','road-r'].forEach(function(id){$(id).textContent='';});
+    ['log','meals','chart-box','prizes','days','nudge','n-start','n-now','n-lost','streak','count','kcal-sum','road-l','road-r','lg1','lg2'].forEach(function(id){$(id).textContent='';});
     $('road').querySelectorAll('.stop,.road__me').forEach(function(n){n.remove();});
     $('password').value='';$('error').textContent='';
   }
@@ -363,4 +442,7 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
     finally{pw='';$('unlock').disabled=false;}
   };
 })();
-</script></body></html>
+</script>
+<script src="/WinterSunBlog/js/sam-themes-data.js"></script>
+<script src="/WinterSunBlog/js/theme-picker.js?v=20261019"></script>
+</body></html>
