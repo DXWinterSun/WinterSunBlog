@@ -127,7 +127,7 @@ input:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-of
 [hidden]{display:none!important}.log .note{white-space:normal;overflow:visible;overflow-wrap:anywhere}.del{display:none}.lockbox{max-width:480px;margin:24px auto;padding:24px}#lock-form{display:flex;gap:8px;flex-wrap:wrap}#lock-form input{flex:1;min-width:120px}body{margin:0}#meal-date{max-width:160px}.log .k{white-space:normal}
 
 /* Shared notebook typography, tokens and spacing; snow journal retains its chart and snow trail. */
-:root, :root[data-theme="dark"] {
+:root, :root:not([data-theme="light"]), :root[data-theme="dark"] {
  --bg:var(--c-bg);--paper:var(--c-paper);--ink:var(--c-ink);--muted:var(--c-muted);
  --line:var(--c-line);--ice:var(--c-accent);--ice-soft:var(--c-bg-soft);
  --gold:var(--c-gold);--gold-soft:color-mix(in srgb,var(--c-gold) 12%,var(--c-paper));
