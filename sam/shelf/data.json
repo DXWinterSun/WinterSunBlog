@@ -1278,6 +1278,19 @@
       "wish": 0,
       "id": "arrival-20261106-10",
       "added": 1793959608301
+    },
+    {
+      "name": "Highsnobiety",
+      "type": "book",
+      "spec": "Fall 2026 · The Process Issue · Sam Rockwell 封面",
+      "charId": "",
+      "date": "2026-11-07",
+      "note": "这是我收到过最厚重的一本杂志，质量特别特别特别特别好。然后书脊上就是他的名字！",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "arrival-20261107-highsnobiety",
+      "added": 1794024313000
     }
   ]
 }
