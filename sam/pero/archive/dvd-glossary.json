@@ -1,0 +1,233 @@
+{
+  "scope": "Verbatim visual transcription of ten supplied Welcome to Collinwood DVD menu images, in inferred DVD navigation order.",
+  "note": "英文按 DVD 截图转录，保留原有用词、拼写与断行；撇号统一为排印形式。中文为整理译文，不是 DVD 原有字幕。词源轶事仅作为 DVD 附加内容存档，未经独立史实核验，不自动并入 AU 设定。",
+  "pages": [
+    {
+      "key": "main_menu",
+      "source_filename": "E__WELCOME_TO_COLLINWOOD_20261107_184140.980.jpg",
+      "title": "Welcome to COLLINWOOD",
+      "text": [
+        "Play Movie",
+        "Scene Selections",
+        "Special Features",
+        "Languages"
+      ],
+      "footer": "CLEVELAND, OHIO",
+      "translation": [
+        "播放电影",
+        "场景选择",
+        "特别收录",
+        "语言"
+      ]
+    },
+    {
+      "key": "special_features",
+      "source_filename": "E__WELCOME_TO_COLLINWOOD_20261107_184135.549.jpg",
+      "title": "SPECIAL FEATURES",
+      "text": [
+        "CAST & CREW",
+        "WELCOME TO COLLINWOOD:\nUNCENSORED",
+        "DEFINITIONS AND\nETYMOLOGIES",
+        "THEATRICAL TRAILER",
+        "INSERT THIS DVD INTO YOUR PC’S\nDVD-ROM DRIVE FOR ADDITIONAL\nSPECIAL FEATURES."
+      ],
+      "navigation": [
+        "Main Menu"
+      ],
+      "translation": [
+        "演员与制作人员",
+        "《欢迎来到科林伍德》：未经删剪",
+        "定义与词源",
+        "院线预告片",
+        "将此 DVD 放入电脑的 DVD-ROM 光驱，可查看更多特别收录内容。"
+      ]
+    },
+    {
+      "key": "bellini",
+      "source_filename": "E__WELCOME_TO_COLLINWOOD_20261107_183921.764.jpg",
+      "heading": "Definitions and Etymologies",
+      "title": "BELLINI",
+      "text": [
+        "THE GRANDDADDY OF ALL COLLINWOODISMS, AND THE DREAM\nHEIST OF A LIFETIME.",
+        "FOR COLLINWOOD’S FORGOTTEN WORLD OF PETTY THIEVES,\nIT CAN BE A HOPE GREATER THAN HEAVEN, LIKE THE BURIED\nTREASURE OF PIRATE LORE."
+      ],
+      "navigation": [
+        "Features",
+        "Continue"
+      ],
+      "footer": "CLEVELAND, OHIO",
+      "translation": [
+        "所有 Collinwood 黑话中的老祖宗，也是人一生梦寐以求的那一票。",
+        "对 Collinwood 那群被遗忘的小偷而言，它可以是比天堂更大的盼头，如同海盗传说里埋藏的宝藏。"
+      ]
+    },
+    {
+      "key": "bellini_continued",
+      "source_filename": "E__WELCOME_TO_COLLINWOOD_20261107_184025.093.jpg",
+      "title": "BELLINI CONTINUED",
+      "text": [
+        "THE TERM COMES FROM NEIGHBORHOOD LEGEND\nBOLLO BELLINI WHO, DESPITE A JUVENILE\nCRIMINAL RECORD, GOT A JOB DOWNTOWN AT THE\nFEDERAL RESERVE WHERE HE WAS PUT IN CHARGE OF\nBURNING THE OLD MONEY.",
+        "AFTER TWENTY YEARS WITHOUT MISSING A SINGLE DAY OF\nWORK, SUDDENLY, HE DISAPPEARED. A FAVORITE COLLINWOOD\nPASTIME IS TO SPECULATE ABOUT THE UNTOLD FORTUNE\nHE MUST HAVE TAKEN WITH HIM."
+      ],
+      "navigation": [
+        "Back",
+        "Features",
+        "Continue"
+      ],
+      "footer": "CLEVELAND, OHIO",
+      "translation": [
+        "这个词来自街区传说中的 Bollo Bellini。他虽然有过少年犯罪记录，却在市中心的联邦储备机构找到了一份工作，负责焚烧旧钞。",
+        "二十年里，他一天班也没缺过，之后却突然消失了。猜测他一定带走了多少难以想象的财富，成了 Collinwood 居民喜爱的消遣。"
+      ]
+    },
+    {
+      "key": "mullinski",
+      "source_filename": "E__WELCOME_TO_COLLINWOOD_20261107_184030.413.jpg",
+      "heading": "Definitions and Etymologies",
+      "title": "MULLINSKI",
+      "text": [
+        "SOMEONE WHO CLAIMS RESPONSIBILITY FOR THE\nCRIME OF ANOTHER, IN EXCHANGE FOR PAYMENT, OF COURSE.\nAFTER ELIOT NESS BROUGHT DOWN CAPONE AND CLEANED\nUP CHICAGO, HE CAME TO CLEVELAND TO DO THE SAME."
+      ],
+      "navigation": [
+        "Back",
+        "Features",
+        "Continue"
+      ],
+      "footer": "CLEVELAND, OHIO",
+      "translation": [
+        "替别人的罪行承担责任的人，当然，是要收钱的。Eliot Ness 扳倒 Capone、整顿了芝加哥之后，又来到克利夫兰，打算如法炮制。"
+      ]
+    },
+    {
+      "key": "mullinski_continued",
+      "source_filename": "E__WELCOME_TO_COLLINWOOD_20261107_184036.092.jpg",
+      "title": "MULLINSKI CONTINUED",
+      "text": [
+        "JUST AS NESS WAS ABOUT TO NAIL HIS FIRST\nMOB LUMINARY HERE, A FORMER TROLLY CAR\nDRIVER NAMED JOE MULLINSKI TURNED HIMSELF IN,\nCONFESSING TO THE CRIMES OF WHICH THE\nMOBSTER STOOD ACCUSED.",
+        "AS NESS TARGETED THE NEXT MOBSTER, YET ANOTHER\nMAN CONFESSED, AND SO ON, AND SO ON. NESS SOON\nDEVELOPED A SERIOUS ALCOHOL PROBLEM AND DIED IN\nCLEVELAND, A BITTER AND FAILED MAN."
+      ],
+      "navigation": [
+        "Back",
+        "Features",
+        "Continue"
+      ],
+      "footer": "CLEVELAND, OHIO",
+      "translation": [
+        "正当 Ness 要拿下他在这里盯上的第一个黑帮大人物时，一位名叫 Joe Mullinski 的前有轨电车司机主动投案，承认了那名黑帮分子被指控的罪行。",
+        "当 Ness 把目标转向下一个黑帮分子时，又有另一个人出来认罪，如此这般，一次又一次。Ness 很快出现了严重的酗酒问题，最终满怀怨愤、失意地死在了克利夫兰。"
+      ]
+    },
+    {
+      "key": "krazner",
+      "source_filename": "E__WELCOME_TO_COLLINWOOD_20261107_184040.646.jpg",
+      "duplicate_source_filename": "E__WELCOME_TO_COLLINWOOD_20261107_184045.213.jpg",
+      "heading": "Definitions and Etymologies",
+      "title": "KRAZNER",
+      "text": [
+        "A BRICK WALL THAT’S MORTARED WITH AN UNSTABLE\nMIXTURE OF SAND AND WATER.",
+        "AFTER REMAINING STUMPED FOR OVER A DECADE BY A SERIES\nOF BANK ROBBERIES IN WHICH THIEVES INEXPLICABLY BATTERED\nHOLES THROUGH SEEMINGLY SOLID WALLS, A FRUSTRATED\nCLEVELAND DETECTIVE PUNCHED ONE SUCH WALL,\nBREAKING IT AND NOT HIS HAND."
+      ],
+      "navigation": [
+        "Back",
+        "Features",
+        "Continue"
+      ],
+      "footer": "CLEVELAND, OHIO",
+      "translation": [
+        "用沙和水调成的不牢固混合物作灰浆砌成的砖墙。",
+        "十多年来，一连串银行抢劫案令警方百思不得其解：窃贼竟能在看似坚固的墙上砸出洞来。一名沮丧的克利夫兰警探朝这样一面墙挥了一拳，结果碎的是墙，不是他的手。"
+      ]
+    },
+    {
+      "key": "krazner_continued",
+      "source_filename": "E__WELCOME_TO_COLLINWOOD_20261107_184051.109.jpg",
+      "title": "KRAZNER CONTINUED",
+      "text": [
+        "POLICE EVENTUALLY ARRESTED\nMICKEY KRAZNER, A BRICKLAYER IN THE\nEMPLOY OF COLLINWOOD CONSTRUCTION CO, WHICH HAD\nBUILT EACH OF THE ROBBED BANKS. (THE TERM IS RARE\nON THE STREETS AS SOME CLAIM KRAZNER IMPORTED\nTHE TECHNIQUE FROM HIS NATIVE CROATIA, AND,\nTHEREFORE, NOT BEING ITS CREATOR, DOESN’T\nDESERVE THE EPONYM.)"
+      ],
+      "navigation": [
+        "Back",
+        "Features",
+        "Continue"
+      ],
+      "uncertainty": "截图中 CO 后是否另有句点无法确定，转录暂保留为 CO,。",
+      "footer": "CLEVELAND, OHIO",
+      "translation": [
+        "警方最终逮捕了 Mickey Krazner。他是 Collinwood 建筑公司的砌砖工，而所有遭劫的银行都由这家公司建造。（这个词在街头并不常用，因为有人说 Krazner 是从故乡克罗地亚带来了这项技术。因此，他并非发明者，不配让它以自己的名字命名。）"
+      ]
+    },
+    {
+      "key": "antwerp_kupuchnik",
+      "source_filename": "E__WELCOME_TO_COLLINWOOD_20261107_184056.233.jpg",
+      "heading": "Definitions and Etymologies",
+      "sections": [
+        {
+          "title": "ANTWERP",
+          "text": "A TELESCOPING TOOL DESIGNED TO COLLAPSE A KRAZNER.\nIN COLLABORATION WITH MICKEY KRAZNER (SEE ABOVE),\nINFAMOUS SAFECRACKER AND TOOLSMITH JERZY ANTWERP\nDEVELOPED THIS INDISPENSABLE COMPLIMENT TO KRAZNER’S WALL."
+        },
+        {
+          "title": "KUPUCHNIK",
+          "text": "A TRAGEDY BROUGHT ABOUT BY A CURSE. NOT EVEN THE OLDEST\nPERSON IN COLLINWOOD CAN REMEMBER THE ORIGIN OF THIS\nTERM, WHICH MUST SURELY BE A MOST UNFORTUNATE STORY."
+        }
+      ],
+      "navigation": [
+        "Back",
+        "Features"
+      ],
+      "footer": "CLEVELAND, OHIO",
+      "translation": [
+        "一种专门用来弄塌 Krazner 墙的伸缩工具。臭名昭著的保险箱窃贼兼工具匠 Jerzy Antwerp 与 Mickey Krazner（见上文）合作，开发了这件与 Krazner 的墙配套、不可或缺的工具。",
+        "由诅咒引发的悲剧。就连 Collinwood 最年长的人也记不起这个词的来历了，而那必定是一个极其不幸的故事。"
+      ]
+    }
+  ],
+  "source": "Welcome to Collinwood DVD · Special Features → Definitions and Etymologies",
+  "archived_at": "2026-11-07",
+  "terms": [
+    {
+      "id": "bellini",
+      "name": "Bellini",
+      "meaning": "一生梦寐以求的那一票",
+      "pages": [
+        "bellini",
+        "bellini_continued"
+      ]
+    },
+    {
+      "id": "mullinski",
+      "name": "Mullinski",
+      "meaning": "收钱替人顶罪的人",
+      "pages": [
+        "mullinski",
+        "mullinski_continued"
+      ]
+    },
+    {
+      "id": "krazner",
+      "name": "Krazner",
+      "meaning": "用不牢固灰浆砌成的砖墙",
+      "pages": [
+        "krazner",
+        "krazner_continued"
+      ]
+    },
+    {
+      "id": "antwerp",
+      "name": "Antwerp",
+      "meaning": "用来弄塌 Krazner 墙的伸缩工具",
+      "pages": [
+        "antwerp_kupuchnik"
+      ],
+      "section": 0
+    },
+    {
+      "id": "kupuchnik",
+      "name": "Kupuchnik",
+      "meaning": "诅咒带来的悲剧",
+      "pages": [
+        "antwerp_kupuchnik"
+      ],
+      "section": 1
+    }
+  ]
+}

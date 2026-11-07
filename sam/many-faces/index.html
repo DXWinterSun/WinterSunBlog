@@ -1963,6 +1963,16 @@ function CharacterCard({ c, idx }) {
           >&#9742; 深夜热线 · 打给他</a>
         </div>
 
+        {/* Original-film archive stays separate from the AU story. */}
+        {c.id === "pero" && (
+          <a href="/WinterSunBlog/sam/pero/archive/" style={{ display: "block", margin: "0 0 40px", padding: "22px", border: "1px solid " + c.accent + "66", background: c.accent + "0d", textDecoration: "none", color: c.text }}>
+            <span style={{ display: "block", fontFamily: "'Special Elite', monospace", fontSize: "0.62rem", letterSpacing: "0.25em", color: c.accent, marginBottom: "10px" }}>SOURCE ARCHIVE · 原片资料</span>
+            <span style={{ display: "block", fontSize: "1.1rem", marginBottom: "8px" }}>Collinwood · DVD 术语档案</span>
+            <span style={{ display: "block", fontSize: "0.82rem", lineHeight: 1.8, opacity: 0.8 }}>Bellini、Mullinski、Krazner、Antwerp、Kupuchnik。五个词条的英文原文、中文译文与十张 DVD 截图。</span>
+            <span style={{ display: "block", marginTop: "14px", color: c.accent, fontSize: "0.75rem", textAlign: "right" }}>打开档案 ↗</span>
+          </a>
+        )}
+
         {(c.auLink || c.auLinks) && (
           <div style={{ marginBottom: "40px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
