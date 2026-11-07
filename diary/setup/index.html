@@ -1,0 +1,170 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-wxw6VA/8LsBK/mt28sVq+UBQbswngeQiO4fSMjlu38o=' 'sha256-ZBhsaRjQq//RcpKsZwTcSHhyJeE+awXIVhSz5yZDZwQ='; style-src 'sha256-nm5jWleDVhng+o+uqpAwXFaDNfUgeHAmg9tQwLecUAY='; connect-src 'none'; img-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'"><title>装好冬的日记 · 本机初始化</title><style>:root{color-scheme:light dark;--bg:#eff3f7;--paper:#fffefa;--ink:#29435a;--muted:#75818b;--line:#d6dfe5;--accent:#567f9c;--rose:#b18d93;--shadow:rgba(30,60,85,.06)}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;padding:max(20px,env(safe-area-inset-top)) 18px max(42px,env(safe-area-inset-bottom))}.wrap{max-width:700px;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px}.topbar a{color:var(--muted);text-decoration:none}.topbar a:hover{color:var(--ink)}button,input,textarea{font:inherit}button{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:9px;padding:8px 16px;cursor:pointer}button:hover{border-color:var(--accent)}button:disabled{opacity:.55;cursor:wait}input,textarea{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:9px;padding:10px 12px;min-width:0;max-width:100%}input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.head{text-align:center;margin:42px 0 32px}.eyebrow{font-family:Georgia,"Songti SC",serif;font-size:13px;letter-spacing:.12em;color:var(--accent);font-style:italic}.head h1{font-family:Georgia,"Songti SC",serif;font-size:36px;font-weight:500;letter-spacing:.08em;margin:8px 0}.head h1 span{color:var(--rose)}.head>p:last-child{font-size:14px;color:var(--muted)}.card,.entry{background:var(--paper);border:1px solid var(--line);border-radius:3px 14px 14px 3px;box-shadow:3px 4px 0 var(--shadow),0 10px 30px var(--shadow)}.lockbox{max-width:530px;margin:auto;padding:30px}.seal{font-family:Georgia,serif;font-size:30px;color:var(--rose)}h2{font-size:19px;font-weight:600;margin:10px 0}.muted,footer,.status{color:var(--muted);font-size:13px}.form-row{display:flex;gap:10px}.form-row input{flex:1;width:0}label{display:block;font-size:13px;color:var(--muted)}form label{margin-bottom:5px}.status{min-height:1.7em}details{border-top:1px dashed var(--line);padding-top:16px;margin-top:18px;font-size:13px}summary{cursor:pointer;color:var(--muted)}footer{text-align:center;margin-top:36px;font-size:11px;line-height:1.9}.reading-tools{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin-bottom:20px;color:var(--muted);font-size:13px}.reading-tools input{display:block;margin-top:4px;width:220px}.entry{padding:25px 28px;margin-bottom:22px}.entry time{font-family:Georgia,"Songti SC",serif;font-size:13px;color:var(--rose);letter-spacing:.05em}.entry h2{font-family:Georgia,"Songti SC",serif;font-size:22px;font-weight:500;line-height:1.5;margin:10px 0 12px}.entry .body{white-space:pre-wrap;overflow-wrap:anywhere;font-family:Georgia,"Songti SC","STSong",serif;font-size:17px;line-height:1.95;margin:12px 0 4px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}.tag{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:1px 9px}.empty{text-align:center;padding:35px 10px;color:var(--muted)}@media(max-width:480px){body{padding-inline:14px}.head{margin:32px 0 24px}.head h1{font-size:30px}.lockbox{padding:24px 20px}.entry{padding:22px 20px}.entry .body{font-size:16px}.reading-tools{display:block}.reading-tools input{width:100%}.form-row{flex-wrap:wrap}.form-row input{min-width:130px}.form-row button{flex-shrink:0}}@media(prefers-color-scheme:dark){:root{--bg:#15232e;--paper:#1d2e3a;--ink:#dfebf1;--muted:#9eb0bb;--line:#364d5b;--accent:#9abdd2;--rose:#d0a5ac;--shadow:rgba(0,0,0,.14)}}
+
+.setup{padding:28px}fieldset{margin:0;padding:0;border:0;min-width:0}.setup label{display:block;margin:16px 0 7px}.setup input[type=password]{width:100%}.confirm{display:flex!important;gap:10px;align-items:flex-start;color:var(--ink);font-size:13px}.confirm input{margin-top:6px;flex-shrink:0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.notice{border-left:3px solid var(--rose);padding:12px 16px;font-size:13px;background:var(--paper)}#fingerprint{word-break:break-all;font-family:monospace;font-size:14px;padding:12px;background:var(--bg)}
+</style></head><body><main class="wrap"><header class="head"><p class="eyebrow">One little key, kept by you</p><h1>装好冬的<span>日记</span></h1><p>只初始化一次，以后可以让 dot 帮你记。</p></header>
+<p class="notice">请在自己的设备上打开。页面加载完成后，加密代码不发出网络请求，不上传密码，不写入浏览器存储。旧密码只在当前页验证并加密日记私钥。dot 只使用公钥新增密文，不能凭公钥读取历史。</p>
+<p class="notice">网页会随博客更新，必须信任本站和当前设备；它不能防住被篡改的网页、设备或扩展。请勿在公共设备输入密码。已有日记不要重新初始化。</p>
+<section class="card setup"><form id="setup-form"><fieldset id="fields"><label for="password">「雪地」的原密码</label><input id="password" type="password" required autocomplete="off" maxlength="1024">
+<label class="confirm"><input id="consent" type="checkbox" required><span>我确认创建一套日记专用密钥，用现有密码加密私钥，并下载加密备份包。该包用于以后持续解锁日记，我会妥善保管。此操作不自动上传，也不会给 dot 密码或明文私钥。</span></label></fieldset>
+<div class="actions"><button id="create" type="submit">创建并检查</button><button id="cancel" type="button">清空输入</button></div><p id="status" class="status" role="status" aria-live="polite"></p></form>
+<section id="ready" hidden><h2>本机自检通过</h2><p class="muted">这串公钥指纹不保密。下载包包含公钥、经密码加密的私钥和空索引，不含密码或明文私钥。</p><p id="fingerprint"></p><button id="download" type="button">下载加密备份包</button><p class="muted">请在自己可靠的位置保留备份包。即使记得密码，丢失加密私钥也无法解开历史。下载后检查文件确实保存好了；本页不会自动上传或替你保管。若交给 dot 安装，需另行确认把公钥和加密私钥包存入博客的公开 GitHub 仓库，以便跨设备解锁。任何人都可下载密文并离线猜测密码；请勿把密码或明文私钥发给 dot。</p></section>
+</section><p class="muted"><a href="../">返回冬的日记</a></p><footer>密码遗忘无法恢复。设备、扩展或网页被控制时，本机加密也无法保证保密。<br>公开密文仍会暴露大小、条数和发布时间；同密码的安全强度也受旧密码校验机制影响。</footer></main>
+<script>(function (root) {
+  'use strict';
+  const SUITE = 'RSA-OAEP-3072-SHA256+A256GCM';
+  const ITER = 600000, MAX_ENTRY = 65536;
+  const ID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+  const FP = /^[A-Za-z0-9_-]{43}$/;
+  const enc = new TextEncoder(), dec = new TextDecoder('utf-8',{fatal:true});
+  const fail = () => { throw new Error('日记资料未通过安全检查。'); };
+  function exact(o, keys) { if (!o || typeof o !== 'object' || Array.isArray(o) || Object.keys(o).sort().join('|') !== keys.slice().sort().join('|')) fail(); }
+  function subtle() { if (!root.crypto || !root.crypto.subtle) throw new Error('当前浏览器不支持安全加密。'); return root.crypto.subtle; }
+  function b64(a) { let s=''; for(const b of a) s+=String.fromCharCode(b); return btoa(s); }
+  function bytes(s, length, max=MAX_ENTRY+2048) {
+    if (typeof s!=='string' || s.length>max*2 || !/^[A-Za-z0-9+/]*={0,2}$/.test(s)) fail();
+    let a; try { a=Uint8Array.from(atob(s),c=>c.charCodeAt(0)); } catch (_) { fail(); }
+    if (a.length>max || (length && a.length!==length) || b64(a)!==s) fail(); return a;
+  }
+  function b64url(a) { return b64(a).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }
+  function unurl(s) { if(typeof s!=='string'||!s||!/^[A-Za-z0-9_-]+$/.test(s)) fail(); const a=bytes(s.replace(/-/g,'+').replace(/_/g,'/')+'='.repeat((4-s.length%4)%4),null,4096);if(b64url(a)!==s)fail();return a; }
+  function random(n) { return root.crypto.getRandomValues(new Uint8Array(n)); }
+  function aad(o) { return enc.encode(JSON.stringify(o)); }
+  function validateJwk(jwk) {
+    exact(jwk,['e','kty','n']); if(jwk.kty!=='RSA'||jwk.e!=='AQAB')fail();
+    const n=unurl(jwk.n); if(n.length!==384||n[0]<128)fail();
+    return {e:jwk.e,kty:'RSA',n:jwk.n};
+  }
+  async function fingerprint(jwk) { return b64url(new Uint8Array(await subtle().digest('SHA-256',aad(validateJwk(jwk))))); }
+  async function validatePublic(pub, expected) {
+    exact(pub,['format','version','suite','keyId','jwk']);
+    if(pub.format!=='winter-diary-public'||pub.version!==1||pub.suite!==SUITE||!FP.test(pub.keyId))fail();
+    const computed=await fingerprint(pub.jwk); if(computed!==pub.keyId||(expected!==undefined&&computed!==expected))fail();
+    return pub;
+  }
+  async function passwordKey(password,salt,iterations,usages) {
+    if(typeof password!=='string'||!password||password.length>1024)fail();
+    const raw=enc.encode(password); let material;
+    try { material=await subtle().importKey('raw',raw,'PBKDF2',false,['deriveKey']); } finally {raw.fill(0);}
+    return subtle().deriveKey({name:'PBKDF2',salt,iterations,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,usages);
+  }
+  async function verifyExistingPassword(password,reference,expected) {
+    if(!reference||reference.kdf!=='PBKDF2-SHA256'||reference.iter!==310000||!reference.check)fail();
+    const key=await passwordKey(password,bytes(reference.salt,16),310000,['decrypt']);
+    const plain=new Uint8Array(await subtle().decrypt({name:'AES-GCM',iv:bytes(reference.check.iv,12),tagLength:128},key,bytes(reference.check.ct,null,4096)));
+    try {if(JSON.parse(dec.decode(plain))!==expected)fail();}finally{plain.fill(0);} return true;
+  }
+  function vaultHeader(vault) {
+    exact(vault,['format','version','keyId','kdf','cipher']); exact(vault.kdf,['name','iterations','salt']); exact(vault.cipher,['name','iv','ct']);
+    if(vault.format!=='winter-diary-key-vault'||vault.version!==1||!FP.test(vault.keyId)||vault.kdf.name!=='PBKDF2-SHA256'||vault.kdf.iterations!==ITER||vault.cipher.name!=='A256GCM')fail();
+    bytes(vault.kdf.salt,16); bytes(vault.cipher.iv,12); bytes(vault.cipher.ct,null,8192);
+    return {format:vault.format,version:1,keyId:vault.keyId,kdf:{name:vault.kdf.name,iterations:ITER,salt:vault.kdf.salt}};
+  }
+  async function createSetup(password,reference,expected) {
+    // Only call from the user's local initializer after its explicit confirmation.
+    await verifyExistingPassword(password,reference,expected);
+    const pair=await subtle().generateKey({name:'RSA-OAEP',modulusLength:3072,publicExponent:new Uint8Array([1,0,1]),hash:'SHA-256'},true,['encrypt','decrypt']);
+    const exported=await subtle().exportKey('jwk',pair.publicKey);
+    const jwk={e:exported.e,kty:exported.kty,n:exported.n}; const keyId=await fingerprint(jwk);
+    const pub={format:'winter-diary-public',version:1,suite:SUITE,keyId,jwk};
+    const header={format:'winter-diary-key-vault',version:1,keyId,kdf:{name:'PBKDF2-SHA256',iterations:ITER,salt:b64(random(16))}};
+    const iv=random(12),privateBytes=new Uint8Array(await subtle().exportKey('pkcs8',pair.privateKey));
+    try {
+      const key=await passwordKey(password,bytes(header.kdf.salt,16),ITER,['encrypt']);
+      const ct=await subtle().encrypt({name:'AES-GCM',iv,additionalData:aad(header),tagLength:128},key,privateBytes);
+      const vault={...header,cipher:{name:'A256GCM',iv:b64(iv),ct:b64(new Uint8Array(ct))}};
+      const setup={format:'winter-diary-setup',version:1,public:pub,vault,manifest:{format:'winter-diary-manifest',version:1,keyId,entries:[]}};
+      const testKey=await unlock(vault,pub,password),testId='00000000-0000-4000-8000-000000000001';
+      const testContent={date:'2000-01-01',title:'初始化自检',body:'这条自检不会保存到日记。',tags:[]};
+      const testEntry=await encryptEntry(pub,keyId,testId,testContent),testResult=await decryptEntry(testEntry,testKey,keyId,testId);
+      if(testResult.body!==testContent.body)fail();
+      return setup;
+    }finally{privateBytes.fill(0);}
+  }
+  async function unlock(vault,pub,password) {
+    await validatePublic(pub); const header=vaultHeader(vault); if(header.keyId!==pub.keyId)fail();
+    const key=await passwordKey(password,bytes(vault.kdf.salt,16),ITER,['decrypt']);
+    const plain=new Uint8Array(await subtle().decrypt({name:'AES-GCM',iv:bytes(vault.cipher.iv,12),additionalData:aad(header),tagLength:128},key,bytes(vault.cipher.ct,null,8192)));
+    try {
+      const privateKey=await subtle().importKey('pkcs8',plain,{name:'RSA-OAEP',hash:'SHA-256'},false,['decrypt']);
+      if(privateKey.algorithm.modulusLength!==3072)fail();
+      const publicKey=await subtle().importKey('jwk',validateJwk(pub.jwk),{name:'RSA-OAEP',hash:'SHA-256'},false,['encrypt']);
+      const challenge=random(32),label=enc.encode('winter-diary-key-pair:'+pub.keyId);
+      const proof=await subtle().encrypt({name:'RSA-OAEP',label},publicKey,challenge);
+      const check=new Uint8Array(await subtle().decrypt({name:'RSA-OAEP',label},privateKey,proof));
+      const matched=check.length===challenge.length&&check.every((v,i)=>v===challenge[i]);check.fill(0);challenge.fill(0);if(!matched)fail();
+      return privateKey;
+    }finally{plain.fill(0);}
+  }
+  function validateContent(value) {
+    exact(value,['date','title','body','tags']);
+    if(typeof value.date!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(value.date)||!Number.isFinite(Date.parse(value.date+'T12:00:00Z'))||new Date(value.date+'T12:00:00Z').toISOString().slice(0,10)!==value.date)fail();
+    if(typeof value.title!=='string'||value.title.length>160||typeof value.body!=='string'||!value.body.trim()||value.body.length>20000)fail();
+    if(!Array.isArray(value.tags)||value.tags.length>8||value.tags.some(t=>typeof t!=='string'||t.length>24))fail();
+    const content={date:value.date,title:value.title,body:value.body,tags:value.tags.slice()};if(aad(content).length>MAX_ENTRY)fail();return content;
+  }
+  function entryHeader(entry) {
+    exact(entry,['format','version','suite','keyId','id','wrappedKey','iv','ct']);
+    if(entry.format!=='winter-diary-entry'||entry.version!==1||entry.suite!==SUITE||!FP.test(entry.keyId)||!ID.test(entry.id))fail();
+    bytes(entry.wrappedKey,384);bytes(entry.iv,12);bytes(entry.ct,null,MAX_ENTRY+16);
+    return {format:entry.format,version:1,suite:SUITE,keyId:entry.keyId,id:entry.id};
+  }
+  async function encryptEntry(pub,expectedKeyId,id,content) {
+    if(typeof expectedKeyId!=='string'||!FP.test(expectedKeyId)||!ID.test(id))fail();
+    await validatePublic(pub,expectedKeyId);
+    const clean=validateContent(content),raw=aad(clean);
+    const header={format:'winter-diary-entry',version:1,suite:SUITE,keyId:pub.keyId,id};
+    const label=aad(header),secret=random(32),iv=random(12);
+    try {
+      const publicKey=await subtle().importKey('jwk',validateJwk(pub.jwk),{name:'RSA-OAEP',hash:'SHA-256'},false,['encrypt']);
+      const dataKey=await subtle().importKey('raw',secret,{name:'AES-GCM'},false,['encrypt']);
+      const wrapped=await subtle().encrypt({name:'RSA-OAEP',label},publicKey,secret);
+      const ciphertext=await subtle().encrypt({name:'AES-GCM',iv,additionalData:label,tagLength:128},dataKey,raw);
+      return {...header,wrappedKey:b64(new Uint8Array(wrapped)),iv:b64(iv),ct:b64(new Uint8Array(ciphertext))};
+    }finally{secret.fill(0);raw.fill(0);}
+  }
+  async function decryptEntry(entry,privateKey,expectedKeyId,expectedId) {
+    const header=entryHeader(entry);if(header.keyId!==expectedKeyId||header.id!==expectedId)fail();
+    const label=aad(header),rawKey=new Uint8Array(await subtle().decrypt({name:'RSA-OAEP',label},privateKey,bytes(entry.wrappedKey,384)));
+    let plain;
+    try {
+      if(rawKey.length!==32)fail();const key=await subtle().importKey('raw',rawKey,{name:'AES-GCM'},false,['decrypt']);
+      plain=new Uint8Array(await subtle().decrypt({name:'AES-GCM',iv:bytes(entry.iv,12),additionalData:label,tagLength:128},key,bytes(entry.ct,null,MAX_ENTRY+16)));
+      return {id:header.id,...validateContent(JSON.parse(dec.decode(plain)))};
+    }finally{rawKey.fill(0);if(plain)plain.fill(0);}
+  }
+  function validateManifest(value,keyId) {
+    exact(value,['format','version','keyId','entries']);if(value.format!=='winter-diary-manifest'||value.version!==1||value.keyId!==keyId||!Array.isArray(value.entries)||value.entries.length>5000||value.entries.some(id=>typeof id!=='string'||!ID.test(id))||new Set(value.entries).size!==value.entries.length)fail();
+    return {format:value.format,version:1,keyId,entries:value.entries.slice()};
+  }
+  const api=Object.freeze({createSetup,unlock,encryptEntry,decryptEntry,validateContent,validateManifest,validatePublic,inspectEntry:entryHeader,inspectVault:vaultHeader,fingerprint,verifyExistingPassword,maxEntryBytes:MAX_ENTRY});
+  if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.DiaryCrypto=api;
+})(globalThis);
+</script><script>(function(){
+  'use strict';
+  const REFERENCE={"v": 1, "kdf": "PBKDF2-SHA256", "iter": 310000, "salt": "+JPwZwTq7unbPmwEwerT8w==", "check": {"iv": "ANNDuPWMIxlo6ri1", "ct": "V47Uco4XExjmVYVFL0ldclHu9Rz4C11Wp2KCQL/LJZobhimv"}},TEST_MODE=false;
+  const $=id=>document.getElementById(id);
+  let generation=0,busy=false,setup=null;const urls=new Set();
+  function clear(message){generation++;$('password').value='';busy=false;$('fields').disabled=!!setup;$('create').disabled=!!setup;$('status').textContent=message||'';}
+  $('cancel').addEventListener('click',()=>clear('密码输入已清空。'));
+  $('setup-form').addEventListener('submit',async event=>{
+    event.preventDefault();if(busy||setup||!$('consent').checked||document.hidden)return;
+    if(!window.isSecureContext||!window.crypto||!window.crypto.subtle){clear('需要支持 Web Crypto 的可信 HTTPS 浏览器。');return;}
+    const attempt=++generation;let password=$('password').value;$('password').value='';busy=true;$('fields').disabled=true;$('create').disabled=true;$('status').textContent='正在本机创建钥匙并自检，可能需要一小会儿……';
+    try{const result=await DiaryCrypto.createSetup(password,REFERENCE,'冬的私人档案');password='';if(attempt!==generation)return;setup=result;$('fingerprint').textContent=result.public.keyId;$('ready').hidden=false;$('status').textContent=TEST_MODE?'合成数据测试通过。这不是你的日记钥匙。':'检查完成。请下载并妥善保留加密备份包。';}
+    catch(_){if(attempt===generation)$('status').textContent='没有完成。请检查原密码和浏览器支持；没有上传或改动任何日记。';}
+    finally{password='';if(attempt===generation){busy=false;$('fields').disabled=!!setup;$('create').disabled=!!setup;}}
+  });
+  $('download').addEventListener('click',()=>{
+    if(!setup)return;
+    const output=TEST_MODE?{...setup,format:'winter-diary-self-test'}:setup;
+    const url=URL.createObjectURL(new Blob([JSON.stringify(output,null,2)+'\n'],{type:'application/json'}));urls.add(url);
+    const a=document.createElement('a');a.href=url;a.download=TEST_MODE?'winter-diary-synthetic-test.json':'winter-diary-encrypted-setup.json';document.body.append(a);a.click();a.remove();
+    $('status').textContent=TEST_MODE?'测试文件已交给浏览器下载，不能用于启用日记。':'已交给浏览器下载。请确认文件已保存；再次点击会下载同一份，不会重新生成钥匙。';
+    setTimeout(()=>{URL.revokeObjectURL(url);urls.delete(url);},60000);
+  });
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&busy)clear('已暂停这次创建并清空输入，请回来后重试。');});
+  window.addEventListener('pagehide',()=>{clear();setup=null;for(const url of urls)URL.revokeObjectURL(url);urls.clear();$('ready').hidden=true;$('fingerprint').textContent='';});
+  window.addEventListener('pageshow',event=>{if(event.persisted)clear();});
+})();
+</script></body></html>

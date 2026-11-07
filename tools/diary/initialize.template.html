@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><!--CSP--><title>装好冬的日记 · 本机初始化</title><style>/*STYLE*/
+.setup{padding:28px}fieldset{margin:0;padding:0;border:0;min-width:0}.setup label{display:block;margin:16px 0 7px}.setup input[type=password]{width:100%}.confirm{display:flex!important;gap:10px;align-items:flex-start;color:var(--ink);font-size:13px}.confirm input{margin-top:6px;flex-shrink:0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.notice{border-left:3px solid var(--rose);padding:12px 16px;font-size:13px;background:var(--paper)}#fingerprint{word-break:break-all;font-family:monospace;font-size:14px;padding:12px;background:var(--bg)}
+</style></head><body><main class="wrap"><header class="head"><p class="eyebrow">One little key, kept by you</p><h1>装好冬的<span>日记</span></h1><p>只初始化一次，以后可以让 dot 帮你记。</p></header>
+<p class="notice">请在自己的设备上打开。页面加载完成后，加密代码不发出网络请求，不上传密码，不写入浏览器存储。旧密码只在当前页验证并加密日记私钥。dot 只使用公钥新增密文，不能凭公钥读取历史。</p>
+<p class="notice">网页会随博客更新，必须信任本站和当前设备；它不能防住被篡改的网页、设备或扩展。请勿在公共设备输入密码。已有日记不要重新初始化。</p>
+<section class="card setup"><form id="setup-form"><fieldset id="fields"><label for="password">「雪地」的原密码</label><input id="password" type="password" required autocomplete="off" maxlength="1024">
+<label class="confirm"><input id="consent" type="checkbox" required><span>我确认创建一套日记专用密钥，用现有密码加密私钥，并下载加密备份包。该包用于以后持续解锁日记，我会妥善保管。此操作不自动上传，也不会给 dot 密码或明文私钥。</span></label></fieldset>
+<div class="actions"><button id="create" type="submit">创建并检查</button><button id="cancel" type="button">清空输入</button></div><p id="status" class="status" role="status" aria-live="polite"></p></form>
+<section id="ready" hidden><h2>本机自检通过</h2><p class="muted">这串公钥指纹不保密。下载包包含公钥、经密码加密的私钥和空索引，不含密码或明文私钥。</p><p id="fingerprint"></p><button id="download" type="button">下载加密备份包</button><p class="muted">请在自己可靠的位置保留备份包。即使记得密码，丢失加密私钥也无法解开历史。下载后检查文件确实保存好了；本页不会自动上传或替你保管。若交给 dot 安装，需另行确认把公钥和加密私钥包存入博客的公开 GitHub 仓库，以便跨设备解锁。任何人都可下载密文并离线猜测密码；请勿把密码或明文私钥发给 dot。</p></section>
+</section><p class="muted"><a href="../">返回冬的日记</a></p><footer>密码遗忘无法恢复。设备、扩展或网页被控制时，本机加密也无法保证保密。<br>公开密文仍会暴露大小、条数和发布时间；同密码的安全强度也受旧密码校验机制影响。</footer></main>
+<script>/*CRYPTO*/</script><script>/*INITIALIZER*/</script></body></html>
