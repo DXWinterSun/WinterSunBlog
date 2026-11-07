@@ -38,6 +38,10 @@
   <span class="c-wn-notebook__label"><small>Snow Journal</small><b>冬的雪地</b><span>雪地里，每一天的小脚印</span></span>
   <span class="c-wn-notebook__meta">⛄ 上了锁的打卡本</span>
 </a>
+<a class="c-wn-notebook c-wn-notebook--memo c-wn-notebook--diary" href="{{ site.baseurl }}/diary/">
+  <span class="c-wn-notebook__label"><small>A Little of Today</small><b>冬的日记</b><span>聊天之后，还留在心里的几句话</span></span>
+  <span class="c-wn-notebook__meta">🔒 给自己的一本小日记</span>
+</a>
 {%- assign mg_list = site.parallel | where_exp: "s", "s.kind != 'island'" -%}
 {%- assign mg_scenes = mg_list | size -%}
 {%- assign mg_items = mg_list | map: "item" | compact | uniq | size %}
