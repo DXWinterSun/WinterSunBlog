@@ -1,7 +1,7 @@
 {
   "_readme": "冬的灵感本：网页 /memo/ 读的就是这一份（只读）。在对话里改请用 main 上的 tools/memo/memo.py，别手改。",
   "version": 1,
-  "updated": "2026-11-06T00:27:00+08:00",
+  "updated": "2026-11-08T12:30:42+08:00",
   "settings": {
     "style": "snow",
     "updated": "2026-10-03T12:59:01+08:00",
@@ -359,6 +359,16 @@
       "created": "2026-11-04T16:42:47+08:00",
       "updated": "2026-11-04T16:55:58+08:00",
       "note": "2026-11-04 她提的：「回去把我的 cd 都拍给你你帮我记一下，拿不准的你可以问我。买的不少所以有时候搞不清楚」。做法：她拍照 → 我认专辑 / 年份 / 版本并查证 → 记进数据文件、挂一页；跟唱片墙互相连。Sam 的碟仍在藏品架，这页只放音乐。提案页已给（样子 / 名字 / 记什么 / 排法 / 入口），等她挑。\n\n2026-11-04 她挑定：封面墙 · 名字「冬的碟柜 · Discs」· 记版本 / 状态 / 碎碎念 · 按乐队 · 入口书桌 + 唱片墙顶上 + 口袋。页面 /discs/ 已做好推上线（空柜子），等她回家拍 CD 照片来记。"
+    },
+    {
+      "id": "gjkdux",
+      "page": "now",
+      "text": "《野马九号》Next Best Picture 演员访谈",
+      "done": false,
+      "order": -11,
+      "created": "2026-11-08T12:30:42+08:00",
+      "updated": "2026-11-08T12:30:42+08:00",
+      "note": "11/8：Winter收进待做清单。YouTube 正片 20:23，Next Best Picture 频道，YouTube 标注 11/7 发布。采访涉及 John Malkovich、Sam Rockwell、Steve Buscemi 和 Parker Posey。待看 Sam 部分，再定做整条还是切片。原视频：https://youtu.be/qTuNX4PQ4Cw"
     }
   ],
   "gone": {
