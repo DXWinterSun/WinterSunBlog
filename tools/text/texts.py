@@ -412,7 +412,20 @@ def clean_msg(m, t):
     out = {"t": m.get("t") or t, "from": "him" if m.get("from") == "him" else "her"}
     for k in ("text", "img", "link", "art"):
         if m.get(k):
-            out[k] = m[k]
+            out[k] = dict(m[k]) if k == "img" else m[k]
+    if "img" in out and out["img"].get("image_file"):
+        path = out["img"].pop("image_file")
+        with open(path, "rb") as f:
+            raw = f.read(10 * 1024 * 1024 + 1)
+        if len(raw) > 10 * 1024 * 1024:
+            raise ValueError("Image exceeds 10 MiB; original was not saved")
+        mime = ("image/png" if raw.startswith(b"\x89PNG\r\n\x1a\n") else
+                "image/jpeg" if raw.startswith(b"\xff\xd8\xff") else
+                "image/webp" if raw.startswith(b"RIFF") and raw[8:12] == b"WEBP" else None)
+        if not mime:
+            raise ValueError("Only PNG, JPEG and WebP image files are supported")
+        out["img"]["data_url"] = "data:%s;base64,%s" % (mime, b64(raw))
+        out["img"]["sha256"] = hashlib.sha256(raw).hexdigest()
     if "img" in out and out["img"].get("svg_file"):   # 他画的图：给文件路径，省得把 SVG 塞进 JSON 里转义
         try:
             with open(out["img"].pop("svg_file"), encoding="utf-8") as f:

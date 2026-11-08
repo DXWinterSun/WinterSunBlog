@@ -484,6 +484,42 @@
     img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
     return img;
   }
+  function originalPhoto(data, description) {
+    if (typeof data !== "string" || !/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/]+={0,2}$/.test(data)) return null;
+    var img = new Image();
+    img.alt = description || "一张照片";
+    img.loading = "lazy";
+    img.src = data;
+    return img;
+  }
+  // Append-only repairs can attach a recovered photo to its original caption.
+  // This changes presentation only; the encrypted message history stays intact.
+  function photoTimeline(messages) {
+    var anchors = new Map(), replacements = new Set(), attached = new Set();
+    messages.forEach(function (m) {
+      if (m.img && m.img.anchor_text) {
+        var list = anchors.get(m.img.anchor_text) || [];
+        list.push(m); anchors.set(m.img.anchor_text, list);
+        if (m.img.replaces_desc) replacements.add(m.img.replaces_desc);
+      }
+    });
+    var result = [];
+    messages.forEach(function (m) {
+      if (m.img && m.img.anchor_text) return;
+      if (m.img && !m.img.data_url && replacements.has(m.img.desc)) return;
+      if (m.text && anchors.has(m.text) && !attached.has(m.text)) {
+        anchors.get(m.text).forEach(function (photo) {
+          result.push(Object.assign({}, photo, { t: m.t }));
+        });
+        attached.add(m.text);
+      }
+      result.push(m);
+    });
+    anchors.forEach(function (list, anchor) {
+      if (!attached.has(anchor)) list.forEach(function (m) { result.push(m); });
+    });
+    return result;
+  }
   function host(u) { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return u; } }
   // 一条消息里打了回车＝分成好几条（同日：「这个界面我的回车没有做成分条消息🤔」）
   function bubbles(m) {
@@ -498,7 +534,11 @@
     if (m.img) {
       var p = el("figure", "photo" + (mine ? "" : " photo--him"));
       p.style.margin = "0";
-      if (m.img.svg) {
+      var original = originalPhoto(m.img.data_url, m.img.desc);
+      if (original) {
+        p.appendChild(original);
+        if (m.img.desc) p.appendChild(el("figcaption", "photo__cap", m.img.desc));
+      } else if (m.img.svg) {
         p.appendChild(svgImg(m.img.svg));
         if (m.img.desc) p.appendChild(el("figcaption", "photo__cap", m.img.desc));
       } else {
@@ -517,7 +557,7 @@
     return el("div", "b b--" + side, "…");
   }
   function renderThread(scrollEnd) {
-    var all = cur.data.messages || [], box = $("msgs");
+    var all = photoTimeline(cur.data.messages || []), box = $("msgs");
     var list = all.slice(-shown);
     $("t-more").hidden = all.length <= shown;
     box.innerHTML = "";
