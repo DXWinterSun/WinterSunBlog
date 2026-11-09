@@ -3,9 +3,9 @@
   "polski": {
    "list": "PLbMtFPQvK26Y",
    "title": "Polski",
-   "count": 45,
-   "duration": 9971,
-   "synced": "2026-11-02",
+   "count": 49,
+   "duration": 10884,
+   "synced": "2026-11-09",
    "tracks": [
     {
      "id": "1Ta7Qh8y_Cg",
@@ -366,6 +366,38 @@
      "dur": 235,
      "thumb": "https://i.ytimg.com/vi/4LIie1vuHlE/mqdefault.jpg",
      "added": "2026-11-02"
+    },
+    {
+     "id": "kRwcRh1KTO4",
+     "title": "Jeśli Czegoś Pragniesz (Radio Edit)",
+     "artist": "Feel",
+     "dur": 203,
+     "thumb": "https://i.ytimg.com/vi/kRwcRh1KTO4/mqdefault.jpg",
+     "added": "2026-11-09"
+    },
+    {
+     "id": "VO_j8g8Cvt0",
+     "title": "Moje życie",
+     "artist": "Lady Pank",
+     "dur": 240,
+     "thumb": "https://i.ytimg.com/vi/VO_j8g8Cvt0/mqdefault.jpg",
+     "added": "2026-11-09"
+    },
+    {
+     "id": "iiLkZgYE8Zc",
+     "title": "Miłość w czasach popkultury (DEMO Version)",
+     "artist": "MyslovitzOfficial",
+     "dur": 189,
+     "thumb": "https://i.ytimg.com/vi/iiLkZgYE8Zc/mqdefault.jpg",
+     "added": "2026-11-09"
+    },
+    {
+     "id": "TI_tyCZHhY8",
+     "title": "Poeta",
+     "artist": "Mariusz Parlicki",
+     "dur": 281,
+     "thumb": "https://i.ytimg.com/vi/TI_tyCZHhY8/mqdefault.jpg",
+     "added": "2026-11-09"
     }
    ]
   }
