@@ -536,6 +536,72 @@
   card: "97% 50%"
   banner: "50% 0%"
   banner_m: "80% 50%"
+"song-a-boy-named-goo.jpg":
+  x: 49.7
+  y: 32.2
+  w: 600
+  h: 600
+  score: 0.9
+  fs: 29.1
+  sq: "50% 50%"
+  card: "50% 2%"
+  banner: "50% 0%"
+  banner_m: "50% 0%"
+"song-augustana.jpg":
+  x: 58.0
+  y: 43.2
+  w: 600
+  h: 596
+  score: 0.93
+  fs: 11.1
+  sq: "50% 50%"
+  card: "50% 32%"
+  banner: "50% 31%"
+  banner_m: "50% 22%"
+"song-clumsy-words.jpg":
+  x: 25.8
+  y: 59.0
+  w: 600
+  h: 600
+  score: 0.64
+  fs: 4.1
+  sq: "50% 50%"
+  card: "50% 74%"
+  banner: "50% 66%"
+  banner_m: "50% 74%"
+"song-daylight.jpg":
+  x: 40.9
+  y: 34.2
+  w: 600
+  h: 600
+  score: 0.93
+  fs: 27.8
+  sq: "50% 50%"
+  card: "50% 8%"
+  banner: "50% 6%"
+  banner_m: "50% 0%"
+"song-scars-and-stories.jpg":
+  x: 29.3
+  y: 59.1
+  w: 600
+  h: 600
+  score: 0.86
+  fs: 3.8
+  sq: "50% 50%"
+  card: "50% 74%"
+  banner: "50% 66%"
+  banner_m: "50% 75%"
+"song-simple-times.jpg":
+  x: 64.3
+  y: 13.7
+  w: 600
+  h: 600
+  score: 0.94
+  fs: 12.9
+  sq: "50% 50%"
+  card: "50% 0%"
+  banner: "50% 0%"
+  banner_m: "50% 0%"
 "the-most-powerful-man.jpeg":
   x: 83.4
   y: 28.9
