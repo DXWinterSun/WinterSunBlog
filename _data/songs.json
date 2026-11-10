@@ -10,6 +10,28 @@
  ],
  "albums": [
   {
+   "id": "rodeo-and-living-free",
+   "album": "Rodeo And Living Free",
+   "artist": "Chris LeDoux",
+   "year": null,
+   "color": "#393939",
+   "label": "#e7e4df",
+   "songs": [
+    {
+     "id": "fourth-of-july-rodeos",
+     "title": "Fourth Of July Rodeos",
+     "items": [
+      {
+       "kind": "lines",
+       "date": "2026-11-10",
+       "note": "YouTube Music 播放截图 · 她说：「这首好听！🥺Chris LeDoux简直是美国梦代言人啊🥹」",
+       "lines": []
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "zawsze-tam-gdzie-ty",
    "album": "Zawsze tam gdzie Ty",
    "artist": "Lady Pank",
