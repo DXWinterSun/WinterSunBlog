@@ -1,0 +1,104 @@
+{
+  "checked": "2026-11-10",
+  "sources": [
+    {
+      "id": "a-boy-named-goo",
+      "artist": "Goo Goo Dolls",
+      "album": "A Boy Named Goo",
+      "cover": "song-a-boy-named-goo.jpg",
+      "page": "https://music.apple.com/us/album/a-boy-named-goo/1109657586?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9d/a3/30/9da3309b-75ff-eaea-c2a9-3534eb8e5e23/093624918820.jpg/600x600bb.jpg",
+      "bytes": 117159
+    },
+    {
+      "id": "dizzy-up-the-girl",
+      "artist": "Goo Goo Dolls",
+      "album": "Dizzy Up the Girl",
+      "cover": "song-dizzy-up-the-girl.jpg",
+      "page": "https://music.apple.com/us/album/dizzy-up-the-girl/1109658139?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2c/13/18/2c131801-00af-58b1-3cc2-13abf4ad5416/093624919162.jpg/600x600bb.jpg",
+      "bytes": 120705
+    },
+    {
+      "id": "the-fray",
+      "artist": "The Fray",
+      "album": "The Fray",
+      "cover": "song-the-fray.jpg",
+      "page": "https://music.apple.com/us/album/the-fray/301537181?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/9d/f8/9a/9df89a23-6d5b-8146-2c37-bef94bd06691/dj.cznngjrx.jpg/600x600bb.jpg",
+      "bytes": 90146
+    },
+    {
+      "id": "augustana",
+      "artist": "Augustana",
+      "album": "Augustana",
+      "cover": "song-augustana.jpg",
+      "page": "https://music.apple.com/us/album/augustana/430404867?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/5a/2d/fe/5a2dfe3a-a3d9-d48c-7fe1-d4815d7bccd0/mzi.xegmsusr.jpg/600x600bb.jpg",
+      "bytes": 87679
+    },
+    {
+      "id": "clumsy-words",
+      "artist": "Junior Doctor",
+      "album": "Clumsy Words and Bad Pickup Lines",
+      "cover": "song-clumsy-words.jpg",
+      "page": "https://music.apple.com/us/album/clumsy-words-and-bad-pickup-lines/683917656?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/ff/2b/3e/ff2b3e4d-809a-6f4c-67c0-a035832fcd4b/Junior_Doctor_-_Clumsy_Words_And_Bad_Pickup_Lines_JPEG_1440X1440.jpg/600x600bb.jpg",
+      "bytes": 93405
+    },
+    {
+      "id": "simple-times",
+      "artist": "Joshua Radin",
+      "album": "Simple Times",
+      "cover": "song-simple-times.jpg",
+      "page": "https://music.apple.com/us/album/simple-times/1881436505?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b6/28/9b/b6289b79-824b-9f87-8479-24ee102f2e89/112416.jpg/600x600bb.jpg",
+      "bytes": 117885
+    },
+    {
+      "id": "nali-dou-shi-ni",
+      "artist": "队长",
+      "album": "哪里都是你",
+      "cover": "song-nali-dou-shi-ni.jpg",
+      "page": "https://music.apple.com/us/album/%E5%93%AA%E9%87%8C%E9%83%BD%E6%98%AF%E4%BD%A0-single/1855424064?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/41/40/10/4140100c-ad5b-0da9-95fe-c149c58d5bf3/4896010047953.jpg/600x600bb.jpg",
+      "bytes": 7957
+    },
+    {
+      "id": "daylight",
+      "artist": "Ron Pope",
+      "album": "Daylight",
+      "cover": "song-daylight.jpg",
+      "page": "https://music.apple.com/us/album/daylight/281055423?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music/50/65/d7/mzi.zrxpexww.jpg/600x600bb.jpg",
+      "bytes": 148528
+    },
+    {
+      "id": "i-met-you-when-i-was-18",
+      "artist": "Lauv",
+      "album": "I met you when I was 18. (the playlist)",
+      "cover": "song-i-met-you-when-i-was-18.jpg",
+      "page": "https://music.apple.com/us/album/i-met-you-when-i-was-18-the-playlist/1771701881?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5c/3d/e5/5c3de510-1123-0da6-9531-318d9597159c/5056167107347_Cover.jpg/600x600bb.jpg",
+      "bytes": 41630
+    },
+    {
+      "id": "scars-and-stories",
+      "artist": "The Fray",
+      "album": "Scars & Stories",
+      "cover": "song-scars-and-stories.jpg",
+      "page": "https://music.apple.com/us/album/scars-stories/486826025?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ba/bd/5c/babd5c40-2a23-7eb8-dd6c-1d82cfc818dd/mzi.ljxcbuda.jpg/600x600bb.jpg",
+      "bytes": 107848
+    },
+    {
+      "id": "helios",
+      "artist": "The Fray",
+      "album": "Helios",
+      "cover": "song-helios.jpg",
+      "page": "https://music.apple.com/us/album/helios/742344881?uo=4",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Features/v4/03/df/dd/03dfdd64-edf9-840c-6b46-dd99a17e3249/dj.rqtckolf.jpg/600x600bb.jpg",
+      "bytes": 166556
+    }
+  ]
+}
