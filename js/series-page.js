@@ -488,31 +488,87 @@
     while (ctx.measureText(text).width > maxW && size > 18) { size -= 2; ctx.font = font.replace(/\d+px/, size + 'px'); }
     ctx.fillText(text, x, y);
   }
+  function showTicketPreview(blob) {
+    var url = URL.createObjectURL(blob);
+    var name = ((ticket.getAttribute('data-series') || 'ticket') + ' · ' + (ticket.getAttribute('data-who') || '')).replace(/[\\/:*?"<>|]+/g, ' ').trim() + '.png';
+    var ov = document.createElement('div');
+    ov.className = 'c-tk-saved';
+    ov.setAttribute('role', 'dialog');
+    ov.setAttribute('aria-label', '保存票根');
+    ov.innerHTML = '<img alt="票根"><p aria-live="polite"></p>' +
+      '<div class="c-tk-saved__row"><a class="is-primary">下载</a><button type="button">关掉</button></div>';
+
+    ov.querySelector('img').src = url;
+    var hint = ov.querySelector('p');
+    hint.textContent = '长按图片存到相册，或点「下载」';
+    var row = ov.querySelector('.c-tk-saved__row');
+    var download = row.querySelector('a');
+    download.href = url;
+    download.download = name;
+
+    if (navigator.share && navigator.canShare && typeof File === 'function') {
+      var shareData = { files: [new File([blob], name, { type: blob.type })] };
+      if (navigator.canShare(shareData)) {
+        var share = document.createElement('button');
+        share.type = 'button';
+        var isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+          (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+        share.textContent = isIOS ? '存到相册' : '分享图片';
+        row.insertBefore(share, download);
+        hint.textContent = isIOS ? '点「存到相册」，再选「存储图像」' : '点「分享图片」打开系统菜单，或点「下载」';
+        share.addEventListener('click', function () {
+          navigator.share(shareData).catch(function (error) {
+            if (error.name !== 'AbortError') {
+              hint.textContent = '分享菜单没能打开，可以长按图片或点「下载」';
+            }
+          });
+        });
+      }
+    }
+
+    function close() {
+      ov.remove();
+      document.removeEventListener('keydown', onKeyDown);
+      URL.revokeObjectURL(url);
+    }
+    function onKeyDown(e) {
+      if (e.key === 'Escape') close();
+    }
+    row.lastElementChild.addEventListener('click', close);
+    ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+    document.addEventListener('keydown', onKeyDown);
+    document.body.appendChild(ov);
+  }
+
   function saveTicket() {
     var btn = document.getElementById('js-ticket-save');
     if (!btn || !ticket) return;
     btn.addEventListener('click', function () {
       btn.disabled = true;
+      function exportFailed() {
+        btn.disabled = false;
+        window.alert('票根图片没能生成，请再试一次。');
+      }
       var fonts = document.fonts ? Promise.all([
         document.fonts.load('bold 40px Volkhov'), document.fonts.load('italic 14px "EB Garamond"'),
         document.fonts.load('500 11px "Noto Serif SC"'), document.fonts.load('10px "Special Elite"')
       ]).catch(function () {}) : Promise.resolve();
       fonts.then(function () {
         drawTicket(function (cv) {
-          btn.disabled = false;
-          var url = cv.toDataURL('image/png');
-          var ov = document.createElement('div');
-          ov.className = 'c-tk-saved';
-          ov.setAttribute('role', 'dialog');
-          ov.setAttribute('aria-label', '保存票根');
-          var name = ((ticket.getAttribute('data-series') || 'ticket') + ' · ' + (ticket.getAttribute('data-who') || '')).replace(/[\\/:*?"<>|]+/g, ' ').trim();
-          ov.innerHTML = '<img alt="票根" src="' + url + '"><p>手机：长按图片存到相册 · 电脑：点「下载」</p>' +
-            '<div class="c-tk-saved__row"><a class="is-primary" download="' + name + '.png" href="' + url + '">下载</a><button type="button">关掉</button></div>';
-          ov.addEventListener('click', function (e) { if (e.target === ov || e.target.tagName === 'BUTTON') ov.remove(); });
-          document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { ov.remove(); document.removeEventListener('keydown', esc); } });
-          document.body.appendChild(ov);
+          try {
+            cv.toBlob(function (blob) {
+              if (!blob) {
+                exportFailed();
+                return;
+              }
+              btn.disabled = false;
+              showTicketPreview(blob);
+            }, 'image/png');
+          } catch (error) {
+            exportFailed();
+          }
         });
-      });
+      }).catch(exportFailed);
     });
   }
 
