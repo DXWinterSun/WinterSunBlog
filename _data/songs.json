@@ -17,11 +17,11 @@
       "color": "#aa3a35",
       "label": "#f7d4bc",
       "songs": [],
-      "cover_url": "https://i.scdn.co/image/ab67616d0000b273cd97816353b47a026899d0d8",
       "album_favorite": {
         "date": "2026-11-11",
         "note": "整张专辑都是心头好。"
-      }
+      },
+      "cover": "song-hui-dao-hai-yang.jpg"
     },
     {
       "id": "the-way-it-was",
