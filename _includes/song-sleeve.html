@@ -13,11 +13,12 @@
 {%- assign sl_a = include.album -%}
 {%- assign sl_n = sl_a.songs | size -%}
 {%- assign sl_cover = sl_a.cover | default: site.data.song_covers[sl_a.id] -%}
+{%- assign sl_cover_url = sl_a.cover_url -%}
 <span class="c-sleeve__media">
   <span class="c-sleeve__disc" aria-hidden="true"></span>
-  <span class="c-sleeve__art{% if sl_cover %} has-img{% endif %}"{% if sl_cover %} data-bg="{{ '/images/' | prepend: site.baseurl | append: sl_cover }}"{% if sl_a.cover_pos %} style="background-position: {{ sl_a.cover_pos }}"{% endif %}{% endif %}>
+  <span class="c-sleeve__art{% if sl_cover or sl_cover_url %} has-img{% endif %}"{% if sl_cover %} data-bg="{{ '/images/' | prepend: site.baseurl | append: sl_cover }}"{% elsif sl_cover_url %} data-bg="{{ sl_cover_url | escape }}"{% endif %}{% if sl_a.cover_pos %} style="background-position: {{ sl_a.cover_pos }}"{% endif %}>
     {%- if sl_n > 1 and include.media_only == nil %}<span class="c-sleeve__badge">{{ sl_n }} 首 ▾</span>{% endif -%}
-    {%- unless sl_cover %}<i class="c-sleeve__print">{{ sl_a.album | escape }}</i>{% endunless -%}
+    {%- unless sl_cover or sl_cover_url %}<i class="c-sleeve__print">{{ sl_a.album | escape }}</i>{% endunless -%}
     {%- comment -%} 💿 柜里有这张 CD（_data/discs.json 按专辑名 + 乐队名对；2026-11-04） {%- endcomment -%}
     {%- assign sl_alb = sl_a.album | downcase | strip -%}{%- assign sl_art = sl_a.artist | downcase | strip -%}{%- assign sl_disc = false -%}
     {%- for sl_d in site.data.discs.items -%}{%- assign sl_da = sl_d.album | downcase | strip -%}{%- assign sl_dr = sl_d.artist | downcase | strip -%}{%- if sl_d.wall == sl_a.id or sl_da == sl_alb and sl_dr == sl_art -%}{%- assign sl_disc = true -%}{%- endif -%}{%- endfor -%}
