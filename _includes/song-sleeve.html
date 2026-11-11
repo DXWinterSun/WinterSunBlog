@@ -26,6 +26,6 @@
   </span>
 </span>
 {%- unless include.media_only %}
-<span class="c-sleeve__name">{% if sl_n > 1 %}{{ sl_a.album | escape }}{% else %}{{ sl_a.songs[0].title | escape }}{% endif %}</span>
+<span class="c-sleeve__name">{% if sl_n > 1 or sl_a.album_favorite %}{{ sl_a.album | escape }}{% else %}{{ sl_a.songs[0].title | escape }}{% endif %}</span>
 <span class="c-sleeve__artist">{{ sl_a.artist | escape }}</span>
 {%- endunless -%}

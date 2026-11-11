@@ -16,21 +16,12 @@
       "year": 2021,
       "color": "#aa3a35",
       "label": "#f7d4bc",
-      "songs": [
-        {
-          "id": "hai-ou",
-          "title": "海鸥",
-          "items": [
-            {
-              "kind": "lines",
-              "date": "2026-11-11",
-              "note": "YouTube Music 专辑截图 · Winter 把《回到海洋》整张专辑列为特别喜欢的唱片；仅记录专辑偏爱，未单独指定歌曲。",
-              "lines": []
-            }
-          ]
-        }
-      ],
-      "cover_url": "https://i.scdn.co/image/ab67616d0000b273cd97816353b47a026899d0d8"
+      "songs": [],
+      "cover_url": "https://i.scdn.co/image/ab67616d0000b273cd97816353b47a026899d0d8",
+      "album_favorite": {
+        "date": "2026-11-11",
+        "note": "整张专辑都是心头好。"
+      }
     },
     {
       "id": "the-way-it-was",
@@ -39,21 +30,12 @@
       "year": 2011,
       "color": "#385269",
       "label": "#e6e9e2",
-      "songs": [
-        {
-          "id": "white-dress",
-          "title": "White Dress",
-          "items": [
-            {
-              "kind": "lines",
-              "date": "2026-11-11",
-              "note": "YouTube Music 专辑截图（首页展示曲目）· Winter 把整张专辑列为特别喜欢的唱片；此处代表整张专辑，不是单独点名最爱曲目。",
-              "lines": []
-            }
-          ]
-        }
-      ],
-      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/59/fb/39/59fb3961-f5e1-f24e-6442-8e391223a38c/00602527734484.rgb.jpg/1500x1500bb.jpg"
+      "songs": [],
+      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/59/fb/39/59fb3961-f5e1-f24e-6442-8e391223a38c/00602527734484.rgb.jpg/1500x1500bb.jpg",
+      "album_favorite": {
+        "date": "2026-11-11",
+        "note": "整张专辑都是心头好。"
+      }
     },
     {
       "id": "composure",
@@ -62,21 +44,12 @@
       "year": 2005,
       "color": "#9b6650",
       "label": "#f6eadb",
-      "songs": [
-        {
-          "id": "shades-of-grey",
-          "title": "Shades Of Grey",
-          "items": [
-            {
-              "kind": "lines",
-              "date": "2026-11-11",
-              "note": "YouTube Music 专辑截图（首页展示曲目）· Winter 把整张专辑列为特别喜欢的唱片；此处代表整张专辑，不是单独点名最爱曲目。",
-              "lines": []
-            }
-          ]
-        }
-      ],
-      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/c3/ba/8e/c3ba8ebf-fd79-2fc3-9bb4-e908e7078287/mzi.gwxztmzt.jpg/600x600bf-60.jpg"
+      "songs": [],
+      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/c3/ba/8e/c3ba8ebf-fd79-2fc3-9bb4-e908e7078287/mzi.gwxztmzt.jpg/600x600bf-60.jpg",
+      "album_favorite": {
+        "date": "2026-11-11",
+        "note": "整张专辑都是心头好。"
+      }
     },
     {
       "id": "a-different-light",
@@ -85,21 +58,12 @@
       "year": 2007,
       "color": "#a26939",
       "label": "#fff2be",
-      "songs": [
-        {
-          "id": "song-in-my-head",
-          "title": "Song in My Head",
-          "items": [
-            {
-              "kind": "lines",
-              "date": "2026-11-11",
-              "note": "YouTube Music 专辑截图（首页展示曲目）· Winter 把整张专辑列为特别喜欢的唱片；此处代表整张专辑，不是单独点名最爱曲目。",
-              "lines": []
-            }
-          ]
-        }
-      ],
-      "cover_url": "https://f4.bcbits.com/img/a3466228933_10.jpg"
+      "songs": [],
+      "cover_url": "https://f4.bcbits.com/img/a3466228933_10.jpg",
+      "album_favorite": {
+        "date": "2026-11-11",
+        "note": "整张专辑都是心头好。"
+      }
     },
     {
       "id": "cant-love-cant-hurt",
@@ -108,21 +72,12 @@
       "year": 2008,
       "color": "#34482d",
       "label": "#e7e4cf",
-      "songs": [
-        {
-          "id": "hey-now",
-          "title": "Hey Now",
-          "items": [
-            {
-              "kind": "lines",
-              "date": "2026-11-11",
-              "note": "YouTube Music 专辑截图（首页展示曲目）· Winter 把整张专辑列为特别喜欢的唱片，属于她从头到尾听都喜欢的专辑；此处记录的是整张专辑偏爱，不代表单独指定《Hey Now》为最爱。",
-              "lines": []
-            }
-          ]
-        }
-      ],
-      "cover_url": "https://chorus.fm/wp-content/uploads/2018/05/Cant-Love.jpg"
+      "songs": [],
+      "cover_url": "https://chorus.fm/wp-content/uploads/2018/05/Cant-Love.jpg",
+      "album_favorite": {
+        "date": "2026-11-11",
+        "note": "整张专辑都是心头好。"
+      }
     },
     {
       "id": "get-rollin",
@@ -169,7 +124,11 @@
           ]
         }
       ],
-      "cover_url": "https://nickelback.com/cdn/shop/products/NB_AC_bbb06a5a-2a9e-41b3-bf48-689eb9817ddf.png?v=1662342042&width=1920"
+      "cover_url": "https://nickelback.com/cdn/shop/products/NB_AC_bbb06a5a-2a9e-41b3-bf48-689eb9817ddf.png?v=1662342042&width=1920",
+      "album_favorite": {
+        "date": "2026-11-11",
+        "note": "整张专辑很好听；从《Those Days》开始注意到它，按顺序听下来很顺畅，是我喜欢的美式摇滚。"
+      }
     },
     {
       "id": "rodeo-and-living-free",
@@ -423,12 +382,6 @@
               "kind": "au",
               "post": "_posts/2026-08-21-everything-in-transit-chapter-6-the-beach-show.md",
               "sub": "本章曲目"
-            },
-            {
-              "kind": "lines",
-              "date": "2026-11-11",
-              "note": "YouTube Music《Everything in Transit (10th Anniversary Edition)》截图 · Winter 把整张专辑列为特别喜欢的唱片，喜欢按照专辑原顺序听。此条只记录整张专辑偏爱，保留原有 AU 曲目关联。",
-              "lines": []
             }
           ]
         },
@@ -454,7 +407,11 @@
             }
           ]
         }
-      ]
+      ],
+      "album_favorite": {
+        "date": "2026-11-11",
+        "note": "整张专辑都是心头好。"
+      }
     },
     {
       "id": "the-fray",
@@ -587,16 +544,14 @@
               "kind": "story",
               "post": "_posts/2022-07-10-where-is-your-hug.md",
               "sub": "“灵感来源：逃跑计划2012年《世界》专辑第8首歌曲”"
-            },
-            {
-              "kind": "lines",
-              "date": "2026-11-11",
-              "note": "YouTube Music 专辑截图 · Winter 把逃跑计划《世界》整张专辑列为特别喜欢的唱片。此条只记录专辑偏爱，保留原来《哪里是你的拥抱》的小说关联。",
-              "lines": []
             }
           ]
         }
-      ]
+      ],
+      "album_favorite": {
+        "date": "2026-11-11",
+        "note": "整张专辑都是心头好。"
+      }
     },
     {
       "id": "simple-times",
@@ -686,17 +641,15 @@
               "kind": "essay",
               "post": "_posts/2022-04-29-i-wish-sad-love-songs-never-break-us.md",
               "sub": "发给 Daisy 的那句歌词"
-            },
-            {
-              "kind": "lines",
-              "date": "2026-11-11",
-              "note": "YouTube Music 专辑截图 · Winter 把 Ron Pope《Daylight》整张专辑列为特别喜欢的唱片。此条只记录专辑偏爱，保留原来《Fireflies》的文章与歌词关联。",
-              "lines": []
             }
           ]
         }
       ],
-      "cover_url": "https://images.squarespace-cdn.com/content/v1/516e816be4b085eec38499de/1571938859590-M69OA46E35204NPN9PQC/RP_DaylightCover_Tunecore.jpg"
+      "cover_url": "https://images.squarespace-cdn.com/content/v1/516e816be4b085eec38499de/1571938859590-M69OA46E35204NPN9PQC/RP_DaylightCover_Tunecore.jpg",
+      "album_favorite": {
+        "date": "2026-11-11",
+        "note": "整张专辑都是心头好。"
+      }
     },
     {
       "id": "i-met-you-when-i-was-18",
