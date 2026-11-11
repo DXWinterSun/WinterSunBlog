@@ -18,8 +18,8 @@
       "label": "#f7d4bc",
       "songs": [
         {
-          "id": "album-favorite",
-          "title": "回到海洋",
+          "id": "meng-zhong-de-ni",
+          "title": "梦中的你",
           "items": [
             {
               "kind": "lines",
@@ -417,6 +417,12 @@
               "kind": "au",
               "post": "_posts/2026-08-21-everything-in-transit-chapter-6-the-beach-show.md",
               "sub": "本章曲目"
+            },
+            {
+              "kind": "lines",
+              "date": "2026-11-11",
+              "note": "YouTube Music《Everything in Transit (10th Anniversary Edition)》截图 · Winter 把整张专辑列为特别喜欢的唱片，喜欢按照专辑原顺序听。此条只记录整张专辑偏爱，保留原有 AU 曲目关联。",
+              "lines": []
             }
           ]
         },
@@ -439,18 +445,6 @@
               "kind": "au",
               "post": "_posts/2026-08-21-everything-in-transit-chapter-18-sing-it-to-you-first.md",
               "sub": "本章曲目"
-            }
-          ]
-        },
-        {
-          "id": "album-favorite",
-          "title": "Everything in Transit",
-          "items": [
-            {
-              "kind": "lines",
-              "date": "2026-11-11",
-              "note": "YouTube Music《Everything in Transit (10th Anniversary Edition)》截图 · Winter 把整张专辑列为特别喜欢的唱片，喜欢按照专辑原顺序听。此条只记录整张专辑偏爱，保留原有 AU 曲目关联。",
-              "lines": []
             }
           ]
         }
@@ -587,13 +581,7 @@
               "kind": "story",
               "post": "_posts/2022-07-10-where-is-your-hug.md",
               "sub": "“灵感来源：逃跑计划2012年《世界》专辑第8首歌曲”"
-            }
-          ]
-        },
-        {
-          "id": "album-favorite",
-          "title": "世界",
-          "items": [
+            },
             {
               "kind": "lines",
               "date": "2026-11-11",
@@ -692,13 +680,7 @@
               "kind": "essay",
               "post": "_posts/2022-04-29-i-wish-sad-love-songs-never-break-us.md",
               "sub": "发给 Daisy 的那句歌词"
-            }
-          ]
-        },
-        {
-          "id": "album-favorite",
-          "title": "Daylight",
-          "items": [
+            },
             {
               "kind": "lines",
               "date": "2026-11-11",
