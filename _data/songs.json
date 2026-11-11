@@ -31,11 +31,11 @@
       "color": "#385269",
       "label": "#e6e9e2",
       "songs": [],
-      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/59/fb/39/59fb3961-f5e1-f24e-6442-8e391223a38c/00602527734484.rgb.jpg/1500x1500bb.jpg",
       "album_favorite": {
         "date": "2026-11-11",
         "note": "整张专辑都是心头好。"
-      }
+      },
+      "cover": "song-the-way-it-was.jpg"
     },
     {
       "id": "composure",
@@ -45,11 +45,11 @@
       "color": "#9b6650",
       "label": "#f6eadb",
       "songs": [],
-      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/c3/ba/8e/c3ba8ebf-fd79-2fc3-9bb4-e908e7078287/mzi.gwxztmzt.jpg/600x600bf-60.jpg",
       "album_favorite": {
         "date": "2026-11-11",
         "note": "整张专辑都是心头好。"
-      }
+      },
+      "cover": "song-composure.jpg"
     },
     {
       "id": "a-different-light",
@@ -59,11 +59,11 @@
       "color": "#a26939",
       "label": "#fff2be",
       "songs": [],
-      "cover_url": "https://f4.bcbits.com/img/a3466228933_10.jpg",
       "album_favorite": {
         "date": "2026-11-11",
         "note": "整张专辑都是心头好。"
-      }
+      },
+      "cover": "song-a-different-light.jpg"
     },
     {
       "id": "cant-love-cant-hurt",
@@ -73,11 +73,11 @@
       "color": "#34482d",
       "label": "#e7e4cf",
       "songs": [],
-      "cover_url": "https://chorus.fm/wp-content/uploads/2018/05/Cant-Love.jpg",
       "album_favorite": {
         "date": "2026-11-11",
         "note": "整张专辑都是心头好。"
-      }
+      },
+      "cover": "song-cant-love-cant-hurt.jpg"
     },
     {
       "id": "get-rollin",
@@ -124,11 +124,11 @@
           ]
         }
       ],
-      "cover_url": "https://nickelback.com/cdn/shop/products/NB_AC_bbb06a5a-2a9e-41b3-bf48-689eb9817ddf.png?v=1662342042&width=1920",
       "album_favorite": {
         "date": "2026-11-11",
         "note": "整张专辑很好听；从《Those Days》开始注意到它，按顺序听下来很顺畅，是我喜欢的美式摇滚。"
-      }
+      },
+      "cover": "song-get-rollin.jpg"
     },
     {
       "id": "rodeo-and-living-free",
@@ -645,11 +645,11 @@
           ]
         }
       ],
-      "cover_url": "https://images.squarespace-cdn.com/content/v1/516e816be4b085eec38499de/1571938859590-M69OA46E35204NPN9PQC/RP_DaylightCover_Tunecore.jpg",
       "album_favorite": {
         "date": "2026-11-11",
         "note": "整张专辑都是心头好。"
-      }
+      },
+      "cover": "song-daylight.jpg"
     },
     {
       "id": "i-met-you-when-i-was-18",
