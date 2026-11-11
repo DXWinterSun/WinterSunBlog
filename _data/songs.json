@@ -18,8 +18,8 @@
       "label": "#f7d4bc",
       "songs": [
         {
-          "id": "meng-zhong-de-ni",
-          "title": "梦中的你",
+          "id": "hai-ou",
+          "title": "海鸥",
           "items": [
             {
               "kind": "lines",
@@ -29,7 +29,8 @@
             }
           ]
         }
-      ]
+      ],
+      "cover_url": "https://i.scdn.co/image/ab67616d0000b273cd97816353b47a026899d0d8"
     },
     {
       "id": "the-way-it-was",
@@ -51,7 +52,8 @@
             }
           ]
         }
-      ]
+      ],
+      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/59/fb/39/59fb3961-f5e1-f24e-6442-8e391223a38c/00602527734484.rgb.jpg/1500x1500bb.jpg"
     },
     {
       "id": "composure",
@@ -73,7 +75,8 @@
             }
           ]
         }
-      ]
+      ],
+      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/c3/ba/8e/c3ba8ebf-fd79-2fc3-9bb4-e908e7078287/mzi.gwxztmzt.jpg/600x600bf-60.jpg"
     },
     {
       "id": "a-different-light",
@@ -95,7 +98,8 @@
             }
           ]
         }
-      ]
+      ],
+      "cover_url": "https://f4.bcbits.com/img/a3466228933_10.jpg"
     },
     {
       "id": "cant-love-cant-hurt",
@@ -117,7 +121,8 @@
             }
           ]
         }
-      ]
+      ],
+      "cover_url": "https://chorus.fm/wp-content/uploads/2018/05/Cant-Love.jpg"
     },
     {
       "id": "get-rollin",
@@ -163,7 +168,8 @@
             }
           ]
         }
-      ]
+      ],
+      "cover_url": "https://nickelback.com/cdn/shop/products/NB_AC_bbb06a5a-2a9e-41b3-bf48-689eb9817ddf.png?v=1662342042&width=1920"
     },
     {
       "id": "rodeo-and-living-free",
@@ -689,7 +695,8 @@
             }
           ]
         }
-      ]
+      ],
+      "cover_url": "https://images.squarespace-cdn.com/content/v1/516e816be4b085eec38499de/1571938859590-M69OA46E35204NPN9PQC/RP_DaylightCover_Tunecore.jpg"
     },
     {
       "id": "i-met-you-when-i-was-18",
