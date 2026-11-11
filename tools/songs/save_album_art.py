@@ -11,7 +11,7 @@ TARGETS={
 "a-different-light":("Sherwood","A Different Light","1050832256","us"),
 "composure":("Waking Ashland","Composure","715569159","us"),
 "the-way-it-was":("Parachute","The Way It Was","1440665176","us"),
-"hui-dao-hai-yang":("逃跑计划","回到海洋",None,"cn"),
+"hui-dao-hai-yang":("逃跑计划","回到海洋","1858515737","us"),
 "daylight":("Ron Pope","Daylight",None,"us"),
 }
 def get(url):
@@ -30,7 +30,7 @@ for album in data["albums"]:
       term=urllib.parse.quote(artist+" "+title)
       url=f"https://itunes.apple.com/search?term={term}&country={region}&entity=album&limit=100"
     entries=json.loads(get(url)).get("results",[])
-    match=next((x for x in entries if x.get("wrapperType")=="collection" and norm(x.get("collectionName",""))==norm(title) and norm(x.get("artistName",""))==norm(artist)),None)
+    match=next((x for x in entries if x.get("wrapperType")=="collection" and norm(x.get("collectionName",""))==norm(title) and (norm(x.get("artistName",""))==norm(artist) or (aid=="hui-dao-hai-yang" and norm(x.get("artistName",""))==norm("Escape Plan")))),None)
     if not match:raise ValueError("No exact album/artist match")
     art=match["artworkUrl100"].replace("100x100bb","1200x1200bb").replace("100x100bf","1200x1200bf")
     img=Image.open(io.BytesIO(get(art))).convert("RGB")
