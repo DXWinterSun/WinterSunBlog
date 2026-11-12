@@ -1291,6 +1291,32 @@
       "wish": 0,
       "id": "arrival-20261107-highsnobiety",
       "added": 1794024313000
+    },
+    {
+      "name": "《迷途知返》原声带",
+      "type": "ost",
+      "spec": "CD · Columbia / Fox Music · 2013",
+      "charId": "owen",
+      "date": "2026-11-11",
+      "note": "Owen 太好看了呜呜呜呜🥺 封面有他，内页还有他穿白背心的两张剧照。蓝色碟面配橙字，碟托也是泳池水纹。原声共 15 首，编号 88883742592。",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "shelf-20261111-way-way-back-ost",
+      "added": 1794480143992
+    },
+    {
+      "name": "《Drunks》",
+      "type": "disc",
+      "spec": "DVD · Fox Lorber / WinStar · FLV5152",
+      "charId": "",
+      "date": "2026-11-12",
+      "note": "封底列有预告片、制作笔记和演员作品表。黑色盒子的外侧有些擦痕。",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "id": "shelf-20261112-drunks-dvd",
+      "added": 1794480143993
     }
   ]
 }
