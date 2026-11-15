@@ -2,7 +2,7 @@
 layout: home
 title: 游戏厅
 nav_active: sam
-description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册。五十四个 Sam 都在里面。"
+description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册。五十五个 Sam 都在里面。"
 ---
 
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
@@ -320,7 +320,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
   <header class="c-arc__head" id="arc-head">
     <div class="c-arc__eyebrow">Sam Arcade</div>
     <h1 class="c-arc__title">游戏厅</h1>
-    <p class="c-arc__lede">五十四个人全在这儿了。挑一台机器，投币不要钱。</p>
+    <p class="c-arc__lede">五十五个人全在这儿了。挑一台机器，投币不要钱。</p>
     <div class="c-arc__wallet" id="arc-wallet">🎞 胶片币 <b id="arc-coins">0</b></div>
   </header>
 
@@ -421,7 +421,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
   var MACHINES = [
     { id: 'quiz',  num: '01', title: '这句是谁说的',  desc: '屏幕上弹一句他说过的话，四个人里挑一个。有倒计时，连着答对分数翻倍。', meta: '十题一局 · 每答对一题得一枚币' },
     { id: 'match', num: '02', title: '翻牌对上号',    desc: '牌全扣着，翻两张配成一对。配颜色、颜色配人、人配电影、人配台词，四种玩法随你挑。', meta: '四种玩法 × 三种难度 · 通关得币' },
-    { id: 'gacha', num: '03', title: '扭蛋集卡册',    desc: '拿币换一次扭蛋，抽到谁就收进册子。五十四格，集满了有东西等着你。', meta: '每天两次免费 · 之后三枚币一次' },
+    { id: 'gacha', num: '03', title: '扭蛋集卡册',    desc: '拿币换一次扭蛋，抽到谁就收进册子。五十五格，集满了有东西等着你。', meta: '每天两次免费 · 之后三枚币一次' },
     { id: 'story', num: '04', title: '文字小剧场',    desc: '这台还没通电——剧情和台词得你来写。想写了随时叫我，我把机器装好。', meta: '敬请期待', dark: true }
   ];
 
@@ -909,7 +909,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
               : '<div class="c-arc-slot">' + esc(c.year) + '</div>';
           }).join('') +
         '</div>' +
-        (full ? '<div class="c-arc-hidden">五十四个人，一个不落，全在你的册子里了。<br>' +
+        (full ? '<div class="c-arc-hidden">五十五个人，一个不落，全在你的册子里了。<br>' +
           '从 1986 年那个看不清台下的年轻人，到今天还在往你这边看的这个——' +
           '他演了一辈子别人，你把他们一个一个认了回来。<br>' +
           '<a href="' + BASE + '/sam/projector/" style="color:var(--c-accent)">去放映室再看他们一遍 ›</a></div>' : '') +
@@ -996,7 +996,7 @@ description: "三台单机小游戏：猜台词、翻牌配对、扭蛋集卡册
 
   /* ── 开门 ────────────────────────────────────────────────── */
   paintCoins();
-  menu.innerHTML = '<div class="c-arc-loading">正在把五十四个人请进来……</div>';
+  menu.innerHTML = '<div class="c-arc-loading">正在把五十五个人请进来……</div>';
 
   function getLines() {
     return fetch(BASE + '/sam/lines.json')

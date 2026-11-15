@@ -13,8 +13,8 @@
    "tease",
    "daily"
   ],
-  "chars_count": 30,
-  "lines_count": 672,
+  "chars_count": 32,
+  "lines_count": 726,
   "extras_count": 76,
   "note_v2": "2026-09 FakeTalk 化补层：asks（他问你，含 yes/no 接话）/ short（嗯·没·不知道·哦）/ back（隔了多久回来他先开口，day·days·long·late）/ recall（记得上次的主题）/ repeat（同一句发两遍）/ emoji（只发表情）/ ack（他问了你答别的）。模板里 {pet} = 该角色的称呼，没称呼的自动删掉；{n} = 隔的天数；{cn}/{en} = 上次主题名。"
  },
@@ -3689,6 +3689,117 @@
     "en": "May",
     "cn": "May"
    }
+  },
+  "randy": {
+   "greet": [
+    {
+     "line": "Yeah, I'm here. You gonna say hi or just stand there?",
+     "cn": "在呢。你是要打招呼，还是就站那儿？"
+    },
+    {
+     "line": "Hey. Took you long enough. What? I didn't say I was waiting.",
+     "cn": "嘿。你可算来了。干吗？我又没说我在等。"
+    }
+   ],
+   "miss": [
+    {
+     "line": "Yeah? I was wondering when you'd get around to saying that.",
+     "cn": "是吗？我还在想你什么时候才肯说呢。"
+    },
+    {
+     "line": "I noticed you weren't here. There. Happy now?",
+     "cn": "你不在，我注意到了。行了吧，满意了？"
+    }
+   ],
+   "tired": [
+    {
+     "line": "All right, sit down. I'll quit messing with you. For a minute.",
+     "cn": "行了，坐下。我不闹你了。先不闹一会儿。"
+    },
+    {
+     "line": "You don't have to make it sound funny. Just tell me what happened.",
+     "cn": "你不用把它讲成笑话。告诉我发生什么了就行。"
+    },
+    {
+     "line": "Move over. I'm sitting here. You can be quiet if you want.",
+     "cn": "挪点地方。我坐这儿。你想不说话就不说。"
+    }
+   ],
+   "sleepless": [
+    {
+     "line": "Still up? Yeah, me too. Pick something to talk about. Not clowns.",
+     "cn": "还醒着？嗯，我也是。找点事聊吧。别聊小丑。"
+    },
+    {
+     "line": "Want me to stay on the phone? You could've just said that.",
+     "cn": "想让我别挂电话？你早说不就好了。"
+    }
+   ],
+   "night": [
+    {
+     "line": "Night. I'll save the stupid jokes for tomorrow. Lucky you.",
+     "cn": "晚安。那些傻笑话留着明天讲。算你走运。"
+    },
+    {
+     "line": "All right. Go on. I'll be here tomorrow, too.",
+     "cn": "行。去吧。明天我也在。"
+    }
+   ],
+   "love": [
+    {
+     "line": "...Yeah? Say it again. I heard you. Say it anyway.",
+     "cn": "……是吗？再说一遍。我听见了。听见了也再说一遍。"
+    },
+    {
+     "line": "Come here, then. You always gotta make me ask?",
+     "cn": "那过来啊。非得让我开口？"
+    }
+   ],
+   "meet": [
+    {
+     "line": "Yeah, come over. I'll leave the porch light on.",
+     "cn": "嗯，过来吧。我把门廊灯开着。"
+    },
+    {
+     "line": "Tell me when you're outside. And use the gate. The fence is my thing.",
+     "cn": "到外面了叫我。走门啊，翻栏杆是我的活。"
+    }
+   ],
+   "praise": [
+    {
+     "line": "I know. ...Go on, though. You were saying?",
+     "cn": "我知道。……不过你接着说。刚说到哪儿了？"
+    },
+    {
+     "line": "You saw that? Good. I wasn't doing it twice.",
+     "cn": "你看见了？那就好。我可不打算再来一次。"
+    }
+   ],
+   "tease": [
+    {
+     "line": "Oh, you think you're funny. Fine. That one was pretty good.",
+     "cn": "哦，你还觉得自己挺好笑。行吧。刚那句是挺不错。"
+    },
+    {
+     "line": "Keep laughing. I'll get you back. Don't look behind you. ...Made you look.",
+     "cn": "接着笑。我会找回来的。别看身后。……你还真看。"
+    }
+   ],
+   "daily": [
+    {
+     "line": "Yeah? Go on. I'm listening. I can do that and eat popcorn.",
+     "cn": "是吗？接着说。我听着呢。我能一边吃爆米花一边听。"
+    },
+    {
+     "line": "Tell me the rest. You can't stop there.",
+     "cn": "后面呢？你不能说一半就停。"
+    },
+    {
+     "line": "All right, you've got my attention. Don't get used to me being this quiet.",
+     "cn": "行，我听着。别指望我一直这么安静。"
+    }
+   ],
+   "register": "playful"
   }
  },
  "actions": {
@@ -5238,6 +5349,10 @@
     "🎸",
     "🍒",
     "🪜"
+   ],
+   "randy": [
+    "🍿",
+    "😏"
    ]
   }
  }

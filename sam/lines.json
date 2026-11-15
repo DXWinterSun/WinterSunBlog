@@ -2,8 +2,8 @@
   "meta": {
     "start": "2026-02-13",
     "note": "「今日一句」唯一数据源。今日页/小组件/台词墙的每日轮换只读 characters（严格轮转：按 N=角色数 洗一次牌定顺序，一天一个，任意连续 N 天每人正好一次；台词序号 = 第几轮 % 5）。pool 只剩「全部 N 句」的计数与列举用途，不再参与每日选句。mf_alias：charId → 画册(many-faces)锚点 id，仅在两者 id 不一致时列出（其余默认相同）。",
-    "characters_count": 54,
-    "pool_count": 270,
+    "characters_count": 55,
+    "pool_count": 275,
     "mf_alias": {
       "johnmoon": "john",
       "sambell": "sam",
@@ -52,6 +52,50 @@
           "line": "Wherever you are, that's where the light is.",
           "lineCN": "你在哪儿，哪儿就亮。",
           "kind": "情话"
+        }
+      ]
+    },
+    {
+      "id": "randy",
+      "name": "Randy",
+      "film": "Clownhouse",
+      "filmCN": "《小丑屋》",
+      "year": "1989",
+      "bg": "#141b2a",
+      "accent": "#5b82d0",
+      "text": "#eee9dd",
+      "muted": "#b58d82",
+      "auLink": null,
+      "quotes": [
+        {
+          "kind": "锚",
+          "label": "WALK BEHIND ME",
+          "line": "All right, walk behind me.",
+          "lineCN": "好了，走我后面。"
+        },
+        {
+          "kind": "暗告白",
+          "label": "MADE YOU LOOK",
+          "line": "Made you look. What? I like it when you look at me.",
+          "lineCN": "骗你回头了。干吗？我就喜欢你看着我。"
+        },
+        {
+          "kind": "暗告白",
+          "label": "NOT YOUR BABYSITTER",
+          "line": "I'm not your babysitter. ...Give me your hand. It's dark.",
+          "lineCN": "我又不是你的保姆。……手给我。天黑了。"
+        },
+        {
+          "kind": "情话",
+          "label": "THE POPCORN CAN WAIT",
+          "line": "Fine. The popcorn can wait. You're not walking back alone.",
+          "lineCN": "行吧。爆米花可以等。你别一个人走回去。"
+        },
+        {
+          "kind": "情话",
+          "label": "MY HAND IS RIGHT HERE",
+          "line": "Quit asking if I'm leaving. My hand's right here, isn't it?",
+          "lineCN": "别老问我会不会走了。我的手不是就在这儿吗？"
         }
       ]
     },
@@ -2406,6 +2450,22 @@
       "kind": "锚"
     },
     {
+      "charId": "randy",
+      "name": "Randy",
+      "film": "Clownhouse",
+      "filmCN": "《小丑屋》",
+      "year": "1989",
+      "accent": "#5b82d0",
+      "bg": "#141b2a",
+      "text": "#eee9dd",
+      "muted": "#b58d82",
+      "auLink": null,
+      "kind": "锚",
+      "label": "WALK BEHIND ME",
+      "line": "All right, walk behind me.",
+      "lineCN": "好了，走我后面。"
+    },
+    {
       "charId": "gary",
       "name": "Gary O'Hara",
       "film": "Strictly Business",
@@ -3268,6 +3328,22 @@
       "line": "Oh. Then I almost spilled the sea.",
       "lineCN": "哦。那我差点把海洒了。",
       "kind": "暗告白"
+    },
+    {
+      "charId": "randy",
+      "name": "Randy",
+      "film": "Clownhouse",
+      "filmCN": "《小丑屋》",
+      "year": "1989",
+      "accent": "#5b82d0",
+      "bg": "#141b2a",
+      "text": "#eee9dd",
+      "muted": "#b58d82",
+      "auLink": null,
+      "kind": "暗告白",
+      "label": "MADE YOU LOOK",
+      "line": "Made you look. What? I like it when you look at me.",
+      "lineCN": "骗你回头了。干吗？我就喜欢你看着我。"
     },
     {
       "charId": "gary",
@@ -4134,6 +4210,22 @@
       "kind": "情话"
     },
     {
+      "charId": "randy",
+      "name": "Randy",
+      "film": "Clownhouse",
+      "filmCN": "《小丑屋》",
+      "year": "1989",
+      "accent": "#5b82d0",
+      "bg": "#141b2a",
+      "text": "#eee9dd",
+      "muted": "#b58d82",
+      "auLink": null,
+      "kind": "暗告白",
+      "label": "NOT YOUR BABYSITTER",
+      "line": "I'm not your babysitter. ...Give me your hand. It's dark.",
+      "lineCN": "我又不是你的保姆。……手给我。天黑了。"
+    },
+    {
       "charId": "gary",
       "name": "Gary O'Hara",
       "film": "Strictly Business",
@@ -4998,6 +5090,22 @@
       "kind": "暗告白"
     },
     {
+      "charId": "randy",
+      "name": "Randy",
+      "film": "Clownhouse",
+      "filmCN": "《小丑屋》",
+      "year": "1989",
+      "accent": "#5b82d0",
+      "bg": "#141b2a",
+      "text": "#eee9dd",
+      "muted": "#b58d82",
+      "auLink": null,
+      "kind": "情话",
+      "label": "THE POPCORN CAN WAIT",
+      "line": "Fine. The popcorn can wait. You're not walking back alone.",
+      "lineCN": "行吧。爆米花可以等。你别一个人走回去。"
+    },
+    {
       "charId": "gary",
       "name": "Gary O'Hara",
       "film": "Strictly Business",
@@ -5860,6 +5968,22 @@
       "line": "Wherever you are, that's where the light is.",
       "lineCN": "你在哪儿，哪儿就亮。",
       "kind": "情话"
+    },
+    {
+      "charId": "randy",
+      "name": "Randy",
+      "film": "Clownhouse",
+      "filmCN": "《小丑屋》",
+      "year": "1989",
+      "accent": "#5b82d0",
+      "bg": "#141b2a",
+      "text": "#eee9dd",
+      "muted": "#b58d82",
+      "auLink": null,
+      "kind": "情话",
+      "label": "MY HAND IS RIGHT HERE",
+      "line": "Quit asking if I'm leaving. My hand's right here, isn't it?",
+      "lineCN": "别老问我会不会走了。我的手不是就在这儿吗？"
     },
     {
       "charId": "gary",

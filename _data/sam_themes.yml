@@ -15,6 +15,23 @@
   text: "#e3eaef"
   muted: "#9c8f7d"
 
+- id: randy
+  year: 1989
+  name: "Randy"
+  anchor: randy
+  cn: "夹克宝蓝"
+  en: "Varsity Blue"
+  bg_cn: "门廊夜色"
+  bg_en: "Porch Midnight"
+  text_cn: "栏杆漆白"
+  text_en: "Painted Rail"
+  muted_cn: "衬衫暗红"
+  muted_en: "Faded Plaid"
+  accent: "#5b82d0"
+  bg: "#141b2a"
+  text: "#eee9dd"
+  muted: "#b58d82"
+
 - id: gary
   year: 1991
   name: "Gary O'Hara"
