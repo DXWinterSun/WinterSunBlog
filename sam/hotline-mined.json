@@ -1,7 +1,7 @@
 {
  "meta": {
   "note": "由 tools/hotline_mine.py 从各 AU 正文筛出、再经 tools/hotline_review.json 人审过的「他说过的话」（中文正文即译文，无英文原句）。每句带 series / ch / title 出处，b = 这句接得上的情境（可多个）。新章节上线后重跑脚本即可，不要手改。",
-  "count": 164
+  "count": 163
  },
  "chars": {
   "youngsam": {
@@ -419,16 +419,6 @@
      ],
      "ch": 2,
      "title": "🌃 Chapter 2 · 他没有走",
-     "series": "The Cardinal"
-    },
-    {
-     "cn": "你这是……恋上我的味道了？",
-     "b": [
-      "love",
-      "miss"
-     ],
-     "ch": 3,
-     "title": "Chapter 3 · 钥匙",
      "series": "The Cardinal"
     },
     {
