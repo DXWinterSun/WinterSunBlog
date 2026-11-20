@@ -3,7 +3,7 @@ layout: post
 title: "Extra · 离开前的完整夜晚 — The Lover He Chose for You"
 date: 2026-11-20 23:00:00 +0800
 image: "See How They Run(8).jpg"
-tags: [Inspector Stoppard, Sam Rockwell, AU, The Lover He Chose for You, 婚姻, 摄影, Extra]
+tags: [Inspector Stoppard, Sam Rockwell, AU, The Lover He Chose for You, 婚姻, 摄影, Extra, 炽恋, 缠绵]
 categories: ["AU Story"]
 series: "The Lover He Chose for You"
 series_title: "The Lover He Chose for You · Inspector Stoppard AU"
