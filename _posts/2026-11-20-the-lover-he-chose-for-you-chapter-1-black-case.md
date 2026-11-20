@@ -1,1 +1,1 @@
-$(cat /tmp/fixed_chapter.md)
+PLACEHOLDER_FOR_FULL_CONTENT
