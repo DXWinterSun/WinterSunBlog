@@ -608,6 +608,22 @@
   muted_cn: "西区浓雾灰"
   muted_en: "West-End Fog"
 
+"The Lover He Chose for You": # Inspector Stoppard 第二 AU · 暂沿用原 Stoppard 色卡
+  mf_id: stoppard
+  accent: "#e2c48f"
+  accent_ink: "#8a6a37"
+  bg: "#1a1f2c"
+  text: "#ebe2d4"
+  muted: "#7c8090"
+  accent_cn: "旧照片暖褐"
+  accent_en: "Old Photograph"
+  bg_cn: "伦敦午夜蓝"
+  bg_en: "London Midnight"
+  text_cn: "剧院票根米"
+  text_en: "Ticket-Stub Cream"
+  muted_cn: "西区浓雾灰"
+  muted_en: "West-End Fog"
+
 "Wholly Known":             # Eddie Carbone · A View from the Bridge · 非画册角色，独立配色
   accent: "#c0492e"
   accent_ink: "#9d3a22"        # accent 暗一档，浅色主题下链接对比度 ≥4.5:1
