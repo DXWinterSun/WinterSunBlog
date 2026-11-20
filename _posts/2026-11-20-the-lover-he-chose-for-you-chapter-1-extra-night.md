@@ -1,0 +1,1 @@
+$(cat /tmp/extra_post.md)
