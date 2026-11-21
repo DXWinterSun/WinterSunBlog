@@ -14,7 +14,7 @@ description: "冬的碟柜：家里的音乐 CD，一张张拍下来记在这儿
   · 点壳子弹出这张的资料（版本 · 状态 · 碎碎念）；网址 #d-<id> 直接打开。
   · 唱片墙上也有的专辑带一枚金色「墙」字标；唱片墙那边的封面右上角会出现 💿。
 {%- endcomment -%}
-{%- assign items = site.data.discs.items -%}
+{%- assign items = site.data.discs.items | sort: "year" -%}
 {%- assign groups = items | group_by: "artist" | sort: "name" -%}
 {%- assign band_n = groups | size -%}
 
