@@ -1,7 +1,6 @@
 /* ===============
 	💿 冬的碟柜（/discs/，2026-11-04）
-	Winter 在提案页上挑的「唱片行的那面墙」：封面朝外一格一格，塑料壳的黑铰链和反光都画出来，
-	底下挂一张小价签——专辑名是价签上最大的字（她：「排版肯定要一眼看见专辑名字的」）。
+	封面和唱片资料共用一张可点的卡片。专辑名是最醒目的字。
 	一个乐队一格。页面：discs/index.html；资料：_data/discs.json；封面：discs/covers/
 =============== */
 
@@ -74,8 +73,25 @@ $disc-plastic: #0b0c0e;
   gap: 1.4rem .9rem;
 }
 
-/* ── 一只塑料壳 ── */
+/* 封面和文字共用一个按钮 */
 .c-disc { min-width: 0; }
+.c-disc__open {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 1px solid $line;
+  border-radius: 9px;
+  background: $paper;
+  color: $ink;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .08);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  &:hover { border-color: $accent; }
+  &:focus-visible { outline: 2px solid $accent; outline-offset: 3px; }
+}
 .c-disc__case {
   position: relative;
   display: block;
@@ -83,20 +99,18 @@ $disc-plastic: #0b0c0e;
   aspect-ratio: 1;
   padding: 0;
   border: 0;
-  border-radius: 3px;
+  border-radius: 8px 8px 0 0;
   background: $disc-plastic;
-  cursor: pointer;
-  box-shadow: 0 8px 18px -6px rgba(0, 0, 0, .45), 0 1px 0 rgba(255, 255, 255, .06) inset;
-  transition: transform .18s ease, box-shadow .18s ease;
-  overflow: visible;
+  overflow: hidden;
   /* 左边那道铰链 */
   &::before {
     content: "";
     position: absolute;
     left: 0; top: 0; bottom: 0;
     width: 9px;
-    border-radius: 3px 0 0 3px;
+    border-radius: 8px 0 0 0;
     background: linear-gradient(90deg, #000 0, #30333a 45%, #0d0e11 70%, #000);
+    pointer-events: none;
     z-index: 2;
   }
   /* 壳面的反光 */
@@ -104,7 +118,7 @@ $disc-plastic: #0b0c0e;
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 3px;
+    border-radius: inherit;
     background: linear-gradient(112deg, rgba(255, 255, 255, .30) 0, rgba(255, 255, 255, .10) 22%, transparent 36%, transparent 66%, rgba(255, 255, 255, .09) 100%);
     pointer-events: none;
     z-index: 3;
@@ -130,19 +144,15 @@ $disc-plastic: #0b0c0e;
     color: #f4efe4;
     background: linear-gradient(135deg, #3a4150, #1c2029);
   }
-  &:hover, &:focus-visible { transform: translateY(-3px); box-shadow: 0 14px 24px -8px rgba(0, 0, 0, .5); }
-  &:focus-visible { outline: 2px solid $accent; outline-offset: 3px; }
   &.is-empty {
     width: 9rem;
     margin: 0 auto;
-    cursor: default;
     opacity: .55;
-    &:hover { transform: none; }
   }
 }
 .c-disc__new {
   position: absolute;
-  right: -.35rem; top: -.45rem;
+  right: .35rem; top: .35rem;
   z-index: 4;
   padding: 0 .4rem;
   border-radius: 2px;
@@ -165,36 +175,13 @@ $disc-plastic: #0b0c0e;
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5));
 }
 
-/* ── 小价签：专辑名最大 ── */
+/* 专辑名最大，完整版本资料见弹窗 */
 .c-disc__tag {
-  position: relative;
-  margin: .7rem 0 0 .45rem;
-  padding: .5rem .6rem .55rem .7rem;
-  border: 1px solid color-mix(in srgb, $gold 55%, $line);
-  border-radius: 2px;
-  background: color-mix(in srgb, $gold 10%, $paper);
+  display: block;
+  padding: .7rem .8rem .8rem;
   line-height: 1.45;
   overflow-wrap: anywhere;
   word-break: normal;
-  /* 价签的小孔和细绳 */
-  &::before {
-    content: "";
-    position: absolute;
-    left: -.42rem; top: -.42rem;
-    width: .55rem; height: .55rem;
-    border-radius: 50%;
-    border: 1px solid color-mix(in srgb, $gold 55%, $line);
-    background: $paper;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    left: -.15rem; top: -.75rem;
-    width: .5rem; height: .5rem;
-    border-left: 1px solid color-mix(in srgb, $gold 70%, $muted);
-    border-top: 1px solid color-mix(in srgb, $gold 70%, $muted);
-    border-radius: 50% 0 0 0;
-  }
 }
 .c-disc__title {
   display: block;
@@ -213,34 +200,15 @@ $disc-plastic: #0b0c0e;
   color: $disc-label-ink;
 }
 .c-disc__ver {
-  display: block;
-  margin-top: .3rem;
-  padding-top: .3rem;
-  border-top: 1px dotted color-mix(in srgb, $gold 60%, $line);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-top: .4rem;
   font-family: $disc-label;
   font-size: .8rem;
   font-weight: 500;
   color: $disc-label-ink;
-}
-.c-disc__ver-text {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  overflow: hidden;
-}
-.c-disc__wall {
-  position: absolute;
-  right: .4rem; top: -.55rem;
-  font-size: .62rem;
-  letter-spacing: .08em;
-  line-height: 1.6;
-  padding: 0 .3rem;
-  border: 1px solid $gold;
-  border-radius: 2px;
-  background: $paper;
-  color: $gold;
-  text-decoration: none;
-  &:hover { background: $gold; color: $paper; }
 }
 
 /* 空柜子 */
@@ -361,11 +329,8 @@ body.is-disc-open { overflow: hidden; }
 }
 @media (max-width: 480px) {
   .c-discs__wall { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem .8rem; }
-  .c-disc__tag { margin-left: .25rem; padding-inline: .55rem; }
+  .c-disc__tag { padding-inline: .65rem; }
   .c-disc__title { font-size: 1.04rem; }
   .c-disc-view__panel { grid-template-columns: 1fr; padding: 1rem; }
   .c-disc-view__case { width: 10rem; margin: 0 auto; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .c-disc__case { transition: none; }
 }

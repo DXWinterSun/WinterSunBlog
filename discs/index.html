@@ -3,16 +3,14 @@ layout: home
 title: 冬的碟柜 · Discs
 permalink: /discs/
 nav_active: notes
-description: "冬的碟柜：家里的音乐 CD，一张张拍下来记在这儿，买之前翻一眼就知道有没有。"
+description: "冬的碟柜，记录这些年攒下来的唱片和不同版本。"
 ---
 {%- comment -%}
   💿 冬的碟柜（2026-11-04，Winter 在提案页上挑的「唱片行的那面墙」）
   · 资料全在 _data/discs.json（她拍照、我认、tools/discs/add.py 记进去）；封面图在 discs/covers/（官方专辑图）。
     ⚠️ 封面放这儿不放 images/，是为了不惊动对脸机器人（face-focus.yml 只盯 images/**）。
-  · 一个乐队一格，张数多的在前（JS 排）；一张 CD = 一只塑料壳（左边黑铰链 + 反光）+ 底下一张小价签，
-    专辑名是价签上最大的字（她：「排版肯定要一眼看见专辑名字的」）。
-  · 点壳子弹出这张的资料（版本 · 状态 · 碎碎念）；网址 #d-<id> 直接打开。
-  · 唱片墙上也有的专辑带一枚金色「墙」字标；唱片墙那边的封面右上角会出现 💿。
+  · 一个乐队一格，张数多的在前（JS 排）；每张卡片的封面和文字都可点开详情。
+  · 网址 #d-<id> 直接打开详情。对应的唱片墙链接也放在详情里。
 {%- endcomment -%}
 {%- assign items = site.data.discs.items | sort: "year" -%}
 {%- assign groups = items | group_by: "artist" | sort: "name" -%}
@@ -34,7 +32,7 @@ description: "冬的碟柜：家里的音乐 CD，一张张拍下来记在这儿
   {%- if items.size == 0 %}
   <div class="c-discs__empty">
     <div class="c-disc__case is-empty" aria-hidden="true"></div>
-    <p>柜子还空着。回家把 CD 拍给我，一张张记进来。</p>
+    <p>碟柜里还没有唱片。</p>
   </div>
   {%- else %}
   <nav class="c-discs__bands" aria-label="按乐队跳">
@@ -51,23 +49,24 @@ description: "冬的碟柜：家里的音乐 CD，一张张拍下来记在这儿
           {%- for a in site.data.songs.albums -%}{%- assign a_album = a.album | downcase | strip -%}{%- assign a_artist = a.artist | downcase | strip -%}{%- if a_album == d_album and a_artist == d_artist -%}{%- assign wall_id = a.id -%}{%- endif -%}{%- endfor -%}
         {%- endunless %}
       <article class="c-disc" id="d-{{ d.id }}" data-id="{{ d.id }}">
-        <button type="button" class="c-disc__case" data-open="{{ d.id }}" aria-label="看《{{ d.album | escape }}》的资料">
-          {%- if d.cover %}<img src="{{ site.baseurl }}/discs/covers/{{ d.cover }}" alt="" loading="lazy" width="300" height="300">{% else %}<i class="c-disc__print">{{ d.album | escape }}</i>{% endif %}
-          {%- if d.status contains "全新" %}<i class="c-disc__new" aria-hidden="true">NEW</i>{% endif %}
-          {%- if d.status contains "签名" %}<i class="c-disc__signed" aria-hidden="true">✍️</i>{% endif %}
+        <button type="button" class="c-disc__open" data-open="{{ d.id | escape }}" aria-haspopup="dialog" aria-describedby="edition-{{ d.id | escape }}" aria-label="查看《{{ d.album | escape }}》详情">
+          <span class="c-disc__case">
+            {%- if d.cover %}<img src="{{ site.baseurl }}/discs/covers/{{ d.cover }}" alt="" loading="lazy" width="300" height="300">{% else %}<i class="c-disc__print">{{ d.album | escape }}</i>{% endif %}
+            {%- if d.status contains "全新" %}<i class="c-disc__new" aria-hidden="true">NEW</i>{% endif %}
+            {%- if d.status contains "签名" %}<i class="c-disc__signed" aria-hidden="true">✍️</i>{% endif %}
+          </span>
+          <span class="c-disc__tag">
+            <b class="c-disc__title" lang="en">{{ d.album | escape }}</b>
+            <span class="c-disc__who">{{ d.artist | escape }}{% if d.year %} · {{ d.year }}{% endif %}</span>
+            {%- assign version_bits = d.ver | default: '' | split: ' · ' | slice: 0, 3 -%}
+            {%- assign status = d.status | default: '' -%}
+            <span class="c-disc__ver" id="edition-{{ d.id | escape }}">
+              {{- version_bits | join: ' · ' | escape -}}
+              {%- if version_bits.size > 0 and status != '' %} · {% endif -%}
+              {{- status | escape -}}
+            </span>
+          </span>
         </button>
-        <div class="c-disc__tag">
-          <b class="c-disc__title" lang="en">{{ d.album | escape }}</b>
-          <span class="c-disc__who">{{ d.artist | escape }}{% if d.year %} · {{ d.year }}{% endif %}</span>
-          {%- assign version = d.ver | default: '' -%}
-          {%- assign status = d.status | default: '' -%}
-          {%- if version != '' or status != '' %}
-          <div class="c-disc__ver">
-            <span class="c-disc__ver-text">{{ version | escape }}{% if version != '' and status != '' %} · {% endif %}{{ status | escape }}</span>
-          </div>
-          {%- endif %}
-          {%- if wall_id %}<a class="c-disc__wall" href="{{ site.baseurl }}/songs/#a-{{ wall_id }}" title="唱片墙上有这张：摘录和翻译">墙</a>{% endif %}
-        </div>
         <template class="c-disc__data">{{ d | jsonify | escape }}</template>
         {%- if wall_id %}<template class="c-disc__wallhref">{{ site.baseurl }}/songs/#a-{{ wall_id }}</template>{% endif %}
       </article>
@@ -77,7 +76,7 @@ description: "冬的碟柜：家里的音乐 CD，一张张拍下来记在这儿
   {%- endfor %}
   {%- endif %}
 
-  <p class="c-discs__foot">这页只放音乐 CD；Sam 的电影碟在<a href="{{ site.baseurl }}/sam/shelf/">藏品架</a>。没写「全新」的都是二手。</p>
+  <p class="c-discs__foot">Sam 的电影碟另收在<a href="{{ site.baseurl }}/sam/shelf/">藏品架</a>。</p>
 </section>
 
 <div class="c-disc-view" id="js-disc-view" hidden role="dialog" aria-modal="true" aria-labelledby="js-disc-view-title">
@@ -107,10 +106,11 @@ description: "冬的碟柜：家里的音乐 CD，一张张拍下来记在这儿
   if (nav) { var links = [].slice.call(nav.children); links.sort(function (a, b) { return (+b.getAttribute('data-n')) - (+a.getAttribute('data-n')) || a.textContent.localeCompare(b.textContent); }); links.forEach(function (l) { nav.appendChild(l); }); }
 
   var view = document.getElementById('js-disc-view');
-  var FIELDS = [['ver', '版本'], ['status', '状态'], ['added', '记进来']];
+  var FIELDS = [['ver', '版本'], ['status', '状态'], ['added', '收录日期']];
+  var activeCard = null;
   function open(id, push) {
     var art = root.querySelector('.c-disc[data-id="' + CSS.escape(id) + '"]'); if (!art) return;
-    var d; try { d = JSON.parse(art.querySelector('.c-disc__data').innerHTML.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')); } catch (e) { return; }
+    var d; try { d = JSON.parse(art.querySelector('.c-disc__data').content.textContent); } catch (e) { return; }
     var img = art.querySelector('img');
     document.getElementById('js-disc-view-img').src = img ? img.src : '';
     document.getElementById('js-disc-view-title').textContent = d.album || '';
@@ -120,13 +120,19 @@ description: "冬的碟柜：家里的音乐 CD，一张张拍下来记在这儿
     var memo = document.getElementById('js-disc-view-memo'); memo.hidden = !d.memo; memo.textContent = d.memo ? '“' + d.memo + '”' : '';
     var links = document.getElementById('js-disc-view-links'); links.innerHTML = '';
     var wh = art.querySelector('.c-disc__wallhref');
-    if (wh) { var a = document.createElement('a'); a.href = wh.innerHTML.trim(); a.textContent = '唱片墙上有这张 ›'; links.appendChild(a); }
+    if (wh) { var a = document.createElement('a'); a.href = wh.content.textContent.trim(); a.textContent = '去唱片墙看摘录和翻译 ›'; links.appendChild(a); }
+    activeCard = art.querySelector('.c-disc__open');
     view.hidden = false; document.body.classList.add('is-disc-open');
     if (push) { try { history.replaceState(null, '', '#d-' + id); } catch (e) { } }
     var x = view.querySelector('.c-disc-view__x'); if (x) x.focus();
   }
-  function close() { view.hidden = true; document.body.classList.remove('is-disc-open'); try { history.replaceState(null, '', location.pathname); } catch (e) { } }
-  root.addEventListener('click', function (e) { var b = e.target.closest('[data-open]'); if (b) open(b.getAttribute('data-open'), true); });
+  function close() {
+    view.hidden = true;
+    document.body.classList.remove('is-disc-open');
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { }
+    if (activeCard) activeCard.focus({ preventScroll: true });
+  }
+  root.addEventListener('click', function (e) { var b = e.target.closest('.c-disc__open'); if (b) open(b.getAttribute('data-open'), true); });
   view.addEventListener('click', function (e) { if (e.target.closest('[data-close]')) close(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !view.hidden) close(); });
   var h = (location.hash || '').replace('#d-', '');
