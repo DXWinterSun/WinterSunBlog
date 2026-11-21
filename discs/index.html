@@ -57,9 +57,15 @@ description: "冬的碟柜：家里的音乐 CD，一张张拍下来记在这儿
           {%- if d.status contains "签名" %}<i class="c-disc__signed" aria-hidden="true">✍️</i>{% endif %}
         </button>
         <div class="c-disc__tag">
-          <b class="c-disc__title" lang="pl">{{ d.album | escape }}</b>
+          <b class="c-disc__title" lang="en">{{ d.album | escape }}</b>
           <span class="c-disc__who">{{ d.artist | escape }}{% if d.year %} · {{ d.year }}{% endif %}</span>
-          {%- if d.ver or d.status %}<span class="c-disc__ver">{{ d.ver | escape }}{% if d.ver and d.status %} · {% endif %}{{ d.status | escape }}</span>{% endif %}
+          {%- assign version = d.ver | default: '' -%}
+          {%- assign status = d.status | default: '' -%}
+          {%- if version != '' or status != '' %}
+          <div class="c-disc__ver">
+            <span class="c-disc__ver-text">{{ version | escape }}{% if version != '' and status != '' %} · {% endif %}{{ status | escape }}</span>
+          </div>
+          {%- endif %}
           {%- if wall_id %}<a class="c-disc__wall" href="{{ site.baseurl }}/songs/#a-{{ wall_id }}" title="唱片墙上有这张：摘录和翻译">墙</a>{% endif %}
         </div>
         <template class="c-disc__data">{{ d | jsonify | escape }}</template>

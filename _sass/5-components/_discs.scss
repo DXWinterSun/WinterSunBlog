@@ -7,6 +7,8 @@
 
 $disc-en: 'EB Garamond', 'Noto Serif SC', Georgia, serif;
 $disc-cn: 'Noto Serif SC', 'Songti SC', 'EB Garamond', Georgia, serif;
+$disc-label: system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+$disc-label-ink: color-mix(in srgb, #{$ink} 82%, #{$paper});
 $disc-red: #d4213d;
 $disc-plastic: #0b0c0e;
 
@@ -167,11 +169,13 @@ $disc-plastic: #0b0c0e;
 .c-disc__tag {
   position: relative;
   margin: .7rem 0 0 .45rem;
-  padding: .4rem .55rem .42rem .7rem;
+  padding: .5rem .6rem .55rem .7rem;
   border: 1px solid color-mix(in srgb, $gold 55%, $line);
   border-radius: 2px;
   background: color-mix(in srgb, $gold 10%, $paper);
-  line-height: 1.4;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  word-break: normal;
   /* 价签的小孔和细绳 */
   &::before {
     content: "";
@@ -193,34 +197,36 @@ $disc-plastic: #0b0c0e;
   }
 }
 .c-disc__title {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  display: block;
   font-family: $disc-en;
-  font-size: 1.02rem;
-  font-weight: 600;
+  font-size: 1.12rem;
+  font-weight: 700;
   line-height: 1.25;
   color: $ink;
 }
 .c-disc__who {
   display: block;
-  margin-top: .12rem;
-  font-size: .78rem;
-  color: $muted;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-top: .2rem;
+  font-family: $disc-label;
+  font-size: .8rem;
+  font-weight: 550;
+  color: $disc-label-ink;
 }
 .c-disc__ver {
   display: block;
-  margin-top: .2rem;
-  padding-top: .2rem;
+  margin-top: .3rem;
+  padding-top: .3rem;
   border-top: 1px dotted color-mix(in srgb, $gold 60%, $line);
-  font-size: .7rem;
-  letter-spacing: .02em;
-  color: $muted;
-  word-break: keep-all;     /* 「全新」别被拆成两行 */
+  font-family: $disc-label;
+  font-size: .8rem;
+  font-weight: 500;
+  color: $disc-label-ink;
+}
+.c-disc__ver-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 .c-disc__wall {
   position: absolute;
@@ -302,16 +308,19 @@ $disc-plastic: #0b0c0e;
 }
 .c-disc-view__body {
   min-width: 0;
-  h3 { margin: .1rem 1.6rem 0 0; font-family: $disc-en; font-size: 1.45rem; font-weight: 600; line-height: 1.2; }
+  font-family: $disc-label;
+  overflow-wrap: anywhere;
+  h3 { margin: .1rem 1.6rem 0 0; font-family: $disc-en; font-size: 1.45rem; font-weight: 700; line-height: 1.25; }
 }
-.c-disc-view__who { margin: .15rem 0 .7rem; color: $muted; font-size: .9rem; }
+.c-disc-view__who { margin: .25rem 0 .7rem; color: $disc-label-ink; font-size: .9rem; font-weight: 550; }
 .c-disc-view__dl {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: .2rem .8rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .4rem .8rem;
   margin: 0;
-  font-size: .86rem;
-  dt { color: $muted; white-space: nowrap; }
+  font-size: .9rem;
+  line-height: 1.55;
+  dt { color: $disc-label-ink; font-weight: 600; white-space: nowrap; }
   dd { margin: 0; }
 }
 .c-disc-view__memo {
@@ -352,7 +361,8 @@ body.is-disc-open { overflow: hidden; }
 }
 @media (max-width: 480px) {
   .c-discs__wall { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem .8rem; }
-  .c-disc__title { font-size: .98rem; }
+  .c-disc__tag { margin-left: .25rem; padding-inline: .55rem; }
+  .c-disc__title { font-size: 1.04rem; }
   .c-disc-view__panel { grid-template-columns: 1fr; padding: 1rem; }
   .c-disc-view__case { width: 10rem; margin: 0 auto; }
 }
