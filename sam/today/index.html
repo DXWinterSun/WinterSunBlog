@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,500;1,400;1,500&family=Volkhov:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   html, body { margin: 0; padding: 0; height: 100%; }
   *, *::before, *::after { box-sizing: border-box; }
@@ -135,6 +135,7 @@
   <div class="foot">a quiet shrine, kept by 冬璇</div>
   <canvas id="cv" width="1080" height="1920"></canvas>
 
+<script src="/WinterSunBlog/js/sam-themes-data.js"></script>
 <script>
 (function () {
   var DAY = 86400000;
@@ -337,61 +338,124 @@
 
     return cv;
   }
-  // 没有 AU 页的角色也有完整票根：以角色、演员、电影与年份组成一张
-  // 电影档案票，保持所有角色的新版壁纸结构一致。
+  // 没有 AU 页：照原 AU 票根原样生成，只拿掉照片段。
+  // 顶部角色区、四色胶片、标题区、撕口和三格票尾都沿用同一套尺寸与字体。
   function characterTicket(c) {
+    var S = 2, W = 560 * S, pad = 20 * S;
+    var theme = ticketTheme(c);
+    var bg = c.bg, ac = c.accent, tx = c.text, mu = c.muted;
+    var swatches = [
+      { hex: ac, cn: theme.cn || '角色主色', en: theme.en || 'Character Accent' },
+      { hex: bg, cn: theme.bg_cn || '银幕夜色', en: theme.bg_en || 'Screen Night' },
+      { hex: tx, cn: theme.text_cn || '字幕浅光', en: theme.text_en || 'Subtitle Light' },
+      { hex: mu, cn: theme.muted_cn || '旧片余色', en: theme.muted_en || 'Film Patina' }
+    ];
+    var perfH = 66 * S;
+    var H = (18 + 14 + 12 + 44 + 4 + 18 + 14) * S + perfH +
+      (14 + 22 + 6 + 14 + 14) * S + 64 * S;
     var cv = document.createElement('canvas');
-    cv.width = 1120; cv.height = 760;
+    cv.width = W; cv.height = H;
     var ctx = cv.getContext('2d'), W = cv.width, H = cv.height;
-    ctx.clearRect(0, 0, W, H);
-    ctx.save(); ticketRoundRect(ctx, 4, 4, W - 8, H - 8, 32); ctx.clip();
-    var g = ctx.createLinearGradient(0, 0, W, H);
-    g.addColorStop(0, c.bg); g.addColorStop(1, darken(c.bg, .34));
-    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-    var glow = ctx.createRadialGradient(W * .82, 80, 20, W * .82, 80, 560);
-    glow.addColorStop(0, hexA(c.accent, .24)); glow.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
-    ctx.fillStyle = hexA(c.accent, .07); ctx.font = 'italic 900 430px "Playfair Display", serif';
-    ctx.textAlign = 'right'; ctx.fillText('SR', W + 40, 440);
+    ctx.fillStyle = ticketMix(bg, '#ffffff', .07);
+    ticketRoundRect(ctx, 0, 0, W, H, 14 * S); ctx.fill();
 
-    ctx.textAlign = 'left';
-    ctx.fillStyle = c.muted; ctx.font = '22px "Special Elite", monospace';
-    ctx.fillText(spaced('ADMIT ONE  ·  CHARACTER ARCHIVE', 3), 76, 82);
-    ctx.textAlign = 'right'; ctx.fillText('SCREEN  /  ' + c.year, W - 76, 82);
+    var y = pad;
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+    ctx.fillStyle = mu;
+    ctx.font = (10 * S) + 'px "Special Elite", "Courier New", monospace';
+    ticketDrawSpaced(ctx, 'ADMIT ONE  ·  CHARACTER ARCHIVE', pad, y, .24 * 10 * S);
+    y += 16 * S;
+    ctx.fillStyle = ac;
+    ctx.font = 'bold ' + (40 * S) + 'px Volkhov, "Noto Serif SC", serif';
+    ticketFitText(ctx, c.name, pad, y, W - pad * 2, 40 * S, 36);
+    y += 48 * S;
+    ctx.fillStyle = tx; ctx.globalAlpha = .85;
+    ctx.font = 'italic ' + (13.5 * S) + 'px "EB Garamond", "Noto Serif SC", serif';
+    ticketFitText(ctx, 'Sam Rockwell · ' + c.film, pad, y, W - pad * 2, 13.5 * S, 19);
+    ctx.globalAlpha = 1;
+    y += 28 * S;
 
-    ctx.textAlign = 'left'; ctx.fillStyle = c.accent;
-    ctx.font = '700 86px "Playfair Display", "Noto Serif SC", serif';
-    ticketFitText(ctx, c.name, 76, 208, W - 152, 86, 48);
-    ctx.fillStyle = hexA(c.text, .9); ctx.font = 'italic 500 39px "Cormorant Garamond", serif';
-    ticketFitText(ctx, 'Sam Rockwell  ·  ' + c.film, 78, 278, W - 156, 39, 25);
+    // 原票根照片在这里；无 AU 角色直接接四色胶片。
+    ctx.fillStyle = ticketMix(bg, '#000000', .35);
+    ctx.fillRect(0, y, W, perfH);
+    ctx.fillStyle = 'rgba(236,233,226,.55)';
+    for (var hx = 8 * S; hx < W; hx += 16 * S) {
+      ctx.beginPath(); ctx.arc(hx, y + 5 * S, 2 * S, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(hx, y + perfH - 5 * S, 2 * S, 0, Math.PI * 2); ctx.fill();
+    }
+    var gap = 4 * S, inner = W - 12 * S;
+    var cw = (inner - gap * (swatches.length - 1)) / swatches.length;
+    swatches.forEach(function (s, i) {
+      var x = 6 * S + i * (cw + gap), top = y + 10 * S, h = perfH - 20 * S;
+      ctx.fillStyle = s.hex; ctx.fillRect(x, top, cw, h);
+      ctx.fillStyle = ticketLuminance(s.hex) > .6 ? '#2a2b36' : '#ece9e2';
+      ctx.textAlign = 'center';
+      ctx.font = '500 ' + (11 * S) + 'px "Noto Serif SC", serif';
+      ctx.fillText(s.cn, x + cw / 2, top + h - 26 * S);
+      ctx.font = 'italic ' + (9 * S) + 'px "EB Garamond", serif';
+      ctx.fillText(s.en, x + cw / 2, top + h - 13 * S);
+    });
+    ctx.textAlign = 'left'; y += perfH + 14 * S;
 
-    ctx.fillStyle = hexA(c.accent, .7); ctx.fillRect(76, 330, 190, 4);
-    ctx.fillStyle = hexA(c.text, .55); ctx.font = '24px "Special Elite", monospace';
-    ctx.fillText(spaced('ONE ROLE  ·  FIVE LINES  ·  KEEP THIS STUB', 2), 76, 392);
+    ctx.fillStyle = tx;
+    ctx.font = 'bold ' + (18 * S) + 'px Volkhov, "Noto Serif SC", serif';
+    ticketFitText(ctx, c.film, pad, y, W - pad * 2, 18 * S, 23);
+    y += 26 * S;
+    ctx.fillStyle = mu;
+    ctx.font = (10.5 * S) + 'px "Special Elite", "Courier New", monospace';
+    ticketDrawSpaced(ctx, ('CHARACTER ARCHIVE  ·  ' + c.year).toUpperCase(), pad, y, .12 * 10.5 * S);
+    y += 28 * S;
 
-    ctx.setLineDash([10, 12]); ctx.strokeStyle = hexA(c.muted, .48); ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(0, 474); ctx.lineTo(W, 474); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle = 'rgba(236,233,226,.4)'; ctx.lineWidth = 1 * S;
+    ctx.setLineDash([4 * S, 4 * S]);
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); ctx.setLineDash([]);
     ctx.globalCompositeOperation = 'destination-out';
-    ctx.beginPath(); ctx.arc(0, 474, 22, 0, Math.PI * 2); ctx.fill();
-    ctx.beginPath(); ctx.arc(W, 474, 22, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(0, y, 8 * S, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(W, y, 8 * S, 0, Math.PI * 2); ctx.fill();
     ctx.globalCompositeOperation = 'source-over';
 
-    var cols = [76, 405, 820], labels = ['PERFORMER', 'PICTURE', 'RELEASE'];
-    var values = ['SAM ROCKWELL', c.film.toUpperCase(), c.year];
-    var widths = [275, 355, 220];
-    for (var i = 0; i < cols.length; i++) {
-      ctx.textAlign = 'left'; ctx.fillStyle = c.muted; ctx.font = '18px "Special Elite", monospace';
-      ctx.fillText(labels[i], cols[i], 548);
-      ctx.fillStyle = i === 1 ? c.accent : c.text;
-      ctx.font = (i === 2 ? '700 46px ' : '700 29px ') + '"Playfair Display", "Noto Serif SC", serif';
-      ticketFitText(ctx, values[i], cols[i], 610, widths[i], i === 2 ? 46 : 29, 20);
-    }
-    ctx.fillStyle = hexA(c.text, .28); ctx.font = 'italic 24px "Cormorant Garamond", serif';
-    ctx.textAlign = 'center'; ctx.fillText('Winter Sun · Sam Rockwell Character Archive', W / 2, 704);
-    ctx.restore();
-    ctx.strokeStyle = hexA(c.accent, .48); ctx.lineWidth = 3;
-    ticketRoundRect(ctx, 5.5, 5.5, W - 11, H - 11, 31); ctx.stroke();
+    var stubs = [
+      { cn: '戏服间', en: 'Wardrobe' },
+      { cn: '演员表', en: 'Cast' },
+      { cn: '后台电话', en: 'Backstage' }
+    ];
+    var sw = W / stubs.length;
+    stubs.forEach(function (s, i) {
+      var cx = sw * i + sw / 2;
+      if (i) {
+        ctx.setLineDash([3 * S, 4 * S]);
+        ctx.beginPath(); ctx.moveTo(sw * i, y + 10 * S); ctx.lineTo(sw * i, y + 54 * S); ctx.stroke();
+        ctx.setLineDash([]);
+      }
+      ctx.textAlign = 'center'; ctx.fillStyle = tx;
+      ctx.font = '600 ' + (13 * S) + 'px "Noto Serif SC", serif';
+      ctx.fillText(s.cn, cx, y + 20 * S);
+      ctx.fillStyle = mu;
+      ctx.font = 'italic ' + (10.5 * S) + 'px "EB Garamond", serif';
+      ctx.fillText(s.en, cx, y + 40 * S);
+    });
     return cv;
+  }
+  function ticketTheme(c) {
+    var list = window.__SAM_THEMES || [], anchor = MF_ALIAS[c.charId] || c.charId;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].id === anchor || list[i].anchor === anchor || list[i].id === c.charId) return list[i];
+    }
+    return {};
+  }
+  function ticketMix(a, b, t) {
+    var x = parseInt(a.replace('#', ''), 16), z = parseInt(b.replace('#', ''), 16);
+    function ch(s) { var p = (x >> s) & 255, q = (z >> s) & 255; return Math.round(p + (q - p) * t); }
+    return 'rgb(' + ch(16) + ',' + ch(8) + ',' + ch(0) + ')';
+  }
+  function ticketLuminance(hex) {
+    var n = parseInt(hex.replace('#', ''), 16);
+    return (.299 * ((n >> 16) & 255) + .587 * ((n >> 8) & 255) + .114 * (n & 255)) / 255;
+  }
+  function ticketDrawSpaced(ctx, text, x, y, spacing) {
+    for (var i = 0; i < text.length; i++) {
+      var ch = text[i]; ctx.fillText(ch, x, y); x += ctx.measureText(ch).width + spacing;
+    }
   }
   function ticketRoundRect(ctx, x, y, w, h, r) {
     ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r);
@@ -587,3 +651,4 @@
 </script>
 </body>
 </html>
+
