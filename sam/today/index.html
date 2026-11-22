@@ -347,14 +347,14 @@
       ticketW = Math.min(900, limit * ticketImage.width / ticketImage.height);
       ticketH = ticketW * ticketImage.height / ticketImage.width;
       quoteTop = ticketTop + ticketH + 85;
-      for (size = 60; size >= 28; size -= 2) {
-        cnSize = Math.max(23, Math.round(size * .57));
+      for (size = 48; size >= 28; size -= 2) {
+        cnSize = Math.max(25, Math.round(size * .75));
         ctx.font = 'italic 500 ' + size + 'px "Cormorant Garamond", serif';
-        en = wrapText(ctx, c.line, W - 190);
+        en = wrapText(ctx, c.line, W - 260);
         ctx.font = '300 ' + cnSize + 'px "Noto Serif SC", serif';
-        cn = wrapCJK(ctx, c.lineCN, W - 190);
-        step = en.length * size * 1.25 + 32 + cn.length * cnSize * 1.8;
-        if (quoteTop + step < H - 140) break;
+        cn = wrapCJK(ctx, c.lineCN, W - 260);
+        step = en.length * size * 1.38 + 42 + cn.length * cnSize * 1.8;
+        if (quoteTop + step < H - 175) break;
       }
       if (size >= 28) break;
     }
@@ -364,17 +364,20 @@
     ctx.drawImage(ticketImage, (W-ticketW)/2, ticketTop, ticketW, ticketH);
     ctx.restore();
 
-    var y = quoteTop;
-    ctx.fillStyle = c.accent;
-    ctx.fillRect(W/2 - 32, y - 35, 64, 2);
+    var y = quoteTop, left = 130;
+    ctx.textAlign = 'left';
+    ctx.fillStyle = hexA(c.accent, .65);
+    ctx.fillRect(left, y - 40, W - 2 * left, 2);
+    ctx.fillRect(left - 28, y - 2, 2, Math.min(step + 10, H - y - 165));
     ctx.fillStyle = c.text;
     ctx.font = 'italic 500 ' + size + 'px "Cormorant Garamond", serif';
-    for (var i = 0; i < en.length; i++) { ctx.fillText(en[i], W/2, y); y += size * 1.25; }
-    y += 32;
+    for (var i = 0; i < en.length; i++) { ctx.fillText(en[i], left, y); y += size * 1.38; }
+    y += 42;
     ctx.fillStyle = hexA(c.text, .82);
     ctx.font = '300 ' + cnSize + 'px "Noto Serif SC", serif';
-    for (var j = 0; j < cn.length; j++) { ctx.fillText(cn[j], W/2, y); y += cnSize * 1.8; }
+    for (var j = 0; j < cn.length; j++) { ctx.fillText(cn[j], left, y); y += cnSize * 1.8; }
     ctx.fillStyle = hexA(c.text, .45);
+    ctx.textAlign = 'center';
     ctx.font = 'italic 28px "Cormorant Garamond", serif';
     ctx.fillText('Winter Sun · a shrine for Sam', W/2, H - 75);
     return cv;
