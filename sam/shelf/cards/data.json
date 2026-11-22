@@ -1,7 +1,7 @@
 {
-  "v": 1,
+  "v": 2,
   "updated": "2026-11-22",
-  "note": "逐款数量为已确认购买量，包含在途。null代表未登记，不代表没有。旧藏组合另列，避免与逐款数量重复合计。",
+  "note": "在手与在途分开记录，quantity为两者之和。2026-11-22 Winter确认：两款ORIGIN各在手1张，其余已购19张全部在途。null代表未核对，不等于0。旧藏组合另列，不并入逐款统计。",
   "cards": [
     {
       "id": "im2-26",
@@ -14,7 +14,9 @@
       "variant": "基础版",
       "note": "",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 1
     },
     {
       "id": "im2-31",
@@ -27,7 +29,9 @@
       "variant": "基础版",
       "note": "",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 1
     },
     {
       "id": "im2-65",
@@ -40,7 +44,9 @@
       "variant": "基础版",
       "note": "",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 2
     },
     {
       "id": "im2-42",
@@ -53,7 +59,9 @@
       "variant": "基础版",
       "note": "",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 1
     },
     {
       "id": "im2-43",
@@ -66,7 +74,9 @@
       "variant": "基础版",
       "note": "",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 2
     },
     {
       "id": "im2-44",
@@ -79,7 +89,9 @@
       "variant": "基础版",
       "note": "",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 2
     },
     {
       "id": "im2-18",
@@ -92,7 +104,9 @@
       "variant": "基础版",
       "note": "前后重复展示只计1张。",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 1
     },
     {
       "id": "im2-20",
@@ -105,7 +119,9 @@
       "variant": "基础版",
       "note": "#20：第一批1张＋第二批3张，共4张。",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 4
     },
     {
       "id": "im2-09",
@@ -118,7 +134,9 @@
       "variant": "基础版",
       "note": "暂无购买确认，持有量待核对。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "im2-32",
@@ -131,7 +149,9 @@
       "variant": "基础版",
       "note": "暂无购买确认，持有量待核对。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "im2-ah6",
@@ -144,7 +164,9 @@
       "variant": "基础版",
       "note": "",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 1
     },
     {
       "id": "im2-imc8",
@@ -157,7 +179,9 @@
       "variant": "基础版",
       "note": "IMC-8×1、IMC-11×2，三张合计330元；衣料纹理以实物为准。",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 1
     },
     {
       "id": "im2-imc11",
@@ -170,7 +194,9 @@
       "variant": "基础版",
       "note": "IMC-8×1、IMC-11×2，三张合计330元；衣料纹理以实物为准。",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 2
     },
     {
       "id": "aa35",
@@ -183,7 +209,9 @@
       "variant": "基础版",
       "note": "与2010年 #42分别登记。",
       "photo": "卡面参考图",
-      "status": "已购·含在途"
+      "status": "在途",
+      "on_hand": 0,
+      "in_transit": 1
     },
     {
       "id": "origin-orange",
@@ -197,7 +225,9 @@
       "note": "2026-11-22 两款合照确认均已到手。卡夹印有 FINDING CARD；是否原配及是否防紫外线尚未确认。 FINDING CARD为卡夹标志，不据此推定卡片发行方。",
       "photo": "Winter 实拍",
       "status": "已到手",
-      "shelfId": "shelf-20261119-justin-hammer-origin-card"
+      "shelfId": "shelf-20261119-justin-hammer-origin-card",
+      "on_hand": 1,
+      "in_transit": 0
     },
     {
       "id": "origin-gold",
@@ -211,7 +241,9 @@
       "note": "2026-11-22 两款合照确认均已到手。与橙色款分开登记；正式平行版本名待卡背核实。",
       "photo": "Winter 实拍",
       "status": "已到手",
-      "shelfId": "shelf-20261122-justin-hammer-origin-gold"
+      "shelfId": "shelf-20261122-justin-hammer-origin-gold",
+      "on_hand": 1,
+      "in_transit": 0
     },
     {
       "id": "ad2",
@@ -224,7 +256,9 @@
       "variant": "Duo Memorabilia",
       "note": "持有量尚未登记；卡面参考不代表已购买。认证材质需查卡背，不能直接套用2010款的movie-worn说明。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "ad3",
@@ -237,7 +271,9 @@
       "variant": "Duo Memorabilia",
       "note": "持有量尚未登记；卡面参考不代表已购买。认证材质需查卡背，不能直接套用2010款的movie-worn说明。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "ad5",
@@ -250,7 +286,9 @@
       "variant": "Duo Memorabilia",
       "note": "持有量尚未登记；卡面参考不代表已购买。认证材质需查卡背，不能直接套用2010款的movie-worn说明。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "at1",
@@ -263,7 +301,9 @@
       "variant": "Trio Memorabilia",
       "note": "持有量尚未登记；卡面参考不代表已购买。认证材质需查卡背，不能直接套用2010款的movie-worn说明。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "attax34",
@@ -276,7 +316,9 @@
       "variant": "Mirror Foil",
       "note": "持有量尚未登记；卡面参考不代表已购买。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "attax61",
@@ -289,7 +331,9 @@
       "variant": "基础版",
       "note": "持有量尚未登记；卡面参考不代表已购买。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "missions197",
@@ -302,7 +346,9 @@
       "variant": "基础版",
       "note": "持有量尚未登记；卡面参考不代表已购买。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "missions227",
@@ -315,7 +361,9 @@
       "variant": "Holo",
       "note": "持有量尚未登记；卡面参考不代表已购买。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "mcu2017",
@@ -328,7 +376,9 @@
       "variant": "基础版",
       "note": "持有量尚未登记；卡面参考不代表已购买。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "rn2019",
@@ -341,7 +391,9 @@
       "variant": "Roman Numerals II",
       "note": "持有量尚未登记；卡面参考不代表已购买。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "blackdiamond2021",
@@ -354,7 +406,9 @@
       "variant": "基础版 /149",
       "note": "持有量尚未登记；卡面参考不代表已购买。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "allure2022",
@@ -367,7 +421,9 @@
       "variant": "基础版",
       "note": "持有量尚未登记；卡面参考不代表已购买。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     },
     {
       "id": "chrome2025",
@@ -380,7 +436,9 @@
       "variant": "基础版",
       "note": "持有量尚未登记；卡面参考不代表已购买。",
       "photo": "卡面参考图",
-      "status": "待核对"
+      "status": "待核对",
+      "on_hand": null,
+      "in_transit": null
     }
   ],
   "legacy": [

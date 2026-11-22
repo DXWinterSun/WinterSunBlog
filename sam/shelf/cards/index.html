@@ -6,13 +6,13 @@
 <meta name="description" content="Winter 的 Sam Rockwell 卡牌收藏：卡面、系列、版本与逐款数量。">
 <meta name="theme-color" content="#f5f0e7">
 <link rel="icon" href="/WinterSunBlog/images/heading-normal.png">
-<link rel="stylesheet" href="./cards.css">
+<link rel="stylesheet" href="./cards.css?v=20261122-stock">
 </head>
 <body>
 <div class="wrap">
 <nav><a href="../">← 藏品架</a><span>WINTER SUN / SAM ROCKWELL</span><button id="curator" type="button">馆长入口</button></nav>
 <header><div class="eyebrow">THE CARD COLLECTION</div><h1>一张一张，收进喜欢里。</h1><p>Sam 的卡牌图鉴 <span class="dot">·</span> 同一张脸，不同的珍藏</p></header>
-<section class="overview" aria-label="收藏统计"><div><b id="styles">—</b><span>款已逐一登记</span></div><div><b id="copies">—</b><span>张已购 · 含在途</span></div><div><b id="series-count">—</b><span>个收藏系列</span></div><p>旧藏组合单独保留，<br>核对后再并入逐款明细。</p></section>
+<section class="overview" aria-label="收藏统计"><div><b id="styles">—</b><span>款已逐一登记</span></div><div><b id="copies">—</b><span>张在手</span></div><div><b id="series-count">—</b><span>张在途</span></div><p>旧藏组合单独保留，<br>核对后再并入逐款明细。</p></section>
 <section class="controls" aria-label="筛选与保存">
 <div class="controlrow"><div class="tabs" role="group" aria-label="收藏范围"><button class="on" data-scope="owned">我的收藏</button><button data-scope="reference">待核对图鉴</button><button data-scope="all">全部卡面</button></div><button id="add" class="owner" hidden>＋ 收录新卡</button></div>
 <div class="controlrow"><input id="search" type="search" placeholder="找卡名、系列、编号或版本…" aria-label="搜索卡牌"><select id="series" aria-label="按系列筛选"><option value="">全部系列</option></select><select id="kind" aria-label="按卡种筛选"><option value="">全部卡种</option></select></div>
@@ -29,9 +29,10 @@
 <dialog id="editor"><button class="close" data-close aria-label="关闭">×</button><h2 id="editor-title">收录新卡</h2><form id="edit-form">
 <label>卡名<input name="name" required maxlength="120"></label><label>系列<input name="series" required maxlength="120" list="series-names"></label><datalist id="series-names"></datalist>
 <div class="formrow"><label>卡号<input name="number" maxlength="40"></label><label>卡种<select name="kind"><option>剧情卡</option><option>异形卡</option><option>衣料卡</option><option>签名卡</option><option>编号卡</option><option>闪卡</option><option>特卡</option></select></label></div>
-<div class="formrow"><label>版本 / 平行色<input name="variant" maxlength="80" placeholder="基础版、橙色…"></label><label>数量<input name="quantity" type="number" min="0" step="1" placeholder="留空表示待核对"></label></div>
-<label>状态<select name="status"><option>已购·含在途</option><option>已到手</option><option>待核对</option><option>想收</option></select></label>
+<label>版本 / 平行色<input name="variant" maxlength="80" placeholder="基础版、橙色…"></label>
+<div class="formrow"><label>在手数量<input name="on_hand" type="number" min="0" step="1" placeholder="实际已收到"></label><label>在途数量<input name="in_transit" type="number" min="0" step="1" placeholder="已购尚未收到"></label></div>
+<p class="hint">已购总数自动相加；未持有填0，未核对时两项同时留空。</p>
 <label>备注<textarea name="note" rows="3" maxlength="1500"></textarea></label><label>卡面照片<input name="picture" type="file" accept="image/jpeg,image/png,image/webp"><small>可选；将公开展示，请只上传卡片照片。换图会保留之前的原文件。</small></label>
 <button class="primary" id="edit-submit" type="submit">保存到收藏馆</button><p id="edit-error" role="alert"></p></form></dialog>
-<script src="./cards.js"></script>
+<script src="./cards.js?v=20261122-stock"></script>
 </body></html>

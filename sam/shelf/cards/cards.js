@@ -12,14 +12,24 @@
   const cardById = id => data.cards.find(c => c.id === id);
   const known = c => Number.isInteger(c.quantity) && c.quantity >= 0;
   const qtyText = c => known(c) ? '×' + c.quantity : '数量待核对';
-  function cardState(c) {
-    if (c.status === '已到手') return {label:'已到手',tone:'arrived'};
-    if (c.status === '想收') return {label:'想收',tone:'wanted'};
-    if (c.quantity > 0) return {label:'已购·含在途',tone:'transit'};
-    return {label:'待核对',tone:'unknown'};
+  const amount = n => Number.isInteger(n) && n >= 0;
+  function stock(c) { return {hand:amount(c.on_hand)?c.on_hand:null,transit:amount(c.in_transit)?c.in_transit:null}; }
+  function stockBadge(c) {
+    const s=stock(c), cell=(label,n,cls)=>'<span class="stock-cell '+cls+'"><small>'+label+'</small><b>'+(n===null?'待核对':n)+'</b>'+(n===null?'':'<small>张</small>')+'</span>';
+    return '<div class="stock-counts">'+cell('在手',s.hand,'stock-hand')+cell('在途',s.transit,'stock-transit')+'</div>';
   }
-  function statusBadge(c) { const s=cardState(c); return '<span class="card-status" data-state="'+s.tone+'">'+esc(s.label)+'</span>'; }
-  function countBadge(c) { return '<span class="qty '+(!known(c)?'unknown':'')+'"><small>'+ (known(c)?'已购数量':'持有数量')+'</small><b>'+ (known(c)?'×'+c.quantity:'待核对')+'</b></span>'; }
+  function setStock(c,hand,transit) {
+    if(hand===null && transit===null){c.on_hand=null;c.in_transit=null;c.quantity=null;c.status='待核对';return;}
+    if(!amount(hand)||!amount(transit))throw Error('在手、在途都需要填写零或正整数。');
+    c.on_hand=hand;c.in_transit=transit;c.quantity=hand+transit;
+    c.status=transit>0?(hand>0?'部分在手·部分在途':'在途'):hand>0?'已到手':'未持有';
+  }
+  function applyStockAction(c,action) {
+    const s=stock(c);if(s.hand===null||s.transit===null)throw Error('请先在编辑中核对这张卡的在手和在途数量。');
+    if(action==='receive'){if(s.transit<1)throw Error('这张卡没有待收货数量。');setStock(c,s.hand+1,s.transit-1);}
+    else if(action==='order')setStock(c,s.hand,s.transit+1);
+    else throw Error('未知操作。');
+  }
   function notice(s) { $('notice').textContent = s; $('notice').hidden = !s; }
   function current() {
     const q = $('search').value.trim().toLowerCase();
@@ -37,19 +47,19 @@
   function render() {
     const owned = data.cards.filter(c => c.quantity > 0), list = current(), owner = !!token();
     $('styles').textContent = owned.length;
-    $('copies').textContent = owned.reduce((n,c) => n+c.quantity,0);
-    $('series-count').textContent = new Set(owned.map(c=>c.series)).size;
+    $('copies').textContent = owned.reduce((n,c) => n+(stock(c).hand||0),0);
+    $('series-count').textContent = owned.reduce((n,c) => n+(stock(c).transit||0),0);
     $('curator').textContent = owner ? '馆长模式 · 已开门' : '馆长入口';
     $('add').hidden = !owner;
     $('result').textContent = list.length+' 款卡面'+(selected.size ? ' · 已选 '+selected.size+' 款' : '');
     $('clear-selection').hidden = !selected.size;
     $('export-public').disabled = $('export-private').disabled = !list.length && !selected.size;
     $('updated').textContent = '最近登记 '+data.updated;
-    $('grid').innerHTML = list.length ? list.map(c => '<article class="card'+(selected.has(c.id)?' selected':'')+'" data-id="'+esc(c.id)+'"><div class="card-top">'+statusBadge(c)+countBadge(c)+'</div><button class="art" data-detail="'+esc(c.id)+'" aria-label="查看'+esc(c.name)+'详情"><img loading="lazy" src="'+esc(c.image)+'" alt="'+esc(c.name+' · '+c.variant)+'"></button><div class="card-body"><p class="card-series">'+esc(c.series)+'</p><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p class="photo-source">'+esc(c.photo || '卡面图')+'</p><div class="card-foot"><label class="select-card"><input type="checkbox" data-select="'+esc(c.id)+'" '+(selected.has(c.id)?'checked':'')+'>选入拼图</label><button data-save="'+esc(c.id)+'">保存单张</button></div>'+(owner?'<div class="quantity-edit"><button data-minus="'+esc(c.id)+'" aria-label="数量减一" '+(!c.quantity || busy?'disabled':'')+'>−</button><button data-plus="'+esc(c.id)+'" aria-label="数量加一" '+(busy?'disabled':'')+'>＋</button><button class="edit" data-edit="'+esc(c.id)+'" '+(busy?'disabled':'')+'>编辑</button></div>':'')+'</div></article>').join('') : '<p class="empty">这一页暂时没有卡，换个筛选看看。</p>';
+    $('grid').innerHTML = list.length ? list.map(c => '<article class="card'+(selected.has(c.id)?' selected':'')+'" data-id="'+esc(c.id)+'"><div class="card-top">'+stockBadge(c)+'</div><button class="art" data-detail="'+esc(c.id)+'" aria-label="查看'+esc(c.name)+'详情"><img loading="lazy" src="'+esc(c.image)+'" alt="'+esc(c.name+' · '+c.variant)+'"></button><div class="card-body"><p class="card-series">'+esc(c.series)+'</p><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p class="photo-source">'+esc(c.photo || '卡面图')+'</p><div class="card-foot"><label class="select-card"><input type="checkbox" data-select="'+esc(c.id)+'" '+(selected.has(c.id)?'checked':'')+'>选入拼图</label><button data-save="'+esc(c.id)+'">保存单张</button></div>'+(owner?'<div class="quantity-edit"><button data-receive="'+esc(c.id)+'" '+(!(stock(c).transit>0)||busy?'disabled':'')+'>收货1张</button><button data-order="'+esc(c.id)+'" '+(busy?'disabled':'')+'>新增在途</button><button class="edit" data-edit="'+esc(c.id)+'" '+(busy?'disabled':'')+'>编辑</button></div>':'')+'</div></article>').join('') : '<p class="empty">这一页暂时没有卡，换个筛选看看。</p>';
     $('legacy-list').innerHTML = data.legacy.map(c => '<article class="legacy-item"><h3>'+esc(c.name)+'</h3><p>'+esc(c.spec)+'</p><p><strong>原记录 '+c.quantity+' 张</strong> · 待补卡面'+(c.shelfId==='seed-topps'?'；2/5是限编，不是两张。':'')+'</p></article>').join('');
   }
   function openDetail(c) {
-    $('detail-content').innerHTML = '<div class="detail-collection">'+statusBadge(c)+countBadge(c)+'</div><img src="'+esc(c.image)+'" alt="'+esc(c.name)+'"><div class="eyebrow">'+esc(c.series)+'</div><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p>'+esc(c.note)+'</p><p class="hint">'+esc(c.photo || '卡面图')+'</p><div class="detail-actions"><button data-detail-save="'+esc(c.id)+'">保存卡面图片</button>'+(token()?'<button data-detail-edit="'+esc(c.id)+'">修改记录</button>':'')+'</div>';
+    $('detail-content').innerHTML = '<div class="detail-collection">'+stockBadge(c)+'</div><img src="'+esc(c.image)+'" alt="'+esc(c.name)+'"><div class="eyebrow">'+esc(c.series)+'</div><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p>'+esc(c.note)+'</p><p class="hint">'+esc(c.photo || '卡面图')+'</p><div class="detail-actions"><button data-detail-save="'+esc(c.id)+'">保存卡面图片</button>'+(token()?'<button data-detail-edit="'+esc(c.id)+'">修改记录</button>':'')+'</div>';
     $('detail').showModal();
   }
   async function getRepo() {
@@ -77,22 +87,16 @@
     }
     throw Error('记录刚被更新，请刷新后重试，避免覆盖其他改动。');
   }
-  async function increment(id,delta) {
-    if (busy) return;
-    busy=true; render(); notice('正在保存数量…');
-    try { await update(d => {
-      const c=d.cards.find(c=>c.id===id); if (!c) throw Error('这张卡已被移走，请刷新。');
-      const n=known(c)?c.quantity:0; if (n+delta<0) throw Error('数量不能小于零。');
-      c.quantity=n+delta;
-      if (delta>0 && ['待核对','想收'].includes(c.status)) c.status='已购·含在途';
-    },'Update card quantity: '+id+' '+(delta>0?'+1':'-1')); }
-    catch(e) { notice(e.message+' 数量没有在本页提前增加。'); }
-    finally { busy=false; render(); }
+  async function changeStock(id,action) {
+    if(busy)return;busy=true;render();notice('正在保存数量…');
+    try{await update(d=>{const c=d.cards.find(c=>c.id===id);if(!c)throw Error('这张卡已被移走，请刷新。');applyStockAction(c,action);},(action==='receive'?'Receive card: ':'Order card: ')+id);}
+    catch(e){notice(e.message+' 本页未提前修改数量。');}
+    finally{busy=false;render();}
   }
   function edit(c) {
     editing=c?.id || null;
     const f=$('edit-form'); f.reset(); $('edit-error').textContent='';
-    for(const k of ['name','series','number','kind','variant','quantity','status','note']) if(c && c[k]!=null) f.elements[k].value=c[k];
+    for(const k of ['name','series','number','kind','variant','on_hand','in_transit','note']) if(c && c[k]!=null) f.elements[k].value=c[k];
     $('editor-title').textContent=c?'修改卡牌记录':'收录新卡';
     $('editor').showModal();
   }
@@ -108,8 +112,8 @@
   }
   $('edit-form').addEventListener('submit',async e=>{
     e.preventDefault(); if(busy)return;
-    const f=e.currentTarget, n=f.elements.quantity.value.trim(), quantity=n===''?null:Number(n);
-    if(quantity!==null && (!Number.isInteger(quantity)||quantity<0)) { $('edit-error').textContent='数量请填写零或正整数。';return; }
+    const f=e.currentTarget, parse=n=>n.trim()===''?null:Number(n), hand=parse(f.elements.on_hand.value), transit=parse(f.elements.in_transit.value);
+    if(!((hand===null&&transit===null)||(amount(hand)&&amount(transit)))){$('edit-error').textContent='在手、在途请都填零或正整数；尚未核对可同时留空。';return;}
     busy=true; $('edit-submit').disabled=true; $('edit-error').textContent='正在保存…';
     const id=editing || 'card-'+Date.now().toString(36)+'-'+crypto.getRandomValues(new Uint32Array(1))[0].toString(36);
     try {
@@ -119,13 +123,13 @@
         const r=await fetch(API+path,{method:'PUT',headers:{Authorization:'Bearer '+token(),'Content-Type':'application/json'},body:JSON.stringify({message:'Add card photo: '+id,content,branch:'main'})});
         if(!r.ok)throw Error('照片未能保存（'+r.status+'），记录尚未修改。'); image=path;
       }
-      const fields={quantity};for(const k of ['name','series','number','kind','variant','status','note'])fields[k]=f.elements[k].value.trim();
+      const fields={};for(const k of ['name','series','number','kind','variant','note'])fields[k]=f.elements[k].value.trim();
       if(!editing && !image)throw Error('新卡请附一张卡面照片，方便以后识别。');
       if(image) {fields.image=image;fields.photo='Winter 实拍';}
       await update(d=>{
         let c=d.cards.find(c=>c.id===id);
         if(editing&&!c)throw Error('这条记录已被移走，请刷新。');
-        if(!c){c={id};d.cards.unshift(c);}Object.assign(c,fields);
+        if(!c){c={id};d.cards.unshift(c);}Object.assign(c,fields);setStock(c,hand,transit);
       },(editing?'Edit card: ':'Collect card: ')+id);
       $('editor').close();
     }catch(err){$('edit-error').textContent=err.message;}
@@ -151,19 +155,17 @@
         const ctx=cv.getContext('2d');ctx.fillStyle='#f5f0e7';ctx.fillRect(0,0,W,cv.height);
         ctx.fillStyle='#965e37';ctx.fillRect(54,58,42,3);drawText(ctx,'WINTER SUN / THE CARD COLLECTION',112,68,W-170,19,'#965e37');
         drawText(ctx,counts?'Justin Hammer · 收藏数量':'Justin Hammer · 卡牌图鉴',54,138,W-108,42);
-        drawText(ctx,counts?'逐款已购数量（含在途） · '+new Date().toLocaleDateString('zh-CN',{timeZone:'Asia/Shanghai'}):'系列 · 卡号 · 版本',54,188,W-108,24,'#726d65');
+        drawText(ctx,counts?'在手 '+list.reduce((n,c)=>n+(stock(c).hand||0),0)+' 张 · 在途 '+list.reduce((n,c)=>n+(stock(c).transit||0),0)+' 张 · '+new Date().toLocaleDateString('zh-CN',{timeZone:'Asia/Shanghai'}):'系列 · 卡号 · 版本',54,188,W-108,24,'#726d65');
         const pad=single?54:42,cw=(W-pad*2)/cols;
         entries.forEach((c,i)=>{
           const x=pad+(i%cols)*cw,y=230+Math.floor(i/cols)*cell;
           ctx.fillStyle='#fffdf8';ctx.fillRect(x+8,y,cw-16,cell-20);
           if(counts) {
-            const state=cardState(c), stateColor=state.tone==='arrived'?'#42614e':state.tone==='transit'?'#965e37':'#726d65';
-            ctx.fillStyle=state.tone==='arrived'?'#e8f0e9':state.tone==='transit'?'#f4e8d4':'#eeeae2';
-            ctx.fillRect(x+24,y+20,Math.min(205,cw-170),44);
-            drawText(ctx,state.label,x+35,y+49,Math.min(182,cw-192),21,stateColor);
-            ctx.textAlign='right';
-            drawText(ctx,known(c)?'已购 ×'+c.quantity:'待核对',x+cw-28,y+51,135,25,'#365c73');
-            ctx.textAlign='left';
+            const s=stock(c), w=(cw-62)/2;
+            ctx.fillStyle='#e8f0e9';ctx.fillRect(x+24,y+20,w,48);
+            ctx.fillStyle='#f4e8d4';ctx.fillRect(x+38+w,y+20,w,48);
+            drawText(ctx,'在手 '+(s.hand===null?'待核对':s.hand+' 张'),x+35,y+52,w-20,25,'#42614e');
+            drawText(ctx,'在途 '+(s.transit===null?'待核对':s.transit+' 张'),x+49+w,y+52,w-20,25,'#965e37');
           }
           drawFit(ctx,images[i],x+30,y+(counts?92:20),cw-60,single?900:335);
           const ty=y+(single?(counts?1030:960):(counts?450:380));
@@ -195,7 +197,7 @@
   $('search').oninput=render;$('series').onchange=render;$('kind').onchange=render;
   document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>{scope=b.dataset.scope;document.querySelectorAll('[data-scope]').forEach(t=>t.classList.toggle('on',t===b));render();});
   $('grid').addEventListener('change',e=>{const id=e.target.dataset.select;if(!id)return;e.target.checked?selected.add(id):selected.delete(id);render();});
-  $('grid').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;for(const [action,id]of Object.entries(b.dataset)){if(action==='detail')openDetail(cardById(id));if(action==='save')exportImages([cardById(id)],false,true);if(action==='edit')edit(cardById(id));if(action==='plus')increment(id,1);if(action==='minus')increment(id,-1);}});
+  $('grid').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;for(const [action,id]of Object.entries(b.dataset)){if(action==='detail')openDetail(cardById(id));if(action==='save')exportImages([cardById(id)],false,true);if(action==='edit')edit(cardById(id));if(action==='receive')changeStock(id,'receive');if(action==='order')changeStock(id,'order');}});
   $('detail').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.detailSave){$('detail').close();exportImages([cardById(b.dataset.detailSave)],false,true);}if(b.dataset.detailEdit){$('detail').close();edit(cardById(b.dataset.detailEdit));}});
   document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>{if(busy&&b.closest('dialog')===$('editor'))return;b.closest('dialog').close();});
   $('editor').addEventListener('cancel',e=>{if(busy)e.preventDefault();});

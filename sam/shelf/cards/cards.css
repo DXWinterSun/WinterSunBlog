@@ -19,3 +19,12 @@
 .card-foot input{margin:0}
 .detail-collection{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:20px 44px 14px 0;padding:13px 16px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
 @media(max-width:560px){.card-top{padding:11px 10px 0;min-height:73px;gap:5px}.card-status{font-size:11px;padding:4px 6px;gap:4px}.qty b{font-size:24px}.qty small{font-size:10px}.qty.unknown b{font-size:12px}.card-foot{gap:8px}.card-foot .select-card{font-size:11px}.detail-collection{margin-right:33px}.detail-collection .card-status{font-size:13px}}
+
+/* Exact stock quantities; acquisition data remains above the card image. */
+.stock-counts{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.stock-cell{display:flex;align-items:baseline;justify-content:center;gap:8px;padding:9px 8px;border-radius:6px;background:var(--wash);white-space:nowrap}
+.stock-cell small{font:13px/1.5 sans-serif}.stock-cell b{font:26px/1 Georgia,serif}
+.stock-hand{color:var(--green);background:color-mix(in srgb,var(--green) 10%,var(--paper))}
+.stock-transit{color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
+.quantity-edit{flex-wrap:wrap}.quantity-edit button{font-size:12px;padding:6px 8px;min-height:36px}
+@media(max-width:560px){.stock-counts{gap:5px}.stock-cell{gap:4px;padding:8px 3px}.stock-cell small{font-size:11px}.stock-cell b{font-size:21px}.quantity-edit{gap:4px}.quantity-edit button{font-size:11px;padding:5px}.stock-cell b:only-child{font-size:12px}}
