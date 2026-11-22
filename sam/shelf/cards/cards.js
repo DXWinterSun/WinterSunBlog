@@ -62,8 +62,11 @@
     const sideButtons = c.backImage
       ? '<div class="detail-sides" role="group" aria-label="卡片照片"><button type="button" data-detail-side="front" aria-pressed="true">正面</button><button type="button" data-detail-side="back" aria-pressed="false">背面</button></div>'
       : '';
+    const shelfLink = c.shelfId
+      ? '<a href="../?item='+encodeURIComponent(c.shelfId)+'">← 回到藏品架的这张卡</a>'
+      : '';
     $('detail').dataset.cardId = c.id;
-    $('detail-content').innerHTML = '<div class="detail-collection">'+stockBadge(c)+'</div><div class="detail-photo-controls">'+sideButtons+'<a id="detail-large" target="_blank" rel="noopener">查看大图 ↗</a></div><img id="detail-photo"><div class="eyebrow">'+esc(c.series)+'</div><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p>'+esc(c.note)+'</p><p class="hint">'+esc(c.photo || '卡面图')+'</p><div class="detail-actions"><button data-detail-save="'+esc(c.id)+'">保存卡面图片</button>'+(token()?'<button data-detail-edit="'+esc(c.id)+'">修改记录</button>':'')+'</div>';
+    $('detail-content').innerHTML = '<div class="detail-collection">'+stockBadge(c)+'</div><div class="detail-photo-controls">'+sideButtons+'<a id="detail-large" target="_blank" rel="noopener">查看大图 ↗</a></div><img id="detail-photo"><div class="eyebrow">'+esc(c.series)+'</div><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p>'+esc(c.note)+'</p><p class="hint">'+esc(c.photo || '卡面图')+'</p><div class="detail-actions"><button data-detail-save="'+esc(c.id)+'">保存卡面图片</button>'+(token()?'<button data-detail-edit="'+esc(c.id)+'">修改记录</button>':'')+shelfLink+'</div>';
     showDetailSide(c, 'front');
     $('detail').showModal();
   }
@@ -236,7 +239,16 @@
     try{let authError='';
       if(token())try{data=(await getRepo()).value;}catch(e){authError=e.message;}
       if(!data){const r=await fetch('./data.json',{cache:'no-cache'});if(!r.ok)throw Error('卡册暂时没打开，请稍后刷新。');data=await r.json();}
-      paintOptions();render();if(authError)notice(authError+' 当前显示公开版记录。');
+      const requested = new URLSearchParams(location.search).get('card');
+      const card = requested ? cardById(requested) : null;
+      if (card && !(card.quantity > 0)) {
+        scope = 'all';
+        document.querySelectorAll('[data-scope]').forEach(button => button.classList.toggle('on', button.dataset.scope === scope));
+      }
+      paintOptions();render();
+      if(authError)notice(authError+' 当前显示公开版记录。');
+      if(card)openDetail(card);
+      else if(requested && !authError)notice('暂时找不到这张卡的详情，可以从图鉴中搜索。');
     }catch(e){notice(e.message);$('grid').innerHTML='<p class="empty">卡册暂时无法加载，请刷新重试。</p>';}
   }
   init();

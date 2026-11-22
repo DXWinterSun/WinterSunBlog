@@ -562,6 +562,19 @@
   .item__art .a3 { fill: color-mix(in srgb, var(--a, var(--gold)) 62%, #14212e); }
   .item__art .a3s { fill: none; stroke: color-mix(in srgb, var(--a, var(--gold)) 62%, #14212e); }
   .item__art .cream { fill: #fffdf7; }
+  .item__gallery-preview {
+    position: absolute; inset: 0; z-index: 1; padding: 30px 10px 26px;
+    display: grid; place-items: center; text-decoration: none; color: var(--ink);
+  }
+  .item__gallery-preview img { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+  .item__gallery-preview span {
+    position: absolute; bottom: 4px; font-size: calc(10px * var(--fs)); line-height: 1.6;
+    background: var(--panel-hi); border-radius: 4px; padding: 1px 6px;
+  }
+  .item__gallery-preview:hover span { text-decoration: underline; }
+  .item__gallery-preview:focus-visible { outline-offset: -3px; }
+  .item__gallery-stock { margin: 3px 0 0; font-size: calc(10.5px * var(--fs)); color: var(--ink); }
+  .item__gallery-link { color: inherit; text-underline-offset: 3px; }
   .item__no {
     position: absolute; left: 9px; top: 7px; z-index: 2;
     font-family: 'Special Elite', 'Courier New', monospace;
@@ -1609,7 +1622,7 @@
 <button type="button" class="add-btn" id="add-btn"><span class="add-btn__plus">＋</span>添加一件藏品</button>
 
 <div class="toolbar">
-  <a class="mini" href="./cards/" style="text-decoration:none">🃏 卡牌图鉴 · 按卡面查数量</a>
+  <a class="mini" id="card-gallery-link" href="./cards/" style="text-decoration:none">🃏 卡牌图鉴 · 按卡面查数量</a>
   <div class="searchrow">
     <div class="search" id="search">
       <span class="search__icon">🔍</span>
@@ -1803,6 +1816,7 @@
   var KEY_DRAFT = "ws-sam-shelf-draft";
   var KEY_VIEW = "ws-sam-shelf-view";
   var REPO_API = "https://api.github.com/repos/DXWinterSun/WinterSunBlog/contents/sam/shelf/data.json";
+  var CARD_REPO_API = new URL("cards/data.json", REPO_API);
 
   /* fmts = 这一类东西有哪些「制式」可点；有 fmts 的还会跟着出现地区行。
      sugs = 这一类常写的那几条规格（碟片是铁盒 / 限量，书刊是封面 / 内页 / 专访）；
@@ -1836,6 +1850,10 @@
 
   /* ————— 状态 ————— */
   var items = [];          // 当前展示的藏品（公开数据，馆长有未发布草稿时为草稿）
+  var cardByGalleryId = new Map();
+  var cardByShelfId = new Map();
+  var cardGalleryVersion = "";
+  var shelfTargetId = new URLSearchParams(location.search).get("item");
   var chars = [];          // 来自 lines.json，按年份升序
   var charById = {};
   var charOrder = {};      // 角色 id → 年份排序位次
@@ -1886,7 +1904,7 @@
      若馆长也读它，刷新后刚添的藏品会「消失」，而这时再添一件并保存，
      就会拿这份旧名单盖掉仓库里的新记录——东西是真的会没。 */
   var deletedIds = {};              // 这台设备上删过谁（发布与合并草稿时都要看它）
-  var loadedData = false, loadedChars = false;
+  var loadedData = false, loadedChars = false, loadedCardGallery = false, loadedMagic = false;
   function fetchPublic() {
     return fetch("./data.json", { cache: "no-cache" }).then(function (r) { return r.json(); });
   }
@@ -1903,6 +1921,44 @@
       return r.json();
     });
   }
+  function loadCardGallery() {
+    function read(response) {
+      if (!response.ok) throw new Error("card gallery " + response.status);
+      return response.json();
+    }
+    function readPublic() {
+      return fetch("./cards/data.json", { cache: "no-cache" }).then(read);
+    }
+    var request = isCurator()
+      ? fetch(CARD_REPO_API + "?ref=main&_=" + Date.now(), {
+          headers: { Authorization: "Bearer " + token, Accept: "application/vnd.github.raw" },
+          cache: "no-store"
+        }).then(read).catch(readPublic)
+      : readPublic();
+    return request.then(function (data) {
+      if (!Array.isArray(data.cards)) return false;
+      var version = JSON.stringify(data.cards);
+      if (version === cardGalleryVersion) return false;
+      cardGalleryVersion = version;
+      cardByGalleryId.clear();
+      cardByShelfId.clear();
+      var hand = 0, transit = 0;
+      data.cards.forEach(function (card) {
+        cardByGalleryId.set(card.id, card);
+        if (card.shelfId) cardByShelfId.set(card.shelfId, card);
+        if (Number.isInteger(card.on_hand) && card.on_hand > 0) hand += card.on_hand;
+        if (Number.isInteger(card.in_transit) && card.in_transit > 0) transit += card.in_transit;
+      });
+      $("card-gallery-link").textContent = "🃏 卡牌图鉴 · 在手 " + hand + " 张 · 在途 " + transit + " 张";
+      return true;
+    }).catch(function () { return false; }).then(function (changed) {
+      var firstLoad = !loadedCardGallery;
+      loadedCardGallery = true;
+      if (firstLoad || changed) ready();
+    });
+  }
+  loadCardGallery();
+  window.addEventListener("pageshow", function (e) { if (e.persisted) loadCardGallery(); });
   (isCurator() ? fetchRepo().catch(fetchPublic) : fetchPublic())
     .then(function (data) {
       items = Array.isArray(data.items) ? data.items : [];
@@ -1964,8 +2020,9 @@
   var MAGIC = {};
   fetch("../../magic/items.json", { cache: "no-cache" })
     .then(function (r) { return r.ok ? r.json() : {}; })
-    .then(function (m) { MAGIC = m || {}; if (loadedData) render(); })
-    .catch(function () {});
+    .then(function (m) { MAGIC = m || {}; })
+    .catch(function () {})
+    .then(function () { loadedMagic = true; if (loadedData) render(); });
 
   function ready() {
     if (!loadedData) return;
@@ -1977,6 +2034,28 @@
   }
 
   /* ————— 渲染 ————— */
+  function galleryCard(it) {
+    if (it.type !== "card") return null;
+    return cardByGalleryId.get(it.cardGalleryId) || cardByShelfId.get(it.id);
+  }
+  function galleryLink(it, card, label) {
+    var id = card ? card.id : it.cardGalleryId;
+    if (it.type !== "card" || !id) return null;
+    var link = document.createElement("a");
+    link.href = "./cards/?card=" + encodeURIComponent(id);
+    link.className = "item__gallery-link";
+    link.textContent = label;
+    if (label) link.setAttribute("aria-label", label + "：" + it.name);
+    return link;
+  }
+  function itemSpec(it, card) {
+    if (!card) return it.spec || "";
+    return [card.series, card.variant, card.number ? "#" + card.number : ""].filter(Boolean).join(" · ");
+  }
+  function galleryStock(card) {
+    function count(value) { return Number.isInteger(value) && value >= 0 ? value + " 张" : "待核对"; }
+    return "在手 " + count(card.on_hand) + " · 在途 " + count(card.in_transit);
+  }
   function matches(it) {
     if (charFilter && it.charId !== charFilter) return false;
     if (query && searchText(it).indexOf(query) < 0) return false;
@@ -1993,7 +2072,7 @@
   function searchText(it) {
     var c = it.charId ? charById[it.charId] : null;
     var t = typeById[it.type];
-    return [it.name, it.spec, it.note, t && t.label,
+    return [it.name, it.spec, itemSpec(it, galleryCard(it)), it.note, t && t.label,
             c && c.name, c && c.film, c && c.filmCN, c && c.year]
       .filter(Boolean).join(" ").toLowerCase();
   }
@@ -2327,8 +2406,11 @@
   function itemCard(it) {
     var c = it.charId ? charById[it.charId] : null;
     var t = typeById[it.type] || typeById.other;
+    var linked = galleryCard(it);
+    var spec = itemSpec(it, linked);
     var el = document.createElement("div");
     el.className = "item item--" + it.type + (it.wish ? " item--wish" : "");
+    el.dataset.shelfItem = it.id;
     if (c) { el.style.setProperty("--a", c.accent); el.style.setProperty("--b", c.bg); }
 
     /* 卡片分两层：外壳 el 只管站位和投影，真正的卡面是 face（正面）/ back（背面），
@@ -2348,6 +2430,27 @@
     /* ————— 正面：上半截那扇窗 ————— */
     var win = document.createElement("div"); win.className = "item__win";
     win.innerHTML = ART[it.type] || ART.other;
+    var preview = galleryLink(it, linked, "");
+    if (preview) {
+      preview.classList.add("item__gallery-preview");
+      preview.setAttribute("aria-label", "查看卡牌图鉴：" + it.name);
+      if (linked && /^images\/[\w.-]+$/.test(linked.image)) {
+        var photo = document.createElement("img");
+        photo.alt = "";
+        photo.loading = "lazy";
+        photo.addEventListener("load", function () {
+          var art = win.querySelector(".item__art");
+          if (art) art.remove();
+        });
+        photo.addEventListener("error", function () { photo.remove(); });
+        photo.src = "./cards/" + linked.image;
+        preview.appendChild(photo);
+      }
+      var label = document.createElement("span");
+      label.textContent = "查看卡牌图鉴 ↗";
+      preview.appendChild(label);
+      win.appendChild(preview);
+    }
     var no = document.createElement("span"); no.className = "item__no";
     no.textContent = (it.wish ? "🌠 心愿" : "No. " + (nums[it.id] || "—")) + " · " + t.label;
     win.appendChild(no);
@@ -2378,9 +2481,14 @@
     var plate = document.createElement("div"); plate.className = "item__plate";
     var nm = document.createElement("p"); nm.className = "item__name"; nm.textContent = it.name;
     plate.appendChild(nm);
-    if (it.spec) {
-      var sp = document.createElement("p"); sp.className = "item__spec"; sp.textContent = it.spec;
+    if (spec) {
+      var sp = document.createElement("p"); sp.className = "item__spec"; sp.textContent = spec;
       plate.appendChild(sp);
+    }
+    if (linked) {
+      var stock = document.createElement("p"); stock.className = "item__gallery-stock";
+      stock.textContent = galleryStock(linked);
+      plate.appendChild(stock);
     }
     /* 按角色分组（这时卡片就在他那张大卡里）、或正在只看这个人时，
        上面已经写了他是谁，卡片里不必再挂一次 */
@@ -2411,6 +2519,8 @@
     bh.appendChild(bh1); bh.appendChild(bh2);
     back.appendChild(bh);
     var bb = document.createElement("div"); bb.className = "item__bbody";
+    var details = galleryLink(it, linked, "查看卡牌图鉴");
+    if (details) bb.appendChild(details);
     if (MAGIC[it.id] && MAGIC[it.id].length) {
       var mg = document.createElement("p"); mg.className = "item__magic";
       var mgb = document.createElement("b"); mgb.textContent = "🪄 抖出来过";
@@ -2427,7 +2537,8 @@
     bn.textContent = it.note || "（背面没写字）";
     bb.appendChild(bn);
     var rows = [];
-    if (it.spec) rows.push(["规格", it.spec]);
+    if (spec) rows.push(["规格", spec]);
+    if (linked) rows.push(["数量", galleryStock(linked)]);
     if (c) rows.push(["谁的", whoLine(it, c) + " · " + c.year]);
     if (it.date) rows.push([it.wish ? "许愿" : "入手", it.date]);
     if (it.type === "disc") rows.push(["NAS", it.nas ? "已进" : "还没进"]);
@@ -2506,7 +2617,7 @@
       el.addEventListener("pointerup", untilt);
     }
 
-    /* ⚠️ 点卡面只是「闪一下光」（上面 pointerdown 那段扫光），别的什么都不做。
+    /* 点卡面会闪光；关联图鉴的照片区域有独立链接。
        Winter 2026-09-22：「现在一点就翻页，那你放那个翻页的按钮是干什么用的？
        难道不应该是点的时候他就闪一下？老翻来翻去的有什么意思？」——所以：
        点卡面＝闪一下 · 点 ↻＝翻面 · 点 ✎＝编辑（只有馆长有）。三件事三个地方，不许混。 */
@@ -2517,8 +2628,10 @@
   function itemRow(it) {
     var c = it.charId ? charById[it.charId] : null;
     var t = typeById[it.type] || typeById.other;
+    var linked = galleryCard(it);
     var el = document.createElement("div");
     el.className = "row row--" + it.type + (it.wish ? " row--wish" : "");
+    el.dataset.shelfItem = it.id;
     if (c) { el.style.setProperty("--a", c.accent); el.style.setProperty("--b", c.bg); }
 
     var n = document.createElement("span"); n.className = "row__n";
@@ -2533,7 +2646,7 @@
     /* 卡片顶上有「📀 碟片」那行字，清单里只有一个 emoji 太弱——把类别
        和版本合成同一枚标签，每一行就都是「片名 ＋ 一枚标签」的样子 */
     var showType = !(arrange === "type" || filter === it.type);   // 已经分了组 / 筛了类，就别再说一遍
-    var spec = (showType ? [t.label] : []).concat(it.spec ? [it.spec] : []).join(" · ");
+    var spec = [showType ? t.label : "", itemSpec(it, linked)].filter(Boolean).join(" · ");
     if (spec) {
       var sp = document.createElement("span"); sp.className = "row__spec"; sp.textContent = spec;
       title.appendChild(sp);
@@ -2550,6 +2663,13 @@
       var sub = document.createElement("span"); sub.className = "row__sub";
       sub.innerHTML = bits.join(" ｜ ");
       body.appendChild(sub);
+    }
+    var details = galleryLink(it, linked, "查看卡牌图鉴");
+    if (details) {
+      var info = document.createElement("span"); info.className = "row__sub";
+      if (linked) info.appendChild(document.createTextNode(galleryStock(linked) + " ｜ "));
+      info.appendChild(details);
+      body.appendChild(info);
     }
     if (it.note) {
       var no = document.createElement("span"); no.className = "row__note"; no.textContent = it.note;
@@ -2611,10 +2731,14 @@
           roster.className = "croster";
           grid.appendChild(roster);
         }
-        roster.appendChild(charRow(g, make));
+        var memberGroup = charRow(g, make);
+        roster.appendChild(memberGroup);
+        if (containsShelfTarget(g)) memberGroup.querySelector(".crow__head").click();
         return;
       }
-      grid.appendChild(groupCard(g, make));
+      var shelfGroup = groupCard(g, make);
+      grid.appendChild(shelfGroup);
+      if (containsShelfTarget(g)) shelfGroup.querySelector(".gcard__n").click();
     });
 
     /* 「按角色」＝完整的角色视图：有东西的人在上面各占一张卡，
@@ -2643,6 +2767,10 @@
         grid.appendChild(panel);
       }
     }
+  }
+  function containsShelfTarget(group) {
+    return shelfTargetId && loadedChars && loadedCardGallery && loadedMagic
+      && group.items.some(function (it) { return it.id === shelfTargetId; });
   }
 
   var nums = {};
@@ -2793,6 +2921,17 @@
     fillGrid($("wish-grid"), wish);
     $("wish-label").style.display = wish.length ? "flex" : "none";
     $("wish-count").textContent = wish.length + " WISHES";
+    if (shelfTargetId && loadedData && loadedChars && loadedCardGallery && loadedMagic) {
+      var target = Array.from(document.querySelectorAll("[data-shelf-item]")).find(function (el) {
+        return el.dataset.shelfItem === shelfTargetId;
+      });
+      if (!target) shelfTargetId = null;
+      else requestAnimationFrame(function () {
+        if (!target.isConnected) return;
+        shelfTargetId = null;
+        target.scrollIntoView({ block: "center", inline: "center" });
+      });
+    }
 
     /* 统计 */
     var allOwn = items.filter(function (it) { return !it.wish; });
@@ -3471,9 +3610,9 @@
      「2 of 5」「482/700」这种编号里的斜杠要留着，所以斜杠两边都是数字时不拆。 */
   function splitExtras(text) {
     return String(text || "")
-      .replace(/(\d)\s*\/\s*(\d)/g, "$1\u0000$2")
+      .replace(/(\d)\s*\/\s*(\d)/g, "$1^@$2")
       .split(/[·・、,，;；\/｜|+＋]+/)
-      .map(function (x) { return x.replace(/\u0000/g, "/").trim(); })
+      .map(function (x) { return x.replace(/^@/g, "/").trim(); })
       .filter(Boolean);
   }
   function addExtras(text) {
@@ -3707,12 +3846,13 @@
   function exFields(it) {
     var c = it.charId ? charById[it.charId] : null;
     var t = typeById[it.type] || typeById.other;
+    var linked = galleryCard(it);
     return {
       n: it.wish ? "" : (nums[it.id] || ""),
       name: it.name || "",
       type: t.label,
       emoji: t.emoji,
-      spec: it.spec || "",
+      spec: [itemSpec(it, linked), linked ? galleryStock(linked) : ""].filter(Boolean).join(" · "),
       who: whoLine(it, c),
       char: c ? c.name : "",
       film: c ? (c.filmCN || c.film) : "",
