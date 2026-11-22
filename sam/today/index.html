@@ -443,7 +443,7 @@
       };
       frame.onerror = function () { finish(null); };
       document.body.appendChild(frame);
-      frame.src = c.auLink;
+      frame.src = c.auLink + (c.auLink.indexOf('?') === -1 ? '?' : '&') + '_ticket=' + Date.now();
     });
   }
   function spaced(s, px) { return s.split('').join(' '); }
