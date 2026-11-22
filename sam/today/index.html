@@ -337,6 +337,74 @@
 
     return cv;
   }
+  // 没有 AU 页的角色也有完整票根：以角色、演员、电影与年份组成一张
+  // 电影档案票，保持所有角色的新版壁纸结构一致。
+  function characterTicket(c) {
+    var cv = document.createElement('canvas');
+    cv.width = 1120; cv.height = 760;
+    var ctx = cv.getContext('2d'), W = cv.width, H = cv.height;
+    ctx.clearRect(0, 0, W, H);
+    ctx.save(); ticketRoundRect(ctx, 4, 4, W - 8, H - 8, 32); ctx.clip();
+    var g = ctx.createLinearGradient(0, 0, W, H);
+    g.addColorStop(0, c.bg); g.addColorStop(1, darken(c.bg, .34));
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    var glow = ctx.createRadialGradient(W * .82, 80, 20, W * .82, 80, 560);
+    glow.addColorStop(0, hexA(c.accent, .24)); glow.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = hexA(c.accent, .07); ctx.font = 'italic 900 430px "Playfair Display", serif';
+    ctx.textAlign = 'right'; ctx.fillText('SR', W + 40, 440);
+
+    ctx.textAlign = 'left';
+    ctx.fillStyle = c.muted; ctx.font = '22px "Special Elite", monospace';
+    ctx.fillText(spaced('ADMIT ONE  ·  CHARACTER ARCHIVE', 3), 76, 82);
+    ctx.textAlign = 'right'; ctx.fillText('SCREEN  /  ' + c.year, W - 76, 82);
+
+    ctx.textAlign = 'left'; ctx.fillStyle = c.accent;
+    ctx.font = '700 86px "Playfair Display", "Noto Serif SC", serif';
+    ticketFitText(ctx, c.name, 76, 208, W - 152, 86, 48);
+    ctx.fillStyle = hexA(c.text, .9); ctx.font = 'italic 500 39px "Cormorant Garamond", serif';
+    ticketFitText(ctx, 'Sam Rockwell  ·  ' + c.film, 78, 278, W - 156, 39, 25);
+
+    ctx.fillStyle = hexA(c.accent, .7); ctx.fillRect(76, 330, 190, 4);
+    ctx.fillStyle = hexA(c.text, .55); ctx.font = '24px "Special Elite", monospace';
+    ctx.fillText(spaced('ONE ROLE  ·  FIVE LINES  ·  KEEP THIS STUB', 2), 76, 392);
+
+    ctx.setLineDash([10, 12]); ctx.strokeStyle = hexA(c.muted, .48); ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(0, 474); ctx.lineTo(W, 474); ctx.stroke(); ctx.setLineDash([]);
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath(); ctx.arc(0, 474, 22, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(W, 474, 22, 0, Math.PI * 2); ctx.fill();
+    ctx.globalCompositeOperation = 'source-over';
+
+    var cols = [76, 405, 820], labels = ['PERFORMER', 'PICTURE', 'RELEASE'];
+    var values = ['SAM ROCKWELL', c.film.toUpperCase(), c.year];
+    var widths = [275, 355, 220];
+    for (var i = 0; i < cols.length; i++) {
+      ctx.textAlign = 'left'; ctx.fillStyle = c.muted; ctx.font = '18px "Special Elite", monospace';
+      ctx.fillText(labels[i], cols[i], 548);
+      ctx.fillStyle = i === 1 ? c.accent : c.text;
+      ctx.font = (i === 2 ? '700 46px ' : '700 29px ') + '"Playfair Display", "Noto Serif SC", serif';
+      ticketFitText(ctx, values[i], cols[i], 610, widths[i], i === 2 ? 46 : 29, 20);
+    }
+    ctx.fillStyle = hexA(c.text, .28); ctx.font = 'italic 24px "Cormorant Garamond", serif';
+    ctx.textAlign = 'center'; ctx.fillText('Winter Sun · Sam Rockwell Character Archive', W / 2, 704);
+    ctx.restore();
+    ctx.strokeStyle = hexA(c.accent, .48); ctx.lineWidth = 3;
+    ticketRoundRect(ctx, 5.5, 5.5, W - 11, H - 11, 31); ctx.stroke();
+    return cv;
+  }
+  function ticketRoundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+  function ticketFitText(ctx, text, x, y, maxW, size, min) {
+    var font = ctx.font;
+    while (ctx.measureText(text).width > maxW && size > min) {
+      size -= 2; ctx.font = font.replace(/\d+px/, size + 'px');
+    }
+    ctx.fillText(text, x, y);
+  }
   // 票根由系列页原有画图函数生成；这里只为它留出完整的一块，台词排在票下。
   function ticketWallpaper(c, ticketImage) {
     var cv = document.getElementById('cv'), ctx = cv.getContext('2d');
@@ -410,7 +478,7 @@
     return cv;
   }
   function loadTicket(c) {
-    if (!c.auLink) return Promise.resolve(null);
+    if (!c.auLink) return Promise.resolve(characterTicket(c));
     return new Promise(function (resolve) {
       var frame = document.createElement('iframe'), finished = false;
       frame.title = '票根绘制'; frame.tabIndex = -1;
@@ -421,7 +489,7 @@
         finished = true;
         clearTimeout(timer);
         frame.remove();
-        resolve(result);
+        resolve(result || characterTicket(c));
       }
       var timer = setTimeout(function () { finish(null); }, 12000);
       frame.onload = function () {
