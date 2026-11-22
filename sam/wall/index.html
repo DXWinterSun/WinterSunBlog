@@ -271,7 +271,7 @@ function ColorStrip({ theme }) {
   );
 }
 
-function Hero({ c, onDraw, mfHref, theme, quotePin, charPin }) {
+function Hero({ c, onDraw, mfHref, theme, quotePin, charPin, wallpaperHref }) {
   // copyState: null | "quote-busy" | "quote-done" | "char-busy" | "char-done"
   const [copyState, setCopyState] = useState(null);
   function copyFullScript(pin, key) {
@@ -320,9 +320,14 @@ function Hero({ c, onDraw, mfHref, theme, quotePin, charPin }) {
       <ColorStrip theme={theme} />
 
       <div style={{ display: "flex", gap: 14, alignItems: "center", marginTop: 28, flexWrap: "wrap" }}>
-        <button onClick={onDraw} style={{
+        <a href={wallpaperHref} style={{
           fontFamily: SERIF, fontSize: 14, fontWeight: 500, color: "#14110d",
           background: c.accent, border: "none", borderRadius: 999,
+          padding: "11px 22px", letterSpacing: 1, textDecoration: "none",
+        }}>保存这句壁纸</a>
+        <button onClick={onDraw} style={{
+          fontFamily: SERIF, fontSize: 14, fontWeight: 500, color: c.accent,
+          background: "transparent", border: "1px solid " + c.accent + "88", borderRadius: 999,
           padding: "11px 22px", letterSpacing: 1,
         }}>再抽一句 &rarr;</button>
         {c.auLink && (
@@ -371,14 +376,12 @@ function Hero({ c, onDraw, mfHref, theme, quotePin, charPin }) {
 }
 
 // a single quote inside a character's collection
-function QuoteCard({ c, q, active, onClick }) {
+function QuoteCard({ c, q, active, onClick, wallpaperHref }) {
   const [hover, setHover] = useState(false);
   const lift = hover || active;
   const edge = active ? c.accent + "aa" : lift ? c.accent + "44" : "#2a241b";
   return (
-    <button onClick={onClick}
-      onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
-      style={{
+    <article onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{
         textAlign: "left", width: "100%", display: "block",
         background: lift ? "linear-gradient(160deg, " + c.bg + " 0%, #100e0a 130%)" : "#181510",
         borderTop: "1px solid " + edge, borderRight: "1px solid " + edge, borderBottom: "1px solid " + edge,
@@ -387,6 +390,10 @@ function QuoteCard({ c, q, active, onClick }) {
         transform: lift ? "translateY(-3px)" : "none",
         transition: "transform .25s ease, border-color .25s ease, background .25s ease",
         boxShadow: lift ? "0 20px 44px -28px " + c.accent + "77" : "none",
+      }}>
+      <button onClick={onClick} style={{
+        display: "block", width: "100%", textAlign: "left", padding: 0,
+        color: "inherit", background: "transparent", border: 0,
       }}>
       <div style={{
         fontFamily: TYPE, fontSize: 9, letterSpacing: 1.6, color: c.accent,
@@ -400,7 +407,14 @@ function QuoteCard({ c, q, active, onClick }) {
         margin: "9px 0 0", fontFamily: SERIF, fontWeight: 300, fontSize: 13,
         lineHeight: 1.7, color: c.text, opacity: .66,
       }}>{q.lineCN}</p>
-    </button>
+      </button>
+      <a href={wallpaperHref} style={{
+        display: "inline-block", marginTop: 13, paddingTop: 10,
+        borderTop: "1px solid " + c.accent + "33",
+        fontFamily: SERIF, fontSize: 12.5, color: c.accent,
+        textDecoration: "none", letterSpacing: .5,
+      }}>保存这句壁纸</a>
+    </article>
   );
 }
 
@@ -491,6 +505,7 @@ function App() {
   const activeQuoteIdx = selectedChar.quotes.findIndex(function (q) { return q.line === activeQuote.line; });
   const quotePin = selectedChar.id + (activeQuoteIdx >= 0 ? ":" + (activeQuoteIdx + 1) : "");
   const charPin = selectedChar.id;
+  const wallpaperHref = "/WinterSunBlog/sam/today/?char=" + encodeURIComponent(quotePin);
 
   function syncUrl(charId) {
     if (!(window.history && window.history.replaceState)) return;
@@ -581,14 +596,15 @@ function App() {
         </nav>
 
         <div className="wall-detail" ref={detailRef}>
-          <Hero c={activeQuote} onDraw={drawRandom} mfHref={mfHrefFor(selectedChar.id, data.meta)} theme={themeFor(selectedChar.id, data.meta)} quotePin={quotePin} charPin={charPin} />
+          <Hero c={activeQuote} onDraw={drawRandom} mfHref={mfHrefFor(selectedChar.id, data.meta)} theme={themeFor(selectedChar.id, data.meta)} quotePin={quotePin} charPin={charPin} wallpaperHref={wallpaperHref} />
           <div style={{
             display: "grid", gap: 13, marginTop: 22,
             gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 258px), 1fr))",
           }}>
             {selectedChar.quotes.map(function (q, qi) {
               return <QuoteCard key={qi} c={selectedChar} q={q} active={q.line === activeQuote.line}
-                onClick={function () { pickQuote(mergeQ(selectedChar, q)); }} />;
+                onClick={function () { pickQuote(mergeQ(selectedChar, q)); }}
+                wallpaperHref={"/WinterSunBlog/sam/today/?char=" + encodeURIComponent(selectedChar.id + ":" + (qi + 1))} />;
             })}
           </div>
         </div>
