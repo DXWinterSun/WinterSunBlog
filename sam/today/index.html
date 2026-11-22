@@ -260,7 +260,10 @@
     var lines = [], cur = '';
     for (var i = 0; i < text.length; i++) {
       var test = cur + text[i];
-      if (ctx.measureText(test).width > maxWidth && cur) { lines.push(cur); cur = text[i]; }
+      if (ctx.measureText(test).width > maxWidth && cur) {
+        if ('，。！？、；：—）】》”'.indexOf(text[i]) >= 0) { lines.push(test); cur = ''; }
+        else { lines.push(cur); cur = text[i]; }
+      }
       else cur = test;
     }
     if (cur) lines.push(cur);
@@ -347,35 +350,47 @@
       ticketW = Math.min(900, limit * ticketImage.width / ticketImage.height);
       ticketH = ticketW * ticketImage.height / ticketImage.width;
       quoteTop = ticketTop + ticketH + 85;
-      for (size = 48; size >= 28; size -= 2) {
+      for (size = 44; size >= 26; size -= 2) {
         cnSize = Math.max(25, Math.round(size * .75));
         ctx.font = 'italic 500 ' + size + 'px "Cormorant Garamond", serif';
-        en = wrapText(ctx, c.line, W - 260);
+        en = wrapText(ctx, c.line, W - 256);
         ctx.font = '300 ' + cnSize + 'px "Noto Serif SC", serif';
-        cn = wrapCJK(ctx, c.lineCN, W - 260);
-        step = en.length * size * 1.38 + 42 + cn.length * cnSize * 1.8;
-        if (quoteTop + step < H - 175) break;
+        cn = wrapCJK(ctx, c.lineCN, W - 256);
+        step = 145 + en.length * size * 1.45 + 72 + cn.length * cnSize * 1.82 + 76;
+        if (quoteTop + step < H - 145) break;
       }
-      if (size >= 28) break;
+      if (size >= 26) break;
     }
-    size = Math.max(28, size);
+    size = Math.max(26, size);
     ctx.save();
     ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 35; ctx.shadowOffsetY = 18;
     ctx.drawImage(ticketImage, (W-ticketW)/2, ticketTop, ticketW, ticketH);
     ctx.restore();
 
-    var y = quoteTop, left = 130;
+    var y = quoteTop, left = 128;
     ctx.textAlign = 'left';
+    ctx.fillStyle = c.accent;
+    ctx.font = '24px "Special Elite", monospace';
+    ctx.fillText('SCENE  /  ' + c.year, left, y);
     ctx.fillStyle = hexA(c.accent, .65);
-    ctx.fillRect(left, y - 40, W - 2 * left, 2);
-    ctx.fillRect(left - 28, y - 2, 2, Math.min(step + 10, H - y - 165));
+    ctx.fillRect(left, y + 34, W - 2 * left, 2);
+    ctx.fillStyle = hexA(c.accent, .55);
+    ctx.font = 'italic 132px "Playfair Display", serif';
+    ctx.fillText('“', left, y + 126);
+    y += 145;
     ctx.fillStyle = c.text;
     ctx.font = 'italic 500 ' + size + 'px "Cormorant Garamond", serif';
-    for (var i = 0; i < en.length; i++) { ctx.fillText(en[i], left, y); y += size * 1.38; }
-    y += 42;
+    for (var i = 0; i < en.length; i++) { ctx.fillText(en[i], left, y); y += size * 1.45; }
+    ctx.fillStyle = c.accent;
+    ctx.fillRect(left, y + 24, 190, 3);
+    y += 72;
     ctx.fillStyle = hexA(c.text, .82);
     ctx.font = '300 ' + cnSize + 'px "Noto Serif SC", serif';
-    for (var j = 0; j < cn.length; j++) { ctx.fillText(cn[j], left, y); y += cnSize * 1.8; }
+    for (var j = 0; j < cn.length; j++) { ctx.fillText(cn[j], left, y); y += cnSize * 1.82; }
+    y += 38;
+    ctx.fillStyle = hexA(c.text, .48);
+    ctx.font = '22px "Special Elite", monospace';
+    ctx.fillText('SAM ROCKWELL  ·  ' + c.film.toUpperCase() + '  ·  ' + c.year, left, y);
     ctx.fillStyle = hexA(c.text, .45);
     ctx.textAlign = 'center';
     ctx.font = 'italic 28px "Cormorant Garamond", serif';
