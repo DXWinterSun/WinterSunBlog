@@ -404,7 +404,6 @@
     if (!c.auLink) return Promise.resolve(null);
     return new Promise(function (resolve) {
       var frame = document.createElement('iframe'), finished = false;
-      var requestId = 'ticket-' + Date.now() + '-' + Math.random().toString(36).slice(2);
       frame.title = '票根绘制'; frame.tabIndex = -1;
       frame.setAttribute('aria-hidden', 'true');
       frame.style.cssText = 'position:absolute;width:1px;height:1px;left:-9999px;top:0;border:0;visibility:hidden';
@@ -412,32 +411,30 @@
         if (finished) return;
         finished = true;
         clearTimeout(timer);
-        window.removeEventListener('message', receiveTicket);
         frame.remove();
         resolve(result);
       }
-      function receiveTicket(event) {
-        var data = event.data || {};
-        if (event.origin !== window.location.origin || event.source !== frame.contentWindow ||
-            data.type !== 'winter:series-ticket-ready' || data.id !== requestId) return;
-        if (!data.image) { finish(null); return; }
-        var image = new Image();
-        image.onload = function () { finish(image); };
-        image.onerror = function () { finish(null); };
-        image.src = data.image;
-      }
       var timer = setTimeout(function () { finish(null); }, 12000);
-      window.addEventListener('message', receiveTicket);
       frame.onload = function () {
         try {
-          var doc = frame.contentDocument, win = frame.contentWindow;
+          var doc = frame.contentDocument;
           var photo = doc.getElementById('js-ticket-photo');
-          if (!doc.getElementById('js-series-ticket')) { finish(null); return; }
+          var save = doc.getElementById('js-ticket-save');
+          if (!doc.getElementById('js-series-ticket') || !save) { finish(null); return; }
           if (photo) photo.loading = 'eager';
           var ready = photo ? photo.decode().catch(function () {}) : Promise.resolve();
           Promise.all([ready, doc.fonts.ready]).then(function () {
             if (finished) return;
-            win.postMessage({ type: 'winter:render-series-ticket', id: requestId }, window.location.origin);
+            save.click();
+            (function waitForTicket() {
+              if (finished) return;
+              var preview = doc.querySelector('.c-tk-saved img');
+              if (!preview || !preview.src) { setTimeout(waitForTicket, 80); return; }
+              var image = new Image();
+              image.onload = function () { finish(image); };
+              image.onerror = function () { finish(null); };
+              image.src = preview.src;
+            })();
           }).catch(function () { finish(null); });
         } catch (e) { finish(null); }
       };
