@@ -12,6 +12,14 @@
   const cardById = id => data.cards.find(c => c.id === id);
   const known = c => Number.isInteger(c.quantity) && c.quantity >= 0;
   const qtyText = c => known(c) ? '×' + c.quantity : '数量待核对';
+  function cardState(c) {
+    if (c.status === '已到手') return {label:'已到手',tone:'arrived'};
+    if (c.status === '想收') return {label:'想收',tone:'wanted'};
+    if (c.quantity > 0) return {label:'已购·含在途',tone:'transit'};
+    return {label:'待核对',tone:'unknown'};
+  }
+  function statusBadge(c) { const s=cardState(c); return '<span class="card-status" data-state="'+s.tone+'">'+esc(s.label)+'</span>'; }
+  function countBadge(c) { return '<span class="qty '+(!known(c)?'unknown':'')+'"><small>'+ (known(c)?'已购数量':'持有数量')+'</small><b>'+ (known(c)?'×'+c.quantity:'待核对')+'</b></span>'; }
   function notice(s) { $('notice').textContent = s; $('notice').hidden = !s; }
   function current() {
     const q = $('search').value.trim().toLowerCase();
@@ -37,11 +45,11 @@
     $('clear-selection').hidden = !selected.size;
     $('export-public').disabled = $('export-private').disabled = !list.length && !selected.size;
     $('updated').textContent = '最近登记 '+data.updated;
-    $('grid').innerHTML = list.length ? list.map(c => '<article class="card'+(selected.has(c.id)?' selected':'')+'" data-id="'+esc(c.id)+'"><div class="card-top"><label><input type="checkbox" data-select="'+esc(c.id)+'" '+(selected.has(c.id)?'checked':'')+'>选入拼图</label><span class="qty '+(!known(c)?'unknown':'')+'">'+qtyText(c)+'</span></div><button class="art" data-detail="'+esc(c.id)+'" aria-label="查看'+esc(c.name)+'详情"><img loading="lazy" src="'+esc(c.image)+'" alt="'+esc(c.name+' · '+c.variant)+'"></button><div class="card-body"><p class="card-series">'+esc(c.series)+'</p><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><div class="card-foot"><span>'+esc(c.photo || '卡面图')+'</span><button data-save="'+esc(c.id)+'">保存单张</button></div>'+(owner?'<div class="quantity-edit"><button data-minus="'+esc(c.id)+'" aria-label="数量减一" '+(!c.quantity || busy?'disabled':'')+'>−</button><button data-plus="'+esc(c.id)+'" aria-label="数量加一" '+(busy?'disabled':'')+'>＋</button><button class="edit" data-edit="'+esc(c.id)+'" '+(busy?'disabled':'')+'>编辑</button></div>':'')+'</div></article>').join('') : '<p class="empty">这一页暂时没有卡，换个筛选看看。</p>';
+    $('grid').innerHTML = list.length ? list.map(c => '<article class="card'+(selected.has(c.id)?' selected':'')+'" data-id="'+esc(c.id)+'"><div class="card-top">'+statusBadge(c)+countBadge(c)+'</div><button class="art" data-detail="'+esc(c.id)+'" aria-label="查看'+esc(c.name)+'详情"><img loading="lazy" src="'+esc(c.image)+'" alt="'+esc(c.name+' · '+c.variant)+'"></button><div class="card-body"><p class="card-series">'+esc(c.series)+'</p><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p class="photo-source">'+esc(c.photo || '卡面图')+'</p><div class="card-foot"><label class="select-card"><input type="checkbox" data-select="'+esc(c.id)+'" '+(selected.has(c.id)?'checked':'')+'>选入拼图</label><button data-save="'+esc(c.id)+'">保存单张</button></div>'+(owner?'<div class="quantity-edit"><button data-minus="'+esc(c.id)+'" aria-label="数量减一" '+(!c.quantity || busy?'disabled':'')+'>−</button><button data-plus="'+esc(c.id)+'" aria-label="数量加一" '+(busy?'disabled':'')+'>＋</button><button class="edit" data-edit="'+esc(c.id)+'" '+(busy?'disabled':'')+'>编辑</button></div>':'')+'</div></article>').join('') : '<p class="empty">这一页暂时没有卡，换个筛选看看。</p>';
     $('legacy-list').innerHTML = data.legacy.map(c => '<article class="legacy-item"><h3>'+esc(c.name)+'</h3><p>'+esc(c.spec)+'</p><p><strong>原记录 '+c.quantity+' 张</strong> · 待补卡面'+(c.shelfId==='seed-topps'?'；2/5是限编，不是两张。':'')+'</p></article>').join('');
   }
   function openDetail(c) {
-    $('detail-content').innerHTML = '<img src="'+esc(c.image)+'" alt="'+esc(c.name)+'"><div class="eyebrow">'+esc(c.series)+'</div><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p><strong>'+qtyText(c)+'</strong> · '+esc(c.status)+'</p><p>'+esc(c.note)+'</p><p class="hint">'+esc(c.photo || '卡面图')+'</p><div class="detail-actions"><button data-detail-save="'+esc(c.id)+'">保存卡面图片</button>'+(token()?'<button data-detail-edit="'+esc(c.id)+'">修改记录</button>':'')+'</div>';
+    $('detail-content').innerHTML = '<div class="detail-collection">'+statusBadge(c)+countBadge(c)+'</div><img src="'+esc(c.image)+'" alt="'+esc(c.name)+'"><div class="eyebrow">'+esc(c.series)+'</div><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p>'+esc(c.note)+'</p><p class="hint">'+esc(c.photo || '卡面图')+'</p><div class="detail-actions"><button data-detail-save="'+esc(c.id)+'">保存卡面图片</button>'+(token()?'<button data-detail-edit="'+esc(c.id)+'">修改记录</button>':'')+'</div>';
     $('detail').showModal();
   }
   async function getRepo() {
@@ -138,7 +146,7 @@
       savedURLs.forEach(URL.revokeObjectURL);savedURLs=[];$('saved-images').replaceChildren();$('saved-actions').replaceChildren();
       const pages=Math.ceil(list.length/9);
       for(let page=0;page<pages;page++) {
-        const entries=list.slice(page*9,page*9+9), images=ims.slice(page*9,page*9+9), cols=single?1:3, rows=Math.ceil(entries.length/cols), W=single?1080:1440, cell=single?1180:525;
+        const entries=list.slice(page*9,page*9+9), images=ims.slice(page*9,page*9+9), cols=single?1:3, rows=Math.ceil(entries.length/cols), W=single?1080:1440, cell=single?(counts?1250:1180):(counts?600:525);
         const cv=document.createElement('canvas');cv.width=W;cv.height=240+rows*cell+85;
         const ctx=cv.getContext('2d');ctx.fillStyle='#f5f0e7';ctx.fillRect(0,0,W,cv.height);
         ctx.fillStyle='#965e37';ctx.fillRect(54,58,42,3);drawText(ctx,'WINTER SUN / THE CARD COLLECTION',112,68,W-170,19,'#965e37');
@@ -148,12 +156,20 @@
         entries.forEach((c,i)=>{
           const x=pad+(i%cols)*cw,y=230+Math.floor(i/cols)*cell;
           ctx.fillStyle='#fffdf8';ctx.fillRect(x+8,y,cw-16,cell-20);
-          drawFit(ctx,images[i],x+30,y+20,cw-60,single?900:335);
-          const ty=y+(single?960:380);
+          if(counts) {
+            const state=cardState(c), stateColor=state.tone==='arrived'?'#42614e':state.tone==='transit'?'#965e37':'#726d65';
+            ctx.fillStyle=state.tone==='arrived'?'#e8f0e9':state.tone==='transit'?'#f4e8d4':'#eeeae2';
+            ctx.fillRect(x+24,y+20,Math.min(205,cw-170),44);
+            drawText(ctx,state.label,x+35,y+49,Math.min(182,cw-192),21,stateColor);
+            ctx.textAlign='right';
+            drawText(ctx,known(c)?'已购 ×'+c.quantity:'待核对',x+cw-28,y+51,135,25,'#365c73');
+            ctx.textAlign='left';
+          }
+          drawFit(ctx,images[i],x+30,y+(counts?92:20),cw-60,single?900:335);
+          const ty=y+(single?(counts?1030:960):(counts?450:380));
           drawText(ctx,c.name,x+25,ty,cw-50,single?33:25);
           drawText(ctx,c.series,x+25,ty+37,cw-50,20,'#726d65');
           drawText(ctx,[c.number?'#'+c.number:'',c.kind,c.variant].filter(Boolean).join(' · '),x+25,ty+71,cw-50,20,'#965e37');
-          if(counts)drawText(ctx,known(c)?'已购 '+c.quantity+' 张':'持有量待核对',x+25,ty+108,cw-50,23,'#365c73');
         });
         ctx.strokeStyle='#ddd5c7';ctx.beginPath();ctx.moveTo(54,cv.height-66);ctx.lineTo(W-54,cv.height-66);ctx.stroke();
         drawText(ctx,'Winter 的收藏馆 · 卡面版权归各发行方所有',54,cv.height-30,W-210,18,'#726d65');
