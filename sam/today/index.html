@@ -209,6 +209,7 @@
   }
 
   var current = null;
+  var ticketPromise = Promise.resolve(null);
   var MF_ALIAS = {}; // charId → 画册锚点 id（仅不一致者，来自 lines.json meta.mf_alias）
 
   function render(c) {
@@ -237,6 +238,13 @@
 
     var save = document.getElementById('save');
     save.style.background = c.accent;
+    save.disabled = true;
+    save.textContent = '壁纸准备中…';
+    ticketPromise = loadTicket(c).catch(function () { return null; }).then(function (ticket) {
+      save.disabled = false;
+      save.textContent = '保存为壁纸';
+      return ticket;
+    });
     var all = document.getElementById('all');
     all.style.color = c.accent; all.style.borderColor = c.accent + '66';
     document.getElementById('home').style.color = c.text;
@@ -462,7 +470,7 @@
     Promise.all(fonts).catch(function(){}).then(function () {
       return document.fonts.ready;
     }).then(function () {
-      return loadTicket(current);
+      return ticketPromise;
     }).then(function (ticket) {
       var cv = ticket ? ticketWallpaper(current, ticket) : drawWallpaper(current);
       cv.toBlob(function (blob) {
