@@ -31,3 +31,8 @@
 
 .stock-cell b.stock-unknown{font:12px/1.5 sans-serif;min-width:0}
 @media(max-width:560px){.stock-cell b.stock-unknown{font-size:11px}.stock-cell:has(.stock-unknown){gap:3px}}
+.detail-photo-controls{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin:16px 0 0}
+.detail-sides{display:flex;gap:6px}
+.detail-sides button{font-size:14px;min-height:36px;padding:4px 13px}
+.detail-sides [aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.detail-photo-controls a{margin-left:auto;font-size:14px;color:var(--muted)}

@@ -6,7 +6,7 @@
 <meta name="description" content="Winter 的 Sam Rockwell 卡牌收藏：卡面、系列、版本与逐款数量。">
 <meta name="theme-color" content="#f5f0e7">
 <link rel="icon" href="/WinterSunBlog/images/heading-normal.png">
-<link rel="stylesheet" href="./cards.css?v=20261122-stock">
+<link rel="stylesheet" href="./cards.css?v=20261122-photos">
 </head>
 <body>
 <div class="wrap">
@@ -32,7 +32,10 @@
 <label>版本 / 平行色<input name="variant" maxlength="80" placeholder="基础版、橙色…"></label>
 <div class="formrow"><label>在手数量<input name="on_hand" type="number" min="0" step="1" placeholder="实际已收到"></label><label>在途数量<input name="in_transit" type="number" min="0" step="1" placeholder="已购尚未收到"></label></div>
 <p class="hint">已购总数自动相加；未持有填0，未核对时两项同时留空。</p>
-<label>备注<textarea name="note" rows="3" maxlength="1500"></textarea></label><label>卡面照片<input name="picture" type="file" accept="image/jpeg,image/png,image/webp"><small>可选；将公开展示，请只上传卡片照片。换图会保留之前的原文件。</small></label>
+<label>备注<textarea name="note" rows="3" maxlength="1500"></textarea></label>
+<label>正面照片<input name="picture" type="file" accept="image/jpeg,image/png,image/webp"><small>新卡必填。用于列表预览与卡面拼图。</small></label>
+<label>背面照片<input name="back_picture" type="file" accept="image/jpeg,image/png,image/webp"><small>可选，可在到手后补拍。浏览卡片详情时可查看。</small></label>
+<p class="hint">照片将在收藏馆公开展示，请只上传卡片照片。</p>
 <button class="primary" id="edit-submit" type="submit">保存到收藏馆</button><p id="edit-error" role="alert"></p></form></dialog>
-<script src="./cards.js?v=20261122-stock"></script>
+<script src="./cards.js?v=20261122-photos"></script>
 </body></html>

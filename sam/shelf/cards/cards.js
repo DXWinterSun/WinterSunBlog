@@ -59,8 +59,24 @@
     $('legacy-list').innerHTML = data.legacy.map(c => '<article class="legacy-item"><h3>'+esc(c.name)+'</h3><p>'+esc(c.spec)+'</p><p><strong>原记录 '+c.quantity+' 张</strong> · 待补卡面'+(c.shelfId==='seed-topps'?'；2/5是限编，不是两张。':'')+'</p></article>').join('');
   }
   function openDetail(c) {
-    $('detail-content').innerHTML = '<div class="detail-collection">'+stockBadge(c)+'</div><img src="'+esc(c.image)+'" alt="'+esc(c.name)+'"><div class="eyebrow">'+esc(c.series)+'</div><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p>'+esc(c.note)+'</p><p class="hint">'+esc(c.photo || '卡面图')+'</p><div class="detail-actions"><button data-detail-save="'+esc(c.id)+'">保存卡面图片</button>'+(token()?'<button data-detail-edit="'+esc(c.id)+'">修改记录</button>':'')+'</div>';
+    const sideButtons = c.backImage
+      ? '<div class="detail-sides" role="group" aria-label="卡片照片"><button type="button" data-detail-side="front" aria-pressed="true">正面</button><button type="button" data-detail-side="back" aria-pressed="false">背面</button></div>'
+      : '';
+    $('detail').dataset.cardId = c.id;
+    $('detail-content').innerHTML = '<div class="detail-collection">'+stockBadge(c)+'</div><div class="detail-photo-controls">'+sideButtons+'<a id="detail-large" target="_blank" rel="noopener">查看大图 ↗</a></div><img id="detail-photo"><div class="eyebrow">'+esc(c.series)+'</div><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p>'+esc(c.note)+'</p><p class="hint">'+esc(c.photo || '卡面图')+'</p><div class="detail-actions"><button data-detail-save="'+esc(c.id)+'">保存卡面图片</button>'+(token()?'<button data-detail-edit="'+esc(c.id)+'">修改记录</button>':'')+'</div>';
+    showDetailSide(c, 'front');
     $('detail').showModal();
+  }
+  function showDetailSide(c, side) {
+    const isBack = side === 'back' && Boolean(c.backImage);
+    const path = isBack ? c.backImage : c.image;
+    const label = isBack ? '背面' : '正面';
+    $('detail-photo').alt = [c.name, c.variant, label].filter(Boolean).join(' · ');
+    $('detail-photo').src = path;
+    $('detail-large').href = path;
+    for (const button of $('detail-content').querySelectorAll('[data-detail-side]')) {
+      button.setAttribute('aria-pressed', String(button.dataset.detailSide === (isBack ? 'back' : 'front')));
+    }
   }
   async function getRepo() {
     const r = await fetch(API+'data.json?ref=main&t='+Date.now(), {headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+token()},cache:'no-store'});
@@ -110,27 +126,34 @@
       return cv.toDataURL('image/jpeg',.9).split(',')[1];
     } finally {URL.revokeObjectURL(url);}
   }
+  async function uploadCardPhoto(file, id, side) {
+    const content = await preparePhoto(file);
+    const path = 'images/'+id+'-'+side+'-'+Date.now()+'.jpg';
+    const r = await fetch(API+path,{method:'PUT',headers:{Authorization:'Bearer '+token(),'Content-Type':'application/json'},body:JSON.stringify({message:'Add '+side+' card photo: '+id,content,branch:'main'})});
+    if (!r.ok) throw Error('照片未能保存（'+r.status+'），记录尚未修改。');
+    return path;
+  }
   $('edit-form').addEventListener('submit',async e=>{
     e.preventDefault(); if(busy)return;
     const f=e.currentTarget, parse=n=>n.trim()===''?null:Number(n), hand=parse(f.elements.on_hand.value), transit=parse(f.elements.in_transit.value);
     if(!((hand===null&&transit===null)||(amount(hand)&&amount(transit)))){$('edit-error').textContent='在手、在途请都填零或正整数；尚未核对可同时留空。';return;}
     busy=true; $('edit-submit').disabled=true; $('edit-error').textContent='正在保存…';
-    const id=editing || 'card-'+Date.now().toString(36)+'-'+crypto.getRandomValues(new Uint32Array(1))[0].toString(36);
+    const existingId = editing;
+    const id=existingId || 'card-'+Date.now().toString(36)+'-'+crypto.getRandomValues(new Uint32Array(1))[0].toString(36);
     try {
-      let image=null;const file=f.elements.picture.files[0];
-      if(file){
-        const content=await preparePhoto(file),path='images/'+id+'-'+Date.now()+'.jpg';
-        const r=await fetch(API+path,{method:'PUT',headers:{Authorization:'Bearer '+token(),'Content-Type':'application/json'},body:JSON.stringify({message:'Add card photo: '+id,content,branch:'main'})});
-        if(!r.ok)throw Error('照片未能保存（'+r.status+'），记录尚未修改。'); image=path;
-      }
+      const front = f.elements.picture.files[0], back = f.elements.back_picture.files[0];
       const fields={};for(const k of ['name','series','number','kind','variant','note'])fields[k]=f.elements[k].value.trim();
-      if(!editing && !image)throw Error('新卡请附一张卡面照片，方便以后识别。');
-      if(image) {fields.image=image;fields.photo='Winter 实拍';}
+      if(!existingId && !front)throw Error('新卡请附一张正面照片，方便以后识别。');
+      if(front) {
+        fields.image = await uploadCardPhoto(front, id, 'front');
+        fields.photo = 'Winter 实拍';
+      }
+      if(back) fields.backImage = await uploadCardPhoto(back, id, 'back');
       await update(d=>{
         let c=d.cards.find(c=>c.id===id);
-        if(editing&&!c)throw Error('这条记录已被移走，请刷新。');
+        if(existingId&&!c)throw Error('这条记录已被移走，请刷新。');
         if(!c){c={id};d.cards.unshift(c);}Object.assign(c,fields);setStock(c,hand,transit);
-      },(editing?'Edit card: ':'Collect card: ')+id);
+      },(existingId?'Edit card: ':'Collect card: ')+id);
       $('editor').close();
     }catch(err){$('edit-error').textContent=err.message;}
     finally{busy=false;$('edit-submit').disabled=false;render();}
@@ -198,7 +221,13 @@
   document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>{scope=b.dataset.scope;document.querySelectorAll('[data-scope]').forEach(t=>t.classList.toggle('on',t===b));render();});
   $('grid').addEventListener('change',e=>{const id=e.target.dataset.select;if(!id)return;e.target.checked?selected.add(id):selected.delete(id);render();});
   $('grid').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;for(const [action,id]of Object.entries(b.dataset)){if(action==='detail')openDetail(cardById(id));if(action==='save')exportImages([cardById(id)],false,true);if(action==='edit')edit(cardById(id));if(action==='receive')changeStock(id,'receive');if(action==='order')changeStock(id,'order');}});
-  $('detail').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.detailSave){$('detail').close();exportImages([cardById(b.dataset.detailSave)],false,true);}if(b.dataset.detailEdit){$('detail').close();edit(cardById(b.dataset.detailEdit));}});
+  $('detail').addEventListener('click',e=>{
+    const b=e.target.closest('button');
+    if(!b)return;
+    if(b.dataset.detailSide)showDetailSide(cardById($('detail').dataset.cardId),b.dataset.detailSide);
+    if(b.dataset.detailSave){$('detail').close();exportImages([cardById(b.dataset.detailSave)],false,true);}
+    if(b.dataset.detailEdit){$('detail').close();edit(cardById(b.dataset.detailEdit));}
+  });
   document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>{if(busy&&b.closest('dialog')===$('editor'))return;b.closest('dialog').close();});
   $('editor').addEventListener('cancel',e=>{if(busy)e.preventDefault();});
   $('add').onclick=()=>edit(null);
