@@ -448,8 +448,8 @@
         } catch (e) { finish(null); }
       };
       frame.onerror = function () { finish(null); };
-      document.body.appendChild(frame);
       frame.src = c.auLink + (c.auLink.indexOf('?') === -1 ? '?' : '&') + '_ticket=' + Date.now();
+      document.body.appendChild(frame);
     });
   }
   function spaced(s, px) { return s.split('').join(' '); }
