@@ -1347,15 +1347,32 @@
     {
       "name": "《Infinity Saga》Justin Hammer 异形卡",
       "type": "card",
-      "spec": "ORIGIN · 橙色镭射异形卡",
+      "spec": "Finding Card · ORIGIN · 橙色镭射异形卡 · 1张",
       "charId": "hammer",
       "date": "2026-11-19",
-      "note": "Justin Hammer 美不胜收！🥺 灰色西装、眼镜和红色棒棒糖，橙色镭射从身后散开。背面有角色介绍。",
+      "note": "Justin Hammer 美不胜收！🥺 灰色西装、眼镜和红色棒棒糖，橙色镭射从身后散开。背面有角色介绍。 2026-11-22与金边款合照，两款各1张已到手。橙色款卡夹印有FINDING CARD，原配与防UV功能未确认。",
       "nas": 0,
       "signed": 0,
       "wish": 0,
       "id": "shelf-20261119-justin-hammer-origin-card",
-      "added": 1795093200000
+      "added": 1795093200000,
+      "quantity": 1,
+      "cardGalleryId": "origin-orange"
+    },
+    {
+      "id": "shelf-20261122-justin-hammer-origin-gold",
+      "name": "《Infinity Saga》Justin Hammer 金边异形卡",
+      "type": "card",
+      "spec": "Finding Card · ORIGIN · 金边款 · 1张",
+      "charId": "hammer",
+      "date": "2026-11-22",
+      "note": "灰西装、眼镜与红色棒棒糖。与橙色镭射款分开登记；正式平行版本名待卡背核实。已到手。",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "added": 1795302000000,
+      "quantity": 1,
+      "cardGalleryId": "origin-gold"
     }
   ]
 }
