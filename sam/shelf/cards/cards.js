@@ -15,7 +15,7 @@
   const amount = n => Number.isInteger(n) && n >= 0;
   function stock(c) { return {hand:amount(c.on_hand)?c.on_hand:null,transit:amount(c.in_transit)?c.in_transit:null}; }
   function stockBadge(c) {
-    const s=stock(c), cell=(label,n,cls)=>'<span class="stock-cell '+cls+'"><small>'+label+'</small><b>'+(n===null?'待核对':n)+'</b>'+(n===null?'':'<small>张</small>')+'</span>';
+    const s=stock(c), cell=(label,n,cls)=>'<span class="stock-cell '+cls+'"><small>'+label+'</small><b class="'+(n===null?'stock-unknown':'')+'">'+(n===null?'待核对':n)+'</b>'+(n===null?'':'<small>张</small>')+'</span>';
     return '<div class="stock-counts">'+cell('在手',s.hand,'stock-hand')+cell('在途',s.transit,'stock-transit')+'</div>';
   }
   function setStock(c,hand,transit) {

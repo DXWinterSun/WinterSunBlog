@@ -28,3 +28,6 @@
 .stock-transit{color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
 .quantity-edit{flex-wrap:wrap}.quantity-edit button{font-size:12px;padding:6px 8px;min-height:36px}
 @media(max-width:560px){.stock-counts{gap:5px}.stock-cell{gap:4px;padding:8px 3px}.stock-cell small{font-size:11px}.stock-cell b{font-size:21px}.quantity-edit{gap:4px}.quantity-edit button{font-size:11px;padding:5px}.stock-cell b:only-child{font-size:12px}}
+
+.stock-cell b.stock-unknown{font:12px/1.5 sans-serif;min-width:0}
+@media(max-width:560px){.stock-cell b.stock-unknown{font-size:11px}.stock-cell:has(.stock-unknown){gap:3px}}
