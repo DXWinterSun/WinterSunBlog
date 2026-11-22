@@ -269,6 +269,7 @@
 
   function drawWallpaper(c) {
     var cv = document.getElementById('cv');
+    cv.height = 1920;
     var ctx = cv.getContext('2d');
     var W = cv.width, H = cv.height;
 
@@ -324,6 +325,87 @@
 
     return cv;
   }
+  // 票根由系列页原有画图函数生成；这里只为它留出完整的一块，台词排在票下。
+  function ticketWallpaper(c, ticketImage) {
+    var cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+    cv.height = 2340;
+    var W = cv.width, H = cv.height;
+    var g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, c.bg); g.addColorStop(1, darken(c.bg, .45));
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    var glow = ctx.createRadialGradient(W/2, 520, 40, W/2, 520, 950);
+    glow.addColorStop(0, hexA(c.accent, .15)); glow.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
+    ctx.textAlign = 'center';
+    ctx.fillStyle = c.accent;
+    ctx.font = '30px "Special Elite", monospace';
+    ctx.fillText('TODAY’S LINE  ·  ' + todayStr(), W/2, 240);
+
+    var ticketTop = 300, ticketW, ticketH, quoteTop, en, cn, size, cnSize, step;
+    // 完整票面按比例缩放；台词越长，给它留的空间越多。
+    for (var limit = 1160; limit >= 550; limit -= 40) {
+      ticketW = Math.min(900, limit * ticketImage.width / ticketImage.height);
+      ticketH = ticketW * ticketImage.height / ticketImage.width;
+      quoteTop = ticketTop + ticketH + 85;
+      for (size = 60; size >= 28; size -= 2) {
+        cnSize = Math.max(23, Math.round(size * .57));
+        ctx.font = 'italic 500 ' + size + 'px "Cormorant Garamond", serif';
+        en = wrapText(ctx, c.line, W - 190);
+        ctx.font = '300 ' + cnSize + 'px "Noto Serif SC", serif';
+        cn = wrapCJK(ctx, c.lineCN, W - 190);
+        step = en.length * size * 1.25 + 32 + cn.length * cnSize * 1.8;
+        if (quoteTop + step < H - 140) break;
+      }
+      if (size >= 28) break;
+    }
+    size = Math.max(28, size);
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 35; ctx.shadowOffsetY = 18;
+    ctx.drawImage(ticketImage, (W-ticketW)/2, ticketTop, ticketW, ticketH);
+    ctx.restore();
+
+    var y = quoteTop;
+    ctx.fillStyle = c.accent;
+    ctx.fillRect(W/2 - 32, y - 35, 64, 2);
+    ctx.fillStyle = c.text;
+    ctx.font = 'italic 500 ' + size + 'px "Cormorant Garamond", serif';
+    for (var i = 0; i < en.length; i++) { ctx.fillText(en[i], W/2, y); y += size * 1.25; }
+    y += 32;
+    ctx.fillStyle = hexA(c.text, .82);
+    ctx.font = '300 ' + cnSize + 'px "Noto Serif SC", serif';
+    for (var j = 0; j < cn.length; j++) { ctx.fillText(cn[j], W/2, y); y += cnSize * 1.8; }
+    ctx.fillStyle = hexA(c.text, .45);
+    ctx.font = 'italic 28px "Cormorant Garamond", serif';
+    ctx.fillText('Winter Sun · a shrine for Sam', W/2, H - 75);
+    return cv;
+  }
+  function loadTicket(c) {
+    if (!c.auLink) return Promise.resolve(null);
+    return new Promise(function (resolve) {
+      var frame = document.createElement('iframe'), finished = false;
+      frame.title = '票根绘制'; frame.tabIndex = -1;
+      frame.setAttribute('aria-hidden', 'true');
+      frame.style.cssText = 'position:absolute;width:1px;height:1px;left:-9999px;top:0;border:0;visibility:hidden';
+      function finish(result) { if (finished) return; finished = true; clearTimeout(timer); frame.remove(); resolve(result); }
+      var timer = setTimeout(function () { finish(null); }, 12000);
+      frame.onload = function () {
+        try {
+          var doc = frame.contentDocument, win = frame.contentWindow;
+          var photo = doc.getElementById('js-ticket-photo');
+          if (!doc.getElementById('js-series-ticket') || typeof win.renderSeriesTicket !== 'function') { finish(null); return; }
+          if (photo) photo.loading = 'eager';
+          var ready = photo ? photo.decode().catch(function () {}) : Promise.resolve();
+          Promise.all([ready, doc.fonts.ready]).then(function () {
+            if (finished) return;
+            win.renderSeriesTicket(function (canvas) { finish(canvas); });
+          }).catch(function () { finish(null); });
+        } catch (e) { finish(null); }
+      };
+      frame.onerror = function () { finish(null); };
+      document.body.appendChild(frame);
+      frame.src = c.auLink;
+    });
+  }
   function spaced(s, px) { return s.split('').join(' '); }
   function hexA(hex, a) {
     var h = hex.replace('#','');
@@ -343,7 +425,9 @@
     Promise.all(fonts).catch(function(){}).then(function () {
       return document.fonts.ready;
     }).then(function () {
-      var cv = drawWallpaper(current);
+      return loadTicket(current);
+    }).then(function (ticket) {
+      var cv = ticket ? ticketWallpaper(current, ticket) : drawWallpaper(current);
       cv.toBlob(function (blob) {
         var url = URL.createObjectURL(blob);
         var a = document.createElement('a');
