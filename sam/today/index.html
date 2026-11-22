@@ -387,12 +387,15 @@
     ctx.fillStyle = hexA(c.text, .82);
     ctx.font = '300 ' + cnSize + 'px "Noto Serif SC", serif';
     for (var j = 0; j < cn.length; j++) { ctx.fillText(cn[j], left, y); y += cnSize * 1.82; }
-    y += 38;
-    ctx.fillStyle = hexA(c.text, .48);
-    ctx.font = '22px "Special Elite", monospace';
-    ctx.fillText('SAM ROCKWELL  ·  ' + c.film.toUpperCase() + '  ·  ' + c.year, left, y);
-    ctx.fillStyle = hexA(c.text, .45);
+    y += 45;
     ctx.textAlign = 'center';
+    ctx.fillStyle = hexA(c.text, .72);
+    ctx.font = '30px "Special Elite", monospace';
+    ctx.fillText('SAM ROCKWELL', W/2, y);
+    ctx.fillStyle = hexA(c.accent, .72);
+    ctx.font = '22px "Special Elite", monospace';
+    ctx.fillText(c.film.toUpperCase() + '  ·  ' + c.year, W/2, y + 44);
+    ctx.fillStyle = hexA(c.text, .45);
     ctx.font = 'italic 28px "Cormorant Garamond", serif';
     ctx.fillText('Winter Sun · a shrine for Sam', W/2, H - 75);
     return cv;
