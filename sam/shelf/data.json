@@ -1373,6 +1373,21 @@
       "added": 1795302000000,
       "quantity": 1,
       "cardGalleryId": "origin-gold"
+    },
+    {
+      "id": "shelf-20261122-justin-hammer-ah6",
+      "name": "《钢铁侠2》Justin Hammer 棒棒糖异形卡",
+      "type": "card",
+      "spec": "2010 Upper Deck · AH6 · 1张",
+      "charId": "hammer",
+      "date": "2026-11-22",
+      "note": "正反面实拍见卡牌图鉴。",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "added": 1795351941181,
+      "quantity": 1,
+      "cardGalleryId": "im2-ah6"
     }
   ]
 }
