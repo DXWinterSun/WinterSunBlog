@@ -473,6 +473,8 @@
       photo.addEventListener('error', function () { y += photoH; rest(); }, { once: true });
     } else { rest(); }
   }
+  // 同源的「今日一句」壁纸借用这张完整票根，保持两处导出画面一致。
+  window.renderSeriesTicket = drawTicket;
   function drawCover(ctx, img, x, y, w, h, pos) {
     var p = pos.split(/\s+/), px = parseFloat(p[0]) / 100 || 0.5, py = parseFloat(p[1]) / 100 || 0.3;
     var iw = img.naturalWidth, ih = img.naturalHeight, scale = Math.max(w / iw, h / ih);
