@@ -1,6 +1,6 @@
 # The Lover He Chose for You｜Inspector Stoppard 第二 AU 设定
 
-状态：连载中；2026-11-20 第一章正式上线；2026-11-21 第二至五章正式上线；2026-11-22 第六至十章及第十章B面正式上线；2026-11-23 前传番外 Winter篇正式上线；第十一章与前传 John视角篇待续。
+状态：连载中；2026-11-20 第一章正式上线；2026-11-21 第二至五章正式上线；2026-11-22 第六至十章及第十章B面正式上线；2026-11-23 前传番外 Winter篇与婚礼篇正式上线；第十一章与前传 John视角篇待续。
 
 - 博客正式系列名：`The Lover He Chose for You · Inspector Stoppard AU`
 - 同角色多 AU 线名：本系列 `情人线`；原系列 `See How They Stay` 为 `留灯线`。
@@ -491,3 +491,15 @@
 - 第十章标签：`[Inspector Stoppard, Sam Rockwell, AU, The Lover He Chose for You, 思念, 怅惘]`。
 - 第十章B面标签：`[Inspector Stoppard, Sam Rockwell, AU, The Lover He Chose for You, 思念, 怅惘, Extra]`。
 - 第十一章仍在创作中，不以不完整章节提前上线。
+
+
+## 前传番外婚礼篇连续性（2026-11-23）
+
+- 婚礼篇作为一篇完整前传番外上线，共五个带emoji的小节，`series_order: 10.7`；不拆成五篇。
+- 时间线为初遇约一年后、主线约三年前：John 32岁，Winter 22岁，均为成年人。
+- 婚礼地点为St George’s, Hanover Square，婚宴为Claridge’s；七百朵白玫瑰、铃兰与橙花贯穿当日。
+- Winter由Miss Ashbourne正式成为Mrs. Stoppard。两人的私人誓言锁定：John不承诺永不迟到，而承诺始终回来、认真倾听且不要求Winter变得安静容易；Winter承诺不让他再回到无人等待的安静房子。
+- 父亲的交托强调Winter不需要任何人替她决定生活；John婚前已经安排她的独立账户与事业自由。
+- 第一支舞成为主线中Luca唱歌、John主动同Winter跳舞场景的婚姻原型；John承认娶到Winter像“终于把你带回了家”。
+- 两人第一次性亲密保持Winter第二人称，明确写出紧张、同意、适应、持续确认与事后照顾；不将疼痛浪漫化。
+- 婚礼篇正式标签为`[Inspector Stoppard, Sam Rockwell, AU, The Lover He Chose for You, 缱绻, 炽恋]`。
