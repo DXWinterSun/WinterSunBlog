@@ -1,7 +1,7 @@
 {
   "v": 2,
-  "updated": "2026-11-22",
-  "note": "在手与在途分开记录，quantity为两者之和。2026-11-22 Winter确认：两款ORIGIN各在手1张，其余已购19张全部在途。null代表未核对，不等于0。旧藏组合另列，不并入逐款统计。",
+  "updated": "2026-11-23",
+  "note": "在手与在途分开记录，quantity为两者之和。2026-11-23：Disney 100 Phantom PM-B-08 新增14张到手，原有40张，现共54张；新到批次带独立透明包装及统一背标，疑似原包装。null代表未核对，不等于0。",
   "cards": [
     {
       "id": "im2-26",
@@ -443,15 +443,32 @@
       "status": "待核对",
       "on_hand": null,
       "in_transit": null
+    },
+    {
+      "id": "phantom-pmb08",
+      "name": "Justin Hammer · 灰西装全身照",
+      "series": "2023 · PHANTOM Disney 100 Marvel",
+      "number": "PM-B-08",
+      "kind": "收藏卡",
+      "quantity": 54,
+      "image": "images/phantom-pmb08-front-batch-20261123.jpg",
+      "backImage": "images/phantom-pmb08-package-back-20261123.jpg",
+      "variant": "基础版",
+      "note": "原有40张；2026-11-23新增到手14张，现共54张。新到14张均带独立透明包装；背面贴有统一条码与“2023 PHANTOM 迪士尼100周年漫威系列收藏卡系列 贾斯汀·汉默”标签，疑似原包装，暂不作绝对认定。其中1张曾裁剪后放进手机壳。",
+      "photo": "Winter 实拍",
+      "status": "已到手",
+      "on_hand": 54,
+      "in_transit": 0,
+      "shelfId": "mu48ssu7-y9i98"
     }
   ],
   "legacy": [
     {
       "shelfId": "mu48ssu7-y9i98",
-      "name": "Disney 100 Phantom",
-      "spec": "40张",
-      "quantity": 40,
-      "note": "一张裁剪之后放进手机壳"
+      "name": "Disney 100 Phantom · Justin Hammer",
+      "spec": "PM-B-08 · 54张",
+      "quantity": 54,
+      "note": "原有40张；2026-11-23新增14张到手，现共54张。其中1张裁剪后放进手机壳；新到批次带独立透明包装及统一背标。"
     },
     {
       "shelfId": "seed-topps",

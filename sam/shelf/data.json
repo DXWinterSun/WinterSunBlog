@@ -486,17 +486,19 @@
       "added": 1789478637264
     },
     {
-      "name": "Disney 100 Phantom",
+      "name": "Disney 100 Phantom · Justin Hammer",
       "type": "card",
-      "spec": "40张",
+      "spec": "PM-B-08 · 54张",
       "charId": "hammer",
       "date": "2026-09-16",
-      "note": "一张裁剪之后放进手机壳",
+      "note": "原有40张；2026-11-23又有14张到家，现在共54张。其中1张裁剪后放进手机壳。新到14张均带独立透明包装，背面贴有统一条码与品名标签，看起来像原包装，暂存档为“疑似原包装”。",
       "nas": 0,
       "signed": 0,
       "wish": 0,
       "id": "mu48ssu7-y9i98",
-      "added": 1789571725567
+      "added": 1789571725567,
+      "quantity": 54,
+      "cardGalleryId": "phantom-pmb08"
     },
     {
       "name": "《惊爆银河系》",
