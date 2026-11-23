@@ -344,13 +344,15 @@
     var S = 2, W = 560 * S, pad = 20 * S;
     var theme = ticketTheme(c);
     var bg = c.bg, ac = c.accent, tx = c.text, mu = c.muted;
+    // 细节字仍用角色的 muted 色，但往正文色提亮，避免深色主题上糊成一片。
+    var detail = ticketMix(mu, tx, .36);
     var swatches = [
       { hex: ac, cn: theme.cn || '角色主色', en: theme.en || 'Character Accent' },
       { hex: bg, cn: theme.bg_cn || '银幕夜色', en: theme.bg_en || 'Screen Night' },
       { hex: tx, cn: theme.text_cn || '字幕浅光', en: theme.text_en || 'Subtitle Light' },
       { hex: mu, cn: theme.muted_cn || '旧片余色', en: theme.muted_en || 'Film Patina' }
     ];
-    var perfH = 66 * S;
+    var perfH = 72 * S;
     var H = (18 + 14 + 12 + 44 + 4 + 18 + 14) * S + perfH +
       (14 + 22 + 6 + 14 + 14) * S + 64 * S;
     var cv = document.createElement('canvas');
@@ -361,13 +363,13 @@
 
     var y = pad;
     ctx.textAlign = 'left'; ctx.textBaseline = 'top';
-    ctx.fillStyle = mu;
+    ctx.fillStyle = detail;
     ctx.font = (10 * S) + 'px "Special Elite", "Courier New", monospace';
     ticketDrawSpaced(ctx, 'ADMIT ONE  ·  CHARACTER ARCHIVE', pad, y, .24 * 10 * S);
     y += 16 * S;
     ctx.fillStyle = ac;
-    ctx.font = 'bold ' + (40 * S) + 'px Volkhov, "Noto Serif SC", serif';
-    ticketFitText(ctx, c.name, pad, y, W - pad * 2, 40 * S, 36);
+    ctx.font = 'bold ' + (38 * S) + 'px Volkhov, "Noto Serif SC", serif';
+    ticketFitText(ctx, c.name, pad, y, W - pad * 2, 38 * S, 34);
     y += 48 * S;
     ctx.fillStyle = tx; ctx.globalAlpha = .85;
     ctx.font = 'italic ' + (13.5 * S) + 'px "EB Garamond", "Noto Serif SC", serif';
@@ -400,11 +402,12 @@
 
     ctx.fillStyle = tx;
     ctx.font = 'bold ' + (18 * S) + 'px Volkhov, "Noto Serif SC", serif';
-    ticketFitText(ctx, c.film, pad, y, W - pad * 2, 18 * S, 23);
+    ticketFitText(ctx, 'Five Lines, One Role', pad, y, W - pad * 2, 18 * S, 23);
     y += 26 * S;
-    ctx.fillStyle = mu;
+    ctx.fillStyle = detail;
     ctx.font = (10.5 * S) + 'px "Special Elite", "Courier New", monospace';
-    ticketDrawSpaced(ctx, ('CHARACTER ARCHIVE  ·  ' + c.year).toUpperCase(), pad, y, .12 * 10.5 * S);
+    ticketDrawSpacedFit(ctx, (c.film + '  ·  ' + c.year).toUpperCase(), pad, y,
+      W - pad * 2, 10.5 * S, 15, .08 * 10.5 * S);
     y += 28 * S;
 
     ctx.strokeStyle = 'rgba(236,233,226,.4)'; ctx.lineWidth = 1 * S;
@@ -431,7 +434,7 @@
       ctx.textAlign = 'center'; ctx.fillStyle = tx;
       ctx.font = '600 ' + (13 * S) + 'px "Noto Serif SC", serif';
       ctx.fillText(s.cn, cx, y + 20 * S);
-      ctx.fillStyle = mu;
+      ctx.fillStyle = detail;
       ctx.font = 'italic ' + (10.5 * S) + 'px "EB Garamond", serif';
       ctx.fillText(s.en, cx, y + 40 * S);
     });
@@ -468,6 +471,21 @@
     for (var i = 0; i < text.length; i++) {
       var ch = text[i]; ctx.fillText(ch, x, y); x += ctx.measureText(ch).width + spacing;
     }
+  }
+  function ticketDrawSpacedFit(ctx, text, x, y, maxW, size, min, spacing) {
+    var font = ctx.font, width;
+    function measure() {
+      var total = spacing * Math.max(0, text.length - 1);
+      for (var i = 0; i < text.length; i++) total += ctx.measureText(text[i]).width;
+      return total;
+    }
+    width = measure();
+    while (width > maxW && size > min) {
+      size -= 1; spacing *= .94;
+      ctx.font = font.replace(/\d+(?:\.\d+)?px/, size + 'px');
+      width = measure();
+    }
+    ticketDrawSpaced(ctx, text, x, y, spacing);
   }
   function ticketRoundRect(ctx, x, y, w, h, r) {
     ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r);
