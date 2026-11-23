@@ -388,12 +388,13 @@
     swatches.forEach(function (s, i) {
       var x = 6 * S + i * (cw + gap), top = y + 10 * S, h = perfH - 20 * S;
       ctx.fillStyle = s.hex; ctx.fillRect(x, top, cw, h);
-      ctx.fillStyle = ticketLuminance(s.hex) > .6 ? '#2a2b36' : '#ece9e2';
+      // 四张卡统一字号、字重；字色按真实对比度选择，不再用粗略亮度阈值。
+      ctx.fillStyle = ticketTextColor(s.hex);
       ctx.textAlign = 'center';
-      ctx.font = '500 ' + (11 * S) + 'px "Noto Serif SC", serif';
-      ctx.fillText(s.cn, x + cw / 2, top + h - 26 * S);
-      ctx.font = 'italic ' + (9 * S) + 'px "EB Garamond", serif';
-      ctx.fillText(s.en, x + cw / 2, top + h - 13 * S);
+      ctx.font = '600 ' + (12 * S) + 'px "Noto Serif SC", serif';
+      ctx.fillText(s.cn, x + cw / 2, top + h - 28 * S);
+      ctx.font = 'italic 500 ' + (10 * S) + 'px "EB Garamond", serif';
+      ctx.fillText(s.en, x + cw / 2, top + h - 14 * S);
     });
     ctx.textAlign = 'left'; y += perfH + 14 * S;
 
@@ -450,7 +451,18 @@
   }
   function ticketLuminance(hex) {
     var n = parseInt(hex.replace('#', ''), 16);
-    return (.299 * ((n >> 16) & 255) + .587 * ((n >> 8) & 255) + .114 * (n & 255)) / 255;
+    var rgb = [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255];
+    for (var i = 0; i < rgb.length; i++) {
+      rgb[i] = rgb[i] <= .03928 ? rgb[i] / 12.92 : Math.pow((rgb[i] + .055) / 1.055, 2.4);
+    }
+    return .2126 * rgb[0] + .7152 * rgb[1] + .0722 * rgb[2];
+  }
+  function ticketTextColor(hex) {
+    var l = ticketLuminance(hex);
+    var dark = ticketLuminance('#17131c'), light = ticketLuminance('#f7f2f4');
+    var darkContrast = (Math.max(l, dark) + .05) / (Math.min(l, dark) + .05);
+    var lightContrast = (Math.max(l, light) + .05) / (Math.min(l, light) + .05);
+    return darkContrast >= lightContrast ? '#17131c' : '#f7f2f4';
   }
   function ticketDrawSpaced(ctx, text, x, y, spacing) {
     for (var i = 0; i < text.length; i++) {
@@ -553,8 +565,8 @@
       // 避免手机第一次导出时落到系统默认衬线体。
       return Promise.all([
         document.fonts.load('700 80px Volkhov'),
-        document.fonts.load('italic 27px "EB Garamond"'),
-        document.fonts.load('600 26px "Noto Serif SC"'),
+        document.fonts.load('italic 500 20px "EB Garamond"'),
+        document.fonts.load('600 24px "Noto Serif SC"'),
         document.fonts.load('20px "Special Elite"')
       ]).catch(function () {}).then(function () { return characterTicket(c); });
     }
@@ -615,7 +627,8 @@
       document.fonts.load('300 40px "Noto Serif SC"'),
       document.fonts.load('30px "Special Elite"'),
       document.fonts.load('700 80px Volkhov'),
-      document.fonts.load('italic 27px "EB Garamond"')
+      document.fonts.load('italic 500 20px "EB Garamond"'),
+      document.fonts.load('600 24px "Noto Serif SC"')
     ];
     Promise.all(fonts).catch(function(){}).then(function () {
       return document.fonts.ready;
