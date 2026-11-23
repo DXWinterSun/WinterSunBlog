@@ -1,7 +1,7 @@
 {
   "v": 2,
   "updated": "2026-11-23",
-  "note": "在手与在途分开记录，quantity为两者之和。2026-11-23：Disney 100 Phantom PM-B-08 新增14张到手，原有40张，现共54张；新到批次带独立透明包装及统一背标，疑似原包装。null代表未核对，不等于0。",
+  "note": "在手与在途分开记录，quantity为两者之和。2026-11-23：Disney 100 Phantom PM-B-08新增14张到手，现共54张；同日Iron Man 2基础卡到手7张（#65×1、#43×1、#44×1、AA #35×1、#20×3）。null代表未核对，不等于0。",
   "cards": [
     {
       "id": "im2-26",
@@ -42,11 +42,17 @@
       "quantity": 2,
       "image": "images/im2-65.jpg",
       "variant": "基础版",
-      "note": "",
+      "note": "2026-11-23到手1张，另1张仍在途。",
       "photo": "卡面参考图",
-      "status": "在途",
-      "on_hand": 0,
-      "in_transit": 2
+      "status": "部分在手·部分在途",
+      "on_hand": 1,
+      "in_transit": 1,
+      "detailImages": [
+        {
+          "label": "2026-11-23 到货合照",
+          "image": "images/im2-base-batch-20261123.jpg"
+        }
+      ]
     },
     {
       "id": "im2-42",
@@ -72,11 +78,17 @@
       "quantity": 2,
       "image": "images/im2-43.jpg",
       "variant": "基础版",
-      "note": "",
+      "note": "2026-11-23到手1张，另1张仍在途。",
       "photo": "卡面参考图",
-      "status": "在途",
-      "on_hand": 0,
-      "in_transit": 2
+      "status": "部分在手·部分在途",
+      "on_hand": 1,
+      "in_transit": 1,
+      "detailImages": [
+        {
+          "label": "2026-11-23 到货合照",
+          "image": "images/im2-base-batch-20261123.jpg"
+        }
+      ]
     },
     {
       "id": "im2-44",
@@ -87,11 +99,17 @@
       "quantity": 2,
       "image": "images/im2-44.jpg",
       "variant": "基础版",
-      "note": "",
+      "note": "2026-11-23到手1张，另1张仍在途。",
       "photo": "卡面参考图",
-      "status": "在途",
-      "on_hand": 0,
-      "in_transit": 2
+      "status": "部分在手·部分在途",
+      "on_hand": 1,
+      "in_transit": 1,
+      "detailImages": [
+        {
+          "label": "2026-11-23 到货合照",
+          "image": "images/im2-base-batch-20261123.jpg"
+        }
+      ]
     },
     {
       "id": "im2-18",
@@ -117,11 +135,17 @@
       "quantity": 4,
       "image": "images/im2-20.jpg",
       "variant": "基础版",
-      "note": "#20：第一批1张＋第二批3张，共4张。",
+      "note": "#20：第一批1张＋第二批3张，共4张。 2026-11-23到手3张，另1张仍在途。",
       "photo": "卡面参考图",
-      "status": "在途",
-      "on_hand": 0,
-      "in_transit": 4
+      "status": "部分在手·部分在途",
+      "on_hand": 3,
+      "in_transit": 1,
+      "detailImages": [
+        {
+          "label": "2026-11-23 到货合照",
+          "image": "images/im2-base-batch-20261123.jpg"
+        }
+      ]
     },
     {
       "id": "im2-09",
@@ -209,11 +233,17 @@
       "quantity": 1,
       "image": "images/aa35.jpg",
       "variant": "基础版",
-      "note": "与2010年 #42分别登记。",
+      "note": "与2010年 #42分别登记。 2026-11-23到手1张。",
       "photo": "卡面参考图",
-      "status": "在途",
-      "on_hand": 0,
-      "in_transit": 1
+      "status": "已到手",
+      "on_hand": 1,
+      "in_transit": 0,
+      "detailImages": [
+        {
+          "label": "2026-11-23 到货合照",
+          "image": "images/im2-base-batch-20261123.jpg"
+        }
+      ]
     },
     {
       "id": "origin-orange",

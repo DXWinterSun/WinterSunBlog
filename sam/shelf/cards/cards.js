@@ -58,9 +58,18 @@
     $('grid').innerHTML = list.length ? list.map(c => '<article class="card'+(selected.has(c.id)?' selected':'')+'" data-id="'+esc(c.id)+'"><div class="card-top">'+stockBadge(c)+'</div><button class="art" data-detail="'+esc(c.id)+'" aria-label="查看'+esc(c.name)+'详情"><img loading="lazy" src="'+esc(c.image)+'" alt="'+esc(c.name+' · '+c.variant)+'"></button><div class="card-body"><p class="card-series">'+esc(c.series)+'</p><h2>'+esc(c.name)+'</h2><div class="badges">'+badges(c)+'</div><p class="photo-source">'+esc(c.photo || '卡面图')+'</p><div class="card-foot"><label class="select-card"><input type="checkbox" data-select="'+esc(c.id)+'" '+(selected.has(c.id)?'checked':'')+'>选入拼图</label><button data-save="'+esc(c.id)+'">保存单张</button></div>'+(owner?'<div class="quantity-edit"><button data-receive="'+esc(c.id)+'" '+(!(stock(c).transit>0)||busy?'disabled':'')+'>收货1张</button><button data-order="'+esc(c.id)+'" '+(busy?'disabled':'')+'>新增在途</button><button class="edit" data-edit="'+esc(c.id)+'" '+(busy?'disabled':'')+'>编辑</button></div>':'')+'</div></article>').join('') : '<p class="empty">这一页暂时没有卡，换个筛选看看。</p>';
     $('legacy-list').innerHTML = data.legacy.map(c => '<article class="legacy-item"><h3>'+esc(c.name)+'</h3><p>'+esc(c.spec)+'</p><p><strong>原记录 '+c.quantity+' 张</strong> · 待补卡面'+(c.shelfId==='seed-topps'?'；2/5是限编，不是两张。':'')+'</p></article>').join('');
   }
+  function detailSides(c) {
+    const sides = [{key:'front',label:'正面',path:c.image}];
+    if (c.backImage) sides.push({key:'back',label:'背面',path:c.backImage});
+    (Array.isArray(c.detailImages) ? c.detailImages : []).forEach((item,index)=>{
+      if (item && item.image) sides.push({key:'detail-'+index,label:item.label || ('存档 '+(index+1)),path:item.image});
+    });
+    return sides;
+  }
   function openDetail(c) {
-    const sideButtons = c.backImage
-      ? '<div class="detail-sides" role="group" aria-label="卡片照片"><button type="button" data-detail-side="front" aria-pressed="true">正面</button><button type="button" data-detail-side="back" aria-pressed="false">背面</button></div>'
+    const sides = detailSides(c);
+    const sideButtons = sides.length > 1
+      ? '<div class="detail-sides" role="group" aria-label="卡片照片">'+sides.map((side,index)=>'<button type="button" data-detail-side="'+esc(side.key)+'" aria-pressed="'+(index===0?'true':'false')+'">'+esc(side.label)+'</button>').join('')+'</div>'
       : '';
     const shelfLink = c.shelfId
       ? '<a href="../?item='+encodeURIComponent(c.shelfId)+'">← 回到藏品架的这张卡</a>'
@@ -71,14 +80,13 @@
     $('detail').showModal();
   }
   function showDetailSide(c, side) {
-    const isBack = side === 'back' && Boolean(c.backImage);
-    const path = isBack ? c.backImage : c.image;
-    const label = isBack ? '背面' : '正面';
-    $('detail-photo').alt = [c.name, c.variant, label].filter(Boolean).join(' · ');
-    $('detail-photo').src = path;
-    $('detail-large').href = path;
+    const sides = detailSides(c);
+    const chosen = sides.find(item=>item.key===side) || sides[0];
+    $('detail-photo').alt = [c.name, c.variant, chosen.label].filter(Boolean).join(' · ');
+    $('detail-photo').src = chosen.path;
+    $('detail-large').href = chosen.path;
     for (const button of $('detail-content').querySelectorAll('[data-detail-side]')) {
-      button.setAttribute('aria-pressed', String(button.dataset.detailSide === (isBack ? 'back' : 'front')));
+      button.setAttribute('aria-pressed', String(button.dataset.detailSide === chosen.key));
     }
   }
   async function getRepo() {
