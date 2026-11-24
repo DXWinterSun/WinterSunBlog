@@ -1,7 +1,7 @@
 {
   "v": 2,
-  "updated": "2026-11-23",
-  "note": "在手与在途分开记录，quantity为两者之和。2026-11-23：Disney 100 Phantom PM-B-08新增14张到手，现共54张；同日Iron Man 2基础卡到手7张（#65×1、#43×1、#44×1、AA #35×1、#20×3）。null代表未核对，不等于0。",
+  "updated": "2026-11-24",
+  "note": "在手与在途分开记录，quantity为两者之和。2026-11-23：Disney 100 Phantom PM-B-08新增14张到手，现共54张；同日Iron Man 2基础卡到手7张（#65×1、#43×1、#44×1、AA #35×1、#20×3）。null代表未核对，不等于0。2026-11-24：补录PM-YX-08卡背实拍及角色资料；其地中海浮动别墅信息按授权卡牌补充设定存档，不视作电影直接正史。",
   "cards": [
     {
       "id": "im2-26",
@@ -475,6 +475,25 @@
       "in_transit": null
     },
     {
+      "id": "phantom-pmyx08",
+      "name": "Justin Hammer · 异形特卡",
+      "series": "2023 · PHANTOM Disney 100 Marvel",
+      "number": "PM-YX-08",
+      "kind": "异形卡",
+      "quantity": 2,
+      "image": "images/phantom-pmyx08-back-20261124.jpg",
+      "backImage": "images/phantom-pmyx08-back-20261124.jpg",
+      "variant": "Die Cuts · 彩虹反光",
+      "note": "2026-11-24补录卡背实拍。卡背称Justin为重要实业家及多家设计、制造公司的负责人，并写明其主要行动基地是一座通常位于地中海的巨大浮动别墅；此为授权卡牌补充设定，不自动等同于电影直接正史。当前档案以卡背实拍作为记录图，正面实拍待后续补入。",
+      "photo": "Winter 实拍（卡背）",
+      "status": "已到手",
+      "on_hand": 2,
+      "in_transit": 0,
+      "shelfId": "muyb4s5u-oovug",
+      "backTextZh": "贾斯汀·汉默是世界上最重要的实业家之一，也是众多设计和制造公司的负责人。汉默在一座巨大的浮动别墅上建立了他的主要行动基地，该别墅通常位于地中海。",
+      "backTextEn": "Justin Hammer was one of the world’s foremost industrialists and head of numerous design and manufacturing firms. Hammer established his primary base of operations aboard an immense floating villa, usually located in the Mediterranean."
+    },
+    {
       "id": "phantom-pmb08",
       "name": "Justin Hammer · 灰西装全身照",
       "series": "2023 · PHANTOM Disney 100 Marvel",
@@ -512,7 +531,7 @@
       "name": "Disney 100 Phantom 异形特卡 · Justin Hammer",
       "spec": "PM-YX-08 · 2张",
       "quantity": 2,
-      "note": "带彩虹反光的异形切边卡，和那套 40 张是同一系列"
+      "note": "带彩虹反光的异形切边卡，和PM-B-08属于同一PHANTOM Disney 100 Marvel系列。2026-11-24补录卡背实拍与中英角色文案；卡背“地中海浮动别墅行动基地”按授权卡牌补充设定存档。"
     }
   ]
 }
