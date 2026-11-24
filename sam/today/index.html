@@ -112,6 +112,28 @@
     text-align: center; position: relative; z-index: 1;
   }
   canvas { display: none; }
+  .c-tk-saved {
+    position: fixed; inset: 0; z-index: 1200;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 14px; padding: 24px 16px;
+    background: rgba(0,0,0,.72);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .c-tk-saved img {
+    max-width: min(92vw,460px); max-height: 72vh; border-radius: 10px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.6);
+  }
+  .c-tk-saved p {
+    margin: 0; color: #ece9e2; font-size: 13.5px;
+    letter-spacing: .04em; text-align: center;
+  }
+  .c-tk-saved__row { display: flex; gap: 10px; }
+  .c-tk-saved a, .c-tk-saved button {
+    font: inherit; font-size: 13px; letter-spacing: .08em; cursor: pointer;
+    text-decoration: none; padding: 8px 16px; border-radius: 999px;
+    border: 1px solid rgba(236,233,226,.5); color: #ece9e2; background: transparent;
+  }
+  .c-tk-saved a.is-primary { background: #ece9e2; color: #1b2238; border-color: #ece9e2; }
 </style>
 </head>
 <body>
@@ -651,6 +673,56 @@
     return 'rgba(' + parseInt(h.substr(0,2),16) + ',' + parseInt(h.substr(2,2),16) + ',' + parseInt(h.substr(4,2),16) + ',' + a + ')';
   }
 
+  // 与 AU 页「保存票根」共用同一套交付方式：
+  // 电脑点下载；iPhone / iPad 调系统分享菜单，再选「存储图像」。
+  function showWallpaperPreview(blob) {
+    var url = URL.createObjectURL(blob);
+    var name = 'sam-today-' + todayStr().replace(/\./g, '') + '.png';
+    var ov = document.createElement('div');
+    ov.className = 'c-tk-saved';
+    ov.setAttribute('role', 'dialog');
+    ov.setAttribute('aria-label', '保存壁纸');
+    ov.innerHTML = '<img alt="今日台词壁纸"><p aria-live="polite"></p>' +
+      '<div class="c-tk-saved__row"><a class="is-primary">下载</a><button type="button">关掉</button></div>';
+
+    ov.querySelector('img').src = url;
+    var hint = ov.querySelector('p');
+    hint.textContent = '长按图片存到相册，或点「下载」';
+    var row = ov.querySelector('.c-tk-saved__row');
+    var download = row.querySelector('a');
+    download.href = url;
+    download.download = name;
+
+    if (navigator.share && navigator.canShare && typeof File === 'function') {
+      var shareData = { files: [new File([blob], name, { type: blob.type })] };
+      if (navigator.canShare(shareData)) {
+        var share = document.createElement('button');
+        share.type = 'button';
+        var isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+          (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+        share.textContent = isIOS ? '存到相册' : '分享图片';
+        row.insertBefore(share, download);
+        hint.textContent = isIOS ? '点「存到相册」，再选「存储图像」' : '点「分享图片」打开系统菜单，或点「下载」';
+        share.addEventListener('click', function () {
+          navigator.share(shareData).catch(function (error) {
+            if (error.name !== 'AbortError') hint.textContent = '分享菜单没能打开，可以长按图片或点「下载」';
+          });
+        });
+      }
+    }
+
+    function close() {
+      ov.remove();
+      document.removeEventListener('keydown', onKeyDown);
+      URL.revokeObjectURL(url);
+    }
+    function onKeyDown(e) { if (e.key === 'Escape') close(); }
+    row.lastElementChild.addEventListener('click', close);
+    ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+    document.addEventListener('keydown', onKeyDown);
+    document.body.appendChild(ov);
+  }
+
   function saveWallpaper() {
     if (!current) return;
     var btn = document.getElementById('save');
@@ -670,11 +742,8 @@
       var cv = ticket ? ticketWallpaper(current, ticket) : drawWallpaper(current);
       btn.setAttribute('data-export-size', cv.width + 'x' + cv.height);
       cv.toBlob(function (blob) {
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.href = url; a.download = 'sam-today-' + todayStr().replace(/\./g,'') + '.png';
-        document.body.appendChild(a); a.click(); a.remove();
-        setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+        if (!blob) { btn.textContent = old; return; }
+        showWallpaperPreview(blob);
         btn.textContent = old;
       }, 'image/png');
     });
