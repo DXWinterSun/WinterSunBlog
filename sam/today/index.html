@@ -134,6 +134,24 @@
     border: 1px solid rgba(236,233,226,.5); color: #ece9e2; background: transparent;
   }
   .c-tk-saved a.is-primary { background: #ece9e2; color: #1b2238; border-color: #ece9e2; }
+  @media (max-width: 720px) {
+    .c-tk-saved {
+      height: 100dvh;
+      justify-content: flex-start;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: max(16px, env(safe-area-inset-top)) 12px
+        max(92px, calc(env(safe-area-inset-bottom) + 64px));
+    }
+    .c-tk-saved img {
+      flex: 0 1 auto;
+      max-width: min(88vw, 400px);
+      max-height: min(62dvh, calc(100dvh - 190px));
+      object-fit: contain;
+    }
+    .c-tk-saved p, .c-tk-saved__row { flex: 0 0 auto; }
+    .c-tk-saved__row { flex-wrap: wrap; justify-content: center; }
+  }
 </style>
 </head>
 <body>
