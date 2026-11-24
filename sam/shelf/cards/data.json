@@ -1,7 +1,7 @@
 {
   "v": 2,
   "updated": "2026-11-24",
-  "note": "在手与在途分开记录，quantity为两者之和。2026-11-23：Disney 100 Phantom PM-B-08新增14张到手，现共54张；同日Iron Man 2基础卡到手7张（#65×1、#43×1、#44×1、AA #35×1、#20×3）。null代表未核对，不等于0。2026-11-24：补录PM-YX-08卡背实拍及角色资料；其地中海浮动别墅信息按授权卡牌补充设定存档，不视作电影直接正史。",
+  "note": "在手与在途分开记录，quantity为两者之和。2026-11-24最新合照确认：剧情卡#26×1、#31×1、#65×2、#43×2、#44×2、#18×1、#20×4、AA #35×1均在手；衣料卡IMC-8×1、IMC-11×2亦已到手。当前图鉴已登记在手76张、在途1张（#42）。null代表未核对，不等于0。PM-YX-08卡背实拍及角色资料已存档；其地中海浮动别墅信息按授权卡牌补充设定记录，不视作电影直接正史。",
   "cards": [
     {
       "id": "im2-26",
@@ -12,11 +12,17 @@
       "quantity": 1,
       "image": "images/im2-26.jpg",
       "variant": "基础版",
-      "note": "",
+      "note": "2026-11-24最新合照确认已到手1张。",
       "photo": "卡面参考图",
-      "status": "在途",
-      "on_hand": 0,
-      "in_transit": 1
+      "status": "已到手",
+      "on_hand": 1,
+      "in_transit": 0,
+      "detailImages": [
+        {
+          "label": "2026-11-24 最新合照",
+          "image": "images/im2-story-costume-latest-20261124.jpg"
+        }
+      ]
     },
     {
       "id": "im2-31",
@@ -27,11 +33,17 @@
       "quantity": 1,
       "image": "images/im2-31.jpg",
       "variant": "基础版",
-      "note": "",
+      "note": "2026-11-24最新合照确认已到手1张。",
       "photo": "卡面参考图",
-      "status": "在途",
-      "on_hand": 0,
-      "in_transit": 1
+      "status": "已到手",
+      "on_hand": 1,
+      "in_transit": 0,
+      "detailImages": [
+        {
+          "label": "2026-11-24 最新合照",
+          "image": "images/im2-story-costume-latest-20261124.jpg"
+        }
+      ]
     },
     {
       "id": "im2-65",
@@ -42,15 +54,19 @@
       "quantity": 2,
       "image": "images/im2-65.jpg",
       "variant": "基础版",
-      "note": "2026-11-23到手1张，另1张仍在途。",
+      "note": "共2张；2026-11-23到手1张，2026-11-24合照确认另1张也已到手。",
       "photo": "卡面参考图",
-      "status": "部分在手·部分在途",
-      "on_hand": 1,
-      "in_transit": 1,
+      "status": "已到手",
+      "on_hand": 2,
+      "in_transit": 0,
       "detailImages": [
         {
           "label": "2026-11-23 到货合照",
           "image": "images/im2-base-batch-20261123.jpg"
+        },
+        {
+          "label": "2026-11-24 最新合照",
+          "image": "images/im2-story-costume-latest-20261124.jpg"
         }
       ]
     },
@@ -78,15 +94,19 @@
       "quantity": 2,
       "image": "images/im2-43.jpg",
       "variant": "基础版",
-      "note": "2026-11-23到手1张，另1张仍在途。",
+      "note": "共2张；2026-11-23到手1张，2026-11-24合照确认另1张也已到手。",
       "photo": "卡面参考图",
-      "status": "部分在手·部分在途",
-      "on_hand": 1,
-      "in_transit": 1,
+      "status": "已到手",
+      "on_hand": 2,
+      "in_transit": 0,
       "detailImages": [
         {
           "label": "2026-11-23 到货合照",
           "image": "images/im2-base-batch-20261123.jpg"
+        },
+        {
+          "label": "2026-11-24 最新合照",
+          "image": "images/im2-story-costume-latest-20261124.jpg"
         }
       ]
     },
@@ -99,15 +119,19 @@
       "quantity": 2,
       "image": "images/im2-44.jpg",
       "variant": "基础版",
-      "note": "2026-11-23到手1张，另1张仍在途。",
+      "note": "共2张；2026-11-23到手1张，2026-11-24合照确认另1张也已到手。",
       "photo": "卡面参考图",
-      "status": "部分在手·部分在途",
-      "on_hand": 1,
-      "in_transit": 1,
+      "status": "已到手",
+      "on_hand": 2,
+      "in_transit": 0,
       "detailImages": [
         {
           "label": "2026-11-23 到货合照",
           "image": "images/im2-base-batch-20261123.jpg"
+        },
+        {
+          "label": "2026-11-24 最新合照",
+          "image": "images/im2-story-costume-latest-20261124.jpg"
         }
       ]
     },
@@ -120,11 +144,17 @@
       "quantity": 1,
       "image": "images/im2-18.jpg",
       "variant": "基础版",
-      "note": "前后重复展示只计1张。",
+      "note": "前后重复展示只计1张；2026-11-24最新合照确认已到手。",
       "photo": "卡面参考图",
-      "status": "在途",
-      "on_hand": 0,
-      "in_transit": 1
+      "status": "已到手",
+      "on_hand": 1,
+      "in_transit": 0,
+      "detailImages": [
+        {
+          "label": "2026-11-24 最新合照",
+          "image": "images/im2-story-costume-latest-20261124.jpg"
+        }
+      ]
     },
     {
       "id": "im2-20",
@@ -135,15 +165,19 @@
       "quantity": 4,
       "image": "images/im2-20.jpg",
       "variant": "基础版",
-      "note": "#20：第一批1张＋第二批3张，共4张。 2026-11-23到手3张，另1张仍在途。",
+      "note": "#20：第一批1张＋第二批3张，共4张；2026-11-24最新合照确认4张均已到手。",
       "photo": "卡面参考图",
-      "status": "部分在手·部分在途",
-      "on_hand": 3,
-      "in_transit": 1,
+      "status": "已到手",
+      "on_hand": 4,
+      "in_transit": 0,
       "detailImages": [
         {
           "label": "2026-11-23 到货合照",
           "image": "images/im2-base-batch-20261123.jpg"
+        },
+        {
+          "label": "2026-11-24 最新合照",
+          "image": "images/im2-story-costume-latest-20261124.jpg"
         }
       ]
     },
@@ -203,11 +237,17 @@
       "quantity": 1,
       "image": "images/im2-imc8.jpg",
       "variant": "基础版",
-      "note": "IMC-8×1、IMC-11×2，三张合计330元；衣料纹理以实物为准。",
+      "note": "IMC-8×1、IMC-11×2，三张合计330元；2026-11-24最新合照确认到手。衣料纹理以实物为准。",
       "photo": "卡面参考图",
-      "status": "在途",
-      "on_hand": 0,
-      "in_transit": 1
+      "status": "已到手",
+      "on_hand": 1,
+      "in_transit": 0,
+      "detailImages": [
+        {
+          "label": "2026-11-24 最新合照",
+          "image": "images/im2-story-costume-latest-20261124.jpg"
+        }
+      ]
     },
     {
       "id": "im2-imc11",
@@ -218,11 +258,17 @@
       "quantity": 2,
       "image": "images/im2-imc11.jpg",
       "variant": "基础版",
-      "note": "IMC-8×1、IMC-11×2，三张合计330元；衣料纹理以实物为准。",
+      "note": "IMC-8×1、IMC-11×2，三张合计330元；2026-11-24最新合照确认2张均到手。衣料纹理以实物为准。",
       "photo": "卡面参考图",
-      "status": "在途",
-      "on_hand": 0,
-      "in_transit": 2
+      "status": "已到手",
+      "on_hand": 2,
+      "in_transit": 0,
+      "detailImages": [
+        {
+          "label": "2026-11-24 最新合照",
+          "image": "images/im2-story-costume-latest-20261124.jpg"
+        }
+      ]
     },
     {
       "id": "aa35",
@@ -233,7 +279,7 @@
       "quantity": 1,
       "image": "images/aa35.jpg",
       "variant": "基础版",
-      "note": "与2010年 #42分别登记。 2026-11-23到手1张。",
+      "note": "与2010年 #42分别登记；2026-11-23已到手1张。",
       "photo": "卡面参考图",
       "status": "已到手",
       "on_hand": 1,
@@ -242,6 +288,10 @@
         {
           "label": "2026-11-23 到货合照",
           "image": "images/im2-base-batch-20261123.jpg"
+        },
+        {
+          "label": "2026-11-24 最新合照",
+          "image": "images/im2-story-costume-latest-20261124.jpg"
         }
       ]
     },
