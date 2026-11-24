@@ -48,7 +48,7 @@
     const owned = data.cards.filter(c => c.quantity > 0), list = current(), owner = !!token();
     $('styles').textContent = owned.length;
     $('copies').textContent = owned.reduce((n,c) => n+(stock(c).hand||0),0);
-    $('series-count').textContent = owned.reduce((n,c) => n+(stock(c).transit||0),0);
+    $('series-count').textContent = data.in_transit_pending ? '待核对' : owned.reduce((n,c) => n+(stock(c).transit||0),0);
     $('curator').textContent = owner ? '馆长模式 · 已开门' : '馆长入口';
     $('add').hidden = !owner;
     $('result').textContent = list.length+' 款卡面'+(selected.size ? ' · 已选 '+selected.size+' 款' : '');
@@ -189,7 +189,7 @@
         const ctx=cv.getContext('2d');ctx.fillStyle='#f5f0e7';ctx.fillRect(0,0,W,cv.height);
         ctx.fillStyle='#965e37';ctx.fillRect(54,58,42,3);drawText(ctx,'WINTER SUN / THE CARD COLLECTION',112,68,W-170,19,'#965e37');
         drawText(ctx,counts?'Justin Hammer · 收藏数量':'Justin Hammer · 卡牌图鉴',54,138,W-108,42);
-        drawText(ctx,counts?'在手 '+list.reduce((n,c)=>n+(stock(c).hand||0),0)+' 张 · 在途 '+list.reduce((n,c)=>n+(stock(c).transit||0),0)+' 张 · '+new Date().toLocaleDateString('zh-CN',{timeZone:'Asia/Shanghai'}):'系列 · 卡号 · 版本',54,188,W-108,24,'#726d65');
+        drawText(ctx,counts?'在手 '+list.reduce((n,c)=>n+(stock(c).hand||0),0)+' 张 · '+(data.in_transit_pending?'在途待核对':'在途 '+list.reduce((n,c)=>n+(stock(c).transit||0),0)+' 张')+' · '+new Date().toLocaleDateString('zh-CN',{timeZone:'Asia/Shanghai'}):'系列 · 卡号 · 版本',54,188,W-108,24,'#726d65');
         const pad=single?54:42,cw=(W-pad*2)/cols;
         entries.forEach((c,i)=>{
           const x=pad+(i%cols)*cw,y=230+Math.floor(i/cols)*cell;
