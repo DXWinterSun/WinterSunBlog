@@ -1,6 +1,6 @@
 # The Lover He Chose for You｜Inspector Stoppard 第二 AU 设定
 
-状态：连载中；2026-11-20 第一章正式上线；2026-11-21 第二至五章正式上线；2026-11-22 第六至十章及第十章B面正式上线；2026-11-23 前传番外 Winter篇与婚礼篇正式上线；第十一章与前传 John视角篇待续。
+状态：连载中；第一至十二章、第十章B面、前传番外 Winter篇与婚礼篇均已正式上线；前传 John视角篇待续。
 
 - 博客正式系列名：`The Lover He Chose for You · Inspector Stoppard AU`
 - 同角色多 AU 线名：本系列 `情人线`；原系列 `See How They Stay` 为 `留灯线`。
@@ -503,3 +503,11 @@
 - 第一支舞成为主线中Luca唱歌、John主动同Winter跳舞场景的婚姻原型；John承认娶到Winter像“终于把你带回了家”。
 - 两人第一次性亲密保持Winter第二人称，明确写出紧张、同意、适应、持续确认与事后照顾；不将疼痛浪漫化。
 - 婚礼篇正式标签为`[Inspector Stoppard, Sam Rockwell, AU, The Lover He Chose for You, 缱绻, 炽恋]`。
+
+
+## 第十一至十二章发布状态（2026-11-24）
+
+- 第十一章《星期二没有人来》以五节完整正式上线，`series_order: 11`；标签为`[Inspector Stoppard, Sam Rockwell, AU, The Lover He Chose for You, 怅惘, 安放]`。
+- 第十二章《回家以后的第一顿早餐》以三节完整正式上线，`series_order: 12`；标签为`[Inspector Stoppard, Sam Rockwell, AU, The Lover He Chose for You, 缱绻, 絮语]`。
+- 第十一章完成Winter主动放手、独自承担、自由回归与John第一次落泪；第五节同浴以互相照顾收束，不进入性爱。
+- 第十二章进入婚姻重建后的甜蜜日常；第二节为John第三人称视角，Stalker保持聪明能干、漂亮可爱，John眼色统一为榛色。
