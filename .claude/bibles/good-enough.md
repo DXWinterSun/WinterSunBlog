@@ -111,6 +111,12 @@ Justin Hammer 油嘴滑舌、无时无刻不在耍宝、动不动没来由地傻
   `我的水晶球`（揪着你看透一切的眼睛）。**主打 `Frosty`**，让它在第 1 章自然冒出来、你冷脸抗议
   "是 Frost 小姐"、他咧嘴照叫——Winter 读到不满意可换。平时也叫 `Frost 小姐`。
 
+### 未来关系触发词 · Mrs. Hammer（2026-11-25 · Winter 校准）
+
+- Good Enough 中不设真实前妻；“Ex-Wife”仅是武器推销笑话。
+- 未来甜日常里，Mrs. Hammer 的称呼方向是 **Justin → Winter**：他先借前妻玩笑半撒娇、半强势地这样叫她，逼她亲口承认“我是 Mrs. Hammer”。
+- 情绪转折：起初他享受她害羞和被自己冠姓的占有感；当她真的承认，他反而短暂停住，玩笑落成真心——他真正希望她成为自己的妻子。用动作和短句泄露，不写成长篇告白。
+
 ## 母题（每章尽量带一下）
 
 - **眼镜 = 盔甲 / 骄傲**：那副方框眼镜是他"盼望自己成为的样子"（优雅、耀眼、像斯塔克一样发光）的
@@ -214,4 +220,4 @@ Justin Hammer 油嘴滑舌、无时无刻不在耍宝、动不动没来由地傻
 
 - **🃏 Extra · 斯塔克只值五块钱**（2026-11-25 已获 Winter 认可，正式存档，暂未上线）：未来关系稳定后的甜日常；Winter 看中一张 Tony 同框而溢价的四人剧情卡，Justin 坚持 Tony 只值五块钱背景板，同时藏不住对她专门收藏自己的得意。现实收藏锚点含 PM-B-08 同款 54 张。旧版 Ch4 只借用“不由斯塔克定义价值”的情绪核，明确不沿用隐藏技术天才设定。正文：`.claude/bibles/good-enough-revised/extra-stark-background-draft.md`；笔记：`.claude/bibles/good-enough-revised/extra-stark-background-notes.md`。**已进入未来甜日常 Extra 连续性；暂未上线。**
 
-- **🎬 Extra · 前妻导弹的第二次拍摄**（2026-11-25 草稿，待 Winter 审阅）：承接上一则未来 Extra；Winter 缠着 Justin 重拍平行时间线中的武器展示，他还原灰色三件套、白手套与 Ex-Wife 推销，却总忍不住看镜头后的她。重拍把原本通向哑弹、失控与监狱的场景改成他摘下眼镜、穿过武器架走向 Winter 的新结局。正文：`.claude/bibles/good-enough-revised/extra-weapons-remake-draft.md`；笔记：`.claude/bibles/good-enough-revised/extra-weapons-remake-notes.md`。**未上线、未进入正式连续性。**
+- **🎬 Extra · 前妻导弹的第二次拍摄**（2026-11-25 已获 Winter 认可，正式存档，暂未上线）：承接上一则未来 Extra；Winter 缠着 Justin 重拍平行时间线中的武器展示，他还原灰色三件套、白手套与 Ex-Wife 推销，却总忍不住看镜头后的她。重拍把原本通向哑弹、失控与监狱的场景改成他摘下眼镜、穿过武器架走向 Winter 的新结局。正文：`.claude/bibles/good-enough-revised/extra-weapons-remake-draft.md`；笔记：`.claude/bibles/good-enough-revised/extra-weapons-remake-notes.md`。**已进入未来甜日常 Extra 连续性；暂未上线。**
