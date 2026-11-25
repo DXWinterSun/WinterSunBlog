@@ -1390,6 +1390,45 @@
       "added": 1795351941181,
       "quantity": 1,
       "cardGalleryId": "im2-ah6"
+    },
+    {
+      "id": "shelf-20261125-mr-right-ost",
+      "name": "《真命天子》原声带",
+      "type": "ost",
+      "spec": "CD · Lakeshore Records · 2016 · 疑似 cut-out 打孔版",
+      "charId": "francis",
+      "date": "2026-11-25",
+      "note": "美丽的 Francis！封面是红鼻子 Francis 和猫耳 Martha，折页内页里也有好多 Francis：花衬衫抱着 Martha、雨中的枪战、受伤后仍举枪的剧照。纸品右上角有一个整齐的小圆孔，疑似唱片余货常见的 cut-out / remainder 打孔标记；准确来说是包装与纸品打孔，不是碟片本体被打孔。",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "added": 1795608000000
+    },
+    {
+      "id": "shelf-20261125-conviction-us-bluray",
+      "name": "《定罪》",
+      "type": "disc",
+      "spec": "蓝光 · 美版 · Fox Searchlight",
+      "charId": "kenny",
+      "date": "2026-11-25",
+      "note": "非常物超所值。原外膜和侧封都还在，外膜从中间整齐撕开，正好符合我的收藏习惯；正面、背面和书脊外部都没有字。盒内上方和碟面保留了黑色记号笔字迹。花絮包括《A Conversation with Director Tony Goldwyn & Betty Anne Waters》。",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "added": 1795608000001
+    },
+    {
+      "id": "shelf-20261125-iron-man-2-us-bluray",
+      "name": "《钢铁侠2》",
+      "type": "disc",
+      "spec": "蓝光 + DVD + Digital Copy · 美版",
+      "charId": "hammer",
+      "date": "2026-11-25",
+      "note": "Justin Hammer 回家啦。美版 Blu-ray + DVD + Digital Copy 版本，封面是钢铁侠与战争机器。",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "added": 1795608000002
     }
   ]
 }
