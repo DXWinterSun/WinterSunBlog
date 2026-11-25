@@ -198,3 +198,10 @@ Justin Hammer 油嘴滑舌、无时无刻不在耍宝、动不动没来由地傻
 - [x] 名字确认 **Winter Frost**。
 - [ ] 发布新 Ch1 时，同批把旧 11 章设 `published: false` 封存下线；系列首页 `index.html`
       的"关于这个系列"简介按新设定（形象顾问 / 暗恋 / 声誉战）改写。
+
+
+---
+
+## 待审草稿 / 未来 Extra
+
+- **🃏 Extra · 斯塔克只值五块钱**（2026-11-25 草稿，待 Winter 审阅）：未来关系稳定后的甜日常；Winter 看中一张 Tony 同框而溢价的四人剧情卡，Justin 坚持 Tony 只值五块钱背景板，同时藏不住对她专门收藏自己的得意。现实收藏锚点含 PM-B-08 同款 54 张。旧版 Ch4 只借用“不由斯塔克定义价值”的情绪核，明确不沿用隐藏技术天才设定。正文：`.claude/bibles/good-enough-revised/extra-stark-background-draft.md`；笔记：`.claude/bibles/good-enough-revised/extra-stark-background-notes.md`。**未上线、未进入正式连续性。**
