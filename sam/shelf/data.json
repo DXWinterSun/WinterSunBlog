@@ -974,12 +974,13 @@
       "spec": "PM-YX-08 · 2张",
       "charId": "hammer",
       "date": "2026-10-07",
-      "note": "带彩虹反光的异形切边卡，和那套 40 张是同一系列",
+      "note": "带彩虹反光的异形切边卡，和那套 40 张是同一系列 现货共2张。",
       "nas": 0,
       "signed": 0,
       "wish": 0,
       "id": "muyb4s5u-oovug",
-      "added": 1791389629074
+      "added": 1791389629074,
+      "quantity": 2
     },
     {
       "name": "Funko Pop! Guy",
@@ -1429,6 +1430,24 @@
       "signed": 0,
       "wish": 0,
       "added": 1795608000002
+    },
+    {
+      "id": "shelf-20261124-iron-man-2-costume-cards",
+      "name": "《钢铁侠2》Justin Hammer 衣料卡",
+      "type": "card",
+      "spec": "2010 Upper Deck · IMC-8×1、IMC-11×2 · 共3张",
+      "charId": "hammer",
+      "date": "2026-11-24",
+      "note": "三张均已到手：米色西装衣料卡IMC-8共1张；灰西装衣料卡IMC-11共2张。两张IMC-11的实物衣料纹理不同，分别为较宽的明显斜纹与更细密的纹理，按同一卡号的两个独立衣料切片保留记录。",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "added": 1795528800000,
+      "quantity": 3,
+      "cardGalleryIds": [
+        "im2-imc8",
+        "im2-imc11"
+      ]
     },
     {
       "id": "shelf-20261125-iron-man-2-hammer-scene-cards",
