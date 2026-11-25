@@ -528,6 +528,22 @@
   muted_cn: "唇印暗玫瑰"
   muted_en: "Lipstick Rose"
 
+"Love Story":               # Victor Mancini 第二 AU · 与 Choke Point 共用 Victor 原配色
+  mf_id: victor
+  accent: "#d2a24a"
+  accent_ink: "#a8823b"
+  bg: "#350d1e"
+  text: "#f5e0e8"
+  muted: "#96495f"
+  accent_cn: "殖民地铜金"
+  accent_en: "Colonial Gilt"
+  bg_cn: "海报品红夜"
+  bg_en: "Poster Magenta Night"
+  text_cn: "餐巾纸浅粉"
+  text_en: "Napkin Pink"
+  muted_cn: "唇印暗玫瑰"
+  muted_en: "Lipstick Rose"
+
 "The Part Where You Live":   # Billy Bickle · 色卡同源 sam_themes.yml id: billy
   mf_id: billy                # → Many Faces 画册锚点 /sam/many-faces/#billy
   accent: "#c94a1e"
