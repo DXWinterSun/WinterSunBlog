@@ -1434,15 +1434,29 @@
       "id": "shelf-20261125-iron-man-2-hammer-scene-cards",
       "name": "《钢铁侠2》Justin Hammer 横版剧情卡",
       "type": "card",
-      "spec": "2010 Upper Deck · 23张 · 9款",
+      "spec": "2010 Upper Deck · 22张 · 9款",
       "charId": "hammer",
       "date": "2026-11-25",
-      "note": "按画面分别记数：餐厅与女宾交谈5张；武器工坊独自查看装甲3张；装甲旁向士兵示意3张；白手套持枪3张；白底灰西装全身照3张；工厂与西装男同行2张；餐厅打电话2张；酒会与Tony、Pepper同框1张；工厂与Vanko握手1张。前两批合计15张；2026-11-25又到8张，新增Vanko握手画面1款，目前共23张、9款。",
+      "note": "按画面分别记数：餐厅与女宾交谈5张；武器工坊独自查看装甲3张；装甲旁向士兵示意2张；白手套持枪3张；白底灰西装全身照3张；工厂与西装男同行2张；餐厅打电话2张；酒会与Tony、Pepper同框1张；工厂与Vanko握手1张。前两批与2026-11-25新到卡合计22张、9款。原先误把同剧照的2012《Avengers Assemble》#35算进本组，现已拆分单独登记。",
       "nas": 0,
       "signed": 0,
       "wish": 0,
       "added": 1795609200000,
-      "quantity": 23
+      "quantity": 22
+    },
+    {
+      "id": "shelf-2012-avengers-assemble-35-hammer",
+      "name": "《Avengers Assemble》#35 · Justin Hammer",
+      "type": "card",
+      "spec": "2012 Upper Deck · #35 · 1张",
+      "charId": "hammer",
+      "date": "2026-11-25",
+      "note": "正面使用Justin在装甲旁向士兵展示武器的同一张电影剧照，但左下角有巨大的复仇者联盟A标志；背面为橙红色Avengers Assemble版式并标注#35、2012 AVENGERS ASSEMBLE。背面文字提到Rhodes将装甲交给上级武器化，国防部承包商Justin Hammer向Rhodes推销包括“前妻”导弹在内的产品。装册时发现它与2010《Iron Man 2》剧情卡并非同一系列，已单独归档。",
+      "nas": 0,
+      "signed": 0,
+      "wish": 0,
+      "added": 1795609200001,
+      "quantity": 1
     }
   ]
 }
