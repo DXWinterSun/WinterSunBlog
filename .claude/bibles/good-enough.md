@@ -136,6 +136,14 @@ Justin Hammer 油嘴滑舌、无时无刻不在耍宝、动不动没来由地傻
   **他没进监狱，不是因为炸弹被拆了，是因为有你在火里把他拖了出来。**
 - ⚠️ **他绝不进监狱**（Winter 定，AU 对官方结局的关键改写）。
 
+
+## 番外层平行时间线补丁（2026-11-25 · Winter 确认）
+
+- 收藏馆中对应《Iron Man 2》原片事件的卡牌、剧照与影像来自一个并行时间分支；那条线按电影原轨迹发展，Justin 错信 Vanko、无人机失控并最终被捕入狱。
+- 《Good Enough》正文是被 Winter Frost 改写成功的时间线：她用职业判断、危机公关与提前留下的后路把他从法律和声誉的悬崖边拉回，他没有入狱；从结果上说，她是他的救命恩人。
+- 本线 Justin 没有另一线的亲历记忆，但 Winter 已把自己知道的事件、影像和卡牌来源告诉他，因此他知道另一个自己走到了哪里，也知道本线因她而不同。
+- 该补丁只服务收藏联动与未来甜日常 Extra，不倒灌修改已发布正篇，不把 Winter 的判断写成超能力，不占用生日唯一“天意”配额。完整规则：`.claude/bibles/good-enough-revised/parallel-timeline-patch.md`。
+
 ## 伏笔账本
 
 - **DEFERRED（憋着，到点引爆）**：
@@ -204,4 +212,6 @@ Justin Hammer 油嘴滑舌、无时无刻不在耍宝、动不动没来由地傻
 
 ## 待审草稿 / 未来 Extra
 
-- **🃏 Extra · 斯塔克只值五块钱**（2026-11-25 草稿，待 Winter 审阅）：未来关系稳定后的甜日常；Winter 看中一张 Tony 同框而溢价的四人剧情卡，Justin 坚持 Tony 只值五块钱背景板，同时藏不住对她专门收藏自己的得意。现实收藏锚点含 PM-B-08 同款 54 张。旧版 Ch4 只借用“不由斯塔克定义价值”的情绪核，明确不沿用隐藏技术天才设定。正文：`.claude/bibles/good-enough-revised/extra-stark-background-draft.md`；笔记：`.claude/bibles/good-enough-revised/extra-stark-background-notes.md`。**未上线、未进入正式连续性。**
+- **🃏 Extra · 斯塔克只值五块钱**（2026-11-25 已获 Winter 认可，正式存档，暂未上线）：未来关系稳定后的甜日常；Winter 看中一张 Tony 同框而溢价的四人剧情卡，Justin 坚持 Tony 只值五块钱背景板，同时藏不住对她专门收藏自己的得意。现实收藏锚点含 PM-B-08 同款 54 张。旧版 Ch4 只借用“不由斯塔克定义价值”的情绪核，明确不沿用隐藏技术天才设定。正文：`.claude/bibles/good-enough-revised/extra-stark-background-draft.md`；笔记：`.claude/bibles/good-enough-revised/extra-stark-background-notes.md`。**已进入未来甜日常 Extra 连续性；暂未上线。**
+
+- **🎬 Extra · 前妻导弹的第二次拍摄**（2026-11-25 草稿，待 Winter 审阅）：承接上一则未来 Extra；Winter 缠着 Justin 重拍平行时间线中的武器展示，他还原灰色三件套、白手套与 Ex-Wife 推销，却总忍不住看镜头后的她。重拍把原本通向哑弹、失控与监狱的场景改成他摘下眼镜、穿过武器架走向 Winter 的新结局。正文：`.claude/bibles/good-enough-revised/extra-weapons-remake-draft.md`；笔记：`.claude/bibles/good-enough-revised/extra-weapons-remake-notes.md`。**未上线、未进入正式连续性。**
