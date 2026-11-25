@@ -1,7 +1,7 @@
 {
   "v": 2,
   "updated": "2026-11-25",
-  "note": "在手与在途分开记录，quantity为两者之和。2026-11-25按到货照片逐张回填：2010 Upper Deck《钢铁侠2》横版剧情卡现货22张、9款（#20×5、#43×3、#44×3、#65×3、#26×2、#31×2、#42×2、#18×1、#32×1）；#32另有1张在途。AA #35单独计1张。衣料卡IMC-8×1、IMC-11×2。当前详细图鉴确认在手85张，确认在途1张；未核清项目继续保留null/“待核对”，不擅自按0处理。",
+  "note": "在手与在途分开记录，quantity为两者之和。2026-11-25最新四张到货后，2010 Upper Deck《钢铁侠2》横版剧情卡现货26张、9款（#20×6、#65×4、#26×3、#43×3、#44×3、#31×2、#42×2、#32×2、#18×1）；原在途#32已到手，目前确认在途0张。AA #35单独计1张。衣料卡IMC-8×1、IMC-11×2。当前详细图鉴确认在手89张；未核清项目继续保留null/“待核对”，不擅自按0处理。",
   "cards": [
     {
       "id": "im2-26",
@@ -9,18 +9,22 @@
       "series": "2010 · Upper Deck Iron Man 2",
       "number": "26",
       "kind": "剧情卡",
-      "quantity": 2,
+      "quantity": 3,
       "image": "images/im2-26.jpg",
       "variant": "基础版",
-      "note": "共2张；2026-11-24合照确认1张，2026-11-25新到批次再到1张。",
+      "note": "共3张；2026-11-24合照确认1张，2026-11-25两次到货各增加1张。",
       "photo": "卡面参考图",
       "status": "已到手",
-      "on_hand": 2,
+      "on_hand": 3,
       "in_transit": 0,
       "detailImages": [
         {
           "label": "2026-11-24 最新合照",
           "image": "images/im2-story-costume-latest-20261124.jpg"
+        },
+        {
+          "label": "2026-11-25 四张到货合照",
+          "image": "images/im2-four-arrivals-20261125.jpg"
         }
       ]
     },
@@ -51,13 +55,13 @@
       "series": "2010 · Upper Deck Iron Man 2",
       "number": "65",
       "kind": "剧情卡",
-      "quantity": 3,
+      "quantity": 4,
       "image": "images/im2-65.jpg",
       "variant": "基础版",
-      "note": "共3张；前两批已到2张，2026-11-25新到批次再到1张。",
+      "note": "共4张；前两批到手2张，2026-11-25两次到货各增加1张。",
       "photo": "卡面参考图",
       "status": "已到手",
-      "on_hand": 3,
+      "on_hand": 4,
       "in_transit": 0,
       "detailImages": [
         {
@@ -67,6 +71,10 @@
         {
           "label": "2026-11-24 最新合照",
           "image": "images/im2-story-costume-latest-20261124.jpg"
+        },
+        {
+          "label": "2026-11-25 四张到货合照",
+          "image": "images/im2-four-arrivals-20261125.jpg"
         }
       ]
     },
@@ -168,13 +176,13 @@
       "series": "2010 · Upper Deck Iron Man 2",
       "number": "20",
       "kind": "剧情卡",
-      "quantity": 5,
+      "quantity": 6,
       "image": "images/im2-20.jpg",
       "variant": "基础版",
-      "note": "共5张；前两批共4张，2026-11-25新到批次再到1张。",
+      "note": "共6张；前两批共4张，2026-11-25两次到货各增加1张。",
       "photo": "卡面参考图",
       "status": "已到手",
-      "on_hand": 5,
+      "on_hand": 6,
       "in_transit": 0,
       "detailImages": [
         {
@@ -184,6 +192,10 @@
         {
           "label": "2026-11-24 最新合照",
           "image": "images/im2-story-costume-latest-20261124.jpg"
+        },
+        {
+          "label": "2026-11-25 四张到货合照",
+          "image": "images/im2-four-arrivals-20261125.jpg"
         }
       ]
     },
@@ -211,11 +223,17 @@
       "quantity": 2,
       "image": "images/im2-32.jpg",
       "variant": "基础版",
-      "note": "工厂与Vanko对话；2026-11-25新到1张，另有1张已确认在途。quantity=在手1＋在途1。",
+      "note": "工厂与Vanko对话共2张；原在途1张已于2026-11-25到手，目前无在途。",
       "photo": "卡面参考图",
-      "status": "在手1·在途1",
-      "on_hand": 1,
-      "in_transit": 1
+      "status": "已到手",
+      "on_hand": 2,
+      "in_transit": 0,
+      "detailImages": [
+        {
+          "label": "2026-11-25 四张到货合照",
+          "image": "images/im2-four-arrivals-20261125.jpg"
+        }
+      ]
     },
     {
       "id": "im2-ah6",
