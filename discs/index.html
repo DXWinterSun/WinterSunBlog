@@ -2,7 +2,7 @@
 layout: home
 title: 冬的碟柜 · Discs
 permalink: /discs/
-nav_active: notes
+nav_active: collections
 description: "冬的碟柜，记录这些年攒下来的唱片和不同版本。"
 ---
 {%- comment -%}
@@ -17,7 +17,7 @@ description: "冬的碟柜，记录这些年攒下来的唱片和不同版本。
 {%- assign band_n = groups | size -%}
 
 <section class="c-hero c-hero--filter">
-  <div class="c-hero__eyebrow">Desk · Discs</div>
+  <div class="c-hero__eyebrow">Collections · Discs</div>
   <h1 class="c-hero__title">冬的<em>碟柜</em></h1>
   <div class="c-hero__byline">
     <span class="c-hero__byline-rule"></span>
@@ -27,7 +27,7 @@ description: "冬的碟柜，记录这些年攒下来的唱片和不同版本。
 </section>
 
 <section class="c-discs" id="js-discs">
-  <a class="c-discs__back" href="{{ site.baseurl }}/notes/">‹ 回书桌</a>
+  <a class="c-discs__back" href="{{ site.baseurl }}/collections/">‹ 回冬的收藏</a>
 
   {%- if items.size == 0 %}
   <div class="c-discs__empty">
