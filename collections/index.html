@@ -1,0 +1,47 @@
+---
+layout: home
+title: 冬的收藏 · Collections
+permalink: /collections/
+nav_active: collections
+description: 冬的收藏总览，所有珍藏各有自己的位置。
+---
+<style>
+.winter-collections{max-width:760px;margin:0 auto 60px}
+.winter-collections__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
+.winter-collection{display:flex;flex-direction:column;min-width:0;border:1px solid var(--c-line-strong);border-radius:16px;overflow:hidden;background:var(--c-paper);box-shadow:0 8px 24px rgba(var(--rgb-shadow),.06)}
+.winter-collection__main{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-decoration:none;color:var(--c-ink);padding:24px 15px 18px;gap:7px;flex:1}
+.winter-collection__art{width:100%;height:112px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--c-accent) 9%,var(--c-bg));border:1px solid var(--c-line);border-radius:10px;margin-bottom:5px}
+.winter-collection__art svg{width:112px;height:95px;color:var(--c-accent)}
+.winter-collection__main small{font-family:'EB Garamond',Georgia,serif;color:var(--c-accent-dark);font-size:13px;letter-spacing:.10em}
+.winter-collection__main strong{font-size:21px;font-weight:600}
+.winter-collection__main p{margin:0;color:var(--c-ink-soft);font-size:13px;line-height:1.7}
+.winter-collection__links{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:12px;border-top:1px solid var(--c-line);background:var(--c-bg-soft)}
+.winter-collection__links a{display:inline-flex;align-items:center;padding:7px 10px;border:1px solid var(--c-line-strong);border-radius:8px;font-size:12px;color:var(--c-ink);text-decoration:none;background:var(--c-paper)}
+.winter-collection a:hover{color:var(--c-accent-dark)}
+.winter-collection a:focus-visible{outline:2px solid var(--c-accent);outline-offset:-3px}
+@media(max-width:620px){.winter-collections__grid{grid-template-columns:1fr;gap:12px}.winter-collection__main{padding:15px;display:grid;grid-template-columns:90px minmax(0,1fr);text-align:left;column-gap:14px;row-gap:3px;align-items:center}.winter-collection__art{grid-row:1/4;height:90px;margin:0}.winter-collection__art svg{width:80px;height:76px}.winter-collection__main strong{font-size:18px}.winter-collection__main p{font-size:12px}.winter-collection__links{justify-content:flex-start}}
+</style>
+<section class="c-hero c-hero--filter">
+  <div class="c-hero__eyebrow">Collections</div>
+  <h1 class="c-hero__title">冬的<em>收藏</em></h1>
+  <div class="c-hero__byline"><span class="c-hero__byline-rule"></span><span class="c-hero__byline-text">一点一点收起来的喜欢</span><span class="c-hero__byline-rule"></span></div>
+</section>
+<section class="winter-collections" aria-label="收藏总览">
+  <div class="winter-collections__grid">
+    {% comment %} 每一个独立收藏主题占一张卡；主题下的分类才放在该卡底部。新增主题在此追加同级 article。 {% endcomment %}
+    <article class="winter-collection">
+      <a class="winter-collection__main" href="{{ site.baseurl }}/sam/shelf/">
+        <span class="winter-collection__art" aria-hidden="true"><svg viewBox="0 0 120 100" fill="none"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="16" y="18" width="88" height="66" rx="5" fill="var(--c-paper)"/><path d="M16 52h88M23 85v5m74-5v5"/><rect x="23" y="25" width="19" height="25" rx="2" fill="var(--c-accent-soft)"/><circle cx="56" cy="37" r="12" fill="var(--c-bg-soft)"/><circle cx="56" cy="37" r="3"/><rect x="74" y="24" width="20" height="26" rx="2"/><path d="m79 32 10 10m0-10L79 42"/><rect x="24" y="59" width="24" height="18" rx="2"/><path d="M30 66h12m-12 5h8"/><rect x="56" y="58" width="15" height="20" rx="2" fill="var(--c-accent-soft)"/><rect x="76" y="58" width="18" height="20" rx="2"/></g></svg></span>
+        <small>THE COLLECTOR'S SHELF</small><strong>Sam 的藏品架</strong><p>电影、卡牌、书刊、原声带与周边</p>
+      </a>
+      <div class="winter-collection__links"><a href="{{ site.baseurl }}/sam/shelf/">🗄️ 全部藏品</a><a href="{{ site.baseurl }}/sam/shelf/?type=disc">📀 电影影碟</a><a href="{{ site.baseurl }}/sam/shelf/cards/">🃏 卡牌图鉴</a></div>
+    </article>
+    <article class="winter-collection">
+      <a class="winter-collection__main" href="{{ site.baseurl }}/discs/">
+        <span class="winter-collection__art" aria-hidden="true"><svg viewBox="0 0 120 100" fill="none"><g stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="77" cy="47" r="32" fill="var(--c-accent-soft)"/><circle cx="77" cy="47" r="25" opacity=".45"/><circle cx="77" cy="47" r="17" opacity=".65"/><circle cx="77" cy="47" r="8" fill="var(--c-paper)"/><circle cx="77" cy="47" r="2"/><rect x="15" y="19" width="59" height="65" rx="3" fill="var(--c-paper)"/><rect x="21" y="25" width="47" height="43" rx="2" fill="var(--c-bg-soft)"/><path d="M22 58l12-13 11 8 12-15 10 18M28 76h32"/><circle cx="31" cy="35" r="4" fill="var(--c-accent-soft)"/></g></svg></span>
+        <small>DISCS</small><strong>冬的碟柜</strong><p>实体音乐唱片 · {{ site.data.discs.items | size }} 张</p>
+      </a>
+      <div class="winter-collection__links"><a href="{{ site.baseurl }}/discs/">💿 打开碟柜</a></div>
+    </article>
+  </div>
+</section>
