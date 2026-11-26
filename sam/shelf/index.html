@@ -1622,7 +1622,12 @@
 <button type="button" class="add-btn" id="add-btn"><span class="add-btn__plus">＋</span>添加一件藏品</button>
 
 <div class="toolbar">
-  <a class="mini" id="card-gallery-link" href="./cards/" style="text-decoration:none">🃏 卡牌图鉴 · 按卡面查数量</a>
+  <nav class="collection-doors" aria-label="收藏分类直达" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+    <a class="mini" href="./" style="text-decoration:none">🗄️ 全部藏品</a>
+    <a class="mini" href="./?type=disc" style="text-decoration:none">📀 电影影碟</a>
+    <a class="mini" id="card-gallery-link" href="./cards/" style="text-decoration:none">🃏 卡牌图鉴</a>
+    <a class="mini" href="../../discs/" style="text-decoration:none">💿 音乐碟柜</a>
+  </nav>
   <div class="searchrow">
     <div class="search" id="search">
       <span class="search__icon">🔍</span>
@@ -1857,7 +1862,8 @@
   var chars = [];          // 来自 lines.json，按年份升序
   var charById = {};
   var charOrder = {};      // 角色 id → 年份排序位次
-  var filter = "all";
+  var requestedType = new URLSearchParams(location.search).get("type");
+  var filter = !shelfTargetId && TYPES.some(function (t) { return t.id === requestedType; }) ? requestedType : "all";
   var charFilter = "";
   var query = "";
   var view = "card";       // card | list
