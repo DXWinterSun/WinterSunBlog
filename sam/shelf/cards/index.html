@@ -6,12 +6,18 @@
 <meta name="description" content="Winter 的 Sam Rockwell 卡牌收藏：卡面、系列、版本与逐款数量。">
 <meta name="theme-color" content="#f5f0e7">
 <link rel="icon" href="/WinterSunBlog/images/heading-normal.png">
-<link rel="stylesheet" href="./cards.css?v=20261122-photos">
+<link rel="apple-touch-icon" sizes="180x180" href="/WinterSunBlog/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Special+Elite&family=EB+Garamond&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/WinterSunBlog/css/theme-picker.css">
+<link rel="stylesheet" href="./cards.css?v=20261126-album">
+<script>try{var t=localStorage.getItem('wiw-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
-<nav><a href="../">← 藏品架</a><span>WINTER SUN / SAM ROCKWELL</span><button id="curator" type="button">馆长入口</button></nav>
-<header><div class="eyebrow">THE CARD COLLECTION</div><h1>一张一张，收进喜欢里。</h1><p>Sam 的卡牌图鉴 <span class="dot">·</span> 同一张脸，不同的珍藏</p></header>
+<nav><a href="../">← 藏品架</a><span>WINTER SUN / SAM ROCKWELL</span><div class="nav-tools"><button id="curator" type="button">馆长入口</button><button class="c-palette-trigger" id="js-palette-trigger" type="button" aria-label="换个心情" title="换个心情" data-baseurl="/WinterSunBlog"><svg class="c-palette-trigger__heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/></svg></button><button class="mode" id="card-mode" type="button" aria-label="切换昼夜">🌕</button></div></nav>
+<header><svg class="album-mark" viewBox="0 0 72 56" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="11" y="8" width="32" height="43" rx="4" transform="rotate(-15 27 29)" fill="var(--wash)"/><rect x="29" y="8" width="32" height="43" rx="4" transform="rotate(15 45 29)" fill="var(--wash)"/><rect x="20" y="4" width="32" height="45" rx="4" fill="var(--paper)"/><rect x="25" y="10" width="22" height="26" rx="2"/><path d="m36 15 2.5 6.5 7 .3-5.5 4.5 1.7 7-5.7-4-5.7 4 1.7-7-5.5-4.5 7-.3z" fill="currentColor" stroke="none"/><path d="M29 42h14"/></g></svg><div class="eyebrow">KEPT BY WINTER SUN</div><h1>The Card Album</h1><p>Sam 的卡牌图鉴 <span class="dot">·</span> 一张一张，收进喜欢里。</p><div class="collection-links" aria-label="收藏分类"><a href="../">🗄️ 全部藏品</a><a href="../?type=disc">📀 电影影碟</a><a href="./" aria-current="page">🃏 卡牌图鉴</a><a href="../../../discs/">💿 音乐碟柜</a></div></header>
 <section class="overview" aria-label="收藏统计"><div><b id="styles">—</b><span>款已逐一登记</span></div><div><b id="copies">—</b><span>张在手</span></div><div><b id="series-count">—</b><span>张在途</span></div><p>旧藏组合单独保留，<br>核对后再并入逐款明细。</p></section>
 <section class="controls" aria-label="筛选与保存">
 <div class="controlrow"><div class="tabs" role="group" aria-label="收藏范围"><button class="on" data-scope="owned">我的收藏</button><button data-scope="reference">待核对图鉴</button><button data-scope="all">全部卡面</button></div><button id="add" class="owner" hidden>＋ 收录新卡</button></div>
@@ -38,4 +44,7 @@
 <p class="hint">照片将在收藏馆公开展示，请只上传卡片照片。</p>
 <button class="primary" id="edit-submit" type="submit">保存到收藏馆</button><p id="edit-error" role="alert"></p></form></dialog>
 <script src="./cards.js?v=20261122-shelf"></script>
+<script src="/WinterSunBlog/js/sam-themes-data.js"></script>
+<script src="/WinterSunBlog/js/theme-picker.js"></script>
+<script>(function(){var root=document.documentElement,b=document.getElementById('card-mode'),m=window.matchMedia('(prefers-color-scheme: dark)');function dark(){return root.dataset.theme==='dark'||(!root.dataset.theme&&m.matches)}function paint(){b.textContent=dark()?'🌑':'🌕'}b.onclick=function(){root.dataset.theme=dark()?'light':'dark';try{localStorage.setItem('wiw-theme',root.dataset.theme)}catch(e){}paint()};if(m.addEventListener)m.addEventListener('change',paint);paint()})();</script>
 </body></html>
