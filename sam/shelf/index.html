@@ -2133,7 +2133,7 @@
   }
 
   /* 一枚角色格子（画册地图和「按角色」那一屏共用同一颗，别再各写一份） */
-  function mapSlot(c, n) {
+  function mapSlot(c, n, otherTypes) {
     var d = document.createElement("div");
     d.className = "mslot" + (n ? " mslot--got" : "") + (c.id === charFilter ? " mslot--on" : "");
     d.setAttribute("role", "button");
@@ -2142,7 +2142,7 @@
        这样一眼看过去这排格子是「不同的人」，不是一排一样的空框 */
     d.style.setProperty("--a", c.accent);
     if (n) { d.style.setProperty("--b", c.bg); }
-    d.setAttribute("aria-label", c.name + (n ? "（有 " + n + " 件藏品，点击筛选）" : "（还没有藏品，点击去画册）"));
+    d.setAttribute("aria-label", c.name + (otherTypes ? "（已有 " + n + " 件藏品，当前筛选无结果，点击查看全部）" : n ? "（有 " + n + " 件藏品，点击筛选）" : "（还没有藏品，点击去画册）"));
     var dot = document.createElement("span"); dot.className = "mslot__dot";
     var nm = document.createElement("span"); nm.className = "mslot__name"; nm.textContent = c.name;
     var fm = document.createElement("span"); fm.className = "mslot__film"; fm.textContent = c.filmCN || c.film;
@@ -2153,6 +2153,12 @@
       var i = document.createElement("i"); i.style.background = col; pal.appendChild(i);
     });
     d.appendChild(dot); d.appendChild(nm); d.appendChild(fm); d.appendChild(yr); d.appendChild(pal);
+    if (otherTypes) {
+      var kinds = document.createElement("span"); kinds.className = "mslot__film";
+      kinds.textContent = otherTypes.map(function (t) { return t.emoji; }).join(" ") + " · " + n + " 件";
+      kinds.title = otherTypes.map(function (t) { return t.label; }).join("、");
+      d.appendChild(kinds);
+    }
     if (n > 1) {
       var b = document.createElement("span"); b.className = "mslot__n"; b.textContent = "×" + n;
       d.appendChild(b);
@@ -2161,19 +2167,22 @@
        Winter 2026-09-22：「你下面这个做得真的挺好的，就应该把它做成真正的卡片，
        而不是点击就增加东西。」——跟藏品卡同一个道理：点卡面是看，动手要点角上那颗钮。 */
     function go() {
-      if (n) { setCharFilter(c.id); }                                  // 有东西：只看他的
+      if (n) {
+        if (otherTypes) filter = "all";  // 当前筛选没有他的东西，改看他已入手的全部藏品
+        setCharFilter(c.id);
+      }
       else { location.href = "../many-faces/#" + encodeURIComponent(c.mfAnchor); }   // 没有：去画册看这张脸
     }
     d.addEventListener("click", function (e) {
       if (e.target.closest(".mslot__add")) return;
       go();
     });
-    d.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+    d.addEventListener("keydown", function (e) { if (e.target === d && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); go(); } });
     /* ＋ 只有馆长看得见：给这个角色添一件（也能从这儿筛选、去画册） */
     var add = document.createElement("button");
     add.type = "button"; add.className = "mslot__add"; add.textContent = "＋";
     add.setAttribute("aria-label", "给 " + c.name + " 添一件藏品");
-    add.addEventListener("click", function (e) { e.stopPropagation(); openCharMenu(c, n); });
+    add.addEventListener("click", function (e) { e.stopPropagation(); openCharMenu(c, n, !!otherTypes); });
     d.appendChild(add);
     return d;
   }
@@ -2752,27 +2761,51 @@
        （Winter 2026-09-22：「两者不就应该是合并的吗？大家想看按分类的
        不就是能直观地看到一个角色对应哪些东西吗？」） */
     if (!isList && arrange === "char" && grid.id === "own-grid" && !query && !charFilter && chars.length) {
-      var got = {};
-      list.forEach(function (it) { if (it.charId) got[it.charId] = 1; });
-      var missing = chars.filter(function (c) { return !got[c.id]; });
-      if (missing.length) {
+      var coverage = roleCoverage(items, list, chars);
+      function appendRolePanel(id, title, hint, roles, isMissing) {
+        if (!roles.length) return;
         var panel = document.createElement("section");
-        panel.className = "gcard gcard--ghosts"; panel.id = "char-ghosts";
+        panel.className = "gcard" + (isMissing ? " gcard--ghosts" : ""); panel.id = id;
         var head = document.createElement("div"); head.className = "gcard__head";
         var nm = document.createElement("span"); nm.className = "gcard__name";
-        nm.textContent = "还没有他的东西";
+        nm.textContent = title;
         var sb = document.createElement("span"); sb.className = "gcard__sub";
-        sb.textContent = "点一下去画册看看这张脸";
+        sb.textContent = hint;
         var n2 = document.createElement("span"); n2.className = "gcard__n";
-        n2.textContent = missing.length + " 人";
+        n2.textContent = roles.length + " 人";
         head.appendChild(nm); head.appendChild(sb); head.appendChild(n2);
         panel.appendChild(head);
         var mg = document.createElement("div"); mg.className = "map-grid";
-        missing.forEach(function (c) { mg.appendChild(mapSlot(c, 0)); });
+        roles.forEach(function (c) {
+          if (isMissing) { mg.appendChild(mapSlot(c, 0)); return; }
+          var his = coverage.owned.get(c.id);
+          var kinds = TYPES.filter(function (t) {
+            return his.some(function (it) { return it.type === t.id; });
+          });
+          mg.appendChild(mapSlot(c, his.length, kinds));
+        });
         panel.appendChild(mg);
         grid.appendChild(panel);
       }
+      appendRolePanel("char-other-owned", "已有其他藏品", "当前筛选无结果 · 点一下看他的全部藏品", coverage.otherOwned, false);
+      appendRolePanel("char-ghosts", "还没有他的东西", "点一下去画册看看这张脸", coverage.missing, true);
     }
+  }
+  /* 已入手状态以整架为准；当前筛选只决定哪些角色的藏品正在显示。 */
+  function roleCoverage(all, visible, roles) {
+    var owned = new Map();
+    all.forEach(function (it) {
+      if (it.wish || !it.charId) return;
+      if (!owned.has(it.charId)) owned.set(it.charId, []);
+      owned.get(it.charId).push(it);
+    });
+    var shown = new Set(visible.filter(function (it) { return !it.wish && it.charId; })
+      .map(function (it) { return it.charId; }));
+    return {
+      owned: owned,
+      missing: roles.filter(function (c) { return !owned.has(c.id); }),
+      otherOwned: roles.filter(function (c) { return owned.has(c.id) && !shown.has(c.id); })
+    };
   }
   function containsShelfTarget(group) {
     return shelfTargetId && loadedChars && loadedCardGallery && loadedMagic
@@ -2913,7 +2946,8 @@
     $("own-count").textContent = own.length + " ITEMS";
 
     /* 「按角色」那一屏已经把整张地图并进去了，页尾就不必再摆一次 */
-    var mapMerged = (view !== "list" && arrange === "char" && !query && !charFilter);
+    var mapMerged = (view !== "list" && arrange === "char" && !query && !charFilter &&
+      !!($("char-other-owned") || $("char-ghosts")));
     ["map-label", "map-grid", "map-hint"].forEach(function (id) {
       var el = $(id);
       if (!el) return;
@@ -3154,9 +3188,9 @@
   /* 看完一个人接着看下一个：滚回底下那张画册地图 */
   function jumpToMap() {
     /* 合并模式下地图就在「按角色」那一屏里，直接滚过去 */
-    var ghosts = $("char-ghosts");
-    if (ghosts && $("map-grid").style.display === "none") {
-      ghosts.scrollIntoView({ behavior: "smooth", block: "start" });
+    var merged = $("char-other-owned") || $("char-ghosts");
+    if (merged && $("map-grid").style.display === "none") {
+      merged.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
     var t = $("map-label").style.display === "none" ? $("map-grid") : $("map-label");
@@ -3165,7 +3199,7 @@
   $("charbar-more").addEventListener("click", jumpToMap);
 
   /* ————— 角色小菜单（馆长专属） ————— */
-  var cmChar = null;
+  var cmChar = null, cmAllTypes = false;
   /* ————— 弹窗贴合可见区域 —————
      iOS 弹出键盘后，position:fixed 仍按整个页面算高度，弹窗底部（保存/取消）
      会被键盘盖住。这里把 overlay 的高度与偏移绑到 visualViewport 上，
@@ -3198,8 +3232,9 @@
   });
 
   function closeCharMenu() { $("cm-overlay").classList.remove("is-on"); }
-  function openCharMenu(c, n) {
+  function openCharMenu(c, n, allTypes) {
     cmChar = c;
+    cmAllTypes = !!allTypes;
     $("cm-title").textContent = c.name + " · " + (c.filmCN || c.film);
     $("cm-filter").style.display = n ? "block" : "none";
     fitOverlay();
@@ -3211,7 +3246,10 @@
   });
   $("cm-filter").addEventListener("click", function () {
     closeCharMenu();
-    if (cmChar) setCharFilter(cmChar.id);
+    if (cmChar) {
+      if (cmAllTypes) filter = "all";
+      setCharFilter(cmChar.id);
+    }
   });
   $("cm-gallery").addEventListener("click", function () {
     if (cmChar) location.href = "../many-faces/#" + encodeURIComponent(cmChar.mfAnchor);
