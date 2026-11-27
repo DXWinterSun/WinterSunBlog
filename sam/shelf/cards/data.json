@@ -1,7 +1,7 @@
 {
   "v": 2,
-  "updated": "2026-11-25",
-  "note": "在手与在途分开记录，quantity为两者之和。2026-11-25最新四张到货后，2010 Upper Deck《钢铁侠2》横版剧情卡现货26张、9款（#20×6、#65×4、#26×3、#43×3、#44×3、#31×2、#42×2、#32×2、#18×1）；原在途#32已到手，目前确认在途0张。AA #35单独计1张。衣料卡IMC-8×1、IMC-11×2。当前详细图鉴确认在手89张；未核清项目继续保留null/“待核对”，不擅自按0处理。",
+  "updated": "2026-11-27",
+  "note": "在手与在途分开记录，quantity为两者之和。2026-11-25最新四张到货后，2010 Upper Deck《钢铁侠2》横版剧情卡现货26张、9款（#20×6、#65×4、#26×3、#43×3、#44×3、#31×2、#42×2、#32×2、#18×1）；原在途#32已到手。2026-11-27新拍下2016 Topps Hero Attax #34、#61各1张，均待收货，发货尚未确认。AA #35单独计1张。衣料卡IMC-8×1、IMC-11×2。当前详细图鉴确认在手89张；未核清项目继续保留null/“待核对”，不擅自按0处理。",
   "cards": [
     {
       "id": "im2-26",
@@ -423,14 +423,14 @@
       "series": "2016 · Topps Hero Attax MCU",
       "number": "34",
       "kind": "闪卡",
-      "quantity": 0,
+      "quantity": 1,
       "image": "images/attax34.jpg",
       "variant": "Mirror Foil",
-      "note": "未发现购买或到手记录；2026-11-25纠正此前误记。",
+      "note": "2026-11-27 已拍下1张（灰西装蜂巢背景）；发货尚未确认。",
       "photo": "卡面参考图",
-      "status": "未持有",
+      "status": "在途",
       "on_hand": 0,
-      "in_transit": 0
+      "in_transit": 1
     },
     {
       "id": "attax61",
@@ -438,14 +438,14 @@
       "series": "2016 · Topps Hero Attax MCU",
       "number": "61",
       "kind": "剧情卡",
-      "quantity": 0,
+      "quantity": 1,
       "image": "images/attax61.jpg",
       "variant": "基础版",
-      "note": "2026-11-25确认尚未持有。",
+      "note": "2026-11-27 已拍下1张（厂房灰色三件套）；发货尚未确认。",
       "photo": "卡面参考图",
-      "status": "未持有",
+      "status": "在途",
       "on_hand": 0,
-      "in_transit": 0
+      "in_transit": 1
     },
     {
       "id": "missions197",
@@ -612,6 +612,6 @@
       "note": "带彩虹反光的异形切边卡，和PM-B-08属于同一PHANTOM Disney 100 Marvel系列。2026-11-24补录卡背实拍与中英角色文案；卡背“地中海浮动别墅行动基地”按授权卡牌补充设定存档。"
     }
   ],
-  "in_transit_pending": true,
-  "in_transit_note": "仍有未收卡，具体款式与数量待重新对账；在核清前不显示为0。"
+  "in_transit_pending": false,
+  "in_transit_note": "截至2026-11-27，已确认购入尚未到手2张：Hero Attax #34、#61各1张。此口径包括已购待发货，发货尚未确认。"
 }
